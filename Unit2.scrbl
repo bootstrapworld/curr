@@ -93,7 +93,7 @@ Length: 90 minutes
                                                                          ; Takes two numbers and gives their product}"]
                                   }}
           @;must have some sort of answers here
-          @item{@tag[pedagogy]{Add other functions, like "/" and "*"  Leave these contracts written on the board.}}
+          @item{@tag[pedagogy]{Add other functions, like "/" and "*".  Leave these contracts written on the board.}}
           @item{@tag[pedagogy]{If students already know about square roots or squaring, you can add these functions as well. If not, take a moment to review what they do.}
                 @tag[selftaught]{@think-about[#:question "If you already know about square roots or squaring, try to figure out the contracts for these as well. Check with the answers below!"
                                              #:hint "Both of these function only take one number as input"
@@ -101,7 +101,7 @@ Length: 90 minutes
                                                    ; sqr : Number -> Number
                                                             }]}
                 @tag[pedagogy]{@code{    ; sqrt : Number -> Number
-                                                   ; sqr : Number -> Number
+                                         ; sqr : Number -> Number
                                     }}}
           ]}
 @lesson[#:title "Strings"
@@ -132,7 +132,7 @@ Length: 90 minutes
 @itemlist[@item{Let's talk about graphics.}
            @item{@tag[pedagogy]{On the board, draw the Circle of Evaluation for 
                                   @code{(circle 100 "solid" "red")}}}
-                 @; add picture of circle of evaluation for self taught students
+           @item{@tag[selftaught]{"insert image here for selfies"}}
            @item{@tag[pedagogy]{Can someone tell me how to convert this into Racket code? Copy their answer on the board.}
                                          @tag[selftaught]{@think-about[#:question "How would you convert this to racket code? Check your answer below."
                                                                      #:answer @code{(circle 100 "solid" "red")}]}}
@@ -140,27 +140,26 @@ Length: 90 minutes
            @item{Every contract has three parts! @tag[pedagogy]{Raise your hand if you can tell me what they are! (Name, domain, and range)}
                        @tag[selftaught]{@think-about[#:question "What are they?"
                                                     #:answer "Name, domain, and range"]}}
-           @item{Can you figure out the contract for circle
-? Based on the example, can you tell me what's in its Domain?@tag[pedagogy]{ Follow along on the board...}
-@code{; circle: Number String String -> ...
-          (circle 100 "solid" "red")}}
+           @item{Can you figure out the contract for circle? Based on the example, can you tell me what's in its Domain?@tag[pedagogy]{ Follow along on the board...
+                                                                                           @code{; circle: Number String String -> ...
+                                                                                                 (circle 100 "solid" "red")}}}
            @item{So what's the Range? What do you think this thing is going to give us back? A Number? A String? Type it in and try it out!}
            @item{What it gives back is a new Type: Image!}
            @item{@tag[group]{Now we're going to do the next step as a group.}}
            @item{@exercise{I'm going to show you the contract for another function. This time around, you're not allowed to touch the keyboard until you have copied the contract into your contract table, along with the contract for circle
-. Once you've done that, @tag[pedagogy]{I want to see you try to draw a rectangle! GO!} @tag[selftaught]{try to draw a rectangle!}} @code{; rectangle: Number Number String String -> Image}}
+. Once you've done that, @tag[pedagogy]{"I want to see you "}try to draw a rectangle! GO!} @code{; rectangle: Number Number String String -> Image}}
            @item{@exercise{I'm going to show you a few more contracts. Once again, you have to have them written down before touching the keys. You'll have five minutes to figure out how to use each of these functions to make a shape! GO!}
                   @code{; ellipse: Number Number String String -> Image
-                            ; triangle: Number String String -> Image
-                            ; star: Number String String -> Image
-                            ; radial-star: Number Number Number String String -> Image
-                            ; text: String Number String -> Image
+                        ; triangle: Number String String -> Image
+                        ; star: Number String String -> Image
+                        ; radial-star: Number Number Number String String -> Image
+                        ; text: String Number String -> Image
                         }} 
            @item{@tag[pedagogy]{Let kids experiment with these functions and point out interesting results to the class.}}
            @item{Going Further - If time allows, you can go further into @(hyperlink "http://manipulatingimages.com" "Manipulating Images") or @(hyperlink "http://makingflags.com" "Making Flags")!}
            ]}
             @lesson[#:title "Closing"
-        #:duration "5 minutes"]{
+                    #:duration "5 minutes"]{
                     @tag[pedagogy]{@itemlist[@item{Who can tell us one thing we learned today?}
                                             @item{Who saw someone else in the class do something great?}
                                             @item{Cleanup, dismissal.}]}
