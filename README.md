@@ -1,2 +1,2 @@
-bs1
+This is the repository for Bootstrap 1 materials.
 ===
