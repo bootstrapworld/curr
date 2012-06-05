@@ -40,14 +40,15 @@ Length: 90 minutes
            @item{At the end of class, you learned something extremely important: the Circles of Evaluation, and how to write simple programs in Racket.}
            @item{Suppose I have the math expression "2+3." How would I draw a circle of evaluation for this? How would I convert this into code?}
            @;add image
-           @item{How about "2+3 divided by 1-2"?}
+           @item{@think-about[#:question "How about \"2+3 divided by 1-2\"?"
+                             #:answer "MAKE A PICTURE!!!!"]}
            @item{Let's do a review challenge:
                  @itemlist[@item{Turn to @(hyperlink "http://page6.com" "Page 6") in your workbooks, where it says "Circles Competition." On each row there is a mathematical expression in the first column,
                                  with room to draw the Circle of Evaluation and the Racket Code on the second and third columns.}
                            @item{Each row will be a round for this activity, so for Round 1 we'll just be looking at the first row. For this first row, we've even helped you out a little.}
                            @item{@tag[group]{You will have one minute to do the following in groups:} Draw the Circle
                                   of Evaluation, and then convert it to Racket code. @tag[group]{Everyone must have the answer
-                                                                                                         written down for your gorup to win points. GO!}}
+                                                                                                         written down for your group to win points. GO!}}
                            @item{@tag[pedagogy]{During the minute, walk around and see how groups are doing. Comment on good teamwork when you see it. Don't tutor much; let kids fail: they'll get it in review before the next round.
                                                       When time is up (really 1 minute: the idea is to go quickly), give them a countdown: "30... 10... 5... 4... 3... 2... 1... PENCILS DOWN, EYES UP HERE!" Wait for total silence and complete attention.}}
                            @item{@tag[pedagogy]{Review and discuss. Assign points.}}
@@ -77,13 +78,20 @@ Length: 90 minutes
           @item{A contract is also a promise: if you give the machine the kinds of things in its Domain, then you'll get something in the Range. If you give a pizza shop your order and some money, it promises to give you some hot, delicious pizza.}
           @item{Same thing in Racket: if you give plus two numbers, it will give you another number back.}
           @item{We'd like to create a list of contracts for ourselves, so that we can keep track of these functions and exactly how they work. Once we've practiced entering these contracts into our book, I'll show you new functions that let you work with words and pictures!}
-          @item{Are you ready? Turn to the front of your workbooks, to the MOST IMPORTANT PAGE, where it says Contracts.}
+          @item{Are you ready? Turn to the front of your workbooks, to the MOST IMPORTANT PAGE, where it says @(hyperlink "contracts.com" "Contracts").}
           @item{A contract specifies @itemlist[#:style 'ordered
                                                         @item{the name of the function,}
                                                         @item{the domain, and}
                                                         @item{the range.}]}
           @item{@tag[pedagogy]{Show the contract for "+" on the board, and have students volunteer the contracts for the other math functions covered so far.}
-                @tag[selftaught]{Can you think of the contract for "+"? What about the ones for "/" and "*"? Write these contracts down and check your answers below}}
+                @tag[selftaught]{@think-about[#:question "Can you think of the contract for "+"? What about the ones for "/" and "*"? Enter them on the @(hyperlink  "asfd" "Contracts") page and check your answers below" 
+                                              #:answer "@code[#:contract "+ : Number Number -> Number"]{
+                                                                         ; Takes two numbers and gives their sum}"
+                                                       "@code[#:contract "/ : Number Number -> Number"]{
+                                                                         ; Takes two numbers and returns the first divided by the second}"
+                                                       "@code[#:contract "* : Number Number -> Number"]{
+                                                                         ; Takes two numbers and gives their product}"]
+                                  }}
           @;must have some sort of answers here
           @item{@tag[pedagogy]{Add other functions, like "/" and "*"  Leave these contracts written on the board.}}
           @item{@tag[pedagogy]{If students already know about square roots or squaring, you can add these functions as well. If not, take a moment to review what they do.}
@@ -105,7 +113,7 @@ Length: 90 minutes
            @item{You'll notice that our math functions don't really work on Strings.}
            @item{What does it mean to add three and the word "cat"? It doesn't make sense, does it?}
            @item{To create a Number in Racket, we just typed it in. To create a String, you type in the word or words that you want, and put quotation marks on either side.
-                 @tag[group]{With your partner, try creating a few strings on your own.}}
+                 @tag[group]{With your partner:} Try creating a few strings on your own.}
            @item{Racket also gives us functions we can use to work with Strings. For example, there's a function called string-length. What do you think it does? I'll give you one hint: the contract.
                  @tag[pedagogy]{Write the contract on the board, but without the labels Name, Domain, and Range:}
                  @tag[selftaught]{@think-about[#:question "Try to write the contract for string-length and check below."
