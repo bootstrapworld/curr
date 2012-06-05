@@ -158,13 +158,13 @@ Length: 90 minutes
            @item{@tag[pedagogy]{Let kids experiment with these functions and point out interesting results to the class.}}
            @item{Going Further - If time allows, you can go further into @(hyperlink "http://manipulatingimages.com" "Manipulating Images") or @(hyperlink "http://makingflags.com" "Making Flags")!}
            ]}
-            @lesson[#:title "Closing"
-                    #:duration "5 minutes"]{
-                    @tag[pedagogy]{@itemlist[@item{Who can tell us one thing we learned today?}
-                                            @item{Who saw someone else in the class do something great?}
-                                            @item{Cleanup, dismissal.}]}
-                    @tag[selftaught]{@itemlist[@item{Think about what you learned today.}
-                                              @item{Remember contracts and how to make them.}
-                                              @item{Think of strings and what differentiates a string from a different type.}
-                                              @item{Think about images and what goes into creating an image.}
-                                              @item{Have an awesome day!}]}}
+@lesson[#:title "Closing"
+        #:duration "5 minutes"]{
+    @tag[pedagogy]{@itemlist[@item{Who can tell us one thing we learned today?}
+                             @item{Who saw someone else in the class do something great?}
+                             @item{Cleanup, dismissal.}]}
+    @tag[selftaught]{@itemlist[@item{Think about what you learned today.}
+                               @item{Remember contracts and how to make them.}
+                               @item{Think of strings and what differentiates a string from a different type.}
+                               @item{Think about images and what goes into creating an image.}
+                               @item{Have an awesome day!}]}}
