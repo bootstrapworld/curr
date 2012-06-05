@@ -1,7 +1,8 @@
 #lang planet dyoo/scribble-bootstrap:5
+@title{Unit 1 Worksheet}
 
+@section{Reverse-Engineering: How Does NinjaCat Work?}
 @worksheet{
-  Reverse-Engineering: How Does NinjaCat Work?
   @row[#:count 1]{
        Thing in the game...
        What changes about it?
@@ -14,6 +15,7 @@
       }
   }
 
+@section{Game Parts - NinjaCat!}
 @worksheet{
   @fill-in-the-blank[#:id "background" #:label "The background is a picture of:"]
   @fill-in-the-blank[#:id "coordcat" #:label "The coordinates for the PLAYER(NinjaCat) are:"] 
@@ -21,28 +23,35 @@
   @fill-in-the-blank[#:id "coordruby" #:label "The coordinates for the TARGET(Ruby) are:"]   
 }
 
+@section{Our Videogame}
 @worksheet{
   Created by (write your names): @fill-in-the-blank[#:id "names" #:label "names"]
-  @section{Background}
+  
+  Background
+  
   Our game takes place: @fill-in-the-blank[#:id "place" #:label "place"]
   (In space? The desert? A mall?)
-  @section{The Player}
-  The player is a  @fill-in-the-blank[#:id "player" #:label "player"]
   
+  The Player
+  
+  The player is a  @fill-in-the-blank[#:id "player" #:label "player"]
   The player moves only up and down.
-  @section{The Target}
+  
+  The Target
+  
   Your player GAINS points when they hit the target.
   The target is a  @fill-in-the-blank[#:id "target" #:label "target"]
-  
   The target moves only to the left and right.
   
-  @section{The Danger}
+  The Danger
+  
   Your player LOSES points when they hit the danger.
   The danger is a  @fill-in-the-blank[#:id "danger" #:label "danger"]
   
   The danger moves only to the left and right.
 }
 
+@section{Circle of Evaluation Practice}
 @worksheet{
   @row[#:count 1]{
     Math
@@ -61,17 +70,17 @@
                   }
     @row[#:count 1]{
     (8 + 2)- (5 x 10)
-    @fill-in-the-blank[#:id "ce1" #:label "ce1"]
-    @fill-in-the-blank[#:id "rc1" #:label "rc1"]
+    @fill-in-the-blank[#:id "ce3" #:label "ce3"]
+    @fill-in-the-blank[#:id "rc3" #:label "rc3"]
                   }
     @row[#:count 1]{
     5 x 10
-    @fill-in-the-blank[#:id "ce1" #:label "ce1"]
-    @fill-in-the-blank[#:id "rc1" #:label "rc1"]
+    @fill-in-the-blank[#:id "ce4" #:label "ce4"]
+    @fill-in-the-blank[#:id "rc4" #:label "rc4"]
                   }
     @row[#:count 1]{
     5 x 10
-    @fill-in-the-blank[#:id "ce1" #:label "ce1"]
-    @fill-in-the-blank[#:id "rc1" #:label "rc1"]
+    @fill-in-the-blank[#:id "ce5" #:label "ce5"]
+    @fill-in-the-blank[#:id "rc5" #:label "rc5"]
                   }
 }

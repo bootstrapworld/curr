@@ -21,9 +21,10 @@ State Standards
 See @(hyperlink "asdf" "Bootstrap Standards Matrix") provided as part of the Bootstrap curriculum. 
                 
 Length: 90 min
-                
-@materials[@item{Student  @(hyperlink "asdf" "workbook") folders - in pairs! - with names on covers.}
-           @item{Computer, connected to a projector, with "NinjaCat" preloaded [ @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/downloads/NinjaCat.zip" "DrRacket") "|" @(hyperlink "http://www.wescheme.org/view?publicId=gaffe-tinge-swipe-oscar-diver" "WeScheme")]}
+
+@tag[pedagogy]{                
+@materials[@item{Student  @(hyperlink "https://spreadsheets.google.com/pub?key=0Ak3Voejjnf0ldHlQcXRVWTZDbVprWHlBLTJWRlQ2dkE&hl=en&gid=0" "workbook") folders - in pairs! - with names on covers.}
+           @item{Computer, connected to a projector, with "NinjaCat" preloaded [ @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/downloads/NinjaCat.zip" "DrRacket") | @(hyperlink "http://www.wescheme.org/view?publicId=gaffe-tinge-swipe-oscar-diver" "WeScheme")]}
            @item{Pens/pencils for the students, fresh whiteboard markers for teachers}
            @item{Cutouts of  @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/images/1.7.png" "NinjaCat") and the  @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/images/1.8.png" "Ruby")}
            @item{Class posters (List of rules, language table, course calendar) }
@@ -35,6 +36,7 @@ Length: 90 min
           @item{Set up student machines and projector, and check to make sure it all works!}
           @item{Post the agenda, rules, calendar, basic skills, language table, etc}
           ]
+}
 
 @lesson[#:title "Introduction and Expectations"
         #:duration "5 minutes"
@@ -46,7 +48,8 @@ Length: 90 min
             @item{In this class, you're going to be working on some very difficult material - you'll be using a language that is taught to college kids, and they're a lot older than you.}
             @item{You're going to need to be very focused, and disciplined about solving the problems we'll be throwing at you.}
             @item{Because this is the same material that they teach in college, we're going to expect you to be able to act like college students. @tag[pedagogy]{What do you think that means?}}
-            @item{@exercise{@tag[pedagogy]{Take 2-3 suggestions.} @tag[selftaught]{MAKE A FILL IN THE BANK}}}
+            @item{@exercise{@tag[pedagogy]{Take 2-3 suggestions.} @tag[selftaught]{@fill-in-the-blank[#:id "Suggestions"]
+                                                                                    @fill-in-the-blank[#:id "Suggestions"]}}}
             @item{@tag[pedagogy]{Okay, so here are the rules: (point to a visual while going over this) 
                   @itemlist[@item{Unless we say otherwise, raise your hand to speak}
                             @item{The computers are for programming, not for Facebook, chatting, email or playing around}
@@ -118,7 +121,7 @@ Length: 90 min
     @item{@think-about[#:question "What about the clouds? Do they move up and down? Left and right? Fill in the rest of the table @tag[group]{with your team.}"
                        #:answer "The clouds only move left and right."]}
     @item{@tag[pedagogy]{Terrific! Great job, all of you. }Now, turn to @(hyperlink "page2.com" "page 2") in your game planning workbooks and look at the project sheet that has a picture of the NinjaCat game you just saw.}
-    @item{@tag[pedagogy]{Raise your hand if you can tell me what the coordinates are of the upper-left-hand corner. Take volunteer. What about the bottom-right-hand corner? What about the coordinates of the point right in the center of the screen?} @tag[selftaught]{@think-about[
+    @item{@tag[pedagogy]{Raise your hand if you can tell me what the coordinates are of the upper-left-hand corner. Take volunteers. What about the bottom-right-hand corner? What about the coordinates of the point right in the center of the screen?} @tag[selftaught]{@think-about[
           #:question "What are the coordinates of the upper-left-hand corner?  What about the bottom-right-hand corner? What about the coordinates of the point right in the center of the screen?"
           #:answer "The coordinate for the upper-left-hand corner is (0,480). Bottom-right-hand corner: (640, 0). Center: (320, 240)."]}}
     @item{@exercise{@tag[group]{In your groups:} Take a minute to find and label all of the midpoints - the points in the middle of each side of the screen: top, bottom, left and right. @tag[pedagogy]{(You may want to point to these points on the board). @tag[group]{ Once again, your group only gets a point if everyone writes and labels these coordinates correctly. GO! }}}}
