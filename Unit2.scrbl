@@ -10,6 +10,14 @@ Students are introduced to a set-mapping representation for functions, in which 
 from a Domain into a Range. Coupled with their understanding of Circles of Evaluation, students generalize their understanding of functions to
 include other datatypes, including Strings and Images. 
 
+@agenda[
+@item{25 min Introduction} @; LINKY?
+@item{15 min Contracts}
+@item{10 min Strings}
+@item{35 min Creating Images}
+@item{5 min Closing}
+]
+
 @objectives[@item{Learn Racket syntax and grammar, using the Circle of Evaluation}
         @item{Learn how to define values to be used later, as variables}
         @item{Learn syntax for simple strings and image-composition expressions}]
@@ -69,8 +77,7 @@ Length: 90 minutes
           @item{This explanation of a soda machine just talks about some soda, but not any specific type of soda. It just says what kind of thing comes out, not which particular thing.}
           @item{How would you describe a coffeemaker? What kind of stuff goes into a coffeemaker? What kind of stuff comes out?}
           @item{How would you describe a lightbulb? @tag[pedagogy]{Have the students brainstorm a few other machines, and their inputs and outputs.} @tag[selftaught]{Try to brainstorm a few other machines and their inputs and outputs.}}
-          @item{The things that go into a machine are called the inputs, and what comes out is called the output. But the kinds of things that go in is the Domain, and the kind of thing that comes out is the Range. @think-about[#:question "A soda machine's domain is money. Can you think of an example input?" 
-                                                                                                                                                                                                                                    #:answer "Any type of money: quarters, dimes, dollars"] It's range is soda.}
+          @item{The things that go into a machine are called the inputs, and what comes out is called the output. But the kinds of things that go in is the Domain, and the kind of thing that comes out is the Range. @think-about[#:question "A soda machine's domain is money. Can you think of an example input?"  #:answer "Any type of money: quarters, dimes, dollars"] It's range is soda.}
           @item{@think-about[#:question "What is the domain and range of a coffeemaker?"
                              #:answer "The domain is coffee ingredients: coffee beans, water, etc. The range is types of coffee."]}
           @item{Functions in Racket are the same: the addition function needs two numbers as its domain, but those numbers don't have to be 4
@@ -86,26 +93,29 @@ Length: 90 minutes
                                                         @item{the domain, and}
                                                         @item{the range.}]}
           @item{@tag[pedagogy]{Show the contract for "+" on the board, and have students volunteer the contracts for the other math functions covered so far.}
-                @tag[selftaught]{@think-about[#:question "Can you think of the contract for "+"? What about the ones for "/" and "*"? Enter them on the @(hyperlink  "asfd" "Contracts") page and check your answers below" 
-                                              #:answer "@code[#:contract "+ : Number Number -> Number"]{
-                                                                         ; Takes two numbers and gives their sum}"
-                                                       "@code[#:contract "/ : Number Number -> Number"]{
-                                                                         ; Takes two numbers and returns the first divided by the second}"
-                                                       "@code[#:contract "* : Number Number -> Number"]{
-                                                                         ; Takes two numbers and gives their product}"]
-                                  }}
+                 @;NOTE: may have to split into three questions
+                @tag[selftaught]{@think-about[#:question "Can you think of the contract for \"+\"? What about the ones for \"/\" and \"*\"? Enter them on the contracts page and check your answers below"
+                                              #:answer @code[#:contract "+ : Number Number -> Number"
+                                                                        #:purpose
+                                                                         "Takes two numbers and gives their sum"
+                                                                        ]
+                                                       @code[#:contract "/ : Number Number -> Number"
+                                                                        #:purpose "Takes two numbers and returns the first divided by the second"]
+                                                       @code[#:contract "* : Number Number -> Number" #:purpose "Takes two numbers and gives their product"]]}
+                                  }
           @;must have some sort of answers here
           @item{@tag[pedagogy]{Add other functions, like "/" and "*".  Leave these contracts written on the board.}}
           @item{@tag[pedagogy]{If students already know about square roots or squaring, you can add these functions as well. If not, take a moment to review what they do.}
                 @tag[selftaught]{@think-about[#:question "If you already know about square roots or squaring, try to figure out the contracts for these as well. Check with the answers below!"
                                              #:hint "Both of these function only take one number as input"
-                                             #:answer @code{    ; sqrt : Number -> Number
-                                                   ; sqr : Number -> Number
-                                                            }]}
-                @tag[pedagogy]{@code{    ; sqrt : Number -> Number
-                                         ; sqr : Number -> Number
-                                    }}}
+                                             #:answer @code[#:contact "sqrt : Number -> Number"]
+                                             @code[#:contact "sqt : Number -> Number"]]}
+                @tag[pedagogy]{@code[#:contact "sqrt : Number -> Number"]
+                               @code[#:contact "sqt : Number -> Number"]}
+                                    }
           ]}
+                                
+                                
 @lesson[#:title "Strings"
         #:duration "10 minutes"]{
 @itemlist[@item{One of the following does not belong. Can you find it? 6, "cat", 0, -2, 7.5}

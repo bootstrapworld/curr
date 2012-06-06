@@ -8,6 +8,14 @@ Unit Overview
 
 Students are introduced to the Design Recipe and apply it to simple problems.
 
+@agenda[
+@item{15 min Introduction} @; LINKY?
+@item{25 min Design Recipe Intro}
+@item{20 min Design Recipe Practice}
+@item{20 min Even More Practice}
+@item{10 min Closing}
+]
+
 @objectives[@item{Students will become familiar with the steps of the Design Recipe.}
             @item{Students will practice Racket syntax and the Circles of Evaluation.}]
 @product-outcomes[@item{Students@tag[group]{,in pairs,} will write functions to solve simple problems by using the Design Recipe}]
@@ -89,7 +97,7 @@ Length: 90 minutes
                    @item{@bold{Step 2: Give Examples}}
                    @item{When given the number 20, what should red-square draw? A solid, red square of size 20.
                          @itemlist[@item{@think-about[#:question "How do I write the Racket code for that?"
-                                                      #:answer "@code{(rectangle 20 20 solid red)}"]}
+                                                      #:answer @code{(rectangle 20 20 "solid" "red")}]}
                                   @item{Fill in the boxes with the Racket code for the other examples, including the generalized pattern.            }
                                   @item{Now circle everything that changes between the examples, and label it.}]}
                    @item{@tag[pedagogy]{Count down the last 10 seconds then collect answers from teams. Don't forget to keep score!}}
