@@ -16,10 +16,10 @@
     
     2. Give Examples
     Write an example of your function for each topping, using EXAMPLE
-    (EXMAPLE (@fill-in-the-blank[#:id "Use the function here"]) @fill-in-the-blank[#:id "What should the function produce"])
-    (EXMAPLE (@fill-in-the-blank[#:id "Use the function here"]) @fill-in-the-blank[#:id "What should the function produce"])
-    (EXMAPLE (@fill-in-the-blank[#:id "Use the function here"]) @fill-in-the-blank[#:id "What should the function produce"])
-    (EXMAPLE (@fill-in-the-blank[#:id "Use the function here"]) @fill-in-the-blank[#:id "What should the function produce"])
+    (EXAMPLE (@fill-in-the-blank[#:id "Use the function here"]) @fill-in-the-blank[#:id "What should the function produce"])
+    (EXAMPLE (@fill-in-the-blank[#:id "Use the function here"]) @fill-in-the-blank[#:id "What should the function produce"])
+    (EXAMPLE (@fill-in-the-blank[#:id "Use the function here"]) @fill-in-the-blank[#:id "What should the function produce"])
+    (EXAMPLE (@fill-in-the-blank[#:id "Use the function here"]) @fill-in-the-blank[#:id "What should the function produce"])
     
     3. Function Header
     Write the function Header, giving variable names to all your input values.
@@ -45,8 +45,8 @@
     
     2. Give Examples
     Write an example of your function for each key, using EXAMPLE
-    (EXMAPLE (@fill-in-the-blank[#:id "Use the function here"]) @fill-in-the-blank[#:id "What should the function produce"])
-    (EXMAPLE (@fill-in-the-blank[#:id "Use the function here"]) @fill-in-the-blank[#:id "What should the function produce"])
+    (EXAMPLE (@fill-in-the-blank[#:id "Use the function here"]) @fill-in-the-blank[#:id "What should the function produce"])
+    (EXAMPLE (@fill-in-the-blank[#:id "Use the function here"]) @fill-in-the-blank[#:id "What should the function produce"])
     
     3. Function Header
     Write the function Header, giving variable names to all your input values.
