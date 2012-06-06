@@ -55,7 +55,7 @@ Length: 90 min
 
 @lesson[#:title "Introduction"
         #:duration "5 minutes"]{
-      @itemlist[@item{@tag[pedagogy]{Students not finished with their games? You can use the last class to @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/SupplementalLessons.html#games" "get things done"), with a speed-focused game designed to get things done!. Got time for a challenge? Try introducing them to @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/SupplementalLessons.html#structs" "Data Structures"), to allow for 2-dimensional motion and more player control.}}
+      @itemlist[@item{@tag[pedagogy]{Students not finished with their games? You can use the last class to @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/SupplementalLessons.html#games" "get things done"), with a speed-focused game designed to get things done! Got time for a challenge? Try introducing them to @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/SupplementalLessons.html#structs" "Data Structures"), to allow for 2-dimensional motion and more player control.}}
                  @item{Welcome to the last day of Bootstrap! @tag[pedagogy]{We've got a surprise for you..."}}
                  @item{@tag[pedagogy]{Hand out CD-ROMs or Flash Drives with their game folders, or links/QR codes to their shared WeScheme games. (It can be a real treat to give kids stickers with their "game barcodes" printed out on them!)}}
                  @item{You've done a phenomenal job, and these games look unbelievable! Today we're going to celebrate our finished games and plan out our WOW presentation.}]}
@@ -98,7 +98,7 @@ Length: 90 min
         @item{On @(hyperlink "page30.com" "page 30") and @(hyperlink "page31.com" "31"), you'll find space to plan out your presentation. Make sure you write something for every part, and review the code with your partner.}
         @item{@tag[pedagogy]{Give students 15min to prepare, with a 5min countdown.}}
         @item{Now we'll rehearse the presentation. For each group that presents, everyone else will be the audience. If you're in the audience, you should write down at least one good thing the presenters do and one thing they should improve on.}
-        @item{# This feedback should be constructive! We're all on the same team here, so please make sure you're helping people do better, not making them feel bad.}]}
+        @item{This feedback should be constructive! We're all on the same team here, so please make sure you're helping people do better, not making them feel bad.}]}
                               
 @lesson[#:title "Rehearsal"
         #:duration "30 min"]{

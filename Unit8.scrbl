@@ -24,24 +24,27 @@ Students discuss and then prove the Pythagorean theorem, and use this theorem - 
 See @(hyperlink "https://spreadsheets.google.com/pub?key=0Ak3Voejjnf0ldHlQcXRVWTZDbVprWHlBLTJWRlQ2dkE&hl=en&gid=0" "Bootstrap Standards Matrix") for state standards.
 
 Length: 90 minutes
-@tag[selftaught]{@materials[@item{Cutouts of Pythagorean Theorem packets [@(hyperlink "packet1" "1"), @(hyperlink "packet2" "2")] - 1 per cluster}
-                        @item{Student @(hyperlink "workbooks" "workbooks")}]}     
+@tag[selftaught]{@materials[@item{Cutouts of Pythagorean Theorem packets [@(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/images/7.5.png" "1"), @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/images/7.6.png" "2")] - 1 per cluster}
+                        @item{Student @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/materials/StudentWorkbook.pdf" "workbooks")}]}  
+   
 @tag[pedagogy]{
-@materials[@item{Cutouts of Pythagorean Theorem packets [@(hyperlink "packet1" "1"), @(hyperlink "packet2" "2")] - 1 per cluster}
+@materials[@item{Cutouts of Pythagorean Theorem packets [@(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/images/7.5.png" "1"), @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/images/7.6.png" "2")] - 1 per cluster}
             @item{Computers w/DrRacket or WeScheme}
-           @item{Student @(hyperlink "workbooks" "workbooks")}
+           @item{Student @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/materials/StudentWorkbook.pdf" "workbooks")}
             @item{Pens/pencils for the students, fresh whiteboard markers for the teachers}
             @item{@tag[group]{Class posters (List of rules, language table, course calendar)}}
             ]
 @preparation[@item{Write agenda on board}
               @item{All student computers should have their game templates pre-loaded, with their image files linked in}
-              @item{Display Class posters, Language Table, Design Recipe}
+              @item{Class posters}
               @item{Seating arrangements: ideally clusters of desks/tables}]}
 
 @(language-table (list "Number" "+ - * / sq sqrt expt")
                  (list "String" "string-append string-length")
                  (list "Image" "rectangle circle triangle ellipse radial-star scale rotate put-image")
                  (list "Boolean" "= > < string=? and or"))
+
+
 @lesson[#:title "Introduction" #:duration "20 minutes"]{
         @itemlist[@item{Review previous material.}
                   @item{Right now, in your games, what happens when the player collides with another game character? Nothing! We need to write a function change that.}
@@ -90,7 +93,8 @@ Thank you! You can both have a seat now. A round of applause for our brave volun
                    
                    ]}
 @lesson[#:title "The Distance Formula" #:duration "30 minutes"]{
-        @itemlist[@item{Unfortunately, the 2d distance looks like 0. Is that right? NO! That's because you haven't written the code to calculate the distance in two dimensions! All you have is something that tells you the length in the x- and y-dimension.} @item{Ancient civilizations had the same problem: they also struggled with distance in two dimensions. An ancient Greek named Pythagoras finally figured it out.}
+        @itemlist[@item{Unfortunately, the 2d distance looks like 0. Is that right? NO! That's because you haven't written the code to calculate the distance in two dimensions! All you have is something that tells you the length in the x- and y-dimension.} 
+                   @item{Ancient civilizations had the same problem: they also struggled with distance in two dimensions. An ancient Greek named Pythagoras finally figured it out.}
                    @item{@tag[pedagogy]{Draw normal Cartesian coordinate plane, with a point on each axis. Label the coordinates (3,0) and (0,4).} @tag[selftaught]{Draw a coordinate plane. Label the coordinates (3,0) and (0,4).}}
                    @item{@;PICTURE OF GRAPH with letter labels
                          How can we find the distance between these two points? How can we find the length of the dotted line, also called the Hypoteneuse? Well, let's start with what we do know: the dotted line sort of makes a triangle, and we know the @code{line-length} of the other two sides. Let's label them "A," "B" and "C." What is the line-length of A? @tag[pedagogy]{Have students answer. This will typically involve subtraction, but point out that subtraction can sometimes give back negative numbers!}}
@@ -130,8 +134,8 @@ is 3 and @code{(line-length B)} is 4, but we still don't know C. What is the len
 
 @itemlist[
 
-@item{ Sp mow we have a function called @code{distance}: two coordinates go in and one value comes out, representing the distance between those coordinates}
-@item{If we write @code{(update-danger 10)}, we get back the location of the danger after it;s at position 10.  If we write @code{(distance 100 200 95 65)} we get back the distance between the coordinates (100, 200) and (95, 65).}
+@item{ So now we have a function called @code{distance}: two coordinates go in and one value comes out, representing the distance between those coordinates}
+@item{If we write @code{(update-danger 10)}, we get back the location of the danger after it's at position 10.  If we write @code{(distance 100 200 95 65)} we get back the distance between the coordinates (100, 200) and (95, 65).}
 @item{But what do we want to do with this distance?}
 @item{@tag[pedagogy]{Using visual examples, ask students to guess the distance between a danger and a player at different positions.  How far apart do they need to be before one has hit the other?}}
 @item{@tag[selftaught]{@think-about[#:question "How far apart do the danger and the player need to be before one has hit the other?"]}}
@@ -145,7 +149,7 @@ is 3 and @code{(line-length B)} is 4, but we still don't know C. What is the len
 @itemlist[
 
 @item{@tag[pedagogy]{@tag[group]{Have everyone walk around and play each other's games}}}
-@item{CONGRATULATIONS! You have finished the code for your videogame@tag[group]{s}}
+@item{CONGRATULATIONS! You have finished the code for your videogame@tag[group]{s}!!!}
 @item{@tag[pedagogy]{Who can tell us one thing we learned today?}@tag[selftaught]{@review{What did you learn today?}}}
 @item{@tag[pedagogy]{Who saw someone else in the class do something great?}}
 @item{@tag[pedagogy]{Cleanup, dismissal}}
