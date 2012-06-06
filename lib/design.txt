@@ -1,0 +1,159 @@
+Principles:
+
+1.  Allow each chunk to be separately annotated with roles.
+
+3.  Whitelisting approach, rather than blacklisting.
+
+4.  Allow the same document to be rendered for different roles.
+
+5.  Good error messages.
+
+6.  Don't repeat yourself.  (DRY)
+
+
+----------------------------------------------------------------------
+
+Use cases:
+
+    User-level/developer-level documentation.
+
+    Problem/hint/solutions of a standard textbook.
+
+    Reference vs guide-level documentation.
+
+    Anonymized versions of documentation for referees.
+
+
+----------------------------------------------------------------------
+
+What systems are out there already that do conditional documentation
+generation?  Of course there's latex and tex, anything that has some
+computational power.
+
+    http://discuss.joelonsoftware.com/default.asp?joel.3.392632.11
+
+This is a topic that Content Management Systems (CMS) have to deal
+with with regards to role-based content.
+
+
+
+Role-based access control in online authoring and publishing systems
+vs. document hierarchy
+http://dl.acm.org/citation.cfm?id=318594
+
+
+----------------------------------------------------------------------
+
+
+Questions:
+
+Roles: How are the roles represented?  Hierarchy?  Is there an
+implicit "All" role?  Where are the roles represented?  Do we have a
+lattice structure here?  Do we have to state the roles up front?
+Something like:
+
+    @defroles[parent teacher student]
+
+where the 'all' role is implicit.
+
+If we want to build these as hierarchical trees, then something like this:
+
+    @defroles[(public parent 
+                      teacher
+                      (student college high-school)
+              private)]
+
+where public and private are implicitly children of the 'all' role.
+
+
+
+What about empty sections?  Should entire chapters be ifdef-able?
+Should we enforce all content to be under a particular role?
+
+Is there any relationship with the literate programming language such
+as scribble/lp?
+
+
+
+Can I define a section with an assertion that it be readable by a
+particular role?  That way, if the role structure changes, the
+assertion acts as a regression test to make sure the role structure is
+consistent with the intended documentation.
+
+
+
+
+Does the tree-like structure of Scribble documents have an effect on
+the structure of how roles are assigned?
+
+   Is it a sensical thing to make a chapter that only has a rendering for
+
+
+How should external cross references work?  If I have a pointer, it
+might not be a valid pointer for all the possible renderings of a
+document, but I'd still like a robust pointer.
+
+
+
+Is it just inclusion/exclusion that such a system controls?
+
+
+----------------------------------------------------------------------
+
+
+
+
+
+Can content have nested roles?  That is, can we say something like this:
+
+----------------------------------------------------------------------
+@role[(parent teacher)]{
+   This is a paragraph that only parents and teachers can see.
+   @role[parent]{And this is something that only a parent can see.}
+   @role[student]{But this should not be seen at all.}
+}
+----------------------------------------------------------------------
+
+In this context, should that chunk
+
+   @role[student]{But this should not be seen at all.}
+
+be treated as a static, compile-time error?
+
+
+
+
+
+----------------------------------------------------------------------
+Technology:
+
+    http://docs.racket-lang.org/scriblib/render-cond.html
+
+    Racket/DrRacket: how do we select a new role when rendering?
+
+    Are the documents truly just Scribble documents?  Or do they do something extra?
+
+    Any relationship with racket submodules?  Each "role" may be a submodule that exposes its own 'doc'.
+
+
+----------------------------------------------------------------------
+
+To incoporate:
+
+Kathi notes that the documents should really be annotated with tags,
+rather than roles, since a chunk of document will apply to many
+different audiences.  A tag-based approach will be a bit more
+flexible.
+
+
+Also notes: we may want matricies or table-structured data.
+
+We should get a implementation of the scribble/ifdef features, tied to
+the database that I'll be writing in bootstrap-storage.
+
+
+----------------------------------------------------------------------
+
+
+We need real control over the style and presentation of the generated
+scribble documentation.

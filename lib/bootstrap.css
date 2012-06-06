@@ -1,0 +1,36 @@
+/* These CSS definitions both override and extend the ones provided by
+   Scribble. */
+
+
+/* First, let us hide the table of contents from the default Scribble output: */
+.tocset {
+    display: none;
+}
+
+/* And have the main column take up a wider section of the page: */
+.maincolumn {
+    width: 100%;
+    margin-left: 5px;
+}
+
+
+
+/* We extend the format for worksheets, lessons, drills. */
+
+.BootstrapWorksheet {
+    border: 1px solid black;
+    padding: 5px;
+    margin: 10px;
+}
+
+.BootstrapLesson {
+    border: 1px solid green
+    padding: 5px;
+    margin: 3px;
+}
+
+.BootstrapDrill {
+    border: 1px solid blue
+    padding: 5px;
+    margin: 3px;
+}
