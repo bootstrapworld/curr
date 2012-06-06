@@ -1,4 +1,5 @@
-#lang planet dyoo/scribble-bootstrap:5
+#lang scribble/base
+@(require "../lib/all.rkt")
 @declare-tags[group pedagogy selftaught bootstrap]
 
 @title{Unit 6:
@@ -8,6 +9,14 @@
 @section{Overview} 
 Students discover Boolean types, and use them to create programs that test values, and then model scenarios using these programs.
 
+@agenda[
+        @item{15min Introduction}
+        @item{5min Booleans}
+        @item{25min onscreen? 1.0}
+        @item{15min Boolean Functions}
+        @item{25min onscreen? 2.0}
+        @item{5min Closing}
+        ]
 
 @objectives[@item{Learn to work as a team}
           @item{Understand how to declare Boolean values}
@@ -41,7 +50,9 @@ Length: 90 min
 }
 
 Language Table
-
+@(language-table (list "Number" "+ - * / sq sqrt expt")
+                 (list "String" "string-append string-length")
+                 (list "Image" "radial-star scale rotate put-image"))
 
 @lesson[#:title "Introduction" #:duration "15 minutes"]{
        @exercise{Review the previous material}}

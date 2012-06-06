@@ -1,4 +1,5 @@
-#lang planet dyoo/scribble-bootstrap:5
+#lang scribble/base
+@(require "../lib/all.rkt")
 @title{Unit 6 Worksheet}
 
 @section{Protecting Sam}
