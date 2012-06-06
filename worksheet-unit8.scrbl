@@ -6,13 +6,12 @@
 
 @section{Design Recipe: line-length}
 @worksheet{
-   Write a function called line-length, which takesin two numbers and returns the difference between them. It should always subtract the smaller number from the bigger one.
+   Write a function called line-length, which takes in two numbers and returns the difference between them. It should always subtract the smaller number from the bigger one.
 
     1.  Contract+ Purpose Statement
     Every contract has three parts:
     
     ;@fill-in-the-blank[#:id "name"]:@fill-in-the-blank[#:id "Domain"] -> @fill-in-the-blank[#:id "Range"]
-    ;@fill-in-the-blank[#:id "what does the function do?"]
     
     2. Give Examples
     Write two examples of your function in action
@@ -25,7 +24,9 @@
     3. Function Header
     Write the function Header, giving variable names to all your input values.
     (define (@fill-in-the-blank[#:id "function name"] @fill-in-the-blank[#:id "variable names"])
-    @fill-in-the-blank[#:id "what it does"])}
+    @fill-in-the-blank[#:id "what it does"])
+    
+    INSERT TABLE}
 
 @section{The Distance Formula, with Numbers}
 @worksheet{
@@ -53,7 +54,7 @@ Write a function distance,which takes FOUR inputs:
 @item{cy: The y-coordinate of another game character}
 ]
 It should return the distance between the two, using the Distance formula:
- Distance = ((line-length px cx)2 + (line-length py cy)2 )
+ Distance = ((line-length px cx)^2 + (line-length py cy)^2 )
     
     1.  Contract+ Purpose Statement
     ;@fill-in-the-blank[#:id "name"]:@fill-in-the-blank[#:id "Domain"] -> @fill-in-the-blank[#:id "Range"]
