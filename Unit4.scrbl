@@ -20,7 +20,7 @@ Students are introduced to the Design Recipe and apply it to simple problems.
             @item{Students will practice Racket syntax and the Circles of Evaluation.}]
 @product-outcomes[@item{Students@tag[group]{,in pairs,} will write functions to solve simple problems by using the Design Recipe}]
 
-See @(hyperlink "http://standards.com" "Bootstrap Standards Matrix") for state standards.
+See @(hyperlink "https://spreadsheets.google.com/pub?key=0Ak3Voejjnf0ldHlQcXRVWTZDbVprWHlBLTJWRlQ2dkE&hl=en&gid=0" "Bootstrap Standards Matrix") for state standards.
 
 Length: 90 minutes
 
@@ -60,7 +60,7 @@ Length: 90 minutes
                                 What is your name? @code{rocket-height} What is your Domain? @code{Number} What is your Range? @code{Number}
                                 When I give you the number of seconds since blast-off, what do you do? multiply it by seven. Let's try it out: "rocket-height three!" (21) "rocket-height zero!" (0) etc.}}}
      @item{@bold{Step 1: Contract}}
-     @item{@tag[pedagogy]{Copy these answers onto the board: @code{;; rocket-height : Number -> Number}}}
+     @item{@tag[pedagogy]{Copy these answers onto the board:} @code[#:contract  "rocket-height : Number -> Number"]{}}
      @item{Copy the contract down into your Design Recipe page!}
      @item{@bold{Step 2: Give Examples}}
      @item{@tag[pedagogy]{@skit{We already tried some examples with our volunteer.}} When we said "rocket-height three" @tag[pedagogy]{(write the accompanying code @code{(EXAMPLE (rocket-height 3) ...)} on the board)}, what did we get back? 21! But how did we get that? By multiplying 3 and 7. Let's write that code into our example:
@@ -73,7 +73,7 @@ Length: 90 minutes
      @item{Once you are done, you @tag[group]{and your partner} can type this function into your computer@tag[group]{s}.}
      @item{@tag[pedagogy]{Do you guys want to see the rocket fly?} Type (start rocket-height)
  to see your code in action. We've slowed time down, so that a second passes each time you hit the spacebar.}
-     @item{All right. Now let's have a little bonus round.}
+     @item{@tag[pedagogy]{All right. Now let's have a little bonus round.}}
      @item{@tag[(group pedagogy)]{One point to every team who can figure out how to make the rocket fly twice as fast. You'll have 1 minute. GO!}}
      @item{@tag[(group pedagogy)]{One point to every team who can figure out how to make the rocket fly backwards. You'll have 1 minute. GO!}}
      @item{@tag[(group pedagogy)]{One point to every team who can figure out how to make the rocket fly faster over time, so it gets faster and faster as it gets higher. You'll have 1 minute. GO!}}
@@ -102,10 +102,11 @@ Length: 90 minutes
                                   @item{Now circle everything that changes between the examples, and label it.}]}
                    @item{@tag[pedagogy]{Count down the last 10 seconds then collect answers from teams. Don't forget to keep score!}}
                    @item{Now for the final step! @tag[(pedagogy group)]{This one is worth two points: one for filling in everything on the "define" line and one for filling in the body of the function.} You'll need to fill in the name of your function and a name for the variable. Then you'll need to figure out what goes on the next line for the function's body. You will have two minutes for this. GO!}
-                   @item{@bold{Step 3: Code}}
+                   @item{@bold{Step 3: Code} @itemlist[
                    @item{As always, we start with the function header: "define", then the name of the function and the names of the inputs from our Domain. @think-about[#:question "What is the name of our function here? What is the name of our input?" #:answer "Name: red-square; Input: size (number is the type)"]}
                    @item{Now you need to fill in the function body. Which pattern can we use for this? The general one.}
-                   @item{@tag[pedagogy]{Now you need to fill in the function body. Which pattern can we use for this? The general one.}
+                   ]}
+                   @item{@tag[pedagogy]{Have kids turn their monitors on, and type in the code. Do their tests work?}
                           @tag[selftaught]{Now you should try typing in the code and running some tests to see if it works.}}]}
                                 
 @lesson[#:title "Even More Practice (Yard Area)"
@@ -125,6 +126,8 @@ Length: 90 minutes
             @item{Engineers use this when they design cars. Journalists use this when they write articles. Chefs use it when they make food. Everyone, in every profession, needs to solve problems. What you have learned is a way of approaching problems that will work in many different places - not just programming. To succeed in this class, you need to be masters of problem solving. If you only learn one thing, let it be these steps.}
             @item{Next time, you will use the Design Recipe to animate the characters in your game! Don't forget the recipe - it will save your life over the next few lessons!}
             @item{@tag[pedagogy]{Who can tell us one thing we learned today?}}
+            @item{@tag[selftaught]{List a few things that you've learned today 
+                                   @free-response[#:id chp4review]}}
             @item{@tag[pedagogy]{Who saw someone else in the class do something great?}}                                       
             @item{@tag[(pedagogy group)]{Cleanup, dismissal)}}]}
                    
