@@ -1,4 +1,6 @@
-#lang planet dyoo/scribble-bootstrap:5
+#lang scribble/base
+@(require "lib/all.rkt")
+
 @title{Example}
 
 @; Note: this document can be generated in different contexts.
@@ -16,7 +18,6 @@
 
 @image["bootstrap.gif"]
 
-
 @;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 @section{Conditional output}
 Untagged content shows for everyone.
@@ -28,9 +29,6 @@ This is a message that a stupendous student should be able to see.
 
 @student{For syntactic convenience, each tag itself is bound to a form that does
 the exclusion, like this.}
-
-
-
 
 
 @tag[teacher]{
@@ -133,6 +131,9 @@ How about a contract only?
 
 @section{Parts of the curriculum}
 
+Here is a 
+@(hyperlink "http://www.bootstrap-world.org/" "link")
+
 @lesson[#:title "getting started"
         #:duration "10 minutes"] {
    In this lesson, we'll learn some stuff
@@ -203,3 +204,14 @@ How about a contract only?
 @item{prepare this}
 @item{and this}
 ]
+
+@section{Tables}
+
+A language table showing how to include code in cells
+
+@(language-table (list @code{(+ 4 5)} "forth") 
+                 (list "and" @code{conquer})
+                 (list "this and" "that")
+                 (list @code{she stoops to} "conquer")
+                 )
+
