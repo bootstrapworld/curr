@@ -1,4 +1,5 @@
-#lang planet dyoo/scribble-bootstrap:5
+#lang scribble/base
+@(require "lib/all.rkt")
 @title{Unit 4: The Design Recipe}
 
 @declare-tags[group pedagogy selftaught]
@@ -25,6 +26,10 @@ Length: 90 minutes
               @item{Display Class posters, Language Table, Design Recipe}
               @item{"Rocket" [@(hyperlink "drracketfile" "DrRacket file") + @(hyperlink "teachpack" "teachpack")|@(hyperlink "wescheme" "WeScheme")] preloaded on students' machines}
               @item{Seating arrangements: ideally clusters of desks/tables}]}
+
+@(language-table (list "Number" "+ - * / sq sqrt expt")
+                 (list "String" "string-append string-length")
+                 (list "Image" "rectangle circle triangle ellipse radial-star scale rotate put-image"))
 
 @lesson[#:title "Introduction"
         #:duration "15 minutes"]{@itemlist[@item{Review material from previous weeks: Coordinate Planes, Circles of Evaluation, Contracts, Strings, Images, and Functions. @tag[selftaught]{If you are having trouble remembering any of these, look back to previous lessons to refresh your memory.}}]}

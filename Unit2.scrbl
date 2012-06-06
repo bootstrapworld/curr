@@ -1,5 +1,5 @@
-#lang planet dyoo/scribble-bootstrap:5
-
+#lang scribble/base
+@(require "lib/all.rkt")
 @declare-tags[group pedagogy selftaught]
 @title{Unit 2: Contracts, Strings and Images}
 Unit Overview:
@@ -32,6 +32,8 @@ Length: 90 minutes
              @item{Display class posters and Language Table}
              @item{Seating arrangements: ideally with clusters of desks/tables}
              @item{Optional: demo machine with projector to show the interactions and definitions windows}]}
+
+@(language-table (list "Number" "+ - * / sq sqrt expt"))
 
 
 @lesson[#:title "Introduction"
