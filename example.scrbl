@@ -101,6 +101,11 @@ Here are four think-abouts, with various parts optional
              #:hint "The answer isn't prime"
              #:answer "42"]
 
+Putting non-strings in the fields
+
+@think-about[#:question "Does this work?"
+             #:answer @code{#t}]           
+
 @section{Code}
 
 Here is some formatted code
@@ -141,9 +146,15 @@ Here is a
 
 @worksheet{
   This is an example of a worksheet.  It's a section of the document.
+  
+  This worksheet has two exercises on creating contracts.  An optional argument
+  lets us fill in the name of the function.  The first string argument is the
+  base string for the HTML identifiers for the input boxes
 
-  What do you see here?
-}
+  @(contract-exercise "ex1")
+  
+  @(contract-exercise "sqex" #:func-name "square")
+  }
 
 
 
@@ -205,6 +216,11 @@ Here is a
 @item{and this}
 ]
 
+@agenda[
+@item{we'll do this}
+@item{and this}
+]
+
 @section{Tables}
 
 A language table showing how to include code in cells
@@ -214,4 +230,18 @@ A language table showing how to include code in cells
                  (list "this and" "that")
                  (list @code{she stoops to} "conquer")
                  )
+
+A worksheet table.  In the example.scrbl source, the first list is the column headings.  
+The second list is the contents of the left column.
+The third list gives the base string from which to generate the
+HTML tags for the cells in each remaining column.
+
+If you have tables that initialize more than the left column, let Kathi know
+
+@(worksheet-table (list "Math" "Circle" "Racket")
+                  (list "4+5" "5*8/2" "3+6+7")
+                  (list "ce" "re"))
+
+
+
 

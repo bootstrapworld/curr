@@ -22,7 +22,8 @@
          think-about
          code
          language-table
-	 ;worksheet-table
+	 worksheet-table
+         contract-exercise
          
          ;; Sections
          worksheet
@@ -40,6 +41,7 @@
          objectives
          product-outcomes
          preparation
+         agenda
 
          ;; Misc
          standards
@@ -133,13 +135,14 @@
 
 ;; Lightweight questions with optional hints and answers
 ;; ideally hints/answers come up on some action, not by default
+;; hints and answers may contain arbitrary formatting, not just strings
 (define (think-about #:question question 
                      #:hint (hint #f)
                      #:answer (answer #f))
   (sxml->element (string-append
                      question
-                     (if hint (string-append " (Hint: " hint ")") "")
-                     (if answer (string-append " (Answer: " answer ")") "")
+                     (if hint (format " (Hint: ~a)" hint) "")
+                     (if answer (format " (Answer: ~a)" answer) "")
                    )))
 
 (define (format-racket-header str)
@@ -152,6 +155,16 @@
          (append (if contract (list (format-racket-header contract)) '())
                  (if purpose (list (format-racket-header purpose)) '())
                   body)))
+
+(define (contract-exercise tag #:func-name (func-name #f))
+  (para ";"
+        (if func-name
+            func-name
+            (fill-in-the-blank #:id (format "~aname" tag) #:label (format "~aname" tag)))
+        " : "
+        (fill-in-the-blank #:id (format "~aarg" tag) #:label (format "~aarg" tag))
+        " -> "
+        (fill-in-the-blank #:id (format "~aoutput" tag) #:label (format "~aoutput" tag))))        
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -219,34 +232,32 @@
 		   (style #f '(center))))))
 	 (cons (list (para (bold "Types")) (para (bold "Functions")))
 	       (map (lambda (r)
-		      (map (lambda (s)
-			     (if (string? s)
-				 (para s)
-			         s))
-			   r))
+		      (map format-cell r))
 		    rows))))
 
-#|
-(define (worksheet-table col-headers . rows)
+(define (format-cell s)
+  (if (string? s)
+      (para s)
+      s))
+  
+;; worksheet-table : list[string] list[element] list[string] -> table
+;; assert: col-headers should be same length as (add1 id-tags)
+(define (worksheet-table col-headers left-col id-tags)
   (table (style #f 
 		(list 
 		 (table-columns
-		  (list 
-		   (style #f '(center))
-		   (style #f '(center))))))
+                  (build-list (add1 (length id-tags))
+                              (lambda (n) (style #f '(left)))))))
 	 (cons (map (lambda (h) (para (bold h))) col-headers)
-	       (map (lambda (r rownum)
-		      (map (lambda (s)
-			     (cond [(string? s) (para s)]
-				   [(symbol? s) 
-				   (fill-in-the-blank 
-				    [#:id (format "~a~a" s rownum)
-				     #:label (format "~a~a" s rownum)])]
-				   [else s]))
-			   r))
-		    rows (list 1 2 3 4 5 6))))))
-|#
-
+               (map (lambda (left-content row-num) 
+                      (cons (format-cell left-content)
+                            (map (lambda (tag) 
+                                   (para (fill-in-the-blank 
+                                          #:id (format "~a~a" tag row-num)
+                                          #:label (format "~a~a" tag row-num))))
+                                 id-tags)))
+                    left-col (build-list (length left-col) add1)))))
+               
 (define (standards . body)
   (list "State Standards:"
         (compound-paragraph (bootstrap-sectioning-style "BootstrapStandards")
@@ -281,3 +292,6 @@
   (list "Preparation:"
         (apply itemlist items #:style "BootstrapPreparationList")))
 
+(define (agenda . items)
+  (list "Agenda:"
+        (apply itemlist items #:style "BootstrapAgendaList")))
