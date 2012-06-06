@@ -29,18 +29,19 @@ State Standards
 See @(hyperlink "asdf" "Bootstrap Standards Matrix") provided as part of the Bootstrap curriculum. 
 
 Length: 90 min
-
+@tag[pedagogy]{
 @materials[@item{Computers w/ DrRacket or WeScheme}
-           @item{Student  @(hyperlink "https://spreadsheets.google.com/pub?key=0Ak3Voejjnf0ldHlQcXRVWTZDbVprWHlBLTJWRlQ2dkE&hl=en&gid=0" "workbook") folders @tag[pedagogy]{- in pairs! - with names on covers.}}
-           @item{@tag[pedagogy]{Pens/pencils for the students, fresh whiteboard markers for teachers}}
-           @item{@tag[pedagogy]{Class posters (List of rules, basic skills, course calendar)}}
-           @item{@tag[pedagogy]{Language Table (see below)}}]
+           @item{Student  @(hyperlink "https://spreadsheets.google.com/pub?key=0Ak3Voejjnf0ldHlQcXRVWTZDbVprWHlBLTJWRlQ2dkE&hl=en&gid=0" "workbook") folders - in pairs! - with names on covers.}
+           @item{Pens/pencils for the students, fresh whiteboard markers for teachers}
+           @item{Class posters (List of rules, basic skills, course calendar)}
+           @item{Language Table (see below)}]}
 
+@tag[pedagogy]{
 @preparation[@item{Write agenda on board}
              @item{Student games open on their computers}
              @item{OPTIONAL: Bug Hunting [@(hyperlink "racketfile" "DrRacket file") + @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/Teachpack/cage-teachpack.rkt" "teachpack")  @(hyperlink "wescheme file" "WeScheme")] preloaded on students' machines, in front}
              @item{Class posters}
-             @item{Seating arrangements: ideally clusters of desks/tables}]
+             @item{Seating arrangements: ideally clusters of desks/tables}]}
 
 @(language-table (list "Number" @code{+ - * / sq sqrt expt}) 
                  (list "String" @code{string-append string-length})
