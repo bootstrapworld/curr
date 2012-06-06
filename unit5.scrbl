@@ -13,7 +13,7 @@
 @item{5min  Closing}
 ]
 
-@section{Overview}
+@bold{Unit Overview}
 
 Students define functions that map position n to position n+1, allowing them to move their dangers, targets, and projectiles
 
@@ -46,9 +46,6 @@ Length: 90 min
                  (list "String" @code{string-append string-length})
                  (list "Image" @code{rectangle circle triangel ellipse radial-star scale rotate put-image}))
 
-@lesson[#:title "Introduction"#:duration "25 min"]{
-@itemlist[@item{}]}
-
 @lesson[#:title "Introduction" #:duration "25 min"]{
 @itemlist[@item{@tag[pedagogy]{If you have students tackle the bug-hunting activity, be aware that the file contains several bugs! Until students have fixed all of them, they will always get an error message when they attempt to run the file. This is by design, to encourage students to both read the error and to look at it's location.}}
           @item{@tag[selftaught]{If you tackle the bug-hunting activity, be aware that the file contains several bugs! Until you have fixed all of them, you will always get an error message when you attempt to run the file. This is by design, to encourage you to both read the error and to look at it's location.}}]}
@@ -58,13 +55,13 @@ Length: 90 min
           @item{Who wants to start making their game move?}
           @item{@tag[pedagogy]{Draw a 640x480 "game screen" on the board, and have students help you label the axes and corners.}}
           @item{@tag[selftaught]{
-                @think-about[#:question "Draw a 640x480 'game screen' on the board, and have students help you label the axes and corners."
+                @think-about[#:question "Draw a 640x480 'game screen' on the board, and label the axes and corners."
                              #:answer @image["PUT IMAGE HERE"]]}}
           @item{Here I've drawn a really boring game: my Danger is the letter "D", my Target is the letter "T", and my Player is just the letter "P". I've also labeled all the coordinates for where they are on the screen. PUT IMAGE}
           @item{@think-about[#:question "What is the Danger's x-coordinate? Its y-coordinate?"
                              #:answer "Danger's x-coordinate is 500 and its y-coordinate is 100"]}
           @item{@think-about[#:question "Suppose my Danger is moving to the left. What is changing, the x- or the y-coordinate?"
-                             #:answer "The x-coordinate is changing since you are moving horizontally"]}
+                             #:answer "The x-coordinate is changing since you are moving horizontally."]}
           @item{@tag[selftaught]{Draw an arrow to the NEW location, and label the coordinates.}}
           @item{PUT IMAGE WITH NEW COORDINATES}
           @item{@think-about[#:question "Suppose it moved to the right, by 50 pixels. What are the new coordinates?"
@@ -90,7 +87,7 @@ Length: 90 min
 @lesson[#:title "Optional: Fun With Movement" #:duration "20 min"]{
 @itemlist[@item{Can you make your danger move slower? faster?}
            @item{Can you make your target move the other way? (just to try)}
-           @item{It'll break your examples, but there's a function called (random n)that gives you a random number less than n. Can you make your target move with random speed?}]}
+           @item{It'll break your examples, but there's a function called (random n) that gives you a random number less than n. Can you make your target move with random speed?}]}
 
 @lesson[#:title "Optional: Projectile Movement" #:duration "15 min"]{
 @itemlist[@item{@tag[pedagogy]{NOTE FOR INSTRUCTORS: Many teachers find it useful to add projectiles only at the end of the class, as a "treat" for kids. It also tends to help break the "shooting-style" bias that a lot of students have.}}
@@ -108,8 +105,7 @@ Length: 90 min
                                                  @item{When the Target and Danger move offscreen, they never come back}
                                                  @item{Nothing happens when the Player collides with the Danger or Target}]}
            @item{We're going to fix these over the next few lessons, and also work on the artwork and story for our games, so stay tuned!}
-           @item{@tag[pedagogy]{Who can tell us one thing we learned today?
-                                @free-response[#:id "chp5review"]}}
+           @item{@tag[pedagogy]{Who can tell us one thing we learned today?}}                     
            @item{@tag[selftaught]{Write down a few things you learned today}}
            @item{@tag[pedagogy]{Who saw someone else in the class do something great?}}
            @item{@tag[pedagogy]{Cleanup, dismissal.}}]}
