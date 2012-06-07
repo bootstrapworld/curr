@@ -190,7 +190,7 @@ Length: 90 min
          #:answer "There are two possible answers. For an example, if you put a 3, 5, and '-' sign in the Circle of Evaluation, you can either have 3 - 5, which is -2, or you can have 5-3, which is 2."]}}}
    @item{@exercise{@tag[pedagogy]{Write 4 + 5 * 6 in a Circle of Evaluation, and ask students what they think the value is. As with subtraction, have them discover that order of operations matters, and use the actual formulas to demonstrate: ("5*6 + 4", "4*5 + 6")} @tag[selftaught]{Write 4 + 5 * 6 in a Circle of Evaluation. What do you think the value is?}}}
    @item{We need to improve our Circle of Evaluation, so we don't run into this problem. Let's use the two solutions we came up with: @itemlist[
-      @item{all circles have one function}
+      @item{all circles have only one function}
       @item{it matters in what order the arguments are written.}                                                                     
       ]}
    @item{We'll separate the function from the inputs by drawing a line between them: the function is above the line, the inputs are below.}
