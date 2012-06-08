@@ -7,7 +7,7 @@
          scribble/base
          scribble/core
          scribble/decode
-         scribble/manual
+         [except-in scribble/manual code]
          scribble/html-properties
          (for-syntax racket/base))
 

@@ -1,5 +1,5 @@
 #lang scribble/base
-@(require "lib/all.rkt")
+@(require "../../../../lib/all.rkt")
 @declare-tags[group pedagogy selftaught]
 @title{Unit 2: Contracts, Strings and Images}
 Unit Overview:
