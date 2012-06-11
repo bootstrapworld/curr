@@ -54,10 +54,11 @@
          
          
          ;; stuff added by the interns
-         
+         ;;edited contract-exercise
          overview
          copyright
          relatedlessons
+         example
          )        
 
 
@@ -178,10 +179,7 @@
 ;        " -> "
 ;        (fill-in-the-blank #:id (format "~aoutput" tag) #:label (format "~aoutput" tag))))        
 
-(define (contract-exercise tag)
-  (para ";" (fill-in-the-blank #:id (format "~aname" tag) #:label "Name")
-        ":" (fill-in-the-blank #:id (format "~aarg" tag) #:label "Domain")
-        "->" (fill-in-the-blank #:id (format "~aoutput" tag) #:label "Range")))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
@@ -340,7 +338,18 @@
 (define (relatedlessons . items)
   (list "Related Lessons:"
         (apply itemlist items #:style "BootstrapRelatedList")))
-
+;if it is a conditional example, cond? is true, otherwise false
+(define (example cond? tag)
+  (para "(EXAMPLE (" (fill-in-the-blank 
+                        #:id (format "~a~a" tag ".0")
+                        #:label "Use the function here") ") "
+        (fill-in-the-blank
+         #:id (format "~a~a" tag ".1")
+         #:label (if cond? "What should the function produce?" "Find another way to get the same result here"))")"))
+(define (contract-exercise tag)
+  (para ";" (fill-in-the-blank #:id (format "~aname" tag) #:label "Name")
+        ":" (fill-in-the-blank #:id (format "~aarg" tag) #:label "Domain")
+        "->" (fill-in-the-blank #:id (format "~aoutput" tag) #:label "Range")))
 (define (copyright . body)
   (para "Bootstrap by " (hyperlink "http://www.bootstrapworld.org/" "Emmanuel Schanzer") " is licensed under a "
         (hyperlink "http://creativecommons.org/licenses/by-nc-nd/3.0/" "Creative Commons 3.0 Unported License")
