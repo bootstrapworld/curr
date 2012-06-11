@@ -47,7 +47,12 @@
          ;; Misc
          standards
          unit-length
-)        
+
+
+
+         ;; Include lesson
+         include-lesson
+         )        
 
 
 
@@ -301,3 +306,17 @@
 (define (agenda . items)
   (list "Agenda:"
         (apply itemlist items #:style "BootstrapAgendaList")))
+
+
+
+
+
+(define (extract-lesson p)
+  (unless (part? p)
+    (error 'include-lesson "doc binding is not a part: ~e" p))
+  (part-blocks p))
+
+(define-syntax-rule (include-lesson mp)
+  (begin
+    (require (only-in mp [doc abstract-doc]))
+    (extract-lesson abstract-doc)))
