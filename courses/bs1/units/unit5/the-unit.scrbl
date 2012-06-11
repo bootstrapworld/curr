@@ -50,6 +50,10 @@ Length: 90 min
 @(include-lesson "../../../../lessons/Danger-Movement/lesson/lesson.scrbl")
 
 @(include-lesson "../../../../lessons/Target-Movement/lesson/lesson.scrbl")
+
+@(include-lesson "../../../../lessons/Fun-With-Movement/lesson/lesson.scrbl")
+
+@(include-lesson "../../../../lessons/Projectile-Movement/lesson/lesson.scrbl")
                                 
 
 

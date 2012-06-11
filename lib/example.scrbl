@@ -1,4 +1,4 @@
-#lang planet dyoo/scribble-bootstrap:3
+#lang curr/lib
 @title{Example}
 
 @; Note: this document can be generated in different contexts.
@@ -121,3 +121,4 @@ Here is another one:
 @item{Pack suitcase}
 @item{Go home}
 ]
+@overview{This is an overviewwwwwwwwwww}
