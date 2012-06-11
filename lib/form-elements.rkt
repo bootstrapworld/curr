@@ -24,7 +24,6 @@
          language-table
 	 worksheet-table
          contract-exercise
-         overview
          
          ;; Sections
          worksheet
@@ -52,6 +51,13 @@
 
          ;; Include lesson
          include-lesson
+         
+         
+         ;; stuff added by the interns
+         
+         overview
+         copyright
+         relatedlessons
          )        
 
 
@@ -162,16 +168,20 @@
                  (if purpose (list (format-racket-header purpose)) '())
                   body)))
 
-(define (contract-exercise tag #:func-name (func-name #f))
-  (para ";"
-        (if func-name
-            func-name
-            (fill-in-the-blank #:id (format "~aname" tag) #:label (format "~aname" tag)))
-        " : "
-        (fill-in-the-blank #:id (format "~aarg" tag) #:label (format "~aarg" tag))
-        " -> "
-        (fill-in-the-blank #:id (format "~aoutput" tag) #:label (format "~aoutput" tag))))        
+;(define (contract-exercise tag #:func-name (func-name #f))
+;  (para ";"
+;        (if func-name
+;            func-name
+;            (fill-in-the-blank #:id (format "~aname" tag) #:label (format "~aname" tag)))
+;      " : "
+;        (fill-in-the-blank #:id (format "~aarg" tag) #:label (format "~aarg" tag))
+;        " -> "
+;        (fill-in-the-blank #:id (format "~aoutput" tag) #:label (format "~aoutput" tag))))        
 
+(define (contract-exercise tag)
+  (para ";" (fill-in-the-blank #:id (format "~aname" tag) #:label "Name")
+        ":" (fill-in-the-blank #:id (format "~aarg" tag) #:label "Domain")
+        "->" (fill-in-the-blank #:id (format "~aoutput" tag) #:label "Range")))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
@@ -199,10 +209,7 @@
         (compound-paragraph (bootstrap-sectioning-style "BootstrapLesson")
                             (decode-flow body))))
 
-(define (overview . body)
-  (list (format "Unit Overview ~n")
-  (compound-paragraph (bootstrap-sectioning-style "BootstrapOverview")
-                      (decode-flow body))))
+
 
 
 (define (drill . body)
@@ -311,6 +318,7 @@
 
 
 
+
 (define (extract-lesson p)
   (unless (part? p)
     (error 'include-lesson "doc binding is not a part: ~e" p))
@@ -320,3 +328,24 @@
   (begin
     (require (only-in mp [doc abstract-doc]))
     (extract-lesson abstract-doc)))
+
+
+
+;;interns
+
+(define (overview . body)
+  (list (format "Unit Overview")
+  (compound-paragraph (bootstrap-sectioning-style "BootstrapOverview")
+                      (decode-flow body))))
+(define (relatedlessons . items)
+  (list "Related Lessons:"
+        (apply itemlist items #:style "BootstrapRelatedList")))
+
+(define (copyright . body)
+  (para "Bootstrap by " (hyperlink "http://www.bootstrapworld.org/" "Emmanuel Schanzer") " is licensed under a "
+        (hyperlink "http://creativecommons.org/licenses/by-nc-nd/3.0/" "Creative Commons 3.0 Unported License")
+        ". Based on a work at " (hyperlink "http://www.bootstrapworld.org/" "www.BootsrapWorld.org")
+        ". Permissions beyond the scope of this license may be available at "
+        (hyperlink "mailto:schanzer@BootstrapWorld.org" "schanzer@BootstrapWorld.org") "."))
+        
+  
