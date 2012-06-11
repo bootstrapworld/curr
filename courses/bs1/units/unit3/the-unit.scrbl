@@ -58,12 +58,12 @@ Language Table
                  (list "String" "string-append string-length")
                  (list "Image" "radial-star scale rotate put-image"))
 
-@(include-lesson curr/lessons/Intro-Functions-Data-Review/lesson/lesson.scrbl)
-@(include-lesson curr/lessons/Defining-Variables/lesson/lesson.scrbl)
-@(include-lesson curr/lessons/Game-Screenshots/lesson/lesson.scrbl)
-@(include-lesson curr/lessons/Fast-Functions/lesson/lesson.scrbl)
-@(include-lesson curr/lessons/Blue-Circles/lesson/lesson.scrbl)
-@(include-lesson curr/lessons/Double/lesson/lesson.scrbl)
+@(include-lesson "../../../../lessons/Intro-Functions-Data-Review/lesson/lesson.scrbl")
+@(include-lesson "../../../../lessons/Defining-Variables/lesson/lesson.scrbl")
+@(include-lesson "../../../../lessons/Game-Screenshots/lesson/lesson.scrbl")
+@(include-lesson "../../../../lessons/Fast-Functions/lesson/lesson.scrbl")
+@(include-lesson "../../../../lessons/Blue-Circle/lesson/lesson.scrbl")
+@(include-lesson "../../../../lessons/Double/lesson/lesson.scrbl")
         
 @lesson[#:title "Closing" #:duration "5 minutes"]{
 
@@ -75,3 +75,5 @@ Language Table
         @item{@tag[pedagogy]{Cleanup, dismissal.}}
         ]}
        
+
+@copyright[]

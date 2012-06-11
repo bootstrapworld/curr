@@ -1,5 +1,4 @@
-#lang scribble/base
-@(require "../lib/all.rkt")
+#lang curr/lib
 @declare-tags[group pedagogy selftaught bootstrap]
 
 @title{Unit 6:
@@ -76,3 +75,5 @@ Language Table
         @item{@tag[pedagogy]{Who saw someone else in the class do something great?}}
         @item{@tag[pedagogy]{Cleanup, dismissal.}}
         ]}
+
+@copyright[]

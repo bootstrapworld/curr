@@ -66,3 +66,5 @@ Length: 90 minutes
 @item{@tag[pedagogy]{Cleanup, dismissal}}
 ]
 }
+
+@copyright[]

@@ -68,3 +68,6 @@ Length: 90 min
            @item{@tag[selftaught]{Write down a few things you learned today}}
            @item{@tag[pedagogy]{Who saw someone else in the class do something great?}}
            @item{@tag[pedagogy]{Cleanup, dismissal.}}]}
+
+
+@copyright[]

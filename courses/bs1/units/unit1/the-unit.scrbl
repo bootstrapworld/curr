@@ -88,6 +88,4 @@ Length: 90 min
 }
  }
 
-         
-         
-       
+@copyright[]
