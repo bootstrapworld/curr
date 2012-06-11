@@ -1,5 +1,5 @@
 #lang curr/lib
-
+@declare-tags[pedagogy group selftaught]
 @lesson[#:title "Introducing the Design Recipe"
         #:duration "25 minutes"]{
   @itemlist[
