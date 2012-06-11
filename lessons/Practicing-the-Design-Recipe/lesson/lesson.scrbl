@@ -1,5 +1,5 @@
 #lang curr/lib
-
+@declare-tags[pedagogy group selftaught]
 @lesson[#:title "Practicing the Design Recipe"
         #:duration "20 minutes"]{@itemlist[
                   @item{@tag[pedagogy]{Note: if space allows, this section can also be done on the board with multiple, simultaneous challenges. See the video links for an example.}}

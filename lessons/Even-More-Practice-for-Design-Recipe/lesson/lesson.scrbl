@@ -1,5 +1,5 @@
 #lang curr/lib
-
+@declare-tags[pedagogy group selftaught]
 @lesson[#:title "Even More Practice (Yard Area)"
         #:duration "20 minutes"]{
   @itemlist[
