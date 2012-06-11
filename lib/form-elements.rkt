@@ -145,11 +145,11 @@
 (define (think-about #:question question 
                      #:hint (hint #f)
                      #:answer (answer #f))
-  (sxml->element (string-append
-                     question
-                     (if hint (format " (Hint: ~a)" hint) "")
-                     (if answer (format " (Answer: ~a)" answer) "")
-                   )))
+  (list
+   question
+   (if hint (format " (Hint: ~a)" hint) "")
+   (if answer (format " (Answer: ~a)" answer) "")
+   ))
 
 (define (format-racket-header str)
   (format "; ~a~n" str))
