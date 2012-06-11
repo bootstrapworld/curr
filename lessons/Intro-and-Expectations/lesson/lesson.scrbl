@@ -1,4 +1,6 @@
-#lang scribble/base
+#lang curr/lib
+
+@declare-tags[pedagogy selftaught group]
 
 @lesson[#:title "Introduction and Expectations"
         #:duration "5 minutes"
