@@ -26,7 +26,6 @@ include other datatypes, including Strings and Images.
 See @(hyperlink "http://insertlinkhere.com" "Bootstrap Standards Matrix") for State Standards
 
 
-
 Length: 90 minutes
 @tag[pedagogy]{
 @materials[@item{Student workbook folders @tag[group]{- in pairs! - with names on folders}}
