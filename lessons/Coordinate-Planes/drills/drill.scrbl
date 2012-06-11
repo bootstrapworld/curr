@@ -9,8 +9,8 @@
                              #:answer "0"]
                 @think-about[#:question "What about the y-coordinate?"
                              #:answer "5"]}
-          @item{@item{@think-about[#:question "How far away is your house from your grandfather's house?"
-                             #:answer "4 miles"]}}
+          @item{@think-about[#:question "How far away is your house from your grandfather's house?"
+                             #:answer "4 miles"]}
           @item{@think-about[#:question "If it takes you 30 minutes to walk one mile, how many minutes does it take for you to get to your grandpa's house?"
                              #:answer "120 minutes or 2 hours"]}
           @item{@think-about[#:question "What is the x-coordinate of your friend's house?"
