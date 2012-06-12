@@ -37,6 +37,7 @@
                  
                  
                  @embedded-wescheme[#:id "Images"
-                   #:interactions-text ""]}
+                   #:interactions-text ""
+                   #:hide-definitions? #t]}
            @item{Going Further - If time allows, you can go further into @(hyperlink "http://manipulatingimages.com" "Manipulating Images") or @(hyperlink "http://makingflags.com" "Making Flags")!}
            ]}
