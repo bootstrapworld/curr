@@ -59,6 +59,8 @@
          copyright
          example
          function-header
+
+         itemlist/splicing
          )        
 
 
@@ -295,33 +297,50 @@
 
 (define (materials . items)
   (list "Materials and Equipment:"
-        (apply itemlist items #:style "BootstrapMaterialsList")))
+        (apply itemlist/splicing items #:style "BootstrapMaterialsList")))
 
 (define (goals . items)
   (list "Goals:"
-        (apply itemlist items #:style "BootstrapGoalsList")))
+        (apply itemlist/splicing items #:style "BootstrapGoalsList")))
 
 (define (do-now . items)
   (list "Do Now:"
-        (apply itemlist items #:style "BootstrapDoNowList")))
+        (apply itemlist/splicing items #:style "BootstrapDoNowList")))
 
 (define (objectives . items)
   (list "Learning Objectives:"
-        (apply itemlist items #:style "BootstrapLearningObjectivesList")))
+        (apply itemlist/splicing items #:style "BootstrapLearningObjectivesList")))
 
 (define (product-outcomes . items)
   (list "Product Outcomes:"
-        (apply itemlist items #:style "BootstrapProductOutcomesList")))
+        (apply itemlist/splicing items #:style "BootstrapProductOutcomesList")))
 
 (define (preparation . items)
   (list "Preparation:"
-        (apply itemlist items #:style "BootstrapPreparationList")))
+        (apply itemlist/splicing items #:style "BootstrapPreparationList")))
 
 (define (agenda . items)
   (list "Agenda:"
-        (apply itemlist items #:style "BootstrapAgendaList")))
+        (apply itemlist/splicing items #:style "BootstrapAgendaList")))
 
 
+;; itemlist/splicing is like itemlist, but also cooperates with the
+;; splice form to absorb arguments.  We use this in combination
+;; with tags.
+(define (itemlist/splicing #:style [style #f] . items)
+  (define spliced-items
+    (reverse
+     (let loop ([items items]
+                [acc '()])
+       (foldl (lambda (i acc)
+                (cond
+                 [(splice? i)
+                  (loop (splice-run i) acc)]
+                 [else
+                  (cons i acc)]))
+              acc
+              items))))
+  (apply itemlist spliced-items #:style style))
 
 
 
