@@ -51,17 +51,17 @@ Length: 90 min
 
 @language-table[]
 
-@(include-lesson "../../../../lessons/Intro-and-Expectations/lesson/lesson.scrbl")
+@(include-lesson (lib "curr/lessons/Intro-and-Expectations/lesson/lesson.scrbl"))
 
-@(include-lesson "../../../../lessons/Dissecting-a-Demo/lesson/lesson.scrbl")
+@(include-lesson (lib "curr/lessons/Dissecting-a-Demo/lesson/lesson.scrbl"))
 
-@;(include-lesson curr/lessons/Coordinate-Planes/lesson/lesson.scrbl)
+@(include-lesson (lib "curr/lessons/Coordinate-Planes/lesson/lesson.scrbl"))
 
-@;(include-lesson curr/lessons/More-Dissecting/lesson/lesson.scrbl)
+@(include-lesson (lib "curr/lessons/More-Dissecting/lesson/lesson.scrbl"))
 
-@;(include-lesson curr/lessons/Intro-to-Racket-and-Numbers/lesson/lesson.scrbl)
+@(include-lesson (lib "curr/lessons/Intro-to-Racket-and-Numbers/lesson/lesson.scrbl"))
 
-@;(include-lesson curr/lessons/Circles-of-Evaluation/lesson/lesson.scrbl)
+@(include-lesson (lib "curr/lessons/Circles-of-Evaluation/lesson/lesson.scrbl"))
 
 @review{ 
  @tag[pedagogy]{
