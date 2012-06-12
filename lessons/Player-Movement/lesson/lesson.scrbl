@@ -2,7 +2,7 @@
 
 @declare-tags[pedagogy selftaught group]
 
-@lesson[#:title "Player Movement" #:duration "25 min" #:prerequisite "Pizza-Toppings"]{
+@lesson[#:title "Player Movement" #:duration "25 min" #:prerequisites "Pizza-Toppings"]{
 @itemlist[
      @item{Great! Now that we know @code{cond} we can write @code{update-player}.}
      @item{@tag[pedagogy]{Draw a screen on the board, and label the coordinates for a player, target and danger. Circle all the data associated with the Player.}

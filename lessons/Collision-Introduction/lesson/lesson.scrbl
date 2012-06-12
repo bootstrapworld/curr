@@ -1,11 +1,15 @@
 #lang curr/lib
 @declare-tags[group pedagogy selftaught bootstrap]
-@lesson[#:title "Introduction" #:duration "20 minutes"]{
+@lesson[#:title "Introduction" 
+        #:duration "20 minutes"
+        #:prerequisites "Coordinate-Plane Introducing-the-Design-Recipe Pizza-Toppings"]{
         @itemlist[@item{Review previous material.}
                   @item{Right now, in your games, what happens when the player collides with another game character? Nothing! We need to write a function change that.}
                   @item{This is going to require a little math.}
                   @; VIDEO FOR SELFTAUGHT?
-                  @item{Scroll to the @code{line-length} and @code{collide?} functions in your game files.}
+                  @item{Scroll to the @code{line-length} and @code{collide?} functions in your game files.
+                                      @; FILEALTERNATIVE
+                                      }
                   @item{@tag[pedagogy]{Suppose I'm the player, moving around up here at the front of the class. Can I have a volunteer come up here and be the Target?}}
                   @item{@tag[pedagogy]{Have a volunteer stand up in front of the class, swinging their arms around, helicopter-style.}}
                   @item{@tag[pedagogy]{I need to know how far apart I am from the danger, so I'll know when we've collided. Can anyone tell me how far apart we are? Have we collided?}}
@@ -15,25 +19,15 @@
                   @item{@tag[pedagogy]{Demonstrate this on the board, using a number line. Ask the following questions, filling in the blanks for contract as students give answers:}}
                   @item{@think-about[#:question @list{How many inputs does @code{line-length} take? What is the name of the input? What is the Domain? What is the Range?}
                                      #:answer "Input: two numbers, Domain: numbers, Range: number representing difference between the two numbers"]}
-                  @item{@tag[pedagogy]{@skit{I'd like to have one volunteer stand up and be our function. Raise your hand if you'd like to volunteer!
-                                             
-Your name is now "line-length". Whenever I call your name, I will also give you two numbers, and your job is to tell me the difference between them - just like the code on the board! Let's try one example "line-length twenty ten!" your volunteer should reply with "ten"
-
-Raise your hand if you'd like to try! Take some volunteers, and make sure line-length is doing the right thing (including bugs if the first number is smaller than the second!).}}}
+                  @item{@tag[pedagogy]{@skit{I'd like to have one volunteer stand up and be our function. Raise your hand if you'd like to volunteer! Your name is now "line-length". Whenever I call your name, I will also give you two numbers, and your job is to tell me the difference between them - just like the code on the board! Let's try one example "line-length twenty ten!" your volunteer should reply with "ten." Raise your hand if you'd like to try! Take some volunteers, and make sure line-length is doing the right thing (including bugs if the first number is smaller than the second!).}}}
                   @item{@think-about[#:question "What is the name of the second function? How many inputs does it take? What is the name of the input? What's the Domain? What's the Range? "
                                      #:answer "Name: collide?, Input: two numbers, Domain: numbers, Range: boolean"]}
-                 @item{@think-about[#:question @list{What does this function do? @tag[pedgogy]{Raise your hand if you have an idea.}}
+                 @item{@think-about[#:question @list{What does this function do? @tag[pedagogy]{Raise your hand if you have an idea.}}
                                     #:answer "Takes in two numbers and passes it in to line-length to calculate the difference and returns a boolean determining whether the two objects have collided (whether the difference is greater than 5)."]}
                  @item{@tag[pedagogy]{@skit{I'd like to have one volunteer stand up and be collide? Raise your hand if you'd like to volunteer!
-                                            
-Your name is now "collide?". Whenever I call your name, I will also give you two numbers, and your job is to say "true" if the difference between them is greater than five. What will you say if the difference is smaller than five?
-
-Let's try an example: "collide? ten twenty"! Make sure collide? calls on line-length!. Let's have some more examples...
-
-So what's the problem, if the second number is bigger? we keep getting negative numbers!
-
-Thank you! You can both have a seat now. A round of applause for our brave volunteers!
-}}}
+                                            Your name is now "collide?". Whenever I call your name, I will also give you two numbers, and your job is to say "true" if the difference between them is greater than five. What will you say if the difference is smaller than five?
+                                            Let's try an example: "collide? ten twenty"! Make sure collide? calls on line-length!. Let's have some more examples...
+                                            So what's the problem, if the second number is bigger? we keep getting negative numbers!
+                                            Thank you! You can both have a seat now. A round of applause for our brave volunteers!}}}
                 @item{@tag[selftaught]{@think-about[#:question "So what's the problem, if the second number is bigger?"
-                                                    #:answer "We keep getting negative numbers!"]}}
-                ]}
+                                                    #:answer "We keep getting negative numbers!"]}}]}

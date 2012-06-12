@@ -56,11 +56,13 @@ Length: 90 min
 
 @(include-lesson (lib "curr/lessons/Intro-and-Expectations/lesson/lesson.scrbl"))
 
-@(include-lesson (lib "curr/lessons/Dissecting-a-Demo/lesson/lesson.scrbl"))
+@(include-lesson (lib "curr/lessons/Ninja-Cat-Demo/lesson/lesson.scrbl"))
 
 @(include-lesson (lib "curr/lessons/Coordinate-Planes/lesson/lesson.scrbl"))
 
-@(include-lesson (lib "curr/lessons/More-Dissecting/lesson/lesson.scrbl"))
+@(include-lesson (lib "curr/lessons/Ninja-Cat-Demo-Dissection/lesson/lesson.scrbl"))
+
+@(include-lesson (lib "curr/lessons/Ninja-Cat-Demo-Brainstorming/lesson/lesson.scrbl"))
 
 @(include-lesson (lib "curr/lessons/Intro-to-Racket-and-Numbers/lesson/lesson.scrbl"))
 

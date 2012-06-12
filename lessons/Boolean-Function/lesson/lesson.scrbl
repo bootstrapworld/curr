@@ -1,6 +1,8 @@
 #lang curr/lib
 @declare-tags[group pedagogy selftaught bootstrap]
-@lesson[#:title "Boolean Function" #:duration "15 minutes"]{
+@lesson[#:title "Boolean Function" 
+        #:duration "15 minutes"
+        #:prerequisites "Booleans Contracts"]{
    @itemlist[
       @item{You've already learned many functions that allow you to create Booleans. < and >, for example, will all return a boolean when applied to the appropriate input.}
       @item{There are also many functions that work with Booleans, and let you do really complex tests.}

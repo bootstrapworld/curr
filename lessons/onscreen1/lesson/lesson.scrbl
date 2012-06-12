@@ -1,6 +1,8 @@
 #lang curr/lib
 @declare-tags[group pedagogy selftaught bootstrap]
-@lesson[#:title "onscreen? 1.0" #:duration "25 minutes"]{
+@lesson[#:title "onscreen? 1.0" 
+        #:duration "25 minutes"
+        #:prerequisites "Introducing-the-Design-Rcipe Coordinate-Planes Booleans"]{
  @itemlist[
            @item{@tag[pedagogy]{Draw a rectangle on the board, to represent the screen. Then turn students' attention to the computers, and have them analyze the last function in the code, called onscreen?.}}
             @item{@tag[selftaught]{Draw a rectangle in your notes, to represent a computer screen. Now, you will analyze the last function in the code, called onscreen?.}}
@@ -25,12 +27,10 @@
             @item{@exercise{@tag[pedagogy]{According to the problem statement, what's your name? What's your Domain? Your Range? Given Sam's x-coordinate, and tell me if any part of him is still on the screen. Let's try it out. "protect-left forty-five!" "protect-left three!" "protect-left negative fifty-one!" How did you know Sam wasn't protected at -51? because the number was less than -50!.}@tag[selftaught]{@think-about[#:question "What is protect-left -3?" #:answer "True! The distance from the center of the butterfly to its edge is 50, so there are still 47 pixels of the butterfly on screen."]@think-about[#:question "What is protect-left -47?" #:answer "True! The distance from the center of the butterfly to its edge is 100, so there are still 3 pixels of the butterfly on screen."]@think-about[#:question "What is protect-left -51?" #:answer "False! The distance from the center of the butterfly to its edge is 50, so the butterfly is offscreen by 1 pixel."]}}}
             @item{Complete the design recipe for protect-left. @tag[pedagogy]{Raise your hand after you complete each step.}}
             @item{@tag[(pedagogy group)]{When a team has completed the Design Recipe for protect-left, they must type in the examples and function body onto the computer.}}
-            @item{So now we have a function that will protect Sam on the left side of the screen. But at the moment, onscreen?
- doesn't know how to use that function. We need to change the body of onscreen? so that it can talk to protect-left:
- @code{(define (onscreen? x)}
- @code{ (protect-left x))}}
+            @item{So now we have a function that will protect Sam on the left side of the screen. But at the moment, onscreen? doesn't know how to use that function. We need to change the body of onscreen? so that it can talk to protect-left:
+                  @code{(define (onscreen? x)}
+                  @code{ (protect-left x))}}
             @item{Click "Run", and try to move Sam off the left edge of the screen. Congrats! You've protected Sam on one side!}
             @item{Unfortunately, Sam can still escape on the right hand side. We need a protect-right! @tag[pedagogy]{(act out with another volunteer, if necessary).}}
             @item{Turn to @(hyperlink "page19.com" "Page 19"), and write another function called protect-right. @tag[pedagogy]{Call me over when you reach a stopping point!}}
-            @item{Good job! Now we can protect Sam on the left side, or we can protect Sam on the right side. However, we don't have a way to protect him from going off from both sides at the same time! We need to learn something new to save him in both directions. }
-            ]}
+            @item{Good job! Now we can protect Sam on the left side, or we can protect Sam on the right side. However, we don't have a way to protect him from going off from both sides at the same time! We need to learn something new to save him in both directions. }]}

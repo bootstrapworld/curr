@@ -2,7 +2,7 @@
 
 @declare-tags[pedagogy selftaught group]
 
-@lesson[#:title "Pizza Toppings" #:duration "30 min" #:prerequisite "Booleans"]{
+@lesson[#:title "Pizza Toppings" #:duration "30 min" #:prerequisites "Booleans"]{
    @(hyperlink "http://www.youtube.com/watch?v=2ckWSjWum-8" "Intro to Cond Part 1")
    @(hyperlink "http://www.youtube.com/watch?v=iTrY-N3MLRY" "Intro to Cond Part 2")
    @itemlist[

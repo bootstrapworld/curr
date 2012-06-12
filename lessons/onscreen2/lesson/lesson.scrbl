@@ -1,6 +1,8 @@
 #lang curr/lib
 @declare-tags[group pedagogy selftaught bootstrap]
-@lesson[#:title "onscreen? 2.0" #:duration "25 minutes"]{
+@lesson[#:title "onscreen? 2.0" 
+        #:duration "25 minutes"
+        #:prerequisites "onscreen1 Boolean-Function"]{
      @itemlist[
          @item{@exercise{Now it's time to put it all together. Right now, you know how to protect Sam on the left side of the screen, and how to protect him on the right side. But how do we protect him on BOTH sides at the same time?}}
          @item{Turn to @(hyperlink "page21.com" "Page 21") and read the problem statement.}
@@ -12,5 +14,7 @@
          @item{It's time to write the contract and examples!  Don't forget what we just went over! @tag[pedagogy]{Raise your gands so I can check your work at each step}}
          @item{@tag[pedagogy]{Guide students as necessary, and eventually have them write the code on the computer.}}
          @item{@tag[selftaught]{Write the contract here -> @fill-in-the-blank[#:id "contract"]}}
-         @item{Guess what? This function can be dropped into your game file, and used to have your characters come back once they've gone off the screen!}
+         @item{Guess what? This function can be dropped into your game file, and used to have your characters come back once they've gone off the screen!
+               @;FILEALTERNATIVE
+               }
          @item{Copy and paste the three functions into your game files.}]}
