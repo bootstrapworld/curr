@@ -2,6 +2,8 @@
 
 @title{Unit 1: Videogames and Coordinate Planes}
 
+@declare-tags[group pedagogy selftaught]
+
 @agenda[
 @item{5min  Intro & Expectations}
 @item{10min Dissecting a Demo}
@@ -13,10 +15,10 @@
 @item{5min  Closing}
 ]
 
-@section{Overview} 
+@overview{
 Students discuss the components of their favorite videogames, and discover that they can be reduced to a series of coordinates. They then explore coordinates in Cartesian space, and identify the coordinates for the characters in a game at various points in time. Once they are comfortable with coordinates, they brainstorm their own games and create sample coordinate lists for different points in time in their own game.
 
-@declare-tags[group pedagogy selftaught]
+
 
 @objectives[@item{Learn to work as a team}
           @item{Learn the basic expectations and goals of the class}
@@ -50,6 +52,7 @@ Length: 90 min
 }
 
 @language-table[]
+}
 
 @(include-lesson (lib "curr/lessons/Intro-and-Expectations/lesson/lesson.scrbl"))
 
