@@ -151,3 +151,13 @@ Here is another one:
 
 @;updated think-about to take in any tags within questions
 @think-about[#:question @list{@code{123}}]
+
+@; The following uses an itemlist with splicing support.
+@itemlist/splicing[
+@item{hello}
+@item{world}
+@tag[student]{@item{Only students should see this.}}
+@decode:splice[(list @item{test} @item{blah})]
+
+@item{blahslkl}
+]
