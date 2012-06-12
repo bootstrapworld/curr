@@ -58,12 +58,12 @@ Language Table
                  (list "String" "string-append string-length")
                  (list "Image" "radial-star scale rotate put-image"))
 
-@(include-lesson "../../../../lessons/Intro-Functions-Data-Review/lesson/lesson.scrbl")
-@(include-lesson "../../../../lessons/Defining-Variables/lesson/lesson.scrbl")
-@(include-lesson "../../../../lessons/Game-Screenshots/lesson/lesson.scrbl")
-@(include-lesson "../../../../lessons/Fast-Functions/lesson/lesson.scrbl")
-@(include-lesson "../../../../lessons/Blue-Circle/lesson/lesson.scrbl")
-@(include-lesson "../../../../lessons/Double/lesson/lesson.scrbl")
+@(include-lesson (lib "curr/lessons/Intro-Functions-Data-Review/lesson/lesson.scrbl"))
+@(include-lesson (lib "curr/lessons/Defining-Variables/lesson/lesson.scrbl"))
+@(include-lesson (lib "curr/lessons/Game-Screenshots/lesson/lesson.scrbl"))
+@(include-lesson (lib "curr/lessons/Fast-Functions/lesson/lesson.scrbl"))
+@(include-lesson (lib "curr/lessons/Blue-Circle/lesson/lesson.scrbl"))
+@(include-lesson (lib "curr/lessons/Double/lesson/lesson.scrbl"))
         
 @lesson[#:title "Closing" #:duration "5 minutes"]{
 

@@ -44,9 +44,9 @@ Length: 90 min
                  (list "Image" @code{rectangle circle triangle ellipse radial-star scale rotate put-image})
                  (list "Boolean" @code{= > < string=? and or}))
 
-@(include-lesson "../../../../lessons/Intro-Review-Until-Conditionals/lesson/lesson.scrbl")
-@(include-lesson "../../../../lessons/Pizza-Toppings/lesson/lesson.scrbl")
-@(include-lesson "../../../../lessons/Player-Movement/lesson/lesson.scrbl")
+@(include-lesson (lib "curr/lessons/Intro-Review-Until-Conditionals/lesson/lesson.scrbl"))
+@(include-lesson (lib "curr/lessons/Pizza-Toppings/lesson/lesson.scrbl"))
+@(include-lesson (lib "curr/lessons/Player-Movement/lesson/lesson.scrbl"))
 
 @lesson[#:title "Closing" #:duration "5 min"]{
 @itemlist[

@@ -38,11 +38,11 @@ Length: 90 minutes
                  (list "String" "string-append string-length")
                  (list "Image" "rectangle circle triangle ellipse radial-star scale rotate put-image"))
 
-@(include-lesson "../../../../lessons/Intro-until-Design-Recipe/lesson/lesson.scrbl")
-@(include-lesson "../../../../lessons/Introducing-the-Design-Recipe/lesson/lesson.scrbl")
-@(include-lesson "../../../../lessons/Practicing-the-Design-Recipe/lesson/lesson.scrbl")
-@(include-lesson "../../../../lessons/Even-More-Practice-for-Design-Recipe/lesson/lesson.scrbl")
-@(include-lesson "../../../../lessons/Closing-Design-Recipe/lesson/lesson.scrbl")
+@(include-lesson (lib "curr/lessons/Intro-until-Design-Recipe/lesson/lesson.scrbl"))
+@(include-lesson (lib "curr/lessons/Introducing-the-Design-Recipe/lesson/lesson.scrbl"))
+@(include-lesson (lib "curr/lessons/Practicing-the-Design-Recipe/lesson/lesson.scrbl"))
+@(include-lesson (lib "curr/lessons/Even-More-Practice-for-Design-Recipe/lesson/lesson.scrbl"))
+@(include-lesson (lib "curr/lessons/Closing-Design-Recipe/lesson/lesson.scrbl"))
 
 @copyright[]
 
