@@ -10,7 +10,7 @@
     @item{So let's look back at our table @(hyperlink "page1.com" "(page 1)"). Now that we know what a position is, let's be more specific about what is changing during the game.}
     @item{@think-about[#:question "Can NinjaCat move up and down in the game? Can he move left and right? So what's changing: his x-coordinate, his y-coordinate, or both?"
                        #:answer "NinjaCat can move both up and down and left and right. So both his x and y-coordinate are changing."]}
-    @item{@think-about[#:question "What about the clouds? Do they move up and down? Left and right? Fill in the rest of the table @tag[group]{with your team.}"
+    @item{@think-about[#:question @list{What about the clouds? Do they move up and down? Left and right? Fill in the rest of the table @tag[group]{with your team.}}
                        #:answer "The clouds only move left and right."]}
     @item{@tag[pedagogy]{Terrific! Great job, all of you. }Now, turn to @(hyperlink "page2.com" "page 2") in your game planning workbooks and look at the project sheet that has a picture of the NinjaCat game you just saw.}
     @item{@tag[pedagogy]{Raise your hand if you can tell me what the coordinates are of the upper-left-hand corner. Take volunteers. What about the bottom-right-hand corner? What about the coordinates of the point right in the center of the screen?} @tag[selftaught]{@think-about[

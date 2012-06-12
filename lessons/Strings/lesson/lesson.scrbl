@@ -13,8 +13,8 @@
            @item{Racket also gives us functions we can use to work with Strings. For example, there's a function called string-length. What do you think it does? I'll give you one hint: the contract.
                  @tag[pedagogy]{Write the contract on the board, but without the labels Name, Domain, and Range:}
                  @tag[selftaught]{@think-about[#:question "Try to write the contract for string-length and check below."
-                                              #:answer @code{; string-length: String -> Number
-                                       }]}
+                                              #:answer @code[#:contract "string-length: String -> Number"
+                                       ]]}}
                  @tag[pedagogy]{@code{; string-length: String -> Number
                                        }}}
            @item{@think-about[#:question "What is the domain of this function? What is the range?"
