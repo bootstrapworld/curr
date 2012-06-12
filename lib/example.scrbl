@@ -1,5 +1,6 @@
 #lang curr/lib
 @(require racket/bool)
+@(require (prefix-in decode: scribble/decode))
 @title{Example}
 
 @; Note: this document can be generated in different contexts.
@@ -154,3 +155,14 @@ Here is another one:
 @; con? - whether example is for conditional
 @;tag - a string used in generating the id
 @(function-header true "13")
+
+
+
+
+
+@; The following uses an itemlist with splicing support.
+@itemlist/splicing[
+@item{hello}
+@item{world}
+@decode:splice[(list @item{test} @item{blah})]
+]
