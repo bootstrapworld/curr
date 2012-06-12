@@ -7,7 +7,9 @@
         @item{@tag[(pedagogy selftaught)]{Note: this section and the one that follows ("Game Screenshots") teach the same concepts as the supplemental @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/SupplementalLessons.html#flags" "Flags") and @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/SupplementalLessons.html#changing" "Changing Images") activities.  Some students will find the flags activity more engaging and creative, while others are itching to see their games take shape. Choose whichever activity is best-suiited to your needs}}
         @item{@tag[pedagogy]{@demo{Have students open their game files, and click Run. They should see a frozen screenshot of their game, using the images they requested. (By now, you should have students' graphics already created, and @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/TeachersGuide.html#addingimages" "added to the file")}}} 
               @;SELF TAUGHT THINGA MADOHICKY
-        @item{So far, everything that you've been doing has been down in the Interactions window. What happens when you click Run at the top? All the work you did disappears!}
+        @item{So far, everything that you've been doing has been down in the Interactions window. What happens when you click Run at the top? All the work you did disappears!
+              @embedded-wescheme[#:id "Defining Variables"
+                   #:interactions-text "Click Run above and what happens?"]}
         @item{That's because the Interactions window is mean just for trying things out. If you want to define something permanently, you need to use the Definitions window}
         @item{This is a bare-bones, totally broken game. It doesn't DO anything...YET!}
         @item{Look below Step 0, near the top of the screen. @tag[pedagogy]{Raise your hand if you can read the line of code just below that (Have a volunteer read it aloud).} @think-about[#:question "What will happen if I type TITLE into the Interactions window down at the bottom?" #:hint "Try it out!"]}
