@@ -44,7 +44,9 @@ Length: 90 min
                  (list "Image" @code{rectangle circle triangle ellipse radial-star scale rotate put-image})
                  (list "Boolean" @code{= > < string=? and or}))
 
-@(include-lesson (lib "curr/lessons/Intro-Review-Until-Conditionals/lesson/lesson.scrbl"))
+@lesson[#:title "Introduction" #:duration "10 min"]{
+@itemlist[
+     @item{Review the previous material}]}
 @(include-lesson (lib "curr/lessons/Pizza-Toppings/lesson/lesson.scrbl"))
 @(include-lesson (lib "curr/lessons/Player-Movement/lesson/lesson.scrbl"))
 

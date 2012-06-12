@@ -38,7 +38,9 @@ Length: 90 minutes
                  (list "String" "string-append string-length")
                  (list "Image" "rectangle circle triangle ellipse radial-star scale rotate put-image"))
 
-@(include-lesson (lib "curr/lessons/Intro-until-Design-Recipe/lesson/lesson.scrbl"))
+@lesson[#:title "Introduction"
+        #:duration "15 minutes"]{@itemlist[@item{Review material from previous weeks: Coordinate Planes, Circles of Evaluation, Contracts, Strings, Images, and Functions. @tag[selftaught]{If you are having trouble remembering any of these, look back to previous lessons to refresh your memory.}}]}
+
 @(include-lesson (lib "curr/lessons/Introducing-the-Design-Recipe/lesson/lesson.scrbl"))
 @(include-lesson (lib "curr/lessons/Practicing-the-Design-Recipe/lesson/lesson.scrbl"))
 @(include-lesson (lib "curr/lessons/Even-More-Practice-for-Design-Recipe/lesson/lesson.scrbl"))
