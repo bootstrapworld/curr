@@ -18,7 +18,7 @@ gt that would just take in the size and draw me my triangle.}
           @item{@exercise{On this page, there is space to write four simple functions. We're going to do the first one together, and then we'll have a competition for the rest.}}
           @item{Let's start with the contract. What are the three parts of a contract?}
           @item{@tag[pedagogy]{Hey volunteer, what did I say your name was? gt! And what information did you need from me to do your job? just a number - the size!. And what did you produce, once I'd given you that number? An Image.}}
-          @item{@tag[selftaught]{@think-about[#:question "When you used the @code{gt} command, what information did you need and what did you produce?"
+          @item{@tag[selftaught]{@think-about[#:question @list{When you used the @code{gt} command, what information did you need and what did you produce?}
                                                           #:answer "You needed the size of the triangle (a number) and produced the image"]}}
           @item{Fill in the first contract on the page -- it's the one with the shaded, gray bar.}
           @item{Now we have some space to write examples. @tag[pedagogy]{Let's think about the examples we saw our volunteer act out...}}

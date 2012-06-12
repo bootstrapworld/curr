@@ -1,5 +1,4 @@
-#lang scribble/base
-@(require "lib/all.rkt")
+#lang curr/lib
 
 @declare-tags[group pedagogy selftaught bootstrap]
 @title{Unit 9: Prepping for Launch}
@@ -12,7 +11,7 @@
 @item{20min Celebration}
 ]
 
-@bold{Unit Overview}
+@overview{
 
 Students will edit game details and prepare for their Launch Party!
 
@@ -52,7 +51,7 @@ Length: 90 min
                  (list "String" @code{string-append string-length})
                  (list "Image" @code{rectangle circle triangel ellipse radial-star scale rotate put-image})
                  (list "Boolean" @code{= > < string=? and or}))
-
+}
 @lesson[#:title "Introduction"
         #:duration "5 minutes"]{
       @itemlist[@item{@tag[pedagogy]{Students not finished with their games? You can use the last class to @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/SupplementalLessons.html#games" "get things done"), with a speed-focused game designed to get things done! Got time for a challenge? Try introducing them to @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/SupplementalLessons.html#structs" "Data Structures"), to allow for 2-dimensional motion and more player control.}}

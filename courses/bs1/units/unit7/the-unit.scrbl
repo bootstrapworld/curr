@@ -10,7 +10,7 @@
 @item{5min  Closing}
 ]
 
-@section{Overview}
+@overview{
 
 Students use geometry and knowledge of basic image functions to design characters for their games, this time using conditional branching to accomodate different key-events.
 
@@ -43,8 +43,11 @@ Length: 90 min
                  (list "String" @code{string-append string-length})
                  (list "Image" @code{rectangle circle triangle ellipse radial-star scale rotate put-image})
                  (list "Boolean" @code{= > < string=? and or}))
+}
 
-@(include-lesson (lib "curr/lessons/Intro-Review-Until-Conditionals/lesson/lesson.scrbl"))
+@lesson[#:title "Introduction" #:duration "10 min"]{
+@itemlist[
+     @item{Review the previous material}]}
 @(include-lesson (lib "curr/lessons/Pizza-Toppings/lesson/lesson.scrbl"))
 @(include-lesson (lib "curr/lessons/Player-Movement/lesson/lesson.scrbl"))
 

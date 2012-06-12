@@ -24,16 +24,23 @@
 }
 
 .BootstrapLesson {
-    border: 1px solid green
+    border: 1px solid green;
     padding: 5px;
     margin: 3px;
 }
 
 .BootstrapDrill {
-    border: 1px solid blue
+    border: 1px solid blue;
     padding: 5px;
     margin: 3px;
 }
+.BootstrapOverview {
+border: 4px solid red;
+    padding: 5px;
+    margin: 3px;
+
+}
+
 
 
 
@@ -43,7 +50,9 @@
 body{
 	padding:		0px;
 	margin:			0px;
-	background:		#f5deb3;
+	/*background:		red;*/
+        background-image:       url("butterfly.gif");  
+
 }
 
 /* Our top box */
