@@ -43,13 +43,13 @@ Length: 90 minutes
 @(language-table (list "Number" "+ - * / sq sqrt expt"))
 
 
-@(include-section "../../../../lessons/Chapter-2-Intro/lesson/lesson.scrbl")
+@(include-lesson (lib "curr/lessons/Chapter-2-Intro/lesson/lesson.scrbl"))
 
-@(include-section "../../../../lessons/Contracts/lesson/lesson.scrbl")
+@(include-lesson (lib "curr/lessons/Contracts/lesson/lesson.scrbl"))
 
-@(include-section "../../../../lessons/Strings/lesson/lesson.scrbl")
+@(include-lesson (lib "curr/lessons/Strings/lesson/lesson.scrbl"))
 
-@(include-section "../../../../lessons/Creating-Images/lesson/lesson.scrbl")
+@(include-lesson (lib "curr/lessons/Creating-Images/lesson/lesson.scrbl"))
                                 
 
 
@@ -63,3 +63,6 @@ Length: 90 minutes
                                @item{Think of strings and what differentiates a string from a different type.}
                                @item{Think about images and what goes into creating an image.}
                                @item{Have an awesome day!}]}}
+
+
+@copyright[]

@@ -44,10 +44,10 @@ Length: 90 minutes
                  (list "Boolean" "= > < string=? and or"))
 
 
-@(include-lesson "../../../../lessons/Collision-Introduction/lesson/lesson.scrbl")
-@(include-lesson "../../../../lessons/1D-Distance/lesson/lesson.scrbl")
-@(include-lesson "../../../../lessons/Distance-Formula/lesson/lesson.scrbl")
-@(include-lesson "../../../../lessons/Collide/lesson/lesson.scrbl")
+@(include-lesson (lib "curr/lessons/Collision-Introduction/lesson/lesson.scrbl"))
+@(include-lesson (lib "curr/lessons/1D-Distance/lesson/lesson.scrbl"))
+@(include-lesson (lib "curr/lessons/Distance-Formula/lesson/lesson.scrbl"))
+@(include-lesson (lib "curr/lessons/Collide/lesson/lesson.scrbl"))
 
 
 
@@ -66,3 +66,5 @@ Length: 90 minutes
 @item{@tag[pedagogy]{Cleanup, dismissal}}
 ]
 }
+
+@copyright[]

@@ -1,5 +1,4 @@
-#lang scribble/base
-@(require "../lib/all.rkt")
+#lang curr/lib
 @declare-tags[group pedagogy selftaught bootstrap]
 
 @title{Unit 6:
@@ -57,16 +56,13 @@ Language Table
 @lesson[#:title "Introduction" #:duration "15 minutes"]{
        @exercise{Review the previous material}}
 
-@(include-lesson "../../../../lessons/Booleans/lesson/lesson.scrbl")
+@(include-lesson (lib "curr/lessons/Booleans/lesson/lesson.scrbl"))
 
+@(include-lesson (lib "curr/lessons/onscreen1/lesson/lesson.scrbl"))
 
+@(include-lesson (lib "curr/lessons/Boolean-Function/lesson/lesson.scrbl"))
 
-@(include-lesson "../../../../lessons/onscreen1/lesson/lesson.scrbl")
-
-
-@(include-lesson "../../../../lessons/Boolean-Function/lesson/lesson.scrbl")
-
-@(include-lesson "../../../../lessons/onscreen2/lesson/lesson.scrbl")
+@(include-lesson (lib "curr/lessons/onscreen2/lesson/lesson.scrbl"))
 
 @lesson[#:title "Closing" #:duration "5 minutes"]{
 
@@ -76,3 +72,5 @@ Language Table
         @item{@tag[pedagogy]{Who saw someone else in the class do something great?}}
         @item{@tag[pedagogy]{Cleanup, dismissal.}}
         ]}
+
+@copyright[]

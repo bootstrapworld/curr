@@ -1,5 +1,4 @@
-#lang scribble/base
-@(require "lib/all.rkt")
+#lang curr/lib
 
 @declare-tags[group pedagogy selftaught bootstrap]
 @title{Unit 7: Conditional Branching}
@@ -45,9 +44,9 @@ Length: 90 min
                  (list "Image" @code{rectangle circle triangle ellipse radial-star scale rotate put-image})
                  (list "Boolean" @code{= > < string=? and or}))
 
-@(include-lesson curr/lessons/Intro-Review-to-Conditionals/lesson/lesson.scrbl)
-@(include-lesson curr/lessons/Pizza-Toppings/lesson/lesson.scrbl)
-@(include-lesson curr/lessons/Player-Movement/lesson/lesson.scrbl)
+@(include-lesson (lib "curr/lessons/Intro-Review-Until-Conditionals/lesson/lesson.scrbl"))
+@(include-lesson (lib "curr/lessons/Pizza-Toppings/lesson/lesson.scrbl"))
+@(include-lesson (lib "curr/lessons/Player-Movement/lesson/lesson.scrbl"))
 
 @lesson[#:title "Closing" #:duration "5 min"]{
 @itemlist[
@@ -58,3 +57,5 @@ Length: 90 min
            @tag[selftaught]{@review{Write a few things you've learned today.}}}
      @item{@tag[pedagogy]{Who saw someone else in the class do something great? Call on 2-3 volunteers.}}
      @item{@tag[pedagogy]{Cleanup, dismissal.}}]}
+
+@copyright[]

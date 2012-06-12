@@ -113,10 +113,4 @@ Length: 90 min
                    @item{@tag[pedagogy]{Give out the awards, have students cheer for one another.}}
                    @item{We'll bring your speeches and games to the WOW. Make sure you invite your parents and friends, and we'll see you then.}
                    @item{You've all been really impressive, and it's a pleasure working with you. We hope you'll take these games home and keep hacking! Keep learning! }]}
-                            
-                            
-                             
-                             
-                       
-                 
-
+@copyright[]

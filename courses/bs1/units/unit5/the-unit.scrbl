@@ -45,15 +45,15 @@ Length: 90 min
                  (list "String" @code{string-append string-length})
                  (list "Image" @code{rectangle circle triangel ellipse radial-star scale rotate put-image}))
 
-@(include-lesson "../../../../lessons/Chapter-5-Intro/lesson/lesson.scrbl")
+@(include-lesson (lib "curr/lessons/Chapter-5-Intro/lesson/lesson.scrbl"))
 
-@(include-lesson "../../../../lessons/Danger-Movement/lesson/lesson.scrbl")
+@(include-lesson (lib "curr/lessons/Danger-Movement/lesson/lesson.scrbl"))
 
-@(include-lesson "../../../../lessons/Target-Movement/lesson/lesson.scrbl")
+@(include-lesson (lib "curr/lessons/Target-Movement/lesson/lesson.scrbl"))
 
-@(include-lesson "../../../../lessons/Fun-With-Movement/lesson/lesson.scrbl")
+@(include-lesson (lib "curr/lessons/Fun-With-Movement/lesson/lesson.scrbl"))
 
-@(include-lesson "../../../../lessons/Projectile-Movement/lesson/lesson.scrbl")
+@(include-lesson (lib "curr/lessons/Projectile-Movement/lesson/lesson.scrbl"))
                                 
 
 
@@ -68,3 +68,6 @@ Length: 90 min
            @item{@tag[selftaught]{Write down a few things you learned today}}
            @item{@tag[pedagogy]{Who saw someone else in the class do something great?}}
            @item{@tag[pedagogy]{Cleanup, dismissal.}}]}
+
+
+@copyright[]
