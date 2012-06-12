@@ -322,10 +322,15 @@
     (error 'include-lesson "doc binding is not a part: ~e" p))
   (part-blocks p))
 
-(define-syntax-rule (include-lesson mp)
-  (begin
-    (require (only-in mp [doc abstract-doc]))
-    (extract-lesson abstract-doc)))
+;; This acts somewhat like include-section, but avoids introducing the
+;; additional part into the document structure.
+(define-syntax (include-lesson stx)
+  (syntax-case stx ()
+    [(_ mp)
+     (syntax/loc stx
+       (begin
+         (require (only-in mp [doc abstract-doc]))
+         (extract-lesson abstract-doc)))]))
 
 
 
