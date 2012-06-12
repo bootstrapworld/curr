@@ -13,7 +13,7 @@
                   @item{As you can see, it's important to be able to calculate how far apart to characters are, in order to know when they've hit one another.}
                   @item{In one dimension, this is pretty easy. If the characters are on the same line, you just subtract one coordinate from another, and you have your distance. }
                   @item{@tag[pedagogy]{Demonstrate this on the board, using a number line. Ask the following questions, filling in the blanks for contract as students give answers:}}
-                  @item{@think-about[#:question "How many inputs does @code{line-length} take? What is the name of the input? What is the Domain? What is the Range?"
+                  @item{@think-about[#:question @list{How many inputs does @code{line-length} take? What is the name of the input? What is the Domain? What is the Range?}
                                      #:answer "Input: two numbers, Domain: numbers, Range: number representing difference between the two numbers"]}
                   @item{@tag[pedagogy]{@skit{I'd like to have one volunteer stand up and be our function. Raise your hand if you'd like to volunteer!
                                              
@@ -22,7 +22,7 @@ Your name is now "line-length". Whenever I call your name, I will also give you 
 Raise your hand if you'd like to try! Take some volunteers, and make sure line-length is doing the right thing (including bugs if the first number is smaller than the second!).}}}
                   @item{@think-about[#:question "What is the name of the second function? How many inputs does it take? What is the name of the input? What's the Domain? What's the Range? "
                                      #:answer "Name: collide?, Input: two numbers, Domain: numbers, Range: boolean"]}
-                 @item{@think-about[#:question "What does this function do? @tag[pedgogy]{Raise your hand if you have an idea.}"
+                 @item{@think-about[#:question @list{What does this function do? @tag[pedgogy]{Raise your hand if you have an idea.}}
                                     #:answer "Takes in two numbers and passes it in to line-length to calculate the difference and returns a boolean determining whether the two objects have collided (whether the difference is greater than 5)."]}
                  @item{@tag[pedagogy]{@skit{I'd like to have one volunteer stand up and be collide? Raise your hand if you'd like to volunteer!
                                             

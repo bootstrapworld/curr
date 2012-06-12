@@ -43,13 +43,13 @@ Length: 90 minutes
 @(language-table (list "Number" "+ - * / sq sqrt expt"))
 
 
-@(include-lesson "../../../../lessons/Chapter-2-Intro/lesson/lesson.scrbl")
+@(include-lesson (lib "curr/lessons/Chapter-2-Intro/lesson/lesson.scrbl"))
 
-@(include-lesson "../../../../lessons/Contracts/lesson/lesson.scrbl")
+@(include-lesson (lib "curr/lessons/Contracts/lesson/lesson.scrbl"))
 
-@(include-lesson "../../../../lessons/Strings/lesson/lesson.scrbl")
+@(include-lesson (lib "curr/lessons/Strings/lesson/lesson.scrbl"))
 
-@(include-lesson "../../../../lessons/Creating-Images/lesson/lesson.scrbl")
+@(include-lesson (lib "curr/lessons/Creating-Images/lesson/lesson.scrbl"))
                                 
 
 

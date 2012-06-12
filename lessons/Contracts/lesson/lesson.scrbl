@@ -29,21 +29,21 @@
           @item{@tag[pedagogy]{Show the contract for "+" on the board, and have students volunteer the contracts for the other math functions covered so far.}
                  @;NOTE: may have to split into three questions
                 @tag[selftaught]{@think-about[#:question "Can you think of the contract for \"+\"? What about the ones for \"/\" and \"*\"? Enter them on the contracts page and check your answers below"
-                                              #:answer @code[#:contract "+ : Number Number -> Number"
+                                              #:answer @list{@code[#:contract "+ : Number Number -> Number"
                                                                         #:purpose
                                                                          "Takes two numbers and gives their sum"
                                                                         ]
                                                        @code[#:contract "/ : Number Number -> Number"
                                                                         #:purpose "Takes two numbers and returns the first divided by the second"]
-                                                       @code[#:contract "* : Number Number -> Number" #:purpose "Takes two numbers and gives their product"]]}
+                                                       @code[#:contract "* : Number Number -> Number" #:purpose "Takes two numbers and gives their product"]}]}
                                   }
           @;must have some sort of answers here
           @item{@tag[pedagogy]{Add other functions, like "/" and "*".  Leave these contracts written on the board.}}
           @item{@tag[pedagogy]{If students already know about square roots or squaring, you can add these functions as well. If not, take a moment to review what they do.}
                 @tag[selftaught]{@think-about[#:question "If you already know about square roots or squaring, try to figure out the contracts for these as well. Check with the answers below!"
                                              #:hint "Both of these function only take one number as input"
-                                             #:answer @code[#:contact "sqrt : Number -> Number"]
-                                             @code[#:contact "sqt : Number -> Number"]]}
+                                             #:answer @list{@code[#:contact "sqrt : Number -> Number"]
+                                             @code[#:contact "sqt : Number -> Number"]}]}
                 @tag[pedagogy]{@code[#:contact "sqrt : Number -> Number"]
                                @code[#:contact "sqt : Number -> Number"]}
                                     }
