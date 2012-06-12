@@ -1,6 +1,7 @@
 #lang curr/lib
 @declare-tags[group pedagogy selftaught bootstrap]
-@lesson[#:title "Danger Movement" #:duration "20 min"]{
+@lesson[#:title "Danger Movement" #:duration "20 min" #:prerequisite "Coordinate-Planes, Introducing-the-Design-Recipe"]{
+@;The students should probably have their game code files open. 
 @itemlist[@item{In our last class, you learned how to use the Design Recipe to write functions. Now it's time to write functions to make your game characters move!}
           @item{Who wants to start making their game move?}
           @item{@tag[pedagogy]{Draw a 640x480 "game screen" on the board, and have students help you label the axes and corners.}}

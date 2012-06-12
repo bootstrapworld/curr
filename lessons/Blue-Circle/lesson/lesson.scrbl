@@ -2,7 +2,8 @@
 
 @declare-tags[pedagogy selftaught group]
 
-@lesson[#:title "Blue Circle" #:duration "10 minutes"]{
+@lesson[#:title "Blue Circle" #:duration "10 minutes"
+                #:prerequisite "Fast-Functions"]{
 
 @itemlist[
           @item{Now it's your turn!}
