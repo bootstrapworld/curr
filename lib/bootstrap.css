@@ -38,10 +38,10 @@
     margin: 3px;
 }
 .BootstrapOverview {
-    border: 2px solid white;
+    border: 3px solid white;
     padding: 5px;
     margin: 3px;
-    background: #c8c8c8;
+    background: lightgray;
 
 }
 .BootstrapworldCopyrights{
@@ -59,8 +59,22 @@
     font-size: 18px;
     margin: 3px;
      }
-.BootstrapTableHeader{}
-.BootstrapTable{}
+h2{
+    text-align: center;
+    font-size: 32px;
+    font: bold;
+
+}
+
+
+.BootstrapTableHeader{
+	border: 1px solid black;
+	background: grey;
+	font: bold;}
+.BootstrapTable{
+	width: 300px;
+	border: 1px solid black;
+	background: white;}
 
 
 
@@ -72,7 +86,7 @@ body{
 	margin:			0px;
         background:             no-repeat url("http://www.bootstrapworld.org/curriculum/BS1-sp2012/images/bootBG.png") fixed bottom right;
         background-color:       #f5deb3;
-	max-width: 1000px;
+	max-width: 800px;
 	
 }
 

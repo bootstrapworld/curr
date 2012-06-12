@@ -148,3 +148,6 @@ Here is another one:
 @; tag - a unique string, use the unit number and problem (unit 1 problem 2 goes to 12)
 @(example true "13")
 @(example false "09")
+
+@;updated think-about to take in any tags within questions
+@think-about[#:question @list{@code{123}}]
