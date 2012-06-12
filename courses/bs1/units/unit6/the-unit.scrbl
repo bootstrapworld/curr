@@ -5,7 +5,7 @@
        
        Booleans: Teaching Functions to Compare}
 
-@section{Overview} 
+@overview{
 Students discover Boolean types, and use them to create programs that test values, and then model scenarios using these programs.
 
 @agenda[
@@ -52,7 +52,7 @@ Language Table
 @(language-table (list "Number" "+ - * / sq sqrt expt")
                  (list "String" "string-append string-length")
                  (list "Image" "radial-star scale rotate put-image"))
-
+}
 @lesson[#:title "Introduction" #:duration "15 minutes"]{
        @exercise{Review the previous material}}
 

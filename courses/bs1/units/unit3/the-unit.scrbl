@@ -6,7 +6,7 @@
        
 The Definitions Window}
 
-Unit Overview
+@overview{
 
 Students are introduced to the Definitions window, and learn the syntax for defining values of various types.  They are also introduced to the syntax of defining functions and creating examples.
 
@@ -52,11 +52,12 @@ Preparations
            @item{Optional: demo machine with projector to show the interations and definitions windows}]}
 
 
-Language Table
+
 @(language-table
                  (list "Number" "+ - * / sq sqrt expt")
                  (list "String" "string-append string-length")
                  (list "Image" "radial-star scale rotate put-image"))
+}
 
 @lesson[#:title "Introduction" #:duration "15 minutes"]{
         @itemlist[

@@ -2,7 +2,7 @@
 
 @declare-tags[group pedagogy selftaught]
 @title{Unit 2: Contracts, Strings and Images}
-Unit Overview:
+@overview{
 
 
 
@@ -41,7 +41,7 @@ Length: 90 minutes
              @item{Optional: demo machine with projector to show the interactions and definitions windows}]}
 
 @(language-table (list "Number" "+ - * / sq sqrt expt"))
-
+}
 
 @lesson[#:title "Introduction"
         #:duration "25 minutes"]{

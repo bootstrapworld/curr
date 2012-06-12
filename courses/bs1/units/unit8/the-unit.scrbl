@@ -3,12 +3,12 @@
 
 @declare-tags[group pedagogy selftaught]
 
-Unit Overview
+@overview{
 
 Students discuss and then prove the Pythagorean theorem, and use this theorem - in conjunction with Booleans - in their games to detect when a collision has occurred.
 
 @agenda[
-@item{20 min Introduction} @; LINKY?
+@item{20 min Introduction} @; LINK?
 @item{10 min 1D Distance}
 @item{30 min The Distance Formula}
 @item{20 min Collide?}
@@ -42,7 +42,7 @@ Length: 90 minutes
                  (list "String" "string-append string-length")
                  (list "Image" "rectangle circle triangle ellipse radial-star scale rotate put-image")
                  (list "Boolean" "= > < string=? and or"))
-
+}
 
 @(include-lesson (lib "curr/lessons/Collision-Introduction/lesson/lesson.scrbl"))
 @(include-lesson (lib "curr/lessons/1D-Distance/lesson/lesson.scrbl"))

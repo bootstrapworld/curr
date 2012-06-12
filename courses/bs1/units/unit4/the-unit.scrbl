@@ -3,7 +3,7 @@
 
 @declare-tags[group pedagogy selftaught]
 
-Unit Overview
+@overview{
 
 Students are introduced to the Design Recipe and apply it to simple problems.
 
@@ -37,6 +37,7 @@ Length: 90 minutes
 @(language-table (list "Number" "+ - * / sq sqrt expt")
                  (list "String" "string-append string-length")
                  (list "Image" "rectangle circle triangle ellipse radial-star scale rotate put-image"))
+}
 
 @lesson[#:title "Introduction"
         #:duration "15 minutes"]{@itemlist[@item{Review material from previous weeks: Coordinate Planes, Circles of Evaluation, Contracts, Strings, Images, and Functions. @tag[selftaught]{If you are having trouble remembering any of these, look back to previous lessons to refresh your memory.}}]}
