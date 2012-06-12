@@ -1,12 +1,11 @@
 #lang curr/lib
 @declare-tags[pedagogy group selftaught]
 @lesson[#:title "Practicing the Design Recipe"
-        #:duration "20 minutes"
-        #:prerequisites "Fast-Functions"]
-{@itemlist[
+        #:duration "20 minutes"]{@itemlist[
                   @item{@tag[pedagogy]{Note: if space allows, this section can also be done on the board with multiple, simultaneous challenges. See the video links for an example.}}
                    @item{@tag[pedagogy]{@skit{I need another volunteer, to act out a new function called @code{red-square}
-                   When I say "red-square fifty", I want you to make a solid, red square where each side is 50 pixels long. "red-square fifty!" "red-square ninety!" etc..}}}
+                                                                                                         
+     When I say "red-square fifty", I want you to make a solid, red square where each side is 50 pixels long. "red-square fifty!" "red-square ninety!" etc..}}}
                    @item{Turn to @(hyperlink "page12.com" "Page 12") in your workbooks. You'll have 2 minutes to read the problem statement and to underline the function's name, domain and range. GO!}
                    @item{@tag[pedagogy]{Count down the last 10 seconds, and then collect answers from teams.}}
                    @item{Now you'll have another minute to fill in the contract for your function. GO!}
@@ -30,4 +29,5 @@
                    @item{Now you need to fill in the function body. Which pattern can we use for this? The general one.}
                    ]}
                    @item{@tag[pedagogy]{Have kids turn their monitors on, and type in the code. Do their tests work?}
-                          @tag[selftaught]{Now you should try typing in the code and running some tests to see if it works.}}]}
+                          @tag[selftaught]{Now you should try typing in the code and running some tests to see if it works.} @embedded-wescheme[#:id "example4"
+                                                          #:interactions-text ""]}]}
