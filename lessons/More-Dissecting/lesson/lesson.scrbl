@@ -4,7 +4,7 @@
 
 @lesson[#:title "More dissection"
         #:duration "10 minutes"
-        #:prerequisite "Coordinate-Planes"
+        #:prerequisites "Coordinate-Planes"
         ]{  
               
  @itemlist[

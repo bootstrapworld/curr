@@ -3,7 +3,7 @@
 @declare-tags[pedagogy selftaught group]
 
 @lesson[#:title "Game Screenshots" #:duration "30 minutes"
-                #:prerequisite "Defining-Variables" ]{
+                #:prerequisites "Defining-Variables" ]{
 
 @itemlist[
     @item{Suppose we wanted to combine your game images and layer them together to form a screenshot, so you could see what your game will look like. We want to take these images and stack them on top of each other - @think-about[#:question "What image goes on the bottom?" #:answer "The BACKGROUND."]}

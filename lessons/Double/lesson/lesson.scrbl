@@ -2,7 +2,7 @@
 
 @declare-tags[pedagogy selftaught group]
 
-@lesson[#:title "Double" #:duration "10 minutes" #:prerequisite "Fast-Functions"]{
+@lesson[#:title "Double" #:duration "10 minutes" #:prerequisites "Fast-Functions"]{
 
 @itemlist[
          @item{@think-about[#:question @list{I want a volunteer to be a function called "double", which takes in a number and multiplies it by two. @tag[pedagogy]{Hand the sign to the student.} So if I say "double 3", what will I get back?"}]}

@@ -1,6 +1,6 @@
 #lang curr/lib
 @declare-tags[group pedagogy selftaught bootstrap]
-@lesson[#:title "Optional: Projectile Movement" #:duration "15 min" #:prerequisite "Target-Movement"]{
+@lesson[#:title "Optional: Projectile Movement" #:duration "15 min" #:prerequisites "Target-Movement"]{
 @itemlist[@item{@tag[pedagogy]{NOTE FOR INSTRUCTORS: Many teachers find it useful to add projectiles only at the end of the class, as a "treat" for kids. It also tends to help break the "shooting-style" bias that a lot of students have.}}
            @item{@tag[selftaught]{NOTE: You might find it useful to add projectiles only at the end of the class, as it is more of a "treat". It also tends to help break the "shooting-style".}}
            @item{@tag[pedagogy]{If you want to introduce projectiles this early, then go ahead and change mystery and update-mystery near the end of the game to projectile and update-projectile, and move them up to near the danger and target. The space bar triggers projectiles if the updater moves them. Some teachers will want to save this for later in the class, and have students rename the functions themselves.}}
