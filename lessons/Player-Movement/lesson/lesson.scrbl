@@ -26,5 +26,6 @@
            @think-about[#:question "How do we do that?"
                         #:answer "Do nothing! (Or have an else statement that returns the same position)"]}
      @item{On @(hyperlink "page24.com" "page 24"), you'll find the problem statement for update-player. Grab a Design Recipe Worksheet, fill it out, and then write this function @tag[group]{with your team.}}
+     @;Here students should open their files, review, and possibly add cheats.
      @item{@tag[pedagogy]{Students can also add "cheat codes", by adding Cond branches for other keys. For example, a student might add [(string=? key "c") 240], which causes the player to jump to the center of the screen if the c key is pressed.}
            @tag[selftaught]{You can also add "cheat codes", by adding Cond branches for other keys. For example, you might add [(string=? key "c") 240], which causes the player to jump to the center of the screen if the c key is pressed.}}]}
