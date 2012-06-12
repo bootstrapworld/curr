@@ -242,7 +242,7 @@
                             (decode-flow body))))
 
 (define (language-table . rows)
-  (table (style #f 
+  (table (style  "BootstrapTable" 
 		(list 
 		 (table-columns
 		  (list 
@@ -324,25 +324,21 @@
     (error 'include-lesson "doc binding is not a part: ~e" p))
   (part-blocks p))
 
-;; This acts somewhat like include-section, but avoids introducing the
-;; additional part into the document structure.
-(define-syntax (include-lesson stx)
-  (syntax-case stx ()
-    [(_ mp)
-     (syntax/loc stx
-       (begin
-         (require (only-in mp [doc abstract-doc]))
-         (extract-lesson abstract-doc)))]))
+(define-syntax-rule (include-lesson mp)
+  (begin
+    (require (only-in mp [doc abstract-doc]))
+    (extract-lesson abstract-doc)))
 
 
 
 ;;interns
 
 (define (overview . body)
-  (list (format "Unit Overview")
-  (compound-paragraph (bootstrap-sectioning-style "BootstrapOverview")
-                      (decode-flow body))))
-
+  (list (compound-paragraph (bootstrap-sectioning-style "BootstrapOverviewTitle") (decode-flow (list (format "Unit Overview"))))
+        (compound-paragraph (bootstrap-sectioning-style "BootstrapOverview")
+                            (decode-flow body))))
+  
+  
 ;if it is a conditional example, cond? is true, otherwise false
 (define (example cond? tag)
   (para "(EXAMPLE (" (fill-in-the-blank 
