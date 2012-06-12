@@ -149,11 +149,11 @@
 ;; Lightweight questions with optional hints and answers
 ;; ideally hints/answers come up on some action, not by default
 ;; hints and answers may contain arbitrary formatting, not just strings
-(define (think-about #:question question 
+(define (think-about #:question (question #f) 
                      #:hint (hint #f)
                      #:answer (answer #f))
   (sxml->element (string-append
-                     question
+                     (format "~a" question)
                      (if hint (format " (Hint: ~a)" hint) "")
                      (if answer (format " (Answer: ~a)" answer) "")
                    )))
