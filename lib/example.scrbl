@@ -125,32 +125,26 @@ Here is another one:
 
 @; new things added 
 
-@overview{This is an overviewwwwwwwwwww}
+@;adds an overview section
+@;it is formatted to take all elements, so it can absorb the entire review page (@materials, etc)
+@overview{This is an overviewwwwwwwwwww
+          
+          @materials[@item{pencils}]}
 
+
+@;auto generates all copyright text
 @copyright{}
 
-@;add code in answer of think-about
-@think-about[#:question "abc"
-             #:hint "a"
-             #:answer @item{hello @code{123}}]
 
+@;contract-exercise -> creates a contract exercise with three fill in the blanks
 @;requires a tag, to make unique, use lesson number then problem number (lesson one
 @; problem two = "12". must be a string
 @(contract-exercise "anything")
 @(contract-exercise "anything1")
 @(contract-exercise "anything2")
 
-@;in the style of agendas
-@relatedlessons[@item{thing}
-                @item{thing1}
-                @item{thing2}]
-@;examples: cond? tag
+@;examples: cond? tag -> creates an example like in section 2 of design recipe worksheets
 @; cond? - whether the example is for a conditional or not (the text differs)
 @; tag - a unique string, use the unit number and problem (unit 1 problem 2 goes to 12)
 @(example true "13")
 @(example false "09")
-
-@;function-header: cond? tag
-@; con? - whether example is for conditional
-@;tag - a string used in generating the id
-@(function-header true "13")
