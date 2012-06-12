@@ -242,16 +242,23 @@
                             (decode-flow body))))
 
 (define (language-table . rows)
-  (table (style  "BootstrapTable" 
+  (table (style  #f 
 		(list 
 		 (table-columns
 		  (list 
-		   (style #f '(center))
-		   (style #f '(center))))))
-	 (cons (list (para (bold "Types")) (para (bold "Functions")))
+		   (style "BootstrapTable" '(center))
+		   (style "BootstrapTable" '(center))))))
+         
+         (cons (list (compound-paragraph (bootstrap-sectioning-style "BootstrapTableHeader")
+                            (decode-flow (list "Types"))) (compound-paragraph (bootstrap-sectioning-style "BootstrapTableHeader")
+                            (decode-flow (list "Functions"))))
 	       (map (lambda (r)
 		      (map format-cell r))
 		    rows))))
+;	 (cons (list (para (bold "Types")) (para (bold "Functions")))
+;	       (map (lambda (r)
+;		      (map format-cell r))
+;		    rows))))
 
 (define (format-cell s)
   (if (string? s)
