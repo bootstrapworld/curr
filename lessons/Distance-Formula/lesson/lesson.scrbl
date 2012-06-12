@@ -1,6 +1,8 @@
 #lang curr/lib
 @declare-tags[group pedagogy selftaught bootstrap]
-@lesson[#:title "The Distance Formula" #:duration "30 minutes"]{
+@lesson[#:title "The Distance Formula"
+        #:duration "30 minutes"
+        #:prerequisites "Coordinate-Planes Introducing-the-Design-Recipe"]{
         @itemlist[@item{Unfortunately, the 2d distance looks like 0. Is that right? NO! That's because you haven't written the code to calculate the distance in two dimensions! All you have is something that tells you the length in the x- and y-dimension.} 
                    @item{Ancient civilizations had the same problem: they also struggled with distance in two dimensions. An ancient Greek named Pythagoras finally figured it out.}
                    @item{@tag[pedagogy]{Draw normal Cartesian coordinate plane, with a point on each axis. Label the coordinates (3,0) and (0,4).} @tag[selftaught]{Draw a coordinate plane. Label the coordinates (3,0) and (0,4).}}

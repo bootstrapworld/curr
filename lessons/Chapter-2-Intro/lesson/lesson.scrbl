@@ -1,6 +1,7 @@
 #lang curr/lib
 @declare-tags[group pedagogy selftaught]
-@lesson[#:title "Introduction"
+@lesson[#:prerequisites "Circles-of-Evaluation"
+        #:title "Introduction"
         #:duration "25 minutes"]{
           @itemlist[@item{Welcome back! Do you remember what we did in the last class?}
            @item{At the end of class, you learned something extremely important: the Circles of Evaluation, and how to write simple programs in Racket.}

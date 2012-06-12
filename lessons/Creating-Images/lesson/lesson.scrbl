@@ -1,7 +1,8 @@
 #lang curr/lib
 @declare-tags[group pedagogy selftaught]
 @lesson[#:title "Creating Images"
-        #:duration "35 minutes"]{
+        #:duration "35 minutes"
+        #:prerequisites "Introducing-the-Design-Recipe"]{
 @itemlist[@item{Let's talk about graphics.}
            @item{@tag[pedagogy]{On the board, draw the Circle of Evaluation for 
                                   @code{(circle 100 "solid" "red")}}}

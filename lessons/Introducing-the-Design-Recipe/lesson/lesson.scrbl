@@ -1,7 +1,8 @@
 #lang curr/lib
 @declare-tags[pedagogy group selftaught]
 @lesson[#:title "Introducing the Design Recipe"
-        #:duration "25 minutes"]{
+        #:duration "25 minutes"
+        #:prerequisites "Fast-Functions"]{
   @itemlist[
      @item{Now it's time to define functions to make your characters move!}
      @item{You already know most of the steps from the last lesson, but we're going to do a few practice exercises before turning you loose on your own games.}
