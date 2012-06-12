@@ -9,14 +9,16 @@
            @item{You'll notice that our math functions don't really work on Strings.}
            @item{What does it mean to add three and the word "cat"? It doesn't make sense, does it?}
            @item{To create a Number in Racket, we just typed it in. To create a String, you type in the word or words that you want, and put quotation marks on either side.
-                 @tag[group]{With your partner:} Try creating a few strings on your own.}
+                 @tag[group]{With your partner:} Try creating a few strings on your own. 
+                 @embedded-wescheme[#:id "Strings"
+                   #:interactions-text ";Enter some strings!"
+                   #:hide-definitions? #t]}
            @item{Racket also gives us functions we can use to work with Strings. For example, there's a function called string-length. What do you think it does? I'll give you one hint: the contract.
                  @tag[pedagogy]{Write the contract on the board, but without the labels Name, Domain, and Range:}
                  @tag[selftaught]{@think-about[#:question "Try to write the contract for string-length and check below."
                                               #:answer @code[#:contract "string-length: String -> Number"
-                                       ]]}}
-                 @tag[pedagogy]{@code{; string-length: String -> Number
-                                       }}}
+                                       ]]}
+                 @tag[pedagogy]{@code[#:contract "string-length: String -> Number"]}}
            @item{@think-about[#:question "What is the domain of this function? What is the range?"
                                #:answer "The domain is Strings, and the range is Numbers"]}
            @item{@tag[pedagogy]{Now that the students have written down the contract, let them turn on their monitors and experiment, see if they can figure out what string-length does!}
