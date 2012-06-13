@@ -133,17 +133,21 @@
                            #:width (width "90%")
                            #:height (height 500)
                            #:interactions-text (interactions-text #f)
-                           #:hide-header? (hide-header? #f)
+                           #:definitions-text (definitions-text #f)
+                           #:hide-header? (hide-header? #t)
                            #:hide-footer? (hide-footer? #t)
-                           #:hide-definitions? (hide-definitions? #f))
+                           #:hide-definitions? (hide-definitions? #f)
+                           #:hide-interactions? (hide-interactions? #f))
   (wescheme:embedded-wescheme #:id (resolve-id id)
                               #:public-id pid
                               #:width width
                               #:height height
                               #:interactions-text interactions-text
+                              #:definitions-text definitions-text
                               #:hide-header? hide-header?
                               #:hide-footer? hide-footer?
-                              #:hide-definitions? hide-definitions?))
+                              #:hide-definitions? hide-definitions?
+                              #:hide-interactions? hide-interactions?))
 
 
 

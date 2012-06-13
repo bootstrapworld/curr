@@ -81,12 +81,21 @@ This is an embedded-wescheme instance:
                    #:width "70%"]
 
 
-Here is another one:
+Here is another one with interactions text:
 @embedded-wescheme[#:id "example3"
                    #:interactions-text "(+ 1 2 3)"
                    #:hide-header? #t
                    #:hide-footer? #t
                    #:hide-definitions? #t]
+
+
+Here is one with definitions.
+@embedded-wescheme[#:id "example4"
+                   #:definitions-text ";; This is a definitions text.\n\n(define (f x) (* x x))\n"
+                   #:hide-header? #t
+                   #:hide-footer? #t
+                   #:hide-definitions? #f
+                   #:hide-interactions? #t]
 
 
 
