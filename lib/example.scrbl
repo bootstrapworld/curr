@@ -90,10 +90,11 @@ Here is another one with interactions text:
                    #:hide-definitions? #t]
 
 
-Here is one with definitions.
+Here is one with definitions, and no toolbar
 @embedded-wescheme[#:id "example4"
                    #:definitions-text ";; This is a definitions text.\n\n(define (f x) (* x x))\n"
                    #:hide-header? #t
+                   #:hide-toolbar? #t
                    #:hide-footer? #t
                    #:hide-definitions? #f
                    #:hide-interactions? #t]
