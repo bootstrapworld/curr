@@ -20,7 +20,7 @@ Students discuss and then prove the Pythagorean theorem, and use this theorem - 
             @item{Draw connections between geometry and real-world problems.}]
 @product-outcomes[@item{Students write @code{distance} and @code{collide?}}]
 
-See @(hyperlink "https://spreadsheets.google.com/pub?key=0Ak3Voejjnf0ldHlQcXRVWTZDbVprWHlBLTJWRlQ2dkE&hl=en&gid=0" "Bootstrap Standards Matrix") for state standards.
+@state-standards
 
 Length: 90 minutes
 @tag[selftaught]{@materials[@item{Cutouts of Pythagorean Theorem packets [@(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/images/7.5.png" "1"), @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/images/7.6.png" "2")] - 1 per cluster}
@@ -57,13 +57,14 @@ Length: 90 minutes
 
 @lesson[#:title "Closing Time:" #:duration "10 minutes"]{
 
-@itemlist[
+@itemlist/splicing[
 
-@item{@tag[pedagogy]{@tag[group]{Have everyone walk around and play each other's games}}}
+@tag[group]{@item{It's time for everyone to walk around and play each other's games!}}
 @item{CONGRATULATIONS! You have finished the code for your videogame@tag[group]{s}!!!}
-@item{@tag[pedagogy]{Who can tell us one thing we learned today?}@tag[selftaught]{@review{What did you learn today?}}}
-@item{@tag[pedagogy]{Who saw someone else in the class do something great?}}
-@item{@tag[pedagogy]{Cleanup, dismissal}}
+@tag[pedagogy]{@item{Who can tell us one thing we learned today?}}
+@tag[selftaught]{@review{What did you learn today?}}
+@tag[pedagogy]{@item{Who saw someone else in the class do something great?}}
+@tag[pedagogy]{@item{Cleanup, dismissal}}
 ]
 }
 

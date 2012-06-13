@@ -23,8 +23,8 @@ Students use geometry and knowledge of basic image functions to design character
             @item{Students will write functions that use conditionals and Booleans}
             @item{Students will write @code{update-player}}]
 
-State Standards
-See @(hyperlink "asdf" "Bootstrap Standards Matrix") provided as part of the Bootstrap curriculum. 
+
+@state-standards
 
 Length: 90 min
 @tag[pedagogy]{
@@ -52,13 +52,13 @@ Length: 90 min
 @(include-lesson (lib "curr/lessons/Player-Movement/lesson/lesson.scrbl"))
 
 @lesson[#:title "Closing" #:duration "5 min"]{
-@itemlist[
+@itemlist/splicing[
      @item{Congratulations - you've got the beginnings of a working game!}
      @item{What's still missing? Nothing happens when the player collides with the object or target!}
      @item{We're going to fix these over the next few lessons, and also work on the artwork and story for our games, so stay tuned!}
-     @item{@tag[pedagogy]{Who can tell us one thing we learned today? Call on 2-3 volunteers.}
-           @tag[selftaught]{@review{Write a few things you've learned today.}}}
-     @item{@tag[pedagogy]{Who saw someone else in the class do something great? Call on 2-3 volunteers.}}
-     @item{@tag[pedagogy]{Cleanup, dismissal.}}]}
+     @tag[pedagogy]{@item{Who can tell us one thing we learned today? Call on 2-3 volunteers.}}
+     @tag[selftaught]{@item{@review{Write a few things you've learned today.}}}
+     @tag[pedagogy]{@item{Who saw someone else in the class do something great? Call on 2-3 volunteers.}}
+     @tag[pedagogy]{@item{Cleanup, dismissal.}}]}
 
 @copyright[]
