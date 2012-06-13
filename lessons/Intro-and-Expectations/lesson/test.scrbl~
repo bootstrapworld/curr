@@ -1,5 +1,0 @@
-#lang scribble/base
-hello
-world
-@include-section["../../../../lessons/Intro-and-Expectations/lesson/lesson.scrbl"]
-testing
