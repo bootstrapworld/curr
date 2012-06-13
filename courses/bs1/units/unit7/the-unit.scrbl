@@ -46,7 +46,7 @@ Length: 90 min
 }
 
 @lesson[#:title "Introduction" #:duration "10 min"]{
-@itemlist[
+@itemlist/splicing[
      @item{Review the previous material}]}
 
 @(include-lesson (lib "curr/lessons/Cond-Example-With-Pizza-Toppings/lesson/lesson.scrbl"))

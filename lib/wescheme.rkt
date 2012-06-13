@@ -70,18 +70,20 @@
 ;; helper functions for embedding internal instances of WeScheme.
 (define (embedded-wescheme #:id (id (symbol->string (gensym 'wescheme)))
 
-                        #:public-id (pid #f)
-                        #:width (width "90%")
-                        #:height (height 500)
+                           #:public-id (pid #f)
+                           #:width (width "90%")
+                           #:height (height 500)
 
-                        #:with-rpc? (with-rpc? #f)
+                           #:with-rpc? (with-rpc? #f)
 
-                        #:interactions-text (interactions-text #f)
-                        #:warn-on-exit? (warn-on-exit? #f)
-                        #:hide-header? (hide-header? #f)
-                        #:hide-footer? (hide-footer? #t)
-                        #:hide-definitions? (hide-definitions? #f)
-                        #:auto-run? (auto-run? #f))
+                           #:interactions-text (interactions-text #f)
+                           #:definitions-text (definitions-text #f)
+                           #:warn-on-exit? (warn-on-exit? #f)
+                           #:hide-header? (hide-header? #f)
+                           #:hide-footer? (hide-footer? #t)
+                           #:hide-definitions? (hide-definitions? #f)
+                           #:hide-interactions? (hide-interactions? #f)
+                           #:auto-run? (auto-run? #f))
 
   (define pid-or-interactions-alist-chunk
     (cond
@@ -89,8 +91,10 @@
       `(publicId . ,pid)]
      [interactions-text
       `(interactionsText . ,interactions-text)]
+     [definitions-text
+      `(definitionsText . ,definitions-text)]
      [else
-      (error 'embed-wescheme "#:pid or #:interactions-text must be provided")]))
+      (error 'embed-wescheme "#:pid, #:definitions-text, or #:interactions-text must be provided")]))
 
   (define (maybe-add-option y/n name)
     (if y/n
@@ -106,10 +110,15 @@
          ,@(maybe-add-option hide-header? 'hideHeader)
          ,@(maybe-add-option hide-footer? 'hideFooter)
          ,@(maybe-add-option hide-definitions? 'hideDefinitions)
+         ,@(maybe-add-option hide-interactions? 'hideInteractions)
          ,@(maybe-add-option auto-run? 'autorun)))))
 
   (define url
-    (string-append "http://www.wescheme.org/openEditor?" encoded-alist))
+    (string-append
+     #;"http://www.wescheme.org/openEditor?"
+     ;; Temporarily changed until production supports the options we need.
+     "http://48.wescheme.appspot.com/openEditor?"
+     encoded-alist))
 
   (splice
    (list (sxml->element
@@ -125,8 +134,9 @@
                   (dimension->string height)))
          (inject-javascript
           (format (if with-rpc?
-                      "WeSchemeEmbedded.withRpc(~s, ~s)"
-                      "WeSchemeEmbedded.withoutRpc(~s, ~s);")
+                      "document.getElementById(~s).controller = WeSchemeEmbedded.withRpc(~s, ~s)"
+                      "document.getElementById(~s).controller = WeSchemeEmbedded.withoutRpc(~s, ~s);")
+                  id
                   url
                   id)))))
 

@@ -15,11 +15,11 @@
             @tag[pedagogy]{@exercise{@item{Take 2-3 suggestions.}}}
             @tag[selftaught]{@item{@fill-in-the-blank[#:id "Suggestions"]
                                                                                     @fill-in-the-blank[#:id "Suggestions"]}}
-            @tag[pedagogy]@item{{Okay, so here are the rules: (point to a visual while going over this) 
+            @tag[pedagogy]@item{Okay, so here are the rules: (point to a visual while going over this) 
                   @itemlist[@item{Unless we say otherwise, raise your hand to speak}
                             @item{The computers are for programming, not for Facebook, chatting, email or playing around}
                             @item{If you're not programming, the computer monitors need to be OFF. When we say "monitors off," everyone should shut off the monitors, stop talking, and give their attention to the teachers. Let's try this one out - everyone make sure the monitors are on ... now start talking ... louder! ... MONITORS OFF! Repeat as necessary.}
-                            @item{No one in this class is allowed to put each other down. I don't ever want to hear anyone call somebody else "stupid," "idiot", or anything else. Don't tell each other to shut up, and be respectful to everyone. Is that clear?}]}}
+                            @item{No one in this class is allowed to put each other down. I don't ever want to hear anyone call somebody else "stupid," "idiot", or anything else. Don't tell each other to shut up, and be respectful to everyone. Is that clear?}]}
             
             @tag[pedagogy group]{@item{When it comes time to program your games, you'll be working in pairs - you and a friend. But during class, there are a lot of activities and games we'll be playing where you and your partner will be part of a group.}}
            @tag[pedagogy group]{ @item{Right now, all of you are sitting with your group, clustered together around the classroom. When it comes time for team competitions or group activities, you'll be working with the people sitting nearby.}}
