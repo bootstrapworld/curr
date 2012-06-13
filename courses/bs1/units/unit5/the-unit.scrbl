@@ -23,10 +23,10 @@ Students define functions that map position n to position n+1, allowing them to 
             @item{Students write simple, linear functions}
             @item{Students write update-target and update-danger}]
 
-State Standards
-See @(hyperlink "asdf" "Bootstrap Standards Matrix") provided as part of the Bootstrap curriculum. 
+@state-standards 
 
-Length: 90 min
+@length-of-lesson[90]
+
 @tag[pedagogy]{
 @materials[@item{Computers w/ DrRacket or WeScheme}
            @item{Student  @(hyperlink "https://spreadsheets.google.com/pub?key=0Ak3Voejjnf0ldHlQcXRVWTZDbVprWHlBLTJWRlQ2dkE&hl=en&gid=0" "workbook") folders - in pairs! - with names on covers.}
@@ -47,8 +47,8 @@ Length: 90 min
 }
 @lesson[#:title "Introduction" #:duration "25 min"]{
                                @;Here, students should open their files.
-@itemlist[@item{@tag[pedagogy]{If you have students tackle the bug-hunting activity, be aware that the file contains several bugs! Until students have fixed all of them, they will always get an error message when they attempt to run the file. This is by design, to encourage students to both read the error and to look at it's location.}}
-          @item{@tag[selftaught]{If you tackle the bug-hunting activity, be aware that the file contains several bugs! Until you have fixed all of them, you will always get an error message when you attempt to run the file. This is by design, to encourage you to both read the error and to look at it's location.}}]}
+@itemlist/splicing[@tag[pedagogy]{@item{If you have students tackle the bug-hunting activity, be aware that the file contains several bugs! Until students have fixed all of them, they will always get an error message when they attempt to run the file. This is by design, to encourage students to both read the error and to look at it's location.}}
+          @tag[selftaught]{@item{If you tackle the bug-hunting activity, be aware that the file contains several bugs! Until you have fixed all of them, you will always get an error message when you attempt to run the file. This is by design, to encourage you to both read the error and to look at it's location.}}]}
 
 @(include-lesson (lib "curr/lessons/Danger-Movement/lesson/lesson.scrbl"))
 
@@ -62,15 +62,15 @@ Length: 90 min
 
 
 @lesson[#:title "Closing" #:duration "15 min"]{
-@itemlist[@item{Congratulations - you've got the beginnings of a working game!}
+@itemlist/splicing[@item{Congratulations - you've got the beginnings of a working game!}
            @item{What's still missing? @itemlist[@item{The Player doesn't move}
                                                  @item{When the Target and Danger move offscreen, they never come back}
                                                  @item{Nothing happens when the Player collides with the Danger or Target}]}
            @item{We're going to fix these over the next few lessons, and also work on the artwork and story for our games, so stay tuned!}
-           @item{@tag[pedagogy]{Who can tell us one thing we learned today?}}                     
-           @item{@tag[selftaught]{Write down a few things you learned today}}
-           @item{@tag[pedagogy]{Who saw someone else in the class do something great?}}
-           @item{@tag[pedagogy]{Cleanup, dismissal.}}]}
+           @tag[pedagogy]{@item{Who can tell us one thing we learned today?}}                     
+           @tag[selftaught]{@item{Write down a few things you learned today}}
+           @tag[pedagogy]@item{{Who saw someone else in the class do something great?}}
+           @tag[pedagogy]{@item{Cleanup, dismissal.}}]}
 
 
 @copyright[]

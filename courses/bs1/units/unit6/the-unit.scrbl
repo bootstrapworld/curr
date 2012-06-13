@@ -27,10 +27,9 @@ Students discover Boolean types, and use them to create programs that test value
           @item{Students write functions to perform tests on various domains}
           ]
                 
-State Standards
-See @(hyperlink "asdf" "Bootstrap Standards Matrix") provided as part of the Bootstrap curriculum. 
+@state-standards
                 
-Length: 90 min
+@length-of-lesson[90]
 
 @tag[pedagogy]{                
 @materials[@item{Student  @(hyperlink "https://spreadsheets.google.com/pub?key=0Ak3Voejjnf0ldHlQcXRVWTZDbVprWHlBLTJWRlQ2dkE&hl=en&gid=0" "workbook") folders - in pairs! - with names on covers.}
@@ -66,11 +65,11 @@ Language Table
 
 @lesson[#:title "Closing" #:duration "5 minutes"]{
 
-@itemlist[
-        @item{@tag[pedagogy]{Who can tell us one thing we learned today? }}
-        @item{@tag[selftaught]{@review{What did you learn from this lesson?}}}
-        @item{@tag[pedagogy]{Who saw someone else in the class do something great?}}
-        @item{@tag[pedagogy]{Cleanup, dismissal.}}
+@itemlist/splicing[
+        @tag[pedagogy]{@item{Who can tell us one thing we learned today? }}
+        @tag[selftaught]{@item{@review{What did you learn from this lesson?}}}
+        @tag[pedagogy]@item{{Who saw someone else in the class do something great?}}
+        @tag[pedagogy]{@item{Cleanup, dismissal.}}
         ]}
 
 @copyright[]
