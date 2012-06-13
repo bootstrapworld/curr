@@ -69,7 +69,7 @@ h2{
 	  position: relative;
 	  z-index: 1;
 	  float: left;
-	  top: -50px;
+	  top: -80px;
 	  
 }
 .BootstrapHeader{
@@ -86,8 +86,16 @@ h2{
 .BootstrapTable{
 	width: 300px;
 	border: 1px solid black;
-	background: white;}
-
+	background: white;
+	}
+	
+::-webkit-input-placeholder {
+	color: #ff33cc}
+input:-moz-placeholder{
+  color: #ff33cc
+  position: relative;
+	top: 10px;
+}
 
 
 /* We absorb the definitions of CSS from bootstrap; the following comes from http://www.bootstrapworld.org/styles.css */

@@ -137,9 +137,10 @@ Here is one with definitions.
 
 @;adds an overview section
 @;it is formatted to take all elements, so it can absorb the entire review page (@materials, etc)
-@overview{This is an overviewwwwwwwwwww
-          
-          @materials[@item{pencils}]}
+@;relative image links make this not work
+@;overview{This is an overviewwwwwwwwwww
+@;          
+ @;         @materials[@item{pencils}]}
 
 
 @;auto generates all copyright text
