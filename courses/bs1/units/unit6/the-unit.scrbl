@@ -62,7 +62,7 @@ Language Table
 @(include-lesson (lib "curr/lessons/Boolean-Function/lesson/lesson.scrbl"))
 
 @(include-lesson (lib "curr/lessons/onscreen2/lesson/lesson.scrbl"))
-
+@tag[pedagogy selftaught]{
 @lesson[#:title "Closing" #:duration "5 minutes"]{
 
 @itemlist/splicing[
@@ -70,6 +70,6 @@ Language Table
         @tag[selftaught]{@item{@review{What did you learn from this lesson?}}}
         @tag[pedagogy]{@item{Who saw someone else in the class do something great?}}
         @tag[pedagogy]{@item{Cleanup, dismissal.}}
-        ]}
+        ]}}
 
 @copyright[]
