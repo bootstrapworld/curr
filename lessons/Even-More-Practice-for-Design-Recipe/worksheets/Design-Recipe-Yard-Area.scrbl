@@ -1,5 +1,4 @@
-#lang scribble/base
-@(require "lib/all.rkt")
+#lang curr/lib
 @title{Design Recipe: Yard-Area}
 
 @worksheet{

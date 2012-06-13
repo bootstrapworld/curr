@@ -1,4 +1,4 @@
-#lang planet dyoo/scribble-bootstrap:5
+#lang curr/lib
 
 @title{Fast Functions}
 
