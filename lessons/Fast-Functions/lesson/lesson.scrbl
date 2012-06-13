@@ -13,7 +13,7 @@ gt that would just take in the size and draw me my triangle.}
           @; VIDEO SKIT FOR SELF TAUGHT
           @tag[pedagogy]{@item{@skit{Who can help me, by acting out gt? Take a volunteer}}}
           @tag[pedagogy]{@item{@skit{Okay, your name is now gt. All I need to do is call out your name, give you a number, and you will draw me that beautiful triangle. Let's do a test: "gt fifty!". The student should draw a solid green triangle on the board. "gt one hundred!" The student should draw a solid green triangle, roughly twice as big.. Can anyone else in the class call this function, passing in a different size?}}}
-          @item{Open your workbooks to page 8, where it says "fast functions."}
+          @item{Open your workbooks to @worksheet-link[#:page 8 #:name "Fast-Functions"]", where it says "fast functions."}
           @item{On this page, there is space to write four simple functions. @tag[pedagogy]{We're going to do the first one together, and then we'll have a competition for the rest.}}
           @item{@exercise{On this page, there is space to write four simple functions. We're going to do the first one together, and then we'll have a competition for the rest.}}
           @item{Let's start with the contract. What are the three parts of a contract?}

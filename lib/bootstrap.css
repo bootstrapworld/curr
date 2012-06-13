@@ -65,6 +65,13 @@ h2{
     font-weight: bold;
 
 }
+.BootstrapImage{
+	  position: relative;
+	  z-index: 1;
+	  float: left;
+	  top: -50px;
+	  
+}
 .BootstrapHeader{
 	  font-weight: bold;
 	  text-decoration: underline;

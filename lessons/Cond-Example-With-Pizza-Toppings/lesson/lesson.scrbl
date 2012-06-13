@@ -6,7 +6,7 @@
    @(hyperlink "http://www.youtube.com/watch?v=2ckWSjWum-8" "Intro to Cond Part 1")
    @(hyperlink "http://www.youtube.com/watch?v=iTrY-N3MLRY" "Intro to Cond Part 2")
    @itemlist/splicing[
-        @item{Turn to the Design Recipe on Page 23 and grab a Design Recipe Worksheet.}
+        @item{Turn to the Design Recipe on @worksheet-link[#:page 23 #:name "Design-Recipe-Cost"] and grab a Design Recipe Worksheet.}
         @item{Suppose we've been hired by Luigi's Pizza to write a function that tells us the cost of different pizza pies. Let's use the design recipe to write this function.}
         @tag[pedagogy]{@item{Have a student read the problem statement.}}
         @tag[pedagogy]{@item{I need a volunteer to be our function. Pick someone, and copy the contract as they answer. What is your name? cost Your Domain? String Your Range? Number. @code{; cost: String -> Number}}}
