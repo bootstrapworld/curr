@@ -25,7 +25,7 @@
      @item{With our pizza example, we had to deal with toppings that weren't on the menu. Now we need to deal with keys that aren't "up" or "down". 
            @think-about[#:question "How do we do that?"
                         #:answer "Do nothing! (Or have an else statement that returns the same position)"]}
-     @item{On @(hyperlink "page24.com" "page 24"), you'll find the problem statement for update-player. Grab a Design Recipe Worksheet, fill it out, and then write this function @tag[group]{with your team.}}
+     @item{On @worksheet-link[#:page 24 #:name "Design-Recipe-Update-Player"], you'll find the problem statement for update-player. Grab a Design Recipe Worksheet, fill it out, and then write this function @tag[group]{with your team.}}
      @;Here students should open their files, review, and possibly add cheats.
      @tag[pedagogy]{@item{Students can also add "cheat codes", by adding Cond branches for other keys. For example, a student might add [(string=? key "c") 240], which causes the player to jump to the center of the screen if the c key is pressed.}}
      @tag[selftaught]{@item{You can also add "cheat codes", by adding Cond branches for other keys. For example, you might add [(string=? key "c") 240], which causes the player to jump to the center of the screen if the c key is pressed.}}]}
