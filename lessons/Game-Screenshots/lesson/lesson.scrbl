@@ -5,7 +5,7 @@
 @lesson[#:title "Game Screenshots" #:duration "30 minutes"
                 #:prerequisites "Defining-Variables" ]{
 
-@itemlist[
+@itemlist/splice[
     @item{Suppose we wanted to combine your game images and layer them together to form a screenshot, so you could see what your game will look like. We want to take these images and stack them on top of each other - @think-about[#:question "What image goes on the bottom?" #:answer "The BACKGROUND."]}
     @item{There's also a variable called SCREENSHOT. @think-about[#:question "What is it defined to be?"
                                                      #:answer @code{(define SCREENSHOT (put-image PLAYER 320 240 BACKGROUND))}]}
