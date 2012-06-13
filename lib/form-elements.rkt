@@ -349,9 +349,10 @@
 
 
 ;;interns
-
+;
 (define (overview . body)
-  (list (compound-paragraph (bootstrap-sectioning-style "BootstrapOverviewTitle") (decode-flow (list (format "Unit Overview"))))
+  (list (compound-paragraph (bootstrap-sectioning-style "BootstrapImage") (decode-flow (list (image "bootstrap.gif"))))
+        (compound-paragraph (bootstrap-sectioning-style "BootstrapOverviewTitle") (decode-flow (list (format "Unit Overview"))))
         (compound-paragraph (bootstrap-sectioning-style "BootstrapOverview")
                             (decode-flow body))))
 
