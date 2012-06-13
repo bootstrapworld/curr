@@ -5,7 +5,7 @@
 @lesson[#:title "Blue Circle" #:duration "10 minutes"
                 #:prerequisites "Fast-Functions"]{
 
-@itemlist/splice[
+@itemlist/splicing[
           @item{Now it's your turn!}
           @tag[pedagogy]{@item{Raise your hand if you want to help me act out this next function. We'll come up with some examples together, and your group will have to write two more on paper!}}
           @tag[pedagogy]{@item{Hand the student the sign that says "bc" and ask them to come to the whiteboard}}

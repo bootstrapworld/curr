@@ -4,7 +4,7 @@
 
 @lesson[#:title "Fast Functions" #:duration "10 minutes"]{
 
-@itemlist/splice[
+@itemlist/splicing[
           @item{You've learned how to write complex expressions, and define shortcuts so you can use them later. That's terrific...but we need more.}
           @item{The problem is that all of these expressions always return the same thing - your screenshot, for example, will always look the same, every single time you evaluate it. What you want is a shortcut to a pattern. Then we just fill in the blanks later for the stuff that's changed, and get the whole expression back. Up to now, you've been defining values. Now you're going to learn how to define functions.}
           @item{My favorite shape in the whole world is a triangle, and my favorite color is green. I LOVE making solid green triangles! But right now, I have to type out so much code to do that! I need to write the triangle

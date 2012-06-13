@@ -4,7 +4,7 @@
 
 @lesson[#:title "Double" #:duration "10 minutes" #:prerequisites "Fast-Functions"]{
 
-@itemlist/splice[
+@itemlist/splicing[
          @item{@think-about[#:question @list{I want a volunteer to be a function called "double", which takes in a number and multiplies it by two. @tag[pedagogy]{Hand the sign to the student.} So if I say "double 3", what will I get back?"}]}
          @tag[pedagogy]{@item{Have a couple of students try out the function by giving examples}}
          @tag[pedagogy]{@item{You will have TWO minutes to write down that contract and two examples-once you've got your examples, RAISE YOUR HAND and call me over, so I can check them. Two minutes, ready - go!}}
