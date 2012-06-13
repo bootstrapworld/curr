@@ -3,13 +3,7 @@
 @declare-tags[group pedagogy selftaught bootstrap]
 @title{Unit 9: Prepping for Launch}
 
-@agenda[
-@item{5min Introduction}
-@item{15min Presentation Demo} 
-@item{20min Presentation Prep}
-@item{30min Rehearsal}
-@item{20min Celebration}
-]
+@agenda[]
 
 @overview{
 
