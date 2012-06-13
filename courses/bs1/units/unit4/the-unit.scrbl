@@ -19,9 +19,9 @@ Students are introduced to the Design Recipe and apply it to simple problems.
             @item{Students will practice Racket syntax and the Circles of Evaluation.}]
 @product-outcomes[@item{Students@tag[group]{,in pairs,} will write functions to solve simple problems by using the Design Recipe}]
 
-See @(hyperlink "https://spreadsheets.google.com/pub?key=0Ak3Voejjnf0ldHlQcXRVWTZDbVprWHlBLTJWRlQ2dkE&hl=en&gid=0" "Bootstrap Standards Matrix") for state standards.
+@state-standards
 
-Length: 90 minutes
+@length-of-lesson[90]
 
 @tag[pedagogy]{
 @materials[@item{Student workbook folders @tag[group]{- in pairs! - with names on covers}}

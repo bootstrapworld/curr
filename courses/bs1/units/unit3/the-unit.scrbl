@@ -30,11 +30,9 @@ Product Outcome
 @product-outcomes[@item{Students@tag[group]{, in pairs,} will write functions to solve simple problems}
        @item{Students@tag[group]{, in pairs,} will write examples (unit tests) to check those functions}]
 
-State Standards
+@state-standards
 
-See @(hyperlink "https://spreadsheets.google.com/pub?key=0Ak3Voejjnf0ldHlQcXRVWTZDbVprWHlBLTJWRlQ2dkE&hl=en&gid=0" "Bootstrap Standards Matrix") provided as a part of the Bootstrap curriculum
-
-Length: 90 minutes
+@length-of-lesson[90]
 
 @tag[pedagogy]{
 Materials and Equipment
