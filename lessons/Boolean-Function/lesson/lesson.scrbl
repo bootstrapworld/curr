@@ -22,5 +22,4 @@
                          #:answer @code[#:contract "or: Boolean Boolean -> Boolean" #:purpose "Returns true if EITHER of the inputs are true."]]}
       @item{Turn to @(hyperlink "page20.com" "Page 20") and read the directions}
       @item{Take five minutes @tag[group]{with your team,} to draw the circle for each of the statements. Think about what Boolean functions you'll need for each one! When you're done, convert those circles into Racket code.@embedded-wescheme[#:id "Booleans"
-                   @;#:definitions-text ";Enter your code here!"]}]}
-                   @#:interactions-text ";Enter your code here!"]}]}                                                                                                                                                                                                                                     
+                   #:definitions-text ";Enter your code here!"]}]}                                                                                                                                                                                                                          
