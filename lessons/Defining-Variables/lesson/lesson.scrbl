@@ -3,9 +3,9 @@
 @declare-tags[pedagogy selftaught group]
 
 @lesson[#:title "Defining Variables" #:duration "10 minutes"]{
-        @itemlist[
-        @item{@tag[(pedagogy selftaught)]{Note: this section and the one that follows ("Game Screenshots") teach the same concepts as the supplemental @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/SupplementalLessons.html#flags" "Flags") and @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/SupplementalLessons.html#changing" "Changing Images") activities.  Some students will find the flags activity more engaging and creative, while others are itching to see their games take shape. Choose whichever activity is best-suiited to your needs}}
-        @item{@tag[pedagogy]{@demo{Have students open their game files, and click Run. They should see a frozen screenshot of their game, using the images they requested. (By now, you should have students' graphics already created, and @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/TeachersGuide.html#addingimages" "added to the file")}}} 
+        @itemlist/splicing[
+        @tag[(pedagogy selftaught)]{@item{Note: this section and the one that follows ("Game Screenshots") teach the same concepts as the supplemental @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/SupplementalLessons.html#flags" "Flags") and @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/SupplementalLessons.html#changing" "Changing Images") activities.  Some students will find the flags activity more engaging and creative, while others are itching to see their games take shape. Choose whichever activity is best-suiited to your needs}}
+        @tag[pedagogy]{@item{@demo{Have students open their game files, and click Run. They should see a frozen screenshot of their game, using the images they requested. (By now, you should have students' graphics already created, and @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/TeachersGuide.html#addingimages" "added to the file")}}} 
               @;SELF TAUGHT THINGA MADOHICKY
         @item{So far, everything that you've been doing has been down in the Interactions window. What happens when you click Run at the top? All the work you did disappears!
               @embedded-wescheme[#:id "Defining Variables"

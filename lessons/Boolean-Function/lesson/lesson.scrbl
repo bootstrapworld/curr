@@ -3,7 +3,7 @@
 @lesson[#:title "Boolean Function" 
         #:duration "15 minutes"
         #:prerequisites "Booleans Contracts"]{
-   @itemlist[
+   @itemlist/splicing[
       @item{You've already learned many functions that allow you to create Booleans. < and >, for example, will all return a boolean when applied to the appropriate input.}
       @item{There are also many functions that work with Booleans, and let you do really complex tests.}
       @item{@tag[pedagogy]{Pick up two, easily-distinguishable objects (a pen and an eraser, for example).} @tag[selftaught]{Pretend you are holding a pen and an eraser}  Tell me if the following statements are true or false:
@@ -22,4 +22,5 @@
                          #:answer @code[#:contract "or: Boolean Boolean -> Boolean" #:purpose "Returns true if EITHER of the inputs are true."]]}
       @item{Turn to @(hyperlink "page20.com" "Page 20") and read the directions}
       @item{Take five minutes @tag[group]{with your team,} to draw the circle for each of the statements. Think about what Boolean functions you'll need for each one! When you're done, convert those circles into Racket code.@embedded-wescheme[#:id "Booleans"
-                   #:definitions-text ";Enter your code here!"]}]}
+                   @;#:definitions-text ";Enter your code here!"]}]}
+                   @#:interactions-text ";Enter your code here!"]}]}                                                                                                                                                                                                                                     

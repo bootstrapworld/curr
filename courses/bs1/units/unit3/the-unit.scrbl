@@ -30,11 +30,9 @@ Product Outcome
 @product-outcomes[@item{Students@tag[group]{, in pairs,} will write functions to solve simple problems}
        @item{Students@tag[group]{, in pairs,} will write examples (unit tests) to check those functions}]
 
-State Standards
+@state-standards
 
-See @(hyperlink "https://spreadsheets.google.com/pub?key=0Ak3Voejjnf0ldHlQcXRVWTZDbVprWHlBLTJWRlQ2dkE&hl=en&gid=0" "Bootstrap Standards Matrix") provided as a part of the Bootstrap curriculum
-
-Length: 90 minutes
+@length-of-lesson[90]
 
 @tag[pedagogy]{
 Materials and Equipment
@@ -60,7 +58,7 @@ Preparations
 }
 
 @lesson[#:title "Introduction" #:duration "15 minutes"]{
-        @itemlist[
+        @itemlist/splicing[
         @item{You guys have done a fantastic job in the last two classes}
         @item{You've learned how to convert expressions into Circles of Evaluation, and how to convert those circles into Racket code}
         @item{You've learned how to think about functions in terms of nested circles, and how to think of them as a mapping between the Domain and Range}
@@ -78,12 +76,12 @@ Preparations
         
 @lesson[#:title "Closing" #:duration "5 minutes"]{
 
-@itemlist[
-        @item{@tag[pedagogy]{Who can tell us one thing we learned today? }}
-        @item{@tag[selftaught]{@review{What did you learn from this lesson?}}}
-        @item{@tag[pedagogy]{Who saw someone else in the class do something great?}}
+@itemlist/splicing[
+        @tag[pedagogy]{@item{Who can tell us one thing we learned today? }}
+        @tag[selftaught]{@item{@review{What did you learn from this lesson?}}}
+        @tag[pedagogy]{@item{Who saw someone else in the class do something great?}}
         @item{Well done! You guys have officially started your games! The next step is to make your characters animate, which we'll be doing in our next class. See you then!}
-        @item{@tag[pedagogy]{Cleanup, dismissal.}}
+        @tag[pedagogy]{@item{Cleanup, dismissal.}}
         ]}
        
 

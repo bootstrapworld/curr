@@ -152,12 +152,39 @@ Here is another one:
 @;updated think-about to take in any tags within questions
 @think-about[#:question @list{@code{123}}]
 
-@; The following uses an itemlist with splicing support.
+@(language-table (list "Number" "+ - * / sq sqrt expt")
+                 (list "String" "string-append string=? and stuff and things squares"))
+
+
+@objectives[@item{Students, in pairs, will write functions to solve simple problems}
+             @item{Students will write examples (unit tests) to check those functions}]
+
+@product-outcomes[@item{Students will write functions to solve simple 
+                        problems}
+       @item{Students will write examples (unit tests) to check those functions}]
+
+@preparation[@item{Create student game files. [See @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/TeachersGuide.html" "Instructions")]}
+           @item{On student machines: Student Game Files (generated from blank templates [@(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/downloads/Game.rkt" "DrRacket file") + @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/downloads/Teachpack/Teachpacks.zip" "teachpacks") | @(hyperlink "http://www.wescheme.org/openEditor?publicId=cross-drawn-serve-annex-crumb" "WeScheme")])}
+           @item{Write agenda on board, and post along with class posters and the Language Table}
+           @item{Seating arrangements: ideally clusters of desks/tables}
+           @item{Optional: demo machine with projector to show the interations and definitions windows}]
+
+
+
+@materials[@item{Student @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/materials/StudentWorkbook.pdf" "workbook") folders with names on covers.}
+           @item{Pens/pencils for the students, fresh whiteboard markers for teachers}
+           @item{Class poster (List of rules, language table, course calendar)}
+           @item{Language Table (see below)}]
+
+@state-standards
+@length-of-lesson[90]
+
+ The following uses an itemlist with splicing support.
 @itemlist/splicing[
 @item{hello}
 @item{world}
 @tag[student]{@item{Only students should see this.}}
-@decode:splice[(list @item{test} @item{blah})]
+@;@decode:splice[(list @item{test} @item{blah})]
 
 @item{blahslkl}
 ]
