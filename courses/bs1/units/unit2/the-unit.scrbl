@@ -68,7 +68,7 @@ Length: 90 minutes
 
 @(include-lesson (lib "curr/lessons/Contracts/lesson/lesson.scrbl"))
 
-@(include-lesson (lib "curr/lessons/Strings/lesson/lesson.scrbl"))
+@(include-lesson (lib "curr/lessons/Intro-to-Strings/lesson/lesson.scrbl"))
 
 @(include-lesson (lib "curr/lessons/Creating-Images/lesson/lesson.scrbl"))
                                 

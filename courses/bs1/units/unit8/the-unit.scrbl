@@ -47,7 +47,7 @@ Length: 90 minutes
 @(include-lesson (lib "curr/lessons/Collision-Introduction/lesson/lesson.scrbl"))
 @(include-lesson (lib "curr/lessons/1D-Distance/lesson/lesson.scrbl"))
 @(include-lesson (lib "curr/lessons/Distance-Formula/lesson/lesson.scrbl"))
-@(include-lesson (lib "curr/lessons/Collide/lesson/lesson.scrbl"))
+@(include-lesson (lib "curr/lessons/Collision-Detection/lesson/lesson.scrbl"))
 
 
 

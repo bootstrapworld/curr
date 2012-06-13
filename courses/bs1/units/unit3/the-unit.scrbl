@@ -73,8 +73,8 @@ Preparations
 @(include-lesson (lib "curr/lessons/Defining-Variables/lesson/lesson.scrbl"))
 @(include-lesson (lib "curr/lessons/Game-Screenshots/lesson/lesson.scrbl"))
 @(include-lesson (lib "curr/lessons/Fast-Functions/lesson/lesson.scrbl"))
-@(include-lesson (lib "curr/lessons/Blue-Circle/lesson/lesson.scrbl"))
-@(include-lesson (lib "curr/lessons/Double/lesson/lesson.scrbl"))
+@(include-lesson (lib "curr/lessons/Function-Example-Blue-Circle/lesson/lesson.scrbl"))
+@(include-lesson (lib "curr/lessons/Function-Example-Double/lesson/lesson.scrbl"))
         
 @lesson[#:title "Closing" #:duration "5 minutes"]{
 

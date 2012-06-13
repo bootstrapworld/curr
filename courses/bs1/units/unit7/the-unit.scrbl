@@ -48,7 +48,7 @@ Length: 90 min
 @lesson[#:title "Introduction" #:duration "10 min"]{
 @itemlist[
      @item{Review the previous material}]}
-@(include-lesson (lib "curr/lessons/Pizza-Toppings/lesson/lesson.scrbl"))
+@(include-lesson (lib "curr/lessons/Cond-Example-With-Pizza-Toppings/lesson/lesson.scrbl"))
 @(include-lesson (lib "curr/lessons/Player-Movement/lesson/lesson.scrbl"))
 
 @lesson[#:title "Closing" #:duration "5 min"]{
