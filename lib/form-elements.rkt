@@ -355,7 +355,7 @@
 ;;interns
 ;
 (define (overview . body)
-  (list (compound-paragraph (bootstrap-sectioning-style "BootstrapImage") (decode-flow (list (image "bootstrap.gif"))))
+  (list (compound-paragraph (bootstrap-sectioning-style "BootstrapImage") (decode-flow (list (image "../../../../lib/bootstrap.gif"))))
         (compound-paragraph (bootstrap-sectioning-style "BootstrapOverviewTitle") (decode-flow (list (format "Unit Overview"))))
         (compound-paragraph (bootstrap-sectioning-style "BootstrapOverview")
                             (decode-flow body))))
@@ -414,14 +414,6 @@
         ") "
         (fill-in-the-blank #:id (format "~a.2" tag) #:label text2)
         ")"))
-                                    
 
-;to-be-deleted
-;if it is a conditional example, cond? is true, otherwise false
-;(define (example cond? tag)
-;  (para "(EXAMPLE (" (fill-in-the-blank 
-;                        #:id (format "~a~a" tag ".0")
-;                        #:label "Use the function here") ") "
-;        (fill-in-the-blank
-;         #:id (format "~a~a" tag ".1")
-;         #:label (if cond? "What should the function produce?" "Find another way to get the same result here"))")"))
+(define agenda-build
+  (
