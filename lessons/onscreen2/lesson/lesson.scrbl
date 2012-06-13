@@ -5,7 +5,7 @@
         #:prerequisites "onscreen1 Boolean-Function"]{
      @itemlist/splicing[
          @item{@exercise{Now it's time to put it all together. Right now, you know how to protect Sam on the left side of the screen, and how to protect him on the right side. But how do we protect him on BOTH sides at the same time?}}
-         @item{Turn to @(hyperlink "page21.com" "Page 21") and read the problem statement.}
+         @item{Turn to @worksheet-link[#:page 21 #:name "Design-Recipe-Onscreen"] and read the problem statement.}
          @tag[pedagogy]{@item{I need a volunteer to be the onscreen? function. (take a volunteer)}}
          @tag[selftaught]{@item{Pretend you are the onscreen? function"}}
          @item{What is your name? What is your domain? What is your Range?}
