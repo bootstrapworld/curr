@@ -22,7 +22,13 @@
     padding: 5px;
     margin: 10px;
 }
-
+/*Lesson Design*/
+.BootstrapLessonTitle{
+    background: black;
+    color: white;
+    font-size: 18px;
+    margin: 3px;
+}
 .BootstrapLesson {
     border: 1px solid black;
     padding: 5px;
@@ -37,6 +43,13 @@
     padding: 5px;
     margin: 3px;
 }
+/*Overview design*/
+.BootstrapOverviewTitle{
+    background: black;
+    color: white;
+    font-size: 18px;
+    margin: 3px;
+     }
 .BootstrapOverview {
     border: 3px solid white;
     padding: 5px;
@@ -44,37 +57,29 @@
     background: lightgray;
 
 }
+
+/*Copyright Design*/
 .BootstrapworldCopyrights{
 
 }
-.BootstrapLessonTitle{
-    background: black;
-    color: white;
-    font-size: 18px;
-    margin: 3px;
-}
 
-.BootstrapOverviewTitle{
-    background: black;
-    color: white;
-    font-size: 18px;
-    margin: 3px;
-     }
+
+/*Title Design*/
 .BootstrapTitle{
-      text-align: center;
+      text-align: left;
     font-size: 32px;
     font-weight: bold;
 }
 .BootstrapTitle img{
   float: left;
 }
-
+/*Subsection Header Design*/
 .BootstrapHeader{
 	  font-weight: bold;
 	  text-decoration: underline;
 	  font-size: 16px;
 }
-
+/*Table Design*/
 .BootstrapTableHeader{
 	border: 1px solid black;
 	background: grey;
@@ -85,12 +90,6 @@
 	border: 1px solid black;
 	background: white;
 	}
-	
-::-webkit-input-placeholder {
-	color: #ff33cc}
-input:-moz-placeholder{
-  color: #ff33cc
-}
 
 
 /* We absorb the definitions of CSS from bootstrap; the following comes from http://www.bootstrapworld.org/styles.css */
