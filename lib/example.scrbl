@@ -177,7 +177,7 @@ Here is another one:
            @item{Language Table (see below)}]
 
 @state-standards
-@length-of-lesson
+@length-of-lesson[90]
 
  The following uses an itemlist with splicing support.
 @itemlist/splicing[

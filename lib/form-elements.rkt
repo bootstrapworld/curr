@@ -387,8 +387,9 @@
    (compound-paragraph (bootstrap-sectioning-style "BootstrapHeader") (decode-flow (list "State Standards")))
    (para "See " (hyperlink "https://spreadsheets.google.com/a/brown.edu/pub?key=0Ak3Voejjnf0ldHlQcXRVWTZDbVprWHlBLTJWRlQ2dkE&hl=en&gid=0" "Bootstrap Standards Matrix") " provided as part of the Bootstrap curriculum.")))
 
-;auto generates length section
-(define length-of-lesson
-  (list (compound-paragraph (bootstrap-sectioning-style "BootstrapHeader") (decode-flow (list "Length: 90 minutes")))))
+;creates the length of the lesson based on input
+;input ONLY THE NUMBER!
+(define (length-of-lesson l)
+  (list (compound-paragraph (bootstrap-sectioning-style "BootstrapHeader") (decode-flow (list (format "Length: ~a minutes" l))))))
                                     
                         
