@@ -20,7 +20,7 @@
       @item{it matters in what order the arguments are written.}]}
    @item{We'll separate the function from the inputs by drawing a line between them: the function is above the line, the inputs are below.}
    @exercise{@item{How do we compute this program? Well, our new rule tells us to look at the left first: what is the value of 6? }}
-   @exercise@item{{Now we look at the right: that's a new circle, so we have to evaluate that first. What is the left-hand side? A 4! And the right? A 5! What are we doing to the 4 and 5? That's right, we're adding. What do we get when we add 4 and 5? (Replace rightmost circle with 9.)}}
+   @exercise{@item{Now we look at the right: that's a new circle, so we have to evaluate that first. What is the left-hand side? A 4! And the right? A 5! What are we doing to the 4 and 5? That's right, we're adding. What do we get when we add 4 and 5? (Replace rightmost circle with 9.)}}
    @item{Now we have two numbers. @tag[pedagogy]{What are we doing to 6 and 9? (Replace circle contents with 54.)} 
          @tag[selftaught]{@think-about[
          #:question "What are we doing to 6 and 9?"

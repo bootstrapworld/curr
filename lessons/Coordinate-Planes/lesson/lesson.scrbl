@@ -15,7 +15,7 @@
             @exercise{@itemlist[@tag[pedagogy]{@item{Draw a second number line and add NinjaCat at (4,6)}}
                       @item{What is NinjaCat's position on the x-axis? To find out, we just drop a line down from where NinjaCat is, and read the position on the number line. He's at 4.}
                       @item{What is his position on the y-axis?}=
-                      @tag[pedagogy]{@item{If time allows, invite volunteers up to the board to try placing NinjaCat and the Ruby at different locations.}}]}
+                      @tag[pedagogy]{@item{If time allows, invite volunteers up to the board to try placing NinjaCat and the Ruby at different locations.}}]}}
   @item{When we write down these coordinates, we always put the x before the y (just like in the alphabet!). Most of the time, you'll see coordinates written like this: (200, 50) meaning that the x-coordinate is 200 and the y-coordinate is 50.}
   @item{On the computer, the screen is all the parts of the grid from 0 to 640 on the x-axis, and 0 to 480 on the y-axis. @tag[pedagogy]{Superimpose the screen over your coordinate plane.}}
   @item{@think-about[#:question "What is the coordinate for the lower left-hand corner of the screen? What about the lower right-hand corner? The center?"
