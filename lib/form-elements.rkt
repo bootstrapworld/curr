@@ -9,7 +9,8 @@
          scribble/decode
          [except-in scribble/manual code]
          scribble/html-properties
-         (for-syntax racket/base))
+         (for-syntax racket/base)
+         2htdp/image)
 
 
 ;; FIXME: must add contracts!
@@ -62,8 +63,13 @@
          state-standards
          length-of-lesson
          itemlist/splicing
+
+
+         worksheet-link
          )        
 
+
+(define bootstrap.gif (bitmap "bootstrap.gif"))
 
 
 
@@ -356,10 +362,12 @@
 
 
 
+
+
 ;;interns
 ;
 (define (overview . body)
-  (list (compound-paragraph (bootstrap-sectioning-style "BootstrapImage") (decode-flow (list (image "bootstrap.gif"))))
+  (list (compound-paragraph (bootstrap-sectioning-style "BootstrapImage") (decode-flow (list bootstrap.gif)))
         (compound-paragraph (bootstrap-sectioning-style "BootstrapOverviewTitle") (decode-flow (list (format "Unit Overview"))))
         (compound-paragraph (bootstrap-sectioning-style "BootstrapOverview")
                             (decode-flow body))))
@@ -429,3 +437,13 @@
 ;        (fill-in-the-blank
 ;         #:id (format "~a~a" tag ".1")
 ;         #:label (if cond? "What should the function produce?" "Find another way to get the same result here"))")"))
+
+
+
+
+
+(define (worksheet-link #:name name
+                        #:page page
+                        #:lesson [lesson #f]
+                        )
+  "fix me")
