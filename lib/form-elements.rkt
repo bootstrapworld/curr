@@ -9,7 +9,8 @@
          scribble/decode
          [except-in scribble/manual code]
          scribble/html-properties
-         (for-syntax racket/base))
+         (for-syntax racket/base)
+         2htdp/image)
 
 
 ;; FIXME: must add contracts!
@@ -62,8 +63,13 @@
          state-standards
          length-of-lesson
          itemlist/splicing
+
+
+         worksheet-link
          )        
 
+
+(define bootstrap.gif (bitmap "bootstrap.gif"))
 
 
 
@@ -136,6 +142,8 @@
                            #:interactions-text (interactions-text #f)
                            #:definitions-text (definitions-text #f)
                            #:hide-header? (hide-header? #t)
+                           #:hide-toolbar? (hide-toolbar? #f)
+                           #:hide-project-name? (hide-project-name? #t)
                            #:hide-footer? (hide-footer? #t)
                            #:hide-definitions? (hide-definitions? #f)
                            #:hide-interactions? (hide-interactions? #f))
@@ -146,6 +154,8 @@
                               #:interactions-text interactions-text
                               #:definitions-text definitions-text
                               #:hide-header? hide-header?
+                              #:hide-toolbar? hide-toolbar?
+                              #:hide-project-name? hide-project-name?
                               #:hide-footer? hide-footer?
                               #:hide-definitions? hide-definitions?
                               #:hide-interactions? hide-interactions?))
@@ -352,10 +362,12 @@
 
 
 
+
+
 ;;interns
 ;
 (define (overview . body)
-  (list (compound-paragraph (bootstrap-sectioning-style "BootstrapImage") (decode-flow (list (image "../../../../lib/bootstrap.gif"))))
+  (list (compound-paragraph (bootstrap-sectioning-style "BootstrapImage") (decode-flow (list bootstrap.gif)))
         (compound-paragraph (bootstrap-sectioning-style "BootstrapOverviewTitle") (decode-flow (list (format "Unit Overview"))))
         (compound-paragraph (bootstrap-sectioning-style "BootstrapOverview")
                             (decode-flow body))))
@@ -414,6 +426,10 @@
         ") "
         (fill-in-the-blank #:id (format "~a.2" tag) #:label text2)
         ")"))
+                                    
 
-(define agenda-build
-  (
+(define (worksheet-link #:name name
+                        #:page page
+                        #:lesson [lesson #f]
+                        )
+  "fix me")

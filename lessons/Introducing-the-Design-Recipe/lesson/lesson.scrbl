@@ -11,7 +11,7 @@
      @item{Believe it or not, you're 90% of the way towards being able to write an animation function! All the steps you took to write those functions before are actually part of a process that real programmers use, called the Design Recipe.}
      @item{Engineers all over the world use the Design Recipe to write functions. It's a way of thinking through each step of programming and making sure that you're on the right path before you even touch the keyboard.}
      @item{We're going to try using the Design Recipe to animate a rocket@tag[group]{, and for this you'll be working in pairs}.}
-     @item{Turn to @(hyperlink "page11.com" "page 11") in your workbook@tag[group]{s}. @tag[pedagogy]{Have a student read the problem statement aloud.} @tag[selftaught]{Read the problem statement.}}
+     @item{Turn to @worksheet-link[#:page 11 #:name "Design-Recipe-Rocket-Height"] in your workbook@tag[group]{s}. @tag[pedagogy]{Have a student read the problem statement aloud.} @tag[selftaught]{Read the problem statement.}}
      @item{Just by reading this Problem Statement, we can tell a lot about the function we're going to write. For example, what is the function's name? @tag[group]{Have one person in each pair underline the name on your paper.} @tag[selftaught]{Make a note of the name of the function.}}
      @item{What does the function take in as an input? What does it give back as an output? @tag[group]{Now the other person in each pair} Circle these on your paper.}
      @tag[pedagogy]{@item{@skit{Who would like to volunteer to act out this function?

@@ -21,8 +21,8 @@
             @tag[pedagogy]{@item{Draw another, outer rectangle on the board to represent the 50 pixel buffer zone. Raise your hand if you can tell is why we have to go out to -50 put Sam off the screen, when the screen only goes from 0 to 640.}}
             @tag[selftaught]{@item{Draw another, outer rectangle on the board to represent the 50 pixel buffer zone. Why do we have to go out to -50 put Sam off the screen, when the screen only goes from 0 to 640.}}
             @item{@tag[pedagogy]{Take some ideas from the class, then explain if necessary.}   When the butterfly is drawn at some coordinate, it is centered at that coordinate. So if it's drawn at 0, half of the butterfly is actually off the screen. We add the extra 50 pixels on all sides, because a piece of him is still visible as long as he is within 100 pixels of the screen's edge. }
-            @item{Turn to @(hyperlink "page17.com" "Page 17"). Take thirty seconds to fill out what we've discovered.}
-            @item{Turn to @(hyperlink "page18.com" "Page 18") and read the problem statement for the protect-left function.}
+            @item{Turn to @worksheet-link[#:page 17 #:name "Protecting-Sam"]. Take thirty seconds to fill out what we've discovered.}
+            @item{Turn to @worksheet-link[#:page 18 #:name "Design-Recipe-Protect-Left"] and read the problem statement for the protect-left function.}
             @tag[pedagogy]{@item{Who would like to act out protect-left? Take a volunteer.}}
             @tag[pedagogy]{@item{@exercise{According to the problem statement, what's your name? What's your Domain? Your Range? Given Sam's x-coordinate, and tell me if any part of him is still on the screen. Let's try it out. "protect-left forty-five!" "protect-left three!" "protect-left negative fifty-one!" How did you know Sam wasn't protected at -51? because the number was less than -50!.}}}
             @tag[selftaught]{@item{@think-about[#:question "What is protect-left -3?" #:answer "True! The distance from the center of the butterfly to its edge is 50, so there are still 47 pixels of the butterfly on screen."]@think-about[#:question "What is protect-left -47?" #:answer "True! The distance from the center of the butterfly to its edge is 100, so there are still 3 pixels of the butterfly on screen."]@think-about[#:question "What is protect-left -51?" #:answer "False! The distance from the center of the butterfly to its edge is 50, so the butterfly is offscreen by 1 pixel."]}}
@@ -33,5 +33,5 @@
                   @code{ (protect-left x))}}
             @item{Click "Run", and try to move Sam off the left edge of the screen. Congrats! You've protected Sam on one side!}
             @item{Unfortunately, Sam can still escape on the right hand side. We need a protect-right! @tag[pedagogy]{(act out with another volunteer, if necessary).}}
-            @item{Turn to @(hyperlink "page19.com" "Page 19"), and write another function called protect-right. @tag[pedagogy]{Call me over when you reach a stopping point!}}
+            @item{Turn to @worksheet-link[#:page 19 #:name "Design-Recipe-Protect-Right"], and write another function called protect-right. @tag[pedagogy]{Call me over when you reach a stopping point!}}
             @item{Good job! Now we can protect Sam on the left side, or we can protect Sam on the right side. However, we don't have a way to protect him from going off from both sides at the same time! We need to learn something new to save him in both directions. }]}

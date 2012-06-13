@@ -22,7 +22,7 @@
                              #:answer "(50, 100), (350, 600), (600,50)"]}
           @item{You will need to write a function that takes an x-coordinate and produces the next x-coordinate, to make your danger move.}
           @item{INSERT TABLE HERE}
-          @item{Turn to @(hyperlink "page15.com" "Page 15") for update-danger. @tag[pedagogy]{Have a student read the problem statement out loud.} @tag[selftaught]{Read the problem statement.}}
+          @item{Turn to @worksheet-link[#:page 15 #:name "Design-Recipe-Update-Danger"] for update-danger. @tag[pedagogy]{Have a student read the problem statement out loud.} @tag[selftaught]{Read the problem statement.}}
           @item{@think-about[#:question "Can you find the function name in this problem statement? Underline it."
                              #:answer "The function name is 'update-danger'"]}
           @item{@think-about[#:question "Can you find the inputs and outputs? Underline them, too."
