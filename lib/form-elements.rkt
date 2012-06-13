@@ -58,8 +58,8 @@
          overview
          copyright
          example
-         function-header
-
+         state-standards
+         length-of-lesson
          itemlist/splicing
          )        
 
@@ -169,17 +169,7 @@
   (apply verbatim #:indent 2 
          (append (if contract (list (format-racket-header contract)) '())
                  (if purpose (list (format-racket-header purpose)) '())
-                  body)))
-
-;(define (contract-exercise tag #:func-name (func-name #f))
-;  (para ";"
-;        (if func-name
-;            func-name
-;            (fill-in-the-blank #:id (format "~aname" tag) #:label (format "~aname" tag)))
-;      " : "
-;        (fill-in-the-blank #:id (format "~aarg" tag) #:label (format "~aarg" tag))
-;        " -> "
-;        (fill-in-the-blank #:id (format "~aoutput" tag) #:label (format "~aoutput" tag))))        
+                  body)))       
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -296,7 +286,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (define (materials . items)
-  (list "Materials and Equipment:"
+  (list (compound-paragraph (bootstrap-sectioning-style "BootstrapHeader") (decode-flow (list "Materials and Equipment:")))
         (apply itemlist/splicing items #:style "BootstrapMaterialsList")))
 
 (define (goals . items)
@@ -308,15 +298,15 @@
         (apply itemlist/splicing items #:style "BootstrapDoNowList")))
 
 (define (objectives . items)
-  (list "Learning Objectives:"
+  (list (compound-paragraph (bootstrap-sectioning-style "BootstrapHeader") (decode-flow (list "Learning Objectives:")))
         (apply itemlist/splicing items #:style "BootstrapLearningObjectivesList")))
 
 (define (product-outcomes . items)
-  (list "Product Outcomes:"
+  (list (compound-paragraph (bootstrap-sectioning-style "BootstrapHeader") (decode-flow (list "Product Outcomes:")))
         (apply itemlist/splicing items #:style "BootstrapProductOutcomesList")))
 
 (define (preparation . items)
-  (list "Preparation:"
+  (list (compound-paragraph (bootstrap-sectioning-style "BootstrapHeader") (decode-flow (list "Preparation:")))
         (apply itemlist/splicing items #:style "BootstrapPreparationList")))
 
 (define (agenda . items)
@@ -363,8 +353,8 @@
   (list (compound-paragraph (bootstrap-sectioning-style "BootstrapOverviewTitle") (decode-flow (list (format "Unit Overview"))))
         (compound-paragraph (bootstrap-sectioning-style "BootstrapOverview")
                             (decode-flow body))))
-  
-  
+
+
 ;if it is a conditional example, cond? is true, otherwise false
 (define (example cond? tag)
   (para "(EXAMPLE (" (fill-in-the-blank 
@@ -373,70 +363,32 @@
         (fill-in-the-blank
          #:id (format "~a~a" tag ".1")
          #:label (if cond? "What should the function produce?" "Find another way to get the same result here"))")"))
+
+
+
 (define (contract-exercise tag)
   (para ";" (fill-in-the-blank #:id (format "~aname" tag) #:label "Name")
         ":" (fill-in-the-blank #:id (format "~aarg" tag) #:label "Domain")
         "->" (fill-in-the-blank #:id (format "~aoutput" tag) #:label "Range")))
+
+
+
+;auto generates copyright section
 (define (copyright . body)
   (para "Bootstrap by " (hyperlink "http://www.bootstrapworld.org/" "Emmanuel Schanzer") " is licensed under a "
         (hyperlink "http://creativecommons.org/licenses/by-nc-nd/3.0/" "Creative Commons 3.0 Unported License")
         ". Based on a work at " (hyperlink "http://www.bootstrapworld.org/" "www.BootsrapWorld.org")
         ". Permissions beyond the scope of this license may be available at "
         (hyperlink "mailto:schanzer@BootstrapWorld.org" "schanzer@BootstrapWorld.org") "."))
-        
 
-(define (function-header cond? tag)
-  (if cond?         
-                        (para "(define (" (fill-in-the-blank 
-                        #:id (format "~a~a" tag ".0")
-                        #:label "function name") 
-                       (fill-in-the-blank 
-                        #:id (format "~a~a" tag ".1")
-                        #:label "variable names")"\n\t" 
-                        (fill-in-the-blank 
-                        #:id (format "~a~a" tag ".2")
-                        #:label "") 
-                        (fill-in-the-blank 
-                        #:id (format "~a~a" tag ".3")
-                        #:label "")
-                        "\n\t" (fill-in-the-blank 
-                        #:id (format "~a~a" tag ".4")
-                        #:label "") 
-                        (fill-in-the-blank 
-                        #:id (format "~a~a" tag ".5")
-                        #:label "")
-                        "\n\t" (fill-in-the-blank 
-                        #:id (format "~a~a" tag ".6")
-                        #:label "") 
-                        (fill-in-the-blank 
-                        #:id (format "~a~a" tag ".7")
-                        #:label "")
-                        "\n\t" (fill-in-the-blank 
-                        #:id (format "~a~a" tag ".8")
-                        #:label "") 
-                        (fill-in-the-blank 
-                        #:id (format "~a~a" tag ".9")
-                        #:label "")
-                        "\n\t" (fill-in-the-blank 
-                        #:id (format "~a~a" tag ".10")
-                        #:label "") 
-                        (fill-in-the-blank 
-                        #:id (format "~a~a" tag ".11")
-                        #:label "")
-                        "\n\t" (fill-in-the-blank 
-                        #:id (format "~a~a" tag ".12")
-                        #:label "") 
-                        (fill-in-the-blank 
-                        #:id (format "~a~a" tag ".13")
-                        #:label ""))
-                        
-                        (para "(define (" (fill-in-the-blank 
-                        #:id (format "~a~a" tag ".0")
-                        #:label "function name") 
-                       (fill-in-the-blank 
-                        #:id (format "~a~a" tag ".1")
-                        #:label "variable names")"\n\t"(fill-in-the-blank 
-                        #:id (format "~a~a" tag ".14")
-                        #:label ""))))
+;autogenerates state-standards section
+(define state-standards
+  (list
+   (compound-paragraph (bootstrap-sectioning-style "BootstrapHeader") (decode-flow (list "State Standards")))
+   (para "See " (hyperlink "https://spreadsheets.google.com/a/brown.edu/pub?key=0Ak3Voejjnf0ldHlQcXRVWTZDbVprWHlBLTJWRlQ2dkE&hl=en&gid=0" "Bootstrap Standards Matrix") " provided as part of the Bootstrap curriculum.")))
+
+;auto generates length section
+(define length-of-lesson
+  (list (compound-paragraph (bootstrap-sectioning-style "BootstrapHeader") (decode-flow (list "Length: 90 minutes")))))
                                     
                         
