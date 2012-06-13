@@ -8,14 +8,7 @@
 @overview{
 Students discover Boolean types, and use them to create programs that test values, and then model scenarios using these programs.
 
-@agenda[
-        @item{15min Introduction}
-        @item{5min Booleans}
-        @item{25min onscreen? 1.0}
-        @item{15min Boolean Functions}
-        @item{25min onscreen? 2.0}
-        @item{5min Closing}
-        ]
+@agenda[]
 
 @objectives[@item{@tag[group]{Learn to work as a team}}
           @item{Understand how to declare Boolean values}
@@ -62,7 +55,7 @@ Language Table
 @(include-lesson (lib "curr/lessons/Boolean-Function/lesson/lesson.scrbl"))
 
 @(include-lesson (lib "curr/lessons/onscreen2/lesson/lesson.scrbl"))
-@tag[pedagogy selftaught]{
+
 @lesson[#:title "Closing" #:duration "5 minutes"]{
 
 @itemlist/splicing[
@@ -70,6 +63,6 @@ Language Table
         @tag[selftaught]{@item{@review{What did you learn from this lesson?}}}
         @tag[pedagogy]{@item{Who saw someone else in the class do something great?}}
         @tag[pedagogy]{@item{Cleanup, dismissal.}}
-        ]}}
+        ]}
 
 @copyright[]

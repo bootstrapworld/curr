@@ -2,14 +2,7 @@
 @declare-tags[group pedagogy selftaught bootstrap]
 @title{Unit 5: Game Animation}
 
-@agenda[
-@item{25min Introduction}
-@item{20min Danger Movement}
-@item{20min Target Movement}
-@item{15min Opt1:Fun With Movement}
-@item{15min Opt2:Projectile Movement}
-@item{5min  Closing}
-]
+@agenda[]
 
 @overview{
 
