@@ -3,12 +3,7 @@
 @declare-tags[group pedagogy selftaught bootstrap]
 @title{Unit 7: Conditional Branching}
 
-@agenda[
-@item{10min Introduction}
-@item{30min Pizza Toppings}
-@item{25min Player Movement}
-@item{5min  Closing}
-]
+@agenda[]
 
 @overview{
 
