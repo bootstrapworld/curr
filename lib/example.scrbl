@@ -1,5 +1,6 @@
 #lang curr/lib
 @(require racket/bool)
+@(require (prefix-in decode: scribble/decode))
 @title{Example}
 
 @; Note: this document can be generated in different contexts.
@@ -143,12 +144,6 @@ Here is another one:
 @(contract-exercise "anything1")
 @(contract-exercise "anything2")
 
-@;examples: cond? tag -> creates an example like in section 2 of design recipe worksheets
-@; cond? - whether the example is for a conditional or not (the text differs)
-@; tag - a unique string, use the unit number and problem (unit 1 problem 2 goes to 12)
-@(example true "13")
-@(example false "09")
-
 @;updated think-about to take in any tags within questions
 @think-about[#:question @list{@code{123}}]
 
@@ -184,7 +179,18 @@ Here is another one:
 @item{hello}
 @item{world}
 @tag[student]{@item{Only students should see this.}}
-@;@decode:splice[(list @item{test} @item{blah})]
+@decode:splice[(list @item{test} @item{blah})]
 
 @item{blahslkl}
 ]
+@; tag - a unique string, use the unit number and problem (unit 1 problem 2 goes to 12)
+@; fast function has three blanks and no text, with text has two blanks with optional text
+@example-fast-functions["this-should-be-unique"]
+
+@example-with-text[#:text1 "thing1"
+                   #:text2 "thing2"
+                   "this-should-be-unique"]
+
+@example-with-text["this-should-be-unique2"]
+@example-with-text[#:text1 "yay" "3"]
+
