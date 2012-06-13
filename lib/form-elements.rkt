@@ -63,7 +63,7 @@
          state-standards
          length-of-lesson
          itemlist/splicing
-
+         bootstrap-title
 
          worksheet-link
          )        
@@ -399,7 +399,8 @@
 ;;interns
 ;
 (define (overview . body)
-  (list (compound-paragraph (bootstrap-sectioning-style "BootstrapImage") (decode-flow (list bootstrap.gif)))
+  (list 
+   ;(compound-paragraph (bootstrap-sectioning-style "BootstrapImage") ;(decode-flow (list bootstrap.gif)))
         (compound-paragraph (bootstrap-sectioning-style "BootstrapOverviewTitle") (decode-flow (list (format "Unit Overview"))))
         (compound-paragraph (bootstrap-sectioning-style "BootstrapOverview")
                             (decode-flow body))))
@@ -460,22 +461,10 @@
         ")"))
                                     
 
-;to-be-deleted
-;if it is a conditional example, cond? is true, otherwise false
-;(define (example cond? tag)
-;  (para "(EXAMPLE (" (fill-in-the-blank 
-;                        #:id (format "~a~a" tag ".0")
-;                        #:label "Use the function here") ") "
-;        (fill-in-the-blank
-;         #:id (format "~a~a" tag ".1")
-;         #:label (if cond? "What should the function produce?" "Find another way to get the same result here"))")"))
-
-
-
-
-
 (define (worksheet-link #:name name
                         #:page page
                         #:lesson [lesson #f]
                         )
   "fix me")
+(define (bootstrap-title . body)
+  (list (compound-paragraph (bootstrap-sectioning-style "BootstrapTitle") (decode-flow (cons  bootstrap.gif body)))))

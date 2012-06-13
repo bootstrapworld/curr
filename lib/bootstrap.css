@@ -53,25 +53,22 @@
     font-size: 18px;
     margin: 3px;
 }
+
 .BootstrapOverviewTitle{
     background: black;
     color: white;
     font-size: 18px;
     margin: 3px;
      }
-h2{
-    text-align: center;
+.BootstrapTitle{
+      text-align: center;
     font-size: 32px;
     font-weight: bold;
+}
+.BootstrapTitle img{
+  float: left;
+}
 
-}
-.BootstrapImage{
-	  position: relative;
-	  z-index: 1;
-	  float: left;
-	  top: -50px;
-	  
-}
 .BootstrapHeader{
 	  font-weight: bold;
 	  text-decoration: underline;
@@ -86,8 +83,14 @@ h2{
 .BootstrapTable{
 	width: 300px;
 	border: 1px solid black;
-	background: white;}
-
+	background: white;
+	}
+	
+::-webkit-input-placeholder {
+	color: #ff33cc}
+input:-moz-placeholder{
+  color: #ff33cc
+}
 
 
 /* We absorb the definitions of CSS from bootstrap; the following comes from http://www.bootstrapworld.org/styles.css */
