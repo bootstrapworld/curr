@@ -15,7 +15,7 @@
 _______
 _______
 _______)}]}
-    @item{@think-about[#:question "What image goes on the top?" #:answer "Yes, TARGET!"] @think-about[#:question "And where should we put it? How about someplace on the right-hand side of the screen? @tag[pedagogy]{Raise your hand if you can give me some coordinates for that.}" 
+    @item{@think-about[#:question "What image goes on the top?" #:answer "Yes, TARGET!"] @think-about[#:question @list{And where should we put it? How about someplace on the right-hand side of the screen? @tag[pedagogy]{Raise your hand if you can give me some coordinates for that.}} 
 #:answer @code{(put-image TARGET
 550
 100
