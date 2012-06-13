@@ -4,16 +4,7 @@
 
 @declare-tags[group pedagogy selftaught]
 
-@agenda[
-@item{5min  Intro & Expectations}
-@item{10min Dissecting a Demo}
-@item{15min Coordinate Planes}
-@item{10min More Dissection}
-@item{15min Brainstorming}
-@item{15min Intro to Racket}
-@item{20min Circles of Evaluation}
-@item{5min  Closing}
-]
+@agenda[]
 
 @overview{
 Students discuss the components of their favorite videogames, and discover that they can be reduced to a series of coordinates. They then explore coordinates in Cartesian space, and identify the coordinates for the characters in a game at various points in time. Once they are comfortable with coordinates, they brainstorm their own games and create sample coordinate lists for different points in time in their own game.
