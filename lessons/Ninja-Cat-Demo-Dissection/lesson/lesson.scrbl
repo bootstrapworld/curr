@@ -18,7 +18,7 @@
     @tag[selftaught]{@item{@think-about[
           #:question "What are the coordinates of the upper-left-hand corner?  What about the bottom-right-hand corner? What about the coordinates of the point right in the center of the screen?"
           #:answer "The coordinate for the upper-left-hand corner is (0,480). Bottom-right-hand corner: (640, 0). Center: (320, 240)."]}}
-    @exercise{@item{@tag[group]{In your groups:} Take a minute to find and label all of the midpoints - the points in the middle of each side of the screen: top, bottom, left and right. @tag[pedagogy]{(You may want to point to these points on the board). @tag[group]{ Once again, your group only gets a point if everyone writes and labels these coordinates correctly. GO! }}}}
+    @item{@exercise{@tag[group]{In your groups:} Take a minute to find and label all of the midpoints - the points in the middle of each side of the screen: top, bottom, left and right. @tag[pedagogy]{(You may want to point to these points on the board). @tag[group]{ Once again, your group only gets a point if everyone writes and labels these coordinates correctly. GO! }}}}
     @tag[pedagogy]{@item{Give a countdown, demand attention, then take volunteers. Assign scores, discuss.}}
     @tag[group]{@tag[pedagogy]{@item{In the next round, your groups will have five minutes to fill in the coordinates for all the characters at the bottom of the page.}}}
     @tag[selftaught]{@item{Now fill in the coordinates for all the characters at the bottom of the page.}}

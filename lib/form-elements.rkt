@@ -57,7 +57,8 @@
          ;;edited contract-exercise
          overview
          copyright
-         example
+         example-with-text
+         example-fast-functions
          state-standards
          length-of-lesson
          itemlist/splicing
@@ -359,17 +360,6 @@
                             (decode-flow body))))
 
 
-;if it is a conditional example, cond? is true, otherwise false
-(define (example cond? tag)
-  (para "(EXAMPLE (" (fill-in-the-blank 
-                        #:id (format "~a~a" tag ".0")
-                        #:label "Use the function here") ") "
-        (fill-in-the-blank
-         #:id (format "~a~a" tag ".1")
-         #:label (if cond? "What should the function produce?" "Find another way to get the same result here"))")"))
-
-
-
 (define (contract-exercise tag)
   (para ";" (fill-in-the-blank #:id (format "~aname" tag) #:label "Name")
         ":" (fill-in-the-blank #:id (format "~aarg" tag) #:label "Domain")
@@ -395,5 +385,42 @@
 ;input ONLY THE NUMBER!
 (define (length-of-lesson l)
   (list (compound-paragraph (bootstrap-sectioning-style "BootstrapHeader") (decode-flow (list (format "Length: ~a minutes" l))))))
+
+
+;;example: optional text, example for cond (p23), example for not cond (p21), example for with name (p8)
+
+
+;; input: -a tag which can be anything unqiue which helps to generate a ;;         unique id
+;; output: in format (EXAMPLE (____ ____) _________)
+(define (example-fast-functions tag)
+  (para "(EXAMPLE (" 
+        (fill-in-the-blank #:id (format "~a.1" tag) #:label "")
+        " "
+        (fill-in-the-blank #:id (format "~a.2" tag) #:label "")
+        ") "
+        (fill-in-the-blank #:id (format "~a.3" tag) #:label "")
+        ")"))
+
+
+;; input: -two optional text labels for the two fill-in-the-blanks 
+;;        -a tag which can be anything unqiue which helps to generate a ;;         unique id 
+;; output: in format (EXAMPLE ( /*with text1label*/ _____) /*with text2label*/ _____)
+(define (example-with-text #:text1 [text1 ""]
+                           #:text2 [text2 ""]
+                           tag)
+  (para "(EXAMPLE (" 
+        (fill-in-the-blank #:id (format "~a.1" tag) #:label text1)
+        ") "
+        (fill-in-the-blank #:id (format "~a.2" tag) #:label text2)
+        ")"))
                                     
-                        
+
+;to-be-deleted
+;if it is a conditional example, cond? is true, otherwise false
+;(define (example cond? tag)
+;  (para "(EXAMPLE (" (fill-in-the-blank 
+;                        #:id (format "~a~a" tag ".0")
+;                        #:label "Use the function here") ") "
+;        (fill-in-the-blank
+;         #:id (format "~a~a" tag ".1")
+;         #:label (if cond? "What should the function produce?" "Find another way to get the same result here"))")"))
