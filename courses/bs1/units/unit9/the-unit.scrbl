@@ -24,15 +24,15 @@ Students will edit game details and prepare for their Launch Party!
 @state-standards
 
 @length-of-lesson[90]
-
+@tag[pedagogy]{
 @materials[@item{Computers w/ DrRacket or WeScheme}
            @item{Student  @(hyperlink "https://spreadsheets.google.com/pub?key=0Ak3Voejjnf0ldHlQcXRVWTZDbVprWHlBLTJWRlQ2dkE&hl=en&gid=0" "workbooks")}
-           @item{@tag[pedagogy]{Pens/pencils for the students, fresh whiteboard markers for teachers}}
-           @item{@tag[pedagogy]{Class posters (List of rules, basic skills, course calendar)}}
-           @item{@tag[pedagogy]{Language Table (see below)}}
-           @item{@tag[pedagogy]{Printouts of game code for each team.}}
-           @item{@tag[pedagogy]{Camera - take pictures today!}}
-           ]
+           @item{Pens/pencils for the students, fresh whiteboard markers for teachers}
+           @item{Class posters (List of rules, basic skills, course calendar)}
+           @item{Language Table (see below)}
+           @item{Printouts of game code for each team.}
+           @item{Camera - take pictures today!}
+           ]}
 
 @preparation[@item{Write agenda on board}
              @item{Game Design Certificates: 
@@ -97,10 +97,10 @@ Students will edit game details and prepare for their Launch Party!
         @tag[pedagogy]{@item{Give students 15min to prepare, with a 5min countdown.}}
         @item{Now we'll rehearse the presentation. For each group that presents, everyone else will be the audience. If you're in the audience, you should write down at least one good thing the presenters do and one thing they should improve on.}
         @item{This feedback should be constructive! We're all on the same team here, so please make sure you're helping people do better, not making them feel bad.}]}
-                              
+                     @tag[pedagogy]{         
 @lesson[#:title "Rehearsal"
         #:duration "30 min"]{
-        @itemlist/splicing[@tag[pedagogy]{@item{Rehearse, give feedback. If there's time, rehearse again.}}]}
+        @itemlist/splicing[@item{Rehearse, give feedback. If there's time, rehearse again.}]}}
  
 @lesson[#:title "Celebration, Closing"
         #:duration "20 min"]{
