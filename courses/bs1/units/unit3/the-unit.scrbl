@@ -10,15 +10,7 @@ The Definitions Window}
 
 Students are introduced to the Definitions window, and learn the syntax for defining values of various types.  They are also introduced to the syntax of defining functions and creating examples.
 
-@agenda[
-        @item{15min Introduction}
-        @item{10min Defining Variables}
-        @item{30min Screenshots}
-        @item{10min Fast Functions}
-        @item{10min Blue Circle}
-        @item{10min Double}
-        @item{5min Closing}
-        ]
+@agenda[]
 
 Learning Objectives
 

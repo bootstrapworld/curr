@@ -7,13 +7,7 @@
 
 Students are introduced to the Design Recipe and apply it to simple problems.
 
-@agenda[
-@item{15 min Introduction}
-@item{25 min Design Recipe Intro}
-@item{20 min Design Recipe Practice}
-@item{20 min Even More Practice}
-@item{10 min Closing}
-]
+@agenda[]
 
 @objectives[@item{Students will become familiar with the steps of the Design Recipe.}
             @item{Students will practice Racket syntax and the Circles of Evaluation.}]
