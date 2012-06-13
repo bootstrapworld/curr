@@ -62,15 +62,20 @@
 h2{
     text-align: center;
     font-size: 32px;
-    font: bold;
+    font-weight: bold;
 
 }
-
+.BootstrapHeader{
+	  font-weight: bold;
+	  text-decoration: underline;
+	  font-size: 16px;
+}
 
 .BootstrapTableHeader{
 	border: 1px solid black;
 	background: grey;
-	font: bold;}
+	font-weight: bold;
+	height: 40px;}
 .BootstrapTable{
 	width: 300px;
 	border: 1px solid black;

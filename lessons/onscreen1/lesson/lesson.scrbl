@@ -3,9 +3,9 @@
 @lesson[#:title "onscreen? 1.0" 
         #:duration "25 minutes"
         #:prerequisites "Introducing-the-Design-Rcipe Coordinate-Planes Booleans"]{
- @itemlist[
-           @item{@tag[pedagogy]{Draw a rectangle on the board, to represent the screen. Then turn students' attention to the computers, and have them analyze the last function in the code, called onscreen?.}}
-            @item{@tag[selftaught]{Draw a rectangle in your notes, to represent a computer screen. Now, you will analyze the last function in the code, called onscreen?.}}
+ @itemlist/splicing[
+           @tag[pedagogy]@item{{Draw a rectangle on the board, to represent the screen. Then turn students' attention to the computers, and have them analyze the last function in the code, called onscreen?.}}
+            @tag[selftaught]{@item{Draw a rectangle in your notes, to represent a computer screen. Now, you will analyze the last function in the code, called onscreen?.}}
             @item{@think-about[#:question "What are the Domain and Range of onscreen? What does the function do? What will happen when it's given a sample input?" 
                                #:answer "It always returns true, no matter what!"]}
             @item{When Run is clicked, a window with a butterfly in it will pop up. You can use the arrow keys to move the butterfly around.}
@@ -18,15 +18,16 @@
             @item{We want to Sam inside the box. He can fly left or right and there is nothing to stop him from moving off the screen... yet!}
             @item{@think-about[#:question "How far can Sam go to the left before NONE of him is onscreen?"
                                #:answer "-50. So he is onscreen as long as x > -50!"]}
-            @item{@tag[pedagogy]{Draw another, outer rectangle on the board to represent the 50 pixel buffer zone. Raise your hand if you can tell is why we have to go out to -50 put Sam off the screen, when the screen only goes from 0 to 640.}}
-            @item{@tag[selftaught]{Draw another, outer rectangle on the board to represent the 50 pixel buffer zone. Why do we have to go out to -50 put Sam off the screen, when the screen only goes from 0 to 640.}}
+            @tag[pedagogy]{@item{Draw another, outer rectangle on the board to represent the 50 pixel buffer zone. Raise your hand if you can tell is why we have to go out to -50 put Sam off the screen, when the screen only goes from 0 to 640.}}
+            @tag[selftaught]{@item{Draw another, outer rectangle on the board to represent the 50 pixel buffer zone. Why do we have to go out to -50 put Sam off the screen, when the screen only goes from 0 to 640.}}
             @item{@tag[pedagogy]{Take some ideas from the class, then explain if necessary.}   When the butterfly is drawn at some coordinate, it is centered at that coordinate. So if it's drawn at 0, half of the butterfly is actually off the screen. We add the extra 50 pixels on all sides, because a piece of him is still visible as long as he is within 100 pixels of the screen's edge. }
             @item{Turn to @(hyperlink "page17.com" "Page 17"). Take thirty seconds to fill out what we've discovered.}
             @item{Turn to @(hyperlink "page18.com" "Page 18") and read the problem statement for the protect-left function.}
-            @item{@tag[pedagogy]{Who would like to act out protect-left? Take a volunteer.}}
-            @item{@exercise{@tag[pedagogy]{According to the problem statement, what's your name? What's your Domain? Your Range? Given Sam's x-coordinate, and tell me if any part of him is still on the screen. Let's try it out. "protect-left forty-five!" "protect-left three!" "protect-left negative fifty-one!" How did you know Sam wasn't protected at -51? because the number was less than -50!.}@tag[selftaught]{@think-about[#:question "What is protect-left -3?" #:answer "True! The distance from the center of the butterfly to its edge is 50, so there are still 47 pixels of the butterfly on screen."]@think-about[#:question "What is protect-left -47?" #:answer "True! The distance from the center of the butterfly to its edge is 100, so there are still 3 pixels of the butterfly on screen."]@think-about[#:question "What is protect-left -51?" #:answer "False! The distance from the center of the butterfly to its edge is 50, so the butterfly is offscreen by 1 pixel."]}}}
+            @tag[pedagogy]{@item{Who would like to act out protect-left? Take a volunteer.}}
+            @tag[pedagogy]{@item{@exercise{According to the problem statement, what's your name? What's your Domain? Your Range? Given Sam's x-coordinate, and tell me if any part of him is still on the screen. Let's try it out. "protect-left forty-five!" "protect-left three!" "protect-left negative fifty-one!" How did you know Sam wasn't protected at -51? because the number was less than -50!.}}}
+            @tag[selftaught]{@item{@think-about[#:question "What is protect-left -3?" #:answer "True! The distance from the center of the butterfly to its edge is 50, so there are still 47 pixels of the butterfly on screen."]@think-about[#:question "What is protect-left -47?" #:answer "True! The distance from the center of the butterfly to its edge is 100, so there are still 3 pixels of the butterfly on screen."]@think-about[#:question "What is protect-left -51?" #:answer "False! The distance from the center of the butterfly to its edge is 50, so the butterfly is offscreen by 1 pixel."]}}
             @item{Complete the design recipe for protect-left. @tag[pedagogy]{Raise your hand after you complete each step.}}
-            @item{@tag[(pedagogy group)]{When a team has completed the Design Recipe for protect-left, they must type in the examples and function body onto the computer.}}
+            @tag[(pedagogy group)]{@item{When a team has completed the Design Recipe for protect-left, they must type in the examples and function body onto the computer.}}
             @item{So now we have a function that will protect Sam on the left side of the screen. But at the moment, onscreen? doesn't know how to use that function. We need to change the body of onscreen? so that it can talk to protect-left:
                   @code{(define (onscreen? x)}
                   @code{ (protect-left x))}}
