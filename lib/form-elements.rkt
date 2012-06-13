@@ -204,17 +204,29 @@
                       (decode-flow body)))
 
 
+(struct lesson-struct (title duration) #:transparent)
+
+
 (define (lesson #:title (title #f)
                 #:duration (duration #f)
                 #:subsumes (subsumes #f)
                 #:prerequisites (prerequisites #f)
                 . body)
-  (list (cond [(and title duration)
-               (compound-paragraph (bootstrap-sectioning-style "BootstrapLessonTitle") (decode-flow (list (format "Lesson: ~a (Time ~a)~n" title duration))))]
-              [title (format "Lesson: ~a ~n" title)]
-              [duration (format "Lesson (Time ~a)~n" duration)])
-        (compound-paragraph (bootstrap-sectioning-style "BootstrapLesson")
-                            (decode-flow body))))
+  (traverse-block
+   (lambda (get set!)
+     (set! 'bootstrap-lessons (cons (lesson-struct title duration) (get 'bootstrap-lessons '())))     
+
+     
+     (nested-flow
+      (style "BootstrapLesson" '())
+      (decode-flow
+       (list (cond [(and title duration)
+                    (compound-paragraph (bootstrap-sectioning-style "BootstrapLessonTitle")
+                                        (decode-flow (list (format "Lesson: ~a (Time ~a)~n" title duration))))]
+                   [title (format "Lesson: ~a ~n" title)]
+                   [duration (format "Lesson (Time ~a)~n" duration)])
+             (compound-paragraph (bootstrap-sectioning-style "BootstrapLesson")
+                                 (decode-flow body))))))))
 
 
 
@@ -324,9 +336,29 @@
   (list (compound-paragraph (bootstrap-sectioning-style "BootstrapHeader") (decode-flow (list "Preparation:")))
         (apply itemlist/splicing items #:style "BootstrapPreparationList")))
 
+
+
+;; Cooperates with the Lesson tag.
 (define (agenda . items)
-  (list "Agenda:"
-        (apply itemlist/splicing items #:style "BootstrapAgendaList")))
+  (traverse-block
+   (lambda (get set)
+     
+     (lambda (get set)
+       (define lessons (reverse (get 'bootstrap-lessons '())))
+       
+       (nested-flow
+        (style "BootstrapAgenda" '(never-indents))
+        (decode-flow
+         (list "Agenda:"
+               (apply itemlist/splicing
+                      (map (lambda (a-lesson)
+                             (item (list (lesson-struct-title a-lesson)
+                                          " ("
+                                          (lesson-struct-duration a-lesson)
+                                          ")"
+                                          )))
+                           lessons)
+                      #:style "BootstrapAgendaList"))))))))
 
 
 ;; itemlist/splicing is like itemlist, but also cooperates with the
