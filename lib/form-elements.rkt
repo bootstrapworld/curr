@@ -63,7 +63,7 @@
          state-standards
          length-of-lesson
          itemlist/splicing
-
+         bootstrap-title
 
          worksheet-link
          )        
@@ -367,7 +367,8 @@
 ;;interns
 ;
 (define (overview . body)
-  (list (compound-paragraph (bootstrap-sectioning-style "BootstrapImage") (decode-flow (list bootstrap.gif)))
+  (list 
+   ;(compound-paragraph (bootstrap-sectioning-style "BootstrapImage") ;(decode-flow (list bootstrap.gif)))
         (compound-paragraph (bootstrap-sectioning-style "BootstrapOverviewTitle") (decode-flow (list (format "Unit Overview"))))
         (compound-paragraph (bootstrap-sectioning-style "BootstrapOverview")
                             (decode-flow body))))
@@ -433,3 +434,5 @@
                         #:lesson [lesson #f]
                         )
   "fix me")
+(define (bootstrap-title . body)
+  (list (compound-paragraph (bootstrap-sectioning-style "BootstrapTitle") (decode-flow (cons  bootstrap.gif body)))))

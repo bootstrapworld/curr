@@ -53,25 +53,22 @@
     font-size: 18px;
     margin: 3px;
 }
+
 .BootstrapOverviewTitle{
     background: black;
     color: white;
     font-size: 18px;
     margin: 3px;
      }
-h2{
-    text-align: center;
+.BootstrapTitle{
+      text-align: center;
     font-size: 32px;
     font-weight: bold;
+}
+.BootstrapTitle img{
+  float: left;
+}
 
-}
-.BootstrapImage{
-	  position: relative;
-	  z-index: 1;
-	  float: left;
-	  top: -80px;
-	  
-}
 .BootstrapHeader{
 	  font-weight: bold;
 	  text-decoration: underline;
@@ -93,8 +90,6 @@ h2{
 	color: #ff33cc}
 input:-moz-placeholder{
   color: #ff33cc
-  position: relative;
-	top: 10px;
 }
 
 
