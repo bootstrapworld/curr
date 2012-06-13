@@ -2,7 +2,7 @@
 @declare-tags[group pedagogy selftaught bootstrap]
 @lesson[#:title "onscreen? 1.0" 
         #:duration "25 minutes"
-        #:prerequisites "Introducing-the-Design-Rcipe Coordinate-Planes Booleans"]{
+        #:prerequisites "Introducing-the-Design-Recipe Coordinate-Planes Intro-to-Booleans"]{
  @itemlist/splicing[
            @tag[pedagogy]@item{{Draw a rectangle on the board, to represent the screen. Then turn students' attention to the computers, and have them analyze the last function in the code, called onscreen?.}}
             @tag[selftaught]{@item{Draw a rectangle in your notes, to represent a computer screen. Now, you will analyze the last function in the code, called onscreen?.}}
