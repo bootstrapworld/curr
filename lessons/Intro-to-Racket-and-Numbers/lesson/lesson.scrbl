@@ -5,15 +5,16 @@
 @lesson[#:title "Introduction to Racket and Numbers"
         #:duration "15 minutes"
         ]{ 
-  @itemlist[
-   @item{@tag[pedagogy]{Draw a big Circle on the board.}}
+  @itemlist/splicing[
+   @tag[pedagogy]{@item{Draw a big Circle on the board.}}
    @item{This circle is going to be our computer! We need to program it to do things, but once we do, we can use it to try out all of our programs.}
    @item{Look at our language table: right now we can't put anything in our circle, because our language has nothing in it. Let's add some values.}
-   @item{@tag[pedagogy]{On three, Let there be numbers! "1... 2... 3... Let there be numbers!"}}
+   @tag[pedagogy]{@item{On three, Let there be numbers! "1... 2... 3... Let there be numbers!"}}
    @item{Add "numbers" to the Types section of the language table.}
    @item{Now we have numbers, which we can put in our Circle of Evaluation. (Put in the number 4.) What is the value of everything in this circle? Are you sure? @tag[pedagogy]{(Try other numbers, including decimals and negative numbers.)} @tag[selftaught]{Try other numbers, like 1.5, 10345017, and -2.}}
    @item{Let's ask a real computer...}
-   @item{@tag[pedagogy]{Have students open the editor on their computers. Refer to overhead projector as necessary.}@tag[selftaught]{Open the editor on your computer.}
+   @tag[pedagogy]{@item{Have students open the editor on their computers. Refer to overhead projector as necessary.}}
+   @tag[selftaught]{@item{Open the editor on your computer.}
           @embedded-wescheme[#:id "Intro to Racket and Numbers"
                              #:definitions-text ";try typing in numbers and functions to see what happens"
                              ]}

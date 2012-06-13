@@ -2,7 +2,7 @@
 @declare-tags[group pedagogy selftaught]
 @lesson[#:title "Contracts"
         #:duration "15 minutes"]{
-@itemlist[@item{Suppose you have to describe a soda machine. You know that the input to this machine will be money, and you have to get a soda in return. When you use a soda machine, does it only give you one type of soda? Wouldn't it be lame if you had to have a different machine for Coke than you did for Sprite?}
+@itemlist/splicing[@item{Suppose you have to describe a soda machine. You know that the input to this machine will be money, and you have to get a soda in return. When you use a soda machine, does it only give you one type of soda? Wouldn't it be lame if you had to have a different machine for Coke than you did for Sprite?}
           @item{A soda machine, for example, takes in money and outputs soda.
                 @code[#:contract "Soda-machine : Money Selection -> Soda"]{
                  ; Takes money and gives soda
@@ -26,25 +26,21 @@
                                                         @item{the name of the function,}
                                                         @item{the domain, and}
                                                         @item{the range.}]}
-          @item{@tag[pedagogy]{Show the contract for "+" on the board, and have students volunteer the contracts for the other math functions covered so far.}
+         @tag[pedagogy]{@item{Show the contract for "+" on the board, and have students volunteer the contracts for the other math functions covered so far.}}
                  @;NOTE: may have to split into three questions
-                @tag[selftaught]{@think-about[#:question "Can you think of the contract for \"+\"? What about the ones for \"/\" and \"*\"? Enter them on the contracts page and check your answers below"
+                @tag[selftaught]{@item{@think-about[#:question "Can you think of the contract for \"+\"? What about the ones for \"/\" and \"*\"? Enter them on the contracts page and check your answers below"
                                               #:answer @list{@code[#:contract "+ : Number Number -> Number"
                                                                         #:purpose
                                                                          "Takes two numbers and gives their sum"
                                                                         ]
                                                        @code[#:contract "/ : Number Number -> Number"
                                                                         #:purpose "Takes two numbers and returns the first divided by the second"]
-                                                       @code[#:contract "* : Number Number -> Number" #:purpose "Takes two numbers and gives their product"]}]}
-                                  }
+                                                       @code[#:contract "* : Number Number -> Number" #:purpose "Takes two numbers and gives their product"]}]}}
           @;must have some sort of answers here
-          @item{@tag[pedagogy]{Add other functions, like "/" and "*".  Leave these contracts written on the board.}}
-          @item{@tag[pedagogy]{If students already know about square roots or squaring, you can add these functions as well. If not, take a moment to review what they do.}
-                @tag[selftaught]{@think-about[#:question "If you already know about square roots or squaring, try to figure out the contracts for these as well. Check with the answers below!"
+          @tag[pedagogy]{@item{Add other functions, like "/" and "*".  Leave these contracts written on the board.}}
+          @tag[pedagogy]{@item{If students already know about square roots or squaring, you can add these functions as well. If not, take a moment to review what they do.
+                               @code[#:contact "sqrt : Number -> Number"]}}
+          @tag[selftaught]{@item{@think-about[#:question "If you already know about square roots or squaring, try to figure out the contracts for these as well. Check with the answers below!"
                                              #:hint "Both of these function only take one number as input"
                                              #:answer @list{@code[#:contact "sqrt : Number -> Number"]
-                                             @code[#:contact "sqt : Number -> Number"]}]}
-                @tag[pedagogy]{@code[#:contact "sqrt : Number -> Number"]
-                               @code[#:contact "sqt : Number -> Number"]}
-                                    }
-          ]}
+                                             @code[#:contact "sqt : Number -> Number"]}]}}]}

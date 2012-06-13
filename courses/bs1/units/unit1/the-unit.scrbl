@@ -30,10 +30,9 @@ Students discuss the components of their favorite videogames, and discover that 
           @item{Teams will brainstorm their own games and generate the geometry for their games at different points in time.}
           ]
                 
-State Standards
-See @(hyperlink "asdf" "Bootstrap Standards Matrix") provided as part of the Bootstrap curriculum. 
+@state-standards
                 
-Length: 90 min
+@length-of-lesson[90]
 
 @tag[pedagogy]{                
 @materials[@item{Student  @(hyperlink "https://spreadsheets.google.com/pub?key=0Ak3Voejjnf0ldHlQcXRVWTZDbVprWHlBLTJWRlQ2dkE&hl=en&gid=0" "workbook") folders - in pairs! - with names on covers.}

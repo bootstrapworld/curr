@@ -23,10 +23,10 @@ include other datatypes, including Strings and Images.
         @item{Learn syntax for simple strings and image-composition expressions}]
 @product-outcomes[
         @item{Students learn to make and manipulate the basic elements of their games--numbers, strings, and images}]
-See @(hyperlink "http://insertlinkhere.com" "Bootstrap Standards Matrix") for State Standards
 
+@state-standards
+@length-of-lesson[90]
 
-Length: 90 minutes
 @tag[pedagogy]{
 @materials[@item{Student workbook folders @tag[group]{- in pairs! - with names on folders}}
             @item{Pens/pencils for the student@tag[group]{s, fresh whiteboard markers for the teachers}}
