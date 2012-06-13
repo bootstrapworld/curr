@@ -48,12 +48,17 @@
 
 }
 .BootstrapLessonTitle{
-	  background: black;
-	  color: white;
-          font-size: 18px;
-	  margin: 3px;
+    background: black;
+    color: white;
+    font-size: 18px;
+    margin: 3px;
 }
-.BoostrapOverviewTitle{}
+.BootstrapOverviewTitle{
+    background: black;
+    color: white;
+    font-size: 18px;
+    margin: 3px;
+     }
 .BootstrapTableHeader{}
 .BootstrapTable{}
 
@@ -65,10 +70,12 @@
 body{
 	padding:		0px;
 	margin:			0px;
-	background:		#f5deb3;
+        background:             no-repeat url("http://www.bootstrapworld.org/curriculum/BS1-sp2012/images/bootBG.png") fixed bottom right;
+        background-color:       #f5deb3;
 	max-width: 1000px;
-     
+	
 }
+
 
 /* Our top box */
 div#top{

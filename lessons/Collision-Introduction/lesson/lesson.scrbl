@@ -2,13 +2,13 @@
 @declare-tags[group pedagogy selftaught bootstrap]
 @lesson[#:title "Introduction" 
         #:duration "20 minutes"
-        #:prerequisites "Coordinate-Plane Introducing-the-Design-Recipe Pizza-Toppings"]{
+        #:prerequisites "Coordinate-Planes Introducing-the-Design-Recipe Cond-Example-With-Pizza-Toppings"]{
         @itemlist/splicing[@item{Review previous material.}
                   @item{Right now, in your games, what happens when the player collides with another game character? Nothing! We need to write a function change that.}
                   @item{This is going to require a little math.}
                   @; VIDEO FOR SELFTAUGHT?
                   @item{Scroll to the @code{line-length} and @code{collide?} functions in your game files.
-                                      @; FILEALTERNATIVE
+                                      @; FILE ALTERNATIVE
                                       }
                   @tag[pedagogy]{@item{Suppose I'm the player, moving around up here at the front of the class. Can I have a volunteer come up here and be the Target?}}
                   @tag[pedagogy]{@item{Have a volunteer stand up in front of the class, swinging their arms around, helicopter-style.}}
