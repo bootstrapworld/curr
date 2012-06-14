@@ -7,8 +7,6 @@
 
 Students are introduced to the Definitions window, and learn the syntax for defining values of various types.  They are also introduced to the syntax of defining functions and creating examples.
 
-@agenda[]
-
 Learning Objectives
 
 
