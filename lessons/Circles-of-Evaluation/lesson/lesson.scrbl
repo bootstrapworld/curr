@@ -1,4 +1,5 @@
 #lang curr/lib
+@(require 2htdp/image)
 
 @declare-tags[pedagogy selftaught group]
 
@@ -17,7 +18,7 @@
    @tag[selftaught]{@item{@exercise{Write 4 + 5 * 6 in a Circle of Evaluation. What do you think the value is?}}}
    @item{We need to improve our Circle of Evaluation, so we don't run into this problem. Let's use the two solutions we came up with: @itemlist[
       @item{all circles have one function}
-      @item{it matters in what order the arguments are written.}]}
+      @item{it matters in what order the arguments are written.}]@bitmap{images/1.5.png}}
    @item{We'll separate the function from the inputs by drawing a line between them: the function is above the line, the inputs are below.}
    @item{@exercise{How do we compute this program? Well, our new rule tells us to look at the left first: what is the value of 6? }}
    @item{@exercise{Now we look at the right: that's a new circle, so we have to evaluate that first. What is the left-hand side? A 4! And the right? A 5! What are we doing to the 4 and 5? That's right, we're adding. What do we get when we add 4 and 5? (Replace rightmost circle with 9.)}}

@@ -508,8 +508,7 @@
                                                       "worksheets"
                                                       (format "~a.html" name)))))
   (list (hyperlink the-relative-path
-                   "Page " (number->string page))
-        " of your workbook"))
+                   "Page " (number->string page))))
 
 
 
