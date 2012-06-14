@@ -14,7 +14,7 @@
                                              #:answer @code{; cost: String -> Number}]}}
         @tag[pedagogy]{@item{Can someone from the class tell me how we should call this function? For example, "cost' cheese'!" What will cost produce? Let's try this with other toppings...}}
         @tag[selftaught]{@item{@think-about[#:question "How do we call this function and what does it produce?"
-                                           #:answer "We call this function through \"cost cheese\" and it produces the price"]}}
+                                           #:answer "We call this function through 'cost cheese' and it produces the price"]}}
         @item{Now it's time to write down some examples. @tag[pedagogy]{Can anyone raise their hands and tell me what I'd write?} @code{(EXAMPLE (cost "cheese") 9.00)}}
         @item{@think-about[#:question "What are some other examples for cost? What changes between them? "
                            #:answer "The topping and the price returned! Make sure you label those."]}
@@ -38,7 +38,8 @@
                    @item{@think-about[#:question "What's the Racket code that compares the input topping to the string \"pepperoni\"?"
                                       #:answer @code{(string=? topping "pepperoni")}]}
                    @item{Now we can write that on our first line, as our first topping check. Can you do the rest?}]}
-       @tag[pedagogy]{@item{Have students fill out the rest of the table}}      @tag[selftaught]{@item{Fill out the rest of the table}}
+       @tag[pedagogy]{@item{Have students fill out the rest of the table}}
+       @tag[selftaught]{@item{Fill out the rest of the table}}
               
               @;TABLE GOES HERE
        @item{Each of these rows is called a condition. A condition has a test and a result. The computer goes down the code, one condition at a time, and will evaluate the first result for which the condition is true.}
@@ -55,9 +56,7 @@
       @tag[selftaught]{@item{What happens if the topping is not on our list?  Let's add an else statement.  If it's not on our menu, we might still make that pizza for you but it'll cost you!@code{[else    10000000]}}}
       @;Students must open their files here. 
      @tag[pedagogy]{ @item{Have students try it on the computers, adding new items on their own.}}
-@tag[selftaught]{@item{Try it out for yourself and add your own new items.}
+@tag[selftaught]{@item{Try it out for yourself and add your own new items.
 @embedded-wescheme[#:id "Strings"
-                   #:definitions-text ";Try out the pizza example above!"]}
-      @tag[(pedagogy selftaught)]{@item{If you have additional time, and would like to try another Cond challenge, check out the @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/SupplementalLessons.html#redshape" "supplemental activity.")}}
-       
-             ]}
+                   #:definitions-text ";Try out the pizza example above!"]}}
+      @tag[(pedagogy selftaught)]{@item{If you have additional time, and would like to try another Cond challenge, check out the @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/SupplementalLessons.html#redshape" "supplemental activity.")}}]}

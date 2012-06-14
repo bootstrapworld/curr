@@ -7,7 +7,6 @@
 
 Students discuss and then prove the Pythagorean theorem, and use this theorem - in conjunction with Booleans - in their games to detect when a collision has occurred.
 
-@agenda[]
 
 @objectives[@item{Understand the challenge of the distance formula in two dimensions.}
             @item{Be familiar with the Pythagorean theorem.}
@@ -16,7 +15,8 @@ Students discuss and then prove the Pythagorean theorem, and use this theorem - 
 
 @state-standards
 
-Length: 90 minutes
+@length-of-lesson[90]
+
 @tag[selftaught]{@materials[@item{Cutouts of Pythagorean Theorem packets [@(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/images/7.5.png" "1"), @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/images/7.6.png" "2")] - 1 per cluster}
                         @item{Student @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/materials/StudentWorkbook.pdf" "workbooks")}]}  
    
@@ -56,10 +56,8 @@ Length: 90 minutes
 @tag[group]{@item{It's time for everyone to walk around and play each other's games!}}
 @item{CONGRATULATIONS! You have finished the code for your videogame@tag[group]{s}!!!}
 @tag[pedagogy]{@item{Who can tell us one thing we learned today?}}
-@tag[selftaught]{@review{What did you learn today?}}
+@tag[selftaught]{@item{@review{What did you learn today?}}}
 @tag[pedagogy]{@item{Who saw someone else in the class do something great?}}
-@tag[pedagogy]{@item{Cleanup, dismissal}}
-]
-}
+@tag[pedagogy]{@item{Cleanup, dismissal}}]}
 
 @copyright[]

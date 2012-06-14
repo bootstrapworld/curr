@@ -6,9 +6,7 @@
 
 @overview{
 
-Students define functions that map position n to position n+1, allowing them to move their dangers, targets, and projectiles
-
-@agenda[]
+Students define functions that map position n to position n+1, allowing them to move their dangers, targets, and projectiles.
 
 @objectives[@item{Apply algebra and geometry to solve a real world problem.}
             @item{Generalize their understanding of functions to create animation}]
@@ -40,11 +38,11 @@ Students define functions that map position n to position n+1, allowing them to 
                  (list "String" @code{string-append string-length})
                  (list "Image" @code{rectangle circle triangel ellipse radial-star scale rotate put-image}))
 }
-@tag[pedagogy selftaught]{
+
 @lesson[#:title "Introduction" #:duration "25 min"]{
                                @;Here, students should open their files.
 @itemlist/splicing[@tag[pedagogy]{@item{If you have students tackle the bug-hunting activity, be aware that the file contains several bugs! Until students have fixed all of them, they will always get an error message when they attempt to run the file. This is by design, to encourage students to both read the error and to look at it's location.}}
-          @tag[selftaught]{@item{If you tackle the bug-hunting activity, be aware that the file contains several bugs! Until you have fixed all of them, you will always get an error message when you attempt to run the file. This is by design, to encourage you to both read the error and to look at it's location.}}]}}
+          @tag[selftaught]{@item{If you tackle the bug-hunting activity, be aware that the file contains several bugs! Until you have fixed all of them, you will always get an error message when you attempt to run the file. This is by design, to encourage you to both read the error and to look at it's location.}}]}
 
 @(include-lesson (lib "curr/lessons/Danger-Movement/lesson/lesson.scrbl"))
 

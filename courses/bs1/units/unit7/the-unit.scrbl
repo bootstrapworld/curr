@@ -9,7 +9,6 @@
 
 Students use geometry and knowledge of basic image functions to design characters for their games, this time using conditional branching to accomodate different key-events.
 
-@agenda[]
 
 @objectives[@item{Reason about the relative positioning of objects using mathematics}
             @item{Discover Partial Functions, and how to implement them using @code{Cond}}
@@ -23,7 +22,7 @@ Students use geometry and knowledge of basic image functions to design character
 
 @state-standards
 
-Length: 90 min
+@length-of-lesson[90]
 @tag[pedagogy]{
 @materials[@item{Computers w/ DrRacket or WeScheme}
            @item{Student  @(hyperlink "https://spreadsheets.google.com/pub?key=0Ak3Voejjnf0ldHlQcXRVWTZDbVprWHlBLTJWRlQ2dkE&hl=en&gid=0" "workbook")}

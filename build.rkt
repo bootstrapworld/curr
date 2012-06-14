@@ -2,6 +2,8 @@
 #lang racket/base
 (require racket/runtime-path
          racket/system
+         racket/string
+         racket/cmdline
          (for-syntax racket/base))
 
 ;; This is a toplevel build script which generates scribble files for
@@ -23,6 +25,18 @@
   (parameterize ([current-directory base])
     (system* (find-executable-path "scribble") name))
   (void))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Command line parsing.  We initialize the SCRIBBLE_TAGS environmental
+;; variable
+(define current-contextual-tags
+  (command-line
+   #:program "build"
+   #:args tags
+   tags))
+
+(void (putenv "SCRIBBLE_TAGS" (string-join current-contextual-tags " ")))
+(printf "build.rkt: tagging context is: ~s\n" current-contextual-tags)
 
 
 

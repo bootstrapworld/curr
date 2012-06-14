@@ -5,14 +5,15 @@
         #:prerequisites "Coordinate-Planes Introducing-the-Design-Recipe"]{
         @itemlist/splicing[@item{Unfortunately, the 2d distance looks like 0. Is that right? NO! That's because you haven't written the code to calculate the distance in two dimensions! All you have is something that tells you the length in the x- and y-dimension.} 
                    @item{Ancient civilizations had the same problem: they also struggled with distance in two dimensions. An ancient Greek named Pythagoras finally figured it out.}
-                   @tag[pedagogy]{@item{Draw normal Cartesian coordinate plane, with a point on each axis. Label the coordinates (3,0) and (0,4).} @tag[selftaught]{Draw a coordinate plane. Label the coordinates (3,0) and (0,4).}}
+                   @tag[pedagogy]{@item{Draw normal Cartesian coordinate plane, with a point on each axis. Label the coordinates (3,0) and (0,4).}}
+                   @tag[selftaught]{@item{Draw a coordinate plane. Label the coordinates (3,0) and (0,4).}}
                    @item{@;PICTURE OF GRAPH with letter labels
                          How can we find the distance between these two points? How can we find the length of the dotted line, also called the Hypoteneuse? Well, let's start with what we do know: the dotted line sort of makes a triangle, and we know the @code{line-length} of the other two sides. Let's label them "A," "B" and "C." What is the line-length of A? @tag[pedagogy]{Have students answer. This will typically involve subtraction, but point out that subtraction can sometimes give back negative numbers!}}
                    @item{To make our lives easier, we can use the function @code{line-length}. Just like we did with the butterfly example, we can write functions that call each other for help!}
                    @item{In our example, @code{(line-length A)} is 3 and
 is 3 and @code{(line-length B)} is 4, but we still don't know C. What is the length of C?}
                    @tag[pedagogy]{@item{Pass out Pythagorean Proof materials to each group, and have them review all of their materials:@itemlist[@item{A large, white square with a smaller one drawn inside}@item{Four gray triangles, all the same size}]}}
-                   @tag[(pedagogy group)]{@item{Everyone has a packet with the same materials, but each group's triangles are a little different. That's okay, though: what we're going to do works with all sizes, so you'll each get to test it out on your own triangles.}}
+                   @tag[pedagogy group]{@item{Everyone has a packet with the same materials, but each group's triangles are a little different. That's okay, though: what we're going to do works with all sizes, so you'll each get to test it out on your own triangles.}}
                    @tag[selftaught]{@item{Please print out the cutouts found by following the links labelled 1 and 2 on the first page in the Materials section.}}
                    @item{First, I'd like you to take ONE of the triangles, and place it on the center of a desk, so that it matches the triangle on the board or computer screen. Do you see the sides labeled "A," B" and "C"? Do they match the sides on the board? Good! On YOUR desks, all of the A's are the same size, all of the B's are the same size, and all of the C's are the same size.}
                    @item{Now take your triangles, and place them on the big white square so that all of the As, Bs and Cs line up. You can follow along with what I have on the board, too. (See diagram with inscribed square.)}
@@ -20,7 +21,14 @@ is 3 and @code{(line-length B)} is 4, but we still don't know C. What is the len
                    @tag[pedagogy]{@item{Raise your hand if you know how to find the area of a square. Take a volunteer.}}
                    @item{@think-about[#:question "What's the area of the white, inner square?" #:answer "white space = C^2"]}
                    @;IMAGEEEEE
-                   @tag[(selftaught pedagogy)]{@item{Watch this @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/images/Pythag_anim.gif" "animation")} @tag[pedagogy]{Teacher's, draw this on the board} Now move your triangles so they match the end scene of the animation. Now we have two small, white squares. @think-about[#:question "Is there more white on the board now than there was when we had just a single big one? Why or why not?" #:answer "NO! We just moved the squares around, but there is neither more nor less white now."]}
+                   @tag[(selftaught pedagogy)]{@item{Watch this 
+                                                   @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/images/Pythag_anim.gif"
+                                                               "animation")
+                                                   @tag[pedagogy]{Teacher's, draw this on the board.}
+                                                   Now move your triangles so they match the end scene of the animation.
+                                                   Now we have two small, white squares.
+                                                   @think-about[#:question "Is there more white on the board now than there was when we had just a single big one? Why or why not?"                                                                           
+                                                                #:answer "NO! We just moved the squares around, but there is neither more nor less white now."]}}
                    
                    @; INSERT IMAGE WITH TWO WHITE SQUARES
                    @item{Since we didn't change the size of the outer square, and all we did was move stuff around inside it, we know there is still the same amount of white space as there was before - it's just broken into two parts now. So the area of the whitespace is still C^2.}

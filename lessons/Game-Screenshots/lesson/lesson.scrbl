@@ -8,9 +8,9 @@
 @itemlist/splicing[
     @item{Suppose we wanted to combine your game images and layer them together to form a screenshot, so you could see what your game will look like. We want to take these images and stack them on top of each other - @think-about[#:question "What image goes on the bottom?" #:answer "The BACKGROUND."]}
     @item{There's also a variable called SCREENSHOT. @think-about[#:question "What is it defined to be?"
-                                                     #:answer @code{(define SCREENSHOT (put-image PLAYER 320 240 BACKGROUND))}]}
+    #:answer @code{(define SCREENSHOT (put-image PLAYER 320 240 BACKGROUND))}]}
     @item{@code{put-image} is a function that puts one image on top of another, at whatever coordinates you specify. In our screenshot, what is the image going on the top? PLAYER. At what coordinates? (320, 240)}
-    @item{Try evaluating SCREENSHOT in the interactions window. You should see the player, right in the middle of the background. @think-about[#:question "How would you change the code so the player is a little lower down? To the left? The right?" #:hint "Try it out."]}
+    @item{Try evaluating SCREENSHOT in the interactions window. You should see the player, right in the middle of the background. @think-about[#:question "How would you change the code so that the player is a little lower down? To the left? The right?" #:hint "Try it out."]}
     @item{Now we want to add another image. How about we add the TARGET? @think-about[#:question "Can you tell me what function will let us place this image on top of our stack?" #:answer @code{(put-image _______
 _______
 _______

@@ -4,6 +4,7 @@
          (prefix-in wescheme: "wescheme.rkt")
          racket/runtime-path
          racket/stxparam
+         racket/contract
          scribble/base
          scribble/core
          scribble/decode
@@ -12,6 +13,7 @@
          (for-syntax racket/base)
          2htdp/image
          racket/list)
+
 
 
 ;; FIXME: must add contracts!
@@ -63,11 +65,17 @@
          example-fast-functions
          state-standards
          length-of-lesson
-         itemlist/splicing
          bootstrap-title
 
          worksheet-link
          )        
+
+
+(provide/contract [itemlist/splicing
+                   (->* () 
+                        (#:style (or/c style? string? symbol? #f)) 
+                        #:rest (listof (or/c item? splice?))
+                        itemization?)])
 
 
 (define bootstrap.gif (bitmap "bootstrap.gif"))
@@ -216,7 +224,6 @@
   (traverse-block
    (lambda (get set!)
      (set! 'bootstrap-lessons (cons (lesson-struct title duration) (get 'bootstrap-lessons '())))     
-
      
      (nested-flow
       (style #f '())
@@ -383,6 +390,7 @@
               items))))
   (apply itemlist spliced-items #:style style))
 
+  
 
 
 

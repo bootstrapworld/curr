@@ -6,8 +6,6 @@
 @overview{
 Students discover Boolean types, and use them to create programs that test values, and then model scenarios using these programs.
 
-@agenda[]
-
 @objectives[@item{@tag[group]{Learn to work as a team}}
           @item{Understand how to declare Boolean values}
           @item{Learn functions to generate and manipulate Booleans and Strings}
@@ -44,7 +42,8 @@ Language Table
                  (list "Image" "radial-star scale rotate put-image"))
 }
 @lesson[#:title "Introduction" #:duration "15 minutes"]{
-       @exercise{Review the previous material}}
+       @itemlist/splicing[
+       @item{Review the previous material}]}
 
 @(include-lesson (lib "curr/lessons/Intro-to-Booleans/lesson/lesson.scrbl"))
 

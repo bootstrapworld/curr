@@ -13,8 +13,8 @@
    @tag[selftaught]{@item{@exercise{Write a subtraction example in the Circle of Evaluation and evaluate it. @think-about[
          #:question "How many possible answers are there?"
          #:answer "There are two possible answers. For an example, if you put a 3, 5, and '-' sign in the Circle of Evaluation, you can either have 3 - 5, which is -2, or you can have 5-3, which is 2."]}}}
-   @tag[pedagogy]{@exercise{@item{Write 4 + 5 * 6 in a Circle of Evaluation, and ask students what they think the value is. As with subtraction, have them discover that order of operations matters, and use the actual formulas to demonstrate: ("5*6 + 4", "4*5 + 6")}}}
-   @tag[selftaught]{@exercise{@item{Write 4 + 5 * 6 in a Circle of Evaluation. What do you think the value is?}}}
+   @tag[pedagogy]{@item{@exercise{Write 4 + 5 * 6 in a Circle of Evaluation, and ask students what they think the value is. As with subtraction, have them discover that order of operations matters, and use the actual formulas to demonstrate: ("5*6 + 4", "4*5 + 6")}}}
+   @tag[selftaught]{@item{@exercise{Write 4 + 5 * 6 in a Circle of Evaluation. What do you think the value is?}}}
    @item{We need to improve our Circle of Evaluation, so we don't run into this problem. Let's use the two solutions we came up with: @itemlist[
       @item{all circles have one function}
       @item{it matters in what order the arguments are written.}]}
@@ -29,9 +29,8 @@
    @item{The right side happens to be another Circle of Evaluation (more parens), so we apply the same rules there: write the function and then look at the left and the right. These are numbers, so we can write them in directly. (* 6 (+ 4 5) )}
    @item{@exercise{Try writing this in the Interactions window, and hit "enter". What did you end up with? Now try writing in the complex example we used. Did you get the same answer?
                    @embedded-wescheme[#:id "Circles of Evaluation"
-                                      #:hide-definitions? #t
-                                      #:interactions-text ";enter in your equations to test the result"]}}
-   @item{@think-about[#:question @list{@code{With your partner:} Try to come up with more examples - can you figure out how to subtract three numbers?}
+                                      #:definitions-text ";enter in your equations down in the interactions window to test the result"]}}
+   @item{@think-about[#:question @list{@tag[group]{With your partner:} Try to come up with more examples - can you figure out how to subtract three numbers?}
                       #:answer "One example would be to subtract 1, 2, and 3. There are multiple ways to do this. You can do 1 - (2 - 3) which yields 0 or 3- (2 - 1) which yields 2."]}
    @tag[pedagogy]{@item{Let students discuss briefly, but usher them along to the solution using nested circles. They'll have plenty of practice soon!}}
    @item{I can't put three numbers in the circle, because there's no way to tell the computer which two numbers should be subtracted first. Is it (2-3)-5, or 2-(3-5)?}
