@@ -13,7 +13,7 @@
                    @item{In our example, @code{(line-length A)} is 3 and
 is 3 and @code{(line-length B)} is 4, but we still don't know C. What is the length of C?}
                    @tag[pedagogy]{@item{Pass out Pythagorean Proof materials to each group, and have them review all of their materials:@itemlist[@item{A large, white square with a smaller one drawn inside}@item{Four gray triangles, all the same size}]}}
-                   @tag[pedagogy group]{@item{Everyone has a packet with the same materials, but each group's triangles are a little different. That's okay, though: what we're going to do works with all sizes, so you'll each get to test it out on your own triangles.}}
+                   @tag[(pedagogy group)]{@item{Everyone has a packet with the same materials, but each group's triangles are a little different. That's okay, though: what we're going to do works with all sizes, so you'll each get to test it out on your own triangles.}}
                    @tag[selftaught]{@item{Please print out the cutouts found by following the links labelled 1 and 2 on the first page in the Materials section.}}
                    @item{First, I'd like you to take ONE of the triangles, and place it on the center of a desk, so that it matches the triangle on the board or computer screen. Do you see the sides labeled "A," B" and "C"? Do they match the sides on the board? Good! On YOUR desks, all of the A's are the same size, all of the B's are the same size, and all of the C's are the same size.}
                    @item{Now take your triangles, and place them on the big white square so that all of the As, Bs and Cs line up. You can follow along with what I have on the board, too. (See diagram with inscribed square.)}
