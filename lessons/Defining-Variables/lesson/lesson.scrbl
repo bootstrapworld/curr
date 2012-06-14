@@ -10,15 +10,15 @@
         @item{So far, everything that you've been doing has been down in the Interactions window. What happens when you click Run at the top? All the work you did disappears!
               @embedded-wescheme[#:id "Defining Variables"
                    #:interactions-text "Click Run above and what happens?"]}
-        @item{That's because the Interactions window is mean just for trying things out. If you want to define something permanently, you need to use the Definitions window}
+        @item{That's because the Interactions window is meant just for trying things out. If you want to define something permanently, you need to use the Definitions window.}
         @item{This is a bare-bones, totally broken game. It doesn't DO anything...YET!}
         @item{Look below Step 0, near the top of the screen. @tag[pedagogy]{Raise your hand if you can read the line of code just below that (Have a volunteer read it aloud).} @think-about[#:question "What will happen if I type TITLE into the Interactions window down at the bottom?" #:hint "Try it out!"]}
-        @item{@think-about[#:question "What will happen if you type TITLE into the Interactions window down at the bottom?" #:answer "This code tells the computer that the name TITLE is a shortcut for the string \"MY Game\". When you click Run, the computer learns that name, that shortcut, along with any other definitions"]}
-        @item{When you click Run, you'll see the title "My Game" at the top left hand corner of your new game}
-        @item{This kind of name, that's just a shortcut for some value, like a Number, String, or Image, is also called a variable. You've seen other names too, like + and string-length that are the names of functions. You'll name your own functions soon.}
-        @item{Change the value of this variable form "My Game" to YOUR title. Then click Run, and see if the game is updated to reflect the change}
+        @item{@think-about[#:question "What will happen if you type TITLE into the Interactions window down at the bottom?" #:answer "This code tells the computer that the name TITLE is a shortcut for the string \"MY Game\". When you click Run, the computer learns that name and that shortcut, along with any other definitions."]}
+        @item{When you click Run, you'll see the title "My Game" at the top left hand corner of your new game.}
+        @item{This kind of name, which is just a shortcut for some value like a Number, String, or Image, is also called a variable. You've seen other names too, like + and string-length that are the names of functions. You'll name your own functions soon.}
+        @item{Change the value of this variable from "My Game" to YOUR title. Then click Run, and see if the game is updated to reflect the change.}
         @item{@think-about[#:question "What is the name of the NEXT variable defined in this file? What is its value?" #:answer "TITLE-COLOR"]  Try changing this value and clicking Run, until your title looks the way you want it to.}
-        @item{For practice, try defining a new variable called "author", and set its value to be the string containing your names. Don't forget - all strings are in quotes! (this won't do anything in the game, but when you close the game window, you can type author
+        @item{For practice, try defining a new variable called "author", and set its value to be the string containing your names. Don't forget - all strings are in quotes! (this won't do anything in the game, but when you close the game window, you can type
 author and see its value. Then you can ask @code{(string-length "author"), etc.}}
         @item{@think-about[#:question "What other variables do you see defined in this file? What is its name? What is its value?"] @tag[pedagogy]{Take a volunteer.}}
         @item{Variables can be more than just strings. They can be numbers, or images! These definitions are where we define the images for your background, player, target, and danger.}]

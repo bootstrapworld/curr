@@ -11,11 +11,11 @@ Students are introduced to the Definitions window, and learn the syntax for defi
 
 Learning Objectives
 
-Students will have the following
+
 @objectives[@item{Learn about examples, variables and functions}
        @item{Practice Racket syntax and the Circle of Evaluation}]
 
-Product Outcome
+
 @product-outcomes[@item{Students@tag[group]{, in pairs,} will write functions to solve simple problems}
        @item{Students@tag[group]{, in pairs,} will write examples (unit tests) to check those functions}]
 
@@ -24,7 +24,6 @@ Product Outcome
 @length-of-lesson[90]
 
 @tag[pedagogy]{
-Materials and Equipment
 @materials[@item{Student @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/materials/StudentWorkbook.pdf" "workbook") folders @tag[group]{-in pairs!-} with names on covers.}
            @item{Pens/pencils for the students, fresh whiteboard markers for teachers}
            @item{Class poster (List of rules, language table, course calendar)}
@@ -48,13 +47,13 @@ Preparations
 
 @lesson[#:title "Introduction" #:duration "15 minutes"]{
         @itemlist/splicing[
-        @item{You guys have done a fantastic job in the last two classes}
-        @item{You've learned how to convert expressions into Circles of Evaluation, and how to convert those circles into Racket code}
-        @item{You've learned how to think about functions in terms of nested circles, and how to think of them as a mapping between the Domain and Range}
-        @item{You've extended that knowledge into three data types: Numbers, Strings, and Images}
-        @item{Let's see how much you remember!}
-        @item{Review material from previous class}
-        @item{You have learned a LOT, and before today's class is over... you will have written your first line of code for YOUR videogames}
+        @item{You guys have done a fantastic job in the last two classes!}
+        @item{You've learned how to convert expressions into Circles of Evaluation, and how to convert those circles into Racket code.}
+        @item{You've learned how to think about functions in terms of nested circles, and how to think of them as a relation between the Domain and Range.}
+        @item{You've extended that knowledge into three data types: Numbers, Strings, and Images.}
+        @tag[pedagogy]{@item{Let's see how much you remember!}}
+        @tag[pedagogy]{@item{Review material from the previous class.}}
+        @item{You have learned a LOT, and before today's class is over... you will have written your first line of code for YOUR videogame.}
         ]}
 
 @(include-lesson (lib "curr/lessons/Defining-Variables/lesson/lesson.scrbl"))

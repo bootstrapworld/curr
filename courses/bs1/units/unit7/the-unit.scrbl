@@ -23,7 +23,7 @@ Students use geometry and knowledge of basic image functions to design character
 
 @state-standards
 
-Length: 90 min
+@length-of-lesson[90]
 @tag[pedagogy]{
 @materials[@item{Computers w/ DrRacket or WeScheme}
            @item{Student  @(hyperlink "https://spreadsheets.google.com/pub?key=0Ak3Voejjnf0ldHlQcXRVWTZDbVprWHlBLTJWRlQ2dkE&hl=en&gid=0" "workbook")}
