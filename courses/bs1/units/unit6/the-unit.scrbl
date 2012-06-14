@@ -44,7 +44,7 @@ Language Table
                  (list "Image" "radial-star scale rotate put-image"))
 }
 @lesson[#:title "Introduction" #:duration "15 minutes"]{
-       @exercise{Review the previous material}}
+       @item{Review the previous material}}
 
 @(include-lesson (lib "curr/lessons/Intro-to-Booleans/lesson/lesson.scrbl"))
 
