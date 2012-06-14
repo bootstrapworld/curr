@@ -11,7 +11,7 @@
           @item{This explanation of a soda machine just talks about some soda, but not any specific type of soda. It just says what kind of thing comes out, not which particular thing.}
           @item{How would you describe a coffeemaker? What kind of stuff goes into a coffeemaker? What kind of stuff comes out?}
           @item{How would you describe a lightbulb? @tag[pedagogy]{Have the students brainstorm a few other machines, and their inputs and outputs.} @tag[selftaught]{Try to brainstorm a few other machines and their inputs and outputs.}}
-          @item{The things that go into a machine are called the inputs, and what comes out is called the output. But the kinds of things that go in is the Domain, and the kind of thing that comes out is the Range. @think-about[#:question "A soda machine's domain is money. Can you think of an example input?"  #:answer "Any type of money: quarters, dimes, dollars"] It's range is soda.}
+          @item{The things that go into a machine are called the inputs, and what comes out is called the output. But the kinds of things that go in is the Domain, and the kind of thing that comes out is the Range. @think-about[#:question "A soda machine's domain is money. Can you think of an example input?"  #:answer "Any type of money: quarters, dimes, dollars"] Its range is soda.}
           @item{@think-about[#:question "What is the domain and range of a coffeemaker?"
                              #:answer "The domain is coffee ingredients: coffee beans, water, etc. The range is types of coffee."]}
           @item{Functions in Racket are the same: the addition function needs two numbers as its domain, but those numbers don't have to be 4
@@ -21,7 +21,7 @@
           @item{A contract is also a promise: if you give the machine the kinds of things in its Domain, then you'll get something in the Range. If you give a pizza shop your order and some money, it promises to give you some hot, delicious pizza.}
           @item{Same thing in Racket: if you give plus two numbers, it will give you another number back.}
           @item{We'd like to create a list of contracts for ourselves, so that we can keep track of these functions and exactly how they work. Once we've practiced entering these contracts into our book, I'll show you new functions that let you work with words and pictures!}
-          @item{Are you ready? Turn to the front of your workbooks, to the MOST IMPORTANT PAGE, where it says @(hyperlink "contracts.com" "Contracts").}
+          @item{Are you ready? Turn to the front of your workbooks, to the MOST IMPORTANT PAGE, where it says @worksheet-link[#:page 0 #:name"Contracts"].}
           @item{A contract specifies @itemlist[#:style 'ordered
                                                         @item{the name of the function,}
                                                         @item{the domain, and}
