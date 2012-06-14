@@ -10,7 +10,8 @@
          [except-in scribble/manual code]
          scribble/html-properties
          (for-syntax racket/base)
-         2htdp/image)
+         2htdp/image
+         racket/list)
 
 
 ;; FIXME: must add contracts!
@@ -218,11 +219,14 @@
 
      
      (nested-flow
-      (style "BootstrapLesson" '())
+      (style #f '())
       (decode-flow
        (list (cond [(and title duration)
-                    (compound-paragraph (bootstrap-sectioning-style "BootstrapLessonTitle")
-                                        (decode-flow (list (format "Lesson: ~a (Time ~a)~n" title duration))))]
+                    (compound-paragraph
+                     (bootstrap-sectioning-style "BootstrapLessonTitle")
+                     (decode-flow
+                      (list
+                       (format "Lesson: ~a (Time ~a)~n" title duration))))]
                    [title (format "Lesson: ~a ~n" title)]
                    [duration (format "Lesson (Time ~a)~n" duration)])
              (compound-paragraph (bootstrap-sectioning-style "BootstrapLesson")
@@ -400,10 +404,13 @@
 ;
 (define (overview . body)
   (list 
+   
    ;(compound-paragraph (bootstrap-sectioning-style "BootstrapImage") ;(decode-flow (list bootstrap.gif)))
         (compound-paragraph (bootstrap-sectioning-style "BootstrapOverviewTitle") (decode-flow (list (format "Unit Overview"))))
+        (agenda)
         (compound-paragraph (bootstrap-sectioning-style "BootstrapOverview")
-                            (decode-flow body))))
+                            (decode-flow body))
+        ))
 
 
 (define (contract-exercise tag)
@@ -466,5 +473,22 @@
                         #:lesson [lesson #f]
                         )
   "fix me")
+
 (define (bootstrap-title . body)
-  (list (compound-paragraph (bootstrap-sectioning-style "BootstrapTitle") (decode-flow (cons  bootstrap.gif body)))))
+  (define the-title (apply string-append body))
+  (define unit+title (regexp-match #px"^([^:]+):\\s*(.+)$" the-title)) 
+  (cond
+    [unit+title
+     (list (compound-paragraph 
+            (bootstrap-sectioning-style "BootstrapTitle") 
+            (decode-flow (list bootstrap.gif 
+                               (second unit+title))))                    
+           "\n"
+           (compound-paragraph
+            (bootstrap-sectioning-style "BootstrapTitle")
+            (decode-flow (list (third unit+title)))))]
+    [else
+     (list (compound-paragraph 
+            (bootstrap-sectioning-style "BootstrapTitle") 
+            (decode-flow (cons bootstrap.gif body))))]))
+    
