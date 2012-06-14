@@ -42,5 +42,5 @@
                                @code[#:contract "sqrt : Number -> Number"]}}
           @tag[selftaught]{@item{@think-about[#:question "If you already know about square roots or squaring, try to figure out the contracts for these as well. Check with the answers below!"
                                              #:hint "Both of these function only take one number as input"
-                                             #:answer @list{@code[#:contact "sqrt : Number -> Number"]
-                                             @code[#:contact "sqt : Number -> Number"]}]}}]}
+                                             #:answer @list{@code[#:contract "sqrt : Number -> Number"]
+                                             @code[#:contract "sqt : Number -> Number"]}]}}]}
