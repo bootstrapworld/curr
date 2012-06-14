@@ -7,7 +7,7 @@
          @item{@exercise{Now it's time to put it all together. Right now, you know how to protect Sam on the left side of the screen, and how to protect him on the right side. But how do we protect him on BOTH sides at the same time?}}
          @item{Turn to @worksheet-link[#:page 21 #:name "Design-Recipe-Onscreen"] and read the problem statement.}
          @tag[pedagogy]{@item{I need a volunteer to be the onscreen? function. (take a volunteer)}}
-         @tag[selftaught]{@item{Pretend you are the onscreen? function"}}
+         @tag[selftaught]{@item{Pretend you are the onscreen? function.}}
          @item{What is your name? What is your domain? What is your Range?}
          @item{Sam is onscreen only when he is protected on the left AND the right. How can we use one of those functions we just learned to do this? @tag[pedagogy]{'d like my volunteers protect-left and protect-right to stand up.}}
          @tag[pedagogy]{@item{When I yell out "onscreen? fifty", onscreen? is going to call protect-left and protect-right with that number. Depending on what they give back, onscreen? will tell me true or false}}
