@@ -4,7 +4,7 @@
 @declare-tags[group pedagogy selftaught]
 @lesson[#:title "Contracts"
         #:duration "15 minutes"]{
-@itemlist/splicing[@item{Suppose you have to describe a soda machine. You know that the input to this machine will be money, and you have to get a soda in return. When you use a soda machine, does it only give you one type of soda? Wouldn't it be lame if you had to have a different machine for Coke than you did for Sprite? @bitmap{Images/2.1.png}}
+@itemlist/splicing[@item{Suppose you have to describe a soda machine. You know that the input to this machine will be money, and you have to get a soda in return. When you use a soda machine, does it only give you one type of soda? Wouldn't it be lame if you had to have a different machine for Coke than you did for Sprite? @bitmap{images/2.1.png}}
           @item{A soda machine, for example, takes in money and outputs soda.
                 @code[#:contract "Soda-machine : Money Selection -> Soda"]{
                  ; Takes money and gives soda
