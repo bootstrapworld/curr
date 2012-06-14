@@ -7,7 +7,7 @@
                    @item{Ancient civilizations had the same problem: they also struggled with distance in two dimensions. An ancient Greek named Pythagoras finally figured it out.}
                    @tag[pedagogy]{@item{Draw normal Cartesian coordinate plane, with a point on each axis. Label the coordinates (3,0) and (0,4).}}
                    @tag[selftaught]{@item{Draw a coordinate plane. Label the coordinates (3,0) and (0,4).}}
-                   @item{@;PICTURE OF GRAPH with letter labels
+                   @item{@image{images/3004ABCgraph.png}
                          How can we find the distance between these two points? How can we find the length of the dotted line, also called the Hypoteneuse? Well, let's start with what we do know: the dotted line sort of makes a triangle, and we know the @code{line-length} of the other two sides. Let's label them "A," "B" and "C." What is the line-length of A? @tag[pedagogy]{Have students answer. This will typically involve subtraction, but point out that subtraction can sometimes give back negative numbers!}}
                    @item{To make our lives easier, we can use the function @code{line-length}. Just like we did with the butterfly example, we can write functions that call each other for help!}
                    @item{In our example, @code{(line-length A)} is 3 and
@@ -19,8 +19,8 @@ is 3 and @code{(line-length B)} is 4, but we still don't know C. What is the len
                    @item{Now take your triangles, and place them on the big white square so that all of the As, Bs and Cs line up. You can follow along with what I have on the board, too. (See diagram with inscribed square.)}
                    @item{Now we have four triangles, each with a side A, B and C. We also have two squares: the inner square, whose sides are a C, and the outer square, whose sides are (A+B).}
                    @tag[pedagogy]{@item{Raise your hand if you know how to find the area of a square. Take a volunteer.}}
-                   @item{@think-about[#:question "What's the area of the white, inner square?" #:answer "white space = C^2"]}
-                   @;IMAGEEEEE
+                   @item{@image{images/7.3.png}
+                          @think-about[#:question "What's the area of the white, inner square?" #:answer "white space = C^2"]}
                    @tag[(selftaught pedagogy)]{@item{Watch this 
                                                    @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/images/Pythag_anim.gif"
                                                                "animation")
@@ -30,8 +30,7 @@ is 3 and @code{(line-length B)} is 4, but we still don't know C. What is the len
                                                    @think-about[#:question "Is there more white on the board now than there was when we had just a single big one? Why or why not?"                                                                           
                                                                 #:answer "NO! We just moved the squares around, but there is neither more nor less white now."]}}
                    
-                   @; INSERT IMAGE WITH TWO WHITE SQUARES
-                   @item{Since we didn't change the size of the outer square, and all we did was move stuff around inside it, we know there is still the same amount of white space as there was before - it's just broken into two parts now. So the area of the whitespace is still C^2.}
+                   @item{@image{images/7.4.png}Since we didn't change the size of the outer square, and all we did was move stuff around inside it, we know there is still the same amount of white space as there was before - it's just broken into two parts now. So the area of the whitespace is still C^2.}
                    @item{What is the area of the smaller white square? We know that both of its sides are of length A, so its area must be A^2.}
                    @item{What about the bigger white square? We know that both of its sides are of length B, so its area must be B^2. So now we have two ways of writing the area of the white space:}
                    @item{So whitespace = C^2 = A^2 + B^2}
