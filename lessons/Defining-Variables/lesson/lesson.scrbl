@@ -19,7 +19,7 @@
         @item{Change the value of this variable from "My Game" to YOUR title. Then click Run, and see if the game is updated to reflect the change.}
         @item{@think-about[#:question "What is the name of the NEXT variable defined in this file? What is its value?" #:answer "TITLE-COLOR"]  Try changing this value and clicking Run, until your title looks the way you want it to.}
         @item{For practice, try defining a new variable called "author", and set its value to be the string containing your names. Don't forget - all strings are in quotes! (this won't do anything in the game, but when you close the game window, you can type
-author and see its value. Then you can ask @code{(string-length "author"), etc.}}
+author and see its value.) Then you can ask @code{(string-length "author")}, etc.}
         @item{@think-about[#:question "What other variables do you see defined in this file? What is its name? What is its value?"] @tag[pedagogy]{Take a volunteer.}}
         @item{Variables can be more than just strings. They can be numbers, or images! These definitions are where we define the images for your background, player, target, and danger.}]
 }
