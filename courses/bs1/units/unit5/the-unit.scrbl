@@ -63,7 +63,7 @@ Students define functions that map position n to position n+1, allowing them to 
            @item{We're going to fix these over the next few lessons, and also work on the artwork and story for our games, so stay tuned!}
            @tag[pedagogy]{@item{Who can tell us one thing we learned today?}}                     
            @tag[selftaught]{@item{Write down a few things you learned today}}
-           @tag[pedagogy]@item{{Who saw someone else in the class do something great?}}
+           @tag[pedagogy]{@item{Who saw someone else in the class do something great?}}
            @tag[pedagogy]{@item{Cleanup, dismissal.}}]}
 
 
