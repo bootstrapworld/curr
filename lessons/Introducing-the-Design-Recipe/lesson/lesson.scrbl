@@ -1,4 +1,7 @@
 #lang curr/lib
+@(require 2htdp/image)
+
+
 @declare-tags[pedagogy group selftaught]
 @lesson[#:title "Introducing the Design Recipe"
         #:duration "25 minutes"]{
@@ -18,8 +21,8 @@
                                 
                                 What is your name? @code{rocket-height} What is your Domain? @code{Number} What is your Range? @code{Number}
                                 When I give you the number of seconds since blast-off, what do you do? multiply it by seven. Let's try it out: "rocket-height three!" (21) "rocket-height zero!" (0) etc.}}}
-     @item{@bold{Step 1: Contract}}
-     @tag[pedagogy]{@item{Copy these answers onto the board:} @code[#:contract  "rocket-height : Number -> Number"]{}}
+     @item{@bold{Step 1: Contract}   @bitmap{images/3.1.png}}
+     @tag[pedagogy]{@item{Copy these answers onto the board: @code[#:contract  "rocket-height : Number -> Number"]{}}}
      @tag[selftaught]{@item{@code[#:contract  "rocket-height : Number -> Number"]{}}}
      @item{Copy the contract down into your Design Recipe page!}
      @item{@bold{Step 2: Give Examples}}

@@ -7,7 +7,7 @@
 
 @itemlist/splicing[
           @item{Now it's your turn!}
-          @tag[selftaught]{INSERT VIDEO FOR SELFTAUGHT HERE}
+          @tag[selftaught]{@item{INSERT VIDEO FOR SELFTAUGHT HERE}}
           @tag[pedagogy]{@item{Raise your hand if you want to help me act out this next function. We'll come up with some examples together, and your group will have to write two more on paper!}}
           @tag[pedagogy]{@item{Hand the student the sign that says "bc" and ask them to come to the whiteboard.}}
           @tag[pedagogy]{@item{@skit{When I say "bc 50", you'll draw a solid blue circle of size 50. Let's try it out. "bc fifty!". Wait for student to draw a circle. Then have several other students give examples to your function, by calling out "bc" and a number. Make sure that the student answering gives an appropriately sized circle return every time.}}}
