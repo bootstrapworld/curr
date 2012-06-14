@@ -14,8 +14,8 @@
    @item{Now we have numbers, which we can put in our Circle of Evaluation. (Put in the number 4.) What is the value of everything in this circle? Are you sure? @tag[pedagogy]{(Try other numbers, including decimals and negative numbers.)} @tag[selftaught]{Try other numbers, like 1.5, 10345017, and -2.}}
    @item{Let's ask a real computer...}
    @tag[pedagogy]{@item{Have students open the editor on their computers. Refer to overhead projector as necessary.}}
-   @tag[selftaught]{@item{Open the editor on your computer.}
-          @embedded-wescheme[#:id "Intro to Racket and Numbers"
+   @tag[selftaught]{@item{Open the editor on your computer.}}
+   @item{@embedded-wescheme[#:id "Intro to Racket and Numbers"
                              #:definitions-text ";try typing in numbers and functions to see what happens"
                              ]}
    @item{This is a tool that allows you to write Racket programs. On your screens you'll notice two large boxes: the Definitions window at the top and the Interactions window at the bottom. For now, we're going to just focus on the Interactions window.}

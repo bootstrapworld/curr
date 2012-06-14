@@ -7,8 +7,6 @@
 
 Students are introduced to the Design Recipe and apply it to simple problems.
 
-@agenda[]
-
 @objectives[@item{Students will become familiar with the steps of the Design Recipe.}
             @item{Students will practice Racket syntax and the Circles of Evaluation.}]
 @product-outcomes[@item{Students@tag[group]{,in pairs,} will write functions to solve simple problems by using the Design Recipe}]
@@ -34,7 +32,7 @@ Students are introduced to the Design Recipe and apply it to simple problems.
 }
 
 @lesson[#:title "Introduction"
-        #:duration "15 minutes"]{@itemlist[@item{Review material from previous weeks: Coordinate Planes, Circles of Evaluation, Contracts, Strings, Images, and Functions. @tag[selftaught]{If you are having trouble remembering any of these, look back to previous lessons to refresh your memory.}}]}
+        #:duration "15 minutes"]{@itemlist[@item{Review material from previous lessons: Coordinate Planes, Circles of Evaluation, Contracts, Strings, Images, and Functions. @tag[selftaught]{If you are having trouble remembering any of these, look back to previous lessons to refresh your memory.}}]}
 
 @(include-lesson (lib "curr/lessons/Introducing-the-Design-Recipe/lesson/lesson.scrbl"))
 @(include-lesson (lib "curr/lessons/Practicing-the-Design-Recipe/lesson/lesson.scrbl"))

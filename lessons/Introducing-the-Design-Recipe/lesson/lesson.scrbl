@@ -19,7 +19,8 @@
                                 What is your name? @code{rocket-height} What is your Domain? @code{Number} What is your Range? @code{Number}
                                 When I give you the number of seconds since blast-off, what do you do? multiply it by seven. Let's try it out: "rocket-height three!" (21) "rocket-height zero!" (0) etc.}}}
      @item{@bold{Step 1: Contract}}
-     @item{@tag[pedagogy]{Copy these answers onto the board:} @code[#:contract  "rocket-height : Number -> Number"]{}}
+     @tag[pedagogy]{@item{Copy these answers onto the board:} @code[#:contract  "rocket-height : Number -> Number"]{}}
+     @tag[selftaught]{@code[#:contract  "rocket-height : Number -> Number"]{}}
      @item{Copy the contract down into your Design Recipe page!}
      @item{@bold{Step 2: Give Examples}}
      @item{@tag[pedagogy]{@skit{We already tried some examples with our volunteer.}} When we said "rocket-height three" @tag[pedagogy]{(write the accompanying code @code{(EXAMPLE (rocket-height 3) ...)} on the board)}, what did we get back? 21! But how did we get that? By multiplying 3 and 7. Let's write that code into our example:
