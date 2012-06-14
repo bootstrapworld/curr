@@ -59,14 +59,16 @@
 }
 
 /*Copyright Design*/
-.BootstrapworldCopyrights{
+.BootstrapCopyright{
 
+}
+.BootstrapCopyright img{
+	 float:right;
 }
 
 /*Title Design*/
 .BootstrapTitle{
-    margin-left: auto;
-    margin-right: auto;
+	text-align: left;
     font-size: 32px;
     font-weight: bold;
     line-height: 10%;
