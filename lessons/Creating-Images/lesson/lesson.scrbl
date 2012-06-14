@@ -15,7 +15,7 @@
                        @tag[selftaught]{@think-about[#:question "What are they?"
                                                     #:answer "Name, domain, and range"]}}
            @item{Can you figure out the contract for circle? Based on the example, can you tell me what's in its Domain?@tag[pedagogy]{ Follow along on the board...
-                                                                                           @code{; circle: Number String String -> ...
+                                                                                           @code[#:contract "circle: Number String String -> ..."]{
                                                                                                  (circle 100 "solid" "red")}}}
            @item{So what's the Range? What do you think this thing is going to give us back? A Number? A String? Type it in and try it out! @embedded-wescheme[#:id "Images"
                    #:interactions-text ";Try out the images!"
@@ -35,5 +35,5 @@
                  @embedded-wescheme[#:id "Images"
                    #:interactions-text ""
                    #:hide-definitions? #t]}
-           @item{Going Further - If time allows, you can go further into @(hyperlink "http://manipulatingimages.com" "Manipulating Images") or @(hyperlink "http://makingflags.com" "Making Flags")!}
+           @item{Going Further - If time allows, you can go further into @(hyperlink "Manipulating-Images" "Manipulating Images") or @(hyperlink "Making-Flags" "Making Flags")!}
            ]}

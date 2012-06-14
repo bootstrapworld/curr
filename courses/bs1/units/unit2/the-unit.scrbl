@@ -4,8 +4,6 @@
 @title{Unit 2: Contracts, Strings and Images}
 @overview{
 
-
-
 Students are introduced to a set-mapping representation for functions, in which the function object exists as a means of translating points
 from a Domain into a Range. Coupled with their understanding of Circles of Evaluation, students generalize their understanding of functions to
 include other datatypes, including Strings and Images. 
