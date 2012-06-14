@@ -32,9 +32,9 @@
                        ; text: String Number String -> Image
                        }} 
           @tag[pedagogy]{@item{Let kids experiment with these functions and point out interesting results to the class.}}
-          @tag[selftaught]{@item{Experiment with these functions!}
+          @tag[selftaught]{@item{Experiment with these functions!
                 @embedded-wescheme[#:id "Images"
                   #:interactions-text ""
-                  #:hide-definitions? #t]}
+                  #:hide-definitions? #t]}}
           @item{Going Further - If time allows, you can go further into @(hyperlink "http://manipulatingimages.com" "Manipulating Images") or @(hyperlink "http://makingflags.com" "Making Flags")!}
           ]}
