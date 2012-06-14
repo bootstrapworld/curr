@@ -1,4 +1,8 @@
 #lang curr/lib
+@(require 2htdp/image)
+
+@(define graph-image (bitmap "images/5.1.png"))
+
 @declare-tags[group pedagogy selftaught bootstrap]
 @lesson[#:title "Danger Movement" #:duration "20 min" #:prerequisites "Coordinate-Planes, Introducing-the-Design-Recipe"]{
 @;The students should probably have their game code files open. 
@@ -6,7 +10,7 @@
           @item{Who wants to start making their game move?}
           @tag[pedagogy]{@item{Draw a 640x480 "game screen" on the board, and have students help you label the axes and corners.}}
           @tag[selftaught]{@item{@think-about[#:question "Draw a 640x480 'game screen' on the board, and label the axes and corners."]}}
-          @item{Here I've drawn a really boring game: my Danger is the letter "D", my Target is the letter "T", and my Player is just the letter "P". I've also labeled all the coordinates for where they are on the screen. @image["images/5.1.png"]}
+          @item{Here I've drawn a really boring game: my Danger is the letter "D", my Target is the letter "T", and my Player is just the letter "P". I've also labeled all the coordinates for where they are on the screen. @graph-image}
           @item{@think-about[#:question "What is the Danger's x-coordinate? Its y-coordinate?"
                              #:answer "Danger's x-coordinate is 500 and its y-coordinate is 100"]}
           @item{@think-about[#:question "Suppose my Danger is moving to the left. What is changing, the x- or the y-coordinate?"
