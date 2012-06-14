@@ -6,9 +6,7 @@
 
 @overview{
 
-Students define functions that map position n to position n+1, allowing them to move their dangers, targets, and projectiles
-
-@agenda[]
+Students define functions that map position n to position n+1, allowing them to move their dangers, targets, and projectiles.
 
 @objectives[@item{Apply algebra and geometry to solve a real world problem.}
             @item{Generalize their understanding of functions to create animation}]

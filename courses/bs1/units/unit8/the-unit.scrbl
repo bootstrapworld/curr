@@ -7,7 +7,6 @@
 
 Students discuss and then prove the Pythagorean theorem, and use this theorem - in conjunction with Booleans - in their games to detect when a collision has occurred.
 
-@agenda[]
 
 @objectives[@item{Understand the challenge of the distance formula in two dimensions.}
             @item{Be familiar with the Pythagorean theorem.}
