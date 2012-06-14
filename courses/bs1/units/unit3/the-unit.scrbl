@@ -1,10 +1,7 @@
 #lang curr/lib
 @declare-tags[pedagogy group selftaught bootstrap]
 
-
-@title{Unit 3
-       
-The Definitions Window}
+@title{Unit 3: The Definitions Window}
 
 @overview{
 

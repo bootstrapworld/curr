@@ -1,7 +1,7 @@
 #lang curr/lib
-@title{Unit 4: The Design Recipe}
-
 @declare-tags[group pedagogy selftaught]
+
+@title{Unit 4: The Design Recipe}
 
 @overview{
 
