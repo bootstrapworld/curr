@@ -5,6 +5,7 @@
          racket/runtime-path
          racket/stxparam
          racket/contract
+         racket/path
          scribble/base
          scribble/core
          scribble/decode
@@ -67,8 +68,8 @@
          length-of-lesson
          bootstrap-title
 
-         worksheet-link
-         )        
+         (rename-out [worksheet-link/src-path
+                      worksheet-link]))        
 
 
 (provide/contract [itemlist/splicing
@@ -221,6 +222,7 @@
                 #:duration (duration #f)
                 #:subsumes (subsumes #f)
                 #:prerequisites (prerequisites #f)
+                #:video (video #f)
                 . body)
   (traverse-block
    (lambda (get set!)
@@ -249,7 +251,9 @@
 
 
 (define (exercise . body) 
-  (list "Exercise:"
+  (list (compound-paragraph (bootstrap-sectioning-style 
+                             "BootstrapHeader")
+                            (decode-flow (list "Exercise:")))
         (compound-paragraph (bootstrap-sectioning-style "BootstrapExercise")
                             (decode-flow body))))
 
@@ -477,11 +481,38 @@
         ")"))
                                     
 
+
+(define-runtime-path worksheet-lesson-root (build-path 'up "lessons"))
+;; We need to do a little compile-time computation to get the file's source
+;; where worksheet-link/src-path is used, since we want the path relative to
+;; the usage, rather than to current-directory.
+(define-syntax (worksheet-link/src-path stx)
+  (syntax-case stx ()
+    [(_ args ...)
+     (with-syntax ([src-path (syntax-source stx)])
+       (begin
+         (syntax/loc stx
+           (worksheet-link #:src-path src-path
+                           args ...))))]))
+
 (define (worksheet-link #:name name
                         #:page page
                         #:lesson [lesson #f]
-                        )
-  "fix me")
+                        #:src-path src-path)
+  ;; TODO: generate worksheet link relative to current directory.
+  (define-values (base-path _ dir?) (split-path src-path))
+  (define the-relative-path
+    (find-relative-path (simple-form-path (current-directory))
+                        (simple-form-path (build-path base-path
+                                                      'up
+                                                      "worksheets"
+                                                      (format "~a.html" name)))))
+  (list (hyperlink the-relative-path
+                   "Page " (number->string page))
+        " of your workbook"))
+
+
+
 
 (define (bootstrap-title . body)
   (define the-title (apply string-append body))

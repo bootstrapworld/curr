@@ -57,6 +57,12 @@
     background: lightgray;
 
 }
+/*Exercise Design*/
+.BootstrapExercise{
+	border: 2px solid gray;
+	padding: 5px;
+	background: #f5deb3;
+}
 
 /*Copyright Design*/
 .BootstrapCopyright{
