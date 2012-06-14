@@ -1,9 +1,7 @@
 #lang curr/lib
 @declare-tags[group pedagogy selftaught bootstrap]
 
-@title{Unit 6:
-       
-       Booleans: Teaching Functions to Compare}
+@title{Unit 6: Booleans: Teaching Functions to Compare}
 
 @overview{
 Students discover Boolean types, and use them to create programs that test values, and then model scenarios using these programs.
