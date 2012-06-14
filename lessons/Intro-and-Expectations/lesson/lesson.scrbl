@@ -13,7 +13,7 @@
             @item{You're going to need to be very focused, and disciplined about solving the problems we'll be throwing at you.}
             @item{Because this is the same material that they teach in college, we're going to expect you to be able to act like college students. @tag[pedagogy]{What do you think that means?}}
             @tag[pedagogy]{@item{@exercise{Take 2-3 suggestions.}}}
-            @tag[selftaught]{@item{@fill-in-the-blank[#:id "Suggestions"]
+            @tag[selftaught]{@item{Fill in the boxes with your ideas! @fill-in-the-blank[#:id "Suggestions"]
                                                                                     @fill-in-the-blank[#:id "Suggestions"]}}
             @tag[pedagogy]{@item{Okay, so here are the rules: (point to a visual while going over this) 
                   @itemlist[@item{Unless we say otherwise, raise your hand to speak}

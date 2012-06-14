@@ -1,8 +1,4 @@
-#lang scribble/base
-@(require "lib/all.rkt")
-
-@declare-tags[group pedagogy selftaught bootstrap]
-
+#lang curr/lib
 
 @section{Design Recipe: line-length}
 @worksheet{
