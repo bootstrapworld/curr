@@ -4,7 +4,7 @@
         #:duration "25 minutes"
         #:prerequisites "Introducing-the-Design-Recipe Coordinate-Planes Intro-to-Booleans"]{
  @itemlist/splicing[
-           @tag[pedagogy]@item{{Draw a rectangle on the board, to represent the screen. Then turn students' attention to the computers, and have them analyze the last function in the code, called onscreen?.}}
+           @tag[pedagogy]{@item{Draw a rectangle on the board, to represent the screen. Then turn students' attention to the computers, and have them analyze the last function in the code, called onscreen?.}}
             @tag[selftaught]{@item{Draw a rectangle in your notes, to represent a computer screen. Now, you will analyze the last function in the code, called onscreen?.}}
             @item{@think-about[#:question "What are the Domain and Range of onscreen? What does the function do? What will happen when it's given a sample input?" 
                                #:answer "It always returns true, no matter what!"]}
