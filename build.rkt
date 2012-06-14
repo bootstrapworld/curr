@@ -43,7 +43,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Building the bs1 course
 (printf "build.rkt: building bs1\n")
-#;(for ([subdir (directory-list units-dir)]
+(for ([subdir (directory-list units-dir)]
       #:when (directory-exists? (build-path units-dir subdir)))
   (define scribble-file (build-path units-dir subdir "the-unit.scrbl"))
   (cond [(file-exists? scribble-file)
@@ -56,7 +56,7 @@
 
 ;; Building the lessons
 (printf "build.rkt: building lessons\n")
-#;(for ([subdir (directory-list lessons-dir)]
+(for ([subdir (directory-list lessons-dir)]
       #:when (directory-exists? (build-path lessons-dir subdir)))
   (define scribble-file (build-path lessons-dir subdir "lesson" "lesson.scrbl"))
   (cond [(file-exists? scribble-file)
