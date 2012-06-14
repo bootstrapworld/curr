@@ -3,13 +3,13 @@
 @declare-tags[group pedagogy selftaught bootstrap]
 @title{Unit 9: Prepping for Launch}
 
-@agenda[]
-
 @overview{
 
 Students will edit game details and prepare for their Launch Party!
 
-@objectives[@item{Reflect on what they've learned and figure out how to teach back.}
+@agenda[]
+
+@objectives[@item{Reflect on what's been learned and figure out how to teach back.}
             ]
 
 @product-outcomes[
