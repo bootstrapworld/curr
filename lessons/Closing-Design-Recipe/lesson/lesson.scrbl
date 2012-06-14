@@ -8,4 +8,4 @@
             @tag[selftaught]{@item{List a few things that you've learned today 
                                    @free-response[#:id "chp4review"]}}
             @tag[pedagogy]{@item{Who saw someone else in the class do something great?}}                                       
-            @tag[(pedagogy group)]{@item{Cleanup, dismissal)}}]}
+            @tag[(pedagogy group)]{@item{Cleanup, dismissal}}]}
