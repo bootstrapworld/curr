@@ -39,7 +39,7 @@
           @;must have some sort of answers here
           @tag[pedagogy]{@item{Add other functions, like "/" and "*".  Leave these contracts written on the board.}}
           @tag[pedagogy]{@item{If students already know about square roots or squaring, you can add these functions as well. If not, take a moment to review what they do.
-                               @code[#:contact "sqrt : Number -> Number"]}}
+                               @code[#:contract "sqrt : Number -> Number"]}}
           @tag[selftaught]{@item{@think-about[#:question "If you already know about square roots or squaring, try to figure out the contracts for these as well. Check with the answers below!"
                                              #:hint "Both of these function only take one number as input"
                                              #:answer @list{@code[#:contact "sqrt : Number -> Number"]
