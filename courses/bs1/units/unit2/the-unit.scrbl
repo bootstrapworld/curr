@@ -10,8 +10,6 @@ Students are introduced to a set-mapping representation for functions, in which 
 from a Domain into a Range. Coupled with their understanding of Circles of Evaluation, students generalize their understanding of functions to
 include other datatypes, including Strings and Images. 
 
-@agenda[]
-
 @objectives[@item{Learn Racket syntax and grammar, using the Circle of Evaluation}
         @item{Learn how to define values to be used later, as variables}
         @item{Learn syntax for simple strings and image-composition expressions}]
