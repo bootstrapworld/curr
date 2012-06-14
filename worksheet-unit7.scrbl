@@ -1,9 +1,5 @@
-#lang scribble/base
-@(require "lib/all.rkt")
+#lang curr/lib
 @title{Unit 7 Worksheet}
-
-
-
 
 @section{Design Recipe: cost}
 @worksheet{

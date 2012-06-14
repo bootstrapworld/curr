@@ -1,12 +1,12 @@
 #lang curr/lib
-
+@(require 2htdp/image)
 @declare-tags[pedagogy selftaught group]
 
 @lesson[#:title "Player Movement" #:duration "25 min" #:prerequisites "Cond-Example-With-Pizza-Toppings"]{
 @itemlist/splicing[
      @item{Great! Now that we know @code{cond} we can write @code{update-player}.}
      @tag[pedagogy]{@item{Draw a screen on the board, and label the coordinates for a player, target and danger. Circle all the data associated with the Player.}}
-           @;image["PUT IMAGE HERE"]
+     @item{@bitmap{images/6.1.png}}
      @item{@think-about[#:question "What is the player's starting x-coordinate?"
                         #:answer "The player's starting x-coordinate is 200"]}
      @item{@think-about[#:question "It's starting y-coordinate?"
@@ -22,7 +22,7 @@
                         #:answer "The y-coordinate is a number and the keypress is a string"]}
      @tag[pedagogy]{@item{Make a table showing possibilities and results, walking students through it.}}
      @tag[selftaught]{@item{
-                            @; put image here
+                            @; put table
                             }}
      @item{With our pizza example, we had to deal with toppings that weren't on the menu. Now we need to deal with keys that aren't "up" or "down". 
            @think-about[#:question "How do we do that?"

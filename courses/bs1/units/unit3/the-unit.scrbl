@@ -7,9 +7,6 @@
 
 Students are introduced to the Definitions window, and learn the syntax for defining values of various types.  They are also introduced to the syntax of defining functions and creating examples.
 
-Learning Objectives
-
-
 @objectives[@item{Learn about examples, variables and functions}
        @item{Practice Racket syntax and the Circle of Evaluation}]
 
@@ -27,8 +24,6 @@ Learning Objectives
            @item{Class poster (List of rules, language table, course calendar)}
            @item{Language Table (see below)}]
 
-
-Preparations
 @preparation[@item{Create student game files. [See @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/TeachersGuide.html" "Instructions")]}
            @item{On student machines: Student Game Files (generated from blank templates [@(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/downloads/Game.rkt" "DrRacket file") + @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/downloads/Teachpack/Teachpacks.zip" "teachpacks") | @(hyperlink "http://www.wescheme.org/openEditor?publicId=cross-drawn-serve-annex-crumb" "WeScheme")])}
            @item{Write agenda on board, and post along with class posters and the Language Table}
@@ -45,7 +40,7 @@ Preparations
 
 @lesson[#:title "Introduction" #:duration "15 minutes"]{
         @itemlist/splicing[
-        @item{You guys have done a fantastic job in the last two classes!}
+        @item{You @tag[group]{guys }have done a fantastic job in the last two classes!}
         @item{You've learned how to convert expressions into Circles of Evaluation, and how to convert those circles into Racket code.}
         @item{You've learned how to think about functions in terms of nested circles, and how to think of them as a relation between the Domain and Range.}
         @item{You've extended that knowledge into three data types: Numbers, Strings, and Images.}

@@ -19,7 +19,7 @@
                                                                                            @code[#:contract "circle: Number String String -> ..."]{
 
                                                                                                  (circle 100 "solid" "red")}}}
-          @item{So what's the Range? What do you think this thing is going to give us back? A Number? A String? Type it in and try it out! @embedded-wescheme[#:id "Images"
+          @item{So what's the Range? What do you think this thing is going to give us back? A Number? A String? Type it in and try it out! @embedded-wescheme[#:id "Images1"
                    #:interactions-text ";Try out the images!"
                    #:hide-definitions? #t]}
 

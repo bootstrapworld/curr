@@ -56,7 +56,10 @@ Students discuss the components of their favorite videogames, and discover that 
 
 @(include-lesson (lib "curr/lessons/Circles-of-Evaluation/lesson/lesson.scrbl"))
 
-@review{ 
+
+@lesson[#:title "Review"
+        #:duration "5 minutes"
+        ]{ 
  @tag[pedagogy]{
  @itemlist[
   @item{Who can tell us one thing we learned today?}       

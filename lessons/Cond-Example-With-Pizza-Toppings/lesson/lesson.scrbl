@@ -55,7 +55,7 @@
       @tag[pedagogy]{@item{Remind students that computers are very specific and can't make up new answers; we need to tell it what to do in case the user inputs an item that is not in our list. Let's add else. If it's not on the menu, we might still make that pizza for you, but it'll cost you! @code{[else    10000000]}}}
       @tag[selftaught]{@item{What happens if the topping is not on our list?  Let's add an else statement.  If it's not on our menu, we might still make that pizza for you but it'll cost you!@code{[else    10000000]}}}
       @;Students must open their files here. 
-     @tag[pedagogy]{ @item{Have students try it on the computers, adding new items on their own.}}
+     @tag[pedagogy]{@item{Have students try it on the computers, adding new items on their own.}}
 @tag[selftaught]{@item{Try it out for yourself and add your own new items.
 @embedded-wescheme[#:id "Strings"
                    #:definitions-text ";Try out the pizza example above!"]}}

@@ -57,16 +57,24 @@
     background: lightgray;
 
 }
+/*Exercise Design*/
+.BootstrapExercise{
+	border: 2px solid gray;
+	padding: 5px;
+	background: #f5deb3;
+}
 
 /*Copyright Design*/
-.BootstrapworldCopyrights{
+.BootstrapCopyright{
 
+}
+.BootstrapCopyright img{
+	 float:right;
 }
 
 /*Title Design*/
 .BootstrapTitle{
-    margin-left: auto;
-    margin-right: auto;
+	text-align: left;
     font-size: 32px;
     font-weight: bold;
     line-height: 10%;

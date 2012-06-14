@@ -13,7 +13,8 @@
                        #:answer "NinjaCat can move both up and down and left and right. So both his x and y-coordinate are changing."]}
     @item{@think-about[#:question @list{What about the clouds? Do they move up and down? Left and right? Fill in the rest of the table @tag[group]{with your team.}}
                        #:answer "The clouds only move left and right."]}
-    @tag[pedagogy]{@item{Terrific! Great job, all of you. }Now, turn to @worksheet-link[#:page 2 #:name "Ninja-Cat-Coordinates"] in your game planning workbooks and look at the project sheet that has a picture of the NinjaCat game you just saw.}
+    @tag[pedagogy]{@item{Terrific! Great job, all of you. }}
+    @item{Now, turn to @worksheet-link[#:page 2 #:name "Ninja-Cat-Coordinates"] in your game planning workbooks and look at the project sheet that has a picture of the NinjaCat game you just saw.}
     @tag[pedagogy]{@item{Raise your hand if you can tell me what the coordinates are of the upper-left-hand corner. Take volunteers. What about the bottom-right-hand corner? What about the coordinates of the point right in the center of the screen?}}
     @tag[selftaught]{@item{@think-about[
           #:question "What are the coordinates of the upper-left-hand corner?  What about the bottom-right-hand corner? What about the coordinates of the point right in the center of the screen?"

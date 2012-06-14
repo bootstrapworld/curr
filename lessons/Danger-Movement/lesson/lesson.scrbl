@@ -16,7 +16,6 @@
           @item{@think-about[#:question "Suppose my Danger is moving to the left. What is changing, the x- or the y-coordinate?"
                              #:answer "The x-coordinate is changing since you are moving horizontally."]}
           @tag[selftaught]{@item{Draw an arrow to the NEW location, and label the coordinates.}}
-          @item{PUT IMAGE WITH NEW COORDINATES}
           @item{@think-about[#:question "Suppose it moved to the right, by 50 pixels. What are the new coordinates?"
                              #:answer "The new coordinates are (550, 100)"]}
           @item{I want my Danger to always move left by 50 pixels, each time the screen is redrawn. So it goes from (550, 100) to (500, 100).}
