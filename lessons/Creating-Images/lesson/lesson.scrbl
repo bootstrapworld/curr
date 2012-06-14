@@ -6,7 +6,7 @@
         #:duration "35 minutes"
         #:prerequisites "Introducing-the-Design-Recipe"]{
 @itemlist/splicing[
-          @item{Let's talk about graphics. @bitmap{Images/2.2.png}}
+          @item{Let's talk about graphics. @bitmap{images/2.2.png}}
           @tag[pedagogy]{@item{On the board, draw the Circle of Evaluation for 
                                  @code{(circle 100 "solid" "red")}}}
           @tag[selftaught]{@item{"insert image here for selfies"}}
