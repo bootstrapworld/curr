@@ -221,6 +221,7 @@
                 #:duration (duration #f)
                 #:subsumes (subsumes #f)
                 #:prerequisites (prerequisites #f)
+                #:video (video #f)
                 . body)
   (traverse-block
    (lambda (get set!)
