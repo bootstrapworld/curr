@@ -16,7 +16,8 @@ Students discuss and then prove the Pythagorean theorem, and use this theorem - 
 
 @state-standards
 
-Length: 90 minutes
+@length[90]
+
 @tag[selftaught]{@materials[@item{Cutouts of Pythagorean Theorem packets [@(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/images/7.5.png" "1"), @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/images/7.6.png" "2")] - 1 per cluster}
                         @item{Student @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/materials/StudentWorkbook.pdf" "workbooks")}]}  
    
@@ -58,8 +59,6 @@ Length: 90 minutes
 @tag[pedagogy]{@item{Who can tell us one thing we learned today?}}
 @tag[selftaught]{@review{What did you learn today?}}
 @tag[pedagogy]{@item{Who saw someone else in the class do something great?}}
-@tag[pedagogy]{@item{Cleanup, dismissal}}
-]
-}
+@tag[pedagogy]{@item{Cleanup, dismissal}}]}
 
 @copyright[]

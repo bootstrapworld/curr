@@ -52,11 +52,13 @@ include other datatypes, including Strings and Images.
     @tag[pedagogy]{@itemlist[@item{Who can tell us one thing we learned today?}
                              @item{Who saw someone else in the class do something great?}
                              @item{Cleanup, dismissal.}]}
+
     @tag[selftaught]{@itemlist[@item{Think about what you learned today.}
                                @item{Remember contracts and how to make them.}
                                @item{Think of strings and what differentiates a string from a different type.}
                                @item{Think about images and what goes into creating an image.}
-                               @item{Have an awesome day!}]}}
+                               @item{Have an awesome day!}]}
+}
 
 
 @copyright[]
