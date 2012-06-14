@@ -22,7 +22,8 @@
 
 (provide (except-out (all-from-out scribble/doclang) #%module-begin)
          (all-from-out "bootstrap.rkt")
-         (all-from-out scribble/base)
+         (except-out (all-from-out scribble/base) title)
+         (rename-out [bootstrap-title title])
          (rename-out [module-begin #%module-begin]))
 
 (define-syntax (module-begin stx)
