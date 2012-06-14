@@ -249,7 +249,9 @@
 
 
 (define (exercise . body) 
-  (list "Exercise:"
+  (list (compound-paragraph (bootstrap-sectioning-style 
+                             "BootstrapHeader")
+                            (decode-flow (list "Exercise:")))
         (compound-paragraph (bootstrap-sectioning-style "BootstrapExercise")
                             (decode-flow body))))
 
