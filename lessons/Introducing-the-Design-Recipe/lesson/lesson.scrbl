@@ -40,4 +40,4 @@
      @tag[(group pedagogy)]{@item{One point to every team who can figure out how to make the rocket fly twice as fast. You'll have 1 minute. GO!}}
      @tag[(group pedagogy)]{@item{One point to every team who can figure out how to make the rocket fly backwards. You'll have 1 minute. GO!}}
      @tag[(group pedagogy)]{@item{One point to every team who can figure out how to make the rocket fly faster over time, so it gets faster and faster as it gets higher. You'll have 1 minute. GO!}}
-     ] }
+     ] } 
