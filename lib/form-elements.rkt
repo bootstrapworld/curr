@@ -502,11 +502,17 @@
   ;; TODO: generate worksheet link relative to current directory.
   (define-values (base-path _ dir?) (split-path src-path))
   (define the-relative-path
-    (find-relative-path (simple-form-path (current-directory))
-                        (simple-form-path (build-path base-path
-                                                      'up
-                                                      "worksheets"
-                                                      (format "~a.html" name)))))
+    (if lesson
+        (find-relative-path (simple-form-path (current-directory))
+                            (simple-form-path (build-path worksheet-lesson-root
+                                                          lesson
+                                                          "worksheets"
+                                                          (format "~a.html" name))))
+        (find-relative-path (simple-form-path (current-directory))
+                            (simple-form-path (build-path base-path
+                                                          'up
+                                                          "worksheets"
+                                                          (format "~a.html" name))))))
   (list (hyperlink the-relative-path
                    "Page " (number->string page))))
 
