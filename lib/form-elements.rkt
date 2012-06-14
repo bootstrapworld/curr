@@ -506,7 +506,6 @@
                                                       'up
                                                       "worksheets"
                                                       (format "~a.html" name)))))
-  (printf "The relative path is: ~s\n" the-relative-path)
   (list (hyperlink the-relative-path
                    "Page " (number->string page))
         " of your workbook"))
