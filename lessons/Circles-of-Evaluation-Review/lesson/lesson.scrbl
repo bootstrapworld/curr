@@ -20,5 +20,4 @@
                            @tag[pedagogy]{@item{Review and discuss. Assign points.}}
                            @item{Repeat for each additional round}
                            ]}
-           @tag[pedagogy]@item{{Have kids complete the competition - give as little help as possible at this point. After the time is up, have students volunteer their answers. Review as necessary.}}
-           ]}
+           @tag[pedagogy]@item{{Have kids complete the competition - give as little help as possible at this point. After the time is up, have students volunteer their answers. Review as necessary.}}]}
