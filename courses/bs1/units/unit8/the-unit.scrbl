@@ -56,7 +56,7 @@ Students discuss and then prove the Pythagorean theorem, and use this theorem - 
 @tag[group]{@item{It's time for everyone to walk around and play each other's games!}}
 @item{CONGRATULATIONS! You have finished the code for your videogame@tag[group]{s}!!!}
 @tag[pedagogy]{@item{Who can tell us one thing we learned today?}}
-@tag[selftaught]{@review{What did you learn today?}}
+@tag[selftaught]{@item{@review{What did you learn today?}}}
 @tag[pedagogy]{@item{Who saw someone else in the class do something great?}}
 @tag[pedagogy]{@item{Cleanup, dismissal}}]}
 

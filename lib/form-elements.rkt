@@ -4,13 +4,16 @@
          (prefix-in wescheme: "wescheme.rkt")
          racket/runtime-path
          racket/stxparam
+         racket/contract
          scribble/base
          scribble/core
          scribble/decode
          [except-in scribble/manual code]
          scribble/html-properties
          (for-syntax racket/base)
-         2htdp/image)
+         2htdp/image
+         racket/list)
+
 
 
 ;; FIXME: must add contracts!
@@ -62,11 +65,17 @@
          example-fast-functions
          state-standards
          length-of-lesson
-         itemlist/splicing
          bootstrap-title
 
          worksheet-link
          )        
+
+
+(provide/contract [itemlist/splicing
+                   (->* () 
+                        (#:style (or/c style? string? symbol? #f)) 
+                        #:rest (listof (or/c item? splice?))
+                        itemization?)])
 
 
 (define bootstrap.gif (bitmap "bootstrap.gif"))
@@ -217,11 +226,14 @@
      (set! 'bootstrap-lessons (cons (lesson-struct title duration) (get 'bootstrap-lessons '())))     
      
      (nested-flow
-      (style "BootstrapLesson" '())
+      (style #f '())
       (decode-flow
        (list (cond [(and title duration)
-                    (compound-paragraph (bootstrap-sectioning-style "BootstrapLessonTitle")
-                                        (decode-flow (list (format "Lesson: ~a (Time ~a)~n" title duration))))]
+                    (compound-paragraph
+                     (bootstrap-sectioning-style "BootstrapLessonTitle")
+                     (decode-flow
+                      (list
+                       (format "Lesson: ~a (Time ~a)~n" title duration))))]
                    [title (format "Lesson: ~a ~n" title)]
                    [duration (format "Lesson (Time ~a)~n" duration)])
              (compound-paragraph (bootstrap-sectioning-style "BootstrapLesson")
@@ -378,6 +390,7 @@
               items))))
   (apply itemlist spliced-items #:style style))
 
+  
 
 
 
@@ -399,10 +412,13 @@
 ;
 (define (overview . body)
   (list 
+   
    ;(compound-paragraph (bootstrap-sectioning-style "BootstrapImage") ;(decode-flow (list bootstrap.gif)))
         (compound-paragraph (bootstrap-sectioning-style "BootstrapOverviewTitle") (decode-flow (list (format "Unit Overview"))))
+        (agenda)
         (compound-paragraph (bootstrap-sectioning-style "BootstrapOverview")
-                            (decode-flow body))))
+                            (decode-flow body))
+        ))
 
 
 (define (contract-exercise tag)
@@ -465,5 +481,22 @@
                         #:lesson [lesson #f]
                         )
   "fix me")
+
 (define (bootstrap-title . body)
-  (list (compound-paragraph (bootstrap-sectioning-style "BootstrapTitle") (decode-flow (cons  bootstrap.gif body)))))
+  (define the-title (apply string-append body))
+  (define unit+title (regexp-match #px"^([^:]+):\\s*(.+)$" the-title)) 
+  (cond
+    [unit+title
+     (list (compound-paragraph 
+            (bootstrap-sectioning-style "BootstrapTitle") 
+            (decode-flow (list bootstrap.gif 
+                               (second unit+title))))                    
+           "\n"
+           (compound-paragraph
+            (bootstrap-sectioning-style "BootstrapTitle")
+            (decode-flow (list (third unit+title)))))]
+    [else
+     (list (compound-paragraph 
+            (bootstrap-sectioning-style "BootstrapTitle") 
+            (decode-flow (cons bootstrap.gif body))))]))
+    

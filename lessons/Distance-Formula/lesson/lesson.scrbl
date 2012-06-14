@@ -21,7 +21,14 @@ is 3 and @code{(line-length B)} is 4, but we still don't know C. What is the len
                    @tag[pedagogy]{@item{Raise your hand if you know how to find the area of a square. Take a volunteer.}}
                    @item{@think-about[#:question "What's the area of the white, inner square?" #:answer "white space = C^2"]}
                    @;IMAGEEEEE
-                   @tag[selftaught pedagogy]{@item{Watch this @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/images/Pythag_anim.gif" "animation")} @tag[pedagogy]{Teacher's, draw this on the board.} Now move your triangles so they match the end scene of the animation. Now we have two small, white squares. @think-about[#:question "Is there more white on the board now than there was when we had just a single big one? Why or why not?" #:answer "NO! We just moved the squares around, but there is neither more nor less white now."]}
+                   @tag[(selftaught pedagogy)]{@item{Watch this 
+                                                   @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/images/Pythag_anim.gif"
+                                                               "animation")
+                                                   @tag[pedagogy]{Teacher's, draw this on the board.}
+                                                   Now move your triangles so they match the end scene of the animation.
+                                                   Now we have two small, white squares.
+                                                   @think-about[#:question "Is there more white on the board now than there was when we had just a single big one? Why or why not?"                                                                           
+                                                                #:answer "NO! We just moved the squares around, but there is neither more nor less white now."]}}
                    
                    @; INSERT IMAGE WITH TWO WHITE SQUARES
                    @item{Since we didn't change the size of the outer square, and all we did was move stuff around inside it, we know there is still the same amount of white space as there was before - it's just broken into two parts now. So the area of the whitespace is still C^2.}

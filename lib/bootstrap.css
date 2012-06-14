@@ -16,7 +16,11 @@
 
 
 /* We extend the format for worksheets, lessons, drills. */
-
+.BootstrapDrill {
+    border: 1px solid blue;
+    padding: 5px;
+    margin: 3px;
+}
 .BootstrapWorksheet {
     border: 1px solid black;
     padding: 5px;
@@ -34,15 +38,11 @@
     padding: 5px;
     margin: 3px;
     color: black;
-    background: rgba(255,255,255,.5)
+    background: rgba(255,255,255,.5);
 
 }
 
-.BootstrapDrill {
-    border: 1px solid blue;
-    padding: 5px;
-    margin: 3px;
-}
+
 /*Overview design*/
 .BootstrapOverviewTitle{
     background: black;
@@ -63,12 +63,13 @@
 
 }
 
-
 /*Title Design*/
 .BootstrapTitle{
-      text-align: left;
+    margin-left: auto;
+    margin-right: auto;
     font-size: 32px;
     font-weight: bold;
+    line-height: 10%;
 }
 .BootstrapTitle img{
   float: left;
@@ -90,7 +91,25 @@
 	border: 1px solid black;
 	background: white;
 	}
-
+table {
+  margin: auto;
+}
+	
+/*Agenda Design!*/
+.BootstrapAgenda{
+	border: 1px solid black;
+	display: inline-block;
+	text-align: center;
+	background: white;
+	float: right;
+	line-height: 20%;
+	font-weight: bold;
+	position: relative;
+	}
+.BootstrapAgendaList{
+  text-align: left;
+  font-weight: normal;
+}
 
 /* We absorb the definitions of CSS from bootstrap; the following comes from http://www.bootstrapworld.org/styles.css */
 

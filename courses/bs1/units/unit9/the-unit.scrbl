@@ -7,8 +7,6 @@
 
 Students will edit game details and prepare for their Launch Party!
 
-@agenda[]
-
 @objectives[@item{Reflect on what's been learned and figure out how to teach back.}
             ]
 
