@@ -7,8 +7,6 @@
 
 Students are introduced to the Design Recipe and apply it to simple problems.
 
-@agenda[]
-
 @objectives[@item{Students will become familiar with the steps of the Design Recipe.}
             @item{Students will practice Racket syntax and the Circles of Evaluation.}]
 @product-outcomes[@item{Students@tag[group]{,in pairs,} will write functions to solve simple problems by using the Design Recipe}]
