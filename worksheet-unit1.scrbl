@@ -1,5 +1,4 @@
-#lang scribble/base
-@(require "lib/all.rkt")
+#lang curr/lib
 
 @title{Unit 1 Worksheet}
 
