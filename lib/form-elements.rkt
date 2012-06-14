@@ -476,11 +476,14 @@
         ")"))
                                     
 
+
 (define (worksheet-link #:name name
                         #:page page
-                        #:lesson [lesson #f]
-                        )
-  "fix me")
+                        #:lesson [lesson #f])
+  (list "Page " (number->string page) " of your workbook"))
+
+
+
 
 (define (bootstrap-title . body)
   (define the-title (apply string-append body))
