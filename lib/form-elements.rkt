@@ -10,6 +10,7 @@
          scribble/decode
          [except-in scribble/manual code]
          scribble/html-properties
+         racket/path
          (for-syntax racket/base)
          2htdp/image
          racket/list)
@@ -67,7 +68,7 @@
          length-of-lesson
          bootstrap-title
 
-         worksheet-link
+         [rename-out [worksheet-link/src-path worksheet-link]]
          )        
 
 
@@ -490,12 +491,24 @@
         ") "
         (fill-in-the-blank #:id (format "~a.2" tag) #:label text2)
         ")"))
-                                    
+                            
 
+
+(define-runtime-path worksheet-lesson-root (build-path 'up "lessons"))
+;; We need to do a little compile-time computation to get the file's source
+;; where worksheet-link/src-path is used, since we want the path relative to
+;; the usage, rather than to current-directory.
+(define-syntax (worksheet-link/src-path stx)
+  (syntax-case stx ()
+    [(_ args ...)
+     (with-syntax ([src-path (syntax-source stx)])
+       (begin
+         (syntax/loc stx
+           (worksheet-link #:src-path src-path
+                           args ...))))]))
 (define (worksheet-link #:name name
                         #:page page
                         #:lesson [lesson #f]
-
                         #:src-path src-path)
   (define-values (base-path _ dir?) (split-path src-path))
   (define the-relative-path
