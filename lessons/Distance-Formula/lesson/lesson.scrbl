@@ -19,7 +19,7 @@ is 3 and @code{(line-length B)} is 4, but we still don't know C. What is the len
                    @item{Now take your triangles, and place them on the big white square so that all of the As, Bs and Cs line up. You can follow along with what I have on the board, too. (See diagram with inscribed square.)}
                    @item{Now we have four triangles, each with a side A, B and C. We also have two squares: the inner square, whose sides are a C, and the outer square, whose sides are (A+B).}
                    @tag[pedagogy]{@item{Raise your hand if you know how to find the area of a square. Take a volunteer.}}
-                   @item{@image{images/7.3.png}
+                   @item{@image{images/csquared.png}
                           @think-about[#:question "What's the area of the white, inner square?" #:answer "white space = C^2"]}
                    @tag[(selftaught pedagogy)]{@item{Watch this 
                                                    @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/images/Pythag_anim.gif"
@@ -30,7 +30,7 @@ is 3 and @code{(line-length B)} is 4, but we still don't know C. What is the len
                                                    @think-about[#:question "Is there more white on the board now than there was when we had just a single big one? Why or why not?"                                                                           
                                                                 #:answer "NO! We just moved the squares around, but there is neither more nor less white now."]}}
                    
-                   @item{@image{images/7.4.png}Since we didn't change the size of the outer square, and all we did was move stuff around inside it, we know there is still the same amount of white space as there was before - it's just broken into two parts now. So the area of the whitespace is still C^2.}
+                   @item{@image{images/absquare.png}Since we didn't change the size of the outer square, and all we did was move stuff around inside it, we know there is still the same amount of white space as there was before - it's just broken into two parts now. So the area of the whitespace is still C^2.}
                    @item{What is the area of the smaller white square? We know that both of its sides are of length A, so its area must be A^2.}
                    @item{What about the bigger white square? We know that both of its sides are of length B, so its area must be B^2. So now we have two ways of writing the area of the white space:}
                    @item{So whitespace = C^2 = A^2 + B^2}
