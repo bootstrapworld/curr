@@ -1,12 +1,14 @@
 #lang curr/lib
 @declare-tags[group pedagogy selftaught bootstrap]
+
 @title{Unit 5: Game Animation}
 
-@agenda[]
 
 @overview{
 
 Students define functions that map position n to position n+1, allowing them to move their dangers, targets, and projectiles
+
+@agenda[]
 
 @objectives[@item{Apply algebra and geometry to solve a real world problem.}
             @item{Generalize their understanding of functions to create animation}]
