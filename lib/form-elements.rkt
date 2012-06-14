@@ -499,7 +499,6 @@
                         #:page page
                         #:lesson [lesson #f]
                         #:src-path src-path)
-  ;; TODO: generate worksheet link relative to current directory.
   (define-values (base-path _ dir?) (split-path src-path))
   (define the-relative-path
     (if lesson
