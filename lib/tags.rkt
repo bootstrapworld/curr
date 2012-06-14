@@ -70,7 +70,7 @@
               (syntax/loc stx-2
                 (tag tag-name body (... ...)))]
              [else
-              (raise-syntax-error #f "~s is a tag, not a normal expression" stx-2)]))
+              (raise-syntax-error #f (format "~s is a tag, not a normal expression" 'tag-name) stx-2)]))
          ...)]))
 
 

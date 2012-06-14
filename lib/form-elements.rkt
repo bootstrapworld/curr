@@ -4,12 +4,14 @@
          (prefix-in wescheme: "wescheme.rkt")
          racket/runtime-path
          racket/stxparam
+         racket/contract
          scribble/base
          scribble/core
          scribble/decode
          [except-in scribble/manual code]
          scribble/html-properties
          (for-syntax racket/base)
+         
          2htdp/image)
 
 
@@ -62,11 +64,17 @@
          example-fast-functions
          state-standards
          length-of-lesson
-         itemlist/splicing
          bootstrap-title
 
          worksheet-link
          )        
+
+
+(provide/contract [itemlist/splicing
+                   (->* () 
+                        (#:style (or/c style? string? symbol? #f)) 
+                        #:rest (listof (or/c item? splice?))
+                        itemization?)])
 
 
 (define bootstrap.gif (bitmap "bootstrap.gif"))
@@ -378,6 +386,7 @@
               items))))
   (apply itemlist spliced-items #:style style))
 
+  
 
 
 
