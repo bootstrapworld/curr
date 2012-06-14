@@ -215,7 +215,6 @@
   (traverse-block
    (lambda (get set!)
      (set! 'bootstrap-lessons (cons (lesson-struct title duration) (get 'bootstrap-lessons '())))     
-
      
      (nested-flow
       (style "BootstrapLesson" '())
