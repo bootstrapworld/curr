@@ -36,7 +36,7 @@ Students define functions that map position n to position n+1, allowing them to 
 
 @(language-table (list "Number" @code{+ - * / sq sqrt expt}) 
                  (list "String" @code{string-append string-length})
-                 (list "Image" @code{rectangle circle triangel ellipse radial-star scale rotate put-image}))
+                 (list "Image" @code{rectangle circle triangle ellipse radial-star scale rotate put-image}))
 }
 
 @lesson[#:title "Introduction" #:duration "25 min"]{

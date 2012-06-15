@@ -26,9 +26,9 @@ Students are introduced to the Design Recipe and apply it to simple problems.
               @item{"Rocket" [@(hyperlink "drracketfile" "DrRacket file") + @(hyperlink "teachpack" "teachpack")|@(hyperlink "wescheme" "WeScheme")] preloaded on students' machines}
               @item{Seating arrangements: ideally clusters of desks/tables}]}
 
-@(language-table (list "Number" "+ - * / sq sqrt expt")
-                 (list "String" "string-append string-length")
-                 (list "Image" "rectangle circle triangle ellipse radial-star scale rotate put-image"))
+@(language-table (list "Number" @code{+ - * / sq sqrt expt})
+                 (list "String" @code{string-append string-length})
+                 (list "Image"  @code{rectangle circle triangle ellipse radial-star scale rotate put-image}))
 }
 
 @lesson[#:title "Introduction"

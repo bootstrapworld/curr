@@ -33,9 +33,9 @@ Students are introduced to the Definitions window, and learn the syntax for defi
 
 
 @(language-table
-                 (list "Number" "+ - * / sq sqrt expt")
-                 (list "String" "string-append string-length")
-                 (list "Image" "radial-star scale rotate put-image"))
+                 (list "Number" @code{+ - * / sq sqrt expt})
+                 (list "String" @code{string-append string-length})
+                 (list "Image"  @code{radial-star scale rotate put-image}))
 }
 
 @lesson[#:title "Introduction" #:duration "15 minutes"]{
