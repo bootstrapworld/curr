@@ -44,12 +44,12 @@
               @;TABLE GOES HERE
        @item{Each of these rows is called a condition. A condition has a test and a result. The computer goes down the code, one condition at a time, and will evaluate the first result for which the condition is true.}
        @item{Racket has a special function that lets us tell the computer to do this: cond. To use cond,you put square brackets around each of the branches, and write "cond" at the top:
-@code{(define (cost topping)
-  (cond
-    [(string=? topping "pepperoni") 10.50]
-    [(string=? topping "cheese")     9.00]
-    [(string=? topping "chicken")   11.25]
-    [(string=? topping "broccoli")  10.25]))}}
+             @code[#:multi-line ""]{(define (cost topping)
+                                      (cond
+                                        [(string=? topping "pepperoni") 10.50]
+                                        [(string=? topping "cheese")     9.00]
+                                        [(string=? topping "chicken")   11.25]
+                                        [(string=? topping "broccoli")  10.25]))}}
       @tag[pedagogy]{@item{Remind students that computers are very specific and can't make up new answers; we need to tell it what to do in case the user inputs an item that is not in our list. Let's add else. If it's not on the menu, we might still make that pizza for you, but it'll cost you! @code{[else    10000000]}}}
       @tag[selftaught]{@item{What happens if the topping is not on our list?  Let's add an else statement.  If it's not on our menu, we might still make that pizza for you but it'll cost you!@code{[else    10000000]}}}
       @;Students must open their files here. 
