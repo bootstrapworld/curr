@@ -70,11 +70,13 @@
 /*Code design*/
 .BootstrapContract{
 	color: #F87217;
+	font-family: monospace;
 }
 .BootstrapCode{
 	color: #4682B4;
 	margin: 0px;
 	padding: 0px;
+	font-family: monospace;
 }
 /*Copyright Design*/
 .BootstrapCopyright{
