@@ -37,8 +37,4 @@
    @item{I can't put three numbers in the circle, because there's no way to tell the computer which two numbers should be subtracted first. Is it (2-3)-5, or 2-(3-5)?}
    @item{Well, if a complete circle evaluates to a number, and numbers go inside circles, why not try putting circles inside circles?}
    @tag[pedagogy]{@item{Have students practice circles - make it into a game!}}
-<<<<<<< HEAD
-   @item{There are several excercises provided on @worksheet-link[#:name "Circles-of-Evaluation-Practice" #:page 4]}]}
-=======
    @item{There are several excercises provided on @worksheet-link[#:page 4 #:name "Circles-of-Evaluation-Practice"] of the student workbook.}]}
->>>>>>> 51a640bc8b78bd9c4c13207479afa2408b08dd1d
