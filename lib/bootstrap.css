@@ -46,7 +46,7 @@
 }
 .BootstrapLesson tr{
 	color: #4682B4;
-	left: 10px;
+    font-family: monospace;
  }
 
 

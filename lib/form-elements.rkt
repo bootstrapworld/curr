@@ -203,7 +203,7 @@
                      (compound-paragraph
                       (bootstrap-sectioning-style "BootstrapContract") 
                       (decode-flow (list (format-racket-header purpose)))) '())
-       (apply verbatim body))
+       (apply verbatim #:indent 2 body))
   (element #f 
            (append (if contract 
                        (list (element (style "BootstrapContract" '())
