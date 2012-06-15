@@ -5,12 +5,12 @@
          racket/runtime-path
          racket/stxparam
          racket/contract
-         racket/path
          scribble/base
          scribble/core
          scribble/decode
          [except-in scribble/manual code]
          scribble/html-properties
+         racket/path
          (for-syntax racket/base)
          2htdp/image
          racket/list)
@@ -68,8 +68,8 @@
          length-of-lesson
          bootstrap-title
 
-         (rename-out [worksheet-link/src-path
-                      worksheet-link]))        
+         [rename-out [worksheet-link/src-path worksheet-link]]
+         )        
 
 
 (provide/contract [itemlist/splicing
@@ -192,10 +192,22 @@
 (define (code #:contract (contract #f)
               #:purpose (purpose #f)
               . body)
-  (apply verbatim #:indent 2 
-         (append (if contract (list (format-racket-header contract)) '())
-                 (if purpose (list (format-racket-header purpose)) '())
-                  body)))       
+;  (apply verbatim #:indent 2 
+;         (append (if contract (list (format-racket-header contract)) '())
+;                 (if purpose (list (format-racket-header purpose)) '())
+ ;                 body)))
+
+         (list (if contract 
+                     (compound-paragraph
+                      (bootstrap-sectioning-style "BootstrapContract")
+                      (decode-flow (list (format-racket-header contract)))) '())
+                 (if purpose 
+                     (compound-paragraph
+                      (bootstrap-sectioning-style "BootstrapContract") 
+                      (decode-flow (list (format-racket-header purpose)))) '())
+                  (compound-paragraph
+                   (bootstrap-sectioning-style "BootstrapCode")
+                   (decode-flow body))))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -479,7 +491,7 @@
         ") "
         (fill-in-the-blank #:id (format "~a.2" tag) #:label text2)
         ")"))
-                                    
+                            
 
 
 (define-runtime-path worksheet-lesson-root (build-path 'up "lessons"))
@@ -494,7 +506,6 @@
          (syntax/loc stx
            (worksheet-link #:src-path src-path
                            args ...))))]))
-
 (define (worksheet-link #:name name
                         #:page page
                         #:lesson [lesson #f]
@@ -514,9 +525,6 @@
                                                           (format "~a.html" name))))))
   (list (hyperlink the-relative-path
                    "Page " (number->string page))))
-
-
-
 
 (define (bootstrap-title . body)
   (define the-title (apply string-append body))

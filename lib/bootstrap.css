@@ -41,6 +41,9 @@
     background: rgba(255,255,255,.5);
 
 }
+.BootstrapLesson img{
+	float:right;
+}
 
 
 /*Overview design*/
@@ -64,6 +67,15 @@
 	background: #f5deb3;
 }
 
+/*Code design*/
+.BootstrapContract{
+	color: #F87217;
+}
+.BootstrapCode{
+	 line-height: 5%;
+	margin-right: auto;
+	color: #4682B4;
+}
 /*Copyright Design*/
 .BootstrapCopyright{
 
