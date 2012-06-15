@@ -11,7 +11,7 @@
    @tag[pedagogy]{@item{@demo{Show the kids Ninjacat.}Be sure to end on a frozen frame of the game, so the whole class can see the same image.}}
    @tag[selftaught]{@item{Look at the demo of Ninjacat and click run. @embedded-wescheme[#:id "NinjaCat"
                    #:public-id "vital-grown-eater-shown-crime"
-                   #:width "70%"]}}
+                   #:width "100%"]}}
    @item{Turn to @worksheet-link[#:name "How-Does-Ninja-Cat-Work" #:page 1] in your workbooks. Here we have a table, which we'll use to reverse-engineer, NinjaCat and see how it works. @tag[pedagogy]{Raise your hand if you can tell me one thing that you saw in the game. Wait until a few hands are up, then call one. Excellent! So we can write that down in our first column.} @tag[selftaught]{What do you see in the game? Write it down.}}
    @tag[(group pedagogy)]{@item{@exercise{In your groups, take one minute to come up with a complete list of all things in the game. Your group will get a point for each thing they can find. Everyone in your group should have this list written down - not just one person! If even one person in your group hasn't written it down, the group doesn't get the point! GO!}}}
    @tag[selftaught]{@item{@exercise{Take one minute to come up with a complete list of all things in the game. GO!}}}
