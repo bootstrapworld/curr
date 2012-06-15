@@ -44,7 +44,7 @@
               @;TABLE GOES HERE
        @item{Each of these rows is called a condition. A condition has a test and a result. The computer goes down the code, one condition at a time, and will evaluate the first result for which the condition is true.}
        @item{Racket has a special function that lets us tell the computer to do this: cond. To use cond,you put square brackets around each of the branches, and write "cond" at the top:
-             @code{(define (cost topping)
+             @code[#:multi-line]{(define (cost topping)
   (cond
     [(string=? topping "pepperoni") 10.50]
     [(string=? topping "cheese")     9.00]

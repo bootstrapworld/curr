@@ -44,6 +44,11 @@
 .BootstrapLesson img{
 	float:right;
 }
+.BootstrapLesson tr{
+	color: #4682B4;
+	left: 10px;
+ }
+
 
 
 /*Overview design*/
@@ -65,6 +70,7 @@
 	border: 2px solid gray;
 	padding: 5px;
 	background: #f5deb3;
+	margin: 3px;
 }
 
 /*Code design*/

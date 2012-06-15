@@ -189,9 +189,21 @@
 (define (format-racket-header str)
   (format "; ~a~n" str))
 
-(define (code #:contract (contract #f)
+(define (code #:multi-line (multi-line #f)
+              #:contract (contract #f)
               #:purpose (purpose #f)
               . body)
+  (if multi-line
+      (list
+       (if contract 
+                     (compound-paragraph
+                      (bootstrap-sectioning-style "BootstrapContract")
+                      (decode-flow (list (format-racket-header contract)))) '())
+       (if purpose 
+                     (compound-paragraph
+                      (bootstrap-sectioning-style "BootstrapContract") 
+                      (decode-flow (list (format-racket-header purpose)))) '())
+       (apply verbatim body))
   (element #f 
            (append (if contract 
                        (list (element (style "BootstrapContract" '())
@@ -199,7 +211,7 @@
                        '())
                    (if purpose (list (format-racket-header purpose)) '())
                    (list (element (style "BootstrapCode" '())
-                                  body)))))
+                                  body))))))
 
 ;         (list (if contract 
 ;                     (compound-paragraph
