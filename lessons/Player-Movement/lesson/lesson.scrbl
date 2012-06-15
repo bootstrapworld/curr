@@ -6,8 +6,7 @@
 @itemlist/splicing[
      @item{Great! Now that we know @code{cond} we can write @code{update-player}.}
      @tag[pedagogy]{@item{Draw a screen on the board, and label the coordinates for a player, target and danger. Circle all the data associated with the Player.}}
-     @item{@bitmap{images/6.1.png}}
-     @item{@think-about[#:question "What is the player's starting x-coordinate?"
+     @item{@bitmap{images/6.1.png}@think-about[#:question "What is the player's starting x-coordinate?"
                         #:answer "The player's starting x-coordinate is 200"]}
      @item{@think-about[#:question "It's starting y-coordinate?"
                         #:answer "The player's starting y-coordinate is 220"]}

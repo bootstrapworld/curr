@@ -31,10 +31,10 @@ is 3 and @code{(line-length B)} is 4, but we still don't know C. What is the len
                                                    @think-about[#:question "Is there more white on the board now than there was when we had just a single big one? Why or why not?"                                                                           
                                                                 #:answer "NO! We just moved the squares around, but there is neither more nor less white now."]}}
                    
-                   @item{@bitmap{images/absquare.png}Since we didn't change the size of the outer square, and all we did was move stuff around inside it, we know there is still the same amount of white space as there was before - it's just broken into two parts now. So the area of the whitespace is still C^2.}
+                   @item{Since we didn't change the size of the outer square, and all we did was move stuff around inside it, we know there is still the same amount of white space as there was before - it's just broken into two parts now. So the area of the whitespace is still C^2.}
                    @item{What is the area of the smaller white square? We know that both of its sides are of length A, so its area must be A^2.}
                    @item{What about the bigger white square? We know that both of its sides are of length B, so its area must be B^2. So now we have two ways of writing the area of the white space:}
-                   @item{So whitespace = C^2 = A^2 + B^2}
+                   @item{@bitmap{images/absquare.png}So whitespace = C^2 = A^2 + B^2}
                    @item{We know what A and B are, so let's fill that in.}
                    @item{whitespace = C^2 = 3^2 + 4^2}
                    @item{@think-about[#:question "What is 3*3? What is 4*4?" #:answer "9 and 16"]}
