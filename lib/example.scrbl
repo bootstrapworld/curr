@@ -207,3 +207,8 @@ Here is one with definitions, and no toolbar
 
 
 
+@section{Constraint}
+Please enter 42:
+@fill-in-the-blank[#:id "constraint-test-1"]
+@check[(constraint:string=? (value:string "42")
+                            (value:form "constraint-test-1"))]

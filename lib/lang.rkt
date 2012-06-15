@@ -16,12 +16,14 @@
          racket/runtime-path
          racket/path
          (for-syntax racket/base)
-         "bootstrap.rkt")
+         "bootstrap.rkt"
+         "checker.rkt")
 
 
 
 (provide (except-out (all-from-out scribble/doclang) #%module-begin)
          (all-from-out "bootstrap.rkt")
+         (all-from-out "checker.rkt")
          (except-out (all-from-out scribble/base) title)
          (rename-out [bootstrap-title title])
          (rename-out [module-begin #%module-begin]))

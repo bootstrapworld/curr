@@ -1,7 +1,6 @@
 #lang racket/base
 
-(require "sxml.rkt"
-         (prefix-in wescheme: "wescheme.rkt")
+(require (prefix-in wescheme: "wescheme.rkt")
          racket/runtime-path
          racket/stxparam
          racket/contract
@@ -13,7 +12,9 @@
          racket/path
          (for-syntax racket/base)
          2htdp/image
-         racket/list)
+         racket/list
+         "checker.rkt"
+         "javascript-support.rkt")
 
 
 
@@ -76,7 +77,13 @@
                    (->* () 
                         (#:style (or/c style? string? symbol? #f)) 
                         #:rest (listof (or/c item? splice?))
-                        itemization?)])
+                        itemization?)]
+                  
+                  [check
+                   (-> constraint? element?)]
+                  )
+
+
 
 
 (define bootstrap.gif (bitmap "bootstrap.gif"))
@@ -549,3 +556,16 @@
             (bootstrap-sectioning-style "BootstrapTitle") 
             (decode-flow (cons bootstrap.gif body))))]))
     
+
+
+(define (check constraint #:id (id (gensym 'check)))
+  
+  (elem (sxml->element
+         `(div
+           (@ (id ,(format "~a" id))
+              (class "BootstrapCheckbox"))
+           "Check answer"))
+        (inject-javascript (format "document.getElementById(~s).addEventListener('click', ~a);" 
+                                   (format "~a" id)
+                                   (constraint->javascript-thunk constraint)))
+        ))
