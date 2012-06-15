@@ -192,22 +192,22 @@
 (define (code #:contract (contract #f)
               #:purpose (purpose #f)
               . body)
-;  (apply verbatim #:indent 2 
-;         (append (if contract (list (format-racket-header contract)) '())
-;                 (if purpose (list (format-racket-header purpose)) '())
- ;                 body)))
+  (apply verbatim #:indent 0 
+         (append (if contract (list (format-racket-header contract)) '())
+                 (if purpose (list (format-racket-header purpose)) '())
+                  body)))
 
-         (list (if contract 
-                     (compound-paragraph
-                      (bootstrap-sectioning-style "BootstrapContract")
-                      (decode-flow (list (format-racket-header contract)))) '())
-                 (if purpose 
-                     (compound-paragraph
-                      (bootstrap-sectioning-style "BootstrapContract") 
-                      (decode-flow (list (format-racket-header purpose)))) '())
-                  (compound-paragraph
-                   (bootstrap-sectioning-style "BootstrapCode")
-                   (decode-flow body))))
+;         (list (if contract 
+;                     (compound-paragraph
+;                      (bootstrap-sectioning-style "BootstrapContract")
+;                      (decode-flow (list (format-racket-header contract)))) '())
+;                 (if purpose 
+;                     (compound-paragraph
+;                      (bootstrap-sectioning-style "BootstrapContract") 
+;                      (decode-flow (list (format-racket-header purpose)))) '())
+;                  (compound-paragraph
+;                   (bootstrap-sectioning-style "BootstrapCode")
+;                   (decode-flow body))))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

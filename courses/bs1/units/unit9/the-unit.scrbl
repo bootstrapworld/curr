@@ -40,7 +40,7 @@ Students will edit game details and prepare for their Launch Party!
 
 @(language-table (list "Number" @code{+ - * / sq sqrt expt}) 
                  (list "String" @code{string-append string-length})
-                 (list "Image" @code{rectangle circle triangel ellipse radial-star scale rotate put-image})
+                 (list "Image" @code{rectangle circle triangle ellipse radial-star scale rotate put-image})
                  (list "Boolean" @code{= > < string=? and or}))
 }
 @lesson[#:title "Introduction"
