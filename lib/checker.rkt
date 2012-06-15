@@ -3,7 +3,7 @@
 ;; This is an implementation of our checker language.
 (provide [struct-out constraint]
          [struct-out constraint:and]
-         [struct-out constraint:string=?]
+         [struct-out constraint:string-eq]
          [struct-out value]
          [struct-out value:string]
          [struct-out value:form]
@@ -14,7 +14,7 @@
 ;; A constraint is either
 (struct constraint ())
 (struct constraint:and constraint (c1 c2))
-(struct constraint:string=? constraint (v1 v2))
+(struct constraint:string-eq constraint (v1 v2))
 
 
 ;; A value is either:
@@ -28,7 +28,7 @@
   (cond
     [(constraint:and? c)
      "function(){ alert('not done yet');}"]
-    [(constraint:string=?? c)
+    [(constraint:string-eq? c)
      (format "function() { 
                  var lhs = ~a;
                  var rhs = ~a;
@@ -39,8 +39,8 @@
                    alert('Sorry! Try again.');
                  }
              }"
-             (value->js (constraint:string=?-v1 c))
-             (value->js (constraint:string=?-v2 c)))]))
+             (value->js (constraint:string-eq-v1 c))
+             (value->js (constraint:string-eq-v2 c)))]))
 
 
 ;; value->javascript: value -> string
