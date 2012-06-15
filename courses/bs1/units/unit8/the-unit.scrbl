@@ -32,10 +32,10 @@ Students discuss and then prove the Pythagorean theorem, and use this theorem - 
               @item{Class posters}
               @item{Seating arrangements: ideally clusters of desks/tables}]}
 
-@(language-table (list "Number" "+ - * / sq sqrt expt")
-                 (list "String" "string-append string-length")
-                 (list "Image" "rectangle circle triangle ellipse radial-star scale rotate put-image")
-                 (list "Boolean" "= > < string=? and or"))
+@(language-table (list "Number" @code{+ - * / sq sqrt expt}) 
+                 (list "String" @code{string-append string-length})
+                 (list "Image" @code{rectangle circle triangle ellipse radial-star scale rotate put-image})
+                 (list "Boolean" @code{= > < string=? and or}))
 }
 
 @(include-lesson (lib "curr/lessons/Collision-Introduction/lesson/lesson.scrbl"))
