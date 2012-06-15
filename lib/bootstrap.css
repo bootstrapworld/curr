@@ -72,9 +72,9 @@
 	color: #F87217;
 }
 .BootstrapCode{
-	 line-height: 5%;
-	margin-right: auto;
 	color: #4682B4;
+	margin: 0px;
+	padding: 0px;
 }
 /*Copyright Design*/
 .BootstrapCopyright{
@@ -111,6 +111,7 @@
 	border: 1px solid black;
 	background: white;
 	}
+	
 table {
   margin: auto;
 }

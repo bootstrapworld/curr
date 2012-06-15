@@ -192,10 +192,14 @@
 (define (code #:contract (contract #f)
               #:purpose (purpose #f)
               . body)
-  (apply verbatim #:indent 0 
-         (append (if contract (list (format-racket-header contract)) '())
-                 (if purpose (list (format-racket-header purpose)) '())
-                  body)))
+  (element #f 
+           (append (if contract 
+                       (list (element (style "BootstrapContract" '())
+                                      (list (format-racket-header contract))))
+                       '())
+                   (if purpose (list (format-racket-header purpose)) '())
+                   (list (element (style "BootstrapCode" '())
+                                  body)))))
 
 ;         (list (if contract 
 ;                     (compound-paragraph
@@ -308,7 +312,8 @@
 ;		    rows))))
 
 (define (format-cell s)
-  (if (string? s)
+  (para s)
+  #;(if (string? s)
       (para s)
       s))
   
