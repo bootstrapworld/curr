@@ -30,7 +30,7 @@ include other datatypes, including Strings and Images.
              @item{Seating arrangements: ideally with clusters of desks/tables}
              @item{Optional: demo machine with projector to show the interactions and definitions windows}]}
 
-@(language-table (list "Number" "+ - * / sq sqrt expt"))
+@(language-table (list @code{"Number" "+ - * / sq sqrt expt"}))
 }
 
 
