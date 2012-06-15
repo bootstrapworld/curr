@@ -573,7 +573,7 @@
 (define (check constraint #:id (id (gensym 'check)))
   
   (elem (sxml->element
-         `(div
+         `(button
            (@ (id ,(format "~a" id))
               (class "BootstrapCheckbox"))
            "Check answer"))
