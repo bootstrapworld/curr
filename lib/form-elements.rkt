@@ -187,11 +187,13 @@
 (define (think-about #:question (question #f) 
                      #:hint (hint #f)
                      #:answer (answer #f))
-  (sxml->element (string-append
-                     (format "~a" question)
-                     (if hint (format " (Hint: ~a)" hint) "")
-                     (if answer (format " (Answer: ~a)" answer) "")
-                   )))
+  (elem  question
+         (if hint
+             (list " (Hint: " hint ")")
+             "")
+         (if answer 
+             (list " (Answer: " answer ")") 
+             "")))
 
 (define (format-racket-header str)
   (format "; ~a~n" str))
