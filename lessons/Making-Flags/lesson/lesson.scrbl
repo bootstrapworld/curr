@@ -54,10 +54,11 @@
     @item{@exercise{Make the Polish flag. @image{images/poland.jpg}}}
     @item{If you have time, try these other flags!}
           
-    @item{@elem[#:style "NoFloat"]{@image{images/indonesia.jpg}}}
-    @item{@elem[#:style "NoFloat"]{@image{images/peru.jpg}}}
-    @item{@elem[#:style "NoFloat"]{@image{images/switzerland.jpg}}}
-    @item{@elem[#:style "NoFloat"]{@image{images/france.jpg}}}
-    @item{@elem[#:style "NoFloat"]{@image{images/UAE.jpg}}}
-    @item{@elem[#:style "NoFloat"]{@image{images/chile.jpg}}}
+    @item{@elem[#:style "NoFloat"]{@image{images/indonesia.jpg}} Indonesia}
+    @item{@elem[#:style "NoFloat"]{@image{images/peru.jpg}} Peru}
+    @item{@elem[#:style "NoFloat"]{@image{images/switzerland.jpg}} Switzerland}
+    @item{@elem[#:style "NoFloat"]{@image{images/france.jpg}} France}
+    @item{@elem[#:style "NoFloat"]{@image{images/UAE.jpg}} United Arab Emirates}
+    @item{@elem[#:style "NoFloat"]{@image{images/chile.jpg}} Chile}
+    @item{@elem[#:style "NoFloat"]{@image{images/panama.jpg}} Panama}
     ]}
