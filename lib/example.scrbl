@@ -72,7 +72,9 @@ And another: @fill-in-the-blank[#:id "first-name"
 @section{Free response}
 This is a free-response: @free-response[#:id "mytext"].
 
+@section{Drop-down menus}
 
+Here is a @drop-down[#:id "mydd" #:options (list "drop" "down" "menu")]
 
 
 @section{Embedded wescheme}

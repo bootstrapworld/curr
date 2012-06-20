@@ -24,6 +24,7 @@
          
          fill-in-the-blank
          free-response
+	 drop-down
          embedded-wescheme
          think-about
          code
@@ -151,6 +152,13 @@
                             "")))
 
 
+;; drop-down menus
+(define (drop-down #:id id
+                   #:options (options '()))
+  (sxml->element `(select (@ (id ,(resolve-id id)))
+			  ,@(map (lambda (o) `(option ,o)) options))))
+			     
+			     
 
 ;; Embedded wescheme instances
 (define (embedded-wescheme #:id id
