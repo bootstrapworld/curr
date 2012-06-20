@@ -43,12 +43,17 @@
 
 }
 .BootstrapLesson img{
-	float:right;
+    float:right;
 }
+
+.NoFloat img { 
+    float: none;
+}
+
 .BootstrapLesson tr{
-	color: #4682B4;
+    color: #4682B4;
     font-family: monospace;
- }
+}
 
 
 
