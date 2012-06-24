@@ -18,6 +18,10 @@
 (define-runtime-path bs1-main
   (build-path "courses" "bs1" "main.scrbl"))
 
+
+(unless (path? (find-executable-path "scribble"))
+  (error 'build "The scribble executable cannot be found in the current PATH."))
+
 ;; run-scribble: path -> void
 ;; Runs scribble on the given file.
 (define (run-scribble scribble-file)
