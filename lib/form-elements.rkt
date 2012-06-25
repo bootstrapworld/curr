@@ -348,13 +348,40 @@
   
 ;; worksheet-table : list[string] list[element] list[string] -> table
 ;; assert: col-headers should be same length as (add1 id-tags)
-(define (worksheet-table col-headers left-col id-tags)
+(define (worksheet-table col-headers left-col id-tags width height)
   (table (style #f 
 		(list 
 		 (table-columns
-                  (build-list (add1 (length id-tags))
+                  (build-list width
                               (lambda (n) (style #f '(left)))))))
-	 (cons (map (lambda (h) (para (bold h))) col-headers)
+	 (cond
+      [(and (zero? (length left-col)) (zero? (length col-headers)))
+       (map (lambda (row-num)
+                  (map (lambda (tag) 
+                       (para (fill-in-the-blank 
+                             #:id (format "~a~a" tag row-num)
+                             #:label (format "~a~a" tag row-num))))
+                             id-tags))
+                    (build-list (sub1 height) add1))]
+      [(zero? (length col-headers)) 
+       (map (lambda (left-content row-num) 
+                      (cons (format-cell left-content)
+                            (map (lambda (tag) 
+                                   (para (fill-in-the-blank 
+                                          #:id (format "~a~a" tag row-num)
+                                          #:label (format "~a~a" tag row-num))))
+                                 id-tags)))
+                    left-col (build-list (sub1 height) add1))]
+      [(zero? (length left-col))
+       (cons (map (lambda (h) (para (bold h))) col-headers)
+             (map (lambda (row-num)
+                  (map (lambda (tag) 
+                       (para (fill-in-the-blank 
+                             #:id (format "~a~a" tag row-num)
+                             #:label (format "~a~a" tag row-num))))
+                             id-tags))
+                    (build-list (sub1 height) add1)))]
+      [else (cons (map (lambda (h) (para (bold h))) col-headers)
                (map (lambda (left-content row-num) 
                       (cons (format-cell left-content)
                             (map (lambda (tag) 
@@ -362,7 +389,7 @@
                                           #:id (format "~a~a" tag row-num)
                                           #:label (format "~a~a" tag row-num))))
                                  id-tags)))
-                    left-col (build-list (length left-col) add1)))))
+                    left-col (build-list (sub1 height) add1)))])))
                
 (define (standards . body)
   (list "State Standards:"
