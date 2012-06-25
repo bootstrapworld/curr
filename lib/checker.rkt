@@ -8,7 +8,7 @@
          [struct-out value:string]
          [struct-out value:form]
          
-         constraint->javascript-thunk)
+         constraint->js)
 
 
 ;; A constraint is either
@@ -23,22 +23,15 @@
 (struct value:form (id))
 
 
-;; constraint->javascript-thunk: constraint -> string
-(define (constraint->javascript-thunk c)
+;; constraint->js: constraint -> string
+;; Returns a JavaScript boolean expression string that's true
+;; if the constraint holds.
+(define (constraint->js c)
   (cond
     [(constraint:and? c)
      "function(){ alert('not done yet');}"]
     [(constraint:string-eq? c)
-     (format "function() { 
-                 var lhs = ~a;
-                 var rhs = ~a;
-                 if(lhs === rhs) {
-                   alert('Congrats! You got it right');
-                 }
-                 else {
-                   alert('Sorry! Try again.');
-                 }
-             }"
+     (format "(~a === ~a)"
              (value->js (constraint:string-eq-v1 c))
              (value->js (constraint:string-eq-v2 c)))]))
 

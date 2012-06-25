@@ -610,11 +610,19 @@
 (define (check constraint #:id (id (gensym 'check)))
   
   (elem (sxml->element
-         `(button
+         `(input
            (@ (id ,(format "~a" id))
+              (type "button")
+              (value "Check answer")
               (class "BootstrapCheckbox"))
-           "Check answer"))
-        (inject-javascript (format "document.getElementById(~s).addEventListener('click', ~a);" 
-                                   (format "~a" id)
-                                   (constraint->javascript-thunk constraint)))
-        ))
+           ""))
+        (inject-javascript
+         (format "jQuery(document.getElementById(~s)).click(function() {
+                       if (~a) {
+                            alert('Congrats! You got it right');
+                       } else {
+                            alert('Sorry! Try again.');
+                       }
+                   });" 
+                 (format "~a" id)
+                 (constraint->js constraint)))))
