@@ -29,10 +29,7 @@
 ; draw-world
 (define (draw-world w)
   (overlay/align "middle" "top"
-                 (text (string-append "NinjaCat!                   Score:"
-                                      (number->string (world-score w))) 18 "white")
-                 (place-image (text "Use arrow keys to move. Jump on the dog and catch the ruby!" 12 "white")
-                              320 30
+                 (text "NinjaCat!" 18 "white")
                  (place-image player-image
                             (player-x (world-player w))
                             (player-y (world-player w))
@@ -45,7 +42,7 @@
                                                       (place-image dog-image
                                                                    (thing-x (world-thing1 w))
                                                                    (thing-y (world-thing1 w))
-                                                                   bg-image)))))))
+                                                                   bg-image))))))
 ; update a thing
 (define (update-thing t)
   (make-thing (- (thing-x t) (thing-speed t)) (thing-y t) (thing-speed t)))
