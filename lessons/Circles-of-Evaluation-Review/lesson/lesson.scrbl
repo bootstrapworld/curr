@@ -10,7 +10,7 @@
            @item{@think-about[#:question "How about \"2+3 divided by 1-2\"?"
                              #:answer "MAKE A PICTURE!!!!"]}
            @item{Let's do a review challenge:
-                 @itemlist/splicing[@item{Turn to @worksheet-link[#:page 6 #:name "Circles-of-Evaluation-Practice"] in your workbooks, where it says "Circles Competition." On each row there is a mathematical expression in the first column,
+                 @itemlist/splicing[@item{Turn to @worksheet-link[#:page 6 #:name "Circles-of-Evaluation-Practice-2"] in your workbooks, where it says "Circles Competition." On each row there is a mathematical expression in the first column,
                                  with room to draw the Circle of Evaluation and the Racket Code on the second and third columns.}
                            @item{Each row will be a round for this activity, so for Round 1 we'll just be looking at the first row. For this first row, we've even helped you out a little.}
                            @item{@tag[group]{You will have one minute to do the following in groups:} Draw the Circle
