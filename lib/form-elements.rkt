@@ -206,8 +206,12 @@
 (define (format-racket-header str)
   (format "; ~a~n" str))
 
+(define (format-string str)
+  (format "~a" str))
+
 (define (code #:multi-line (multi-line #f)
               #:contract (contract #f)
+              #:string (string #f)
               #:purpose (purpose #f)
               . body)
   (if multi-line
@@ -225,6 +229,9 @@
            (append (if contract 
                        (list (element (style "BootstrapContract" '())
                                       (list (format-racket-header contract))))
+                       '())
+                   (if string 
+                       (list (element (style "BootstrapString" '()) (list (format "~a" string))))
                        '())
                    (if purpose (list (format-racket-header purpose)) '())
                    (list (element (style "BootstrapCode" '())
