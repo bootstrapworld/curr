@@ -24,5 +24,5 @@
           @embedded-wescheme[#:id "Manipulating Images"
             #:interactions-text""
             #:hide-definitions? #t]}
-    @item{If you'd like more exercises involving images and more complex composition, check out the supplemental @(hyperlink "Making-Flags" "Flags Activity").}]}
+    @item{If you'd like more exercises involving images and more complex composition, check out the supplemental @(hyperlink "../../Making-Flags/lesson/lesson.html" "Flags Activity").}]}
 

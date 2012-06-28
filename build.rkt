@@ -68,10 +68,10 @@
          (printf "build.rkt: Building ~a\n" scribble-file)
          (run-scribble scribble-file)]
         [else
-         (printf "Could not find a \"the-unit.scrbl\" in directory ~a\n"
+         (printf "Could not find a \"lesson.scrbl\" in directory ~a\n"
                  (build-path lessons-dir subdir))]))
 
-;; and the worksheets.
+;; and the worksheets
 (for ([subdir (directory-list lessons-dir)]
       #:when (directory-exists? (build-path lessons-dir subdir)))
   (when (directory-exists? (build-path lessons-dir subdir "worksheets"))
@@ -80,7 +80,14 @@
        (printf "build.rkt: building worksheet ~a: ~a\n" subdir worksheet)
        (run-scribble (build-path lessons-dir subdir "worksheets" worksheet)))))
 
-
+;; and the drills
+(for ([subdir (directory-list lessons-dir)]
+      #:when (directory-exists? (build-path lessons-dir subdir)))
+  (when (directory-exists? (build-path lessons-dir subdir "drills"))
+    (for ([drill (directory-list (build-path lessons-dir subdir "drills"))]
+          #:when (regexp-match #px".scrbl$" drill))
+       (printf "build.rkt: building drill ~a: ~a\n" subdir drill)
+       (run-scribble (build-path lessons-dir subdir "drills" drill)))))
 
 (printf "build.rkt: building bs1 main\n")
 (run-scribble bs1-main)

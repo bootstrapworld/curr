@@ -19,10 +19,9 @@ include other datatypes, including Strings and Images.
 
 @tag[pedagogy]{
 @materials[@item{Student workbook folders @tag[group]{- in pairs! - with names on folders}}
-            @item{Pens/pencils for the student@tag[group]{s, fresh whiteboard markers for the teachers}}
+            @item{Pens/pencils for the students, fresh whiteboard markers for the teachers}
             
-            @;How to make an entire item tagged?
-            @tag[group]{@item{Class posters (List of rules, language table, course calendar)}}
+            @item{Class posters (List of rules, language table, course calendar)}
             @item{Language Table (See below)}
             ]
 @preparation[@item{Write agenda on board}
