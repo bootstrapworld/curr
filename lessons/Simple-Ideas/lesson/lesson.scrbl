@@ -2,7 +2,7 @@
 
 @declare-tags[pedagogy selftaught]
 
-@lesson[#:title "Simple Ideas, Easter Eggs, and Advanced Challenges"]{
+@lesson[#:title "Simple Ideas, Easter Eggs, and Advanced Challenges" #:duration "variable"]{
 
 @itemlist/splicing[
                    @item{Diagonal movement keys, second set of faster movement keys, etc.}
