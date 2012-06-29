@@ -1,5 +1,6 @@
 #lang curr/lib
 @(require 2htdp/image)
+@(require scribble/core)
 
 @(define graph-image (bitmap "images/5.1.png"))
 
@@ -18,14 +19,31 @@
           @tag[selftaught]{@item{Draw an arrow to the NEW location, and label the coordinates.}}
           @item{@think-about[#:question "Suppose it moved to the right, by 50 pixels. What are the new coordinates?"
                              #:answer "The new coordinates are (550, 100)"]}
-          @item{I want my Danger to always move left by 50 pixels, each time the screen is redrawn. So it goes from (550, 100) to (500, 100).}
+          @item{I want my Danger to always move @bold{left by 50 pixels}, each time the screen is redrawn. So it goes from (550, 100) to (500, 100).}
           @item{@think-about[#:question "What if it starts at (100, 100)? Where will go next? What if it's at (400, 600)? What if it's off the screen, at (650, 50)?"
                              #:answer "(50, 100), (350, 600), (600,50)"]}
           @item{You will need to write a function that takes an x-coordinate and produces the next x-coordinate, to make your danger move.}
-          @item{INSERT TABLE HERE}
-          @item{Turn to @worksheet-link[#:page 15 #:name "Design-Recipe-Update-Danger"] for update-danger. @tag[pedagogy]{Have a student read the problem statement out loud.} @tag[selftaught]{Read the problem statement.}}
+          @item{@(table 
+                  (style #f
+                         (list (table-columns 
+                                (list (style "BootstrapTable" '(center)) 
+                                      (style "BootstrapTable" '(center))
+                                      (style "BootstrapTable" '(center))))))
+                  (list (list (para (bold "Current x-coordinate")) 
+                              (para (bold "Racket")) 
+                              (para (bold "Next x-coordinate"))) 
+                        (list (para "50") 
+                              (para "(- 50 50)") 
+                              (para "0"))
+                        (list (para "75")
+                              (para "(- 75 50)")
+                              (para "25"))
+                        (list (para "30")
+                              (para "(- 30 50)")
+                              (para "-20"))))}
+          @item{Turn to @worksheet-link[#:page 15 #:name "Design-Recipe-Update-Danger"] for @code{update-danger}. @tag[pedagogy]{Have a student read the problem statement out loud.} @tag[selftaught]{Read the problem statement.}}
           @item{@think-about[#:question "Can you find the function name in this problem statement? Underline it."
-                             #:answer "The function name is 'update-danger'"]}
+                             #:answer @list{"The function name is " @code{update-danger}}]}
           @item{@think-about[#:question "Can you find the inputs and outputs? Underline them, too."
-                             #:answer "The input is the x-coordinate of DangerCat and the output is the x-coordinate of DangerCat minus 50."]}
-          @item{@tag[group]{As a team:} Complete the Design Recipe for update-danger. @tag[pedagogy]{Raise your hand when you're done with each step, so I can check your contracts and examples before you move on to code. Don't forget to circle the things that change between your examples!} @tag[selftaught]{Write the code for update-danger}}]}
+                             #:answer "The input is the x-coordinate of Danger and the output is the x-coordinate of Danger minus 50."]}
+          @item{@tag[group]{As a team:} Complete the Design Recipe for @code{update-danger}. @tag[pedagogy]{Raise your hand when you're done with each step, so I can check your contracts and examples before you move on to code. Don't forget to circle the things that change between your examples!} @tag[selftaught]{Write the code for @code{update-danger}}}]}
