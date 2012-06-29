@@ -6,7 +6,8 @@
     1.  Contract+ Purpose Statement
     Every contract has three parts:
     
-    ;@fill-in-the-blank[#:id "name"]:@fill-in-the-blank[#:id "Domain"] -> @fill-in-the-blank[#:id "Range"]
+    ;@fill-in-the-blank[#:id "name" #:label
+     "Name"]:@fill-in-the-blank[#:id "Domain" #:label "Domain"] -> @fill-in-the-blank[#:id "Range" #:label "Range"]
     
     2. Give Examples
     Write an example of your function for each key, using EXAMPLE
