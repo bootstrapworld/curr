@@ -31,9 +31,13 @@ that would just take in the size and draw me my triangle.}
           @item{If only we had a function like @code{gt}! Well, let's build one!}
           @item{Right now, I'm telling the computer how to deal with a shortcut for @code{(gt @code{17})} - but what if I wanted the shortcut to work for ALL sizes, not just size 17?}
           @item{That's the final step: replace the stuff that changes between examples with a variable. So let's look at these two lines, and circle everything that changes. What did we circle? Just the numbers 10 and 17! What do those numbers mean? Is it the number of circles we're drawing? No! It's the SIZE. So let's make a little note to ourselves, to remind us that those numbers mean the size of the circle. }
-          @item{Now we can write the code -- instead of an EXAMPLE we'll use @code{define}. After that, we're just going to copy everything from our examples except the stuff that we circled. What do you think we'll write instead? We'll use the name we wrote down: size. @tag[pedagogy]{Go character-by-character with the students, asking them if both examples have an open paren, the name "gt", etc...} @embedded-wescheme[#:id "Fast Functions"
+          @item{Now we can write the code -- instead of an EXAMPLE we'll use @code{define}. After that, we're just going to copy everything from our examples except the stuff that we circled. What do you think we'll write instead? We'll use the name we wrote down: size. @tag[pedagogy]{Go character-by-character with the students, asking them if both examples have an open paren, the name "gt", etc...} @tag[selftaught]{@embedded-wescheme[#:id "Fast Functions"
                    #:definitions-text "; gt : Number -> Image
 (EXAMPLE (gt 50) (triangle 50 \"solid\" \"green\"))
 (EXAMPLE (gt 95) (triangle 95 \"solid\" \"green\"))
-(define (gt size) (triangle size \"solid\" \"green\"))"]}]}
+(define (gt size) (triangle size \"solid\" \"green\"))"]}
+@tag[pedagogy]{@code[#:multi-line #t]{; gt : Number -> Image
+(EXAMPLE (gt 50) (triangle 50 "solid" "green"))
+(EXAMPLE (gt 95) (triangle 95 "solid" "green"))
+(define (gt size) (triangle size "solid" "green"))}}                                                                             }]}
 

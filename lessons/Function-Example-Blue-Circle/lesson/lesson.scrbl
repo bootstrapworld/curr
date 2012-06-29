@@ -19,7 +19,7 @@
           @tag[pedagogy]{@item{Give points, praise kids for neat handwriting and good teamwork.}}
           @tag[pedagogy]{@item{Give the countdown, then review answers with the class and assign points. }}
           @item{Time for the last part: writing the function header and body. @tag[group]{Your team will have 2 minutes to complete this. GO!}}
-          @item{@tag[pedagogy]{Give the countdown, then review answers with the class and assign points. }
-                 @embedded-wescheme[#:id "Blue Circle"
-                   #:definitions-text "; Try out Blue Circle"]}
+          @tag[pedagogy]{@item{Give the countdown, then review answers with the class and assign points. }}
+          @tag[selftaught]{@item{@embedded-wescheme[#:id "Blue Circle"
+                   #:definitions-text "; Try out Blue Circle"]}}
           ]}
