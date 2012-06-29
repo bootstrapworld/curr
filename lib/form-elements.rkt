@@ -31,6 +31,7 @@
          language-table
 	 worksheet-table
          contract-exercise
+         function-exercise
          
          ;; Sections
          worksheet
@@ -326,9 +327,8 @@
 
 
 (define (demo . body) 
-  (list "Demo:"
-        (compound-paragraph (bootstrap-sectioning-style "BootstrapDemo")
-                            (decode-flow body))))
+  (compound-paragraph (bootstrap-sectioning-style "BootstrapDemo")
+                      (decode-flow (cons "Demo: " body))))
 
 
 (define (review . body)
@@ -568,7 +568,16 @@
         (fill-in-the-blank #:id (format "~a.2" tag) #:label text2)
         ")"))
                             
-
+;; input: optional values for the name, args, and body fields of a function
+;;        a tag to use for generating html id names
+;; output: a define with text boxes formatted for inputs to the exercise
+(define (function-exercise #:name [name ""]
+                           #:args [args ""]
+                           #:body [body ""]
+                           tag)
+  (para "(define ("(fill-in-the-blank #:id (format "fname-~a" tag) #:label "function name")
+        (fill-in-the-blank #:id (format "args-~a" tag) #:label "variable names") ")"
+        (fill-in-the-blank #:id (format "body-~a" tag) #:label "what it does") ")"))
 
 (define-runtime-path worksheet-lesson-root (build-path 'up "lessons"))
 ;; We need to do a little compile-time computation to get the file's source
