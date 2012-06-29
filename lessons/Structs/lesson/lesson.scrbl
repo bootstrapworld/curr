@@ -38,7 +38,7 @@
  and hit enter?}
    @item{@tag[pedagogy]{Allow students to brainstorm. Hit enter, and then remind them: }I get back exactly the value I typed in, because values evaluate to themselves.}
    @item{The moral of the story is, Structs are Values, just like Numbers, Strings, Booleans and Images.}
-  @tag[pedagogy]{ @item{Have students turn their monitors on and practice making posns for different coordinates. Can they make a posn for each of the four corners of their game screen?}}
+  @tag[pedagogy]{@item{Have students turn their monitors on and practice making posns for different coordinates. Can they make a posn for each of the four corners of their game screen?}}
   @tag[selftaught]{@item{@think-about[#:question "Can you make a posn for each of the four corners of your game screen?" #:answer @code{
                                   (make-posn 0 0)
                                   (make-posn 640 0)
