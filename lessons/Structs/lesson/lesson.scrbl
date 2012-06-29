@@ -2,7 +2,7 @@
 
 @declare-tags[pedagogy selftaught group]
 
-@lesson[#:title "Structs"]{
+@lesson[#:title "Structs" #:duration "20 minutes"]{
 
 @itemlist/splicing[
    @tag[pedagogy]{@item{Display one student's code on the projector, and draw the class's attention to the update-danger function.}}

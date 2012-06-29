@@ -2,7 +2,7 @@
 
 @declare-tags[pedagogy selftaught]
 @;This whole lesson is basically an instruction set to the teacher.
-@lesson[#:title "Programming Olympics!"]{
+@lesson[#:title "Programming Olympics!" #:duration "20 minutes"]{
                                   @itemlist/splicing[
                                          @item{Divide the class into groups of roughly six students each. This can be done by gender, by grade, at random, or by any other criteria you see fit. However, it is important that both teams have similar mixes of strong and struggling students.}
                                          @item{Explain that these teams will be entering in the Scheme Olympics, a veritable programming decathlon where teams must submit entries for various events. The rules are as follows:

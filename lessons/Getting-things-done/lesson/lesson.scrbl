@@ -2,7 +2,7 @@
 
 @declare-tags[pedagogy selftaught]
 @;This lesson is an instruction set for a teacher. 
-@lesson[#:title "Getting things done!"]{
+@lesson[#:title "Getting things done!" #:duration "20 minutes"]{
                                                                       
             @itemlist/splicing[        
                                @item{Create a large grid, with column headings that corresponds to all of the steps necessary to complete a game:
