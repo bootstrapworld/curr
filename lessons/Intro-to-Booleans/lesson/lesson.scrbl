@@ -14,14 +14,14 @@
                               You have red hair. @fill-in-the-blank[#:id "T/F"]
                               }}
       @item{So far, our language can only add, subtract, multiply and divide numbers. It can't compare them or decide whether something is true or false! We'll be adding the power of comparison to our language today.}
-      @item{What would DrRacket say is the value of the following pieces of code? @code{(+ 1 4), (/ 4 2), (- 0 9), (< 3 4)}}
+      @item{What would DrRacket say is the value of the following pieces of code? @linebreak[] @code{(+ @code{1 4}), (/ @code{4 2}), (- @code{0 9}), (< @code{3 4})}}
       @item{With the exception of the last one, all the above are Numbers. We can solve any of those expressions using our language. Why isn't the last one a number? What is it?}
-      @item{The expression @code{(< 3 4)} is a test. It is either true or false that 3 is less than 4. @code{<} is another function, just like + and string-length. There are several more tests we can do}
-      @item{@exercise{Try using them to compare numbers. What values do you get back? (Use Circle of Evaluation)
-             @code{(> 0 5)
-(= 1 9)
-(<= 2 2)
-(string=? "dog" "cat")}}}
+      @item{The expression @code{(< @code{3 4})} is a test. It is either true or false that 3 is less than 4. @code{<} is another function, just like + and string-length. There are several more tests we can do}
+      @item{@exercise{Try using them to compare numbers. What values do you get back? (Use Circle of Evaluation) @linebreak[]
+             @code{(> @code{0 5}) @linebreak[]
+(= @code{1 9}) @linebreak[]
+(<= @code{2 2}) @linebreak[]
+(string=? @code{"dog" "cat"})}}}
       @tag[pedagogy]{@item{Have students explain what each of these tests does.}}
       @item{As you have found, there are only two values that can be returned from a test: true or false. These values are a very special category, called "Booleans". Let there be Booleans!}
       @tag[pedagogy]{@item{Model one of the contracts for a Boolean function, then have them guess the rest.}}
