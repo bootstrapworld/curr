@@ -9,6 +9,8 @@
          scribble/decode
          [except-in scribble/manual code]
          scribble/html-properties
+         scribble/latex-properties
+         scriblib/render-cond
          racket/path
          (for-syntax racket/base)
          2htdp/image
@@ -221,15 +223,17 @@
   (if multi-line
       (list
        (if contract 
-                     (compound-paragraph
-                      (bootstrap-sectioning-style "BootstrapContract")
-                      (decode-flow (list (format-racket-header contract)))) '())
+           (compound-paragraph
+            (bootstrap-sectioning-style "BootstrapContract")
+            (decode-flow (list (format-racket-header contract)))) 
+           '())
        (if purpose 
-                     (compound-paragraph
-                      (bootstrap-sectioning-style "BootstrapContract") 
-                      (decode-flow (list (format-racket-header purpose)))) '())
+           (compound-paragraph
+            (bootstrap-sectioning-style "BootstrapContract") 
+            (decode-flow (list (format-racket-header purpose)))) 
+           '())
        (if (null? body) '() (apply verbatim #:indent 2 body)))
-  (element #f 
+      (element #f 
            (append (if contract 
                        (list (element (style "BootstrapContract" '())
                                       (list (format-racket-header contract))))
@@ -515,9 +519,13 @@
 
 
 (define (contract-exercise tag)
-  (para ";" (fill-in-the-blank #:id (format "~aname" tag) #:label "Name")
-        ":" (fill-in-the-blank #:id (format "~aarg" tag) #:label "Domain")
-        "->" (fill-in-the-blank #:id (format "~aoutput" tag) #:label "Range")))
+  (cond-block [html
+               (para ";" (fill-in-the-blank #:id (format "~aname" tag) #:label "Name")
+                     ":" (fill-in-the-blank #:id (format "~aarg" tag) #:label "Domain")
+                     "->" (fill-in-the-blank #:id (format "~aoutput" tag) #:label "Range"))]
+              [(or latex pdf)
+               (para #:style bs-contract-exercise-style "")]))
+               
 
 
 
@@ -540,33 +548,38 @@
 (define (length-of-lesson l)
   (list (compound-paragraph (bootstrap-sectioning-style "BootstrapHeader") (decode-flow (list (format "Length: ~a minutes" l))))))
 
-
 ;;example: optional text, example for cond (p23), example for not cond (p21), example for with name (p8)
 
-
-;; input: -a tag which can be anything unqiue which helps to generate a ;;         unique id
+;; input: -a tag which can be anything unqiue which helps to generate a 
+;;         unique id
 ;; output: in format (EXAMPLE (____ ____) _________)
 (define (example-fast-functions tag)
-  (para "(EXAMPLE (" 
-        (fill-in-the-blank #:id (format "~a.1" tag) #:label "")
-        " "
-        (fill-in-the-blank #:id (format "~a.2" tag) #:label "")
-        ") "
-        (fill-in-the-blank #:id (format "~a.3" tag) #:label "")
-        ")"))
-
+  (cond-block [html
+               (para "(EXAMPLE (" 
+                     (fill-in-the-blank #:id (format "~a.1" tag) #:label "")
+                     " "
+                     (fill-in-the-blank #:id (format "~a.2" tag) #:label "")
+                     ") "
+                     (fill-in-the-blank #:id (format "~a.3" tag) #:label "")
+                     ")")]
+              [(or latex pdf)
+               (para #:style bs-function-example-exercise-style "")]))
 
 ;; input: -two optional text labels for the two fill-in-the-blanks 
-;;        -a tag which can be anything unqiue which helps to generate a ;;         unique id 
+;;        -a tag which can be anything unqiue which helps to generate a 
+;;         unique id 
 ;; output: in format (EXAMPLE ( /*with text1label*/ _____) /*with text2label*/ _____)
 (define (example-with-text #:text1 [text1 ""]
                            #:text2 [text2 ""]
                            tag)
-  (para "(EXAMPLE (" 
-        (fill-in-the-blank #:id (format "~a.1" tag) #:label text1)
-        ") "
-        (fill-in-the-blank #:id (format "~a.2" tag) #:label text2)
-        ")"))
+  (cond-block [html
+               (para "(EXAMPLE (" 
+                     (fill-in-the-blank #:id (format "~a.1" tag) #:label text1)
+                     ") "
+                     (fill-in-the-blank #:id (format "~a.2" tag) #:label text2)
+                     ")")]
+              [(or latex pdf)
+               (para #:style bs-example-exercise-style "")]))
                             
 ;; input: optional values for the name, args, and body fields of a function
 ;;        a tag to use for generating html id names
@@ -575,9 +588,12 @@
                            #:args [args ""]
                            #:body [body ""]
                            tag)
-  (para "(define ("(fill-in-the-blank #:id (format "fname-~a" tag) #:label "function name")
-        (fill-in-the-blank #:id (format "args-~a" tag) #:label "variable names") ")"
-        (fill-in-the-blank #:id (format "body-~a" tag) #:label "what it does") ")"))
+  (cond-block [html
+               (para "(define ("(fill-in-the-blank #:id (format "fname-~a" tag) #:label "function name")
+                     (fill-in-the-blank #:id (format "args-~a" tag) #:label "variable names") ")"
+                     (fill-in-the-blank #:id (format "body-~a" tag) #:label "what it does") ")")]
+              [(or latex pef)
+               (para #:style bs-function-exercise-style "")]))
 
 (define-runtime-path worksheet-lesson-root (build-path 'up "lessons"))
 ;; We need to do a little compile-time computation to get the file's source
@@ -591,6 +607,7 @@
          (syntax/loc stx
            (worksheet-link #:src-path src-path
                            args ...))))]))
+
 (define (worksheet-link #:name name
                         #:page page
                         #:lesson [lesson #f]
@@ -632,7 +649,6 @@
 
 
 (define (check constraint #:id (id (gensym 'check)))
-  
   (elem (sxml->element
          `(input
            (@ (id ,(format "~a" id))
@@ -650,3 +666,23 @@
                    });" 
                  (format "~a" id)
                  (constraint->js constraint)))))
+
+;;;;;;;;;;;;;;;; LaTeX Styles ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(define bs-example-exercise-style
+  (make-style "BSExampleExercise"
+              (list (make-tex-addition "bootstrap-pdf.tex"))))
+
+(define bs-function-example-exercise-style
+  (make-style "BSFunctionExampleExercise"
+              (list (make-tex-addition "bootstrap-pdf.tex"))))
+
+(define bs-contract-exercise-style
+  (make-style "BSContractExercise"
+              (list (make-tex-addition "bootstrap-pdf.tex"))))
+
+(define bs-function-exercise-style
+  (make-style "BSFunctionExercise"
+              (list (make-tex-addition "bootstrap-pdf.tex"))))
+
+;; need remaining styles as defined in the CSS
