@@ -7,7 +7,7 @@
         #:duration "20 minutes"
         ]{
  @itemlist/splicing[
-   @item{Write 4 + 5 (jumbled, in no order in particular) in the Circle of Evaluation. @bitmap{images/1.5.2.png}}
+   @item{Write 4 + 5 (jumbled, in no order in particular) in the Circle of Evaluation.}
    @item{@exercise{What is the value of the stuff in the circle? Let's figure out the math first. (Write the equation.) We know we're adding, so we start with the plus sign. ("+" in the middle.) Then we add 5 and 4 on either side. ("5 + 4".) Does it matter if I write (4 + 5)?}}
    @tag[pedagogy]{@item{Let there be subtraction!}}
    @tag[pedagogy]{@item{@exercise{Write a subtraction example in the Circle of Evaluation (again, jumbled), and ask students to evaluate it. Typically, students will realize that there are two possible answers! The lesson here is that the order of inputs matters. If necessary, have them type examples into the Interactions window to see that swapping the inputs gives different results!}}}
