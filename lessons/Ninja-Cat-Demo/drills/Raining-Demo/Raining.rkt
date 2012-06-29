@@ -34,7 +34,7 @@
 (define (update-world w)
   (cond
     [(animal-caught? w) (make-world (+ (world-score w) 10) (world-player w) (make-animal (+ 50 (random 500)) 0 (random 2)))]
-    [else (make-world (world-score w) (world-player w) (make-animal (animal-x (world-animal w)) (+ (animal-y (world-animal w)) 4) (animal-type-bool (world-animal w))))]))
+    [else (make-world (world-score w) (world-player w) (make-animal (animal-x (world-animal w)) (+ (animal-y (world-animal w)) 2) (animal-type-bool (world-animal w))))]))
 
 (define (draw-world w)
   (overlay/align "middle" "top" 
