@@ -11,7 +11,7 @@
      @item{@think-about[#:question "It's starting y-coordinate?"
                         #:answer "The player's starting y-coordinate is 220"]}
      @item{@think-about[#:question "What about after it moves? What's the new x and y? What has changed? And by how much? What happens when we press the down key? What should the new coordinates be then?"
-                        #:answer "After it moves, its x-coordinate is 200 while its y-coordinate is 240. The x-coordinate has not changed, but its y-coordinate has increased by 20. If you press the down key, the player moves down by 20, so its new coordinate would be (200, 220). DOUBLE CHECK THIS ANSEWR!"]}
+                        #:answer "After it moves, its x-coordinate is 200 while its y-coordinate is 240. The x-coordinate has not changed, but its y-coordinate has increased by 20. If you press the down key, the player moves down by 20, so its new coordinate would be (200, 220)."]}
     @tag[pedagogy]{@item{Get students to tell you what update player should do...}}
     @tag[selftaught]{@item{@think-about[#:question "What should update-player do?"
                                          #:answer "update-player should change the position of the player"]}}
