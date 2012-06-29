@@ -206,12 +206,15 @@
 (define (format-racket-header str)
   (format "; ~a~n" str))
 
-(define (format-string str)
-  (format "~a" str))
+(define (string-constant? str)
+  (char=? (string-ref str 0) #\"))
+
+(define (num-constant? str)
+  (char-numeric? (string-ref str 0)))
+
 
 (define (code #:multi-line (multi-line #f)
               #:contract (contract #f)
-              #:string (string #f)
               #:purpose (purpose #f)
               . body)
   (if multi-line
@@ -230,11 +233,16 @@
                        (list (element (style "BootstrapContract" '())
                                       (list (format-racket-header contract))))
                        '())
-                   (if string 
-                       (list (element (style "BootstrapString" '()) (list (format "~a" string))))
+                   (if purpose 
+                       (list (element (style "BootstrapContract" '())
+                                      (list (format-racket-header purpose)))) 
                        '())
-                   (if purpose (list (format-racket-header purpose)) '())
-                   (list (element (style "BootstrapCode" '())
+                   (list (element (if (cons? body) 
+                                      (cond
+                                        [(string-constant? (first body)) (style "BootstrapString" '())]
+                                        [(num-constant? (first body)) (style "BootstrapNumber" '())]
+                                        [else (style "BootstrapCode" '())])
+                                      (style "BootstrapCode" '()))
                                   body))))))
 
 ;         (list (if contract 
