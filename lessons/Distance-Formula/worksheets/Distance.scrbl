@@ -13,8 +13,9 @@ It should return the distance between the two, using the Distance formula:
  Distance = ((line-length px cx)^2 + (line-length py cy)^2 )
     
     1.  Contract+ Purpose Statement
-    ;@fill-in-the-blank[#:id "name"]:@fill-in-the-blank[#:id "Domain"] -> @fill-in-the-blank[#:id "Range"]
-    ;@fill-in-the-blank[#:id "what does the function do?"]
+    @contract-exercise["Distance contract"]
+    
+    What does the function do? @fill-in-the-blank[#:id "what does the function do?"]
     
     2. Give Examples
     Write two examples of your function in action

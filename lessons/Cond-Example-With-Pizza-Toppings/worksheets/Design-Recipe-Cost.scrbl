@@ -7,7 +7,7 @@
     1.  Contract+ Purpose Statement
     Every contract has three parts:
     
-    ;@fill-in-the-blank[#:id "name"]:@fill-in-the-blank[#:id "Domain"] -> @fill-in-the-blank[#:id "Range"]
+    @contract-exercise["a"]
     
     2. Give Examples
     Write an example of your function for each topping, using EXAMPLE
