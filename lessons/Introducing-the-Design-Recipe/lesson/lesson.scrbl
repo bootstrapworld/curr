@@ -34,9 +34,9 @@
      @item{@bold{Step 3: Code}}
      @item{This next part is easy: it's exactly what you did for fast functions! Can you figure out how to plug in the header? What about the body?}
      @item{Once you are done, you @tag[group]{and your partner} can type this function into your computer@tag[group]{s}.
-                                  @embedded-wescheme[#:id "example3"
+                                  @tag[selftaught]{@embedded-wescheme[#:id "example3"
                                                      #:public-id "drawl-youth-fifty-voter-shake"
-                                                          #:interactions-text ""]}
+                                                          #:interactions-text ""]}}
      @item{@tag[pedagogy]{Do you guys want to see the rocket fly?} Type (start rocket-height)
  to see your code in action. We've slowed time down, so that a second passes each time you hit the spacebar.}
      @tag[pedagogy]{@item{All right. Now let's have a little bonus round.}}
