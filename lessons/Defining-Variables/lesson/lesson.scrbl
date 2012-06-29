@@ -9,7 +9,7 @@
               @;SELF TAUGHT THINGA MADOHICKY
         @item{So far, everything that you've been doing has been down in the Interactions window. What happens when you click Run at the top? All the work you did disappears!
               @embedded-wescheme[#:id "Defining Variables"
-                   #:interactions-text "Click Run above and what happens?"]}
+                   #:interactions-text "Click Run above. What happens to this line of text?"]}
         @item{That's because the Interactions window is meant just for trying things out. If you want to define something permanently, you need to use the Definitions window.}
         @item{This is a bare-bones, totally broken game. It doesn't DO anything...YET!}
         @item{Look below Step 0, near the top of the screen. @tag[pedagogy]{Raise your hand if you can read the line of code just below that (Have a volunteer read it aloud).} @think-about[#:question (list "What will happen if I type " @code{TITLE} " into the Interactions window down at the bottom?") #:hint "Try it out!"]}
