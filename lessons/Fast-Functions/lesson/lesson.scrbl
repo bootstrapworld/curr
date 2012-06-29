@@ -22,14 +22,14 @@ that would just take in the size and draw me my triangle.}
           @item{Now we have some space to write examples. @tag[pedagogy]{Let's think about the examples we saw our volunteer act out...}}
           @item{When I wanted him to make a solid green triangle of size fifty, what did I tell him? "gt fifty!". So in the first part of the EXAMPLE, we can write @code{(gt 50)}. So my example so far is @linebreak[]
                                                                                                                                                                                                      @code[#:contract "gt : Number -> Image"] @linebreak[]
-                                                                                                                                                                                                     @code{(EXAMPLE (gt 50) __________________________)}}
+                                                                                                                                                                                                     @code{(EXAMPLE (gt @code{50}) __________________________)}}
           @item{Then what did he draw for me? A solid green triangle of size fifty! How would we write the code to draw that same shape? @linebreak[]
                                                                                                                                          @code[#:contract "gt : Number -> Image"] @linebreak[]
-                                                                                                                                         @list{@code{(EXAMPLE (gt 50) (triangle 50} @code{"solid" "green"}@code{))}}}
+                                                                                                                                         @list{@code{(EXAMPLE (gt @code{50}) (triangle @code{50}} @code{"solid" "green"}@code{))}}}
          @tag[pedagogy]{@item{Can someone write another example for me?}}
           @item{Now, on your own, fill out two examples for @code{gt} on your Fast Functions worksheet.}
           @item{If only we had a function like @code{gt}! Well, let's build one!}
-          @item{Right now, I'm telling the computer how to deal with a shortcut for @code{(gt 17)} - but what if I wanted the shortcut to work for ALL sizes, not just size 17?}
+          @item{Right now, I'm telling the computer how to deal with a shortcut for @code{(gt @code{17})} - but what if I wanted the shortcut to work for ALL sizes, not just size 17?}
           @item{That's the final step: replace the stuff that changes between examples with a variable. So let's look at these two lines, and circle everything that changes. What did we circle? Just the numbers 10 and 17! What do those numbers mean? Is it the number of circles we're drawing? No! It's the SIZE. So let's make a little note to ourselves, to remind us that those numbers mean the size of the circle. }
           @item{Now we can write the code -- instead of an EXAMPLE we'll use @code{define}. After that, we're just going to copy everything from our examples except the stuff that we circled. What do you think we'll write instead? We'll use the name we wrote down: size. @tag[pedagogy]{Go character-by-character with the students, asking them if both examples have an open paren, the name "gt", etc...} @embedded-wescheme[#:id "Fast Functions"
                    #:definitions-text "; gt : Number -> Image
