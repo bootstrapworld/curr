@@ -90,6 +90,15 @@
 	padding: 0px;
 	font-family: monospace;
 }
+.BootstrapString{
+	color: #008000;
+	font-family: monospace;
+}
+.BootstrapNumber{
+	color:#00F;
+	font-family: monospace;
+}
+
 /*Copyright Design*/
 .BootstrapCopyright{
 

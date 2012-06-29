@@ -19,6 +19,7 @@
     
     3. Function Header
     Write the function Header, giving variable names to all your input values.
+    
     (define (@fill-in-the-blank[#:id "function name"] @fill-in-the-blank[#:id "variable names"])
     @fill-in-the-blank[#:id "what it does"])
     

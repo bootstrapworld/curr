@@ -10,4 +10,4 @@
           @tag[selftaught]{@item{@think-about[#:question "How far apart do the danger and the player need to be before one has hit the other?"]}}
           @tag[pedagogy]{@item{Make sure students understand what is going on by asking questions: If the collision distance is small, does that mean the game is hard or easy? What would make it easier?}} 
           @tag[selftaught]{@item{@think-about[#:question "If the collision distance is small, does that mean the game is hard or easy? what would make it easier?" #:answer "A small collision distance is easier because the player can be closer to the danger without hitting"]}}
-          @item{At the bottom of @worksheet-link[#:page 29 #:name "Collide"] you'll find the Problem Statement for collide?.  Fill in a Design Recipe Worksheet, and write the code.  Remember: you WILL need to make use of the distance function you just wrote!}]}
+          @item{At the bottom of @worksheet-link[#:page 29 #:name "collide"] you'll find the Problem Statement for collide?.  Fill in a Design Recipe Worksheet, and write the code.  Remember: you WILL need to make use of the distance function you just wrote!}]}
