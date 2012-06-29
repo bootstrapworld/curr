@@ -6,9 +6,7 @@
         #:duration "15 minutes"]{
 @itemlist/splicing[@item{Suppose you have to describe a soda machine. You know that the input to this machine will be money, and you have to get a soda in return. When you use a soda machine, does it only give you one type of soda? Wouldn't it be lame if you had to have a different machine for Coke than you did for Sprite? @bitmap{images/2.1.png}}
           @item{A soda machine, for example, takes in money and outputs soda.
-                @code[#:contract "Soda-machine : Money Selection -> Soda"]{
-                 ; Takes money and gives soda
-                                                                           }}
+                @code[#:purpose "Takes money and gives soda" #:contract "Soda-machine : Money Selection -> Soda" #:multi-line #t]}
           @item{This description talks about outputs  without having to say what those outputs are.}
           @item{This explanation of a soda machine just talks about some soda, but not any specific type of soda. It just says what kind of thing comes out, not which particular thing.}
           @item{How would you describe a coffeemaker? What kind of stuff goes into a coffeemaker? What kind of stuff comes out?}
@@ -41,7 +39,8 @@
           @;must have some sort of answers here
           @tag[pedagogy]{@item{Add other functions, like "/" and "*".  Leave these contracts written on the board.}}
           @tag[pedagogy]{@item{If students already know about square roots or squaring, you can add these functions as well. If not, take a moment to review what they do.
-                               @code[#:contract "sqrt : Number -> Number"]}}
+                               @code[#:contract "sqrt : Number -> Number"]
+                               @code[#:contract "sqt : Number -> Number"]}}
           @tag[selftaught]{@item{@think-about[#:question "If you already know about square roots or squaring, try to figure out the contracts for these as well. Check with the answers below!"
                                              #:hint "Both of these function only take one number as input"
                                              #:answer @list{@code[#:contract "sqrt : Number -> Number"]
