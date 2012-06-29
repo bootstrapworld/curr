@@ -1,7 +1,7 @@
 #lang curr/lib
 
 @declare-tags[pedagogy selftaught]
-
+@;This lesson is an instruction set for a teacher. 
 @lesson[#:title "Getting things done!"]{
                                                                       
             @itemlist/splicing[        

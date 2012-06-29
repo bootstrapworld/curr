@@ -1,7 +1,7 @@
 #lang curr/lib
 
 @declare-tags[pedagogy selftaught]
-
+@;This whole lesson is basically an instruction set to the teacher.
 @lesson[#:title "Programming Olympics!"]{
                                   @itemlist/splicing[
                                          @item{Divide the class into groups of roughly six students each. This can be done by gender, by grade, at random, or by any other criteria you see fit. However, it is important that both teams have similar mixes of strong and struggling students.}
