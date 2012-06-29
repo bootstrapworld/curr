@@ -29,5 +29,5 @@
                    @item{Now you need to fill in the function body. Which pattern can we use for this? The general one.}
                    ]}
                    @item{@tag[pedagogy]{Have kids turn their monitors on, and type in the code. Do their tests work?}
-                          @tag[selftaught]{Now you should try typing in the code and running some tests to see if it works.} @embedded-wescheme[#:id "example4"
-                                                          #:interactions-text ""]}]}
+                          @tag[selftaught]{Now you should try typing in the code and running some tests to see if it works.} @tag[selftaught]{@embedded-wescheme[#:id "example4"
+                                                          #:interactions-text ""]}}]}
