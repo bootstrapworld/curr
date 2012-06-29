@@ -19,8 +19,8 @@
 100}
 _______)}]}
     @item{Click "Run", and evaluate SCREENSHOT. Does it look the way you expected? On your own, mess with the coordinates until the TARGET is placed where you want it to be.
-          @embedded-wescheme[#:id "Put-image"
-                   #:definitions-text ";Please type in your images to see how they look"]}
+          @tag[selftaught]{@embedded-wescheme[#:id "Put-image"
+                   #:definitions-text ";Please type in your images to see how they look"]}}
     @item{@exercise{Can you add the DANGER on your own?}}
     
 ]}

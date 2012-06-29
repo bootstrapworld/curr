@@ -21,15 +21,15 @@
                                                                                            @code[#:contract "circle: Number String String -> ..."]{
 
                                                                                                  (circle 100 "solid" "red")}}}
-          @item{So what's the Range? What do you think this thing is going to give us back? A Number? A String? Type it in and try it out! @embedded-wescheme[#:id "Images1"
+          @item{So what's the Range? What do you think this thing is going to give us back? A Number? A String? Type it in and try it out! @tag[selftaught]{@embedded-wescheme[#:id "Images1"
                    #:interactions-text ";Try out the images!"
-                   #:hide-definitions? #t]}
+                   #:hide-definitions? #t]}}
 
            @item{What it gives back is a new Type: Image!}
            @tag[group]{@item{Now we're going to do the next step as a group.}}
            @item{@exercise{I'm going to show you the contract for another function. This time around, you're not allowed to touch the keyboard until you have copied the contract into your contract table, along with the contract for circle. Once you've done that, @tag[pedagogy]{"I want to see you "}try to draw a rectangle! GO!} @code[#:contract "rectangle: Number Number String String -> Image"]}
            @item{@exercise{I'm going to show you a few more contracts. Once again, you have to have them written down before touching the keys. You'll have five minutes to figure out how to use each of these functions to make a shape! GO!}
-                  @code{; ellipse: Number Number String String -> Image
+                  @code[#:multi-line #t]{; ellipse: Number Number String String -> Image
                         ; triangle: Number String String -> Image
                         ; star: Number String String -> Image
                         ; radial-star: Number Number Number String String -> Image
@@ -40,6 +40,6 @@
                  @embedded-wescheme[#:id "Images"
                    #:interactions-text ""
                    #:hide-definitions? #t]}}
-           @item{Going Further - If time allows, you can go further into @(hyperlink "Manipulating-Images" "Manipulating Images") or @(hyperlink "Making-Flags" "Making Flags")!}
+           @item{Going Further - If time allows, you can go further into @(hyperlink "../../Manipulating-Images/lesson/lesson.html" "Manipulating Images") or @(hyperlink "../../Making-Flags/lesson/lesson.html" "Making Flags")!}
            ]}
 
