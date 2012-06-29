@@ -7,8 +7,8 @@
      @tag[pedagogy]{@item{Time 5 minutes, count down the last 10 seconds, and then collect answers from teams. Keep score!}}
      @item{Now @tag[group]{you'll have 5 more minutes to }finish the Design Recipe@tag[group]{, } and @tag[group]{to }type in your function and test cases. On your mark ... get set ... GO!}
      @tag[pedagogy]{@item{Time 5 minutes, count down the last 10 seconds, and then collect answers from teams. Keep score!}}
-     @tag[pedagogy]{@item{If time allows, pass out extra Design Recipe worksheets [@(hyperlink "PDF" "PDF") | @(hyperlink "OOo" "OOo")], and run another round: e.g., one of 
-           @code{(define (years-ago year) (- 2011 year))
-                 (define (plural word) (string-append word "s"))
-                 (define (diamond size color) (rotate 45 (rectangle size size "solid" color)))
+     @tag[pedagogy]{@item{If time allows, pass out extra Design Recipe worksheets [@(hyperlink "PDF" "PDF") | @(hyperlink "OOo" "OOo")], and run another round: e.g., one of @linebreak[]
+           @code{(define (years-ago year) (- @code{2011} year)) @linebreak[]
+                 (define (plural word) (string-append word @code{"s"})) @linebreak[]
+                 (define (diamond size color) (rotate @code{45} (rectangle size size @code{"solid"} color)))
                  }}}]}

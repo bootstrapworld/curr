@@ -10,9 +10,9 @@
            @item{What does it mean to add three and the word "cat"? It doesn't make sense, does it?}
            @item{To create a Number in Racket, we just typed it in. To create a String, you type in the word or words that you want, and put quotation marks on either side.
                  @tag[group]{With your partner:} Try creating a few strings on your own. 
-                 @embedded-wescheme[#:id "Strings"
+                 @tag[selftaught]{@embedded-wescheme[#:id "Strings"
                    #:interactions-text ";Enter some strings!"
-                   #:hide-definitions? #t]}
+                   #:hide-definitions? #t]}}
            @item{Racket also gives us functions we can use to work with Strings. For example, there's a function called string-length. What do you think it does? I'll give you one hint: the contract.
                  @tag[pedagogy]{Write the contract on the board, but without the labels Name, Domain, and Range:}
                  @tag[selftaught]{@think-about[#:question "Try to write the contract for string-length and check below."

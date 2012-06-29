@@ -31,6 +31,7 @@
          language-table
 	 worksheet-table
          contract-exercise
+         function-exercise
          
          ;; Sections
          worksheet
@@ -206,6 +207,13 @@
 (define (format-racket-header str)
   (format "; ~a~n" str))
 
+(define (string-constant? str)
+  (char=? (string-ref str 0) #\"))
+
+(define (num-constant? str)
+  (char-numeric? (string-ref str 0)))
+
+
 (define (code #:multi-line (multi-line #f)
               #:contract (contract #f)
               #:purpose (purpose #f)
@@ -220,14 +228,22 @@
                      (compound-paragraph
                       (bootstrap-sectioning-style "BootstrapContract") 
                       (decode-flow (list (format-racket-header purpose)))) '())
-       (apply verbatim #:indent 2 body))
+       (if (null? body) '() (apply verbatim #:indent 2 body)))
   (element #f 
            (append (if contract 
                        (list (element (style "BootstrapContract" '())
                                       (list (format-racket-header contract))))
                        '())
-                   (if purpose (list (format-racket-header purpose)) '())
-                   (list (element (style "BootstrapCode" '())
+                   (if purpose 
+                       (list (element (style "BootstrapContract" '())
+                                      (list (format-racket-header purpose)))) 
+                       '())
+                   (list (element (if (cons? body) 
+                                      (cond
+                                        [(string-constant? (first body)) (style "BootstrapString" '())]
+                                        [(num-constant? (first body)) (style "BootstrapNumber" '())]
+                                        [else (style "BootstrapCode" '())])
+                                      (style "BootstrapCode" '()))
                                   body))))))
 
 ;         (list (if contract 
@@ -311,9 +327,8 @@
 
 
 (define (demo . body) 
-  (list "Demo:"
-        (compound-paragraph (bootstrap-sectioning-style "BootstrapDemo")
-                            (decode-flow body))))
+  (compound-paragraph (bootstrap-sectioning-style "BootstrapDemo")
+                      (decode-flow (cons "Demo: " body))))
 
 
 (define (review . body)
@@ -553,7 +568,16 @@
         (fill-in-the-blank #:id (format "~a.2" tag) #:label text2)
         ")"))
                             
-
+;; input: optional values for the name, args, and body fields of a function
+;;        a tag to use for generating html id names
+;; output: a define with text boxes formatted for inputs to the exercise
+(define (function-exercise #:name [name ""]
+                           #:args [args ""]
+                           #:body [body ""]
+                           tag)
+  (para "(define ("(fill-in-the-blank #:id (format "fname-~a" tag) #:label "function name")
+        (fill-in-the-blank #:id (format "args-~a" tag) #:label "variable names") ")"
+        (fill-in-the-blank #:id (format "body-~a" tag) #:label "what it does") ")"))
 
 (define-runtime-path worksheet-lesson-root (build-path 'up "lessons"))
 ;; We need to do a little compile-time computation to get the file's source
