@@ -302,7 +302,11 @@
                      (decode-flow
                       (list
                        (format "Lesson: ~a (Time ~a)~n" title duration))))]
-                   [title (format "Lesson: ~a ~n" title)]
+                   [title (compound-paragraph
+                     (bootstrap-sectioning-style "BootstrapLessonTitle")
+                     (decode-flow
+                      (list
+                       (format "~a ~n" title))))]
                    [duration (format "Lesson (Time ~a)~n" duration)])
              (compound-paragraph (bootstrap-sectioning-style "BootstrapLesson")
                                  (decode-flow body))))))))

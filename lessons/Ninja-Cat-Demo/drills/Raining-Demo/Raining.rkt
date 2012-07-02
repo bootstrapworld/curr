@@ -7,9 +7,13 @@
 (define-struct animal (x y type-bool))
 (define-struct world (score player animal))
 
+; http://areason2write.wordpress.com/
 (define player-image (bitmap "images/player.png"))
+; http://gallerywallpaperbestcartoon.blogspot.com/
 (define cat-image (bitmap "images/cat.png"))
+; http://a-flower-guides.blogspot.com/
 (define dog-image (bitmap "images/dog.png"))
+; http://xn--90azb2e.xn--p1ai/preview.php?p=884217
 (define bg-image (bitmap "images/bg.jpg"))
 
 (define init-world (make-world 0 (make-player 300) (make-animal (+ 50 (random 500)) 0 (random 2))))
@@ -40,11 +44,12 @@
   (overlay/align "middle" "top" 
                  (text (string-append "It's raining cats and dogs!                                                            Score: " 
                                       (number->string (world-score w))) 18 "white")
-                 (place-image (text "Catch all the cats and dogs! Use the right and left arrow keys to move the frog." 14 "white") 257 30
+                 (place-image (text "Use the right and left arrow keys to move the frog from side to side." 14 "white") 230 30
+                              (place-image (text "Position the frog under the falling cats and dogs to catch them." 14 "white") 215 44
                  (place-image (if (zero? (animal-type-bool (world-animal w))) cat-image dog-image) 
                               (animal-x (world-animal w))
                               (animal-y (world-animal w))
-                              (place-image player-image (player-x (world-player w)) 370 bg-image)))))
+                              (place-image player-image (player-x (world-player w)) 370 bg-image))))))
 
 (define (game-over? w)
   (cond

@@ -7,8 +7,10 @@
 (define init-world (make-world 0.2 false))
 (define limit (+ 0.5 (random)))
 
-(define balloon-image (bitmap/url "https://github.com/bootstrapworld/curr/raw/master/lessons/Ninja-Cat-Demo/drills/Balloon-Demo/images/balloon.jpg"))
-(define popped-image (bitmap/url "https://github.com/bootstrapworld/curr/raw/master/lessons/Ninja-Cat-Demo/drills/Balloon-Demo/images/game-over.jpg"))
+; http://www.polygonblog.com/3d-birthday-balloons-in-3ds-max/
+(define balloon-image (bitmap "images/balloon.jpg"))
+; http://mike44nh.deviantart.com/
+(define popped-image (bitmap "images/game-over.jpg"))
 
 (define (update-world w)
   (cond
