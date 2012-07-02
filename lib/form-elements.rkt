@@ -97,7 +97,8 @@
 ;;;;;;;;;;;;;;;; LaTeX Styles ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (define bs-lesson-style
-  (make-style "BootstrapLesson" (list (make-tex-addition "bootstrap-pdf.tex"))))
+  (make-style "BootstrapLesson" 
+              (list (make-tex-addition "bootstrap-pdf.tex"))))
 ;
 ;(define bs-lesson-title-style
 ;  (make-style "BootstrapLessonTitle" (list (make-tex-addition "bootstrap-pdf.tex"))))
