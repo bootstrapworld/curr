@@ -6,9 +6,9 @@
 (define-struct player (x y))
 (define-struct world (player field))
 
-(define player-image (bitmap "images/paintbrush.png"))
+(define player-image (star 30 "solid" "Dark Gray"))
 (define field-image (rectangle 500 500 "solid" "Dark Gray"))
-(define background-image (place-image (text "Press the spacebar to change the colors!" 18 "white") 300 30 (overlay/align "middle" "top" (text "Use the arrow keys to navigate." 18 "white") (rectangle 600 650 "solid" "Dark Gray"))))
+(define background-image (place-image (text "Press the spacebar to change the color of the box with the star!" 18 "white") 300 30 (overlay/align "middle" "top" (text "Use the arrow keys to move the star to different boxes." 18 "white") (rectangle 600 650 "solid" "Dark Gray"))))
 (define color-list (list "Indian Red" "Coral" "Gold" "Aquamarine" "Light Blue" "Thistle"))
 
 (define init-field (build-list 5 (lambda (x) (build-list 5 (lambda (x) "white")))))
@@ -39,7 +39,7 @@
   (cond
     [(empty? colors) (rectangle 500 100 "solid" "Dark Gray")]
     [(cons? colors) (place-image (rectangle 99 99 "solid" (first colors)) (+ 50 (* 100 column)) 50 (draw-row (rest colors) (+ 1 column)))]))
- 
+
 (define (draw-field f row)
   (cond
     [(empty? f) field-image]

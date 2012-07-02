@@ -7,7 +7,9 @@
 (define-struct crocodile (x y direction))
 (define-struct world (timer player crocs))
 
+; http://www.bsohappykidsalmere.nl/nieuws.htm
 (define player-image (bitmap "images/player.png"))
+; http://clipartist.net/uncategorized/alligator-openclipart-org-commons-wikimedia-org/
 (define up-croc-image (bitmap "images/up-enemy.png"))
 (define down-croc-image (bitmap "images/down-enemy.png"))
 (define bg-image (overlay/align "right" "middle"
@@ -59,11 +61,12 @@
 
 (define (draw-world w)
   (overlay/align "middle" "top" 
-                 (text "CROCOMANIA! Use the arrow keys to get to shore safely." 18 "white")
+                 (text "CROCOMANIA! Use the arrow keys to swim up, down, left or right." 18 "white")
+                 (place-image (text "Swim to the shore, and make sure to avoid the crocodiles." 18 "white") 400 30
                  (foldl (lambda (c bg) (place-image (if (equal? "up" (crocodile-direction c)) up-croc-image down-croc-image) 
                               (crocodile-x c)
                               (crocodile-y c)
-                              bg)) (place-image player-image (player-x (world-player w)) (player-y (world-player w)) bg-image) (world-crocs w))))
+                              bg)) (place-image player-image (player-x (world-player w)) (player-y (world-player w)) bg-image) (world-crocs w)))))
 
 (define (safe? w)
   (> (player-x (world-player w)) 675))

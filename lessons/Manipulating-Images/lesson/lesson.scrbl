@@ -10,13 +10,13 @@
     @tag[selftaught]{@item{In this section, you will learn to do more with shapes. As we saw in Circles of Evaluation, you can put circles inside circles to evaluate things like (* 2 (+ 3 4)) and (+ (string-length "cat") 5). Similarly, you can apply another function to something that evaluates to a shape in order to change the way it looks!}}
     @item{Of course, you can do more with your images than just create them!}
     @item{There are also functions that allow you to stretch, scale and even rotate them!}
-    @item{Here are contracts for some functions that allow you to do this. Copy them into your notebook, and try to do the following exercises @tag[group]{with a partner}:
-          @code[#:multi-line ""]{; flip-horizontal : Image -> Image
-                                 ; flip-vertical : Image -> Image
-                                 ; scale : Number Image -> Image
-                                 ; scale/xy : Number Number Image -> Image
-                                 ; rotate : Number Image -> Image
-                                 ; overlay : Image Image -> Image}}
+    @item{Here are contracts for some functions that allow you to do this. Copy them into your notebook, and try to do the following exercises @tag[group]{with a partner}: @linebreak[]
+          @code[#:contract "flip-horizontal : Image -> Image"] @linebreak[]
+          @code[#:contract "flip-vertical : Image -> Image"] @linebreak[]
+          @code[#:contract "scale : Number Image -> Image"] @linebreak[]
+          @code[#:contract "scale/xy : Number Number Image -> Image"] @linebreak[]
+          @code[#:contract "rotate : Number Image -> Image"] @linebreak[]
+          @code[#:contract "overlay : Image Image -> Image"]}
     @item{@exercise{Can you make a blue triangle that's rotated on its side?}}
     @item{@exercise{What if you didn't have access to @code{ellipse}? Can you make me an ellipse by using only scale/xy and circle?}}
     @tag[pedagogy]{@item{Let kids experiment with these functions and point out interesting results to the class}}
