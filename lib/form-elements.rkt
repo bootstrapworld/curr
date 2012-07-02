@@ -94,6 +94,31 @@
 (define creativeCommonsLogo (bitmap "creativeCommonsLogo.png"))
 
 
+;;;;;;;;;;;;;;;; LaTeX Styles ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(define bs-lesson-style
+  (make-style "BootstrapLesson" (list (make-tex-addition "bootstrap-pdf.tex"))))
+;
+;(define bs-lesson-title-style
+;  (make-style "BootstrapLessonTitle" (list (make-tex-addition "bootstrap-pdf.tex"))))
+
+(define bs-example-exercise-style
+  (make-style "BSExampleExercise"
+              (list (make-tex-addition "bootstrap-pdf.tex"))))
+
+(define bs-function-example-exercise-style
+  (make-style "BSFunctionExampleExercise"
+              (list (make-tex-addition "bootstrap-pdf.tex"))))
+
+(define bs-contract-exercise-style
+  (make-style "BSContractExercise"
+              (list (make-tex-addition "bootstrap-pdf.tex"))))
+
+(define bs-function-exercise-style
+  (make-style "BSFunctionExercise"
+              (list (make-tex-addition "bootstrap-pdf.tex"))))
+
+;; need remaining styles as defined in the CSS
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -250,26 +275,13 @@
                                       (style "BootstrapCode" '()))
                                   body))))))
 
-;         (list (if contract 
-;                     (compound-paragraph
-;                      (bootstrap-sectioning-style "BootstrapContract")
-;                      (decode-flow (list (format-racket-header contract)))) '())
-;                 (if purpose 
-;                     (compound-paragraph
-;                      (bootstrap-sectioning-style "BootstrapContract") 
-;                      (decode-flow (list (format-racket-header purpose)))) '())
-;                  (compound-paragraph
-;                   (bootstrap-sectioning-style "BootstrapCode")
-;                   (decode-flow body))))
-
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-
-
 (define-runtime-path bootstrap.css "bootstrap.css")
+(define-runtime-path bootstrap-pdf.tex "bootstrap-pdf.tex")
 (define (bootstrap-sectioning-style name)
   (make-style name (list (make-css-addition bootstrap.css)
+                         (make-tex-addition bootstrap-pdf.tex)
                          ;; Use <div/> rather than <p/>
                          (make-alt-tag "div"))))
 
@@ -294,7 +306,7 @@
      (set! 'bootstrap-lessons (cons (lesson-struct title duration) (get 'bootstrap-lessons '())))     
      
      (nested-flow
-      (style #f '())
+      (style "BootstrapLesson" '())
       (decode-flow
        (list (cond [(and title duration)
                     (compound-paragraph
@@ -663,26 +675,7 @@
                        } else {
                             alert('Sorry! Try again.');
                        }
-                   });" 
+                   });"
                  (format "~a" id)
                  (constraint->js constraint)))))
 
-;;;;;;;;;;;;;;;; LaTeX Styles ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(define bs-example-exercise-style
-  (make-style "BSExampleExercise"
-              (list (make-tex-addition "bootstrap-pdf.tex"))))
-
-(define bs-function-example-exercise-style
-  (make-style "BSFunctionExampleExercise"
-              (list (make-tex-addition "bootstrap-pdf.tex"))))
-
-(define bs-contract-exercise-style
-  (make-style "BSContractExercise"
-              (list (make-tex-addition "bootstrap-pdf.tex"))))
-
-(define bs-function-exercise-style
-  (make-style "BSFunctionExercise"
-              (list (make-tex-addition "bootstrap-pdf.tex"))))
-
-;; need remaining styles as defined in the CSS
