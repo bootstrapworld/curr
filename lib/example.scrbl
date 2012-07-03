@@ -10,13 +10,14 @@
 @;      vs  $ SCRIBBLE_TAGS="student teacher" scribble example.scrbl
 
 
-@declare-tags[student teacher robot]
+@declare-tags[student teacher robot 
+              pedagogy]
 
 @declare-data-repository["bootstrap-data-repository.hashcollision.org"]
 
 
 
-@image["bootstrap.gif"]
+@bitmap["bootstrap.gif"]
 
 
 @;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -29,8 +30,12 @@ This is a message that a stupendous student should be able to see.
 }
 
 @student{For syntactic convenience, each tag itself is bound to a form that does
-the exclusion, like this.}
+the exclusion, like this.  When used this way, the body is surrounded
+with an implicit style.}
 
+
+@pedagogy{This content should show only when pedagogy is enabled, and
+should show in italic.}
 
 
 

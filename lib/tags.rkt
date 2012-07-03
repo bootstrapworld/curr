@@ -15,6 +15,7 @@
 (require racket/splicing
          (prefix-in scribble: scribble/decode)
          (prefix-in scribble: scribble/core)
+         (prefix-in scribble: scribble/base)
          (for-syntax racket/base
                      racket/block))
 
@@ -60,7 +61,9 @@
 (define-syntax (declare-tags stx)
   (syntax-case stx ()
     [(_ tag-name ...)
-     #'(begin
+     (with-syntax ([(string-tag-name ...)
+                    (map (lambda (stx) (symbol->string (syntax-e stx))) (syntax->list #'(tag-name ...)))])
+     #`(begin
          (begin-for-syntax
           (for ([tag '(tag-name ...)])
                (hash-set! known-tags tag #t)))
@@ -68,10 +71,12 @@
            (syntax-case stx-2 ()
              [(_ body (... ...))
               (syntax/loc stx-2
-                (tag tag-name body (... ...)))]
+                (tag tag-name 
+                     (scribble:nested #:style (scribble:style string-tag-name '())
+                                      body (... ...))))]
              [else
               (raise-syntax-error #f (format "~s is a tag, not a normal expression" 'tag-name) stx-2)]))
-         ...)]))
+         ...))]))
 
 
 (define-syntax (tag stx)
