@@ -7,7 +7,7 @@
          scribble/base
          scribble/core
          scribble/decode
-         [except-in scribble/manual code]
+         ;[except-in scribble/manual code]
          scribble/html-properties
          scribble/latex-properties
          scriblib/render-cond

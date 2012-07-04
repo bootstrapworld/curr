@@ -15,8 +15,7 @@
 \newenvironment{BootstrapImage}{}{}
 \newenvironment{BootstrapOverview}{}{}
 \newenvironment{BootstrapCopyright}{}{}
-\newenvironment{BootstrapContract}{}{}
-\newenvironment{BootstrapWorksheet}{}{}
+\newenvironment{BootstrapWorksheet}{}{\newpage}
 \newenvironment{BootstrapDrill}{}{}
 \newenvironment{BootstrapExercise}{}{}
 \newenvironment{BootstrapSkit}{}{}
@@ -29,6 +28,10 @@
 \newenvironment{BootstrapTitle}{\bf}{\par}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{BootstrapContract}[1]{\tt|#1|}
+\newcommand{BootstrapRow}[1]{\tt|#1|}
+\newcommand{BootstrapCode}[1]{\tt|#1|}
 
 % generates (EXAMPLE ____________  _______________)
 \newcommand{\BSExampleExercise}[1]{
