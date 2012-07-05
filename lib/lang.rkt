@@ -15,6 +15,7 @@
          scribble/html-properties
          racket/runtime-path
          racket/path
+         2htdp/image
          (for-syntax racket/base)
          "bootstrap.rkt"
          "checker.rkt")
@@ -24,9 +25,10 @@
 (provide (except-out (all-from-out scribble/doclang) #%module-begin)
          (all-from-out "bootstrap.rkt")
          (all-from-out "checker.rkt")
-         (except-out (all-from-out scribble/base) title)
+         (except-out (all-from-out scribble/base) title image)
          (rename-out [bootstrap-title title])
-         (rename-out [module-begin #%module-begin]))
+         (rename-out [module-begin #%module-begin])
+         bitmap)
 
 (define-syntax (module-begin stx)
   (syntax-case stx ()

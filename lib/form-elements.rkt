@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #lang racket/base
 
 (require (prefix-in wescheme: "wescheme.rkt")
@@ -694,3 +695,692 @@
               (list (make-tex-addition "bootstrap-pdf.tex"))))
 
 ;; need remaining styles as defined in the CSS
+=======
+#lang racket/base
+
+(require (prefix-in wescheme: "wescheme.rkt")
+         racket/runtime-path
+         racket/stxparam
+         racket/contract
+         scribble/base
+         scribble/core
+         scribble/decode
+         ;[except-in scribble/manual code]
+         scribble/html-properties
+         scribble/latex-properties
+         scriblib/render-cond
+         racket/path
+         (for-syntax racket/base)
+         2htdp/image
+         racket/list
+         "checker.rkt"
+         "javascript-support.rkt")
+
+
+
+;; FIXME: must add contracts!
+(provide row
+         current-row
+         
+                  
+         fill-in-the-blank
+         free-response
+	 drop-down
+         embedded-wescheme
+         think-about
+         code
+         language-table
+	 worksheet-table
+         contract-exercise
+         function-exercise
+         
+         ;; Sections
+         worksheet
+         lesson
+         drill
+         exercise
+	 skit
+	 demo
+	 review
+
+         ;; Itemizations
+         materials
+         goals
+	 do-now
+         objectives
+         product-outcomes
+         preparation
+         agenda
+
+         ;; Misc
+         standards
+         unit-length
+
+
+
+         ;; Include lesson
+         include-lesson
+         
+         
+         ;; stuff added by the interns
+         ;;edited contract-exercise
+         overview
+         copyright
+         example-with-text
+         example-fast-functions
+         state-standards
+         length-of-lesson
+         bootstrap-title
+
+         [rename-out [worksheet-link/src-path worksheet-link]]
+         )        
+
+
+(provide/contract [itemlist/splicing
+                   (->* () 
+                        (#:style (or/c style? string? symbol? #f)) 
+                        #:rest (listof (or/c item? splice?))
+                        itemization?)]
+                  
+                  [check
+                   (-> constraint? element?)]
+                  )
+
+
+
+
+(define bootstrap.gif (bitmap "bootstrap.gif"))
+(define creativeCommonsLogo (bitmap "creativeCommonsLogo.png"))
+
+
+;;;;;;;;;;;;;;;; LaTeX Styles ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(define bs-lesson-style
+  (make-style "BootstrapLesson" 
+              (list (make-tex-addition "bootstrap-pdf.tex"))))
+;
+;(define bs-lesson-title-style
+;  (make-style "BootstrapLessonTitle" (list (make-tex-addition "bootstrap-pdf.tex"))))
+
+(define bs-example-exercise-style
+  (make-style "BSExampleExercise"
+              (list (make-tex-addition "bootstrap-pdf.tex"))))
+
+(define bs-function-example-exercise-style
+  (make-style "BSFunctionExampleExercise"
+              (list (make-tex-addition "bootstrap-pdf.tex"))))
+
+(define bs-contract-exercise-style
+  (make-style "BSContractExercise"
+              (list (make-tex-addition "bootstrap-pdf.tex"))))
+
+(define bs-function-exercise-style
+  (make-style "BSFunctionExercise"
+              (list (make-tex-addition "bootstrap-pdf.tex"))))
+
+;; need remaining styles as defined in the CSS
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; This provides form loops and indices
+
+
+(define current-row (make-parameter #f))
+
+
+(define-syntax (row stx)
+  (syntax-case stx ()
+    [(row #:count n body ...)
+     ;; FIXME: set up the parameterizations so we can repeat the content
+     #'(build-list n (lambda (i)
+                       (parameterize ([current-row i])
+                         (paragraph (make-style "BootstrapRow" (list (make-alt-tag "div")))
+                                    (list body ...)))))]))
+
+
+;; When creating the ids for the form elements, if we're in the context of a row,
+;; add it to the identifier as a ";~a" suffix.
+(define (resolve-id id)
+  (cond
+   [(current-row)
+    (format "~a;~a" id (current-row))]
+   [else
+    id]))
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+;; One-line input
+(define (fill-in-the-blank #:id id
+                           #:columns (width 50)
+                           #:label (label #f))
+  (sxml->element `(input (@ (type "text")
+                            (id ,(resolve-id id))
+                            (width ,(number->string width))
+                            ,@(if label
+                                  `((placeholder ,label))
+                                  '()))
+                         "")))
+
+
+
+;; Free form text
+(define (free-response #:id id
+                       #:columns (width 50)
+                       #:rows (height 20)
+                       #:label (label #f))
+  (sxml->element `(textarea (@ (id ,(resolve-id id))
+                               (cols ,(number->string width))
+                               (rows ,(number->string height))
+                               ,@(if label
+                                     `((placeholder ,label))
+                                     '()))
+                            "")))
+
+
+;; drop-down menus
+(define (drop-down #:id id
+                   #:options (options '()))
+  (sxml->element `(select (@ (id ,(resolve-id id)))
+			  ,@(map (lambda (o) `(option ,o)) options))))
+			     
+			     
+
+;; Embedded wescheme instances
+(define (embedded-wescheme #:id id
+                           #:public-id (pid #f)
+                           #:width (width "90%")
+                           #:height (height 500)
+                           #:interactions-text (interactions-text #f)
+                           #:definitions-text (definitions-text #f)
+                           #:hide-header? (hide-header? #t)
+                           #:hide-toolbar? (hide-toolbar? #f)
+                           #:hide-project-name? (hide-project-name? #t)
+                           #:hide-footer? (hide-footer? #t)
+                           #:hide-definitions? (hide-definitions? #f)
+                           #:hide-interactions? (hide-interactions? #f))
+  (wescheme:embedded-wescheme #:id (resolve-id id)
+                              #:public-id pid
+                              #:width width
+                              #:height height
+                              #:interactions-text interactions-text
+                              #:definitions-text definitions-text
+                              #:hide-header? hide-header?
+                              #:hide-toolbar? hide-toolbar?
+                              #:hide-project-name? hide-project-name?
+                              #:hide-footer? hide-footer?
+                              #:hide-definitions? hide-definitions?
+                              #:hide-interactions? hide-interactions?))
+
+
+
+
+;; Lightweight questions with optional hints and answers
+;; ideally hints/answers come up on some action, not by default
+;; hints and answers may contain arbitrary formatting, not just strings
+(define (think-about #:question (question #f) 
+                     #:hint (hint #f)
+                     #:answer (answer #f))
+  (elem  question
+         (if hint
+             (list " (Hint: " hint ")")
+             "")
+         (if answer 
+             (list " (Answer: " answer ")") 
+             "")))
+
+(define (format-racket-header str)
+  (format "; ~a~n" str))
+
+(define (string-constant? str)
+  (char=? (string-ref str 0) #\"))
+
+(define (num-constant? str)
+  (char-numeric? (string-ref str 0)))
+
+
+(define (code #:multi-line (multi-line #f)
+              #:contract (contract #f)
+              #:purpose (purpose #f)
+              . body)
+  (if multi-line
+      (list
+       (if contract 
+           (compound-paragraph
+            (bootstrap-sectioning-style "BootstrapContract")
+            (decode-flow (list (format-racket-header contract)))) 
+           '())
+       (if purpose 
+           (compound-paragraph
+            (bootstrap-sectioning-style "BootstrapContract") 
+            (decode-flow (list (format-racket-header purpose)))) 
+           '())
+       (if (null? body) '() (apply verbatim #:indent 2 body)))
+      (element #f 
+           (append (if contract 
+                       (list (element (style "BootstrapContract" '())
+                                      (list (format-racket-header contract))))
+                       '())
+                   (if purpose 
+                       (list (element (style "BootstrapContract" '())
+                                      (list (format-racket-header purpose)))) 
+                       '())
+                   (list (element (if (cons? body) 
+                                      (cond
+                                        [(string-constant? (first body)) (style "BootstrapString" '())]
+                                        [(num-constant? (first body)) (style "BootstrapNumber" '())]
+                                        [else (style "BootstrapCode" '())])
+                                      (style "BootstrapCode" '()))
+                                  body))))))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(define-runtime-path bootstrap.css "bootstrap.css")
+(define-runtime-path bootstrap-pdf.tex "bootstrap-pdf.tex")
+(define (bootstrap-sectioning-style name)
+  (make-style name (list (make-css-addition bootstrap.css)
+                         (make-tex-addition bootstrap-pdf.tex)
+                         ;; Use <div/> rather than <p/>
+                         (make-alt-tag "div"))))
+
+
+;; The following provides sectioning for bootstrap.  
+(define (worksheet . body)
+  (compound-paragraph (bootstrap-sectioning-style "BootstrapWorksheet")
+                      (decode-flow body)))
+
+
+(struct lesson-struct (title duration) #:transparent)
+
+
+(define (lesson #:title (title #f)
+                #:duration (duration #f)
+                #:subsumes (subsumes #f)
+                #:prerequisites (prerequisites #f)
+                #:video (video #f)
+                . body)
+  (traverse-block
+   (lambda (get set!)
+     (set! 'bootstrap-lessons (cons (lesson-struct title duration) (get 'bootstrap-lessons '())))     
+     
+     (nested-flow
+      (style "BootstrapLesson" '())
+      (decode-flow
+       (list (cond [(and title duration)
+                    (compound-paragraph
+                     (bootstrap-sectioning-style "BootstrapLessonTitle")
+                     (decode-flow
+                      (list
+                       (format "Lesson: ~a (Time ~a)~n" title duration))))]
+                   [title (compound-paragraph
+                     (bootstrap-sectioning-style "BootstrapLessonTitle")
+                     (decode-flow
+                      (list
+                       (format "~a ~n" title))))]
+                   [duration (format "Lesson (Time ~a)~n" duration)])
+             (compound-paragraph (bootstrap-sectioning-style "BootstrapLesson")
+                                 (decode-flow body))))))))
+
+
+
+
+(define (drill . body)
+  (compound-paragraph (bootstrap-sectioning-style "BootstrapDrill")
+                      (decode-flow body)))
+
+
+(define (exercise . body) 
+  (list (compound-paragraph (bootstrap-sectioning-style 
+                             "BootstrapHeader")
+                            (decode-flow (list "Exercise:")))
+        (compound-paragraph (bootstrap-sectioning-style "BootstrapExercise")
+                            (decode-flow body))))
+
+
+;; this needs some sort of ALT tag
+(define (skit . body) 
+  (list "Skit:"	
+        (compound-paragraph (bootstrap-sectioning-style "BootstrapSkit")
+                            (decode-flow body))))
+
+
+(define (demo . body) 
+  (compound-paragraph (bootstrap-sectioning-style "BootstrapDemo")
+                      (decode-flow (cons "Demo: " body))))
+
+
+(define (review . body)
+  (list "Review:"
+        (compound-paragraph (bootstrap-sectioning-style "BootstrapReview")
+                            (decode-flow body))))
+
+(define (language-table . rows)
+  (table (style  #f 
+		(list 
+		 (table-columns
+		  (list 
+		   (style "BootstrapTable" '(center))
+		   (style "BootstrapTable" '(center))))))
+         
+         (cons (list (compound-paragraph (bootstrap-sectioning-style "BootstrapTableHeader")
+                            (decode-flow (list "Types"))) (compound-paragraph (bootstrap-sectioning-style "BootstrapTableHeader")
+                            (decode-flow (list "Functions"))))
+	       (map (lambda (r)
+		      (map format-cell r))
+		    rows))))
+;	 (cons (list (para (bold "Types")) (para (bold "Functions")))
+;	       (map (lambda (r)
+;		      (map format-cell r))
+;		    rows))))
+
+(define (format-cell s)
+  (para s)
+  #;(if (string? s)
+      (para s)
+      s))
+  
+;; worksheet-table : list[string] list[element] list[string] -> table
+;; assert: col-headers should be same length as (add1 id-tags)
+(define (worksheet-table col-headers left-col id-tags width height)
+  (table (style #f 
+		(list 
+		 (table-columns
+                  (build-list width
+                              (lambda (n) (style #f '(left)))))))
+	 (cond
+      [(and (zero? (length left-col)) (zero? (length col-headers)))
+       (map (lambda (row-num)
+                  (map (lambda (tag) 
+                       (para (fill-in-the-blank 
+                             #:id (format "~a~a" tag row-num)
+                             #:label (format "~a~a" tag row-num))))
+                             id-tags))
+                    (build-list (sub1 height) add1))]
+      [(zero? (length col-headers)) 
+       (map (lambda (left-content row-num) 
+                      (cons (format-cell left-content)
+                            (map (lambda (tag) 
+                                   (para (fill-in-the-blank 
+                                          #:id (format "~a~a" tag row-num)
+                                          #:label (format "~a~a" tag row-num))))
+                                 id-tags)))
+                    left-col (build-list (sub1 height) add1))]
+      [(zero? (length left-col))
+       (cons (map (lambda (h) (para (bold h))) col-headers)
+             (map (lambda (row-num)
+                  (map (lambda (tag) 
+                       (para (fill-in-the-blank 
+                             #:id (format "~a~a" tag row-num)
+                             #:label (format "~a~a" tag row-num))))
+                             id-tags))
+                    (build-list (sub1 height) add1)))]
+      [else (cons (map (lambda (h) (para (bold h))) col-headers)
+               (map (lambda (left-content row-num) 
+                      (cons (format-cell left-content)
+                            (map (lambda (tag) 
+                                   (para (fill-in-the-blank 
+                                          #:id (format "~a~a" tag row-num)
+                                          #:label (format "~a~a" tag row-num))))
+                                 id-tags)))
+                    left-col (build-list (sub1 height) add1)))])))
+               
+(define (standards . body)
+  (list "State Standards:"
+        (compound-paragraph (bootstrap-sectioning-style "BootstrapStandards")
+                            (decode-flow body))))
+
+(define (unit-length timestr)
+  (list (format "Length: ~a~n" (decode-flow timestr))))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(define (materials . items)
+  (list (compound-paragraph (bootstrap-sectioning-style "BootstrapHeader") (decode-flow (list "Materials and Equipment:")))
+        (apply itemlist/splicing items #:style "BootstrapMaterialsList")))
+
+(define (goals . items)
+  (list "Goals:"
+        (apply itemlist/splicing items #:style "BootstrapGoalsList")))
+
+(define (do-now . items)
+  (list "Do Now:"
+        (apply itemlist/splicing items #:style "BootstrapDoNowList")))
+
+(define (objectives . items)
+  (list (compound-paragraph (bootstrap-sectioning-style "BootstrapHeader") (decode-flow (list "Learning Objectives:")))
+        (apply itemlist/splicing items #:style "BootstrapLearningObjectivesList")))
+
+(define (product-outcomes . items)
+  (list (compound-paragraph (bootstrap-sectioning-style "BootstrapHeader") (decode-flow (list "Product Outcomes:")))
+        (apply itemlist/splicing items #:style "BootstrapProductOutcomesList")))
+
+(define (preparation . items)
+  (list (compound-paragraph (bootstrap-sectioning-style "BootstrapHeader") (decode-flow (list "Preparation:")))
+        (apply itemlist/splicing items #:style "BootstrapPreparationList")))
+
+
+
+;; Cooperates with the Lesson tag.
+(define (agenda . items)
+  (traverse-block
+   (lambda (get set)
+     
+     (lambda (get set)
+       (define lessons (reverse (get 'bootstrap-lessons '())))
+       
+       (nested-flow
+        (style "BootstrapAgenda" '(never-indents))
+        (decode-flow
+         (list "Agenda:"
+               (apply itemlist/splicing
+                      (map (lambda (a-lesson)
+                             (item (list (lesson-struct-title a-lesson)
+                                          " ("
+                                          (lesson-struct-duration a-lesson)
+                                          ")"
+                                          )))
+                           lessons)
+                      #:style "BootstrapAgendaList"))))))))
+
+
+;; itemlist/splicing is like itemlist, but also cooperates with the
+;; splice form to absorb arguments.  We use this in combination
+;; with tags.
+(define (itemlist/splicing #:style [style #f] . items)
+  (define spliced-items
+    (reverse
+     (let loop ([items items]
+                [acc '()])
+       (foldl (lambda (i acc)
+                (cond
+                 [(splice? i)
+                  (loop (splice-run i) acc)]
+                 [else
+                  (cons i acc)]))
+              acc
+              items))))
+  (apply itemlist spliced-items #:style style))
+
+  
+
+
+
+(define (extract-lesson p)
+  (unless (part? p)
+    (error 'include-lesson "doc binding is not a part: ~e" p))
+  (part-blocks p))
+
+(define-syntax-rule (include-lesson mp)
+  (begin
+    (require (only-in mp [doc abstract-doc]))
+    (extract-lesson abstract-doc)))
+
+
+
+
+
+;;interns
+;
+(define (overview . body)
+  (list 
+   
+   ;(compound-paragraph (bootstrap-sectioning-style "BootstrapImage") ;(decode-flow (list bootstrap.gif)))
+        (compound-paragraph (bootstrap-sectioning-style "BootstrapOverviewTitle") (decode-flow (list (format "Unit Overview"))))
+        (agenda)
+        (compound-paragraph (bootstrap-sectioning-style "BootstrapOverview")
+                            (decode-flow body))
+        ))
+
+
+(define (contract-exercise tag)
+  (cond-block [html
+               (para ";" (fill-in-the-blank #:id (format "~aname" tag) #:label "Name")
+                     ":" (fill-in-the-blank #:id (format "~aarg" tag) #:label "Domain")
+                     "->" (fill-in-the-blank #:id (format "~aoutput" tag) #:label "Range"))]
+              [(or latex pdf)
+               (para #:style bs-contract-exercise-style "")]))
+               
+
+
+
+;auto generates copyright section
+(define (copyright . body)
+  (compound-paragraph (bootstrap-sectioning-style "BootstrapCopyright" ) (decode-flow (list (hyperlink "http://creativecommons.org/licenses/by-nc-nd/3.0/" creativeCommonsLogo) "Bootstrap by " (hyperlink "http://www.bootstrapworld.org/" "Emmanuel Schanzer") " is licensed under a "
+        (hyperlink "http://creativecommons.org/licenses/by-nc-nd/3.0/" "Creative Commons 3.0 Unported License")
+        ". Based on a work at " (hyperlink "http://www.bootstrapworld.org/" "www.BootsrapWorld.org")
+        ". Permissions beyond the scope of this license may be available at "
+        (hyperlink "mailto:schanzer@BootstrapWorld.org" "schanzer@BootstrapWorld.org") "."))))
+
+;autogenerates state-standards section
+(define state-standards
+  (list
+   (compound-paragraph (bootstrap-sectioning-style "BootstrapHeader") (decode-flow (list "State Standards")))
+   (para "See " (hyperlink "https://spreadsheets.google.com/a/brown.edu/pub?key=0Ak3Voejjnf0ldHlQcXRVWTZDbVprWHlBLTJWRlQ2dkE&hl=en&gid=0" "Bootstrap Standards Matrix") " provided as part of the Bootstrap curriculum.")))
+
+;creates the length of the lesson based on input
+;input ONLY THE NUMBER!
+(define (length-of-lesson l)
+  (list (compound-paragraph (bootstrap-sectioning-style "BootstrapHeader") (decode-flow (list (format "Length: ~a minutes" l))))))
+
+;;example: optional text, example for cond (p23), example for not cond (p21), example for with name (p8)
+
+;; input: -a tag which can be anything unqiue which helps to generate a 
+;;         unique id
+;; output: in format (EXAMPLE (____ ____) _________)
+(define (example-fast-functions tag)
+  (cond-block [html
+               (para "(EXAMPLE (" 
+                     (fill-in-the-blank #:id (format "~a.1" tag) #:label "")
+                     " "
+                     (fill-in-the-blank #:id (format "~a.2" tag) #:label "")
+                     ") "
+                     (fill-in-the-blank #:id (format "~a.3" tag) #:label "")
+                     ")")]
+              [(or latex pdf)
+               (para #:style bs-function-example-exercise-style "")]))
+
+;; input: -two optional text labels for the two fill-in-the-blanks 
+;;        -a tag which can be anything unqiue which helps to generate a 
+;;         unique id 
+;; output: in format (EXAMPLE ( /*with text1label*/ _____) /*with text2label*/ _____)
+(define (example-with-text #:text1 [text1 ""]
+                           #:text2 [text2 ""]
+                           tag)
+  (cond-block [html
+               (para "(EXAMPLE (" 
+                     (fill-in-the-blank #:id (format "~a.1" tag) #:label text1)
+                     ") "
+                     (fill-in-the-blank #:id (format "~a.2" tag) #:label text2)
+                     ")")]
+              [(or latex pdf)
+               (para #:style bs-example-exercise-style "")]))
+                            
+;; input: optional values for the name, args, and body fields of a function
+;;        a tag to use for generating html id names
+;; output: a define with text boxes formatted for inputs to the exercise
+(define (function-exercise #:name [name ""]
+                           #:args [args ""]
+                           #:body [body ""]
+                           tag)
+  (cond-block [html
+               (para "(define ("(fill-in-the-blank #:id (format "fname-~a" tag) #:label "function name")
+                     (fill-in-the-blank #:id (format "args-~a" tag) #:label "variable names") ")"
+                     (fill-in-the-blank #:id (format "body-~a" tag) #:label "what it does") ")")]
+              [(or latex pef)
+               (para #:style bs-function-exercise-style "")]))
+
+(define-runtime-path worksheet-lesson-root (build-path 'up "lessons"))
+;; We need to do a little compile-time computation to get the file's source
+;; where worksheet-link/src-path is used, since we want the path relative to
+;; the usage, rather than to current-directory.
+(define-syntax (worksheet-link/src-path stx)
+  (syntax-case stx ()
+    [(_ args ...)
+     (with-syntax ([src-path (syntax-source stx)])
+       (begin
+         (syntax/loc stx
+           (worksheet-link #:src-path src-path
+                           args ...))))]))
+
+(define (worksheet-link #:name name
+                        #:page page
+                        #:lesson [lesson #f]
+                        #:src-path src-path)
+  (define-values (base-path _ dir?) (split-path src-path))
+  (define the-relative-path
+    (if lesson
+        (find-relative-path (simple-form-path (current-directory))
+                            (simple-form-path (build-path worksheet-lesson-root
+                                                          lesson
+                                                          "worksheets"
+                                                          (format "~a.html" name))))
+        (find-relative-path (simple-form-path (current-directory))
+                            (simple-form-path (build-path base-path
+                                                          'up
+                                                          "worksheets"
+                                                          (format "~a.html" name))))))
+  (list (hyperlink the-relative-path
+                   "Page " (number->string page))))
+
+(define (bootstrap-title . body)
+  (define the-title (apply string-append body))
+  (define unit+title (regexp-match #px"^([^:]+):\\s*(.+)$" the-title)) 
+  (cond
+    [unit+title
+     (list (compound-paragraph 
+            (bootstrap-sectioning-style "BootstrapTitle") 
+            (decode-flow (list bootstrap.gif 
+                               (second unit+title))))                    
+           "\n"
+           (compound-paragraph
+            (bootstrap-sectioning-style "BootstrapTitle")
+            (decode-flow (list (third unit+title)))))]
+    [else
+     (list (compound-paragraph 
+            (bootstrap-sectioning-style "BootstrapTitle") 
+            (decode-flow (cons bootstrap.gif body))))]))
+    
+
+
+(define (check constraint #:id (id (gensym 'check)))
+  (elem (sxml->element
+         `(input
+           (@ (id ,(format "~a" id))
+              (type "button")
+              (value "Check answer")
+              (class "BootstrapCheckbox"))
+           ""))
+        (inject-javascript
+         (format "jQuery(document.getElementById(~s)).click(function() {
+                       if (~a) {
+                            alert('Congrats! You got it right');
+                       } else {
+                            alert('Sorry! Try again.');
+                       }
+                   });"
+                 (format "~a" id)
+                 (constraint->js constraint)))))
+
+>>>>>>> 1415f991ec23adcf26fbc08da0ef7045109fdd9b

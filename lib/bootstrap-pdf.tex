@@ -1,3 +1,38 @@
+% This file contains commands and environments defined as styles in
+% the Boostrap scribble files.  They are used to format scribble
+% outputs in latex and (thus) PDF.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\BSFunctionExercise}{}
+\newcommand{\BootstrapRow}{}
+\newcommand{\BSContractExercise}{}
+\newcommand{\BootstrapCode}{}
+
+\newenvironment{BootstrapLesson}{}{}
+\newenvironment{BootstrapStandards}{}{}
+\newenvironment{BootstrapHeader}{}{}
+\newenvironment{BootstrapImage}{}{}
+\newenvironment{BootstrapOverview}{}{}
+\newenvironment{BootstrapCopyright}{}{}
+\newenvironment{BootstrapWorksheet}{}{\newpage}
+\newenvironment{BootstrapDrill}{}{}
+\newenvironment{BootstrapExercise}{}{}
+\newenvironment{BootstrapSkit}{}{}
+\newenvironment{BootstrapDemo}{}{}
+\newenvironment{BootstrapReview}{}{}
+\newenvironment{BootstrapTableHeader}{}{}
+
+\newenvironment{BootstrapLessonTitle}{\large\bf}{\par\hrule\par}
+\newenvironment{BootstrapOverviewTitle}{\large\bf}{\par\hrule\par}
+\newenvironment{BootstrapTitle}{\bf}{\par}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{BootstrapContract}[1]{\tt|#1|}
+\newcommand{BootstrapRow}[1]{\tt|#1|}
+\newcommand{BootstrapCode}[1]{\tt|#1|}
+
 % generates (EXAMPLE ____________  _______________)
 \newcommand{\BSExampleExercise}[1]{
 (EXAMPLE (\rule{1.25in}{.1mm} \hskip.25in \rule{1.25in}{.1mm})

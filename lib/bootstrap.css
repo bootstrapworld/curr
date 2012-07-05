@@ -305,3 +305,12 @@ select{
 	margin-top:			2px;
 	z-index:			0;}
 
+
+
+blockquote.pedagogy {
+    display: inline;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    font-style: italic;
+}
