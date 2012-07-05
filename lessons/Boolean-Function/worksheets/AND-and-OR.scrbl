@@ -15,4 +15,4 @@
 
            image/circle2.png
 
-           @fill-in-the-blank[#:id "Racket Code" #:ansewr "(or (< 2 4) (= 4 6))"]}
+           @fill-in-the-blank[#:id "Racket Code" #:answer "(or (< 2 4) (= 4 6))"]}

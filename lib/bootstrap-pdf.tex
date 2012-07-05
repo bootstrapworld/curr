@@ -13,7 +13,9 @@
 \newenvironment{BootstrapOverview}{}{}
 \newenvironment{BootstrapCopyright}{}{}
 \newenvironment{BootstrapWorksheet}{}{\newpage}
-\newenvironment{BootstrapWorksheetSegment}{\vskip\baselinseskip\hrule\par\bf}{\par\hrule\vskip\baselineskip}
+\newenvironment{BootstrapWorksheetSegment}
+               {\vskip\baselineskip\hrule\par\vskip5pt\bf}
+               {\par\vskip5pt\hrule\vskip\baselineskip}
 \newenvironment{BootstrapDrill}{}{}
 \newenvironment{BootstrapExercise}{}{}
 \newenvironment{BootstrapSkit}{}{}
@@ -23,7 +25,7 @@
 
 \newenvironment{BootstrapLessonTitle}{\large\bf}{\par\hrule\par}
 \newenvironment{BootstrapOverviewTitle}{\large\bf}{\par\hrule\par}
-\newenvironment{BootstrapTitle}{\bf}{\par}
+\newenvironment{BootstrapTitle}{\center\Large\bf}{\par\vskip\baselineskip}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -34,17 +36,18 @@
 \newcommand{\BSFunctionExercise}{}
 \newcommand{\BSContractExercise}{}
 
-\newcommand{\BSFillInBlank}[1]{
-#1: \rule{3in}{.1mm}
+\newcommand{\BSFillInBlank}[1]{\rule{3in}{.1mm}
 }
 
 % generates (EXAMPLE ____________  _______________)
 \newcommand{\BSExampleExercise}[1]{
+\vskip\baselineskip\vskip\baselineskip
 (EXAMPLE (\rule{1.25in}{.1mm} \hskip.25in \rule{1.25in}{.1mm})
 }
 
 % generates (EXAMPLE (____________ _____________) _______________)
 \newcommand{\BSFunctionExampleExercise}[1]{
+\vskip\baselinseskip\vskip\baselineskip
 (EXAMPLE (\rule{1.25in}{.1mm} \hskip.25in \rule{1.25in}{.1mm}) \hskip.25in \rule{1.25in}{.1mm})
 }
 

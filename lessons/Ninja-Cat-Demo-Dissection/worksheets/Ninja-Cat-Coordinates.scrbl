@@ -2,7 +2,7 @@
 
 @title{Game Parts - NinjaCat!}
 @worksheet{
-  @image{images/ninja-cat.png} 
+  @bitmap{images/ninja-cat.png} 
    
   The background is a picture of: @fill-in-the-blank[#:id "background" #:answer "sunset"]
                                   

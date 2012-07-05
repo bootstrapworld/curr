@@ -4,7 +4,7 @@
 @worksheet{
      The distance between the points (4, 0) and (0, 3) is given by:
      
-     @image{images/distance-formula.png}
+     @bitmap{images/distance-formula.png}
      
      Now get a piece of paper and a pencil, and convert it into a Circle of Evaluation. (We've already gotten you started!)
      

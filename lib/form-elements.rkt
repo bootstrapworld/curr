@@ -89,39 +89,36 @@
 
 (define bootstrap.gif (bitmap "bootstrap.gif"))
 (define creativeCommonsLogo (bitmap "creativeCommonsLogo.png"))
+(define-runtime-path bootstrap.css "bootstrap.css")
+(define-runtime-path bootstrap-pdf.tex "bootstrap-pdf.tex")
 
 ;;;;;;;;;;;;;;;; LaTeX Styles ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (define bs-lesson-style
   (make-style "BootstrapLesson" 
-              (list (make-tex-addition "bootstrap-pdf.tex"))))
-;
-;(define bs-lesson-title-style
-;  (make-style "BootstrapLessonTitle" (list (make-tex-addition "bootstrap-pdf.tex"))))
+              (list (make-tex-addition bootstrap-pdf.tex))))
 
 (define bs-example-exercise-style
   (make-style "BSExampleExercise"
-              (list (make-tex-addition "bootstrap-pdf.tex"))))
+              (list (make-tex-addition bootstrap-pdf.tex))))
 
 (define bs-function-example-exercise-style
   (make-style "BSFunctionExampleExercise"
-              (list (make-tex-addition "bootstrap-pdf.tex"))))
+              (list (make-tex-addition bootstrap-pdf.tex))))
 
 (define bs-contract-exercise-style
   (make-style "BSContractExercise"
-              (list (make-tex-addition "bootstrap-pdf.tex"))))
+              (list (make-tex-addition bootstrap-pdf.tex))))
 
 (define bs-function-exercise-style
   (make-style "BSFunctionExercise"
-              (list (make-tex-addition "bootstrap-pdf.tex"))))
+              (list (make-tex-addition bootstrap-pdf.tex))))
 
 (define bs-fill-in-blank-style
   (make-style "BSFillInBlank"
-              (list (make-tex-addition "bootstrap-pdf.tex"))))
+              (list (make-tex-addition bootstrap-pdf.tex))))
 
-;; need remaining styles as defined in the CSS
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; This provides form loops and indices
 
 
@@ -281,8 +278,6 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(define-runtime-path bootstrap.css "bootstrap.css")
-(define-runtime-path bootstrap-pdf.tex "bootstrap-pdf.tex")
 (define (bootstrap-sectioning-style name)
   (make-style name (list (make-css-addition bootstrap.css)
                          (make-tex-addition bootstrap-pdf.tex)
@@ -383,59 +378,42 @@
   #;(if (string? s)
       (para s)
       s))
-  
+
 ;; worksheet-table : list[string] list[element] list[string] -> table
 ;; assert: col-headers should be same length as (add1 id-tags)
 (define (worksheet-table col-headers left-col id-tags width height)
-  (table (style #f 
-                (list 
-                 (table-columns
-                  (build-list width
-                              (lambda (n) (style #f '(left)))))))
-         (cond
-           [(and (zero? (length left-col)) (zero? (length col-headers)))
-            (map (lambda (row-num)
-                   (map (lambda (tag) 
-                          (para
-                           (fill-in-the-blank 
-                            #:id (format "~a~a" tag row-num)
-                            #:label (format "~a~a" tag row-num))))
-                        id-tags))
-                 (build-list (sub1 height) add1))]
-           [(zero? (length col-headers)) 
-            (map (lambda (left-content row-num) 
-                   (cons (format-cell left-content)
-                         (map (lambda (tag) 
-                                (para (fill-in-the-blank 
-                                       #:id (format "~a~a" tag row-num)
-                                       #:label (format "~a~a" tag row-num))))
-                              id-tags)))
-                 left-col (build-list (sub1 height) add1))]
-           [(zero? (length left-col))
-            (cons (map (lambda (h) (para (bold h))) col-headers)
-                  (map (lambda (row-num)
-                         (map (lambda (tag) 
-                                (para (fill-in-the-blank 
-                                       #:id (format "~a~a" tag row-num)
-                                       #:label (format "~a~a" tag row-num))))
-                              id-tags))
-                       (build-list (sub1 height) add1)))]
-           [else (cons (map (lambda (h) (para (bold h))) col-headers)
-                       (map (lambda (left-content row-num) 
-                              (cons (format-cell left-content)
-                                    (map (lambda (tag) 
-                                           (para 
-                                            (fill-in-the-blank 
-                                             #:id (format "~a~a" tag row-num)
-                                             #:label (format "~a~a" tag row-num))))
-                                         id-tags)))
-                            left-col (build-list (sub1 height) add1)))])))
-
+  (let ([make-row (lambda (row-num)
+                    (map (lambda (tag) 
+                           (para (fill-in-the-blank 
+                                  #:id (format "~a~a" tag row-num)
+                                  )))
+                         id-tags))])
+    (table (style #f 
+                  (list 
+                   (table-columns
+                    (build-list width
+                                (lambda (n) (style #f '(left)))))))
+           (cond
+             [(and (zero? (length left-col)) (zero? (length col-headers)))
+              (map make-row (build-list (sub1 height) add1))]
+             [(zero? (length col-headers)) 
+              (map (lambda (left-content row-num) 
+                     (cons (format-cell left-content)
+                           (make-row row-num)))
+                   left-col (build-list (sub1 height) add1))]
+             [(zero? (length left-col))
+              (cons (map (lambda (h) (para (bold h))) col-headers)
+                    (map make-row (build-list (sub1 height) add1)))]
+             [else (cons (map (lambda (h) (para (bold h))) col-headers)
+                         (map (lambda (left-content row-num) 
+                                (cons (format-cell left-content)
+                                      (make-row row-num)))
+                              left-col (build-list (sub1 height) add1)))]))))
 
 (define (standards . body)
   (list "State Standards:"
-        (compound-paragraph (bootstrap-sectioning-style "BootstrapStandards")
-                            (decode-flow body))))
+        (para (bootstrap-sectioning-style "BootstrapStandards")
+              (decode-flow body))))
 
 (define (unit-length timestr)
   (list (format "Length: ~a~n" (decode-flow timestr))))
@@ -443,7 +421,8 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (define (materials . items)
-  (list (compound-paragraph (bootstrap-sectioning-style "BootstrapHeader") (decode-flow (list "Materials and Equipment:")))
+  (list (compound-paragraph (bootstrap-sectioning-style "BootstrapHeader") 
+                            (decode-flow (list "Materials and Equipment:")))
         (apply itemlist/splicing items #:style "BootstrapMaterialsList")))
 
 (define (goals . items)
@@ -455,15 +434,18 @@
         (apply itemlist/splicing items #:style "BootstrapDoNowList")))
 
 (define (objectives . items)
-  (list (compound-paragraph (bootstrap-sectioning-style "BootstrapHeader") (decode-flow (list "Learning Objectives:")))
+  (list (compound-paragraph (bootstrap-sectioning-style "BootstrapHeader") 
+                            (decode-flow (list "Learning Objectives:")))
         (apply itemlist/splicing items #:style "BootstrapLearningObjectivesList")))
 
 (define (product-outcomes . items)
-  (list (compound-paragraph (bootstrap-sectioning-style "BootstrapHeader") (decode-flow (list "Product Outcomes:")))
+  (list (compound-paragraph (bootstrap-sectioning-style "BootstrapHeader") 
+                            (decode-flow (list "Product Outcomes:")))
         (apply itemlist/splicing items #:style "BootstrapProductOutcomesList")))
 
 (define (preparation . items)
-  (list (compound-paragraph (bootstrap-sectioning-style "BootstrapHeader") (decode-flow (list "Preparation:")))
+  (list (compound-paragraph (bootstrap-sectioning-style "BootstrapHeader") 
+                            (decode-flow (list "Preparation:")))
         (apply itemlist/splicing items #:style "BootstrapPreparationList")))
 
 
