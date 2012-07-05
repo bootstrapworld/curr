@@ -38,6 +38,7 @@
          
          ;; Sections
          worksheet
+         worksheet-segment
          lesson
          drill
          exercise
@@ -120,6 +121,10 @@
   (make-style "BSFunctionExercise"
               (list (make-tex-addition "bootstrap-pdf.tex"))))
 
+(define bs-fill-in-blank-style
+  (make-style "BSFillInBlank"
+              (list (make-tex-addition "bootstrap-pdf.tex"))))
+
 ;; need remaining styles as defined in the CSS
 
 
@@ -158,15 +163,16 @@
 (define (fill-in-the-blank #:id id
                            #:columns (width 50)
                            #:label (label #f))
-  (sxml->element `(input (@ (type "text")
-                            (id ,(resolve-id id))
-                            (width ,(number->string width))
-                            ,@(if label
-                                  `((placeholder ,label))
-                                  '()))
-                         "")))
-
-
+  (cond-element [html (sxml->element `(input (@ (type "text")
+                                                (id ,(resolve-id id))
+                                                (width ,(number->string width))
+                                                ,@(if label
+                                                      `((placeholder ,label))
+                                                      '()))
+                                             ""))]
+                [(or latex pdf)
+                 (elem #:style bs-fill-in-blank-style 
+                       (if label label " "))]))
 
 ;; Free form text
 (define (free-response #:id id
@@ -290,8 +296,8 @@
 
 ;; The following provides sectioning for bootstrap.  
 (define (worksheet . body)
-  (compound-paragraph (bootstrap-sectioning-style "BootstrapWorksheet")
-                      (decode-flow body)))
+  (apply nested #:style (bootstrap-sectioning-style "BootstrapWorksheet")
+         body))
 
 
 (struct lesson-struct (title duration) #:transparent)
@@ -387,47 +393,49 @@
 ;; assert: col-headers should be same length as (add1 id-tags)
 (define (worksheet-table col-headers left-col id-tags width height)
   (table (style #f 
-		(list 
-		 (table-columns
+                (list 
+                 (table-columns
                   (build-list width
                               (lambda (n) (style #f '(left)))))))
-	 (cond
-      [(and (zero? (length left-col)) (zero? (length col-headers)))
-       (map (lambda (row-num)
-                  (map (lambda (tag) 
-                       (para (fill-in-the-blank 
-                             #:id (format "~a~a" tag row-num)
-                             #:label (format "~a~a" tag row-num))))
-                             id-tags))
-                    (build-list (sub1 height) add1))]
-      [(zero? (length col-headers)) 
-       (map (lambda (left-content row-num) 
-                      (cons (format-cell left-content)
-                            (map (lambda (tag) 
-                                   (para (fill-in-the-blank 
-                                          #:id (format "~a~a" tag row-num)
-                                          #:label (format "~a~a" tag row-num))))
-                                 id-tags)))
-                    left-col (build-list (sub1 height) add1))]
-      [(zero? (length left-col))
-       (cons (map (lambda (h) (para (bold h))) col-headers)
-             (map (lambda (row-num)
-                  (map (lambda (tag) 
-                       (para (fill-in-the-blank 
-                             #:id (format "~a~a" tag row-num)
-                             #:label (format "~a~a" tag row-num))))
-                             id-tags))
-                    (build-list (sub1 height) add1)))]
-      [else (cons (map (lambda (h) (para (bold h))) col-headers)
-               (map (lambda (left-content row-num) 
-                      (cons (format-cell left-content)
-                            (map (lambda (tag) 
-                                   (para (fill-in-the-blank 
-                                          #:id (format "~a~a" tag row-num)
-                                          #:label (format "~a~a" tag row-num))))
-                                 id-tags)))
-                    left-col (build-list (sub1 height) add1)))])))
-               
+         (cond
+           [(and (zero? (length left-col)) (zero? (length col-headers)))
+            (map (lambda (row-num)
+                   (map (lambda (tag) 
+                          (para
+                           (fill-in-the-blank 
+                            #:id (format "~a~a" tag row-num)
+                            #:label (format "~a~a" tag row-num))))
+                        id-tags))
+                 (build-list (sub1 height) add1))]
+           [(zero? (length col-headers)) 
+            (map (lambda (left-content row-num) 
+                   (cons (format-cell left-content)
+                         (map (lambda (tag) 
+                                (para (fill-in-the-blank 
+                                       #:id (format "~a~a" tag row-num)
+                                       #:label (format "~a~a" tag row-num))))
+                              id-tags)))
+                 left-col (build-list (sub1 height) add1))]
+           [(zero? (length left-col))
+            (cons (map (lambda (h) (para (bold h))) col-headers)
+                  (map (lambda (row-num)
+                         (map (lambda (tag) 
+                                (para (fill-in-the-blank 
+                                       #:id (format "~a~a" tag row-num)
+                                       #:label (format "~a~a" tag row-num))))
+                              id-tags))
+                       (build-list (sub1 height) add1)))]
+           [else (cons (map (lambda (h) (para (bold h))) col-headers)
+                       (map (lambda (left-content row-num) 
+                              (cons (format-cell left-content)
+                                    (map (lambda (tag) 
+                                           (para 
+                                            (fill-in-the-blank 
+                                             #:id (format "~a~a" tag row-num)
+                                             #:label (format "~a~a" tag row-num))))
+                                         id-tags)))
+                            left-col (build-list (sub1 height) add1)))])))
+
 (define (standards . body)
   (list "State Standards:"
         (compound-paragraph (bootstrap-sectioning-style "BootstrapStandards")
@@ -505,10 +513,6 @@
               items))))
   (apply itemlist spliced-items #:style style))
 
-  
-
-
-
 (define (extract-lesson p)
   (unless (part? p)
     (error 'include-lesson "doc binding is not a part: ~e" p))
@@ -519,15 +523,10 @@
     (require (only-in mp [doc abstract-doc]))
     (extract-lesson abstract-doc)))
 
-
-
-
-
 ;;interns
 ;
 (define (overview . body)
   (list 
-   
    ;(compound-paragraph (bootstrap-sectioning-style "BootstrapImage") ;(decode-flow (list bootstrap.gif)))
         (compound-paragraph (bootstrap-sectioning-style "BootstrapOverviewTitle") (decode-flow (list (format "Unit Overview"))))
         (agenda)
@@ -537,14 +536,16 @@
 
 
 (define (contract-exercise tag)
-  (cond-block [html
-               (para ";" (fill-in-the-blank #:id (format "~aname" tag) #:label "Name")
-                     ":" (fill-in-the-blank #:id (format "~aarg" tag) #:label "Domain")
-                     "->" (fill-in-the-blank #:id (format "~aoutput" tag) #:label "Range"))]
-              [(or latex pdf)
-               (para #:style bs-contract-exercise-style "")]))
-               
+  (cond-element [html
+                 (elem ";" (fill-in-the-blank #:id (format "~aname" tag) #:label "Name")
+                       ":" (fill-in-the-blank #:id (format "~aarg" tag) #:label "Domain")
+                       "->" (fill-in-the-blank #:id (format "~aoutput" tag) #:label "Range"))]
+                [(or latex pdf)
+                 (elem #:style bs-contract-exercise-style "")]))
 
+(define (worksheet-segment title)
+  (compound-paragraph (bootstrap-sectioning-style "BootstrapWorksheetSegment")
+                      (decode-flow (list title))))
 
 
 ;auto generates copyright section
@@ -572,8 +573,8 @@
 ;;         unique id
 ;; output: in format (EXAMPLE (____ ____) _________)
 (define (example-fast-functions tag)
-  (cond-block [html
-               (para "(EXAMPLE (" 
+  (cond-element [html
+               (elem "(EXAMPLE (" 
                      (fill-in-the-blank #:id (format "~a.1" tag) #:label "")
                      " "
                      (fill-in-the-blank #:id (format "~a.2" tag) #:label "")
@@ -581,7 +582,7 @@
                      (fill-in-the-blank #:id (format "~a.3" tag) #:label "")
                      ")")]
               [(or latex pdf)
-               (para #:style bs-function-example-exercise-style "")]))
+               (elem #:style bs-function-example-exercise-style "")]))
 
 ;; input: -two optional text labels for the two fill-in-the-blanks 
 ;;        -a tag which can be anything unqiue which helps to generate a 
@@ -590,14 +591,14 @@
 (define (example-with-text #:text1 [text1 ""]
                            #:text2 [text2 ""]
                            tag)
-  (cond-block [html
-               (para "(EXAMPLE (" 
+  (cond-element [html
+               (elem "(EXAMPLE (" 
                      (fill-in-the-blank #:id (format "~a.1" tag) #:label text1)
                      ") "
                      (fill-in-the-blank #:id (format "~a.2" tag) #:label text2)
                      ")")]
               [(or latex pdf)
-               (para #:style bs-example-exercise-style "")]))
+               (elem #:style bs-example-exercise-style "")]))
                             
 ;; input: optional values for the name, args, and body fields of a function
 ;;        a tag to use for generating html id names
@@ -606,12 +607,12 @@
                            #:args [args ""]
                            #:body [body ""]
                            tag)
-  (cond-block [html
-               (para "(define ("(fill-in-the-blank #:id (format "fname-~a" tag) #:label "function name")
+  (cond-element [html
+               (elem "(define ("(fill-in-the-blank #:id (format "fname-~a" tag) #:label "function name")
                      (fill-in-the-blank #:id (format "args-~a" tag) #:label "variable names") ")"
                      (fill-in-the-blank #:id (format "body-~a" tag) #:label "what it does") ")")]
               [(or latex pef)
-               (para #:style bs-function-exercise-style "")]))
+               (elem #:style bs-function-exercise-style "")]))
 
 (define-runtime-path worksheet-lesson-root (build-path 'up "lessons"))
 ;; We need to do a little compile-time computation to get the file's source
@@ -646,25 +647,27 @@
   (list (hyperlink the-relative-path
                    "Page " (number->string page))))
 
+;; generates the title, which includes the bootstrap logo in html but not in latex/pdf
 (define (bootstrap-title . body)
   (define the-title (apply string-append body))
   (define unit+title (regexp-match #px"^([^:]+):\\s*(.+)$" the-title)) 
+  (define bootstrap-image (cond-element 
+                           [html bootstrap.gif]
+                           [(or latex pdf) 
+                            (elem)]))
   (cond
     [unit+title
      (list (compound-paragraph 
             (bootstrap-sectioning-style "BootstrapTitle") 
-            (decode-flow (list bootstrap.gif 
-                               (second unit+title))))                    
+            (decode-flow (list bootstrap-image (second unit+title))))
            "\n"
            (compound-paragraph
             (bootstrap-sectioning-style "BootstrapTitle")
             (decode-flow (list (third unit+title)))))]
     [else
-     (list (compound-paragraph 
-            (bootstrap-sectioning-style "BootstrapTitle") 
-            (decode-flow (cons bootstrap.gif body))))]))
-    
-
+     (list (compound-paragraph
+            (bootstrap-sectioning-style "BootstrapTitle")
+            (decode-flow (cons bootstrap-image body))))]))
 
 (define (check constraint #:id (id (gensym 'check)))
   (elem (sxml->element
