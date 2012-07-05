@@ -130,7 +130,8 @@
 ;; One-line input
 (define (fill-in-the-blank #:id id
                            #:columns (width 50)
-                           #:label (label #f))
+                           #:label (label #f)
+                           #:answer (answer #f))
   (sxml->element `(input (@ (type "text")
                             (id ,(resolve-id id))
                             (width ,(number->string width))
@@ -143,6 +144,7 @@
 
 ;; Free form text
 (define (free-response #:id id
+                       #:answer (answer #f)
                        #:columns (width 50)
                        #:rows (height 20)
                        #:label (label #f))
@@ -522,7 +524,7 @@
         ))
 
 
-(define (contract-exercise tag)
+(define (contract-exercise tag #:name [name-ans #f] #:domain [domain-ans #f] #:range [range-ans #f])
   (cond-block [html
                (para ";" (fill-in-the-blank #:id (format "~aname" tag) #:label "Name")
                      ":" (fill-in-the-blank #:id (format "~aarg" tag) #:label "Domain")
@@ -575,7 +577,9 @@
 ;; output: in format (EXAMPLE ( /*with text1label*/ _____) /*with text2label*/ _____)
 (define (example-with-text #:text1 [text1 ""]
                            #:text2 [text2 ""]
-                           tag)
+                           tag
+                           #:example1 [example1 #f]
+                           #:example2 [example2 #f])
   (cond-block [html
                (para "(EXAMPLE (" 
                      (fill-in-the-blank #:id (format "~a.1" tag) #:label text1)
@@ -588,10 +592,10 @@
 ;; input: optional values for the name, args, and body fields of a function
 ;;        a tag to use for generating html id names
 ;; output: a define with text boxes formatted for inputs to the exercise
-(define (function-exercise #:name [name ""]
+(define (function-exercise tag
+                           #:name [name ""]
                            #:args [args ""]
-                           #:body [body ""]
-                           tag)
+                           #:body [body ""])
   (cond-block [html
                (para "(define ("(fill-in-the-blank #:id (format "fname-~a" tag) #:label "function name")
                      (fill-in-the-blank #:id (format "args-~a" tag) #:label "variable names") ")"
