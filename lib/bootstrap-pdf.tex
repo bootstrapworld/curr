@@ -4,10 +4,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newcommand{\BSFunctionExercise}{}
-\newcommand{\BootstrapRow}{}
-\newcommand{\BSContractExercise}{}
-\newcommand{\BootstrapCode}{}
+\usepackage{fullpage}
 
 \newenvironment{BootstrapLesson}{}{}
 \newenvironment{BootstrapStandards}{}{}
@@ -16,6 +13,7 @@
 \newenvironment{BootstrapOverview}{}{}
 \newenvironment{BootstrapCopyright}{}{}
 \newenvironment{BootstrapWorksheet}{}{\newpage}
+\newenvironment{BootstrapWorksheetSegment}{\vskip\baselinseskip\hrule\par\bf}{\par\hrule\vskip\baselineskip}
 \newenvironment{BootstrapDrill}{}{}
 \newenvironment{BootstrapExercise}{}{}
 \newenvironment{BootstrapSkit}{}{}
@@ -29,9 +27,16 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newcommand{BootstrapContract}[1]{\tt|#1|}
-\newcommand{BootstrapRow}[1]{\tt|#1|}
-\newcommand{BootstrapCode}[1]{\tt|#1|}
+\newcommand{\BootstrapContract}[1]{\tt|#1|}
+\newcommand{\BootstrapRow}[1]{\tt|#1|}
+\newcommand{\BootstrapCode}[1]{\tt|#1|}
+
+\newcommand{\BSFunctionExercise}{}
+\newcommand{\BSContractExercise}{}
+
+\newcommand{\BSFillInBlank}[1]{
+#1: \rule{3in}{.1mm}
+}
 
 % generates (EXAMPLE ____________  _______________)
 \newcommand{\BSExampleExercise}[1]{
