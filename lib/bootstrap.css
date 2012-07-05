@@ -22,11 +22,13 @@
     margin: 3px;
 }
 
-.BootstrapWorksheet {
-    border: 1px solid black;
-    padding: 5px;
-    margin: 10px;
+.BootstrapWorsheetSegment {
+    background: black;
+    color: white;
+    font-size: 16px;
+    margin: 3px;
 }
+
 /*Lesson Design*/
 .BootstrapLessonTitle{
     background: black;

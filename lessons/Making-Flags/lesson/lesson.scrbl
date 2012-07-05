@@ -32,8 +32,8 @@
     @tag[pedagogy]{@item{What should the radius of our circle be? What code will generate this circle? @code{(circle 50 "solid" "red")}}}
     @tag[selftaught]{@item{@think-about[#:question "What should the radius of our circle be? What code will generate this circle?" #:answer @code{(circle 50 "solid" "red")}]}}
     @tag[pedagogy]{@item{Let's go through the next exercise together.}}
-    @item{@exercise{Place the red circle on top of the flag to make the Japanese flag: @image{images/japan.jpg}}}
-    @item{Okay, so I've got my scene, @code{flag}, and I've got the image I want to place on it. Scheme gives us a function called @code{put-image}, which lets us do exactly that! @linebreak[]
+    @item{@exercise{Place the red circle on top of the flag to make the Japanese flag.}}
+    @item{@bitmap{images/japan.jpg} Okay, so I've got my scene, @code{flag}, and I've got the image I want to place on it. Scheme gives us a function called @code{put-image}, which lets us do exactly that! @linebreak[]
           @code[#:contract]{; put-image: Image Number Number Scene -> Scene} @linebreak[]
           @code[#:contract]{; places an image, at position (x, y), on a scene}}
     @item{Let's set up some code, and then fill in the blanks: @linebreak[]
@@ -50,15 +50,14 @@
     @item{We can actually make this a little more elegant, by using the power of @code{define}. Since we've already defined our circle as @code{red-spot}, we can replace that code with the variable: @linebreak[]
           @code{(put-image red-spot @code{150 100} (rectangle @code{300 200} @code{"outline" "black"}))}}
     @item{Click "Run" and see if @code{japan} still does the right thing. How can we use @code{flag} to make the code even prettier?}
-    @item{@exercise{@image{images/somalia.jpg} Make the Somalian flag.}}
-    @item{@exercise{Make the Polish flag. @image{images/poland.jpg}}}
+    @item{@exercise{@bitmap{images/somalia.jpg} Look at the picture of the Somalian flag. Think about what shapes will you need to make this flag. Which colors will you need? Try making the flag.}}
+    @item{@exercise{@bitmap{images/poland.jpg} Look at the picture of the Polish flag. Think about what shapes will you need to make this flag. Which colors will you need? Try making the flag.}}
     @item{If you have time, try these other flags!}
-          
-    @item{@elem[#:style "NoFloat"]{@image{images/indonesia.jpg}} Indonesia}
-    @item{@elem[#:style "NoFloat"]{@image{images/peru.jpg}} Peru}
-    @item{@elem[#:style "NoFloat"]{@image{images/switzerland.jpg}} Switzerland}
-    @item{@elem[#:style "NoFloat"]{@image{images/france.jpg}} France}
-    @item{@elem[#:style "NoFloat"]{@image{images/UAE.jpg}} United Arab Emirates}
-    @item{@elem[#:style "NoFloat"]{@image{images/chile.jpg}} Chile}
-    @item{@elem[#:style "NoFloat"]{@image{images/panama.jpg}} Panama}
+    @item{@elem[#:style "NoFloat"]{@bitmap{images/indonesia.jpg}}
+    @elem[#:style "NoFloat"]{@bitmap{images/peru.jpg}}
+    @elem[#:style "NoFloat"]{@bitmap{images/switzerland.jpg}} @linebreak[]
+    @elem[#:style "NoFloat"]{@bitmap{images/france.jpg}}
+    @elem[#:style "NoFloat"]{@bitmap{images/UAE.jpg}}
+    @elem[#:style "NoFloat"]{@bitmap{images/chile.jpg}}
+    @elem[#:style "NoFloat"]{@bitmap{images/panama.jpg}}}
     ]}
