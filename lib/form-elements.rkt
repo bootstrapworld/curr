@@ -7,7 +7,7 @@
          scribble/base
          scribble/core
          scribble/decode
-         ;[except-in scribble/manual code]
+        ;[except-in scribble/manual code]
          scribble/html-properties
          scribble/latex-properties
          scriblib/render-cond
@@ -23,8 +23,6 @@
 ;; FIXME: must add contracts!
 (provide row
          current-row
-         
-                  
          fill-in-the-blank
          free-response
 	 drop-down
@@ -89,12 +87,8 @@
                    (-> constraint? element?)]
                   )
 
-
-
-
 (define bootstrap.gif (bitmap "bootstrap.gif"))
 (define creativeCommonsLogo (bitmap "creativeCommonsLogo.png"))
-
 
 ;;;;;;;;;;;;;;;; LaTeX Styles ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -126,7 +120,6 @@
               (list (make-tex-addition "bootstrap-pdf.tex"))))
 
 ;; need remaining styles as defined in the CSS
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; This provides form loops and indices
@@ -162,7 +155,8 @@
 ;; One-line input
 (define (fill-in-the-blank #:id id
                            #:columns (width 50)
-                           #:label (label #f))
+                           #:label (label #f)
+                           #:answer (answer #f))
   (cond-element [html (sxml->element `(input (@ (type "text")
                                                 (id ,(resolve-id id))
                                                 (width ,(number->string width))
@@ -174,8 +168,10 @@
                  (elem #:style bs-fill-in-blank-style 
                        (if label label " "))]))
 
+
 ;; Free form text
 (define (free-response #:id id
+                       #:answer (answer #f)
                        #:columns (width 50)
                        #:rows (height 20)
                        #:label (label #f))
@@ -298,7 +294,6 @@
 (define (worksheet . body)
   (apply nested #:style (bootstrap-sectioning-style "BootstrapWorksheet")
          body))
-
 
 (struct lesson-struct (title duration) #:transparent)
 
@@ -436,6 +431,7 @@
                                          id-tags)))
                             left-col (build-list (sub1 height) add1)))])))
 
+
 (define (standards . body)
   (list "State Standards:"
         (compound-paragraph (bootstrap-sectioning-style "BootstrapStandards")
@@ -535,7 +531,7 @@
         ))
 
 
-(define (contract-exercise tag)
+(define (contract-exercise tag #:name [name-ans #f] #:domain [domain-ans #f] #:range [range-ans #f])
   (cond-element [html
                  (elem ";" (fill-in-the-blank #:id (format "~aname" tag) #:label "Name")
                        ":" (fill-in-the-blank #:id (format "~aarg" tag) #:label "Domain")
@@ -546,7 +542,6 @@
 (define (worksheet-segment title)
   (compound-paragraph (bootstrap-sectioning-style "BootstrapWorksheetSegment")
                       (decode-flow (list title))))
-
 
 ;auto generates copyright section
 (define (copyright . body)
@@ -590,7 +585,9 @@
 ;; output: in format (EXAMPLE ( /*with text1label*/ _____) /*with text2label*/ _____)
 (define (example-with-text #:text1 [text1 ""]
                            #:text2 [text2 ""]
-                           tag)
+                           tag
+                           #:example1 [example1 #f]
+                           #:example2 [example2 #f])
   (cond-element [html
                (elem "(EXAMPLE (" 
                      (fill-in-the-blank #:id (format "~a.1" tag) #:label text1)
@@ -687,4 +684,3 @@
                    });"
                  (format "~a" id)
                  (constraint->js constraint)))))
-

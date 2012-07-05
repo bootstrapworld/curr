@@ -3,7 +3,7 @@
 @drill[]{
   @itemlist[
      @item{Evaluate the following expressions and check your answers.}
-     @item{(+ 3 (* 2 4)) @fill-in-the-blank[#:id "Circles-Eval1"] @check[(constraint:string-eq (value:string "11") (value:form "Circles-Eval1"))]}
+     @item{(* 3 (+ 2 4)) @fill-in-the-blank[#:id "Circles-Eval1"] @check[(constraint:string-eq (value:string "18") (value:form "Circles-Eval1"))]}
      @item{(/ (- 5 1) 2) @fill-in-the-blank[#:id "Circles-Eval2"] @check[(constraint:string-eq (value:string "2") (value:form "Circles-Eval2"))]}
      @item{(* (+ 1 2)(+ 3 4)) @fill-in-the-blank[#:id "Circles-Eval3"] @check[(constraint:string-eq (value:string "21") (value:form "Circles-Eval3"))]}
      @item{Challenge question! @linebreak[]

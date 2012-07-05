@@ -4,14 +4,12 @@
 @worksheet{
      The distance between the points (4, 0) and (0, 3) is given by:
      
-     INSERT IMAGE FORMULA HERE
+     @image{images/distance-formula.png}
      
-     Now convert it into a Circle of Evaluation. (We've already gotten you started!)
-     
-     INSERT CIRCLE IMAGE HERE
+     Now get a piece of paper and a pencil, and convert it into a Circle of Evaluation. (We've already gotten you started!)
      
      Convert it into Racket code:
      
-     @free-response[#:id "code"]
+     @free-response[#:id "code" #:answer "(sqrt (+ (sq (line-length 4 0)) (sq (line-length 3 0))))"]
      
      }
