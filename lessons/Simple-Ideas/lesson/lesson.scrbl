@@ -6,7 +6,7 @@
 
 @itemlist/splicing[
                    @item{Diagonal movement keys, second set of faster movement keys, etc.}
-                    @item{Player disappears and reappears using some key with (- 10000 y) in update-player, or a real cond to be safer.}
+                    @item{Player disappears and reappears using some key with @code{(- @code{10000} y)} in @code{update-player}, or a real @code{cond} to be safer.}
                     @item{Bounding-box collide for oblong characters: if your characters are nowhere near circular, you may want to change to a bounding box version of @code{collide?}
 , where line-length in x isn't too big and line length in y isn't too big, separately, with different definitions of too-big for the two dimensions.}
                     @item{You can make multiple Dangers or Targets by defining a list of them. Introduce students to Racket's @code{(list ...)}
@@ -19,8 +19,8 @@
  and @code{*player-y*}. Heat seeking Danger. Avoiding Target. Best to use with random or the game gets too hard.}
                     @item{Make update-player check onscreen?-ness of the new position -- wants @code{let}
  to avoid calling update-player-helper twice, but can't have it because of student language, interacts badly with some random stuff for that reason}
-                    @item{Black holes: put black spots on the background image and use distance inside onscreen to check that you're not too close to one of these. fix update-player too maybe.}
-                    @item{Walls: put walls on the background and make update-player respect them.}
+                    @item{Black holes: put black spots on the background image and use distance inside onscreen to check that you're not too close to one of these. fix @code{update-player} too maybe.}
+                    @item{Walls: put walls on the background and make @code{update-player} respect them.}
                     @item{Safe Zone: put a green box or green shading somewhere on the background. Change @code{collide?}
  so that if you're in it, you never collide.}
                     @item{Make the player move diagonally towards or away from center: hard!}

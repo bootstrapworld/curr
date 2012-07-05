@@ -10,17 +10,17 @@
     @item{There's also a variable called SCREENSHOT. @think-about[#:question @list{"What is it defined to be?" @linebreak[]}
     #:answer @code{(define SCREENSHOT (put-image PLAYER @code{320 240} BACKGROUND))}]
                      }
-    @item{@code{put-image} is a function that puts one image on top of another, at whatever coordinates you specify. In our screenshot, what is the image going on the top? PLAYER. At what coordinates? (320, 240)}
-    @item{Try evaluating SCREENSHOT in the interactions window. You should see the player, right in the middle of the background. @think-about[#:question "How would you change the code so that the player is a little lower down? To the left? The right?" #:hint "Try it out."]}
+    @item{@code{put-image} is a function that puts one image on top of another, at whatever coordinates you specify. In our screenshot, what is the image going on the top? @code{PLAYER}. At what coordinates? (320, 240)}
+    @item{Try evaluating @code{SCREENSHOT} in the interactions window. You should see the player, right in the middle of the background. @think-about[#:question "How would you change the code so that the player is a little lower down? To the left? The right?" #:hint "Try it out."]}
     @item{Now we want to add another image. How about we add the TARGET? @think-about[#:question @list{"Can you tell me what function will let us place this image on top of our stack?" @linebreak[]} #:answer @code{(put-image _______ _______ _______ _______)}]}
     @item{@think-about[#:question "What image goes on the top?" #:answer "Yes, TARGET!"] @think-about[#:question @list{And where should we put it? How about someplace on the right-hand side of the screen? @tag[pedagogy]{Raise your hand if you can give me some coordinates for that.} @linebreak[]} 
 #:answer @code{(put-image TARGET
 @code{550
 100}
 _______)}]}
-    @item{Click "Run", and evaluate SCREENSHOT. Does it look the way you expected? On your own, mess with the coordinates until the TARGET is placed where you want it to be.
+    @item{Click "Run", and evaluate @code{SCREENSHOT}. Does it look the way you expected? On your own, mess with the coordinates until the @code{TARGET} is placed where you want it to be.
           @tag[selftaught]{@embedded-wescheme[#:id "Put-image"
-                   #:definitions-text ";Please type in your images to see how they look"]}}
-    @item{@exercise{Can you add the DANGER on your own?}}
+                   #:definitions-text "; Please type in your images to see how they look"]}}
+    @item{@exercise{Can you add the @code{DANGER} on your own?}}
     
 ]}

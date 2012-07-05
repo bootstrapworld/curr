@@ -8,11 +8,11 @@
 @itemlist/splicing[
           @item{Let's talk about graphics. @bitmap{images/2.2.png}}
           @tag[pedagogy]{@item{On the board, draw the Circle of Evaluation for 
-                                 @code{(circle 100 "solid" "red")}}}
+                                 @code{(circle @code{100} @code{"solid" "red"})}}}
           @tag[selftaught]{@item{"insert image here for selfies"}}
           @tag[pedagogy]{@item{Can someone tell me how to convert this into Racket code? Copy their answer on the board.}}
           @tag[selftaught]{@item{@think-about[#:question "How would you convert this to racket code? Check your answer below."
-                                                                     #:answer @code{(circle 100 "solid" "red")}]}}
+                                                                     #:answer @code{(circle @code{100} @code{"solid" "red"})}]}}
           @item{This uses a new function, which you've never seen before! What is its name?}
           @item{Every contract has three parts! @tag[pedagogy]{Raise your hand if you can tell me what they are! (Name, domain, and range)}
                        @tag[selftaught]{@think-about[#:question "What are they?"
@@ -22,18 +22,18 @@
 
                                                                                                  (circle 100 "solid" "red")}}}
           @item{So what's the Range? What do you think this thing is going to give us back? A Number? A String? Type it in and try it out! @tag[selftaught]{@embedded-wescheme[#:id "Images1"
-                   #:interactions-text ";Try out the images!"
+                   #:interactions-text "; Try out the images!"
                    #:hide-definitions? #t]}}
 
            @item{What it gives back is a new Type: Image!}
            @tag[group]{@item{Now we're going to do the next step as a group.}}
            @item{@exercise{I'm going to show you the contract for another function. This time around, you're not allowed to touch the keyboard until you have copied the contract into your contract table, along with the contract for circle. Once you've done that, @tag[pedagogy]{"I want to see you "}try to draw a rectangle! GO!} @code[#:contract "rectangle: Number Number String String -> Image"]}
            @item{@exercise{I'm going to show you a few more contracts. Once again, you have to have them written down before touching the keys. You'll have five minutes to figure out how to use each of these functions to make a shape! GO!}
-                  @code[#:multi-line #t]{; ellipse: Number Number String String -> Image
-                        ; triangle: Number String String -> Image
-                        ; star: Number String String -> Image
-                        ; radial-star: Number Number Number String String -> Image
-                        ; text: String Number String -> Image
+                  @code[#:contract "ellipse: Number Number String String -> Image"]
+                  @code[#:contract "triangle: Number String String -> Image"]
+                  @code[#:contract "star: Number String String -> Image"]
+                  @code[#:contract "radial-star: Number Number Number String String -> Image"]
+                  @code[#:contract "text: String Number String -> Image"]
                         }} 
            @tag[pedagogy]{@item{Let kids experiment with these functions and point out interesting results to the class.}}
            @tag[selftaught]{@item{Experiment with these functions!

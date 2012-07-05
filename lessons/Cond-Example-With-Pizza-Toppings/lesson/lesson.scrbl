@@ -9,13 +9,13 @@
         @item{Turn to the Design Recipe on @worksheet-link[#:page 23 #:name "Design-Recipe-Cost"] and grab a Design Recipe Worksheet.}
         @item{Suppose we've been hired by Luigi's Pizza to write a function that tells us the cost of different pizza pies. Let's use the design recipe to write this function.}
         @tag[pedagogy]{@item{Have a student read the problem statement.}}
-        @tag[pedagogy]{@item{I need a volunteer to be our function. Pick someone, and copy the contract as they answer. What is your name? cost Your Domain? String Your Range? Number. @code{; cost: String -> Number}}}
+        @tag[pedagogy]{@item{I need a volunteer to be our function. Pick someone, and copy the contract as they answer. What is your name? cost Your Domain? String Your Range? Number. @code[#:contract "cost: String -> Number"]}}
         @tag[selftaught]{@item{@think-about[#:question "What is the name of this function? the domain? the range?"
-                                             #:answer @code{; cost: String -> Number}]}}
+                                             #:answer @code[#:contract "cost: String -> Number"]]}}
         @tag[pedagogy]{@item{Can someone from the class tell me how we should call this function? For example, "cost' cheese'!" What will cost produce? Let's try this with other toppings...}}
         @tag[selftaught]{@item{@think-about[#:question "How do we call this function and what does it produce?"
                                            #:answer "We call this function through 'cost cheese' and it produces the price"]}}
-        @item{Now it's time to write down some examples. @tag[pedagogy]{Can anyone raise their hands and tell me what I'd write?} @code{(EXAMPLE (cost "cheese") 9.00)}}
+        @item{Now it's time to write down some examples. @tag[pedagogy]{Can anyone raise their hands and tell me what I'd write?} @code{(EXAMPLE (cost @code{"cheese"}) @code{9.00})}}
         @item{@think-about[#:question "What are some other examples for cost? What changes between them? "
                            #:answer "The topping and the price returned! Make sure you label those."]}
         @item{Do you notice something odd here? This is the first time that we've ever circled something in the second of the examples, which wasn't also circled in the first part. The price that's being produced changes, but the function never takes in the price!}
@@ -29,14 +29,14 @@
                           #:answer "When the toppings are cheese and pepperoni"]}
        @item{What we want is a way to go down each line, checking to see if the topping is the right one. If it is, we go on to finish the line. If not, we go on to the next one.
              @itemlist/splicing[
-                  @item{@think-about[#:question "What's Domain of our function?(according to the contract)"
+                  @item{@think-about[#:question "What's Domain of our function? (according to the contract)"
                                      #:answer "String"]}
                    @item{@think-about[#:question "What's the type of \"pepperoni\"?"
                                       #:answer "String"]}
                    @item{@think-about[#:question "What function compares two strings, and gives back a Boolean?"
                                       #:answer @code{string=?}]}
                    @item{@think-about[#:question "What's the Racket code that compares the input topping to the string \"pepperoni\"?"
-                                      #:answer @code{(string=? topping "pepperoni")}]}
+                                      #:answer @code{(string=? topping @code{"pepperoni"})}]}
                    @item{Now we can write that on our first line, as our first topping check. Can you do the rest?}]}
        @tag[pedagogy]{@item{Have students fill out the rest of the table}}
        @tag[selftaught]{@item{Fill out the rest of the table}}
@@ -50,11 +50,11 @@
                                         [(string=? topping "cheese")     9.00]
                                         [(string=? topping "chicken")   11.25]
                                         [(string=? topping "broccoli")  10.25]))}}
-      @tag[pedagogy]{@item{Remind students that computers are very specific and can't make up new answers; we need to tell it what to do in case the user inputs an item that is not in our list. Let's add else. If it's not on the menu, we might still make that pizza for you, but it'll cost you! @code{[else    10000000]}}}
-      @tag[selftaught]{@item{What happens if the topping is not on our list?  Let's add an else statement.  If it's not on our menu, we might still make that pizza for you but it'll cost you!@code{[else    10000000]}}}
+      @tag[pedagogy]{@item{Remind students that computers are very specific and can't make up new answers; we need to tell it what to do in case the user inputs an item that is not in our list. Let's add else. If it's not on the menu, we might still make that pizza for you, but it'll cost you! @code{[else @code{10000000}]}}}
+      @tag[selftaught]{@item{What happens if the topping is not on our list?  Let's add an else statement.  If it's not on our menu, we might still make that pizza for you but it'll cost you!@code{[else @code{10000000}]}}}
       @;Students must open their files here. 
      @tag[pedagogy]{@item{Have students try it on the computers, adding new items on their own.}}
 @tag[selftaught]{@item{Try it out for yourself and add your own new items.
 @embedded-wescheme[#:id "Strings"
-                   #:definitions-text ";Try out the pizza example above!"]}}
+                   #:definitions-text "; Try out the pizza example above!"]}}
       @tag[(pedagogy selftaught)]{@item{If you have additional time, and would like to try another Cond challenge, check out the @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/SupplementalLessons.html#redshape" "supplemental activity.")}}]}

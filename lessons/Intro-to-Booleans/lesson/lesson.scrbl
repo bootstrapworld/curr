@@ -9,9 +9,9 @@
        @item{When I say a lie, I want you to @tag[(pedagogy group)]{yell out } @tag[selftaught]{type in } "False" and when it is not a lie, you  @tag[(pedagogy group)]{yell out } @tag[selftaught]{type in } "True"}
        @tag[pedagogy]{@item{Give some simple boolean statements such as "I am holding a red pen", "I am a boy" etc.}}
        @tag[selftaught]{@item{
-                              You are a boy. @fill-in-the-blank[#:id "T/F"]
-                              You are using a computer. @fill-in-the-blank[#:id "T/F"]
-                              You have red hair. @fill-in-the-blank[#:id "T/F"]
+                              You are a boy. @fill-in-the-blank[#:id "introbool1"]
+                              You are using a computer. @fill-in-the-blank[#:id "introbool2"]
+                              You have red hair. @fill-in-the-blank[#:id "introbool3"]
                               }}
       @item{So far, our language can only add, subtract, multiply and divide numbers. It can't compare them or decide whether something is true or false! We'll be adding the power of comparison to our language today.}
       @item{What would DrRacket say is the value of the following pieces of code? @linebreak[] @code{(+ @code{1 4}), (/ @code{4 2}), (- @code{0 9}), (< @code{3 4})}}

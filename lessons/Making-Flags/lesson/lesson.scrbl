@@ -39,16 +39,16 @@
     @item{Let's set up some code, and then fill in the blanks: @linebreak[]
           @code{(put-image ______ ___ ___ _______)}}
     @item{The first thing in @code{put-image}'s domain is the Image we want to place. What is our image? @tag[pedagogy]{A circle!} @linebreak[]
-          @code{(put-image (circle 50 "solid" "red") ___ ___ ________)}}
+          @code{(put-image (circle @code{50} @code{"solid" "red"}) ___ ___ ________)}}
     @item{What are the next two things in the domain? @tag[pedagogy]{Numbers!} They represent the x and y coordinates for where we want to place the image of the circle. What did we determine were the coordinates for the center of the circle? Let's fill them in! @linebreak[]
-          @code{(put-image (circle 50 "solid" "red") 150 100 _______)}}
+          @code{(put-image (circle @code{50} @code{"solid" "red"}) @code{150 100} _______)}}
     @item{Finally, we need to give @code{put-image} another image. In our case, that's going to be our rectangle. @linebreak[]
-          @code{(put-image (circle 50 "solid" "red") 150 100 (rectangle 300 200 "outline" "black"))}}
+          @code{(put-image (circle @code{50} @code{"solid" "red"}) @code{150 100} (rectangle @code{300 200} @code{"outline" "black"}))}}
     @item{Okay, so let's define this whole expression to be a variable, so we can use it later. What is a good name for this variable? @linebreak[]
-          @code{(define japan (put-image (circle 50 "solid" "red") 150 100 (rectangle 300 200 "outline" "black")))}}
+          @code{(define japan (put-image (circle @code{50} @code{"solid" "red"}) @code{150 100} (rectangle @code{300 200} @code{"outline" "black"})))}}
     @item{Now let's click Run and evaluate @code{japan}. What do you think we will get back?}
     @item{We can actually make this a little more elegant, by using the power of @code{define}. Since we've already defined our circle as @code{red-spot}, we can replace that code with the variable: @linebreak[]
-          @code{(put-image red-spot 150 100 (rectangle 300 200 "outline" "black"))}}
+          @code{(put-image red-spot @code{150 100} (rectangle @code{300 200} @code{"outline" "black"}))}}
     @item{Click "Run" and see if @code{japan} still does the right thing. How can we use @code{flag} to make the code even prettier?}
     @item{@exercise{@image{images/somalia.jpg} Make the Somalian flag.}}
     @item{@exercise{Make the Polish flag. @image{images/poland.jpg}}}

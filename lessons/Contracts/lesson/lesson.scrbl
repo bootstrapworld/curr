@@ -26,9 +26,9 @@
                                                         @item{the name of the function,}
                                                         @item{the domain, and}
                                                         @item{the range.}]}
-         @tag[pedagogy]{@item{Show the contract for "+" on the board, and have students volunteer the contracts for the other math functions covered so far.}}
+         @tag[pedagogy]{@item{Show the contract for @code{+} on the board, and have students volunteer the contracts for the other math functions covered so far.}}
                  @;NOTE: may have to split into three questions
-                @tag[selftaught]{@item{@think-about[#:question "Can you think of the contract for \"+\"? What about the ones for \"/\" and \"*\"? Enter them on the contracts page and check your answers below"
+                @tag[selftaught]{@item{@think-about[#:question @list{"Can you think of the contract for " @code{+} "? What about the ones for " @code{/} " and " @code{*} "? Enter them on the contracts page and check your answers below"}
                                               #:answer @list{@code[#:contract "+ : Number Number -> Number"
                                                                         #:purpose
                                                                          "Takes two numbers and gives their sum"
@@ -37,7 +37,7 @@
                                                                         #:purpose "Takes two numbers and returns the first divided by the second"]
                                                        @code[#:contract "* : Number Number -> Number" #:purpose "Takes two numbers and gives their product"]}]}}
           @;must have some sort of answers here
-          @tag[pedagogy]{@item{Add other functions, like "/" and "*".  Leave these contracts written on the board.}}
+          @tag[pedagogy]{@item{Add other functions, like @code{/} and @code{*}.  Leave these contracts written on the board.}}
           @tag[pedagogy]{@item{If students already know about square roots or squaring, you can add these functions as well. If not, take a moment to review what they do.
                                @code[#:contract "sqrt : Number -> Number"]
                                @code[#:contract "sqt : Number -> Number"]}}
