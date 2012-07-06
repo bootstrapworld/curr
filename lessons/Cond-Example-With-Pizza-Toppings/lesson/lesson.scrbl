@@ -1,5 +1,4 @@
 #lang curr/lib
-
 @declare-tags[pedagogy selftaught group]
 
 @lesson[#:title "Pizza Toppings" #:duration "30 min" #:prerequisites "Intro-to-Booleans"]{
@@ -15,16 +14,17 @@
         @tag[pedagogy]{@item{Can someone from the class tell me how we should call this function? For example, "cost' cheese'!" What will cost produce? Let's try this with other toppings...}}
         @tag[selftaught]{@item{@think-about[#:question "How do we call this function and what does it produce?"
                                            #:answer "We call this function through 'cost cheese' and it produces the price"]}}
-        @item{Now it's time to write down some examples. @tag[pedagogy]{Can anyone raise their hands and tell me what I'd write?} @code{(EXAMPLE (cost @code{"cheese"}) @code{9.00})}}
+        @item{Now it's time to write down some examples. @tag[pedagogy]{Can anyone raise their hands and tell me what I'd write?} @code{(EXAMPLE (cost "cheese") 9.00)}}
         @item{@think-about[#:question "What are some other examples for cost? What changes between them? "
                            #:answer "The topping and the price returned! Make sure you label those."]}
         @item{Do you notice something odd here? This is the first time that we've ever circled something in the second of the examples, which wasn't also circled in the first part. The price that's being produced changes, but the function never takes in the price!}
         @item{That's a hint that something special is going on, but let's see how much father the Design Recipe can take us...}
         @item{@think-about[#:question "Now for the Function Header. What do I write here?"
-                           #:answer @code{(define (cost topping)}]}
+                           #:answer @code{(define (cost topping))}]}
         @item{The Function Body is next. But now we don't know what to write! We know that our examples behave differently from one another -- sometimes we want to return 9.00, other times it's 10.50, etc. So what do we do? Well, we could fill in all off those results. Let's do that...  @tag[pedagogy]{Make a large, 2-column table on under the Function Header.}}
+              @;INSERT TABLE HERE
+               
              
-              @;TABLE GOES HERE
        @item{@think-about[#:question "But how do we know when we want to produce 9.00? 10.50?"
                           #:answer "When the toppings are cheese and pepperoni"]}
        @item{What we want is a way to go down each line, checking to see if the topping is the right one. If it is, we go on to finish the line. If not, we go on to the next one.
@@ -36,7 +36,7 @@
                    @item{@think-about[#:question "What function compares two strings, and gives back a Boolean?"
                                       #:answer @code{string=?}]}
                    @item{@think-about[#:question "What's the Racket code that compares the input topping to the string \"pepperoni\"?"
-                                      #:answer @code{(string=? topping @code{"pepperoni"})}]}
+                                      #:answer @code{(string=? topping "pepperoni")}]}
                    @item{Now we can write that on our first line, as our first topping check. Can you do the rest?}]}
        @tag[pedagogy]{@item{Have students fill out the rest of the table}}
        @tag[selftaught]{@item{Fill out the rest of the table}}
@@ -50,8 +50,8 @@
                                         [(string=? topping "cheese")     9.00]
                                         [(string=? topping "chicken")   11.25]
                                         [(string=? topping "broccoli")  10.25]))}}
-      @tag[pedagogy]{@item{Remind students that computers are very specific and can't make up new answers; we need to tell it what to do in case the user inputs an item that is not in our list. Let's add else. If it's not on the menu, we might still make that pizza for you, but it'll cost you! @code{[else @code{10000000}]}}}
-      @tag[selftaught]{@item{What happens if the topping is not on our list?  Let's add an else statement.  If it's not on our menu, we might still make that pizza for you but it'll cost you!@code{[else @code{10000000}]}}}
+      @tag[pedagogy]{@item{Remind students that computers are very specific and can't make up new answers; we need to tell it what to do in case the user inputs an item that is not in our list. Let's add else. If it's not on the menu, we might still make that pizza for you, but it'll cost you! @code{[else 10000000]}}}
+      @tag[selftaught]{@item{What happens if the topping is not on our list?  Let's add an else statement.  If it's not on our menu, we might still make that pizza for you but it'll cost you!@code{[else 10000000]}}}
       @;Students must open their files here. 
      @tag[pedagogy]{@item{Have students try it on the computers, adding new items on their own.}}
 @tag[selftaught]{@item{Try it out for yourself and add your own new items.

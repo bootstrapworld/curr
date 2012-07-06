@@ -7,7 +7,7 @@
          scribble/base
          scribble/core
          scribble/decode
-        ;[except-in scribble/manual code]
+         [prefix-in manual: scribble/manual]
          scribble/html-properties
          scribble/latex-properties
          scriblib/render-cond
@@ -32,6 +32,7 @@
          code
          language-table
 	 worksheet-table
+         build-table/cols
          contract-exercise
          function-exercise
          
@@ -136,11 +137,9 @@
 ;; When creating the ids for the form elements, if we're in the context of a row,
 ;; add it to the identifier as a ";~a" suffix.
 (define (resolve-id id)
-  (cond
-   [(current-row)
-    (format "~a;~a" id (current-row))]
-   [else
-    id]))
+  (cond [(current-row)
+         (format "~a;~a" id (current-row))]
+        [else id]))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -231,46 +230,22 @@
 (define (format-racket-header str)
   (format "; ~a~n" str))
 
-(define (string-constant? str)
-  (char=? (string-ref str 0) #\"))
-
-(define (num-constant? str)
-  (char-numeric? (string-ref str 0)))
-
-
 (define (code #:multi-line (multi-line #f)
               #:contract (contract #f)
               #:purpose (purpose #f)
               . body)
-  (if multi-line
-      (list
-       (if contract 
-           (compound-paragraph
-            (bootstrap-sectioning-style "BootstrapContract")
-            (decode-flow (list (format-racket-header contract)))) 
-           '())
-       (if purpose 
-           (compound-paragraph
-            (bootstrap-sectioning-style "BootstrapContract") 
-            (decode-flow (list (format-racket-header purpose)))) 
-           '())
-       (if (null? body) '() (apply verbatim #:indent 2 body)))
-      (element #f 
-           (append (if contract 
-                       (list (element (style "BootstrapContract" '())
-                                      (list (format-racket-header contract))))
-                       '())
-                   (if purpose 
-                       (list (element (style "BootstrapContract" '())
-                                      (list (format-racket-header purpose)))) 
-                       '())
-                   (list (element (if (cons? body) 
-                                      (cond
-                                        [(string-constant? (first body)) (style "BootstrapString" '())]
-                                        [(num-constant? (first body)) (style "BootstrapNumber" '())]
-                                        [else (style "BootstrapCode" '())])
-                                      (style "BootstrapCode" '()))
-                                  body))))))
+  ;; first an error check to make sure we understand original API usage
+  (when (and (not multi-line) (or (and contract purpose) 
+                                  (and contract (not (null? body))) 
+                                  (and purpose (not (null? body)))))
+    (printf "WARNING: Use of code that supplied more than one of contract/purpose/body~n"))
+  (cond [multi-line
+         (manual:codeblock (string-append (if contract (string-append ";; " contract "\n") "")
+                                          (if purpose (string-append ";; " purpose "\n") "")
+                                          (apply string-append body)))]
+        [contract (manual:code (string-append ";; " contract))]
+        [purpose (manual:code (string-append ";; " purpose))]
+        [(not (null? body)) (manual:code (apply string-append body))]))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -340,85 +315,67 @@
         (compound-paragraph (bootstrap-sectioning-style "BootstrapReview")
                             (decode-flow body))))
 
+;; language-table : list[list[elements]] -> table
+;; produces table with the particular formatting for the Bootstrap language table
 (define (language-table . rows)
   (table (style  #f 
 		(list 
 		 (table-columns
 		  (list 
 		   (style "BootstrapTable" '(center))
-		   (style "BootstrapTable" '(center))))))
-         
-         (cons (list (compound-paragraph (bootstrap-sectioning-style "BootstrapTableHeader")
-                            (decode-flow (list "Types"))) (compound-paragraph (bootstrap-sectioning-style "BootstrapTableHeader")
-                            (decode-flow (list "Functions"))))
-	       (map (lambda (r)
-		      (map format-cell r))
-		    rows))))
+		   (style "BootstrapTable" '(center))))))   
+         (cons (list (para #:style "BootstrapTableHeader" "Types")
+                     (para #:style "BootstrapTableHeader" "Functions"))
+               (map (lambda (r) (map para r)) rows))))
 
-(define (format-cell s)
-  (para s))
-
-;; worksheet-table : list[string] list[element] list[string] -> table
+;; worksheet-table : list[string] list[element] list[string] number number -> table
 ;; assert: col-headers should be same length as (add1 id-tags)
 (define (worksheet-table col-headers left-col id-tags width height)
-  (let ([make-row (lambda (row-num)
-                    (map (lambda (tag) 
-                           (para (fill-in-the-blank 
-                                  #:id (format "~a~a" tag row-num)
-                                  )))
-                         id-tags))])
-    (table (style "BSTable" 
-                  (list 
-                   (table-columns
-                    (build-list width
-                                (lambda (n) (style #f '(left)))))))
-           (cond
-             [(and (zero? (length left-col)) (zero? (length col-headers)))
-              (map make-row (build-list (sub1 height) add1))]
-             [(zero? (length col-headers)) 
-              (map (lambda (left-content row-num) 
-                     (cons (format-cell left-content)
-                           (make-row row-num)))
-                   left-col (build-list (sub1 height) add1))]
-             [(zero? (length left-col))
-              (cons (map (lambda (h) (para (bold h))) col-headers)
-                    (map make-row (build-list (sub1 height) add1)))]
-             [else (cons (map (lambda (h) (para (bold h))) col-headers)
-                         (map (lambda (left-content row-num) 
-                                (cons (format-cell left-content)
-                                      (make-row row-num)))
-                              left-col (build-list (sub1 height) add1)))]))))
+  (build-table/cols col-headers 
+                    (if (null? left-col) '() (list left-col))
+                    (lambda (row-num col-num)
+                      (para (fill-in-the-blank
+                             #:id (format "~a~a" (list-ref id-tags col-num) row-num))))
+                    width height))
 
 ;; build-table : list[string] list[list[element]] (number number -> element) 
 ;;               number number -> table
 ;; consumes column headers, contents for a prefix of the columns, a function to
 ;;          format each cell based on its row and col number, 
 ;;          and the number of columns and rows for the table
+;;          (col-headers count as a row if they are provided)
 ;; produces a table (list of list of cell contents, row-major order)
-(define (build-table/cols col-headers col-contents fmt-cell width height)
+;; ASSUMES: each list in col-contents has length height (which is the number of data rows)
+(define (build-table/cols col-headers col-contents fmt-cell numCols numDataRows)
+  ;; check assumption on col-contents lengths
+  (for-each (lambda (col-content)
+              (unless (= (length col-content) numDataRows)
+                (error 'build-table/cols 
+                       (format "column contents ~a needs to have one entry for each of ~a rows" 
+                               col-content numDataRows))))
+            col-contents)
   (let* ([blank-column (lambda (col-num)
-                         (build-list height (lambda (row-num) 
-                                              (fmt-cell row-num col-num))))]
+                         (build-list numDataRows (lambda (row-num) 
+                                                   (fmt-cell row-num col-num))))]
          [data-columns 
-          (build-list width
+          (build-list numCols
                       (lambda (col-num) 
                         (cond [(>= col-num (length col-contents)) (blank-column col-num)]
                               [(null? (list-ref col-contents col-num)) (blank-column col-num)]
-                              [else (elem (list-ref col-contents col-num))])))]
+                              [else (map para (list-ref col-contents col-num))])))]
          [all-columns (if (null? col-headers) data-columns
                           (map cons 
-                               (map (lambda (h) (elem (bold h))) col-headers)
+                               (map (lambda (h) (para (bold h))) col-headers)
                                data-columns))])   
-    (table (style "BSTable" 
-                  (list 
-                   (table-columns
-                    (build-list width
-                                (lambda (n) (style #f '(left)))))))
+    (table (style "BSTable"
+                  (list (table-columns
+                         (build-list numCols
+                                     (lambda (n) (style #f '(left)))))))
            ;; convert list of columns to list of rows
-           (build-list height
+           (build-list (if (null? col-headers) numDataRows (add1 numDataRows))
                        (lambda (row-num) 
-                         (list-ref (map (lambda (col) (list-ref col row-num)) all-columns))))
-           )))
+                         (map (lambda (col) (list-ref col row-num))
+                              all-columns))))))
 
 (define (standards . body)
   (list "State Standards:"
@@ -537,13 +494,12 @@
 
 ;auto generates copyright section
 (define (copyright . body)
-  (compound-paragraph 
-   (bootstrap-sectioning-style "BootstrapCopyright" ) 
-   (decode-flow (list (hyperlink "http://creativecommons.org/licenses/by-nc-nd/3.0/" creativeCommonsLogo) "Bootstrap by " (hyperlink "http://www.bootstrapworld.org/" "Emmanuel Schanzer") " is licensed under a "
-                      (hyperlink "http://creativecommons.org/licenses/by-nc-nd/3.0/" "Creative Commons 3.0 Unported License")
-                      ". Based on a work at " (hyperlink "http://www.bootstrapworld.org/" "www.BootsrapWorld.org")
-                      ". Permissions beyond the scope of this license may be available at "
-                      (hyperlink "mailto:schanzer@BootstrapWorld.org" "schanzer@BootstrapWorld.org") "."))))
+  (para 
+   (hyperlink "http://creativecommons.org/licenses/by-nc-nd/3.0/" creativeCommonsLogo) "Bootstrap by " (hyperlink "http://www.bootstrapworld.org/" "Emmanuel Schanzer") " is licensed under a "
+   (hyperlink "http://creativecommons.org/licenses/by-nc-nd/3.0/" "Creative Commons 3.0 Unported License")
+   ". Based on a work at " (hyperlink "http://www.bootstrapworld.org/" "www.BootsrapWorld.org")
+   ". Permissions beyond the scope of this license may be available at "
+   (hyperlink "mailto:schanzer@BootstrapWorld.org" "schanzer@BootstrapWorld.org") "."))
 
 ;autogenerates state-standards section
 (define state-standards

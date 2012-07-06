@@ -26,8 +26,8 @@
          @tag[selftaught]{@think-about[
          #:question "What are we doing to 6 and 9?"
          #:answer "Multiply them to get 54."]}}
-   @item{We write this in Racket the same way. We always put parens before a function and after its inputs (Write the parens and the "*"). In order to apply this function, we need to compute the left side and then the right. The left side is the number 6, so we can just write that in. @code{(* @code{6} ____)}}
-   @item{The right side happens to be another Circle of Evaluation (more parens), so we apply the same rules there: write the function and then look at the left and the right. These are numbers, so we can write them in directly. @code{(* @code{6} (+ @code{4 5}) )}}
+   @item{We write this in Racket the same way. We always put parens before a function and after its inputs (Write the parens and the "*"). In order to apply this function, we need to compute the left side and then the right. The left side is the number 6, so we can just write that in. @code{(* 6 ____)}}
+   @item{The right side happens to be another Circle of Evaluation (more parens), so we apply the same rules there: write the function and then look at the left and the right. These are numbers, so we can write them in directly. @code{(* 6 (+ 4 5))}}
    @item{@exercise{Try writing this in the Interactions window, and hit "enter". What did you end up with? Now try writing in the complex example we used. Did you get the same answer?
                   @tag[selftaught]{@embedded-wescheme[#:id "Circles of Evaluation"
                                                       #:definitions-text "; enter in your equations down in the interactions window to test the result"]}}}
