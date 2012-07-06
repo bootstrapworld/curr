@@ -8,18 +8,18 @@
 @itemlist/splicing[
           @item{Let's talk about graphics.}
           @tag[pedagogy]{@item{On the board, draw the Circle of Evaluation for 
-                                 @code{(circle @code{50} @code{"solid" "red"})}}}
+                                 @code{(circle 50 "solid" "red")}}}
           @tag[selftaught]{@item{@bitmap{images/2.2.png} Take a look at this Circle of Evaluation}}
           @tag[pedagogy]{@item{Can someone tell me how to convert this into Racket code? Copy their answer on the board.}}
           @tag[selftaught]{@item{@think-about[#:question "How would you convert this to racket code? Check your answer below."
-                                                                     #:answer @code{(circle @code{50} @code{"solid" "red"})}]}}
+                                                                     #:answer @code{(circle 50 "solid" "red")}]}}
           @item{This uses a new function, which you've never seen before! What is its name?}
           @item{Every contract has three parts! @tag[pedagogy]{Raise your hand if you can tell me what they are! (Name, domain, and range)}
                        @tag[selftaught]{@think-about[#:question "What are they?"
                                                     #:answer "Name, domain, and range"]}}
            @item{Can you figure out the contract for circle? Based on the example, can you tell me what's in its Domain?@tag[pedagogy]{ Follow along on the board... @linebreak[]
                 @code[#:contract "circle: Number String String -> ..."] @linebreak[]
-                @code{(circle @code{50} @code{"solid" "red"})}}}
+                @code{(circle 50 "solid" "red")}}}
           @item{So what's the Range? What do you think this thing is going to give us back? A Number? A String? Type it in and try it out! @tag[selftaught]{@embedded-wescheme[#:id "Images1"
                    #:interactions-text "; Try out the images!"
                    #:hide-definitions? #t]}}
