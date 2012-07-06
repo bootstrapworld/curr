@@ -26,9 +26,8 @@
      @tag[selftaught]{@item{@code[#:contract  "rocket-height : Number -> Number"]{}}}
      @item{Copy the contract down into your Design Recipe page!}
      @item{@bold{Step 2: Give Examples}}
-     @item{@tag[pedagogy]{@skit{We already tried some examples with our volunteer.}} When we said "rocket-height three" @tag[pedagogy]{(@italic{write the accompanying code @code{(EXAMPLE (rocket-height@code{3}) ...)} on the board)}}, what did we get back? 21! But @italic{how} did we get that? By multiplying 3 and 7. Let's write that code into our example:
-            @code{(EXAMPLE (rocket-height @code{3})
-                      (* @code{3 7}))}} 
+     @item{@tag[pedagogy]{@skit{We already tried some examples with our volunteer.}} When we said "rocket-height three" @tag[pedagogy]{(@italic{write the accompanying code @code{(EXAMPLE (rocket-height 3) ...)} on the board)}}, what did we get back? 21! But @italic{how} did we get that? By multiplying 3 and 7. Let's write that code into our example:
+            @code{(EXAMPLE (rocket-height 3) (* 3 7))}} 
      @tag[(pedagogy selftaught)]{@item{In your notebooks, I want you to come up with another example.}}
      @item{Now we need to circle what's different between these two examples - what's changeable? What does that number represent? Is it the number of astronauts? No, it's the @italic{time} since blastoff.}
      @item{@bold{Step 3: Code}}
