@@ -32,15 +32,16 @@
                                               #:answer @list{@code[#:contract "+ : Number Number -> Number"
                                                                         #:purpose
                                                                          "Takes two numbers and gives their sum"
-                                                                        ]
+                                                                        #:multi-line #t]
                                                        @code[#:contract "/ : Number Number -> Number"
-                                                                        #:purpose "Takes two numbers and returns the first divided by the second"]
-                                                       @code[#:contract "* : Number Number -> Number" #:purpose "Takes two numbers and gives their product"]}]}}
+                                                                        #:purpose "Takes two numbers and returns the first divided by the second"
+                                                                        #:multi-line #t]
+                                                       @code[#:contract "* : Number Number -> Number" #:purpose "Takes two numbers and gives their product" #:multi-line #t]}]}}
           @;must have some sort of answers here
           @tag[pedagogy]{@item{Add other functions, like "/" and "*".  Leave these contracts written on the board.}}
           @tag[pedagogy]{@item{If students already know about square roots or squaring, you can add these functions as well. If not, take a moment to review what they do.
-                               @code[#:contract "sqrt : Number -> Number"]
-                               @code[#:contract "sqt : Number -> Number"]}}
+                               @code[#:multi-line #t ";; sqrt : Number -> Number"
+                                                     ";; sqr : Number -> Number"]}}
           @tag[selftaught]{@item{@think-about[#:question "If you already know about square roots or squaring, try to figure out the contracts for these as well. Check with the answers below!"
                                              #:hint "Both of these function only take one number as input"
                                              #:answer @list{@code[#:contract "sqrt : Number -> Number"]

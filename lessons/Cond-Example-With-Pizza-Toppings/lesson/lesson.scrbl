@@ -1,5 +1,6 @@
 #lang curr/lib
-
+@(require (only-in scribble/manual racket codeblock))
+@(require (prefix-in man: scribble/manual))
 @declare-tags[pedagogy selftaught group]
 
 @lesson[#:title "Pizza Toppings" #:duration "30 min" #:prerequisites "Intro-to-Booleans"]{
@@ -36,7 +37,7 @@
                    @item{@think-about[#:question "What function compares two strings, and gives back a Boolean?"
                                       #:answer @code{string=?}]}
                    @item{@think-about[#:question "What's the Racket code that compares the input topping to the string \"pepperoni\"?"
-                                      #:answer @code{(string=? topping "pepperoni")}]}
+                                      #:answer @racket[(string=? topping "pepperoni")]]}
                    @item{Now we can write that on our first line, as our first topping check. Can you do the rest?}]}
        @tag[pedagogy]{@item{Have students fill out the rest of the table}}
        @tag[selftaught]{@item{Fill out the rest of the table}}
@@ -44,12 +45,13 @@
               @;TABLE GOES HERE
        @item{Each of these rows is called a condition. A condition has a test and a result. The computer goes down the code, one condition at a time, and will evaluate the first result for which the condition is true.}
        @item{Racket has a special function that lets us tell the computer to do this: cond. To use cond,you put square brackets around each of the branches, and write "cond" at the top:
-             @code[#:multi-line ""]{(define (cost topping)
-                                      (cond
-                                        [(string=? topping "pepperoni") 10.50]
-                                        [(string=? topping "cheese")     9.00]
-                                        [(string=? topping "chicken")   11.25]
-                                        [(string=? topping "broccoli")  10.25]))}}
+             @codeblock|{     ;; cost: -> string -> number
+                              (define (cost topping)
+                                (cond
+                                  [(string=? topping "pepperoni") 10.50]
+                                  [(string=? topping "cheese")     9.00]
+                                  [(string=? topping "chicken")   11.25]
+                                  [(string=? topping "broccoli")  10.25]))}|}
       @tag[pedagogy]{@item{Remind students that computers are very specific and can't make up new answers; we need to tell it what to do in case the user inputs an item that is not in our list. Let's add else. If it's not on the menu, we might still make that pizza for you, but it'll cost you! @code{[else    10000000]}}}
       @tag[selftaught]{@item{What happens if the topping is not on our list?  Let's add an else statement.  If it's not on our menu, we might still make that pizza for you but it'll cost you!@code{[else    10000000]}}}
       @;Students must open their files here. 
