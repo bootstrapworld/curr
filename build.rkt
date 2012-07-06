@@ -23,12 +23,23 @@
       (find-executable-path "scribble.exe")
       (error 'build "The scribble executable cannot be found in the current PATH.")))
 
+
+;; The output mode is, by default, HTML.
+(define output-mode (make-parameter "--html"))
+
+
+;; The production deployment directory is, by default, #f.
+;; Under deployment mode, the worksheets and drills are written as subdirectories of the deployment directory.
+(define deployment-dir (make-parameter #f))
+
+
+
 ;; run-scribble: path -> void
 ;; Runs scribble on the given file.
 (define (run-scribble scribble-file)
   (define-values (base name dir?) (split-path scribble-file))
   (parameterize ([current-directory base])
-    (system* scribble-exe name))
+    (system* scribble-exe (output-mode) name))
   (void))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -37,6 +48,11 @@
 (define current-contextual-tags
   (command-line
    #:program "build"
+   #:once-each
+   [("--pdf") "Generate PDF documentation"
+              (output-mode "--pdf")]
+   [("--deploy") -deploy-dir "Deploy into the given directory" 
+                 (deployment-dir -deploy-dir)]
    #:args tags
    tags))
 
