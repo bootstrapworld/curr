@@ -22,9 +22,10 @@
         @item{That's a hint that something special is going on, but let's see how much father the Design Recipe can take us...}
         @item{@think-about[#:question "Now for the Function Header. What do I write here?"
                            #:answer @code{(define (cost topping)}]}
-        @item{The Function Body is next. But now we don't know what to write! We know that our examples behave differently from one another -- sometimes we want to return 9.00, other times it's 10.50, etc. So what do we do? Well, we could fill in all off those results. Let's do that...  @tag[pedagogy]{Make a large, 2-column table on under the Function Header.}}
+        @item{The Function Body is next. But now we don't know what to write! We know that our examples behave differently from one another -- sometimes we want to return 9.00, other times it's 10.50, etc. So what do we do? Well, we could fill in all off those results. Let's do that...  @tag[pedagogy]{Make a large, 2-column table on under the Function Header.}
+              @;INSERT TABLE HERE
+               }
              
-              @;TABLE GOES HERE
        @item{@think-about[#:question "But how do we know when we want to produce 9.00? 10.50?"
                           #:answer "When the toppings are cheese and pepperoni"]}
        @item{What we want is a way to go down each line, checking to see if the topping is the right one. If it is, we go on to finish the line. If not, we go on to the next one.
