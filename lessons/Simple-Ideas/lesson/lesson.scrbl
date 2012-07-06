@@ -6,7 +6,7 @@
 
 @itemlist/splicing[
                    @item{Diagonal movement keys, second set of faster movement keys, etc.}
-                    @item{Player disappears and reappears using some key with @code{(- @code{10000} y)} in @code{update-player}, or a real @code{cond} to be safer.}
+                    @item{Player disappears and reappears using some key with @code{(- 10000 y)} in @code{update-player}, or a real @code{cond} to be safer.}
                     @item{Bounding-box collide for oblong characters: if your characters are nowhere near circular, you may want to change to a bounding box version of @code{collide?}
 , where line-length in x isn't too big and line length in y isn't too big, separately, with different definitions of too-big for the two dimensions.}
                     @item{You can make multiple Dangers or Targets by defining a list of them. Introduce students to Racket's @code{(list ...)}
