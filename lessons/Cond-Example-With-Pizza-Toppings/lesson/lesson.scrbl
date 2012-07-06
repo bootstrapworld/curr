@@ -1,5 +1,4 @@
 #lang curr/lib
-
 @declare-tags[pedagogy selftaught group]
 
 @lesson[#:title "Pizza Toppings" #:duration "30 min" #:prerequisites "Intro-to-Booleans"]{
@@ -37,7 +36,7 @@
                    @item{@think-about[#:question "What function compares two strings, and gives back a Boolean?"
                                       #:answer @code{string=?}]}
                    @item{@think-about[#:question "What's the Racket code that compares the input topping to the string \"pepperoni\"?"
-                                      #:answer @code{(string=? topping @code{"pepperoni"})}]}
+                                      #:answer @racket[(string=? topping "pepperoni")]]}
                    @item{Now we can write that on our first line, as our first topping check. Can you do the rest?}]}
        @tag[pedagogy]{@item{Have students fill out the rest of the table}}
        @tag[selftaught]{@item{Fill out the rest of the table}}
