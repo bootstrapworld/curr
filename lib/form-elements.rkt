@@ -31,6 +31,7 @@
          code
          language-table
 	 worksheet-table
+         build-table/cols
          contract-exercise
          function-exercise
          
