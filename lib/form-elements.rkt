@@ -87,43 +87,41 @@
                    (-> constraint? element?)]
                   )
 
+;;;;;;;;;;;;;;;; Site Images ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (define bootstrap.gif (bitmap "bootstrap.gif"))
 (define creativeCommonsLogo (bitmap "creativeCommonsLogo.png"))
+
+;;;;;;;;;;;;;;;; Runtime Paths ;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (define-runtime-path bootstrap.css "bootstrap.css")
 (define-runtime-path bootstrap-pdf.tex "bootstrap-pdf.tex")
+(define-runtime-path worksheet-lesson-root (build-path 'up "lessons"))
 
-;;;;;;;;;;;;;;;; LaTeX Styles ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;; Defining Styles ;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(define bs-lesson-style
-  (make-style "BootstrapLesson" 
-              (list (make-tex-addition bootstrap-pdf.tex))))
+;; bootstrap-sectioning-style : string -> style
+;; defines a style for both latex and css with the given name
+(define (bootstrap-sectioning-style name)
+  (make-style name (list (make-css-addition bootstrap.css)
+                         (make-tex-addition bootstrap-pdf.tex)
+                         ;; Use <div/> rather than <p/>
+                         (make-alt-tag "div"))))
 
-(define bs-example-exercise-style
-  (make-style "BSExampleExercise"
-              (list (make-tex-addition bootstrap-pdf.tex))))
+;; make-bs-latex-style : string -> style
+;; defines a style that will only be used in latex
+(define (make-bs-latex-style name) 
+  (make-style name (list (make-tex-addition bootstrap-pdf.tex))))
 
-(define bs-function-example-exercise-style
-  (make-style "BSFunctionExampleExercise"
-              (list (make-tex-addition bootstrap-pdf.tex))))
-
-(define bs-contract-exercise-style
-  (make-style "BSContractExercise"
-              (list (make-tex-addition bootstrap-pdf.tex))))
-
-(define bs-function-exercise-style
-  (make-style "BSFunctionExercise"
-              (list (make-tex-addition bootstrap-pdf.tex))))
-
-(define bs-fill-in-blank-style
-  (make-style "BSFillInBlank"
-              (list (make-tex-addition bootstrap-pdf.tex))))
+(define bs-lesson-style (make-bs-latex-style "BootstrapLesson"))
+(define bs-example-exercise-style (make-bs-latex-style "BSExampleExercise"))
+(define bs-function-example-exercise-style (make-bs-latex-style "BSFunctionExampleExercise"))
+(define bs-contract-exercise-style (make-bs-latex-style "BSContractExercise"))
+(define bs-function-exercise-style (make-bs-latex-style "BSFunctionExercise"))
+(define bs-fill-in-blank-style (make-bs-latex-style "BSFillInBlank"))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; This provides form loops and indices
 
-
 (define current-row (make-parameter #f))
-
 
 (define-syntax (row stx)
   (syntax-case stx ()
@@ -134,7 +132,6 @@
                          (paragraph (make-style "BootstrapRow" (list (make-alt-tag "div")))
                                     (list body ...)))))]))
 
-
 ;; When creating the ids for the form elements, if we're in the context of a row,
 ;; add it to the identifier as a ";~a" suffix.
 (define (resolve-id id)
@@ -143,8 +140,6 @@
     (format "~a;~a" id (current-row))]
    [else
     id]))
-
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -278,13 +273,6 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(define (bootstrap-sectioning-style name)
-  (make-style name (list (make-css-addition bootstrap.css)
-                         (make-tex-addition bootstrap-pdf.tex)
-                         ;; Use <div/> rather than <p/>
-                         (make-alt-tag "div"))))
-
-
 ;; The following provides sectioning for bootstrap.  
 (define (worksheet . body)
   (apply nested #:style (bootstrap-sectioning-style "BootstrapWorksheet")
@@ -322,12 +310,9 @@
                                  (decode-flow body))))))))
 
 
-
-
 (define (drill . body)
   (compound-paragraph (bootstrap-sectioning-style "BootstrapDrill")
                       (decode-flow body)))
-
 
 (define (exercise . body) 
   (list (compound-paragraph (bootstrap-sectioning-style 
@@ -368,16 +353,9 @@
 	       (map (lambda (r)
 		      (map format-cell r))
 		    rows))))
-;	 (cons (list (para (bold "Types")) (para (bold "Functions")))
-;	       (map (lambda (r)
-;		      (map format-cell r))
-;		    rows))))
 
 (define (format-cell s)
-  (para s)
-  #;(if (string? s)
-      (para s)
-      s))
+  (para s))
 
 ;; worksheet-table : list[string] list[element] list[string] -> table
 ;; assert: col-headers should be same length as (add1 id-tags)
@@ -388,7 +366,7 @@
                                   #:id (format "~a~a" tag row-num)
                                   )))
                          id-tags))])
-    (table (style #f 
+    (table (style "BSTable" 
                   (list 
                    (table-columns
                     (build-list width
@@ -409,6 +387,37 @@
                                 (cons (format-cell left-content)
                                       (make-row row-num)))
                               left-col (build-list (sub1 height) add1)))]))))
+
+;; build-table : list[string] list[list[element]] (number number -> element) 
+;;               number number -> table
+;; consumes column headers, contents for a prefix of the columns, a function to
+;;          format each cell based on its row and col number, 
+;;          and the number of columns and rows for the table
+;; produces a table (list of list of cell contents, row-major order)
+(define (build-table/cols col-headers col-contents fmt-cell width height)
+  (let* ([blank-column (lambda (col-num)
+                         (build-list height (lambda (row-num) 
+                                              (fmt-cell row-num col-num))))]
+         [data-columns 
+          (build-list width
+                      (lambda (col-num) 
+                        (cond [(>= col-num (length col-contents)) (blank-column col-num)]
+                              [(null? (list-ref col-contents col-num)) (blank-column col-num)]
+                              [else (elem (list-ref col-contents col-num))])))]
+         [all-columns (if (null? col-headers) data-columns
+                          (map cons 
+                               (map (lambda (h) (elem (bold h))) col-headers)
+                               data-columns))])   
+    (table (style "BSTable" 
+                  (list 
+                   (table-columns
+                    (build-list width
+                                (lambda (n) (style #f '(left)))))))
+           ;; convert list of columns to list of rows
+           (build-list height
+                       (lambda (row-num) 
+                         (list-ref (map (lambda (col) (list-ref col row-num)) all-columns))))
+           )))
 
 (define (standards . body)
   (list "State Standards:"
@@ -527,11 +536,13 @@
 
 ;auto generates copyright section
 (define (copyright . body)
-  (compound-paragraph (bootstrap-sectioning-style "BootstrapCopyright" ) (decode-flow (list (hyperlink "http://creativecommons.org/licenses/by-nc-nd/3.0/" creativeCommonsLogo) "Bootstrap by " (hyperlink "http://www.bootstrapworld.org/" "Emmanuel Schanzer") " is licensed under a "
-        (hyperlink "http://creativecommons.org/licenses/by-nc-nd/3.0/" "Creative Commons 3.0 Unported License")
-        ". Based on a work at " (hyperlink "http://www.bootstrapworld.org/" "www.BootsrapWorld.org")
-        ". Permissions beyond the scope of this license may be available at "
-        (hyperlink "mailto:schanzer@BootstrapWorld.org" "schanzer@BootstrapWorld.org") "."))))
+  (compound-paragraph 
+   (bootstrap-sectioning-style "BootstrapCopyright" ) 
+   (decode-flow (list (hyperlink "http://creativecommons.org/licenses/by-nc-nd/3.0/" creativeCommonsLogo) "Bootstrap by " (hyperlink "http://www.bootstrapworld.org/" "Emmanuel Schanzer") " is licensed under a "
+                      (hyperlink "http://creativecommons.org/licenses/by-nc-nd/3.0/" "Creative Commons 3.0 Unported License")
+                      ". Based on a work at " (hyperlink "http://www.bootstrapworld.org/" "www.BootsrapWorld.org")
+                      ". Permissions beyond the scope of this license may be available at "
+                      (hyperlink "mailto:schanzer@BootstrapWorld.org" "schanzer@BootstrapWorld.org") "."))))
 
 ;autogenerates state-standards section
 (define state-standards
@@ -550,16 +561,15 @@
 ;;         unique id
 ;; output: in format (EXAMPLE (____ ____) _________)
 (define (example-fast-functions tag)
-  (cond-element [html
-               (elem "(EXAMPLE (" 
-                     (fill-in-the-blank #:id (format "~a.1" tag) #:label "")
-                     " "
-                     (fill-in-the-blank #:id (format "~a.2" tag) #:label "")
-                     ") "
-                     (fill-in-the-blank #:id (format "~a.3" tag) #:label "")
-                     ")")]
-              [(or latex pdf)
-               (elem #:style bs-function-example-exercise-style "")]))
+  (cond-element 
+   [html (elem "(EXAMPLE (" 
+               (fill-in-the-blank #:id (format "~a.1" tag) #:label "")
+               " "
+               (fill-in-the-blank #:id (format "~a.2" tag) #:label "")
+               ") "
+               (fill-in-the-blank #:id (format "~a.3" tag) #:label "")
+               ")")]
+   [(or latex pdf) (elem #:style bs-function-example-exercise-style "")]))
 
 ;; input: -two optional text labels for the two fill-in-the-blanks 
 ;;        -a tag which can be anything unqiue which helps to generate a 
@@ -570,14 +580,13 @@
                            tag
                            #:example1 [example1 #f]
                            #:example2 [example2 #f])
-  (cond-element [html
-               (elem "(EXAMPLE (" 
-                     (fill-in-the-blank #:id (format "~a.1" tag) #:label text1)
-                     ") "
-                     (fill-in-the-blank #:id (format "~a.2" tag) #:label text2)
-                     ")")]
-              [(or latex pdf)
-               (elem #:style bs-example-exercise-style "")]))
+  (cond-element 
+   [html (elem "(EXAMPLE (" 
+               (fill-in-the-blank #:id (format "~a.1" tag) #:label text1)
+               ") "
+               (fill-in-the-blank #:id (format "~a.2" tag) #:label text2)
+               ")")]
+   [(or latex pdf) (elem #:style bs-example-exercise-style "")]))
                             
 ;; input: optional values for the name, args, and body fields of a function
 ;;        a tag to use for generating html id names
@@ -586,14 +595,13 @@
                            #:args [args ""]
                            #:body [body ""]
                            tag)
-  (cond-element [html
-               (elem "(define ("(fill-in-the-blank #:id (format "fname-~a" tag) #:label "function name")
-                     (fill-in-the-blank #:id (format "args-~a" tag) #:label "variable names") ")"
-                     (fill-in-the-blank #:id (format "body-~a" tag) #:label "what it does") ")")]
-              [(or latex pef)
-               (elem #:style bs-function-exercise-style "")]))
+  (cond-element 
+   [html
+    (elem "(define ("(fill-in-the-blank #:id (format "fname-~a" tag) #:label "function name")
+          (fill-in-the-blank #:id (format "args-~a" tag) #:label "variable names") ")"
+          (fill-in-the-blank #:id (format "body-~a" tag) #:label "what it does") ")")]
+   [(or latex pef) (elem #:style bs-function-exercise-style "")]))
 
-(define-runtime-path worksheet-lesson-root (build-path 'up "lessons"))
 ;; We need to do a little compile-time computation to get the file's source
 ;; where worksheet-link/src-path is used, since we want the path relative to
 ;; the usage, rather than to current-directory.
