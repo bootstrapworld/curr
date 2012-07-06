@@ -4,6 +4,7 @@
          racket/system
          racket/string
          racket/cmdline
+         racket/path
          "lib/system-parameters.rkt"
          (for-syntax racket/base))
 
@@ -22,6 +23,9 @@
 (define-runtime-path bs1-main
   (build-path "courses" "bs1" "main.scrbl"))
 
+(define-runtime-path bs1-teachers-guide
+  (build-path "courses" "bs1" "teachers-guide.scrbl"))
+
 (define scribble-exe
   (or (find-executable-path "scribble")
       (find-executable-path "scribble.exe")
@@ -37,18 +41,21 @@
 ;; run-scribble: path -> void
 ;; Runs scribble on the given file.
 (define (run-scribble scribble-file)
-  (cond
-    [(deployment-dir)
-     ;; When we're deploying, write the scribble file content within it
-     (define output-dir (let-values ([(base name dir?) 
-                                      (split-path 
-                                       (find-relative-path root-path scribble-file))])
-                          (build-path (deployment-dir) base)))
-     (system* scribble-exe (output-mode) "--dest" output-dir scribble-file)]
-    [else
-     (define-values (base name dir?) (split-path scribble-file))
-     (parameterize ([current-directory base])
-       (system* scribble-exe (output-mode) name))])
+  (define output-dir (cond [(deployment-dir)
+                            ;; Rendering to a particular deployment directory.
+                            (let-values ([(base name dir?) 
+                                          (split-path 
+                                           (find-relative-path (simple-form-path root-path)
+                                                               (simple-form-path scribble-file)))])
+                              (simple-form-path (build-path (deployment-dir) base)))]
+                           [else
+                            ;; In-place rendering
+                            (let-values ([(base name dir?)
+                                          (split-path (simple-form-path scribble-file))])
+                              base)]))
+  (define-values (base name dir?) (split-path scribble-file))
+  (parameterize ([current-directory base])
+    (system* scribble-exe (output-mode) "--dest" output-dir name))
   (void))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -116,3 +123,8 @@
 
 (printf "build.rkt: building bs1 main\n")
 (run-scribble bs1-main)
+
+;; Temporarily turning teacher's guide off till we can resolve the issue with the images of one scribble
+;; file overwriting those of another in the same directory.
+;(printf "build.rkt: building bs1 teacher's guide\n")
+;(run-scribble bs1-teachers-guide)

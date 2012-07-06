@@ -16,7 +16,8 @@
          2htdp/image
          racket/list
          "checker.rkt"
-         "javascript-support.rkt")
+         "javascript-support.rkt"
+         "system-parameters.rkt")
 
 
 
@@ -451,7 +452,7 @@
   (list (compound-paragraph (bootstrap-sectioning-style "BootstrapHeader") 
                             (decode-flow (list "Product Outcomes:")))
         (apply itemlist/splicing items #:style "BootstrapProductOutcomesList")))
-
+9
 (define (preparation . items)
   (list (compound-paragraph (bootstrap-sectioning-style "BootstrapHeader") 
                             (decode-flow (list "Preparation:")))
@@ -614,24 +615,43 @@
            (worksheet-link #:src-path src-path
                            args ...))))]))
 
+;; Creates a link to the worksheet.
+;; Under development mode, the URL is relative to the development sources.
+;; Under deployment mode, the URL assumes worksheets have been written 
 (define (worksheet-link #:name name
                         #:page page
                         #:lesson [lesson #f]
                         #:src-path src-path)
   (define-values (base-path _ dir?) (split-path src-path))
   (define the-relative-path
-    (if lesson
-        (find-relative-path (simple-form-path (current-directory))
-                            (simple-form-path (build-path worksheet-lesson-root
-                                                          lesson
-                                                          "worksheets"
-                                                          (format "~a.html" name))))
-        (find-relative-path (simple-form-path (current-directory))
-                            (simple-form-path (build-path base-path
-                                                          'up
-                                                          "worksheets"
-                                                          (format "~a.html" name))))))
-  (list (hyperlink the-relative-path
+    (cond [(deployment-dir)
+           ;; FIXME!
+           (cond [lesson
+                  (find-relative-path (simple-form-path (current-directory))
+                                      (simple-form-path (build-path worksheet-lesson-root
+                                                                    lesson
+                                                                    "worksheets"
+                                                                    (format "~a.html" name))))]
+                 [else
+                  (find-relative-path (simple-form-path (current-directory))
+                                      (simple-form-path (build-path base-path
+                                                                    'up
+                                                                    "worksheets"
+                                                                    (format "~a.html" name))))])]           
+          [else
+           (cond [lesson
+                  (find-relative-path (simple-form-path (current-directory))
+                                      (simple-form-path (build-path worksheet-lesson-root
+                                                                    lesson
+                                                                    "worksheets"
+                                                                    (format "~a.html" name))))]
+                 [else
+                  (find-relative-path (simple-form-path (current-directory))
+                                      (simple-form-path (build-path base-path
+                                                                    'up
+                                                                    "worksheets"
+                                                                    (format "~a.html" name))))])]))
+  (list (hyperlink (path->string the-relative-path)
                    "Page " (number->string page))))
 
 ;; generates the title, which includes the bootstrap logo in html but not in latex/pdf
