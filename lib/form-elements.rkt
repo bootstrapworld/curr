@@ -409,7 +409,7 @@
   (list (compound-paragraph (bootstrap-sectioning-style "BootstrapHeader") 
                             (decode-flow (list "Product Outcomes:")))
         (apply itemlist/splicing items #:style "BootstrapProductOutcomesList")))
-9
+
 (define (preparation . items)
   (list (compound-paragraph (bootstrap-sectioning-style "BootstrapHeader") 
                             (decode-flow (list "Preparation:")))
