@@ -30,33 +30,33 @@
    @item{A position contains two numbers: an x- and a y-coordinate.}
    @item{Suppose I wanted to make a position with the coordinates 10, 40. In the Interactions window: I can make this position by typing @code{(make-posn 10 40)}. 
                                                                                @tag[pedagogy]{How do you think I would make a position at 400, -50?} 
-          @tag[selftaught]{@think-about[#:question "How do you think I would make a position at 400, -50?" #:answer @code{(make-posn 400 -50)}]}}
+          @tag[selftaught]{@think-about[#:question "How do you think I would make a position at 400, -50?" #:answer @code{(make-posn @code{400 -50})}]}}
    @item{Let's return to simple values for a moment. If I type the number 4, what will happen when I hit Enter? @tag[pedagogy]{Students guess that you will get 4 back. That's right! }I get back exactly the value I typed in, because values evaluate to themselves.}
-   @item{What if I type the string @code{"hello"}, and hit Enter? What will I get back? @tag[pedagogy]{Students guess that you will get "hello" back. That's right! } I get back exactly the value I typed in, because values evaluate to themselves.}
-   @item{What about the Boolean @code{true}? What will I get back my hit Enter? @tag[pedagogy]{Students guess that you will get true back. That's right! } I get back exactly the value I typed in, because values evaluate to themselves.}
-   @item{Now, what do you think will happen if I type in @code{(make-posn 400 -50)}
+   @item{What if I type the string @code{"hello"}, and hit Enter? What will I get back? @tag[pedagogy]{Students guess that you will get @code{"hello"} back. That's right! } I get back exactly the value I typed in, because values evaluate to themselves.}
+   @item{What about the Boolean @code{true}? What will I get back my hit Enter? @tag[pedagogy]{Students guess that you will get @code{true} back. That's right! } I get back exactly the value I typed in, because values evaluate to themselves.}
+   @item{Now, what do you think will happen if I type in @code{(make-posn @code{400 -50})}
  and hit enter?}
    @item{@tag[pedagogy]{Allow students to brainstorm. Hit enter, and then remind them: }I get back exactly the value I typed in, because values evaluate to themselves.}
    @item{The moral of the story is, Structs are Values, just like Numbers, Strings, Booleans and Images.}
   @tag[pedagogy]{@item{Have students turn their monitors on and practice making posns for different coordinates. Can they make a posn for each of the four corners of their game screen?}}
   @tag[selftaught]{@item{@think-about[#:question "Can you make a posn for each of the four corners of your game screen?" #:answer @code{
-                                  (make-posn 0 0)
-                                  (make-posn 640 0)
-                                  (make-posn 640 480)
-                                  (make-posn 0 480)}]}}
-   @item{Let's look back at our example - can you make a posn for the original position of the object? @think-about[#:question "What about the new position?" #:answer @code{(make-posn 330 250)}]}
+                                  (make-posn @code{0 0})
+                                  (make-posn @code{640 0})
+                                  (make-posn @code{640 480})
+                                  (make-posn @code{0 480)}}]}}
+   @item{Let's look back at our example - can you make a posn for the original position of the object? @think-about[#:question "What about the new position?" #:answer @code{(make-posn @code{330 250})}]}
    @item{Everything we know about Racket still applies, so I could also write this as:
-@code{(make-posn (+ 320 10) (+ 240 10))}}
+@code{(make-posn (+ @code{320 10}) (+ @code{240 10}))}}
    @tag[pedagogy]{@item{Grab a Design Recipe Worksheet}}
    @tag[selftaught]{Get a Design Recipe worksheet @worksheet-link[#:page 34 #:name "design-recipe"]}
    @item{The problem with returning a number is that we could only update the X or Y coordinate. But if we return a Posn instead, we can update BOTH.}
    @item{How should our contract change? The Domain is two numbers, and the Range should be a Posn, instead of a number.}
-   @item{What about our examples? Well, we've already got one of them on the board. @code{(update-danger 320 240)} should give us back a @code{(make-posn (+ 320 10) (+ 240 10))}.}
+   @item{What about our examples? Well, we've already got one of them on the board. @code{(update-danger @code{320 240})} should give us back a @code{(make-posn (+ @code{320 10}) (+ @code{240 10}))}.}
    @item{Can you write another example, using a different starting x and y?}
    @item{What should our function header be, so it matches our new contract? And what about the function body?}
-   @tag[pedagogy]{@item{Have students click 'run' - the game should run as normal, except for their object moving in two dimensions! Then once students have gotten their objects to move in two dimensions, ask them how they might modify the update-target and update-projectile functions to do the same.}}
+   @tag[pedagogy]{@item{Have students click 'run' - the game should run as normal, except for their object moving in two dimensions! Then once students have gotten their objects to move in two dimensions, ask them how they might modify the @code{update-target} and @code{update-projectile} functions to do the same.}}
    @tag[selftaught]{@item{Click run- the game should run as normal, except your object will move in two dimensions!}}
-   @item{What about update-player? How does the contract need to change to allow the player to move in two dimensions? The function header?}
+   @item{What about @code{update-player}? How does the contract need to change to allow the player to move in two dimensions? The function header?}
    @item{Right now, both branches of the cond statement return numbers. We need to fix that so they return posns instead. Remember that the x-coordinate isn't changing at all, so these posns should only be adding to or subtracting from the y-coordinate.}
    @item{But suppose we would like the player to also move left and right. How could we add branches for the "left" and "right" keys?}
    @tag[pedagogy]{@item{Allow students to fiddle with this code. When they are done, they should have solid, two-dimensional movement for all of their game characters.}}
