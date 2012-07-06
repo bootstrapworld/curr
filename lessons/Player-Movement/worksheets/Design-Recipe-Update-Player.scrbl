@@ -3,19 +3,19 @@
 @worksheet{
     Write a function called update-player which takes in the player's y-coordinate and the name of the key pressed, and returns the new y-coordinate.
     
-    1.  Contract+ Purpose Statement
+    @worksheet-segment{I.  Contract + Purpose Statement}
     Every contract has three parts:
     
     @contract-exercise["up1" #:name "update-player" #:domain "number string" #:range "number"]
     
-    2. Give Examples
+    @worksheet-segment{II. Give Examples}
     Write an example of your function for each key, using EXAMPLE
     
     (EXAMPLE (@fill-in-the-blank[#:id "up2" #:label "Use the function here" #:answer "update-player 40 \"up\""]) @fill-in-the-blank[#:id "up3" #:label "What should the function produce" #:answer "(+ 40 20)"])
     
     (EXAMPLE (@fill-in-the-blank[#:id "up4" #:label "Use the function here" #:answer "update-player 400 \"down\""]) @fill-in-the-blank[#:id "up5" #:label "What should the function produce" #:answer "(- 400 20)"])
     
-    3. Function Header
+    @worksheet-segment{III. Function Header}
     Write the function Header, giving variable names to all your input values.
     
     (define (@fill-in-the-blank[#:id "up6" #:label "function name" #:answer "update-player"] @fill-in-the-blank[#:id "up6" #:label "variable names" #:answer "player-y key"])

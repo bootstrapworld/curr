@@ -4,12 +4,12 @@
 @worksheet{
     Luigi's Pizza has hired you as a programmer.  They offer Pepperoni ($10.50), Cheese ($9.00), Chicken ($11.25) ,and Broccoli ($10.25).  Write a function called cost which takes in the name of a topping and outputs the cost of a pizza with that topping.
     
-    1.  Contract+ Purpose Statement
+    @worksheet-segment{I.  Contract + Purpose Statement}
     Every contract has three parts:
     
     @contract-exercise["cost1" #:name "cost" #:domain "string" #:range "number"]
     
-    2. Give Examples
+    @worksheet-segment{II. Give Examples}
     Write an example of your function for each topping, using EXAMPLE
     
         (EXAMPLE (@fill-in-the-blank[#:id "cost2" #:label "Use the function here" #:answer "\"pepperoni\""]) @fill-in-the-blank[#:id "cost3" #:label "What should the function produce" #:answer "10.50"])
@@ -20,7 +20,7 @@
     
         (EXAMPLE (@fill-in-the-blank[#:id "cost6" #:label "Use the function here" #:answer "\"broccoli\""]) @fill-in-the-blank[#:id "cost7" #:label "What should the function produce" #:answer "10.25"])
     
-    3. Function Header
+    @worksheet-segment{III. Function Header}
     Write the function Header, giving variable names to all your input values.
     
     (define (@fill-in-the-blank[#:id "cost7" #:label "function name" #:answer "cost"] @fill-in-the-blank[#:id "cost8" #:label "variable names" #:answer "topping"])(

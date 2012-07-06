@@ -4,19 +4,19 @@
 @worksheet{
    Write a function called line-length, which takes in two numbers and returns the difference between them. It should always subtract the smaller number from the bigger one.
 
-    1.  Contract + Purpose Statement@linebreak[]
+    @worksheet-segment{I.  Contract + Purpose Statement}
     Every contract has three parts:
     
     @contract-exercise["line-length.1" #:name "line-length" #:domain "number number" #:range "number"]
     
-    2. Give Examples@linebreak[]
+    @worksheet-segment{II. Give Examples}
     Write two examples of your function in action
    
      @example-with-text[#:text1 "use the function here"
                    #:text2 "find another way to get the same result here"
                    "1D-1"
                    #:example1 "line-length 10 5"
-                   #:example2 "(- 10 5)"]
+                   #:example2 "(- 10 5)"] @linebreak[]
  @example-with-text[#:text1 "use the function here"
                    #:text2 "find another way to get the same result here"
                    "1D-2"
@@ -24,7 +24,7 @@
                    #:example2 "(- 8 2)"]
     
     
-    3. Function Header@linebreak[]
+    @worksheet-segment{III. Function Header}
     Write the function Header, giving variable names to all your input values.
     
     (define (@fill-in-the-blank[#:id "line-length1" #:label "function name" #:answer "line-length"] @fill-in-the-blank[#:id "line-length2" #:label "variable names" #:answer "a b"]) @linebreak[]
