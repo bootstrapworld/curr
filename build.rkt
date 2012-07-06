@@ -4,10 +4,14 @@
          racket/system
          racket/string
          racket/cmdline
+         "lib/system-parameters.rkt"
          (for-syntax racket/base))
 
 ;; This is a toplevel build script which generates scribble files for
 ;; the lessons and courses.
+
+(define-runtime-path root-path (build-path 'same))
+
 
 (define-runtime-path units-dir
   (build-path "courses" "bs1" "units"))
@@ -28,18 +32,23 @@
 (define output-mode (make-parameter "--html"))
 
 
-;; The production deployment directory is, by default, #f.
-;; Under deployment mode, the worksheets and drills are written as subdirectories of the deployment directory.
-(define deployment-dir (make-parameter #f))
-
 
 
 ;; run-scribble: path -> void
 ;; Runs scribble on the given file.
 (define (run-scribble scribble-file)
-  (define-values (base name dir?) (split-path scribble-file))
-  (parameterize ([current-directory base])
-    (system* scribble-exe (output-mode) name))
+  (cond
+    [(deployment-dir)
+     ;; When we're deploying, write the scribble file content within it
+     (define output-dir (let-values ([(base name dir?) 
+                                      (split-path 
+                                       (find-relative-path root-path scribble-file))])
+                          (build-path (deployment-dir) base)))
+     (system* scribble-exe (output-mode) "--dest" output-dir scribble-file)]
+    [else
+     (define-values (base name dir?) (split-path scribble-file))
+     (parameterize ([current-directory base])
+       (system* scribble-exe (output-mode) name))])
   (void))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
