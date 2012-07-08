@@ -49,8 +49,49 @@
 \vskip\baselineskip
 }
 
+% Really need to figure out how to center the text in here
+\newcommand{\BSUnitSeparatorTitle}[1]{
+\vskip\baselineskip
+{\colorbox{black}{\parbox{\dimexpr\textwidth-2\fboxsep\relax}{\textcolor{white}{\centering{\Huge{#1}}}}}}
+\vskip\baselineskip
+}
+
+% creates page of blank lines with the given argument as a title
+\newcommand{\BSUnitSeparationPage}[1]{
+\newpage
+\BSUnitSeparatorTitle{#1}\par
+\vskip\baselineskip
+\hrulefill\par\vskip\baselineskip
+\hrulefill\par\vskip\baselineskip
+\hrulefill\par\vskip\baselineskip
+\hrulefill\par\vskip\baselineskip
+\hrulefill\par\vskip\baselineskip
+\hrulefill\par\vskip\baselineskip
+\hrulefill\par\vskip\baselineskip
+\hrulefill\par\vskip\baselineskip
+\hrulefill\par\vskip\baselineskip
+\hrulefill\par\vskip\baselineskip
+\hrulefill\par\vskip\baselineskip
+\hrulefill\par\vskip\baselineskip
+\hrulefill\par\vskip\baselineskip
+\hrulefill\par\vskip\baselineskip
+\hrulefill\par\vskip\baselineskip
+\hrulefill\par\vskip\baselineskip
+\hrulefill\par\vskip\baselineskip
+\hrulefill\par\vskip\baselineskip
+\hrulefill\par\vskip\baselineskip
+\hrulefill\par\vskip\baselineskip
+\hrulefill\par\vskip\baselineskip
+\hrulefill\par\vskip\baselineskip
+\hrulefill\par\vskip\baselineskip
+\hrulefill\par\vskip\baselineskip
+}
+
 \newcommand{\BSFillInBlank}[1]{\rule{3in}{.1mm}
 }
+
+% creates empty box with width and height given in the arguments
+\newcommand{\BSFreeResponse}[1]{\fbox{\begin{minipage}{2in}\hfill\vspace{2in}\end{minipage}}}
 
 % generates (EXAMPLE ____________  _______________)
 \newcommand{\BSExampleExercise}[1]{
@@ -100,8 +141,20 @@
 \end{tabular}
 }
 
-
-
+% generate a circle-of-evaluation exercise page
+\newcommand{\BSCircEvalExBox}[1]{\begin{minipage}{2.6in}\hfill\vspace{1.85in}\end{minipage}}
+\newcommand{\BSCircEvalExercise}[4]{
+\BootstrapWorksheetSegment{Circle of Evaluation Practice (Time: 5 minutes)}
+Don't forget to use the computer's symbols for things like multiply and divide!
+\vskip\baselineskip
+\begin{tabular}{|l|l|l|} \hline 
+Math & Circle of Evaluation & Racket Code \\ \hline
+#1 & \BSCircEvalExBox{} & \BSCircEvalExBox{} \\ \hline
+#2 & \BSCircEvalExBox{} & \BSCircEvalExBox{} \\ \hline
+#3 & \BSCircEvalExBox{} & \BSCircEvalExBox{} \\ \hline
+#4 & \BSCircEvalExBox{} & \BSCircEvalExBox{} \\ \hline
+\end{tabular}
+}
 
 % yields a \endcsname error when used
 %\newcommand{\BSfastFunction}[1]{

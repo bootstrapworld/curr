@@ -36,6 +36,7 @@
          contract-exercise
          function-exercise
          design-recipe-exercise
+         circles-evaluation-exercise
          
          ;; Sections
          worksheet
@@ -46,6 +47,7 @@
 	 skit
 	 demo
 	 review
+         unit-separator
 
          ;; Itemizations
          materials
@@ -60,12 +62,9 @@
          standards
          unit-length
 
-
-
          ;; Include lesson
          include-lesson
-         
-         
+     
          ;; stuff added by the interns
          ;;edited contract-exercise
          overview
@@ -78,7 +77,6 @@
 
          [rename-out [worksheet-link/src-path worksheet-link]]
          )        
-
 
 (provide/contract [itemlist/splicing
                    (->* () 
@@ -123,6 +121,7 @@
 (define bs-contract-purpose-exercise-style (make-bs-latex-style "BSContractPurposeExercise"))
 (define bs-function-exercise-style (make-bs-latex-style "BSFunctionExercise"))
 (define bs-fill-in-blank-style (make-bs-latex-style "BSFillInBlank"))
+(define bs-free-response-style (make-bs-latex-style "BSFreeResponse"))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; This provides form loops and indices
@@ -148,7 +147,8 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-;; One-line input
+;; Inputs: string number string string -> element
+;; Generates a single-line input area
 (define (fill-in-the-blank #:id id
                            #:columns (width 50)
                            #:label (label #f)
@@ -164,20 +164,23 @@
                  (elem #:style bs-fill-in-blank-style 
                        (if label label " "))]))
 
-
-;; Free form text
+;; Inputs: string element number number string -> element
+;; Generates a multi-line input area of size given in column/row arguments
 (define (free-response #:id id
                        #:answer (answer #f)
                        #:columns (width 50)
                        #:rows (height 20)
                        #:label (label #f))
-  (sxml->element `(textarea (@ (id ,(resolve-id id))
-                               (cols ,(number->string width))
-                               (rows ,(number->string height))
-                               ,@(if label
-                                     `((placeholder ,label))
-                                     '()))
-                            "")))
+  (cond-element 
+   [html (sxml->element `(textarea (@ (id ,(resolve-id id))
+                                      (cols ,(number->string width))
+                                      (rows ,(number->string height))
+                                      ,@(if label
+                                            `((placeholder ,label))
+                                            '()))
+                                   ""))]
+   [(or latex pdf)
+    (elem #:style bs-free-response-style (number->string width) (number->string height))]))
 
 
 ;; drop-down menus
@@ -260,7 +263,6 @@
 
 (struct lesson-struct (title duration) #:transparent)
 
-
 (define (lesson #:title (title #f)
                 #:duration (duration #f)
                 #:subsumes (subsumes #f)
@@ -289,6 +291,8 @@
              (compound-paragraph (bootstrap-sectioning-style "BootstrapLesson")
                                  (decode-flow body))))))))
 
+(define (unit-separator unit-number)
+  (elem #:style "BSUnitSeparationPage" (format "Lesson ~a" unit-number)))
 
 (define (drill . body)
   (compound-paragraph (bootstrap-sectioning-style "BootstrapDrill")
@@ -381,7 +385,7 @@
                               all-columns))))))
 
 (define (standards . body)
-  (list "State Standards:"
+  (list "State Standards: "
         (para (bootstrap-sectioning-style "BootstrapStandards")
               (decode-flow body))))
 
@@ -473,6 +477,10 @@
 
 ;;interns
 
+;; Inputs: string list[element] -> nested-flow
+;;         optional arguments are elements 
+;; Generates all components of a design-recipe exercise.  Optional arguments fill in solutions
+;;    for teacher's edition
 (define (design-recipe-exercise func-name . description)
   (let ([tagbase (format "recipe-~a" func-name)])
     (nested-flow
@@ -492,6 +500,21 @@
        (elem "Write the function header, giving variable names to all your input values")
        (function-exercise (string-append tagbase "function"))
        )))))
+
+;; Inputs: list[string or image] -> nested-flow
+;; Generates all components of a math/circle-of-evaluation/racket exercise
+;;    Corresponding LaTeX macro currently assumes 4 examples
+;;    FIX:: HTML version currently lacks header and warning text
+(define (circles-evaluation-exercise tag math-examples)
+  [cond-element 
+   [html (build-table/cols 
+          (list "Math" "Circle of Evaluation" "Racket Code")
+          math-examples
+          (lambda (row-num col-num) (free-response (format "~ar~ac~a" tag row-num col-num))) 
+          3 
+          4)]
+   [(or latex pdf) (apply elem #:style (make-bs-latex-style "BSCircEvalExercise") 
+                          (map elem math-examples))]])
 
 (define (overview . body)
   (list
