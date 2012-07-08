@@ -5,36 +5,49 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \usepackage{fullpage}
+\parindent=0pt
 
 \newenvironment{BootstrapLesson}{}{}
+\newenvironment{BootstrapAgenda}{}{}
+\newenvironment{BootstrapAgendaList}{}{}
+\newenvironment{BootstrapLearningObjectivesList}{}{}
+\newenvironment{BootstrapProductOutcomesList}{}{}
 \newenvironment{BootstrapStandards}{}{}
 \newenvironment{BootstrapHeader}{}{}
 \newenvironment{BootstrapImage}{}{}
 \newenvironment{BootstrapOverview}{}{}
 \newenvironment{BootstrapCopyright}{}{}
 \newenvironment{BootstrapWorksheet}{}{\newpage}
-\newenvironment{BootstrapWorksheetSegment}
-               {\vskip\baselineskip\hrule\par\vskip5pt\bf}
-               {\par\vskip5pt\hrule\vskip\baselineskip}
 \newenvironment{BootstrapDrill}{}{}
 \newenvironment{BootstrapExercise}{}{}
 \newenvironment{BootstrapSkit}{}{}
 \newenvironment{BootstrapDemo}{}{}
 \newenvironment{BootstrapReview}{}{}
 \newenvironment{BootstrapTableHeader}{}{}
+\newenvironment{BootstrapDRExercise}{}{}
 
 \newenvironment{BootstrapLessonTitle}{\large\bf}{\par\hrule\par}
 \newenvironment{BootstrapOverviewTitle}{\large\bf}{\par\hrule\par}
-\newenvironment{BootstrapTitle}{\center\Large\bf}{\par\vskip\baselineskip}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\BootstrapAgendaListItem}[1]{#1}
+\newcommand{\BootstrapLearningObjectivesListItem}[1]{#1}
+\newcommand{\BootstrapProductOutcomesListItem}[1]{#1}
+\newcommand{\BootstrapTable}[1]{#1}
 
 \newcommand{\BootstrapContract}[1]{\tt|#1|}
 \newcommand{\BootstrapRow}[1]{\tt|#1|}
 \newcommand{\BootstrapCode}[1]{\tt|#1|}
+\newcommand{\BootstrapTitle}[1]{\begin{center}{\Large\bf #1}\end{center} \par\vskip\baselineskip}
+\newcommand{\BSRecipeExerciseDescr}[1]{\begin{quote}\emph{#1}\end{quote}}
 
-\newcommand{\BSFunctionExercise}{}
-\newcommand{\BSContractExercise}{}
+% creates worksheet section headings as white text in a black box
+\newcommand{\BootstrapWorksheetSegment}[1]{
+\vskip\baselineskip
+{\colorbox{black}{\parbox{\dimexpr\textwidth-2\fboxsep\relax}{\textcolor{white}{#1}}}}
+\vskip\baselineskip
+}
 
 \newcommand{\BSFillInBlank}[1]{\rule{3in}{.1mm}
 }
@@ -42,14 +55,53 @@
 % generates (EXAMPLE ____________  _______________)
 \newcommand{\BSExampleExercise}[1]{
 \vskip\baselineskip\vskip\baselineskip
-(EXAMPLE (\rule{1.25in}{.1mm} \hskip.25in \rule{1.25in}{.1mm})
+(EXAMPLE (\rule{2.5in}{.1mm} \hskip.25in \rule{2.5in}{.1mm})
 }
 
 % generates (EXAMPLE (____________ _____________) _______________)
 \newcommand{\BSFunctionExampleExercise}[1]{
 \vskip\baselinseskip\vskip\baselineskip
-(EXAMPLE (\rule{1.25in}{.1mm} \hskip.25in \rule{1.25in}{.1mm}) \hskip.25in \rule{1.25in}{.1mm})
+(EXAMPLE (\rule{2in}{.1mm} \hskip.25in \rule{2in}{.1mm}) \hskip.25in \rule{2in}{.1mm})
 }
+
+% generates three blank lines with descriptions underneath each
+\newcommand{\BSContractExercise}{
+\begin{tabular}{c c c c c c} \\
+; & \rule{1.25in}{.1mm} & : & \rule{1in}{.1mm} & $\rightarrow$ & \rule{1in}{.1mm} \\
+  & Name & & Domain & & Range \\
+\end{tabular}
+}
+
+% generates contract exercise with an additional line beneath for the purpose
+\newcommand{\BSContractPurposeExercise}{
+\vskip\baselineskip
+\vskip\baselineskip
+\begin{tabular}{c c c c c c} \\
+; & \rule{1.5in}{.1mm} & : & \rule{1.5in}{.1mm} & $\rightarrow$ & \rule{1.5in}{.1mm} \\
+  & Name & & Domain & & Range \\ \\ \\
+; & \multicolumn{5}{l}{\rule{5.5in}{.1mm}} \\
+  & \multicolumn{5}{c}{What does the function do?} \\
+\end{tabular}
+}
+
+% generates structure of function definition with all lines labeled
+\newcommand{\BSFunctionExercise}{
+\vskip\baselineskip
+\vskip\baselineskip
+\begin{tabular}{l c c c} \\
+(define ( & \rule{1.5in}{.1mm} & \hskip.25in & \rule{1.5in}{.1mm}) \\
+          & function name & & variable names \\
+\end{tabular}
+\vskip\baselineskip
+\vskip\baselineskip
+\begin{tabular}{c} \\
+\hskip.5in\rule{5in}{.1mm}) \\
+... and the computer does this \\
+\end{tabular}
+}
+
+
+
 
 % yields a \endcsname error when used
 %\newcommand{\BSfastFunction}[1]{
@@ -64,11 +116,6 @@
 %\end{tabular}
 %\end{minipage}
 %}
-
-%\begin{tabular}{c c c c c c} \\
-%; & \rule{1.25in}{.1mm} & : & \rule{1in}{.1mm} & $\rightarrow$ & \rule{1in}{.1mm} \\
-%  & Name & & Domain & & Range 
-%\end{tabular}
 
 
 

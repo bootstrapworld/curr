@@ -7,7 +7,7 @@
          scribble/base
          scribble/core
          scribble/decode
-         [prefix-in manual: scribble/manual]
+         (prefix-in manual: scribble/manual)
          scribble/html-properties
          scribble/latex-properties
          scriblib/render-cond
@@ -35,6 +35,7 @@
          build-table/cols
          contract-exercise
          function-exercise
+         design-recipe-exercise
          
          ;; Sections
          worksheet
@@ -84,7 +85,6 @@
                         (#:style (or/c style? string? symbol? #f)) 
                         #:rest (listof (or/c item? splice?))
                         itemization?)]
-                  
                   [check
                    (-> constraint? element?)]
                   )
@@ -108,6 +108,9 @@
                          ;; Use <div/> rather than <p/>
                          (make-alt-tag "div"))))
 
+(define bs-header-style (bootstrap-sectioning-style "BootstrapHeader"))
+(define bs-title-style (bootstrap-sectioning-style "BootstrapTitle"))
+
 ;; make-bs-latex-style : string -> style
 ;; defines a style that will only be used in latex
 (define (make-bs-latex-style name) 
@@ -117,6 +120,7 @@
 (define bs-example-exercise-style (make-bs-latex-style "BSExampleExercise"))
 (define bs-function-example-exercise-style (make-bs-latex-style "BSFunctionExampleExercise"))
 (define bs-contract-exercise-style (make-bs-latex-style "BSContractExercise"))
+(define bs-contract-purpose-exercise-style (make-bs-latex-style "BSContractPurposeExercise"))
 (define bs-function-exercise-style (make-bs-latex-style "BSFunctionExercise"))
 (define bs-fill-in-blank-style (make-bs-latex-style "BSFillInBlank"))
 
@@ -240,11 +244,11 @@
                                   (and purpose (not (null? body)))))
     (printf "WARNING: Use of code that supplied more than one of contract/purpose/body~n"))
   (cond [multi-line
-         (manual:codeblock (string-append (if contract (string-append ";; " contract "\n") "")
-                                          (if purpose (string-append ";; " purpose "\n") "")
+         (manual:codeblock (string-append (if contract (string-append "; " contract "\n") "")
+                                          (if purpose (string-append "; " purpose "\n") "")
                                           (apply string-append body)))]
-        [contract (manual:code (string-append ";; " contract))]
-        [purpose (manual:code (string-append ";; " purpose))]
+        [contract (manual:code (string-append "; " contract))]
+        [purpose (manual:code (string-append "; " purpose))]
         [(not (null? body)) (manual:code (apply string-append body))]))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -291,8 +295,7 @@
                       (decode-flow body)))
 
 (define (exercise . body) 
-  (list (compound-paragraph (bootstrap-sectioning-style 
-                             "BootstrapHeader")
+  (list (compound-paragraph bs-header-style
                             (decode-flow (list "Exercise:")))
         (compound-paragraph (bootstrap-sectioning-style "BootstrapExercise")
                             (decode-flow body))))
@@ -367,7 +370,7 @@
                           (map cons 
                                (map (lambda (h) (para (bold h))) col-headers)
                                data-columns))])   
-    (table (style "BSTable"
+    (table (style #f
                   (list (table-columns
                          (build-list numCols
                                      (lambda (n) (style #f '(left)))))))
@@ -388,7 +391,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (define (materials . items)
-  (list (compound-paragraph (bootstrap-sectioning-style "BootstrapHeader") 
+  (list (compound-paragraph bs-header-style 
                             (decode-flow (list "Materials and Equipment:")))
         (apply itemlist/splicing items #:style "BootstrapMaterialsList")))
 
@@ -401,17 +404,17 @@
         (apply itemlist/splicing items #:style "BootstrapDoNowList")))
 
 (define (objectives . items)
-  (list (compound-paragraph (bootstrap-sectioning-style "BootstrapHeader") 
+  (list (compound-paragraph bs-header-style 
                             (decode-flow (list "Learning Objectives:")))
         (apply itemlist/splicing items #:style "BootstrapLearningObjectivesList")))
 
 (define (product-outcomes . items)
-  (list (compound-paragraph (bootstrap-sectioning-style "BootstrapHeader") 
+  (list (compound-paragraph bs-header-style 
                             (decode-flow (list "Product Outcomes:")))
         (apply itemlist/splicing items #:style "BootstrapProductOutcomesList")))
 
 (define (preparation . items)
-  (list (compound-paragraph (bootstrap-sectioning-style "BootstrapHeader") 
+  (list (compound-paragraph bs-header-style 
                             (decode-flow (list "Preparation:")))
         (apply itemlist/splicing items #:style "BootstrapPreparationList")))
 
@@ -469,17 +472,37 @@
     (extract-lesson abstract-doc)))
 
 ;;interns
-;
+
+(define (design-recipe-exercise func-name . description)
+  (let ([tagbase (format "recipe-~a" func-name)])
+    (nested-flow
+     (style "BootstrapDRExercise" '())
+     (decode-flow
+      (list
+       (bootstrap-title (format "Design Recipe for ~a" func-name))
+       (apply para #:style "BSRecipeExerciseDescr" description)
+       (worksheet-segment "I. Contract + Purpose Statement")
+       (elem "Every contract has three parts")
+       (contract-purpose-exercise tagbase)
+       (worksheet-segment "II. Give Examples")
+       (elem "Write two examples of your function in action")
+       (example-with-text (string-append tagbase "ex1"))
+       (example-with-text (string-append tagbase "ex2"))
+       (worksheet-segment "III. Function")
+       (elem "Write the function header, giving variable names to all your input values")
+       (function-exercise (string-append tagbase "function"))
+       )))))
+
 (define (overview . body)
-  (list 
-   ;(compound-paragraph (bootstrap-sectioning-style "BootstrapImage") ;(decode-flow (list bootstrap.gif)))
-        (compound-paragraph (bootstrap-sectioning-style "BootstrapOverviewTitle") (decode-flow (list (format "Unit Overview"))))
-        (agenda)
-        (compound-paragraph (bootstrap-sectioning-style "BootstrapOverview")
-                            (decode-flow body))
-        ))
+  (list
+   (elem #:style (bootstrap-sectioning-style "BootstrapOverviewTitle") (list (format "Unit Overview")))
+   (agenda)
+   (compound-paragraph (bootstrap-sectioning-style "BootstrapOverview") (decode-flow body))
+   ))
 
-
+;; Inputs: string [string] [string] [string] -> element
+;;         optional argument supply answers for the workbook
+;; Produces element with blanks for an exercise to fill in a contract
 (define (contract-exercise tag #:name [name-ans #f] #:domain [domain-ans #f] #:range [range-ans #f])
   (cond-element [html
                  (elem ";" (fill-in-the-blank #:id (format "~aname" tag) #:label "Name")
@@ -488,9 +511,20 @@
                 [(or latex pdf)
                  (elem #:style bs-contract-exercise-style "")]))
 
+;; Inputs: string [string] [string] [string] string -> element
+;;         optional argument supply answers for the workbook
+;; Produces element with blanks for an exercise to fill in a contract and purpose
+(define (contract-purpose-exercise tag #:name [name-ans #f] #:domain [domain-ans #f] #:range [range-ans #f]
+                                   #:purpose [purpose-ans #f])
+  (cond-element [html (list (contract-exercise tag name-ans domain-ans range-ans)
+                            ";" (fill-in-the-blank #:id (format "~apurpose" tag)))]
+                [(or latex pdf)
+                 (elem #:style bs-contract-purpose-exercise-style "")]))
+
+;; Inputs: string
+;; Produces an element for the title bar for a worksheet segment
 (define (worksheet-segment title)
-  (compound-paragraph (bootstrap-sectioning-style "BootstrapWorksheetSegment")
-                      (decode-flow (list title))))
+  (elem #:style (bootstrap-sectioning-style "BootstrapWorksheetSegment") (list title)))
 
 ;auto generates copyright section
 (define (copyright . body)
@@ -503,14 +537,15 @@
 
 ;autogenerates state-standards section
 (define state-standards
-  (list
-   (compound-paragraph (bootstrap-sectioning-style "BootstrapHeader") (decode-flow (list "State Standards")))
-   (para "See " (hyperlink "https://spreadsheets.google.com/a/brown.edu/pub?key=0Ak3Voejjnf0ldHlQcXRVWTZDbVprWHlBLTJWRlQ2dkE&hl=en&gid=0" "Bootstrap Standards Matrix") " provided as part of the Bootstrap curriculum.")))
+  (list (elem #:style bs-header-style "State Standards")
+        "See " 
+        (hyperlink "https://spreadsheets.google.com/a/brown.edu/pub?key=0Ak3Voejjnf0ldHlQcXRVWTZDbVprWHlBLTJWRlQ2dkE&hl=en&gid=0" "Bootstrap Standards Matrix") 
+        " provided as part of the Bootstrap curriculum."))
 
 ;creates the length of the lesson based on input
 ;input ONLY THE NUMBER!
 (define (length-of-lesson l)
-  (list (compound-paragraph (bootstrap-sectioning-style "BootstrapHeader") (decode-flow (list (format "Length: ~a minutes" l))))))
+  (list (elem #:style bs-header-style (format "Length: ~a minutes" l))))
 
 ;;example: optional text, example for cond (p23), example for not cond (p21), example for with name (p8)
 
@@ -611,27 +646,23 @@
                    "Page " (number->string page))))
 
 ;; generates the title, which includes the bootstrap logo in html but not in latex/pdf
+;; In unit+title case, paras shouldn't be there but that throws off the CSS spacing -- FIX
 (define (bootstrap-title . body)
   (define the-title (apply string-append body))
   (define unit+title (regexp-match #px"^([^:]+):\\s*(.+)$" the-title)) 
   (define bootstrap-image (cond-element 
                            [html bootstrap.gif]
-                           [(or latex pdf) 
-                            (elem)]))
-  (cond
-    [unit+title
-     (list (compound-paragraph 
-            (bootstrap-sectioning-style "BootstrapTitle") 
-            (decode-flow (list bootstrap-image (second unit+title))))
-           "\n"
-           (compound-paragraph
-            (bootstrap-sectioning-style "BootstrapTitle")
-            (decode-flow (list (third unit+title)))))]
-    [else
-     (list (compound-paragraph
-            (bootstrap-sectioning-style "BootstrapTitle")
-            (decode-flow (cons bootstrap-image body))))]))
+                           [(or latex pdf) (elem)]))
+  (cond 
+    [unit+title (list (para (elem #:style bs-title-style (list bootstrap-image (second unit+title))))
+                      "\n"
+                      (para (elem #:style bs-title-style (third unit+title))))]
+    [else (elem #:style bs-title-style (cons bootstrap-image body))]))
 
+;;;;;;;;;;;;;; Javascript Generation ;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; generates a button that checks given constraint when clicked
+;; NEED TO document the language of the constraint input
 (define (check constraint #:id (id (gensym 'check)))
   (elem (sxml->element
          `(input
