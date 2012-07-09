@@ -6,6 +6,7 @@
          racket/cmdline
          racket/path
          "lib/system-parameters.rkt"
+         file/zip
          (for-syntax racket/base))
 
 ;; This is a toplevel build script which generates scribble files for
@@ -72,8 +73,8 @@
               (output-mode "--pdf")]
    [("--course") -course "Choose course (default bs1)"
                  (current-course -course)]
-   [("--deploy") -deploy-dir "Deploy into the given directory" 
-                 (deployment-dir -deploy-dir)]
+   [("--deploy") -deploy-dir "Deploy into the given directory, and create a .zip" 
+                 (deployment-dir (simple-form-path -deploy-dir))]
    #:args tags
    tags))
 
@@ -133,3 +134,14 @@
 ;; file overwriting those of another in the same directory.
 ;(printf "build.rkt: building bs1 teacher's guide\n")
 ;(run-scribble (get-bs1-teachers-guide))
+
+
+
+;; Under deployment mode, zip up the final result.
+(when (deployment-dir)
+  (let-values ([(base file dir?) (split-path (deployment-dir))])
+    (parameterize ([current-directory base])
+      (define output-file (build-path base (format "~a.zip" (path->string file))))
+      (when (file-exists? output-file)
+        (delete-file output-file))
+      (zip output-file file))))
