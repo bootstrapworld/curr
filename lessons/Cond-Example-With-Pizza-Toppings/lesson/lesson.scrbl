@@ -10,9 +10,9 @@
                  @item{Turn to the Design Recipe on @worksheet-link[#:page 23 #:name "Design-Recipe-Cost"] and grab a Design Recipe Worksheet.}
                  @item{Suppose we've been hired by Luigi's Pizza to write a function that tells us the cost of different pizza pies. Let's use the design recipe to write this function.}
                  @tag[pedagogy]{@item{Have a student read the problem statement.}}
-                 @tag[pedagogy]{@item{I need a volunteer to be our function. Pick someone, and copy the contract as they answer. What is your name? cost Your Domain? String Your Range? Number. @code[#:contract "cost: String -> Number"]}}
+                 @tag[pedagogy]{@item{I need a volunteer to be our function. Pick someone, and copy the contract as they answer. What is your name? cost Your Domain? String Your Range? Number. @code{; cost: String -> Number}}}
                  @tag[selftaught]{@item{@think-about[#:question "What is the name of this function? the domain? the range?"
-                                                     #:answer @code[#:contract "cost: String -> Number"]]}}
+                                                     #:answer @code{; cost: String -> Number}]}}
                  @tag[pedagogy]{@item{Can someone from the class tell me how we should call this function? For example, "cost' cheese'!" What will cost produce? Let's try this with other toppings...}}
                  @tag[selftaught]{@item{@think-about[#:question "How do we call this function and what does it produce?"
                                                                                                                          #:answer "We call this function through 'cost cheese' and it produces the price"]}}

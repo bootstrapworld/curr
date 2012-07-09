@@ -63,7 +63,7 @@
            
                                             @drop-down[#:id "Games-Drill14" #:options (list "Select an answer" "The size of the frog" "Where the frog goes" "Where the cats and dogs fall" "How fast the cats and dogs fall" "Nothing")]
                                             @check[(constraint:string-eq (value:string "Where the frog goes") (value:form "Games-Drill14"))]}
-     @item{In which direction(s) can the player-controlled object move? @
+     @item{In which direction(s) can the player-controlled object move?
 
                                             @drop-down[#:id "Games-Drill15" #:options (list "Select an answer" "Forward" "Backward" "Diagonally" "Vertically" "Horizontally")]
                                             @check[(constraint:string-eq (value:string "Horizontally") (value:form "Games-Drill15"))]}

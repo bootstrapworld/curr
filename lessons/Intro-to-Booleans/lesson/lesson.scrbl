@@ -20,7 +20,7 @@
       @item{With the exception of the last one, all the above are Numbers. We can solve any of those expressions using our language. Why isn't the last one a number? What is it?}
       @item{The expression @code{(< 3 4)} is a test. It is either true or false that 3 is less than 4. @code{<} is another function, just like + and string-length. There are several more tests we can do}
       @item{@exercise{Try using them to compare numbers. What values do you get back? (Use Circle of Evaluation)
-             @code[#:multi-line ""]{(> 0 5)
+             @code[#:multi-line #t]{(> 0 5)
                                     (= 1 9)
                                     (<= 2 2)
                                     (string=? "dog" "cat")}}}
