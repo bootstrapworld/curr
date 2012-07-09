@@ -20,12 +20,14 @@ that would just take in the size and draw me my triangle.}
                                                           #:answer "You needed the size of the triangle (a number) and produced the image."]}}
           @item{Fill in the first contract on the page -- it's the one with the shaded, gray bar.}
           @item{Now we have some space to write examples. @tag[pedagogy]{Let's think about the examples we saw our volunteer act out...}}
-          @item{When I wanted him to make a solid green triangle of size fifty, what did I tell him? "gt fifty!". So in the first part of the EXAMPLE, we can write @code{(gt 50)}. So my example so far is @linebreak[]
-                                                                                                                                                                                                     @code[#:contract "gt : Number -> Image"] @linebreak[]
-                                                                                                                                                                                                     @code{(EXAMPLE (gt 50) __________________________)}}
-          @item{Then what did he draw for me? A solid green triangle of size fifty! How would we write the code to draw that same shape? @linebreak[]
-                                                                                                                                         @code[#:contract "gt : Number -> Image"] @linebreak[]
-                                                                                                                                         @list{@code{(EXAMPLE (gt 50) (triangle 50) "solid" "green")}}}
+          @item{When I wanted him to make a solid green triangle of size fifty, what did I tell him? "gt fifty!". So in the first part of the EXAMPLE, we can write @code{(gt 50)}. So my example so far is
+                                                                                                   
+                 @code[#:multi-line ""]{; gt : Number -> Image
+                                        (EXAMPLE (gt 50) __________________________)}}
+          @item{Then what did he draw for me? A solid green triangle of size fifty! How would we write the code to draw that same shape? 
+                
+                @code[#:multi-line]{; gt : Number -> Image
+                                    (EXAMPLE (gt 50) (triangle 50) "solid" "green")}}
          @tag[pedagogy]{@item{Can someone write another example for me?}}
           @item{Now, on your own, fill out two examples for @code{gt} on your Fast Functions worksheet.}
           @item{If only we had a function like @code{gt}! Well, let's build one!}

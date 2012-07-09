@@ -6,7 +6,8 @@
         #:duration "15 minutes"]{
 @itemlist/splicing[@item{Suppose you have to describe a soda machine. You know that the input to this machine will be money, and you have to get a soda in return. When you use a soda machine, does it only give you one type of soda? Wouldn't it be lame if you had to have a different machine for Coke than you did for Sprite? @bitmap{images/2.1.png}}
           @item{A soda machine, for example, takes in money and outputs soda.
-                @code[#:purpose "Takes money and gives soda" #:contract "Soda-machine : Money Selection -> Soda" #:multi-line #t]}
+                @code[#:multi-line #t]{; soda-machine : Money Selection -> Soda
+                                       ; Takes money and gives soda}}
           @item{This description talks about outputs  without having to say what those outputs are.}
           @item{This explanation of a soda machine just talks about some soda, but not any specific type of soda. It just says what kind of thing comes out, not which particular thing.}
           @item{How would you describe a coffeemaker? What kind of stuff goes into a coffeemaker? What kind of stuff comes out?}
