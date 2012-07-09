@@ -22,25 +22,13 @@
           @item{I want my Danger to always move @bold{left by 50 pixels}, each time the screen is redrawn. So it goes from (550, 100) to (500, 100).}
           @item{@think-about[#:question "What if it starts at (100, 100)? Where will go next? What if it's at (400, 600)? What if it's off the screen, at (650, 50)?"
                              #:answer "(50, 100), (350, 600), (600,50)"]}
-          @item{You will need to write a function that takes an x-coordinate and produces the next x-coordinate, to make your danger move.}
-          @item{@(table 
-                  (style #f
-                         (list (table-columns 
-                                (list (style "BootstrapTable" '(center)) 
-                                      (style "BootstrapTable" '(center))
-                                      (style "BootstrapTable" '(center))))))
-                  (list (list (para (bold "Current x-coordinate")) 
-                              (para (bold "Racket")) 
-                              (para (bold "Next x-coordinate"))) 
-                        (list (para "50") 
-                              (para "(- 50 50)") 
-                              (para "0"))
-                        (list (para "75")
-                              (para "(- 75 50)")
-                              (para "25"))
-                        (list (para "30")
-                              (para "(- 30 50)")
-                              (para "-20"))))}
+          @item{You will need to write a function that takes an x-coordinate and produces the next x-coordinate, to make your danger move.
+                @build-table/cols['("Current x-coordinate" "Racket" "Next x-coordinate")
+                                  '(("50" "75" "30")
+                                    ("(-50 50)" "(- 75 50)" "(- 30 50)")
+                                    ("0" "25" "-20"))
+                                   (lambda (r c) (para ""))
+                                   3 3]}
           @item{Turn to @worksheet-link[#:page 15 #:name "Design-Recipe-Update-Danger"] for @code{update-danger}. @tag[pedagogy]{Have a student read the problem statement out loud.} @tag[selftaught]{Read the problem statement.}}
           @item{@think-about[#:question "Can you find the function name in this problem statement? Underline it."
                              #:answer @list{"The function name is " @code{update-danger}}]}
