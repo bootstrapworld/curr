@@ -103,9 +103,7 @@
 
   (define url
     (string-append
-     #;"http://www.wescheme.org/openEditor?"
-     ;; Temporarily changed until production supports the options we need.
-     "http://48.wescheme.appspot.com/openEditor?"
+     "http://www.wescheme.org/openEditor?"
      encoded-alist))
 
   (splice
