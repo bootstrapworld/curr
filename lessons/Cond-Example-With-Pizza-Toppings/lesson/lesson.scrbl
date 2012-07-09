@@ -21,12 +21,11 @@
         @item{That's a hint that something special is going on, but let's see how much father the Design Recipe can take us...}
         @item{@think-about[#:question "Now for the Function Header. What do I write here?"
                            #:answer @code{(define (cost topping))}]}
-        @item{The Function Body is next. But now we don't know what to write! We know that our examples behave differently from one another -- sometimes we want to return 9.00, other times it's 10.50, etc. So what do we do? Well, we could fill in all off those results. Let's do that...  @tag[pedagogy]{Make a large, 2-column table on under the Function Header.}}
-              @;INSERT TABLE HERE
-               
-             
+        @item{The Function Body is next. But now we don't know what to write! We know that our examples behave differently from one another -- sometimes we want to return 9.00, other times it's 10.50, etc. So what do we do? Well, we could fill in all off those results. Let's do that...  @tag[pedagogy]{Make a large, 2-column table on under the Function Header.}
+                                                                                                                                                                                                                                                                                                @code{define (klsfjaf)}
+              @build-table/cols['() '(("" "" "" "") ("10.50" "9.00" "11.25" "10.25")) (lambda (r c) ("")) 2 4] @tt{)}}
        @item{@think-about[#:question "But how do we know when we want to produce 9.00? 10.50?"
-                          #:answer "When the toppings are cheese and pepperoni"]}
+                          #:answer "When the toppings are cheese and pepperoni"]}      
        @item{What we want is a way to go down each line, checking to see if the topping is the right one. If it is, we go on to finish the line. If not, we go on to the next one.
              @itemlist/splicing[
                   @item{@think-about[#:question "What's Domain of our function? (according to the contract)"
@@ -38,10 +37,19 @@
                    @item{@think-about[#:question "What's the Racket code that compares the input topping to the string \"pepperoni\"?"
                                       #:answer @code{(string=? topping "pepperoni")}]}
                    @item{Now we can write that on our first line, as our first topping check. Can you do the rest?}]}
-       @tag[pedagogy]{@item{Have students fill out the rest of the table}}
-       @tag[selftaught]{@item{Fill out the rest of the table}}
-              
-              @;TABLE GOES HERE
+       @tag[pedagogy]{@item{Have students fill out the rest of the table
+                  @build-table/cols['() '(("(string=? topping \"pepperoni\")" "(string=? topping \"cheese\")" "(string=? topping \"chicken\")" "(string=? topping \"broccoli\")") ("10.50" "9.00" "11.25" "10.25")) (lambda (r c) ("")) 2 4]}}
+       @tag[selftaught]{@item{Fill out the rest of the table
+                              @build-table/cols['() 
+                                                '(() 
+                                                  ("10.50" "9.00" "11.25" "10.25")) 
+                                                (lambda (r c) 
+                                                  (if (= c 0) 
+                                                      (fill-in-the-blank #:id "cond") 
+                                                      "")) 
+                                                2
+                                                4]}}
+
        @item{Each of these rows is called a condition. A condition has a test and a result. The computer goes down the code, one condition at a time, and will evaluate the first result for which the condition is true.}
        @item{Racket has a special function that lets us tell the computer to do this: cond. To use cond,you put square brackets around each of the branches, and write "cond" at the top:
              @code[#:multi-line ""]{(define (cost topping)
@@ -57,4 +65,5 @@
 @tag[selftaught]{@item{Try it out for yourself and add your own new items.
 @embedded-wescheme[#:id "Strings"
                    #:definitions-text "; Try out the pizza example above!"]}}
-      @tag[(pedagogy selftaught)]{@item{If you have additional time, and would like to try another Cond challenge, check out the @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/SupplementalLessons.html#redshape" "supplemental activity.")}}]}
+@tag[pedagogy]{@item{If you have additional time, and would like to try another Cond challenge, check out the @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/SupplementalLessons.html#redshape" "supplemental activity.")}}      
+@tag[selftaught]{@item{If you have additional time, and would like to try another Cond challenge, check out the @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/SupplementalLessons.html#redshape" "supplemental activity.")}}]}

@@ -78,14 +78,29 @@
          [rename-out [worksheet-link/src-path worksheet-link]]
          )        
 
+
+
+(define (item-or-spliceof-item? x)
+  (cond
+    [(item? x)
+     #t]
+    [(and (splice? x)
+          (andmap item-or-spliceof-item? (splice-run x)))
+     #t]
+    [else #f]))
+
+
 (provide/contract [itemlist/splicing
                    (->* () 
                         (#:style (or/c style? string? symbol? #f)) 
-                        #:rest (listof (or/c item? splice?))
+                        #:rest (listof item-or-spliceof-item?)
                         itemization?)]
                   [check
                    (-> constraint? element?)]
                   )
+
+
+
 
 ;;;;;;;;;;;;;;;; Site Images ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (define bootstrap.gif (bitmap "bootstrap.gif"))
