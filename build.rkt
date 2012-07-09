@@ -14,17 +14,20 @@
 (define-runtime-path root-path (build-path 'same))
 
 
-(define-runtime-path units-dir
-  (build-path "courses" "bs1" "units"))
-
 (define-runtime-path lessons-dir
   (build-path "lessons"))
 
-(define-runtime-path bs1-main
-  (build-path "courses" "bs1" "main.scrbl"))
+(define-runtime-path courses-base
+  (build-path "courses"))
 
-(define-runtime-path bs1-teachers-guide
-  (build-path "courses" "bs1" "teachers-guide.scrbl"))
+(define (get-units-dir)
+  (build-path courses-base (current-course) "units"))
+
+(define (get-bs1-main)
+  (build-path courses-base (current-course) "main.scrbl"))
+
+(define (get-bs1-teachers-guide)
+  (build-path courses-base (current-course) "teachers-guide.scrbl"))
 
 (define scribble-exe
   (or (find-executable-path "scribble")
@@ -34,7 +37,7 @@
 
 ;; The output mode is, by default, HTML.
 (define output-mode (make-parameter "--html"))
-
+(define current-course (make-parameter "bs1"))
 
 
 
@@ -67,6 +70,8 @@
    #:once-each
    [("--pdf") "Generate PDF documentation"
               (output-mode "--pdf")]
+   [("--course") -course "Choose course (default bs1)"
+                 (current-course -course)]
    [("--deploy") -deploy-dir "Deploy into the given directory" 
                  (deployment-dir -deploy-dir)]
    #:args tags
@@ -79,16 +84,16 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Building the bs1 course
-(printf "build.rkt: building bs1\n")
-(for ([subdir (directory-list units-dir)]
-      #:when (directory-exists? (build-path units-dir subdir)))
-  (define scribble-file (build-path units-dir subdir "the-unit.scrbl"))
+(printf "build.rkt: building ~a\n" (current-course))
+(for ([subdir (directory-list (get-units-dir))]
+      #:when (directory-exists? (build-path (get-units-dir) subdir)))
+  (define scribble-file (build-path (get-units-dir) subdir "the-unit.scrbl"))
   (cond [(file-exists? scribble-file)
          (printf "build.rkt: Building ~a\n" scribble-file)
          (run-scribble scribble-file)]
         [else
          (printf "Could not find a \"the-unit.scrbl\" in directory ~a\n"
-                 (build-path units-dir subdir))]))
+                 (build-path (get-units-dir) subdir))]))
 
 
 ;; Building the lessons
@@ -121,10 +126,10 @@
        (printf "build.rkt: building drill ~a: ~a\n" subdir drill)
        (run-scribble (build-path lessons-dir subdir "drills" drill)))))
 
-(printf "build.rkt: building bs1 main\n")
-(run-scribble bs1-main)
+(printf "build.rkt: building ~a main\n" (current-course))
+(run-scribble (get-bs1-main))
 
 ;; Temporarily turning teacher's guide off till we can resolve the issue with the images of one scribble
 ;; file overwriting those of another in the same directory.
 ;(printf "build.rkt: building bs1 teacher's guide\n")
-;(run-scribble bs1-teachers-guide)
+;(run-scribble (get-bs1-teachers-guide))
