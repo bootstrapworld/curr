@@ -95,12 +95,10 @@
                         (#:style (or/c style? string? symbol? #f)) 
                         #:rest (listof item-or-spliceof-item?)
                         itemization?)]
+
                   [check
                    (-> constraint? element?)]
                   )
-
-
-
 
 ;;;;;;;;;;;;;;;; Site Images ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (define bootstrap.gif (bitmap "bootstrap.gif"))
@@ -371,7 +369,7 @@
 (define (build-table/cols col-headers col-contents fmt-cell numCols numDataRows)
   ;; check assumption on col-contents lengths
   (for-each (lambda (col-content)
-              (unless (= (length col-content) numDataRows)
+              (unless (or (null? col-content) (= (length col-content) numDataRows))
                 (error 'build-table/cols 
                        (format "column contents ~a needs to have one entry for each of ~a rows" 
                                col-content numDataRows))))
