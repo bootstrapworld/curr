@@ -28,7 +28,8 @@
             @tag[selftaught]{@item{@think-about[#:question "What is protect-left -3?" #:answer "True! The distance from the center of the butterfly to its edge is 50, so there are still 47 pixels of the butterfly on screen."]@think-about[#:question "What is protect-left -47?" #:answer "True! The distance from the center of the butterfly to its edge is 100, so there are still 3 pixels of the butterfly on screen."]@think-about[#:question "What is protect-left -51?" #:answer "False! The distance from the center of the butterfly to its edge is 50, so the butterfly is offscreen by 1 pixel."]}}
             @item{Complete the design recipe for @code{protect-left}. @tag[pedagogy]{Raise your hand after you complete each step.}}
             @tag[(pedagogy group)]{@item{When a team has completed the Design Recipe for @code{protect-left}, they must type in the examples and function body onto the computer.}}
-            @item{So now we have a function that will protect Sam on the left side of the screen. But at the moment, @code{onscreen?} doesn't know how to use that function. We need to change the body of @code{onscreen?} so that it can talk to @code{protect-left}:@linebreak[]
+            @item{So now we have a function that will protect Sam on the left side of the screen. But at the moment, @code{onscreen?} doesn't know how to use that function. We need to change the body of @code{onscreen?} so that it can talk to @code{protect-left}:
+                           
                   @code[#:multi-line #t]{
                     (define (onscreen? x) 
                       (protect-left x))}}

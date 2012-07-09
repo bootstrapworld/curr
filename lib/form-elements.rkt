@@ -552,7 +552,7 @@
 ;; Produces element with blanks for an exercise to fill in a contract and purpose
 (define (contract-purpose-exercise tag #:name [name-ans #f] #:domain [domain-ans #f] #:range [range-ans #f]
                                    #:purpose [purpose-ans #f])
-  (cond-element [html (list (contract-exercise tag name-ans domain-ans range-ans)
+  (cond-element [html (list (contract-exercise tag #:name name-ans #:domain domain-ans #:range range-ans)
                             ";" (fill-in-the-blank #:id (format "~apurpose" tag)))]
                 [(or latex pdf)
                  (elem #:style bs-contract-purpose-exercise-style "")]))
