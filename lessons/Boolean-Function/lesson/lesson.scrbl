@@ -16,8 +16,12 @@
       @item{Did you notice how we joined the Boolean statements? What words did we use? (AND, OR).}
       @item{@think-about[#:question "What are the contracts for both AND and OR?"
                                     @; MUTLIPLE ANSWERS
-                         #:hint @code[#:contract "and: Boolean Boolean -> Boolean" #:purpose "Returns true if BOTH inputs are true."]
-                         #:answer @code[#:contract "or: Boolean Boolean -> Boolean" #:purpose "Returns true if EITHER of the inputs are true."]]}
+                         #:hint @code{; and: Boolean Boolean -> Boolean
+                                      
+                                      ; Returns true if BOTH inputs are true}
+                         #:answer @code{; or: Boolean Boolean -> Boolean
+                                        
+                                        ; Returns true if EITHER of the inputs are true."}]}
       @item{Turn to @worksheet-link[#:page 20 #:name "AND-and-OR"] and read the directions}
       @item{Take five minutes @tag[group]{with your team,} to draw the circle for each of the statements. Think about what Boolean functions you'll need for each one! When you're done, convert those circles into Racket code.
                               @tag[selftaught]{@embedded-wescheme[#:id "Booleans"

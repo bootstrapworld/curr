@@ -16,7 +16,7 @@
                    #:text2 "find another way to get the same result here"
                    "1D-1"
                    #:example1 "line-length 10 5"
-                   #:example2 "(- 10 5)"] @linebreak[]
+                   #:example2 "(- 10 5)"] 
  @example-with-text[#:text1 "use the function here"
                    #:text2 "find another way to get the same result here"
                    "1D-2"
@@ -27,8 +27,10 @@
     @worksheet-segment{III. Function Header}
     Write the function Header, giving variable names to all your input values.
     
-    (define (@fill-in-the-blank[#:id "line-length1" #:label "function name" #:answer "line-length"] @fill-in-the-blank[#:id "line-length2" #:label "variable names" #:answer "a b"]) @linebreak[]
-    (cond @linebreak[]
+    (define (@fill-in-the-blank[#:id "line-length1" #:label "function name" #:answer "line-length"] @fill-in-the-blank[#:id "line-length2" #:label "variable names" #:answer "a b"])
+    
+    (cond
+    
     @fill-in-the-blank[#:id "ll10" #:label "Condition1" #:answer "(> a b)"]@fill-in-the-blank[#:id "ll11" #:label "Answer1" #:answer "(- a b)"]
     
         @fill-in-the-blank[#:id "ll12" #:label "Condition2" #:answer "else"]@fill-in-the-blank[#:id "ll13" #:label "Answer2" #:answer "(- b a)"]
