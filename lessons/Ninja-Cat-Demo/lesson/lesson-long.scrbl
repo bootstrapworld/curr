@@ -29,10 +29,10 @@ In NinjaCat, the
 only thing that changes about the Ruby is its position.  Everything
 else about it is the same.  So your worksheet for the Ruby should say 
 
-@(build-table/cols (list "Thing in the Game" "What Changes About It?" "More Specifically")
+@(build-table/cols (list "Thing in the Game " " What Changes About It? " " More Specifically ")
                    (list (list "Ruby") (list "position") (list " "))
                    (lambda (r c) " ")
-                   3 1)]
+                   3 1)
 
 Before you can fill in the third column, you need to know how to describe the 
 locations of items on the screen.  If you already know xy-coordinates (from geometry), 
