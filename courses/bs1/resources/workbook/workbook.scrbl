@@ -23,3 +23,4 @@
 @(include-lesson (lib "curr/lessons/Distance-Formula/worksheets/Distance-Formula-With-Numbers.scrbl"))
 @(include-lesson (lib "curr/lessons/Distance-Formula/worksheets/Distance.scrbl"))
 @(include-lesson (lib "curr/lessons/Collision-Detection/worksheets/collide.scrbl"))
+@(include-lesson (lib "curr/lessons/Function-Example-Red-Shape/worksheets/red-shape.scrbl"))

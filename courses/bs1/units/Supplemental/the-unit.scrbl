@@ -27,8 +27,7 @@
 }
 
 @(include-lesson (lib "curr/lessons/Manipulating-Images/lesson/lesson.scrbl"))
-@;(include-lesson (lib "curr/lessons/Making-Flags/lesson/lesson.scrbl"))
-@;fix image path in making flags lesson if you want this to work!
+@(include-lesson (lib "curr/lessons/Making-Flags/lesson/lesson.scrbl"))
 @(include-lesson (lib "curr/lessons/Function-Example-Red-Shape/lesson/lesson.scrbl"))
 @(include-lesson (lib "curr/lessons/Structs/lesson/lesson.scrbl"))
 @(include-lesson (lib "curr/lessons/Simple-Ideas/lesson/lesson.scrbl"))
