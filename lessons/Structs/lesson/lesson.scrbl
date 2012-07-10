@@ -7,10 +7,10 @@
 @itemlist/splicing[
    @tag[pedagogy]{@item{Display one student's code on the projector, and draw the class's attention to the update-danger function.}}
    @tag[pedagogy]{@item{Write the contract for update-danger on the board. 
-                        @code[#:contract "update-danger : Number -> Number"
-                              #:purpose "takes in object's x-coordinate and returns the next one"]}}
-   @tag[selftaught]{@item{Remember update-danger ? Here is its contract. @code[#:contract "update-danger : Number -> Number"
-                              #:purpose "takes in object's x-coordinate and returns the next one"]}}
+                        @code[#:multi-line #t]{; update-danger : Number -> Number
+                                               ; takes in object's x-coordinate and returns the next one}}}
+   @tag[selftaught]{@item{Remember update-danger ? Here is its contract. @code[#:multi-line #t]{; update-danger : Number -> Number
+                                                                                             ; takes in object's x-coordinate and returns the next one}}}
    @item{Right now, update-danger takes in the object's x-coordinate and produces the next x-coordinate for the object. This allows our object to move left or right, but does not allow it to move up and down or along the diagonal.}
    @item{What if I wanted the object to move on the diagonal instead. For example...
        @itemlist/splicing[
@@ -39,16 +39,15 @@
    @item{@tag[pedagogy]{Allow students to brainstorm. Hit enter, and then remind them: }I get back exactly the value I typed in, because values evaluate to themselves.}
    @item{The moral of the story is, Structs are Values, just like Numbers, Strings, Booleans and Images.}
   @tag[pedagogy]{@item{Have students turn their monitors on and practice making posns for different coordinates. Can they make a posn for each of the four corners of their game screen?}}
-  @tag[selftaught]{@item{@think-about[#:question "Can you make a posn for each of the four corners of your game screen?" #:answer @code[#:multi-line #t]{
-                                  (make-posn 0 0)
-                                  (make-posn 640 0)
-                                  (make-posn 640 480)
-                                  (make-posn 0 480)}]}}
+  @tag[selftaught]{@item{@think-about[#:question "Can you make a posn for each of the four corners of your game screen?" #:answer @code{(make-posn 0 0)
+                                     (make-posn 640 0)
+                                     (make-posn 640 480)
+                                     (make-posn 0 480)}]}}
    @item{Let's look back at our example - can you make a posn for the original position of the object? @think-about[#:question "What about the new position?" #:answer @code{(make-posn 330 250)}]}
    @item{Everything we know about Racket still applies, so I could also write this as:
 @code{(make-posn (+ 320 10) (+ 240 10))}}
    @tag[pedagogy]{@item{Grab a Design Recipe Worksheet}}
-   @tag[selftaught]{Get a Design Recipe worksheet @worksheet-link[#:page 34 #:name "design-recipe"]}
+   @tag[selftaught]{@item{Get a Design Recipe worksheet @worksheet-link[#:page 34 #:name "design-recipe"]}}
    @item{The problem with returning a number is that we could only update the X or Y coordinate. But if we return a Posn instead, we can update BOTH.}
    @item{How should our contract change? The Domain is two numbers, and the Range should be a Posn, instead of a number.}
    @item{What about our examples? Well, we've already got one of them on the board. @code{(update-danger 320 240)} should give us back a @code{(make-posn (+ 320 10) (+ 240 10))}.}

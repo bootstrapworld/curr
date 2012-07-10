@@ -29,21 +29,19 @@
                                                         @item{the range.}]}
          @tag[pedagogy]{@item{Show the contract for @code{+} on the board, and have students volunteer the contracts for the other math functions covered so far.}}
                  @;NOTE: may have to split into three questions
-                @tag[selftaught]{@item{@think-about[#:question @list{"Can you think of the contract for " @code{+} "? What about the ones for " @code{/} " and " @code{*} "? Enter them on the contracts page and check your answers below"}
-                                              #:answer @list{@code[#:contract "+ : Number Number -> Number"
-                                                                        #:purpose
-                                                                         "Takes two numbers and gives their sum"
-                                                                        #:multi-line #t]
-                                                       @code[#:contract "/ : Number Number -> Number"
-                                                                        #:purpose "Takes two numbers and returns the first divided by the second"
-                                                                        #:multi-line #t]
-                                                       @code[#:contract "* : Number Number -> Number" #:purpose "Takes two numbers and gives their product" #:multi-line #t]}]}}
+         @tag[selftaught]{@item{@think-about[#:question @list{"Can you think of the contract for " @code{+} "? What about the ones for " @code{/} " and " @code{*} "? Enter them on the contracts page and check your answers below"}
+                                              #:answer @list{@code[#:multi-line #t]{; + : Number Number -> Number
+                                                                                   ; Takes two numbers and gives their sum}
+                                                              @code[#:multi-line #t]{; / : Number Number -> Number
+                                                                                    ; Takes two numbers and returns the first divided by the second}
+                                                              @code[#:multi-line #t]{; * : Number Number -> Number
+                                                                                     ; Takes two numbers and gives their product}}]}}
           @;must have some sort of answers here
           @tag[pedagogy]{@item{Add other functions, like @code{/} and @code{*}.  Leave these contracts written on the board.}}
           @tag[pedagogy]{@item{If students already know about square roots or squaring, you can add these functions as well. If not, take a moment to review what they do.
-                               @code[#:multi-line #t ";; sqrt : Number -> Number"
-                                                     ";; sqr : Number -> Number"]}}
+                               @code[#:multi-line #t]{; sqrt : Number -> Number
+                                                      ; sqr : Number -> Number}}}
           @tag[selftaught]{@item{@think-about[#:question "If you already know about square roots or squaring, try to figure out the contracts for these as well. Check with the answers below!"
                                              #:hint "Both of these function only take one number as input"
-                                             #:answer @list{@code[#:contract "sqrt : Number -> Number"]
-                                             @code[#:contract "sqt : Number -> Number"]}]}}]}
+                                             #:answer @list{@code{; sqrt : Number -> Number}]
+                                             @code{; sqt : Number -> Number}}]}}]}
