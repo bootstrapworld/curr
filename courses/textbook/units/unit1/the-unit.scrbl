@@ -7,7 +7,7 @@
 @overview{
 Students discuss the components of their favorite videogames, and discover that they can be reduced to a series of coordinates. They then explore coordinates in Cartesian space, and identify the coordinates for the characters in a game at various points in time. Once they are comfortable with coordinates, they brainstorm their own games and create sample coordinate lists for different points in time in their own game.
 
-@objectives[@item{Identify the element2s of a videogame}
+@objectives[@item{Identify the elements of a videogame}
             @item{Learn the Cartesian coordinate system}
             @item{Outline the game you'll create during the course}
           ]
