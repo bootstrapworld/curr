@@ -17,12 +17,12 @@ Table of Contents
 @itemlist[
           @item{@unit-link[1 "Dissect a Video Game and Design Your Own"]}
            @item{@unit-link[2 "Simple Data: Numbers, Strings, and Images"]}
-           @item{Creating Game Screenshots}
-           @item{Functions}
-           @item{The Design Recipe}
-           @item{Animating Game Characters}
-           @item{Booleans and Conditionals}
-           @item{Detecting Collisions}
+           @item{@unit-link[3 "Creating Game Screenshots"]}
+           @item{@unit-link[4 "Functions"]}
+           @item{@unit-link[5 "The Design Recipe"]}
+           @item{@unit-link[6 "Animating Game Characters"]}
+           @item{@unit-link[7 "Booleans and Conditionals"]}
+           @item{@unit-link[8 "Detecting Collisions"]}
            ]
 
 As you work through the curriculum, keep either DrRacket or WeScheme (in another window) open.  You'll also need the workbook [LINK]
