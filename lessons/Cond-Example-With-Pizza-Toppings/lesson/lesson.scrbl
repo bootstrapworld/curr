@@ -72,6 +72,6 @@
                  @tag[selftaught]{@item{Try it out for yourself and add your own new items.
                                         @embedded-wescheme[#:id "Strings"
                                                            #:definitions-text "; Try out the pizza example above!"]}}
-                 @tag[pedagogy]{@item{If you have additional time, and would like to try another Cond challenge, check out the @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/SupplementalLessons.html#redshape" "supplemental activity.")}}      
-                 @tag[selftaught]{@item{If you have additional time, and would like to try another Cond challenge, check out the @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/SupplementalLessons.html#redshape" "supplemental activity.")}}]}
+                 @tag[pedagogy]{@item{If you have additional time, and would like to try another Cond challenge, check out the @(hyperlink "../../Function-Example-Red-Shape/lesson/lesson.html" "supplemental activity.")}}      
+                 @tag[selftaught]{@item{If you have additional time, and would like to try another Cond challenge, check out the @(hyperlink "../../Function-Example-Red-Shape/lesson/lesson.html" "supplemental activity.")}}]}
                                                     
