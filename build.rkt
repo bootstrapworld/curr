@@ -27,8 +27,9 @@
 (define (get-bs1-main)
   (build-path courses-base (current-course) "main.scrbl"))
 
-(define (get-bs1-teachers-guide)
-  (build-path courses-base (current-course) "teachers-guide.scrbl"))
+(define (get-teachers-guide)
+  (build-path courses-base (current-course) "resources" "teachers-guide" "teachers-guide.scrbl"))
+
 
 (define scribble-exe
   (or (find-executable-path "scribble")
@@ -130,11 +131,12 @@
 (printf "build.rkt: building ~a main\n" (current-course))
 (run-scribble (get-bs1-main))
 
-;; Temporarily turning teacher's guide off till we can resolve the issue with the images of one scribble
-;; file overwriting those of another in the same directory.
-;(printf "build.rkt: building bs1 teacher's guide\n")
-;(run-scribble (get-bs1-teachers-guide))
 
+(cond [(file-exists? (get-teachers-guide))
+       (printf "build.rkt: building teacher's guide\n")
+       (run-scribble (get-teachers-guide))]
+      [else
+       (printf "build.rkt: no teacher's guide found; skipping\n")])
 
 
 ;; Under deployment mode, zip up the final result.
