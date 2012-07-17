@@ -25,7 +25,9 @@
 (provide (except-out (all-from-out scribble/doclang) #%module-begin)
          (all-from-out "bootstrap.rkt")
          (all-from-out "checker.rkt")
-         (except-out (all-from-out scribble/base) title image)
+         (except-out (all-from-out scribble/base) title image item itemlist)
+         (rename-out [fake-item item]
+                     [itemlist/splicing itemlist])
          (rename-out [bootstrap-title title])
          (rename-out [module-begin #%module-begin])
          bitmap)

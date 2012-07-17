@@ -80,25 +80,28 @@
 
 
 
-(define (item-or-spliceof-item? x)
-  (cond
-    [(item? x)
-     #t]
-    [(and (splice? x)
-          (andmap item-or-spliceof-item? (splice-run x)))
-     #t]
-    [else #f]))
-
-
 (provide/contract [itemlist/splicing
                    (->* () 
                         (#:style (or/c style? string? symbol? #f)) 
-                        #:rest (listof item-or-spliceof-item?)
+                        #:rest list?
                         itemization?)]
 
                   [check
                    (-> constraint? element?)]
                   )
+
+
+
+;; fake-item: (listof any) -> (listof any)
+;; We try to make itemlist more pleasant to work with.  Itemlist/splicing automatically
+;; wraps items around every argument, so there's no need to call item explicitly.
+;; We provide a fake definition for fake-item that just returns the identity.
+(define (fake-item . args)
+  args)
+
+(provide fake-item)
+
+
 
 ;;;;;;;;;;;;;;;; Site Images ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (define bootstrap.gif (bitmap "bootstrap.gif"))
@@ -472,8 +475,12 @@
                 (cond
                  [(splice? i)
                   (loop (splice-run i) acc)]
+                 [(item? i)
+                  (cons i acc)]
+                 [(list? i)
+                  (cons (apply item i) acc)]
                  [else
-                  (cons i acc)]))
+                  (cons (item i) acc)]))
               acc
               items))))
   (apply itemlist spliced-items #:style style))
