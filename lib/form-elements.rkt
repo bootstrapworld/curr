@@ -477,8 +477,6 @@
                   (loop (splice-run i) acc)]
                  [(item? i)
                   (cons i acc)]
-                 [(list? i)
-                  (cons (apply item i) acc)]
                  [else
                   (cons (item i) acc)]))
               acc
