@@ -7,6 +7,9 @@
 
 ;; Translates an HTML file in the current working directory,
 ;; using wkhtmltopdf.
+;;
+;; http://code.google.com/p/wkhtmltopdf/
+
 
 (provide translate-html-to-pdf)
 
