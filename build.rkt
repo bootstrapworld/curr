@@ -6,6 +6,7 @@
          racket/cmdline
          racket/path
          "lib/system-parameters.rkt"
+         "lib/translate-pdfs.rkt"
          file/zip
          (for-syntax racket/base))
 
@@ -40,7 +41,7 @@
 ;; The output mode is, by default, HTML.
 (define output-mode (make-parameter "--html"))
 (define current-course (make-parameter "bs1"))
-
+(define current-generate-pdf? (make-parameter "#f"))
 
 
 ;; run-scribble: path -> void
@@ -60,7 +61,14 @@
                               base)]))
   (define-values (base name dir?) (split-path scribble-file))
   (parameterize ([current-directory base])
-    (system* scribble-exe (output-mode) "--dest" output-dir name))
+    (system* scribble-exe (output-mode) "--dest" output-dir name)
+    (when (current-generate-pdf?)
+      (translate-html-to-pdf
+       (build-path output-dir
+                   (regexp-replace #px".scrbl$"
+                                   (path->string name)
+                                   ".html"))
+       #:dest output-dir)))
   (void))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -71,7 +79,7 @@
    #:program "build"
    #:once-each
    [("--pdf") "Generate PDF documentation"
-              (output-mode "--pdf")]
+              (current-generate-pdf? #t)]
    [("--course") -course "Choose course (default bs1)"
                  (current-course -course)]
    [("--deploy") -deploy-dir "Deploy into the given directory, and create a .zip" 
@@ -137,6 +145,10 @@
        (run-scribble (get-teachers-guide))]
       [else
        (printf "build.rkt: no teacher's guide found; skipping\n")])
+
+
+
+
 
 
 ;; Under deployment mode, zip up the final result.
