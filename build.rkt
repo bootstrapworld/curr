@@ -45,7 +45,7 @@
 ;; The output mode is, by default, HTML.
 (define output-mode (make-parameter "--html"))
 (define current-course (make-parameter "bs1"))
-(define current-generate-pdf? (make-parameter "#f"))
+(define current-generate-pdf? (make-parameter #f))
 
 
 ;; run-scribble: path -> void
