@@ -5,6 +5,7 @@
          racket/string
          racket/cmdline
          racket/path
+         racket/file
          "lib/system-parameters.rkt"
          "lib/translate-pdfs.rkt"
          file/zip
@@ -28,6 +29,9 @@
 (define (get-bs1-main)
   (build-path courses-base (current-course) "main.scrbl"))
 
+(define (get-resources)
+  (build-path courses-base (current-course) "resources"))
+  
 (define (get-teachers-guide)
   (build-path courses-base (current-course) "resources" "teachers-guide" "teachers-guide.scrbl"))
 
@@ -92,7 +96,7 @@
 
 
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 ;; Building the bs1 course
 (printf "build.rkt: building ~a\n" (current-course))
 (for ([subdir (directory-list (get-units-dir))]
@@ -149,10 +153,20 @@
 
 
 
-
-
 ;; Under deployment mode, zip up the final result.
 (when (deployment-dir)
+
+  ;; Include the resources.
+  (let ([input-resources-dir (get-resources)]
+        [output-resources-dir (build-path (deployment-dir) "courses" (current-course) "resources")])
+    (when (directory-exists? output-resources-dir)
+      (delete-directory/files output-resources-dir))
+    (copy-directory/files input-resources-dir
+                          (simple-form-path
+                           (build-path output-resources-dir))))
+  
+
+
   (let-values ([(base file dir?) (split-path (deployment-dir))])
     (parameterize ([current-directory base])
       (define output-file (build-path base (format "~a.zip" (path->string file))))
