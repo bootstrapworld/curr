@@ -156,14 +156,16 @@
 ;; Under deployment mode, zip up the final result.
 (when (deployment-dir)
 
-  ;; Include the resources.
-  (let ([input-resources-dir (get-resources)]
-        [output-resources-dir (build-path (deployment-dir) "courses" (current-course) "resources")])
-    (when (directory-exists? output-resources-dir)
-      (delete-directory/files output-resources-dir))
-    (copy-directory/files input-resources-dir
-                          (simple-form-path
-                           (build-path output-resources-dir))))
+
+  (when (directory-exists? (get-resources))
+    ;; Include the resources.
+    (let ([input-resources-dir (get-resources)]
+          [output-resources-dir (build-path (deployment-dir) "courses" (current-course) "resources")])
+      (when (directory-exists? output-resources-dir)
+        (delete-directory/files output-resources-dir))
+      (copy-directory/files input-resources-dir
+                            (simple-form-path
+                             (build-path output-resources-dir)))))
   
 
 
