@@ -16,7 +16,7 @@ Students are introduced to the Design Recipe and apply it to simple problems.
 @length-of-lesson[90]
 
 @pedagogy{
-@materials[@item{Student workbook folders @tag[group]{- in pairs! - with names on covers}}
+@materials[@item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders @tag[group]{- in pairs! - with names on covers}}
             @item{Pens/pencils for the student@tag[group]{s, fresh whiteboard markers for the teachers}}
             @item{@tag[group]{Class posters (List of rules, language table, course calendar)}}
             @item{Language Table (See below)}
