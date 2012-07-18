@@ -76,6 +76,9 @@
          bootstrap-title
 
          [rename-out [worksheet-link/src-path worksheet-link]]
+
+         resource-link
+         lesson-link
          )        
 
 
@@ -646,6 +649,31 @@
          (syntax/loc stx
            (worksheet-link #:src-path src-path
                            args ...))))]))
+
+
+
+;; Link to a particular resource by path.
+;; resource-path should be a path string relative to the resources subdirectory.
+(define (resource-link #:path resource-path
+                       #:label [label #f])
+  (define the-relative-path
+    (find-relative-path (simple-form-path (current-directory))
+                        (simple-form-path (build-path (get-resources) resource-path))))
+  (hyperlink (path->string the-relative-path)
+             (if label label resource-path)))
+
+
+;; Link to a particular lesson by name
+(define (lesson-link #:name lesson-name
+                     #:label [label #f])
+  (define the-relative-path
+    (find-relative-path (simple-form-path (current-directory))
+                        (simple-form-path (build-path worksheet-lesson-root lesson-name "lesson" "lesson.html"))))
+  (hyperlink (path->string the-relative-path)
+             (if label label lesson-name)))
+
+
+
 
 ;; Creates a link to the worksheet.
 ;; Under development mode, the URL is relative to the development sources.

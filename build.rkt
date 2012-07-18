@@ -96,8 +96,8 @@
 
 
 ;; Building the lessons
-;(printf "build.rkt: building lessons\n")
-#;(for ([subdir (directory-list lessons-dir)]
+(printf "build.rkt: building lessons\n")
+(for ([subdir (directory-list lessons-dir)]
       #:when (directory-exists? (build-path lessons-dir subdir)))
   (define scribble-file (build-path lessons-dir subdir "lesson" "lesson.scrbl"))
   (cond [(file-exists? scribble-file)
