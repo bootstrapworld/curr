@@ -1,6 +1,4 @@
 #lang curr/lib
-@title{Design Recipe: Yard-Area}
-
 @design-recipe-exercise["yard-area" "Use the Design Recipe to write a function " @code{yard-area} ", which takes in the width and length of a yard, and returns the area of the yard. (Don’t forget: area = length * width !)"]
 
 @;worksheet{
