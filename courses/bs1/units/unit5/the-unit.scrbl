@@ -22,7 +22,7 @@ Students define functions that map position n to position n+1, allowing them to 
 
 @pedagogy{
 @materials[@item{Computers w/ DrRacket or WeScheme}
-           @item{Student  @resource-link[#:path "workbook/StudentWorkBook.pdf" #:label "workbook"] folders - in pairs! - with names on covers.}
+           @item{Student  @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders - in pairs! - with names on covers.}
            @item{Pens/pencils for the students, fresh whiteboard markers for teachers}
            @item{Class posters (List of rules, basic skills, course calendar)}
            @item{Language Table (see below)}]}
