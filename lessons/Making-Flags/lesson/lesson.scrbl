@@ -11,7 +11,7 @@
             #:definitions-text "(require bootstrap2011/bootstrap-teachpack)
 
 ; a blank flag is a 300x200 rectangle, which is outlined in black
-(define blank (rectangle 300 200 \"outline\" \"black\")
+(define blank (rectangle 300 200 \"outline\" \"black\"))
 
 ; the Japanese flag is a red circle...
 (define japan (put-image (circle 50 \"solid\" \"red\")
