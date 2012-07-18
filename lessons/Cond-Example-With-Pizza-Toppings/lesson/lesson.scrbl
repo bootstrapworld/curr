@@ -75,5 +75,5 @@
                                         @embedded-wescheme[#:id "Strings"
                                                            #:definitions-text "; Try out the pizza example above!"]}}
                  @pedagogy{@item{If you have additional time, and would like to try another Cond challenge, check out the @(hyperlink "../../../lessons/Function-Example-Red-Shape/lesson/lesson.html" "supplemental activity.")}}      
-                 @tag[selftaught]{@item{If you have additional time, and would like to try another @code{cond} challenge, check out the @(hyperlink "../../Function-Example-Red-Shape/lesson/lesson.html" "supplemental activity.")}}]}
+                 @tag[selftaught]{@item{If you have additional time, and would like to try another @code{cond} challenge, check out the @(lesson-link #:name "red-shape" #:label "supplemental activity.")}}]}
                                                     

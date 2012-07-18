@@ -1,8 +1,8 @@
 #lang curr/lib
-
-
+@title{distance}
+@worksheet{
 @design-recipe-exercise["distance" "Write a function " @code{distance} ", which takes FOUR inputs:"]
-
+}
 @;@worksheet{
 @;Write a function distance,which takes FOUR inputs:
 @;@itemlist[
