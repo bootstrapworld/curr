@@ -8,32 +8,13 @@
          racket/file
          "lib/system-parameters.rkt"
          "lib/translate-pdfs.rkt"
+         "paths.rkt"
          file/zip
          (for-syntax racket/base))
 
 ;; This is a toplevel build script which generates scribble files for
 ;; the lessons and courses.
 
-(define-runtime-path root-path (build-path 'same))
-
-
-(define-runtime-path lessons-dir
-  (build-path "lessons"))
-
-(define-runtime-path courses-base
-  (build-path "courses"))
-
-(define (get-units-dir)
-  (build-path courses-base (current-course) "units"))
-
-(define (get-bs1-main)
-  (build-path courses-base (current-course) "main.scrbl"))
-
-(define (get-resources)
-  (build-path courses-base (current-course) "resources"))
-  
-(define (get-teachers-guide)
-  (build-path courses-base (current-course) "resources" "teachers-guide" "teachers-guide.scrbl"))
 
 
 (define scribble-exe
@@ -44,7 +25,6 @@
 
 ;; The output mode is, by default, HTML.
 (define output-mode (make-parameter "--html"))
-(define current-course (make-parameter "bs1"))
 (define current-generate-pdf? (make-parameter #f))
 
 
@@ -141,7 +121,7 @@
        (run-scribble (build-path lessons-dir subdir "drills" drill)))))
 
 (printf "build.rkt: building ~a main\n" (current-course))
-(run-scribble (get-bs1-main))
+(run-scribble (get-course-main))
 
 
 (cond [(file-exists? (get-teachers-guide))
