@@ -245,7 +245,7 @@
 (define (think-about #:question (question #f) 
                      #:hint (hint #f)
                      #:answer (answer #f))
-  (elem  question
+  (list question
          (if hint
              (list " (Hint: " hint ")")
              "")
