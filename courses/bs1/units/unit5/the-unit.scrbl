@@ -22,7 +22,7 @@ Students define functions that map position n to position n+1, allowing them to 
 
 @pedagogy{
 @materials[@item{Computers w/ DrRacket or WeScheme}
-           @item{Student  @(hyperlink "https://spreadsheets.google.com/pub?key=0Ak3Voejjnf0ldHlQcXRVWTZDbVprWHlBLTJWRlQ2dkE&hl=en&gid=0" "workbook") folders - in pairs! - with names on covers.}
+           @item{Student  @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders - in pairs! - with names on covers.}
            @item{Pens/pencils for the students, fresh whiteboard markers for teachers}
            @item{Class posters (List of rules, basic skills, course calendar)}
            @item{Language Table (see below)}]}
@@ -30,7 +30,7 @@ Students define functions that map position n to position n+1, allowing them to 
 @pedagogy{
 @preparation[@item{Write agenda on board}
              @item{Student games open on their computers}
-             @item{OPTIONAL: Bug Hunting [@(hyperlink "racketfile" "DrRacket file") + @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/Teachpack/cage-teachpack.rkt" "teachpack")  @(hyperlink "wescheme file" "WeScheme")] preloaded on students' machines, in front}
+             @item{OPTIONAL: Bug Hunting [@resource-link[#:path "source-files/Bugs.rkt" #:label "DrRacket"] and @resource-link[#:path "teachers-guide/teachpacks/cage-teachpack.rkt" #:label "teachpack"] | @(hyperlink "http://www.wescheme.org/view?publicId=hinge-shell-beset-steel-voter" "WeScheme")] preloaded on students' machines, in front}
              @item{Class posters}
              @item{Seating arrangements: ideally clusters of desks/tables}]}
 
