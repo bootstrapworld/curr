@@ -120,7 +120,13 @@
 	border: 1px solid black;
 	background: white;
 	}
-
+.BootstrapOverview td{
+	padding: 0px;
+}
+.RktBlk td{
+   border: none;
+   padding: 0px;
+}
 	
 table {
   margin: auto;
