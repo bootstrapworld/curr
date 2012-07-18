@@ -681,9 +681,9 @@
 
 ;; generates the title, which includes the bootstrap logo in html but not in latex/pdf
 ;; In unit+title case, paras shouldn't be there but that throws off the CSS spacing -- FIX
-(define (bootstrap-title . body)
+(define (bootstrap-title #:single-line [single-line #f] . body)
   (define the-title (apply string-append body))
-  (define unit+title (regexp-match #px"^([^:]+):\\s*(.+)$" the-title)) 
+  (define unit+title (if single-line #f (regexp-match #px"^([^:]+):\\s*(.+)$" the-title))) 
   (define bootstrap-image (cond-element 
                            [html bootstrap.gif]
                            [(or latex pdf) (elem)]))
