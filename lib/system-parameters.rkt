@@ -1,14 +1,20 @@
 #lang racket/base
 
-(provide deployment-dir
-         current-course)
+(provide current-deployment-dir
+         current-course
+         current-worksheet-links-refer-to-pdf?)
 
 
 ;; The production deployment directory is, by default, #f.
 ;; Under deployment mode, the worksheets and drills are written as subdirectories of the deployment directory.
-(define deployment-dir (make-parameter #f))
+(define current-deployment-dir (make-parameter #f))
 
 
 ;; The current coures being built.  Should be the name of one of the
 ;; subdirectories under "courses".
 (define current-course (make-parameter "bs1"))
+
+
+
+;; Should worksheet links refer to the actual html files, or to the pdf?
+(define current-worksheet-links-refer-to-pdf? (make-parameter #f))

@@ -8,7 +8,7 @@
          racket/file
          "lib/system-parameters.rkt"
          "lib/translate-pdfs.rkt"
-         "paths.rkt"
+         "lib/paths.rkt"
          file/zip
          (for-syntax racket/base))
 
@@ -28,16 +28,17 @@
 (define current-generate-pdf? (make-parameter #f))
 
 
+
 ;; run-scribble: path -> void
 ;; Runs scribble on the given file.
 (define (run-scribble scribble-file)
-  (define output-dir (cond [(deployment-dir)
+  (define output-dir (cond [(current-deployment-dir)
                             ;; Rendering to a particular deployment directory.
                             (let-values ([(base name dir?) 
                                           (split-path 
                                            (find-relative-path (simple-form-path root-path)
                                                                (simple-form-path scribble-file)))])
-                              (simple-form-path (build-path (deployment-dir) base)))]
+                              (simple-form-path (build-path (current-deployment-dir) base)))]
                            [else
                             ;; In-place rendering
                             (let-values ([(base name dir?)
@@ -67,7 +68,7 @@
    [("--course") -course "Choose course (default bs1)"
                  (current-course -course)]
    [("--deploy") -deploy-dir "Deploy into the given directory, and create a .zip" 
-                 (deployment-dir (simple-form-path -deploy-dir))]
+                 (current-deployment-dir (simple-form-path -deploy-dir))]
    #:args tags
    tags))
 
@@ -134,13 +135,13 @@
 
 
 ;; Under deployment mode, zip up the final result.
-(when (deployment-dir)
+(when (current-deployment-dir)
 
 
   (when (directory-exists? (get-resources))
     ;; Include the resources.
     (let ([input-resources-dir (get-resources)]
-          [output-resources-dir (build-path (deployment-dir) "courses" (current-course) "resources")])
+          [output-resources-dir (build-path (current-deployment-dir) "courses" (current-course) "resources")])
       (when (directory-exists? output-resources-dir)
         (delete-directory/files output-resources-dir))
       (copy-directory/files input-resources-dir
@@ -149,7 +150,7 @@
   
 
 
-  (let-values ([(base file dir?) (split-path (deployment-dir))])
+  (let-values ([(base file dir?) (split-path (current-deployment-dir))])
     (parameterize ([current-directory base])
       (define output-file (build-path base (format "~a.zip" (path->string file))))
       (when (file-exists? output-file)
