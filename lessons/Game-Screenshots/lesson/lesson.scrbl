@@ -13,7 +13,7 @@
     @item{@code{put-image} is a function that puts one image on top of another, at whatever coordinates you specify. In our screenshot, what is the image going on the top? @code{PLAYER}. At what coordinates? (320, 240)}
     @item{Try evaluating @code{SCREENSHOT} in the interactions window. You should see the player, right in the middle of the background. @think-about[#:question "How would you change the code so that the player is a little lower down? To the left? The right?" #:hint "Try it out."]}
     @item{Now we want to add another image. How about we add the TARGET? @think-about[#:question "Can you tell me what function will let us place this image on top of our stack?" #:answer @code{(put-image _______ _______ _______ _______)}]}
-    @item{@think-about[#:question "What image goes on the top?" #:answer "Yes, TARGET!"] @think-about[#:question @list{"And where should we put it? How about someplace on the right-hand side of the screen?" @tag[pedagogy]{Raise your hand if you can give me some coordinates for that.}} 
+    @item{@think-about[#:question "What image goes on the top?" #:answer "Yes, TARGET!"] @think-about[#:question @list{"And where should we put it? How about someplace on the right-hand side of the screen?" @pedagogy{Raise your hand if you can give me some coordinates for that.}} 
 #:answer @code{(put-image TARGET 550 100 _______)}]}
     @item{Click "Run", and evaluate @code{SCREENSHOT}. Does it look the way you expected? On your own, mess with the coordinates until the @code{TARGET} is placed where you want it to be.
           @tag[selftaught]{@embedded-wescheme[#:id "Put-image"
