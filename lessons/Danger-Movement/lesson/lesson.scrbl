@@ -9,7 +9,7 @@
 @;The students should probably have their game code files open. 
 @itemlist/splicing[@item{In our last class, you learned how to use the Design Recipe to write functions. Now it's time to write functions to make your game characters move!}
           @item{Who wants to start making their game move?}
-          @tag[pedagogy]{@item{Draw a 640x480 "game screen" on the board, and have students help you label the axes and corners.}}
+          @pedagogy{@item{Draw a 640x480 "game screen" on the board, and have students help you label the axes and corners.}}
           @tag[selftaught]{@item{@think-about[#:question "Draw a 640x480 'game screen' on the board, and label the axes and corners."]}}
           @item{Here I've drawn a really boring game: my Danger is the letter "D", my Target is the letter "T", and my Player is just the letter "P". I've also labeled all the coordinates for where they are on the screen. @graph-image}
           @item{@think-about[#:question "What is the Danger's x-coordinate? Its y-coordinate?"
@@ -23,15 +23,15 @@
           @item{@think-about[#:question "What if it starts at (100, 100)? Where will go next? What if it's at (400, 600)? What if it's off the screen, at (650, 50)?"
                              #:answer "(50, 100), (350, 600), (600,50)"]}
           @item{You will need to write a function that takes an x-coordinate and produces the next x-coordinate, to make your danger move.
-                @build-table/cols['("Current x-coordinate" "Racket" "Next x-coordinate")
+                @build-table/cols['("Current x-coordinate" "Racket Code" "Next x-coordinate")
                                   '(("50" "75" "30")
                                     ("(-50 50)" "(- 75 50)" "(- 30 50)")
                                     ("0" "25" "-20"))
                                    (lambda (r c) (para ""))
                                    3 3]}
-          @item{Turn to @worksheet-link[#:page 15 #:name "Design-Recipe-Update-Danger"] for @code{update-danger}. @tag[pedagogy]{Have a student read the problem statement out loud.} @tag[selftaught]{Read the problem statement.}}
+          @item{Turn to @worksheet-link[#:page 15 #:name "Design-Recipe-Update-Danger"] for @code{update-danger}. @pedagogy{Have a student read the problem statement out loud.} @tag[selftaught]{Read the problem statement.}}
           @item{@think-about[#:question "Can you find the function name in this problem statement? Underline it."
                              #:answer @list{"The function name is " @code{update-danger}}]}
           @item{@think-about[#:question "Can you find the inputs and outputs? Underline them, too."
                              #:answer "The input is the x-coordinate of Danger and the output is the x-coordinate of Danger minus 50."]}
-          @item{@tag[group]{As a team:} Complete the Design Recipe for @code{update-danger}. @tag[pedagogy]{Raise your hand when you're done with each step, so I can check your contracts and examples before you move on to code. Don't forget to circle the things that change between your examples!} @tag[selftaught]{Write the code for @code{update-danger}}}]}
+          @item{@tag[group]{As a team:} Complete the Design Recipe for @code{update-danger}. @pedagogy{Raise your hand when you're done with each step, so I can check your contracts and examples before you move on to code. Don't forget to circle the things that change between your examples!} @tag[selftaught]{Write the code for @code{update-danger}}}]}
