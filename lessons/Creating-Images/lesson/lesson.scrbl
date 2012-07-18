@@ -39,6 +39,10 @@
                  @embedded-wescheme[#:id "Images"
                    #:interactions-text ""
                    #:hide-definitions? #t]}}
-           @item{Going Further - If time allows, you can go further into @(hyperlink "../../Manipulating-Images/lesson/lesson.html" "Manipulating Images") or @(hyperlink "../../Making-Flags/lesson/lesson.html" "Making Flags")!}
+           @item{Going Further - If time allows, you can go further into
+                 @worksheet-link[#:name "Manipulating Images"
+                                 #:page "???" 
+                                 #:lesson "Manipulating-Images"]
+                 or @(hyperlink "../../Making-Flags/lesson/lesson.html" "Making Flags")!}
            ]}
 
