@@ -85,26 +85,6 @@
 	margin: 3px;
 }
 
-/*Code design*/
-.BootstrapContract{
-	color: #F87217;
-	font-family: monospace;
-}
-.BootstrapCode{
-	color: #4682B4;
-	margin: 0px;
-	padding: 0px;
-	font-family: monospace;
-}
-.BootstrapString{
-	color: #008000;
-	font-family: monospace;
-}
-.BootstrapNumber{
-	color:#00F;
-	font-family: monospace;
-}
-
 /*Copyright Design*/
 .BootstrapCopyright{
 
@@ -115,10 +95,10 @@
 
 /*Title Design*/
 .BootstrapTitle{
-	text-align: left;
+    text-align: left;
     font-size: 32px;
     font-weight: bold;
-    line-height: 10%;
+    line-height: 50%;
 }
 .BootstrapTitle img{
   float: left;
