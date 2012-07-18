@@ -504,23 +504,27 @@
 ;;    for teacher's edition
 (define (design-recipe-exercise func-name . description)
   (let ([tagbase (format "recipe-~a" func-name)])
-    (nested-flow
-     (style "BootstrapDRExercise" '())
-     (decode-flow
-      (list
-       (bootstrap-title (format "Design Recipe for ~a" func-name))
-       (apply para #:style "BSRecipeExerciseDescr" description)
-       (worksheet-segment "I. Contract + Purpose Statement")
-       (elem "Every contract has three parts")
-       (contract-purpose-exercise tagbase)
-       (worksheet-segment "II. Give Examples")
-       (elem "Write two examples of your function in action")
-       (example-with-text (string-append tagbase "ex1"))
-       (example-with-text (string-append tagbase "ex2"))
-       (worksheet-segment "III. Function")
-       (elem "Write the function header, giving variable names to all your input values")
-       (function-exercise (string-append tagbase "function"))
-       )))))
+    (nested
+     #:style (style "BootstrapDRExercise" '())
+     
+     ;(bootstrap-title (format "Design Recipe for ~a" func-name))
+     (apply para #:style "BSRecipeExerciseDescr" description)
+     (worksheet-segment "I. Contract + Purpose Statement")
+     (elem "Every contract has three parts")
+     "\n" "\n"
+     (contract-purpose-exercise tagbase)
+     (worksheet-segment "II. Give Examples")
+     (elem "Write two examples of your function in action")
+     "\n" "\n"
+     (example-with-text (string-append tagbase "ex1"))
+     "\n" "\n"
+     (example-with-text (string-append tagbase "ex2"))
+     (worksheet-segment "III. Function")
+     "\n" "\n"
+     (elem "Write the function header, giving variable names to all your input values")
+     "\n""\n"
+     (function-exercise (string-append tagbase "function"))
+     )))
 
 ;; Inputs: list[string or image] -> nested-flow
 ;; Generates all components of a math/circle-of-evaluation/racket exercise
@@ -575,7 +579,7 @@
   (para 
    (hyperlink "http://creativecommons.org/licenses/by-nc-nd/3.0/" creativeCommonsLogo) "Bootstrap by " (hyperlink "http://www.bootstrapworld.org/" "Emmanuel Schanzer") " is licensed under a "
    (hyperlink "http://creativecommons.org/licenses/by-nc-nd/3.0/" "Creative Commons 3.0 Unported License")
-   ". Based on a work at " (hyperlink "http://www.bootstrapworld.org/" "www.BootsrapWorld.org")
+   ". Based on a work at " (hyperlink "http://www.bootstrapworld.org/" "www.BootstrapWorld.org")
    ". Permissions beyond the scope of this license may be available at "
    (hyperlink "mailto:schanzer@BootstrapWorld.org" "schanzer@BootstrapWorld.org") "."))
 

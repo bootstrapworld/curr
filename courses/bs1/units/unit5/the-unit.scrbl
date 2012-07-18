@@ -20,14 +20,14 @@ Students define functions that map position n to position n+1, allowing them to 
 
 @length-of-lesson[90]
 
-@tag[pedagogy]{
+@pedagogy{
 @materials[@item{Computers w/ DrRacket or WeScheme}
            @item{Student  @(hyperlink "https://spreadsheets.google.com/pub?key=0Ak3Voejjnf0ldHlQcXRVWTZDbVprWHlBLTJWRlQ2dkE&hl=en&gid=0" "workbook") folders - in pairs! - with names on covers.}
            @item{Pens/pencils for the students, fresh whiteboard markers for teachers}
            @item{Class posters (List of rules, basic skills, course calendar)}
            @item{Language Table (see below)}]}
 
-@tag[pedagogy]{
+@pedagogy{
 @preparation[@item{Write agenda on board}
              @item{Student games open on their computers}
              @item{OPTIONAL: Bug Hunting [@(hyperlink "racketfile" "DrRacket file") + @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/Teachpack/cage-teachpack.rkt" "teachpack")  @(hyperlink "wescheme file" "WeScheme")] preloaded on students' machines, in front}
@@ -41,7 +41,7 @@ Students define functions that map position n to position n+1, allowing them to 
 
 @lesson[#:title "Introduction" #:duration "25 min"]{
                                @;Here, students should open their files.
-@itemlist/splicing[@tag[pedagogy]{@item{If you have students tackle the bug-hunting activity, be aware that the file contains several bugs! Until students have fixed all of them, they will always get an error message when they attempt to run the file. This is by design, to encourage students to both read the error and to look at it's location.}}
+@itemlist/splicing[@pedagogy{@item{If you have students tackle the bug-hunting activity, be aware that the file contains several bugs! Until students have fixed all of them, they will always get an error message when they attempt to run the file. This is by design, to encourage students to both read the error and to look at it's location.}}
           @tag[selftaught]{@item{If you tackle the bug-hunting activity, be aware that the file contains several bugs! Until you have fixed all of them, you will always get an error message when you attempt to run the file. This is by design, to encourage you to both read the error and to look at it's location.}}]}
 
 @(include-lesson (lib "curr/lessons/Danger-Movement/lesson/lesson.scrbl"))
@@ -61,10 +61,10 @@ Students define functions that map position n to position n+1, allowing them to 
                                                  @item{When the Target and Danger move offscreen, they never come back}
                                                  @item{Nothing happens when the Player collides with the Danger or Target}]}
            @item{We're going to fix these over the next few lessons, and also work on the artwork and story for our games, so stay tuned!}
-           @tag[pedagogy]{@item{Who can tell us one thing we learned today?}}                     
-           @tag[selftaught]{@item{Write down a few things you learned today}}
-           @tag[pedagogy]{@item{Who saw someone else in the class do something great?}}
-           @tag[pedagogy]{@item{Cleanup, dismissal.}}]}
+           @pedagogy{@item{Who can tell us one thing we learned today?}}                     
+           @pedagogy{@item{Write down a few things you learned today}}
+           @pedagogy{@item{Who saw someone else in the class do something great?}}
+           @pedagogy{@item{Cleanup, dismissal.}}]}
 
 
 @copyright[]
