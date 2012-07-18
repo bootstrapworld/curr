@@ -53,9 +53,9 @@ Students use geometry and knowledge of basic image functions to design character
      @item{Congratulations - you've got the beginnings of a working game!}
      @item{What's still missing? Nothing happens when the player collides with the object or target!}
      @item{We're going to fix these over the next few lessons, and also work on the artwork and story for our games, so stay tuned!}
-     @tag[pedagogy]{@item{Who can tell us one thing we learned today? Call on 2-3 volunteers.}}
+     @pedagogy{@item{Who can tell us one thing we learned today? Call on 2-3 volunteers.}}
      @tag[selftaught]{@item{@review{Write a few things you've learned today.}}}
-     @tag[pedagogy]{@item{Who saw someone else in the class do something great? Call on 2-3 volunteers.}}
-     @tag[pedagogy]{@item{Cleanup, dismissal.}}]}
+     @pedagogy{@item{Who saw someone else in the class do something great? Call on 2-3 volunteers.}}
+     @pedagogy{@item{Cleanup, dismissal.}}]}
 
 @copyright[]
