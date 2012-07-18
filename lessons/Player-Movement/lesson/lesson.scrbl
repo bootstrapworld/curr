@@ -16,10 +16,10 @@
     @tag[selftaught]{@item{@think-about[#:question "What should update-player do?"
                                          #:answer "update-player should change the position of the player"]}}
      @item{We want a function that will move up the screen when the user presses the up arrow and down when the user presses the down arrow.}
-     @item{We've set up the computer to call update-player, passing in the player's y-coordinate and the name of the key pressed. The keypress will either be the string @code{"down"} or the string @code{"up"} (for now). 
+     @item{We've set up the computer to call @code{update-player}, passing in the player's y-coordinate and the name of the key pressed. The keypress will either be the string @code{"down"} or the string @code{"up"} (for now). 
            @think-about[#:question "What kind of data is the y-coordinate? What kind of data is the keypress?"
                         #:answer "The y-coordinate is a number and the keypress is a string"]}
-     @tag[pedagogy]{@item{Make a table showing possibilities and results, walking students through it.}}
+     @pedagogy{@item{Make a table showing possibilities and results, walking students through it.}}
      @tag[selftaught]{@item{Here's an example of what possible keypresses and their results
                             @build-table/cols['("Keypress" "Result")
                                          '(("\"up\"" "\"down\"")
@@ -30,7 +30,7 @@
      @item{With our pizza example, we had to deal with toppings that weren't on the menu. Now we need to deal with keys that aren't "up" or "down". 
            @think-about[#:question "How do we do that?"
                         #:answer "Do nothing! (Or have an else statement that returns the same position)"]}
-     @item{On @worksheet-link[#:page 24 #:name "Design-Recipe-Update-Player"], you'll find the problem statement for update-player. Grab a Design Recipe Worksheet, fill it out, and then write this function @tag[group]{with your team}.}
+     @item{On @worksheet-link[#:page 24 #:name "Design-Recipe-Update-Player"], you'll find the problem statement for @code{update-player}. Grab a Design Recipe Worksheet, fill it out, and then write this function @tag[group]{with your team}.}
      @;Here students should open their files, review, and possibly add cheats.
      @pedagogy{@item{Students can also add "cheat codes", by adding Cond branches for other keys. For example, a student might add @code{[(string=? key "c") 240]}, which causes the player to jump to the center of the screen if the c key is pressed.}}
      @tag[selftaught]{@item{You can also add "cheat codes", by adding Cond branches for other keys. For example, you might add @code{[(string=? key "c") 240]}, which causes the player to jump to the center of the screen if the c key is pressed.}}]}
