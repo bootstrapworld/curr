@@ -30,7 +30,7 @@ Students discover Boolean types, and use them to create programs that test value
 @preparation[
           @item{Write agenda on board}
           @item{Student games open on their computers}
-          @item{"Cage" [@(resource-link #:path "teachersguide/games/Cage.rkt" #:label "DrRacket file") + @(resource-link #:path "teachersguide/teachpack/cage-teachpack.rkt" "teachpack") | @(hyperlink "http://www.wescheme.org/openEditor?publicId=equal-guild-ebony-apply-snore" "WeScheme")] preloaded on students' machines, in front}
+          @item{"Cage" [@(resource-link #:path "teachersguide/games/Cage.rkt" #:label "DrRacket file") + @(resource-link #:path "teachersguide/teachpack/cage-teachpack.rkt" #:label "teachpack") | @(hyperlink "http://www.wescheme.org/openEditor?publicId=equal-guild-ebony-apply-snore" "WeScheme")] preloaded on students' machines, in front}
           @item{Class posters}
           @item{Seating arrangements: ideally clusters of desks/tables}
           ]
