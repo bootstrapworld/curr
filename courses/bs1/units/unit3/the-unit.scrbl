@@ -18,7 +18,7 @@ Students are introduced to the Definitions window, and learn the syntax for defi
 
 @length-of-lesson[90]
 
-@tag[pedagogy]{
+@pedagogy{
 @materials[@item{Student @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/materials/StudentWorkbook.pdf" "workbook") folders @tag[group]{-in pairs!-} with names on covers.}
            @item{Pens/pencils for the students, fresh whiteboard markers for teachers}
            @item{Class poster (List of rules, language table, course calendar)}
@@ -44,8 +44,8 @@ Students are introduced to the Definitions window, and learn the syntax for defi
         @item{You've learned how to convert expressions into Circles of Evaluation, and how to convert those circles into Racket code.}
         @item{You've learned how to think about functions in terms of nested circles, and how to think of them as a relation between the Domain and Range.}
         @item{You've extended that knowledge into three data types: Numbers, Strings, and Images.}
-        @tag[pedagogy]{@item{Let's see how much you remember!}}
-        @tag[pedagogy]{@item{Review material from the previous class.}}
+        @pedagogy{@item{Let's see how much you remember!}}
+        @pedagogy{@item{Review material from the previous class.}}
         @item{You have learned a LOT, and before today's class is over... you will have written your first line of code for YOUR videogame.}
         ]}
 
@@ -58,11 +58,11 @@ Students are introduced to the Definitions window, and learn the syntax for defi
 @lesson[#:title "Closing" #:duration "5 minutes"]{
 
 @itemlist/splicing[
-        @tag[pedagogy]{@item{Who can tell us one thing we learned today? }}
+        @pedagogy{@item{Who can tell us one thing we learned today? }}
         @tag[selftaught]{@item{@review{What did you learn from this lesson?}}}
-        @tag[pedagogy]{@item{Who saw someone else in the class do something great?}}
+        @pedagogy{@item{Who saw someone else in the class do something great?}}
         @item{Well done! You guys have officially started your games! The next step is to make your characters animate, which we'll be doing in our next class. See you then!}
-        @tag[pedagogy]{@item{Cleanup, dismissal.}}
+        @pedagogy{@item{Cleanup, dismissal.}}
         ]}
        
 
