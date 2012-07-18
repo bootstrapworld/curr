@@ -40,7 +40,7 @@
         #:duration "20 minutes"]{
        @itemlist/splicing[
         @item{In addition to your presentation we want each group to explain one thing they learned in this class (refer back to the list). That means I'll need a group to explain Circles of Evaluation, and how to convert them to Racket. I'll need a group to explain the difference between numbers, strings, images, and booleans. I'll need a group to explain the Design Recipe, and another to explain conditions. I'll even need a group to explain the distance formula, and how it helps tell us when things blow up.}
-         @pedagogy{@item{@build-table/cols['("Concept" "Functions")
+         @pedagogy{Get each group to sign up for a concept or a function. @item{@build-table/cols['("Concept" "Functions")
                                  '(("Circles of Evaluation" "Converting Circles to\n\tRacket" "Data Types" "The Design Recipe" "Conditional Branching" "The Distance Formula") ("update-target" "update-danger" "update-projectile" "collide?" "update-player" "distance")) (lambda args #f) 2 6]}}
         @item{For the next 15 minutes, each group will be able to plan their presentation. Remember, the goal is to really sell the audience on your games!}
         @item{On @worksheet-link[#:page 30 #:name "Presentation"] and @worksheet-link[#:page 31 #:name "Extra-Space"], you'll find space to plan out your presentation. Make sure you write something for every part, and review the code with your partner.}
