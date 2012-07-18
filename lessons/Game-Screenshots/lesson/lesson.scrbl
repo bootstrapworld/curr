@@ -15,6 +15,9 @@
     @item{Now we want to add another image. How about we add the TARGET? @think-about[#:question "Can you tell me what function will let us place this image on top of our stack?" #:answer @code{(put-image _______ _______ _______ _______)}]}
     @item{@think-about[#:question "What image goes on the top?" #:answer "Yes, TARGET!"] @think-about[#:question @list{"And where should we put it? How about someplace on the right-hand side of the screen?" @pedagogy{Raise your hand if you can give me some coordinates for that.}} 
 #:answer @code{(put-image TARGET 550 100 _______)}]}
+    @item{Now for the final part - what are we putting the TARGET on top of? It's not the background...it's the player and background stack we made earlier! Let's take all that code we wrote, and stick it in as the last input to put-image. See how it almost makes a "staircase" shape? Don't forget to match the parentheses!
+          
+          @code{(put-image Target 550 100 (put-image PLAYER 320 240 BACKGROUND))}} 
     @item{Click "Run", and evaluate @code{SCREENSHOT}. Does it look the way you expected? On your own, mess with the coordinates until the @code{TARGET} is placed where you want it to be.
           @tag[selftaught]{@embedded-wescheme[#:id "Put-image"
                    #:definitions-text "; Please type in your images to see how they look"]}}
