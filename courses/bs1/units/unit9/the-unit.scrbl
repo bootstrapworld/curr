@@ -16,7 +16,7 @@ Students will edit game details and prepare for their Launch Party!
 @state-standards
 
 @length-of-lesson[90]
-@tag[pedagogy]{
+@pedagogy{
 @materials[@item{Computers w/ DrRacket or WeScheme}
            @item{Student  @(hyperlink "https://spreadsheets.google.com/pub?key=0Ak3Voejjnf0ldHlQcXRVWTZDbVprWHlBLTJWRlQ2dkE&hl=en&gid=0" "workbooks")}
            @item{Pens/pencils for the students, fresh whiteboard markers for teachers}
