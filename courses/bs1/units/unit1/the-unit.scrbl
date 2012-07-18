@@ -23,11 +23,13 @@ Students discuss the components of their favorite videogames, and discover that 
                 
 @length-of-lesson[90]
 
-@tag[pedagogy]{                
-@materials[@item{Student  @(hyperlink "https://spreadsheets.google.com/pub?key=0Ak3Voejjnf0ldHlQcXRVWTZDbVprWHlBLTJWRlQ2dkE&hl=en&gid=0" "workbook") folders - in pairs! - with names on covers.}
+@resource-link[#:path "images/ninjacat.png" #:label "NinjaCat"]
+
+@pedagogy{                
+@materials[@item{Student  @resource-link[#:path "workbook/StudentWorkBook.pdf" #:label "workbook"] folders - in pairs! - with names on covers.}
            @item{Computer, connected to a projector, with "NinjaCat" preloaded [ @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/downloads/NinjaCat.zip" "DrRacket") | @(hyperlink "http://www.wescheme.org/view?publicId=gaffe-tinge-swipe-oscar-diver" "WeScheme")]}
            @item{Pens/pencils for the students, fresh whiteboard markers for teachers}
-           @item{Cutouts of  @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/images/1.7.png" "NinjaCat") and the  @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/images/1.8.png" "Ruby")}
+           @item{Cutouts of  @resource-link[#:path "images/ninjacat.png" #:label "NinjaCat"] and the  @resource-link[#:path "images/ruby.png" #:label "Ruby"]}
            @item{Class posters (List of rules, language table, course calendar) }
            @item{Language Table (see below)}
            ]
@@ -39,7 +41,7 @@ Students discuss the components of their favorite videogames, and discover that 
           ]
 }
 
-@language-table[]
+@language-table[(list "  ...   " "    ...  ")]
 }
 
 @(include-lesson (lib "curr/lessons/Intro-and-Expectations/lesson/lesson.scrbl"))
@@ -60,7 +62,7 @@ Students discuss the components of their favorite videogames, and discover that 
 @lesson[#:title "Review"
         #:duration "5 minutes"
         ]{ 
- @tag[pedagogy]{
+ @pedagogy{
  @itemlist[
   @item{Who can tell us one thing we learned today?}       
   @item{Who saw someone else in the class do something great?}
