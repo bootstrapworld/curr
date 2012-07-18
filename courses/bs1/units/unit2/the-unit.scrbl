@@ -17,7 +17,7 @@ include other datatypes, including Strings and Images.
 @state-standards
 @length-of-lesson[90]
 
-@tag[pedagogy]{
+@pedagogy{
 @materials[@item{Student workbook folders @tag[group]{- in pairs! - with names on folders}}
             @item{Pens/pencils for the students, fresh whiteboard markers for the teachers}
             
@@ -46,7 +46,7 @@ include other datatypes, including Strings and Images.
 
 @lesson[#:title "Closing"
         #:duration "5 minutes"]{
-    @tag[pedagogy]{@itemlist[@item{Who can tell us one thing we learned today?}
+    @pedagogy{@itemlist[@item{Who can tell us one thing we learned today?}
                              @item{Who saw someone else in the class do something great?}
                              @item{Cleanup, dismissal.}]}
 

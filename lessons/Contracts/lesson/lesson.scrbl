@@ -11,7 +11,7 @@
           @item{This description talks about outputs  without having to say what those outputs are.}
           @item{This explanation of a soda machine just talks about some soda, but not any specific type of soda. It just says what kind of thing comes out, not which particular thing.}
           @item{How would you describe a coffeemaker? What kind of stuff goes into a coffeemaker? What kind of stuff comes out?}
-          @item{How would you describe a lightbulb? @tag[pedagogy]{Have the students brainstorm a few other machines, and their inputs and outputs.} @tag[selftaught]{Try to brainstorm a few other machines and their inputs and outputs.}}
+          @item{How would you describe a lightbulb? @pedagogy{Have the students brainstorm a few other machines, and their inputs and outputs.} @tag[selftaught]{Try to brainstorm a few other machines and their inputs and outputs.}}
           @item{The things that go into a machine are called the inputs, and what comes out is called the output. But the kinds of things that go in is the Domain, and the kind of thing that comes out is the Range. @think-about[#:question "A soda machine's domain is money. Can you think of an example input?"  #:answer "Any type of money: quarters, dimes, dollars"] Its range is soda.}
           @item{@think-about[#:question "What is the domain and range of a coffeemaker?"
                              #:answer "The domain is coffee ingredients: coffee beans, water, etc. The range is types of coffee."]}
@@ -27,7 +27,7 @@
                                                         @item{the name of the function,}
                                                         @item{the domain, and}
                                                         @item{the range.}]}
-         @tag[pedagogy]{@item{Show the contract for @code{+} on the board, and have students volunteer the contracts for the other math functions covered so far.}}
+         @pedagogy{@item{Show the contract for @code{+} on the board, and have students volunteer the contracts for the other math functions covered so far.}}
                  @;NOTE: may have to split into three questions
          @tag[selftaught]{@item{@think-about[#:question @list{"Can you think of the contract for " @code{+} "? What about the ones for " @code{/} " and " @code{*} "? Enter them on the contracts page and check your answers below"}
                                               #:answer @list{@code[#:multi-line #t]{; + : Number Number -> Number
@@ -37,8 +37,8 @@
                                                               @code[#:multi-line #t]{; * : Number Number -> Number
                                                                                      ; Takes two numbers and gives their product}}]}}
           @;must have some sort of answers here
-          @tag[pedagogy]{@item{Add other functions, like @code{/} and @code{*}.  Leave these contracts written on the board.}}
-          @tag[pedagogy]{@item{If students already know about square roots or squaring, you can add these functions as well. If not, take a moment to review what they do.
+          @pedagogy{@item{Add other functions, like @code{/} and @code{*}.  Leave these contracts written on the board.}}
+          @pedagogy{@item{If students already know about square roots or squaring, you can add these functions as well. If not, take a moment to review what they do.
                                @code[#:multi-line #t]{; sqrt : Number -> Number
                                                       ; sqr : Number -> Number}}}
           @tag[selftaught]{@item{@think-about[#:question "If you already know about square roots or squaring, try to figure out the contracts for these as well. Check with the answers below!"
