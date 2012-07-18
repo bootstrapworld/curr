@@ -56,10 +56,10 @@ Language Table
 @lesson[#:title "Closing" #:duration "5 minutes"]{
 
 @itemlist/splicing[
-        @tag[pedagogy]{@item{Who can tell us one thing we learned today? }}
+        @pedagogy{@item{Who can tell us one thing we learned today? }}
         @tag[selftaught]{@item{@review{What did you learn from this lesson?}}}
-        @tag[pedagogy]{@item{Who saw someone else in the class do something great?}}
-        @tag[pedagogy]{@item{Cleanup, dismissal.}}
+        @pedagogy{@item{Who saw someone else in the class do something great?}}
+        @pedagogy{@item{Cleanup, dismissal.}}
         ]}
 
 @copyright[]

@@ -23,9 +23,9 @@
     @worksheet-segment{III. Function Header}
     Write the function Header, giving variable names to all your input values.
     
-    (define (@fill-in-the-blank[#:id "cost7" #:label "function name" #:answer "cost"] @fill-in-the-blank[#:id "cost8" #:label "variable names" #:answer "topping"])(
+    (define (@fill-in-the-blank[#:id "cost7" #:label "function name" #:answer "cost"] @fill-in-the-blank[#:id "cost8" #:label "variable names" #:answer "topping"])
     
-        @fill-in-the-blank[#:id "cost9" #:answer "(cond"]
+    (@fill-in-the-blank[#:id "cost9" #:answer "(cond"]
      
         @fill-in-the-blank[#:id "cost10" #:label "Condition1" #:answer "(string=? \"pepperoni\" topping)"]@fill-in-the-blank[#:id "cost11" #:label "Answer1" #:answer "10.50"]
     
@@ -35,6 +35,4 @@
     
         @fill-in-the-blank[#:id "cost16" #:label "Condition4" #:answer "(string=? \"broccoli\" topping)"]@fill-in-the-blank[#:id "cost17" #:label "Answer4" #:answer "10.25"]
     
-        @fill-in-the-blank[#:id "cost18" #:label "Condition3" #:answer "else"]@fill-in-the-blank[#:id "cost19" #:label "Answer5" #:answer "100000000"]
-        
-        )}
+        @fill-in-the-blank[#:id "cost18" #:label "Condition3" #:answer "else"]@fill-in-the-blank[#:id "cost19" #:label "Answer5" #:answer "100000000"])}
