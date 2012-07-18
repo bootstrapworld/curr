@@ -17,7 +17,6 @@
          racket/list
          "checker.rkt"
          "javascript-support.rkt"
-         "system-parameters.rkt"
          "paths.rkt")
 
 
@@ -655,21 +654,28 @@
                         #:page page
                         #:lesson [lesson #f]
                         #:src-path src-path)
+
   (define-values (base-path _ dir?) (split-path src-path))
   (define the-relative-path
     (find-relative-path (simple-form-path (current-directory))
-                        (cond [(current-worksheet-links-refer-to-pdf?)
-                               (simple-form-path (get-worksheet-pdf-path))]
-                              [lesson
-                               (simple-form-path (build-path worksheet-lesson-root
-                                                             lesson
-                                                             "worksheets"
-                                                             (format "~a.html" name)))]
-                              [else
-                               (simple-form-path (build-path base-path
-                                                             'up
-                                                             "worksheets"
-                                                             (format "~a.html" name)))])))
+                        (cond 
+                         ;; FIXME: communicate parameter values via parameters.
+                         ;; The reason it's not working right now is because we're
+                         ;; calling into scribble with system*, which means we don't
+                         ;; get to preserve any parameters between the build script
+                         ;; and us.
+                         [(getenv "WORKSHEET-LINKS-TO-PDF")
+                          (simple-form-path (get-worksheet-pdf-path))]
+                         [lesson
+                          (simple-form-path (build-path worksheet-lesson-root
+                                                        lesson
+                                                        "worksheets"
+                                                        (format "~a.html" name)))]
+                         [else
+                          (simple-form-path (build-path base-path
+                                                        'up
+                                                        "worksheets"
+                                                        (format "~a.html" name)))])))
   (list (hyperlink (path->string the-relative-path)
                    "Page " (number->string page))))
 

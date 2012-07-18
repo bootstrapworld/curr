@@ -63,12 +63,16 @@
   (command-line
    #:program "build"
    #:once-each
-   [("--pdf") "Generate PDF documentation"
-              (current-generate-pdf? #t)]
    [("--course") -course "Choose course (default bs1)"
                  (current-course -course)]
+   [("--worksheet-links-to-pdf") "Direct worksheet links to StudentWorkshop.pdf" 
+    (putenv "WORKSHEET-LINKS-TO-PDF" "true")]
+
    [("--deploy") -deploy-dir "Deploy into the given directory, and create a .zip" 
                  (current-deployment-dir (simple-form-path -deploy-dir))]
+   [("--pdf") "Generate PDF documentation"
+              (current-generate-pdf? #t)]
+
    #:args tags
    tags))
 
