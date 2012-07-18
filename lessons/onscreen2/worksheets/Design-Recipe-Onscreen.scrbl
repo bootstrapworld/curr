@@ -1,7 +1,8 @@
 #lang curr/lib
-
+@title{onscreen?}
+@worksheet{
 @design-recipe-exercise["onscreen?" "Use the Design Recipe to write a function " @code{onscreen?} ", which takes in the target's x-coordinate and checks to see Sam is protected on the left and protected on the right."]
-
+}
 @;@worksheet{
 @;    Use the Design Recipe to write a function onscreen?, which takes in the target's x-coordinate and checks to see Sam is protected on the left and protected on the right
     

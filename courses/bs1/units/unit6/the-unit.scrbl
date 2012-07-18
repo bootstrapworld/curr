@@ -21,7 +21,7 @@ Students discover Boolean types, and use them to create programs that test value
 @length-of-lesson[90]
 
 @tag[pedagogy]{                
-@materials[@item{Student  @(hyperlink "https://spreadsheets.google.com/pub?key=0Ak3Voejjnf0ldHlQcXRVWTZDbVprWHlBLTJWRlQ2dkE&hl=en&gid=0" "workbook") folders - in pairs! - with names on covers.}
+@materials[@item{Student  @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook") folders - in pairs! - with names on covers.}
            @item{Computers w/DrRacket or WeScheme}
            @item{Pens/pencils for the students, fresh whiteboard markers for teachers}
            @item{Class posters (List of rules, language table, course calendar) }
@@ -30,7 +30,7 @@ Students discover Boolean types, and use them to create programs that test value
 @preparation[
           @item{Write agenda on board}
           @item{Student games open on their computers}
-          @item{"Cage" [@(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/downloads/Cage.rkt" "DrRacket file") + @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/Teachpack/cage-teachpack.rkt" "teachpack") | @(hyperlink "http://www.wescheme.org/openEditor?publicId=equal-guild-ebony-apply-snore" "WeScheme")] preloaded on students' machines, in front}
+          @item{"Cage" [@(resource-link #:path "teachersguide/games/Cage.rkt" #:label "DrRacket file") + @(resource-link #:path "teachersguide/teachpack/cage-teachpack.rkt" "teachpack") | @(hyperlink "http://www.wescheme.org/openEditor?publicId=equal-guild-ebony-apply-snore" "WeScheme")] preloaded on students' machines, in front}
           @item{Class posters}
           @item{Seating arrangements: ideally clusters of desks/tables}
           ]

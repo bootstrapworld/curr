@@ -25,7 +25,7 @@ Students use geometry and knowledge of basic image functions to design character
 @length-of-lesson[90]
 @tag[pedagogy]{
 @materials[@item{Computers w/ DrRacket or WeScheme}
-           @item{Student  @(hyperlink "https://spreadsheets.google.com/pub?key=0Ak3Voejjnf0ldHlQcXRVWTZDbVprWHlBLTJWRlQ2dkE&hl=en&gid=0" "workbook")}
+           @item{Student  @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
            @item{Pens/pencils for the students, fresh whiteboard markers for teachers}
            @item{Class posters (List of rules, basic skills, course calendar)}
            @item{Language Table (see below)}]}
