@@ -504,7 +504,7 @@
     (nested
      #:style (style "BootstrapDRExercise" '())
      
-     (bootstrap-title (format "Design Recipe for ~a" func-name))
+     ;(bootstrap-title (format "Design Recipe for ~a" func-name))
      (apply para #:style "BSRecipeExerciseDescr" description)
      (worksheet-segment "I. Contract + Purpose Statement")
      (elem "Every contract has three parts")
