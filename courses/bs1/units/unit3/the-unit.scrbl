@@ -19,7 +19,7 @@ Students are introduced to the Definitions window, and learn the syntax for defi
 @length-of-lesson[90]
 
 @pedagogy{
-@materials[@item{Student @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/materials/StudentWorkbook.pdf" "workbook") folders @tag[group]{-in pairs!-} with names on covers.}
+@materials[@item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders @tag[group]{-in pairs!-} with names on covers.}
            @item{Pens/pencils for the students, fresh whiteboard markers for teachers}
            @item{Class poster (List of rules, language table, course calendar)}
            @item{Language Table (see below)}]
