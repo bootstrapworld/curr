@@ -17,7 +17,8 @@
          racket/list
          "checker.rkt"
          "javascript-support.rkt"
-         "system-parameters.rkt")
+         "system-parameters.rkt"
+         "paths.rkt")
 
 
 
@@ -656,33 +657,19 @@
                         #:src-path src-path)
   (define-values (base-path _ dir?) (split-path src-path))
   (define the-relative-path
-    (cond [(deployment-dir)
-           ;; FIXME!
-           (cond [lesson
-                  (find-relative-path (simple-form-path (current-directory))
-                                      (simple-form-path (build-path worksheet-lesson-root
-                                                                    lesson
-                                                                    "worksheets"
-                                                                    (format "~a.html" name))))]
-                 [else
-                  (find-relative-path (simple-form-path (current-directory))
-                                      (simple-form-path (build-path base-path
-                                                                    'up
-                                                                    "worksheets"
-                                                                    (format "~a.html" name))))])]           
-          [else
-           (cond [lesson
-                  (find-relative-path (simple-form-path (current-directory))
-                                      (simple-form-path (build-path worksheet-lesson-root
-                                                                    lesson
-                                                                    "worksheets"
-                                                                    (format "~a.html" name))))]
-                 [else
-                  (find-relative-path (simple-form-path (current-directory))
-                                      (simple-form-path (build-path base-path
-                                                                    'up
-                                                                    "worksheets"
-                                                                    (format "~a.html" name))))])]))
+    (find-relative-path (simple-form-path (current-directory))
+                        (cond [(current-worksheet-links-refer-to-pdf?)
+                               (simple-form-path (get-worksheet-pdf-path))]
+                              [lesson
+                               (simple-form-path (build-path worksheet-lesson-root
+                                                             lesson
+                                                             "worksheets"
+                                                             (format "~a.html" name)))]
+                              [else
+                               (simple-form-path (build-path base-path
+                                                             'up
+                                                             "worksheets"
+                                                             (format "~a.html" name)))])))
   (list (hyperlink (path->string the-relative-path)
                    "Page " (number->string page))))
 
