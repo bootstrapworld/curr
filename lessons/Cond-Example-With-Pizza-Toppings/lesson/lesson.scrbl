@@ -31,7 +31,7 @@
                        @build-table/cols['() 
                                          '(("" "" "" "")
                                            ("10.50" "9.00" "11.25" "10.25"))
-                                         (lambda (r c) ("")) 2 4]
+                                         (lambda (r c) (if (= c 1) (fill-in-the-blank #:id (format "~a" r)) "")) 2 4]
                        @tt{)}}
                  @item{@think-about[#:question "But how do we know when we want to produce 9.00? 10.50?"
                                     #:answer "When the toppings are cheese and pepperoni"]}      
@@ -74,6 +74,6 @@
                  @tag[selftaught]{@item{Try it out for yourself and add your own new items.
                                         @embedded-wescheme[#:id "Strings"
                                                            #:definitions-text "; Try out the pizza example above!"]}}
-                 @pedagogy{@item{If you have additional time, and would like to try another Cond challenge, check out the @(hyperlink "../../../lessons/Function-Example-Red-Shape/lesson/lesson.html" "supplemental activity.")}}      
-                 @tag[selftaught]{@item{If you have additional time, and would like to try another @code{cond} challenge, check out the @(lesson-link #:name "red-shape" #:label "supplemental activity.")}}]}
+                 @pedagogy{@item{If you have additional time, and would like to try another Cond challenge, check out the @(lesson-link #:name "Function-Example-Red-Shape" #:label "supplemental activity.")}}      
+                 @tag[selftaught]{@item{If you have additional time, and would like to try another @code{cond} challenge, check out the @(lesson-link #:name "Function-Example-Red-Shape" #:label "supplemental activity.")}}]}
                                                     

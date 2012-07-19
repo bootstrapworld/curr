@@ -19,7 +19,7 @@ Students will edit game details and prepare for their Launch Party!
 @pedagogy{
 @materials[@item{Computers w/ DrRacket or WeScheme}
            @item{Student  @resource-link[#:path "workbook/StudentWorkbook.pdf"
-               #:label "worksbooks"]}
+               #:label "workbooks"]}
            @item{Pens/pencils for the students, fresh whiteboard markers for teachers}
            @item{Class posters (List of rules, basic skills, course calendar)}
            @item{Language Table (see below)}

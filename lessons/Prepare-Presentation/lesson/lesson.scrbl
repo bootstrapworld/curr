@@ -2,7 +2,7 @@
 @declare-tags[group pedagogy selftaught bootstrap]
 @lesson[#:title "Introduction"
         #:duration "5 minutes"]{
-      @itemlist/splicing[@pedagogy{@item{Students not finished with their games? You can use the last class to @lesson-link[#:name "Getting-Things-Done"
+      @itemlist/splicing[@pedagogy{@item{Students not finished with their games? You can use the last class to @lesson-link[#:name "Getting-things-done"
              #:label "get things done"], with a speed-focused game designed to get things done! Got time for a challenge? Try introducing them to @lesson-link[#:name "Structs"
              #:label "Data Structures"], to allow for 2-dimensional motion and more player control.}}
                  @item{Welcome to the last day of Bootstrap! @pedagogy{We've got a surprise for you..."}}
