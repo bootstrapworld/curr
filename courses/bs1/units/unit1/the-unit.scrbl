@@ -23,8 +23,6 @@ Students discuss the components of their favorite videogames, and discover that 
                 
 @length-of-lesson[90]
 
-@resource-link[#:path "images/ninjacat.png" #:label "NinjaCat"]
-
 @pedagogy{                
 @materials[@item{Student  @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders - in pairs! - with names on covers.}
            @item{Computer, connected to a projector, with "NinjaCat" preloaded [ @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/downloads/NinjaCat.zip" "DrRacket") | @(hyperlink "http://www.wescheme.org/view?publicId=gaffe-tinge-swipe-oscar-diver" "WeScheme")]}
