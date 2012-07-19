@@ -129,31 +129,33 @@
 (run-scribble (get-course-main))
 
 
+
+;; Under deployment mode, zip up the final result.
+(when (current-deployment-dir)
+  (when (directory-exists? (get-resources))
+    ;; Include the resources.
+    (let ([input-resources-dir (get-resources)]
+          [output-resources-dir
+           (build-path (current-deployment-dir) "courses" (current-course)
+                       "resources")])
+      (when (directory-exists? output-resources-dir)
+        (delete-directory/files output-resources-dir))
+      (copy-directory/files input-resources-dir
+                            (simple-form-path
+                             (build-path output-resources-dir))))))
+
+
+
+;; Subtle: this must come after we potentially touch the output
+;; resources subdirectory.
 (cond [(file-exists? (get-teachers-guide))
        (printf "build.rkt: building teacher's guide\n")
        (run-scribble (get-teachers-guide))]
       [else
        (printf "build.rkt: no teacher's guide found; skipping\n")])
-
-
-
-
-;; Under deployment mode, zip up the final result.
-(when (current-deployment-dir)
-
-
-  (when (directory-exists? (get-resources))
-    ;; Include the resources.
-    (let ([input-resources-dir (get-resources)]
-          [output-resources-dir (build-path (current-deployment-dir) "courses" (current-course) "resources")])
-      (when (directory-exists? output-resources-dir)
-        (delete-directory/files output-resources-dir))
-      (copy-directory/files input-resources-dir
-                            (simple-form-path
-                             (build-path output-resources-dir)))))
   
 
-
+(when (current-deployment-dir)
   (let-values ([(base file dir?) (split-path (current-deployment-dir))])
     (parameterize ([current-directory base])
       (define output-file (build-path base (format "~a.zip" (path->string file))))
