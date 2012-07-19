@@ -16,7 +16,7 @@
 
 @lesson[#:title "Running the Game"]{
 @itemlist/splicing[@item{Near the end of the game file, you'll see an expression that defines a level, @code{(define game_level ...)}, passing in animation functions and images. You can define other levels if you wish, with different images or animation functions.}
-                    @item{The last line, @code{(play game_level)} will run the game using the level created above. By default, this line will be executed every time the student clicks "Run". You can stop this by adding a semicolon at the beginning of the line: @code{; (play game_level)}. This can make it easier for student to experiment with their code and test cases while they're developing, and they can always run the program manually by typing @code{(play game_level)} in the Interactions window}]}
+                    @item{The last line, @code{(play game_level)} will run the game using the level created above. By default, this line will be executed every time the student clicks "Run". You can stop this by adding a semicolon at the beginning of the line: @code{; (play game_level)}. This can make it easier for student to experiment with their code and test cases while they're developing, and they can always run the program manually by typing @code{(play game_level)} in the Interactions window.}]}
 
 
 @lesson[#:title "Making Characters Move"]{
@@ -26,7 +26,7 @@
                    @item{You'll note that there is also a function called @code{update-mystery}. This function is actually for animating projectiles, if students insist on having them! (In the curriculum, this is kept a secret early on in order to encourage students to think beyond violent games.}
                    @item{The @code{update-player} function is slightly different from the rest:
                          @itemlist[@item{It takes two inputs: the y-coordinate of the player (a number) and the key that was pressed (a string, such as "h", "left" or "q").}
-                                   @item{It is called only when a key is pressed, instead of each time the screen is redrawn}]}
+                                   @item{It is called only when a key is pressed, instead of each time the screen is redrawn.}]}
                    @item{If you'd like the player to move differently depending on which key is pressed, you'll need to use @code{cond}. For example:
                                                     
                         @code[#:multi-line #t]{; update-player : Number String -> Number
