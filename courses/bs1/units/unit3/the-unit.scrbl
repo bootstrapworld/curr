@@ -24,7 +24,7 @@ Students are introduced to the Definitions window, and learn the syntax for defi
            @item{Class poster (List of rules, language table, course calendar)}
            @item{Language Table (see below)}]
 
-@preparation[@item{Create student game files. [See @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/TeachersGuide.html" "Instructions")]}
+@preparation[@item{Create student game files. [See @resource-link[#:path "teachers-guide/teachers-guide.html" #:label "Teachers Guide"]]}
            @item{On student machines: Student Game Files (generated from blank templates [@resource-link[#:path "FIXME" #:label "Dr. Racket"] + @resource-link[#:path "teachers-guide/teachpacks.zip" #:label "TeachPack"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=cross-drawn-serve-annex-crumb" "WeScheme")])}
            @item{Write agenda on board, and post along with class posters and the Language Table}
            @item{Seating arrangements: ideally clusters of desks/tables}
