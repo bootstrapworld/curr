@@ -30,7 +30,7 @@ Students define functions that map position n to position n+1, allowing them to 
 @pedagogy{
 @preparation[@item{Write agenda on board}
              @item{Student games open on their computers}
-             @item{OPTIONAL: Bug Hunting [@resource-link[#:path "source-files/Bugs.rkt" #:label "DrRacket"] and @resource-link[#:path "teachers-guide/teachpacks/cage-teachpack.rkt" #:label "teachpack"] | @(hyperlink "http://www.wescheme.org/view?publicId=hinge-shell-beset-steel-voter" "WeScheme")] preloaded on students' machines, in front}
+             @item{OPTIONAL: Bug Hunting [@resource-link[#:path "source-files/Bugs.rkt" #:label "DrRacket"] | @(hyperlink "http://www.wescheme.org/view?publicId=hinge-shell-beset-steel-voter" "WeScheme")] preloaded on students' machines, in front}
              @item{Class posters}
              @item{Seating arrangements: ideally clusters of desks/tables}]}
 
