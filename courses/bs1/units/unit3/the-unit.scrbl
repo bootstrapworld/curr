@@ -25,7 +25,7 @@ Students are introduced to the Definitions window, and learn the syntax for defi
            @item{Language Table (see below)}]
 
 @preparation[@item{Create student game files. [See @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/TeachersGuide.html" "Instructions")]}
-           @item{On student machines: Student Game Files (generated from blank templates [@(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/downloads/Game.rkt" "DrRacket file") + @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/downloads/Teachpack/Teachpacks.zip" "teachpacks") | @(hyperlink "http://www.wescheme.org/openEditor?publicId=cross-drawn-serve-annex-crumb" "WeScheme")])}
+           @item{On student machines: Student Game Files (generated from blank templates [@resource-link[#:path "FIXME" #:label "Dr. Racket"] + @resource-link[#:path "FIXME" #:label "TeachPack"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=cross-drawn-serve-annex-crumb" "WeScheme")])}
            @item{Write agenda on board, and post along with class posters and the Language Table}
            @item{Seating arrangements: ideally clusters of desks/tables}
            @item{Optional: demo machine with projector to show the interations and definitions windows}]}
