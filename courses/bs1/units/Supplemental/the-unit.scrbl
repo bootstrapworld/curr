@@ -10,11 +10,11 @@
           Students will deepen their understanding of various concepts, either through continued practice and review, encountering more complicated material (structs), or through an educational field trip.
 
 
-          @tag[pedagogy]{
+          @pedagogy{
                          @materials[@item{Computers w/ DrRacket or WeScheme}
                                      @item{Student folders}
                                      @item{Design Recipe Signs}
-                                     @item{"Flags" [@(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/downloads/Flags.rkt" "DrRacket file")  + @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/downloads/Teachpacks/function-teachpack.rkt" "teachpack") | @(hyperlink "http://www.wescheme.org/openEditor?publicId=clear-chaps-yearn-brink-gruel" "WeScheme")] file preloaded.}
+                                     @item{"Flags" [@resource-link[#:path "FIXME" #:label "Dr. Racket"]  + @resource-link[#:path "teachers-guide/teachpacks.zip" #:label "TeachPack"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=clear-chaps-yearn-brink-gruel" "WeScheme")] file preloaded.}
           ]}
 
 
@@ -33,4 +33,4 @@
 @(include-lesson (lib "curr/lessons/Simple-Ideas/lesson/lesson.scrbl"))
 @(include-lesson (lib "curr/lessons/Getting-things-done/lesson/lesson.scrbl"))
 @(include-lesson (lib "curr/lessons/Programming-Olympics/lesson/lesson.scrbl"))
-
+@copyright[]
