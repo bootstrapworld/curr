@@ -23,7 +23,7 @@ Students are introduced to the Design Recipe and apply it to simple problems.
             ]
 @preparation[@item{Write agenda on board}
               @item{Display Class posters, Language Table, Design Recipe}
-              @item{"Rocket" [ @resource-link[#:path "source-files/Rocket.rkt.pdf" #:label "Dr. Racket"] + @(hyperlink "teachpack" "teachpack")| @resource-link[#:path "teachers-guide/teachpacks/function-teachpack.rkt" #:label "TeachPack"]] preloaded on students' machines}
+              @item{"Rocket" [ @resource-link[#:path "source-files/Rocket.rkt.pdf" #:label "Dr. Racket"] + @resource-link[#:path "teachers-guide/teachpacks/function-teachpack.rkt" #:label "TeachPack"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=drawl-youth-fifty-voter-shake" "WeScheme")] preloaded on students' machines}
               @item{Seating arrangements: ideally clusters of desks/tables}]}
 
 @(language-table (list "Number" @code{+ - * / sq sqrt expt})
