@@ -10,7 +10,7 @@
       @tag[group]{@item{When I say go, you're going to turn to @worksheet-link[#:page 36 #:name "red-shape"], and start working on "red-shape".}}
       @tag[group]{@item{GO!}}
       @tag[selftaught]{@item{Now, go to @worksheet-link[#:page 24 #:name "Red-Shape"] and start working on "red-shape"!}}
-      @tag[pedagogy]{@item{Be sure to review and the end! (note: the sizes used below are arbitrary)
+      @pedagogy{@item{Be sure to review and the end! (note: the sizes used below are arbitrary)
           @code[#:multi-line #t]{
              (define (red-shape shape)           
                   (cond
@@ -20,7 +20,7 @@
                     [(string=? topping "rectangle") (rectangle 100 50 "solid" "red")])) }
                      }}
      @item{Where do you think conditions might be used in a videogame? 
-           @tag[pedagogy]{@itemlist[
+           @pedagogy{@itemlist[
              @item{Have the player drawn differently when they get a power boost}                                                                    
              @item{Open doors when the player is holding a key}
              @item{Move differently depending on keyboard input}

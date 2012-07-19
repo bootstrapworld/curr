@@ -25,13 +25,13 @@
                  @item{That's a hint that something special is going on, but let's see how much father the Design Recipe can take us...}
                  @item{@think-about[#:question "Now for the Function Header. What do I write here?"
                                     #:answer @code{(define (cost topping))}]}
-                 @item{The Function Body is next. But now we don't know what to write! We know that our examples behave differently from one another -- sometimes we want to return 9.00, other times it's 10.50, etc. So what do we do? Well, we could fill in all off those results. Let's do that...  @pedagogy{Make a large, 2-column table on under the Function Header.}
+                 @item{The Function Body is next. But now we don't know what to write! We know that our examples behave differently from one another -- sometimes we want to return 9.00, other times it's 10.50, etc. So what do we do? Well, we could fill in all off those results. Let's do that...  @pedagogy{Make a large, 2-column table under the Function Header.}
                        
                        @tt{(}@code{define (cost topping)}
                        @build-table/cols['() 
-                                         '(("" "" "" "")
+                                         '(()
                                            ("10.50" "9.00" "11.25" "10.25"))
-                                         (lambda (r c) (if (= c 1) (fill-in-the-blank #:id (format "~a" r)) "")) 2 4]
+                                         (lambda (r c) (para (fill-in-the-blank #:id (format "~a" r)))) 2 4]
                        @tt{)}}
                  @item{@think-about[#:question "But how do we know when we want to produce 9.00? 10.50?"
                                     #:answer "When the toppings are cheese and pepperoni"]}      
