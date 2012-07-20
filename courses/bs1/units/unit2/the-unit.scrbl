@@ -15,6 +15,7 @@ include other datatypes, including Strings and Images.
         @item{Students learn to make and manipulate the basic elements of their games--numbers, strings, and images}]
 
 @state-standards
+
 @length-of-lesson[90]
 
 @pedagogy{
