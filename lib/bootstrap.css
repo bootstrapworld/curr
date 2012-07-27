@@ -166,6 +166,7 @@ table td{
 
 .BootstrapProductOutcomesList, .BootstrapLearningObjectivesList, .BootstrapPreparationList, .BootstrapMaterialsList{
   margin: 0px;
+  list-style-image: url('box.gif');
 }
 /* We absorb the definitions of CSS from bootstrap; the following comes from http://www.bootstrapworld.org/styles.css */
 
@@ -173,8 +174,8 @@ table td{
 body{
 	padding:		0px;
 	margin:			0px;
-   background:             no-repeat url("http://www.bootstrapworld.org/curriculum/BS1-sp2012/images/bootBG.png") fixed bottom right;
-   background-color:       #f5deb3;
+  background:    no-repeat url("http://www.bootstrapworld.org/curriculum/BS1-sp2012/images/bootBG.png") fixed bottom right;
+  background-color:       #f5deb3;
 	max-width: 800px;
 	
 }
