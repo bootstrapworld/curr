@@ -38,7 +38,6 @@
     background: black;
     color: white;
     font-size: 18px;
-    margin: 3px;
 }
 .BootstrapLesson {
     border: 1px solid black;
@@ -48,6 +47,9 @@
     background: rgba(255,255,255,.5);
 
 }
+div.BootstrapLesson{border: none;}
+blockquote.BootstrapLesson{margin: 0px; padding: 0px;}
+
 .BootstrapLesson img{
     float:right;
 }
@@ -79,10 +81,13 @@
 }
 /*Exercise Design*/
 .BootstrapExercise{
-	border: 2px solid gray;
-	padding: 5px;
-	background: #f5deb3;
-	margin: 3px;
+	border-top: 1px dashed gray;
+	border-bottom: 1px dashed gray;
+	background: rgba(245, 222, 179, 0.4);
+	margin: 15px 0px;
+  width: 95%;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 /*Copyright Design*/
@@ -95,10 +100,9 @@
 
 /*Title Design*/
 .BootstrapTitle{
-    text-align: left;
+    text-align: center;
     font-size: 32px;
     font-weight: bold;
-    line-height: 50%;
 }
 .BootstrapTitle img{
   float: left;
@@ -108,13 +112,16 @@
 	  font-weight: bold;
 	  text-decoration: underline;
 	  font-size: 16px;
+    margin-top: 10px;
 }
 /*Table Design*/
 .BootstrapTableHeader{
 	border: 1px solid black;
 	background: grey;
 	font-weight: bold;
-	height: 40px;}
+  padding: 5px;
+  font-family: monospace;
+}
 .BootstrapTable{
 	width: 300px;
 	border: 1px solid black;
@@ -143,15 +150,19 @@ table td{
 	text-align: center;
 	background: white;
 	float: right;
-	line-height: 20%;
 	font-weight: bold;
 	position: relative;
-	}
+  padding: 5px;
+  margin: 2px;
+}
+  
 .BootstrapAgendaList{
   text-align: left;
   font-weight: normal;
+  font-size:  12px;
+  list-style-type: none;
+  padding: 0px;
 }
-
 /* We absorb the definitions of CSS from bootstrap; the following comes from http://www.bootstrapworld.org/styles.css */
 
 
@@ -310,3 +321,9 @@ blockquote.pedagogy {
     border: 0px;
     font-style: italic;
 }
+
+li{margin: 3px 0px;}
+
+
+/* *********** OVERRIDE SCRIBBLE.CSS *********** */
+p, .SIntrapara {padding: 0; margin: 0;}
