@@ -71,24 +71,25 @@ blockquote.BootstrapLesson{margin: 0px; padding: 0px;}
     color: white;
     font-size: 18px;
     margin: 3px;
-     }
+}
 .BootstrapOverview {
-    border: 3px solid white;
     padding: 5px;
-    margin: 3px;
     background: lightgray;
-
+    page-break-after: always;
 }
 /*Exercise Design*/
 .BootstrapExercise{
 	border-top: 1px dashed gray;
 	border-bottom: 1px dashed gray;
 	background: rgba(245, 222, 179, 0.4);
-	margin: 15px 0px;
+	margin: 10px 0px;
+  padding: 5px 0px;
   width: 95%;
   display: inline-block;
   vertical-align: middle;
 }
+
+.BootstrapExercise .BootstrapHeader{margin: 0px;}
 
 /*Copyright Design*/
 .BootstrapCopyright{
@@ -110,9 +111,8 @@ blockquote.BootstrapLesson{margin: 0px; padding: 0px;}
 /*Subsection Header Design*/
 .BootstrapHeader{
 	  font-weight: bold;
-	  text-decoration: underline;
 	  font-size: 16px;
-    margin-top: 10px;
+    margin-top: 15px;
 }
 /*Table Design*/
 .BootstrapTableHeader{
@@ -162,6 +162,10 @@ table td{
   font-size:  12px;
   list-style-type: none;
   padding: 0px;
+}
+
+.BootstrapProductOutcomesList, .BootstrapLearningObjectivesList, .BootstrapPreparationList, .BootstrapMaterialsList{
+  margin: 0px;
 }
 /* We absorb the definitions of CSS from bootstrap; the following comes from http://www.bootstrapworld.org/styles.css */
 
@@ -327,3 +331,15 @@ li{margin: 3px 0px;}
 
 /* *********** OVERRIDE SCRIBBLE.CSS *********** */
 p, .SIntrapara {padding: 0; margin: 0;}
+body{font-family: Times;}
+
+
+@media print {
+	body			{background: white; width: 99%; font-size: 13px;}
+	.BootstrapTitle				{text-align: left;}
+	.BootstrapTitle img			{width: 80px; height: 80px; margin-top: 0px; }
+	table, img {page-break-inside: avoid;}
+    table.language td {border: none; padding: 0px;}
+  .BootstrapExercise{background: none;}
+  .BootstrapLesson{border: none;}
+}
