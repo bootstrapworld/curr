@@ -7,6 +7,7 @@
          scribble/base
          scribble/core
          scribble/decode
+         scribble/basic
          (prefix-in manual: scribble/manual)
          scribble/html-properties
          scribble/latex-properties
@@ -461,13 +462,16 @@
         (style "BootstrapAgenda" '(never-indents))
         (decode-flow
          (list "Agenda"
-               (table (style "BootstrapAgendaTable" '()) 
-                      (map (lambda (a-lesson)
-                             (list (para (format "~a min" 
-                                                 (first (regexp-match "[0-9]*" (lesson-struct-duration a-lesson)))))
-                                   (para (lesson-struct-title a-lesson))
-                                   ))
-                           lessons)))))))))
+               (apply 
+                itemlist/splicing 
+                #:style "BootstrapAgendaList"
+                (map (lambda (a-lesson)
+                       (item (para (span-class "BootstrapLessonDuration"
+                                               (format "~a min" 
+                                                       (first (regexp-match "[0-9]*" (lesson-struct-duration a-lesson)))))
+                                   (span-class "BootstrapLessonName" (lesson-struct-title a-lesson)))))
+                     lessons))
+               )))))))
 
 ;; itemlist/splicing is like itemlist, but also cooperates with the
 ;; splice form to absorb arguments.  We use this in combination
