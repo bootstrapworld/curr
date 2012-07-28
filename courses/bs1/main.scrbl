@@ -7,17 +7,20 @@ Start teaching Bootstrap today, @(hyperlink "https://docs.google.com/a/brown.edu
 
 Curious about how Bootstrap aligns with the math standards in your area? Our @(hyperlink "https://spreadsheets.google.com/a/brown.edu/pub?key=0Ak3Voejjnf0ldHlQcXRVWTZDbVprWHlBLTJWRlQ2dkE&hl=en&gid=0" "Standards Matrix") compares each lesson to a variety of state standards, as well as the new Common Core Standards.
 
+;; should be computed from directory structure
 @(define max-unit-index 9)
 
 @;; Helper function to hyperlink the units
 @(define (unit-link n desc)
-   @hyperlink[(format "units/unit~a/the-unit.html" n)]{@desc})
+   @hyperlink[(format "units/unit~a/the-unit.html" n)]{@desc}
+   @hyperlink[(format "units/unit~a/the-unit.pdf" n)]{@desc}
+   )
 
 @;@(apply itemlist
 @;  (for/list ([n (in-range 1 (add1 max-unit-index))])
 @;    @item{@unit-link[n]}))
 
-@unit-link[1 "Unit 1"] - students break down a simple videogame into its component parts, and explore how cartesian coordinates play a role in animation. They then brainstorm their own videogames, and are introduced to the basics of numerical Racket expressions. 
+@(unit-summary/links 1 "students break down a simple videogame into its component parts, and explore how cartesian coordinates play a role in animation. They then brainstorm their own videogames, and are introduced to the basics of numerical Racket expressions")
 
 @unit-link[2 "Unit 2"] -  students deepen their understanding of expressions, generalizing across strings and images. They are also introduced to the algebraic concepts of Domain, Range and function composition.
 
@@ -34,3 +37,5 @@ Curious about how Bootstrap aligns with the math standards in your area? Our @(h
 @unit-link[8 "Unit 8"] - students must use function composition and boolean logic to determine whether two characters have collided. Along the way, they must prove the pythagorean theorem and then turn their proof into real code.
 
 @unit-link[9 "Unit 9"] - students complete their games, and design creative posters to advertise their creations. They practice public speaking, presenting their games and posters to each other and walking through their code.
+
+@unit-summary/links/all
