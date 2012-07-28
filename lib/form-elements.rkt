@@ -130,8 +130,6 @@
 (define bs-header-style (bootstrap-sectioning-style "BootstrapHeader"))
 (define bs-title-style (bootstrap-sectioning-style "BootstrapTitle"))
 (define bs-lesson-title-style (bootstrap-sectioning-style "BootstrapLessonTitle"))
-(define bs-lesson-name-style (bootstrap-sectioning-style "BSLessonName"))
-(define bs-lesson-duration-style (bootstrap-sectioning-style "BSLessonDuration"))
 
 ;; make-bs-latex-style : string -> style
 ;; defines a style that will only be used in latex
@@ -302,15 +300,15 @@
       (decode-flow
        (list (cond [(and title duration)
                     (para #:style bs-lesson-title-style
-                          (list (elem #:style bs-lesson-name-style (format "Lesson: ~a " title))
-                                (elem #:style bs-lesson-duration-style (format "(Time ~a)" duration))))]
+                          (list (elem #:style "BSLessonName" (format "Lesson: ~a " title))
+                                (elem #:style "BSLessonDuration" (format "(Time ~a)" duration))))]
                    [title 
                     (para #:style bs-lesson-title-style
-                          (list (elem #:style bs-lesson-name-style (format "Lesson: ~a " title))))]
+                          (list (elem #:style "BSLessonName" (format "Lesson: ~a " title))))]
                    [duration 
                     (para #:style bs-lesson-title-style
-                          (list (elem #:style bs-lesson-name-style (format "Lesson "))
-                                (elem #:style bs-lesson-duration-style (format "(Time ~a)" duration))))])
+                          (list (elem #:style "BSLessonName" (format "Lesson: ~a " title))
+                                (elem #:style "BSLessonDuration" (format "(Time ~a)" duration))))])
              (compound-paragraph (bootstrap-sectioning-style "BootstrapLesson")
                                  (decode-flow body))))))))
 
@@ -466,10 +464,10 @@
                 itemlist/splicing 
                 #:style "BootstrapAgendaList"
                 (map (lambda (a-lesson)
-                       (item (para (span-class "BootstrapLessonDuration"
+                       (item (para (span-class "BSLessonDuration"
                                                (format "~a min" 
                                                        (first (regexp-match "[0-9]*" (lesson-struct-duration a-lesson)))))
-                                   (span-class "BootstrapLessonName" (lesson-struct-title a-lesson)))))
+                                   (span-class "BSLessonName" (lesson-struct-title a-lesson)))))
                      lessons))
                )))))))
 
