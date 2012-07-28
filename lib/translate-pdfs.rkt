@@ -28,6 +28,7 @@
                                (simple-form-path base)))
   (parameterize ([current-directory base])
     (system* (force wkhtmltopdf-exe-promise)
+	     "--print-media-type"
              name
              (build-path output-directory
                          (regexp-replace #px".html$" (path->string name) ".pdf")))))

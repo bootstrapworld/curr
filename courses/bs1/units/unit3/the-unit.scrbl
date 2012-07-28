@@ -5,7 +5,7 @@
 
 @overview{
 
-Students are introduced to the Definitions window, and learn the syntax for defining values of various types.  They are also introduced to the syntax of defining functions and creating examples.
+@unit-descr{Students are introduced to the Definitions window, and learn the syntax for defining values of various types.  They are also introduced to the syntax of defining functions and creating examples.}
 
 @objectives[@item{Learn about examples, variables and functions}
        @item{Practice Racket syntax and the Circle of Evaluation}]

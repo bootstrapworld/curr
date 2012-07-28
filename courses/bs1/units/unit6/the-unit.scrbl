@@ -4,7 +4,7 @@
 @title{Unit 6: Booleans: Teaching Functions to Compare}
 
 @overview{
-Students discover Boolean types, and use them to create programs that test values, and then model scenarios using these programs.
+@unit-descr{Students discover Boolean types, and use them to create programs that test values, and then model scenarios using these programs.}
 
 @objectives[@item{@tag[group]{Learn to work as a team}}
           @item{Understand how to declare Boolean values}

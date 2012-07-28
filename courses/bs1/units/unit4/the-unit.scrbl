@@ -5,7 +5,7 @@
 
 @overview{
 
-Students are introduced to the Design Recipe and apply it to simple problems.
+@unit-descr{Students are introduced to the Design Recipe and apply it to simple problems.}
 
 @objectives[@item{Students will become familiar with the steps of the Design Recipe.}
             @item{Students will practice Racket syntax and the Circles of Evaluation.}]

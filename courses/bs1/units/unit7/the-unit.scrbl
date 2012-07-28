@@ -7,8 +7,7 @@
 
 @overview{
 
-Students use geometry and knowledge of basic image functions to design characters for their games, this time using conditional branching to accomodate different key-events.
-
+@unit-descr{Students use geometry and knowledge of basic image functions to design characters for their games, this time using conditional branching to accomodate different key-events.}
 
 @objectives[@item{Reason about the relative positioning of objects using mathematics}
             @item{Discover Partial Functions, and how to implement them using @code{Cond}}
