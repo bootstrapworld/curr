@@ -95,6 +95,15 @@ blockquote.BootstrapLesson{margin: 0px; padding: 0px;}
 .BootstrapExercise .BootstrapHeader{margin: 0px;}
 
 
+blockquote.pedagogy {
+    display: inline;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    font-style: italic;
+}
+
+
 /******************************************************************************
   Bootstrap Units have titles, overviews, agendas and to-do items, and 
   are made up of Lesson slices
@@ -160,23 +169,24 @@ table td{
 	
 /*Agenda Design!*/
 .BootstrapAgenda{
-	border: 1px solid black;
-	display: inline-block;
-	text-align: center;
-	background: white;
-	float: right;
-	font-weight: bold;
-	position: relative;
-  padding: 5px;
-  margin: 2px;
+	border:         1px solid black;
+	display:        inline-block;
+	text-align:     center;
+	background:     white;
+	float:          right;
+	font-weight:    bold;
+	position:       relative;
+  padding:        5px;
+  margin:         2px;
+  width:          200px;
 }
   
 .BootstrapAgendaList{
-  text-align: left;
-  font-weight: normal;
-  font-size:  12px;
+  text-align:     left;
+  font-weight:    normal;
+  font-size:      12px;
   list-style-type: none;
-  padding: 0px;
+  padding:        0px;
 }
 
 .BootstrapAgendaList .BSLessonName{float: right;}
@@ -186,7 +196,9 @@ table td{
   list-style-image: url('box.gif');
 }
 
-/*Copyright Design*/
+/******************************************************************************
+  Copyright at the end of the file
+   ****************************************************************************/
 .BootstrapCopyright{
 
 }
@@ -240,16 +252,6 @@ select{
 	padding:			0px; 
 	margin-top:			2px;
 	z-index:			0;}
-
-
-
-blockquote.pedagogy {
-    display: inline;
-    padding: 0px;
-    margin: 0px;
-    border: 0px;
-    font-style: italic;
-}
 
 li{margin: 3px 0px;}
 
