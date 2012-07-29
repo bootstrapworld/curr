@@ -5,7 +5,7 @@
 
 @overview{
 
-Students discuss and then prove the Pythagorean theorem, and use this theorem - in conjunction with Booleans - in their games to detect when a collision has occurred.
+@unit-descr{Students discuss and then prove the Pythagorean theorem, and use this theorem - in conjunction with Booleans - in their games to detect when a collision has occurred.}
 
 
 @objectives[@item{Understand the challenge of the distance formula in two dimensions.}

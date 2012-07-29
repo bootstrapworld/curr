@@ -5,7 +5,7 @@
 
 @overview{
 
-Students will edit game details and prepare for their Launch Party!
+@unit-descr{Students will edit game details and prepare for their Launch Party!}
 
 @objectives[@item{Reflect on what's been learned and figure out how to teach back.}
             ]

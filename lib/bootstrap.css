@@ -1,5 +1,18 @@
-/* These CSS definitions both override and extend the ones provided by
-   Scribble. */
+/******************************************************************************
+  These CSS definitions both override and extend the ones provided by
+   Scribble. 
+   ****************************************************************************/
+
+p, .SIntrapara {padding: 0; margin: 0;}
+body{
+	padding:      0px;
+	margin:       0px;
+  background:   no-repeat url("http://www.bootstrapworld.org/curriculum/BS1-sp2012/images/bootBG.png") fixed bottom right;
+  background-color: #f5deb3;
+	max-width:    800px;
+  font-family:  Times;
+	
+}
 
 
 /* First, let us hide the table of contents from the default Scribble output: */
@@ -12,7 +25,6 @@
     width: 100%;
     margin-left: 5px;
 }
-
 
 
 /* We extend the format for worksheets, lessons, drills. */
@@ -33,12 +45,17 @@
 	font-size: 16px;
 
 }
-/*Lesson Design*/
+
+/******************************************************************************
+  Lesson Slices have titles, durations, and exercises, sections of content
+   ****************************************************************************/
 .BootstrapLessonTitle{
     background: black;
     color: white;
     font-size: 18px;
 }
+
+.BootstrapLessonTitle .BSLessonDuration{float: right;}
 .BootstrapLesson {
     border: 1px solid black;
     padding: 5px;
@@ -63,20 +80,6 @@ blockquote.BootstrapLesson{margin: 0px; padding: 0px;}
     font-family: monospace;
 }*/
 
-
-
-/*Overview design*/
-.BootstrapOverviewTitle{
-    background: black;
-    color: white;
-    font-size: 18px;
-    margin: 3px;
-}
-.BootstrapOverview {
-    padding: 5px;
-    background: lightgray;
-    page-break-after: always;
-}
 /*Exercise Design*/
 .BootstrapExercise{
 	border-top: 1px dashed gray;
@@ -91,13 +94,11 @@ blockquote.BootstrapLesson{margin: 0px; padding: 0px;}
 
 .BootstrapExercise .BootstrapHeader{margin: 0px;}
 
-/*Copyright Design*/
-.BootstrapCopyright{
 
-}
-.BootstrapCopyright img{
-	 float:right;
-}
+/******************************************************************************
+  Bootstrap Units have titles, overviews, agendas and to-do items, and 
+  are made up of Lesson slices
+   ****************************************************************************/
 
 /*Title Design*/
 .BootstrapTitle{
@@ -114,6 +115,20 @@ blockquote.BootstrapLesson{margin: 0px; padding: 0px;}
 	  font-size: 16px;
     margin-top: 15px;
 }
+
+/*Overview design*/
+.BootstrapOverviewTitle{
+    background: black;
+    color: white;
+    font-size: 18px;
+    margin: 3px;
+}
+.BootstrapOverview {
+    padding: 5px;
+    background: lightgray;
+    page-break-after: always;
+}
+
 /*Table Design*/
 .BootstrapTableHeader{
 	border: 1px solid black;
@@ -164,80 +179,24 @@ table td{
   padding: 0px;
 }
 
+.BootstrapAgendaList .BSLessonName{float: right;}
+
 .BootstrapProductOutcomesList, .BootstrapLearningObjectivesList, .BootstrapPreparationList, .BootstrapMaterialsList{
   margin: 0px;
   list-style-image: url('box.gif');
 }
+
+/*Copyright Design*/
+.BootstrapCopyright{
+
+}
+.BootstrapCopyright img{
+	 float:right;
+}
+
 /* We absorb the definitions of CSS from bootstrap; the following comes from http://www.bootstrapworld.org/styles.css */
 
 
-body{
-	padding:		0px;
-	margin:			0px;
-  background:    no-repeat url("http://www.bootstrapworld.org/curriculum/BS1-sp2012/images/bootBG.png") fixed bottom right;
-  background-color:       #f5deb3;
-	max-width: 800px;
-	
-}
-
-
-/* Our top box */
-div#top{
-	position:		fixed;
-	width:			100%;
-	min-width:		800px;
-	text-align:		left;
-	z-index:		10;
-	height:			160px;
-	background:		#f5deb3;
-}
-
-/* Sidebar and menu links */
-div#sidebar{
-	position:		fixed;
-	_position:		absolute;
-	left:			20px;
-	top:			160px;
-	width:			200px;
-	text-align:		right;
-}
-
-div#sidebar ul{
-	margin:			0px;
-	padding:		0px;
-}
-
-div#sidebar ul li{
-	border-top:		1px solid black;
-	float:			left;
-	display:		inline;
-}
-
-div#sidebar ul li a{
-	padding-right:	5px;
-	line-height:	30px;
-	width:			150px;
-	font-size:		20px;
-	display:		block;
-	color:			black;
-	text-decoration:none;
-}
-
-div#sidebar ul li:hover a {
-	background:		black;
-	color:			white;
-}
-
-/* Main body entries and images */
-div#body{
-	position:		absolute;
-	left:			200px;
-	top:			160px;
-	padding-left:	10px;
-	padding-right:	20px;
-	margin:			0px;
-	max-width:		640px;
-}
 
 div.inset{
     margin-top: 20px;
@@ -245,41 +204,6 @@ div.inset{
 }
 span.date{font-size: 10px; font-family: courier; float: right; clear: both;}
 
-div.item{
-	border-top:		1px solid black;
-	float:			left;
-	padding:		20px 0px 20px 0px;
-	min-width:		550px;
-}
-
-div.fb_item{
-    margin-left:    30px;
-	border-bottom:  1px solid black;
-	float:          left;
-	padding:        20px 0px 20px 0px;
-    border-color:   gray;
-}
-
-div.item>img, div.fb_item>img{
-	float:			right;
-	max-width:		200px;
-	vertical-align: text-top;
-	padding:		10px;
-}
-
-div.item h1{	
-	padding:		0px; 
-	margin:			0px;
-	font-family:	sans-serif;
-	font-size:		24px;
-	margin-bottom:	5px;}
-
-div.item h2{	
-	padding:		0px; 
-	margin:			0px;
-	font-family:		sans-serif;
-	font-size:		14px;
-	margin-bottom:	3px;}
 
 /* *********** PAGE-SPECIFIC STYLES *********** */
 b.done{text-decoration: line-through;}
@@ -330,11 +254,9 @@ blockquote.pedagogy {
 li{margin: 3px 0px;}
 
 
-/* *********** OVERRIDE SCRIBBLE.CSS *********** */
-p, .SIntrapara {padding: 0; margin: 0;}
-body{font-family: Times;}
-
-
+/******************************************************************************
+  Style rules for printed media
+   ****************************************************************************/
 @media print {
 	body			{background: white; width: 99%; font-size: 13px;}
 	.BootstrapTitle				{text-align: left;}

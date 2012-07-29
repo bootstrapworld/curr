@@ -6,7 +6,7 @@
 @lesson[#:title "Introducing the Design Recipe"
         #:duration "25 minutes"]{
   @itemlist/splicing[
-     @item{Now it's time to define functions to make your characters move!}
+     @item{Now it's time to start thinking about animation, since you'll need it for your videogame!}
      @item{You already know most of the steps from the last lesson, but we're going to do a few practice exercises before turning you loose on your own games.}
      @pedagogy{@item{How many of you know what a flip-book animation is? Explain if necessary.}}
      @tag[selftaught]{@item{Ever hear of flip-book animation?}}
@@ -14,6 +14,10 @@
      @item{Believe it or not, you're 90% of the way towards being able to write an animation function! All the steps you took to write those functions before are actually part of a process that real programmers use, called the Design Recipe.}
      @item{Engineers all over the world use the Design Recipe to write functions. It's a way of thinking through each step of programming and making sure that you're on the right path before you even touch the keyboard.}
      @item{We're going to try using the Design Recipe to animate a rocket@tag[group]{, and for this you'll be working in pairs}.}
+     @item{First, let's take a look at some BUGGY code that someone else wrote, since they forgot to use the Design Recipe.}
+     @item{Have students open the Rocket file, and @bold{click run.}}
+     @item{In the Interactions window, type @code{(start rocket-height)} to see what happens. A window appears, with our rocket starting out on the ground. At the top of the window, you can see the number of seconds that have passed since blastoff, and the height of the rocket at that time. How many seconds have passed? How high is the rocket?}
+     @item{Now @bold{hit the space bar to make time go by}. What happens to the rocket? Nothing! This code has a bug in it! Let's see what went wrong...}
      @item{Turn to @worksheet-link[#:page 11 #:name "Design-Recipe-Rocket-Height"] in your workbook@tag[group]{s}. @pedagogy{Have a student read the problem statement aloud.} @tag[selftaught]{Read the problem statement.}}
      @item{Just by reading this Problem Statement, we can tell a lot about the function we're going to write. For example, what is the function's name? @tag[group]{Have one person in each pair underline the name on your paper.} @tag[selftaught]{Make a note of the name of the function.}}
      @item{What does the function take in as an input? What does it give back as an output? @tag[group]{Now the other person in each pair} Circle these on your paper.}
@@ -34,6 +38,8 @@
      @item{Now we need to circle what's different between these two examples - what's changeable? What does that number represent? Is it the number of astronauts? No, it's the @italic{time} since blastoff.}
      @item{@bold{Step 3: Code}}
      @item{This next part is easy: it's exactly what you did for fast functions! Can you figure out how to plug in the header? What about the body?}
+     @item{Now let's look at the buggy code. Did they get the contract right? What about their examples? Notice that they only wrote one example, and they forgot to write down how that example worked! If they'd written a second example, they would have imnediately seen that something was wrong! But instead, they just raced through the EXAMPLE step and copied the zero into their function body.}
+     @item{Add the second EXAMPLE you and your partner came up with, and fix the one that's already there. Then fix the code and let's see that rocket fly!}
      @item{Once you are done, you @tag[group]{and your partner} can type this function into your computer@tag[group]{s}.
                                   @tag[selftaught]{@embedded-wescheme[#:id "example3"
                                                      #:public-id "drawl-youth-fifty-voter-shake"
