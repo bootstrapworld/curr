@@ -94,7 +94,6 @@
          (printf "Could not find a \"the-unit.scrbl\" in directory ~a\n"
                  (build-path (get-units-dir) subdir))]))
 
-
 ;; Building the lessons
 (printf "build.rkt: building lessons\n")
 (for ([subdir (directory-list lessons-dir)]
