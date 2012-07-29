@@ -38,8 +38,8 @@
          function-exercise
          design-recipe-exercise
          circles-evaluation-exercise
-         unit-summary/links  ;; take out after testing
-         unit-summary/links/all
+         unit-summary/links
+         summary-item/links
          
          ;; Sections
          worksheet
@@ -304,15 +304,15 @@
       (decode-flow
        (list (cond [(and title duration)
                     (para #:style bs-lesson-title-style
-                          (span-class bs-lesson-name-style (format "Lesson: ~a " title))
-                          (span-class bs-lesson-duration-style (format "(Time ~a)" duration)))]
+                          (list (elem #:style bs-lesson-name-style (format "Lesson: ~a " title))
+                                (elem #:style bs-lesson-duration-style (format "(Time ~a)" duration))))]
                    [title 
                     (para #:style bs-lesson-title-style
-                          (span-class bs-lesson-name-style (format "Lesson: ~a " title)))]
+                          (list (elem #:style bs-lesson-name-style (format "Lesson: ~a " title))))]
                    [duration 
                     (para #:style bs-lesson-title-style
-                          (span-class bs-lesson-name-style (format "Lesson "))
-                          (span-class bs-lesson-duration-style (format "(Time ~a)" duration)))])
+                          (list (elem #:style bs-lesson-name-style (format "Lesson "))
+                                (elem #:style bs-lesson-duration-style (format "(Time ~a)" duration))))])
              (compound-paragraph (bootstrap-sectioning-style "BootstrapLesson")
                                  (decode-flow body))))))))
 
@@ -337,28 +337,27 @@
             (begin (printf "WARNING: no unit-descr for ~a~n" unit-name)
                    ""))))))
 
+;; summary-item/links : string string content -> block
+;; generate a summary entry links to html and pdf versions as
+;;   used on the main page for a course
+(define (summary-item/links name basefilename descr)
+  (para #:style "BSUnitSummary"
+        (elem #:style "BSUnitTitle" name)
+        " ["
+        (elem (hyperlink (format "~a.html" basefilename) "html"))         
+        " | "
+        (elem (hyperlink (format "~a.pdf" basefilename) "pdf"))
+        " ] - "
+        (elem descr)
+        ))
+
 ;; unit-summary/links : number content -> block
 ;; generate the summary of a unit with links to html and pdf versions as
 ;;   used on the main page for the BS1 curriculum
 (define (unit-summary/links num)
-  (let ([descr (get-unit-descr (format "unit~a" num))])
-    (para #:style "BSUnitSummary"
-          (elem #:style "BSUnitTitle" (format "Unit ~a" num))
-          " ["
-          (elem (hyperlink (format "units/unit~a/the-unit.html" num) "html"))         
-          " | "
-          (elem (hyperlink (format "units/unit~a/the-unit.pdf" num) "pdf"))
-          " ] - "
-          (elem descr)
-          )))
-
-;; compute this from filesystem
-(define max-unit-index 9)
-
-;; generates a list of all of the unit summaries with document links
-(define (unit-summary/links/all)
-  (for/list ([n (in-range 1 (add1 max-unit-index))])
-    (unit-summary/links n)))
+  (summary-item/links (format "Unit ~a" num)
+                      (format "units/unit~a/the-unit" num)
+                      (get-unit-descr (format "unit~a" num))))
 
 ;;;;;;;;;;;;; End of Generating Main Summary Page ;;;;;;;;;;;;;;;
 
