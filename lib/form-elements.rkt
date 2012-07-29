@@ -322,35 +322,45 @@
 ;; unit-descr : list[element] -> block
 ;; stores the unit description to use in building the summary, then generates the text
 (define (unit-descr . body)
-  (traverse-block
-   (lambda (get set!)
-     (printf "Adding to unit-descrs.  Curr value is ~a ~n" (get 'unit-descrs '()))
-     (set! 'unit-descrs (cons body (get 'unit-descrs '())))
-     (para body))))
+  (para body))
+
+;;;;;;;;;;;;; Generating the Main Summary Page ;;;;;;;;;;;;;;;;;
+
+;; get-unit-descr : string -> string
+;; extract the string for the unit-descr from the unit with the given name
+(define (get-unit-descr unit-name)
+  (with-input-from-file (build-path (get-units-dir) unit-name "the-unit.scrbl")
+    (lambda ()
+      (let ([ud-spec (regexp-match #rx"@unit-descr{.*?}" (read-string 5000))])
+        (if ud-spec
+            (substring (first ud-spec) 12 (- (string-length (first ud-spec)) 1))
+            (begin (printf "WARNING: no unit-descr for ~a~n" unit-name)
+                   ""))))))
 
 ;; unit-summary/links : number content -> block
 ;; generate the summary of a unit with links to html and pdf versions as
 ;;   used on the main page for the BS1 curriculum
-(define (unit-summary/links num descr)
-  (para (elem #:style "BSUnitTitle" (format "Unit ~a" num))
-        " ["
-        (elem (hyperlink (format "units/unit~a/the-unit.html" num) "html"))         
-        " | "
-        (elem (hyperlink (format "units/unit~a/the-unit.pdf" num) "pdf"))
-        " ] - "
-        (elem descr)
-        ))
+(define (unit-summary/links num)
+  (let ([descr (get-unit-descr (format "unit~a" num))])
+    (para #:style "BSUnitSummary"
+          (elem #:style "BSUnitTitle" (format "Unit ~a" num))
+          " ["
+          (elem (hyperlink (format "units/unit~a/the-unit.html" num) "html"))         
+          " | "
+          (elem (hyperlink (format "units/unit~a/the-unit.pdf" num) "pdf"))
+          " ] - "
+          (elem descr)
+          )))
+
+;; compute this from filesystem
+(define max-unit-index 9)
 
 ;; generates a list of all of the unit summaries with document links
 (define (unit-summary/links/all)
-  (traverse-block
-   (lambda (get set!)
-     (lambda (get set!)
-       (printf "Reading from unit-descrs~n")
-       (define all-descr (get 'unit-descrs '()))
-       (unit-summary/links 1 "the first one")
-       ;(para "Descriptions: " (first all-descr))
-       ))))
+  (for/list ([n (in-range 1 (add1 max-unit-index))])
+    (unit-summary/links n)))
+
+;;;;;;;;;;;;; End of Generating Main Summary Page ;;;;;;;;;;;;;;;
 
 (define (drill . body)
   (compound-paragraph (bootstrap-sectioning-style "BootstrapDrill")
