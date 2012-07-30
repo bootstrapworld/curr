@@ -38,6 +38,8 @@
          function-exercise
          design-recipe-exercise
          circles-evaluation-exercise
+         unit-summary/links
+         summary-item/links
          
          ;; Sections
          worksheet
@@ -317,8 +319,47 @@
 (define (unit-separator unit-number)
   (elem #:style "BSUnitSeparationPage" (format "Lesson ~a" unit-number)))
 
+;; unit-descr : list[element] -> block
+;; stores the unit description to use in building the summary, then generates the text
 (define (unit-descr . body)
   (para body))
+
+;;;;;;;;;;;;; Generating the Main Summary Page ;;;;;;;;;;;;;;;;;
+
+;; get-unit-descr : string -> string
+;; extract the string for the unit-descr from the unit with the given name
+(define (get-unit-descr unit-name)
+  (with-input-from-file (build-path (get-units-dir) unit-name "the-unit.scrbl")
+    (lambda ()
+      (let ([ud-spec (regexp-match #rx"@unit-descr{.*?}" (read-string 5000))])
+        (if ud-spec
+            (substring (first ud-spec) 12 (- (string-length (first ud-spec)) 1))
+            (begin (printf "WARNING: no unit-descr for ~a~n" unit-name)
+                   ""))))))
+
+;; summary-item/links : string string content -> block
+;; generate a summary entry links to html and pdf versions as
+;;   used on the main page for a course
+(define (summary-item/links name basefilename descr)
+  (para #:style "BSUnitSummary"
+        (elem #:style "BSUnitTitle" name)
+        " ["
+        (elem (hyperlink (format "~a.html" basefilename) "html"))         
+        " | "
+        (elem (hyperlink (format "~a.pdf" basefilename) "pdf"))
+        " ] - "
+        (elem descr)
+        ))
+
+;; unit-summary/links : number content -> block
+;; generate the summary of a unit with links to html and pdf versions as
+;;   used on the main page for the BS1 curriculum
+(define (unit-summary/links num)
+  (summary-item/links (format "Unit ~a" num)
+                      (format "units/unit~a/the-unit" num)
+                      (get-unit-descr (format "unit~a" num))))
+
+;;;;;;;;;;;;; End of Generating Main Summary Page ;;;;;;;;;;;;;;;
 
 (define (drill . body)
   (compound-paragraph (bootstrap-sectioning-style "BootstrapDrill")
@@ -466,10 +507,10 @@
                 itemlist/splicing 
                 #:style "BootstrapAgendaList"
                 (map (lambda (a-lesson)
-                       (item (para (span-class "BootstrapLessonDuration"
+                       (item (para (span-class "BSLessonDuration"
                                                (format "~a min" 
                                                        (first (regexp-match "[0-9]*" (lesson-struct-duration a-lesson)))))
-                                   (span-class "BootstrapLessonName" (lesson-struct-title a-lesson)))))
+                                   (span-class "BSLessonName" (lesson-struct-title a-lesson)))))
                      lessons))
                )))))))
 
