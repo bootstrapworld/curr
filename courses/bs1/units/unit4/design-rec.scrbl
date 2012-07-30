@@ -27,5 +27,3 @@
 @code{(define (@fill-in-the-blank[#:id "fn" #:label "function name"] @fill-in-the-blank[#:id "var" #:label "variable names for each of your inputs"]
                
                @fill-in-the-blank[#:id "code" #:label "...and the computer does this"]}}
-
-When complete, go @hyperlink{"http://www.wescheme.org/view?publicId=under-charm-madly-truck-grand" "here"} and insert your grow function to see your code in action!
