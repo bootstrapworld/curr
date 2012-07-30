@@ -19,8 +19,9 @@ compares each lesson to a variety of state standards, as well as the new Common 
            (unit-summary/links n))
          (list 
           (summary-item/links "Supplemental Lessons" "foo" "for teachers looking for additional exercises, we have compiled many activities for students to go deeper into the material. Have students use composition and coordinates to create flags for their countries of origin, or for a country they want to make up! Have them use randomness and trigonometric functions for more sophisticated motion, or introduce data structures for more sophisticated games! ")
-          (summary-item/links "Teacher's Guide" "resources/teachers-guide/teachers-guide" 
-                              "are also available for teachers who'd like a \"quick start\" reference to all the various functionality in the Game Template. ")
+          @summary-item/links["Teacher's Guide" "resources/teachers-guide/teachers-guide"]{
+                are also available for teachers who'd like a "quick start" reference to
+                all the various functionality in the @hyperlink["http://racket-lang.org/"]{Game Template}.})
           )))
 
 @;supplemental lessons and teachers guide need formatting/links in the text

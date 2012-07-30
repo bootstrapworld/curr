@@ -340,7 +340,7 @@
 ;; summary-item/links : string string content -> block
 ;; generate a summary entry links to html and pdf versions as
 ;;   used on the main page for a course
-(define (summary-item/links name basefilename descr)
+(define (summary-item/links name basefilename . descr)
   (para #:style "BSUnitSummary"
         (elem #:style "BSUnitTitle" name)
         " ["
@@ -348,7 +348,7 @@
         " | "
         (elem (hyperlink (format "~a.pdf" basefilename) "pdf"))
         " ] - "
-        (elem descr)
+        (apply elem descr)
         ))
 
 ;; unit-summary/links : number content -> block
