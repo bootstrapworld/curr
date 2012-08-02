@@ -337,16 +337,21 @@
             (begin (printf "WARNING: no unit-descr for ~a~n" unit-name)
                    ""))))))
 
+;;@summary-item/links["Student Workbook" "resources/workbook/StudentWorkbook" #:ext1 "pdf" #:ext2 "odt"]{
+
 ;; summary-item/links : string string content -> block
 ;; generate a summary entry links to html and pdf versions as
 ;;   used on the main page for a course
-(define (summary-item/links name basefilename . descr)
+(define (summary-item/links name basefilename 
+                            #:label1 (label1 "html") #:ext1 (ext1 "html") 
+                            #:label2 (label2 "pdf") #:ext2 (ext2 "pdf") 
+                            . descr)
   (para #:style "BSUnitSummary"
         (elem #:style "BSUnitTitle" name)
         " ["
-        (elem (hyperlink (format "~a.html" basefilename) "html"))         
+        (elem (hyperlink (format "~a.~a" basefilename ext1) label1))         
         " | "
-        (elem (hyperlink (format "~a.pdf" basefilename) "pdf"))
+        (elem (hyperlink (format "~a.~a" basefilename ext2) label2))
         " ] - "
         (apply elem descr)
         ))

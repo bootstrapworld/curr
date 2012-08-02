@@ -14,7 +14,7 @@ compares each lesson to a variety of state standards, as well as the new Common 
 @(apply itemlist
         (append
          (list 
-          @summary-item/links["Student Workbook" "FIXME"]{
+          @summary-item/links["Student Workbook" "resources/workbook/StudentWorkbook" #:label1 "PDF" #:ext1 "pdf" #:label2 "OpenOffice" #:ext2 "odt"]{
            The lesson plans linked below are tightly integrated into the Student Workbook, 
            which should be used with the curriculum. A @bold{Teacher's Edition} is also available upon request. 
            Please fill out a request using our 
