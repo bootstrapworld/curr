@@ -594,10 +594,10 @@
    [(or latex pdf) (apply elem #:style (make-bs-latex-style "BSCircEvalExercise") 
                           (map elem math-examples))]])
 
-(define (overview . body)
+(define (overview #:gen-agenda? (gen-agenda? #t). body)
   (list
    (elem #:style (bootstrap-sectioning-style "BootstrapOverviewTitle") (list (format "Unit Overview")))
-   (agenda)
+   (if gen-agenda? (agenda) (elem))
    (compound-paragraph (bootstrap-sectioning-style "BootstrapOverview") (decode-flow body))
    ))
 
