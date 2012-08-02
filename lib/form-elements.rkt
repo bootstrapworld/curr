@@ -122,18 +122,26 @@
 ;;;;;;;;;;;;;;;; Defining Styles ;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; bootstrap-sectioning-style : string -> style
-;; defines a style for both latex and css with the given name
+;; defines a style for a section based on the <div> tag
 (define (bootstrap-sectioning-style name)
   (make-style name (list (make-css-addition bootstrap.css)
                          (make-tex-addition bootstrap-pdf.tex)
                          ;; Use <div/> rather than <p/>
-                         (make-alt-tag "div"))))
+                         (make-alt-tag "div")
+                         )))
 
-(define bs-header-style (bootstrap-sectioning-style "BootstrapHeader"))
-(define bs-title-style (bootstrap-sectioning-style "BootstrapTitle"))
-(define bs-lesson-title-style (bootstrap-sectioning-style "BootstrapLessonTitle"))
-(define bs-lesson-name-style (bootstrap-sectioning-style "BSLessonName"))
-(define bs-lesson-duration-style (bootstrap-sectioning-style "BSLessonDuration"))
+;; bootstrap-style : string -> style
+;; defines a style for both latex and css with the given name
+(define (bootstrap-style name)
+  (make-style name (list (make-css-addition bootstrap.css)
+                         (make-tex-addition bootstrap-pdf.tex)
+                         )))
+
+(define bs-header-style (bootstrap-style "BootstrapHeader"))
+(define bs-title-style (bootstrap-style "BootstrapTitle"))
+(define bs-lesson-title-style (bootstrap-style "BootstrapLessonTitle"))
+(define bs-lesson-name-style (bootstrap-style "BSLessonName"))
+(define bs-lesson-duration-style (bootstrap-style "BSLessonDuration"))
 
 ;; make-bs-latex-style : string -> style
 ;; defines a style that will only be used in latex
@@ -596,7 +604,7 @@
 
 (define (overview #:gen-agenda? (gen-agenda? #t). body)
   (list
-   (elem #:style (bootstrap-sectioning-style "BootstrapOverviewTitle") (list (format "Unit Overview")))
+   (elem #:style (bootstrap-style "BootstrapOverviewTitle") (list (format "Unit Overview")))
    (if gen-agenda? (agenda) (elem))
    (compound-paragraph (bootstrap-sectioning-style "BootstrapOverview") (decode-flow body))
    ))
