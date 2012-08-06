@@ -89,6 +89,9 @@
   (define scribble-file (build-path (get-units-dir) subdir "the-unit.scrbl"))
   (cond [(file-exists? scribble-file)
          (printf "build.rkt: Building ~a\n" scribble-file)
+         (copy-file (build-path "lib" "box.gif") 
+                    (build-path (get-units-dir) subdir "box.gif")
+                    #t)
          (run-scribble scribble-file)]
         [else
          (printf "Could not find a \"the-unit.scrbl\" in directory ~a\n"
