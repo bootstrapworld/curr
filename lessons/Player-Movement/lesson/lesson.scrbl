@@ -14,8 +14,8 @@
                         #:answer "After it moves, its x-coordinate is 200 while its y-coordinate is 240. The x-coordinate has not changed, but its y-coordinate has increased by 20. If you press the down key, the player moves down by 20, so its new coordinate would be (200, 220)."]}
     @pedagogy{@item{Get students to tell you what update player should do...}}
     @tag[selftaught]{@item{@think-about[#:question "What should update-player do?"
-                                         #:answer "update-player should change the position of the player"]}}
-     @item{We want a function that will move up the screen when the user presses the up arrow and down when the user presses the down arrow.}
+                                         #:answer "update-player should change the position of the player by 20 pixels"]}}
+     @item{We want a function that will move up the screen 20 pixels when the user presses the up arrow and down 20 pixels when the user presses the down arrow.}
      @item{We've set up the computer to call @code{update-player}, passing in the player's y-coordinate and the name of the key pressed. The keypress will either be the string @code{"down"} or the string @code{"up"} (for now). 
            @think-about[#:question "What kind of data is the y-coordinate? What kind of data is the keypress?"
                         #:answer "The y-coordinate is a number and the keypress is a string"]}
@@ -23,7 +23,7 @@
      @tag[selftaught]{@item{Here's an example of what possible keypresses and their results
                             @build-table/cols['("Keypress" "Result")
                                          '(("\"up\"" "\"down\"")
-                                           ("player-y increases by 30" "player-y decreases by 30"))
+                                           ("player-y increases by 20" "player-y decreases by 20"))
                                           (lambda (r c) (para ""))
                                           2 2]
                             }}
