@@ -41,8 +41,9 @@
 
 @lesson[#:title "Introduction" #:duration "25 min"]{
                                @;Here, students should open their files.
-@itemlist/splicing[@pedagogy{@item{If you have students tackle the bug-hunting activity, be aware that the file contains several bugs! Until students have fixed all of them, they will always get an error message when they attempt to run the file. This is by design, to encourage students to both read the error and to look at it's location.}}
-          @tag[selftaught]{@item{If you tackle the bug-hunting activity, be aware that the file contains several bugs! Until you have fixed all of them, you will always get an error message when you attempt to run the file. This is by design, to encourage you to both read the error and to look at it's location.}}]}
+@itemlist/splicing[@item{When tackling the bug-hunting activity, be aware that the file contains several bugs! Running the file will always return an error until each bug is fixed. }
+                    @item{This is by design, to encourage both reading the error message and using it to debug.}
+                    ]}
 
 @(include-lesson (lib "curr/lessons/Danger-Movement/lesson/lesson.scrbl"))
 
