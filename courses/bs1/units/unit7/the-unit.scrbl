@@ -7,8 +7,7 @@
 
 @overview{
 
-Students use geometry and knowledge of basic image functions to design characters for their games, this time using conditional branching to accomodate different key-events.
-
+@unit-descr{Students use geometry and knowledge of basic image functions to design characters for their games, this time using conditional branching to accomodate different key-events.}
 
 @objectives[@item{Reason about the relative positioning of objects using mathematics}
             @item{Discover Partial Functions, and how to implement them using @code{Cond}}
@@ -25,7 +24,7 @@ Students use geometry and knowledge of basic image functions to design character
 @length-of-lesson[90]
 @tag[pedagogy]{
 @materials[@item{Computers w/ DrRacket or WeScheme}
-           @item{Student  @(hyperlink "https://spreadsheets.google.com/pub?key=0Ak3Voejjnf0ldHlQcXRVWTZDbVprWHlBLTJWRlQ2dkE&hl=en&gid=0" "workbook")}
+           @item{Student  @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
            @item{Pens/pencils for the students, fresh whiteboard markers for teachers}
            @item{Class posters (List of rules, basic skills, course calendar)}
            @item{Language Table (see below)}]}
@@ -53,9 +52,9 @@ Students use geometry and knowledge of basic image functions to design character
      @item{Congratulations - you've got the beginnings of a working game!}
      @item{What's still missing? Nothing happens when the player collides with the object or target!}
      @item{We're going to fix these over the next few lessons, and also work on the artwork and story for our games, so stay tuned!}
-     @tag[pedagogy]{@item{Who can tell us one thing we learned today? Call on 2-3 volunteers.}}
+     @pedagogy{@item{Who can tell us one thing we learned today? Call on 2-3 volunteers.}}
      @tag[selftaught]{@item{@review{Write a few things you've learned today.}}}
-     @tag[pedagogy]{@item{Who saw someone else in the class do something great? Call on 2-3 volunteers.}}
-     @tag[pedagogy]{@item{Cleanup, dismissal.}}]}
+     @pedagogy{@item{Who saw someone else in the class do something great? Call on 2-3 volunteers.}}
+     @pedagogy{@item{Cleanup, dismissal.}}]}
 
 @copyright[]

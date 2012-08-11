@@ -1,0 +1,3 @@
+#!/bin/sh
+./build.rkt --pdf --worksheet-links-to-pdf --deploy distribution pedagogy group
+

@@ -1,7 +1,8 @@
 #lang curr/lib
-
-@design-recipe-exercise["protect-right?" "Use the Design Recipe to write a function " @code{protect-left?} ", which takes in the target's x-coordinate and checks to see if it is greater than -50."]
-
+@title{protect-left?}
+@worksheet{
+@design-recipe-exercise["protect-left?" "Use the Design Recipe to write a function " @code{protect-left?} ", which takes in the target's x-coordinate and checks to see if it is greater than -50."]
+}
 @;@worksheet{
 @;    Use the Design Recipe to write a function protect-left?, which takes in the target's x-coordinate and checks to see if it is greater than -50
     

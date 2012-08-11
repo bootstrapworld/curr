@@ -7,6 +7,7 @@
          scribble/base
          scribble/core
          scribble/decode
+         scribble/basic
          (prefix-in manual: scribble/manual)
          scribble/html-properties
          scribble/latex-properties
@@ -17,7 +18,7 @@
          racket/list
          "checker.rkt"
          "javascript-support.rkt"
-         "system-parameters.rkt")
+         "paths.rkt")
 
 
 
@@ -37,6 +38,8 @@
          function-exercise
          design-recipe-exercise
          circles-evaluation-exercise
+         unit-summary/links
+         summary-item/links
          
          ;; Sections
          worksheet
@@ -48,6 +51,7 @@
 	 demo
 	 review
          unit-separator
+         unit-descr
 
          ;; Itemizations
          materials
@@ -76,29 +80,35 @@
          bootstrap-title
 
          [rename-out [worksheet-link/src-path worksheet-link]]
+
+         resource-link
+         lesson-link
          )        
 
-
-
-(define (item-or-spliceof-item? x)
-  (cond
-    [(item? x)
-     #t]
-    [(and (splice? x)
-          (andmap item-or-spliceof-item? (splice-run x)))
-     #t]
-    [else #f]))
 
 
 (provide/contract [itemlist/splicing
                    (->* () 
                         (#:style (or/c style? string? symbol? #f)) 
-                        #:rest (listof item-or-spliceof-item?)
+                        #:rest list?
                         itemization?)]
 
                   [check
                    (-> constraint? element?)]
                   )
+
+
+
+;; fake-item: (listof any) -> (listof any)
+;; We try to make itemlist more pleasant to work with.  Itemlist/splicing automatically
+;; wraps items around every argument, so there's no need to call item explicitly.
+;; We provide a fake definition for fake-item that just returns the identity.
+(define (fake-item . args)
+  args)
+
+(provide fake-item)
+
+
 
 ;;;;;;;;;;;;;;;; Site Images ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (define bootstrap.gif (bitmap "bootstrap.gif"))
@@ -112,15 +122,26 @@
 ;;;;;;;;;;;;;;;; Defining Styles ;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; bootstrap-sectioning-style : string -> style
-;; defines a style for both latex and css with the given name
+;; defines a style for a section based on the <div> tag
 (define (bootstrap-sectioning-style name)
   (make-style name (list (make-css-addition bootstrap.css)
                          (make-tex-addition bootstrap-pdf.tex)
                          ;; Use <div/> rather than <p/>
-                         (make-alt-tag "div"))))
+                         (make-alt-tag "div")
+                         )))
 
-(define bs-header-style (bootstrap-sectioning-style "BootstrapHeader"))
-(define bs-title-style (bootstrap-sectioning-style "BootstrapTitle"))
+;; bootstrap-style : string -> style
+;; defines a style for both latex and css with the given name
+(define (bootstrap-style name)
+  (make-style name (list (make-css-addition bootstrap.css)
+                         (make-tex-addition bootstrap-pdf.tex)
+                         )))
+
+(define bs-header-style (bootstrap-style "BootstrapHeader"))
+(define bs-title-style (bootstrap-style "BootstrapTitle"))
+(define bs-lesson-title-style (bootstrap-style "BootstrapLessonTitle"))
+(define bs-lesson-name-style (bootstrap-style "BSLessonName"))
+(define bs-lesson-duration-style (bootstrap-style "BSLessonDuration"))
 
 ;; make-bs-latex-style : string -> style
 ;; defines a style that will only be used in latex
@@ -239,7 +260,7 @@
 (define (think-about #:question (question #f) 
                      #:hint (hint #f)
                      #:answer (answer #f))
-  (elem  question
+  (list question
          (if hint
              (list " (Hint: " hint ")")
              "")
@@ -290,22 +311,68 @@
       (style "BootstrapLesson" '())
       (decode-flow
        (list (cond [(and title duration)
-                    (compound-paragraph
-                     (bootstrap-sectioning-style "BootstrapLessonTitle")
-                     (decode-flow
-                      (list
-                       (format "Lesson: ~a (Time ~a)~n" title duration))))]
-                   [title (compound-paragraph
-                     (bootstrap-sectioning-style "BootstrapLessonTitle")
-                     (decode-flow
-                      (list
-                       (format "~a ~n" title))))]
-                   [duration (format "Lesson (Time ~a)~n" duration)])
+                    (para #:style bs-lesson-title-style
+                          (list (elem #:style bs-lesson-name-style (format "Lesson: ~a " title))
+                                (elem #:style bs-lesson-duration-style (format "(Time ~a)" duration))))]
+                   [title 
+                    (para #:style bs-lesson-title-style
+                          (list (elem #:style bs-lesson-name-style (format "Lesson: ~a " title))))]
+                   [duration 
+                    (para #:style bs-lesson-title-style
+                          (list (elem #:style bs-lesson-name-style (format "Lesson "))
+                                (elem #:style bs-lesson-duration-style (format "(Time ~a)" duration))))])
              (compound-paragraph (bootstrap-sectioning-style "BootstrapLesson")
                                  (decode-flow body))))))))
 
 (define (unit-separator unit-number)
   (elem #:style "BSUnitSeparationPage" (format "Lesson ~a" unit-number)))
+
+;; unit-descr : list[element] -> block
+;; stores the unit description to use in building the summary, then generates the text
+(define (unit-descr . body)
+  (para body))
+
+;;;;;;;;;;;;; Generating the Main Summary Page ;;;;;;;;;;;;;;;;;
+
+;; get-unit-descr : string -> string
+;; extract the string for the unit-descr from the unit with the given name
+(define (get-unit-descr unit-name)
+  (with-input-from-file (build-path (get-units-dir) unit-name "the-unit.scrbl")
+    (lambda ()
+      (let ([ud-spec (regexp-match #rx"@unit-descr{.*?}" (read-string 5000))])
+        (if ud-spec
+            (substring (first ud-spec) 12 (- (string-length (first ud-spec)) 1))
+            (begin (printf "WARNING: no unit-descr for ~a~n" unit-name)
+                   ""))))))
+
+;;@summary-item/links["Student Workbook" "resources/workbook/StudentWorkbook" #:ext1 "pdf" #:ext2 "odt"]{
+
+;; summary-item/links : string string content -> block
+;; generate a summary entry links to html and pdf versions as
+;;   used on the main page for a course
+(define (summary-item/links name basefilename 
+                            #:label1 (label1 "html") #:ext1 (ext1 "html") 
+                            #:label2 (label2 "pdf") #:ext2 (ext2 "pdf") 
+                            . descr)
+  (para #:style "BSUnitSummary"
+        (elem #:style "BSUnitTitle" name)
+        " ["
+        (elem (hyperlink (format "~a.~a" basefilename ext1) label1))         
+        " | "
+        (elem (hyperlink (format "~a.~a" basefilename ext2) label2))
+        " ] - "
+        (apply elem descr)
+        ))
+
+;; unit-summary/links : number content -> block
+;; generate the summary of a unit with links to html and pdf versions as
+;;   used on the main page for the BS1 curriculum
+(define (unit-summary/links num)
+  (summary-item/links (format "Unit ~a" num)
+                      (format "units/unit~a/the-unit" num)
+                      (get-unit-descr (format "unit~a" num))))
+
+;;;;;;;;;;;;; End of Generating Main Summary Page ;;;;;;;;;;;;;;;
 
 (define (drill . body)
   (compound-paragraph (bootstrap-sectioning-style "BootstrapDrill")
@@ -448,17 +515,17 @@
        (nested-flow
         (style "BootstrapAgenda" '(never-indents))
         (decode-flow
-         (list "Agenda:"
-               (apply itemlist/splicing
-                      (map (lambda (a-lesson)
-                             (item (list (lesson-struct-title a-lesson)
-                                          " ("
-                                          (lesson-struct-duration a-lesson)
-                                          ")"
-                                          )))
-                           lessons)
-                      #:style "BootstrapAgendaList"))))))))
-
+         (list "Agenda"
+               (apply 
+                itemlist/splicing 
+                #:style "BootstrapAgendaList"
+                (map (lambda (a-lesson)
+                       (item (para (span-class "BSLessonDuration"
+                                               (format "~a min" 
+                                                       (first (regexp-match "[0-9]*" (lesson-struct-duration a-lesson)))))
+                                   (span-class "BSLessonName" (lesson-struct-title a-lesson)))))
+                     lessons))
+               )))))))
 
 ;; itemlist/splicing is like itemlist, but also cooperates with the
 ;; splice form to absorb arguments.  We use this in combination
@@ -472,8 +539,10 @@
                 (cond
                  [(splice? i)
                   (loop (splice-run i) acc)]
+                 [(item? i)
+                  (cons i acc)]
                  [else
-                  (cons i acc)]))
+                  (cons (item i) acc)]))
               acc
               items))))
   (apply itemlist spliced-items #:style style))
@@ -496,23 +565,27 @@
 ;;    for teacher's edition
 (define (design-recipe-exercise func-name . description)
   (let ([tagbase (format "recipe-~a" func-name)])
-    (nested-flow
-     (style "BootstrapDRExercise" '())
-     (decode-flow
-      (list
-       (bootstrap-title (format "Design Recipe for ~a" func-name))
-       (apply para #:style "BSRecipeExerciseDescr" description)
-       (worksheet-segment "I. Contract + Purpose Statement")
-       (elem "Every contract has three parts")
-       (contract-purpose-exercise tagbase)
-       (worksheet-segment "II. Give Examples")
-       (elem "Write two examples of your function in action")
-       (example-with-text (string-append tagbase "ex1"))
-       (example-with-text (string-append tagbase "ex2"))
-       (worksheet-segment "III. Function")
-       (elem "Write the function header, giving variable names to all your input values")
-       (function-exercise (string-append tagbase "function"))
-       )))))
+    (nested
+     #:style (style "BootstrapDRExercise" '())
+     
+     ;(bootstrap-title (format "Design Recipe for ~a" func-name))
+     (apply para #:style "BSRecipeExerciseDescr" description)
+     (worksheet-segment "I. Contract + Purpose Statement")
+     (elem "Every contract has three parts")
+     "\n" "\n"
+     (contract-purpose-exercise tagbase)
+     (worksheet-segment "II. Give Examples")
+     (elem "Write two examples of your function in action")
+     "\n" "\n"
+     (example-with-text (string-append tagbase "ex1"))
+     "\n" "\n"
+     (example-with-text (string-append tagbase "ex2"))
+     (worksheet-segment "III. Function")
+     "\n" "\n"
+     (elem "Write the function header, giving variable names to all your input values")
+     "\n""\n"
+     (function-exercise (string-append tagbase "function"))
+     )))
 
 ;; Inputs: list[string or image] -> nested-flow
 ;; Generates all components of a math/circle-of-evaluation/racket exercise
@@ -529,10 +602,10 @@
    [(or latex pdf) (apply elem #:style (make-bs-latex-style "BSCircEvalExercise") 
                           (map elem math-examples))]])
 
-(define (overview . body)
+(define (overview #:gen-agenda? (gen-agenda? #t). body)
   (list
-   (elem #:style (bootstrap-sectioning-style "BootstrapOverviewTitle") (list (format "Unit Overview")))
-   (agenda)
+   (elem #:style (bootstrap-style "BootstrapOverviewTitle") (list (format "Unit Overview")))
+   (if gen-agenda? (agenda) (elem))
    (compound-paragraph (bootstrap-sectioning-style "BootstrapOverview") (decode-flow body))
    ))
 
@@ -567,7 +640,7 @@
   (para 
    (hyperlink "http://creativecommons.org/licenses/by-nc-nd/3.0/" creativeCommonsLogo) "Bootstrap by " (hyperlink "http://www.bootstrapworld.org/" "Emmanuel Schanzer") " is licensed under a "
    (hyperlink "http://creativecommons.org/licenses/by-nc-nd/3.0/" "Creative Commons 3.0 Unported License")
-   ". Based on a work at " (hyperlink "http://www.bootstrapworld.org/" "www.BootsrapWorld.org")
+   ". Based on a work at " (hyperlink "http://www.bootstrapworld.org/" "www.BootstrapWorld.org")
    ". Permissions beyond the scope of this license may be available at "
    (hyperlink "mailto:schanzer@BootstrapWorld.org" "schanzer@BootstrapWorld.org") "."))
 
@@ -642,6 +715,31 @@
            (worksheet-link #:src-path src-path
                            args ...))))]))
 
+
+
+;; Link to a particular resource by path.
+;; resource-path should be a path string relative to the resources subdirectory.
+(define (resource-link #:path resource-path
+                       #:label [label #f])
+  (define the-relative-path
+    (find-relative-path (simple-form-path (current-directory))
+                        (simple-form-path (build-path (get-resources) resource-path))))
+  (hyperlink (path->string the-relative-path)
+             (if label label resource-path)))
+
+
+;; Link to a particular lesson by name
+(define (lesson-link #:name lesson-name
+                     #:label [label #f])
+  (define the-relative-path
+    (find-relative-path (simple-form-path (current-directory))
+                        (simple-form-path (build-path worksheet-lesson-root lesson-name "lesson" "lesson.html"))))
+  (hyperlink (path->string the-relative-path)
+             (if label label lesson-name)))
+
+
+
+
 ;; Creates a link to the worksheet.
 ;; Under development mode, the URL is relative to the development sources.
 ;; Under deployment mode, the URL assumes worksheets have been written 
@@ -649,43 +747,36 @@
                         #:page page
                         #:lesson [lesson #f]
                         #:src-path src-path)
+
   (define-values (base-path _ dir?) (split-path src-path))
   (define the-relative-path
-    (cond [(deployment-dir)
-           ;; FIXME!
-           (cond [lesson
-                  (find-relative-path (simple-form-path (current-directory))
-                                      (simple-form-path (build-path worksheet-lesson-root
-                                                                    lesson
-                                                                    "worksheets"
-                                                                    (format "~a.html" name))))]
-                 [else
-                  (find-relative-path (simple-form-path (current-directory))
-                                      (simple-form-path (build-path base-path
-                                                                    'up
-                                                                    "worksheets"
-                                                                    (format "~a.html" name))))])]           
-          [else
-           (cond [lesson
-                  (find-relative-path (simple-form-path (current-directory))
-                                      (simple-form-path (build-path worksheet-lesson-root
-                                                                    lesson
-                                                                    "worksheets"
-                                                                    (format "~a.html" name))))]
-                 [else
-                  (find-relative-path (simple-form-path (current-directory))
-                                      (simple-form-path (build-path base-path
-                                                                    'up
-                                                                    "worksheets"
-                                                                    (format "~a.html" name))))])]))
+    (find-relative-path (simple-form-path (current-directory))
+                        (cond 
+                         ;; FIXME: communicate parameter values via parameters.
+                         ;; The reason it's not working right now is because we're
+                         ;; calling into scribble with system*, which means we don't
+                         ;; get to preserve any parameters between the build script
+                         ;; and us.
+                         [(getenv "WORKSHEET-LINKS-TO-PDF")
+                          (simple-form-path (get-worksheet-pdf-path))]
+                         [lesson
+                          (simple-form-path (build-path worksheet-lesson-root
+                                                        lesson
+                                                        "worksheets"
+                                                        (format "~a.html" name)))]
+                         [else
+                          (simple-form-path (build-path base-path
+                                                        'up
+                                                        "worksheets"
+                                                        (format "~a.html" name)))])))
   (list (hyperlink (path->string the-relative-path)
                    "Page " (number->string page))))
 
 ;; generates the title, which includes the bootstrap logo in html but not in latex/pdf
 ;; In unit+title case, paras shouldn't be there but that throws off the CSS spacing -- FIX
-(define (bootstrap-title . body)
+(define (bootstrap-title #:single-line [single-line #f] . body)
   (define the-title (apply string-append body))
-  (define unit+title (regexp-match #px"^([^:]+):\\s*(.+)$" the-title)) 
+  (define unit+title (if single-line #f (regexp-match #px"^([^:]+):\\s*(.+)$" the-title))) 
   (define bootstrap-image (cond-element 
                            [html bootstrap.gif]
                            [(or latex pdf) (elem)]))

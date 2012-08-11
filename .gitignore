@@ -1,0 +1,13 @@
+*~
+*png
+*.html
+json2.min.js
+scribble.css
+easyXDM.min.js
+bootstrap-helpers.js
+scribble-common.js
+wescheme-embedded.js
+racket.css
+bootstrap.css
+!lib/bootstrap.css
+

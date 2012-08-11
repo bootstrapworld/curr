@@ -219,3 +219,18 @@ Please enter 42:
 @fill-in-the-blank[#:id "constraint-test-1"]
 @check[(constraint:string-eq (value:string "42")
                             (value:form "constraint-test-1"))]
+
+
+
+@section{Linking to other elements}
+
+@resource-link[#:path "workbook/StudentWorkbook.pdf"]
+
+
+@resource-link[#:path "workbook/StudentWorkbook.pdf"
+               #:label "The workbook"]
+
+
+@lesson-link[#:name "Fast-Functions"]
+@lesson-link[#:name "Fast-Functions"
+             #:label "Fast functions"]

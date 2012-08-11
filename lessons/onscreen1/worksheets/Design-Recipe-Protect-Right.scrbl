@@ -1,6 +1,11 @@
 #lang curr/lib
+@title{Protect-Right}
+@worksheet{
+
+
 
 @design-recipe-exercise["protect-right?" "Use the Design Recipe to write a function " @code{protect-right?} ", which takes in the target's x-coordinate and checks to see if it is less than 690."]
+ }
 
 @;@worksheet{
 @;    Use the Design Recipe to write a function protect-right?, which takes in the target's x-coordinate and checks to see if it is less than 690.

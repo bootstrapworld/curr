@@ -5,7 +5,7 @@
 
 @overview{
 
-Students discuss and then prove the Pythagorean theorem, and use this theorem - in conjunction with Booleans - in their games to detect when a collision has occurred.
+@unit-descr{Students discuss and then prove the Pythagorean theorem, and use this theorem - in conjunction with Booleans - in their games to detect when a collision has occurred.}
 
 
 @objectives[@item{Understand the challenge of the distance formula in two dimensions.}
@@ -17,20 +17,22 @@ Students discuss and then prove the Pythagorean theorem, and use this theorem - 
 
 @length-of-lesson[90]
 
-@tag[selftaught]{@materials[@item{Cutouts of Pythagorean Theorem packets [@(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/images/7.5.png" "1"), @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/images/7.6.png" "2")] - 1 per cluster}
-                        @item{Student @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/materials/StudentWorkbook.pdf" "workbooks")}]}  
+@tag[selftaught]{
+@materials[@item{Cutouts of Pythagorean Theorem packets [@(resource-link #:path "images/pythag1.png" #:label "1"), @(resource-link #:path "images/pythag2.png" #:label "2")] - 1 per cluster}
+                        @item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbooks")}]}
    
 @tag[pedagogy]{
-@materials[@item{Cutouts of Pythagorean Theorem packets [@(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/images/7.5.png" "1"), @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/images/7.6.png" "2")] - 1 per cluster}
+@materials[@item{Cutouts of Pythagorean Theorem packets [@(resource-link #:path "images/pythag1.png" #:label "1"), @(resource-link #:path "images/pythag2.png" #:label "2")] - 1 per cluster}
             @item{Computers w/DrRacket or WeScheme}
-           @item{Student @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/materials/StudentWorkbook.pdf" "workbooks")}
+           @item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label " workbooks")}
             @item{Pens/pencils for the students, fresh whiteboard markers for the teachers}
-            @item{@tag[group]{Class posters (List of rules, language table, course calendar)}}
-            ]
+            @tag[group]{@item{Class posters (List of rules, language table, course calendar)}}]}
+
+
 @preparation[@item{Write agenda on board}
               @item{All student computers should have their game templates pre-loaded, with their image files linked in}
               @item{Class posters}
-              @item{Seating arrangements: ideally clusters of desks/tables}]}
+              @item{Seating arrangements: ideally clusters of desks/tables}]
 
 @(language-table (list "Number" @code{+ - * / sq sqrt expt}) 
                  (list "String" @code{string-append string-length})
@@ -55,9 +57,9 @@ Students discuss and then prove the Pythagorean theorem, and use this theorem - 
 
 @tag[group]{@item{It's time for everyone to walk around and play each other's games!}}
 @item{CONGRATULATIONS! You have finished the code for your videogame@tag[group]{s}!!!}
-@tag[pedagogy]{@item{Who can tell us one thing we learned today?}}
+@pedagogy{@item{Who can tell us one thing we learned today?}}
 @tag[selftaught]{@item{@review{What did you learn today?}}}
-@tag[pedagogy]{@item{Who saw someone else in the class do something great?}}
-@tag[pedagogy]{@item{Cleanup, dismissal}}]}
+@pedagogy{@item{Who saw someone else in the class do something great?}}
+@pedagogy{@item{Cleanup, dismissal}}]}
 
 @copyright[]

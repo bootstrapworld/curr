@@ -5,7 +5,7 @@
 
 @overview{
 
-Students are introduced to the Design Recipe and apply it to simple problems.
+@unit-descr{Students are introduced to the Design Recipe and apply it to simple problems.}
 
 @objectives[@item{Students will become familiar with the steps of the Design Recipe.}
             @item{Students will practice Racket syntax and the Circles of Evaluation.}]
@@ -15,15 +15,15 @@ Students are introduced to the Design Recipe and apply it to simple problems.
 
 @length-of-lesson[90]
 
-@tag[pedagogy]{
-@materials[@item{Student workbook folders @tag[group]{- in pairs! - with names on covers}}
+@pedagogy{
+@materials[@item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders @tag[group]{- in pairs! - with names on covers}}
             @item{Pens/pencils for the student@tag[group]{s, fresh whiteboard markers for the teachers}}
             @item{@tag[group]{Class posters (List of rules, language table, course calendar)}}
             @item{Language Table (See below)}
             ]
 @preparation[@item{Write agenda on board}
               @item{Display Class posters, Language Table, Design Recipe}
-              @item{"Rocket" [@(hyperlink "drracketfile" "DrRacket file") + @(hyperlink "teachpack" "teachpack")|@(hyperlink "wescheme" "WeScheme")] preloaded on students' machines}
+              @item{"Rocket" [ @resource-link[#:path "source-files/Rocket.rkt.pdf" #:label "Dr. Racket"] + @resource-link[#:path "teachers-guide/teachpacks/function-teachpack.rkt" #:label "TeachPack"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=drawl-youth-fifty-voter-shake" "WeScheme")] preloaded on students' machines}
               @item{Seating arrangements: ideally clusters of desks/tables}]}
 
 @(language-table (list "Number" @code{+ - * / sq sqrt expt})

@@ -5,7 +5,7 @@
 
 @overview{
 
-Students will edit game details and prepare for their Launch Party!
+@unit-descr{Students will edit game details and prepare for their Launch Party!}
 
 @objectives[@item{Reflect on what's been learned and figure out how to teach back.}
             ]
@@ -16,9 +16,10 @@ Students will edit game details and prepare for their Launch Party!
 @state-standards
 
 @length-of-lesson[90]
-@tag[pedagogy]{
+@pedagogy{
 @materials[@item{Computers w/ DrRacket or WeScheme}
-           @item{Student  @(hyperlink "https://spreadsheets.google.com/pub?key=0Ak3Voejjnf0ldHlQcXRVWTZDbVprWHlBLTJWRlQ2dkE&hl=en&gid=0" "workbooks")}
+           @item{Student  @resource-link[#:path "workbook/StudentWorkbook.pdf"
+               #:label "workbooks"]}
            @item{Pens/pencils for the students, fresh whiteboard markers for teachers}
            @item{Class posters (List of rules, basic skills, course calendar)}
            @item{Language Table (see below)}

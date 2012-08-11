@@ -5,30 +5,17 @@
          racket/string
          racket/cmdline
          racket/path
+         racket/file
          "lib/system-parameters.rkt"
+         "lib/translate-pdfs.rkt"
+         "lib/paths.rkt"
          file/zip
          (for-syntax racket/base))
 
 ;; This is a toplevel build script which generates scribble files for
 ;; the lessons and courses.
 
-(define-runtime-path root-path (build-path 'same))
 
-
-(define-runtime-path lessons-dir
-  (build-path "lessons"))
-
-(define-runtime-path courses-base
-  (build-path "courses"))
-
-(define (get-units-dir)
-  (build-path courses-base (current-course) "units"))
-
-(define (get-bs1-main)
-  (build-path courses-base (current-course) "main.scrbl"))
-
-(define (get-bs1-teachers-guide)
-  (build-path courses-base (current-course) "teachers-guide.scrbl"))
 
 (define scribble-exe
   (or (find-executable-path "scribble")
@@ -38,20 +25,20 @@
 
 ;; The output mode is, by default, HTML.
 (define output-mode (make-parameter "--html"))
-(define current-course (make-parameter "bs1"))
+(define current-generate-pdf? (make-parameter #f))
 
 
 
 ;; run-scribble: path -> void
 ;; Runs scribble on the given file.
 (define (run-scribble scribble-file)
-  (define output-dir (cond [(deployment-dir)
+  (define output-dir (cond [(current-deployment-dir)
                             ;; Rendering to a particular deployment directory.
                             (let-values ([(base name dir?) 
                                           (split-path 
                                            (find-relative-path (simple-form-path root-path)
                                                                (simple-form-path scribble-file)))])
-                              (simple-form-path (build-path (deployment-dir) base)))]
+                              (simple-form-path (build-path (current-deployment-dir) base)))]
                            [else
                             ;; In-place rendering
                             (let-values ([(base name dir?)
@@ -59,7 +46,14 @@
                               base)]))
   (define-values (base name dir?) (split-path scribble-file))
   (parameterize ([current-directory base])
-    (system* scribble-exe (output-mode) "--dest" output-dir name))
+    (system* scribble-exe (output-mode) "--dest" output-dir name)
+    (when (current-generate-pdf?)
+      (translate-html-to-pdf
+       (build-path output-dir
+                   (regexp-replace #px".scrbl$"
+                                   (path->string name)
+                                   ".html"))
+       #:dest output-dir)))
   (void))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -69,12 +63,16 @@
   (command-line
    #:program "build"
    #:once-each
-   [("--pdf") "Generate PDF documentation"
-              (output-mode "--pdf")]
    [("--course") -course "Choose course (default bs1)"
                  (current-course -course)]
+   [("--worksheet-links-to-pdf") "Direct worksheet links to StudentWorkshop.pdf" 
+    (putenv "WORKSHEET-LINKS-TO-PDF" "true")]
+
    [("--deploy") -deploy-dir "Deploy into the given directory, and create a .zip" 
-                 (deployment-dir (simple-form-path -deploy-dir))]
+                 (current-deployment-dir (simple-form-path -deploy-dir))]
+   [("--pdf") "Generate PDF documentation"
+              (current-generate-pdf? #t)]
+
    #:args tags
    tags))
 
@@ -83,7 +81,7 @@
 
 
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 ;; Building the bs1 course
 (printf "build.rkt: building ~a\n" (current-course))
 (for ([subdir (directory-list (get-units-dir))]
@@ -91,15 +89,17 @@
   (define scribble-file (build-path (get-units-dir) subdir "the-unit.scrbl"))
   (cond [(file-exists? scribble-file)
          (printf "build.rkt: Building ~a\n" scribble-file)
+         (copy-file (build-path "lib" "box.gif") 
+                    (build-path (get-units-dir) subdir "box.gif")
+                    #t)
          (run-scribble scribble-file)]
         [else
          (printf "Could not find a \"the-unit.scrbl\" in directory ~a\n"
                  (build-path (get-units-dir) subdir))]))
 
-
 ;; Building the lessons
-;(printf "build.rkt: building lessons\n")
-#;(for ([subdir (directory-list lessons-dir)]
+(printf "build.rkt: building lessons\n")
+(for ([subdir (directory-list lessons-dir)]
       #:when (directory-exists? (build-path lessons-dir subdir)))
   (define scribble-file (build-path lessons-dir subdir "lesson" "lesson.scrbl"))
   (cond [(file-exists? scribble-file)
@@ -128,18 +128,37 @@
        (run-scribble (build-path lessons-dir subdir "drills" drill)))))
 
 (printf "build.rkt: building ~a main\n" (current-course))
-(run-scribble (get-bs1-main))
-
-;; Temporarily turning teacher's guide off till we can resolve the issue with the images of one scribble
-;; file overwriting those of another in the same directory.
-;(printf "build.rkt: building bs1 teacher's guide\n")
-;(run-scribble (get-bs1-teachers-guide))
+(run-scribble (get-course-main))
 
 
 
 ;; Under deployment mode, zip up the final result.
-(when (deployment-dir)
-  (let-values ([(base file dir?) (split-path (deployment-dir))])
+(when (current-deployment-dir)
+  (when (directory-exists? (get-resources))
+    ;; Include the resources.
+    (let ([input-resources-dir (get-resources)]
+          [output-resources-dir
+           (build-path (current-deployment-dir) "courses" (current-course)
+                       "resources")])
+      (when (directory-exists? output-resources-dir)
+        (delete-directory/files output-resources-dir))
+      (copy-directory/files input-resources-dir
+                            (simple-form-path
+                             (build-path output-resources-dir))))))
+
+
+
+;; Subtle: this must come after we potentially touch the output
+;; resources subdirectory.
+(cond [(file-exists? (get-teachers-guide))
+       (printf "build.rkt: building teacher's guide\n")
+       (run-scribble (get-teachers-guide))]
+      [else
+       (printf "build.rkt: no teacher's guide found; skipping\n")])
+  
+
+(when (current-deployment-dir)
+  (let-values ([(base file dir?) (split-path (current-deployment-dir))])
     (parameterize ([current-directory base])
       (define output-file (build-path base (format "~a.zip" (path->string file))))
       (when (file-exists? output-file)

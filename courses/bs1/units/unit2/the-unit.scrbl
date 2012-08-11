@@ -4,9 +4,9 @@
 @title{Unit 2: Contracts, Strings and Images}
 @overview{
 
-Students are introduced to a set-mapping representation for functions, in which the function object exists as a means of translating points
+@unit-descr{Students are introduced to a set-mapping representation for functions, in which the function object exists as a means of translating points
 from a Domain into a Range. Coupled with their understanding of Circles of Evaluation, students generalize their understanding of functions to
-include other datatypes, including Strings and Images. 
+include other datatypes, including Strings and Images.}
 
 @objectives[@item{Learn Racket syntax and grammar, using the Circle of Evaluation}
         @item{Learn how to define values to be used later, as variables}
@@ -15,9 +15,10 @@ include other datatypes, including Strings and Images.
         @item{Students learn to make and manipulate the basic elements of their games--numbers, strings, and images}]
 
 @state-standards
+
 @length-of-lesson[90]
 
-@tag[pedagogy]{
+@pedagogy{
 @materials[@item{Student workbook folders @tag[group]{- in pairs! - with names on folders}}
             @item{Pens/pencils for the students, fresh whiteboard markers for the teachers}
             
@@ -46,7 +47,7 @@ include other datatypes, including Strings and Images.
 
 @lesson[#:title "Closing"
         #:duration "5 minutes"]{
-    @tag[pedagogy]{@itemlist[@item{Who can tell us one thing we learned today?}
+    @pedagogy{@itemlist[@item{Who can tell us one thing we learned today?}
                              @item{Who saw someone else in the class do something great?}
                              @item{Cleanup, dismissal.}]}
 
