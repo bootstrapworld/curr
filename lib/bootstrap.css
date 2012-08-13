@@ -81,7 +81,7 @@ blockquote.BootstrapLesson{margin: 0px; padding: 0px;}
 }*/
 
 /*Exercise Design*/
-.BootstrapExercise{
+.BootstrapExercise, .BootstrapSkit{
 	border-top: 1px dashed gray;
 	border-bottom: 1px dashed gray;
 	background: rgba(245, 222, 179, 0.4);
@@ -130,12 +130,15 @@ blockquote.pedagogy {
     background: black;
     color: white;
     font-size: 18px;
-    margin: 3px;
+    margin: 0px;
+    display: block;
+    width: 100%;
 }
 .BootstrapOverview {
     padding: 5px;
     background: lightgray;
     page-break-after: always;
+    border: solid 1px black;
 }
 
 /*Table Design*/
@@ -160,7 +163,7 @@ blockquote.pedagogy {
 }
 	
 table {
-  margin: auto;
+  margin: 20px auto;
 }
 table td{
   border: 1px solid black;

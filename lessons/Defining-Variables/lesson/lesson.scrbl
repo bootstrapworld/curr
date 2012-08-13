@@ -21,5 +21,11 @@
         @item{For practice, try defining a new variable called @code{author}, and set its value to be the string containing your names. Don't forget - all strings are in quotes! (This won't do anything in the game, but when you close the game window, you can type
 @code{author} and see its value.) Then you can ask @code{(string-length author)}, etc.}
         @item{@think-about[#:question "What other variables do you see defined in this file? What is its name? What is its value?"] @pedagogy{Take a volunteer.}}
-        @item{Variables can be more than just strings. They can be numbers, or images! These definitions are where we define the images for your background, player, target, and danger.}]
+        @item{Variables can be more than just strings. They can be numbers, or images! These definitions are where we define the images for your background, player, target, and danger.}
+        @item{As you can see, there are variables that define the @code{BACKGROUND, PLAYER, TARGET} and @code{DANGER} images.}
+        @item{@think-about[#:question (list "What will happen if you type " @code{DANGER} " into the Interactions window down at the bottom?") #:answer (list "This code tells the computer that the name " @code{DANGER} " is a shortcut for a solid, red triangle of size 30. When you click Run, the computer learns that name and that shortcut, along with any other definitions.")]}
+        @item{You can even define long expressions to be a single value. Look closely at the definition of @code{SCREENSHOT}. This definition is a complication expression, which puts all of the game images on top of one another ar various coordinates. The @code{PLAYER} image, for example, is being displayed on top of the @code{BACKGROUND}, at the position @code{(320, 240)}. }
+        @item{@think-about[#:question (list "According to the definition of " @code{SCREENSHOT}", where is the " @code{DANGER}"  located?") #:answer (list @code{(150, 200)} )]}
+        @item{Try changing the various coordinates and clicking @bold{Run}, then evaluating @code{SCREENSHOT} in the Interactions window. Can you move the @code{TARGET} to the top-left corner of the screen by changing it's coordinates?}
+        ]
 }

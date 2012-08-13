@@ -6,21 +6,27 @@
                 #:prerequisites "Defining-Variables" ]{
 
 @itemlist/splicing[
-    @item{Suppose we wanted to combine your game images and layer them together to form a screenshot, so you could see what your game will look like. We want to take these images and stack them on top of each other - @think-about[#:question "what image goes on the bottom?" #:answer "The BACKGROUND."]}
-    @item{There's also a variable called SCREENSHOT. @think-about[#:question "What is it defined to be?"
-    #:answer @code{(define SCREENSHOT (put-image PLAYER 320 240 BACKGROUND))}]}
-                     
-    @item{@code{put-image} is a function that puts one image on top of another, at whatever coordinates you specify. In our screenshot, what is the image going on the top? @code{PLAYER}. At what coordinates? (320, 240)}
-    @item{Try evaluating @code{SCREENSHOT} in the interactions window. You should see the player, right in the middle of the background. @think-about[#:question "How would you change the code so that the player is a little lower down? To the left? The right?" #:hint "Try it out."]}
-    @item{Now we want to add another image. How about we add the TARGET? @think-about[#:question "Can you tell me what function will let us place this image on top of our stack?" #:answer @code{(put-image _______ _______ _______ _______)}]}
-    @item{@think-about[#:question "What image goes on the top?" #:answer "Yes, TARGET!"] @think-about[#:question @list{"And where should we put it? How about someplace on the right-hand side of the screen?" @pedagogy{Raise your hand if you can give me some coordinates for that.}} 
-#:answer @code{(put-image TARGET 550 100 _______)}]}
-    @item{Now for the final part - what are we putting the TARGET on top of? It's not the background...it's the player and background stack we made earlier! Let's take all that code we wrote, and stick it in as the last input to put-image. See how it almost makes a "staircase" shape? Don't forget to match the parentheses!
-          
-          @code{(put-image Target 550 100 (put-image PLAYER 320 240 BACKGROUND))}} 
-    @item{Click "Run", and evaluate @code{SCREENSHOT}. Does it look the way you expected? On your own, mess with the coordinates until the @code{TARGET} is placed where you want it to be.
-          @tag[selftaught]{@embedded-wescheme[#:id "Put-image"
-                   #:definitions-text "; Please type in your images to see how they look"]}}
-    @item{@exercise{Can you add the @code{DANGER} on your own?}}
+    @item{Let's start changing these image definitions so that they use the images YOU want.}
+    @item{You already know how to draw various shapes, but suppose you wanted to use an image that you found?}
+    @item{Take a look at the contracts for these two functions: @bitmap{images/guitar.png}
+          @code[#:multi-line #t]{; bitmap : String -> Image
+                                 ; bitmap/url : String -> Image}}
+    @item{Both of these functions take a @code{String} as their domain, which tells them where the image file is located. If you're using WeScheme, that can be the address of any image file you find on the internet. In DrRacket, the String represents the path to the file.}
+    @item{If you're using @bold{WeScheme}, you'll want to use @code{bitmap/url}. If you're using @bold{DrRacket}, you'll want @code{bitmap}}
+    @item{Try replacing the definition of the @code{BACKGROUND} with an image file, and @bold{click Run.})}
+    @item{Now try to find an image for your @code{PLAYER}. When you click Run, you should see your player appear on the game screen. Typing @code{PLAYER} into the Interactions window will show you just the player image, by itself}
+    @item{Suppose you wanted your player to be larger or smaller? There's a function called @code{scale}:
+                                                                                            @code[#:multi-line #t]{; scale : Number Image -> Image}}
+    @item{@code{scale} resizes the @code{Image} based on the @code{Number}. For example, @code{(scale 3 PLAYER)} will make the PLAYER image three times as large, while @code{(scale 0.5 PLAYER)} will make it half the size.}
+    @item{Once you've written the contract for @code{scale}, use it as part of the definition of @code{PLAYER} to make sure your player looks just right!}
+    @item{Suppose you want your player to be flipped vertically or horizontally? Copy down the contracts for these two functions, then try using them to flip your @code{PLAYER}. @bitmap{images/guitar-composed.png}
+          @code[#:multi-line #t]{; flip-vertical : Image -> Image
+                                 ; flip-horizontal : Image -> Image}}
+    @item{You can also rotate any image, so that your player is facing any point on the screen:
+          @code[#:multi-line #t]{;rotate : Number Image -> Number}}
+    @item{Try rotating your player 45 degrees.}
+    @item{You can combine these functions together, just like you can use @code{+, -, /, *, sqrt}, and @code{sqr} together when working with Numbers. Can you make your player twice as big, @italic{and} rotated 45 degrees? }
+    @item{Now try using all of these functions - however you want - to make the definitions of @code{DANGER, TARGET} and @code{PLAYER} look exactly the way you want. You can even change their locations inside @code{SCREENSHOT}, so that you get a real-life screenshot of your game!}
+    @item{Click "Run", and evaluate @code{SCREENSHOT}. Does it look the way you expected? On your own, mess with the coordinates until the @code{TARGET} is placed where you want it to be.}
     
 ]}
