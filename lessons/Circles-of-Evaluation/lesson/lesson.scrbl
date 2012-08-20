@@ -7,6 +7,8 @@
         #:duration "20 minutes"
         ]{
  @itemlist/splicing[
+   @pedagogy{@item{Draw a big circle on the board. (Tip: make this exciting for kids! Ask them to give you a drumroll, and then proudly announce what this Circle is called!)}}
+    @item{This is called the Circle of Evaluation, and believe it or not it is a @italic{fully-functioning computer}. That is, we can write programs inside the Circle, and it will evaluate them the exact same way that the computer will. If you know how to draw a circle of evaluation for a program, you'll know exactly how to write the code.}
    @item{Write 4 + 5 (jumbled, in no order in particular) in the Circle of Evaluation.}
    @item{@exercise{What is the value of the stuff in the circle? Let's figure out the math first. (Write the equation.) We know we're adding, so we start with the plus sign. ("+" in the middle.) Then we add 5 and 4 on either side. ("5 + 4".) Does it matter if I write (4 + 5)?}}
    @pedagogy{@item{Let there be subtraction!}}
