@@ -27,7 +27,7 @@ that would just take in the size and draw me my triangle.}
           @item{Then what did he draw for me? A solid green triangle of size fifty! How would we write the code to draw that same shape? 
                 
                 @code[#:multi-line]{; gt : Number -> Image
-                                    (EXAMPLE (gt 50) (triangle 50) "solid" "green")}}
+                                    (EXAMPLE (gt 50) (triangle 50 "solid" "green"))}}
          @pedagogy{@item{Can someone write another example for me?}}
           @item{Now, on your own, fill out two examples for @code{gt} on your Fast Functions worksheet.}
           @item{If only we had a function like @code{gt}! Well, let's build one!}
