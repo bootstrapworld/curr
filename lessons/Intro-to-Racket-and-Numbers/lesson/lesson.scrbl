@@ -2,7 +2,7 @@
 
 @declare-tags[pedagogy selftaught group]
 
-@lesson[#:title "Introduction to Racket and Numbers"
+@lesson[#:title "Intro to Racket and Numbers"
         #:duration "15 minutes"
         ]{ 
   @itemlist/splicing[
