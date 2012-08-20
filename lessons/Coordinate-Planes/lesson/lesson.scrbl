@@ -7,10 +7,11 @@
         ]{
  
 @itemlist/splicing[
-  @item{What is a position? Suppose you were telling your friend about this picture on the phone. How would you tell her exactly where the Dog is? @pedagogy{(Have students discuss.)}}
+  @item{@bitmap{images/1.1.png} What is a position? Suppose you were telling your friend about this picture on the phone. How would you tell her exactly where the Dog is? @pedagogy{(Have students discuss.)}}
   @item{Just like your friend on the phone, computers need to know exactly where something is in order to draw it on the screen. To do this, they use a coordinate system.}
   @pedagogy{@item{(Draw a number line, with 10 tick marks).}}
-  @item{You've all seen number lines before, right? There are a bunch of evenly spaced markings on the line, and each one represents a number. A number line is actually a really simple coordinate system, which lets you find points in one dimension! For example, we can take our little cutout of NinjaCat, stick him anywhere on the line, and now we can all agree that he's sitting at 5, 6, or any other number on our line. Number lines can also have negative numbers, so we can put NinjaCat at -2, -8, or even 0.}
+  @item{You've all seen number lines before, right? There are a bunch of evenly spaced markings on the line, and each one represents a number. A number line is actually a really simple coordinate system, which lets you find points in one dimension! For example, we can take our little cutout of NinjaCat, stick him anywhere on the line, and now we can all agree that he's sitting at 5, 6, or any other number on our line. @bitmap{images/1.3.png} Number lines can also have negative numbers, so we can put NinjaCat at -2, -8, or even 0.}
+  
   @item{@exercise{Our game has two dimensions, and we'll need a number line for both @pedagogy{ (draw a second number line)}. Let's call our first line, which runs from left to right the x-axis, and the new line, which runs up and down the y-axis. Now we have a grid, and we can stick NinjaCat anywhere on the grid. Let's do a quick example: @bitmap{images/1.2.png}
             @itemlist/splicing[@pedagogy{@item{stick NinjaCat at (4,6)}}
                       @item{What is NinjaCat's position on the x-axis? To find out, we just drop a line down from where NinjaCat is, and read the position on the number line. He's at 4. }
