@@ -35,9 +35,9 @@ Language Table
        @itemlist/splicing[
        @item{Review the previous material}]}
 
-@(include-lesson (lib "curr/lessons/Intro-to-Booleans/lesson/lesson.scrbl"))
+@(include-lesson (lib "curr/lessons/Intro-to-Booleans/lesson/lesson-long.scrbl"))
 
-@(include-lesson (lib "curr/lessons/onscreen1/lesson/lesson.scrbl"))
+@(include-lesson (lib "curr/lessons/onscreen1/lesson/lesson-long.scrbl"))
 
 @(include-lesson (lib "curr/lessons/Boolean-Function/lesson/lesson.scrbl"))
 

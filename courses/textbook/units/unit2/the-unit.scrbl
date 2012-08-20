@@ -23,14 +23,14 @@ include other datatypes, including Strings and Images.
 }
 }
 
-@(include-lesson (lib "curr/lessons/Intro-to-Racket-and-Numbers/lesson/lesson.scrbl"))
+@(include-lesson (lib "curr/lessons/Intro-to-Racket-and-Numbers/lesson/lesson-long.scrbl"))
 
-@(include-lesson (lib "curr/lessons/Circles-of-Evaluation/lesson/lesson.scrbl"))
+@(include-lesson (lib "curr/lessons/Circles-of-Evaluation/lesson/lesson-long.scrbl"))
                              
 @(include-lesson (lib "curr/lessons/Contracts/lesson/lesson.scrbl"))
 
 @(include-lesson (lib "curr/lessons/Intro-to-Strings/lesson/lesson.scrbl"))
 
-@(include-lesson (lib "curr/lessons/Creating-Images/lesson/lesson.scrbl"))
+@(include-lesson (lib "curr/lessons/Creating-Images/lesson/lesson-long.scrbl"))
 
 @copyright[]

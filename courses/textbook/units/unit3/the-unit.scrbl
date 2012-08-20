@@ -19,7 +19,7 @@ Students are introduced to the Definitions window, and learn the syntax for defi
                  (list "Image"  @code{radial-star scale rotate put-image}))
 }
 
-@(include-lesson (lib "curr/lessons/Defining-Variables/lesson/lesson.scrbl"))
+@(include-lesson (lib "curr/lessons/Defining-Variables/lesson/lesson-long.scrbl"))
 @(include-lesson (lib "curr/lessons/Game-Screenshots/lesson/lesson.scrbl"))
 
 @copyright[]

@@ -16,7 +16,7 @@ Students learn where functions come from and how to define them.
                  (list "Image"  @code{rectangle circle triangle ellipse radial-star scale rotate put-image}))
 }
 
-@(include-lesson (lib "curr/lessons/Fast-Functions/lesson/lesson.scrbl"))
+@(include-lesson (lib "curr/lessons/Fast-Functions/lesson/lesson-long.scrbl"))
 @(include-lesson (lib "curr/lessons/Function-Example-Blue-Circle/lesson/lesson.scrbl"))
 @(include-lesson (lib "curr/lessons/Function-Example-Double/lesson/lesson.scrbl"))
 
