@@ -13,7 +13,7 @@
 (define BACKGROUND (rectangle 640 480 "solid" "black"))
 (define DANGER (triangle 30 "solid" "red"))
 (define TARGET (circle 20 "solid" "green"))
-(define PLAYER (bitmap "teachpack-images/rocket.png"))
+(define PLAYER (bitmap "Teachpacks/teachpack-images/rocket.png"))
 
 ;; here's a screenshot of the game, with the PLAYER at (320, 240),
 ;; the TARGET at (400 500) and the DANGER at (150, 200)

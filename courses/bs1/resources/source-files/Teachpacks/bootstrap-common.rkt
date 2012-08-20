@@ -9,7 +9,6 @@
            "save-source.rkt"
            lang/posn
            scheme/base
-           racket/draw
            )
   (provide 
            (all-from-out lang/posn)
@@ -52,7 +51,7 @@
 
   ;; color-object->color-struct Color% -> Color
   (define (color-object->color-struct c)
-    (if ((is-a?/c color%) c)
+    (if (color? c)
         (make-color (send c red) (send c green) (send c blue) 255)
         c))
   
@@ -76,10 +75,7 @@
   ;; If the given color is expressed as a string or a color% object, turn it 
   ;; into a color struct, otherwise use it as is.
   (define (find-color color-name)
-    (color-object->color-struct
-     (if (string? color-name)
-         (send the-color-database find-color color-name)
-         color-name)))
+    (color-object->color-struct color-name))
   
   (define (imgvec-location x y w h)
     (+ (* y w) x))

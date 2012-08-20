@@ -21,8 +21,9 @@
 ; onscreen? :  Number -> Boolean
 ; is any part of the butterfly still on the screen?
 (define (onscreen? x)
-  true)
+  (protect-left? x))
 
 
-;; don't touch anything below this line!
+;;;; This starts the animation automatically, when "Run" is clicked.
+;;;; Use the arrow keys to move the butterfly around the screen!
 (start onscreen?)
