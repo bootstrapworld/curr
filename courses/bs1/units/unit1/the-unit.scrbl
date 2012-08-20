@@ -12,11 +12,13 @@
 @objectives[@item{Learn to work as a team}
           @item{Learn the basic expectations and goals of the class}
           @item{Learn the Cartesian coordinate system}
+          @item{Make the jump from PEMDAS to function composition, when thinking about arithmetic}
           ]
 
 @product-outcomes[
           @item{Students - in teams - will successfully reverse-engineer a simple side-scrolling game.}
           @item{Teams will brainstorm their own games and generate the geometry for their games at different points in time.}
+          @item{Students will practice converting between multiple representations of arithmetic (Conventional, Circles of Evaluation, and Racket)}
           ]
                 
 @state-standards

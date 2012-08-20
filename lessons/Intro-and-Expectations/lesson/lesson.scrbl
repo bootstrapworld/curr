@@ -6,12 +6,11 @@
         #:duration "5 minutes"
         ]{
   @itemlist/splicing[
-            @item{Welcome to your first day of Bootstrap!}
+            @item{Welcome to Bootstrap!}
             @pedagogy{@item{Introduce the teaching staff. Give some background: age, where you're from, something surprising about yourself, favorite food, etc. Anything to allow kids to connect. Ask kids for their names!}}
             @pedagogy{@item{I want to set some expectations here, to make sure we're all on the same page.}}
-            @item{In this class, you're going to be working on some very difficult material - you'll be using a language that is taught to college kids, and they're a lot older than you.}
-            @item{You're going to need to be very focused, and disciplined about solving the problems we'll be throwing at you.}
-            @item{Because this is the same material that they teach in college, we're going to expect you to be able to act like college students. @pedagogy{What do you think that means?}}
+            @item{In Bootstrap, you'll be programming in a language called @italic{Racket}, which is used at universities and colleges around the world. You'll be doing the same kinds of programming that they do, using the same techniques and similar tools.}
+            @item{Because this is the same material that they teach in college, you'll need to approach the material the way college students do. What do you think that means?}
             @pedagogy{@item{@exercise{Take 2-3 suggestions.}}}
             @tag[selftaught]{@item{Fill in the boxes with your ideas! @fill-in-the-blank[#:id "Suggestions"]
                                                                                     @fill-in-the-blank[#:id "Suggestions"]}}
@@ -24,5 +23,8 @@
             @tag[(pedagogy group)]{@item{When it comes time to program your games, you'll be working in pairs - you and a friend. But during class, there are a lot of activities and games we'll be playing where you and your partner will be part of a group.}}
            @tag[(pedagogy group)]{@item{Right now, all of you are sitting with your group, clustered together around the classroom. When it comes time for team competitions or group activities, you'll be working with the people sitting nearby.}}
             @tag[(pedagogy group)]{@item{These are just your groups for today! Depending on how well you work together, we'll be able to make some adjustments from class to class.}}
-            @tag[(pedagogy group)]{@item{@exercise{Assign group names (tip: use names that have something to do with computer science, or college, etc)}}}]}
+            @tag[(pedagogy group)]{@item{@exercise{Assign group names (tip: use names that have something to do with computer science, or college, etc)}}}
+                        @item{We'll be using Racket to program our videogames. As with any language, you'll need to learn the basics before we get into the complicated stuff! While you'll be thinking about and designing your videogames for the entire class, we're going to start out with the basics and build our way up from there.}
+            @item{For example, videogame programmers need to be really good at geometry in order to draw things at precise locations onscreen, and good at algebra to write functions that cause things to move, transform or explode in the game.}
+            @item{In each lesson, we'll talk about a new part of the videogame, the math concepts behind it, and then how to program those concepts into your game.}]}
 

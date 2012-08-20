@@ -10,5 +10,6 @@
 (define (rocket-height seconds) 0)
 
 
-; to see your rocket fly, type "(start rocket-height)"
-; in the interactions window.
+;;;; this line will make the rocket fly automatically when "Run" is clicked
+;;;; hit the Space Bar to make each second tick by
+(start rocket-height)

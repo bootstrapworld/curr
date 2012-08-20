@@ -109,6 +109,15 @@
          (printf "Could not find a \"lesson.scrbl\" in directory ~a\n"
                  (build-path lessons-dir subdir))]))
 
+;; and the long-lessons
+(printf "build.rkt: building long lessons\n")
+(for ([subdir (directory-list lessons-dir)]
+      #:when (directory-exists? (build-path lessons-dir subdir)))
+  (define scribble-file (build-path lessons-dir subdir "lesson" "lesson-long.scrbl"))
+  (cond [(file-exists? scribble-file)
+         (printf "build.rkt: Building ~a\n" scribble-file)
+         (run-scribble scribble-file)]))
+
 ;; and the worksheets
 (for ([subdir (directory-list lessons-dir)]
       #:when (directory-exists? (build-path lessons-dir subdir)))

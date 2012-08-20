@@ -1,6 +1,9 @@
 *~
-*png
+*.bak
+pict*.png
 *.html
+*.dep
+*.zo
 json2.min.js
 scribble.css
 easyXDM.min.js
@@ -10,4 +13,5 @@ wescheme-embedded.js
 racket.css
 bootstrap.css
 !lib/bootstrap.css
+courses\*\units\*\box.gif
 
