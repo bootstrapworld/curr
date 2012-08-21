@@ -25,7 +25,7 @@
     @item{You can also rotate any image, so that your player is facing any point on the screen:
           @code[#:multi-line #t]{;rotate : Number Image -> Number}}
     @item{Try rotating your player 45 degrees.}
-    @item{You can combine these functions together, just like you can use @code{+, -, /, *, sqrt}, and @code{sqr} together when working with Numbers. Can you make your player twice as big, @italic{and} rotated 45 degrees? @bitmap{images/icon-composed.png}}
+    @item{You can combine these functions together, just like you can use @code{+, -, /, *, sqrt}, and @code{sqr} together when working with Numbers. Can you make your player twice as big, @italic{and} rotated 45 degrees, like our example on the right?? @bitmap{images/icon-composed.png}}
     @item{Now try using all of these functions - however you want - to make the definitions of @code{DANGER, TARGET} and @code{PLAYER} look exactly the way you want. You can even change their locations inside @code{SCREENSHOT}, so that you get a real-life screenshot of your game!}
     @item{Click "Run", and evaluate @code{SCREENSHOT}. Does it look the way you expected? On your own, mess with the coordinates until the @code{TARGET} is placed where you want it to be.}
     
