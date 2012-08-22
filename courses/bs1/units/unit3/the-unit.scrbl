@@ -58,8 +58,15 @@
 @lesson[#:title "Closing" #:duration "5 minutes"]{
 
 @itemlist/splicing[
-        @pedagogy{@item{Who can tell us one thing we learned today? }}
+        @pedagogy{@item{Who can tell us one thing we learned today? }} 
         @tag[selftaught]{@item{@review{What did you learn from this lesson?}}}
+	@item{We learned about how to define variables and functions!} 
+        @item{@think-about[
+		#:question "Say that we wanted to define FACE to draw a smiley face of size 10. Would it be a variable or a function?"
+		#:answer "It would be a variable, since it's always the same image, of the same size."]}
+	@item{@think-about[
+		#:question "Say that we wanted to define FACE to draw a smiley face of whatever size you gave it. Would FACE be a variable or a function?"
+		#:answer "It would be a function, since it takes in a size, and returns a smiley based on the size that you gave it."]}
         @pedagogy{@item{Who saw someone else in the class do something great?}}
         @item{Well done! You guys have officially started your games! The next step is to make your characters animate, which we'll be doing in our next class. See you then!}
         @pedagogy{@item{Cleanup, dismissal.}}

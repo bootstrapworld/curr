@@ -27,7 +27,7 @@
                                 What is your @bold{name}? @code{rocket-height} What is your @bold{Domain}? @code{Number} What is your @bold{Range}? @code{Number}
                                 When I give you the number of seconds since blast-off, what do you do? @italic{multiply it by seven}. Let's try it out: "rocket-height three!" (21) "rocket-height zero!" (0) etc.}}}
      @item{@bold{Step 1: Contract}   @bitmap{images/3.1.png}}
-     @item{The Contract for a function is like an instruction manual. It tells you the name of function, what types of things it expects, and what type of thing it gives back.}
+     @item{The Contract for a function is like an instruction manual. It tells you the name of function, what types of things it expects, and what type of thing it gives back. It's important to write it down in your code, so that you can always refer back to it when you use that function!}
      @pedagogy{@item{Copy these answers onto the board: 
                           
                           @code{; rocket-height : Number -> Number}}}

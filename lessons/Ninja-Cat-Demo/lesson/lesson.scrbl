@@ -7,7 +7,7 @@
         ]{                 
  @itemlist/splicing[
    @item{Soon you're going to be designing your own games, but it's important to know how a simple game is built before you start designing your own.}
-   @item{Let's take a look at a real game, which I've made using the same language and tools that you guys will be learning. When you're done with this class, you'll be able to make something similar.}
+   @item{Let's take a look at a real game, which I've made using the same language and tools that you guys will be learning. When you're done with this class, you'll be able to make something similar. @bitmap{images/1.2.png}}
    @pedagogy{@item{@demo{Show the kids Ninjacat. Be sure to end on a frozen frame of the game, so the whole class can see the same image.}}}
    @tag[selftaught]{@item{Look at the demo of Ninjacat and click run. @embedded-wescheme[#:id "NinjaCat"
                    #:public-id "vital-grown-eater-shown-crime"

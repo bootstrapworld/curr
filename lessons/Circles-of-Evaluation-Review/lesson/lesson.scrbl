@@ -7,6 +7,7 @@
            @item{At the end of class, you learned something extremely important: the Circles of Evaluation, and how to write simple programs in Racket.}
            @item{Suppose I have the math expression "2 + 3." How would I draw a circle of evaluation for this? How would I convert this into code?}
            @;add image
+           @item{Remember that the parentheses are like our circles; they help us put our functions and inputs into the right order.}
            @item{@think-about[#:question "How about \"2 + 3 divided by 1 - 2\"?"
                              #:answer "MAKE A PICTURE!!!!"]}
            @item{Let's do a review challenge:
