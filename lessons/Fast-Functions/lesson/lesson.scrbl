@@ -41,5 +41,7 @@ that would just take in the size and draw me my triangle.}
 @pedagogy{@code[#:multi-line #t]{; gt : Number -> Image
 (EXAMPLE (gt 50) (triangle 50 "solid" "green"))
 (EXAMPLE (gt 95) (triangle 95 "solid" "green"))
-(define (gt size) (triangle size "solid" "green"))}}                                                                             }]}
+(define (gt size) (triangle size "solid" "green"))}}                                                                             }
+          @item{What we've learned here is a @italic{recipe} for solving programming problems. By starting with a @bold{word problem}, we can act out the function, then write it's contract, imagine a few examples, and then use those examples to write the code! Let's do another for practice - you'll need to get really good at these to build the functions you'll need for your videogame!}
+                                                                                                                                  ]}
 
