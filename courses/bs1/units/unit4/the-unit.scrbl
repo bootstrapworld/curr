@@ -23,7 +23,7 @@
             ]
 @preparation[@item{Write agenda on board}
               @item{Display Class posters, Language Table, Design Recipe}
-              @item{"Rocket" [ @resource-link[#:path "source-files/Rocket.rkt.pdf" #:label "Dr. Racket"] + @resource-link[#:path "teachers-guide/teachpacks/function-teachpack.rkt" #:label "TeachPack"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=drawl-youth-fifty-voter-shake" "WeScheme")] preloaded on students' machines}
+              @item{"Rocket" [ @resource-link[#:path "source-files/Rocket.rkt" #:label "Dr. Racket"] + @resource-link[#:path "teachers-guide/teachpacks/function-teachpack.rkt" #:label "TeachPack"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=KY4s7msuh6" "WeScheme")] preloaded on students' machines}
               @item{Seating arrangements: ideally clusters of desks/tables}]}
 
 @(language-table (list "Number" @code{+ - * / sq sqrt expt})
