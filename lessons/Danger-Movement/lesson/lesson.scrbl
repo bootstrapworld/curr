@@ -7,8 +7,7 @@
 @declare-tags[group pedagogy selftaught bootstrap]
 @lesson[#:title "Danger Movement" #:duration "20 min" #:prerequisites "Coordinate-Planes, Introducing-the-Design-Recipe"]{
 @;The students should probably have their game code files open. 
-@itemlist/splicing[@item{In our last class, you learned how to use the Design Recipe to write functions. Now it's time to write functions to make your game characters move!}
-          @item{Who wants to start making their game move?}
+@itemlist/splicing[@item{In our last class, you learned how to use the Design Recipe to solve word problems. In this lesson, all of the word problems will be about making your videogame characters move!}
           @pedagogy{@item{Draw a 640x480 "game screen" on the board, and have students help you label the axes and corners.}}
           @tag[selftaught]{@item{@think-about[#:question "Draw a 640x480 'game screen' on the board, and label the axes and corners."]}}
           @item{Here I've drawn a really boring game: my Danger is the letter "D", my Target is the letter "T", and my Player is just the letter "P". I've also labeled all the coordinates for where they are on the screen. @graph-image}
@@ -19,17 +18,17 @@
           @tag[selftaught]{@item{Draw an arrow to the NEW location, and label the coordinates.}}
           @item{@think-about[#:question "Suppose it moved to the right, by 50 pixels. What are the new coordinates?"
                              #:answer "The new coordinates are (550, 100)"]}
-          @item{I want my Danger to always move @bold{left by 50 pixels}, each time the screen is redrawn. So it goes from (550, 100) to (500, 100).}
+          @item{I want my Danger to always move @italic{left by 50 pixels}, each time the screen is redrawn. So it goes from (550, 100) to (500, 100).}
           @item{@think-about[#:question "What if it starts at (100, 100)? Where will go next? What if it's at (400, 600)? What if it's off the screen, at (650, 50)?"
                              #:answer "(50, 100), (350, 600), (600,50)"]}
-          @item{You will need to write a function that takes an x-coordinate and produces the next x-coordinate, to make your danger move.
+          @item{What we have here is a @bold{word problem}, which describes how the danger should move! Given any x-coordinate, @code{update-danger} should produce the next x-coordinate, which is fifty pixels to the left.
                 @build-table/cols['("Current x-coordinate" "Racket Code" "Next x-coordinate")
                                   '(("50" "75" "30")
-                                    ("(-50 50)" "(- 75 50)" "(- 30 50)")
+                                    ("(- 50 50)" "(- 75 50)" "(- 30 50)")
                                     ("0" "25" "-20"))
                                    (lambda (r c) (para ""))
                                    3 3]}
-          @item{Turn to @worksheet-link[#:page 15 #:name "Design-Recipe-Update-Danger"] for @code{update-danger}. @pedagogy{Have a student read the problem statement out loud.} @tag[selftaught]{Read the problem statement.}}
+          @item{Turn to @worksheet-link[#:page 15 #:name "Design-Recipe-Update-Danger"] for @code{update-danger}. @pedagogy{Have a student read the Word Problem out loud.} @tag[selftaught]{Read the Word Problem.}}
           @item{@think-about[#:question "Can you find the function name in this problem statement? Underline it."
                              #:answer @list{"The function name is " @code{update-danger}}]}
           @item{@think-about[#:question "Can you find the inputs and outputs? Underline them, too."
