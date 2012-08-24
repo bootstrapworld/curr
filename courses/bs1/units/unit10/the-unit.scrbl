@@ -4,8 +4,9 @@
 @title{Unit 10: Bridging to Algebra}
 
 @overview{
-
-Students translate from Racket into Algebra, and back. They then apply the Design Recipe to solve common word problems from Algebra texts.
+@unit-descr{
+Students translate from Racket into Algebra, and back. They then apply the Design Recipe to solve common word 
+problems from Algebra texts.}
 
 @objectives[@item{Take what they've learned in the programming domain, and apply it to the algebraic domain.}
             ]

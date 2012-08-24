@@ -312,11 +312,11 @@
       (decode-flow
        (list (cond [(and title duration)
                     (para #:style bs-lesson-title-style
-                          (list (elem #:style bs-lesson-name-style (format "Lesson: ~a " title))
+                          (list (elem #:style bs-lesson-name-style (format "~a" title)) ;; used to have "Lesson:"
                                 (elem #:style bs-lesson-duration-style (format "(Time ~a)" duration))))]
                    [title 
                     (para #:style bs-lesson-title-style
-                          (list (elem #:style bs-lesson-name-style (format "Lesson: ~a " title))))]
+                          (list (elem #:style bs-lesson-name-style (format "~a" title))))]
                    [duration 
                     (para #:style bs-lesson-title-style
                           (list (elem #:style bs-lesson-name-style (format "Lesson "))
