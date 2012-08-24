@@ -46,7 +46,7 @@
                                   @tag[selftaught]{@embedded-wescheme[#:id "example3"
                                                      #:public-id "drawl-youth-fifty-voter-shake"
                                                           #:interactions-text ""]}}
-     @item{@pedagogy{Do you guys want to see the rocket fly?} Type @code{(start rocket-height)}
+     @item{@pedagogy{Do you want to see the rocket fly?} Type @code{(start rocket-height)}
  to see your code in action. We've slowed time down, so that a second passes each time you hit the spacebar.}
      @pedagogy{@item{All right. Now let's have a little bonus round.}}
      @tag[(group pedagogy)]{@item{One point to every team who can figure out how to make the rocket fly twice as fast. You'll have 1 minute. GO!}}
