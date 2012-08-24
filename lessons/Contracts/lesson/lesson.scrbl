@@ -23,7 +23,7 @@
           @item{When we write a contract in Racket, it's like writing a note to ourselves about how to use the program. Just like with our soda machine, we don't care how it works when we're writing the contract. All that matters is @italic{how to use the function.} }
           @item{Since Contracts are for use by humans (and not computers), we put a semicolon (@code{;}) at the beginning when we write them into the computer. This tells the computer to ignore the line: it's for Humans Only!}
           @item{We'd like to create a list of contracts for ourselves, so that we can keep track of these functions and exactly how they work. Once we've practiced entering these contracts into our book, I'll show you new functions that let you work with words and pictures!}
-          @item{Are you ready? Turn to the front of your workbooks, to the MOST IMPORTANT PAGE, where it says @worksheet-link[#:page 0 #:name"Contracts"].}
+          @item{Are you ready? Turn to the front of your workbooks, to the MOST IMPORTANT PAGE, where it says \"Contracts\".}
           @item{A contract specifies @itemlist[#:style 'ordered
                                                         @item{the name of the function,}
                                                         @item{the domain, and}

@@ -26,7 +26,7 @@ Students translate from Racket into Algebra, and back. They then apply the Desig
            ]}
 
 @preparation[@item{Write agenda on board}
-             @item{"Algebra Translation" [@(hyperlink "???.rkt" "DrRacket file") + @(hyperlink "???.rkt" "teachpack") | @(hyperlink "http://www.wescheme.org/openEditor?publicId=felon-lyric-smack-fully-drool" "WeScheme")] preloaded on students' machines, with monitors off.}]
+             @item{"Algebra Translation" [@resource-link[#:path "source-files/Algebra.rkt" #:label "DrRacket"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=s2s0tkTgeF" "WeScheme")] preloaded on students' machines, with monitors off.}]
             
 
 @(language-table (list "Number" @code{+ - * / sq sqrt expt}) 

@@ -13,7 +13,7 @@
             @item{In math class, you define values using the equals sign: @code{x = 4}}
             @tag[pedagogy]{@item{Write this on the other side of the board.}}
             @item{And, as with our programming language, you can define values in terms of other values: @code{y = x + 10}}
-            @item{Turn to page 37 in your workbooks. You will see a bunch of value definitions written in code - take 2 minutes to convert this into math. GO!}
+            @item{Turn to page 35 in your workbooks. You will see a bunch of value definitions written in code - take 2 minutes to convert this into math. GO!}
             
             ]}
 

@@ -21,8 +21,8 @@
             @item{@think-about[#:question @list{What are the Domain and Range of @code{onscreen?} What does the function do? What will happen when it's given a sample input?} 
                                #:answer "It calls the function 'safe-left?' on the variable x"]}
             @item{We need to fix this code, to keep Sam safe. He can fly left or right and there is nothing to stop him from moving off the screen... yet!}
-            @item{@think-about[#:question "How far can Sam go to the left before NONE of him is onscreen?"
-                               #:answer "-50. So he is onscreen as long as x is greater than -50!"]}
+            @item{@think-about[#:question "How far can Sam go to the left before he disappears completely?"
+                               #:answer "-50."] So he is onscreen as long as @italic{x is greater than -50}!}
             @tag[selftaught pedagogy]{@item{Draw another, outer rectangle on the board to represent the 50 pixel buffer zone. Why do we have to go out to -50 put Sam off the screen, when the screen only goes from 0 to 640?}}
             @item{@pedagogy{Take some ideas from the class, then explain if necessary.}   When the butterfly is drawn at some coordinate, it is centered at that coordinate. So if it's drawn at 0, half of the butterfly is actually off the screen. We add the extra 50 pixels on all sides, because a piece of him is still visible as long as he is within 50 pixels of the screen's edge. }
             @item{Turn to @worksheet-link[#:page 17 #:name "Protecting-Sam"]. Take thirty seconds to fill out what we've discovered.}

@@ -6,7 +6,7 @@
         #:duration "30 minutes"
         ]{
   @itemlist/splicing[
-            @item{Turn to @worksheet-link[#:page 40 #:name "DR3"] in your workbooks.}
+            @item{Turn to @worksheet-link[#:page 38 #:name "DR3"] in your workbooks.}
             @item{"A rocket leaves Earth, headed for Mars at 80 miles per second. At the exact same time, an asteroid leaves Mars traveling towards Earth, moving at 70 miles per second. If the distance from the Earth to Mars is 50,000,000 miles, how long will it take for them to collide?"}
             @item{What is this problem asking us for? @tag[pedagogy{The time it takes for the rocket to collide with the asteroid}]}
             @item{What we want is a function that will tell us how many seconds until a collision occurs, given how far apart the rocket and asteroid are.}
@@ -41,6 +41,6 @@
             @item{@code{collide(100,000) = 100,000/150}}
             @item{@code{collide(d) = d/150}}
             @item{Sometimes, the Design Recipe will get you to the answer without even having to finish. That's how powerful it is!}
-            @item{Open your workbooks to @worksheet-link[#:page 41 #:name "DR4"]. This page and the one after it are wildcards -- you'll have until the end of class to finish them@tag[pedagogy{, and find out how many points you can get! Are you ready? On your marks, get set, GO}]!}
+            @item{Open your workbooks to @worksheet-link[#:page 39 #:name "DR4"]. This page and the one after it are wildcards -- you'll have until the end of class to finish them@tag[pedagogy{, and find out how many points you can get! Are you ready? On your marks, get set, GO}]!}
             @tag[pedagogy{@item{TEACHERS: you can add as many pages as you like to the workbooks, using any algebra problem you like. We recommend using word problems from your students' algebra textbook, or even from your state's standardized test!}}]
             ]}
