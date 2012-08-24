@@ -25,7 +25,7 @@
            @item{Language Table (see below)}]
 
 @preparation[@item{Create student game files. [See @resource-link[#:path "teachers-guide/teachers-guide.html" #:label "Teachers Guide"]]}
-           @item{On student machines: Student Game Files (generated from blank templates [@resource-link[#:path "source-files/Game.rkt" #:label "Dr. Racket"] + @resource-link[#:path "teachers-guide/teachpacks.zip" #:label "TeachPack"] | @(hyperlink "http://www.wescheme.org/view?publicId=c6VxtuPa5K" "WeScheme")])}
+           @item{On student machines: Student Game Files (generated from \"Game\" template [@resource-link[#:path "source-files/Game.rkt" #:label "Dr. Racket"] + @resource-link[#:path "teachers-guide/teachpacks.zip" #:label "TeachPack"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=q3fgrbasAi" "WeScheme")])}
            @item{Write agenda on board, and post along with class posters and the Language Table}
            @item{Seating arrangements: ideally clusters of desks/tables}
            @item{Optional: demo machine with projector to show the interations and definitions windows}]}
@@ -40,7 +40,7 @@
 
 @lesson[#:title "Introduction" #:duration "15 minutes"]{
         @itemlist/splicing[
-        @item{You @tag[group]{guys }have done a fantastic job in the last two classes!}
+        @item{You've have done a fantastic job in the last two classes!}
         @item{You've learned how to convert expressions into Circles of Evaluation, and how to convert those circles into Racket code.}
         @item{You've learned how to think about functions in terms of nested circles, and how to think of them as a relation between the Domain and Range.}
         @item{You've extended that knowledge into three data types: Numbers, Strings, and Images.}
@@ -68,7 +68,7 @@
 		#:question "Say that we wanted to make a shortcut that would take in a size, and draw a purple stars of that size. Would we define a value or make a function?"
 		#:answer "It would be a function, since it takes in a size, and returns a purple star based on the size that you gave it."]}
         @pedagogy{@item{Who saw someone else in the class do something great?}}
-        @item{Well done! You guys have officially started your games! The next step is to make your characters animate, which we'll be doing in our next class. See you then!}
+        @item{Well done! You have officially started your games! The next step is to make your characters animate, which we'll be doing in our next class. See you then!}
         @pedagogy{@item{Cleanup, dismissal.}}
         ]}
        
