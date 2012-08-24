@@ -30,7 +30,12 @@
      @item{With our pizza example, we had to deal with toppings that weren't on the menu. Now we need to deal with keys that aren't "up" or "down". 
            @think-about[#:question "How do we do that?"
                         #:answer "Do nothing! (Or have an else statement that returns the same position)"]}
-     @item{On @worksheet-link[#:page 24 #:name "Design-Recipe-Update-Player"], you'll find the problem statement for @code{update-player}. Grab a Design Recipe Worksheet, fill it out, and then write this function @tag[group]{with your team}.}
+     @item{On @worksheet-link[#:page 24 #:name "Design-Recipe-Update-Player"], you'll find the word problem for @code{update-player}. Grab a Design Recipe Worksheet, fill it out, and then write this function @tag[group]{with your team}.}
      @;Here students should open their files, review, and possibly add cheats.
-     @pedagogy{@item{Students can also add "cheat codes", by adding Cond branches for other keys. For example, a student might add @code{[(string=? key "c") 240]}, which causes the player to jump to the center of the screen if the c key is pressed.}}
-     @tag[selftaught]{@item{You can also add "cheat codes", by adding Cond branches for other keys. For example, you might add @code{[(string=? key "c") 240]}, which causes the player to jump to the center of the screen if the c key is pressed.}}]}
+     @item{If you don't like using the arrow keys to make the player move up and down, you can just as easily change them to work with "w" and "x".}
+     @item{You can also add more advanced movement, by using what you learned about boolean functions. Here's are some ideas..
+           @itemlist/splicing[@item{Warping: instead of having the player's y-coordinate change by adding or subtracting, replace it with a Number to have the player suddenly appear at that location. (For example, hitting the "c" key causes the player to warp back to the center of the screen, at y=240.)}
+                               @item{Wrapping: Add a condition (before any of the keys) that check to see if the player's y-coordinate is above the screen (y > 480). If it is, have the player warp to the bottom (y=0). Add another condition so that the player warps back up to the top of the screen if it moves below the bottom.}
+                               @item{Challenge: Have the player hide when the "h" key is pressed, only to re-appear when it is pressed again!}
+                               ]}
+                                 ]}
