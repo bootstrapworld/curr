@@ -29,7 +29,7 @@
                                    (lambda (r c) (para ""))
                                    3 3]}
           @item{Turn to @worksheet-link[#:page 15 #:name "Design-Recipe-Update-Danger"] for @code{update-danger}. @pedagogy{Have a student read the Word Problem out loud.} @tag[selftaught]{Read the Word Problem.}}
-          @item{@think-about[#:question "Can you find the function name in this problem statement? Underline it."
+          @item{@think-about[#:question "Can you find the function name in this word problem? Underline it."
                              #:answer @list{"The function name is " @code{update-danger}}]}
           @item{@think-about[#:question "Can you find the inputs and outputs? Underline them, too."
                              #:answer "The input is the x-coordinate of Danger and the output is the x-coordinate of Danger minus 50."]}

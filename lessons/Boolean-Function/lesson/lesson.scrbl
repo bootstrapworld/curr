@@ -1,19 +1,20 @@
 #lang curr/lib
 @declare-tags[group pedagogy selftaught bootstrap]
-@lesson[#:title "Boolean Function" 
+@lesson[#:title "Boolean Functions" 
         #:duration "15 minutes"
         #:prerequisites "Intro-to-Booleans Contracts"]{
    @itemlist/splicing[
       @item{You've already learned many functions that allow you to create Booleans. < and >, for example, will all return a boolean when applied to the appropriate input.}
       @item{There are also many functions that work with Booleans, and let you do really complex tests.}
-      @item{@pedagogy{Pick up two, easily-distinguishable objects (a pen and an eraser, for example).} @tag[selftaught]{Pretend you are holding a pen and an eraser}  Tell me if the following statements are true or false:@itemlist/splicing[
-             @item{I am holding a pen: @fill-in-the-blank[#:id "bool1"].}
-             @item{I am holding an eraser: @fill-in-the-blank[#:id "bool2"]}
-             @item{I am holding a pen AND an eraser: @fill-in-the-blank[#:id "bool3"] @pedagogy{Drop the pen}@tag[selftaught]{Now the pen is dropped.}}
-             @item{I am holding a pen AND an eraser: @fill-in-the-blank[#:id "bool4"].}
-             @item{I am holding a pen OR an eraser: @fill-in-the-blank[#:id "bool5"]. @pedagogy{Drop the eraser}@tag[selftaught]{Now the eraser is dropped.}}
-             @item{I am holding a pen OR an eraser: @fill-in-the-blank[#:id "bool6"].}]}
+      @item{Tell me if the following statements are true or false:@itemlist/splicing[
+             @item{Sugar is sweet}
+             @item{Ice is hot}
+             @item{Sugar is sweet @bold{and} Ice is cold.}
+             @item{Sugar is sweet @bold{and} Ice is hot. @pedagogy{Why is it false? Isn't sugar still sweet?}}
+             @item{Sugar is sweet @bold{or} Ice is cold.}
+             @item{Sugar is sweet @bold{or} Ice is hot. @pedagogy{Why is it true? Ice isn't hot!}}]}
       @item{Did you notice how we joined the Boolean statements? What words did we use? (AND, OR).}
+      @item{The key concept here is that @code{and} requires that both statements be true, and @code{or} needs @italic{at least one} to be true.}
       @item{@think-about[#:question "What are the contracts for both AND and OR?"
                                     @; MUTLIPLE ANSWERS
                          #:answer @code{; and: Boolean Boolean -> Boolean
