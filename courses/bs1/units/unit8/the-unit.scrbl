@@ -51,7 +51,7 @@
 
 
 
-@lesson[#:title "Closing Time:" #:duration "10 minutes"]{
+@lesson[#:title "Closing" #:duration "10 minutes"]{
 
 @itemlist/splicing[
 

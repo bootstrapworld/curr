@@ -17,7 +17,7 @@
             @item{To translate these functions into algebra, we do something similar to what we did with the values. We remove the @code{define}, and replace it with an equals sign: @code{f(x) = x + 1}}
             @item{Who can translate the function @code{g}?}
             @item{@code{g(q) = q * 6}}
-            @tag[pedagogy{@item{Have students translate the rest of the functions, listed on @worksheet-link[#:page 37 #:name "Functions"].}}]
+            @tag[pedagogy{@item{Have students translate the rest of the functions, listed on @worksheet-link[#:page 35 #:name "Translating into Algebra.."].}}]
             @item{Okay, so you're pretty good at translating from code to math. Do you think you can translate from math back into code?}
             @tag[pedagogy{@item{1...2...3 Monitors ON!!!}}]
             @item{On your computers, there are five examples of functions written in algebra. Under each one, I want you to convert the algebraic function into code. @tag[pedagogy{You will have five minutes - GO!}]}

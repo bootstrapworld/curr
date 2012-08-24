@@ -1,7 +1,7 @@
 #lang curr/lib
 @declare-tags[group pedagogy selftaught bootstrap]
 @lesson[#:title "Introduction" 
-        #:duration "20 minutes"
+        #:duration "10 minutes"
         #:prerequisites "Coordinate-Planes Introducing-the-Design-Recipe Cond-Example-With-Pizza-Toppings"]{
         @itemlist/splicing[@item{Review previous material.}
                   @item{Right now, in your games, what happens when the player collides with another game character? Nothing! We need to write a function change that.}
@@ -22,16 +22,14 @@
                                      #:answer "Input: two numbers, Domain: numbers, Range: number representing difference between the two numbers"]}
                  @pedagogy{@item{@skit{@itemlist/splicing[
                                                           @item{I'd like to have one volunteer stand up and be our function. Raise your hand if you'd like to volunteer! }
-                                                          @item{Your name is now "line-length". Whenever I call your name, I will also give you two numbers, and your job is to tell me the difference between them - just like the code on the board! Let's try one example "line-length twenty ten!" your volunteer should reply with "ten."}
-                                                          @item{Raise your hand if you'd like to try! Take some volunteers, and make sure line-length is doing the right thing (including bugs if the first number is smaller than the second!).}]}}}
+                                                          @item{Your name is now "line-length". Whenever I call your name, I will also give you two numbers, and your job is to tell me the difference between them - just like the code on the board! Let's try one example "line-length twenty ten!" @pedagogy{Your volunteer should reply with "ten."}}
+                                                          @item{Raise your hand if you'd like to try! @pedagogy{Run through a few examples}}]}}}
                   @item{@think-about[#:question "What is the name of the second function? How many inputs does it take? What is the name of the input? What's the Domain? What's the Range? "
                                      #:answer "Name: collide?, Input: two numbers, Domain: numbers, Range: boolean"]}
                  @item{@think-about[#:question @list{What does this function do? @pedagogy{Raise your hand if you have an idea.}}
-                                    #:answer "Takes in two numbers and passes it in to line-length to calculate the difference and returns a boolean determining whether the two objects have collided (whether the difference is greater than 5)."]}
+                                    #:answer "Takes in two numbers and passes it in to line-length to calculate the difference and returns a boolean determining whether the two objects have collided (whether the difference is greater than 50)."]}
                  @pedagogy{@item{@skit{@itemlist/splicing[@item{I'd like to have one volunteer stand up and be collide? Raise your hand if you'd like to volunteer!}
                                             @item{Your name is now "collide?". Whenever I call your name, I will also give you two numbers, and your job is to say "true" if the difference between them is greater than five. What will you say if the difference is smaller than five?}
                                             @item{Let's try an example: "collide? ten twenty"! Make sure collide? calls on line-length!. Let's have some more examples...}
-                                            @item{So what's the problem, if the second number is bigger? we keep getting negative numbers!}
                                             @item{Thank you! You can both have a seat now. A round of applause for our brave volunteers!}]}}}
-                @tag[selftaught]{@item{@think-about[#:question "So what's the problem, if the second number is bigger?"
-                                                    #:answer "We keep getting negative numbers!"]}}]}
+]}
