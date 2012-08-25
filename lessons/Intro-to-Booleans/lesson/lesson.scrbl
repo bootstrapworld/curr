@@ -1,8 +1,9 @@
 #lang curr/lib
 @declare-tags[group pedagogy selftaught bootstrap]
 @lesson[#:title "Booleans" 
-        #:video @(hyperlink "http://www.youtube.com/watch?v=X7gAXxpBhUo" "Video Lesson: Intro to Booleans")  @(hyperlink "http://www.youtube.com/watch?v=kcBfXGziAQA" "Boolean Contracts") 
-#:duration "5 minutes"]{
+        #:video @(list (hyperlink "http://www.youtube.com/watch?v=X7gAXxpBhUo" "Video Lesson: Intro to Booleans")  
+                       (hyperlink "http://www.youtube.com/watch?v=kcBfXGziAQA" "Boolean Contracts"))
+        #:duration "5 minutes"]{
    
    @itemlist/splicing[
        @item{We're going to play a quick game, called "True or False."}
