@@ -142,6 +142,7 @@
 (define bs-lesson-title-style (bootstrap-style "BootstrapLessonTitle"))
 (define bs-lesson-name-style (bootstrap-style "BSLessonName"))
 (define bs-lesson-duration-style (bootstrap-style "BSLessonDuration"))
+(define bs-video-style (bootstrap-style "BootstrapVideo"))
 
 ;; make-bs-latex-style : string -> style
 ;; defines a style that will only be used in latex
@@ -321,6 +322,10 @@
                     (para #:style bs-lesson-title-style
                           (list (elem #:style bs-lesson-name-style (format "Lesson "))
                                 (elem #:style bs-lesson-duration-style (format "(Time ~a)" duration))))])
+             (cond [(and video (list? video))
+                    (map (lambda (v) (elem #:style bs-video-style v)) video)]
+                   [video (elem #:style bs-video-style video)]
+                   [else (elem)])
              (compound-paragraph (bootstrap-sectioning-style "BootstrapLesson")
                                  (decode-flow body))))))))
 
