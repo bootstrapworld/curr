@@ -83,6 +83,7 @@
 
          resource-link
          lesson-link
+         video-link
          )        
 
 
@@ -304,30 +305,33 @@
                 #:prerequisites (prerequisites #f)
                 #:video (video #f)
                 . body)
-  (traverse-block
-   (lambda (get set!)
-     (set! 'bootstrap-lessons (cons (lesson-struct title duration) (get 'bootstrap-lessons '())))     
-     
-     (nested-flow
-      (style "BootstrapLesson" '())
-      (decode-flow
-       (list (cond [(and title duration)
-                    (para #:style bs-lesson-title-style
-                          (list (elem #:style bs-lesson-name-style (format "~a" title)) ;; used to have "Lesson:"
-                                (elem #:style bs-lesson-duration-style (format "(Time ~a)" duration))))]
-                   [title 
-                    (para #:style bs-lesson-title-style
-                          (list (elem #:style bs-lesson-name-style (format "~a" title))))]
-                   [duration 
-                    (para #:style bs-lesson-title-style
-                          (list (elem #:style bs-lesson-name-style (format "Lesson "))
-                                (elem #:style bs-lesson-duration-style (format "(Time ~a)" duration))))])
-             (cond [(and video (list? video))
-                    (map (lambda (v) (elem #:style bs-video-style v)) video)]
-                   [video (elem #:style bs-video-style video)]
-                   [else (elem)])
+  (let ([video-elem (cond [(and video (list? video))
+                           (map (lambda (v) (elem #:style bs-video-style v)) video)]
+                          [video (elem #:style bs-video-style video)]
+                          [else (elem)])])
+    (traverse-block
+     (lambda (get set!)
+       (set! 'bootstrap-lessons (cons (lesson-struct title duration) (get 'bootstrap-lessons '())))     
+       
+       (nested-flow
+        (style "BootstrapLesson" '())
+        (decode-flow
+         (list (cond [(and title duration)
+                      (para #:style bs-lesson-title-style
+                            (list (elem #:style bs-lesson-name-style title) 
+                                  video-elem
+                                  (elem #:style bs-lesson-duration-style (format "(Time ~a)" duration))))]
+                     [title 
+                      (para #:style bs-lesson-title-style
+                            (list (elem #:style bs-lesson-name-style title)
+                                  video-elem))]
+                     [duration 
+                      (para #:style bs-lesson-title-style
+                            (list (elem #:style bs-lesson-name-style (format "Lesson "))
+                                  video-elem
+                                  (elem #:style bs-lesson-duration-style (format "(Time ~a)" duration))))])
              (compound-paragraph (bootstrap-sectioning-style "BootstrapLesson")
-                                 (decode-flow body))))))))
+                                 (decode-flow body)))))))))
 
 (define (unit-separator unit-number)
   (elem #:style "BSUnitSeparationPage" (format "Lesson ~a" unit-number)))
@@ -742,7 +746,9 @@
   (hyperlink (path->string the-relative-path)
              (if label label lesson-name)))
 
-
+;; wraps a hyperlink in the bootstrap styling tag
+(define (video-link hylink)
+  (elem #:style bs-video-style hylink))
 
 
 ;; Creates a link to the worksheet.

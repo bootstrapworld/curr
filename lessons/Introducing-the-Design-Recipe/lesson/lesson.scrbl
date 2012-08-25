@@ -8,7 +8,7 @@
   @itemlist/splicing[
      @item{Now it's time to start thinking about animation, since you'll need it for your videogame!}
      @item{You already know most of the steps from the last lesson, but we're going to do a few practice exercises before turning you loose on your own games.}
-     @item{Ever hear of a flip-book animation? @(hyperlink "http://www.youtube.com/embed/txj6nIixIq4?t=22s" "(Click here for an example.)")}
+     @item{Ever hear of a flip-book animation? @(video-link (hyperlink "http://www.youtube.com/embed/txj6nIixIq4?t=22s" "(Click here for an example.)"))}
      @item{When you make a flip-book, you draw each page a little differently from the page before it. We can use functions to do just that! Suppose we had a function that drew a rocket ship a little higher up on each page of a flip-book. What would it look like if you moved through the pages quickly? It would look like the rocket was flying! You've already learned how to draw one frame of your videogame with the characters at certain coordinates, and now we'll learn how a program can change those coordinates. @bold{Today, you're going to learn how to animate a rocket}, then next time you will use what you learned today to animate the characters in your games!}
      @item{Believe it or not, you're 90% of the way towards being able to write an animation function! All the steps you took to write those functions before are actually part of a process that real programmers use, called the Design Recipe.}
      @item{Engineers all over the world use the Design Recipe to write functions. It's a way of thinking through each step of programming and making sure that you're on the right path before you even touch the keyboard.}
