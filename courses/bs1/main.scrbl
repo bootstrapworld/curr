@@ -19,7 +19,7 @@ compares each lesson to a variety of state standards, as well as the new Common 
            which should be used with the curriculum. A @bold{Teacher's Edition} is also available upon request. 
            Please fill out a request using our 
            @hyperlink["https://docs.google.com/a/bootstrapworld.org/spreadsheet/viewform?formkey=dHpQc0VHV2dBU2tSN1ptMktBUmtoZWc6MQ#gid=0"]{online form}, and we'll get back to you right away.})
-         (for/list ([n (in-range 1 (add1 9))])
+         (for/list ([n (in-range 1 (add1 10))])
            (unit-summary/links n))
          (list 
           @summary-item/links["Supplemental Lessons" "units/Supplemental/the-unit"]{

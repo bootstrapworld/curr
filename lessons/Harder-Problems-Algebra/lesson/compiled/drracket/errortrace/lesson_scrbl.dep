@@ -1,1 +1,1 @@
-("5.2" ("cf1c00183b64ea4e10e53ee15b8d4e78c661c255" . "632985afe402abb5ea72b1dae90ae4cdddb40c69") (collects #"errortrace" #"errortrace-key.rkt") #"/home/viccro/Documents/git/curr/lib/lang.rkt" #"/home/viccro/Documents/git/curr/lib/lang/reader.rkt")
+("5.2.1" ("1b69feb996b5f3cf5641515d1036b1ec05f031e9" . "18af4e41573d50c4060e1d55a1cf50e4fb78190b") (collects #"errortrace" #"errortrace-key.rkt") #"C:\\Documents and Settings\\kfisler\\My Documents\\GitHub\\curr\\lib\\lang.rkt" #"C:\\Documents and Settings\\kfisler\\My Documents\\GitHub\\curr\\lib\\lang\\reader.rkt")

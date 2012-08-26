@@ -8,8 +8,7 @@
   @itemlist/splicing[
      @item{Now it's time to start thinking about animation, since you'll need it for your videogame!}
      @item{You already know most of the steps from the last lesson, but we're going to do a few practice exercises before turning you loose on your own games.}
-     @pedagogy{@item{How many of you know what a flip-book animation is? Explain if necessary.}}
-     @tag[selftaught]{@item{Ever hear of flip-book animation?}}
+     @item{Ever hear of a flip-book animation? @(video-link (hyperlink "http://www.youtube.com/embed/txj6nIixIq4?t=22s" "(Click here for an example.)"))}
      @item{When you make a flip-book, you draw each page a little differently from the page before it. We can use functions to do just that! Suppose we had a function that drew a rocket ship a little higher up on each page of a flip-book. What would it look like if you moved through the pages quickly? It would look like the rocket was flying! You've already learned how to draw one frame of your videogame with the characters at certain coordinates, and now we'll learn how a program can change those coordinates. @bold{Today, you're going to learn how to animate a rocket}, then next time you will use what you learned today to animate the characters in your games!}
      @item{Believe it or not, you're 90% of the way towards being able to write an animation function! All the steps you took to write those functions before are actually part of a process that real programmers use, called the Design Recipe.}
      @item{Engineers all over the world use the Design Recipe to write functions. It's a way of thinking through each step of programming and making sure that you're on the right path before you even touch the keyboard.}
@@ -17,10 +16,10 @@
      @item{We're going to try using the Design Recipe to animate a rocket@tag[group]{, and for this you'll be working in pairs}.}
      @item{First, let's take a look at some BUGGY code that someone else wrote, since they forgot to use the Design Recipe.}
      @item{Open the Rocket file, and @bold{click run.}}
-     @item{In the Interactions window, type @code{(start rocket-height)} to see what happens. A window appears, with our rocket starting out on the ground. At the top of the window, you can see the number of seconds that have passed since blastoff, and the height of the rocket at that time. How many seconds have passed? How high is the rocket?}
-     @item{Now @bold{hit the space bar to make time go by}. What happens to the rocket? Nothing! This code has a bug in it! Let's see what went wrong...}
+     @item{A window appears, with our rocket starting out on the ground. At the top of the window, you can see the number of seconds that have passed since blastoff, and the height of the rocket at that time. How many seconds have passed? How high is the rocket?}
+     @item{Now @italic{hit the space bar to make time go by}. What happens to the rocket? Nothing! This code has a bug in it! Let's see what went wrong...}
      @item{Turn to @worksheet-link[#:page 11 #:name "Design-Recipe-Rocket-Height"] in your workbook@tag[group]{s}. @pedagogy{Have a student read the Word Problem aloud.} @tag[selftaught]{Read the Word Problem.}}
-     @item{Just by reading this Word Problem, we can tell a lot about the function we're going to write. For example, what is the function's name? @tag[group]{Have one person in each pair underline the name on your paper.} @tag[selftaught]{Make a note of the name of the function.}}
+     @item{Just by reading this @bold{Word Problem}, we can tell a lot about the function we're going to write. For example, what is the function's name? @tag[group]{Have one person in each pair underline the name on your paper.} @tag[selftaught]{Make a note of the name of the function.}}
      @item{What @italic{kinds of things go into this function?} Numbers? Strings? Images? @italic{What kinds of things does the function give back?} @tag[group]{Now the other person in each pair} Circle these on your paper.}
      @pedagogy{@item{@skit{Who would like to volunteer to @italic{act out} this function?
                                 
@@ -47,7 +46,7 @@
                                   @tag[selftaught]{@embedded-wescheme[#:id "example3"
                                                      #:public-id "drawl-youth-fifty-voter-shake"
                                                           #:interactions-text ""]}}
-     @item{@pedagogy{Do you guys want to see the rocket fly?} Type @code{(start rocket-height)}
+     @item{@pedagogy{Do you want to see the rocket fly?} Type @code{(start rocket-height)}
  to see your code in action. We've slowed time down, so that a second passes each time you hit the spacebar.}
      @pedagogy{@item{All right. Now let's have a little bonus round.}}
      @tag[(group pedagogy)]{@item{One point to every team who can figure out how to make the rocket fly twice as fast. You'll have 1 minute. GO!}}

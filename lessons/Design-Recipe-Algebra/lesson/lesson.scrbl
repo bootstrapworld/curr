@@ -9,14 +9,14 @@
             @item{Of course, the real power of programming isn't how well you know the language. It's about how well you can use it to solve problems! In this class, you've leared about a powerful tool that helps you take word problems on paper and turn them into functions on the computer: the Design Recipe!}
             @item{It turns out that the Design Recipe can also be used to help you solve word problems in algebra, too!}
             @item{Just like we have in the past, we're going to test out your Design Recipe skills...but this time, you'll be using it with Algebra, instead of Code.}
-            @item{For Round 1, let's take a problem you've seen before, and walk through it the way we would in an algebra class. Turn to @worksheet-link[#:page 38 #:name "DR"] in your workbooks.} 
+            @item{For Round 1, let's take a problem you've seen before, and walk through it the way we would in an algebra class. Turn to @worksheet-link[#:page 36 #:name "DR"] in your workbooks.} 
             @item{"A rocket is flying from Earth to Mars at 80 miles per second. Write a function that describes the distance @code{D} the rocket has traveled, as a function of time @code{t}."}
             @item{Where do we start? @tag[pedagogy]{Give students some time to think, or make suggestions.}}
             @item{Well, we want to write a function - so what's the first step in the Design Recipe? We need to make a contract!}
             @item{Every contract has three parts. What are they?}            
             @item{As usual, the first two parts of the contract sometimes have hints to them in the problem itself. Take a minute, and see if you @tag[pedagogy]{and your partner} can underline the hints for the Name and Domain of this function.}
             @item{So what did you find? The problem wants us to find out the distance the rocket has traveled. So we could call the function @code{Distance}, or @code{D} for short. Sometimes we can choose our own name, and sometimes the problem tells us which name it wants. Does this one tell us whether it should be @code{D} or @code{Distance}?}
-            @item{What about the Domain? What kind of thing goes into the distance function? Is it how many people are on the rocket? How many stops it makes? Did anybody find the hint in the problem statement?}
+            @item{What about the Domain? What kind of thing goes into the distance function? Is it how many people are on the rocket? How many stops it makes? Did anybody find the hint in the word problem?}
             @item{It's the number of seconds the rocket has been traveling! What about the Range? What kind of thing is distance? It's the number of miles the rocket has traveled! In algebra, we can actually be a little more descriptive than in programming, so we can simply write @code{; D : seconds -> miles} } 
             @item{Let's also make a little note to ourselves, to remind us of what this function is all about.}
             @item{@code{; D : seconds -> miles} }
@@ -39,12 +39,18 @@
             @item{Can you come up with more examples?}
             @item{Okay, so now we've done some examples. @tag[pedagogy]{Raise your hand if you can tell me what we do next?}}
             @item{Now we circle everything that's changed! In this case, that's just the second number - the one thay gets multiplied by 80. What we need now is a good variable name. What does that number mean? Think back to what was underlined on your paper, when we talked about what goes into the function. What should we call it?}
+<<<<<<< HEAD
             @tag[pedagogy]{@item{By now, students should be able to figure out the variable name themselves. However, it's worth pointing out that some problem statements (like this one!) will tell students what to call the variable.}}
+=======
+            @tag[pedagogy]{@item{By now, students should be able to figure out the variable name themselves. However, it's worth pointing out that some word problems (like this one!) will tell students what to call the variable.}}
+>>>>>>> 2fc5b1d42afa456224aec0e3910c920e8973b6b5
             @item{Okay, so we've got our contract, our examples, and our variable name. We're ready to define the function! Just as we always have, we copy our examples - replacing the circles items with the variable names.}
             @item{@code{D(t) = 80*t}}
-            @item{For Round 2, I'm going to give you a slightly different problem, and see if you can figure out how to write the function. Turn to @worksheet-link[#:page 39 #:name "DR2"] in your workbooks.}
+            @item{For Round 2, I'm going to give you a slightly different problem, and see if you can figure out how to write the function. Turn to @worksheet-link[#:page 37 #:name "DR2"] in your workbooks.}
             @item{"A rocket is traveling from Earth to Mars at 80 miles per second. Write a function that describes the time the rocket has been traveling, as a function of distance."}
-            @item{Take a minute @tag[pedagogy]{with your partner}, and see if you can underline all the hints in this problem statement.}
+
+            @item{Take a minute @tag[pedagogy]{with your partner}, and see if you can underline all the hints in this word problem.}
+
             @tag[pedagogy]{@item{If necessary, point out that this is the same relationship between distance and time as before, only now we want be able to see the relationship from the opposite direction: time in terms of distance, rather than distance in terms of time.}}
             @item{What's the first step? Write the contract!}
             @item{@code{; time : miles -> seconds}}

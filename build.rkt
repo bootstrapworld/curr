@@ -92,6 +92,11 @@
          (copy-file (build-path "lib" "box.gif") 
                     (build-path (get-units-dir) subdir "box.gif")
                     #t)
+         #;(when (current-deployment-dir)
+           (copy-file (build-path "lib" "box.gif")
+                      (build-path (current-deployment-dir) "courses"
+                                  (current-course) "units" subdir "box.gif")
+                      #t))
          (run-scribble scribble-file)]
         [else
          (printf "Could not find a \"the-unit.scrbl\" in directory ~a\n"
@@ -155,7 +160,13 @@
                             (simple-form-path
                              (build-path output-resources-dir))))))
 
-
+;; copy auxiliary files into units within distribution
+(when (current-deployment-dir)
+  (for ([subdir (directory-list (get-units-dir))])
+    (copy-file (build-path "lib" "box.gif")
+               (build-path (current-deployment-dir) "courses"
+                           (current-course) "units" subdir "box.gif")
+               #t)))
 
 ;; Subtle: this must come after we potentially touch the output
 ;; resources subdirectory.
@@ -164,7 +175,7 @@
        (run-scribble (get-teachers-guide))]
       [else
        (printf "build.rkt: no teacher's guide found; skipping\n")])
-  
+ 
 
 (when (current-deployment-dir)
   (let-values ([(base file dir?) (split-path (current-deployment-dir))])
