@@ -39,11 +39,7 @@
             @item{Can you come up with more examples?}
             @item{Okay, so now we've done some examples. @tag[pedagogy]{Raise your hand if you can tell me what we do next?}}
             @item{Now we circle everything that's changed! In this case, that's just the second number - the one thay gets multiplied by 80. What we need now is a good variable name. What does that number mean? Think back to what was underlined on your paper, when we talked about what goes into the function. What should we call it?}
-<<<<<<< HEAD
-            @tag[pedagogy]{@item{By now, students should be able to figure out the variable name themselves. However, it's worth pointing out that some problem statements (like this one!) will tell students what to call the variable.}}
-=======
             @tag[pedagogy]{@item{By now, students should be able to figure out the variable name themselves. However, it's worth pointing out that some word problems (like this one!) will tell students what to call the variable.}}
->>>>>>> 2fc5b1d42afa456224aec0e3910c920e8973b6b5
             @item{Okay, so we've got our contract, our examples, and our variable name. We're ready to define the function! Just as we always have, we copy our examples - replacing the circles items with the variable names.}
             @item{@code{D(t) = 80*t}}
             @item{For Round 2, I'm going to give you a slightly different problem, and see if you can figure out how to write the function. Turn to @worksheet-link[#:page 37 #:name "DR2"] in your workbooks.}

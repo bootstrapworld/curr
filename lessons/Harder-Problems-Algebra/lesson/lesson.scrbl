@@ -42,7 +42,7 @@
             @item{@code{collide(d) = d/150}}
             @item{Sometimes, the Design Recipe will get you to the answer without even having to finish. That's how powerful it is!}
 
-            @item{Open your workbooks to @worksheet-link[#:page 39 #:name "DR4"]. This page and the one after it are wildcards -- you'll have until the end of class to finish them@tag[pedagogy{, and find out how many points you can get! Are you ready? On your marks, get set, GO}]!}
-            @tag[pedagogy{@item{TEACHERS: you can add as many pages as you like to the workbooks, using any algebra problem you like. We recommend using word problems from your students' algebra textbook, or even from your state's standardized test!}}]
+            @item{Open your workbooks to @worksheet-link[#:page 39 #:name "DR4"]. This page and the one after it are wildcards -- you'll have until the end of class to finish them@tag[pedagogy]{, and find out how many points you can get! Are you ready? On your marks, get set, GO}!}
+            @pedagogy{@item{TEACHERS: you can add as many pages as you like to the workbooks, using any algebra problem you like. We recommend using word problems from your students' algebra textbook, or even from your state's standardized test!}}
 
             ]}
