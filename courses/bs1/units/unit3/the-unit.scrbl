@@ -25,7 +25,7 @@
            @item{Language Table (see below)}]
 
 @preparation[@item{Create student game files. [See @resource-link[#:path "teachers-guide/teachers-guide.html" #:label "Teachers Guide"]]}
-           @item{On student machines: Student Game Files (generated from "Game" template [@resource-link[#:path "source-files/Game.rkt" #:label "Dr. Racket"] + @resource-link[#:path "teachers-guide/teachpacks.zip" #:label "TeachPack"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=q3fgrbasAi" "WeScheme")])}
+           @item{On student machines: Student Game Files (generated from "Game" template [Game.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=q3fgrbasAi" "WeScheme")])}
            @item{Write agenda on board, and post along with class posters and the Language Table}
            @item{Seating arrangements: ideally clusters of desks/tables}
            @item{Optional: demo machine with projector to show the interations and definitions windows}]}

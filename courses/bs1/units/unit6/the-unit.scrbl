@@ -30,7 +30,7 @@
 @preparation[
           @item{Write agenda on board}
           @item{Student games open on their computers}
-          @item{"Cage" [@(resource-link #:path "source-files/Cage.rkt" #:label "DrRacket file") + @(resource-link #:path "teachers-guide/teachpacks/cage-teachpack.rkt" #:label "teachpack") | @(hyperlink "http://www.wescheme.org/openEditor?publicId=equal-guild-ebony-apply-snore" "WeScheme")] preloaded on students' machines, in front}
+          @item{"Cage" [Cage.rkt from @(resource-link #:path "source-files.zip" #:label "source-files.zip") | @(hyperlink "http://www.wescheme.org/openEditor?publicId=equal-guild-ebony-apply-snore" "WeScheme")] preloaded on students' machines, in front}
           @item{Class posters}
           @item{Seating arrangements: ideally clusters of desks/tables}
           ]

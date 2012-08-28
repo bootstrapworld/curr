@@ -30,7 +30,7 @@
 @pedagogy{
 @preparation[@item{Write agenda on board}
              @item{Student games open on their computers}
-             @item{OPTIONAL: Bug Hunting [@resource-link[#:path "source-files/Bugs.rkt" #:label "DrRacket"] | @(hyperlink "http://www.wescheme.org/openEditor?pid=3116394" "WeScheme")] preloaded on students' machines, in front}
+             @item{OPTIONAL: Bug Hunting [Bugs.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/openEditor?pid=3116394" "WeScheme")] preloaded on students' machines, in front}
              @item{Class posters}
              @item{Seating arrangements: ideally clusters of desks/tables}]}
 
