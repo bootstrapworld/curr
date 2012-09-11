@@ -9,7 +9,7 @@
           @item{Let's talk about graphics.}
           @pedagogy{@item{On the board, draw the Circle of Evaluation for 
                                  @code{(circle 50 "solid" "red")}}}
-          @tag[selftaught]{@item{@bitmap{images/2.2.png} Take a look at this Circle of Evaluation}}
+          @item{Take a look at this Circle of Evaluation.@bitmap{images/2.2.png}}
           @pedagogy{@item{Can someone tell me how to convert this into Racket code? Copy their answer on the board.}}
           @tag[selftaught]{@item{@think-about[#:question "How would you convert this to racket code? Check your answer below."
                                                                      #:answer @code{(circle 50 "solid" "red")}]}}
@@ -27,18 +27,14 @@
 
            @item{What it gives back is a new Type: Image!}
            @tag[group]{@item{Now we're going to do the next step as a group.}}
-           @item{@exercise{I'm going to show you the contract for another function. This time around, you're not allowed to touch the keyboard until you have copied the contract into your contract table, along with the contract for circle. Once you've done that, I want to see you try to draw a rectangle! GO!} @code{; rectangle: Number Number String String -> Image}}
-           @item{@exercise{I'm going to show you a few more contracts. Once again, you have to have them written down before touching the keys. You'll have five minutes to figure out how to use each of these functions to make a shape! GO!} 
+           @item{@exercise{Now let's examine the contract for another function. This time around, you're not allowed to touch the keyboard until you have copied the contract into your contract table, along with the contract for circle. Once you've done that, I want to see you try to draw a rectangle! GO!} @code{; rectangle: Number Number String String -> Image}}
+           @item{@exercise{Here are a few more contracts. Once again, you have to have them written down before touching the keys. You'll have five minutes to figure out how to use each of these functions to make a shape! GO!} 
                   @code[#:multi-line ""]{; ellipse: Number Number String String -> Image
                         ; triangle: Number String String -> Image
                         ; star: Number String String -> Image
                         ; radial-star: Number Number Number String String -> Image
                         ; text: String Number String -> Image}}
            @pedagogy{@item{Let kids experiment with these functions and point out interesting results to the class.}}
-           @tag[selftaught]{@item{Experiment with these functions!
-                 @embedded-wescheme[#:id "Images"
-                   #:interactions-text ""
-                   #:hide-definitions? #t]}}
            @item{Going Further - If time allows, you can go further into @lesson-link[#:name "Manipulating-Images" #:label "Manipulating Images"] or @lesson-link[#:name "Making-Flags" #:label "Making Flags"]!}
            ]}
 
