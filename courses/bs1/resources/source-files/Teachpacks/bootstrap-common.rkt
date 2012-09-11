@@ -11,22 +11,22 @@
            scheme/base
            )
   (provide 
-           (all-from-out lang/posn)
-           (all-from-out 2htdp/image)
-           (all-from-out 2htdp/universe)
-           (all-from-out "bootstrap-testing.rkt")
-           (all-from-out "save-source.rkt")
-           ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-           ;;;;;;;;;;;;;;;;;;;;;;;;;;;; ***PLATFORM-SPECIFIC CHANGE*** ;;;;;;;;;;;;;;;;;;;;;;;;;
-           ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-           (rename-out (EXAMPLE-GREM EXAMPLE))   ;; WeScheme ONLY: comment this line out
-           ;EXAMPLE                              ;; DrRacket ONLY: comment this line out
-           ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-           sq sine cosine tangent
-           pick subset? in? list?
-           type warn number->image string->image boolean->string boolean->image put-image overlay-at
-           clipart/url color->alpha)
-    
+   (all-from-out lang/posn)
+   (all-from-out 2htdp/image)
+   (all-from-out 2htdp/universe)
+   (all-from-out "bootstrap-testing.rkt")
+   (all-from-out "save-source.rkt")
+   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+   ;;;;;;;;;;;;;;;;;;;;;;;;;;;; ***PLATFORM-SPECIFIC CHANGE*** ;;;;;;;;;;;;;;;;;;;;;;;;;
+   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+   (rename-out (EXAMPLE-GREM EXAMPLE))   ;; WeScheme ONLY: comment this line out
+   ;EXAMPLE                              ;; DrRacket ONLY: comment this line out
+   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+   sq sine cosine tangent
+   pick subset? in? list?
+   type warn number->image string->image boolean->string boolean->image put-image overlay-at
+   clipart/url color->alpha)
+  
   ;; warn : any* -> any, and a side effect.
   ;; display all arguments and return the last one.
   (define (warn . args)
@@ -48,7 +48,7 @@
       [(pair? obj) "Pair"]
       [(struct? obj) "Structure"]
       [else "I don't know."]))
-
+  
   ;; color-object->color-struct Color% -> Color
   (define (color-object->color-struct c)
     (if (color? c)
@@ -62,7 +62,7 @@
          (< (abs (- (color-green a) (color-green b))) tolerance)
          (< (abs (- (color-blue  a) (color-blue  b))) tolerance)
          (< (abs (- (color-alpha a) (color-alpha b))) tolerance)))
-
+  
   ;; color=? : Color Color -> Boolean
   ;; Is the first color the same as the second?
   (define (color=? a b)
@@ -70,7 +70,7 @@
          (equal? (color-green a) (color-green b))
          (equal? (color-blue  a) (color-blue  b))
          (equal? (color-alpha a) (color-alpha b))))
-
+  
   ;; find-color : String/Color -> Color
   ;; If the given color is expressed as a string or a color% object, turn it 
   ;; into a color struct, otherwise use it as is.
@@ -79,7 +79,7 @@
   
   (define (imgvec-location x y w h)
     (+ (* y w) x))
-
+  
   (define (imgvec-adjacent-points imgvec loc width height)
     (let ((x (remainder loc width))
           (y (floor (/ loc width)))
@@ -89,7 +89,7 @@
        (if (< 0 y) (list (loc x (- y 1))) '())
        (if (< x (- width 1)) (list (loc (+ x 1) y)) '())
        (if (< y (- height 1)) (list (loc x (+ y 1))) '()))))
-
+  
   (define (color-connected-points imgvec width height start-x start-y start-color tolerance)
     (let ((queue (list (imgvec-location start-x start-y width height)))
           (seen (make-hash))
@@ -109,7 +109,7 @@
                                       (imgvec-adjacent-points imgvec it width height))))))
             (loop))))
       good))
-
+  
   (define (fill-from-point! img start-x start-y source-color destination-color tolerance dust-size)
     (let* ((v (list->vector (image->color-list img)))
            (width (image-width img))
@@ -153,7 +153,7 @@
             (image->color-list img))
        (image-width img)
        (image-height img))))
-
+  
   ;; color->alpha : Image Color Number -> Image
   ;; in the given image, transform the given color to transparency.
   (define (color->alpha img target-color tolerance)
@@ -193,13 +193,34 @@
   ;; (in positive-y point space) relative to the center
   (define (overlay-at background x y foreground)
     (overlay/xy background x (- 0 y) foreground))
-
+  
+  ;; put-image : Image Number Number Image -> Image
+  ;; Place the foreground on the background at x y
+  ;; (in positive-y point space) relative to the lower left
+  (define (put-image2 foreground x y background)
+    (place-image foreground 
+                 x 
+                 (- (image-height background) y) 
+                 background))
+  
   ;; put-image : Image Number Number Image -> Image
   ;; Place the foreground on the background at x y
   ;; (in positive-y point space) relative to the lower left
   (define (put-image foreground x y background)
-    (place-image foreground x (- (image-height background) y) background))
-
+    (let* ((dx (- x (/ (image-width foreground) 2)))
+           (dy (- (- (image-height background) y) (/ (image-height foreground) 2))))
+      ;; we use overlay/xy and crop  to avoid the border-clipping 
+      ;; behavior off place-image. For more information on this behavior,
+      ;; see http://pre.racket-lang.org/docs/html/teachpack/2htdpimage-guide.html
+      (crop (if (negative? dx) (* -1 dx) 0) ;; manually crop to the original bg image
+            (if (negative? dy) (* -1 dy) 0)
+            (+ (image-width background) .5)  ;; add the extra pixel to keep the bottom
+            (+ (image-height background) .5) ;; and right edge
+            (underlay/xy background 
+                        dx
+                        dy
+                        foreground))))
+  
   ; sq : Number -> Number
   (define (sq x) (* x x))
   ;; sine : Degrees -> Number
@@ -217,7 +238,7 @@
   ;; find the ratio of the length of the opposite leg to the
   ;; length of the adjacent leg.    tan = opposite / adjacent
   (define (tangent x) (tan (* x (/ pi 180))))
-
+  
   ;; pick : List -> Element
   ;; pick a random element from the list
   (define (pick lst)
@@ -235,21 +256,21 @@
   
   (define (on-blue img)
     (overlay img (rectangle (image-width img) (image-height img) "solid" "blue")))
-
- ;; a `test' macro that is a synonym for `check-expect', catches expansion
-;; errors and pretends that they come from `test'.
-(require (for-syntax syntax/kerncase))
-(define-syntax (EXAMPLE stx)
-  (syntax-case stx ()
-    [(_ x ...)
-     (with-handlers ([exn? (lambda (e)
-                             (raise (make-exn
-                                     (regexp-replace*
-                                      #rx"check-expect"
-                                      (exn-message e)
-                                      "test")
-                                     (exn-continuation-marks e))))])
-       (local-expand (syntax/loc stx (check-expect x ...))
-                     (syntax-local-context)
-                     (kernel-form-identifier-list)))]))
+  
+  ;; a `test' macro that is a synonym for `check-expect', catches expansion
+  ;; errors and pretends that they come from `test'.
+  (require (for-syntax syntax/kerncase))
+  (define-syntax (EXAMPLE stx)
+    (syntax-case stx ()
+      [(_ x ...)
+       (with-handlers ([exn? (lambda (e)
+                               (raise (make-exn
+                                       (regexp-replace*
+                                        #rx"check-expect"
+                                        (exn-message e)
+                                        "test")
+                                       (exn-continuation-marks e))))])
+         (local-expand (syntax/loc stx (check-expect x ...))
+                       (syntax-local-context)
+                       (kernel-form-identifier-list)))]))
   )
