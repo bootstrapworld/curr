@@ -12,7 +12,7 @@
            )
   (provide 
    (all-from-out lang/posn)
-   (all-from-out 2htdp/image)
+   (except-out (all-from-out 2htdp/image) rectangle)
    (all-from-out 2htdp/universe)
    (all-from-out "bootstrap-testing.rkt")
    (all-from-out "save-source.rkt")
@@ -21,6 +21,7 @@
    ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
    (rename-out (EXAMPLE-GREM EXAMPLE))   ;; WeScheme ONLY: comment this line out
    ;EXAMPLE                              ;; DrRacket ONLY: comment this line out
+   (rename-out (fix-rectangle rectangle))
    ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
    sq sine cosine tangent
    pick subset? in? list?
@@ -197,29 +198,23 @@
   ;; put-image : Image Number Number Image -> Image
   ;; Place the foreground on the background at x y
   ;; (in positive-y point space) relative to the lower left
-  (define (put-image2 foreground x y background)
+  (define (put-image foreground x y background)
     (place-image foreground 
                  x 
                  (- (image-height background) y) 
                  background))
   
-  ;; put-image : Image Number Number Image -> Image
-  ;; Place the foreground on the background at x y
-  ;; (in positive-y point space) relative to the lower left
-  (define (put-image foreground x y background)
-    (let* ((dx (- x (/ (image-width foreground) 2)))
-           (dy (- (- (image-height background) y) (/ (image-height foreground) 2))))
-      ;; we use overlay/xy and crop  to avoid the border-clipping 
-      ;; behavior off place-image. For more information on this behavior,
-      ;; see http://pre.racket-lang.org/docs/html/teachpack/2htdpimage-guide.html
-      (crop (if (negative? dx) (* -1 dx) 0) ;; manually crop to the original bg image
-            (if (negative? dy) (* -1 dy) 0)
-            (+ (image-width background) .5)  ;; add the extra pixel to keep the bottom
-            (+ (image-height background) .5) ;; and right edge
-            (underlay/xy background 
-                        dx
-                        dy
-                        foreground))))
+  ;; fix-rectangle : # # String String -> Image
+  ;; wrap rectangle with some code to prevent 
+  ;; the border-clipping behavior of place-image. 
+  ;; See http://pre.racket-lang.org/docs/html/teachpack/2htdpimage-guide.html
+  (define (fix-rectangle width height fill color)
+    (if (string=? fill "outline")
+        (crop 0 0 width height
+              (overlay (rectangle width height 
+                                      'outline (pen "black" 2 'solid 'round 'round))
+                           (rectangle width height fill color)))
+        (rectangle width height fill color)))
   
   ; sq : Number -> Number
   (define (sq x) (* x x))
