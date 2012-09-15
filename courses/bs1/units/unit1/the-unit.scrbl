@@ -41,7 +41,7 @@
           ]
 }
 
-@language-table[(list "  ...   " "    ...  ")]
+
 }
 
 @(include-lesson (lib "curr/lessons/Intro-and-Expectations/lesson/lesson.scrbl"))
