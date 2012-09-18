@@ -8,13 +8,7 @@
 
 @overview{
           
-@unit-descr{Students review almost all of the material from Bootstrap 1:
-                   @itemlist/splicing[@item{Circles of evaluation}
-                      @item{Contracts}
-                      @item{Expressions dealing with strings and images}
-                      @item{Variable definitions}
-                      @item{Function definitions}
-                      @item{The Design Recipe}]}
+@unit-descr{Students review almost all of the material from Bootstrap 1, including Circles of Evaluation, Contracts, Expressions dealing with strings and images, Variable definitions, Function definitions, and the Design Recipe.}
 
 
 @objectives[@item{Students will become comfortable writing complex expressions, defining variables and functions, and using the Design Recipe}
@@ -57,7 +51,7 @@
 @lesson[#:title "Closing"
         #:duration "5 minutes"
         ]{ 
- @pedagogy{
+ @tag[pedagogy]{
  @itemlist[
   @item{Who can tell us one thing we learned today?}       
   @item{Who saw someone else in the class do something great?}

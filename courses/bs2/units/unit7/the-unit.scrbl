@@ -44,13 +44,13 @@
 
 }
 
-@(include-lesson (lib "curr/lessons/Intro-Review/lesson/lesson.scrbl"))
+@(include-lesson (lib "curr/lessons/Intro-Unit7/lesson/lesson.scrbl"))
 
-@(include-lesson (lib "curr/lessons/Structs/lesson/lesson.scrbl"))
+@(include-lesson (lib "curr/lessons/Protecting-Boundaries/lesson/lesson.scrbl"))
 
-@(include-lesson (lib "curr/lessons/Autos/lesson/lesson.scrbl"))
+@(include-lesson (lib "curr/lessons/Tests-and-Results/lesson/lesson.scrbl"))
 
-@(include-lesson (lib "curr/lessons/Accessor-Functions/lesson/lesson.scrbl"))
+@(include-lesson (lib "curr/lessons/Branches/lesson/lesson.scrbl"))
 
 
 @lesson[#:title "Closing"
@@ -58,9 +58,8 @@
         ]{ 
  @pedagogy{
  @itemlist[
-  @item{Who can tell us one thing we learned today?}       
-  @item{Who saw someone else in the class do something great?}
-  @item{Cleanup, dismissal}]
+  @item{Have the students show each other their games!}
+  @item{Cleanup, dismissal.}]
           }
   
 

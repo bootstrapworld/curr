@@ -42,7 +42,8 @@ Students brainstorm their videogames, and derive the structure for their game wo
 
 }
 
-@(include-lesson (lib "curr/lessons/Review-Unit4/lesson/lesson.scrbl"))
+@lesson[#:title "Review"
+        #:duration "10 minutes"]{@item{@tag[pedagogy]{You guys have gotten really good at structs over the past few weeks, so now it's time for a challenge.} Turn to page 19 in your workbook. @tag[pedagogy]{You'll have five minutes to complete the page. Do you think you can do it? Ready? Go! Be sure to count down the minutes.}}}
 
 @(include-lesson (lib "curr/lessons/Codewalking/lesson/lesson.scrbl"))
 

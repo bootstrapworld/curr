@@ -46,12 +46,13 @@
 
 @(include-lesson (lib "curr/lessons/Intro-Review/lesson/lesson.scrbl"))
 
-@(include-lesson (lib "curr/lessons/Structs/lesson/lesson.scrbl"))
+@(include-lesson (lib "curr/lessons/Structs-Intro/lesson/lesson.scrbl"))
 
 @(include-lesson (lib "curr/lessons/Autos/lesson/lesson.scrbl"))
 
 @(include-lesson (lib "curr/lessons/Accessor-Functions/lesson/lesson.scrbl"))
 
+@(include-lesson (lib "curr/lessons/Autobody-Shop/lesson/lesson.scrbl"))
 
 @lesson[#:title "Closing"
         #:duration "5 minutes"

@@ -40,7 +40,7 @@
 
 }
 
-@(include-lesson (lib "curr/lessons/Acting-It-Out-2/lesson/lesson.scrbl"))
+@tag[pedagogy]{@(include-lesson (lib "curr/lessons/Acting-It-Out-2/lesson/lesson.scrbl"))}
 
 @(include-lesson (lib "curr/lessons/Keypress/lesson/lesson.scrbl"))
 

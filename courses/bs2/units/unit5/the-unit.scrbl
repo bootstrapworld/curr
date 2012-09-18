@@ -41,7 +41,7 @@
 
 @(include-lesson (lib "curr/lessons/Intro-Unit5-NW/lesson/lesson.scrbl"))
 
-@(include-lesson (lib "curr/lessons/Drawingthe-World/lesson/lesson.scrbl"))
+@(include-lesson (lib "curr/lessons/Drawing-the-World/lesson/lesson.scrbl"))
 
 @(include-lesson (lib "curr/lessons/Updating-the-World/lesson/lesson.scrbl"))
 

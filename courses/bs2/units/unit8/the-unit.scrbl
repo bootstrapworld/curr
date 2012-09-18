@@ -1,6 +1,6 @@
 #lang curr/lib
 
-@title{Unit 2: Introduction to Data Structures}
+@title{Unit 8: Collision Detection}
 
 @declare-tags[group pedagogy selftaught]
 
@@ -44,13 +44,15 @@
 
 }
 
-@(include-lesson (lib "curr/lessons/Intro-Review/lesson/lesson.scrbl"))
+@(include-lesson (lib "curr/lessons/Intro-Unit8/lesson/lesson.scrbl"))
 
-@(include-lesson (lib "curr/lessons/Structs/lesson/lesson.scrbl"))
+@(include-lesson (lib "curr/lessons/1D-Distance-2/lesson/lesson.scrbl"))
 
-@(include-lesson (lib "curr/lessons/Autos/lesson/lesson.scrbl"))
+@(include-lesson (lib "curr/lessons/Distance-Formula-2/lesson/lesson.scrbl"))
 
-@(include-lesson (lib "curr/lessons/Accessor-Functions/lesson/lesson.scrbl"))
+@(include-lesson (lib "curr/lessons/Collide/lesson/lesson.scrbl"))
+
+@(include-lesson (lib "curr/lessons/Update-World-Collide/lesson/lesson.scrbl"))
 
 
 @lesson[#:title "Closing"
@@ -58,13 +60,13 @@
         ]{ 
  @pedagogy{
  @itemlist[
-  @item{Who can tell us one thing we learned today?}       
-  @item{Who saw someone else in the class do something great?}
-  @item{Cleanup, dismissal}]
+  @item{Congratulations guys! You've finished every lesson, and now it's time to get to the fun stuff. I want you to go home and brainstorm...what else do you want your game to do? Next time we're going to add more things, so that your games are even cooler.}
+  @item{Have students show each other their games!} 
+   ]
           }
   
 
- @tag[selftaught]{Great job! Write one thing you learned today. 
+ @tag[selftaught]{Congratulations! You finished everything in the lessons! Now it's up to you to make your game even better. Can you think of anything else you want to add?} 
                         
                         @free-response[#:id "response"]
 }

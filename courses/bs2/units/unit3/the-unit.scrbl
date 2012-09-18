@@ -45,7 +45,7 @@
 
 }
 
-@(include-lesson (lib "curr/lessons/Autobody-review/lesson/lesson.scrbl"))
+@(include-lesson (lib "curr/lessons/Autobody-Review/lesson/lesson.scrbl"))
 
 @(include-lesson (lib "curr/lessons/Define-Struct/lesson/lesson.scrbl"))
 
@@ -53,7 +53,7 @@
 
 @(include-lesson (lib "curr/lessons/Ninja-World-Dissection/lesson/lesson.scrbl"))
 
-@(include-lesson (lib "curr/lessons/Acting-It-Out-1/lesson/lesson.scrbl"))
+@tag[pedagogy]{@(include-lesson (lib "curr/lessons/Acting-It-Out-1/lesson/lesson.scrbl"))}
 
 
 @lesson[#:title "Closing"
