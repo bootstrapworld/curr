@@ -21,7 +21,7 @@ include other datatypes, including Strings and Images.}
 @pedagogy{
 @materials[@item{Student workbook folders @tag[group]{- in pairs! - with names on folders}}
             @item{Pens/pencils for the students, fresh whiteboard markers for the teachers}
-            
+            @item{On student machines: "Images.rkt" from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | A blank @(hyperlink "http://www.wescheme.org/openEditor" "WeScheme") file])}
             @item{Class posters (List of rules, language table, course calendar)}
             @item{Language Table (See below)}
             ]
