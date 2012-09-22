@@ -4,7 +4,7 @@
 @lesson[#:title "Keypress"
         #:duration "30 minutes"]{
           @itemlist/splicing[
-            @item{We're going to use the Design Recipe to write a function @code{keypress} for Ninja World. Take a look at page 28. What's the first step in the Design Recipe?}
+            @item{We're going to use the Design Recipe to write a function @code{keypress} for Ninja World. Take a look at  @worksheet-link[#:page 28 #:name "Keypress"]. What's the first step in the Design Recipe?}
             @item{Step 1 - Contract and Purpose Statement  @itemlist/splicing[@item{What's the Name? keypress}
                 @item{What about the Domain? What do we need to know in order to handle a keypress? Well, we need the World - otherwise we wouldn't know what to update! But we also need to know what key was pressed. What are @code{"up"} and @code{"down"}? A number, a string, a boolean or an image? We need a World and a String}
                 @item{The Range? A world.}

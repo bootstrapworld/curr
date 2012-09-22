@@ -24,7 +24,7 @@
            @item{However, we've also got some pre-built functions, which let us play around with these values. Do you know a function that works on numbers?}
            @tag[pedagogy]{@item{Review circles of evaluation with numbers, as well as how to convert them to Scheme code}}
 ;@tag[selftaught]{REMEMBER CIRCLES THINGS}
-           @item{@tag[pedagogy]{Let's have a competition! }Turn to page 2 of your workbooks.} 
+           @item{@tag[pedagogy]{Let's have a competition! }Turn to page 3 of your workbooks.} 
 ;workbooks!!!
            @item{Each row has a math expression. You'll have to convert that math expression into Circles of Evaluation, and then convert the Circle into Racket code.}
            @tag[pedagogy]{@item{Each team starts with three points. For every row you get correct, you will get two points. If you get stuck, your team can ask any teacher for help...but it will cost you one point. Questions?}
