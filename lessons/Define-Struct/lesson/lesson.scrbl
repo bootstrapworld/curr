@@ -13,4 +13,4 @@
             @item{When we define a struct using define-struct, we tell the computer what order and type each thing is. In return, we get new functions to use. Until we write this @code{define-struct} line, we didn't have @code{make-auto}, to make an auto, @code{auto-model}, to get the model out of the auto, @code{auto-hp}, or any of the other accessor functions.}
             @item{To check this, I want you to type a semi-colon before the line which begins with @code{define-struct}. This comments it out, so that the computer ignores it. Hit run, and see what happens.}
             @item{You get an error! Racket says that you're trying to use an identifier before its definition. That means that it doesn't know what @code{make-auto} is, since we took that @code{define-struct} line out!}
-            @item{Turn to page 13 in your workbook, and copy down the define-struct line.}]}
+            @item{Turn to @worksheet-link[#:page 13 #:name "define-struct"] in your workbook, and copy down the define-struct line.}]}

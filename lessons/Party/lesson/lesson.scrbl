@@ -14,7 +14,7 @@
 @item{@tag[pedagogy]{5, 4, 3, 2, 1, monitors off. }Let's write some more contracts....turn to your contracts sheet. Which function did we use to make a party? make-party. What would its contract be?}
 @item{Which function did we use to get the model out of an auto? How did we get the color out of an auto? So how would you get the location out of the party? party-location}
 @item{Which other two functions can we write, now that we've defined our party struct? Can you write their contracts?}
-@item{Now let's write some functions using our party struct. Remember, we're party planners, so we need to be able to change information for each party. Turn to page 14. @tag[pedagogy]{Let's do the first one together. }Here's your problem statement: Write a function called @code{RSVP}, which takes in a party and adds one to their number of guests.}
+@item{Now let's write some functions using our party struct. Remember, we're party planners, so we need to be able to change information for each party. Turn to @worksheet-link[#:page 14 #:name "RSVP"]. @tag[pedagogy]{Let's do the first one together. }Here's your problem statement: Write a function called @code{RSVP}, which takes in a party and adds one to their number of guests.}
 @item{Alright, so what's the name of the function? Domain? Range? Write the contract and purpose statement on your page.}
 @item{What's the next step in the Design Recipe? Examples. Let's write one for the party "Halloween". How would we start our example?}
 @code[#:multi-line #t]{(EXAMPLE (RSVP "Halloween")....)}
@@ -36,4 +36,4 @@
 	(make-party	(party-location Halloween)
 		    (party-theme Halloween)
 		    (+ (party-guests Halloween) 1)))}
-@item{Now, on page 15, here's your next problem: Write a function called relocate, which takes in a party and the location that it's moving to. Go through each part of the design recipe: contract, examples, definition.}]}
+@item{Now, on @worksheet-link[#:page 15 #:name "relocate"], here's your next problem: Write a function called relocate, which takes in a party and the location that it's moving to. Go through each part of the design recipe: contract, examples, definition.}]}

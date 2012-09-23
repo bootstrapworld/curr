@@ -5,7 +5,7 @@
         #:duration "20 minutes"]{
           @itemlist/splicing[
             @item{Just like in Bootstrap 1, we need to write a function that checks whether the dog has gone off the right side of the screen.}
-@item{Turn to page 33. @tag[pedagogy]{Let's work through the first function together.} Write a function called @code{off-right?}, which returns true if a coordinate is greater than...what number? 640.}
+@item{Turn to @worksheet-link[#:page 33 #:name "Boundary Checks"]. @tag[pedagogy]{Let's work through the first function together.} Write a function called @code{off-right?}, which returns true if a coordinate is greater than...what number? 640.}
 @item{We're going to go through the design recipe, just like always: what's the first step? Contract and purpose statement. What's the name of the function? Domain? Range? Purpose statement?}
 @item{Alright, let's pick a few example coordinates for our examples: What is an x coordinate that would put our dog on the center of the screen? How do we check whether it's off the right hand side? We said that anything greater than 640 is off the right side of the screen.}
 @item{@tag[pedagogy]{Excellent! Take two seconds and write}@tag[selftaught]{Write} another example for a coordinate that is off the screen on the right, circle what changes, and write your definition.}

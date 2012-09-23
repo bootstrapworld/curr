@@ -17,7 +17,7 @@
                    "1D-1"
                    #:example1 "line-length 10 5"
                    #:example2 "(- 10 5)"] 
-     @example-with-text[#:text1 "use the function here"
+ @example-with-text[#:text1 "use the function here"
                    #:text2 "find another way to get the same result here"
                    "1D-2"
                    #:example1 "line-length 2 8"

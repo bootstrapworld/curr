@@ -1,9 +1,9 @@
 #lang curr/lib
 
 @declare-tags[group pedagogy selftaught]
-@lesson[#:title "Introduction"
-        #:duration "25 minutes"]{
-          @itemlist/splicing[@item{You remember how to define variables, and you know how to use contracts for pre-built functions. Let's see if you remember how to define a function of your own! Turn to page 4 in your workbook.}
+@lesson[#:title "The Design Recipe"
+        #:duration "30 minutes"]{
+          @itemlist/splicing[@item{You remember how to define variables, and you know how to use contracts for pre-built functions. Let's see if you remember how to define a function of your own! Turn to @worksheet-link[#:page 4 #:name "Fast-Functions"] in your workbook.}
           @item{Here we have a function definition:
                 @code[#:multi-line #t]{;double : Number -> Number
 ;takes a number and multiplies it by two

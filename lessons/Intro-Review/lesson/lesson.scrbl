@@ -4,7 +4,7 @@
 @lesson[#:title "Review"
         #:duration "20 minutes"]{
           @itemlist/splicing[@tag[pedagogy]{@item{Welcome back! You guys did a great job on the review in our last session, and I think you're starting to get good at the design recipe again.}}
-           @item{@tag[pedagogy]{Let's quickly walk through one example as a class, and then we'll have a competition. }Turn to page 7 in your workbook. @tag[pedagogy]{Use a projector, so kids can see the function being written on the computer: }}
+           @item{@tag[pedagogy]{Let's quickly walk through one example as a class, and then we'll have a competition. }Turn to  @worksheet-link[#:page 7 #:name "double-radius"] in your workbook. @tag[pedagogy]{Use a projector, so kids can see the function being written on the computer: }}
            @item{Write a function called @code{double-radius}, which takes in a radius and a color. It produces an outlined circle of whatever color was passed in, whose radius is twice as big as the input.}
            @item{Step 1: Contract and Purpose Statement @itemlist/splicing[
                  @item{Okay, what's the name of the function? double-radius! We know it takes in a radius and a color, so what is double-radius's domain? A number and a string! And what do you think the range is? Image! And what does it do? Can you tell me in English?}
@@ -30,7 +30,7 @@
            @item{Now we can just copy one of our examples, and replace the changing thing with our variable! We didn't really have to do any work at all! }
            @code[#:multi-line #t]{(define (double-radius radius color)
 (circle (* radius 2) "solid" color))}]}
-           @item{@tag[pedagogy]{Okay, are you ready to try one on your own?} Turn to page 8 in your workbooks.}
+           @item{@tag[pedagogy]{Okay, are you ready to try one on your own?} Turn to @worksheet-link[#:page 8 #:name "double-width"] in your workbooks.}
            @tag[pedagogy]{@item{I'm going to read the problem statement, and as soon as I'm done I'm going to start the timer. You'll have 5 minutes to finish this. Do not skip a step!! Once you're done, ask one of us to check your work. If they give you the OK, you can turn your monitors on and type in the code. Any questions?}
            @item{Here's the problem: }}
            @item{Write a function called @code{double-width}, which takes in a height and a color. The function produces a solid rectangle, which is whatever height and color were passed in. And its width? Its width is twice the height.}
