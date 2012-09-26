@@ -79,6 +79,12 @@
          length-of-lesson
          bootstrap-title
 
+	 ;; stuff added by Vicki
+	 struct-example-with-text
+	 struct-design-recipe-exercise
+         struct-function-exercise
+	 
+
          [rename-out [worksheet-link/src-path worksheet-link]]
 
          resource-link
@@ -566,6 +572,98 @@
     (require (only-in mp [doc abstract-doc]))
     (extract-lesson abstract-doc)))
 
+;;Vicki
+
+;; Inputs: string list[element] -> nested-flow
+;;         optional arguments are elements 
+;; Generates all components of a design-recipe exercise.  Optional arguments fill in solutions
+;;    for teacher's edition
+(define (struct-design-recipe-exercise fields func-name . description)
+  (let ([tagbase (format "recipe-~a" func-name)])
+    (nested
+     #:style (style "BootstrapDRExercise" '())
+     
+     ;(bootstrap-title (format "Design Recipe for ~a" func-name))
+     (apply para #:style "BSRecipeExerciseDescr" description)
+     (worksheet-segment "I. Contract + Purpose Statement")
+     (elem "Every contract has three parts")
+     "\n" "\n" 
+     (contract-purpose-exercise tagbase)
+	(make-element 'newline '("\n"))(make-element 'newline '("\n"))
+     (worksheet-segment "II. Give Examples")
+     (elem "Write two examples of your function in action")
+     "\n" "\n" 
+     (struct-example-with-text (string-append tagbase "ex1" ) fields)
+     "\n" "\n"
+     (struct-example-with-text (string-append tagbase "ex2") fields)
+     (worksheet-segment "III. Function")
+     "\n" "\n"
+     (elem "Write the function header, giving variable names to all your input values")
+     "\n""\n"
+     (struct-function-exercise (string-append tagbase "function") fields)
+     )))
+
+;; input: -two optional text labels for the two fill-in-the-blanks 
+;;        -a tag which can be anything unqiue which helps to generate a 
+;;         unique id 
+;;        number of fields in struct
+;; output: in format (EXAMPLE ( /*with text1label*/ _____) /*with text2label*/ _____)
+(define (struct-example-with-text #:text1 [text1 ""]
+                           #:text2 [text2 ""]
+                           tag
+                           #:example1 [example1 #f]
+                           #:example2 [example2 #f]
+                           fields)
+  (cond-element 
+   [html (apply elem (flatten-1 (list "(EXAMPLE ( " 
+               (fill-in-the-blank #:id (format "~a.1" tag) #:label "function name")
+               (fill-in-the-blank #:id (format "~a.1" tag) #:label "inputs")
+               " ) ( " (fill-in-the-blank #:id (format "~a.2" tag) #:label "what it does") 
+               
+               (duplicate fields (list (make-element 'newline '("\n"))(fill-in-the-blank #:id (format "~a.2" tag) #:label "") ))
+
+               " ))")))]
+   [(or latex pdf) (elem #:style bs-example-exercise-style "")]))
+
+
+;; input: optional values for the name, args, and body fields of a function
+;;        a tag to use for generating html id names
+;;        number of fields in struct
+;; output: a define with text boxes formatted for inputs to the exercise
+(define (struct-function-exercise #:name [name ""]
+                           #:args [args ""]
+                           #:body [body ""]
+                           tag
+                           fields)
+  (cond-element 
+   [html
+    (apply elem (flatten-1 (list "(define ( "
+          (fill-in-the-blank #:id (format "fname-~a" tag) #:label "function name")
+          (fill-in-the-blank #:id (format "args-~a" tag) #:label "variable names") 
+          " ) ( " (fill-in-the-blank #:id (format "body-~a" tag) #:label "what it does") 
+          
+               (duplicate fields (list (make-element 'newline '("\n"))(fill-in-the-blank #:id (format "~a.2" tag) #:label "") ))
+
+          " ))")))]
+   [(or latex pef) (elem #:style bs-function-exercise-style "")]))
+
+
+
+
+
+(define (duplicate n things . _)
+  (let ((res (if (eq? _ '()) '() (car _))))
+    (if (= n 0)
+        res
+        (duplicate (- n 1) things (append things res)))))
+
+(define (flatten-1 lol)
+  (cond
+   ((null? lol) lol)
+   ((list? (car lol)) (append (car lol) (flatten-1 (cdr lol))))
+   (#t (cons (car lol) (flatten-1 (cdr lol))))))
+
+
 ;;interns
 
 ;; Inputs: string list[element] -> nested-flow
@@ -585,7 +683,7 @@
      (contract-purpose-exercise tagbase)
      (worksheet-segment "II. Give Examples")
      (elem "Write two examples of your function in action")
-     "\n" "\n"
+     "\n" "\n" 
      (example-with-text (string-append tagbase "ex1"))
      "\n" "\n"
      (example-with-text (string-append tagbase "ex2"))
@@ -623,9 +721,9 @@
 ;; Produces element with blanks for an exercise to fill in a contract
 (define (contract-exercise tag #:name [name-ans #f] #:domain [domain-ans #f] #:range [range-ans #f])
   (cond-element [html
-                 (elem ";" (fill-in-the-blank #:id (format "~aname" tag) #:label "Name")
-                       ":" (fill-in-the-blank #:id (format "~aarg" tag) #:label "Domain")
-                       "->" (fill-in-the-blank #:id (format "~aoutput" tag) #:label "Range"))]
+                 (elem "; " (fill-in-the-blank #:id (format "~aname" tag) #:label "Name")
+                       " : " (fill-in-the-blank #:id (format "~aarg" tag) #:label "Domain")
+                       " -> " (fill-in-the-blank #:id (format "~aoutput" tag) #:label "Range"))]
                 [(or latex pdf)
                  (elem #:style bs-contract-exercise-style "")]))
 
@@ -635,7 +733,7 @@
 (define (contract-purpose-exercise tag #:name [name-ans #f] #:domain [domain-ans #f] #:range [range-ans #f]
                                    #:purpose [purpose-ans #f])
   (cond-element [html (list (contract-exercise tag #:name name-ans #:domain domain-ans #:range range-ans)
-                            ";" (fill-in-the-blank #:id (format "~apurpose" tag)))]
+                            (make-element 'newline '("\n")) "; " (fill-in-the-blank #:id (format "~apurpose" tag) #:label "Purpose statement"))]
                 [(or latex pdf)
                  (elem #:style bs-contract-purpose-exercise-style "")]))
 
