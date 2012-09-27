@@ -4,7 +4,8 @@
         #:duration "25 minutes"
         #:prerequisites "Introducing-the-Design-Recipe Coordinate-Planes Intro-to-Booleans"]{
  @itemlist/splicing[
-            @item{When Run is clicked, a window with a butterfly in it will pop up. You can use the arrow keys to move the butterfly around.}
+            @item{@pedagogy{Have students open the @hyperlink["http://www.wescheme.org/openEditor?publicId=bM6VNiLdkv" "Butterfly File"].} @selftaught{In a new window, open the @hyperlink["http://www.wescheme.org/openEditor?publicId=bM6VNiLdkv" "Butterfly File"].}}
+            @item{When you click Run, a window with a butterfly in it will pop up. You can use the arrow keys to move the butterfly around.}
             @item{This butterfly is Sam - he's a happy student like you! He likes to fly around outside and enjoy the fresh air.}
             @item{His yard is 640 pixels wide and 480 pixels tall. If the bottom-left corner is (0, 0), what are the coordinates of the other corners?}
             @item{Sam's mom tells him that he should stay where she can see him - that means he can even step a little outside of the yard...as long as a piece of him is visible, his mom is okay.}
@@ -13,7 +14,8 @@
             @item{Well...there's some bad news.}
             @item{Sam doesn't realize that there's a monster outside his yard, waiting to eat him! As long as ANY part of Sam is still in the yard, he is safe...but the moment he disappears completely his mom won't be able to keep an eye on him!}
             @item{It's up to you to keep him safe!}
-           @pedagogy{@item{Draw a 640x480 rectangle on the board to represent the screen, and have students help you idenfify the coordinates at the corners. Then turn students' attention to the computers, and have them analyze the last function in the code, called @code{onscreen?}.}}
+            @pedagogy{@item{Draw and label a 640x480 rectangle on the board to represent the screen, and have students help you idenfify the coordinates at the corners. Then turn students' attention to the computers, and have them analyze the last function in the code, called @code{onscreen?}.}}
+            @selftaught{@item{On a sheet of paper, draw a rectangle to represent your computer screen. Label its width (640) and height (480). If the bottom left-hand corner has the coordinate (0,0), what are the coordinates of the other corners?}}
             @item{This file contains three function definitions. Can you find all three? What are the names of these functions? @pedagogy{(@code{safe-left?}, @code{safe-right?} and @code{onscreen?})}}
             @pedagogy{@item{@skit{Have a volunteer stand up to be @code{safe-left?}. Ask them about their domain and range, and what they do according to the code (they always return true). Have students practice calling the function with sample values, then have another volunteer repeat the process as @code{safe-right?}. Finally, have a third volunteer do the same as @code{onscreen?}. Note that @code{onscreen?} must use @code{safe-left?} when evaluate an input!}}}
             @item{@bitmap{images/buffer.png}The computer only talks to @code{onscreen?}, when deciding whether or not to let same keep moving. In turn, @code{onscreen?} will need to use both @code{safe-left?} and @code{safe-right?} to figure out if Sam is safe on both sides.}
