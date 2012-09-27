@@ -4,14 +4,19 @@
 
 @lesson[#:title "Defining Variables" #:duration "10 minutes"]{
         @itemlist/splicing[
-        @tag[(pedagogy selftaught)]{@item{Note: this section and the one that follows ("Game Screenshots") teach the same concepts as the supplemental @lesson-link[#:name "Making-Flags"#:label "Flags"] and @lesson-link[#:name "Manipulating-Images"#:label "Manipulating Images"] activities.  Some students will find the flags activity more engaging and creative, while others are itching to see their games take shape. Choose whichever activity is best-suited to your needs.}}
         @pedagogy{@item{@demo{Have students open their game files, and click Run. They should see a frozen screenshot of their game, using the images they requested. (By now, you should have students' graphics already created, and @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/TeachersGuide.html#addingimages" "added to the file)")}}} 
-              @;SELF TAUGHT THINGA MADOHICKY
+         
         @item{So far, everything that you've been doing has been down in the Interactions window. What happens when you click Run at the top? All the work you did disappears!
               @tag[selftaught]{@embedded-wescheme[#:id "Defining Variables"
-                   #:interactions-text "Click Run above. What happens to this line of text?"]}}
+                                                       #:interactions-text "Click Run above. What happens to this line of text?"]}}
         @item{That's because the Interactions window is meant just for trying things out. If you want to define something permanently, you need to use the Definitions window.}
-        @item{This is a bare-bones, totally broken game. It doesn't DO anything...YET!}
+        
+        @item{The game in front of you is a bare-bones, totally broken game. It doesn't DO anything...YET!}
+        
+        @tag[selftaught]{@item{The following is a bare-bones, totally broken game. It doesn't DO anything...YET!}
+                         @item{@embedded-wescheme[#:id "Defining Variables"   
+                                                 #:public-id "http://www.wescheme.org/openEditor?publicId=q3fgrbasAi"]}}
+        
         @item{Look below Step 0, near the top of the screen. @pedagogy{Raise your hand if you can read the line of code just below that (Have a volunteer read it aloud).} @think-about[#:question (list "What will happen if I type " @code{TITLE} " into the Interactions window down at the bottom?") #:hint "Try it out!"]}
         @item{@think-about[#:question (list "What will happen if you type " @code{TITLE} " into the Interactions window down at the bottom?") #:answer (list "This code tells the computer that the name " @code{TITLE} " is a shortcut for the string " @code{"My Game"} ". When you click Run, the computer learns that name and that shortcut, along with any other definitions.")]}
         @item{When you click Run, you'll see the title @code{"My Game"} at the top left hand corner of your new game.}
