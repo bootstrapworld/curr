@@ -9,7 +9,7 @@
    @item{Soon you're going to be designing your own games, but it's important to know how a simple game is built before you start designing your own.@bitmap{images/1.2.png}}
    @item{Let's take a look at a real game, which I've made using the same language and tools that you'll  be learning. When you're done with this class, you'll be able to make something similar. }
    @pedagogy{@item{@demo{Show the kids Ninjacat. Be sure to end on a frozen frame of the game, so the whole class can see the same image.}}}
-   @selftaught{@item{Open @(hyperlink "http://www.wescheme.org/view.jsp?publicId=vital-grown-eater-shown-crime" "this link")] in a new window. When you click "Run", be sure to read the directions at the top of the screen so you know how to play!}
+   @selftaught{@item{Open @(hyperlink "http://www.wescheme.org/view.jsp?publicId=vital-grown-eater-shown-crime" "this link") in a new window. When you click "Run", be sure to read the directions at the top of the screen so you know how to play!}} 
                
    @item{This game, like many others, is made up of @italic{characters}, each of which has it's own behavior. The Ruby moves from the right to the left, as does the Dog. NinjaCat only moves when you hit the arrow keys, and she can move left, right, up and down. We can figure out how the game works by first understanding about how each character works.}
    
