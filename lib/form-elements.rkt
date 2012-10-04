@@ -40,6 +40,7 @@
          circles-evaluation-exercise
          unit-summary/links
          summary-item/links
+         summary-item/custom
          
          ;; Sections
          worksheet
@@ -369,13 +370,23 @@
                             #:label1 (label1 "html") #:ext1 (ext1 "html") 
                             #:label2 (label2 "pdf") #:ext2 (ext2 "pdf") 
                             . descr)
+  (apply summary-item/custom name
+         (list (hyperlink (format "~a.~a" basefilename ext1) label1)
+               (hyperlink (format "~a.~a" basefilename ext2) label2))
+         descr))
+
+;; summary-item/custom : string list[hyperlink] content -> block
+;; generate a summary entry with given hyperlinks
+;;   used on the main page for a course
+;; CURRENTLY HANDLES ONLY TWO LINKS -- MUST GENERALIZE TO MORE
+(define (summary-item/custom name links . descr)
   (para #:style "BSUnitSummary"
         (elem #:style "BSUnitTitle" name)
         " ["
-        (elem (hyperlink (format "~a.~a" basefilename ext1) label1))         
+        (elem (first links))      
         " | "
-        (elem (hyperlink (format "~a.~a" basefilename ext2) label2))
-        " ] - "
+        (elem (second links))
+        "] - "
         (apply elem descr)
         ))
 
