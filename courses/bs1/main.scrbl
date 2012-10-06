@@ -29,8 +29,7 @@ compares each lesson to a variety of state standards, as well as the new Common 
            Have them use @emph{randomness} and @emph{trigonometric functions} for more sophisticated motion, 
            or introduce @emph{data structures} for more sophisticated games!}
           @summary-item/links["Teacher's Guide" "resources/teachers-guide/teachers-guide"]{
-                are also available for teachers who'd like a "quick start" reference to
-                all the various functionality in the @hyperlink["http://www.wescheme.org/openEditor?publicId=champ-venue-piggy-stuck-taffy"]{Game Template}.}
+                For teachers who'd like a "quick start" reference to all the various functionality in the @hyperlink["http://www.wescheme.org/openEditor?publicId=champ-venue-piggy-stuck-taffy"]{Game Template}, this guide is basically a coding-only instruction manual for how to make a game, without any of the teaching information included.}
           @summary-item/custom["Support Forums" @(list (hyperlink "https://groups.google.com/d/forum/bootstrap-announce" "Announcements")
                                                        (hyperlink "https://groups.google.com/d/forum/bootstrap-discuss" "Discussion"))]{
             Want to be kept up-to-date about Bootstrap events, workshops, and curricular changes? 
