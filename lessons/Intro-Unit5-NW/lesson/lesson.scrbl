@@ -5,7 +5,7 @@
         #:duration "5 minutes"]{
           @itemlist/splicing[
             @item{@tag[pedagogy]{Monitors on.} @tag[selftaught]{Open Ninja World.}}
-            @tag[pedagogy]{@item{Students should open Ninja World, to see the dog and ruby flying across the screen}}
+            @pedagogy{@item{Students should open Ninja World, to see the dog and ruby flying across the screen}}
             @item{Let's look back at our Ninja world for a moment.}
             @item{How many things are in this world? 2. What are they? @code{dogX} and @code{rubyX}.}
             @item{What does @code{dogX} represent? @code{rubyX}?}

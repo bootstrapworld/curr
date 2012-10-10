@@ -645,7 +645,7 @@
                (duplicate fields (list (make-element 'newline '("\n"))(fill-in-the-blank #:id (format "~a.2" tag) #:label "") ))
 
           " ))")))]
-   [(or latex pef) (elem #:style bs-function-exercise-style "")]))
+   [(or latex pdf) (elem #:style bs-function-exercise-style "")]))
 
 
 
@@ -808,7 +808,7 @@
     (elem "(define ("(fill-in-the-blank #:id (format "fname-~a" tag) #:label "function name")
           (fill-in-the-blank #:id (format "args-~a" tag) #:label "variable names") ")"
           (fill-in-the-blank #:id (format "body-~a" tag) #:label "what it does") ")")]
-   [(or latex pef) (elem #:style bs-function-exercise-style "")]))
+   [(or latex pdf) (elem #:style bs-function-exercise-style "")]))
 
 ;; We need to do a little compile-time computation to get the file's source
 ;; where worksheet-link/src-path is used, since we want the path relative to

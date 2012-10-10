@@ -8,4 +8,4 @@
             @item{Think about the user playing your game for a minute. How will they control the game? What key will make YOUR player move up? Down? What else can they do?}
             @item{Write down the various keys that the user can hit to control the game. For each one, make sure you write down the field in your world struct that changes, and how it changes! @tag[pedagogy]{You have 2 minutes. GO!}}
             @item{Turn to @worksheet-link[#:page 30 #:name "Keys In Game"] in your workbooks. Choose 3 keys that control the game, and write the examples of what should happen to your @code{START} world in each of them.}
-            @tag[pedagogy]{@item{Once you're done with the design recipe, you can turn your monitors on and start writing the keypress function into your games.}}]}
+            @pedagogy{@item{Once you're done with the design recipe, you can turn your monitors on and start writing the keypress function into your games.}}]}
