@@ -36,6 +36,11 @@
                         ; text: String Number String -> Image}}
            @pedagogy{@item{Let kids experiment with these functions and point out interesting results to the class.}}
            @item{Going Further - If time allows, you can go further into @lesson-link[#:name "Manipulating-Images" #:label "Manipulating Images"] or @lesson-link[#:name "Making-Flags" #:label "Making Flags"]!}
+           @item{According to the domain of @code{circle}, the first input needs to be a number. That means it could be 4, 5, 100 or a 10000. But it could @italic{also} be an expression that produces a number! Take a look at the following pieces of code:
+                                            @code[#:multi-line ""]{(circle (* 50 2) "solid" "red")
+                                                                   (star (* 10 (string-length "hello")) "solid" "green")
+                                                                   (text "purple" (string-length "purple") "purple")}}
+           @item{What images will they produce? See if you can figure it out, before typing it in to test your hypothesis. For practice, try converting each of these expressions into a Circle of Evaluation. Can see the connection between these expressions and the ones you did during the review game?}
            ]}
 
                                                         
