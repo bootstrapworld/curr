@@ -4,8 +4,8 @@
 @lesson[#:title "define-struct"
         #:duration "5 minutes"]{
           @itemlist/splicing[
-            @tag[pedagogy]{@item{Have students keep their Autobody file open, and look at the top line.}}
-            @tag[pedagogy]{@item{Raise your hand if you can read the line beginning with @code{;an auto is...}. Have one student read the line aloud.}
+            @pedagogy{@item{Have students keep their Autobody file open, and look at the top line.}}
+            @pedagogy{@item{Raise your hand if you can read the line beginning with @code{;an auto is...}. Have one student read the line aloud.}
             @item{Raise your hand if you can read the line beginning with @code{define-struct}.}}
             @tag[selftaught]{Look at the first two lines at the top of your Autobody file. They start with @code{;an auto is...} and @code{define-struct}.}
             @item{I told you last time that we were skipping over the part of the code that defines the auto struct, or tells the computer what an auto is and what goes into it. Just like we would expect from having worked with autos, the @code{define-struct} line says that an auto has five things....a model, hp, rim, color, and value.}

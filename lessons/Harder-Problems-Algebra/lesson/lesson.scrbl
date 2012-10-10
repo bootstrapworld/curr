@@ -12,7 +12,7 @@
             @item{What we want is a function that will tell us how many seconds until a collision occurs, given how far apart the rocket and asteroid are.}
             @item{What is a good name for this function? Let's use @code{collide}.}
             @item{Take a minute with your partner, and write down the contract for this function. You must have the entire contract written correctly@tag[pedagogy]{ to earn a point}!}
-            @tag[pedagogy]{@item{Countdown, assign points, and review.}}
+            @pedagogy{@item{Countdown, assign points, and review.}}
             @item{So what is our Domain? A Number, representing the distance between rocket and asteroid! And our Range? The Number of seconds being counted down before they collide.}
             @item{@code{; collide : Number -> Number}}
             @item{So what comes next? Examples! Let's start with something easy - when the rocket and asteroid have just smashed into each other. How many miles apart are they then? Zero! And many seconds will it take for them to collide? Zero again, because they've already met!}

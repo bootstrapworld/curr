@@ -40,7 +40,6 @@
          circles-evaluation-exercise
          unit-summary/links
          summary-item/links
-         summary-item/custom
          
          ;; Sections
          worksheet
@@ -370,23 +369,13 @@
                             #:label1 (label1 "html") #:ext1 (ext1 "html") 
                             #:label2 (label2 "pdf") #:ext2 (ext2 "pdf") 
                             . descr)
-  (apply summary-item/custom name
-         (list (hyperlink (format "~a.~a" basefilename ext1) label1)
-               (hyperlink (format "~a.~a" basefilename ext2) label2))
-         descr))
-
-;; summary-item/custom : string list[hyperlink] content -> block
-;; generate a summary entry with given hyperlinks
-;;   used on the main page for a course
-;; CURRENTLY HANDLES ONLY TWO LINKS -- MUST GENERALIZE TO MORE
-(define (summary-item/custom name links . descr)
   (para #:style "BSUnitSummary"
         (elem #:style "BSUnitTitle" name)
         " ["
-        (elem (first links))      
+        (elem (hyperlink (format "~a.~a" basefilename ext1) label1))         
         " | "
-        (elem (second links))
-        "] - "
+        (elem (hyperlink (format "~a.~a" basefilename ext2) label2))
+        " ] - "
         (apply elem descr)
         ))
 
@@ -656,7 +645,7 @@
                (duplicate fields (list (make-element 'newline '("\n"))(fill-in-the-blank #:id (format "~a.2" tag) #:label "") ))
 
           " ))")))]
-   [(or latex pef) (elem #:style bs-function-exercise-style "")]))
+   [(or latex pdf) (elem #:style bs-function-exercise-style "")]))
 
 
 
@@ -819,7 +808,7 @@
     (elem "(define ("(fill-in-the-blank #:id (format "fname-~a" tag) #:label "function name")
           (fill-in-the-blank #:id (format "args-~a" tag) #:label "variable names") ")"
           (fill-in-the-blank #:id (format "body-~a" tag) #:label "what it does") ")")]
-   [(or latex pef) (elem #:style bs-function-exercise-style "")]))
+   [(or latex pdf) (elem #:style bs-function-exercise-style "")]))
 
 ;; We need to do a little compile-time computation to get the file's source
 ;; where worksheet-link/src-path is used, since we want the path relative to

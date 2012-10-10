@@ -4,7 +4,7 @@
 @lesson[#:title "Introduction"
         #:duration "5 minutes"]{
           @itemlist/splicing[
-            @tag[pedagogy]{@item{Students should have Ninja World (with dogX, rubyX and catY defined) open on the computer.}}
+            @pedagogy{@item{Students should have Ninja World (with dogX, rubyX and catY defined) open on the computer.}}
             @tag[selftaught]{@item{Open Ninja World [WeScheme | DrRacket.}}
             @item{Let's return to our Ninja World...it's slowly turning into a finished game!}
             @item{Look at the code for @code{update-world}. @tag[pedagogy]{Raise your hand if you can tell me - in English - what this function does. Take a volunteer or two.}@tag[selftaught]{What does this function do?}}

@@ -8,7 +8,7 @@
             @item{Step 1 - Contract and Purpose Statement  @itemlist/splicing[@item{What's the Name? keypress}
                 @item{What about the Domain? What do we need to know in order to handle a keypress? Well, we need the World - otherwise we wouldn't know what to update! But we also need to know what key was pressed. What are @code{"up"} and @code{"down"}? A number, a string, a boolean or an image? We need a World and a String}
                 @item{The Range? A world.}
-                @tag[pedagogy]{@item{What's a good purpose statement for this function? Let students discuss.}}]}
+                @pedagogy{@item{What's a good purpose statement for this function? Let students discuss.}}]}
             @item{Step 2 - Examples  @itemlist/splicing[ 
                 @item{Let's make an example using our @code{START} world, when the user presses @code{"up"}:}
                  @code[#:multi-line #t]{(EXAMPLE (keypress START "up") 
@@ -56,4 +56,4 @@
                 [(string=? key "up")  (make-world (world-dogX w) (world-rubyX w) (+ (world-catY w) 10))]
 		[(string=? key "down")  (make-world (world-dogX w) (world-rubyX w) (- (world-catY w) 10))]
                 [else w]))}]}
-            @tag[pedagogy]{@item{If students finish early, have them add a keypress for "c", which causes the plane to jump to the center, or any other "cheat codes".}}]}
+            @pedagogy{@item{If students finish early, have them add a keypress for "c", which causes the plane to jump to the center, or any other "cheat codes".}}]}

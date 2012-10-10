@@ -22,4 +22,4 @@
 					                                                          (world-rubyX w)
 					                                                          (world-catY w))]}
             @item{It's time to figure out what happens in your game! Turn to page 40 and write some more tests and results. When you've figured out what happens when each thing collides with your player and have written it down, type it into the computer.}
-            @tag[pedagogy]{@item{Work in small groups to complete collision branches}}]}
+            @pedagogy{@item{Work in small groups to complete collision branches}}]}

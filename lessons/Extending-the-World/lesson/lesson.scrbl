@@ -4,7 +4,7 @@
 @lesson[#:title "Extending the World"
         #:duration "15 minutes"]{
           @itemlist/splicing[
-           @tag[pedagogy]{@item{This section requires that you model each one of the changes to the code on a projector, with students following along. Make sure everyone can see what you're doing!}}
+           @pedagogy{@item{This section requires that you model each one of the changes to the code on a projector, with students following along. Make sure everyone can see what you're doing!}}
            @item{Let's draw our @code{TARGET} in our world, at (500, 300). What will we need to modify? Our world structure? No - if the @code{TARGET} isn't moving, then nothing changes, so we don't need to keep track of it in the world. How about @code{draw-world}? Does that need to change?}
            @item{Yes it does! We need to put the @code{TARGET} image on top of everything we have so far. Add the @code{TARGET} now, so it shows up when you click "Run". @tag[pedagogy]{Go!}}
            @item{Okay, so now suppose the ruby is flying across the screen, moving left slowly at 5 pixels each frame. Now do we need to modify the World? Yes! Why? Because something is changing! Specifically, the x-coordinate of the ruby!}
@@ -25,4 +25,4 @@
            @item{Look at our first example: }
            @item{What's wrong with it? Well, how many things are being passed into @code{make-world}? Just one: the new x-coordinate. What's missing? The ruby's x-coordinate! }
            @item{Okay, and what do we want to do to the x-coordinate? We want the ruby to go left by 5, so what code do I write? @tag[selftaught]{Go ahead and fix the second example now.}}
-           @tag[pedagogy]{@item{Take 30 seconds, and fix the second example. GO!}}]}
+           @pedagogy{@item{Take 30 seconds, and fix the second example. GO!}}]}
