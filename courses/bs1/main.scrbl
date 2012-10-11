@@ -1,9 +1,8 @@
 #lang curr/lib
 @(elem #:style "BSCourseName" "Bootstrap:1")
 
-Start teaching Bootstrap today, and 
-@(hyperlink "https://docs.google.com/a/brown.edu/spreadsheet/viewform?formkey=dEJSZzNIdk5TekthRVJ6N2oyTlItZHc6MQ#gid=0" "be counted!") 
-We'll make sure to keep you updated on curricular changes, Bootstrap events, and workshops in your area!
+Would you like to attend a Bootstrap Workshop? Check our
+@(hyperlink "http://www.BootstrapWorld.org/workshops" "workshops page") to stay up-to-date on our workshop schedule. Don't see a workshop in your area? Let us know, and we'll work with you to bring one to your school or district.
 
 @; workbook link names and targets
 
