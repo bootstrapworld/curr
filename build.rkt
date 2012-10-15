@@ -13,8 +13,21 @@
          file/zip)
 
 ;; This is a toplevel build script which generates scribble files for
-;; the lessons and courses.
+;; the lessons and courses.  These scribble files will be translated
+;; to HTML files, written under the deployment directory for simple
+;; distribution.
 
+
+;; The default deployment directory is "deploy"
+(current-deployment-dir (simple-form-path "deploy"))
+
+
+;; The following is a bit of namespace magic to avoid funkiness that 
+;; several of our team members observed when running this build script
+;; under DrRacket with debugging enabled.
+(define ns (make-base-namespace))
+(define-namespace-anchor this-anchor)
+(namespace-attach-module (namespace-anchor->namespace this-anchor) 'scribble/base ns)
 
 
 ;; run-scribble: path -> void
@@ -33,7 +46,8 @@
                                           (split-path (simple-form-path scribble-file))])
                               base)]))
   (define-values (base name dir?) (split-path scribble-file))
-  (parameterize ([current-directory base])
+  (parameterize ([current-directory base]
+                 [current-namespace ns])
     (render (list (dynamic-require `(file ,(path->string name)) 'doc))
             (list name)
 	    #:dest-dir output-dir))
@@ -71,13 +85,8 @@
   (cond [(file-exists? scribble-file)
          (printf "build.rkt: Building ~a\n" scribble-file)
          (copy-file (build-path "lib" "box.gif") 
-                    (build-path (get-units-dir) subdir "box.gif")
-                    #t)
-         #;(when (current-deployment-dir)
-             (copy-file (build-path "lib" "box.gif")
-                        (build-path (current-deployment-dir) "courses"
-                                    (current-course) "units" subdir "box.gif")
-                        #t))
+                      (build-path (get-units-dir) subdir "box.gif")
+                      #t)
          (run-scribble scribble-file)]
         [else
          (printf "Could not find a \"the-unit.scrbl\" in directory ~a\n"
@@ -127,10 +136,10 @@
 
 
 
-;; Under deployment mode, zip up the final result.
+;; Under deployment mode, include the resources.
 (when (current-deployment-dir)
   (when (directory-exists? (get-resources))
-    ;; Include the resources.
+    
     (let ([input-resources-dir (get-resources)]
           [output-resources-dir
            (build-path (current-deployment-dir) "courses" (current-course)
@@ -158,6 +167,7 @@
        (printf "build.rkt: no teacher's guide found; skipping\n")])
 
 
+;;  Finally, zip up the deployment directory
 (when (current-deployment-dir)
   (let-values ([(base file dir?) (split-path (current-deployment-dir))])
     (parameterize ([current-directory base])
