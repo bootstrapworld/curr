@@ -19,10 +19,10 @@
             @pedagogy{@item{Okay..now it's time for a little team competition!}
             @item{I'm going to give your teams some new function descriptions, and you'll need to create the contract, two examples, and the definition.}}
             @item{@tag[pedagogy]{We'll do one to practice: } @tag[selftaught]{Let's practice defining functions:} First write only the contract and examples! The contract and each example will be worth one point apiece, for a maximum of three points. Write a function called @code{triple}, which takes in a number as its input and multiplies it by 3. @tag[pedagogy]{You have one minute! GO!}}
-            @pedagogy@item{Walk around and help, while counting down... 3! 2! 1! Eyes on me!}}
+            @pedagogy{@item{Walk around and help, while counting down... 3! 2! 1! Eyes on me!}}
             @item{Now look at your two examples. What is the only thing that changes from one to the other? The number being multiplied by three! That is the only thing that is changeable, or variable.}
             @item{Now take another minute, and write the function header and body for triple. Don't forget to replace the changing thing with a variable!}
-            @pedagogy@item{Walk around and help, while counting down... 3! 2! 1! Eyes on me!}}
+            @pedagogy{@item{Walk around and help, while counting down... 3! 2! 1! Eyes on me!}}
             @pedagogy{@item{Okay, you all did a great job on the practice round. Now I'm going to give you 2 min. to write the entire function, contract, and examples for the next function description. You MUST write your contract and examples first! When you are done, raise your hand so I can check it! If you move on to writing the definition before I have checked your examples, your team will lose a point! Repeat the competition for each of the following examples:}}
             @itemlist/splicing[
                                @item{Write a function @code{plus1}, that takes in a number and adds one to it}
