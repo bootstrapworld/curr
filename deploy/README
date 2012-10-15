@@ -1,0 +1,5 @@
+Bugs:
+
+Note that if you're running build.rkt directly from DrRacket, you must
+make sure your language's settings do not include debugging.  Otherwise,
+we tickle what appears to be a DrRacket bug.
