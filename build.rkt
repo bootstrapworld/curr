@@ -9,18 +9,18 @@
          "lib/system-parameters.rkt"
          "lib/translate-pdfs.rkt"
          "lib/paths.rkt"
-         file/zip
-         (for-syntax racket/base))
+         scribble/render
+         file/zip)
 
 ;; This is a toplevel build script which generates scribble files for
 ;; the lessons and courses.
 
 
 
-(define scribble-exe
-  (or (find-executable-path "scribble")
-      (find-executable-path "scribble.exe")
-      (error 'build "The scribble executable cannot be found in the current PATH.")))
+#;(define scribble-exe
+    (or (find-executable-path "scribble")
+        (find-executable-path "scribble.exe")
+        (error 'build "The scribble executable cannot be found in the current PATH.")))
 
 
 ;; The output mode is, by default, HTML.
@@ -46,14 +46,16 @@
                               base)]))
   (define-values (base name dir?) (split-path scribble-file))
   (parameterize ([current-directory base])
-    (system* scribble-exe (output-mode) "--dest" output-dir name)
-    (when (current-generate-pdf?)
-      (translate-html-to-pdf
-       (build-path output-dir
-                   (regexp-replace #px".scrbl$"
-                                   (path->string name)
-                                   ".html"))
-       #:dest output-dir)))
+    (render (list (dynamic-require `(file ,(path->string name)) 'doc))
+            (list name) #:dest-dir output-dir)
+    #;(system* scribble-exe (output-mode) "--dest" output-dir name)    
+    #;(when (current-generate-pdf?)
+        (translate-html-to-pdf
+         (build-path output-dir
+                     (regexp-replace #px".scrbl$"
+                                     (path->string name)
+                                     ".html"))
+         #:dest output-dir)))
   (void))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -66,13 +68,13 @@
    [("--course") -course "Choose course (default bs1)"
                  (current-course -course)]
    [("--worksheet-links-to-pdf") "Direct worksheet links to StudentWorkshop.pdf" 
-    (putenv "WORKSHEET-LINKS-TO-PDF" "true")]
-
+                                 (putenv "WORKSHEET-LINKS-TO-PDF" "true")]
+   
    [("--deploy") -deploy-dir "Deploy into the given directory, and create a .zip" 
                  (current-deployment-dir (simple-form-path -deploy-dir))]
    [("--pdf") "Generate PDF documentation"
               (current-generate-pdf? #t)]
-
+   
    #:args tags
    tags))
 
@@ -93,10 +95,10 @@
                     (build-path (get-units-dir) subdir "box.gif")
                     #t)
          #;(when (current-deployment-dir)
-           (copy-file (build-path "lib" "box.gif")
-                      (build-path (current-deployment-dir) "courses"
-                                  (current-course) "units" subdir "box.gif")
-                      #t))
+             (copy-file (build-path "lib" "box.gif")
+                        (build-path (current-deployment-dir) "courses"
+                                    (current-course) "units" subdir "box.gif")
+                        #t))
          (run-scribble scribble-file)]
         [else
          (printf "Could not find a \"the-unit.scrbl\" in directory ~a\n"
@@ -129,8 +131,8 @@
   (when (directory-exists? (build-path lessons-dir subdir "worksheets"))
     (for ([worksheet (directory-list (build-path lessons-dir subdir "worksheets"))]
           #:when (regexp-match #px".scrbl$" worksheet))
-       (printf "build.rkt: building worksheet ~a: ~a\n" subdir worksheet)
-       (run-scribble (build-path lessons-dir subdir "worksheets" worksheet)))))
+      (printf "build.rkt: building worksheet ~a: ~a\n" subdir worksheet)
+      (run-scribble (build-path lessons-dir subdir "worksheets" worksheet)))))
 
 ;; and the drills
 (for ([subdir (directory-list lessons-dir)]
@@ -138,8 +140,8 @@
   (when (directory-exists? (build-path lessons-dir subdir "drills"))
     (for ([drill (directory-list (build-path lessons-dir subdir "drills"))]
           #:when (regexp-match #px".scrbl$" drill))
-       (printf "build.rkt: building drill ~a: ~a\n" subdir drill)
-       (run-scribble (build-path lessons-dir subdir "drills" drill)))))
+      (printf "build.rkt: building drill ~a: ~a\n" subdir drill)
+      (run-scribble (build-path lessons-dir subdir "drills" drill)))))
 
 (printf "build.rkt: building ~a main\n" (current-course))
 (run-scribble (get-course-main))
@@ -175,7 +177,7 @@
        (run-scribble (get-teachers-guide))]
       [else
        (printf "build.rkt: no teacher's guide found; skipping\n")])
- 
+
 
 (when (current-deployment-dir)
   (let-values ([(base file dir?) (split-path (current-deployment-dir))])
