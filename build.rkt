@@ -17,18 +17,6 @@
 
 
 
-#;(define scribble-exe
-    (or (find-executable-path "scribble")
-        (find-executable-path "scribble.exe")
-        (error 'build "The scribble executable cannot be found in the current PATH.")))
-
-
-;; The output mode is, by default, HTML.
-(define output-mode (make-parameter "--html"))
-(define current-generate-pdf? (make-parameter #f))
-
-
-
 ;; run-scribble: path -> void
 ;; Runs scribble on the given file.
 (define (run-scribble scribble-file)
@@ -47,15 +35,8 @@
   (define-values (base name dir?) (split-path scribble-file))
   (parameterize ([current-directory base])
     (render (list (dynamic-require `(file ,(path->string name)) 'doc))
-            (list name) #:dest-dir output-dir)
-    #;(system* scribble-exe (output-mode) "--dest" output-dir name)    
-    #;(when (current-generate-pdf?)
-        (translate-html-to-pdf
-         (build-path output-dir
-                     (regexp-replace #px".scrbl$"
-                                     (path->string name)
-                                     ".html"))
-         #:dest output-dir)))
+            (list name)
+	    #:dest-dir output-dir))
   (void))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -70,10 +51,8 @@
    [("--worksheet-links-to-pdf") "Direct worksheet links to StudentWorkshop.pdf" 
                                  (putenv "WORKSHEET-LINKS-TO-PDF" "true")]
    
-   [("--deploy") -deploy-dir "Deploy into the given directory, and create a .zip" 
+   [("--deploy") -deploy-dir "Deploy into the given directory, and create a .zip.  Default: deploy" 
                  (current-deployment-dir (simple-form-path -deploy-dir))]
-   [("--pdf") "Generate PDF documentation"
-              (current-generate-pdf? #t)]
    
    #:args tags
    tags))
