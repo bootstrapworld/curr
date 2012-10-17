@@ -27,12 +27,14 @@
 ;; under DrRacket with debugging enabled.  We must make sure to use
 ;; a fairly clean namespace, but one that shares some critical modules
 ;; with this build script.
-(define ns (make-base-namespace))
 (define-namespace-anchor this-anchor)
 (define shared-modules (list 'scribble/render
                              "lib/system-parameters.rkt"))
-(for ([mod shared-modules])
-  (namespace-attach-module (namespace-anchor->namespace this-anchor) mod ns))
+(define (make-fresh-document-namespace)
+  (define ns (make-base-namespace))
+  (for ([mod shared-modules])
+    (namespace-attach-module (namespace-anchor->namespace this-anchor) mod ns))
+  ns)
 
 
 ;; run-scribble: path -> void
@@ -53,7 +55,7 @@
   (define-values (base name dir?) (split-path scribble-file))
   (define output-path (build-path output-dir (string->path (regexp-replace #px"\\.scrbl$" (path->string name) ".html"))))
   (parameterize ([current-directory base]
-                 [current-namespace ns]
+                 [current-namespace (make-fresh-document-namespace)]
                  [current-document-output-path output-path])
     (render (list (dynamic-require `(file ,(path->string name)) 'doc))
             (list name)

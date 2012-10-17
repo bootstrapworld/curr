@@ -631,8 +631,9 @@
          [(list lesson-name unit-path)
           (values unit-path (lesson-name->anchor-name lesson-name))]))
      (define the-relative-path
-       (find-relative-path (simple-form-path (current-directory))
-                           (simple-form-path unit-path)))
+       (find-relative-path (simple-form-path (path-only (current-document-output-path)))
+                           (simple-form-path unit-path)
+                           ))
      (printf "*****!!!! done! ~s -> ~s***\n" lesson-name (string-append (path->string the-relative-path) "#" anchor))
      (hyperlink (string-append (path->string the-relative-path) "#" anchor)
                 (if label label lesson-name))]
