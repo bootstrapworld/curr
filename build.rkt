@@ -27,7 +27,8 @@
 ;; under DrRacket with debugging enabled.
 (define ns (make-base-namespace))
 (define-namespace-anchor this-anchor)
-(namespace-attach-module (namespace-anchor->namespace this-anchor) 'scribble/base ns)
+(namespace-attach-module (namespace-anchor->namespace this-anchor) 'scribble/render ns)
+(namespace-attach-module (namespace-anchor->namespace this-anchor) "lib/system-parameters.rkt" ns)
 
 
 ;; run-scribble: path -> void
