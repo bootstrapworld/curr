@@ -18,8 +18,8 @@
 ;; distribution.
 
 
-;; The default deployment directory is "deploy"
-(current-deployment-dir (simple-form-path "deploy"))
+;; The default deployment directory is "distribution"
+(current-deployment-dir (simple-form-path "distribution"))
 
 
 ;; The following is a bit of namespace magic to avoid funkiness that 
