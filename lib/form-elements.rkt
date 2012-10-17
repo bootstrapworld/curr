@@ -16,6 +16,8 @@
          (for-syntax racket/base)
          2htdp/image
          racket/list
+         net/uri-codec
+         "system-parameters.rkt"
          "checker.rkt"
          "javascript-support.rkt"
          "paths.rkt")
@@ -67,9 +69,10 @@
          standards
          unit-length
 
-         ;; Include lesson
+         ;; Include lesson/lesson link
          include-lesson
-     
+         lesson-link
+
          ;; stuff added by the interns
          ;;edited contract-exercise
          overview
@@ -88,7 +91,6 @@
          [rename-out [worksheet-link/src-path worksheet-link]]
 
          resource-link
-         lesson-link
          video-link
          )        
 
@@ -572,10 +574,16 @@
               items))))
   (apply itemlist spliced-items #:style style))
 
-(define (extract-lesson p)
-  (unless (part? p)
-    (error 'include-lesson "doc binding is not a part: ~e" p))
-  (part-blocks p))
+
+;; extract-lesson: module-path -> (listof block)
+;; Extracts the lesson from the documentation portion, and also
+;; registers the use in the current document.
+(define (extract-lesson mp)
+  (define a-doc (dynamic-require 'mp 'doc))
+  (unless (part? a-doc)
+    (error 'include-lesson "doc binding is not a part: ~e" a-doc))
+  (cons (sxml->element `(a (@ (name ,(lesson-name->anchor-name "fillmein"))) "")) 
+        (part-blocks a-doc)))
 
 
 (define-syntax (include-lesson stx)
@@ -583,10 +591,28 @@
     [(_ mp)
      (with-syntax ([(temporary-name) (generate-temporaries #'(mp))])
        (syntax/loc stx
-         (begin
-           (define a-doc (dynamic-require 'mp 'doc))
-           (extract-lesson a-doc)
-           )))]))
+         (extract-lesson 'mp)))]))
+
+
+;; lesson-name->anchor-name: string -> string
+;; Given that the lesson names are unique, we can create an <a name="..."> anchor
+;; for each included lesson.  We put a "lesson_" prefix in front of each name.
+(define (lesson-name->anchor-name a-name)
+  (uri-encode (string-append "lesson_" a-name)))
+  
+
+
+
+;; Link to a particular lesson by name
+(define (lesson-link #:name lesson-name
+                     #:label [label #f])
+  (define the-relative-path
+    (find-relative-path (simple-form-path (current-directory))
+                        (simple-form-path (build-path worksheet-lesson-root lesson-name "lesson" "lesson.html"))))
+  (hyperlink (path->string the-relative-path)
+             (if label label lesson-name)))
+
+
 
 ;;Vicki
 
@@ -851,14 +877,6 @@
              (if label label resource-path)))
 
 
-;; Link to a particular lesson by name
-(define (lesson-link #:name lesson-name
-                     #:label [label #f])
-  (define the-relative-path
-    (find-relative-path (simple-form-path (current-directory))
-                        (simple-form-path (build-path worksheet-lesson-root lesson-name "lesson" "lesson.html"))))
-  (hyperlink (path->string the-relative-path)
-             (if label label lesson-name)))
 
 ;; wraps a hyperlink in the bootstrap styling tag
 (define (video-link hylink)

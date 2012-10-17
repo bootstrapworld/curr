@@ -51,8 +51,10 @@
                                           (split-path (simple-form-path scribble-file))])
                               base)]))
   (define-values (base name dir?) (split-path scribble-file))
+  (define output-path (string->path (regexp-replace #px"\\.rkt$" (path->string name) ".html")))
   (parameterize ([current-directory base]
-                 [current-namespace ns])
+                 [current-namespace ns]
+                 [current-document-output-path output-path])
     (render (list (dynamic-require `(file ,(path->string name)) 'doc))
             (list name)
 	    #:dest-dir output-dir))

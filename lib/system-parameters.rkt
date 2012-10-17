@@ -2,18 +2,28 @@
 
 (provide current-deployment-dir
          current-course
+         current-lesson-xref
+         current-document-output-path
          current-worksheet-links-refer-to-pdf?)
 
 
-;; The production deployment directory is, by default, "deploy".
 ;; Under deployment mode, the worksheets and drills are written as subdirectories of the deployment directory.
-(define current-deployment-dir (make-parameter "deploy"))
+;; The toplevel build.rkt script will initialize this parameter.
+(define current-deployment-dir (make-parameter #f))
 
 
 ;; The current coures being built.  Should be the name of one of the
 ;; subdirectories under "courses".
 (define current-course (make-parameter "bs1"))
 
+
+;; The output path of the current document.
+(define current-document-output-path (make-parameter #f))
+
+
+;; The current-lesson-xref is a hashtable from lesson names to
+;; records that describe where they can be found.
+(define current-lesson-xref (make-parameter (make-hash)))
 
 
 ;; Should worksheet links refer to the actual html files, or to the pdf?
