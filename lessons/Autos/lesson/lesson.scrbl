@@ -16,13 +16,13 @@
                                                                    @item{value: Number}]}
                  @item{These are the only things that we're going to keep track of in an auto, but you can imagine how we would extend it to include other things.}
                  @item{Now that you have a bit more information about them, what data type could we use for this auto? A struct! This is the very first time that we're going to use structs...but they're going to play a HUGE part in your game. Let's take a look at how this works.}
-                 @tag[pedagogy]{@item{Have students open the Autobody Shop file.}}
-                 @tag[pedagogy]{@item{Raise your hand if you can read the line beginning with @code{define car1}. Have one student read the line aloud, while you write the definition on the board.}}
+                 @pedagogy{@item{Have students open the Autobody Shop file.}}
+                 @pedagogy{@item{Raise your hand if you can read the line beginning with @code{define car1}. Have one student read the line aloud, while you write the definition on the board.}}
                  @tag[pedagogy]{Read the line beginning with @code{define car1}.}
                  @code{(define car1 (make-auto "M5" 480 28 "black" 50000))}
                  @item{As you can see here, it's really easy to make this auto struct! We have a bit of code which tells the computer which order everything goes in...and we'll talk about that next class. For now, I want you to look at this new function: @code{make-auto}. @tag[pedagogy]{Let's flip to our contracts sheet and write it down.}}
                  @item{What is the name of the function? @code{make-auto}. How about the domain? How many things are in the domain? Five. They are, in fact, the five things that we have already listed@tag[pedagogy]{ on the board}. So what is in the domain of make-auto? String, Number, Number, String, Number.}
-                 @tag[pedagogy]{@item{Unlike our struct bags, here the order is important, so be sure to write it down correctly. In fact, why don't you use another line to denote what each of these means...the first string is model, the next number is hp, etc. Give them a moment to write down something that looks like this:}}
+                 @pedagogy{@item{Unlike our struct bags, here the order is important, so be sure to write it down correctly. In fact, why don't you use another line to denote what each of these means...the first string is model, the next number is hp, etc. Give them a moment to write down something that looks like this:}}
                  @code[#:multi-line #t]{; make-auto : String Number Number String Number -> ___________________
 ; Model, hp, rims, color, value}
                  @tag[selftaught]{@item{Remember, order matters, so don't mix them around!}}

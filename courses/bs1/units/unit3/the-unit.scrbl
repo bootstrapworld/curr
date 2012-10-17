@@ -24,7 +24,7 @@
            @item{Class poster (List of rules, language table, course calendar)}
            @item{Language Table (see below)}]
 
-@preparation[@item{Create student game files. [See @resource-link[#:path "teachers/teachers-guide/teachers-guide.html" #:label "Teachers Guide"]]}
+@preparation[@item{Create student game files. [See the (teachers-only) @resource-link[#:path "teachers/teachers-guide/teachers-guide.html" #:label "Teachers Guide"]]}
            @item{On student machines: Student Game Files (generated from "Game" template [Game.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=q3fgrbasAi" "WeScheme")])}
            @item{Write agenda on board, and post along with class posters and the Language Table}
            @item{Seating arrangements: ideally clusters of desks/tables}

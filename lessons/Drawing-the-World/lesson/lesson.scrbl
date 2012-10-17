@@ -14,11 +14,11 @@
              @item{First, start out by putting one of our images onto the background. Do you remember how to use @code{put-image}? It needs the coordinates of where to put our image.}
              @item{If we wanted the images to be centered on the scene, what are the x- and y-coordinates I'll need? 320 and 240!}
              @item{But you don't want your image to be at the center of the screen. Look back at your @code{START} world picture a couple pages back...you made a note of which coordinates you want that image to be on, above the background!}
-             @tag[pedagogy]{@item{Show students the 'staircase' pattern that forms when they put the coordinates and each image on their own line. For example:}}
+             @pedagogy{@item{Show students the 'staircase' pattern that forms when they put the coordinates and each image on their own line. For example:}}
              @tag[selftaught]{@item{Start with something that looks like this:}}
                              @code[#:multi-line #t]{(place-image IMAGE
                                                                  320 240
                                                                  BACKGROUND)}
              @item{Now try adding another one of the images from your world. Remember, you're placing another image on top of the one that this staircase has already created! Keep adding to it, until you have a stack of all of the images in your game.}
-             @tag[pedagogy]{@item{Work with small groups to complete this section. When students finish writing draw-world, have them type their NEXT world and draw-world into their games, in the GRAPHICS section.}}
-             @tag[pedagogy]{@item{If they type (draw-world START) into the interactions window, they can see a screenshot of their game.}}]}
+             @pedagogy{@item{Work with small groups to complete this section. When students finish writing draw-world, have them type their NEXT world and draw-world into their games, in the GRAPHICS section.}}
+             @pedagogy{@item{If they type (draw-world START) into the interactions window, they can see a screenshot of their game.}}]}

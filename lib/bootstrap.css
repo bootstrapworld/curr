@@ -119,7 +119,7 @@ blockquote.pedagogy {
     border: 0px;
     font-style: italic;
 }
-
+blockquote.pedagogy p{ display: inline;}
 
 /******************************************************************************
   Bootstrap Units have titles, overviews, agendas and to-do items, and 
@@ -212,7 +212,7 @@ table td{
 
 .BootstrapAgendaList .BSLessonName{float: right;}
 
-.BootstrapProductOutcomesList, .BootstrapLearningObjectivesList, .BootstrapPreparationList, .BootstrapMaterialsList{
+.BootstrapPreparationList, .BootstrapMaterialsList{
   margin: 0px;
   list-style-image: url('box.gif');
 }

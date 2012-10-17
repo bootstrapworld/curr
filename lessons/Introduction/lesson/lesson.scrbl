@@ -4,7 +4,7 @@
 @lesson[#:title "Introduction"
         #:duration "5 minutes"]{
       @itemlist/splicing[@item{Welcome back to Bootstrap!}
-      @tag[pedagogy]{@item{Introduce teaching staff. Have students introduce themselves as well.}
+      @pedagogy{@item{Introduce teaching staff. Have students introduce themselves as well.}
       @item{Review the rules:@itemlist[
          @item{Unless we say otherwise, raise your hand to speak}
          @item{If you're not programming, the computer monitors need to be OFF. When we say "monitors off", everyone should shut off the monitors, stop talking, and give their attention to the teachers. Let's try this one out - everyone make sure the monitors are on...now start talking.....louder!....MONITORS OFF! Repeat as necessary.}

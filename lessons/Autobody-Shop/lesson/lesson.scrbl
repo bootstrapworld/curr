@@ -18,12 +18,12 @@
            @item{The rim size shouldn't change with a paint job. So how do I get the rims out of car1? }
            @item{What about the color? Does that change in this example? Yes! It should be the string @code{"purple"}.}
            @item{How about the value? Did our problem statement say that the value changes? So how do I get the value out of car1? }
-           @tag[pedagogy]{@item{Make sure you're copying this down into your notebooks!Give them time to catch up writing.}}
+           @pedagogy{@item{Make sure you're copying this down into your notebooks!Give them time to catch up writing.}}
            @item{Let's do another example! This time we want to paint car2 green. What do I write for the first part of the example?} 
            @item{See if you can finish off the rest of his example on your own.}
            @item{What's the next step in the Design Recipe? Definition. @tag[pedagogy]{Since you've done such a good job in your examples, this step becomes easy! }What two things change between these examples? The color and the auto! @tag[pedagogy]{Circle them. }So how many variables will your function need?}
            @item{Write the definition, using the examples to help you. Remember: All you have to do is copy the examples, changing the values to variables!}
-           @tag[pedagogy]{@item{Okay - are you ready to try one on your own?}}
+           @pedagogy{@item{Okay - are you ready to try one on your own?}}
            @item{Turn to @worksheet-link[#:page 10 #:name "turbocharge"] in your workbooks.@tag[pedagogy]{ Now it's your turn.}}
            @item{When you turbocharge an engine, you get more power out of it. Your bodyshop does a turbocharging job that adds 20 horsepower to any engine, but keeps everything else the same. Write the function @code{turbocharge}.@tag[pedagogy]{You have 10 minutes. GO!}}
-           @tag[pedagogy]{@item{Walk around the class, helping kids as-needed. Don't forget to count down the minutes! If they finish writing, let them put it into the computer.}}]}
+           @pedagogy{@item{Walk around the class, helping kids as-needed. Don't forget to count down the minutes! If they finish writing, let them put it into the computer.}}]}
