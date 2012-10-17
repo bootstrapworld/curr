@@ -17,6 +17,7 @@
          2htdp/image
          racket/list
          net/uri-codec
+         racket/match
          "system-parameters.rkt"
          "checker.rkt"
          "javascript-support.rkt"
@@ -579,10 +580,27 @@
 ;; Extracts the lesson from the documentation portion, and also
 ;; registers the use in the current document.
 (define (extract-lesson mp)
-  (define a-doc (dynamic-require 'mp 'doc))
+  (define (raise-lesson-error)
+    (error 'extract-lesson "lesson module path ~e does not have expected shape (e.g. (lib curr/lib/FOO/lesson.scrbl)" mp))  
+  
+  (define lesson-name (match mp
+                        [(list 'lib path)
+                         (cond
+                           [(regexp-match #px"^curr/lessons/([^/]+)/lesson/lesson.scrbl$" path)
+                            =>
+                            (lambda (result)
+                              (list-ref result 1))]
+                           [else
+                            (raise-lesson-error)])]
+                        [else
+                         (raise-lesson-error)]))
+  (define a-doc (dynamic-require mp 'doc))
+  
   (unless (part? a-doc)
     (error 'include-lesson "doc binding is not a part: ~e" a-doc))
-  (cons (sxml->element `(a (@ (name ,(lesson-name->anchor-name "fillmein"))) "")) 
+  (hash-set! (current-lesson-xref) lesson-name (list lesson-name (current-document-output-path)))
+  
+  (cons (sxml->element `(a (@ (name ,(lesson-name->anchor-name lesson-name))) "")) 
         (part-blocks a-doc)))
 
 
@@ -606,11 +624,24 @@
 ;; Link to a particular lesson by name
 (define (lesson-link #:name lesson-name
                      #:label [label #f])
-  (define the-relative-path
-    (find-relative-path (simple-form-path (current-directory))
-                        (simple-form-path (build-path worksheet-lesson-root lesson-name "lesson" "lesson.html"))))
-  (hyperlink (path->string the-relative-path)
-             (if label label lesson-name)))
+  (cond
+    [(hash-has-key? (current-lesson-xref) lesson-name)
+     (define-values (unit-path anchor)
+       (match (hash-ref (current-lesson-xref) lesson-name)
+         [(list lesson-name unit-path)
+          (values unit-path (lesson-name->anchor-name lesson-name))]))
+     (define the-relative-path
+       (find-relative-path (simple-form-path (current-directory))
+                           (simple-form-path unit-path)))
+     (printf "*****!!!! done! ~s -> ~s***\n" lesson-name (string-append (path->string the-relative-path) "#" anchor))
+     (hyperlink (string-append (path->string the-relative-path) "#" anchor)
+                (if label label lesson-name))]
+    [else
+     (define the-relative-path
+       (find-relative-path (simple-form-path (current-directory))
+                           (simple-form-path (build-path worksheet-lesson-root lesson-name "lesson" "lesson.html"))))
+     (hyperlink (path->string the-relative-path)
+                (if label label lesson-name))]))
 
 
 

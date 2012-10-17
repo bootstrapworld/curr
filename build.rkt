@@ -51,7 +51,7 @@
                                           (split-path (simple-form-path scribble-file))])
                               base)]))
   (define-values (base name dir?) (split-path scribble-file))
-  (define output-path (string->path (regexp-replace #px"\\.rkt$" (path->string name) ".html")))
+  (define output-path (build-path output-dir (string->path (regexp-replace #px"\\.scrbl$" (path->string name) ".html"))))
   (parameterize ([current-directory base]
                  [current-namespace ns]
                  [current-document-output-path output-path])
@@ -90,20 +90,23 @@
 
 
 
-;; Building the bs1 course
+;; Building the units of the course.
+;; We must do this twice to resolve cross references for lessons.
 (printf "build.rkt: building ~a\n" (current-course))
-(for ([subdir (directory-list (get-units-dir))]
-      #:when (directory-exists? (build-path (get-units-dir) subdir)))
-  (define scribble-file (simple-form-path (build-path (get-units-dir) subdir "the-unit.scrbl")))
-  (cond [(file-exists? scribble-file)
-         (printf "build.rkt: Building ~a\n" scribble-file)
-         (copy-file (build-path "lib" "box.gif") 
+(for ([phase (in-range 2)])
+  (printf "Phase ~a\n" phase)
+  (for ([subdir (directory-list (get-units-dir))]
+        #:when (directory-exists? (build-path (get-units-dir) subdir)))
+    (define scribble-file (simple-form-path (build-path (get-units-dir) subdir "the-unit.scrbl")))
+    (cond [(file-exists? scribble-file)
+           (printf "build.rkt: Building ~a\n" scribble-file)
+           (copy-file (build-path "lib" "box.gif") 
                       (build-path (get-units-dir) subdir "box.gif")
                       #t)
-         (run-scribble scribble-file)]
-        [else
-         (printf "Could not find a \"the-unit.scrbl\" in directory ~a\n"
-                 (build-path (get-units-dir) subdir))]))
+           (run-scribble scribble-file)]
+          [else
+           (printf "Could not find a \"the-unit.scrbl\" in directory ~a\n"
+                   (build-path (get-units-dir) subdir))])))
 
 ;; Building the lessons
 (printf "build.rkt: building lessons\n")
