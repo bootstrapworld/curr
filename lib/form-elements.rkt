@@ -85,7 +85,6 @@
 	 struct-design-recipe-exercise
          struct-function-exercise
 	 
-
          [rename-out [worksheet-link/src-path worksheet-link]]
 
          resource-link
@@ -578,10 +577,16 @@
     (error 'include-lesson "doc binding is not a part: ~e" p))
   (part-blocks p))
 
-(define-syntax-rule (include-lesson mp)
-  (begin
-    (require (only-in mp [doc abstract-doc]))
-    (extract-lesson abstract-doc)))
+
+(define-syntax (include-lesson stx)
+  (syntax-case stx ()
+    [(_ mp)
+     (with-syntax ([(temporary-name) (generate-temporaries #'(mp))])
+       (syntax/loc stx
+         (begin
+           (define a-doc (dynamic-require 'mp 'doc))
+           (extract-lesson a-doc)
+           )))]))
 
 ;;Vicki
 
