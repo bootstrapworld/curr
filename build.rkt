@@ -24,11 +24,15 @@
 
 ;; The following is a bit of namespace magic to avoid funkiness that 
 ;; several of our team members observed when running this build script
-;; under DrRacket with debugging enabled.
+;; under DrRacket with debugging enabled.  We must make sure to use
+;; a fairly clean namespace, but one that shares some critical modules
+;; with this build script.
 (define ns (make-base-namespace))
 (define-namespace-anchor this-anchor)
-(namespace-attach-module (namespace-anchor->namespace this-anchor) 'scribble/render ns)
-(namespace-attach-module (namespace-anchor->namespace this-anchor) "lib/system-parameters.rkt" ns)
+(define shared-modules (list 'scribble/render
+                             "lib/system-parameters.rkt"))
+(for ([mod shared-modules])
+  (namespace-attach-module (namespace-anchor->namespace this-anchor) mod ns))
 
 
 ;; run-scribble: path -> void
@@ -72,8 +76,14 @@
    #:args tags
    tags))
 
+
+
+
+
 (void (putenv "SCRIBBLE_TAGS" (string-join current-contextual-tags " ")))
 (printf "build.rkt: tagging context is: ~s\n" current-contextual-tags)
+(printf "deployment path: ~s\n" (current-deployment-dir))
+(printf "-------\n")
 
 
 
@@ -82,7 +92,7 @@
 (printf "build.rkt: building ~a\n" (current-course))
 (for ([subdir (directory-list (get-units-dir))]
       #:when (directory-exists? (build-path (get-units-dir) subdir)))
-  (define scribble-file (build-path (get-units-dir) subdir "the-unit.scrbl"))
+  (define scribble-file (simple-form-path (build-path (get-units-dir) subdir "the-unit.scrbl")))
   (cond [(file-exists? scribble-file)
          (printf "build.rkt: Building ~a\n" scribble-file)
          (copy-file (build-path "lib" "box.gif") 
@@ -97,7 +107,7 @@
 (printf "build.rkt: building lessons\n")
 (for ([subdir (directory-list lessons-dir)]
       #:when (directory-exists? (build-path lessons-dir subdir)))
-  (define scribble-file (build-path lessons-dir subdir "lesson" "lesson.scrbl"))
+  (define scribble-file (simple-form-path (build-path lessons-dir subdir "lesson" "lesson.scrbl")))
   (cond [(file-exists? scribble-file)
          (printf "build.rkt: Building ~a\n" scribble-file)
          (run-scribble scribble-file)]
@@ -109,7 +119,7 @@
 (printf "build.rkt: building long lessons\n")
 (for ([subdir (directory-list lessons-dir)]
       #:when (directory-exists? (build-path lessons-dir subdir)))
-  (define scribble-file (build-path lessons-dir subdir "lesson" "lesson-long.scrbl"))
+  (define scribble-file (simple-form-path (build-path lessons-dir subdir "lesson" "lesson-long.scrbl")))
   (cond [(file-exists? scribble-file)
          (printf "build.rkt: Building ~a\n" scribble-file)
          (run-scribble scribble-file)]))
