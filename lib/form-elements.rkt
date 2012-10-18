@@ -622,29 +622,35 @@
 
 
 ;; Link to a particular lesson by name
+;; lesson-link: #:name string #:label (U string #f) -> element
 (define (lesson-link #:name lesson-name
                      #:label [label #f])
-  (cond
-    [(hash-has-key? (current-lesson-xref) lesson-name)
-     (define-values (unit-path anchor)
-       (match (hash-ref (current-lesson-xref) lesson-name)
-         [(list lesson-name unit-path)
-          (values unit-path (lesson-name->anchor-name lesson-name))]))
-     (define the-relative-path
-       (find-relative-path (simple-form-path (path-only (current-document-output-path)))
-                           (simple-form-path unit-path)
-                           ))
-     (printf "*****!!!! done! ~s -> ~s***\n" lesson-name (string-append (path->string the-relative-path) "#" anchor))
-     (hyperlink (string-append (path->string the-relative-path) "#" anchor)
-                (if label label lesson-name))]
-    [else
-     (define the-relative-path
-       (find-relative-path (simple-form-path (current-directory))
-                           (simple-form-path (build-path worksheet-lesson-root lesson-name "lesson" "lesson.html"))))
-     (hyperlink (path->string the-relative-path)
-                (if label label lesson-name))]))
+  ;; We make this a traverse-element so that we can re-evaluate this code at document-generation
+  ;; time, rather than just at module-loading time.
+  (traverse-element 
+   (lambda (get set)
+     (cond
+       ;; First, check to see whether or not we can find the cross reference to the lesson.
+       [(hash-has-key? (current-lesson-xref) lesson-name)
+        (define-values (unit-path anchor)
+          (match (hash-ref (current-lesson-xref) lesson-name)
+            [(list lesson-name unit-path)
+             (values unit-path (lesson-name->anchor-name lesson-name))]))
+        (define the-relative-path
+          (find-relative-path (simple-form-path (path-only (current-document-output-path)))
+                              (simple-form-path unit-path)))
+        (hyperlink (string-append (path->string the-relative-path) "#" anchor)
+                   (if label label lesson-name))]
 
-
+       ;; If not, fail for now by producing a hyperlink that doesn't quite go to the right place.
+       [else
+        (define the-relative-path
+          (find-relative-path (simple-form-path (current-directory))
+                              (simple-form-path (build-path worksheet-lesson-root lesson-name "lesson" "lesson.html"))))
+        (hyperlink (path->string the-relative-path)
+                   (if label label lesson-name))]))))
+   
+   
 
 ;;Vicki
 

@@ -37,6 +37,9 @@
   ns)
 
 
+(define document-namespace (make-fresh-document-namespace))
+
+
 ;; run-scribble: path -> void
 ;; Runs scribble on the given file.
 (define (run-scribble scribble-file)
@@ -55,7 +58,7 @@
   (define-values (base name dir?) (split-path scribble-file))
   (define output-path (build-path output-dir (string->path (regexp-replace #px"\\.scrbl$" (path->string name) ".html"))))
   (parameterize ([current-directory base]
-                 [current-namespace (make-fresh-document-namespace)]
+                 [current-namespace document-namespace]
                  [current-document-output-path output-path])
     (render (list (dynamic-require `(file ,(path->string name)) 'doc))
             (list name)
