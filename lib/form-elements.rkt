@@ -631,7 +631,8 @@
    (lambda (get set)
      (cond
        ;; First, check to see whether or not we can find the cross reference to the lesson.
-       [(hash-has-key? (current-lesson-xref) lesson-name)
+       [(and (hash-has-key? (current-lesson-xref) lesson-name)
+             (current-document-output-path))
         (define-values (unit-path anchor)
           (match (hash-ref (current-lesson-xref) lesson-name)
             [(list lesson-name unit-path)
@@ -644,6 +645,7 @@
 
        ;; If not, fail for now by producing a hyperlink that doesn't quite go to the right place.
        [else
+        (fprintf (current-output-port) "Warning: could not find cross reference to ~a\n" lesson-name)
         (define the-relative-path
           (find-relative-path (simple-form-path (current-directory))
                               (simple-form-path (build-path worksheet-lesson-root lesson-name "lesson" "lesson.html"))))
