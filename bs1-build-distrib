@@ -1,3 +1,2 @@
 #!/bin/sh
-./build.rkt --pdf --worksheet-links-to-pdf --deploy distribution pedagogy group
-
+racket -l errortrace -t build.rkt -- --worksheet-links-to-pdf --deploy distribution pedagogy group
