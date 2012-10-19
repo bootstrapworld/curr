@@ -1,4 +1,4 @@
-#!/usr/bin/env racket
+#!/usr/bin/env racket -l errortrace -t
 #lang racket/base
 (require racket/runtime-path
          racket/system
