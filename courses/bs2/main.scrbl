@@ -4,6 +4,8 @@
 Would you like to attend a Bootstrap Workshop? Check our
 @(hyperlink "http://www.BootstrapWorld.org/workshops" "workshops page") to stay up-to-date on our workshop schedule. Don't see a workshop in your area? Let us know, and we'll work with you to bring one to your school or district.
 
+We also offer several @bold{@(hyperlink "http://www.bootstrapworld.org/preview/materials/resources/teachers/" "teachers-only materials")}, including an answer key to the student workbook, a quick-start guide to making the final project, and pre- and post-tests for teachers who are paticipating in our research study. For access to these materials, please fill out the @(hyperlink "https://docs.google.com/a/bootstrapworld.org/spreadsheet/viewform?formkey=dHpQc0VHV2dBU2tSN1ptMktBUmtoZWc6MQ#gid=0" "password request form"). We’ll get back to you soon with the necessary login information.
+
 @; workbook link names and targets
 
 We provide all of the student materials @italic{free of charge}, to anyone who is interested in using our lesson plans or student workbooks.
