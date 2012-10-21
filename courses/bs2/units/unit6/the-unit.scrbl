@@ -40,7 +40,9 @@
 
 }
 
-@tag[pedagogy]{@(include-lesson (lib "curr/lessons/Acting-It-Out-2/lesson/lesson.scrbl"))}
+@;; really want this next lesson inclusion in a pedagogy tag
+@;;@tag[pedagogy]{@(include-lesson (lib "curr/lessons/Acting-It-Out-2/lesson/lesson.scrbl"))}
+@(include-lesson (lib "curr/lessons/Acting-It-Out-2/lesson/lesson.scrbl"))
 
 @(include-lesson (lib "curr/lessons/Keypress/lesson/lesson.scrbl"))
 
