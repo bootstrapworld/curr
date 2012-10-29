@@ -29,5 +29,5 @@
                              #:answer "The input is the x-coordinate of Danger and the output is the x-coordinate of Danger minus 50. Both of these are Numbers, which means the Domain and Range are both @code{Number}."]}
             @pedagogy{@item{Who would like to act out @code{update-danger}? Take a volunteer.}
                       @item{@exercise{According to the word problem, what's your name? What's your Domain? Your Range? Given an x-coordinate for the danger, you'll need to tell me what work gets done in order to calculate the new x-coordinate. For example, if I say "update-danger 75", you'll need to say "minus 75 50", because that's the work you'll do to move the danger to 25. Let's try it out: "update-danger 200!" }}
-                      @item{Who would like to act out @code{update-danger}? Take a volunteer.}}
+                      @item{Have the class do some practice call-and-response with the volunteer.}}
           @item{@tag[group]{As a team:} Complete the Design Recipe for @code{update-danger}. @pedagogy{Raise your hand when you're done with each step, so I can check your contracts and examples before you move on to code. Don't forget to circle the things that change between your examples!} @tag[selftaught]{Write the code for @code{update-danger}}}]}
