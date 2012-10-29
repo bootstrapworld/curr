@@ -21,16 +21,13 @@
           @item{I want my Danger to always move @italic{left by 50 pixels}, each time the screen is redrawn. So it goes from (550, 100) to (500, 100).}
           @item{@think-about[#:question "What if it starts at (100, 100)? Where will go next? What if it's at (400, 600)? What if it's off the screen, at (650, 50)?"
                              #:answer "(50, 100), (350, 600), (600,50)"]}
-          @item{What we have here is a @bold{word problem}, which describes how the danger should move! Given any x-coordinate, @code{update-danger} should produce the next x-coordinate, which is fifty pixels to the left.
-                @build-table/cols['("Current x-coordinate" "Racket Code" "Next x-coordinate")
-                                  '(("50" "75" "30")
-                                    ("(- 50 50)" "(- 75 50)" "(- 30 50)")
-                                    ("0" "25" "-20"))
-                                   (lambda (r c) (para ""))
-                                   3 3]}
+          @item{What we have here is a @bold{word problem}, which describes how the danger should move! Given any x-coordinate, @code{update-danger} should produce the next x-coordinate, which is fifty pixels to the left.}
           @item{Turn to @worksheet-link[#:page 15 #:name "Design-Recipe-Update-Danger"] for @code{update-danger}. @pedagogy{Have a student read the Word Problem out loud.} @tag[selftaught]{Read the Word Problem.}}
           @item{@think-about[#:question "Can you find the function name in this word problem? Underline it."
                              #:answer @list{"The function name is " @code{update-danger}}]}
-          @item{@think-about[#:question "Can you find the inputs and outputs? Underline them, too."
-                             #:answer "The input is the x-coordinate of Danger and the output is the x-coordinate of Danger minus 50."]}
+          @item{@think-about[#:question "Can you find the Domain and Range? Underline them, too."
+                             #:answer "The input is the x-coordinate of Danger and the output is the x-coordinate of Danger minus 50. Both of these are Numbers, which means the Domain and Range are both @code{Number}."]}
+            @pedagogy{@item{Who would like to act out @code{update-danger}? Take a volunteer.}
+                      @item{@exercise{According to the word problem, what's your name? What's your Domain? Your Range? Given an x-coordinate for the danger, you'll need to tell me what work gets done in order to calculate the new x-coordinate. For example, if I say "update-danger 75", you'll need to say "minus 75 50", because that's the work you'll do to move the danger to 25. Let's try it out: "update-danger 200!" }}
+                      @item{Who would like to act out @code{update-danger}? Take a volunteer.}}
           @item{@tag[group]{As a team:} Complete the Design Recipe for @code{update-danger}. @pedagogy{Raise your hand when you're done with each step, so I can check your contracts and examples before you move on to code. Don't forget to circle the things that change between your examples!} @tag[selftaught]{Write the code for @code{update-danger}}}]}
