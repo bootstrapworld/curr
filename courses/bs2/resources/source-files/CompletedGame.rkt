@@ -22,11 +22,11 @@
 (define NEXT (make-world "asleep" 40 210 580 820 100))
 
 ;; GRAPHICS
-(define BACKGROUND (bitmap/url "http://i.imgur.com/SUMzR.jpg"))
-(define DANGER (scale .7 (bitmap/url "http://i.imgur.com/42OQt.gif")))
-(define FLOCK (bitmap/url "http://i.imgur.com/Uv7Hh.gif"))
-(define PLAYER (scale .7 (bitmap/url "http://i.imgur.com/XsIaV.png")))
-(define ARROW (scale .5 (bitmap/url "http://i.imgur.com/6nQIH.png")))
+(define BACKGROUND (bitmap "Teachpacks/teachpack-images/BG.jpg"))
+(define DANGER (scale .7 (bitmap "Teachpacks/teachpack-images/wumpus.png")))
+(define FLOCK (bitmap "Teachpacks/teachpack-images/bats.png"))
+(define PLAYER (scale .7 (bitmap "Teachpacks/teachpack-images/archer.png")))
+(define ARROW (scale .5 (bitmap "Teachpacks/teachpack-images/arrow.png")))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

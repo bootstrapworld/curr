@@ -7,19 +7,16 @@
 
 @overview{
     
-@unit-descr{Students discover the need for data structures, and practice defining them, making examples, and writing functions that produce them.}
+@unit-descr{Students continue to combine their use of Cond and Data Structures, this time identifying ways in which the World structure might change without any user input.}
 
-@objectives[@item{Students will deepen their understanding of function definitions and the Design Recipe}
-            @item{Students will understand the limitations of atomic datatypes}
-            @item{Students will write complex functions that consume, modify and produce structures}
+@objectives[@item{Add detail to their undertsanding of the update-world function}
+            @item{Identify possible sub-domains which require different behavior of the function}
           ]
 
 @product-outcomes[
-          @item{Students identify real-world behaviors that require data structures}
-          @item{Students make use of a complex data structure: auto}
-          @item{Students define variables bound to autos}
-          @item{Students write code that extracts each field from those autos}
-          @item{Students define functions that produce an auto}
+          @item{Students will use Cond in their update-world functions}
+          @item{Students will identify circumstances in which the functions should behave differently}
+          @item{Students will define these circumstances - and the desired behavior - in code, as different Cond branches}
           ]
                 
 @state-standards
@@ -31,13 +28,13 @@
            @item{Student workbooks}
            @item{Design Recipe Sign}
            @item{Language Table}
-           @item{Structs bags: plastic bags containing eight cards (2 labeled "number", 2 "string", 2 "image", and 2 "boolean")}
-           @item{The "Autos" file [DrRacket file | WeScheme]}
+           @item{The Ninja World 4 file [NW4.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=XT1ib6T9tu" "WeScheme")] preloaded on students' machines}
            ]
 
 @preparation[
           @item{Language Table Posted}
           @item{Seating arrangements: ideally clusters of desks/tables}
+	  @item{Write the Ninja World version of update-world towards the bottom of the board, with room to transform it into a cond branch under the function header.}
           ]
 }
 
