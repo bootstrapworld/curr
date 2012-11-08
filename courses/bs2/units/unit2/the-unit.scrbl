@@ -26,20 +26,19 @@
                 
 @length-of-lesson[90]
 
-@pedagogy{                
 @materials[@item{Computers w/DrRacket or WeScheme}
            @item{Student workbooks}
            @item{Design Recipe Sign}
            @item{Language Table}
            @item{Structs bags: plastic bags containing eight cards (2 labeled "number", 2 "string", 2 "image", and 2 "boolean")}
-           @item{The "Autos" file [DrRacket file | WeScheme]}
+           @item{The Autos file [Autos.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=P7qS37u1ZH" "WeScheme")] preloaded on students' machines}
            ]
 
 @preparation[
           @item{Language Table Posted}
           @item{Seating arrangements: ideally clusters of desks/tables}
           ]
-}
+
 
 
 }
