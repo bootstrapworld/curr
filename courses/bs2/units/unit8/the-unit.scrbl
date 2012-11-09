@@ -7,19 +7,16 @@
 
 @overview{
     
-@unit-descr{Students discover the need for data structures, and practice defining them, making examples, and writing functions that produce them.}
+@unit-descr{Students return to the Pythagorean Theorem and distance formula they used in Bootstrap 1, this time with data structures and the full update-world function.}
 
-@objectives[@item{Students will deepen their understanding of function definitions and the Design Recipe}
-            @item{Students will understand the limitations of atomic datatypes}
-            @item{Students will write complex functions that consume, modify and produce structures}
+@objectives[@item{Reinforce their understanding of the distance formula}
+            @item{Identify collision as yet another sub-domain which require different behavior of the update-world function}
           ]
 
 @product-outcomes[
-          @item{Students identify real-world behaviors that require data structures}
-          @item{Students make use of a complex data structure: auto}
-          @item{Students define variables bound to autos}
-          @item{Students write code that extracts each field from those autos}
-          @item{Students define functions that produce an auto}
+          @item{Students will write the distance function}
+          @item{Students will write the collide? function}
+          @item{Students will use different Cond branches to identify collisions in their games}
           ]
                 
 @state-standards
@@ -31,8 +28,8 @@
            @item{Student workbooks}
            @item{Design Recipe Sign}
            @item{Language Table}
-           @item{Structs bags: plastic bags containing eight cards (2 labeled "number", 2 "string", 2 "image", and 2 "boolean")}
-           @item{The "Autos" file [DrRacket file | WeScheme]}
+	   @item{Cutouts of Cat and Dog images}
+           @item{The Ninja World 5 file [NW5.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=SLsSXazJB3" "WeScheme")] preloaded on students' machines}
            ]
 
 @preparation[

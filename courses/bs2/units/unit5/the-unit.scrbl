@@ -27,7 +27,7 @@
            @item{Student workbooks}
            @item{Clear plastic sheet protectors: put pages 20 & 21 at the front of the workbook for ease of reference}
            @item{Design Recipe Sign}
-           ;@item{Ninja World v3 file [WeScheme | DrRacket]}
+           @item{The Ninja World 3 file [NW3.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=BuoRf9Wlb3" "WeScheme")] preloaded on students' machines}
            ]
 
 @preparation[
