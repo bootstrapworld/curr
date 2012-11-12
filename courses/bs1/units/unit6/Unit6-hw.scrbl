@@ -19,6 +19,10 @@
 @item{@bitmap{images/B5.png}}
 @item{@fill-in-the-blank[#:id "bug5"]}]}
 
+
+
+
+
 @lesson[#:title "Question Two:"]{
 @bitmap{images/light.png}
 @design-recipe-exercise["drive?" "When driving a car, it is only legal to drive through an intersection when the stoplight is green or yellow. Write the function drive? which takes in a color (represented by a string), and returns true if that color is either green OR yellow."]}
@@ -28,5 +32,5 @@
 @bitmap{images/soup.jpg}}
 
 @lesson[#:title "Bonus!"]{Will this function evaluate to true or false? Why?
-                          @code["(= 45 (random 50))"]}
-@free-response[#:id "fr1"]
+                          @code["(= 45 (random 50))"]
+@free-response[#:id "fr1"]}

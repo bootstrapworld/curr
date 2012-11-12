@@ -1,4 +1,4 @@
- &#lang curr/lib
+#lang curr/lib
 
 @title{Unit Four Homework}
 
