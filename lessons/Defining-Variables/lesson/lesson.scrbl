@@ -4,7 +4,7 @@
 
 @lesson[#:title "Defining Variables" #:duration "10 minutes"]{
         @itemlist/splicing[
-        @pedagogy{@item{@demo{Have students open their game files, and click Run. They should see a frozen screenshot of their game, using the images they requested. (By now, you should have students' graphics already created, and @(hyperlink "http://www.bootstrapworld.org/curriculum/BS1-sp2012/TeachersGuide.html#addingimages" "added to the file)")}}} 
+        @pedagogy{@item{@demo{Have students open their game files, and click Run. They should see a frozen screenshot of their game, using the images they requested. (By now, you should have students' graphics already created, and @(hyperlink "http://www.bootstrapworld.org/materials/resources/teachers/teachers-guide/teachers-guide.html#addingimages" "added to the file)")}}} 
          
         @item{So far, everything that you've been doing has been down in the Interactions window. What happens when you click Run at the top? All the work you did disappears!
               @tag[selftaught]{@embedded-wescheme[#:id "Defining Variables"
