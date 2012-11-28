@@ -836,8 +836,8 @@
 ;autogenerates state-standards section
 (define state-standards
   (list (elem #:style bs-header-style "State Standards")
-        "See " 
-        (hyperlink "https://spreadsheets.google.com/a/brown.edu/pub?key=0Ak3Voejjnf0ldHlQcXRVWTZDbVprWHlBLTJWRlQ2dkE&hl=en&gid=0" "Bootstrap Standards Matrix") 
+        "See our " 
+        (hyperlink "http://www.BootstrapWorld.org/materials/CommonCore.shtml" "Common Core Standards Table") 
         " provided as part of the Bootstrap curriculum."))
 
 ;creates the length of the lesson based on input

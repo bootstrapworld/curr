@@ -38,4 +38,8 @@
    @item{I can't put three numbers in the circle, because there's no way to tell the computer which two numbers should be subtracted first. Is it (2 - 3) - 5, or 2 - (3 - 5)?}
    @item{Well, if a complete circle evaluates to a number, and numbers go inside circles, why not try putting circles inside circles?}
    @pedagogy{@item{Have students practice circles - make it into a game!}}
-   @item{There are several exercises provided on @worksheet-link[#:page 4 #:name "Circles-of-Evaluation-Practice"] of the student workbook.}]}
+   @item{There are several exercises provided on @worksheet-link[#:page 4 #:name "Circles-of-Evaluation-Practice"] of the student workbook.}
+   @item{Some common bugs when writing simple arithmetic in Racket code: @itemlist[@item{Do your parentheses match? Be sure that you have one to open each circle and close each circle.}
+                                                                     @item{This means that you need a parenthesis before every function, and there have to be the same number of opening and closing parentheses.}
+                                                                     @item{Did you put spaces between your function and your inputs? @code{1 1} is not the same as @code{11}.}
+                                                                     @item{Remember: things like @code{+} and @code{-} are functions. The numbers that they act on, for example the @code{3} and @code{2} in @code{(+ 3 2)} are called inputs.}]}]}

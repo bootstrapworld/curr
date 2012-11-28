@@ -18,7 +18,9 @@
 
    @item{Whenever you run a Racket program, it computes the program you've written. Since we have Numbers in our language, we should be able to write @italic{really simple} programs, like @code{4}. That's right -- a Number by itself is a program! Maybe not a very exciting one, but a program nonetheless. What do you think @code{4} will evaluate to when we run it?}
    @item{Type in the number 4 into the Interactions window, and hit Return to see if the computer agrees with you. Congratulations: you just wrote your very first Racket program, and it came out to be the same value as what you'd expected! Try typing in other numbers and see what happens. What happens if you write a decimal? @bitmap{images/1.4.png}}
-   @item{Try other numbers, like 1.5 (or other decimals), 10345017 (or other big numbers), and -2 (or other negatives!).}
+   @item{Try other numbers, like @code{1.5} (or other decimals), @code{10345017} (or other big numbers), and @code{-2} (or other negatives!).}
+   @item{What happens when you click on a decimal that you've used? You get a new type of number, a fraction, like @code{3/4}.}
+   @item{Every time you put a number in, without doing anything to it, you get the very same number back.}
    @item{In English we have things like nouns and verbs. What's the difference between them? In Racket, anything that is a value is like a noun. I can give Racket the number 5 and it will give it right back, unchanged. All of the numbers you've entered are examples of values.}
    @item{Racket also has things that are like verbs, called Functions. I can @code{throw} a marker, the same way I can @code{add} two numbers. }
    @item{You already wrote programs that were just values. Now you're going to write programs that apply functions to those values.}

@@ -1,8 +1,7 @@
 ;; The first three lines of this file were inserted by DrRacket. They record metadata
 ;; about the language level of this file in a form that our tools can easily process.
-#reader(lib "htdp-beginner-reader.ss" "lang")((modname Autos) (read-case-sensitive #t) (teachpacks ()) (htdp-settings #(#t constructor repeating-decimal #f #t none #f ())))
+#reader(lib "htdp-intermediate-reader.ss" "lang")((modname Autos) (read-case-sensitive #t) (teachpacks ()) (htdp-settings #(#t constructor repeating-decimal #f #t none #f ())))
 (require "Teachpacks/bootstrap-teachpack.rkt")
-(require racket/local)
 
 ; an auto is a (make-auto String Number Number String Number)
 (define-struct auto (model hp rims color value))
@@ -74,33 +73,32 @@
 ;;prints the "cabin" of the car, which is an outline if value>80000
 ;;to represent a convertible
 (define (top car scn) 
-  (local [
-  (define roof-startx 130)
-  (define roof-endx 160)
-  (define roof-wdth (- roof-endx roof-startx))
-  (define roof-y 25)
-  (define roof-hght (- 60 roof-y))
+  (let* ((roof-startx 130)
+         (roof-endx 160)
+         (roof-wdth (- roof-endx roof-startx))
+         (roof-y 25)
+         (roof-hght (- 60 roof-y))
 ;;Left slope of roof
-  (define h1 (make-hermite (make-posn 65 60)
+         (h1 (make-hermite (make-posn 65 60)
                            (make-posn (- roof-startx 1) roof-y)
                            (make-posn 0 -100)
                            (make-posn 0 0)))
 ;;Right slope of roof
-  (define h2 (make-hermite (make-posn (+ roof-endx 1) roof-y)
+         (h2 (make-hermite (make-posn (+ roof-endx 1) roof-y)
                            (make-posn 195 60)
                            (make-posn 0 0)
                            (make-posn 0 100)))
 ;;Slope for front window
-  (define wfront (make-hermite (make-posn (- roof-endx 25) (+ roof-y 6))
+         (wfront (make-hermite (make-posn (- roof-endx 25) (+ roof-y 6))
                            (make-posn 190 55)
                            (make-posn 0 0)
                            (make-posn 50 100)))
   
   ;;Slope for rear window
-  (define wrear (make-hermite (make-posn 80 55)
+         (wrear (make-hermite (make-posn 80 55)
                            (make-posn (- roof-startx 8) ( + roof-y 6))
                            (make-posn 0 -50)
-                           (make-posn 50 0)))]
+                           (make-posn 50 0))))
    
     ;;Draw windows
     (fill-hermite-vert wfront "cyan" 60
@@ -119,20 +117,20 @@
 ;;Draw the car body into the scene
 ;;body: Auto Scene -> Scene
 (define (body car scn)
-  (local [(define base-x0 50) ;;Left side of base (unsloped part)
-          (define base-x1 170) ;;Right side of base
-          (define base-y 60)
-          (define wdth (- base-x1 base-x0))
-          ;;Left slope
-          (define h1 (make-hermite (make-posn 40 60)
+  (let*((base-x0 50) ;;Left side of base (unsloped part)
+        (base-x1 170) ;;Right side of base
+        (base-y 60)
+        (wdth (- base-x1 base-x0))
+        ;;Left slope
+        (h1 (make-hermite (make-posn 40 60)
                                    (make-posn (- base-x0 1) base-y)
                                    (make-posn 0 -100)
                                    (make-posn 0 0)))
           ;;Right slope
-          (define h2 (make-hermite (make-posn (+ base-x1 1) base-y)
+        (h2 (make-hermite (make-posn (+ base-x1 1) base-y)
                                    (make-posn 260 90)
                                    (make-posn 0 0)
-                                   (make-posn 0 100)))]
+                                   (make-posn 0 100))))
   
   (place-image (rectangle wdth 60 "solid" (auto-color car))
                (+ base-x0 (/ wdth 2))
@@ -201,7 +199,7 @@
 ;;t increases by the given step-size
 ;;draw-hermite-helper : Hermite Color Number Number Number Scene -> Scene
 (define (draw-hermite-helper h c tcur tmax stepsize scn)
-  (local [(define pos (get-pos-at h tcur))]
+  (let* ((pos (get-pos-at h tcur)))
   (if (> tcur tmax)
       scn
       ;;Else, draw the point recursively on rest of the curve.
@@ -214,15 +212,15 @@
 ;;(fill-hermite-vert : Hermite color number scene -> Scene
 (define (fill-hermite-vert h c y scn)
   ;;The step size should be equivilant to the number of pixels in x.
-  (local [(define dist (abs (- (posn-x (hermite-p0 h)) (posn-x (hermite-p1 h)))))]
+  (let* ((dist (abs (- (posn-x (hermite-p0 h)) (posn-x (hermite-p1 h))))))
       (fill-hermite-vert-helper h c y 0 1 (/ 1 dist) scn))) ;;Use helper to draw each point in a loop
 
 ;;Draws a hermite function over interval T, with 0 <=  T <= 1.
 ;;t increases by the given step-size
 ;;draw-hermite-helper : Hermite Color Number Number Number Number Scene -> Scene
 (define (fill-hermite-vert-helper h c y tcur tmax stepsize scn)
-  (local [(define pos (get-pos-at h tcur))
-          (define height (max (- y (posn-y pos)) 0))]
+  (let* ((pos (get-pos-at h tcur))
+         (height (max (- y (posn-y pos)) 0)))
   (if (> tcur tmax)
       scn
       ;;Else, draw the point recursively on rest of the curve.
@@ -241,9 +239,9 @@
 ;;get-pos-at : Hermite number -> Posn
 (define (get-pos-at h t)
   ;;Define these values based on the hermite curve formula
-  (local [(define a0 (hermite-p0 h))
-          (define a1 (hermite-t0 h))
-          (define a2 
+  (let* ((a0 (hermite-p0 h))
+          (a1 (hermite-t0 h))
+          (a2 
             (pos-add (scalar-product (hermite-p0 h) -3)
                      (pos-sub
                       (scalar-product (hermite-p1 h) 3)
@@ -251,12 +249,12 @@
                        (scalar-product (hermite-t0 h) 2)
                        (hermite-t1 h)))))
           
-          (define a3 (pos-add
+          (a3 (pos-add
                       (pos-add
                        (pos-sub (scalar-product (hermite-p0 h) 2)
                                 (scalar-product (hermite-p1 h) 2))
                        (hermite-t0 h))
-                      (hermite-t1 h)))]
+                      (hermite-t1 h))))
     (pos-add 
      a0
      (pos-add
