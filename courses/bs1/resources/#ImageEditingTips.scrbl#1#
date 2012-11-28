@@ -1,0 +1,610 @@
+#reader(lib"read.ss""wxme")WXME0108 ## 
+#|
+   This file uses the GRacket editor format.
+   Open this file in DrRacket version 5.3 or later to read it.
+
+   Most likely, it was created by saving a program in DrRacket,
+   and it probably contains a program with non-text elements
+   (such as images or comment boxes).
+
+            http://racket-lang.org/
+|#
+ 29 7 #"wxtext\0"
+3 1 6 #"wxtab\0"
+1 1 8 #"wximage\0"
+2 0 8 #"wxmedia\0"
+4 1 34 #"(lib \"syntax-browser.ss\" \"mrlib\")\0"
+1 0 16 #"drscheme:number\0"
+3 0 44 #"(lib \"number-snip.ss\" \"drscheme\" \"private\")\0"
+1 0 36 #"(lib \"comment-snip.ss\" \"framework\")\0"
+1 0 93
+(
+ #"((lib \"collapsed-snipclass.ss\" \"framework\") (lib \"collapsed-sni"
+ #"pclass-wxme.ss\" \"framework\"))\0"
+) 0 0 43 #"(lib \"collapsed-snipclass.ss\" \"framework\")\0"
+0 0 19 #"drscheme:sexp-snip\0"
+0 0 36 #"(lib \"cache-image-snip.ss\" \"mrlib\")\0"
+1 0 68
+(
+ #"((lib \"image-core.ss\" \"mrlib\") (lib \"image-core-wxme.rkt\" \"mr"
+ #"lib\"))\0"
+) 1 0 29 #"drscheme:bindings-snipclass%\0"
+1 0 88
+(
+ #"((lib \"pict-snip.rkt\" \"drracket\" \"private\") (lib \"pict-snip.r"
+ #"kt\" \"drracket\" \"private\"))\0"
+) 0 0 33 #"(lib \"bullet-snip.ss\" \"browser\")\0"
+0 0 25 #"(lib \"matrix.ss\" \"htdp\")\0"
+1 0 22 #"drscheme:lambda-snip%\0"
+1 0 57
+#"(lib \"hrule-snip.rkt\" \"macro-debugger\" \"syntax-browser\")\0"
+1 0 26 #"drscheme:pict-value-snip%\0"
+0 0 45 #"(lib \"image-snipr.ss\" \"slideshow\" \"private\")\0"
+1 0 38 #"(lib \"pict-snipclass.ss\" \"slideshow\")\0"
+2 0 55 #"(lib \"vertical-separator-snip.ss\" \"stepper\" \"private\")\0"
+1 0 18 #"drscheme:xml-snip\0"
+1 0 31 #"(lib \"xml-snipclass.ss\" \"xml\")\0"
+1 0 21 #"drscheme:scheme-snip\0"
+2 0 34 #"(lib \"scheme-snipclass.ss\" \"xml\")\0"
+1 0 10 #"text-box%\0"
+1 0 32 #"(lib \"text-snipclass.ss\" \"xml\")\0"
+1 0 1 6 #"wxloc\0"
+          0 0 55 0 1 #"\0"
+0 75 1 #"\0"
+0 12 90 -1 90 -1 3 -1 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 255 255 255 1 -1 0 9
+#"Standard\0"
+0 75 10 #"Monospace\0"
+0 12 90 -1 90 -1 3 -1 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 255 255 255 1 -1 2 1
+#"\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 1 1 1 1 1 1 0 0 0 0 0 0 -1 -1 2 24
+#"framework:default-color\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 0 0 0 1 1 1 0 0 0 0 0 0 -1 -1 2 1
+#"\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 0 0 0 1 1 1 150 0 150 0 0 0 -1 -1 2 15
+#"text:ports out\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 0 0 0 1 1 1 150 0 150 0 0 0 -1 -1 2 1
+#"\0"
+0 -1 1 #"\0"
+1.0 0 -1 -1 93 -1 -1 -1 0 0 0 0 0 0 0 0 0 1.0 1.0 1.0 255 0 0 0 0 0 -1
+-1 2 15 #"text:ports err\0"
+0 -1 1 #"\0"
+1.0 0 -1 -1 93 -1 -1 -1 0 0 0 0 0 0 0 0 0 1.0 1.0 1.0 255 0 0 0 0 0 -1
+-1 2 1 #"\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 0 0 0 1 1 1 0 0 175 0 0 0 -1 -1 2 17
+#"text:ports value\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 0 0 0 1 1 1 0 0 175 0 0 0 -1 -1 2 1
+#"\0"
+0 -1 1 #"\0"
+1.0 0 92 -1 -1 -1 -1 -1 0 0 0 0 0 0 0 0 0 1.0 1.0 1.0 34 139 34 0 0 0 -1
+-1 2 27 #"Matching Parenthesis Style\0"
+0 -1 1 #"\0"
+1.0 0 92 -1 -1 -1 -1 -1 0 0 0 0 0 0 0 0 0 1.0 1.0 1.0 34 139 34 0 0 0 -1
+-1 2 1 #"\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 0 0 0 1 1 1 38 38 128 0 0 0 -1 -1 2 37
+#"framework:syntax-color:scheme:symbol\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 0 0 0 1 1 1 38 38 128 0 0 0 -1 -1 2 38
+#"framework:syntax-color:scheme:keyword\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 0 0 0 1 1 1 38 38 128 0 0 0 -1 -1 2 1
+#"\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 0 0 0 1 1 1 194 116 31 0 0 0 -1 -1 2
+38 #"framework:syntax-color:scheme:comment\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 0 0 0 1 1 1 194 116 31 0 0 0 -1 -1 2 1
+#"\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 0 0 0 1 1 1 41 128 38 0 0 0 -1 -1 2 37
+#"framework:syntax-color:scheme:string\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 0 0 0 1 1 1 41 128 38 0 0 0 -1 -1 2 39
+#"framework:syntax-color:scheme:constant\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 0 0 0 1 1 1 41 128 38 0 0 0 -1 -1 2 1
+#"\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 0 0 0 1 1 1 132 60 36 0 0 0 -1 -1 2 42
+#"framework:syntax-color:scheme:parenthesis\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 0 0 0 1 1 1 132 60 36 0 0 0 -1 -1 2 1
+#"\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 0 0 0 1 1 1 255 0 0 0 0 0 -1 -1 2 36
+#"framework:syntax-color:scheme:error\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 0 0 0 1 1 1 255 0 0 0 0 0 -1 -1 2 1
+#"\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 0 0 0 1 1 1 0 0 0 0 0 0 -1 -1 2 36
+#"framework:syntax-color:scheme:other\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 0 0 0 1 1 1 0 0 0 0 0 0 -1 -1 2 1
+#"\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 0 0 0 1 1 1 81 112 203 0 0 0 -1 -1 2
+38 #"drracket:check-syntax:lexically-bound\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 0 0 0 1 1 1 81 112 203 0 0 0 -1 -1 2 1
+#"\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 0 0 0 1 1 1 178 34 34 0 0 0 -1 -1 2 28
+#"drracket:check-syntax:set!d\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 0 0 0 1 1 1 178 34 34 0 0 0 -1 -1 2 37
+#"drracket:check-syntax:unused-require\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 0 0 0 1 1 1 255 0 0 0 0 0 -1 -1 2 36
+#"drracket:check-syntax:free-variable\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 0 0 0 1 1 1 255 0 0 0 0 0 -1 -1 2 1
+#"\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 0 0 0 1 1 1 68 0 203 0 0 0 -1 -1 2 31
+#"drracket:check-syntax:imported\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 0 0 0 1 1 1 68 0 203 0 0 0 -1 -1 2 47
+#"drracket:check-syntax:my-obligation-style-pref\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 0 0 0 1 1 1 178 34 34 0 0 0 -1 -1 2 1
+#"\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 0 0 0 1 1 1 0 116 0 0 0 0 -1 -1 2 50
+#"drracket:check-syntax:their-obligation-style-pref\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 0 0 0 1 1 1 0 116 0 0 0 0 -1 -1 2 48
+#"drracket:check-syntax:unk-obligation-style-pref\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 0 0 0 1 1 1 0 0 0 0 0 0 -1 -1 2 1
+#"\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 0 0 0 1 1 1 139 142 28 0 0 0 -1 -1 2
+49 #"drracket:check-syntax:both-obligation-style-pref\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 0 0 0 1 1 1 139 142 28 0 0 0 -1 -1 2
+26 #"plt:htdp:test-coverage-on\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 0 0 0 1 1 1 0 0 0 0 0 0 -1 -1 2 1
+#"\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 1 0 0 0 0 0 0 255 165 0 0 0 0 -1 -1 2 27
+#"plt:htdp:test-coverage-off\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 1 0 0 0 0 0 0 255 165 0 0 0 0 -1 -1 4 1
+#"\0"
+0 70 1 #"\0"
+1.0 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 1.0 1.0 1.0 1.0 1.0 1.0 0 0 0 0 0 0
+-1 -1 4 4 #"XML\0"
+0 70 1 #"\0"
+1.0 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 1.0 1.0 1.0 1.0 1.0 1.0 0 0 0 0 0 0
+-1 -1 2 1 #"\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 0 0 0 1 1 1 34 139 34 0 0 0 -1 -1 2 37
+#"plt:module-language:test-coverage-on\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 0 0 0 1 1 1 34 139 34 0 0 0 -1 -1 2 1
+#"\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 0 0 0 1 1 1 176 48 96 0 0 0 -1 -1 2 38
+#"plt:module-language:test-coverage-off\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 0 0 0 1 1 1 176 48 96 0 0 0 -1 -1 4 1
+#"\0"
+0 71 1 #"\0"
+1.0 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 1.0 1.0 1.0 1.0 1.0 1.0 0 0 0 0 0 0
+-1 -1 4 1 #"\0"
+0 -1 1 #"\0"
+1.0 0 -1 -1 -1 -1 -1 -1 1 0 0 0 0 0 0 0 0 1.0 1.0 1.0 0 0 255 0 0 0 -1
+-1 4 1 #"\0"
+0 71 1 #"\0"
+1.0 0 -1 -1 -1 -1 -1 -1 1 0 0 0 0 0 0 0 0 1.0 1.0 1.0 0 0 255 0 0 0 -1
+-1 4 1 #"\0"
+0 71 1 #"\0"
+1.0 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 0 0 0 1.0 1.0 1.0 0 100 0 0 0 0 -1
+-1 4 1 #"\0"
+0 -1 1 #"\0"
+1.0 0 92 -1 -1 -1 -1 -1 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 255 255 0 -1 -1
+          0 312 0 26 3 14 #"#lang curr/lib"
+0 0 22 29 1 #"\n"
+0 0 22 29 1 #"\n"
+0 0 22 3 1 #"@"
+0 0 14 3 5 #"title"
+0 0 22 3 1 #"{"
+0 0 19 3 25 #"A Guide to Editing Images"
+0 0 22 3 1 #"}"
+0 0 22 29 1 #"\n"
+0 0 22 29 1 #"\n"
+0 0 22 3 1 #"@"
+0 0 14 3 6 #"lesson"
+0 0 22 3 9 #"[#:title "
+0 0 19 3 16 #"\"Finding Images\""
+0 0 22 3 2 #"]{"
+0 0 22 29 1 #"\n"
+0 0 22 3 1 #"@"
+0 0 14 3 17 #"itemlist/splicing"
+0 0 22 3 1 #"["
+0 0 22 29 1 #"\n"
+0 0 22 3 20 #"                   @"
+0 0 14 3 4 #"item"
+0 0 22 3 1 #"{"
+0 0 19 3 61
+#"Find images to start with, using your favorite search engine."
+0 0 22 3 1 #"}"
+0 0 22 29 1 #"\n"
+0 0 22 3 20 #"                   @"
+0 0 14 3 4 #"item"
+0 0 22 3 1 #"{"
+0 0 19 3 148
+(
+ #"Try adding \"filetype:gif\" or \"filetype:png\" to your searches. If"
+ #" it has a transparent background to begin with, you don't have to ed"
+ #"it one in later."
+) 0 0 22 3 1 #"}"
+0 0 22 29 1 #"\n"
+0 0 22 3 20 #"                   @"
+0 0 14 3 4 #"item"
+0 0 22 3 1 #"{"
+0 0 19 3 68
+#"Using an animated gif will make the character look like it's moving."
+0 0 22 3 1 #"}"
+0 0 22 29 1 #"\n"
+0 0 22 3 20 #"                   @"
+0 0 14 3 4 #"item"
+0 0 22 3 1 #"{"
+0 0 19 3 176
+(
+ #"Make sure that PLAYER, TARGET, and DANGER images are at least 100x10"
+ #"0, and BACKGROUND images are at least 640x480. Trying to scale up a "
+ #"smaller image will result in pixelation."
+) 0 0 22 3 3 #"}]}"
+0 0 22 29 1 #"\n"
+0 0 22 29 1 #"\n"
+0 0 22 3 1 #"@"
+0 0 14 3 6 #"lesson"
+0 0 22 3 9 #"[#:title "
+0 0 19 3 20 #"\"Editing the Images\""
+0 0 22 3 2 #"]{"
+0 0 22 29 1 #"\n"
+0 0 22 3 1 #"@"
+0 0 14 3 17 #"itemlist/splicing"
+0 0 22 3 2 #"[@"
+0 0 14 3 4 #"item"
+0 0 22 3 1 #"{"
+0 0 19 3 133
+(
+ #"Using your favorite image editing software, modify images to meet th"
+ #"e following specifications (more details on image editing below)."
+) 0 0 22 3 1 #"}"
+0 0 22 29 1 #"\n"
+0 0 22 3 20 #"                   @"
+0 0 14 3 4 #"item"
+0 0 22 3 1 #"{"
+0 0 19 3 41 #"Images should be in .png or .gif formats."
+0 0 22 3 1 #"}"
+0 0 22 29 1 #"\n"
+0 0 22 3 20 #"                   @"
+0 0 14 3 4 #"item"
+0 0 22 3 1 #"{"
+0 0 19 3 61
+#"Background images must be 640 pixels wide by 480 pixels tall."
+0 0 22 3 1 #"}"
+0 0 22 29 1 #"\n"
+0 0 22 3 20 #"                   @"
+0 0 14 3 4 #"item"
+0 0 22 3 1 #"{"
+0 0 19 3 73
+(
+ #"Characters should generally be no longer than 150 px in either dimen"
+ #"sion."
+) 0 0 22 3 1 #"}"
+0 0 22 29 1 #"\n"
+0 0 22 3 20 #"                   @"
+0 0 14 3 4 #"item"
+0 0 22 3 1 #"{"
+0 0 19 3 61
+#"Make sure that character images have transparent backgrounds."
+0 0 22 3 3 #"}]}"
+0 0 22 29 1 #"\n"
+0 0 22 29 1 #"\n"
+0 0 22 29 1 #"\n"
+0 0 22 3 1 #"@"
+0 0 14 3 6 #"lesson"
+0 0 22 3 9 #"[#:title "
+0 0 19 3 20 #"\"On Windows / Linux\""
+0 0 22 3 2 #"]{"
+0 0 22 29 1 #"\n"
+0 0 22 3 1 #"@"
+0 0 14 3 17 #"itemlist/splicing"
+0 0 22 3 2 #"[@"
+0 0 14 3 4 #"item"
+0 0 22 3 1 #"{"
+0 0 19 3 121
+(
+ #"Download and install the program called GIMP (the GNU Image Manipula"
+ #"tion Program) here (for Windows) or here (for Linux)."
+) 0 0 22 3 1 #"}"
+0 0 22 29 1 #"\n"
+0 0 22 3 20 #"                   @"
+0 0 14 3 4 #"item"
+0 0 22 3 1 #"{"
+0 0 19 3 20 #"For the background: "
+0 0 22 3 1 #"@"
+0 0 14 3 8 #"itemlist"
+0 0 22 3 1 #"["
+0 0 22 29 1 #"\n"
+0 0 22 3 26 #"                         @"
+0 0 14 3 4 #"item"
+0 0 22 3 1 #"{"
+0 0 19 3 34 #"Open the downloaded image in GIMP."
+0 0 22 3 1 #"}"
+0 0 22 29 1 #"\n"
+0 0 22 3 26 #"                         @"
+0 0 14 3 4 #"item"
+0 0 22 3 1 #"{"
+0 0 19 3 163
+(
+ #"If necessary, crop the image to the desired region. Select the regio"
+ #"n using the Rectangle Select tool, then drop down the Image menu, an"
+ #"d select Crop to Selection."
+) 0 0 22 3 1 #"}"
+0 0 22 29 1 #"\n"
+0 0 22 3 26 #"                         @"
+0 0 14 3 4 #"item"
+0 0 22 3 1 #"{"
+0 0 19 3 155
+(
+ #"To scale down the image: Drop down the Image menu, and select Scale "
+ #"Image. Change the dimensions to 640x480, clicking to break the chain"
+ #" icon if necessary."
+) 0 0 22 3 1 #"}"
+0 0 22 29 1 #"\n"
+0 0 22 3 26 #"                         @"
+0 0 14 3 4 #"item"
+0 0 22 3 1 #"{"
+0 0 19 3 107
+(
+ #"If this distorts the image too much, undo (ctrl+z) and crop to a dif"
+ #"ferent shape, before sizing down again."
+) 0 0 22 3 1 #"}"
+0 0 22 29 1 #"\n"
+0 0 22 3 26 #"                         @"
+0 0 14 3 4 #"item"
+0 0 22 3 1 #"{"
+0 0 19 3 40 #"Save the image as a .gif or .png format."
+0 0 22 3 3 #"}]}"
+0 0 22 29 1 #"\n"
+0 0 22 3 20 #"                   @"
+0 0 14 3 4 #"item"
+0 0 22 3 1 #"{"
+0 0 19 3 16 #"For characters: "
+0 0 22 3 1 #"@"
+0 0 14 3 8 #"itemlist"
+0 0 22 3 1 #"["
+0 0 22 29 1 #"\n"
+0 0 22 3 26 #"                         @"
+0 0 14 3 4 #"item"
+0 0 22 3 1 #"{"
+0 0 19 3 34 #"Open the downloaded image in GIMP."
+0 0 22 3 1 #"}"
+0 0 22 29 1 #"\n"
+0 0 22 3 26 #"                         @"
+0 0 14 3 4 #"item"
+0 0 22 3 1 #"{"
+0 0 19 3 163
+(
+ #"If necessary, crop the image to the desired region. Select the regio"
+ #"n using the Rectangle Select tool, then drop down the Image menu, an"
+ #"d select Crop to Selection."
+) 0 0 22 3 1 #"}"
+0 0 22 29 1 #"\n"
+0 0 22 3 26 #"                         @"
+0 0 14 3 4 #"item"
+0 0 22 3 1 #"{"
+0 0 19 3 14 #"If necessary, "
+0 0 19 3 5 #"scale"
+0 0 19 3 1 #" "
+0 0 19 3 4 #"down"
+0 0 19 3 1 #" "
+0 0 19 3 3 #"the"
+0 0 19 3 1 #" "
+0 0 19 3 6 #"image:"
+0 0 19 3 1 #" "
+0 0 19 3 4 #"Drop"
+0 0 19 3 5 #" down"
+0 0 19 3 1 #" "
+0 0 19 3 3 #"the"
+0 0 19 3 1 #" "
+0 0 19 3 5 #"Image"
+0 0 19 3 1 #" "
+0 0 19 3 4 #"menu"
+0 0 19 3 1 #","
+0 0 19 3 1 #" "
+0 0 19 3 3 #"and"
+0 0 19 3 1 #" "
+0 0 19 3 6 #"select"
+0 0 19 3 1 #" "
+0 0 19 3 5 #"Scale"
+0 0 19 3 1 #" "
+0 0 19 3 74
+(
+ #"Image. Choose sizes that are between 100 and 200 in the longest dime"
+ #"nsion."
+) 0 0 22 3 1 #"}"
+0 0 22 29 1 #"\n"
+0 0 22 3 26 #"                         @"
+0 0 14 3 4 #"item"
+0 0 22 3 1 #"{"
+0 0 19 3 119
+(
+ #"To introduce a transparent background, drop down the Layer menu, hov"
+ #"er over Transparency, and select Add Alpha Channel."
+) 0 0 22 3 1 #"}"
+0 0 22 29 1 #"\n"
+0 0 22 3 26 #"                         @"
+0 0 14 3 4 #"item"
+0 0 22 3 1 #"{"
+0 0 19 3 42 #"For images with a solid color background: "
+0 0 22 3 1 #"@"
+0 0 14 3 8 #"itemlist"
+0 0 22 3 1 #"["
+0 0 22 29 1 #"\n"
+0 0 22 3 84
+(
+ #"                                                                    "
+ #"               @"
+) 0 0 14 3 4 #"item"
+0 0 22 3 1 #"{"
+0 0 19 3 31 #"Click the Select by Color tool."
+0 0 22 3 1 #"}"
+0 0 22 29 1 #"\n"
+0 0 22 3 84
+(
+ #"                                                                    "
+ #"               @"
+) 0 0 14 3 4 #"item"
+0 0 22 3 1 #"{"
+0 0 19 3 76
+(
+ #"In the image, click on the background that you wish to remove, to se"
+ #"lect it."
+) 0 0 22 3 1 #"}"
+0 0 22 29 1 #"\n"
+0 0 22 3 84
+(
+ #"                                                                    "
+ #"               @"
+) 0 0 14 3 4 #"item"
+0 0 22 3 1 #"{"
+0 0 19 3 4 #"Then"
+0 0 19 3 1 #" "
+0 0 19 3 5 #"press"
+0 0 19 3 1 #" "
+0 0 19 3 3 #"the"
+0 0 19 3 1 #" "
+0 0 19 3 6 #"Delete"
+0 0 19 3 1 #" "
+0 0 19 3 3 #"key"
+0 0 19 3 1 #" "
+0 0 19 3 2 #"to"
+0 0 19 3 1 #" "
+0 0 19 3 6 #"remove"
+0 0 19 3 1 #" "
+0 0 19 3 3 #"it."
+0 0 19 3 1 #" "
+0 0 19 3 3 #"You"
+0 0 19 3 1 #" "
+0 0 19 3 6 #"should"
+0 0 19 3 1 #" "
+0 0 19 3 3 #"see"
+0 0 19 3 1 #" "
+0 0 19 3 1 #"a"
+0 0 19 3 1 #" "
+0 0 19 3 9 #"checkered"
+0 0 19 3 12 #" background."
+0 0 22 3 3 #"}]}"
+0 0 22 29 1 #"\n"
+0 0 22 3 26 #"                         @"
+0 0 14 3 4 #"item"
+0 0 22 3 1 #"{"
+0 0 19 3 44 #"For images with a multi-colored background: "
+0 0 22 3 1 #"@"
+0 0 14 3 8 #"itemlist"
+0 0 22 3 1 #"["
+0 0 22 29 1 #"\n"
+0 0 22 3 84
+(
+ #"                                                                    "
+ #"               @"
+) 0 0 14 3 4 #"item"
+0 0 22 3 1 #"{"
+0 0 19 3 30 #"Click the Scissor Select tool."
+0 0 22 3 1 #"}"
+0 0 22 29 1 #"\n"
+0 0 22 3 84
+(
+ #"                                                                    "
+ #"               @"
+) 0 0 14 3 4 #"item"
+0 0 22 3 1 #"{"
+0 0 19 3 235
+(
+ #"Going around the character that you wish to select, click as though "
+ #"you were creating a \"connect the dots\" around the foreground. Be s"
+ #"ure that you start and end at the same place. If needed, drag the do"
+ #"ts to bettter include your image."
+) 0 0 22 3 1 #"}"
+0 0 22 29 1 #"\n"
+0 0 22 3 84
+(
+ #"                                                                    "
+ #"               @"
+) 0 0 14 3 4 #"item"
+0 0 22 3 1 #"{"
+0 0 19 3 42 #"Press enter, to select the desired region."
+0 0 22 3 1 #"}"
+0 0 22 29 1 #"\n"
+0 0 22 3 84
+(
+ #"                                                                    "
+ #"               @"
+) 0 0 14 3 4 #"item"
+0 0 22 3 1 #"{"
+0 0 19 3 75
+(
+ #"Drop down the Select menu, and click Invert, to select only the back"
+ #"ground."
+) 0 0 22 3 1 #"}"
+0 0 22 29 1 #"\n"
+0 0 22 3 84
+(
+ #"                                                                    "
+ #"               @"
+) 0 0 14 3 4 #"item"
+0 0 22 3 1 #"{"
+0 0 19 3 86
+(
+ #"Press the Delete key to remove that background. You should see a che"
+ #"ckered background."
+) 0 0 22 3 3 #"}]}"
+0 0 22 29 1 #"\n"
+0 0 22 3 26 #"                         @"
+0 0 14 3 4 #"item"
+0 0 22 3 1 #"{"
+0 0 19 3 146
+(
+ #"Save the image as a .gif or .png format. Be sure to uncheck the opti"
+ #"ons for \"Save background color\" and \"Save color value for transpa"
+ #"rent pixels\"."
+) 0 0 22 3 2 #"}]"
+0 0 22 29 1 #"\n"
+0 0 22 3 20 #"                    "
+0 0 22 29 1 #"\n"
+0 0 22 3 23 #"                    }]}"
+0 0 22 29 1 #"\n"
+0 0 22 29 1 #"\n"
+0 0 22 3 1 #"@"
+0 0 14 3 6 #"lesson"
+0 0 22 3 9 #"[#:title "
+0 0 19 3 10 #"\"On a Mac\""
+0 0 22 3 2 #"]{"
+0 0 22 29 1 #"\n"
+0 0 22 3 1 #"@"
+0 0 14 3 17 #"itemlist/splicing"
+0 0 22 3 2 #"[@"
+0 0 14 3 4 #"item"
+0 0 22 3 4 #"{}]}"
+0 0 22 29 1 #"\n"
+0 0 22 29 1 #"\n"
+0 0 22 3 1 #"@"
+0 0 14 3 9 #"copyright"
+0 0 22 3 2 #"[]"
+0 0 22 29 1 #"\n"
+0 0 22 29 1 #"\n"
+0           0
