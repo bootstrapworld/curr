@@ -6,7 +6,9 @@
                                                    
                                                     @item{Are you running for class president? President of the United States? Maybe you're advertising your services as a dog-walker in your neighborhood.}
                                                     
-                                                    @item{We've given you sample HEADER and BACKGROUND images. Define two more images with the variable names SLOGAN and LOGO for your poster.}]
+                                                    @item{We've given you sample HEADER and BACKGROUND images.}
+                                                    @item{@bold{A)} Create two more images representing the personal slogan and logo you would like on the poster. (Hint: The @bold{text} function will create an image out of any string you give it.) Your logo can be a simple shape, or any image taken from the web.}
+                                                    @item{@bold{B)} Next, take the images you just created and define them with the variable names SLOGAN and LOGO for your poster.}]
 @embedded-wescheme[#:id "campaign"
                    #:public-id "W5ygza5XKq"]}
 
@@ -33,7 +35,13 @@
 
 @lesson[#:title "Question Five:"]{Your friend is making a video game about a scuba diver. When she shows you her progress, you notice that the image of her player is much too small, and pointed in the wrong direction. 
                                   
-                                  Change the definition of PLAYER to increase the size of the image, and flip it horizontally so that the scuba diver is swimming to the right.
+                                  Change the definition of PLAYER to increase the size of the image, and rotate the image so that the scuba diver is swimming to the right.
                                   
                                   @embedded-wescheme[#:id "Scuba"
-                   #:public-id "neFJSoDomX"]}
+                   #:public-id "neFJSoDomX"]
+                                  
+                                  @itemlist/splicing[@item{@bold{Before:} 
+                                                            @bitmap{images/diversmall.gif}}
+                                                      
+                                                      @item{@bold{After:} 
+                                                                @bitmap{images/diversmallr.gif}}]}
