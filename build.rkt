@@ -42,7 +42,7 @@
 
 ;; run-scribble: path -> void
 ;; Runs scribble on the given file.
-(define (run-scribble scribble-file)
+(define (run-scribble scribble-file #:never-generate-pdf? [never-generate-pdf? #f])
   (define output-dir (cond [(current-deployment-dir)
                             ;; Rendering to a particular deployment directory.
                             (let-values ([(base name dir?) 
@@ -51,8 +51,9 @@
                                                                (simple-form-path scribble-file)))])
                               (simple-form-path (build-path (current-deployment-dir) base)))]
                            [else
+                            (error 'run-scribble "No deployment directory?")
                             ;; In-place rendering
-                            (let-values ([(base name dir?)
+                            #;(let-values ([(base name dir?)
                                           (split-path (simple-form-path scribble-file))])
                               base)]))
   (define-values (base name dir?) (split-path scribble-file))
@@ -62,8 +63,15 @@
                  [current-document-output-path output-path])
     (render (list (dynamic-require `(file ,(path->string name)) 'doc))
             (list name)
-	    #:dest-dir output-dir))
+	    #:dest-dir output-dir)
+    (when (and (not never-generate-pdf?) (current-generate-pdf?))
+      (translate-html-to-pdf
+       (build-path output-dir
+                   (regexp-replace #px".scrbl$"
+                                   (path->string name)
+                                   ".html")))))
   (void))
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Command line parsing.  We initialize the SCRIBBLE_TAGS environmental
@@ -79,6 +87,8 @@
    
    [("--deploy") -deploy-dir "Deploy into the given directory, and create a .zip.  Default: deploy" 
                  (current-deployment-dir (simple-form-path -deploy-dir))]
+   [("--pdf") "Generate PDF documentation"
+                 (current-generate-pdf? #t)]
    
    #:args tags
    tags))
@@ -108,7 +118,7 @@
            (copy-file (build-path "lib" "box.gif") 
                       (build-path (get-units-dir) subdir "box.gif")
                       #t)
-           (run-scribble scribble-file)]
+           (run-scribble scribble-file #:never-generate-pdf? (= phase 0))]
           [else
            (printf "Could not find a \"the-unit.scrbl\" in directory ~a\n"
                    (build-path (get-units-dir) subdir))])))
