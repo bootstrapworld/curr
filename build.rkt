@@ -130,7 +130,7 @@
   (define scribble-file (simple-form-path (build-path lessons-dir subdir "lesson" "lesson.scrbl")))
   (cond [(file-exists? scribble-file)
          (printf "build.rkt: Building ~a\n" scribble-file)
-         (run-scribble scribble-file)]
+         (run-scribble scribble-file #:never-generate-pdf? #t)]
         [else
          (printf "Could not find a \"lesson.scrbl\" in directory ~a\n"
                  (build-path lessons-dir subdir))]))
@@ -142,7 +142,7 @@
   (define scribble-file (simple-form-path (build-path lessons-dir subdir "lesson" "lesson-long.scrbl")))
   (cond [(file-exists? scribble-file)
          (printf "build.rkt: Building ~a\n" scribble-file)
-         (run-scribble scribble-file)]))
+         (run-scribble scribble-file #:never-generate-pdf? #t)]))
 
 ;; and the worksheets
 (for ([subdir (directory-list lessons-dir)]
