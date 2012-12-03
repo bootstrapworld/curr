@@ -8,7 +8,15 @@
 
                                  @bold{B)} If 1/4 cup of coffee beans can make one cup of coffee, write the contract for a function called @bold{cuppa-joe}, which takes in the amount of beans (in cups) put into a coffee maker and gives you the number of cups of coffee that amount of beans will produce.
                                  
-                                 @(contract-exercise "c2")}
+                                 @(contract-exercise "c2")
+                                 
+                                 @bitmap{images/coffee-cup.png}
+                                 
+                                 
+                                
+                                 
+                                 
+                                 }
 
 @lesson[#:title "Question Two:"]{Explain the difference between @code{33} and @code{"33"}
                                 
