@@ -24,32 +24,22 @@ Here is the (incorrect) racket code for the above circle of evaluation. Re-write
 
 @bitmap{images/CB2.png} @fill-in-the-blank[#:id "bug1"]}
 
-@lesson[#:title "Question Four:"]{The following circles of evaluation are also incorrect. 
-                                                      
-                                  @bold{A)}
-                                  @bitmap{images/CircleBug4.png}
-                                    
-                                  @bold{B)}
-                                  @bitmap{images/CircleBug3small.png}
+@lesson[#:title "Question Four:"]{Translate the following circles of evaluation into Racket code:
                                   
-                                  @bold{C)}
-                                  @bitmap{images/CircleEvalbugsmall.png}
+                                  @itemlist/splicing[@item{@bitmap{images/CE1.png}}      
+                                    @item{@fill-in-the-blank[#:id "circ" #:label "Racket expression"]}
+                                 
+                                  @item{@bitmap{images/CE2.png}}
+                                  @item{@fill-in-the-blank[#:id "circ" #:label "Racket expression"]}
+                                 
+                                  @item{@bitmap{images/CE3.png}}
+                                  @item{@fill-in-the-blank[#:id "circ" #:label "Racket expression"]}
                                   
-                                  Here are expressions (also incorrect) in racket which correspond to each of the above circles. Next to each expression, write the letter of the circle it represets, and re-type the expression correctly in Racket.   
+                                  @item{@bitmap{images/CE4.png}}
+                                  @item{@fill-in-the-blank[#:id "circ" #:label "Racket expression"]}
                                   
-                                                      @itemlist/splicing[@item{@bitmap{images/CB1.png}}]
-                                                      
-                                                      
-                                                      @row[#:count 1]{@fill-in-the-blank[#:id "circ" #:label "Which circle?"] 
-                                                                     @fill-in-the-blank[#:id "circ" #:label "Correct expression"]}
-                                                     
-                                                     @bitmap{images/CB3.png}
-                                                     @row[#:count 1]{@fill-in-the-blank[#:id "circ" #:label "Which circle?"] 
-                                                                     @fill-in-the-blank[#:id "circ" #:label "Correct expression"]}
-                                                            
-                                                     @bitmap{images/CB4.png}
-                                                     @row[#:count 1]{@fill-in-the-blank[#:id "circ" #:label "Which circle?"] 
-                                                                     @fill-in-the-blank[#:id "circ" #:label "Correct expression"]}}
+                                  @item{@bitmap{images/CE5.png}}
+                                  @item{@fill-in-the-blank[#:id "circ" #:label "Racket expression"]}]}
                  
                                   
                                
