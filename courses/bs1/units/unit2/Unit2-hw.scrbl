@@ -8,7 +8,9 @@
 
                                  @bold{B)} If 1/4 cup of coffee beans can make one cup of coffee, write the contract for a function called @bold{cuppa-joe}, which takes in the amount of beans (in cups) put into a coffee maker and gives you the number of cups of coffee that amount of beans will produce.
                                  
-                                 @(contract-exercise "c2")}
+                                 @(contract-exercise "c2")
+                                 
+                                 @bitmap{images/coffee-cup.png}}
 
 @lesson[#:title "Question Two:"]{Explain the difference between @code{33} and @code{"33"}
                                 
@@ -23,7 +25,7 @@
 @item{@bold{B)} Using the @bold{overlay} function, place your final circle (c4) on top of the image already defined to create your own image of an archery target. A typical target looks like this:}]                              
                                   @bitmap{images/archerysmall.png}
 @embedded-wescheme[#:id "archery"
-                   #:public-id "BTxg5S13rz"
+                   #:public-id "5sXchyGJ9h"
                    #:width "70%"]}
 
 @lesson[#:title "Bonus!"]{How would you add the thin circles which separate the sections of the target? Try adding them to your image! }

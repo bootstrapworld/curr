@@ -29,6 +29,8 @@
                                    
                                    @code{; creates an image from the given string in purple text of size 40.}
                                    
+                                   @bitmap{images/purple.png}
+                                   
                                  @itemlist/splicing[@item[@code{(EXAMPLE (pt "Bootstrap") (text "Bootstrap" 40 "green"))}]
                                                     @item[@code{(EXAMPLE (pt "Purple") (image "Purple" 40 "purple"))}]]
                                  @free-response[#:id "example"]}

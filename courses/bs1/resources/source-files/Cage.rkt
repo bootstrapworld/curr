@@ -6,13 +6,13 @@
 ;;;; YOUR CODE HERE
 ; Don't forget to include a contract and purpose statement.
 
-; protect-left? : Number -> Boolean
+; safe-left? : Number -> Boolean
 ; is any part of the butterfly still visible on the left?
 (define (safe-left? x)
   true)
 
 
-; protect-right : Number -> Boolean
+; safe-right? : Number -> Boolean
 ; is any part of the butterfly still visible on the right?
 (define (safe-right? x)
   true)
