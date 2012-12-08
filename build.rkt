@@ -101,6 +101,24 @@
 
 
 
+;; Note: this should be called first, because it can potentially wipe
+;; out other subdirectories in the current deployment directory
+;; otherwise.  The intent is for generated files to overwrite static
+;; resources.
+(define (copy-static-pages)
+  (unless (directory-exists? (current-deployment-dir))
+    (make-directory (current-deployment-dir)))
+  (for ([base (directory-list static-pages-path)])
+    (define source-full-path (build-path static-pages-path base))
+    (define target-full-path (build-path (current-deployment-dir) base))
+    (when (or (file-exists? target-full-path)
+              (directory-exists? target-full-path))
+      (delete-directory/files target-full-path))
+    (copy-directory/files source-full-path target-full-path)))
+
+
+
+
 (define (initialize-tagging-environment)
   (void (putenv "SCRIBBLE_TAGS" (string-join current-contextual-tags " ")))
   (printf "build.rkt: tagging context is: ~s\n" current-contextual-tags)
@@ -213,14 +231,6 @@
          (printf "build.rkt: no teacher's guide found; skipping\n")]))
 
 
-(define (copy-static-pages)
-  (for ([base (directory-list static-pages-path)])
-    (define source-full-path (build-path static-pages-path base))
-    (define target-full-path (build-path (current-deployment-dir) base))
-    (when (or (file-exists? target-full-path)
-              (directory-exists? target-full-path))
-      (delete-directory/files target-full-path))
-    (copy-directory/files source-full-path target-full-path)))
 
 
 
@@ -240,6 +250,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Main entry point:
+(copy-static-pages)
 (define bootstrap-courses '("bs1" "bs2"))
 (initialize-tagging-environment)
 (for ([course (in-list bootstrap-courses)])
@@ -249,5 +260,5 @@
 (build-lessons)
 (build-worksheets)
 (build-drills)
-(copy-static-pages)
+
 (archive-as-zip)
