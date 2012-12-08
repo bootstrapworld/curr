@@ -12,6 +12,9 @@
          scribble/render
          file/zip)
 
+
+
+
 ;; This is a toplevel build script which generates scribble files for
 ;; the lessons and courses.  These scribble files will be translated
 ;; to HTML files, written under the deployment directory for simple
@@ -80,8 +83,10 @@
   (command-line
    #:program "build"
    #:once-each
-   [("--course") -course "Choose course (default bs1)"
-    (current-course -course)]
+   ;; Going to remove this option: it's obsolete, as we always
+   ;; build bs1 and bs2.
+   #;[("--course") -course "Choose course (default bs1)"
+      (current-course -course)]
    [("--worksheet-links-to-pdf") "Direct worksheet links to StudentWorkshop.pdf" 
     (putenv "WORKSHEET-LINKS-TO-PDF" "true")]
    
@@ -106,8 +111,8 @@
 
 ;; Building the units of the course.
 ;; We must do this twice to resolve cross references for lessons.
-(define (build-course-units course)
-  (printf "build.rkt: building ~a\n" course)
+(define (build-course-units)
+  (printf "build.rkt: building ~a\n" (current-course))
   (for ([phase (in-range 2)])
     (printf "Phase ~a\n" phase)
     (for ([subdir (directory-list (get-units-dir))]
@@ -124,7 +129,7 @@
                      (build-path (get-units-dir) subdir))])))
 
 
-  (printf "build.rkt: building ~a main\n" course)
+  (printf "build.rkt: building ~a main\n" (current-course))
   (run-scribble (get-course-main)))
 
 
@@ -175,14 +180,14 @@
 
 
 
-(define (build-resources course)
+(define (build-resources)
   ;; Under deployment mode, include the resources.
   (when (current-deployment-dir)
     (when (directory-exists? (get-resources))
       
       (let ([input-resources-dir (get-resources)]
             [output-resources-dir
-             (build-path (current-deployment-dir) "courses" course
+             (build-path (current-deployment-dir) "courses" (current-course)
                          "resources")])
         (when (directory-exists? output-resources-dir)
           (delete-directory/files output-resources-dir))
@@ -195,7 +200,7 @@
     (for ([subdir (directory-list (get-units-dir))])
       (copy-file (build-path "lib" "box.gif")
                  (build-path (current-deployment-dir) "courses"
-                             course "units" subdir "box.gif")
+                             (current-course) "units" subdir "box.gif")
                  #t)))
 
 
@@ -206,6 +211,17 @@
          (run-scribble (get-teachers-guide))]
         [else
          (printf "build.rkt: no teacher's guide found; skipping\n")]))
+
+
+(define (copy-static-pages)
+  (for ([base (directory-list static-pages-path)])
+    (define source-full-path (build-path static-pages-path base))
+    (define target-full-path (build-path (current-deployment-dir) base))
+    (when (or (file-exists? target-full-path)
+              (directory-exists? target-full-path))
+      (delete-directory/files target-full-path))
+    (copy-directory/files source-full-path target-full-path)))
+
 
 
 (define (archive-as-zip)
@@ -223,10 +239,15 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Main entry point:
+(define bootstrap-courses '("bs1" "bs2"))
 (initialize-tagging-environment)
-(build-course-units (current-course))
+(for ([course (in-list bootstrap-courses)])
+  (parameterize ([current-course course])
+    (build-course-units)
+    (build-resources)))
 (build-lessons)
 (build-worksheets)
 (build-drills)
-(build-resources (current-course))
+(copy-static-pages)
 (archive-as-zip)
