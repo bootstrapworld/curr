@@ -10,16 +10,17 @@
                                                     @item{@bold{A)} Create two more images representing the personal slogan and logo you would like on the poster. (Hint: The @bold{text} function will create an image out of any string you give it.) Your logo can be a simple shape, or any image taken from the web.}
                                                     @item{@bold{B)} Next, take the images you just created and define them with the variable names SLOGAN and LOGO for your poster.}]
 @embedded-wescheme[#:id "campaign"
-                   #:public-id "W5ygza5XKq"]}
+                   #:public-id "sH5iEU3zPn"
+                   #:height 900]}
 
-@lesson[#:title "Question Two:"]{@itemlist/splicing[@item{Below is the contract for @bold{put-image}, which places an image at a specific x and y coordinate on top of another image. We've started your poster by putting the header on the background.}
+@lesson[#:title "Question Two:"]{@itemlist/splicing[@item{Below is the contract for @bold{put-image}, which places an image at a specific x and y coordinate on top of another image. We've started your poster by putting the header towards the bottom left of the background.}
                                                      
                                                      @item{@code{;put-image : image number number image -> image}}
                                                      
-                                                     @item{Change the position of HEADER in the given expression. Can you move it farther up on the background?}] 
+                                                     @item{Change the position of HEADER in the given expression to move it to the top center of the background.}] 
                                                            }
 
-@lesson[#:title "Question Three:"]{Use the @bold{put-image} function and the images you defined above to place your SLOGAN and LOGO on the poster.}
+@lesson[#:title "Question Three:"]{Use the @bold{put-image} function and the images you defined above to place your SLOGAN and LOGO on your poster, so they appear below the HEADER.}
 
 @lesson[#:title "Question Four:"]{The following is the contract and two examples for a function called @bold{pt}, which takes in a string and creates an image of that string in purple text of size 40.
                                    
@@ -40,7 +41,8 @@
                                   Change the definition of PLAYER to increase the size of the image, and rotate the image so that the scuba diver is swimming to the right.
                                   
                                   @embedded-wescheme[#:id "Scuba"
-                   #:public-id "neFJSoDomX"]
+                                                     #:public-id "Xexl4Npt9x"
+                                                     #:height 600]
                                   
                                   @itemlist/splicing[@item{@bold{Before:} 
                                                             @bitmap{images/diversmall.gif}}
