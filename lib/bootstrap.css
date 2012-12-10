@@ -175,13 +175,17 @@ blockquote.pedagogy p{ display: inline;}
 .BootstrapOverview td{
 	padding: 0px;
 }
+
+table {
+  margin: 20px auto;
+}
+/* make sure racket blocks generate from Scribble are all left-aligned, with no border or padding */
+table.RktBlk{
+  margin-left: 0px;
+}
 .RktBlk td{
    border: none;
    padding: 0px;
-}
-	
-table {
-  margin: 20px auto;
 }
 table td{
   border: 1px solid black;
