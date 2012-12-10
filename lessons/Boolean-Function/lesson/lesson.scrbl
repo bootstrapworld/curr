@@ -17,13 +17,12 @@
       @item{The key concept here is that @code{and} requires that both statements be true, and @code{or} needs @italic{at least one} to be true.}
       @item{@think-about[#:question "What are the contracts for both AND and OR?"
                                     @; MUTLIPLE ANSWERS
-                         #:answer @code{; and: Boolean Boolean -> Boolean
+                         #:answer @code[#:multi-line #t]{
+; and: Boolean Boolean -> Boolean
+; Returns true if BOTH inputs are true
                                       
-                                      ; Returns true if BOTH inputs are true
-
-                                      ; or: Boolean Boolean -> Boolean
-                                        
-                                        ; Returns true if EITHER of the inputs are true."}]}
+; or: Boolean Boolean -> Boolean  
+; Returns true if EITHER of the inputs are true}]}
       @item{Turn to @worksheet-link[#:page 20 #:name "AND-and-OR"] and read the directions}
       @item{Take five minutes @tag[group]{with your team,} to draw the circle for each of the statements. Think about what Boolean functions you'll need for each one! When you're done, convert those circles into Racket code.
                               @tag[selftaught]{@embedded-wescheme[#:id "Booleans"
