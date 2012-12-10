@@ -63,22 +63,21 @@
                    @item{The "onscreen" logic should also take into account that the characters have width and height! For example, a 200px-wide character will still be partially onscreen even when it's x-coordinate is -50. For this reason, we recommend a "buffer" of roughly 50 pixels on all sides.}
                    @item{In the lesson plans, students write functions that check the left and right sides of the screen separately:
                          
-                    @code[#:multi-line #t]{; safe-left? : Number -> Boolean
-                                           ; Determines if the x-coordinate is greater than -50
-                                           (define (safe-left? x)
-                                                   (> x -50))}
-                    
-                    @code[#:multi-line #t]{; safe-right? : Number -> Boolean
-                                           ; Determines if the x-coordinate is less than 690
-                                           (define (safe-right? x)
-                                                   (> x 690))}}
+@code[#:multi-line #t]{; safe-left? : Number -> Boolean
+                       ; Determines if the x-coordinate is greater than -50
+                       (define (safe-left? x)
+                               (> x -50))}      
+@code[#:multi-line #t]{; safe-right? : Number -> Boolean
+                       ; Determines if the x-coordinate is less than 690
+                       (define (safe-right? x)
+                               (> x 690))}}
                     @item{Then they write a single function, called @code{onscreen?}, which is only true if their characters are protected on the left AND the right: 
                                                                     
-                     @code[#:multi-line #t]{; onscreen? : Number Number -> Boolean
-                                            ; Determines if the coordinates are within 100 pixels of the screen
-                                            (define (onscreen? x)
-                                              (and (safe-left x)
-                                                (safe-right x)))}}
+@code[#:multi-line #t]{; onscreen? : Number Number -> Boolean
+                       ; Determines if the coordinates are within 100 pixels of the screen
+                       (define (onscreen? x)
+                               (and (safe-left? x)
+                                    (safe-right? x)))}}
                     @item{If you have an unusually wide or tall character image, you may wish to use larger buffer values.}
                    ]}
 
