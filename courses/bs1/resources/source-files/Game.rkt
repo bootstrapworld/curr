@@ -89,10 +89,10 @@
 ;;    We need to know what "close enough" means, and we need to
 ;;    know how far apart things are.
 
-;; If *distances-color* is not "", then the game will show
-;; a triangle between the player and each character. 
+;; If *distances-color* is set to "yellow", then the game will draw
+;; a yellow triangle between the player and each character. 
 ;; That triangle will be labelled with line-length on the legs,
-;; and with distance on the hypotenuse.
+;; and with distance on the hypotenuse. (This works for any valid color)
 (define *distances-color* "")
 
 ; line-length : Number Number -> Number
