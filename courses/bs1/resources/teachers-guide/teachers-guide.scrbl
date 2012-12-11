@@ -48,6 +48,7 @@
                    @item{@bold{In WeScheme (or DrRacket 5.1)}, replace bitmap with bitmap/url, and the full URL of their images as a String:
                           
 @code{(define BACKGROUND (bitmap/url "http://exampleschool.edu/tami+chris/water.png"))}}
+                   @item{@bold{If you want to use images on your computer inside WeScheme}, you will need to upload them to the web first, and then use their URLs. We recommend @(hyperlink"http://pixlr.com/" "pixlr.com"), which lets you upload and even @bold{edit} images, then save them to a website.}
                    @item{Time to test it out! Click "Run", and then evaluate those variables in the Interactions window. Typing @code{BACKGROUND}, for example, should show you the image you used for the Background. Once you see all images loading successfully, click "save".}
                    @item{You can rotate, scale, or flip the images using Racket functions:
                          
