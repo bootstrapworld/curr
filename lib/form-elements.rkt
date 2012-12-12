@@ -395,7 +395,7 @@
 ;;;;;;;;;;;;; Generating the Main Summary Page ;;;;;;;;;;;;;;;;;
 
 ;; get-unit-descr : string -> pre-content
-;; extract the string for the unit-descr from the unit with the given name
+;; extract the content for the unit-descr from the unit with the given name
 (define (get-unit-descr unit-name)
   (dynamic-require (build-path (get-units-dir) unit-name "the-unit.scrbl")
                    'the-unit-description
