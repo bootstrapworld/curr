@@ -105,9 +105,10 @@
 ;; out other subdirectories in the current deployment directory
 ;; otherwise.  The intent is for generated files to overwrite static
 ;; resources.
-(define (copy-static-pages)
-  (unless (directory-exists? (current-deployment-dir))
-    (make-directory (current-deployment-dir)))
+(define (make-fresh-deployment-and-copy-static-pages)
+  (when (directory-exists? (current-deployment-dir))
+    (delete-directory/files (current-deployment-dir)))
+  (make-directory (current-deployment-dir))
   (for ([base (directory-list static-pages-path)])
     (define source-full-path (build-path static-pages-path base))
     (define target-full-path (build-path (current-deployment-dir) base))
@@ -250,7 +251,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Main entry point:
-(copy-static-pages)
+(make-fresh-deployment-and-copy-static-pages)
 (define bootstrap-courses '("bs1" "bs2"))
 (initialize-tagging-environment)
 (for ([course (in-list bootstrap-courses)])
