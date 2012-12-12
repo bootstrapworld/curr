@@ -109,6 +109,9 @@
 
 
 
+
+
+
 ;; fake-item: (listof any) -> (listof any)
 ;; We try to make itemlist more pleasant to work with.  Itemlist/splicing automatically
 ;; wraps items around every argument, so there's no need to call item explicitly.
@@ -306,7 +309,7 @@
   (apply nested #:style (bootstrap-sectioning-style "BootstrapWorksheet")
          body))
 
-(struct lesson-struct (title duration) #:transparent)
+(struct lesson-struct (title duration anchor) #:transparent)
 
 (define (lesson #:title (title #f)
                 #:duration (duration #f)
@@ -314,13 +317,21 @@
                 #:prerequisites (prerequisites #f)
                 #:video (video #f)
                 . body)
+  (define the-lesson-name (current-lesson-name))
   (let ([video-elem (cond [(and video (list? video))
                            (map (lambda (v) (elem #:style bs-video-style v)) video)]
                           [video (elem #:style bs-video-style video)]
                           [else (elem)])])
     (traverse-block
      (lambda (get set!)
-       (set! 'bootstrap-lessons (cons (lesson-struct title duration) (get 'bootstrap-lessons '())))     
+       (define anchor (if the-lesson-name
+                          (lesson-name->anchor-name the-lesson-name)
+                          #f))
+
+       (set! 'bootstrap-lessons (cons (lesson-struct title
+                                                     duration
+                                                     anchor)
+                                      (get 'bootstrap-lessons '())))     
        
        (nested-flow
         (style "BootstrapLesson" '())
@@ -534,26 +545,38 @@
 
 ;; Cooperates with the Lesson tag.
 (define (agenda . items)
+
+  ;; extract-minutes: lesson-struct -> string
+  ;; Extracts the number of minutes the lesson should take.
+  (define (extract-minutes a-lesson)
+    (first (regexp-match "[0-9]*" (lesson-struct-duration a-lesson))))
+
+
   (traverse-block
    (lambda (get set)
      
      (lambda (get set)
+
+       (define (maybe-hyperlink elt anchor)
+         (if anchor
+             (hyperlink (string-append "#" anchor) elt)
+             elt))
+
        (define lessons (reverse (get 'bootstrap-lessons '())))
        
-       (nested-flow
-        (style "BootstrapAgenda" '(never-indents))
-        (decode-flow
-         (list "Agenda"
+       (nested #:style (style "BootstrapAgenda" '(never-indents))
+               (list "Agenda"
                (apply 
                 itemlist/splicing 
                 #:style "BootstrapAgendaList"
-                (map (lambda (a-lesson)
-                       (item (para (span-class "BSLessonDuration"
-                                               (format "~a min" 
-                                                       (first (regexp-match "[0-9]*" (lesson-struct-duration a-lesson)))))
-                                   (span-class "BSLessonName" (lesson-struct-title a-lesson)))))
-                     lessons))
-               )))))))
+                (for/list ([a-lesson lessons])
+                  (item (para (elem #:style "BSLessonDuration"
+                                    (format "~a min" 
+                                            (extract-minutes a-lesson)))
+                              (maybe-hyperlink
+                               (elem #:style "BSLessonName"
+                                     (lesson-struct-title a-lesson))
+                               (lesson-struct-anchor a-lesson))))))))))))
 
 ;; itemlist/splicing is like itemlist, but also cooperates with the
 ;; splice form to absorb arguments.  We use this in combination
@@ -576,25 +599,35 @@
   (apply itemlist spliced-items #:style style))
 
 
+;; lesson-module-path->lesson-name: module-path -> string
+(define (lesson-module-path->lesson-name mp)
+  (match mp
+    [(list 'lib path)
+     (cond
+      [(regexp-match #px"^curr/lessons/([^/]+)/lesson/lesson.scrbl$" path)
+       =>
+       (lambda (result)
+         (list-ref result 1))]
+      [else
+       (raise-lesson-error mp)])]
+    [else
+     (raise-lesson-error mp)]))
+
+
+;; raise-lesson-error: module-path -> void
+;; Raises a lesson-specific error.
+(define (raise-lesson-error mp)
+  (error 'extract-lesson "lesson module path ~e does not have expected shape (e.g. (lib curr/lib/FOO/lesson.scrbl)" mp))
+
+
+
 ;; extract-lesson: module-path -> (listof block)
 ;; Extracts the lesson from the documentation portion, and also
 ;; registers the use in the current document.
 (define (extract-lesson mp)
-  (define (raise-lesson-error)
-    (error 'extract-lesson "lesson module path ~e does not have expected shape (e.g. (lib curr/lib/FOO/lesson.scrbl)" mp))  
-  
-  (define lesson-name (match mp
-                        [(list 'lib path)
-                         (cond
-                           [(regexp-match #px"^curr/lessons/([^/]+)/lesson/lesson.scrbl$" path)
-                            =>
-                            (lambda (result)
-                              (list-ref result 1))]
-                           [else
-                            (raise-lesson-error)])]
-                        [else
-                         (raise-lesson-error)]))
-  (define a-doc (dynamic-require mp 'doc))
+  (define lesson-name (lesson-module-path->lesson-name mp))
+  (define a-doc (parameterize ([current-lesson-name lesson-name])
+                  (dynamic-require mp 'doc)))
   
   (unless (part? a-doc)
     (error 'include-lesson "doc binding is not a part: ~e" a-doc))

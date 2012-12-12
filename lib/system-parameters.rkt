@@ -5,7 +5,8 @@
          current-course
          current-lesson-xref
          current-document-output-path
-         current-worksheet-links-refer-to-pdf?)
+         current-worksheet-links-refer-to-pdf?
+         current-lesson-name)
 
 
 ;; Under deployment mode, the worksheets and drills are written as subdirectories of the deployment directory.
@@ -33,3 +34,9 @@
 
 ;; Should worksheet links refer to the actual html files, or to the pdf?
 (define current-worksheet-links-refer-to-pdf? (make-parameter #f))
+
+
+;; current-lesson-name: (or/c #f string)
+;; Defines the current lesson name.  Cooperates with lesson and include-lesson.
+(define current-lesson-name (make-parameter #f))
+
