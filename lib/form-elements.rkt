@@ -306,8 +306,8 @@
 
 ;; The following provides sectioning for bootstrap.  
 (define (worksheet . body)
-  (apply nested #:style (bootstrap-sectioning-style "BootstrapWorksheet")
-         body))
+  (nested #:style (bootstrap-sectioning-style "BootstrapWorksheet")
+          body))
 
 (struct lesson-struct (title duration anchor) #:transparent)
 
