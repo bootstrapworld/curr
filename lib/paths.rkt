@@ -29,7 +29,7 @@
   (build-path courses-base (current-course) "resources"))
   
 (define (get-teachers-guide)
-  (build-path courses-base (current-course) "resources" "teachers-guide" "teachers-guide.scrbl"))
+  (build-path courses-base (current-course) "resources" "teachers" "teachers-guide" "teachers-guide.scrbl"))
 
 (define (get-worksheet-pdf-path)
   (build-path courses-base (current-course) "resources" "workbook" "StudentWorkbook.pdf"))
