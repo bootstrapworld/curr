@@ -397,11 +397,16 @@
 ;; get-unit-descr : string -> pre-content
 ;; extract the content for the unit-descr from the unit with the given name
 (define (get-unit-descr unit-name)
-  (dynamic-require (build-path (get-units-dir) unit-name "the-unit.scrbl")
-                   'the-unit-description
-                   (lambda ()
-                     (begin (printf "WARNING: no unit-descr for ~a~n" unit-name)
-                            ""))))
+  (define result
+    (dynamic-require (build-path (get-units-dir) unit-name "the-unit.scrbl")
+                     'the-unit-description
+                     (lambda ()
+                       #f)))
+  (if result
+      result
+      (begin 
+        (printf "WARNING: no unit-descr for ~a~n" unit-name)
+        "")))
 
 
 ;;@summary-item/links["Student Workbook" "resources/workbook/StudentWorkbook" #:ext1 "pdf" #:ext2 "odt"]{
