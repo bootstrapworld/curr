@@ -48,6 +48,7 @@
                    @item{@bold{In WeScheme (or DrRacket 5.1)}, replace bitmap with bitmap/url, and the full URL of their images as a String:
                           
 @code{(define BACKGROUND (bitmap/url "http://exampleschool.edu/tami+chris/water.png"))}}
+                   @item{@bold{If you want to use images on your computer inside WeScheme}, you will need to upload them to the web first, and then use their URLs. We recommend @(hyperlink"http://pixlr.com/" "pixlr.com"), which lets you upload and even @bold{edit} images, then save them to a website.}
                    @item{Time to test it out! Click "Run", and then evaluate those variables in the Interactions window. Typing @code{BACKGROUND}, for example, should show you the image you used for the Background. Once you see all images loading successfully, click "save".}
                    @item{You can rotate, scale, or flip the images using Racket functions:
                          
@@ -63,22 +64,21 @@
                    @item{The "onscreen" logic should also take into account that the characters have width and height! For example, a 200px-wide character will still be partially onscreen even when it's x-coordinate is -50. For this reason, we recommend a "buffer" of roughly 50 pixels on all sides.}
                    @item{In the lesson plans, students write functions that check the left and right sides of the screen separately:
                          
-                    @code[#:multi-line #t]{; safe-left? : Number -> Boolean
-                                           ; Determines if the x-coordinate is greater than -50
-                                           (define (safe-left? x)
-                                                   (> x -50))}
-                    
-                    @code[#:multi-line #t]{; safe-right? : Number -> Boolean
-                                           ; Determines if the x-coordinate is less than 690
-                                           (define (safe-rigt? x)
-                                                   (> x 690))}}
+@code[#:multi-line #t]{; safe-left? : Number -> Boolean
+                       ; Determines if the x-coordinate is greater than -50
+                       (define (safe-left? x)
+                               (> x -50))}      
+@code[#:multi-line #t]{; safe-right? : Number -> Boolean
+                       ; Determines if the x-coordinate is less than 690
+                       (define (safe-right? x)
+                               (> x 690))}}
                     @item{Then they write a single function, called @code{onscreen?}, which is only true if their characters are protected on the left AND the right: 
                                                                     
-                     @code[#:multi-line #t]{; onscreen? : Number Number -> Boolean
-                                            ; Determines if the coordinates are within 100 pixels of the screen
-                                            (define (onscreen? x)
-                                              (and (safe-left x)
-                                                (safe-right x)))}}
+@code[#:multi-line #t]{; onscreen? : Number Number -> Boolean
+                       ; Determines if the coordinates are within 100 pixels of the screen
+                       (define (onscreen? x)
+                               (and (safe-left? x)
+                                    (safe-right? x)))}}
                     @item{If you have an unusually wide or tall character image, you may wish to use larger buffer values.}
                    ]}
 
