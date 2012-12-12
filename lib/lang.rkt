@@ -16,9 +16,11 @@
          racket/runtime-path
          racket/path
          2htdp/image
-         (for-syntax racket/base)
          "bootstrap.rkt"
-         "checker.rkt")
+         "checker.rkt"
+         "compile-time-params.rkt"
+         racket/splicing
+         (for-syntax racket/base))
 
 
 
@@ -34,11 +36,16 @@
 
 (define-syntax (module-begin stx)
   (syntax-case stx ()
-    [(_ id . body)
+    [(_ id body ...)
      #`(#%module-begin id change-defaults ()
                        (inject-javascript-url "http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js")
                        (splice (map inject-javascript-path js-paths))
-                       . body)]))
+                       (define the-unit-description #f)
+                       (provide the-unit-description)
+                       (splicing-syntax-parameterize 
+                         ([current-the-unit-description
+                           (make-rename-transformer #'the-unit-description)])
+                         body ...))]))
 
 
 ;; Our customized prefix simply declares the document as HTML5.

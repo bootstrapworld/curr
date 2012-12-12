@@ -13,11 +13,12 @@
          scribble/latex-properties
          scriblib/render-cond
          racket/path
-         (for-syntax racket/base)
+         (for-syntax racket/base racket/syntax)
          2htdp/image
          racket/list
          net/uri-codec
          racket/match
+         "compile-time-params.rkt"
          "system-parameters.rkt"
          "checker.rkt"
          "javascript-support.rkt"
@@ -309,8 +310,27 @@
   (nested #:style (bootstrap-sectioning-style "BootstrapWorksheet")
           body))
 
-(struct lesson-struct (title duration anchor) #:transparent)
 
+
+;; lesson-struct records the outline of a structure: basically, its
+;; title, how long it takes, and the anchor to get to it within the
+;; current document.
+(struct lesson-struct (title     ;; (U string #f)
+                       duration  ;; string e.g. "15 min"
+                       anchor)   ;; string
+        #:transparent)
+
+
+
+;; lesson: #:title #:duration #:subsumes #:prerequisites #:video body ... -> block
+;;
+;; Creates a lesson block; this block is hyperlinked.  Internally,
+;; it's a traverse-block.  In the traverse phase, we assign to
+;; 'bootstrap-lessons so that other phases can pick out which lessons
+;; have been defined.
+;;
+;; bootstrap-lessons is a (listof lesson-struct), whose structure should be
+;; defined right above us.
 (define (lesson #:title (title #f)
                 #:duration (duration #f)
                 #:subsumes (subsumes #f)
@@ -322,59 +342,67 @@
     (or (current-lesson-name) 
         (symbol->string (gensym (string->symbol (or title 'lesson))))))
 
-  (let ([video-elem (cond [(and video (list? video))
-                           (map (lambda (v) (elem #:style bs-video-style v)) video)]
-                          [video (elem #:style bs-video-style video)]
-                          [else (elem)])])
-    (traverse-block
-     (lambda (get set!)
-       (define anchor (lesson-name->anchor-name the-lesson-name))
-       (set! 'bootstrap-lessons (cons (lesson-struct title
-                                                     duration
-                                                     anchor)
-                                      (get 'bootstrap-lessons '())))     
-       (nested-flow 
-        (style "BootstrapLesson" '())
-        (decode-flow
-         (list
-          (elem #:style (style #f (list (url-anchor anchor))))
-          (cond [(and title duration)
-                 (para #:style bs-lesson-title-style
-                       (list (elem #:style bs-lesson-name-style title) 
-                             video-elem
-                             (elem #:style bs-lesson-duration-style (format "(Time ~a)" duration))))]
-                [title 
-                 (para #:style bs-lesson-title-style
-                       (list (elem #:style bs-lesson-name-style title)
-                             video-elem))]
-                [duration 
-                 (para #:style bs-lesson-title-style
-                       (list (elem #:style bs-lesson-name-style (format "Lesson "))
-                             video-elem
-                             (elem #:style bs-lesson-duration-style (format "(Time ~a)" duration))))])
-          (nested #:style (bootstrap-sectioning-style "BootstrapLesson")
-                  body))))))))
+  (define video-elem (cond [(and video (list? video))
+                            (map (lambda (v) (elem #:style bs-video-style v)) video)]
+                           [video (elem #:style bs-video-style video)]
+                           [else (elem)]))
+  (traverse-block
+   (lambda (get set!)
+     (define anchor (lesson-name->anchor-name the-lesson-name))
+     (set! 'bootstrap-lessons (cons (lesson-struct title
+                                                   duration
+                                                   anchor)
+                                    (get 'bootstrap-lessons '())))     
+     (nested-flow 
+      (style "BootstrapLesson" '())
+      (decode-flow
+       (list
+        (elem #:style (style #f (list (url-anchor anchor))))
+        (cond [(and title duration)
+               (para #:style bs-lesson-title-style
+                     (list (elem #:style bs-lesson-name-style title) 
+                           video-elem
+                           (elem #:style bs-lesson-duration-style (format "(Time ~a)" duration))))]
+              [title 
+               (para #:style bs-lesson-title-style
+                     (list (elem #:style bs-lesson-name-style title)
+                           video-elem))]
+              [duration 
+               (para #:style bs-lesson-title-style
+                     (list (elem #:style bs-lesson-name-style (format "Lesson "))
+                           video-elem
+                           (elem #:style bs-lesson-duration-style (format "(Time ~a)" duration))))])
+        (nested #:style (bootstrap-sectioning-style "BootstrapLesson")
+                body)))))))
+
 
 (define (unit-separator unit-number)
   (elem #:style "BSUnitSeparationPage" (format "Lesson ~a" unit-number)))
 
+
+
 ;; unit-descr : list[element] -> block
 ;; stores the unit description to use in building the summary, then generates the text
-(define (unit-descr . body)
-  (para body))
+(define-syntax (unit-descr stx)
+  (syntax-case stx ()
+    [(_ body ...)
+     (syntax/loc stx
+       (begin
+         (set! current-the-unit-description (list body ...))
+         current-the-unit-description))]))
+
 
 ;;;;;;;;;;;;; Generating the Main Summary Page ;;;;;;;;;;;;;;;;;
 
-;; get-unit-descr : string -> string
+;; get-unit-descr : string -> pre-content
 ;; extract the string for the unit-descr from the unit with the given name
 (define (get-unit-descr unit-name)
-  (with-input-from-file (build-path (get-units-dir) unit-name "the-unit.scrbl")
-    (lambda ()
-      (let ([ud-spec (regexp-match #rx"@unit-descr{.*?}" (read-string 5000))])
-        (if ud-spec
-            (substring (first ud-spec) 12 (- (string-length (first ud-spec)) 1))
-            (begin (printf "WARNING: no unit-descr for ~a~n" unit-name)
-                   ""))))))
+  (dynamic-require (build-path (get-units-dir) unit-name "the-unit.scrbl")
+                   'the-unit-description
+                   (lambda ()
+                     (begin (printf "WARNING: no unit-descr for ~a~n" unit-name)
+                            ""))))
+
 
 ;;@summary-item/links["Student Workbook" "resources/workbook/StudentWorkbook" #:ext1 "pdf" #:ext2 "odt"]{
 
@@ -390,7 +418,7 @@
                (hyperlink (format "~a.~a" basefilename ext2) label2))
          descr))
 
-;; summary-item/custom : string list[hyperlink] content -> block
+;; summary-item/custom : string list[hyperlink] pre-content -> block
 ;; generate a summary entry with given hyperlinks
 ;;   used on the main page for a course
 ;; CURRENTLY HANDLES ONLY TWO LINKS -- MUST GENERALIZE TO MORE
@@ -402,8 +430,7 @@
         " | "
         (elem (second links))
         "] - "
-        (apply elem descr)
-        ))
+        descr))
 
 ;; unit-summary/links : number content -> block
 ;; generate the summary of a unit with links to html and pdf versions as
