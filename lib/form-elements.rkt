@@ -317,41 +317,43 @@
                 #:prerequisites (prerequisites #f)
                 #:video (video #f)
                 . body)
-  (define the-lesson-name (current-lesson-name))
+
+  (define the-lesson-name 
+    (or (current-lesson-name) 
+        (symbol->string (gensym (string->symbol (or title 'lesson))))))
+
   (let ([video-elem (cond [(and video (list? video))
                            (map (lambda (v) (elem #:style bs-video-style v)) video)]
                           [video (elem #:style bs-video-style video)]
                           [else (elem)])])
     (traverse-block
      (lambda (get set!)
-       (define anchor (if the-lesson-name
-                          (lesson-name->anchor-name the-lesson-name)
-                          #f))
-
+       (define anchor (lesson-name->anchor-name the-lesson-name))
        (set! 'bootstrap-lessons (cons (lesson-struct title
                                                      duration
                                                      anchor)
                                       (get 'bootstrap-lessons '())))     
-       
-       (nested-flow
+       (nested-flow 
         (style "BootstrapLesson" '())
         (decode-flow
-         (list (cond [(and title duration)
-                      (para #:style bs-lesson-title-style
-                            (list (elem #:style bs-lesson-name-style title) 
-                                  video-elem
-                                  (elem #:style bs-lesson-duration-style (format "(Time ~a)" duration))))]
-                     [title 
-                      (para #:style bs-lesson-title-style
-                            (list (elem #:style bs-lesson-name-style title)
-                                  video-elem))]
-                     [duration 
-                      (para #:style bs-lesson-title-style
-                            (list (elem #:style bs-lesson-name-style (format "Lesson "))
-                                  video-elem
-                                  (elem #:style bs-lesson-duration-style (format "(Time ~a)" duration))))])
-             (compound-paragraph (bootstrap-sectioning-style "BootstrapLesson")
-                                 (decode-flow body)))))))))
+         (list
+          (elem #:style (style #f (list (url-anchor anchor))))
+          (cond [(and title duration)
+                 (para #:style bs-lesson-title-style
+                       (list (elem #:style bs-lesson-name-style title) 
+                             video-elem
+                             (elem #:style bs-lesson-duration-style (format "(Time ~a)" duration))))]
+                [title 
+                 (para #:style bs-lesson-title-style
+                       (list (elem #:style bs-lesson-name-style title)
+                             video-elem))]
+                [duration 
+                 (para #:style bs-lesson-title-style
+                       (list (elem #:style bs-lesson-name-style (format "Lesson "))
+                             video-elem
+                             (elem #:style bs-lesson-duration-style (format "(Time ~a)" duration))))])
+          (nested #:style (bootstrap-sectioning-style "BootstrapLesson")
+                  body))))))))
 
 (define (unit-separator unit-number)
   (elem #:style "BSUnitSeparationPage" (format "Lesson ~a" unit-number)))
@@ -633,8 +635,7 @@
     (error 'include-lesson "doc binding is not a part: ~e" a-doc))
   (hash-set! (current-lesson-xref) lesson-name (list lesson-name (current-document-output-path)))
   
-  (cons (sxml->element `(a (@ (name ,(lesson-name->anchor-name lesson-name))) "")) 
-        (part-blocks a-doc)))
+  (part-blocks a-doc))
 
 
 (define-syntax (include-lesson stx)
