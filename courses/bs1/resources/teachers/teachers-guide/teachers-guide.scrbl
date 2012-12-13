@@ -38,17 +38,23 @@
                                                          [else y]))}}
                    @item{Notice the @code{else} clause at the bottom! Without it, pressing a key that is @italic{not} "up" or "down" will end the program with an error!}]}
 
-@lesson[#:title "Adding Images to the Game"]{
-@itemlist/splicing[@item{Open the Game Template file for a team of students.}
-                   @item{owards the top of the file, you'll see some variables defined for the @code{BACKGROUND}, @code{PLAYER}, @code{DANGER} and @code{TARGET}.}
+@lesson[#:title "Changing Your Game Images"]{
+@itemlist/splicing[@item{Open the Game Template (either the WeScheme or DrRacket file). Towards the top of the program, you'll see some values defined for the @code{BACKGROUND}, @code{PLAYER}, @code{DANGER} and @code{TARGET}.}
                    @item{At the moment, they are defined to be simple images. For example: @linebreak[]
                          @code{(define BACKGROUND (rectangle 640 480 "solid" "black"))}}
-                   @item{@bold{In DrRacket}, replace the image-producing expression with one that pulls in the image file for your backround, using the relative filepath of the image as a String: @linebreak[]
-@code{(define BACKGROUND (bitmap "tami+chris/water.png"))}}
-                   @item{@bold{In WeScheme (or DrRacket 5.1)}, replace bitmap with bitmap/url, and the full URL of their images as a String:
-                          
-@code{(define BACKGROUND (bitmap/url "http://exampleschool.edu/tami+chris/water.png"))}}
-                   @item{@bold{If you want to use images on your computer inside WeScheme}, you will need to upload them to the web first, and then use their URLs. We recommend @(hyperlink"http://pixlr.com/" "pixlr.com"), which lets you upload and even @bold{edit} images, then save them to a website.}
+                   @item{To find new images, use your favorite search engine, such as @(hyperlink "http://images.google.com" "images.google.com").}
+                   @item{Try adding "filetype:gif" or "filetype:png" to your searches. If it has a transparent background to begin with, you don't have to edit one in later.}
+                   @item{Make sure that PLAYER, TARGET, and DANGER images are at least 100x100, and BACKGROUND images are at least 640x480. A background that is too small will look stretched out.}
+                   @item{If you are using @bold{DrRacket}, you can download the images and open them your favorite image editor (e.g. - Photoshop, Paint, GIMP or Acorn).}
+                   @item{If you are using @bold{WeScheme}, you can edit the files without ever leaving your browser! Instead, open the file in an online editor like @(hyperlink "http://pixlr.com" "Pixlr").}
+                   @item{Make sure that character images have transparent backgrounds. You may want to resize them to ensure that the background is at least 640x480, and that the characters are at least 100x100.}
+                   @item{When you are done editing the images, you'll want to save and add them to your games. If you are using a program on your computer to the files, save them into the same folder as your student games. If you are using an online editor like pixlr.com, you can save the file directly to an image-sharing site like @(hyperlink "http://imgur.com" "imgur.com"), or upload it to other sites like Flickr, Dropbox, etc. Wherever you choose to save it on the web, be sure to remember the address for your new image!}
+                   @item{In the student game file, replace the definition for each image with code that will load the image from your computer or the internet.: @linebreak[]
+@code[#:multi-line #t]{; for loading files from your computer (DrRacket only)
+                       (define BACKGROUND (bitmap "SamsGame/water.png")) 
+                       ; for loading files from the web
+                       (define TARGET (bitmap/url "http://imgur.com/images/water.png")) 
+                       }}
                    @item{Time to test it out! Click "Run", and then evaluate those variables in the Interactions window. Typing @code{BACKGROUND}, for example, should show you the image you used for the Background. Once you see all images loading successfully, click "save".}
                    @item{You can rotate, scale, or flip the images using Racket functions:
                          
@@ -67,18 +73,18 @@
 @code[#:multi-line #t]{; safe-left? : Number -> Boolean
                        ; Determines if the x-coordinate is greater than -50
                        (define (safe-left? x)
-                               (> x -50))}      
+                         (> x -50))}      
 @code[#:multi-line #t]{; safe-right? : Number -> Boolean
                        ; Determines if the x-coordinate is less than 690
                        (define (safe-right? x)
-                               (> x 690))}}
+                         (> x 690))}}
                     @item{Then they write a single function, called @code{onscreen?}, which is only true if their characters are protected on the left AND the right: 
                                                                     
 @code[#:multi-line #t]{; onscreen? : Number Number -> Boolean
                        ; Determines if the coordinates are within 100 pixels of the screen
                        (define (onscreen? x)
-                               (and (safe-left? x)
-                                    (safe-right? x)))}}
+                         (and (safe-left? x)
+                              (safe-right? x)))}}
                     @item{If you have an unusually wide or tall character image, you may wish to use larger buffer values.}
                    ]}
 
@@ -98,11 +104,11 @@
                                             ; We have the player's x and y, and a character's x and y.
                                             ; How far apart are they?
                                             (define (distance px py cx cy)
-                                                    (sqrt (+ (sq (line-length px cx))
-                                                             (sq (line-length py cy)))))}}
+                                              (sqrt (+ (sq (line-length px cx))
+                                                       (sq (line-length py cy)))))}}
                    @item{Finally, collide? starts out always returning false, so nothing collides even when you have the distances all working. Use the distance formula, with some threshold:
                     @code[#:multi-line ""]{(define (collide? px py cx cy)
-                                                   (< (distance px py cx cy) 50))}}]}
+                                             (< (distance px py cx cy) 50))}}]}
 
 @lesson[#:title "Exploring the Teachpack"]{
 The bootstrap-teachpack lets you do more -- try the Supplemental Lessons for some ideas and challenges: play with 2d motion, random numbers, a different collide? function, or harder play based on @code{*score*}.}
