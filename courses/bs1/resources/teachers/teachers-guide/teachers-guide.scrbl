@@ -39,7 +39,9 @@
                    @item{Notice the @code{else} clause at the bottom! Without it, pressing a key that is @italic{not} "up" or "down" will end the program with an error!}]}
 
 @lesson[#:title "Changing Your Game Images"]{
-@itemlist/splicing[@item{Open the Game Template (either the WeScheme or DrRacket file). Towards the top of the program, you'll see some values defined for the @code{BACKGROUND}, @code{PLAYER}, @code{DANGER} and @code{TARGET}.}
+@itemlist/splicing[
+                   @item{@(video-link (hyperlink "http://www.youtube.com/watch?v=99plAjsjx78" "Video: A screencast of this section - follow along."))}
+                   @item{Open the Game Template (either the WeScheme or DrRacket file). Towards the top of the program, you'll see some values defined for the @code{BACKGROUND}, @code{PLAYER}, @code{DANGER} and @code{TARGET}.}
                    @item{At the moment, they are defined to be simple images. For example: @linebreak[]
                          @code{(define BACKGROUND (rectangle 640 480 "solid" "black"))}}
                    @item{To find new images, use your favorite search engine, such as @(hyperlink "http://images.google.com" "images.google.com").}

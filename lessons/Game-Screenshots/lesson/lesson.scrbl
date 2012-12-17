@@ -6,13 +6,14 @@
                 #:prerequisites "Defining-Variables" ]{
 
 @itemlist/splicing[
+    @item{@(video-link (hyperlink "http://www.youtube.com/watch?v=99plAjsjx78" "Video: A screencast of this section - follow along to see how to change images in your game."))}
     @item{Let's start changing these image definitions so that they use the images YOU want.}
     @item{You already know how to draw various shapes, but suppose you wanted to use an image that you found? (For example, this circular red-and-blue icon on the right?)}
     @item{Take a look at the contracts for these two functions: @bitmap{images/icon.png}
           @code[#:multi-line #t]{; bitmap : String -> Image
                                  ; bitmap/url : String -> Image}}
     @item{Both of these functions take a @code{String} as their domain, which tells them where the image file is located. If you're using WeScheme, that can be the address of any image file you find on the internet. In DrRacket, the String represents the path to the file.}
-    @item{If you're using @bold{WeScheme}, you'll want to use @code{bitmap/url}. If you're using @bold{DrRacket}, you'll want @code{bitmap}}
+    @item{If you're using @bold{WeScheme}, you'll want to use @code{bitmap/url}. If you're using @bold{DrRacket}, you can use @code{bitmap/url}  or @code{bitmap} to include images from your computer.}
     @item{Try replacing the definition of the @code{BACKGROUND} with an image file, and @bold{click Run.})}
     @item{Now try to find an image for your @code{PLAYER}. When you click Run, you should see your player appear on the game screen. Typing @code{PLAYER} into the Interactions window will show you just the player image, by itself}
     @item{Suppose you wanted your player to be larger or smaller? There's a function called @code{scale}:
