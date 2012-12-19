@@ -6,22 +6,22 @@
 ;;;; YOUR CODE HERE
 ; Don't forget to include a contract and purpose statement.
 
-; protect-left? : Number -> Boolean
+; safe-left? : Number -> Boolean
 ; is any part of the butterfly still visible on the left?
-(define (protect-left? x)
+(define (safe-left? x)
   true)
 
 
-; protect-right? : Number -> Boolean
+; safe-right? : Number -> Boolean
 ; is any part of the butterfly still visible on the right?
-(define (protect-right? x)
+(define (safe-right? x)
   true)
 
 
 ; onscreen? :  Number -> Boolean
 ; is any part of the butterfly still on the screen?
 (define (onscreen? x)
-  (protect-left? x))
+  (safe-left? x))
 
 
 ;;;; This starts the animation automatically, when "Run" is clicked.
