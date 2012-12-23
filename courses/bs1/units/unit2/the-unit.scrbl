@@ -8,9 +8,9 @@
 from a Domain into a Range. Coupled with their understanding of Circles of Evaluation, students generalize their understanding of functions to
 include other datatypes, including Strings and Images.}
 
-@objectives[@item{Learn Racket syntax and grammar, using the Circle of Evaluation}
-        @item{Learn how to define values to be used later, as variables}
-        @item{Learn syntax for simple strings and image-composition expressions}]
+@objectives[
+        @item{Students will be able to write contracts for functions of Numbers, Strings and Images.}
+        @item{Given an example of a function, students will be able to identify the Name, Domain and Range of that function.}]
 @product-outcomes[
         @item{Students learn to make and manipulate the basic elements of their games--numbers, strings, and images}]
 
