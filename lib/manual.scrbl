@@ -1,18 +1,19 @@
 #lang scribble/base
 
 @(require scribble/manual
-          (for-label "lang.rkt"))
+          (for-label (except-in curr/lib title item itemlist)
+                     (only-in scribble/base title item itemlist)))
 
 
 
-@title{A guide to the @racketmodname[curr/lib/lang] Scribble library}
+
+@title{A guide to the @racketmodname[curr/lib] Scribble library}
 
 @author+email["Danny Yoo" "dyoo@hashcollision.org"]
 
+@defmodule[curr/lib]
 
-@declare-exporting["lang.rkt"]
-
-The @racketmodname[curr/lib/lang] library provides preliminary Scribble
+The @racketmodname[curr/lib] library provides preliminary Scribble
 document support for the @link["http://bootstrapworld.org"]{Bootstrap}
 curriculum.  Specifically, it allows documents to include conditional content
 (e.g. generating content for teachers or students), as well as commands to
@@ -24,6 +25,7 @@ as well as saving the contents of the form to server-side storage.
 
 
 @section{Getting started}
+@declare-exporting[curr/lib]
 Let's start with the following document:
 
 @filebox["example.scrbl"]{
@@ -78,8 +80,8 @@ will show the content for both instruction and pedagogy.
 
 
 @section{API}
-
-The @racketmodname[curr/lib/lang] library includes a Scribble-based
+@declare-exporting[curr/lib]
+The @racketmodname[curr/lib] library includes a Scribble-based
 language that provides all the bindings of @racketmodname[scribble/base], as
 well as the following forms:
 
@@ -375,6 +377,12 @@ have the CSS style @litchar{BootstrapGoalsListItem}.
 
 
 
+@; We are missing documentation on the following forms.  Adding skeletons
+@; so that someone who knows about these forms can fill them in:
+@defproc[(exercise) element?]{[FILL ME IN]}
+@defproc[(skit) element?]{[FILL ME IN]}
+
+
 
 
 @section{Caveats}
@@ -383,6 +391,8 @@ At the moment, the conditional tag logic is performed at compile-time rather
 than run-time.  This means that if you compile a @filepath{.scrbl} file with
 @litchar{raco make}, that decision has been committed to the bytecode, so that
 if you re-render the document, @litchar{scribble} does not revisit the choice.
+We have added @filepath{info.rkt} files in the roots of the scribble directories
+so that @litchar{raco make} should avoid compiling these files.
 
 
 Scribble itself uses the term "tag" as a mechanism for cross-referencing and
