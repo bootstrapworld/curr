@@ -28,7 +28,7 @@
 
 @pedagogy{                
 @materials[@item{Student  @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders - in pairs! - with names on covers.}
-           @item{Computer, connected to a projector, with "NinjaCat" preloaded [ NinjaCat.rk from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=gaffe-tinge-swipe-oscar-diver" "WeScheme")]}
+           @item{Computer, connected to a projector, with "NinjaCat" preloaded [ NinjaCat.rk from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=iK7rkNlvcS" "WeScheme")]}
            @item{Pens/pencils for the students, fresh whiteboard markers for teachers}
            @item{Cutouts of  @resource-link[#:path "images/ninjacat.png" #:label "NinjaCat"],  @resource-link[#:path "images/dog.png" #:label "Dog"] and the  @resource-link[#:path "images/ruby.png" #:label "Ruby"]}
            @item{Class posters (List of rules, language table, course calendar) }
