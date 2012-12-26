@@ -1,7 +1,6 @@
 #lang scribble/base
 
 @(require scribble/manual
-          planet/scribble
           (for-label (this-package-in lang)
                      scribble/base))
 
