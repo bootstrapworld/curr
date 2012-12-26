@@ -1,18 +1,18 @@
 #lang scribble/base
 
 @(require scribble/manual
-          (for-label (this-package-in lang)
-                     scribble/base))
+          (for-label "lang.rkt"))
 
 
-@title{A guide to the @racketmodname/this-package[main] Scribble library}
+
+@title{A guide to the @racketmodname[curr/lib/lang] Scribble library}
 
 @author+email["Danny Yoo" "dyoo@hashcollision.org"]
 
 
-@declare-exporting/this-package[lang]
+@declare-exporting["lang.rkt"]
 
-The @racketmodname/this-package[main] library provides preliminary Scribble
+The @racketmodname[curr/lib/lang] library provides preliminary Scribble
 document support for the @link["http://bootstrapworld.org"]{Bootstrap}
 curriculum.  Specifically, it allows documents to include conditional content
 (e.g. generating content for teachers or students), as well as commands to
@@ -79,7 +79,7 @@ will show the content for both instruction and pedagogy.
 
 @section{API}
 
-The @racketmodname/this-package[main] library includes a Scribble-based
+The @racketmodname[curr/lib/lang] library includes a Scribble-based
 language that provides all the bindings of @racketmodname[scribble/base], as
 well as the following forms:
 
