@@ -29,7 +29,7 @@ Let's start with the following document:
 
 @filebox["example.scrbl"]{
 @codeblock|{
-#lang planet dyoo/scribble-bootstrap
+#lang curr/lib
 @title{Example}
 This is a Scribble document that includes conditional output.
 
@@ -94,7 +94,7 @@ declared in a @racket[declare-tags].
 
 For example:
 @codeblock|{
-#lang planet dyoo/scribble-bootstrap
+#lang curr/lib
 
 @declare-tags[instruction pedagogy example]
 
@@ -111,7 +111,7 @@ with a tag.  Its content shows only in a context that includes the given tag.
 
 For example:
 @codeblock|{
-#lang planet dyoo/scribble-bootstrap
+#lang curr/lib
 @declare-tags[student teacher]
 
 @tag[student]{Can be seen by student.}
@@ -172,7 +172,7 @@ element shows placeholder text content when the element is empty.
 
 Example:
 @codeblock|{
-#lang planet dyoo/scribble-bootstrap
+#lang curr/lib
 This is a fill in the blank: @fill-in-the-blank[#:id "name" 
                                                 #:label "What's your name?"]
 }|
@@ -192,7 +192,7 @@ content when the element is empty.
 
 Example:
 @codeblock|{
-#lang planet dyoo/scribble-bootstrap
+#lang curr/lib
 This is a free-response: @free-response[#:id "summary"]
 }|
 }
@@ -224,7 +224,7 @@ initialize the interactions window with the given string.
 
 For example:
 @codeblock|{
-#lang planet dyoo/scribble-bootstrap
+#lang curr/lib
 @embedded-wescheme[#:id "example3"
                    #:interactions-text "(+ 1 2 3)"
                    #:hide-header? #t
@@ -242,7 +242,7 @@ Creates a number of rows with the same content across the body.
 For example, the following generates five rows of name/contract
 @racket[fill-in-the-blank] fields:
 @codeblock|{
-#lang planet dyoo/scribble-bootstrap
+#lang curr/lib
 @row[#:count 5]{@fill-in-the-blank[#:id "name" #:label "name"] 
                 @fill-in-the-blank[#:id "contract" #:label "contract"]} 
 }|
@@ -251,7 +251,7 @@ For example, the following generates five rows of name/contract
 In the context of a @racket[row], the parameter @racket[current-row] can be
 dereferenced to get the current row number.
 @codeblock|{
-#lang planet dyoo/scribble-bootstrap
+#lang curr/lib
 @row[#:count 5]{@(number->string (add1 (current-row)))
                 @fill-in-the-blank[#:id "name" #:label "name"] 
                 @fill-in-the-blank[#:id "contract" #:label "contract"]
@@ -273,7 +273,7 @@ Construct a worksheet.
 
 For example:
 @codeblock|{
-#lang planet dyoo/scribble-bootstrap
+#lang curr/lib
 
 @worksheet{
 This is a worksheet.
@@ -294,7 +294,7 @@ Construct a lesson.
 
 For example:
 @codeblock|{
-#lang planet dyoo/scribble-bootstrap
+#lang curr/lib
 
 @lesson{
 This is a lesson.
@@ -316,7 +316,7 @@ Construct a drill.
 
 For example:
 @codeblock|{
-#lang planet dyoo/scribble-bootstrap
+#lang curr/lib
 
 @drill{
 This is a drill.
@@ -339,7 +339,7 @@ An @racket[itemlist] that collects a point-itemized list of material items.
 For example:
 
 @codeblock|{
-#lang planet dyoo/scribble-bootstrap
+#lang curr/lib
 
 @materials[@item{Rock}
            @item{Paper}
@@ -361,7 +361,7 @@ An @racket[itemlist] that collects a point-itemized list of goal items.
 For example:
 
 @codeblock|{
-#lang planet dyoo/scribble-bootstrap
+#lang curr/lib
 
 @goals[@item{Eat}
        @item{Sleep}
