@@ -58,6 +58,15 @@
          unit-separator
          unit-descr
 
+         ;; new format stuff
+         newlesson
+         pacing
+         points
+         point
+         exercises
+         student
+         teacher
+         
          ;; Itemizations
          materials
          goals
@@ -132,6 +141,7 @@
 (define-runtime-path bootstrap.css "bootstrap.css")
 (define-runtime-path bootstrap-pdf.tex "bootstrap-pdf.tex")
 (define-runtime-path worksheet-lesson-root (build-path 'up "lessons"))
+(define-runtime-path textbook.css "textbook.css")
 
 ;;;;;;;;;;;;;;;; Defining Styles ;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -140,8 +150,25 @@
 (define (bootstrap-sectioning-style name)
   (make-style name (list (make-css-addition bootstrap.css)
                          (make-tex-addition bootstrap-pdf.tex)
+                         (make-css-addition textbook.css)
                          ;; Use <div/> rather than <p/>
                          (make-alt-tag "div")
+                         )))
+
+(define (bootstrap-div-style name)
+  (make-style name (list (make-css-addition bootstrap.css)
+                         (make-tex-addition bootstrap-pdf.tex)
+                         (make-css-addition textbook.css)
+                         ;; Use <div/> rather than <p/>
+                         (make-alt-tag "div")
+                         )))
+ 
+(define (bootstrap-span-style name)
+  (make-style name (list (make-css-addition bootstrap.css)
+                         (make-tex-addition bootstrap-pdf.tex)
+                         (make-css-addition textbook.css)
+                         ;; Use <span/> rather than <p/>
+                         (make-alt-tag "span")
                          )))
 
 ;; bootstrap-style : string -> style
@@ -149,6 +176,7 @@
 (define (bootstrap-style name)
   (make-style name (list (make-css-addition bootstrap.css)
                          (make-tex-addition bootstrap-pdf.tex)
+                         (make-css-addition textbook.css)
                          )))
 
 (define bs-header-style (bootstrap-style "BootstrapHeader"))
@@ -157,6 +185,12 @@
 (define bs-lesson-name-style (bootstrap-style "BSLessonName"))
 (define bs-lesson-duration-style (bootstrap-style "BSLessonDuration"))
 (define bs-video-style (bootstrap-style "BootstrapVideo"))
+
+;; new lesson styles
+(define bs-time-style (bootstrap-span-style "time"))
+(define bs-callout-style (bootstrap-div-style "callout"))
+(define bs-student-style (bootstrap-div-style "student"))
+(define bs-teacher-style (bootstrap-div-style "teacher"))
 
 ;; make-bs-latex-style : string -> style
 ;; defines a style that will only be used in latex
@@ -375,6 +409,107 @@
         (nested #:style (bootstrap-sectioning-style "BootstrapLesson")
                 body)))))))
 
+
+;;;;;;;;;;;;; NEW LESSON FORMAT ;;;;;;;;;;;;;;;;;;
+
+(define (student . content)
+  (para #:style bs-student-style content))
+
+(define (teacher . content)
+  (para #:style bs-teacher-style content))
+
+(define (pacing #:type (type #f) .  contents) 
+  (let ([span-name (case type
+                     [("remediation") "red"]
+                     [("misconception") "yellow"]
+                     [("challenge") "green"]
+                     ;; KF: else needs to generate warning and give default
+                     [else #f])])
+    (compound-paragraph (bootstrap-span-style span-name)
+                        (list (compound-paragraph bs-callout-style contents)))))
+
+(define (points . contents)
+  (apply itemlist/splicing contents #:style "lesson"))
+
+(define point item)
+
+;(define (point . items)
+;  (item items))
+
+(define (exercises . content)
+  (lesson-section "Exercises" content))
+
+;; This still needs:
+; - management spans 
+
+
+(define (newlesson #:title (title #f)
+                   #:duration (duration #f)
+                   #:overview (overview #f)
+                   #:learning-objectives (learning-objectives #f)
+                   #:product-outcomes (product-outcomes #f)
+                   #:standards (standards #f)
+                   #:materials (materials #f)
+                   #:preparation (preparation #f)
+                   #:video (video #f)
+                   . body)
+
+  (define the-lesson-name 
+    (or (current-lesson-name) 
+        (symbol->string (gensym (string->symbol (or title 'lesson))))))
+
+  (define video-elem (cond [(and video (list? video))
+                            (map (lambda (v) (elem #:style bs-video-style v)) video)]
+                           [video (elem #:style bs-video-style video)]
+                           [else (elem)]))
+  (traverse-block
+   (lambda (get set!)
+     (define anchor (lesson-name->anchor-name the-lesson-name))
+     (set! 'bootstrap-lessons (cons (lesson-struct title
+                                                   duration
+                                                   anchor)
+                                    (get 'bootstrap-lessons '())))     
+     (nested-flow 
+      (bootstrap-div-style "content")
+      (decode-flow
+       (list
+        (compound-paragraph 
+         (bootstrap-sectioning-style "overview")
+         (decode-flow (list
+                       (para (list (elem (bold "Overview: "))
+                                   (elem overview)))
+                       (lesson-section "Learning Objectives" learning-objectives)
+                       (lesson-section "Product Outcomes" product-outcomes)
+                       (lesson-section "Standards" standards)
+                       (lesson-section "Materials" materials)
+                       (lesson-section "Preparation" preparation))))
+        (compound-paragraph 
+         (bootstrap-div-style "segment")
+         (decode-flow
+          (list
+           (elem #:style (style #f (list (url-anchor anchor))))
+           (cond [(and title duration)
+                  (para #:style bs-lesson-title-style
+                        (list (elem #:style bs-lesson-name-style title) 
+                              video-elem
+                              (elem #:style bs-time-style (format "(Time ~a)" duration))))]
+                 [title 
+                  (para #:style bs-lesson-title-style
+                        (list (elem #:style bs-lesson-name-style title)
+                              video-elem))]
+                 [duration 
+                  (para #:style bs-lesson-title-style
+                        (list (elem #:style bs-lesson-name-style (format "Lesson "))
+                              video-elem
+                              (elem #:style bs-time-style (format "(Time ~a)" duration))))])
+           body)))))))))
+
+(define (lesson-section title contents)
+  (when contents
+    (list (elem (bold title))
+          (nested contents))))
+
+;;;;;;;;;;;;;;;; END NEW LESSON FORMAT ;;;;;;;;;;;;;;;;;;;;;;;;
 
 (define (unit-separator unit-number)
   (elem #:style "BSUnitSeparationPage" (format "Lesson ~a" unit-number)))
