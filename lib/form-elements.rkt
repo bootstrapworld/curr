@@ -59,7 +59,7 @@
          unit-descr
 
          ;; new format stuff
-         newlesson
+         lesson/studteach
          pacing
          points
          point
@@ -419,40 +419,28 @@
   (para #:style bs-teacher-style content))
 
 (define (pacing #:type (type #f) .  contents) 
-  (let ([span-name (case type
-                     [("remediation") "red"]
-                     [("misconception") "yellow"]
-                     [("challenge") "green"]
-                     ;; KF: else needs to generate warning and give default
-                     [else #f])])
-    (compound-paragraph (bootstrap-span-style span-name)
-                        (list (compound-paragraph bs-callout-style contents)))))
+  (compound-paragraph (bootstrap-span-style type)
+                      (list (compound-paragraph bs-callout-style contents))))
 
 (define (points . contents)
   (apply itemlist/splicing contents #:style "lesson"))
 
 (define point item)
 
-;(define (point . items)
-;  (item items))
-
 (define (exercises . content)
   (lesson-section "Exercises" content))
 
-;; This still needs:
-; - management spans 
-
-
-(define (newlesson #:title (title #f)
-                   #:duration (duration #f)
-                   #:overview (overview #f)
-                   #:learning-objectives (learning-objectives #f)
-                   #:product-outcomes (product-outcomes #f)
-                   #:standards (standards #f)
-                   #:materials (materials #f)
-                   #:preparation (preparation #f)
-                   #:video (video #f)
-                   . body)
+(define (lesson/studteach
+         #:title (title #f)
+         #:duration (duration #f)
+         #:overview (overview #f)
+         #:learning-objectives (learning-objectives #f)
+         #:product-outcomes (product-outcomes #f)
+         #:standards (standards #f)
+         #:materials (materials #f)
+         #:preparation (preparation #f)
+         #:video (video #f)
+         . body)
 
   (define the-lesson-name 
     (or (current-lesson-name) 

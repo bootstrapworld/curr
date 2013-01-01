@@ -12,6 +12,8 @@ scribble-common.js
 wescheme-embedded.js
 racket.css
 bootstrap.css
+textbook.css
 !lib/bootstrap.css
-courses\*\units\*\box.gif
+!lib/textbook.css
+courses/*/units/*/box.gif
 

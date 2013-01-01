@@ -1,2 +1,2 @@
 #!/bin/sh
-racket -l errortrace -t build.rkt -- --pdf --worksheet-links-to-pdf distribution pedagogy group
+racket -l errortrace -t build.rkt -- --pdf --worksheet-links-to-pdf distribution pedagogy group management
