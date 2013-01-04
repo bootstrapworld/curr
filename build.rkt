@@ -258,8 +258,8 @@
   (parameterize ([current-course course])
     (build-course-units)
     (build-resources)))
-(build-lessons)
-(build-worksheets)
-(build-drills)
+;(build-lessons)
+;(build-worksheets)
+;(build-drills)
 
-(archive-as-zip)
+;(archive-as-zip)

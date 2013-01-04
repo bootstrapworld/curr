@@ -1,19 +1,19 @@
 #lang scribble/base
 
 @(require scribble/manual
-          planet/scribble
-          (for-label (this-package-in lang)
-                     scribble/base))
+          (for-label (except-in curr/lib title item itemlist)
+                     (only-in scribble/base title item itemlist)))
 
 
-@title{A guide to the @racketmodname/this-package[main] Scribble library}
+
+
+@title{A guide to the @racketmodname[curr/lib] Scribble library}
 
 @author+email["Danny Yoo" "dyoo@hashcollision.org"]
 
+@defmodule[curr/lib]
 
-@declare-exporting/this-package[lang]
-
-The @racketmodname/this-package[main] library provides preliminary Scribble
+The @racketmodname[curr/lib] library provides preliminary Scribble
 document support for the @link["http://bootstrapworld.org"]{Bootstrap}
 curriculum.  Specifically, it allows documents to include conditional content
 (e.g. generating content for teachers or students), as well as commands to
@@ -25,11 +25,12 @@ as well as saving the contents of the form to server-side storage.
 
 
 @section{Getting started}
+@declare-exporting[curr/lib]
 Let's start with the following document:
 
 @filebox["example.scrbl"]{
 @codeblock|{
-#lang planet dyoo/scribble-bootstrap
+#lang curr/lib
 @title{Example}
 This is a Scribble document that includes conditional output.
 
@@ -79,8 +80,8 @@ will show the content for both instruction and pedagogy.
 
 
 @section{API}
-
-The @racketmodname/this-package[main] library includes a Scribble-based
+@declare-exporting[curr/lib]
+The @racketmodname[curr/lib] library includes a Scribble-based
 language that provides all the bindings of @racketmodname[scribble/base], as
 well as the following forms:
 
@@ -94,7 +95,7 @@ declared in a @racket[declare-tags].
 
 For example:
 @codeblock|{
-#lang planet dyoo/scribble-bootstrap
+#lang curr/lib
 
 @declare-tags[instruction pedagogy example]
 
@@ -111,7 +112,7 @@ with a tag.  Its content shows only in a context that includes the given tag.
 
 For example:
 @codeblock|{
-#lang planet dyoo/scribble-bootstrap
+#lang curr/lib
 @declare-tags[student teacher]
 
 @tag[student]{Can be seen by student.}
@@ -172,7 +173,7 @@ element shows placeholder text content when the element is empty.
 
 Example:
 @codeblock|{
-#lang planet dyoo/scribble-bootstrap
+#lang curr/lib
 This is a fill in the blank: @fill-in-the-blank[#:id "name" 
                                                 #:label "What's your name?"]
 }|
@@ -192,7 +193,7 @@ content when the element is empty.
 
 Example:
 @codeblock|{
-#lang planet dyoo/scribble-bootstrap
+#lang curr/lib
 This is a free-response: @free-response[#:id "summary"]
 }|
 }
@@ -224,7 +225,7 @@ initialize the interactions window with the given string.
 
 For example:
 @codeblock|{
-#lang planet dyoo/scribble-bootstrap
+#lang curr/lib
 @embedded-wescheme[#:id "example3"
                    #:interactions-text "(+ 1 2 3)"
                    #:hide-header? #t
@@ -242,7 +243,7 @@ Creates a number of rows with the same content across the body.
 For example, the following generates five rows of name/contract
 @racket[fill-in-the-blank] fields:
 @codeblock|{
-#lang planet dyoo/scribble-bootstrap
+#lang curr/lib
 @row[#:count 5]{@fill-in-the-blank[#:id "name" #:label "name"] 
                 @fill-in-the-blank[#:id "contract" #:label "contract"]} 
 }|
@@ -251,7 +252,7 @@ For example, the following generates five rows of name/contract
 In the context of a @racket[row], the parameter @racket[current-row] can be
 dereferenced to get the current row number.
 @codeblock|{
-#lang planet dyoo/scribble-bootstrap
+#lang curr/lib
 @row[#:count 5]{@(number->string (add1 (current-row)))
                 @fill-in-the-blank[#:id "name" #:label "name"] 
                 @fill-in-the-blank[#:id "contract" #:label "contract"]
@@ -273,7 +274,7 @@ Construct a worksheet.
 
 For example:
 @codeblock|{
-#lang planet dyoo/scribble-bootstrap
+#lang curr/lib
 
 @worksheet{
 This is a worksheet.
@@ -294,7 +295,7 @@ Construct a lesson.
 
 For example:
 @codeblock|{
-#lang planet dyoo/scribble-bootstrap
+#lang curr/lib
 
 @lesson{
 This is a lesson.
@@ -316,7 +317,7 @@ Construct a drill.
 
 For example:
 @codeblock|{
-#lang planet dyoo/scribble-bootstrap
+#lang curr/lib
 
 @drill{
 This is a drill.
@@ -339,7 +340,7 @@ An @racket[itemlist] that collects a point-itemized list of material items.
 For example:
 
 @codeblock|{
-#lang planet dyoo/scribble-bootstrap
+#lang curr/lib
 
 @materials[@item{Rock}
            @item{Paper}
@@ -361,7 +362,7 @@ An @racket[itemlist] that collects a point-itemized list of goal items.
 For example:
 
 @codeblock|{
-#lang planet dyoo/scribble-bootstrap
+#lang curr/lib
 
 @goals[@item{Eat}
        @item{Sleep}
@@ -376,6 +377,12 @@ have the CSS style @litchar{BootstrapGoalsListItem}.
 
 
 
+@; We are missing documentation on the following forms.  Adding skeletons
+@; so that someone who knows about these forms can fill them in:
+@defproc[(exercise) element?]{[FILL ME IN]}
+@defproc[(skit) element?]{[FILL ME IN]}
+
+
 
 
 @section{Caveats}
@@ -384,6 +391,8 @@ At the moment, the conditional tag logic is performed at compile-time rather
 than run-time.  This means that if you compile a @filepath{.scrbl} file with
 @litchar{raco make}, that decision has been committed to the bytecode, so that
 if you re-render the document, @litchar{scribble} does not revisit the choice.
+We have added @filepath{info.rkt} files in the roots of the scribble directories
+so that @litchar{raco make} should avoid compiling these files.
 
 
 Scribble itself uses the term "tag" as a mechanism for cross-referencing and

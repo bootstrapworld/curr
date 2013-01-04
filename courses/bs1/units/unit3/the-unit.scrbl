@@ -11,15 +11,15 @@
        @item{Practice Racket syntax and the Circle of Evaluation}]
 
 
-@product-outcomes[@item{Students@tag[group]{, in pairs,} will write functions to solve simple problems}
-       @item{Students@tag[group]{, in pairs,} will write examples (unit tests) to check those functions}]
+@product-outcomes[@item{Students will write functions to solve simple problems in which a number is used to create an image, when given a word problem and a worked example.}
+       @item{Students will write examples (unit tests) to check those functions}]
 
 @state-standards
 
 @length-of-lesson[90]
 
 @pedagogy{
-@materials[@item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders @tag[group]{-in pairs!-} with names on covers.}
+@materials[@item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders with names on covers.}
            @item{Pens/pencils for the students, fresh whiteboard markers for teachers}
            @item{Class poster (List of rules, language table, course calendar)}
            @item{Language Table (see below)}]

@@ -121,6 +121,15 @@ blockquote.pedagogy {
 }
 blockquote.pedagogy p{ display: inline;}
 
+
+/* Main page */
+.BSCourseName {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+
 /******************************************************************************
   Bootstrap Units have titles, overviews, agendas and to-do items, and 
   are made up of Lesson slices

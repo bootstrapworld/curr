@@ -1,6 +1,4 @@
-(module
-    bootstrap-common
-  scheme
+(module bootstrap-common scheme
   (require 2htdp/image
            2htdp/universe
            "bootstrap-testing.rkt"
@@ -9,10 +7,9 @@
            "save-source.rkt"
            lang/posn
            scheme/base
-           racket/draw
-           )
-  (provide 
-           (all-from-out lang/posn)
+           (prefix-in draw: racket/draw))
+
+  (provide (all-from-out lang/posn)
            (all-from-out 2htdp/image)
            (all-from-out 2htdp/universe)
            (all-from-out "bootstrap-testing.rkt")
@@ -52,7 +49,7 @@
 
   ;; color-object->color-struct Color% -> Color
   (define (color-object->color-struct c)
-    (if ((is-a?/c color%) c)
+    (if ((is-a?/c draw:color%) c)
         (make-color (send c red) (send c green) (send c blue) 255)
         c))
   
@@ -78,7 +75,7 @@
   (define (find-color color-name)
     (color-object->color-struct
      (if (string? color-name)
-         (send the-color-database find-color color-name)
+         (send draw:the-color-database find-color color-name)
          color-name)))
   
   (define (imgvec-location x y w h)

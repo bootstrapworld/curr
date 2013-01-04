@@ -1,5 +1,5 @@
 #lang setup/infotab
-(define name "scribble-bootstrap")
+(define name "scribble-bootstrap curriculum")
 (define categories '(misc))
 (define can-be-loaded-with 'all)
 (define required-core-version "5.1.1")

@@ -2,12 +2,13 @@
 @declare-tags[pedagogy selftaught group]
 
 @lesson[#:title "Pizza Toppings" 
-        #:duration "30 min"
+        #:duration "20 min"
         #:prerequisites "Intro-to-Booleans"
         ]{
         @item{@(video-link (hyperlink "http://www.youtube.com/watch?v=2ckWSjWum-8" "Intro to Cond Part 1"))}
         @item{@(video-link (hyperlink "http://www.youtube.com/watch?v=iTrY-N3MLRY" "Intro to Cond Part 2"))}
         @itemlist/splicing[
+                 @item{Let's take a look at how you might use the Design Recipe to define a piecewise function using Conditionals. Once you know how to use it, you'll be able to write other piecewise functions in your game.}
                  @item{Turn to the Design Recipe on @worksheet-link[#:page 23 #:name "Design-Recipe-Cost"] and grab a Design Recipe Worksheet.}
                  @item{Suppose we've been hired by Luigi's Pizza to write a function that tells us the cost of different pizza pies. Let's use the design recipe to write this function.}
                  @pedagogy{@item{Have a student read the problem statement.}}
