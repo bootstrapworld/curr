@@ -1,2 +1,2 @@
 #!/bin/sh
-./build.rkt --worksheet-links-to-pdf --course textbook selftaught
+./build.rkt --worksheet-links-to-pdf --course textbook selftaught  
