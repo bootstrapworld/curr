@@ -413,10 +413,10 @@
 ;;;;;;;;;;;;; NEW LESSON FORMAT ;;;;;;;;;;;;;;;;;;
 
 (define (student . content)
-  (para #:style bs-student-style content))
+  (nested #:style bs-student-style content))
 
 (define (teacher . content)
-  (para #:style bs-teacher-style content))
+  (nested #:style bs-teacher-style content))
 
 (define (pacing #:type (type #f) .  contents) 
   (compound-paragraph (bootstrap-span-style type)
