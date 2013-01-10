@@ -419,8 +419,10 @@
   (nested #:style bs-teacher-style content))
 
 (define (pacing #:type (type #f) .  contents) 
-  (compound-paragraph (bootstrap-span-style type)
-                      (list (compound-paragraph bs-callout-style contents))))
+  (nested #:style (bootstrap-span-style type)
+          (list (nested #:style bs-callout-style contents))))
+;  (compound-paragraph (bootstrap-span-style type)
+;                      (list (compound-paragraph bs-callout-style contents))))
 
 (define (points . contents)
   (apply itemlist/splicing contents #:style "lesson"))
@@ -429,6 +431,7 @@
 
 (define (exercises . content)
   (lesson-section "Exercises" content))
+
 
 (define (lesson/studteach
          #:title (title #f)
@@ -461,40 +464,100 @@
       (bootstrap-div-style "content")
       (decode-flow
        (list
-        (compound-paragraph 
-         (bootstrap-sectioning-style "overview")
-         (decode-flow (list
-                       (para (list (elem (bold "Overview: "))
-                                   (elem overview)))
-                       (lesson-section "Learning Objectives" learning-objectives)
-                       (lesson-section "Product Outcomes" product-outcomes)
-                       (lesson-section "Standards" standards)
-                       (lesson-section "Materials" materials)
-                       (lesson-section "Preparation" preparation))))
-        (compound-paragraph 
-         (bootstrap-div-style "segment")
-         (decode-flow
-          (list
-           (elem #:style (style #f (list (url-anchor anchor))))
-           (cond [(and title duration)
-                  (para #:style bs-lesson-title-style
-                        (list (elem #:style bs-lesson-name-style title) 
-                              video-elem
-                              (elem #:style bs-time-style (format "(Time ~a)" duration))))]
-                 [title 
-                  (para #:style bs-lesson-title-style
-                        (list (elem #:style bs-lesson-name-style title)
-                              video-elem))]
-                 [duration 
-                  (para #:style bs-lesson-title-style
-                        (list (elem #:style bs-lesson-name-style (format "Lesson "))
-                              video-elem
-                              (elem #:style bs-time-style (format "(Time ~a)" duration))))])
-           body)))))))))
+        (nested #:style (bootstrap-sectioning-style "overview")
+         (list
+          (para (list (elem (bold "Overview: "))
+                      (elem overview)))
+          (lesson-section "Learning Objectives" learning-objectives)
+          (lesson-section "Product Outcomes" product-outcomes)
+          (lesson-section "Standards" standards)
+          (lesson-section "Materials" materials)
+          (lesson-section "Preparation" preparation)
+          ))
+        (nested #:style (bootstrap-div-style "segment")
+         (list
+          (elem #:style (style #f (list (url-anchor anchor))))
+          (cond [(and title duration)
+                 (para #:style bs-lesson-title-style
+                       (list (elem #:style bs-lesson-name-style title) 
+                             video-elem
+                             (elem #:style bs-time-style (format "(Time ~a)" duration))))]
+                [title 
+                 (para #:style bs-lesson-title-style
+                       (list (elem #:style bs-lesson-name-style title)
+                             video-elem))]
+                [duration 
+                 (para #:style bs-lesson-title-style
+                       (list (elem #:style bs-lesson-name-style (format "Lesson "))
+                             video-elem
+                             (elem #:style bs-time-style (format "(Time ~a)" duration))))])
+          body))))))))
+
+;(define (lesson/studteach2
+;         #:title (title #f)
+;         #:duration (duration #f)
+;         #:overview (overview #f)
+;         #:learning-objectives (learning-objectives #f)
+;         #:product-outcomes (product-outcomes #f)
+;         #:standards (standards #f)
+;         #:materials (materials #f)
+;         #:preparation (preparation #f)
+;         #:video (video #f)
+;         . body)
+;
+;  (define the-lesson-name 
+;    (or (current-lesson-name) 
+;        (symbol->string (gensym (string->symbol (or title 'lesson))))))
+;
+;  (define video-elem (cond [(and video (list? video))
+;                            (map (lambda (v) (elem #:style bs-video-style v)) video)]
+;                           [video (elem #:style bs-video-style video)]
+;                           [else (elem)]))
+;  (traverse-block
+;   (lambda (get set!)
+;     (define anchor (lesson-name->anchor-name the-lesson-name))
+;     (set! 'bootstrap-lessons (cons (lesson-struct title
+;                                                   duration
+;                                                   anchor)
+;                                    (get 'bootstrap-lessons '())))     
+;     (nested-flow 
+;      (bootstrap-div-style "content")
+;      (decode-flow
+;       (list
+;        (compound-paragraph 
+;         (bootstrap-sectioning-style "overview")
+;         (decode-flow (list
+;                       (para (list (elem (bold "Overview: "))
+;                                   (elem overview)))
+;                       (lesson-section "Learning Objectives" learning-objectives)
+;                       (lesson-section "Product Outcomes" product-outcomes)
+;                       (lesson-section "Standards" standards)
+;                       (lesson-section "Materials" materials)
+;                       (lesson-section "Preparation" preparation))))
+;        (compound-paragraph 
+;         (bootstrap-div-style "segment")
+;         (decode-flow
+;          (list
+;           (elem #:style (style #f (list (url-anchor anchor))))
+;           (cond [(and title duration)
+;                  (para #:style bs-lesson-title-style
+;                        (list (elem #:style bs-lesson-name-style title) 
+;                              video-elem
+;                              (elem #:style bs-time-style (format "(Time ~a)" duration))))]
+;                 [title 
+;                  (para #:style bs-lesson-title-style
+;                        (list (elem #:style bs-lesson-name-style title)
+;                              video-elem))]
+;                 [duration 
+;                  (para #:style bs-lesson-title-style
+;                        (list (elem #:style bs-lesson-name-style (format "Lesson "))
+;                              video-elem
+;                              (elem #:style bs-time-style (format "(Time ~a)" duration))))])
+;           body)))))))))
 
 (define (lesson-section title contents)
   (when contents
-    (list (elem (bold title))
+    (list (bold title)
           (nested contents))))
 
 ;;;;;;;;;;;;;;;; END NEW LESSON FORMAT ;;;;;;;;;;;;;;;;;;;;;;;;
