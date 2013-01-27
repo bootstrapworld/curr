@@ -177,6 +177,8 @@
   (make-style name (list (make-css-addition bootstrap.css)
                          (make-tex-addition bootstrap-pdf.tex)
                          (make-css-addition textbook.css)
+                         ;; Use <span/> rather than <p/>
+                         (make-alt-tag "span")                         
                          )))
 
 (define bs-header-style (bootstrap-style "BootstrapHeader"))
@@ -410,28 +412,63 @@
                 body)))))))
 
 
+;;;;;;;;;;;;; SSI COMMANDS ;;;;;;;;;;;;;;;;;;;;;;;
+
+
+;<!-- #include virtual="../menubar.ssi" -->
+
+(define (include-ssi)
+  (cond-element 
+   [html (elem "<!-- #include virtual=\"../menubar.ssi\" -->")]
+   [(or latex pdf) (elem "")]))
+
+;; this just here as a sample while I get includes and injections working
+#;(define (check constraint #:id (id (gensym 'check)))
+  (elem (sxml->element
+         `(input
+           (@ (id ,(format "~a" id))
+              (type "button")
+              (value "Check answer")
+              (class "BootstrapCheckbox"))
+           ""))
+        (inject-javascript
+         (format "jQuery(document.getElementById(~s)).click(function() {
+                       if (~a) {
+                            alert('Congrats! You got it right');
+                       } else {
+                            alert('Sorry! Try again.');
+                       }
+                   });"
+                 (format "~a" id)
+                 (constraint->js constraint)))))
+
+
+
 ;;;;;;;;;;;;; NEW LESSON FORMAT ;;;;;;;;;;;;;;;;;;
 
 (define (student . content)
-  (nested #:style bs-student-style content))
+  (nested #:style bs-student-style (interleave-parbreaks content)))
 
 (define (teacher . content)
-  (nested #:style bs-teacher-style content))
+  (nested #:style bs-teacher-style (interleave-parbreaks content)))
 
-(define (pacing #:type (type #f) .  contents) 
+(define (pacing #:type (type #f) . contents) 
   (nested #:style (bootstrap-span-style type)
-          (list (nested #:style bs-callout-style contents))))
-;  (compound-paragraph (bootstrap-span-style type)
-;                      (list (compound-paragraph bs-callout-style contents))))
+          (nested #:style bs-callout-style (interleave-parbreaks contents))))
 
 (define (points . contents)
-  (apply itemlist/splicing contents #:style "lesson"))
+  (apply itemlist/splicing contents #:style (make-style "lesson" '(compact))))
 
 (define point item)
 
 (define (exercises . content)
   (lesson-section "Exercises" content))
 
+;; Needed to avoid Sintraparas from being introduced between items in a list of content
+(define (interleave-parbreaks contentlist)
+  (cond [(empty? contentlist) (list "\n" "\n")]
+        [(cons? contentlist) 
+         (cons "\n" (cons "\n" (cons (first contentlist) (interleave-parbreaks (rest contentlist)))))]))
 
 (define (lesson/studteach
          #:title (title #f)
@@ -443,6 +480,7 @@
          #:materials (materials #f)
          #:preparation (preparation #f)
          #:video (video #f)
+         #:pacings (pacings #f)
          . body)
 
   (define the-lesson-name 
@@ -462,110 +500,46 @@
                                     (get 'bootstrap-lessons '())))     
      (nested-flow 
       (bootstrap-div-style "content")
-      (decode-flow
        (list
+        ;(include-ssi)
         (nested #:style (bootstrap-sectioning-style "overview")
-         (list
-          (para (list (elem (bold "Overview: "))
-                      (elem overview)))
-          (lesson-section "Learning Objectives" learning-objectives)
-          (lesson-section "Product Outcomes" product-outcomes)
-          (lesson-section "Standards" standards)
-          (lesson-section "Materials" materials)
-          (lesson-section "Preparation" preparation)
-          ))
+         (interleave-parbreaks
+          (list
+           (para (list (elem (bold "Overview: "))
+                       (elem overview)))
+           (lesson-section "Learning Objectives" learning-objectives)
+           (lesson-section "Product Outcomes" product-outcomes)
+           (lesson-section "Standards" standards)
+           (lesson-section "Materials" materials)
+           (lesson-section "Preparation" preparation)
+           )))
         (nested #:style (bootstrap-div-style "segment")
-         (list
-          (elem #:style (style #f (list (url-anchor anchor))))
-          (cond [(and title duration)
-                 (para #:style bs-lesson-title-style
-                       (list (elem #:style bs-lesson-name-style title) 
-                             video-elem
-                             (elem #:style bs-time-style (format "(Time ~a)" duration))))]
-                [title 
-                 (para #:style bs-lesson-title-style
-                       (list (elem #:style bs-lesson-name-style title)
-                             video-elem))]
-                [duration 
-                 (para #:style bs-lesson-title-style
-                       (list (elem #:style bs-lesson-name-style (format "Lesson "))
-                             video-elem
-                             (elem #:style bs-time-style (format "(Time ~a)" duration))))])
-          body))))))))
-
-;(define (lesson/studteach2
-;         #:title (title #f)
-;         #:duration (duration #f)
-;         #:overview (overview #f)
-;         #:learning-objectives (learning-objectives #f)
-;         #:product-outcomes (product-outcomes #f)
-;         #:standards (standards #f)
-;         #:materials (materials #f)
-;         #:preparation (preparation #f)
-;         #:video (video #f)
-;         . body)
-;
-;  (define the-lesson-name 
-;    (or (current-lesson-name) 
-;        (symbol->string (gensym (string->symbol (or title 'lesson))))))
-;
-;  (define video-elem (cond [(and video (list? video))
-;                            (map (lambda (v) (elem #:style bs-video-style v)) video)]
-;                           [video (elem #:style bs-video-style video)]
-;                           [else (elem)]))
-;  (traverse-block
-;   (lambda (get set!)
-;     (define anchor (lesson-name->anchor-name the-lesson-name))
-;     (set! 'bootstrap-lessons (cons (lesson-struct title
-;                                                   duration
-;                                                   anchor)
-;                                    (get 'bootstrap-lessons '())))     
-;     (nested-flow 
-;      (bootstrap-div-style "content")
-;      (decode-flow
-;       (list
-;        (compound-paragraph 
-;         (bootstrap-sectioning-style "overview")
-;         (decode-flow (list
-;                       (para (list (elem (bold "Overview: "))
-;                                   (elem overview)))
-;                       (lesson-section "Learning Objectives" learning-objectives)
-;                       (lesson-section "Product Outcomes" product-outcomes)
-;                       (lesson-section "Standards" standards)
-;                       (lesson-section "Materials" materials)
-;                       (lesson-section "Preparation" preparation))))
-;        (compound-paragraph 
-;         (bootstrap-div-style "segment")
-;         (decode-flow
-;          (list
-;           (elem #:style (style #f (list (url-anchor anchor))))
-;           (cond [(and title duration)
-;                  (para #:style bs-lesson-title-style
-;                        (list (elem #:style bs-lesson-name-style title) 
-;                              video-elem
-;                              (elem #:style bs-time-style (format "(Time ~a)" duration))))]
-;                 [title 
-;                  (para #:style bs-lesson-title-style
-;                        (list (elem #:style bs-lesson-name-style title)
-;                              video-elem))]
-;                 [duration 
-;                  (para #:style bs-lesson-title-style
-;                        (list (elem #:style bs-lesson-name-style (format "Lesson "))
-;                              video-elem
-;                              (elem #:style bs-time-style (format "(Time ~a)" duration))))])
-;           body)))))))))
+                (interleave-parbreaks
+                 (list
+                  (elem #:style (style #f (list (url-anchor anchor) (make-alt-tag "span"))))
+                  (nested #:style bs-lesson-title-style
+                          (interleave-parbreaks
+                           (list
+                            (elem #:style bs-lesson-name-style title) 
+                            video-elem
+                            (cond [duration
+                                   (elem #:style bs-time-style (format "(Time ~a)" duration))]
+                                  [else (elem)])                     
+                            (interleave-parbreaks pacings)
+                            )))
+                  (interleave-parbreaks body))))
+        )))))
 
 (define (lesson-section title contents)
   (when contents
-    (list (bold title)
-          (nested contents))))
+    (interleave-parbreaks
+     (list (bold title)
+           (nested (interleave-parbreaks contents))))))
 
 ;;;;;;;;;;;;;;;; END NEW LESSON FORMAT ;;;;;;;;;;;;;;;;;;;;;;;;
 
 (define (unit-separator unit-number)
   (elem #:style "BSUnitSeparationPage" (format "Lesson ~a" unit-number)))
-
-
 
 ;; unit-descr : list[element] -> block
 ;; stores the unit description to use in building the summary, then generates the text
