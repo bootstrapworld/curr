@@ -447,7 +447,7 @@
 ;;;;;;;;;;;;; NEW LESSON FORMAT ;;;;;;;;;;;;;;;;;;
 
 (define (student . content)
-  (nested #:style bs-student-style (interleave-parbreaks content)))
+  (nested #:style bs-student-style content))
 
 (define (teacher . content)
   (nested #:style bs-teacher-style (interleave-parbreaks content)))
@@ -459,7 +459,8 @@
 (define (points . contents)
   (apply itemlist/splicing contents #:style (make-style "lesson" '(compact))))
 
-(define point item)
+(define (point . contents)
+  (item (nested (interleave-parbreaks contents))))
 
 (define (exercises . content)
   (lesson-section "Exercises" content))
@@ -532,9 +533,7 @@
 
 (define (lesson-section title contents)
   (when contents
-    (interleave-parbreaks
-     (list (bold title)
-           (nested (interleave-parbreaks contents))))))
+    (nested (interleave-parbreaks (list (bold title) contents)))))
 
 ;;;;;;;;;;;;;;;; END NEW LESSON FORMAT ;;;;;;;;;;;;;;;;;;;;;;;;
 
