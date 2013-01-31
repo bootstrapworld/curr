@@ -1,15 +1,16 @@
 #lang curr/lib
 @declare-tags[pedagogy selftaught group]
 
-@lesson[#:title "Using the Design Recipe with Cond" 
-        #:duration "10 min"
+@lesson[#:title "Pizza Toppings" 
+        #:duration "20 min"
         #:prerequisites "Intro-to-Booleans"
         ]{
         @item{@(video-link (hyperlink "http://www.youtube.com/watch?v=2ckWSjWum-8" "Intro to Cond Part 1"))}
         @item{@(video-link (hyperlink "http://www.youtube.com/watch?v=iTrY-N3MLRY" "Intro to Cond Part 2"))}
         @itemlist/splicing[
-                 @item{Let's take a look at how you might use the Design Recipe to define this cost function. You've already gotten pretty good at using the Recipe to solve problems, so this will be an extra trick you can use to tackle harder ones. Once you know how to use it, you'll be able to write other piecewise functions in your game.}
-                 @item{Turn to the Design Recipe on @worksheet-link[#:page 23 #:name "Design-Recipe-Cost"].}
+                 @item{Let's take a look at how you might use the Design Recipe to define a piecewise function using Conditionals. Once you know how to use it, you'll be able to write other piecewise functions in your game.}
+                 @item{Turn to the Design Recipe on @worksheet-link[#:page 23 #:name "Design-Recipe-Cost"] and grab a Design Recipe Worksheet.}
+                 @item{Suppose we've been hired by Luigi's Pizza to write a function that tells us the cost of different pizza pies. Let's use the design recipe to write this function.}
                  @pedagogy{@item{Have a student read the problem statement.}}
                  @pedagogy{@item{I need a volunteer to be our function. Pick someone, and copy the contract as they answer. What is your name? cost Your Domain? String Your Range? Number. 
                                       
@@ -28,13 +29,14 @@
                                     #:answer @code{(define (cost topping))}]}
                  @item{The Function Body is next. But now we don't know what to write! We know that our examples behave differently from one another -- sometimes we want to return 9.00, other times it's 10.50, etc. So what do we do? Well, we could fill in all off those results. Let's do that...  @pedagogy{Make a large, 2-column table under the Function Header.}
                        
-                       @code[#:multi-line ""]{(define (cost topping)
-                                                ...
-                                                  ...when the topping is "pepperoni"... 10.50
-                                                  ...when the topping is "cheese"...     9.00
-                                                  ...when the topping is "chicken"...   11.25
-                                                  ...when the topping is "broccoli"...  10.25
-                                                  ...or else.... "That's not on the menu!")}}
+                       @tt{(}@code{define (cost topping)}
+                       @build-table/cols['() 
+                                         '(()
+                                           ("10.50" "9.00" "11.25" "10.25"))
+                                         (lambda (r c) (para (fill-in-the-blank #:id (format "~a" r)))) 2 4]
+                       @tt{)}}
+                 @item{@think-about[#:question "But how do we know when we want to produce 9.00? 10.50?"
+                                    #:answer "When the toppings are cheese and pepperoni"]}      
                  @item{What we want is a way to go down each line, checking to see if the topping is the right one. If it is, we go on to finish the line. If not, we go on to the next one.
                        @itemlist/splicing[
                                 @item{@think-about[#:question "What's Domain of our function? (according to the contract)"
@@ -60,14 +62,13 @@
                                                             ("10.50" "9.00" "11.25" "10.25"))
                                                           (lambda (r c) (if (= c 0) (para (fill-in-the-blank #:id "cond")) (para ""))) 2 4]}}
                  @item{Each of these rows is called a condition. A condition has a test and a result. The computer goes down the code, one condition at a time, and will evaluate the first result for which the condition is true.}
-                 @item{Racket has a special function that lets us tell the computer to do this: cond. To use cond, you put square brackets around each of the branches, and write "cond" at the top:
+                 @item{Racket has a special function that lets us tell the computer to do this: cond. To use cond,you put square brackets around each of the branches, and write "cond" at the top:
                        @code[#:multi-line ""]{(define (cost topping)
                                                 (cond
                                                   [(string=? topping "pepperoni") 10.50]
                                                   [(string=? topping "cheese")     9.00]
                                                   [(string=? topping "chicken")   11.25]
-                                                  [(string=? topping "broccoli")  10.25]
-                                                  [else "That's not on the menu!"]))}}
+                                                  [(string=? topping "broccoli")  10.25]))}}
                  @pedagogy{@item{Remind students that computers are very specific and can't make up new answers; we need to tell it what to do in case the user inputs an item that is not in our list. Let's add else. If it's not on the menu, we might still make that pizza for you, but it'll cost you! @code{[else 10000000]}}}
                  @tag[selftaught]{@item{What happens if the topping is not on our list?  Let's add an else statement.  If it's not on our menu, we might still make that pizza for you but it'll cost you!@code{[else 10000000]}}}
                                                                           @;Students must open their files here. 
@@ -76,6 +77,5 @@
                                         @embedded-wescheme[#:id "Strings"
                                                            #:definitions-text "; Try out the pizza example above!"]}}
                  @pedagogy{@item{If you have additional time, and would like to try another Cond challenge, check out the @(lesson-link #:name "Function-Example-Red-Shape" #:label "supplemental activity.")}}      
-                 @tag[selftaught]{@item{If you have additional time, and would like to try another @code{cond} challenge, check out the @(lesson-link #:name "Function-Example-Red-Shape" #:label "supplemental activity.")}}
-                 @item{(Optional) For practice, try the following challenge activity: @italic{Write a function called @code{red-shape}, which takes in the name of a shape and produces an image of that shape, which is solid and red. You can choose how big you'd like the shape to be.} HINT: the code for this will look a lot like the code for your cost function, but instead of returning numbers you'll be returning images...}]}
+                 @tag[selftaught]{@item{If you have additional time, and would like to try another @code{cond} challenge, check out the @(lesson-link #:name "Function-Example-Red-Shape" #:label "supplemental activity.")}}]}
                                                     
