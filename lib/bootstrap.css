@@ -54,6 +54,7 @@ body{
     background: black;
     color: white;
     font-size: 18px;
+    display: block;
 }
 
 .BootstrapLessonTitle .BSLessonDuration{float: right;}
@@ -141,6 +142,7 @@ blockquote.pedagogy p{ display: inline;}
     text-align: center;
     font-size: 32px;
     font-weight: bold;
+    display: block;
 }
 .BootstrapTitle img{
   float: left;

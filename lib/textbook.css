@@ -117,6 +117,7 @@ span.green>div:before{content: 'Moving ahead...'}
   padding-bottom: 30px;
   clear:          both;
   cursor:         pointer;
+  margin:         0px;
 }
 .segment ul.teacherNotes li+li .teacher{box-shadow: inset 3px -3px 3px black; border-top: none;}
 
