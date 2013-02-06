@@ -450,7 +450,7 @@
   (nested #:style bs-student-style content))
 
 (define (teacher . content)
-  (nested #:style bs-teacher-style (interleave-parbreaks content)))
+  (nested #:style bs-teacher-style content))
 
 (define (pacing #:type (type #f) . contents) 
   (nested #:style (bootstrap-span-style type)
@@ -506,8 +506,9 @@
         (nested #:style (bootstrap-sectioning-style "overview")
          (interleave-parbreaks
           (list
-           (para (list (elem (bold "Overview: "))
-                       (elem overview)))
+           ;(para (list (elem (bold "Overview: "))
+           ;            (elem overview)))
+           (lesson-section "Overview" overview)
            (lesson-section "Learning Objectives" learning-objectives)
            (lesson-section "Product Outcomes" product-outcomes)
            (lesson-section "Standards" standards)
