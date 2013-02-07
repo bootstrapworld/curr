@@ -4,6 +4,7 @@
          racket/runtime-path
          racket/stxparam
          racket/contract
+         racket/string
          scribble/base
          scribble/core
          scribble/decode
@@ -331,13 +332,20 @@
                                   (and contract (not (null? body))) 
                                   (and purpose (not (null? body)))))
     (printf "WARNING: Use of code that supplied more than one of contract/purpose/body~n"))
-  (cond [multi-line
-         (manual:codeblock (string-append (if contract (string-append "; " contract "\n") "")
-                                          (if purpose (string-append "; " purpose "\n") "")
-                                          (apply string-append body)))]
-        [contract (manual:code (string-append "; " contract))]
-        [purpose (manual:code (string-append "; " purpose))]
-        [(not (null? body)) (manual:code (apply string-append body))]))
+  (let ([allcode (string-append (if contract (string-append "; " contract "\n") "")
+                                (if purpose (string-append "; " purpose "\n") "")
+                                (string-join body "\n"))])
+    (cond-element 
+     [html (sxml->element `(textarea ,allcode))]
+     [else allcode])))
+;;;
+;  (cond [multi-line
+;         (manual:codeblock (string-append (if contract (string-append "; " contract "\n") "")
+;                                          (if purpose (string-append "; " purpose "\n") "")
+;                                          (apply string-append body)))]
+;        [contract (manual:code (string-append "; " contract))]
+;        [purpose (manual:code (string-append "; " purpose))]
+;        [(not (null? body)) (manual:code (apply string-append body))]))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -506,8 +514,6 @@
         (nested #:style (bootstrap-sectioning-style "overview")
          (interleave-parbreaks
           (list
-           ;(para (list (elem (bold "Overview: "))
-           ;            (elem overview)))
            (lesson-section "Overview" overview)
            (lesson-section "Learning Objectives" learning-objectives)
            (lesson-section "Product Outcomes" product-outcomes)
