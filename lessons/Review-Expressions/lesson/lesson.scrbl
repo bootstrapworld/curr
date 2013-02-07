@@ -14,7 +14,7 @@
            @item{@tag[pedagogy]{Raise your hand if you can tell me:} What is the name and value of another variable that is defined here? @tag[pedagogy]{(Repeat as necessary)}}
            @item{Look at the variable shape. Do you know what a "Rhombus" is. What shape will this draw? How wide do you think it will be? How tall? Will it be solid or outline? What color will it be?}
            @item{@tag[pedagogy]{Monitors on.} Try it out! Was the fill what you expected it to be? It says outline in the code... why did it turn out solid? @tag[pedagogy]{Raise your hand if you can explain this.}}
-           @item{The problem is that we used a very confusing variable name! The name was outline, but the value was "solid"! Let this be a lesson to you: always choose your variable names carefully!!}
+           @item{The problem is that we used a very confusing variable name! The name was outline, but the value was "solid"! Let's remember this: always choose your variable names carefully!}
            @pedagogy{@item{Have teams define two additional Numbers, and practice using them in the interactions window.}
            @item{Have teams define two additional Strings.}
            @item{Have teams define one more Boolean.}

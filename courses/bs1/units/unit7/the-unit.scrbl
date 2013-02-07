@@ -25,7 +25,7 @@
 @tag[pedagogy]{
 @materials[@item{Computers w/ DrRacket or WeScheme}
            @item{Student  @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
-          @item{"Luigi's Pizza" [LuigisPizza.rkt from @(resource-link #:path "source-files.zip" #:label "source-files.zip") | @(hyperlink "http://www.wescheme.org/openEditor?publicId=WKfq9xjiPY" "WeScheme")] preloaded on students' machines, in front}
+          @item{"Luigi's Pizza" [LuigisPizza.rkt from @(resource-link #:path "source-files.zip" #:label "source-files.zip") | @(hyperlink "http://www.wescheme.org/openEditor?publicId=Qzjz5xbQ8h" "WeScheme")] preloaded on students' machines, in front}
            @item{Pens/pencils for the students, fresh whiteboard markers for teachers}
            @item{Class posters (List of rules, basic skills, course calendar)}
            @item{Language Table (see below)}]}
