@@ -456,6 +456,16 @@
 
 ;;;;;;;;;;;;; NEW LESSON FORMAT ;;;;;;;;;;;;;;;;;;
 
+(define (insert-toggle-buttons)
+  (cond-element
+   [html (sxml->element
+          `(center
+            (input (@ (type "button") (id "prev") (value "<<") (onclick "prevCard();")) "")
+            (input (@ (type "button") (value "Toggle Notes") (onclick "showTeacherNotes();")) "")
+            (input (@ (type "button") (id "next") (value ">>") (onclick "nextCard();")) "")
+            ))]
+   [else (elem "")]))
+
 (define (student . content)
   (nested #:style bs-student-style content))
 
@@ -467,7 +477,8 @@
           (nested #:style bs-callout-style (interleave-parbreaks contents))))
 
 (define (points . contents)
-  (apply itemlist/splicing contents #:style (make-style "lesson" '(compact))))
+  (nested (apply itemlist/splicing contents #:style (make-style "lesson" '(compact)))
+          (insert-toggle-buttons)))
 
 (define (point . contents)
   (item (nested (interleave-parbreaks contents))))
