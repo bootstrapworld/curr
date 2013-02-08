@@ -17,20 +17,22 @@
                             @item{MP.7: Look for and make use of structure}]
      #:materials @itemlist[@item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}]
      #:preparation @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket (If using DrRacket, make sure the Images.rkt file is loaded)} @item{Student Workbooks, and something to write with}]
-     ]{
-       @pacing[#:type "remediation"]{@itemlist[@item{Spend more time reviewing the simpler image functions, making sure students have a chance to type them in and try them out.} 
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{Spend more time reviewing the simpler image functions, making sure students have a chance to type them in and try them out.} 
                                                 @item{Have them convert each expression to a Circle of Evaluation, before typing it in.} 
                                                 @item{If a student isn't sure about the order of the inputs, or what type of input they'll need -- don't give them the answer! This is a great time to remind them why contracts come in handy, so have them look up the answer in their own notes.}]}
-        @pacing[#:type "misconception"]{@itemlist[@item{Even students who are good at nested expressions of numbers can get stuck when it comes to images. Make sure you have students practice the Circle of Evaluation the first time they use a new function, reminding them to start simple and build out:
+                @pacing[#:type "misconception"]{@itemlist[@item{Even students who are good at nested expressions of numbers can get stuck when it comes to images. Make sure you have students practice the Circle of Evaluation the first time they use a new function, reminding them to start simple and build out:
                 @code[#:multi-line ""]{; start with a shape they already know
                                        (triangle 50 "solid" "red")
                                        ; then add the extra function around it
                                        (rotate 45 (triangle 40 "solid" "red"))}}]}
-        @pacing[#:type "challenge"]{@itemlist[@item{A good challenge, if your students have seen <tt>string-length</tt>, is to use the text function to make an image, using the string <tt>"purple"</tt> for all three inputs:
+                @pacing[#:type "challenge"]{@itemlist[@item{A good challenge, if your students have seen <tt>string-length</tt>, is to use the text function to make an image, using the string <tt>"purple"</tt> for all three inputs:
                 @code[#:multi-line ""]{; with a sub-expression
                                        (text "purple"
                                        (string-length "purple")
                                        "purple")}]}]}
+                )
+      ]{
         @points[
           @point{@student{Earlier, you learned how to create simple images using operators such as @code{circle}, @code{rectangle}, and @code{triangle}.  We can combine or manipulate these basic shapes to make more interesting ones, the same way we can combine and manipulate numbers.  In this lesson, you'll learn Racket functions for manipulating and combining images.}
                  @teacher{@management{Use of the board is critical in this activity - you'll want to have lots of room to write, and lots of visuals for students to see.} Have students review some of the Image-producing functions they already know (@code{triangle}, @code{circle}, etc.). Quiz them on the contracts for these functions.}
