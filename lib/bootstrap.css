@@ -147,6 +147,44 @@ blockquote.pedagogy p{ display: inline;}
 .BootstrapTitle img{
   float: left;
 }
+
+.remediation, .misconception, .challenge{
+  width:      12px;
+  height:     12px;
+  display:    inline-block;
+  float:      right;
+  margin:     5px;
+  border-radius: 6px; 
+}
+/*h2:hover .remediation, h2:hover .misconception, h2:hover .challenge{display: inline-block;}*/
+.callout{
+  width:      400px;
+  border:     solid 3px black;
+  font-size:  12px;
+  font-weight:normal;
+  color:      black;
+  background: white; 
+  position:   relative;
+  display:    none;
+  top:        12px;
+  left:       -380px;
+  box-shadow: 5px 5px 5px #888888;
+  padding:    10px;
+}
+span.remediation    {background: red;}
+span.misconception {background: yellow;}
+span.challenge  {background: green;}
+span.remediation>div:before{content: 'If they get stuck..'}
+span.misconception>div:before{content: 'Proceed with caution...'}
+span.challenge>div:before{content: 'Moving ahead...'}
+.remediation:hover .callout, .misconception:hover .callout, .challenge:hover .callout,  .callout:hover{
+  display: block; 
+  background: white;
+  z-index: 2;
+}
+
+
+
 /*Subsection Header Design*/
 .BootstrapHeader{
 	  font-weight: bold;
