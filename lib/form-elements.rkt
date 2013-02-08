@@ -336,7 +336,9 @@
                                 (if purpose (string-append "; " purpose "\n") "")
                                 (string-join body "\n"))])
     (cond-element 
-     [html (sxml->element `(textarea ,allcode))]
+     [html (if multi-line 
+               (sxml->element `(textarea ,allcode))
+               (sxml->element `(tt ,allcode)))]               
      [else allcode])))
 ;;;
 ;  (cond [multi-line
