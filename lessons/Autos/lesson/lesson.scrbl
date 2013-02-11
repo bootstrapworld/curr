@@ -1,11 +1,11 @@
 #lang curr/lib
 
 @declare-tags[group pedagogy selftaught]
-@lesson[#:title "Introduction"
+@lesson[#:title "Autos"
         #:duration "25 minutes"]{
           @itemlist/splicing[
             @item{Suppose you want to open up an autobody shop. You take people's cars and trick them out, giving them paint jobs, turbo-charging them, etc.}
-                 @item{What type of thing is an auto? Is it a number? String? Image? Boolean? Of course not. You could not describe all of the important things about an automobile with any one of those things. However, we could say that we care about a couple of things in our shop that can be described with these types. @tag[pedagogy]{Start a list on the board, with the variable name on one side, and the type on the other}}
+                 @item{What type of thing is an auto? Is it a number? String? Image? Boolean? Of course not. You could not describe all of the important things about an automobile with any one of those things. However, we could say that we care about a couple of things in our shop that can be described with these types. @pedagogy{Start a list on the board, with the variable name on one side, and the type on the other}}
                  @item{First...the model of the car. That could be like..."Prius", "H2", "XTerra", or something else. What type would that be?}
                  @item{How about how many horsepowers my car has? How large the rims are? What color it is? The value, that the car is worth?}
                  @item{@tag[pedagogy]{Write on the board:} @itemlist/splicing[
@@ -35,8 +35,8 @@
                  @code{(define new-car ( .....))}
                  @item{Now what function do I use to make an auto? @code{make-auto}.}
                  @code{(define new-car (make-auto ...))}
-                 @item{Which thing comes first in making my auto? @tag[pedagogy]{Check your contracts sheet if you don't remember: you wrote this down for a reason! Have them walk you through the definition of @code{new-car}...for example:}}
+                 @item{Which thing comes first in making my auto? @tag[pedagogy]{Check your contracts sheet if you don't remember: you wrote this down for a reason! @pedagogy{Have them walk you through the definition of @code{new-car}...for example:}}}
                  @code{(define new-car (make-auto "Taurus" 300 20 "white" 5000))}
                  @item{Now when we type @code{new-car} into the interactions window, what do you expect to happen? Hit run and try it out. @tag[pedagogy]{Take a minute with your partner, and define}@tag[selftaught]{Define} two new variables@tag[pedagogy]{--one for each of your favorite cars}. Call them [yourname]-car (@code{nathan-car}, @code{sam-car}, @code{jill-car}, etc). It can be any kind of car that you want, as long as your struct has the right types in the right orders!}
-                 @item{You can see what your cars look like by using the function we've provided for you at the bottom of the screen. It's called @code{draw-auto}, and it takes an auto as input and gives you back an Image with your car in it. @item{Give them a few minutes to define and draw cars.}}
+                 @item{You can see what your cars look like by using the function we've provided for you at the bottom of the screen. It's called @code{draw-auto}, and it takes an auto as input and gives you back an Image with your car in it. @pedagogy{Give them a few minutes to define and draw cars.}}
                  ]}
