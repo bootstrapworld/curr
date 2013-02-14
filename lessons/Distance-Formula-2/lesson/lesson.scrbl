@@ -5,9 +5,9 @@
         #:duration "20 minutes"]{
           @itemlist/splicing[
             @item{Unfortunately you still haven't written the code to calculate the distance in two dimensions! All you have is something that tells you the length in the x- and y-dimension.}
-            @pedagogy{@item{Draw normal Cartesian coordinate plane, with two points on it, of the coordinates (4,2) and (0,5).}}
+            @pedagogy{@item{Draw normal Cartesian coordinate plane, with two points on it, of the coordinates (4, 2) and (0, 5).}}
             ;put in a picture of the plot, so selftaught are happy.
-            @item{How can we find the distance between these two points? How can we find the length of the dotted line, also called the Hypoteneuse? Let's start with what we do know: the dotted line sort of makes a triangle, and we know the line-length of the other two sides. Let's label them "A," "B" and "C." What is the line-length of A? @tag[pedagogy]{Have students answer. This will typically involve subtraction, but point out that subtraction can sometimes give back negative numbers!}}
+            @item{How can we find the distance between these two points? How can we find the length of the dotted line, also called the Hypoteneuse? Let's start with what we do know: the dotted line sort of makes a triangle, and we know the line-length of the other two sides. Let's label them "A," "B" and "C." What is the line-length of A? @pedagogy{Have students answer. This will typically involve subtraction, but point out that subtraction can sometimes give back negative numbers!}}
             @item{To make our lives easier, we can use the function @code{line-length}.}
             @item{In our example, (line-length A) is 3 and (line-length B) is 4, but we still don't know C.}
             
@@ -39,8 +39,8 @@
             @item{Pythagoras proved that you can get the square of the hypotenuse by adding the squares of the other two sides. In your game, you're going to use the horizontal and vertical distance as the two sides of your triangle, and use the Pythagorean theorem to find the length of that third side.}
             @item{Turn to @worksheet-link[#:page 37 #:name "Distance-Formula-With-Numbers"] of your workbook - you'll see the formula written out. @tag[pedagogy]{Let's do this one together, since it's been a long time since we've done Circles of Evaluation as a class.}}
             @tag[selftaught]{Draw out the circle of evaluation, starting with the simplest expression first.}
-            @item{What is the simplest expression inside this giant thing? @code{(line-length 4 0)}! Start with the circle for that. @tag[pedagogy]{Walk students through the entire thing...}}
+            @item{What is the simplest expression inside this giant thing? @code{(line-length 4 0)}! Start with the circle for that. @pedagogy{Walk students through the entire thing...}}
             @item{So now we've got code that tells us the distance between those two points. But we want to have it work for any two points! It would be great if we had a function that would just take the x's and y's as input, and do the math for us.}
-            @item{Think again about the problem statement, and the function header. Turn to @worksheet-link[#:page 38 #:name "Distance"], use the Design Recipe to write your distance function. Feel free to use the work from the previous page as your first example, and then come up with a new one of your own. @tag[pedagogy]{Raise your hand when you are done with the contract, and when you've circled and labeled your two examples.}}
+            @item{Think again about the problem statement, and the function header. Turn to @worksheet-link[#:page 38 #:name "Distance"], and use the Design Recipe to write your distance function. Feel free to use the work from the previous page as your first example, and then come up with a new one of your own. @tag[pedagogy]{Raise your hand when you are done with the contract, and when you've circled and labeled your two examples.}}
             @item{When you're done, type your @code{line-length} and @code{distance} functions into your game, and see what happens.}
             @item{Does anything happen when things run into each other? No! We still haven't written a function to check whether they're colliding!}]}

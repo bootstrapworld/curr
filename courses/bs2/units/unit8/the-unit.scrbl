@@ -63,10 +63,9 @@
           }
   
 
- @tag[selftaught]{Congratulations! You finished everything in the lessons! Now it's up to you to make your game even better. Can you think of anything else you want to add?} 
+ @tag[selftaught]{Congratulations! You finished everything in the lessons! Now it's up to you to make your game even better. Can you think of anything else you want to add?
                         
-                        @free-response[#:id "response"]
+                        @free-response[#:id "response"]}
 }
- }
 
 @copyright[]
