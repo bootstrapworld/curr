@@ -23,7 +23,7 @@
 @length-of-lesson[90]
 
 @pedagogy{                
-@materials[@item{Blank Game file [DrRacket], with student images included. Hint: name image DANGER instead of dog, etc., for ease of reference while writing draw-world}
+@materials[@item{Blank Game Template from @resource-link[#:path "source-files.zip" #:label "source-files.zip"], with student images included. Hint: name image DANGER instead of dog, etc., for ease of reference while writing draw-world}
            @item{Student workbooks}
            @item{Clear plastic sheet protectors: put pages 20 & 21 at the front of the workbook for ease of reference}
            @item{Design Recipe Sign}
