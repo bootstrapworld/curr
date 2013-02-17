@@ -477,8 +477,10 @@
           (nested #:style bs-callout-style (interleave-parbreaks contents))))
 
 (define (points . contents)
-  (nested (apply itemlist/splicing contents #:style (make-style "lesson" '(compact)))
-          (insert-toggle-buttons)))
+  (nested 
+   (apply itemlist/splicing contents #:style (make-style "lesson" '(compact)))
+   "\n" "\n"
+   (insert-toggle-buttons)))
 
 (define (point . contents)
   (item (nested (interleave-parbreaks contents))))
@@ -540,14 +542,14 @@
                   (elem #:style (style #f (list (url-anchor anchor) (make-alt-tag "span"))))
                   (nested #:style bs-lesson-title-style
                           (interleave-parbreaks
-                           (list
-                            (elem #:style bs-lesson-name-style title) 
-                            video-elem
-                            (cond [duration
-                                   (elem #:style bs-time-style (format "(Time ~a)" duration))]
-                                  [else (elem)])                     
-                            (interleave-parbreaks pacings)
-                            )))
+                           (cons (para #:style bs-lesson-name-style 
+                                       (interleave-parbreaks
+                                        (list (elem title) 
+                                              video-elem
+                                              (cond [duration
+                                                     (elem #:style bs-time-style (format "(Time ~a)" duration))]
+                                                    [else (elem)]))))
+                                 pacings)))
                   (interleave-parbreaks body))))
         )))))
 
