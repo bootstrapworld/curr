@@ -297,7 +297,8 @@
                            #:hide-project-name? (hide-project-name? #t)
                            #:hide-footer? (hide-footer? #t)
                            #:hide-definitions? (hide-definitions? #f)
-                           #:hide-interactions? (hide-interactions? #f))
+                           #:hide-interactions? (hide-interactions? #f)
+                           #:auto-run? (auto-run? #f))
   (wescheme:embedded-wescheme #:id (resolve-id id)
                               #:public-id pid
                               #:width width
@@ -309,7 +310,8 @@
                               #:hide-project-name? hide-project-name?
                               #:hide-footer? hide-footer?
                               #:hide-definitions? hide-definitions?
-                              #:hide-interactions? hide-interactions?))
+                              #:hide-interactions? hide-interactions?
+                              #:auto-run? auto-run?))
 
 
 
@@ -546,7 +548,6 @@
                           (nested #:style bs-lesson-name-style "Overview"))
                   overview
                   ;(lesson-section "Overview" overview)
-                  (para)
                   (lesson-section "Learning Objectives" learning-objectives)
                   (lesson-section "Product Outcomes" product-outcomes)
                   (lesson-section "Standards" standards)
