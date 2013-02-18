@@ -143,6 +143,7 @@
 (define-runtime-path bootstrap-pdf.tex "bootstrap-pdf.tex")
 (define-runtime-path worksheet-lesson-root (build-path 'up "lessons"))
 (define-runtime-path textbook.css "textbook.css")
+(define-runtime-path bootstraplesson.js "bootstraplesson.js")
 
 ;;;;;;;;;;;;;;;; Defining Styles ;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -152,6 +153,7 @@
   (make-style name (list (make-css-addition bootstrap.css)
                          (make-tex-addition bootstrap-pdf.tex)
                          (make-css-addition textbook.css)
+                         (make-js-addition bootstraplesson.js)
                          ;; Use <div/> rather than <p/>
                          (make-alt-tag "div")
                          )))
@@ -160,6 +162,7 @@
   (make-style name (list (make-css-addition bootstrap.css)
                          (make-tex-addition bootstrap-pdf.tex)
                          (make-css-addition textbook.css)
+                         (make-js-addition bootstraplesson.js)
                          ;; Use <div/> rather than <p/>
                          (make-alt-tag "div")
                          )))
@@ -168,6 +171,7 @@
   (make-style name (list (make-css-addition bootstrap.css)
                          (make-tex-addition bootstrap-pdf.tex)
                          (make-css-addition textbook.css)
+                         (make-js-addition bootstraplesson.js)
                          ;; Use <span/> rather than <p/>
                          (make-alt-tag "span")
                          )))
@@ -178,6 +182,7 @@
   (make-style name (list (make-css-addition bootstrap.css)
                          (make-tex-addition bootstrap-pdf.tex)
                          (make-css-addition textbook.css)
+                         (make-js-addition bootstraplesson.js)
                          ;; Use <span/> rather than <p/>
                          (make-alt-tag "span")                         
                          )))
