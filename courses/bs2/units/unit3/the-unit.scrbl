@@ -55,7 +55,7 @@
 
 @;; really want this next lesson inclusion in a pedagogy tag
 @;;@tag[pedagogy]{@(include-lesson (lib "curr/lessons/Acting-It-Out-1/lesson/lesson.scrbl"))}
-@(include-lesson (lib "curr/lessons/Acting-It-Out-1/lesson/lesson.scrbl"))
+@;;(include-lesson (lib "curr/lessons/Acting-It-Out-1/lesson/lesson.scrbl"))
 
 
 @lesson[#:title "Closing"
