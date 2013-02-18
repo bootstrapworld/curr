@@ -143,6 +143,9 @@
 (define-runtime-path bootstrap-pdf.tex "bootstrap-pdf.tex")
 (define-runtime-path worksheet-lesson-root (build-path 'up "lessons"))
 (define-runtime-path textbook.css "textbook.css")
+(define-runtime-path codemirror.js "codemirror.js")
+(define-runtime-path runmode.js "runmode.js")
+(define-runtime-path scheme2.js "scheme2.js")
 (define-runtime-path bootstraplesson.js "bootstraplesson.js")
 (define-runtime-path logo.png "logo.png")
 
