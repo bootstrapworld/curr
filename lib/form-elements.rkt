@@ -149,47 +149,37 @@
 (define-runtime-path bootstraplesson.js "bootstraplesson.js")
 (define-runtime-path logo.png "logo.png")
 
+(define css-js-additions
+  (list (make-css-addition bootstrap.css)
+        (make-tex-addition bootstrap-pdf.tex)
+        (make-css-addition textbook.css)
+        (make-js-addition codemirror.js)
+        (make-js-addition runmode.js)
+        (make-js-addition scheme2.js)
+        (make-js-addition bootstraplesson.js)
+        ))
+
 ;;;;;;;;;;;;;;;; Defining Styles ;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; bootstrap-sectioning-style : string -> style
 ;; defines a style for a section based on the <div> tag
 (define (bootstrap-sectioning-style name)
-  (make-style name (list (make-css-addition bootstrap.css)
-                         (make-tex-addition bootstrap-pdf.tex)
-                         (make-css-addition textbook.css)
-                         (make-js-addition bootstraplesson.js)
-                         ;; Use <div/> rather than <p/>
-                         (make-alt-tag "div")
-                         )))
+  (make-style name (cons (make-alt-tag "div")
+                         css-js-additions)))
 
 (define (bootstrap-div-style name)
-  (make-style name (list (make-css-addition bootstrap.css)
-                         (make-tex-addition bootstrap-pdf.tex)
-                         (make-css-addition textbook.css)
-                         (make-js-addition bootstraplesson.js)
-                         ;; Use <div/> rather than <p/>
-                         (make-alt-tag "div")
-                         )))
+  (make-style name (cons (make-alt-tag "div")
+                         css-js-additions)))
 
 (define (bootstrap-span-style name)
-  (make-style name (list (make-css-addition bootstrap.css)
-                         (make-tex-addition bootstrap-pdf.tex)
-                         (make-css-addition textbook.css)
-                         (make-js-addition bootstraplesson.js)
-                         ;; Use <span/> rather than <p/>
-                         (make-alt-tag "span")
-                         )))
+  (make-style name (cons (make-alt-tag "span")
+                         css-js-additions)))
 
 ;; bootstrap-style : string -> style
 ;; defines a style for both latex and css with the given name
 (define (bootstrap-style name)
-  (make-style name (list (make-css-addition bootstrap.css)
-                         (make-tex-addition bootstrap-pdf.tex)
-                         (make-css-addition textbook.css)
-                         (make-js-addition bootstraplesson.js)
-                         ;; Use <span/> rather than <p/>
-                         (make-alt-tag "span")                         
-                         )))
+  (make-style name (cons (make-alt-tag "span")
+                         css-js-additions)))
 
 (define bs-header-style (bootstrap-style "BootstrapHeader"))
 (define bs-title-style (bootstrap-style "BootstrapTitle"))

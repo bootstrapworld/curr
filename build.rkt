@@ -87,7 +87,7 @@
    ;; build bs1 and bs2.
    #;[("--course") -course "Choose course (default bs1)"
       (current-course -course)]
-   [("--worksheet-links-to-pdf") "Direct worksheet links to StudentWorkshop.pdf" 
+   [("--worksheet-links-to-pdf") "Direct worksheet links to StudentWorkbook.pdf" 
     (putenv "WORKSHEET-LINKS-TO-PDF" "true")]
    
    [("--deploy") -deploy-dir "Deploy into the given directory, and create a .zip.  Default: deploy" 
