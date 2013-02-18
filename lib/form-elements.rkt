@@ -32,12 +32,12 @@
          current-row
          fill-in-the-blank
          free-response
-	 drop-down
+         drop-down
          embedded-wescheme
          think-about
          code
          language-table
-	 worksheet-table
+         worksheet-table
          build-table/cols
          contract-exercise
          function-exercise
@@ -53,12 +53,12 @@
          lesson
          drill
          exercise
-	 skit
-	 demo
-	 review
+         skit
+         demo
+         review
          unit-separator
          unit-descr
-
+         
          ;; new format stuff
          lesson/studteach
          pacing
@@ -71,20 +71,20 @@
          ;; Itemizations
          materials
          goals
-	 do-now
+         do-now
          objectives
          product-outcomes
          preparation
          agenda
-
+         
          ;; Misc
          standards
          unit-length
-
+         
          ;; Include lesson/lesson link
          include-lesson
          lesson-link
-
+         
          ;; stuff added by the interns
          ;;edited contract-exercise
          overview
@@ -94,14 +94,14 @@
          state-standards
          length-of-lesson
          bootstrap-title
-
-	 ;; stuff added by Vicki
-	 struct-example-with-text
-	 struct-design-recipe-exercise
+         
+         ;; stuff added by Vicki
+         struct-example-with-text
+         struct-design-recipe-exercise
          struct-function-exercise
-	 
+         
          [rename-out [worksheet-link/src-path worksheet-link]]
-
+         
          resource-link
          video-link
          )        
@@ -113,7 +113,7 @@
                         (#:style (or/c style? string? symbol? #f)) 
                         #:rest list?
                         itemization?)]
-
+                  
                   [check
                    (-> constraint? element?)]
                   )
@@ -144,6 +144,7 @@
 (define-runtime-path worksheet-lesson-root (build-path 'up "lessons"))
 (define-runtime-path textbook.css "textbook.css")
 (define-runtime-path bootstraplesson.js "bootstraplesson.js")
+(define-runtime-path logo.png "logo.png")
 
 ;;;;;;;;;;;;;;;; Defining Styles ;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -166,7 +167,7 @@
                          ;; Use <div/> rather than <p/>
                          (make-alt-tag "div")
                          )))
- 
+
 (define (bootstrap-span-style name)
   (make-style name (list (make-css-addition bootstrap.css)
                          (make-tex-addition bootstrap-pdf.tex)
@@ -193,12 +194,14 @@
 (define bs-lesson-name-style (bootstrap-style "BSLessonName"))
 (define bs-lesson-duration-style (bootstrap-style "BSLessonDuration"))
 (define bs-video-style (bootstrap-style "BootstrapVideo"))
+(define bs-page-title-style (bootstrap-style "BootstrapPageTitle"))
 
 ;; new lesson styles
 (define bs-time-style (bootstrap-span-style "time"))
 (define bs-callout-style (bootstrap-div-style "callout"))
 (define bs-student-style (bootstrap-div-style "student"))
 (define bs-teacher-style (bootstrap-div-style "teacher"))
+(define bs-logo-style (bootstrap-span-style "BootstrapLogo"))
 
 ;; make-bs-latex-style : string -> style
 ;; defines a style that will only be used in latex
@@ -278,9 +281,9 @@
 (define (drop-down #:id id
                    #:options (options '()))
   (sxml->element `(select (@ (id ,(resolve-id id)))
-			  ,@(map (lambda (o) `(option ,o)) options))))
-			     
-			     
+                          ,@(map (lambda (o) `(option ,o)) options))))
+
+
 
 ;; Embedded wescheme instances
 (define (embedded-wescheme #:id id
@@ -318,12 +321,12 @@
                      #:hint (hint #f)
                      #:answer (answer #f))
   (list question
-         (if hint
-             (list " (Hint: " hint ")")
-             "")
-         (if answer 
-             (list " (Answer: " answer ")") 
-             "")))
+        (if hint
+            (list " (Hint: " hint ")")
+            "")
+        (if answer 
+            (list " (Answer: " answer ")") 
+            "")))
 
 (define (format-racket-header str)
   (format "; ~a~n" str))
@@ -369,7 +372,7 @@
 (struct lesson-struct (title     ;; (U string #f)
                        duration  ;; string e.g. "15 min"
                        anchor)   ;; string
-        #:transparent)
+  #:transparent)
 
 
 
@@ -388,11 +391,11 @@
                 #:prerequisites (prerequisites #f)
                 #:video (video #f)
                 . body)
-
+  
   (define the-lesson-name 
     (or (current-lesson-name) 
         (symbol->string (gensym (string->symbol (or title 'lesson))))))
-
+  
   (define video-elem (cond [(and video (list? video))
                             (map (lambda (v) (elem #:style bs-video-style v)) video)]
                            [video (elem #:style bs-video-style video)]
@@ -439,23 +442,23 @@
 
 ;; this just here as a sample while I get includes and injections working
 #;(define (check constraint #:id (id (gensym 'check)))
-  (elem (sxml->element
-         `(input
-           (@ (id ,(format "~a" id))
-              (type "button")
-              (value "Check answer")
-              (class "BootstrapCheckbox"))
-           ""))
-        (inject-javascript
-         (format "jQuery(document.getElementById(~s)).click(function() {
+    (elem (sxml->element
+           `(input
+             (@ (id ,(format "~a" id))
+                (type "button")
+                (value "Check answer")
+                (class "BootstrapCheckbox"))
+             ""))
+          (inject-javascript
+           (format "jQuery(document.getElementById(~s)).click(function() {
                        if (~a) {
                             alert('Congrats! You got it right');
                        } else {
                             alert('Sorry! Try again.');
                        }
                    });"
-                 (format "~a" id)
-                 (constraint->js constraint)))))
+                   (format "~a" id)
+                   (constraint->js constraint)))))
 
 
 
@@ -511,11 +514,11 @@
          #:video (video #f)
          #:pacings (pacings #f)
          . body)
-
+  
   (define the-lesson-name 
     (or (current-lesson-name) 
         (symbol->string (gensym (string->symbol (or title 'lesson))))))
-
+  
   (define video-elem (cond [(and video (list? video))
                             (map (lambda (v) (elem #:style bs-video-style v)) video)]
                            [video (elem #:style bs-video-style video)]
@@ -527,20 +530,29 @@
                                                    duration
                                                    anchor)
                                     (get 'bootstrap-lessons '())))     
-     (nested-flow 
-      (bootstrap-div-style "content")
+     (nested
+      (para #:style bs-page-title-style title)
+      "\n" "\n"
+      (nested-flow 
+       (bootstrap-div-style "content")
        (list
         ;(include-ssi)
         (nested #:style (bootstrap-sectioning-style "overview")
-         (interleave-parbreaks
-          (list
-           (lesson-section "Overview" overview)
-           (lesson-section "Learning Objectives" learning-objectives)
-           (lesson-section "Product Outcomes" product-outcomes)
-           (lesson-section "Standards" standards)
-           (lesson-section "Materials" materials)
-           (lesson-section "Preparation" preparation)
-           )))
+                (interleave-parbreaks
+                 (list
+                  (nested #:style bs-logo-style (image logo.png "bootstrap logo"))
+                  ;; agenda would insert here
+                  (nested #:style bs-lesson-title-style
+                          (nested #:style bs-lesson-name-style "Overview"))
+                  overview
+                  ;(lesson-section "Overview" overview)
+                  (para)
+                  (lesson-section "Learning Objectives" learning-objectives)
+                  (lesson-section "Product Outcomes" product-outcomes)
+                  (lesson-section "Standards" standards)
+                  (lesson-section "Materials" materials)
+                  (lesson-section "Preparation" preparation)
+                  )))
         (nested #:style (bootstrap-div-style "segment")
                 (interleave-parbreaks
                  (list
@@ -556,7 +568,7 @@
                                                     [else (elem)]))))
                                  pacings)))
                   (interleave-parbreaks body))))
-        )))))
+        ))))))
 
 (define (lesson-section title contents)
   (when contents
@@ -665,11 +677,11 @@
 ;; produces table with the particular formatting for the Bootstrap language table
 (define (language-table . rows)
   (table (style  #f 
-		(list 
-		 (table-columns
-		  (list 
-		   (style "BootstrapTable" '(center))
-		   (style "BootstrapTable" '(center))))))   
+                 (list 
+                  (table-columns
+                   (list 
+                    (style "BootstrapTable" '(center))
+                    (style "BootstrapTable" '(center))))))   
          (cons (list (para #:style "BootstrapTableHeader" "Types")
                      (para #:style "BootstrapTableHeader" "Functions"))
                (map (lambda (r) (map para r)) rows))))
@@ -765,38 +777,38 @@
 
 ;; Cooperates with the Lesson tag.
 (define (agenda . items)
-
+  
   ;; extract-minutes: lesson-struct -> string
   ;; Extracts the number of minutes the lesson should take.
   (define (extract-minutes a-lesson)
     (first (regexp-match "[0-9]*" (lesson-struct-duration a-lesson))))
-
-
+  
+  
   (traverse-block
    (lambda (get set)
      
      (lambda (get set)
-
+       
        (define (maybe-hyperlink elt anchor)
          (if anchor
              (hyperlink (string-append "#" anchor) elt)
              elt))
-
+       
        (define lessons (reverse (get 'bootstrap-lessons '())))
        
        (nested #:style (style "BootstrapAgenda" '(never-indents))
                (list "Agenda"
-               (apply 
-                itemlist/splicing 
-                #:style "BootstrapAgendaList"
-                (for/list ([a-lesson lessons])
-                  (item (para (elem #:style "BSLessonDuration"
-                                    (format "~a min" 
-                                            (extract-minutes a-lesson)))
-                              (maybe-hyperlink
-                               (elem #:style "BSLessonName"
-                                     (lesson-struct-title a-lesson))
-                               (lesson-struct-anchor a-lesson))))))))))))
+                     (apply 
+                      itemlist/splicing 
+                      #:style "BootstrapAgendaList"
+                      (for/list ([a-lesson lessons])
+                        (item (para (elem #:style "BSLessonDuration"
+                                          (format "~a min" 
+                                                  (extract-minutes a-lesson)))
+                                    (maybe-hyperlink
+                                     (elem #:style "BSLessonName"
+                                           (lesson-struct-title a-lesson))
+                                     (lesson-struct-anchor a-lesson))))))))))))
 
 ;; itemlist/splicing is like itemlist, but also cooperates with the
 ;; splice form to absorb arguments.  We use this in combination
@@ -808,12 +820,12 @@
                 [acc '()])
        (foldl (lambda (i acc)
                 (cond
-                 [(splice? i)
-                  (loop (splice-run i) acc)]
-                 [(item? i)
-                  (cons i acc)]
-                 [else
-                  (cons (item i) acc)]))
+                  [(splice? i)
+                   (loop (splice-run i) acc)]
+                  [(item? i)
+                   (cons i acc)]
+                  [else
+                   (cons (item i) acc)]))
               acc
               items))))
   (apply itemlist spliced-items #:style style))
@@ -824,12 +836,12 @@
   (match mp
     [(list 'lib path)
      (cond
-      [(regexp-match #px"^curr/lessons/([^/]+)/lesson/lesson.scrbl$" path)
-       =>
-       (lambda (result)
-         (list-ref result 1))]
-      [else
-       (raise-lesson-error mp)])]
+       [(regexp-match #px"^curr/lessons/([^/]+)/lesson/lesson.scrbl$" path)
+        =>
+        (lambda (result)
+          (list-ref result 1))]
+       [else
+        (raise-lesson-error mp)])]
     [else
      (raise-lesson-error mp)]))
 
@@ -869,7 +881,7 @@
 ;; for each included lesson.  We put a "lesson_" prefix in front of each name.
 (define (lesson-name->anchor-name a-name)
   (uri-encode (string-append "lesson_" a-name)))
-  
+
 
 
 
@@ -894,7 +906,7 @@
                               (simple-form-path unit-path)))
         (hyperlink (string-append (path->string the-relative-path) "#" anchor)
                    (if label label lesson-name))]
-
+       
        ;; If not, fail for now by producing a hyperlink that doesn't quite go to the right place.
        [else
         (fprintf (current-output-port) "Warning: could not find cross reference to ~a\n" lesson-name)
@@ -903,8 +915,8 @@
                               (simple-form-path (build-path worksheet-lesson-root lesson-name "lesson" "lesson.html"))))
         (hyperlink (path->string the-relative-path)
                    (if label label lesson-name))]))))
-   
-   
+
+
 
 ;;Vicki
 
@@ -923,7 +935,7 @@
      (elem "Every contract has three parts")
      "\n" "\n" 
      (contract-purpose-exercise tagbase)
-	(make-element 'newline '("\n"))(make-element 'newline '("\n"))
+     (make-element 'newline '("\n"))(make-element 'newline '("\n"))
      (worksheet-segment "II. Give Examples")
      (elem "Write two examples of your function in action")
      "\n" "\n" 
@@ -943,20 +955,20 @@
 ;;        number of fields in struct
 ;; output: in format (EXAMPLE ( /*with text1label*/ _____) /*with text2label*/ _____)
 (define (struct-example-with-text #:text1 [text1 ""]
-                           #:text2 [text2 ""]
-                           tag
-                           #:example1 [example1 #f]
-                           #:example2 [example2 #f]
-                           fields)
+                                  #:text2 [text2 ""]
+                                  tag
+                                  #:example1 [example1 #f]
+                                  #:example2 [example2 #f]
+                                  fields)
   (cond-element 
    [html (apply elem (flatten-1 (list "(EXAMPLE ( " 
-               (fill-in-the-blank #:id (format "~a.1" tag) #:label "function name")
-               (fill-in-the-blank #:id (format "~a.1" tag) #:label "inputs")
-               " ) ( " (fill-in-the-blank #:id (format "~a.2" tag) #:label "what it does") 
-               
-               (duplicate fields (list (make-element 'newline '("\n"))(fill-in-the-blank #:id (format "~a.2" tag) #:label "") ))
-
-               " ))")))]
+                                      (fill-in-the-blank #:id (format "~a.1" tag) #:label "function name")
+                                      (fill-in-the-blank #:id (format "~a.1" tag) #:label "inputs")
+                                      " ) ( " (fill-in-the-blank #:id (format "~a.2" tag) #:label "what it does") 
+                                      
+                                      (duplicate fields (list (make-element 'newline '("\n"))(fill-in-the-blank #:id (format "~a.2" tag) #:label "") ))
+                                      
+                                      " ))")))]
    [(or latex pdf) (elem #:style bs-example-exercise-style "")]))
 
 
@@ -965,20 +977,20 @@
 ;;        number of fields in struct
 ;; output: a define with text boxes formatted for inputs to the exercise
 (define (struct-function-exercise #:name [name ""]
-                           #:args [args ""]
-                           #:body [body ""]
-                           tag
-                           fields)
+                                  #:args [args ""]
+                                  #:body [body ""]
+                                  tag
+                                  fields)
   (cond-element 
    [html
     (apply elem (flatten-1 (list "(define ( "
-          (fill-in-the-blank #:id (format "fname-~a" tag) #:label "function name")
-          (fill-in-the-blank #:id (format "args-~a" tag) #:label "variable names") 
-          " ) ( " (fill-in-the-blank #:id (format "body-~a" tag) #:label "what it does") 
-          
-               (duplicate fields (list (make-element 'newline '("\n"))(fill-in-the-blank #:id (format "~a.2" tag) #:label "") ))
-
-          " ))")))]
+                                 (fill-in-the-blank #:id (format "fname-~a" tag) #:label "function name")
+                                 (fill-in-the-blank #:id (format "args-~a" tag) #:label "variable names") 
+                                 " ) ( " (fill-in-the-blank #:id (format "body-~a" tag) #:label "what it does") 
+                                 
+                                 (duplicate fields (list (make-element 'newline '("\n"))(fill-in-the-blank #:id (format "~a.2" tag) #:label "") ))
+                                 
+                                 " ))")))]
    [(or latex pef) (elem #:style bs-function-exercise-style "")]))
 
 
@@ -993,9 +1005,9 @@
 
 (define (flatten-1 lol)
   (cond
-   ((null? lol) lol)
-   ((list? (car lol)) (append (car lol) (flatten-1 (cdr lol))))
-   (#t (cons (car lol) (flatten-1 (cdr lol))))))
+    ((null? lol) lol)
+    ((list? (car lol)) (append (car lol) (flatten-1 (cdr lol))))
+    (#t (cons (car lol) (flatten-1 (cdr lol))))))
 
 
 ;;interns
@@ -1129,7 +1141,7 @@
                (fill-in-the-blank #:id (format "~a.2" tag) #:label text2)
                ")")]
    [(or latex pdf) (elem #:style bs-example-exercise-style "")]))
-                            
+
 ;; input: optional values for the name, args, and body fields of a function
 ;;        a tag to use for generating html id names
 ;; output: a define with text boxes formatted for inputs to the exercise
@@ -1182,28 +1194,28 @@
                         #:page page
                         #:lesson [lesson #f]
                         #:src-path src-path)
-
+  
   (define-values (base-path _ dir?) (split-path src-path))
   (define the-relative-path
     (find-relative-path (simple-form-path (current-directory))
                         (cond 
-                         ;; FIXME: communicate parameter values via parameters.
-                         ;; The reason it's not working right now is because we're
-                         ;; calling into scribble with system*, which means we don't
-                         ;; get to preserve any parameters between the build script
-                         ;; and us.
-                         [(getenv "WORKSHEET-LINKS-TO-PDF")
-                          (simple-form-path (get-worksheet-pdf-path))]
-                         [lesson
-                          (simple-form-path (build-path worksheet-lesson-root
-                                                        lesson
-                                                        "worksheets"
-                                                        (format "~a.html" name)))]
-                         [else
-                          (simple-form-path (build-path base-path
-                                                        'up
-                                                        "worksheets"
-                                                        (format "~a.html" name)))])))
+                          ;; FIXME: communicate parameter values via parameters.
+                          ;; The reason it's not working right now is because we're
+                          ;; calling into scribble with system*, which means we don't
+                          ;; get to preserve any parameters between the build script
+                          ;; and us.
+                          [(getenv "WORKSHEET-LINKS-TO-PDF")
+                           (simple-form-path (get-worksheet-pdf-path))]
+                          [lesson
+                           (simple-form-path (build-path worksheet-lesson-root
+                                                         lesson
+                                                         "worksheets"
+                                                         (format "~a.html" name)))]
+                          [else
+                           (simple-form-path (build-path base-path
+                                                         'up
+                                                         "worksheets"
+                                                         (format "~a.html" name)))])))
   (list (hyperlink (path->string the-relative-path)
                    "Page " (number->string page))))
 
