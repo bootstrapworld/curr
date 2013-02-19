@@ -2,7 +2,7 @@
 
 @declare-tags[group pedagogy selftaught]
 @lesson[#:title "Keypress"
-        #:duration "30 minutes"]{
+        #:duration "35 minutes"]{
           @itemlist/splicing[
             @item{We're going to use the Design Recipe to write a function @code{keypress} for Ninja World. Take a look at  @worksheet-link[#:page 28 #:name "Keypress"] in your workbook. What's the first step in the Design Recipe?}
             @item{Step 1 - Contract and Purpose Statement  @itemlist/splicing[@item{What's the Name of our function? keypress.}
