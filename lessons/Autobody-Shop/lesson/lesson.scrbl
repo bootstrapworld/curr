@@ -2,7 +2,7 @@
 
 @declare-tags[group pedagogy selftaught]
 @lesson[#:title "Autobody Shop"
-        #:duration "30 minutes"]{
+        #:duration "25 minutes"]{
           @itemlist/splicing[
            @item{Now we know all about how to work with automobiles in Racket. What function makes an auto? @code{make-auto}. And which function draws that auto? @code{draw-auto}. But we don't just want to take an auto and give it right back. I said that we're running an autobody shop! You take people's cars and change them, making them better in some way, and then give them back to the customer. Let's figure out how to do that.}
            @item{Turn to @worksheet-link[#:page 9 #:name "paint-job"] in your workbooks. @tag[pedagogy]{I know that you're really good at the design recipe by now, so I want you to fill out the page as we talk. @pedagogy{Make sure they're able to keep up, and take time to let them write if need be!}}}
