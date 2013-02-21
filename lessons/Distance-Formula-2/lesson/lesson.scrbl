@@ -22,19 +22,19 @@
             @item{Now we have four triangles, each with a side A, B and C. We also have two squares: the inner square, whose sides are a C, and the outer square, whose sides are (A+B).}
             @pedagogy{@item{Raise your hand if you know how to find the area of a square. Take a volunteer.}}
             @item{What's the area of the white, inner square? C2.}
-            @pedagogy{@item{On the board, write: white space = C2}}
+            @pedagogy{@item{On the board, write: white space = C@superscript{2}}}
             @item{Move your triangles so they match the drawing on the board (see diagram, or this animation). Now we have two small, white squares. Is there more white on the board now than there was when we had just a single big one? Why or why not?}
             @item{Since we didn't change the size of the outer square, and all we did was move stuff around inside it, we know there is still the same amount of white space as there was before - it's just broken into two parts now.}
-            @pedagogy{@item{Refer back to the previous board writing: whitespace = C2}}
-            @item{What is the area of the smaller white square? We know that both of its sides are of length A, so its area must be A2.}
-            @item{What about the bigger white square? We know that both of its sides are of length B, so its area must be B2.} 
-            @item{So now we have two ways of writing the area of the white space: whitespace = C2 = A2 + B2}
+            @pedagogy{@item{Refer back to the previous board writing: whitespace = C@superscript{2}}}
+            @item{What is the area of the smaller white square? We know that both of its sides are of length A, so its area must be A@superscript{2}.}
+            @item{What about the bigger white square? We know that both of its sides are of length B, so its area must be B@superscript{2}.} 
+            @item{So now we have two ways of writing the area of the white space: whitespace = C@superscript{2} = A@superscript{2} + B@superscript{2}}
             @item{Well, if we know that A and B are 3 and 4, so let's fill that in. }
-            @item{whitespace = C2 = 3^2 + 4^2}
+            @item{whitespace = C@superscript{2} = 3@superscript{2} + 4@superscript{2}}
             @item{What is 3 squared? 4 squared? }
-            @item{whitespace = C2 = 9 + 16}
+            @item{whitespace = C@superscript{2} = 9 + 16}
             @pedagogy{@item{What's 9+16? }}
-            @item{whitespace = C2 = 25}
+            @item{whitespace = C@superscript{2} = 25}
             @item{Okay, so we know that C2 is 25...but remember, we want C by itself. What is the square root of 25? It's five!}
             @item{Pythagoras proved that you can get the square of the hypotenuse by adding the squares of the other two sides. In your game, you're going to use the horizontal and vertical distance as the two sides of your triangle, and use the Pythagorean theorem to find the length of that third side.}
             @item{Turn to @worksheet-link[#:page 37 #:name "Distance-Formula-With-Numbers"] of your workbook - you'll see the formula written out. @tag[pedagogy]{Let's do this one together, since it's been a long time since we've done Circles of Evaluation as a class.}}
