@@ -8,7 +8,7 @@
             @pedagogy{@item{Students should open Ninja World, to see the dog and ruby flying across the screen}}
             @item{Let's look back at our Ninja world for a moment.}
             @item{How many things are in this world? 2. What are they? @code{dogX} and @code{rubyX}.}
-            @item{What does @code{dogX} represent? @code{rubyX}?}
+            @item{What does @code{dogX} represent? @code{rubyX}? @bitmap{images/gameimage.png}}
             @item{What function do we use to make a world? @code{make-world}}
             @item{What function updates the world? @code{update-world}}
             @item{What function draws it? @code{draw-world}}
