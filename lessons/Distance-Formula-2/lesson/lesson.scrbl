@@ -5,14 +5,11 @@
         #:duration "20 minutes"]{
           @itemlist/splicing[
             @item{Unfortunately you still haven't written the code to calculate the distance in two dimensions! All you have is something that tells you the length in the x- and y-dimension.}
-            @pedagogy{@item{Draw normal Cartesian coordinate plane, with two points on it, of the coordinates (4, 2) and (0, 5).}}
-            ;put in a picture of the plot, so selftaught are happy.
+            @pedagogy{@item{Draw normal Cartesian coordinate plane, with two points on it, of the coordinates (0, 4) and (3, 0).}}
+            @bitmap{images/ABCgraph.png}
             @item{How can we find the distance between these two points? How can we find the length of the dotted line, also called the Hypoteneuse? Let's start with what we do know: the dotted line sort of makes a triangle, and we know the line-length of the other two sides. Let's label them "A," "B" and "C." What is the line-length of A? @pedagogy{Have students answer. This will typically involve subtraction, but point out that subtraction can sometimes give back negative numbers!}}
             @item{To make our lives easier, we can use the function @code{line-length}.}
-            @item{In our example, (line-length A) is 3 and (line-length B) is 4, but we still don't know C.}
-            
-            ;figure out how to rewrite this for selftaught students.
-            
+            @item{In our example, (line-length A) is 4 and (line-length B) is 3, but we still don't know C.}
             @pedagogy{@item{Pass out Pythagorean Proof materials to each group, and have them review all of their materials:@itemlist/splicing[
             @item{A large, white square with a smaller one drawn inside}
             @item{Four gray triangles, all the same size}]}
@@ -21,7 +18,7 @@
             @item{Now take your triangles, and place them on the big white square so that all of the As, Bs and Cs line up. @tag[pedagogy]{You can follow along with what I have on the board, too.}@tag[selftaught]{Lay them out like the diagram shows.}}
             @item{Now we have four triangles, each with a side A, B and C. We also have two squares: the inner square, whose sides are a C, and the outer square, whose sides are (A+B).}
             @pedagogy{@item{Raise your hand if you know how to find the area of a square. Take a volunteer.}}
-            @item{What's the area of the white, inner square? C2.}
+            @item{What's the area of the white, inner square? C2. @bitmap{images/csquared.png}}
             @pedagogy{@item{On the board, write: white space = C@superscript{2}}}
             @item{Move your triangles so they match the drawing on the board (see diagram, or this animation). Now we have two small, white squares. Is there more white on the board now than there was when we had just a single big one? Why or why not?}
             @item{Since we didn't change the size of the outer square, and all we did was move stuff around inside it, we know there is still the same amount of white space as there was before - it's just broken into two parts now.}
@@ -29,7 +26,7 @@
             @item{What is the area of the smaller white square? We know that both of its sides are of length A, so its area must be A@superscript{2}.}
             @item{What about the bigger white square? We know that both of its sides are of length B, so its area must be B@superscript{2}.} 
             @item{So now we have two ways of writing the area of the white space: whitespace = C@superscript{2} = A@superscript{2} + B@superscript{2}}
-            @item{Well, if we know that A and B are 3 and 4, so let's fill that in. }
+            @item{Well, if we know that A and B are 3 and 4, so let's fill that in. @bitmap{images/absquare.png}}
             @item{whitespace = C@superscript{2} = 3@superscript{2} + 4@superscript{2}}
             @item{What is 3 squared? 4 squared? }
             @item{whitespace = C@superscript{2} = 9 + 16}
