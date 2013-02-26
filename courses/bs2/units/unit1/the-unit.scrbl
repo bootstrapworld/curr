@@ -27,7 +27,7 @@
            @item{Student workbooks}
            @item{Design Recipe Sign}
            @item{Language Table}
-           @item{Bootstrap Review [DrRacket | WeScheme], already open on students' computers.}
+           @item{Bootstrap Review [Review.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=pTQwdxSDp2" "WeScheme")], already open on students' computers.}
            ]
 
 @preparation[

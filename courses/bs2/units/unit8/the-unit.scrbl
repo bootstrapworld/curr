@@ -29,7 +29,7 @@
            @item{Design Recipe Sign}
            @item{Language Table}
 	   @item{Cutouts of Cat and Dog images}
-           @item{The Ninja World 5 file [NW5.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=SLsSXazJB3" "WeScheme")] preloaded on students' machines}
+           @item{The Ninja World 6 file [NW6.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=CxLm7aj7PW" "WeScheme")] preloaded on students' machines}
            ]
 
 @preparation[
@@ -63,10 +63,9 @@
           }
   
 
- @tag[selftaught]{Congratulations! You finished everything in the lessons! Now it's up to you to make your game even better. Can you think of anything else you want to add?} 
+ @tag[selftaught]{Congratulations! You finished everything in the lessons! Now it's up to you to make your game even better. Can you think of anything else you want to add?
                         
-                        @free-response[#:id "response"]
+                        @free-response[#:id "response"]}
 }
- }
 
 @copyright[]

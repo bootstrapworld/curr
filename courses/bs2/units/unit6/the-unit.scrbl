@@ -28,7 +28,7 @@
            @item{Language Table}
            @item{Signs for kids, entitled "update-world", "draw-world" and "big-bang"}
            @item{Cutout images of the dog and ruby}
-           @item{The Ninja World 3 file [NW3.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=BuoRf9Wlb3" "WeScheme")] preloaded on students' machines}
+           @item{The Ninja World 4 file [NW4.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=hxsj0DKmyG" "WeScheme")] preloaded on students' machines}
            ]
 
 @preparation[

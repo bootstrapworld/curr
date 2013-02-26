@@ -23,11 +23,11 @@
 @length-of-lesson[90]
 
 @pedagogy{                
-@materials[@item{Blank Game file [DrRacket], with student images included. Hint: name image DANGER instead of dog, etc., for ease of reference while writing draw-world}
+@materials[@item{Blank Game Template from @resource-link[#:path "source-files.zip" #:label "source-files.zip"], with student images included. Hint: name image DANGER instead of dog, etc., for ease of reference while writing draw-world}
            @item{Student workbooks}
            @item{Clear plastic sheet protectors: put pages 20 & 21 at the front of the workbook for ease of reference}
            @item{Design Recipe Sign}
-           @item{The Ninja World 3 file [NW3.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=BuoRf9Wlb3" "WeScheme")] preloaded on students' machines}
+           @item{The Ninja World 3 file [NW3.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=PXR2KXrJR3" "WeScheme")] preloaded on students' machines}
            ]
 
 @preparation[

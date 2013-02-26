@@ -13,5 +13,5 @@
             @item{How would I define this world? }
             @item{How do I get the playerX out of my word? My CarY? My Car2Y? The score?}
             @item{What if I wanted the player's car to change color as the score goes up? How would my world structure need to change?}
-            @item{Now think about YOUR game - what will be changing in your world? @tag[pedagogy]{Pass out some scratch paper for the students to brainstorm on.  Make sure you force them to think about their world structures, and start simple!}}]}
+            @item{Now think about YOUR game - what will be changing in your world? @pedagogy{Pass out some scratch paper for the students to brainstorm on.  Make sure you force them to think about their world structures, and start simple!}}]}
                   
