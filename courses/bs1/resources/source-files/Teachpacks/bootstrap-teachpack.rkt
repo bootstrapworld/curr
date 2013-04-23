@@ -220,7 +220,7 @@
                          (make-posn (being-x p) (update-player* (being-y p) k))
                          (let ((new-posn (update-player* (being-x p) (being-y p) k)))
                            (if (posn? new-posn) new-posn
-                               (begin (display "update-player has been changed to accept an x- and y-coordinate, but is not returning a Posn.\n")
+                               (begin (error "update-player has been changed to accept an x- and y-coordinate, but is not returning a Posn.\n")
                                       new-posn))))
                      (being-costume p))))
            (onscreen? (if (= (procedure-arity onscreen*?) 1) 
