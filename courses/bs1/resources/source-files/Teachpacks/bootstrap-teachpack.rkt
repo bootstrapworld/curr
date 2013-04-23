@@ -153,7 +153,10 @@
     [(= (procedure-arity f) 1)
      (λ (b) (make-being (make-posn (f (being-x b)) (being-y b)) (being-costume b)))]
     [(= (procedure-arity f) 2)
-     (λ (b) (make-being (f (being-x b) (being-y b)) (being-costume b)))]))
+     (λ (b) (let ((new-posn (f (being-x b) (being-y b))))
+              (if (posn? new-posn) (make-being new-posn (being-costume b))
+                  (begin (error "update-danger or update-target has been changed to accept an x- and y-coordinate, but is not returning a Posn.\n")
+                         new-posn))))]))
 
 ; reset : Being (Being->Being) -> Being
 ; returns a new being with the same costume, entering from the correct direction
@@ -215,7 +218,10 @@
             (λ (p k)(make-being               
                      (if (= (procedure-arity update-player*) 2) 
                          (make-posn (being-x p) (update-player* (being-y p) k))
-                         (update-player* (being-x p) (being-y p) k))
+                         (let ((new-posn (update-player* (being-x p) (being-y p) k)))
+                           (if (posn? new-posn) new-posn
+                               (begin (display "update-player has been changed to accept an x- and y-coordinate, but is not returning a Posn.\n")
+                                      new-posn))))
                      (being-costume p))))
            (onscreen? (if (= (procedure-arity onscreen*?) 1) 
                           (λ (b) (onscreen*? (being-x b)))
