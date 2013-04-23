@@ -9,12 +9,11 @@
 
 ;; STARTING WORLD
 (define START (make-world 0))
-(define NEXT (make-world 10))
 
 (define BACKGROUND (bitmap "Teachpacks/teachpack-images/bg.jpg"))
-(define DANGER (flip-horizontal (bitmap "Teachpacks/teachpack-images/dog.png")))
+(define DOG (flip-horizontal (bitmap "Teachpacks/teachpack-images/dog.png")))
 (define TARGET (scale .3 (bitmap "Teachpacks/teachpack-images/ruby.png")))
-(define PLAYER (scale .5 (bitmap "Teachpacks/teachpack-images/ninja.png")))
+(define PLAYER (bitmap "Teachpacks/teachpack-images/ninja.png"))
 (define CLOUD (bitmap "Teachpacks/teachpack-images/clouds.png"))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -23,7 +22,7 @@
 ;; draw-world: world -> Image
 ;; place DANGER onto BACKGROUND at the right coordinates
 (define (draw-world w)
-  (put-image DANGER 
+  (put-image DOG 
                (world-dogX w) 400
                BACKGROUND))
 
@@ -34,8 +33,6 @@
 ;; increase dogX by 10
 (define (update-world w)
   (make-world (+ (world-dogX w) 10) ))
-
-
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

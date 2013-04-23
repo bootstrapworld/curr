@@ -5,33 +5,31 @@
 
 ;; DATA:
 ;; The World is the x position of the dog
-(define-struct world (dogX rubyX catY))
+(define-struct world (dogX rubyX))
 
 ;; STARTING WORLD
-(define START (make-world 0 600 240))
-(define NEXT (make-world 10 595 240))
+(define START (make-world 0 600))
+(define NEXT (make-world 10 595))
 
 (define BACKGROUND (bitmap "Teachpacks/teachpack-images/bg.jpg"))
 (define DANGER (flip-horizontal (bitmap "Teachpacks/teachpack-images/dog.png")))
 (define TARGET (scale .3 (bitmap "Teachpacks/teachpack-images/ruby.png")))
-(define PLAYER (scale .5 (bitmap "Teachpacks/teachpack-images/ninja.png")))
+(define PLAYER (bitmap "Teachpacks/teachpack-images/ninja.png"))
 (define CLOUD (bitmap "Teachpacks/teachpack-images/clouds.png"))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; GRAPHICS FUNCTIONS:
 
 ;; draw-world: world -> Image
-;; place DANGER, TARGET, CLOUD and PLAYER onto BACKGROUND at the right coordinates
+;; place DANGER, TARGET, and CLOUD onto BACKGROUND at the right coordinates
 (define (draw-world w)
-  (put-image PLAYER
-             320 (world-catY w)  
-             (put-image TARGET
-                        (world-rubyX w) 300
-                        (put-image CLOUD
-                                   500 400  
-                                   (put-image DANGER 
-                                              (world-dogX w) 400
-                                              BACKGROUND)))))
+  (put-image TARGET
+               (world-rubyX w) 300
+               (put-image CLOUD
+                            500 400  
+                            (put-image DANGER 
+                                         (world-dogX w) 400
+                                         BACKGROUND))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; UPDATING FUNCTIONS:
@@ -40,8 +38,7 @@
 ;; increase dogX by 10, decrease rubyX by 5
 (define (update-world w)
   (make-world (+ (world-dogX w) 10) 
-              (- (world-rubyX w) 5)
-              (world-catY w)))
+              (- (world-rubyX w) 5)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; KEY EVENTS:
@@ -49,17 +46,16 @@
 ;; keypress: world string -> world
 ;; make catY respond to key events
 
-(define (keypress w key)
-  (cond
-    [(string=? key "up") (make-world (world-dogX w)
-                                     (world-rubyX w)
-                                     (+ (world-catY w) 10))]
-    [(string=? key "down") (make-world (world-dogX w)
-                                     (world-rubyX w)
-                                     (- (world-catY w) 10))]
-    [else (make-world (world-dogX w)
-                      (world-rubyX w)
-                      (world-catY w))]))
+
+
+
+
+
+
+
+
+
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; big-bang using the START world
@@ -70,5 +66,4 @@
 (big-bang START
           (on-tick update-world)
           (on-draw draw-world)
-          (on-key keypress)
           )

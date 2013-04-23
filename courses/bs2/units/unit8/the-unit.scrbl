@@ -29,7 +29,7 @@
            @item{Design Recipe Sign}
            @item{Language Table}
 	   @item{Cutouts of Cat and Dog images}
-           @item{The Ninja World 5 file [NW5.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=SLsSXazJB3" "WeScheme")] preloaded on students' machines}
+           @item{The Ninja World 6 file [NW6.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=CxLm7aj7PW" "WeScheme")] preloaded on students' machines}
            ]
 
 @preparation[

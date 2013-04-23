@@ -2,13 +2,13 @@
 
 @declare-tags[group pedagogy selftaught]
 @lesson[#:title "Keypress"
-        #:duration "30 minutes"]{
+        #:duration "35 minutes"]{
           @itemlist/splicing[
-            @item{We're going to use the Design Recipe to write a function @code{keypress} for Ninja World. Take a look at  @worksheet-link[#:page 28 #:name "Keypress"]. What's the first step in the Design Recipe?}
-            @item{Step 1 - Contract and Purpose Statement  @itemlist/splicing[@item{What's the Name of our function? keypress}
-                @item{What about the Domain? What do we need to know in order to handle a keypress? Well, we need the World - otherwise we wouldn't know what to update! But we also need to know what key was pressed. What are @code{"up"} and @code{"down"}? A number, a string, a boolean or an image? We need a World and a String}
+            @item{We're going to use the Design Recipe to write a function @code{keypress} for Ninja World. Take a look at  @worksheet-link[#:page 28 #:name "Keypress"] in your workbook. What's the first step in the Design Recipe?}
+            @item{Step 1 - Contract and Purpose Statement  @itemlist/splicing[@item{What's the Name of our function? keypress.}
+                @item{What about the Domain? What do we need to know in order to handle a keypress? Well, we need the World - otherwise we wouldn't know what to update! But we also need to know what key was pressed. What are @code{"up"} and @code{"down"}? A number, a string, a boolean or an image? We need a World and a String.}
                 @item{The Range? A world.}
-                @pedagogy{@item{What's a good purpose statement for this function? Let students discuss.}}]}
+                @item{What's a good purpose statement for this function? @pedagogy{Let students discuss.}}]}
             @item{Step 2 - Examples  @itemlist/splicing[ 
                 @item{Let's make an example using our @code{START} world, when the user presses @code{"up"}:}
                  @code[#:multi-line #t]{(EXAMPLE (keypress START "up") 
@@ -44,16 +44,28 @@
                 @item{So what's the result, if the key is @code{"up"}? Well, we can look back at our examples for help! Just copy in the example we made for @code{"up"}, and change that @code{START} to a @code{w}: }
                  @code[#:multi-line #t]{(define (keypress w key)
 	(cond
-		[(string=? key "up")  (make-world (world-dogX w) (world-rubyX w) (+ (world-catY w) 10))]))}
+		[(string=? key "up")  (make-world (world-dogX w) 
+                                                    (world-rubyX w) 
+                                                       (+ (world-catY w) 10))]))}
                 @item{What about the @code{"down"} key? Go ahead and write the down branch yourself.}
                  @code[#:multi-line #t]{(define (keypress w key)
 	(cond
-                [(string=? key "up")  (make-world (world-dogX w) (world-rubyX w) (+ (world-catY w) 10))]
-		[(string=? key "down")  (make-world (world-dogX w) (world-rubyX w) (- (world-catY w) 10))]))}
+                [(string=? key "up")  (make-world (world-dogX w) 
+                                                    (world-rubyX w) 
+                                                       (+ (world-catY w) 10))]
+                                                       
+		[(string=? key "down")  (make-world (world-dogX w) 
+                                                      (world-rubyX w) 
+                                                        (- (world-catY w) 10))]))}
                 @item{What about any other key? Should the world change if the user hits the spacebar, or the @code{"r"} key? No. So we add add "else" branch, which returns the same world that was passed in. }
                  @code[#:multi-line #t]{(define (keypress w key)
 	(cond
-                [(string=? key "up")  (make-world (world-dogX w) (world-rubyX w) (+ (world-catY w) 10))]
-		[(string=? key "down")  (make-world (world-dogX w) (world-rubyX w) (- (world-catY w) 10))]
+                [(string=? key "up")  (make-world (world-dogX w) 
+                                                    (world-rubyX w) 
+                                                      (+ (world-catY w) 10))]
+                                                      
+		[(string=? key "down")  (make-world (world-dogX w) 
+                                                      (world-rubyX w) 
+                                                        (- (world-catY w) 10))]
                 [else w]))}]}
             @pedagogy{@item{If students finish early, have them add a keypress for "c", which causes the cat to jump to the center, or any other "cheat codes".}}]}

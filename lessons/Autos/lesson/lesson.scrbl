@@ -9,7 +9,7 @@
                  @item{First...the model of the car. That could be like..."Prius", "H2", "XTerra", or something else. What type would that be?}
                  @item{How about how many horsepowers my car has? How large the rims are? What color it is? The value, that the car is worth?}
                  @item{@tag[pedagogy]{Write on the board:} @itemlist/splicing[
-                                                              @item{model: String}
+                                                              @item{model: String @bitmap{images/car1.png}}
                                                                    @item{horsepower: Number}
                                                                    @item{rims: Number}
                                                                    @item{color: String}
@@ -32,7 +32,7 @@
                  @item{When I type @code{car1} into the interactions window and hit enter, what do you think I'll get back? Click run, and then try it out.}
                  @item{Does this make sense? What happened when we typed a number into the interactions window? We got that same number back! What about strings? Images? Booleans? Right! If we don't do anything to our input...if we don't use any function on it...we get back exactly what we put in! We put in an auto, and we got back that auto.}
                  @item{Let's define another car; we can call it @code{new-car}. To start, how will I define this variable?}
-                 @code{(define new-car ( .....))}
+                 @code{(define new-car ( .....))} @bitmap{images/car3.png}
                  @item{Now what function do I use to make an auto? @code{make-auto}.}
                  @code{(define new-car (make-auto ...))}
                  @item{Which thing comes first in making my auto? @tag[pedagogy]{Check your contracts sheet if you don't remember: you wrote this down for a reason! @pedagogy{Have them walk you through the definition of @code{new-car}...for example:}}}
