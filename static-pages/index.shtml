@@ -19,7 +19,7 @@
 	<div id="body">
 		<div class="item">
 		<img src="/images/kids.jpg" class="item_img">
-		<h1>Curriculum</h1>
+		<h1>Materials</h1>
       <p>Bootstrap can be used flexibly, depending on your needs. The introductory module (<b><a href="courses/bs1/main.html">Bootstrap:1</a></b>) can be used as a self-contained course that focuses exclusively on the connections between programming fundamentals and Algebra. If you're a math teacher, and are looking for a fun way for students to practice and apply what they've learned, or a programming teacher who is looking for a rigorous introduction to basic functions and datatypes, you may find this module to be a perfect fit. If you're looking for a full-blown programming class, and want students to have the freedom to create more advanced games using data structures, events, and more, you'll want to continue to the second module (<b><a href="courses/bs2/main.html">Bootstrap:2</a></b>) to build on what students have done in the introductory course. We've listed the breakdown of concepts in the table below - take a look to find the best fit for you!
       <p/>
       <table width="100%">
