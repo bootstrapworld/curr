@@ -4,7 +4,7 @@
 @lesson[#:title "Accessor Functions"
         #:duration "5 minutes"]{
           @itemlist/splicing[ 
-            @item{Suppose you want to get the model OUT of @code{new-car}. The computer has a function for that, called @code{auto-model}. I can type @code{(auto-model new-car)} and get out @code{"Taurus"}. @tag[pedagogy]{Show this.}}
+            @item{Suppose you want to get the model OUT of @code{new-car}. The computer has a function for that, called @code{auto-model}. I can type @code{(auto-model new-car)} and get out @code{"Taurus"}. @pedagogy{Show this on the board.}}
             @item{I want you to practice taking the model out of your autos. Take @tag[pedagogy]{a minute and pull }the model out of EVERY auto you have, using @code{auto-model}}
             @item{@tag[pedagogy]{Flip back to your contract sheets. }What's the first part of a contract? The name! So what's the name of this function? @code{auto-model}}
             @item{What's the second part? The Domain! What do you think the domain is for auto-model? It's an auto!}

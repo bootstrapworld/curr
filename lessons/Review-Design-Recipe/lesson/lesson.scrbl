@@ -15,8 +15,8 @@
             @item{What is the name given to this input? @code{n}. How do you know? It's in the beginning of the definition! }
             @item{What's the Range of this function? Number. How do you know? The contract!}
             @item{Now let's talk about what the function does to its input. Look at the two EXAMPLEs, written below. @tag[pedagogy]{Raise your hand if you can tell me what happens when I type @code{(double 5)}.} @tag[selftaught]{What happens when I type @code{(double 0)}?} What about the next example?}
-            @item{What would happen if I changed the name of the input @code{n} to something else, like @code{x}. What else would have to change? @tag[pedagogy]{Keep asking more questions, to make sure they understand.}}
-            @pedagogy{@item{Okay..now it's time for a little team competition!}
+            @item{What would happen if I changed the name of the input @code{n} to something else, like @code{x}. What else would have to change? @pedagogy{Keep asking more questions, to make sure they understand.}}
+            @pedagogy{@item{Okay, now it's time for a little team competition!}
             @item{I'm going to give your teams some new function descriptions, and you'll need to create the contract, two examples, and the definition.}}
             @item{@tag[pedagogy]{We'll do one to practice: } @tag[selftaught]{Let's practice defining functions:} First write only the contract and examples! The contract and each example will be worth one point apiece, for a maximum of three points. Write the contract and examples for a function called @code{triple}, which takes in a number as its input and multiplies it by 3. @tag[pedagogy]{You have one minute! GO!}}
             @pedagogy{@item{Walk around and help, while counting down... 3! 2! 1! Eyes on me!}}
@@ -29,4 +29,4 @@
                                @item{Write a function @code{mystery}, that takes in a number and subtracts 4}
                                @item{Write a function @code{redspot}, that takes in a number and draws a solid red circle, using the number as the radius}
             ]
-            @pedagogy{@item{NOTE: the last one is very difficult, and kids probably won't know quite what to do. This is intentional! Given them some time to be frustrated with it, and then cut it short.}}]}
+            @pedagogy{@item{NOTE: the last one is very difficult, and kids probably won't know quite what to do. This is intentional! Give them some time to be frustrated with it, and then cut it short.}}]}

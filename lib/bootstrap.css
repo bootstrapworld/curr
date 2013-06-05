@@ -129,6 +129,7 @@ blockquote.pedagogy p{ display: inline;}
     text-align: center;
     font-size: 32px;
     font-weight: bold;
+    font-family: sans-serif;
 }
 
 
@@ -327,8 +328,6 @@ select{
 	padding:			0px; 
 	margin-top:			2px;
 	z-index:			0;}
-
-li{margin: 3px 0px;}
 
 
 /******************************************************************************

@@ -2,10 +2,10 @@
 
 @declare-tags[group pedagogy selftaught]
 @lesson[#:title "Autobody Shop"
-        #:duration "30 minutes"]{
+        #:duration "25 minutes"]{
           @itemlist/splicing[
            @item{Now we know all about how to work with automobiles in Racket. What function makes an auto? @code{make-auto}. And which function draws that auto? @code{draw-auto}. But we don't just want to take an auto and give it right back. I said that we're running an autobody shop! You take people's cars and change them, making them better in some way, and then give them back to the customer. Let's figure out how to do that.}
-           @item{Turn to @worksheet-link[#:page 9 #:name "paint-job"] in your workbooks. @tag[pedagogy]{I know that you're really good at the design recipe by now, so I want you to fill out the page as we talk. Make sure they're able to keep up, and take time to let them write if need be!}}
+           @item{Turn to @worksheet-link[#:page 9 #:name "paint-job"] in your workbooks. @tag[pedagogy]{I know that you're really good at the design recipe by now, so I want you to fill out the page as we talk. @pedagogy{Make sure they're able to keep up, and take time to let them write if need be!}}}
            @item{Let's write a function called @code{paint-job}, which changes the color of an automobile.}
            @item{That's our problem statement.}
            @item{What's the first step in the Design Recipe? Contract.}
@@ -18,9 +18,9 @@
            @item{The rim size shouldn't change with a paint job. So how do I get the rims out of car1? }
            @item{What about the color? Does that change in this example? Yes! It should be the string @code{"purple"}.}
            @item{How about the value? Did our problem statement say that the value changes? So how do I get the value out of car1? }
-           @pedagogy{@item{Make sure you're copying this down into your notebooks!Give them time to catch up writing.}}
+           @pedagogy{@item{Make sure you're copying this down into your notebooks! Give them time to catch up writing.}}
            @item{Let's do another example! This time we want to paint car2 green. What do I write for the first part of the example?} 
-           @item{See if you can finish off the rest of his example on your own.}
+           @item{See if you can finish off the rest of this example on your own.}
            @item{What's the next step in the Design Recipe? Definition. @tag[pedagogy]{Since you've done such a good job in your examples, this step becomes easy! }What two things change between these examples? The color and the auto! @tag[pedagogy]{Circle them. }So how many variables will your function need?}
            @item{Write the definition, using the examples to help you. Remember: All you have to do is copy the examples, changing the values to variables!}
            @pedagogy{@item{Okay - are you ready to try one on your own?}}

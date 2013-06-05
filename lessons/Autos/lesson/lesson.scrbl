@@ -1,15 +1,15 @@
 #lang curr/lib
 
 @declare-tags[group pedagogy selftaught]
-@lesson[#:title "Introduction"
+@lesson[#:title "Autos"
         #:duration "25 minutes"]{
           @itemlist/splicing[
             @item{Suppose you want to open up an autobody shop. You take people's cars and trick them out, giving them paint jobs, turbo-charging them, etc.}
-                 @item{What type of thing is an auto? Is it a number? String? Image? Boolean? Of course not. You could not describe all of the important things about an automobile with any one of those things. However, we could say that we care about a couple of things in our shop that can be described with these types. @tag[pedagogy]{Start a list on the board, with the variable name on one side, and the type on the other}}
+                 @item{What type of thing is an auto? Is it a number? String? Image? Boolean? Of course not. You could not describe all of the important things about an automobile with any one of those things. However, we could say that we care about a couple of things in our shop that can be described with these types. @pedagogy{Start a list on the board, with the variable name on one side, and the type on the other}}
                  @item{First...the model of the car. That could be like..."Prius", "H2", "XTerra", or something else. What type would that be?}
                  @item{How about how many horsepowers my car has? How large the rims are? What color it is? The value, that the car is worth?}
                  @item{@tag[pedagogy]{Write on the board:} @itemlist/splicing[
-                                                              @item{model: String}
+                                                              @item{model: String @bitmap{images/car1.png}}
                                                                    @item{horsepower: Number}
                                                                    @item{rims: Number}
                                                                    @item{color: String}
@@ -32,11 +32,11 @@
                  @item{When I type @code{car1} into the interactions window and hit enter, what do you think I'll get back? Click run, and then try it out.}
                  @item{Does this make sense? What happened when we typed a number into the interactions window? We got that same number back! What about strings? Images? Booleans? Right! If we don't do anything to our input...if we don't use any function on it...we get back exactly what we put in! We put in an auto, and we got back that auto.}
                  @item{Let's define another car; we can call it @code{new-car}. To start, how will I define this variable?}
-                 @code{(define new-car ( .....))}
+                 @code{(define new-car ( .....))} @bitmap{images/car3.png}
                  @item{Now what function do I use to make an auto? @code{make-auto}.}
                  @code{(define new-car (make-auto ...))}
-                 @item{Which thing comes first in making my auto? @tag[pedagogy]{Check your contracts sheet if you don't remember: you wrote this down for a reason! Have them walk you through the definition of @code{new-car}...for example:}}
+                 @item{Which thing comes first in making my auto? @tag[pedagogy]{Check your contracts sheet if you don't remember: you wrote this down for a reason! @pedagogy{Have them walk you through the definition of @code{new-car}...for example:}}}
                  @code{(define new-car (make-auto "Taurus" 300 20 "white" 5000))}
                  @item{Now when we type @code{new-car} into the interactions window, what do you expect to happen? Hit run and try it out. @tag[pedagogy]{Take a minute with your partner, and define}@tag[selftaught]{Define} two new variables@tag[pedagogy]{--one for each of your favorite cars}. Call them [yourname]-car (@code{nathan-car}, @code{sam-car}, @code{jill-car}, etc). It can be any kind of car that you want, as long as your struct has the right types in the right orders!}
-                 @item{You can see what your cars look like by using the function we've provided for you at the bottom of the screen. It's called @code{draw-auto}, and it takes an auto as input and gives you back an Image with your car in it. @item{Give them a few minutes to define and draw cars.}}
+                 @item{You can see what your cars look like by using the function we've provided for you at the bottom of the screen. It's called @code{draw-auto}, and it takes an auto as input and gives you back an Image with your car in it. @pedagogy{Give them a few minutes to define and draw cars.}}
                  ]}
