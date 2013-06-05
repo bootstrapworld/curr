@@ -20,7 +20,9 @@
 		<div class="item">
 		<img src="/images/kids.jpg" class="item_img">
 		<h1>Materials</h1>
-      <p>Bootstrap can be used flexibly, depending on your needs. The introductory module (<b><a href="courses/bs1/main.html">Bootstrap:1</a></b>) can be used as a self-contained course that focuses exclusively on the connections between programming fundamentals and Algebra. If you're a math teacher, and are looking for a fun way for students to practice and apply what they've learned, or a programming teacher who is looking for a rigorous introduction to basic functions and datatypes, you may find this module to be a perfect fit. If you're looking for a full-blown programming class, and want students to have the freedom to create more advanced games using data structures, events, and more, you'll want to continue to the second module (<b><a href="courses/bs2/main.html">Bootstrap:2</a></b>) to build on what students have done in the introductory course. We've listed the breakdown of concepts in the table below - take a look to find the best fit for you!
+      <p>If you're a math teacher, and are looking for a fun way for students to practice and apply what they've learned, or a programming teacher who is looking for a rigorous introduction to basic functions and datatypes, you'll find <b><a href="courses/bs1/main.shtml">Bootstrap:1</a></b> to be a perfect fit!
+      
+      <p>If you're looking for a full-blown programming class, and want students to have the freedom to create more advanced games using data structures, events, and more, you'll want to continue to the second module (<b><a href="courses/bs2/main.shtml">Bootstrap:2</a></b>) to build on what students have done in the introductory course. We've listed the breakdown of concepts in the table below - take a look to find the best fit for you!
       <p/>
       <table width="100%">
         <thead>
@@ -28,7 +30,7 @@
         </thead>
         <tr class="bs1">
           <td class="col">
-            <b><a href="courses/bs1/main.html">Starting with Bootstrap:1...</a></b>
+            <b><a href="courses/bs1/main.shtml">Starting with Bootstrap:1...</a></b>
             <p/>Students create a simple, 3-character game involving a player, a target and a danger. They design what each character looks like, and use algebraic concepts to detect collisions, handle keystrokes, and determine how they move and interact.
           </td>
           <td>
@@ -61,7 +63,7 @@
         </tr>
         <tr class="bs2">
           <td class="col">
-            <b><a href="courses/bs2/main.html">Continuing to Bootstrap:2...</a></b>
+            <b><a href="courses/bs2/main.shtml">Continuing to Bootstrap:2...</a></b>
             <p/>Students learn how the world-based event loop that drives their Bootstrap 1 game works, and use it to create animations using simple datatypes for their world. They then learn about data structures, and design a World structure for a sophisticated game of their own design.
           </td>
           <td>
