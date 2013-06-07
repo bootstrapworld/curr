@@ -337,20 +337,19 @@
     (printf "WARNING: Use of code that supplied more than one of contract/purpose/body~n"))
   (let ([allcode (string-append (if contract (string-append "; " contract "\n") "")
                                 (if purpose (string-append "; " purpose "\n") "")
-                                (string-join body "\n"))])
-    (cond-element 
-     [html (if multi-line 
-               (sxml->element `(textarea ,allcode))
-               (sxml->element `(tt ,allcode)))]               
-     [else allcode])))
-;;;
-;  (cond [multi-line
-;         (manual:codeblock (string-append (if contract (string-append "; " contract "\n") "")
-;                                          (if purpose (string-append "; " purpose "\n") "")
-;                                          (apply string-append body)))]
-;        [contract (manual:code (string-append "; " contract))]
-;        [purpose (manual:code (string-append "; " purpose))]
-;        [(not (null? body)) (manual:code (apply string-append body))]))
+                                (apply string-append body) ;(string-join body "\n")
+                                )])
+    (cond [multi-line (manual:codeblock allcode)]
+          [else (manual:code allcode)])))
+
+;; Kathi note: 6/7/13
+;; This is the previous code, which we used instead of manual:code(block)
+;; no idea why we stopped using code(block) -- switched back to re-enable colored rendering
+;    (cond-element 
+;     [html (if multi-line 
+;               (sxml->element `(textarea ,(string-append "\n" allcode "\n")))
+;               (sxml->element `(tt ,allcode)))]               
+;     [else allcode])))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 

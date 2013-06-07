@@ -58,7 +58,7 @@
                                   #:hide-project-name? #t
                                   #:hide-footer? #t
                                   #:hide-definitions? #t
-                                  #:autorun? #t
+                                  #:auto-run? #t
                                   #:interactions-text "(overlay (circle 10 \"solid\" \"blue\")
          (rectangle 30 8 \"solid\" \"red\"))"]}
                    @teacher{Before students type in the code and try it out, ask the class what they think will happen - what will the size be? The color? The text?}}
