@@ -14,7 +14,7 @@
 (define BACKGROUND (bitmap "Teachpacks/teachpack-images/bg.jpg"))
 (define DANGER (flip-horizontal (bitmap "Teachpacks/teachpack-images/dog.png")))
 (define TARGET (scale .3 (bitmap "Teachpacks/teachpack-images/ruby.png")))
-(define PLAYER (scale .5 (bitmap "Teachpacks/teachpack-images/ninja.png")))
+(define PLAYER (bitmap "Teachpacks/teachpack-images/ninja.png"))
 (define CLOUD (bitmap "Teachpacks/teachpack-images/clouds.png"))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -48,6 +48,7 @@
 ;; on a key-event, use keypress
 
 (big-bang START
-          (on-tick update-world)
+          (on-tick update-world) 
           (on-draw draw-world)
           )
+          
