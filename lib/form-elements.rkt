@@ -337,19 +337,15 @@
     (printf "WARNING: Use of code that supplied more than one of contract/purpose/body~n"))
   (let ([allcode (string-append (if contract (string-append "; " contract "\n") "")
                                 (if purpose (string-append "; " purpose "\n") "")
-                                (apply string-append body) ;(string-join body "\n")
+                                (apply string-append body) 
                                 )])
-    (cond [multi-line (manual:codeblock allcode)]
-          [else (manual:code allcode)])))
-
-;; Kathi note: 6/7/13
-;; This is the previous code, which we used instead of manual:code(block)
-;; no idea why we stopped using code(block) -- switched back to re-enable colored rendering
-;    (cond-element 
-;     [html (if multi-line 
-;               (sxml->element `(textarea ,(string-append "\n" allcode "\n")))
-;               (sxml->element `(tt ,allcode)))]               
-;     [else allcode])))
+    ;; we do not use the built-in Racket code formatting in order
+    ;; to let codemirror can handle it instead
+    (cond-element 
+     [html (if multi-line 
+               (sxml->element `(textarea ,(string-append "\n" allcode "\n")))
+               (sxml->element `(tt ,allcode)))]               
+     [else allcode])))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
