@@ -16,9 +16,9 @@
              @item{But you don't want your image to be at the center of the screen. Look back at your @code{START} world picture a couple pages back...you made a note of which coordinates you want that image to be on, above the background!}
              @pedagogy{@item{Show students the 'staircase' pattern that forms when they put the coordinates and each image on their own line. For example:}}
              @tag[selftaught]{@item{Start with something that looks like this:}}
-                             @code[#:multi-line #t]{(place-image IMAGE
-                                                                 320 240
-                                                                 BACKGROUND)}
+                             @code[#:multi-line #t]{(put-image IMAGE
+                                                               320 240
+                                                               BACKGROUND)}
              @item{Now try adding another one of the images from your world. Remember, you're placing another image on top of the one that this staircase has already created! Keep adding to it, until you have a stack of all of the images in your game.}
              @pedagogy{@item{Work with small groups to complete this section. When students finish writing draw-world, have them type their NEXT world and draw-world into their games, in the GRAPHICS section.}}
              @pedagogy{@item{If they type (draw-world START) into the interactions window, they can see a screenshot of their game.}}]}
