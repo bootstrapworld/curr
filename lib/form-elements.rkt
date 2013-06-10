@@ -55,6 +55,7 @@
          exercise
          skit
          demo
+         activity
          review
          unit-separator
          unit-descr
@@ -658,6 +659,10 @@
   (compound-paragraph (bootstrap-sectioning-style "BootstrapDemo")
                       (decode-flow (cons "Demo: " body))))
 
+(define (activity . body)
+  (nested #:style (bootstrap-div-style "activity")
+        (interleave-parbreaks body)))
+  
 
 (define (review . body)
   (list "Review:"
