@@ -2,7 +2,7 @@
 
 @declare-tags[group pedagogy selftaught]               
 @lesson[#:title "Randomizing Ninja World" 
-        #:duration "30 minutes"]{
+        #:duration "15 minutes"]{
           @itemlist/splicing[ 
           @item{If you open up your Ninja World file, you'll see our (almost) completed game! However, right now the ruby and dog appear at the same part of the screen every time, making this a pretty easy game. What will the y-coordinate of the dog always be? What about the ruby?}
           @item{Instead of appearing at the top of the screen every time, what if we could make the dog show up at a random y-coordinate every time it goes off the screen?}

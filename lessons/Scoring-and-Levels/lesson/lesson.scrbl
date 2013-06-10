@@ -3,7 +3,7 @@
 @declare-tags[group pedagogy selftaught] 
 
 @lesson[#:title "Scoring and Levels"
-        #:duration "50 minutes"]{
+        #:duration "35 minutes"]{
           @itemlist/splicing[ 
           @item{We've got Ninja World looking great! But right now there's not a lot of variety. The player avoids the dog and gets the ruby over and over again. We should mix things up a bit: how about adding new levels?}
           @item{Typically a game would progress if the player has reached a certain goal. (Collected a certain number of rubies, destroyed a certain number of zombies, or reached a certain score). Let's start by adding a scoring system to our Ninja World game.}
