@@ -45,7 +45,6 @@
 
 }
 
-@(include-lesson (lib "curr/lessons/Intro-and-Expectations/lesson/lesson.scrbl"))
 
 @(include-lesson (lib "curr/lessons/Ninja-Cat-Demo/lesson/lesson.scrbl"))
 

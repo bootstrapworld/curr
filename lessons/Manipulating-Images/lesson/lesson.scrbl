@@ -40,7 +40,7 @@
            @point{@student{@bitmap{images/image1.png}Imagine that we wanted to make an image of a simple satellite that looks like the one shown here. This image contains a blue circle and a red rectangle, with the circle on top of the rectangle.  Racket has a function called @code{overlay}, which lets you put one image on top of another. Here is its contract, and a purpose statement that explains what it does:
                             @code[#:multi-line ""]{; overlay : Image Image -> Image
                                                    ; Draws the first image on top of the second image}}
-                   @teacher{Start out by reminding students why contracts matter: they specify @italic{types} instead of @italic{values<}, which makes them really flexible! You can demonstrate this by showing them the code for a simple  image, and then replacing the size of the triangle with a sub-expression:
+                   @teacher{Start out by reminding students why contracts matter: they specify @italic{types} instead of @italic{values}, which makes them really flexible! You can demonstrate this by showing them the code for a simple  image, and then replacing the size of the triangle with a sub-expression:
                             @code[#:multi-line ""]{; simple image expression
                                   (star 50
                                   "solid"

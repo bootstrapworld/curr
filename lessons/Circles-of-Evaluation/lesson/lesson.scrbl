@@ -1,45 +1,75 @@
 #lang curr/lib
-@(require 2htdp/image)
 
-@declare-tags[pedagogy selftaught group]
+@declare-tags[management]
 
-@lesson[#:title "Circles of Evaluation"
-        #:duration "20 minutes"
-        ]{
- @itemlist/splicing[
-   @pedagogy{@item{Draw a big circle on the board. (Tip: make this exciting for kids! Ask them to give you a drumroll, and then proudly announce what this Circle is called!)}}
-    @item{This is called the Circle of Evaluation, and believe it or not it is a @italic{fully-functioning computer}. That is, we can write programs inside the Circle, and it will evaluate them the exact same way that the computer will. If you know how to draw a circle of evaluation for a program, you'll know exactly how to write the code.}
-   @item{Write 4 + 5 (jumbled, in no order in particular) in the Circle of Evaluation.}
-   @item{@exercise{What is the value of the stuff in the circle? Let's figure out the math first. (Write the equation.) We know we're adding, so we start with the plus sign. ("+" in the middle.) Then we add 5 and 4 on either side. ("5 + 4".) Does it matter if I write (4 + 5)?}}
-   @pedagogy{@item{Let there be subtraction!}}
-   @pedagogy{@item{@exercise{Write a subtraction example in the Circle of Evaluation (again, jumbled), and ask students to evaluate it. Typically, students will realize that there are two possible answers! The lesson here is that the order of inputs matters. If necessary, have them type examples into the Interactions window to see that swapping the inputs gives different results!}}}
-   @tag[selftaught]{@item{@exercise{Write a subtraction example in the Circle of Evaluation and evaluate it. @think-about[
-         #:question "How many possible answers are there?"
-         #:answer "There are two possible answers. For an example, if you put a 3, 5, and '-' sign in the Circle of Evaluation, you can either have 3 - 5, which is -2, or you can have 5 - 3, which is 2."]}}}
-   @pedagogy{@item{@exercise{Write 4 + 5 * 6 in a Circle of Evaluation, and ask students what they think the value is. As with subtraction, have them discover that order of operations matters, and use the actual formulas to demonstrate: ("5 * 6 + 4", "4 * 5 + 6")}}}
-   @tag[selftaught]{@item{@exercise{Write 4 + 5 * 6 in a Circle of Evaluation. What do you think the value is?}}}
-   @item{We need to improve our Circle of Evaluation, so we don't run into this problem. Let's use the two solutions we came up with: @itemlist/splicing[
-      @item{all circles have one function @bitmap{images/1.5.png}}
-      @item{it matters in what order the arguments are written-We will always read and compute inputs from @bold["left to right"].}]}
-   @item{We'll separate the function from the inputs by drawing a line between them: the function is above the line, the inputs are below.}
-   @item{@exercise{How do we compute this program? Well, our new rule tells us to look at the left first: what is the value of 6? (6, of course!) Now we look at the right: that's a new circle, so we have to evaluate that first. What is the left-hand side? A 4! And the right? A 5! What are we doing to the 4 and 5? That's right, we're adding. What do we get when we add 4 and 5? (Replace rightmost circle with 9.)}}
-   @item{Now we have two numbers. @pedagogy{What are we doing to 6 and 9? (Replace circle contents with 54.)} 
-         @tag[selftaught]{@think-about[
-         #:question "What are we doing to 6 and 9?"
-         #:answer "Multiply them to get 54."]}}
-   @item{We write this in Racket the same way. We always put parens before a function and after its inputs (Write the parens and the "*"). In order to apply this function, we need to compute the left side and then the right. The left side is the number 6, so we can just write that in. @code{(* 6 ____)}}
-   @item{The right side happens to be another Circle of Evaluation (more parens), so we apply the same rules there: write the function and then look at the left and the right. These are numbers, so we can write them in directly. @code{(* 6 (+ 4 5))}}
-   @item{@exercise{Try writing this in the Interactions window, and hit "enter". What did you end up with? Now try writing in the complex example we used. Did you get the same answer?  @bitmap{images/1.6.png}
-                  @tag[selftaught]{@embedded-wescheme[#:id "Circles of Evaluation"
-                                                      #:definitions-text "; enter in your equations down in the interactions window to test the result"]}}}
-   @item{@think-about[#:question @list{@tag[group]{With your partner:} Try to come up with more examples - can you figure out how to subtract three numbers?}
-                      #:answer "One example would be to subtract 1, 2, and 3. There are multiple ways to do this. You can do 1 - (2 - 3) which yields 0 or 3 - (2 - 1) which yields 2."]}
-   @pedagogy{@item{Let students discuss briefly, but usher them along to the solution using nested circles. They'll have plenty of practice soon!}}
-   @item{I can't put three numbers in the circle, because there's no way to tell the computer which two numbers should be subtracted first. Is it (2 - 3) - 5, or 2 - (3 - 5)?}
-   @item{Well, if a complete circle evaluates to a number, and numbers go inside circles, why not try putting circles inside circles?}
-   @pedagogy{@item{Have students practice circles - make it into a game!}}
-   @item{There are several exercises provided on @worksheet-link[#:page 4 #:name "Circles-of-Evaluation-Practice"] of the student workbook.}
-   @item{Some common bugs when writing simple arithmetic in Racket code: @itemlist[@item{Do your parentheses match? Be sure that you have one to open each circle and close each circle.}
-                                                                     @item{This means that you need a parenthesis before every function, and there have to be the same number of opening and closing parentheses.}
-                                                                     @item{Did you put spaces between your function and your inputs? @code{1 1} is not the same as @code{11}.}
-                                                                     @item{Remember: things like @code{+} and @code{-} are functions. The numbers that they act on, for example the @code{3} and @code{2} in @code{(+ 3 2)} are called inputs.}]}]}
+@lesson/studteach[
+     #:title "Circles of Evaluation"
+     #:duration "20 minutes"
+     #:overview "StStudents identify the order of operations for complex arithmetic expressions through diagramming (circles) and solving (the numerical answer)"
+     #:learning-objectives @itemlist[@item{Make the jump from PEMDAS to function composition, when thinking about arithmetic}
+                                      @item{Students are introduced to Racket syntax}]
+     #:product-outcomes @itemlist[@item{Students convert between multiple representations of arithmetic (Conventional, Circles of Evaluation, and Racket) for several examples}]
+     #:standards @itemlist[@item{}]
+     #:materials @itemlist[@item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}]
+     #:preparation @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket (If using DrRacket, make sure the Ninja.rkt file is loaded)}
+                              @item{Student Workbooks, and something to write with}]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[
+                @point{@student{Up to now, the only programs you know how to write are very simple: just Numbers, which evaluate to themselves. But suppose you want to @italic{do something} to those Numbers? What if you wanted to add, subtract, multiply or divide them?}
+                        @teacher{}
+                        }
+                
+                @point{@student{Adding, subtracting, multipying and dividing are all examples of @italic{functions}: operations that take in certain kinds of values and produce a new value. You've probably used these functions many times, with lots of different numbers! A useful way to look at these functions is called the @italic{Circle of Evaluation.}}
+                        @teacher{This section benefits enormously from visual aids, diagrams, etc. Make sure you have plenty of board space to draw examples! @management{(Tip: make this exciting for kids! Ask them to give you a drumroll, and then proudly announce what this Circle is called!)}}
+                        }
+                @point{@student{We can write programs inside the Circle, and it will evaluate them the exact same way that the computer will. If you know how to draw a Circle of Evaluation for a program, you'll know exactly how to write the code.}
+                        @teacher{}
+                        }
+                @point{@student{<INSERT IMAGE> Without rules, however, it can be hard to figure out what a program is supposed to do. Does this Circle represent 4-5 or 5-4? }
+                        @teacher{@management{Write 4 - 5 (jumbled, in no order in particular) in the Circle of Evaluation.}}
+                        }
+                @point{@student{To eliminate this confusion, Circles of Evaluation have two rules: (1) All circles have one function, which we will draw at the top of the circle. (2) It matters in what order the inputs are written - We will always read and compute inputs from @bold["left to right"].}          
+                        @teacher{}
+                        }
+                @point{@student{@bitmap{images/1.5.png}<SPLIT THIS IMAGE INTO TWO> This Circle of Evaluation is an example that follows these rules. How do we compute this program? (1) We know we are multiplying because that's the function at the top of the Circle (2) The Number 6 comes first, because it's on the left-hand side and (3) On the right-hand side is @italic{the result of adding 4 and 5}, because that expression is a separate circle altogether.}
+                        @teacher{Work through several of these examples with students, asking them to come up with arithmetic expressions and then convert them into Circles, or giving them Circles and having them translate them back into arithmetic.}
+                        }
+                @point{@student{<SIMPLE CIRCLE IMAGE> The Circles of Evaluation are also easy to convert into computer programs. To translate a Circle of Evaluation into a program, begin with an open parenthesis ("("), and then the function written at the top of the circle. Then translate the inputs from left to right, adding a closing parenthesis (")") when you're done. Take a look at the example below. What happens when you hit Return at the end of this line? Try using different numbers and different functions.
+                                 @embedded-wescheme[#:id "Circle1"     
+                                  #:height 100
+                                  #:hide-toolbar? #t
+                                  #:hide-project-name? #t
+                                  #:hide-footer? #t
+                                  #:hide-definitions? #t
+                                  #:interactions-text "(+ 4 5)"]}
+                        @teacher{Have students practice converting simple Circles of Evaluation into code.}
+                        }
+                @point{@student{When a Circle of Evaluation has other circles inside of it, the translation still follows the same rules: each Circle requires a new set of parentheses. Here's a more complex example, using two circles <CIRCLE IMAGE>
+                                @embedded-wescheme[#:id "Circle2"     
+                                  #:height 100
+                                  #:hide-toolbar? #t
+                                  #:hide-project-name? #t
+                                  #:hide-footer? #t
+                                  #:hide-definitions? #t
+                                  #:interactions-text "(* 6 (+ 4 5))"]}
+                        @teacher{}
+                        }
+                @point{@student{What happens if you have too many parentheses? Too few? What if you forget to put a space between a function and one of the inputs? Experiment with each of these bugs, and see what kind of error message comes back.
+                @embedded-wescheme[#:id "Circle3"     
+                                  #:height 100
+                                  #:hide-toolbar? #t
+                                  #:hide-project-name? #t
+                                  #:hide-footer? #t
+                                  #:hide-definitions? #t
+                                  #:interactions-text "(-2 1)"]}
+                        @teacher{}
+                        }
+                @point{@student{Complete the exercises provided on @worksheet-link[#:page 4 #:name "Circles-of-Evaluation-Practice"] of the student workbook.}
+                        @teacher{}
+                        }
+                         ]}
