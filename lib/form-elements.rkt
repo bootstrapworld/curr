@@ -661,7 +661,7 @@
 
 (define (activity . body)
   (nested #:style (bootstrap-div-style "activity")
-        (interleave-parbreaks body)))
+        body))
   
 
 (define (review . body)
