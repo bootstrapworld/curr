@@ -42,17 +42,18 @@
                         @teacher{@management{Draw students' attention to the Language Table (see Lesson Overview for Unit 1), which currently sits empty. Add "Numbers" to the Types section of the language table.}}
                         }
                 
-                @point{@student{Try other numbers, like @code{10345017} (or other big numbers), and @code{-2} (or other negatives!). Is there a limit to how big a number can be? What happens if you write a decimal? What happens when you click on a decimal, like @code{1.5}? You get a new type of number, a fraction, like @code{3/4}.}
+                @point{@student{@activity{Try other numbers, like @code{10345017} (or other big numbers), and @code{-2} (or other negatives!). Is there a limit to how big a number can be? What happens if you write a decimal? What happens when you click on a decimal, like @code{1.5}? You get a new type of number, a fraction, like @code{3/4}.}}
                         @teacher{The editing environment evaluates all fractions and returns them as decimals by default. This can be surprising to students at first, so you may want to take a moment to explain what's going on, and show them that these decimals can be converted back to fractions just by clicking on them.}
                         }
                 
-                @point{@student{The computer obviously knows about Numbers, but what happens if you type in something that it @italic{doesn't} know about? Will it complain? Crash? Guess? Try typing @code{dog} into the Interactions window.
+                @point{@student{@activity{The computer obviously knows about Numbers, but what happens if you type in something that it @italic{doesn't} know about? Will it complain? Crash? Guess? Try typing @code{dog} into the Interactions window.
                                                                                                                               @embedded-wescheme[#:id "Exploring bugs"                                                                                            #:height 100
                                   #:hide-toolbar? #t
                                   #:hide-project-name? #t
                                   #:hide-footer? #t
                                   #:hide-definitions? #t
                                   #:interactions-text "dog"]}
+                                 }
                         @teacher{Have students read the error message aloud, and discuss what it means.}
                         }
                 

@@ -155,6 +155,7 @@ ul.teacherNotes .embedded-wescheme{width: 500px;}
 
 .management{font-style: oblique;}
 .exercises{width: 800px;}
+.activity{padding: 10px; background: rgba(200,200,255,0.5); border-top: dashed 1px black; border-bottom: dashed 1px black;  float: left;}
 
 img{float: right;}
 img.video{width: 20px; height: 20px; padding: 0px; margin: 0px;}

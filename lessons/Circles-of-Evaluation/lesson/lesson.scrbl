@@ -20,14 +20,14 @@
                 )
       ]{
         @points[
-                @point{@student{Up to now, the only programs you know how to write are very simple: just Numbers, which evaluate to themselves. But suppose you want to @italic{do something} to those Numbers? What if you wanted to add, subtract, multiply or divide them?}
+                @point{@student{So far, the only programs you know how to write are very simple: just Numbers, which evaluate to themselves. But suppose you want to @italic{do something} to those Numbers? What if you wanted to add, subtract, multiply or divide them?}
                         @teacher{}
                         }
                 
                 @point{@student{Adding, subtracting, multipying and dividing are all examples of @italic{functions}: operations that take in certain kinds of values and produce a new value. You've probably used these functions many times, with lots of different numbers! A useful way to look at these functions is called the @italic{Circle of Evaluation.}}
                         @teacher{This section benefits enormously from visual aids, diagrams, etc. Make sure you have plenty of board space to draw examples! @management{(Tip: make this exciting for kids! Ask them to give you a drumroll, and then proudly announce what this Circle is called!)}}
                         }
-                @point{@student{We can write programs inside the Circle, and it will evaluate them the exact same way that the computer will. If you know how to draw a Circle of Evaluation for a program, you'll know exactly how to write the code.}
+                @point{@student{We can write programs inside this Circle, and it will evaluate them the exact same way that the computer will. If you know how to draw a Circle of Evaluation for a program, you'll know exactly how to write the code.}
                         @teacher{}
                         }
                 @point{@student{<INSERT IMAGE> Without rules, however, it can be hard to figure out what a program is supposed to do. Does this Circle represent 4-5 or 5-4? }
@@ -69,7 +69,7 @@
                                   #:interactions-text "(-2 1)"]}
                         @teacher{}
                         }
-                @point{@student{Complete the exercises provided on @worksheet-link[#:page 4 #:name "Circles-of-Evaluation-Practice"] of the student workbook.}
+                @point{@student{@activity{Complete the exercises provided on @worksheet-link[#:page 4 #:name "Circles-of-Evaluation-Practice"] of the student workbook.}}
                         @teacher{}
                         }
                          ]}
