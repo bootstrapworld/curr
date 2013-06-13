@@ -7,7 +7,7 @@ p, .SIntrapara {padding: 0; margin: 0;}
 body{
 	padding:      0px;
 	margin:       0px;
-  background:   no-repeat url("http://www.bootstrapworld.org/curriculum/BS1-sp2012/images/bootBG.png") fixed bottom right;
+  background:   no-repeat url("http://www.bootstrapworld.org/images/bootBG.png") fixed bottom right;
   background-color: #f5deb3;
 	max-width:    800px;
   font-family:  Times;
@@ -127,6 +127,7 @@ blockquote.pedagogy p{ display: inline;}
     text-align: center;
     font-size: 32px;
     font-weight: bold;
+    font-family: sans-serif;
 }
 
 
@@ -286,8 +287,6 @@ select{
 	padding:			0px; 
 	margin-top:			2px;
 	z-index:			0;}
-
-li{margin: 3px 0px;}
 
 
 /******************************************************************************

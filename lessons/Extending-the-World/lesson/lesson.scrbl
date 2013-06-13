@@ -9,10 +9,10 @@
            @item{Yes it does! We need to put the @code{TARGET} image on top of everything we have so far. Add the @code{TARGET} now, so it shows up when you click "Run". @tag[pedagogy]{Go!}}
            @item{Okay, so now suppose the ruby is flying across the screen, moving left slowly at 5 pixels each frame. Now do we need to modify the World? Yes! Why? Because something is changing! Specifically, the x-coordinate of the ruby!}
            @item{What do I need to change in my world struct? }
-           @item{How have our contracts changed? @tag[pedagogy]{(Call on kids until you get all three, and write out the contracts for them) }}
+           @item{How have our contracts changed? @tag[pedagogy]{(Call on kids until you get all three (@code{make-world, world-dogX, world-rubyX}), and write out the contracts for them). }}
            @item{Okay, let's go through the code, line-by-line, and see what changes. Look at our START variable - does that need to change? Yes! It uses make-world, which now requires two inputs in it's Domain. So what should the ruby's x-coordinate be when the simulation starts? How about 600? }
            @item{Now change the definition of @code{NEXT}. Don't forget to think about how the ruby's x-coordinate has changed!}
-           @item{Do our variable definitions need to change? No. Why not?}
+           @item{Do our image variable definitions need to change? No. Why not?}
            @item{What about @code{draw-world}? Does the contract change? No! The contract says it takes a World as it's Domain, and it still does. All we've changed is what's IN a world. Does @code{draw-world} still produce an Image? Yes.}
            @item{What needs to change about the body of @code{draw-world}? The ruby's x-coordinate should be pulled from our World structure!}
            @item{What about @code{update-world}? Does the contract change? No! Why?}

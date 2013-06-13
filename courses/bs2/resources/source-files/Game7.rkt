@@ -1,12 +1,7 @@
 ;; The first three lines of this file were inserted by DrRacket. They record metadata
 ;; about the language level of this file in a form that our tools can easily process.
-#reader(lib "htdp-beginner-reader.ss" "lang")((modname SimpleGame) (read-case-sensitive #t) (teachpacks ()) (htdp-settings #(#t constructor repeating-decimal #f #t none #f ())))
+#reader(lib "htdp-beginner-reader.ss" "lang")((modname Game7) (read-case-sensitive #t) (teachpacks ()) (htdp-settings #(#t constructor repeating-decimal #f #t none #f ())))
 (require "Teachpacks/bootstrap-teachpack.rkt")
-
-;; This is a game based on the 8 lessons of Bootstrap 2.
-;; It is not very exciting; it is not finished.
-;; Give the students the next two lessons to develop a better, complete game.
-;; See Teacher Game 2 for a "finished" game.
 
 ;; DATA:
 
@@ -24,9 +19,6 @@
 (define PLAYER (scale .7 (bitmap "Teachpacks/teachpack-images/archer.png")))
 (define ARROW (scale .5 (bitmap "Teachpacks/teachpack-images/arrow.png")))
 
-
-
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; GRAPHICS FUNCTIONS:
 
@@ -41,12 +33,7 @@
                                    (world-arrowX w) (+ 25 (world-archerY w))
                                    (put-image DANGER 
                                               (world-wumpusX w) 210
-                                              (put-image (text "Use spacebar to shoot the wumpus." 30 "green")
-                                                         400 85
-                                                         (put-image (text "Don't touch the bats, or you'll wake it up!" 30 "red")
-                                                                    400 50 
-                                                                    BACKGROUND)))))))
-
+                                              BACKGROUND)))))
 
 
 
@@ -56,7 +43,7 @@
 ;; UPDATING FUNCTIONS:
 
 ;; update-world: world -> world
-;; update-world adds 20 to arrowX and subtracts 40 from batX
+;; What does your update-world function do?
 
 (define (update-world w)
   (cond
@@ -72,21 +59,7 @@
                                               800
                                               (world-batX w)
                                               (world-arrowX w))]
-    [(collide? (world-wumpusX w) 210 50 (world-archerY w)) (make-world (world-wstatus w)
-                                                                       0
-                                                                       1000
-                                                                       (world-batX w)
-                                                                       (world-arrowX w))]
-    [(collide?  (world-batX w) 440 50 (world-archerY w)) (make-world (world-wstatus w)
-                                                                      0
-                                                                      (world-wumpusX w)
-                                                                      1500
-                                                                      (world-arrowX w))]
-    [(collide? (world-wumpusX w) 210 (world-arrowX w)(+ 25 (world-archerY w))) (make-world "asleep"
-                                                                                           (world-archerY w)
-                                                                                           800
-                                                                                           (world-batX w)
-                                                                                           900)]                                                  
+                                        
     [else (make-world (world-wstatus w)
                       (world-archerY w)
                       (world-wumpusX w)
@@ -101,7 +74,7 @@
 ;; KEY EVENTS:
 
 ;; keypress: world string -> world
-;; Moves the archer up and down by 10
+;; What does your keypress function do?
 
 (define (keypress w key)
   (cond
@@ -127,6 +100,8 @@
                       (world-arrowX w))]))
 
 
+
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; TESTS FOR COND:
 
@@ -144,22 +119,14 @@
 ;; line-length : number number -> number
 ;; Finds 1D distance 
 
-(define (line-length a b)
-  (cond
-    [(< a b) (- b a)]
-    [else (- a b)]))
 
 ;; distance : number number number number -> number
 ;; Finds the 2D distance between two points
 
-(define (distance x1 y1 x2 y2)
-  (sqrt (+ (sq (line-length x1 x2)) (sq (line-length y1 y2)))))
+
 
 ;; collide? : number number number number -> boolean
-;; determines whether two objects are within 50 pixels of each other
-
-(define (collide? x1 y1 x2 y2)
-  (< (distance x1 y1 x2 y2) 75))
+;; determines whether two objects are within 50 pixels of eachother
 
 
 

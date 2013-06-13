@@ -20,7 +20,7 @@ After the summer, this codebase has been maintained by:
   Emmanuel Schanzer
   Kathi Fisler
   Vicki Crosson
-  Emma
+  Emma Youndtsmith
 
 
 

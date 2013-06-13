@@ -14,7 +14,7 @@
 (define BACKGROUND (bitmap "Teachpacks/teachpack-images/bg.jpg"))
 (define DANGER (flip-horizontal (bitmap "Teachpacks/teachpack-images/dog.png")))
 (define TARGET (scale .3 (bitmap "Teachpacks/teachpack-images/ruby.png")))
-(define PLAYER (scale .5 (bitmap "Teachpacks/teachpack-images/ninja.png")))
+(define PLAYER (bitmap "Teachpacks/teachpack-images/ninja.png"))
 (define CLOUD (bitmap "Teachpacks/teachpack-images/clouds.png"))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -39,16 +39,9 @@
 ;; update-world: world -> world
 ;; increase dogX by 10, decrease rubyX by 5
 (define (update-world w)
-  (cond
-    [(off-left? (world-rubyX w))   (make-world (world-dogX w) 
-                                               650
-                                               (world-catY w))]
-    [(off-right? (world-dogX w))   (make-world -50 
-                                               (world-rubyX w)
-                                               (world-catY w))]
-    [else   (make-world (+ (world-dogX w) 10) 
+  (make-world (+ (world-dogX w) 10) 
               (- (world-rubyX w) 5)
-              (world-catY w))]))
+                 (world-catY w)))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; KEY EVENTS:
 
@@ -74,14 +67,12 @@
 ;; off-left? : number -> boolean
 ;; Checks whether an object has gone off the left side of the screen
 
-(define (off-left? x)
-  (< x 0))
+
 
 ;; off-right? : number -> boolean
 ;; Checks whether an object has gone off the right side of the screen
 
-(define (off-right? x)
-  (> x 640))
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; big-bang using the START world

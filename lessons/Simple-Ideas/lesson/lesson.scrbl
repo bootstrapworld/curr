@@ -14,12 +14,10 @@
                     @item{The @code{(random upper-bound)}
  function can be used for random speeds, random delta-y with constant delta-x (or vice versa), for "t" meaning "teleport to a random spot on screen" in update-player, etc.}
                     @item{Get the target or danger to slow down as it comes across the screen by making its speed depend on x.}
-                    @item{There is a global Number @code{*score*} -- make the speed or the collision radius or something depend on that.}
-                    @item{There are global Numbers @code{*player-x*}
- and @code{*player-y*}. Heat seeking Danger. Avoiding Target. Best to use with random or the game gets too hard.}
-                    @item{Make update-player check onscreen?-ness of the new position -- wants @code{let}
- to avoid calling update-player-helper twice, but can't have it because of student language, interacts badly with some random stuff for that reason}
-                    @item{Black holes: put black spots on the background image and use distance inside onscreen to check that you're not too close to one of these. fix @code{update-player} too maybe.}
+                    ;@item{There is a global Number @code{*score*} -- make the speed or the collision radius or something depend on that.}
+                    ;@item{There are global Numbers @code{*player-x*} and @code{*player-y*}. Heat seeking Danger. Avoiding Target. Best to use with random or the game gets too hard.}
+;                    @item{Make update-player check onscreen?-ness of the new position -- wants @code{let} to avoid calling update-player-helper twice, but can't have it because of student language, interacts badly with some random stuff for that reason}
+                    @item{Black holes: put black spots on the background image and use distance inside onscreen to check that you're not too close to one of these.}
                     @item{Walls: put walls on the background and make @code{update-player} respect them.}
                     @item{Safe Zone: put a green box or green shading somewhere on the background. Change @code{collide?}
  so that if you're in it, you never collide.}
