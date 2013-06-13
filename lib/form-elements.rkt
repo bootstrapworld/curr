@@ -59,6 +59,7 @@
          review
          unit-separator
          unit-descr
+         main-contents
          
          ;; new format stuff
          lesson/studteach
@@ -567,6 +568,16 @@
     (nested (interleave-parbreaks (list (bold title) contents)))))
 
 ;;;;;;;;;;;;;;;; END NEW LESSON FORMAT ;;;;;;;;;;;;;;;;;;;;;;;;
+
+(define (main-contents . body)
+  (nested #:style (make-style #f 
+                              (append (list (make-alt-tag "div") 
+                                            ;(make-body-id "body")
+                                            (make-attributes (list (cons 'id "body")))
+                                      )
+                                      css-js-additions))
+          (nested #:style (bootstrap-div-style "item") 
+                  body)))
 
 (define (unit-separator unit-number)
   (elem #:style "BSUnitSeparationPage" (format "Lesson ~a" unit-number)))
