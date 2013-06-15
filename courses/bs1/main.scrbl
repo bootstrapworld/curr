@@ -1,4 +1,5 @@
 #lang curr/lib
+@main-contents{
 @(elem #:style "BSCourseName" "Bootstrap:1")
 
 Would you like to attend a Bootstrap Workshop? Check our
@@ -41,3 +42,4 @@ Of course, there's more to a curriculum than software and lesson plans! We also 
          ))
             
 @(copyright)
+}
