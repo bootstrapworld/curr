@@ -57,6 +57,7 @@
 	 review
          unit-separator
          unit-descr
+         main-contents
 
          ;; Itemizations
          materials
@@ -133,6 +134,16 @@
 (define-runtime-path bootstrap-pdf.tex "bootstrap-pdf.tex")
 (define-runtime-path worksheet-lesson-root (build-path 'up "lessons"))
 
+(define css-js-additions
+  (list (make-css-addition bootstrap.css)
+        (make-tex-addition bootstrap-pdf.tex)
+        ;(make-css-addition textbook.css)
+        ;(make-css-addition pretty-printing.css)
+        ;(make-js-addition codemirror.js)
+        ;(make-js-addition runmode.js)
+        ;(make-js-addition scheme2.js)
+        ;(make-js-addition bootstraplesson.js)
+        ))
 ;;;;;;;;;;;;;;;; Defining Styles ;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; bootstrap-sectioning-style : string -> style
@@ -150,6 +161,14 @@
   (make-style name (list (make-css-addition bootstrap.css)
                          (make-tex-addition bootstrap-pdf.tex)
                          )))
+
+(define (bootstrap-div-style name)
+  (make-style name (cons (make-alt-tag "div")
+                         css-js-additions)))
+
+(define (bootstrap-span-style name)
+  (make-style name (cons (make-alt-tag "span")
+                         css-js-additions)))
 
 (define bs-header-style (bootstrap-style "BootstrapHeader"))
 (define bs-title-style (bootstrap-style "BootstrapTitle"))
@@ -375,6 +394,16 @@
         (nested #:style (bootstrap-sectioning-style "BootstrapLesson")
                 body)))))))
 
+
+(define (main-contents . body)
+  (nested #:style (make-style #f 
+                              (append (list (make-alt-tag "div") 
+                                            ;(make-body-id "body")
+                                            (make-attributes (list (cons 'id "body")))
+                                      )
+                                      css-js-additions))
+          (nested #:style (bootstrap-div-style "item") 
+                  body)))
 
 (define (unit-separator unit-number)
   (elem #:style "BSUnitSeparationPage" (format "Lesson ~a" unit-number)))

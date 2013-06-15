@@ -11,7 +11,7 @@
            @code[#:multi-line #t]{;; The World is the x and y positions of the dog, x position of the ruby,
                                   ;; and y position of the cat
                                   (define-struct world (dogX dogY rubyX catY))}
-          @item{What function draws the dog on the screen with the rest of the game characters? @code{draw-world}. Right now this function draws the dog at it's current x-coordinate, and a pre-set y coordinate. How do we get the dog's y-coordinate out of the world? @code{(world-dogY w)}. Change the @code{draw-world} function so that it draws the dog at the current y-coordinate instead of 400.}}
+          @item{What function draws the dog on the screen with the rest of the game characters? @code{draw-world}. Right now this function draws the dog at it's current x-coordinate, and a pre-set y coordinate. How do we get the dog's y-coordinate out of the world? @code{(world-dogY w)}. Change the @code{draw-world} function so that it draws the dog at the current y-coordinate instead of 400.}
           @item{We said we want our dog's y-coordinate to change when it leaves the screen. What function changes the game state depending on the game's conditions? @code{update-world}!}
           @item{Our first cond branch in update-world checks whether the cat collides with the dog. If this happens, we don't want the dog to stay at its current y-coordinate. We already have the dog reappearing on the left side of the screen (by setting its x-coordinate to -50). Let's reset its y-coordinate to a random number between 0 and 480. Do you remember how to do this?} 
           @code[#:multi-line #t]{[(collide? 320 (world-catY w) (world-dogX w) (world-dogY w)) (make-world -50
