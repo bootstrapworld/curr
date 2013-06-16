@@ -1,4 +1,5 @@
 #lang curr/lib
+@main-contents{
 @(elem #:style "BSCourseName" "Bootstrap:2")
 
 Would you like to attend a Bootstrap Workshop? Check our
@@ -45,3 +46,4 @@ for Mathematics, as well as the standards for Mathematical Practice. }
   ]
             
 @(copyright)
+}
