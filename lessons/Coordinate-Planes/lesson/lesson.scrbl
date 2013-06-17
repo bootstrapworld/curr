@@ -5,8 +5,8 @@
 @lesson/studteach[
      #:title "Coordinate Planes"
      #:duration "15 minutes"
-     #:overview "Students must use the Cartesian plane to describe the location of characters in a picture"
-     #:learning-objectives @itemlist[@item{Learn and practice the coordinate system}]
+     #:overview "Students must use the Cartesian plane to describe the location of characters in a picture."
+     #:learning-objectives @itemlist[@item{Students apply the number line as a tool for objectively defining location, first identifying how to apply it to describe the position of a character onscreen in one dimension. This understanding is extended to two dimensions, ultimately motivating the use of a coordinate grid.}]
      #:product-outcomes @itemlist[@item{Students identify the coordinates of characters in a picture}]
      #:standards @itemlist[@item{}]
      #:materials @itemlist[@item{Cutouts of  @resource-link[#:path "images/ninjacat.png" #:label "NinjaCat"],  @resource-link[#:path "images/dog.png" #:label "Dog"] and the  @resource-link[#:path "images/ruby.png" #:label "Ruby"]}
@@ -15,23 +15,23 @@
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
-                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{Are there locations that can be described using one coordinate system, that cannot be described using another? Can any valid coordinate system can be perfectly mapped to any other valid coordinate system?}]}
                 )
         ]{
   @points[
      @point{@student{@bitmap{images/1.1.png} How does a computer know where to draw something on a screen? Suppose you had this picture of a dog on your screen and you were talking to a friend on the phone about what it looks like. How would you tell her @italic{exactly} where the Dog is? Would you just say "it's kind of on the right-hand side of the screen", or would you be more specific? What if you could use a ruler?}
-            @teacher{@management{Have students discuss this. If time allows, have a student leave the room and let other students come up with ways to write down where the dog is on the board. Then remove the dog, call in the other student, and have the class direct them using only what they've written down.}}
+            @teacher{The key point for students here is @italic{precision} and @italic{objectivity}. There are many possible correct answers, but students should understand why any solution should be accurate and unambiguous. This requires students to propose solutions that share a common "zero" (the starting point of their number line) and direction (literally, the direction from which a character's position is measured). @management{Have students discuss this. If time allows, have a student leave the room and let other students come up with ways to write down where the dog is on the board. Then remove the dog, call in the other student, and have the class direct them using only what they've written down.}}
             }
-      @point{@student{@bitmap{images/1.3.png} We can use a number line to figure out exactly how far something is from one side of the screen. For our videogame, we will place the numberline so that the screen runs from 0 (on the left) to 640 (on the right). We can take the image of the NinjaCat, stick it anywhere on the line, and now we can all agree that the cat is standing at 5, 6, or any other number on our line. Number lines can also have negative numbers, so we can put NinjaCat off the left edge of the screen at -100, or off the right edge at 800 or 900.}
+      @point{@student{@bitmap{images/1.3.png} We can use a number line to figure out exactly how far something is from one side of the screen. For our videogame, we will place the numberline so that the screen runs from 0 (on the left) to 640 (on the right). We can take the image of the NinjaCat, stick it anywhere on the line, and measure the distance back to the lefthand edge. Anyone else who knows about our number line will be able to duplicate the exact position of the NinjaCat, knowing only their number. What is the coordinate of the Cat on the righthand side of the screen? The center? What coordinate would put her off the lefthand edge of the screen?}
               @teacher{Try positioning the characters at different places on the line, and have students tell you what their coordinates are. Try giving them verbal descriptions (e.g. "The center of the screen", "Off the righthand side of the screen", etc.) and have them translate those into coordinates.}
               }
-      @point{@student{A computer screen, however, has two dimensions. How would your friend know how close to the top or bottom of the screen to draw the dog? We'll need a number line for both left-and-right measurements, and up-and-down measurements.}
+      @point{@student{This only solves our problem in one dimension. How would your friend know how close to the top or bottom of the screen to draw the dog? We'll need a number line for both left-and-right measurements, and up-and-down measurements.}
               @teacher{@management{Draw a second number line}}
               }
       @point{@student{The first line is called the x-axis, which runs from left to right. The second line, which runs up and down, is called the y-axis. A 2-dimensional @italic{coordinate} consists of both the x- and y-locations on the axes.}
               @teacher{@management{stick NinjaCat at (4,6)}}
               }
-      @point{@student{@bitmap{images/1.2.png} <UPDATE IMAGE WITH LABELED AXES> Here's a sample grid, with NinjaCat drawn at a certain position on that grid. What is NinjaCat's position on the x-axis? To find out, we just drop a line down from where NinjaCat is, and read the position on the number line. What is her position on the y-axis?}
+      @point{@student{@bitmap{images/1.2.png} Here's a sample grid, with NinjaCat drawn at a certain position on that grid. What is NinjaCat's position on the x-axis? To find out, we just drop a line down from where NinjaCat is, and read the position on the number line. What is her position on the y-axis?}
               @teacher{A coordinate represents a single point, and an image is (by definition) many points. Some students will whether a character's coordinate refers to the center of the image, or one of the corners. In this particular program, the center serves as the coordinate - but other programs may use another location. The important point in discussion with students is that there is flexibility here, @italic{as long as the convention is used consistently}. @management{If time allows, invite volunteers up to the board to try placing NinjaCat and the Ruby at different locations.}}
               }
       @point{@student{When we write down these coordinates, we always put the x before the y (just like in the alphabet!). Most of the time, you'll see coordinates written like this: (200, 50) meaning that the x-coordinate is 200 and the y-coordinate is 50.}
