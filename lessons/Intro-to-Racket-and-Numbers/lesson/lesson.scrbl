@@ -23,7 +23,7 @@
                         @teacher{@management{Have the students look at the editor on their computers. Refer to overhead projector as necessary.}}
                         }
                  
-                @point{@student{What you see here is the editor you'll be using to write programs. There are a few buttons at the top, but most of the screen is taken up by two large boxes: the Definitions window at the top and the Interactions window at the bottom. For now, we're going to just focus on the Interactions window. IMAGE OR DIAGRAM HERE}
+                @point{@student{@bitmap{images/1.5.png}The next screen is called the @italic{editor}, and it looks something like the diagram you see here. There are a few buttons at the top, but most of the screen is taken up by two large boxes: the Definitions window at the top and the Interactions window at the bottom. For now, we're going to just focus on the Interactions window.}
                         @teacher{}
                         }
                  
@@ -42,7 +42,7 @@
                         @teacher{@management{Draw students' attention to the Language Table (see Lesson Overview for Unit 1), which currently sits empty. Add "Numbers" to the Types section of the language table.}}
                         }
                 
-                @point{@student{@activity{Try other numbers, like @code{10345017} (or other big numbers), and @code{-2} (or other negatives!). Is there a limit to how big a number can be? What happens if you write a decimal? What happens when you click on a decimal, like @code{1.5}? You get a new type of number, a fraction, like @code{3/4}.}}
+                @point{@student{@activity{Try big numbers, like @code{10345017}, or negative numbers, like @code{-2}. Is there a limit to how big a number can be? What happens if you write a decimal? What happens when you click on a decimal, like @code{1.5}? You get a new type of number, a fraction, like @code{3/4}.}}
                         @teacher{The editing environment evaluates all fractions and returns them as decimals by default. This can be surprising to students at first, so you may want to take a moment to explain what's going on, and show them that these decimals can be converted back to fractions just by clicking on them.}
                         }
                 
