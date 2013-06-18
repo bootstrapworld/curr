@@ -35,6 +35,7 @@
          drop-down
          embedded-wescheme
          think-about
+         vocab
          code
          language-table
          worksheet-table
@@ -199,6 +200,7 @@
 (define bs-student-style (bootstrap-div-style "student"))
 (define bs-teacher-style (bootstrap-div-style "teacher"))
 (define bs-logo-style (bootstrap-span-style "BootstrapLogo"))
+(define bs-vocab-style (bootstrap-span-style "vocab"))
 
 ;; make-bs-latex-style : string -> style
 ;; defines a style that will only be used in latex
@@ -329,6 +331,9 @@
 
 (define (format-racket-header str)
   (format "; ~a~n" str))
+
+(define (vocab body)
+  (elem #:style bs-vocab-style body))
 
 (define (code #:multi-line (multi-line #f)
               #:contract (contract #f)
@@ -485,7 +490,8 @@
    (insert-toggle-buttons)))
 
 (define (point . contents)
-  (item (nested (interleave-parbreaks contents))))
+  ;(item (nested (interleave-parbreaks contents))))
+  (item (nested contents)))
 
 (define (exercises . content)
   (lesson-section "Exercises" content))
