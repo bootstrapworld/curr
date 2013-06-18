@@ -51,8 +51,6 @@
 
 @(include-lesson (lib "curr/lessons/Coordinate-Planes/lesson/lesson.scrbl"))
 
-@(include-lesson (lib "curr/lessons/Ninja-Cat-Demo-Dissection/lesson/lesson.scrbl"))
-
 @(include-lesson (lib "curr/lessons/Ninja-Cat-Demo-Brainstorming/lesson/lesson.scrbl"))
 
 @(include-lesson (lib "curr/lessons/Intro-to-Racket-and-Numbers/lesson/lesson.scrbl"))
