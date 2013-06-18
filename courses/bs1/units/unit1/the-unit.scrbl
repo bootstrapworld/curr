@@ -2,7 +2,7 @@
 
 @title{Unit 1: Videogames and Coordinate Planes}
 
-@declare-tags[group pedagogy selftaught]
+@declare-tags[group pedagogy selftaught management]
 
 
 
@@ -44,18 +44,345 @@
 
 
 }
+@lesson[#:title "Introduction and Expectations"
+        #:duration "5 minutes"
+        ]{
+  @itemlist/splicing[
+            @item{Welcome to Bootstrap!}
+            @pedagogy{@item{Introduce the teaching staff. Give some background: age, where you're from, something surprising about yourself, favorite food, etc. Anything to allow kids to connect. Ask kids for their names!}}
+            @pedagogy{@item{I want to set some expectations here, to make sure we're all on the same page.}}
+            @item{In Bootstrap, you'll be programming in a language called @italic{Racket}, which is used at universities and colleges around the world. You'll be doing the same kinds of programming that they do, using the same techniques and similar tools.}
+            @item{Because this is the same material that they teach in college, you'll need to approach the material the way college students do. What do you think that means?}
+            @pedagogy{@item{@exercise{Take 2-3 suggestions. Some samples you'll want to talk about: making mistakes it okay! Getting the answer quickly isn't as important as taking the time to think it through! Working in teams is a good thing!}}}
+            @pedagogy{@item{Okay, so here are the rules: (point to a visual while going over this) 
+                  @itemlist[@item{Unless we say otherwise, raise your hand to speak}
+                            @item{The computers are for programming, not for Facebook, chatting, email or playing around}
+                            @item{If you're not programming, the computer monitors need to be OFF. When we say "monitors off," everyone should shut off the monitors, stop talking, and give their attention to the teachers. Let's try this one out - everyone make sure the monitors are on ... now start talking ... louder! ... MONITORS OFF! Repeat as necessary.}
+                            @item{No one in this class is allowed to put each other down. I don't ever want to hear anyone call somebody else "stupid," "idiot", or anything else. Don't tell each other to shut up, and be respectful to everyone. Is that clear?}]}}
+            
+            @tag[(pedagogy group)]{@item{When it comes time to program your games, you'll be working in pairs - you and a friend. But during class, there are a lot of activities and games we'll be playing where you and your partner will be part of a group.}}
+           @tag[(pedagogy group)]{@item{Right now, all of you are sitting with your group, clustered together around the classroom. When it comes time for team competitions or group activities, you'll be working with the people sitting nearby.}}
+            @tag[(pedagogy group)]{@item{Depending on how well you work together, we'll be able to make some adjustments from class to class.}}
+            @tag[(pedagogy group)]{@item{@exercise{Assign group names (tip: use names that have something to do with computer science, or college, etc. Do NOT use ordinal names like "Team A" and "Team B" or "Team 1" and "Team 2" -- who wants to be stuck on Team B?)}}}
+                        @item{We'll be using Racket to program our videogames. As with any language, you'll need to learn the basics before we get into the complicated stuff! While you'll be thinking about and designing your videogames for the entire class, we're going to start out with the basics and build our way up from there.}
+            @item{For example, videogame programmers need to be really good at geometry in order to draw things at precise locations onscreen, and good at algebra to write functions that cause things to move, transform or explode in the game.}
+            @item{In each lesson, we'll talk about a new part of the videogame, the math concepts behind it, and then how to program those concepts into your game.}]}
 
-@(include-lesson (lib "curr/lessons/Intro-and-Expectations/lesson/lesson.scrbl"))
 
-@(include-lesson (lib "curr/lessons/Ninja-Cat-Demo/lesson/lesson.scrbl"))
+@lesson/studteach[
+     #:title "Dissecting a Demo"
+     #:duration "10 minutes"
+     #:overview "Play a simple game, then take it apart and figure out what's going on in the computer"
+     #:learning-objectives @itemlist[@item{Model a simple system}]
+     #:product-outcomes @itemlist[@item{In workbooks, students create a data model that describes a simple videogame}]
+     #:standards (list "MP.1" "MP.7")
+     #:materials @itemlist[@item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}]
+     #:preparation @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket (If using DrRacket, make sure the Ninja.rkt file is loaded)}
+                              @item{Student Workbooks, and something to write with}]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        
+        @points[
+          @point{@student{Let's begin by exploring a simple videogame, and then figuring out how it works. Open @(hyperlink "http://www.wescheme.org/run.jsp?publicId=iK7rkNlvcS" "this link") in a new window. When you click "Run", be sure to read the directions at the top of the screen so you know how to play!}
+                 @teacher{@management{Show the kids Ninjacat. Be sure to end on a frozen frame of the game, so the whole class can see the same image.}}
+                 }
+          
+          @point{@student{This game is made up of @italic{characters}, each of which has it's own behavior. The Ruby moves from the right to the left, as does the Dog. NinjaCat only moves when you hit the arrow keys, and she can move left, right, up and down. We can figure out how the game works by first understanding about how each character works.}
+                 @teacher{}
+                 }
+          
+          @point{@student{@activity{@bitmap{images/game-table.png} Turn to @worksheet-link[#:name "How-Does-Ninja-Cat-Work" #:page 1] in your workbook. Here we have a table, which we'll use to reverse-engineer NinjaCat and see how it works. Fill out the first column with a complete list of all things in the game.}}
+                 @teacher{This can be a team activity. Solicit a few examples from students, to make sure they understand what's being listed here: nouns like "the cat", not verbs like "jumping". @management{During this activity, walk around and see how groups are doing. This is the time to encourage expectations of community and respect - call out good teamwork when you see it! When time is up, give them a countdown: "30...10... 5... 4... 3... 2... 1... PENCILS DOWN, EYES UP HERE!" Wait for total silence and complete attention. }}
+                 }
+          
+          @point{@student{Did you list all four moving characters? What else is in the game? Is the background a part of the game? The score?}
+                 @teacher{@management{Have students come up to the board, and fill in the table with what they've found. If time is short, call on students and have them tell you what to write.}}
+                 }
+          
+          @point{@student{@activity{We also need to think about what is @italic{changing} when we play the game. What about the Ruby? Does it get bigger? Does it change color? Does it spin around? The only thing that changes about the Ruby is its @italic{position}! Everything else about it is the same. What about the Dog? The Cat? Fill in the rest of the second column, listing everything that changes about each character.}}
+                 @teacher{}
+                 }
+                            
+          @point{@student{Did you notice that the Dog, Ruby, Cloud and Cat only change position, and nothing else? What about the Background - it doesn't change at all, so we can @italic{leave that cell in table black!}. Did you notice the Score changes value? You'll want to add that to your table, too!}
+                 @teacher{@management{Quickly fill in the second column on the board. Assign scores.}}
+                 }
+          ]}
 
-@(include-lesson (lib "curr/lessons/Coordinate-Planes/lesson/lesson.scrbl"))
+@lesson/studteach[
+     #:title "Coordinate Planes"
+     #:duration "15 minutes"
+     #:overview "Students must use the Cartesian plane to describe the location of characters in a picture."
+     #:learning-objectives @itemlist[@item{Students apply the number line as a tool for objectively defining location, first identifying how to apply it to describe the position of a character onscreen in one dimension. This understanding is extended to two dimensions, ultimately motivating the use of a coordinate grid.}]
+     #:product-outcomes @itemlist[@item{Students identify the coordinates of characters in a picture}]
+     #:standards (list)
+     #:materials @itemlist[@item{Cutouts of  @resource-link[#:path "images/ninjacat.png" #:label "NinjaCat"],  @resource-link[#:path "images/dog.png" #:label "Dog"] and the  @resource-link[#:path "images/ruby.png" #:label "Ruby"]}
+                            @item{Student Workbooks, and something to write with}]
+     #:preparation @itemlist[@item{Student Workbooks, and something to write with}]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{Are there locations that can be described using one coordinate system, that cannot be described using another? Can any valid coordinate system can be perfectly mapped to any other valid coordinate system?}]}
+                )
+        ]{
+  @points[
+     @point{@student{@bitmap{images/dog-on-screen.png} How does a computer know where to draw something on a screen? Suppose you had this picture of a dog on your screen and you were talking to a friend on the phone about what it looks like. How would you tell her @italic{exactly} where the Dog is? Would you just say "it's kind of on the right-hand side of the screen", or would you be more specific? What if you could use a ruler?}
+            @teacher{The key point for students here is @italic{precision} and @italic{objectivity}. There are many possible correct answers, but students should understand why any solution should be accurate and unambiguous. This requires students to propose solutions that share a common "zero" (the starting point of their number line) and direction (literally, the direction from which a character's position is measured). @management{Have students discuss this. If time allows, have a student leave the room and let other students come up with ways to write down where the dog is on the board. Then remove the dog, call in the other student, and have the class direct them using only what they've written down.}}
+            }
+      @point{@student{@bitmap{images/number-line.png} We can use a number line to figure out exactly how far something is from one side of the screen. For our videogame, we will place the numberline so that the screen runs from 0 (on the left) to 640 (on the right). We can take the image of the NinjaCat, stick it anywhere on the line, and measure the distance back to the lefthand edge. Anyone else who knows about our number line will be able to duplicate the exact position of the NinjaCat, knowing only their number. What is the coordinate of the Cat on the righthand side of the screen? The center? What coordinate would put her off the lefthand edge of the screen?}
+              @teacher{Try positioning the characters at different places on the line, and have students tell you what their coordinates are. Try giving them verbal descriptions (e.g. "The center of the screen", "Off the righthand side of the screen", etc.) and have them translate those into coordinates.}
+              }
+      @point{@student{This only solves our problem in one dimension. How would your friend know how close to the top or bottom of the screen to draw the dog? We'll need a number line for both left-and-right measurements, and up-and-down measurements.}
+              @teacher{@management{Draw a second number line}}
+              }
+      @point{@student{The first line is called the x-axis, which runs from left to right. The second line, which runs up and down, is called the y-axis. A 2-dimensional @italic{coordinate} consists of both the x- and y-locations on the axes.}
+              @teacher{@management{stick NinjaCat at (4,6)}}
+              }
+      @point{@student{@bitmap{images/cat-coordinates.png} Here's a sample grid, with NinjaCat drawn at a certain position on that grid. What is NinjaCat's position on the x-axis? To find out, we just drop a line down from where NinjaCat is, and read the position on the number line. What is her position on the y-axis?}
+              @teacher{A coordinate represents a single point, and an image is (by definition) many points. Some students will whether a character's coordinate refers to the center of the image, or one of the corners. In this particular program, the center serves as the coordinate - but other programs may use another location. The important point in discussion with students is that there is flexibility here, @italic{as long as the convention is used consistently}. @management{If time allows, invite volunteers up to the board to try placing NinjaCat and the Ruby at different locations.}}
+              }
+      @point{@student{When we write down these coordinates, we always put the x before the y (just like in the alphabet!). Most of the time, you'll see coordinates written like this: (200, 50) meaning that the x-coordinate is 200 and the y-coordinate is 50.}
+              @teacher{}
+              }
+      @point{@student{@activity{What is the coordinate for the lower left-hand corner of the screen? What about the lower right-hand corner? The center? What part of the screen will NinjaCat be, if she's placed at (640, 0)? Can you think of a coordinate that puts her off the screen?}}
+              @teacher{}
+              }
+      @point{@student{Depending on how a character moves, their position might change only along the x-axis, only along the y-axis, or both. Look back to the table you wrote in the workbook (@worksheet-link[#:page 1 #:lesson "Ninja-Cat-Demo" #:name "How-Does-Ninja-Cat-Work"]). Can NinjaCat move up and down in the game? Can she move left and right? So what's changing: her x-coordinate, her y-coordinate, or both? What about the clouds? Do they move up and down? Left and right? Both?}
+              @teacher{@management{}}
+              }
+      
+      @point{@student{@activity{Fill in the rest of the table, identifying what is changing for each of your characters.}}
+              @teacher{@management{}}
+              }
+      
+      @point{@student{@activity{Turn to @worksheet-link[#:page 2 #:name "Ninja-Cat-Coordinates"] in your game planning workbook, and look at the project sheet that has a picture of the NinjaCat game. What are the coordinates at the bottom-left corner of the screen? Top-right? Center? For practice, label the coordinates at the midpoint of @italic{each side} of the screen, then label the coordinates of each of the characters.}}
+              @teacher{@management{}}
+              }
+               ]
+   }
 
-@(include-lesson (lib "curr/lessons/Ninja-Cat-Demo-Brainstorming/lesson/lesson.scrbl"))
+@lesson/studteach[
+     #:title "Brainstorming"
+     #:duration "15 minutes"
+     #:overview "Students select the theme and characters for their videogame"
+     #:learning-objectives @itemlist[@item{}]
+     #:product-outcomes @itemlist[@item{In workbooks, students complete the Videogame Design Worksheet}]
+     #:standards (list)
+     #:materials @itemlist[@item{}]
+     #:preparation @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket (If using DrRacket, make sure the Ninja.rkt file is loaded)}
+                              @item{Student Workbooks, and something to write with}]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        
+        
+@points[
+        @point{@student{On @worksheet-link[#:page 3 #:name "Elements-of-a-Videogame"], you'll find a planning template for you to make your own game. Just like we made a list of everything in the NinjaCat game, we're going to start with a list of everything in your games.}
+                @teacher{@management{Put your names at the top of this page.}}
+                }
+         
+        @point{@student{To start, your game will have with four things in it: 
+                        @itemlist[
+                                  @item{A Background, such as a forest, a city, space, etc.}
+                                   @item{A Player, who can move when the user hits a key.}
+                                   @item{A Target, which flies from the right to the left, and gives the player points for hitting it.}
+                                   @item{A Danger, which flies from the right to the left, which the player must avoid.}]}
+                @teacher{Have students walk through some sample themes, to make sure they understand the format of the game. For example: A football game might have a quarterback for the player, a rival player for the danger, and a football as the target. A jungle game might have a monkey as the player, a snake as the danger, and bananas as the target.}
+                }
+        
+        @point{@student{@activity{Now it's time to get creative! Fill out @worksheet-link[#:page 3 #:name "Elements-of-a-Videogame"] in your workbook for @italic{your} game, using your own player, target and danger.}}
+                @teacher{@management{Be sure to consult with every team. A lot of students will have trouble fitting their ideas into this format, or they'll struggle with coordinates. Be clear about what can and cannot be done! (e.g. - no 3d games, joysticks, multiplayer games, etc. Hint: students who have a well-worded description of their images will be happier with any images you could find them. Try searching for "Person" versus "Jogger", for example.}}
+                }
+        ]}
 
-@(include-lesson (lib "curr/lessons/Circles-of-Evaluation/lesson/lesson.scrbl"))
 
-@(include-lesson (lib "curr/lessons/Intro-to-Racket/lesson/lesson.scrbl"))
+@lesson/studteach[
+     #:title "Exploring Order of Operations using the Circles of Evaluation"
+     #:duration "20 minutes"
+     #:overview "Students identify the order of operations for complicated arithmetic expressions through diagramming (circles) and evaluating (the numerical answer). This lesson introduces students to the Circle of Evaluation, which is a sentence diagramming tool for arithmetic expressions. This is a powerful way to understand Order of Operations, as it forces students to focus on the structure of expressions over their computed result."
+     #:learning-objectives @itemlist[@item{Students will be able to explain why arithemetic expressions require structure}
+                                     @item{Students will be able to identify the order of operations in an expression that includes adding, subtracting, multiplying and dividing}
+                                     @item{Given a Circle of Evaluation, students will be able translate the expression into the arithmetic expression it represents}
+                                     @item{Given an arithmetic expression, students will be able to complete a partially-finished Circle of Evaluation for the same expression}
+                                     @item{Given a bank of Circles of Evaluation and Arithmetic expressions, students will be able to match them}
+                                     @item{Students will be able to translate the structure of an arithmetic expression using the Circles of Evaluation}]
+     #:product-outcomes @itemlist[@item{Students convert several arithmetic expressions between multiple representations}]
+     #:standards (list "A-SSE.1-2" "N-Q"  "MP.1" "MP.4" "MP.6" "MP.7")
+     #:materials @itemlist[@item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}]
+     #:preparation @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket (If using DrRacket, make sure the Ninja.rkt file is loaded)}
+                              @item{Student Workbooks, and something to write with}]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{Have students practice translating very simple (one-operation) expressions into simple (one-circle) Circles of Evaluation. By choosing the numbers in these examples carefully, you can gradually introduce nesting by replacing a number in one expression with the Circle of Evaluation for another expression that evaluates to the same number. @italic{Replace the 7 in @code{7+5} with the Circle for @code{10-3}.}}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{This is the first opportunity to expose students to core vocabulary words, so be sure to use words like @bold{function}, @bold{value} and @bold{expression} carefully and consistently. Ask students to identify the parts of a Circle of Evaluation, and push them to use the vocabulary as well.}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[
+                @point{@student{Math is a language, just like English, Spanish, or any other language. We use nouns, like "bread", "tomato", "mustard" and "cheese" to describe physical pbjects. Math has @vocab{values}, like the numbers "1", "2" or "3", to describe quantities. Humans also use verbs like "toast", "slice", "spread" and "melt" to describe operations on these nouns. Mathematics has @vocab{functions} like addition and subtraction, which are operations performed on numbers. Just as you can "slice piece of bread", a person can also "add four and five".
+                        @activity{@math{4+5} @vocab{evaluates to} @math{9}. What does @math{8*4} evaluate to? What does @math{20-16} evaluate to? <other examples>}                                   }
+                        @teacher{Students should begin to look at math as a @italic{language}, and start thinking about ambiguity, syntax and grammer of math.}
+                        }
+                 @point{@student{A @vocab{mathematical expression} is like a sentence: it's an instruction for doing something. If you were to write instructions for making a sandwich, it would matter very much which came first: melting the cheese, slicing the bread, spreading the mustard, etc. The order of functions matters in mathematics, too. If someone says "four plus two minus one", they could mean several things:
+                                @itemlist[@item{Add four and two, then subtract one @math{(4+2) - 1}}
+                                          @item{Add four to the result of subtracting one from two @math{4 + (2-1)}}]
+                        @activity{Write an expression of your own that can mean several things.}}
+                        @teacher{}
+                        }
+                 
+                 @point{@student{@bitmap{images/PEMDASTriangle.png}Depending on which way you read, or @vocab{evaluate} the expression, you might have a very different result! Mathematicians didn't always agree on the order to evaluate each operation, which could make things very confusing. Fortunately, the world of math has come to an agreement on a common set of rules for how to evaluate these expressions:}
+                         @teacher{}}
+                 @point{@student{When evaluating an expression, we begin by applying the operations written at the top of the pyramid (multiplication and division). Only after we have completed all of those operations can we move down to the lower level. If both operations are present (as in @math{4+2-1}), we @vocab{apply} them in the order they appear in the pyramid (addition first).
+                          @activity{In what order should we apply the functions in the following example? 
+                                    @math{19 \div 2 * 11 - 7 + 8}
+                                    @itemlist[@item{@math{+ \div * - }}
+                                              @item{@math{* \div - +}}
+                                              @item{@math{\div * + -}}
+                                              @item{@math{* \div + -}}]
+}
+                          @activity{Write down one reason why it is important to have rules about the order of operations.}}
+                         @teacher{}
+                         }
+                
+                @point{@student{All of these operations are examples of things called @vocab{functions}. A function is an operation that takes in certain kinds of values and produces a new value. You've used the addition function thousands of times, with lots of different numbers! We can diagram the order of operations in an expression using the @italic{Circle of Evaluation.}}
+                        @teacher{@management{This section benefits enormously from visual aids, diagrams, etc. Make sure you have plenty of board space to draw examples!}}
+                        }
+                        
+                @point{@student{@bitmap{images/FixedCircle.png} Circles of Evaluation have two rules: (1) Each circles must have one function, which we will write at the top of the circle. (2) The numbers are written below, from left to right.}          
+                        @teacher{}
+                        }
+                @point{@student{@activity{Try drawing the Cirlce of Evaluation for the following expressions: @math{6 * 4, 7 - 10, \frac{351}{-1} }}}
+                        @teacher{It's important for students to view the Circles of Evaluation as "just another way or writing arithemetic". Have students discuss whether associativity and commutativity still matter here (they do).}
+                        }
+
+                @point{@student{@bitmap{images/Nesting.png}To use use multiple functions in the same expression, we can combine Circles of Evaluation together.  Look at the Circle of Evaluation you've written for @math{351 / -1}. We already know that the Circle for @math{4 - 5} will evaluate to -1, so we can @italic{replace the number with the expression.} Does this change what the expression evaluates to?
+                                @activity{<Partially-completed Circle of Evaluation is shown next to an arithmetic expression. Students are asked to complete the Circle by filling in what is missng>}
+                      }
+                        @teacher{From this point forward, the Circles of Evaluation are your assessment tool for Order of Operations. Quizzing students by asking them to correctly evaluate an expression is fraught with false negatives, as many student might get the order right but still have problems with basic calculation. This method is also vulnerable to Commutativity, since a student will correctly evaluate @math{1*2+2} even if they get the order of operations wrong! Circles of Evaluation have neither of these flaws, as they put them emphasis where it should be: exercising a students' ability to see the structure inside the arithemetic.}
+                        }
+                @point{@student{@bitmap{images/NestedCircle.png}How would evaluate this Circle of Evaluation?(1) We know we are multiplying because that's the function at the top of the Circle (2) The Number 6 comes first, because it's on the left-hand side and (3) On the right-hand side is @italic{the result of adding 4 and 5}, because that expression is a separate circle altogether. @math{4 + 5} evaluates to 9, and @math{6 * 9} is 54.
+                        @activity{Given a completed circle of evaluation, write the arithmetic expression it represents.}    
+                        @activity{Match the following Circles of Evaluation with the corresponding arithmetic expressions <insert examples>.}    
+                        }
+                        @teacher{Work through several of these examples with students, asking them to come up with arithmetic expressions and then convert them into Circles, or giving them Circles and having them translate them back into arithmetic.}
+                        }
+              
+
+                         ]}
+
+@lesson/studteach[
+     #:title "Intro to Programming"
+     #:duration "15 minutes"
+     #:overview "Students are introduced to the programming environment"
+     #:learning-objectives @itemlist[@item{Students will be able to identify the Interactions and Definitions window}
+                                      @item{Students will be able to enter and evaluate simple arithmetic expressions in the Interactions window}
+                                      @item{Students will be able to convert Circles of Evaluation into correctly-formed programs}
+                                      @item{Students will be able to explain an 'unbounded identifier' error message}
+                                      @item{Students will be able to explain the purpose of error messages}
+                                      @item{Given a Circle of Evaluation, students will be able to complete a partially-written program}
+                                      @item{Given a bank of Circles of Evaluation and programs, students will be able to match them}]
+     #:product-outcomes @itemlist[@item{}]
+     #:standards (list "A-SSE.1-2" "N-Q" "MP.1" "MP.4" "MP.6" "MP.7")
+     #:materials @itemlist[@item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}]
+     #:preparation @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket}
+                              @item{Student Workbooks, and something to write with}]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[
+                @point{@student{Open the programming tool of your choice: If you've installed, DrRacket, double-click the application to launch it. If you are using @(hyperlink "http://www.wescheme.org" "WeScheme.org"), enter your username and password to log in, then click "Start a New Program".}
+                        @teacher{@management{Have the students look at the editor on their computers. Refer to overhead projector as necessary.}}
+                        }
+                 
+                @point{@student{@bitmap{images/wireframeIDE.png}This screen is called the @vocab{editor}, and it looks something like the diagram you see here. There are a few buttons at the top, but most of the screen is taken up by two large boxes: the @vocab{Definitions window} at the top and the @vocab{Interactions window} at the bottom.}
+                        @teacher{The Definitions window is where programmers define values and functions in their program, while the Interactions window allows them to experiment with those values and functions. This is analogous to writing a series of function definitions on a blackboard, and having student evaluate expressions using those function on scrap paper. As students are not yet defining values of their own, it is not important that students understand this distinction right now.}
+                        }
+                
+                @point{@student{A program is a @vocab{legal expression} that, when evaluated, produces a value. You've been writing programs using mathematical expressions since you first learned how to add! Just as in English, there are rules that determine whether a sentence makes sense. Programs have rules too!  A program can be very complicated, but it doesn't have to be: the simplest programs of all are just Numbers. @bold{Rule 1: All values are legal expressions.} 
+                                  @activity{What do you think @code{4} will evaluate to? Enter 4 in the Definitions window, and click "Run". You will see the value @code{4} appear in the Interactions window below. Type 10 on a @italic{new line} in the Definition window and click "Run". The computer now has to evaluate two separate programs, and you will see @code{4 10} printed out below. 
+                                Try typing in other numbers and see what happens.
+                                @embedded-wescheme[#:id "Intro to Racket and Numbers"                                             
+                                  #:height 200
+                                  #:hide-toolbar? #f
+                                  #:hide-project-name? #t
+                                  #:hide-footer? #t
+                                  #:hide-definitions? #f
+                                  #:definitions-text "4"]}
+                                }
+                        @teacher{@management{Draw students' attention to the Language Table (see Lesson Overview for Unit 1), which currently sits empty. Add "Numbers" to the Types section of the language table.}}
+                        }
+                
+                @point{@student{We can also enter programs directly into the Interactions window. (In fact, we will ONLY be using the Interactions window for the next few activities!)
+                                @activity{Enter a number down below, and hit "Return" instead of clicking Run. You should see that number printed out, just as if you'd written it in the Definitions window and clicked "Run". Now click "Run": what happens?}
+                               }
+                        @teacher{}
+                        }
+                
+                @point{@student{@activity{Try evaluating numbers, like @code{10345017}, or negative numbers, like @code{-2}. Is there a limit to how big a number can be? What happens if you write a decimal? What happens when you click on a decimal, like @code{1.5}? You get a new type of number, a fraction, like @code{3/4}.}}
+                        @teacher{The editing environment evaluates all fractions and returns them as decimals by default. This can be surprising to students at first, so you may want to take a moment to explain what's going on, and show them that these decimals can be converted back to fractions just by clicking on them.}
+                        }
+                
+                @point{@student{@activity{The computer obviously knows about Numbers, but what happens if you type in something that it @italic{doesn't} know about? Will it complain? Crash? Guess? Try asking the computer to evaluate @code{dog} in the Interactions window.
+                              @embedded-wescheme[#:id "Exploring bugs"                                                                                   
+                                  #:height 100
+                                  #:hide-toolbar? #t
+                                  #:hide-project-name? #t
+                                  #:hide-footer? #t
+                                  #:hide-definitions? #t
+                                  #:interactions-text "dog"]}
+                                 }
+                        @teacher{Have students read the error message aloud, and discuss what it means.}
+                        }
+                
+                @point{@student{These error messages are really useful for programmers. Rather than saying "this program doesn't work", the computer does the best it can to tell you what went wrong, and to give you as much information as possible to help you fix the problem. Make sure you always read these messages carefully!}
+                        @teacher{@management{}}
+                        }
+                         
+                @point{@student{The Circles of Evaluation are also easy to convert into computer programs. To translate a Circle of Evaluation into a program, begin with an open parenthesis @code{(}, and then the function written at the top of the circle. Then translate the inputs from left to right in the same way, adding a closing parenthesis @code{)} when you're done. This process gives us the second rule for  @vocab{legal expressions} @bold{Rule 2: Just as in the Circle of Evaluation, each open parenthesis must be followed by @italic{one} function, then by one or more legal expressions, and finally by a closing parenthesis.} <ANIMATED GIF?>
+                                                                   
+                      <EXAMPLE WITH NO-NESTING, EXAMPLE WITH NESTING>
+                       Take a look at the example below. What happens when you hit Return at the end of this line? Try converting the other circles you drew into code.
+                                 @embedded-wescheme[#:id "Circle1"     
+                                  #:height 100
+                                  #:hide-toolbar? #t
+                                  #:hide-project-name? #t
+                                  #:hide-footer? #t
+                                  #:hide-definitions? #t
+                                  #:interactions-text "(+ 4 5)"]}
+                        @teacher{Have students practice converting simple Circles of Evaluation into code.}
+                        }   
+                                         @point{@student{When a Circle of Evaluation has other circles inside of it, the translation still follows the same rules: each Circle requires a new set of parentheses. Here's the same Circle of Evaluation, translated into code:
+                                @embedded-wescheme[#:id "Circle2"     
+                                  #:height 100
+                                  #:hide-toolbar? #t
+                                  #:hide-project-name? #t
+                                  #:hide-footer? #t
+                                  #:hide-definitions? #t
+                                  #:interactions-text "(* 6 (+ 4 5))"]}
+                        @teacher{}
+                        }
+                @point{@student{What happens if you have too many parentheses? Too few? What if you forget to put a space between a function and one of the inputs? Experiment with each of these bugs, and see what kind of error message comes back.
+                @embedded-wescheme[#:id "Circle3"     
+                                  #:height 100
+                                  #:hide-toolbar? #t
+                                  #:hide-project-name? #t
+                                  #:hide-footer? #t
+                                  #:hide-definitions? #t
+                                  #:interactions-text "(-2 1)"]}
+                        @teacher{}
+                        }
+                @point{@student{@bitmap{images/ExpressionDiagram.png}All of the expressions that follow the function name are called @vocab{arguments} to the function.}
+                        @teacher{}
+                        }
+                ]}
 
 
 @lesson[#:title "Review"
