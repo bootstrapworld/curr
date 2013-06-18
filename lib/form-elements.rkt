@@ -9,7 +9,6 @@
          scribble/core
          scribble/decode
          scribble/basic
-         (only-in scribble/manual math)
          (prefix-in manual: scribble/manual)
          scribble/html-properties
          scribble/latex-properties
@@ -19,6 +18,7 @@
          2htdp/image
          racket/list
          net/uri-codec
+         (prefix-in neturl: net/url) ;; so we can load mathjax from a url
          racket/match
          "compile-time-params.rkt"
          "system-parameters.rkt"
@@ -144,6 +144,11 @@
 (define bootstrap.gif (bitmap "bootstrap.gif"))
 (define creativeCommonsLogo (bitmap "creativeCommonsLogo.png"))
 
+;;;;;;;;;;;;;;;;; URLs ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(define mathjax-url
+  (neturl:string->url 
+   "http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"))
+  
 ;;;;;;;;;;;;;;;; Runtime Paths ;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (define-runtime-path bootstrap.css "bootstrap.css")
 (define-runtime-path bootstrap-pdf.tex "bootstrap-pdf.tex")
@@ -165,6 +170,7 @@
         (make-js-addition runmode.js)
         (make-js-addition scheme2.js)
         (make-js-addition bootstraplesson.js)
+        (make-js-addition mathjax-url)
         ))
 
 ;;;;;;;;;;;;;;;; Defining Styles ;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -342,6 +348,15 @@
      (set 'vocab-used (cons body (get 'vocab-used '())))
      (elem #:style bs-vocab-style body))))
 
+;; generate math rendering towards the MathJax library
+(define (math body)
+  (cond-element
+   [html (sxml->element `(script (@ (type "math/tex"))
+                                 ,body))]
+   [(or latex pdf)
+    (printf "WARNING: IMPLEMENT MATH MODE for latex/pdf")])) 
+
+;; generate tags to format code via codemirror
 (define (code #:multi-line (multi-line #f)
               #:contract (contract #f)
               #:purpose (purpose #f)
