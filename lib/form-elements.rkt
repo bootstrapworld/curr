@@ -496,10 +496,10 @@
    [else (elem "")]))
 
 (define (student . content)
-  (nested #:style bs-student-style content))
+  (nested #:style bs-student-style (interleave-parbreaks content)))
 
 (define (teacher . content)
-  (nested #:style bs-teacher-style content))
+  (nested #:style bs-teacher-style (interleave-parbreaks content)))
 
 (define (pacing #:type (type #f) . contents) 
   (nested #:style (bootstrap-span-style type)

@@ -12,9 +12,7 @@
                                       @item{Practice writing and evaluating nested expressions} 
                                       @item{Learn how to import gif, png, and other images from file}]
      #:product-outcomes @itemlist[@item{Students create scaled, rotated, flipped, and layered images}]
-     #:standards @itemlist[@item{A-SSE.1-2: Interpret the structure of expressions} 
-                            @item{MP.1: Make sense of problems and persevere in solving them}
-                            @item{MP.7: Look for and make use of structure}]
+     #:standards (list "A-SSE.1-2" "MP.1" "MP.7")
      #:materials @itemlist[@item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}]
      #:preparation @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket (If using DrRacket, make sure the Images.rkt file is loaded)} @item{Student Workbooks, and something to write with}]
      #:pacings (list 
