@@ -497,14 +497,14 @@
    [else (elem "")]))
 
 (define (student . content)
-  (nested #:style bs-student-style (interleave-parbreaks content)))
+  (nested #:style bs-student-style (interleave-parbreaks/select content)))
 
 (define (teacher . content)
-  (nested #:style bs-teacher-style (interleave-parbreaks content)))
+  (nested #:style bs-teacher-style (interleave-parbreaks/select content)))
 
 (define (pacing #:type (type #f) . contents) 
   (nested #:style (bootstrap-span-style type)
-          (nested #:style bs-callout-style (interleave-parbreaks contents))))
+          (nested #:style bs-callout-style (interleave-parbreaks/all contents))))
 
 (define (points . contents)
   (nested 
@@ -513,17 +513,40 @@
    (insert-toggle-buttons)))
 
 (define (point . contents)
-  ;(item (nested (interleave-parbreaks contents)))) ;; needed for SIntrapara?
-  (item (nested contents)))
+  (item (nested (interleave-parbreaks/select contents)))) 
 
 (define (exercises . content)
   (lesson-section "Exercises" content))
 
-;; Needed to avoid Sintraparas from being introduced between items in a list of content
-(define (interleave-parbreaks contentlist)
+;; determine which elements need manual parbreaks to prevent surrounding SIntraparas
+;; currently suppress around itemizations and student/teacher blocks
+(define (suppress-intrapara-around? content)
+  (or (itemization? content)
+      (and (nested-flow? content) 
+           (nested-flow-style content)
+           (member (style-name (nested-flow-style content)) 
+                   (list "student" "teacher")))
+      ))
+
+;; Avoid Sintraparas from being introduced by adding manual parbreaks between
+;;   select items in a list.  Good for settings in which some items in list are 
+;;   part of the same paragraph and others (like itemlists) introduce breaks
+(define (interleave-parbreaks/select contentlist)
   (cond [(empty? contentlist) (list "\n" "\n")]
         [(cons? contentlist) 
-         (cons "\n" (cons "\n" (cons (first contentlist) (interleave-parbreaks (rest contentlist)))))]))
+         (cond [(suppress-intrapara-around? (first contentlist))
+                (append (list "\n" "\n" (first contentlist) "\n" "\n")
+                        (interleave-parbreaks/select (rest contentlist)))]
+               [else (cons (first contentlist) (interleave-parbreaks/select (rest contentlist)))])]))
+
+;; Avoid Sintraparas from being introduced by adding manual parbreaks between
+;;   every pair of items in a list.  Good for settings in which items in list are
+;;   never intended to be part of the same paragraph (like lesson segments)
+(define (interleave-parbreaks/all contentlist)
+  (cond [(empty? contentlist) (list "\n" "\n")]
+        [(cons? contentlist) 
+         (cons "\n" (cons "\n" (cons (first contentlist) 
+                                     (interleave-parbreaks/all (rest contentlist)))))]))
 
 (define (lesson/studteach
          #:title (title #f)
@@ -562,7 +585,7 @@
        (list
         ;(include-ssi)
         (nested #:style (bootstrap-sectioning-style "overview")
-                (interleave-parbreaks
+                (interleave-parbreaks/all
                  (list
                   (nested #:style bs-logo-style (image logo.png "bootstrap logo"))
                   ;; agenda would insert here
@@ -578,26 +601,26 @@
                   (lesson-section "Glossary" (glossary))
                   )))
         (nested #:style (bootstrap-div-style "segment")
-                (interleave-parbreaks
+                (interleave-parbreaks/all
                  (list
                   (elem #:style (style #f (list (url-anchor anchor) (make-alt-tag "span"))))
                   (nested #:style bs-lesson-title-style
-                          (interleave-parbreaks
+                          (interleave-parbreaks/all
                            (cons (para #:style bs-lesson-name-style 
-                                       (interleave-parbreaks
+                                       (interleave-parbreaks/all
                                         (list (elem title) 
                                               video-elem
                                               (cond [duration
                                                      (elem #:style bs-time-style (format "(Time ~a)" duration))]
                                                     [else (elem)]))))
                                  pacings)))
-                  (interleave-parbreaks body))))
+                  (interleave-parbreaks/all body))))
         
         ))))))
   
 (define (lesson-section title contents)
   (when contents
-    (nested (interleave-parbreaks (list (bold title) contents)))))
+    (nested (interleave-parbreaks/all (list (bold title) contents)))))
 
 ;; lookup-tags: list[string] assoc[string, string] string -> element
 ;; looks up value associated with each string in taglist in 
@@ -841,7 +864,7 @@
        ;(printf "glossary has terms ~a~n" terms)
        (nested terms))))))))
 ;(nested
-; (let ([known-terms (lookup-tags terms glossary-dictionary "Vocabulary term")])
+; (let ([known-terms (lookup-tags terms glossary-terms-dictionary "Vocabulary term")])
 ;   (apply itemlist/splicing
 ;          (for/list ([term known-terms])
 ;                    (item (elem (format "~a: ~a" (first term) (second term))))))))
