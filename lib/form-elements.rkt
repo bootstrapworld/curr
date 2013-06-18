@@ -25,7 +25,8 @@
          "checker.rkt"
          "javascript-support.rkt"
          "paths.rkt"
-         "standards-dictionary.rkt")
+         "standards-dictionary.rkt"
+         "glossary-terms.rkt")
 
 
 
@@ -598,14 +599,21 @@
   (when contents
     (nested (interleave-parbreaks (list (bold title) contents)))))
 
+;; lookup-tags: list[string] assoc[string, string] string -> element
+;; looks up value associated with each string in taglist in 
+;;    association list given as second arg
+;; used to generate standards and glossary
+(define (lookup-tags taglist in-dictionary tag-descr)
+  (foldr (lambda (elt result)
+           (let ([lookup (assoc elt in-dictionary)])
+             (if lookup (cons lookup result)
+                 (begin 
+                   (printf "WARNING: ~a not in dictionary: ~a~n" tag-descr elt)
+                   result))))
+         '() taglist))
+
 (define (expand-standards standard-tags)
-  (let ([known-stnds (foldr (lambda (elt result)
-                              (let ([lookup (assoc elt commoncore-standards-dict)])
-                                (if lookup (cons lookup result)
-                                    (begin 
-                                      (printf "WARNING: Standard not in dictionary: ~a~n" elt)
-                                      result))))
-                            '() standard-tags)])
+  (let ([known-stnds (lookup-tags standard-tags commoncore-standards-dict "Standard")])
     (apply itemlist/splicing
            (for/list ([stnd known-stnds])
              (item (elem (format "~a: ~a" (first stnd) (second stnd))))))))
@@ -832,9 +840,11 @@
        (define terms (get 'vocab-used '()))
        ;(printf "glossary has terms ~a~n" terms)
        (nested terms))))))))
-      ; (nested (list (apply itemlist/splicing
-       ;                     (for/list ([a-term terms])
-        ;                      (item (para (elem (format "~a: ~a~n" a-term "LOOK ME UP")))))))))));)
+;(nested
+; (let ([known-terms (lookup-tags terms glossary-dictionary "Vocabulary term")])
+;   (apply itemlist/splicing
+;          (for/list ([term known-terms])
+;                    (item (elem (format "~a: ~a" (first term) (second term))))))))
   
 ;; Cooperates with the Lesson tag.
 (define (agenda . items)
