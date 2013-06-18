@@ -24,7 +24,8 @@
          "system-parameters.rkt"
          "checker.rkt"
          "javascript-support.rkt"
-         "paths.rkt")
+         "paths.rkt"
+         "standards-dictionary.rkt")
 
 
 
@@ -514,7 +515,7 @@
          #:overview (overview #f)
          #:learning-objectives (learning-objectives #f)
          #:product-outcomes (product-outcomes #f)
-         #:standards (standards #f)
+         #:standards (standards '())
          #:materials (materials #f)
          #:preparation (preparation #f)
          #:video (video #f)
@@ -532,7 +533,6 @@
   (traverse-block
    (lambda (get set!)
      (define anchor (lesson-name->anchor-name the-lesson-name))
-     ;(printf "Vocab used is ~a~n" (get 'vocab-used '()))
      ;(set! 'vocab-used '()) ; reset vocabulary list for each lesson
      (set! 'bootstrap-lessons (cons (lesson-struct title
                                                    duration
@@ -556,10 +556,10 @@
                   ;(lesson-section "Overview" overview)
                   (lesson-section "Learning Objectives" learning-objectives)
                   (lesson-section "Product Outcomes" product-outcomes)
-                  (lesson-section "Standards" standards)
+                  (lesson-section "Standards" (expand-standards standards))
                   (lesson-section "Materials" materials)
                   (lesson-section "Preparation" preparation)
-                  ;(lesson-section "Glossary" (glossary))
+                  (lesson-section "Glossary" (glossary))
                   )))
         (nested #:style (bootstrap-div-style "segment")
                 (interleave-parbreaks
@@ -582,6 +582,18 @@
 (define (lesson-section title contents)
   (when contents
     (nested (interleave-parbreaks (list (bold title) contents)))))
+
+(define (expand-standards standard-tags)
+  (let ([known-stnds (foldr (lambda (elt result)
+                              (let ([lookup (assoc elt commoncore-standards-dict)])
+                                (if lookup (cons lookup result)
+                                    (begin 
+                                      (printf "WARNING: Standard not in dictionary: ~a~n" elt)
+                                      result))))
+                            '() standard-tags)])
+    (apply itemlist/splicing
+           (for/list ([stnd known-stnds])
+             (item (elem (format "~a: ~a" (first stnd) (second stnd))))))))
 
 ;;;;;;;;;;;;;;;; END NEW LESSON FORMAT ;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -799,10 +811,12 @@
 
 (define (glossary)
   (traverse-block
-   ;(lambda (get set)
-     (lambda (get set)
+   (lambda (get set)
+     (traverse-block (lambda (get set)
+     (traverse-block (lambda (get set)
        (define terms (get 'vocab-used '()))
-       (para terms))))
+       ;(printf "glossary has terms ~a~n" terms)
+       (nested terms))))))))
       ; (nested (list (apply itemlist/splicing
        ;                     (for/list ([a-term terms])
         ;                      (item (para (elem (format "~a: ~a~n" a-term "LOOK ME UP")))))))))));)
