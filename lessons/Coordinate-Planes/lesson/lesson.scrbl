@@ -8,7 +8,7 @@
      #:overview "Students must use the Cartesian plane to describe the location of characters in a picture."
      #:learning-objectives @itemlist[@item{Students apply the number line as a tool for objectively defining location, first identifying how to apply it to describe the position of a character onscreen in one dimension. This understanding is extended to two dimensions, ultimately motivating the use of a coordinate grid.}]
      #:product-outcomes @itemlist[@item{Students identify the coordinates of characters in a picture}]
-     #:standards @itemlist[@item{}]
+     #:standards (list)
      #:materials @itemlist[@item{Cutouts of  @resource-link[#:path "images/ninjacat.png" #:label "NinjaCat"],  @resource-link[#:path "images/dog.png" #:label "Dog"] and the  @resource-link[#:path "images/ruby.png" #:label "Ruby"]}
                             @item{Student Workbooks, and something to write with}]
      #:preparation @itemlist[@item{Student Workbooks, and something to write with}]

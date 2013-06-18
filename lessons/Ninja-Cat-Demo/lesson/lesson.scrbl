@@ -8,8 +8,7 @@
      #:overview "Play a simple game, then take it apart and figure out what's going on in the computer"
      #:learning-objectives @itemlist[@item{Model a simple system}]
      #:product-outcomes @itemlist[@item{In workbooks, students create a data model that describes a simple videogame}]
-     #:standards @itemlist[@item{MP.1: Make sense of problems and persevere in solving them}
-                            @item{MP.7: Look for and make use of structure}]
+     #:standards (list "MP.1" "MP.7")
      #:materials @itemlist[@item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}]
      #:preparation @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket (If using DrRacket, make sure the Ninja.rkt file is loaded)}
                               @item{Student Workbooks, and something to write with}]

@@ -8,8 +8,7 @@
      #:overview "Students select the theme and characters for their videogame"
      #:learning-objectives @itemlist[@item{}]
      #:product-outcomes @itemlist[@item{In workbooks, students complete the Videogame Design Worksheet}]
-     #:standards @itemlist[@item{}
-                            @item{}]
+     #:standards (list)
      #:materials @itemlist[@item{}]
      #:preparation @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket (If using DrRacket, make sure the Ninja.rkt file is loaded)}
                               @item{Student Workbooks, and something to write with}]

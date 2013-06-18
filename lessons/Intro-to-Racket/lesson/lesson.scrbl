@@ -8,7 +8,7 @@
      #:overview "Students are introduced to the programming environment"
      #:learning-objectives @itemlist[@item{Students become familiar with the editing environment}]
      #:product-outcomes @itemlist[@item{}]
-     #:standards (empty)
+     #:standards (list)
      #:materials @itemlist[@item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}]
      #:preparation @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket (If using DrRacket, make sure the Ninja.rkt file is loaded)}
                               @item{Student Workbooks, and something to write with}]
