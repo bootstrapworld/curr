@@ -113,7 +113,7 @@ span.green>div:before{content: 'Moving ahead...'}
   vertical-align: top;
   overflow:       hidden;
   position:       relative;
-  padding-left:   10px;
+  padding:        0px 10px;
   padding-bottom: 30px;
   clear:          both;
   cursor:         pointer;
@@ -151,13 +151,22 @@ ul.teacherNotes li div.student{width: 500px;}
 ul.teacherNotes .embedded-wescheme{width: 500px;}
 
 
-
+/************************************************************************************
+ * INLINE TAGS
+*/
 
 .management{font-style: oblique;}
 .exercises{width: 800px;}
-.activity{padding: 10px; background: rgba(200,200,255,0.5); border-top: dashed 1px black; border-bottom: dashed 1px black;  float: left;}
+.activity{
+  padding: 10px 0px; 
+  background: rgba(200,200,255,0.5); 
+  border-top: dashed 1px black; 
+  border-bottom: dashed 1px black;
+  float: left; width: 100%;
+  margin-bottom: 10px;
+}
 
-img{float: right;}
+img{float: right; padding: 5px;}
 img.video{width: 20px; height: 20px; padding: 0px; margin: 0px;}
 
 td.header{background: lightgray; font-weight: bold; text-align: center;}
@@ -173,6 +182,7 @@ td.vertical {
 }
 
 span.wp { font-weight:    bold; }
+span.vocab{font-style:  italic; font-weight: bold; color: darkblue;}
 
 
 /************************************************************************************

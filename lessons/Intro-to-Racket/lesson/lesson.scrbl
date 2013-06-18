@@ -8,7 +8,7 @@
      #:overview "Students are introduced to the programming environment"
      #:learning-objectives @itemlist[@item{Students become familiar with the editing environment}]
      #:product-outcomes @itemlist[@item{}]
-     #:standards @itemlist[@item{}]
+     #:standards (empty)
      #:materials @itemlist[@item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}]
      #:preparation @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket (If using DrRacket, make sure the Ninja.rkt file is loaded)}
                               @item{Student Workbooks, and something to write with}]
@@ -46,7 +46,7 @@
                         @teacher{The editing environment evaluates all fractions and returns them as decimals by default. This can be surprising to students at first, so you may want to take a moment to explain what's going on, and show them that these decimals can be converted back to fractions just by clicking on them.}
                         }
                 
-                @point{@student{@activity{The computer obviously knows about Numbers, but what happens if you type in something that it @italic{doesn't} know about? Will it complain? Crash? Guess? Try typing @code{dog} into the Interactions window.
+                @point{@student{@activity{The computer obviously knows about Numbers, but what happens if you type in something that it @italic{doesn't} know about? Will it complain? Crash? Guess? Try asking the computer to evaluate @code{dog} in the Interactions window.
                                                                                                                               @embedded-wescheme[#:id "Exploring bugs"                                                                                            #:height 100
                                   #:hide-toolbar? #t
                                   #:hide-project-name? #t
@@ -59,5 +59,39 @@
                 
                 @point{@student{These error messages are really useful for programmers. Rather than saying "this program doesn't work", the computer does the best it can to tell you what went wrong, and to give you as much information as possible to help you fix the problem. Make sure you always read these messages carefully!}
                         @teacher{@management{}}
+                        }
+                         
+                @point{@student{The Circles of Evaluation are also easy to convert into computer programs. To translate a Circle of Evaluation into a program, begin with an open parenthesis ("("), and then the function written at the top of the circle. Then translate the inputs from left to right, adding a closing parenthesis (")") when you're done. Take a look at the example below. What happens when you hit Return at the end of this line? Try converting the other circles you drew into code.
+                                 @embedded-wescheme[#:id "Circle1"     
+                                  #:height 100
+                                  #:hide-toolbar? #t
+                                  #:hide-project-name? #t
+                                  #:hide-footer? #t
+                                  #:hide-definitions? #t
+                                  #:interactions-text "(+ 4 5)"]}
+                        @teacher{Have students practice converting simple Circles of Evaluation into code.}
+                        }   
+                                         @point{@student{When a Circle of Evaluation has other circles inside of it, the translation still follows the same rules: each Circle requires a new set of parentheses. Here's the same Circle of Evaluation, translated into code:
+                                @embedded-wescheme[#:id "Circle2"     
+                                  #:height 100
+                                  #:hide-toolbar? #t
+                                  #:hide-project-name? #t
+                                  #:hide-footer? #t
+                                  #:hide-definitions? #t
+                                  #:interactions-text "(* 6 (+ 4 5))"]}
+                        @teacher{}
+                        }
+                @point{@student{What happens if you have too many parentheses? Too few? What if you forget to put a space between a function and one of the inputs? Experiment with each of these bugs, and see what kind of error message comes back.
+                @embedded-wescheme[#:id "Circle3"     
+                                  #:height 100
+                                  #:hide-toolbar? #t
+                                  #:hide-project-name? #t
+                                  #:hide-footer? #t
+                                  #:hide-definitions? #t
+                                  #:interactions-text "(-2 1)"]}
+                        @teacher{}
+                        }
+                @point{@student{@activity{Complete the exercises provided on @worksheet-link[#:page 4 #:name "Circles-of-Evaluation-Practice"] of the student workbook.}}
+                        @teacher{}
                         }
                 ]}

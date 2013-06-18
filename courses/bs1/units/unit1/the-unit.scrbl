@@ -53,9 +53,9 @@
 
 @(include-lesson (lib "curr/lessons/Ninja-Cat-Demo-Brainstorming/lesson/lesson.scrbl"))
 
-@(include-lesson (lib "curr/lessons/Intro-to-Racket-and-Numbers/lesson/lesson.scrbl"))
-
 @(include-lesson (lib "curr/lessons/Circles-of-Evaluation/lesson/lesson.scrbl"))
+
+@(include-lesson (lib "curr/lessons/Intro-to-Racket/lesson/lesson.scrbl"))
 
 
 @lesson[#:title "Review"
