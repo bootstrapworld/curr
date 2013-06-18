@@ -9,6 +9,7 @@
          scribble/core
          scribble/decode
          scribble/basic
+         (only-in scribble/manual math)
          (prefix-in manual: scribble/manual)
          scribble/html-properties
          scribble/latex-properties
@@ -37,6 +38,7 @@
          think-about
          vocab
          code
+         math
          language-table
          worksheet-table
          build-table/cols
@@ -332,8 +334,12 @@
 (define (format-racket-header str)
   (format "; ~a~n" str))
 
+;; accumulate all vocab referenced in lesson so we can generate a glossary
 (define (vocab body)
-  (elem #:style bs-vocab-style body))
+  (traverse-element
+   (lambda (get set)
+     (set 'vocab-used (cons body (get 'vocab-used '())))
+     (elem #:style bs-vocab-style body))))
 
 (define (code #:multi-line (multi-line #f)
               #:contract (contract #f)
@@ -490,7 +496,7 @@
    (insert-toggle-buttons)))
 
 (define (point . contents)
-  ;(item (nested (interleave-parbreaks contents))))
+  ;(item (nested (interleave-parbreaks contents)))) ;; needed for SIntrapara?
   (item (nested contents)))
 
 (define (exercises . content)
@@ -526,6 +532,8 @@
   (traverse-block
    (lambda (get set!)
      (define anchor (lesson-name->anchor-name the-lesson-name))
+     ;(printf "Vocab used is ~a~n" (get 'vocab-used '()))
+     ;(set! 'vocab-used '()) ; reset vocabulary list for each lesson
      (set! 'bootstrap-lessons (cons (lesson-struct title
                                                    duration
                                                    anchor)
@@ -551,6 +559,7 @@
                   (lesson-section "Standards" standards)
                   (lesson-section "Materials" materials)
                   (lesson-section "Preparation" preparation)
+                  ;(lesson-section "Glossary" (glossary))
                   )))
         (nested #:style (bootstrap-div-style "segment")
                 (interleave-parbreaks
@@ -567,8 +576,9 @@
                                                     [else (elem)]))))
                                  pacings)))
                   (interleave-parbreaks body))))
+        
         ))))))
-
+  
 (define (lesson-section title contents)
   (when contents
     (nested (interleave-parbreaks (list (bold title) contents)))))
@@ -787,7 +797,16 @@
         (apply itemlist/splicing items #:style "BootstrapPreparationList")))
 
 
-
+(define (glossary)
+  (traverse-block
+   ;(lambda (get set)
+     (lambda (get set)
+       (define terms (get 'vocab-used '()))
+       (para terms))))
+      ; (nested (list (apply itemlist/splicing
+       ;                     (for/list ([a-term terms])
+        ;                      (item (para (elem (format "~a: ~a~n" a-term "LOOK ME UP")))))))))));)
+  
 ;; Cooperates with the Lesson tag.
 (define (agenda . items)
   
