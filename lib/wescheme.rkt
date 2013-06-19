@@ -55,7 +55,7 @@
 (define (embedded-wescheme #:id (id (symbol->string (gensym 'wescheme)))
 
                            #:public-id (pid #f)
-                           #:width (width "90%")
+                           #:width (width "100%")
                            #:height (height 500)
 
                            #:with-rpc? (with-rpc? #f)
