@@ -11,7 +11,7 @@ div.content{
 
 /************************************************************************************
  * OVERVIEW PAGE
- * Overviews contain the agenda, logo, ToDo lists, Lanfuafe
+ * Overviews contain the agenda, logo, ToDo lists, Language
 */
 
 div.overview{
@@ -35,7 +35,7 @@ div.agenda{
 div.agenda table{font-size: 12px;}
 div.agenda td:first-child{width: 60px;}
 
-h1{text-align: center; margin-top: 0px;}
+.BootstrapPageTitle{font-size: 24px; margin-top: 0px;}
 h2{width: 100%; background: black; color: white; font-size: 18px; padding: 0px; margin: 0px; clear: both;}
 h3{font-size: 16px; margin-bottom: 0px; }
 span.time{float: right; padding-right: 5px;}
@@ -154,6 +154,11 @@ ul.teacherNotes .embedded-wescheme{width: 500px;}
 /************************************************************************************
  * INLINE TAGS
 */
+.segment ul.lesson li li{
+  width: 100%;
+  padding: 0px;
+  list-style-type: disc;
+}
 
 .management{font-style: oblique;}
 .exercises{width: 800px;}
@@ -196,15 +201,15 @@ ol.question>li{clear: both; border-top: solid 1px black; padding: 20px 20px; mar
 ol.question li:first-of-type{border: none;}
 .exercises img{float: right; }
 
-@media screen {
-  .segment li:hover, .segment li:hover div.teacher {background: #eef;}
-
-}
+/************************************************************************************
+ * PRINT MEDIA
+ * Hide callouts, embedded WeSchemes, and background images
+ * which are styled a little differently
+*/
 @media print {
 	body			{background: white;}
-  div.instructions{display: none;}
 	div.content		{border: none; font-size: 12px;}
-	h1				{clear: both;}
+	.BootstrapPageTitle				{clear: both;}
 	div.overview img			{width: 80px; margin-top: 0px; }
 	h2{color: white; border-bottom: solid black 2px; font-size: 14px; page-break-after: avoid;}
 	h3{color: black; font-size: 12px;}
@@ -220,5 +225,5 @@ ol.question li:first-of-type{border: none;}
     box-shadow:     inset 3px 0px 0px black;
   }
   div.student{width: 500px;}
-  div.callout{display: block; z-index: 2;}
+  input, div.callout, .embedded-wescheme{display: none;}
 }
