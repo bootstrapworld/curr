@@ -87,7 +87,9 @@
    ;; build bs1 and bs2.
    #;[("--course") -course "Choose course (default bs1)"
       (current-course -course)]
-   [("--worksheet-links-to-pdf") "Direct worksheet links to StudentWorkbook.pdf" 
+   ;; removed option for now, since not scribbling workbook
+   ;; option is set in main entry point at end of file
+   #;[("--worksheet-links-to-pdf") "Direct worksheet links to StudentWorkbook.pdf" 
     (putenv "WORKSHEET-LINKS-TO-PDF" "true")]
    
    [("--deploy") -deploy-dir "Deploy into the given directory, and create a .zip.  Default: deploy" 
@@ -253,6 +255,8 @@
 ;; Main entry point:
 (make-fresh-deployment-and-copy-static-pages)
 (define bootstrap-courses '("bs1" "bs2"))
+;; remove next line if ever want to generate links to web docs instead of PDF
+(putenv "WORKSHEET-LINKS-TO-PDF" "true")
 (initialize-tagging-environment)
 (for ([course (in-list bootstrap-courses)])
   (parameterize ([current-course course])
