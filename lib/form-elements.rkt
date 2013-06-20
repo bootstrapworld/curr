@@ -26,7 +26,8 @@
          "javascript-support.rkt"
          "paths.rkt"
          "standards-dictionary.rkt"
-         "glossary-terms.rkt")
+         "glossary-terms.rkt"
+         "sexp-generator.rkt")
 
 
 
@@ -52,6 +53,7 @@
          unit-summary/links
          summary-item/links
          summary-item/custom
+         gen-random-arith-sexp
          
          ;; Sections
          worksheet
@@ -213,6 +215,10 @@
 (define bs-logo-style (bootstrap-span-style "BootstrapLogo"))
 (define bs-vocab-style (bootstrap-span-style "vocab"))
 (define bs-banner-style (bootstrap-div-style "banner"))
+(define bs-sexp-style (bootstrap-div-style "sexp"))
+(define bs-circeval-style (bootstrap-div-style "circevalsexp"))
+(define bs-sexp-operator-style (bootstrap-span-style "operator"))
+(define bs-sexp-argument-style (bootstrap-span-style "argument"))
 
 ;; make-bs-latex-style : string -> style
 ;; defines a style that will only be used in latex
@@ -530,7 +536,6 @@
 ;; currently suppress around itemizations and student/teacher blocks
 (define (suppress-intrapara-around? content)
   (or (itemization? content)
-      ;(paragraph? content)
       (and (nested-flow? content) 
            (nested-flow-style content)
            (member (style-name (nested-flow-style content)) 
@@ -832,6 +837,31 @@
 
 (define (unit-length timestr)
   (list (format "Length: ~a~n" (decode-flow timestr))))
+
+(define (binop-sexp->block/aux sexp)
+  (if (not (list? sexp)) (format "~a" sexp)
+      (elem (list "(" 
+                  (elem #:style bs-sexp-operator-style (format "~a " (first sexp)))
+                  (elem #:style bs-sexp-argument-style 
+                        (binop-sexp->block/aux (second sexp)))
+                  " "
+                  (elem #:style bs-sexp-argument-style 
+                        (binop-sexp->block/aux (third sexp)))
+                  ")"))))
+
+(define (binop-sexp->block sexp form)
+  (let ([style (if (string=? form "sexp") bs-sexp-style bs-circeval-style)])
+    (elem #:style style (binop-sexp->block/aux sexp))))
+
+;; generates a random binary arithmetic sexp 
+;; - depth is the max depth of the expression
+;; - form indicates whether to render spans for text or circle-of-evaluation
+;; in future, do we need ability to generate both forms?  Seems possible -- think about that
+(define (gen-random-arith-sexp #:depth (depth 2) #:form (form "sexp"))
+  (when (not (member form (list "sexp" "circeval")))
+    (error 'gen-random-arith-sexp "Form argument must be either sexp or circeval"))
+  (let ([sexp (gen-arith-sexp depth)])
+    (binop-sexp->block sexp form)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 

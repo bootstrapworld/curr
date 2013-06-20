@@ -5,6 +5,7 @@
 ;; - generate some real numbers
 
 (require "javascript-support.rkt")
+(provide gen-arith-sexp)
 
 (define MATHOPS '(+ * -))
 (define MAXNUM 99)
@@ -29,10 +30,12 @@
 (define (gen-arith-sexp depth)
   (gen-random-sexp gen-num-op gen-num depth))
 
-(define (sexp->html sexp)
-  (define (sexp->html/aux sexp)
-    (if (not (list? sexp)) (list (format "~a" sexp))
-        `((div (@ (class "operator")) ,(format "~a" (first sexp)))
-          (div (@ (class "argument")) ,@(sexp->html/aux (second sexp)))
-          (div (@ (class "argument")) ,@(sexp->html/aux (third sexp))))))
-  `(div (@ (class "sexp")) ,@(sexp->html/aux sexp)))
+;; sketch of generator -- moved into form-elements.rkt
+;; leaving here until we confirm usage and API -- need more than form-elements version??
+;(define (sexp->html sexp)
+;  (define (sexp->html/aux sexp)
+;    (if (not (list? sexp)) (list (format "~a" sexp))
+;        `((div (@ (class "operator")) ,(format "~a" (first sexp)))
+;          (div (@ (class "argument")) ,@(sexp->html/aux (second sexp)))
+;          (div (@ (class "argument")) ,@(sexp->html/aux (third sexp))))))
+;  `(div (@ (class "sexp")) ,@(sexp->html/aux sexp)))
