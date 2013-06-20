@@ -41,6 +41,7 @@
          vocab
          code
          math
+         bannerline
          language-table
          worksheet-table
          build-table/cols
@@ -211,6 +212,7 @@
 (define bs-teacher-style (bootstrap-div-style "teacher"))
 (define bs-logo-style (bootstrap-span-style "BootstrapLogo"))
 (define bs-vocab-style (bootstrap-span-style "vocab"))
+(define bs-banner-style (bootstrap-div-style "banner"))
 
 ;; make-bs-latex-style : string -> style
 ;; defines a style that will only be used in latex
@@ -356,6 +358,12 @@
                                  ,body))]
    [(or latex pdf)
     (printf "WARNING: IMPLEMENT MATH MODE for latex/pdf")])) 
+
+;; generate content in single paragraph (within another block)
+(define (bannerline body)
+  (cond-element
+   [html (list (sxml->element '(br)) (elem #:style bs-banner-style body) (sxml->element '(br)))]
+   [else (para body)]))
 
 ;; generate tags to format code via codemirror
 (define (code #:multi-line (multi-line #f)
@@ -522,6 +530,7 @@
 ;; currently suppress around itemizations and student/teacher blocks
 (define (suppress-intrapara-around? content)
   (or (itemization? content)
+      ;(paragraph? content)
       (and (nested-flow? content) 
            (nested-flow-style content)
            (member (style-name (nested-flow-style content)) 
