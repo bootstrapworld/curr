@@ -25,11 +25,11 @@
   (put-image CLOUD 
                500 400
                (put-image DANGER
-                            300 200
+                            (world-dogX w) 200
                             BACKGROUND)))}
 @item{Click run, and take a look at that cloud!}
 @item{Now scroll down to where it says UPDATING FUNCTIONS. This code is responsible for changing the World - and in fact we already wrote it!}
 @item{What does @code{update-world} DO to the world? It makes a new world and it adds 10 to the dog's x-coordinate! What does that mean, in terms of how the dog moves? Does it go to the right, left, up, down?}
 @item{If the dog is at 100, where will it be next? After that?}
-@item{@tag[pedagogy]{Take 30 seconds: }Write a second example involving your NEXT world, instead of START. @tag[pedagogy]{Count down.}}
+@item{@pedagogy{Take 30 seconds: }Write a second example involving your NEXT world, instead of START. @pedagogy{Count down.}}
 @item{How could you make the dog move faster? Slower? Backwards?}]}
