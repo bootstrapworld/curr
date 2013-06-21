@@ -3,13 +3,12 @@
 @declare-tags[group pedagogy selftaught]
 @lesson[#:title "Introducing Structs"
         #:duration "10 minutes"]{
-          @itemlist/splicing[@pedagogy{@item{Pass out the bags of datatype cards.}
-            @item{Now we're going to play a game...but first I'm going to explain the rules. First off, everyone take out all of the cards from the bags, and set them on the table in front of you.}
+          @itemlist/splicing[@pedagogy{@item{Pass out the bags of datatype cards.}}
+            @pedagogy{@item{Now we're going to play a game...but first I'm going to explain the rules. First off, everyone take out all of the cards from the bags, and set them on the table in front of you.}}
             @item{Raise your hand if you can tell me what's written on the cards.}
             @item{Right: number, string, image, boolean...but what are these? Datatypes.}
             @item{Here's how this is going to work: I'm going to say something that can be returned by a Racket function, and you're going to hold up a card to show me what datatype it would be. If I were to say age, which would you hold up?}
-            @item{Now, there's one very important rule: no matter what I say, you can only hold up one thing.}
-            @item{Ready?}}
+            @item{Now, there's one very important rule: no matter what I say, you can only hold up one thing. Ready?}
             @tag[selftaught]{For each of the things below, figure out which datatype you would use to represent it in Racket:}
             @itemlist/splicing[@item{a color}
                                @item{a picture of a circle}
