@@ -72,7 +72,7 @@
 @lesson/studteach[
      #:title "Dissecting a Demo"
      #:duration "10 minutes"
-     #:overview "Play a simple game, then take it apart and figure out what's going on in the computer"
+     #:overview "Play a simple game, then take it apart and figure out what's going on in the computer."
      #:learning-objectives @itemlist[@item{Model a simple system}]
      #:product-outcomes @itemlist[@item{In workbooks, students create a data model that describes a simple videogame}]
      #:standards (list "MP.1" "MP.7")
@@ -85,7 +85,6 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        
         @points[
           @point{@student{Let's begin by exploring a simple videogame, and then figuring out how it works. Open @(hyperlink "http://www.wescheme.org/run.jsp?publicId=iK7rkNlvcS" "this link") in a new window. When you click "Run", be sure to read the directions at the top of the screen so you know how to play!}
                  @teacher{@management{Show the kids Ninjacat. Be sure to end on a frozen frame of the game, so the whole class can see the same image.}}
@@ -230,7 +229,8 @@
                  @point{@student{When evaluating an expression, we begin by applying the operations written at the top of the pyramid (multiplication and division). Only after we have completed all of those operations can we move down to the lower level. If both operations are present (as in @math{4+2-1}), we @vocab{apply} them in the order they appear in the pyramid (addition first).
                           @activity{In what order should we apply the functions in the following example? 
                                     @math{19 \div 2 * 11 - 7 + 8}
-                                    @itemlist[@item{@math{+ \div * - }}
+                                    @itemlist[#:style 'ordered
+                                              @item{@math{+ \div * - }}
                                               @item{@math{* \div - +}}
                                               @item{@math{\div * + -}}
                                               @item{@math{* \div + -}}]
@@ -243,14 +243,22 @@
                         @teacher{@management{This section benefits enormously from visual aids, diagrams, etc. Make sure you have plenty of board space to draw examples!}}
                         }
                         
-                @point{@student{@bitmap{images/FixedCircle.png} Circles of Evaluation have two rules:
-                                 @itemlist[@item{Each circles must have one function, which we will write at the top of the circle.}
-                                           @item{The numbers are written below, from left to right.}]
-                                 @activity{@bitmap{images/CircleBug.png}Can you find the problem with this Circle of Evaluation?}
-                                 }
+                @point{@student{@bitmap{images/FixedCircle.png} Here you can see an example of a Circle of Evaluation, for the math expression @math{4-5}. The Circles of Evaluation are useful for diagramming the order of operations inside an expression, so we can see the structure that's going on inside. All Circles of Evaluation have two rules:}
                         @teacher{}
                         }
-                @point{@student{@activity{Try drawing the Cirlce of Evaluation for the following expressions: @math{6 * 4, 7 - 10, \frac{351}{-1} }}}
+                @point{@student{@bold{Rule 1: Each circles must have one function, which we will write at the top of the circle.}}
+                        @teacher{}}
+                @point{@student{@bold{Rule 2: The numbers are written below, from left to right.}
+                                 @activity{@bitmap{images/CircleBug.png}Can you find the problem with this Circle of Evaluation?}}
+                        @teacher{}
+                        }
+                @point{@student{@activity{Try drawing the Cirlce of Evaluation for the following expressions:
+                                          @itemlist[#:style 'ordered
+                                                    @item{@math{6*4}}
+                                                    @item{@math{7-10}}
+                                                    @item{@math{6*4}}
+                                                    @item{@math{\frac{351}{-1} }}]
+                                          }}
                         @teacher{It's important for students to view the Circles of Evaluation as "just another way or writing arithemetic". Have students discuss whether associativity and commutativity still matter here (they do).}
                         }
 
@@ -269,9 +277,8 @@
                         }
                         @teacher{Work through several of these examples with students, asking them to come up with arithmetic expressions and then convert them into Circles, or giving them Circles and having them translate them back into arithmetic.}
                         }
-              
-
-                         ]}
+             ]
+         }
 
 @lesson/studteach[
      #:title "Intro to Programming"
@@ -364,15 +371,7 @@
                         }   
                 @point{@student{@bitmap{images/NestedCircle.png}When a Circle of Evaluation has other circles inside of it, the translation still follows the same rules: each Circle requires a new set of parentheses: @code{(* 6 (+ 4 5))}
                                  @activity{@itemlist[@item{Try entering this code into the Interactions window. What should the program evaluate to when you hit Return?}
-                                                     @item{Practice converting other Circles of Evaluation you've drawn into code.}]
-                                 @embedded-wescheme[#:id "Circle3"     
-                                  #:height 100
-                                  #:width "100%"
-                                  #:hide-toolbar? #t
-                                  #:hide-project-name? #t
-                                  #:hide-footer? #t
-                                  #:hide-definitions? #t
-                                  #:interactions-text "(-2 1)"]}}
+                                                     @item{Practice converting other Circles of Evaluation you've drawn into code.}]}}
                         @teacher{}
                         }
                
@@ -382,27 +381,26 @@
                 ]}
 
 
-@lesson[#:title "Review"
-        #:duration "5 minutes"
-        ]{ 
- @pedagogy{
- @itemlist[
-  @item{Who can tell us one thing we learned today?}       
-  @item{Who saw someone else in the class do something great?}
-  @item{Cleanup, dismissal}
-  @item{NOTE TO INSTRUCTORS: 
-    @itemlist[
-              @item{Make sure student names are on page 3}
-                   @item{Take page 3 itself, or take photos of page 3, to prep game images for Unit 3.}
-                   @item{Images should be in PNG or GIF format. Background images should be 640x480, and character images should generally be no larger than 200px in either dimension. Make sure that the character images have transparent backgrounds!}
-                   @item{TIP: use animated GIFs for the characters - not only does the animation make the game look a lot better, but these images usually have transparent backgrounds to begin with.}
-                   @item{For more instructions on setting up the game files, read the @(hyperlink "../../resources/teachers-guide/teachers-guide.html#addingimages" "Coding Instructions") document.}
-              ]
-    }
-  ]
-          }
- 
-}
- }
+@lesson/studteach[
+     #:title "Review"
+     #:duration "5 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[]
+     #:product-outcomes @itemlist[]
+     #:standards (list)
+     #:materials @itemlist[]
+     #:preparation @itemlist[]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[@point{@student{}
+                        @teacher{@management{Make sure student names are on page 3. Take page 3 itself, or take photos of page 3, to prep game images for a later Unit. Images should be in PNG or GIF format. Background images should be 640x480, and character images should generally be no larger than 200px in either dimension. Make sure that the character images have transparent backgrounds!}}}
+                 @point{@student{}
+                         @teacher{@management{TIP: use animated GIFs for the characters - not only does the animation make the game look a lot better, but these images usually have transparent backgrounds to begin with. For more instructions on setting up the game files, read the @(hyperlink "../../resources/teachers-guide/teachers-guide.html#addingimages" "Coding Instructions") document.}}}
+               ]
+         }
 
 @copyright[]
