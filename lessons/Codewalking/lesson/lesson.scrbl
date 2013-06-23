@@ -5,7 +5,7 @@
         #:duration "20 minutes"]{
           @itemlist/splicing[
 @pedagogy{@item{MONITORS ON!}}
-@item{Open up Ninja World and click run. What happens?}
+@item{Open up Ninja World and click "Run". What happens?}
 @item{Does it do the same thing we did in our simulation last week? No! Let's walk through it and figure out what's wrong.}
 @item{At the top of the screen, you see the DATA section. This is where we define what everything we need to keep track of during the animation.}
 @item{As you can see, we have used @code{define-struct} to define our World structure here. @tag[pedagogy]{Raise your hand if you can tell me what's in this world struct.}}
@@ -27,7 +27,7 @@
                (put-image DANGER
                             (world-dogX w) 200
                             BACKGROUND)))}
-@item{Click run, and take a look at that cloud!}
+@item{Click "Run", and take a look at that cloud!}
 @item{Now scroll down to where it says UPDATING FUNCTIONS. This code is responsible for changing the World - and in fact we already wrote it!}
 @item{What does @code{update-world} DO to the world? It makes a new world and it adds 10 to the dog's x-coordinate! What does that mean, in terms of how the dog moves? Does it go to the right, left, up, down?}
 @item{If the dog is at 100, where will it be next? After that?}

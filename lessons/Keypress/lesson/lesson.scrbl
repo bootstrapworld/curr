@@ -27,7 +27,7 @@
 		                                 (make-world (world-dogX START) (world-rubyX START) (+ (world-catY START) 10)))}
                 @item{Now how would I make an example using the @code{"down"} key? }
                  @code[#:multi-line #t]{(EXAMPLE (keypress START "down")
-		                                 (make-world (world-dogX START) (world-rubyX START) (+ (world-catY START) 10)))}]}
+		                                 (make-world (world-dogX START) (world-rubyX START) (- (world-catY START) 10)))}]}
             @item{Step 3 - Definition  @itemlist/splicing[
                 @item{What goes in our function header? This one is pretty straightforward: }
                  @code[#:multi-line #t]{(define (keypress w key)

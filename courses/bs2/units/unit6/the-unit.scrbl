@@ -7,7 +7,7 @@
 
 @overview{
     
-@unit-descr{Students return to the subject of partial functions, this time defining a key-event handler that modifies their world on when certain keys are pressed.}
+@unit-descr{Students return to the subject of partial functions, this time defining a key-event handler that modifies their world when certain keys are pressed.}
 
 @objectives[@item{Extend their understanding of events to cover key-events}
             @item{Deepen their knowledge of conditionals, by combining them with struct accessor and constructor functions.}
