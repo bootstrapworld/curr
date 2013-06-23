@@ -1,6 +1,10 @@
 body{
-	margin:			10px;
-	background:		wheat url(images/bootBG.png) no-repeat fixed bottom right;
+	padding:      0px;
+	margin:       0px;
+  background:   no-repeat url("http://www.bootstrapworld.org/images/bootBG.png") fixed bottom right;
+  background-color: #f5deb3;
+	max-width:    800px;
+  font-family:  Times;
 }
 
 div.content{
@@ -11,10 +15,103 @@ div.content{
 
 /************************************************************************************
  * OVERVIEW PAGE
- * Overviews contain the agenda, logo, ToDo lists, Language
+ * Lesson overviews contain logo, various lists, Language Table, title and duration
+ * Unit overviews include an agenda, and a concatenation of lesson overview lists
 */
 
+.BootstrapTitle{
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    display: block;
+}
+.BootstrapTitle img{
+  float: left;
+}
+
+.BootstrapHeader{
+	  font-weight: bold;
+	  font-size: 16px;
+    margin-top: 15px;
+    margin-right: 5px;
+}
+
+/*Overview design*/
+.BootstrapOverviewTitle{
+    background: black;
+    color: white;
+    font-size: 18px;
+    margin: 0px;
+    display: block;
+    width: 100%;
+}
+.BootstrapOverview {
+    padding: 5px;
+    background: lightgray;
+    page-break-after: always;
+    border: solid 1px black;
+}
+
+/*Table Design*/
+.BootstrapTableHeader{
+	border: 1px solid black;
+	background: grey;
+	font-weight: bold;
+  padding: 5px;
+  font-family: monospace;
+}
+.BootstrapTable{
+	width: 300px;
+	border: 1px solid black;
+	background: white;
+	}
+.BootstrapOverview td{
+	padding: 0px;
+}
+
+table {
+  margin: 20px auto;
+}
+
+.BootstrapAgenda{
+	border:         1px solid black;
+	display:        inline-block;
+	text-align:     center;
+	background:     white;
+	float:          right;
+	font-weight:    bold;
+	position:       relative;
+  padding:        5px;
+  margin:         2px;
+  width:          225px;
+}
+  
+ul.BootstrapAgendaList{
+  text-align:     left;
+  font-weight:    normal;
+  font-size:      12px;
+  list-style-type: none;
+  padding:        0px;
+}
+
+li.BootstrapAgendaListItem{clear: both;}
+ul.BootstrapAgendaList .BSLessonName{float: left;}
+
+.BootstrapPreparationList, .BootstrapMaterialsList{
+  margin: 0px;
+  list-style-image: url('box.gif');
+}
+
+
+/************************************************************************************
+ * LESSON SEGMENT
+ * All Segments contain an Overview, a Student and Teacher column, as well as a Header
+ * The Overview contains a brief description, and various lists we track
+ * The Header contains a title, time, and the stoplight
+   ****************************************************************************/
+
 div.overview{
+  display:      none;
 	background:		lightgray; 
 	margin:       5px;
 	padding-bottom: 20px;
@@ -23,19 +120,15 @@ div.overview{
 .overview h2 {float: none; clear: none;}
 .overview img {float: left; position: relative; top: -50px; margin-bottom: -50px;}
 
-div.agenda{
-	float:        right;
-	background:		white;
-	border:       solid black 1px;
-	text-align:		center; 
-	width:        250px;
-	padding:      5px;
-  margin:       0px 0px 10px 5px;
+.BootstrapLessonTitle{
+    background: black;
+    color: white;
+    font-size: 18px;
+    display: block;
 }
-div.agenda table{font-size: 12px;}
-div.agenda td:first-child{width: 60px;}
+.BootstrapPageTitle{display: none; font-size: 24px; margin-top: 0px;}
+.BSLessonDuration{float: right;}
 
-.BootstrapPageTitle{font-size: 24px; margin-top: 0px;}
 h2{width: 100%; background: black; color: white; font-size: 18px; padding: 0px; margin: 0px; clear: both;}
 h3{font-size: 16px; margin-bottom: 0px; }
 span.time{float: right; padding-right: 5px;}
@@ -61,26 +154,23 @@ input#prev{display:none;}
 input#next{display:none;}
 
 
-/************************************************************************************
- * LESSON SEGMENT
- * All segments contain a Student and Teacher column, as well as a Header
- * The header contains a title, time, and the stoplight
-*/
+
 div.segment{ 
   float:      left;
   border:     1px solid black;
   background:	rgba(255, 255, 255, .8);
   overflow:   hidden;
 }
-h2 .red, h2 .yellow, h2 .green{
+
+.remediation, .misconception, .challenge{
   width:      12px;
   height:     12px;
-  display:    none;
+  display:    inline-block;
   float:      right;
   margin:     5px;
   border-radius: 6px; 
 }
-h2:hover .red, h2:hover .yellow, h2:hover .green{display: inline-block;}
+/*h2:hover .remediation, h2:hover .misconception, h2:hover .challenge{display: inline-block;}*/
 .callout{
   width:      400px;
   border:     solid 3px black;
@@ -95,17 +185,18 @@ h2:hover .red, h2:hover .yellow, h2:hover .green{display: inline-block;}
   box-shadow: 5px 5px 5px #888888;
   padding:    10px;
 }
-span.red    {background: red;}
-span.yellow {background: yellow;}
-span.green  {background: green;}
-span.red>div:before{content: 'If they get stuck..'}
-span.yellow>div:before{content: 'Proceed with caution...'}
-span.green>div:before{content: 'Moving ahead...'}
-.red:hover .callout, .yellow:hover .callout, .green:hover .callout,  .callout:hover{
+span.remediation    {background: red;}
+span.misconception {background: yellow;}
+span.challenge  {background: green;}
+span.remediation>div:before{content: 'If they get stuck..'}
+span.misconception>div:before{content: 'Proceed with caution...'}
+span.challenge>div:before{content: 'Moving ahead...'}
+.remediation:hover .callout, .misconception:hover .callout, .challenge:hover .callout,  .callout:hover{
   display: block; 
   background: white;
   z-index: 2;
 }
+
 
 .segment ul.lesson{margin: 0px; padding-left: 0px; list-style-type:none;width: 800px;}
 .segment ul.lesson li{
@@ -156,19 +247,21 @@ ul.teacherNotes .embedded-wescheme{width: 500px;}
 .segment ul.lesson li li{
   width: 100%;
   padding: 0px;
-  list-style-type: disc;
   list-style-position: inside;
 }
 
 .management{font-style: oblique;}
 .exercises{width: 800px;}
 .activity{
+  width: 100%;
   padding: 10px 0px; 
   background: rgba(200,200,255,0.5); 
   border-top: dashed 1px black; 
   border-bottom: dashed 1px black;
-  float: left; width: 100%;
+  float: left; 
   margin-top: 10px;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 img{float: right; padding: 5px;}
@@ -209,12 +302,12 @@ ol.question li:first-of-type{border: none;}
 @media print {
 	body			{background: white;}
 	div.content		{border: none; font-size: 12px;}
-	.BootstrapPageTitle				{clear: both;}
+	.BootstrapLessonTitle				{display: none;}
 	div.overview img			{width: 80px; margin-top: 0px; }
-	h2{color: white; border-bottom: solid black 2px; font-size: 14px; page-break-after: avoid;}
-	h3{color: black; font-size: 12px;}
 	table, img {page-break-inside: avoid;}
   table.bordered td {border: none; padding: 0px;}
+  div.segment{border: none;}
+  li.lessonItem{page-break-inside: avoid;}
   div.teacher{
     height: auto;
     padding-bottom: 32767px;
@@ -224,6 +317,5 @@ ol.question li:first-of-type{border: none;}
     background: #eee;
     box-shadow:     inset 3px 0px 0px black;
   }
-  div.student{width: 500px;}
   input, div.callout, .embedded-wescheme{display: none;}
 }
