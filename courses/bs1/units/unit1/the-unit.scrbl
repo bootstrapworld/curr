@@ -375,7 +375,7 @@
                         @teacher{}
                         }
                
-                @point{@student{@bitmap{images/ExpressionDiagram.png}All of the expressions that follow the function name are called @vocab{arguments} to the function.}
+                @point{@student{@bannerline{@bitmap{images/ExpressionDiagram.png}}All of the expressions that follow the function name are called @vocab{arguments} to the function.}
                         @teacher{}
                         }
                 ]}
