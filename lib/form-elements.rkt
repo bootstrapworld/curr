@@ -365,11 +365,9 @@
    [(or latex pdf)
     (printf "WARNING: IMPLEMENT MATH MODE for latex/pdf")])) 
 
-;; generate content in single paragraph (within another block)
+;; generate content to be styled as its own line in a block
 (define (bannerline body)
-  (cond-element
-   [html (list (sxml->element '(br)) (elem #:style bs-banner-style body) (sxml->element '(br)))]
-   [else (para body)]))
+  (elem #:style bs-banner-style body))
 
 ;; generate tags to format code via codemirror
 (define (code #:multi-line (multi-line #f)
