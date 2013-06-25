@@ -246,15 +246,13 @@
                         @teacher{@management{This section benefits enormously from visual aids, diagrams, etc. Make sure you have plenty of board space to draw examples!}}
                         }
                         
-                @point{@student{@bitmap{images/FixedCircle.png} Here you can see an example of a Circle of Evaluation, for the math expression @math{4-5}. The Circles of Evaluation are useful for diagramming the order of operations inside an expression, so we can see the structure that's going on inside. All Circles of Evaluation have two rules:}
-                        @teacher{}
-                        }
-                @point{@student{@bold{Rule 1: Each circles must have one function, which we will write at the top of the circle.}}
-                        @teacher{}}
-                @point{@student{@bold{Rule 2: The numbers are written below, from left to right.}
-                                 @activity{@bitmap{images/CircleBug.png}Can you find the problem with this Circle of Evaluation?}}
-                        @teacher{}
-                        }
+                @point{@student{@bitmap{images/FixedCircle.png} Here you can see an example of a Circle of Evaluation, for the math expression @math{4-5}. The Circles of Evaluation are useful for diagramming the order of operations inside an expression, so we can see the structure that's going on inside. All Circles of Evaluation have two rules:
+                       @bannerline{@bold{Rule 1: Each circles must have one function, which we will write at the top of the circle.}}
+                       @bannerline{@bold{Rule 2: The numbers are written below, from left to right.}}
+                       @activity{@bitmap{images/CircleBug.png}This Circle of Evaluation is breaking one of these rules. Which one??}
+                       }
+                @teacher{}
+                }
                 @point{@student{@activity{Try drawing the Cirlce of Evaluation for the following expressions:
                                           @itemlist[#:style 'ordered
                                                     @item{@math{6*4}}
@@ -317,7 +315,7 @@
                 @point{@student{A program is a @vocab{legal expression} that, when evaluated, produces a value. You've been writing programs using mathematical expressions since you first learned how to add! Just as in English, there are rules that determine whether a sentence makes sense. Programs have rules too!  A program can be very complicated, but it doesn't have to be: the simplest programs of all are just Numbers.}
                         @teacher{@management{Draw students' attention to the Language Table (see Lesson Overview for Unit 1), which currently sits empty. Add "Numbers" to the Types section of the language table.}}
                         }
-                @point{@student{@bold{Rule 1: All values are legal expressions.}
+                @point{@student{@bannerline{@bold{Rule 1: All values are legal expressions.}}
                                  @activity{What do you think @code{4} will evaluate to? 
                                               @itemlist[@item{Enter 4 in the Definitions window, and click "Run". You will see the value @code{4} appear in the Interactions window below.}
                                                          @item{Type 10 on a @italic{new line} in the Definition window and click "Run". The computer now has to evaluate two separate programs, and you will see @code{4 10} printed out below.}
@@ -354,10 +352,8 @@
                         @teacher{@management{}}
                         }
                          
-                @point{@student{The Circles of Evaluation are also easy to convert into computer programs. To translate a Circle of Evaluation into a program, begin with an open parenthesis @code{(}, and then the function written at the top of the circle. Then translate the inputs from left to right in the same way, adding a closing parenthesis @code{)} when you're done. This process gives us the second rule for  @vocab{legal expressions}} 
-                        @teacher{}
-                        }
-                @point{@student{@bold{Rule 2: Just as in the Circle of Evaluation, each open parenthesis must be followed by @italic{one} function, then by one or more legal expressions, and finally by a closing parenthesis.} <ANIMATED GIF?>
+                @point{@student{The Circles of Evaluation are also easy to convert into computer programs. To translate a Circle of Evaluation into a program, begin with an open parenthesis @code{(}, and then the function written at the top of the circle. Then translate the inputs from left to right in the same way, adding a closing parenthesis @code{)} when you're done. This process gives us the second rule for @vocab{expressions:}  
+                                                                                                                                                                                              @bannerline{@bold{Rule 2: Each open parenthesis is followed by @italic{one} function, then by one or more legal expressions, and finally by a closing parenthesis.}} <ANIMATED GIF?>
                                  @bitmap{images/FixedCircle.png}Here is the code for this Circle of Evaluation: @code{(- 4 5)}
                                  @activity{@itemlist[@item{Enter this code into the Interactions window and hit Return.}
                                                       @item{What happens if you have too many parentheses? Too few?}

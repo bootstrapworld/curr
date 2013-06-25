@@ -267,7 +267,7 @@ div.activity{
 img{float: right; padding: 5px;}
 img.video{width: 20px; height: 20px; padding: 0px; margin: 0px;}
 div.activity li img{float: none;}
-div.banner{display: inline-block; width: 100%; text-align: center;}
+div.banner{display: inline-block; width: 100%; text-align: center; margin: 10px 0px;}
 div.banner img{float: none;}
 
 td.header{background: lightgray; font-weight: bold; text-align: center;}

@@ -116,7 +116,7 @@ include other datatypes, including Strings and Images.}
                                        }
                      @teacher{Students should see Strings as an analog to Numbers: a different type of value, but one that behaves according to the same rules.}
                      }
-             @point{@student{This expression also included a new @vocab{function} called @code{star}, which you've never seen before. Just as the addition function (@code{+}) takes in two Numbers, @code{star} takes in @italic{a Number and two Strings}, and produces a new datatype, called an @vocab{Image}.
+             @point{@student{This expression also included a new @vocab{function} called @code{star}. Just as the addition function (@code{+}) takes in two Numbers, @code{star} takes in @italic{a Number and two Strings}, and produces a new datatype, called an @vocab{Image}.
                             @activity{What is the datatype of each of the values listed below -- Number, String or Image? 
                                       @itemlist[@item{@code{42}}
                                                  @item{@code{"Hi, mom!"}}
