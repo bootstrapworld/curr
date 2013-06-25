@@ -97,6 +97,7 @@
          
          ;; stuff added by the interns
          ;;edited contract-exercise
+         unit-overview/auto
          overview
          copyright
          example-with-text
@@ -630,9 +631,22 @@
         
         ))))))
   
+;; append contents of two scribble itemizations, keeping style of the second
+(define (append/itemization items1 items2)
+  (if (empty? items2) items1
+      (make-itemization (itemization-style items2)
+                        (append (itemization-blockss items1) (itemization-blockss items2)))))
+
+;; contents either an itemization or a traverse block
 (define (lesson-section title contents)
-  (when contents
-    (nested (interleave-parbreaks/all (list (bold title) contents)))))
+  (traverse-block 
+   (lambda (get set)
+     (let ([title-tag (string->symbol (string-downcase (string-replace title " " "-")))])
+       (printf "storing ~a under tag ~a~n" contents title-tag)
+       (when (itemization? contents)
+         (set title-tag (append/itemization contents (get title-tag '())))))
+     (when contents
+       (nested (interleave-parbreaks/all (list (bold title) contents)))))))
 
 ;; lookup-tags: list[string] assoc[string, string] string -> element
 ;; looks up value associated with each string in taglist in 
@@ -881,10 +895,22 @@
                             (decode-flow (list "Learning Objectives:")))
         (apply itemlist/splicing items #:style "BootstrapLearningObjectivesList")))
 
+(define (objectives/auto get)
+  (let ([items (get 'objectives (list (item "No objectives found")))])
+    ;(printf "Items are ~a~n" items)
+    (list (elem #:style bs-header-style "Learning Objectives:")
+          (apply itemlist/splicing items #:style "BootstrapLearningObjectivesList"))))
+
 (define (product-outcomes . items)
   (list (compound-paragraph bs-header-style 
                             (decode-flow (list "Product Outcomes:")))
         (apply itemlist/splicing items #:style "BootstrapProductOutcomesList")))
+
+(define (product-outcomes/auto get)
+  (let ([items (get 'product-outcomes (list (item "No product outcomes found")))])
+    ;(printf "Outcomes are ~a~n" items)
+    (list (elem #:style bs-header-style "Product Outcomes:")
+          (apply itemlist/splicing items #:style "BootstrapProductOutcomesList"))))
 
 (define (preparation . items)
   (list (compound-paragraph bs-header-style 
@@ -1192,6 +1218,40 @@
    (if gen-agenda? (agenda) (elem))
    (compound-paragraph (bootstrap-sectioning-style "BootstrapOverview") (decode-flow body))
    ))
+
+(define (unit-overview/auto 
+         #:objectives (objectivesItems #f)
+         #:product-outcomes (product-outcomesItems #f)
+         #:state-standards (state-standards #f)
+         #:length (length #f)
+         #:materials (materialsItems #f)
+         #:preparation (preparationItems #f)
+         #:gen-agenda? (gen-agenda? #f) 
+         . body
+         )
+  (traverse-block
+   (lambda (get set!)
+     (nested
+      (elem #:style (bootstrap-style "BootstrapOverviewTitle") "Unit Overview")
+      (if gen-agenda? (agenda) (elem))
+      (nested #:style (bootstrap-sectioning-style "BootstrapOverview") 
+              (list
+               body
+               ;(elem current-the-unit-description)
+               (if objectivesItems (objectives objectivesItems) (objectives/auto get))
+               (if product-outcomesItems (product-outcomes product-outcomesItems) (product-outcomes/auto get))
+               (para #:style bs-header-style "Standards:")
+               "\n" "\n"
+               ; standards
+               (if length (length-of-lesson length) (length-of-lesson "must compute length"))
+               "\n" "\n"
+               (para #:style bs-header-style "Glossary:")
+               "\n" "\n"
+               ;; wrap next two in pedagogy tag
+               (if materialsItems (apply materials materialsItems) (para))
+               (if preparationItems (apply preparation preparationItems) (para))
+               ))))))
+                       
 
 ;; Inputs: string [string] [string] [string] -> element
 ;;         optional argument supply answers for the workbook
