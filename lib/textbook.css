@@ -235,7 +235,7 @@ div.student{width: 780px; display: inline-block; -webkit-transition: width 0.5s 
 ul.teacherNotes li div.student{width: 500px;}
 
 
-.embedded-wescheme{width: 780px; -webkit-transition: width 0.5s ease-in-out;}
+.embedded-wescheme{width: 780px; -webkit-transition: width 0.5s ease-in-out; margin-bottom: 40px;}
 .embedded-wescheme .editbox{display: none;}
 .embedded-wescheme .refreshButton {background: black; color: white; font-size: 16px; border: outset;}
 ul.teacherNotes .embedded-wescheme{width: 500px;}
