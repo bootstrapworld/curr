@@ -252,7 +252,7 @@ ul.teacherNotes .embedded-wescheme{width: 500px;}
 
 .management{font-style: oblique;}
 .exercises{width: 800px;}
-.activity{
+div.activity{
   width: 100%;
   padding: 10px 0px; 
   background: rgba(200,200,255,0.5); 
@@ -266,6 +266,7 @@ ul.teacherNotes .embedded-wescheme{width: 500px;}
 
 img{float: right; padding: 5px;}
 img.video{width: 20px; height: 20px; padding: 0px; margin: 0px;}
+div.activity li img{float: none;}
 div.banner{display: inline-block; width: 100%; text-align: center;}
 div.banner img{float: none;}
 
