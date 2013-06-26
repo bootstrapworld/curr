@@ -218,8 +218,11 @@
 (define bs-banner-style (bootstrap-div-style "banner"))
 (define bs-sexp-style (bootstrap-div-style "sexp"))
 (define bs-circeval-style (bootstrap-div-style "circevalsexp"))
-(define bs-sexp-operator-style (bootstrap-span-style "operator"))
-(define bs-sexp-argument-style (bootstrap-span-style "argument"))
+(define bs-value-style (bootstrap-span-style "value"))
+(define bs-openbrace-style (bootstrap-span-style "openbrace"))
+(define bs-closebrace-style (bootstrap-span-style "closebrace"))
+(define bs-operator-style (bootstrap-span-style "operator"))
+(define bs-expression-style (bootstrap-span-style "expression"))
 
 ;; make-bs-latex-style : string -> style
 ;; defines a style that will only be used in latex
@@ -642,7 +645,7 @@
   (traverse-block 
    (lambda (get set)
      (let ([title-tag (string->symbol (string-downcase (string-replace title " " "-")))])
-       (printf "storing ~a under tag ~a~n" contents title-tag)
+       ;(printf "storing ~a under tag ~a~n" contents title-tag)
        (when (itemization? contents)
          (set title-tag (append/itemization contents (get title-tag '())))))
      (when contents
@@ -851,15 +854,15 @@
   (list (format "Length: ~a~n" (decode-flow timestr))))
 
 (define (binop-sexp->block/aux sexp)
-  (if (not (list? sexp)) (format "~a" sexp)
-      (elem (list "(" 
-                  (elem #:style bs-sexp-operator-style (format "~a " (first sexp)))
-                  (elem #:style bs-sexp-argument-style 
-                        (binop-sexp->block/aux (second sexp)))
+  (if (not (list? sexp)) 
+      (elem #:style bs-value-style (format "~a" sexp))
+      (elem #:style bs-expression-style
+            (list (elem #:style bs-openbrace-style "(") 
+                  (elem #:style bs-operator-style (format "~a " (first sexp)))
+                  (binop-sexp->block/aux (second sexp))
                   " "
-                  (elem #:style bs-sexp-argument-style 
-                        (binop-sexp->block/aux (third sexp)))
-                  ")"))))
+                  (binop-sexp->block/aux (third sexp))
+                  (elem #:style bs-openbrace-style ")")))))
 
 (define (binop-sexp->block sexp form)
   (let ([style (if (string=? form "sexp") bs-sexp-style bs-circeval-style)])
