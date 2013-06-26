@@ -186,6 +186,9 @@
   (make-style name (cons (make-alt-tag "div")
                          css-js-additions)))
 
+(define (bootstrap-paragraph-style name)
+  (make-style name css-js-additions))
+
 (define (bootstrap-div-style name)
   (make-style name (cons (make-alt-tag "div")
                          css-js-additions)))
@@ -200,7 +203,7 @@
   (make-style name (cons (make-alt-tag "span")
                          css-js-additions)))
 
-(define bs-header-style (bootstrap-style "BootstrapHeader"))
+(define bs-header-style (bootstrap-paragraph-style "BootstrapHeader"))
 (define bs-title-style (bootstrap-style "BootstrapTitle"))
 (define bs-lesson-title-style (bootstrap-style "BootstrapLessonTitle"))
 (define bs-lesson-name-style (bootstrap-style "BSLessonName"))
@@ -614,7 +617,7 @@
                   (lesson-section "Standards" (expand-standards standards))
                   (lesson-section "Materials" materials)
                   (lesson-section "Preparation" preparation)
-                  (lesson-section "Glossary" (glossary))
+                  (lesson-section "Glossary" (glossary get))
                   )))
         (nested #:style (bootstrap-div-style "segment")
                 (interleave-parbreaks/all
@@ -636,9 +639,17 @@
   
 ;; append contents of two scribble itemizations, keeping style of the second
 (define (append/itemization items1 items2)
-  (if (empty? items2) items1
-      (make-itemization (itemization-style items2)
-                        (append (itemization-blockss items1) (itemization-blockss items2)))))
+  (cond [(empty? items2) items1]
+        [(empty? items1) items2]
+        [else
+         (make-itemization (itemization-style items2)
+                           (append (itemization-blockss items1) (itemization-blockss items2)))]))
+
+;; remove duplicates in an itemlist
+(define (remdups/itemization itemz)
+  (let ([items (apply append (itemization-blockss itemz))])
+    (apply itemlist (remove-duplicates items equal?))))
+  
 
 ;; contents either an itemization or a traverse block
 (define (lesson-section title contents)
@@ -648,8 +659,9 @@
        ;(printf "storing ~a under tag ~a~n" contents title-tag)
        (when (itemization? contents)
          (set title-tag (append/itemization contents (get title-tag '())))))
-     (when contents
-       (nested (interleave-parbreaks/all (list (bold title) contents)))))))
+     (if contents
+         (nested (interleave-parbreaks/all (list (bold title) contents)))
+         (para)))))
 
 ;; lookup-tags: list[string] assoc[string, string] string -> element
 ;; looks up value associated with each string in taglist in 
@@ -898,37 +910,33 @@
                             (decode-flow (list "Learning Objectives:")))
         (apply itemlist/splicing items #:style "BootstrapLearningObjectivesList")))
 
-(define (objectives/auto get)
-  (let ([items (get 'objectives (list (item "No objectives found")))])
-    ;(printf "Items are ~a~n" items)
-    (list (elem #:style bs-header-style "Learning Objectives:")
-          (apply itemlist/splicing items #:style "BootstrapLearningObjectivesList"))))
-
 (define (product-outcomes . items)
   (list (compound-paragraph bs-header-style 
                             (decode-flow (list "Product Outcomes:")))
         (apply itemlist/splicing items #:style "BootstrapProductOutcomesList")))
 
-(define (product-outcomes/auto get)
-  (let ([items (get 'product-outcomes (list (item "No product outcomes found")))])
-    ;(printf "Outcomes are ~a~n" items)
-    (list (elem #:style bs-header-style "Product Outcomes:")
-          (apply itemlist/splicing items #:style "BootstrapProductOutcomesList"))))
-
+;; used to pull summary data generated over an entire unit or lesson from the
+;; traverse table
+;; TODO: Weed out duplicates in the list
+(define (summary-data/auto tag header . pre-content)
+  (traverse-block
+   (lambda (get set)
+     (lambda (get set)
+       (let ([items (get tag (itemlist (item "No items found")))])
+         (nested (para #:style bs-header-style (format "~a:" header))
+                 (if (empty? pre-content) (elem) (first pre-content))
+                 (remdups/itemization items)))))))
+  
 (define (preparation . items)
   (list (compound-paragraph bs-header-style 
                             (decode-flow (list "Preparation:")))
         (apply itemlist/splicing items #:style "BootstrapPreparationList")))
 
 
-(define (glossary)
-  (traverse-block
-   (lambda (get set)
-     (traverse-block (lambda (get set)
-     (traverse-block (lambda (get set)
-       (define terms (get 'vocab-used '()))
-       ;(printf "glossary has terms ~a~n" terms)
-       (nested terms))))))))
+(define (glossary get)
+  (let ([terms (get 'vocab-used '())])
+    ;(printf "glossary has terms ~a~n" terms)
+    (nested terms)))
 ;(nested
 ; (let ([known-terms (lookup-tags terms glossary-terms-dictionary "Vocabulary term")])
 ;   (apply itemlist/splicing
@@ -946,7 +954,7 @@
   
   (traverse-block
    (lambda (get set)
-     
+
      (lambda (get set)
        
        (define (maybe-hyperlink elt anchor)
@@ -955,7 +963,15 @@
              elt))
        
        (define lessons (reverse (get 'bootstrap-lessons '())))
-       
+      
+       ;; compute total unit length to include in the unit overview
+       (let ([unit-minutes (foldr (lambda (elt result)
+                                    (let ([mins (string->number (extract-minutes elt))])
+                                      (+ (if mins mins 0) result)))
+                                  0 lessons)])
+         ;(printf "Computed ~a minutes~n" unit-minutes)
+         (set 'unit-length unit-minutes))
+         
        (nested #:style (style "BootstrapAgenda" '(never-indents))
                (list "Agenda"
                      (apply 
@@ -1215,7 +1231,7 @@
    [(or latex pdf) (apply elem #:style (make-bs-latex-style "BSCircEvalExercise") 
                           (map elem math-examples))]])
 
-(define (overview #:gen-agenda? (gen-agenda? #t). body)
+(define (overview #:gen-agenda? (gen-agenda? #t) . body)
   (list
    (elem #:style (bootstrap-style "BootstrapOverviewTitle") (list (format "Unit Overview")))
    (if gen-agenda? (agenda) (elem))
@@ -1225,35 +1241,34 @@
 (define (unit-overview/auto 
          #:objectives (objectivesItems #f)
          #:product-outcomes (product-outcomesItems #f)
-         #:state-standards (state-standards #f)
+         #:standards (standards #f)
          #:length (length #f)
          #:materials (materialsItems #f)
          #:preparation (preparationItems #f)
-         #:gen-agenda? (gen-agenda? #f) 
-         . body
+         #:gen-agenda? (gen-agenda? #t) 
+         . description
          )
-  (traverse-block
-   (lambda (get set!)
-     (nested
-      (elem #:style (bootstrap-style "BootstrapOverviewTitle") "Unit Overview")
-      (if gen-agenda? (agenda) (elem))
-      (nested #:style (bootstrap-sectioning-style "BootstrapOverview") 
-              (list
-               body
-               ;(elem current-the-unit-description)
-               (if objectivesItems (objectives objectivesItems) (objectives/auto get))
-               (if product-outcomesItems (product-outcomes product-outcomesItems) (product-outcomes/auto get))
-               (para #:style bs-header-style "Standards:")
-               "\n" "\n"
-               ; standards
-               (if length (length-of-lesson length) (length-of-lesson "must compute length"))
-               "\n" "\n"
-               (para #:style bs-header-style "Glossary:")
-               "\n" "\n"
-               ;; wrap next two in pedagogy tag
-               (if materialsItems (apply materials materialsItems) (para))
-               (if preparationItems (apply preparation preparationItems) (para))
-               ))))))
+  (nested       
+   (elem #:style (bootstrap-style "BootstrapOverviewTitle") "Unit Overview")
+   (if gen-agenda? (agenda) (elem))
+   (nested #:style (bootstrap-sectioning-style "BootstrapOverview") 
+           (list
+            description
+            (if objectivesItems (objectives objectivesItems) 
+                (summary-data/auto 'learning-objectives "Learning Objectives"));)))
+            (if product-outcomesItems (product-outcomes product-outcomesItems) 
+                (summary-data/auto 'product-outcomes "Product Outcomes"))
+            (if standards standards 
+                (summary-data/auto 'standards "Standards" (rest state-standards)))
+            ;state-standards
+            (if length (length-of-lesson length) (length-of-unit/auto))
+            (para #:style bs-header-style "Glossary:")
+            ;; wrap next two in pedagogy tag
+            (if materialsItems (materials materialsItems) 
+                (summary-data/auto 'materials "Materials"))
+            (if preparationItems (preparation preparationItems) 
+                (summary-data/auto 'preparation "Preparation"))
+            ))))
                        
 
 ;; Inputs: string [string] [string] [string] -> element
@@ -1293,7 +1308,7 @@
 
 ;autogenerates state-standards section
 (define state-standards
-  (list (elem #:style bs-header-style "State Standards")
+  (list (para #:style bs-header-style "State Standards")
         "See our " 
         (hyperlink "http://www.BootstrapWorld.org/materials/CommonCore.shtml" "Common Core Standards Table") 
         " provided as part of the Bootstrap curriculum."))
@@ -1301,7 +1316,13 @@
 ;creates the length of the lesson based on input
 ;input ONLY THE NUMBER!
 (define (length-of-lesson l)
-  (list (elem #:style bs-header-style (format "Length: ~a minutes" l))))
+  (para #:style bs-header-style (format "Length: ~a minutes" l)))
+
+(define (length-of-unit/auto)
+  (traverse-block
+   (lambda (get set)
+     (lambda (get set)
+       (length-of-lesson (get 'unit-length "No value found for"))))))
 
 ;;example: optional text, example for cond (p23), example for not cond (p21), example for with name (p8)
 

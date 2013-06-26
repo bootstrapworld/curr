@@ -2,33 +2,11 @@
 
 @declare-tags[group management pedagogy selftaught]
 @title{Unit 2: Contracts, Strings and Images}
-@overview{
+@unit-overview/auto{
 
 @unit-descr{Students are introduced to a set-mapping representation for functions, in which the function object exists as a means of translating points
 from a Domain into a Range. Coupled with their understanding of Circles of Evaluation, students generalize their understanding of functions to
 include other datatypes, including Strings and Images.}
-
-@objectives[
-        @item{Students will be able to write contracts for functions of Numbers, Strings and Images.}
-        @item{Given an example of a function, students will be able to identify the Name, Domain and Range of that function.}]
-@product-outcomes[
-        @item{Students learn to make and manipulate the basic elements of their games--numbers, strings, and images}]
-
-@state-standards
-
-@length-of-lesson[90]
-
-@pedagogy{
-@materials[@item{Student workbook folders @tag[group]{- in pairs! - with names on folders}}
-            @item{Pens/pencils for the students, fresh whiteboard markers for the teachers}
-            @item{On student machines: "Images.rkt" from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | A blank @(hyperlink "http://www.wescheme.org/openEditor" "WeScheme") file])}
-            @item{Class posters (List of rules, language table, course calendar)}
-            @item{Language Table (See below)}
-            ]
-@preparation[@item{Write agenda on board}
-             @item{Display class posters and Language Table}
-             @item{Seating arrangements: ideally with clusters of desks/tables}
-             @item{Optional: demo machine with projector to show the interactions and definitions windows}]}
 
 @(language-table (list "Number" @code{+ - * / sq sqrt expt}))
 }
