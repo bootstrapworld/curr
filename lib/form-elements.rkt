@@ -1245,6 +1245,7 @@
          #:length (length #f)
          #:materials (materialsItems #f)
          #:preparation (preparationItems #f)
+         #:lang-table (lang-table #f)
          #:gen-agenda? (gen-agenda? #t) 
          . description
          )
@@ -1268,6 +1269,7 @@
                 (summary-data/auto 'materials "Materials"))
             (if preparationItems (preparation preparationItems) 
                 (summary-data/auto 'preparation "Preparation"))
+            (if lang-table (language-table lang-table) (elem))
             ))))
                        
 
