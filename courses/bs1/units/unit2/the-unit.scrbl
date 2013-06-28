@@ -26,7 +26,7 @@ include other datatypes, including Strings and Images.}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{@activity{Practice the Circles of Evaluation, using the activity sheet on @worksheet-link[#:page 3 #:name "Circles-of-Evaluation-Practice-2"] in your workbooks.
+        @points[@point{@student{@gen-random-arith-sexp[#:depth 6 #:form "circeval"] @activity{Practice the Circles of Evaluation, using the activity sheet on @worksheet-link[#:page 3 #:name "Circles-of-Evaluation-Practice-2"] in your workbooks.
                        @itemlist[@item{In each row, there is a mathematical expression written on the lefthand column.}
                                  @item{Go through each of these expressions, and first draw the Circle of Evaluation for each one.}
                                  @item{Once you've coverted each of them, go to the third column and convert each one into a program that can be entered on the computer. Don't forget to check your parentheses, and to be careful about leaving a space between each input}]}}
@@ -141,7 +141,7 @@ include other datatypes, including Strings and Images.}
                 )
       ]{
         @points[@point{@student{There are many functions available in our language, which can draw all kinds of shapes. The mix of arguments each function takes in is called the @vocab{Domain}, while the data it produces is called the @vocab{Range}. For example, the function @code{+} takes in two Numbers as its Domain, and produces a single Number as its Range. Each image function takes a slightly different Domain, with some taking one Number and two Strings, and others taking two Numbers and two Strings, etc. It can be easy to forget the Domains for each function! Programmers use special notes, called @vocab{contract} to keep track of what each function needs.
-                 @bannerline{A Contract specifies the Name, Domain and Range of a function.}
+                 @bannerline{@bold{A Contract specifies the Name, Domain and Range of a function.}}
                  The contract for @code{star} is:
                  @code[#:multi-line ""]{; star: Number String String -> Image}
                  This means that the @vocab{Name} of the function is @code{star}, that it takes in a Number and two Strings as its Domain, and produces an Image as the Range. We use types instead of values when we write a Contract, because we want to be more general: a star could be of any size, so the Domain for @code{star} specifies that the first argument could be any Number.}
@@ -165,7 +165,9 @@ include other datatypes, including Strings and Images.}
                      @teacher{Have students change these values, always drawing attention back to the Domain.}
                      }
              @point{@student{By writing down the Contracts for our functions, we can easily look back to see how they are used.
-                             @activity{The Contract for @code{+} is shown below. Can you write the Contract for @code{*}, @code{-}, @code{/} and @code{sqrt}?}}
+                             @activity{The Contract for @code{+} is shown below.
+                                       @code[#:multi-line ""]{; + Number Number -> Number}                
+                                       Can you write the Contract for @code{*}, @code{-}, @code{/} and @code{sqrt}?}}
                      @teacher{Pay close attention to student use of types in their Contracts, rather than values. Students should not be writing actual Numbers or Strings anywhere here.}
                      }
              @point{@student{Now that you know how to use a Contract to write an expression, here are the Contracts for several new Image-producing functions:
