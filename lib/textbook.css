@@ -287,6 +287,50 @@ span.vocab{font-style:  italic; font-weight: bold; color: darkblue;}
 
 
 /************************************************************************************
+ * CIRCLES OF EVALUATION
+*/
+
+
+/* all sexprs are courier and unselectable */
+div.circevalexp, div.sexp{
+  font-family: courier, monospace, serif; 
+  font-size: 12px;
+}
+
+div.circevalsexp .expression{
+	display:		inline-block;
+	margin:			5px;
+	clear:			none;
+	border:			2px solid black;
+  border-radius:20px;
+	-moz-border-radius: 20px;
+	-webkit-border-radius:20px;
+  -webkit-transition: all 0.5s ease-in-out;
+}
+
+div.circevalsexp .value{
+	display:    inline-block;
+	margin:     10px;
+  -webkit-transition: all 0.5s ease-in-out;
+}
+
+div.circevalsexp .operator{
+  display:    block;
+  height:			20px;
+  text-align:	center;
+  width:      100%;
+  border-bottom: solid 2px black;
+  border-radius: 15px 15px 0px 0px; /* top left, top right, bottom right, bottom left */
+  -webkit-transition: all 0.5s ease-in-out;
+}
+
+div.circevalsexp .openbrace, div.circevalsexp .closebrace{display: none;}
+
+div.sexp .operator, div.sexp .value {margin-right: 5px;}
+
+
+
+/************************************************************************************
  * EXERCISES SEGMENT
  * The last .segment always contains a list of exercises,
  * which are styled a little differently
