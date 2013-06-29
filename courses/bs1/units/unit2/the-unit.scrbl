@@ -1,6 +1,6 @@
 #lang curr/lib
 
-@declare-tags[group management pedagogy selftaught]
+@declare-tags[management]
 @title{Unit 2: Contracts, Strings and Images}
 @unit-overview/auto[#:lang-table (list "Number" @code{+ - * / sq sqrt expt})]{
 
@@ -26,7 +26,7 @@ include other datatypes, including Strings and Images.}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point@activity{Practice the Circles of Evaluation, using the activity sheet on @worksheet-link[#:page 3 #:name "Circles-of-Evaluation-Practice-2"] in your workbooks.
+        @points[@point{@student{@activity{Practice the Circles of Evaluation, using the activity sheet on @worksheet-link[#:page 3 #:name "Circles-of-Evaluation-Practice-2"] in your workbooks.
                        @itemlist[@item{In each row, there is a mathematical expression written on the lefthand column.}
                                  @item{Go through each of these expressions, and first draw the Circle of Evaluation for each one.}
                                  @item{Once you've coverted each of them, go to the third column and convert each one into a program that can be entered on the computer. Don't forget to check your parentheses, and to be careful about leaving a space between each input}]}}
@@ -62,7 +62,7 @@ include other datatypes, including Strings and Images.}
                              @itemlist[@item{What is the name of the function being used?}
                                         @item{How many arguments are being given to that function?}
                                         @item{What do you think this function will do?}]
-                             The same rules you used to convert a Circle of Evaluation into code still apply. Here is the code for that Circle: @bannerline{@code{(star 50 "solid" "red")}}
+                             The same rules you used to convert a Circle of Evaluation into code still apply. Here is the code for that Circle: @code{(star 50 "solid" "red")}
                              }
                     @teacher{Students are not expected to know all the answers here - the goal is for them to apply what they know about Circles to a novel expression, and discuss for themselves what they think it might mean. Ask them to justify their answers, and to explain why they think they are correct. Linking this back to earlier examples of Circles of Evaluation may be useful.}
                     }
@@ -83,7 +83,9 @@ include other datatypes, including Strings and Images.}
                
                      @teacher{This activity is designed to get students @italic{playing} with new terms and concepts, so they develop their own model for what's going on. At this point, it is NOT essential that students understand every last component of the code. If you need to give away lots of code snippets, that's ok - just get them playing!}
                      }
-             @point{@student{There's an entirely new @vocab{type} of value being used in these expressions: @code{"solid"} and @code{"red"} are examples of a completely new datatype, called a @vocab{String}.  @bannerline{@bold{A String is anything written inside quotation marks.}} When you first learned about values, you saw that a program can be nothing more than a value, such as a number. Look at the example below, in which the value @code{716} evaluates to itself:
+             @point{@student{There's an entirely new @vocab{type} of value being used in these expressions: @code{"solid"} and @code{"red"} are examples of a completely new datatype, called a @vocab{String}.  
+                             @bannerline{A String is anything between quotation marks.} 
+                             When you first learned about values, you saw that a program can be nothing more than a value, such as a number. Look at the example below, in which the value @code{716} evaluates to itself:
                                           @embedded-wescheme[#:id "StringIntro"                                             
                                                                    #:height 50
                                                                    #:hide-toolbar? #t
@@ -152,15 +154,15 @@ include other datatypes, including Strings and Images.}
                 )
       ]{
         @points[@point{@student{You've already seen several functions that take in two Numbers, such as @code{+}, and @code{-}. Meanwhile, @code{star} takes in a Number and two Strings. There are many functions available in our language, which can draw all kinds of shapes, each one expecting a different mix of Numbers and Strings. 
-                        @bannerline{@bold{The Domain of a function is the types of data that the function expects.}}
+                        @bannerline{The Domain of a function is the data that the function expects.}
                         @activity{Why is it helpful to know the @vocab{Domain} of a function?}
                         By keeping a list of all the functions in a language, and their Domains, programmers can easily look up how each function is used. However, it's also important to keep remember what each function produces! For example, a program wouldn't use @code{star} if they were trying to produce a Number, because @code{star} only produces Images.
-                        @bannerline{@bold{The Range of a function is the type of data that the function produces.}}
+                        @bannerline{The Range of a function is the data that the function produces.}
                         Domains and Ranges help programmers write better code, by preventing silling mistakes and giving themselves hints about what to do next. A programmer who wants to use @code{star} can look up the Domain and immediately know that the first input has to be a Number (like @code{100}), without having to remember it each time. Instead of writing a single value there, suppose a programmer wanted to write a whole expression, like @code{(* 25 4)}. We know this code will work correctly by looking at the Range for @code{*}, which tells us that the expression will return a Number, and can therefore be used in place of any Number value.}
                         @teacher{Domain and Range are critical concepts. They can be reinforced by modifying a simple expression (such as @code{(+ 1 2)}), asking questions at every step. For example, we know that @code{+} takes two Numbers, which is why 1 and 2 are used in the example. However, each of those values could be replaced by @italic{another expression} -- as long as that expression evaluates to a Number. Have students systematically replace each value with an expression, asking them to justify their replacement using the Domain and Range of each function.}
                         }
                  @point{@student{When programmers write down the Domains and Ranges of each function, they write what are called @vocab{contracts}, to keep track of what each function needs.
-                 @bannerline{@bold{A Contract has three parts: the Name, Domain and Range of a function.}}
+                 @bannerline{A Contract has three parts: the Name, Domain and Range of a function.}
                  The contract for @code{star} is:
                  @code[#:multi-line ""]{; star: Number String String -> Image}
                  This means that the @vocab{Name} of the function is @code{star}, that it takes in a Number and two Strings as its Domain, and produces an Image as the Range. We use types instead of values when we write a Contract, because we want to be more general: a star could be of any size, so the Domain for @code{star} specifies that the first argument could be @italic{any Number}. If we think of a language as a collection of lego pieces, the Contracts are like the tabs and slots that tell us how each piece can connect.}
@@ -222,19 +224,27 @@ include other datatypes, including Strings and Images.}
                        @teacher{}
                        }
              ]}
-@pedagogy{
-@lesson[#:title "Closing"
-        #:duration "5 minutes"]{
-    @pedagogy{@itemlist[@item{Who can tell us one thing we learned today?}
-                             @item{Who saw someone else in the class do something great?}
-                             @item{Cleanup, dismissal.}]}
-
-    @tag[selftaught]{@itemlist[@item{Think about what you learned today.}
-                               @item{Remember contracts and how to make them.}
-                               @item{Think of strings and what differentiates a string from a different type.}
-                               @item{Think about images and what goes into creating an image.}
-                               @item{Have an awesome day!}]}
-}
+@lesson/studteach[
+     #:title "Closing"
+     #:duration "5 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[]
+     #:product-outcomes @itemlist[]
+     #:standards (list)
+     #:materials @itemlist[]
+     #:preparation @itemlist[]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[@point{@student{}
+                        @teacher{@management{@itemlist[@item{Have students volunteer what they learned in this lesson}
+                                                        @item{Reward behaviors that you value: teamwork, note-taking, engagement, etc}
+                                                        @item{Pass out exit slips, dismiss, clean up.}]}}
+                        }
+                        ]}
 }
 
 @copyright[]

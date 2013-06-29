@@ -170,7 +170,7 @@ div.segment{
   margin:     5px;
   border-radius: 6px; 
 }
-/*h2:hover .remediation, h2:hover .misconception, h2:hover .challenge{display: inline-block;}*/
+
 .callout{
   width:      400px;
   border:     solid 3px black;
@@ -185,6 +185,7 @@ div.segment{
   box-shadow: 5px 5px 5px #888888;
   padding:    10px;
 }
+
 span.remediation    {background: red;}
 span.misconception {background: yellow;}
 span.challenge  {background: green;}
@@ -250,6 +251,9 @@ ul.teacherNotes .embedded-wescheme{width: 500px;}
   list-style-position: inside;
 }
 
+/* make sure inline code is never broken across lines */
+.editbox{white-space: nowrap;}
+
 .management{font-style: oblique;}
 .exercises{width: 800px;}
 div.activity{
@@ -267,8 +271,18 @@ div.activity{
 img{float: right; padding: 5px;}
 img.video{width: 20px; height: 20px; padding: 0px; margin: 0px;}
 div.activity li img{float: none;}
-div.banner{display: inline-block; width: 100%; text-align: center; margin: 10px 0px;}
-div.banner img{float: none;}
+
+div.banner{
+  display:    inline-block;
+  width:      100%;
+  margin:     10px 0px;
+  padding:    5px;
+  font-weight:bold;
+  color:      black;
+  border-top: solid 1px black;
+  border-bottom: solid 1px black;
+}
+div.banner img{float: none; margin-left: auto; margin-right: auto; display: block;}
 
 td.header{background: lightgray; font-weight: bold; text-align: center;}
 table tr{height: 16px;}
