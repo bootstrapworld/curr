@@ -14,11 +14,11 @@ include other datatypes, including Strings and Images.}
 @lesson/studteach[
      #:title "Circles of Evaluation Review"
      #:duration "30 minutes"
-     #:overview ""
+     #:overview "Students practice converting arithmetic expressions into Circles of Evaluation, and then converting those into Code."
      #:learning-objectives @itemlist[]
      #:product-outcomes @itemlist[@item{}]
      #:standards (list "A-SSE.1-2" "N-Q" "MP.1" "MP.4" "MP.6" "MP.7")
-     #:materials @itemlist[@item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}]
+     #:materials @itemlist[]
      #:preparation @itemlist[@item{Student Workbooks, and something to write with}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -205,6 +205,16 @@ include other datatypes, including Strings and Images.}
                                          #:interactions-text "(ellipse 150 40 \"outline\" \"black\")"]}
                              }
                      @teacher{You should start pushing students to write more sophisticated expressions, replacing Number values with entire expressions (e.g. @code{(star (* 10 5) "solid" "purple")}). Students should be comfortable looking at an entire subexpression as a single argument to the surrounding function. @management{You may wish to force students to write these Contracts into their notebooks BEFORE allowing them to play with them. Be careful about letting students rush to the keys without first taking notes!}}
+                     }
+             @point{@student{Here is an expression that uses very interesting function: @code{(bitmap/url "http://bootstrapworld.org/images/icon.gif")}. 
+                             @activity{@itemlist[@item{What are the three parts of a Contract?}
+                                                  @item{What is the Name of this function?}
+                                                  @item{How many things are in it's Domain?}
+                                                  @item{What is the Domain of this function?}
+                                                  @item{What will this expression evaluate to?}]}
+                             This function takes in the URL of any image you can find online, and will produce that image so that you can use it in your program.
+                             }
+                     @teacher{If you want to have students practice using @code{bitmap/url}, it is recommended that you use an image search-engine, such as @(hyperlink"https://images.google.com" "Google Images") or @(hyperlink "http://www.bing.com/images" "Bing Images"). Make sure that students know how to get the URL for the image itself, @italic{not the URL of the web page that contains the image.}}
                      }
                @point{@student{Contracts help programmers write code, so it's always a good idea to write down contracts for each function you see. 
                                @activity{Can you figure out the contract for a function, just by looking at some sample code? Look at the code below, and see if you can write the @vocab{Name}, @vocab{Domain} and @vocab{Range} for the function being used.
