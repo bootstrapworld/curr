@@ -26,7 +26,7 @@ include other datatypes, including Strings and Images.}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{@gen-random-arith-sexp[#:depth 6 #:form "circeval"] @activity{Practice the Circles of Evaluation, using the activity sheet on @worksheet-link[#:page 3 #:name "Circles-of-Evaluation-Practice-2"] in your workbooks.
+        @points[@point@activity{Practice the Circles of Evaluation, using the activity sheet on @worksheet-link[#:page 3 #:name "Circles-of-Evaluation-Practice-2"] in your workbooks.
                        @itemlist[@item{In each row, there is a mathematical expression written on the lefthand column.}
                                  @item{Go through each of these expressions, and first draw the Circle of Evaluation for each one.}
                                  @item{Once you've coverted each of them, go to the third column and convert each one into a program that can be entered on the computer. Don't forget to check your parentheses, and to be careful about leaving a space between each input}]}}
@@ -35,6 +35,8 @@ include other datatypes, including Strings and Images.}
                  ]
          }
 
+       
+       
 @lesson/studteach[
      #:title "Strings and Images"
      #:duration "20 minutes"
@@ -43,7 +45,8 @@ include other datatypes, including Strings and Images.}
                                       @item{Students will be able to identify what each argument to an image-producing function means}
                                       @item{Students will be able to write expressions that generate simple images (triangles, circle, stars, etc)}
                                       @item{Given a value, students will be able to identify it's datatype.}
-                                      @item{Given an expression, students will be able to identify the datatype it will evaluate to.}]
+                                      @item{Given an expression, students will be able to identify the datatype it will evaluate to.}
+                                      @item{Students will be able to distinguish between types and values}]
      #:product-outcomes @itemlist[@item{}]
      #:standards (list "A-SSE.1-2" "N-Q" "MP.1" "MP.4" "MP.6" "MP.7")
      #:materials @itemlist[@item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}]
@@ -80,7 +83,7 @@ include other datatypes, including Strings and Images.}
                
                      @teacher{This activity is designed to get students @italic{playing} with new terms and concepts, so they develop their own model for what's going on. At this point, it is NOT essential that students understand every last component of the code. If you need to give away lots of code snippets, that's ok - just get them playing!}
                      }
-             @point{@student{There's an entirely new type of value being used in these expressions: @code{"solid"} and @code{"red"} are examples of a completely new datatype, called a @vocab{String}.  @bannerline{@bold{A String is anything written inside quotation marks.}} When you first learned about @vocab{values}, you saw that a program can be nothing more than a value, such as a number. Look at the example below, in which the @vocab{value} @code{716} evaluates to itself:
+             @point{@student{There's an entirely new @vocab{type} of value being used in these expressions: @code{"solid"} and @code{"red"} are examples of a completely new datatype, called a @vocab{String}.  @bannerline{@bold{A String is anything written inside quotation marks.}} When you first learned about values, you saw that a program can be nothing more than a value, such as a number. Look at the example below, in which the value @code{716} evaluates to itself:
                                           @embedded-wescheme[#:id "StringIntro"                                             
                                                                    #:height 50
                                                                    #:hide-toolbar? #t
@@ -88,19 +91,19 @@ include other datatypes, including Strings and Images.}
                                                                    #:hide-footer? #t
                                                                    #:hide-definitions? #t
                                                                    #:interactions-text "716"]
-                                          Since Strings are values too, the @vocab{value} @code{"red"} can be used as well. Just like number values, strings will evaluate to themselves.
-                                          @activity{Try entering different Strings into the Interactions window. What happens if you put quotes around multiple words (@code{"like this"}), or around Numbers (like @code{"42"})?}
+                                          Since Strings are values too, the value @code{"red"} is a perfectly valid program! Just like number values, strings will evaluate to themselves.
+                                          @activity{Try entering different Strings into the Interactions window. What happens if you put quotes around multiple words? Around Numbers?}
                                        }
                      @teacher{Students should see Strings as an analog to Numbers: a different type of value, but one that behaves according to the same rules.}
                      }
-             @point{@student{This expression also included a new @vocab{function} called @code{star}. Just as the addition function (@code{+}) takes in two Numbers, @code{star} takes in @italic{a Number and two Strings}, and produces a new datatype, called an @vocab{Image}.
+             @point{@student{This expression also included a new @vocab{function} called @code{star}. Just as the addition function @code{+} takes in two Numbers, @code{star} takes in @italic{a Number and two Strings}, and produces a new datatype, called an @vocab{Image}.
                             @activity{What is the datatype of each of the values listed below -- Number, String or Image? 
                                       @itemlist[@item{@code{42}}
                                                  @item{@code{"Hi, mom!"}}
                                                  @item{@code{9273482.42}}
                                                  @item{@bitmap{images/TriangleImage.png}}
                                                  @item{@code{"84729"}}
-                                                 @item{@code{"  "}}
+                                                 @item{@code{"Strings and Numbers are two different datatypes"}}
                                                  @item{@bitmap{images/coffee-cup.png}}]
                                                  }}
                      @teacher{Students have now seen three datatypes: Numbers, Strings and Images. You'll want to make sure students can correctly identify examples of each one.}
@@ -111,7 +114,17 @@ include other datatypes, including Strings and Images.}
                                                  @item{@code{(star 500 "solid" "purple")}}
                                                  @item{@code{(star (+ 1 3) "outline" "blue")}}
                                                  @item{@code{(- (* 4 2) (+ 1 0))}}
-                                                 ]}}
+                                                 ]}
+                             @activity{Some of the items listed below are @vocab{types}, while others are @vocab{values}. Can you tell the difference?
+                                       @itemlist[@item{792.24}
+                                                 @item{String}
+                                                 @item{"hi, mom!"}
+                                                 @item{"91"}
+                                                 @item{Number}
+                                                 @item{Image}
+                                                 @item{102}
+                                                 ]}
+                             }
                      @teacher{For added practice, have students identify the type of each argument in each of those expressions. Going Further - If time allows, you can go further into @lesson-link[#:name "Manipulating-Images" #:label "Manipulating Images"] or @lesson-link[#:name "Making-Flags" #:label "Making Flags"].}
                      }
              ]}
@@ -123,12 +136,10 @@ include other datatypes, including Strings and Images.}
      #:overview "Students learn to describe functions and their behavior, using formalisms including Contracts (Domain and Range), Datatypes and Purpose Statements."
      #:learning-objectives @itemlist[@item{Given an expression, students will be able to identify the name of the function being used}
                                       @item{Given an expression, students will be able to identify how many arguments are used}
-                                      @item{TODO: Given a value, students will be able to identify it's type}
-                                      @item{TODO: Students will be able to distinguish between types and values}
-                                      @item{TODO: Students will be able to identify the parts of a contract}
-                                      @item{TODO: Students will be able to distinguish between contracts and examples}
-                                      @item{TODO: Students will articulate the reason for writing purpose statements}
-                                      @item{TODO: Given an example of a function being applied, students will be able to write a contract and purpose statement}]
+                                      @item{Given a value, students will be able to identify it's type}
+                                      @item{Students will be able to identify the parts of a contract}
+                                      @item{Students will be able to distinguish between contracts and examples}
+                                      @item{Given an example of a function being applied, students will be able to write a contract}]
      #:product-outcomes @itemlist[@item{}]
      #:standards (list "A-SSE.1-2" "N-Q" "MP.1" "MP.4" "MP.6" "MP.7")
      #:materials @itemlist[@item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}]
@@ -140,18 +151,26 @@ include other datatypes, including Strings and Images.}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{There are many functions available in our language, which can draw all kinds of shapes. The mix of arguments each function takes in is called the @vocab{Domain}, while the data it produces is called the @vocab{Range}. For example, the function @code{+} takes in two Numbers as its Domain, and produces a single Number as its Range. Each image function takes a slightly different Domain, with some taking one Number and two Strings, and others taking two Numbers and two Strings, etc. It can be easy to forget the Domains for each function! Programmers use special notes, called @vocab{contract} to keep track of what each function needs.
-                 @bannerline{@bold{A Contract specifies the Name, Domain and Range of a function.}}
+        @points[@point{@student{You've already seen several functions that take in two Numbers, such as @code{+}, and @code{-}. Meanwhile, @code{star} takes in a Number and two Strings. There are many functions available in our language, which can draw all kinds of shapes, each one expecting a different mix of Numbers and Strings. 
+                        @bannerline{@bold{The Domain of a function is the types of data that the function expects.}}
+                        @activity{Why is it helpful to know the @vocab{Domain} of a function?}
+                        By keeping a list of all the functions in a language, and their Domains, programmers can easily look up how each function is used. However, it's also important to keep remember what each function produces! For example, a program wouldn't use @code{star} if they were trying to produce a Number, because @code{star} only produces Images.
+                        @bannerline{@bold{The Range of a function is the type of data that the function produces.}}
+                        Domains and Ranges help programmers write better code, by preventing silling mistakes and giving themselves hints about what to do next. A programmer who wants to use @code{star} can look up the Domain and immediately know that the first input has to be a Number (like @code{100}), without having to remember it each time. Instead of writing a single value there, suppose a programmer wanted to write a whole expression, like @code{(* 25 4)}. We know this code will work correctly by looking at the Range for @code{*}, which tells us that the expression will return a Number, and can therefore be used in place of any Number value.}
+                        @teacher{Domain and Range are critical concepts. They can be reinforced by modifying a simple expression (such as @code{(+ 1 2)}), asking questions at every step. For example, we know that @code{+} takes two Numbers, which is why 1 and 2 are used in the example. However, each of those values could be replaced by @italic{another expression} -- as long as that expression evaluates to a Number. Have students systematically replace each value with an expression, asking them to justify their replacement using the Domain and Range of each function.}
+                        }
+                 @point{@student{When programmers write down the Domains and Ranges of each function, they write what are called @vocab{contracts}, to keep track of what each function needs.
+                 @bannerline{@bold{A Contract has three parts: the Name, Domain and Range of a function.}}
                  The contract for @code{star} is:
                  @code[#:multi-line ""]{; star: Number String String -> Image}
-                 This means that the @vocab{Name} of the function is @code{star}, that it takes in a Number and two Strings as its Domain, and produces an Image as the Range. We use types instead of values when we write a Contract, because we want to be more general: a star could be of any size, so the Domain for @code{star} specifies that the first argument could be any Number.}
-                     @teacher{This is a core concept in the curriculum, and you will want to make sure that students are comfortable with the terminology and the concept.}
+                 This means that the @vocab{Name} of the function is @code{star}, that it takes in a Number and two Strings as its Domain, and produces an Image as the Range. We use types instead of values when we write a Contract, because we want to be more general: a star could be of any size, so the Domain for @code{star} specifies that the first argument could be @italic{any Number}. If we think of a language as a collection of lego pieces, the Contracts are like the tabs and slots that tell us how each piece can connect.}
+                     @teacher{}
                      }
              @point{@student{Here is the contract for a new function:
                  @code[#:multi-line ""]{; rectangle: Number Number String String -> Image}
                  @activity{@itemlist[@item{What is the @vocab{Name} of this function?}
                                       @item{How many things are the @vocab{Domain} of this function?}
-                                      @item{What is the type of each of the things in the Domain?}
+                                      @item{What is the type of each thing in the Domain?}
                                       @item{What is the @vocab{Range} of this function?}
                                       ]}
                  A Contract tells you exactly how to use the function, by writing it's Name and then using @vocab{values} for each of the argument it the @vocab{Domain}. Here is an example of an expression, written to use @code{rectangle}.
@@ -173,8 +192,7 @@ include other datatypes, including Strings and Images.}
              @point{@student{Now that you know how to use a Contract to write an expression, here are the Contracts for several new Image-producing functions:
                              @code[#:multi-line ""]{; ellipse: Number Number String String -> Image
                                                     ; triangle: Number String String -> Image
-                                                    ; circle: Number String String -> Image
-                                                    ; text: String Number String -> Image}
+                                                    ; circle: Number String String -> Image}
                              @activity{See if you can figure out how to use them to draw other shapes!
                              @embedded-wescheme[#:id "ImagePlayground3"                                             
                                          #:height 150
@@ -186,6 +204,23 @@ include other datatypes, including Strings and Images.}
                              }
                      @teacher{You should start pushing students to write more sophisticated expressions, replacing Number values with entire expressions (e.g. @code{(star (* 10 5) "solid" "purple")}). Students should be comfortable looking at an entire subexpression as a single argument to the surrounding function. @management{You may wish to force students to write these Contracts into their notebooks BEFORE allowing them to play with them. Be careful about letting students rush to the keys without first taking notes!}}
                      }
+               @point{@student{Contracts help programmers write code, so it's always a good idea to write down contracts for each function you see. 
+                               @activity{Can you figure out the contract for a function, just by looking at some sample code? Look at the code below, and see if you can write the @vocab{Name}, @vocab{Domain} and @vocab{Range} for the function being used.
+                                         @embedded-wescheme[#:id "ImagePlayground4"                                             
+                                         #:height 150
+                                         #:hide-toolbar? #t
+                                         #:hide-project-name? #t
+                                         #:hide-footer? #t
+                                         #:hide-definitions? #t
+                                         #:interactions-text "(text \"Bootstrap\" 30 \"purple\")"]
+                                         Make sure you don't confuse the @vocab{Contract} for a function with code! Some of the items listed below are Contracts, but others are just examples of those functions being used. Can you tell which is which?
+                                         @itemlist[@item{@code{; triangle : Number String String -> Image}}
+                                                    @item{@code{(triangle 100 "outline" "blue")}}
+                                                    @item{@code{(square (+ 200 5) "solid" "red")}}
+                                                    @item{@code{; square : Number String String -> Image}}]}
+                                         }
+                       @teacher{}
+                       }
              ]}
 @pedagogy{
 @lesson[#:title "Closing"
