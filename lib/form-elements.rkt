@@ -374,7 +374,7 @@
     (printf "WARNING: IMPLEMENT MATH MODE for latex/pdf")])) 
 
 ;; generate content to be styled as its own line in a block
-(define (bannerline body)
+(define (bannerline  . body)
   (elem #:style bs-banner-style body))
 
 ;; generate tags to format code via codemirror
