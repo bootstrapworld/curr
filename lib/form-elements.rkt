@@ -54,6 +54,7 @@
          summary-item/links
          summary-item/custom
          gen-random-arith-sexp
+         sexp
          
          ;; Sections
          worksheet
@@ -219,8 +220,8 @@
 (define bs-logo-style (bootstrap-span-style "BootstrapLogo"))
 (define bs-vocab-style (bootstrap-span-style "vocab"))
 (define bs-banner-style (bootstrap-div-style "banner"))
-(define bs-sexp-style (bootstrap-div-style "sexp"))
-(define bs-circeval-style (bootstrap-div-style "circevalsexp"))
+(define bs-sexp-style (bootstrap-div-style "codesexp"))
+(define bs-circeval-style (bootstrap-div-style "circleevalsexp"))
 (define bs-value-style (bootstrap-span-style "value"))
 (define bs-openbrace-style (bootstrap-span-style "openbrace"))
 (define bs-closebrace-style (bootstrap-span-style "closebrace"))
@@ -879,6 +880,9 @@
 (define (binop-sexp->block sexp form)
   (let ([style (if (string=? form "sexp") bs-sexp-style bs-circeval-style)])
     (elem #:style style (binop-sexp->block/aux sexp))))
+
+(define (sexp exp #:form (form "circofeval"))
+  (binop-sexp->block exp form))
 
 ;; generates a random binary arithmetic sexp 
 ;; - depth is the max depth of the expression
