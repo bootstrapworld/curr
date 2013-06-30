@@ -306,12 +306,12 @@ span.vocab{font-style:  italic; font-weight: bold; color: darkblue;}
 
 
 /* all sexprs are courier and unselectable */
-div.circevalexp, div.sexp{
+div.circleevalexp, div.codesexp{
   font-family: courier, monospace, serif; 
   font-size: 12px;
 }
 
-div.circevalsexp .expression{
+div.circleevalsexp .expression{
 	display:		inline-block;
 	margin:			5px;
 	clear:			none;
@@ -322,13 +322,13 @@ div.circevalsexp .expression{
   -webkit-transition: all 0.5s ease-in-out;
 }
 
-div.circevalsexp .value{
+div.circleevalsexp .value{
 	display:    inline-block;
 	margin:     10px;
   -webkit-transition: all 0.5s ease-in-out;
 }
 
-div.circevalsexp .operator{
+div.circleevalsexp .operator{
   display:    block;
   height:			20px;
   text-align:	center;
@@ -338,9 +338,9 @@ div.circevalsexp .operator{
   -webkit-transition: all 0.5s ease-in-out;
 }
 
-div.circevalsexp .openbrace, div.circevalsexp .closebrace{display: none;}
+div.circleevalsexp .openbrace, div.circleevalsexp .closebrace{display: none;}
 
-div.sexp .operator, div.sexp .value {margin-right: 5px;}
+div.codesexp .operator, div.codesexp .value {margin-right: 5px;}
 
 
 
