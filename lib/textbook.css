@@ -234,22 +234,24 @@ ul.teacherNotes li div.teacher{
 }
 div.student{width: 780px; display: inline-block; -webkit-transition: width 0.5s ease-in-out;}
 ul.teacherNotes li div.student{width: 500px;}
-
-
-.embedded-wescheme{width: 780px; -webkit-transition: width 0.5s ease-in-out; margin-bottom: 40px;}
-.embedded-wescheme .editbox{display: none;}
-.embedded-wescheme .refreshButton {background: black; color: white; font-size: 16px; border: outset;}
 ul.teacherNotes .embedded-wescheme{width: 500px;}
 
 
 /************************************************************************************
- * INLINE TAGS
+ * ELEMENTS THAT APPEAR WITHIN A LESSON
 */
+
+/* show lists normally */
 .segment ul.lesson li li{
-  width: 100%;
-  padding: 0px;
+  width:      100%;
+  padding:    0px;
   list-style-position: inside;
 }
+
+/* embedded WeSchemes should be full-width, and transform during animation */
+.embedded-wescheme{width: 780px; -webkit-transition: width 0.5s ease-in-out; margin-bottom: 40px;}
+.embedded-wescheme .editbox{display: none;}
+.embedded-wescheme .refreshButton {background: black; color: white; font-size: 16px; border: outset;}
 
 /* make sure inline code is never broken across lines */
 .editbox{white-space: nowrap;}
@@ -257,14 +259,14 @@ ul.teacherNotes .embedded-wescheme{width: 500px;}
 .management{font-style: oblique;}
 .exercises{width: 800px;}
 div.activity{
-  width: 100%;
-  padding: 10px 0px; 
-  background: rgba(200,200,255,0.5); 
-  border-top: dashed 1px black; 
-  border-bottom: dashed 1px black;
-  float: left; 
-  margin: 10px 0px;
-  display: inline-block;
+  width:          100%;
+  padding:        10px 0px;
+  background:     rgba(200,200,255,0.5);
+  float:          left;
+  margin:         10px 0px;
+  display:        inline-block;
+  border-top:     dashed 1px black;
+  border-bottom:  dashed 1px black;
   vertical-align: middle;
 }
 
@@ -272,16 +274,18 @@ img{float: right; padding: 5px;}
 img.video{width: 20px; height: 20px; padding: 0px; margin: 0px;}
 div.activity li img{float: none;}
 
+/* all banners have borders, and text is bold */
 div.banner{
-  display:    inline-block;
-  width:      100%;
-  margin:     10px 0px;
-  padding:    5px;
-  font-weight:bold;
-  color:      black;
-  border-top: solid 1px black;
-  border-bottom: solid 1px black;
+  display:        inline-block;
+  width:          100%;
+  margin:         10px 0px;
+  padding:        5px;
+  font-weight:    bold;
+  color:          black;
+  border-top:     solid 1px black;
+  border-bottom:  solid 1px black;
 }
+/* Banner images are centered */
 div.banner img{float: none; margin-left: auto; margin-right: auto; display: block;}
 
 td.header{background: lightgray; font-weight: bold; text-align: center;}
@@ -296,52 +300,39 @@ td.vertical {
 	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 }
 
-span.wp { font-weight:    bold; }
+span.wp { font-weight:   bold; }
 span.vocab{font-style:  italic; font-weight: bold; color: darkblue;}
 
 
 /************************************************************************************
- * CIRCLES OF EVALUATION
+ * CONVERTABLE S-EXPRESSIONS
 */
 
-
-/* all sexprs are courier and unselectable */
-div.circleevalexp, div.codesexp{
-  font-family: courier, monospace, serif; 
-  font-size: 12px;
-}
-
 div.circleevalsexp .expression{
-	display:		inline-block;
-	margin:			5px;
-	clear:			none;
-	border:			2px solid black;
-  border-radius:20px;
+	display:        inline-block;
+	margin:         5px;
+	clear:          none;
+	border:         2px solid black;
+  border-radius:  20px;
 	-moz-border-radius: 20px;
 	-webkit-border-radius:20px;
-  -webkit-transition: all 0.5s ease-in-out;
 }
 
 div.circleevalsexp .value{
-	display:    inline-block;
-	margin:     10px;
-  -webkit-transition: all 0.5s ease-in-out;
+	display:        inline-block;
+	margin:         10px;
 }
 
 div.circleevalsexp .operator{
-  display:    block;
-  height:			20px;
-  text-align:	center;
-  width:      100%;
-  border-bottom: solid 2px black;
-  border-radius: 15px 15px 0px 0px; /* top left, top right, bottom right, bottom left */
-  -webkit-transition: all 0.5s ease-in-out;
+  display:        block;
+  height:         20px;
+  text-align:     center;
+  width:          100%;
+  border-bottom:  solid 2px black;
+  border-radius:  15px 15px 0px 0px; /* top left, top right, bottom right, bottom left */
 }
 
 div.circleevalsexp .openbrace, div.circleevalsexp .closebrace{display: none;}
-
-div.codesexp .operator, div.codesexp .value {margin-right: 5px;}
-
 
 
 /************************************************************************************
@@ -370,13 +361,13 @@ ol.question li:first-of-type{border: none;}
   div.segment{border: none;}
   li.lessonItem{page-break-inside: avoid;}
   div.teacher{
-    height: auto;
+    height:         auto;
     padding-bottom: 32767px;
     margin-bottom: -32767px;
-    -webkit-transition: width 0.5s ease-in-out;
-    border: 0px none;
-    background: #eee;
+    border:         0px none;
+    background:     #eee;
     box-shadow:     inset 3px 0px 0px black;
+    -webkit-transition: width 0.5s ease-in-out;
   }
   input, div.callout, .embedded-wescheme{display: none;}
 }
