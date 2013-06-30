@@ -882,7 +882,9 @@
     (elem #:style style (binop-sexp->block/aux sexp))))
 
 (define (sexp exp #:form (form "circofeval"))
-  (binop-sexp->block exp form))
+  (if (string=? form "code")
+      (binop-sexp->block exp "sexp")
+      (binop-sexp->block exp form)))
 
 ;; generates a random binary arithmetic sexp 
 ;; - depth is the max depth of the expression
