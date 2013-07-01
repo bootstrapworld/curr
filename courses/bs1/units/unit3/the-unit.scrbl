@@ -276,7 +276,7 @@
 (EXAMPLE (dot "blue") (circle 15 "solid" "blue"))
 (define  (dot  color) (circle 15 "solid"  color))}
                                             }
-                                    @teacher{You will want to explicitly connect each step in the Design Recipe to every other step. Ask students to justify each part of their Contract by referring back to the Word Problem, to justify each step of their Examples by referring back to the Word Problem @italic{and} Contract, and finally to justify each step of the definition by referring to the Word Problem, Contract and Examples.}
+                                    @teacher{}
                                     }  
                                      ]
                     }
