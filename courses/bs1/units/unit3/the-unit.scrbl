@@ -75,20 +75,21 @@
                 )
       ]{
         @points[@point{@student{Suppose you were making an image that had fifty identical, solid red triangles. You would have to write @code{(triangle 50 "solid" "red")} fifty times! To make matters worse, any change to those triangles would have to be repeated for all fifty expressions! Good programmers know that their effort is better spent elsewhere, so they made sure that programming languages have a way to avoid all that repetion. What we want is a way to write something once, define it as a shortcut our language, and then use the shortcut wherever we want. To do this, we need to use the @vocab{Definitions window}.
-                        @activity{In this language, we can @vocab{define} values of our own, and give them a name. The code below assigns the name @code{shape1} to an expression that draws a solid red triangle. Click "Run" to have the computer read that definition.
-                                  @itemlist[@item{What do you think will happen when you evaluate @code{shape1} in the Interactions window?}
-                                           @item{Add a new line to the definitions window, just below the definition of @code{shape}. Add a new definition called @code{shape2}, and define it to be a solid, blue circle of radius 20.}
-                                           @item{Click "Run", and try evaluating @code{shape2.}}
-                                           @item{On the next line, define a new value called @code{age}, to be the number of years old that you are.}
-                                           @item{On the next line, define a new value called @code{name}, to be the String that represents your name.}]
-                          @embedded-wescheme[#:id "definitions"     
-                                  #:height 300
-                                  #:width "100%"
-                                  #:hide-toolbar? #f
-                                  #:hide-project-name? #t
-                                  #:hide-footer? #t
-                                  #:hide-definitions? #f
-                                  #:definitions-text "(define shape1 (triangle 50 \"solid\" \"red\"))"]}
+                        @activity{In this language, we can @vocab{define} values of our own, and give them a name. The code below assigns the name @code{shape1} to an expression that draws a solid red triangle.
+                                  @itemlist[@item{Click "Run" to have the computer read that definition.}
+                                             @item{What do you think will happen when you evaluate @code{shape1} in the Interactions window?}
+                                             @item{Add a new line to the definitions window, just below the definition of @code{shape}. Add a new definition called @code{shape2}, and define it to be a solid, blue circle of radius 20.}
+                                             @item{Click "Run", and try evaluating @code{shape2.}}
+                                             @item{On the next line, define a new value called @code{age}, to be the number of years old that you are.}
+                                             @item{On the next line, define a new value called @code{name}, to be the String that represents your name.}]
+                                  @embedded-wescheme[#:id "definitions"     
+                                                          #:height 300
+                                                          #:width "100%"
+                                                          #:hide-toolbar? #f
+                                                          #:hide-project-name? #t
+                                                          #:hide-footer? #t
+                                                          #:hide-definitions? #f
+                                                          #:definitions-text "(define shape1 (triangle 50 \"solid\" \"red\"))\n"]}
                         
                           Now that it is defined, we can use @code{shape} anywhere we want - even inside another expression: @code{(rotate 45 shape1)}.
                           @bannerline{Each time "Run" is clicked, the computer reads all of the definitions and adds them to the language. If a definition is changed, the computer will keep using the previous definition until the next time "Run" is clicked.}
@@ -104,7 +105,7 @@
      #:overview "Students define values in their videogames"
      #:learning-objectives @itemlist[]
      #:product-outcomes @itemlist[@item{Students will name their videogame project}
-                                   @item{Students will modify the definitions for @code{TITLE, TITLE-COLOR, BACKGROUND, PLAYER, TARGET} and @code{DANGER}/}]
+                                   @item{Students will modify the definitions for @code{TITLE, TITLE-COLOR, BACKGROUND, PLAYER, TARGET} and @code{DANGER}}]
      #:standards (list)
      #:materials @itemlist[@item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders with names on covers.}]
      #:preparation @itemlist[@item{Create student game files. [See the (teachers-only) @resource-link[#:path "teachers/teachers-guide/teachers-guide.html" #:label "Teachers Guide"]]}
@@ -147,97 +148,139 @@
                          @activity{Advertisements for videogames often have static pictures (called @italic{screenshots}) - of the game in action, so people will know what it looks like to play. Change with the coordinates used in the definition of @code{SCREENSHOT} so that you have a picture of your game. (Remember: the screen is 640 pixels wide, by 480 pixels tall!)}}
                          @teacher{This can be a useful opportunity to review coordinates, especially for students who need the practice.}
                         }
-]}
-
-@lesson[#:title "Fast Functions" #:duration "10 minutes"]{
-
-@itemlist/splicing[
-          @item{You've learned how to write complex expressions, and define shortcuts so that you can use them later. That's terrific...but we need more!}
-          @item{The problem is that all of these expressions always return the @italic{same thing} - your screenshot, for example, will always look the same, every single time you evaluate it. What you want is a shortcut to a @italic{pattern}. That way the computer can just fill in the blanks for the stuff that's changed, and get the whole expression back. Up to now, you've been defining values. Now you're going to learn how to define @bold{functions}.}
-          @item{My favorite shape in the whole world is a triangle, and my favorite color is green. I LOVE making solid green triangles! But right now, I have to type out so much code to do that! Suppose I wanted to make a solid, green triangle of size five. What code would I write? What if I wanted it to be of size 100? Size 24? @pedagogy{Ask students to tell you each of these}
-           @code[#:multi-line]{(triangle 5 "solid" "green")
-                             (triangle 100 "solid" "green")
-                             (triangle 24 "solid" "green")}}
-          @item{If only there was a function called @code{gt}, that would just take in the size and draw a solid green triangle of whatever size I wanted.}
-          @pedagogy{@item{@skit{Who can help me, by acting out @code{gt}? Take a volunteer. Okay, your name is now "gt." All I need to do is call out your name, give you a number, and you will tell me the code to draw that beautiful triangle. Let's do a test: "gt fifty!". "gt one hundred!" The student should tell you the code to draw the appropriate triangle. Try having other students call out examples, making sure they call out both the name of the function and the number.}}}
-          @selftaught{@item{Suppose you were going to act out the function @code{gt}. You already know to make a triangle, and you know that it will be solid and green. What's the one thing you @italic{don't} know? (The size!) So when someone calls your name and gives you a number, what code will you write? What code should you write when someone calls @code{(gt 50)}? @code{(gt 100)}?}}
-          @item{Open your workbooks to @worksheet-link[#:page 8 #:name "Fast-Functions"], where it says "fast functions."}
-          @item{On this page, there is space to write four simple functions. @pedagogy{We're going to do the first one together, and then we'll have a competition for the rest.}}
-          @item{Let's start with the contract. What are the three parts of a contract?}
-          @pedagogy{@item{Hey volunteer, what did I say your name was? "gt!" And what information did you need from me to do your job? just a number - the size!. And what did you produce, once I'd given you that number? An Image.}}
-          @selftaught{@item{@think-about[#:question @list{When you used the @code{gt} command, what information did you need and what did you produce?}
-                                                    #:answer "You needed the size of the triangle (a number) and produced the image."]}}
-          @item{Fill in the first contract on the page -- it's the one with the shaded, gray bar.}
-          @item{Now we have some space to write examples. @pedagogy{Let's think about the examples we saw our volunteer act out...}}
-          @item{When I wanted him to make a solid green triangle of size fifty, what did I tell him? "gt fifty!". So in the first part of the EXAMPLE, we can write @code{(gt 50)}. So my example so far is
-                                                                                                   
-                 @code[#:multi-line ""]{; gt : Number -> Image
-                                        (EXAMPLE (gt 50) __________________________)}}
-          @item{Then what did he draw for me? A solid green triangle of size fifty! How would we write the code to draw that same shape? 
-                
-                @code[#:multi-line ""]{; gt : Number -> Image
-                                    (EXAMPLE (gt 50) (triangle 50 "solid" "green"))}}
-          @pedagogy{@item{Can someone write another example for me, this time using @code{17} as the size?
-                 @code[#:multi-line ""]{; gt : Number -> Image
-                                        (EXAMPLE (gt 50) (triangle 50 "solid" "green"))
-                                        (EXAMPLE (gt 17) (triangle 17 "solid" "green"))}}}
-          @item{Now, on your own, fill out two examples for @code{gt} on your Fast Functions worksheet.}
-          @item{If only we had a function like @code{gt}! Well, let's build one!}
-          @item{Right now, I'm telling the computer how to deal with a shortcut for @code{(gt 17)} - but what if I wanted the shortcut to work for ALL sizes, not just 50 and 17?}
-          @item{That's the final step: replace the stuff that changes between examples with a variable. So let's look at these two lines, and circle everything that changes. What did we circle? Just the numbers 10 and 17! What do those numbers mean? Is it the number of circles we're drawing? No! It's the SIZE. So let's make a little note to ourselves, to remind us that those numbers mean the size of the circle. }
-          @item{Now we can write the code -- instead of an EXAMPLE we'll use @code{define}. After that, we're just going to copy everything from our examples except the stuff that we circled. What do you think we'll write instead? We'll use the name we wrote down: size. 
-          @pedagogy{Go character-by-character with the students, asking them if both examples have an open paren, the name "gt", etc...
-                 @code[#:multi-line ""]{; gt : Number -> Image
-                                        (EXAMPLE (gt 50) (triangle 50 "solid" "green"))
-                                        (EXAMPLE (gt 17) (triangle 17 "solid" "green"))
-                                        (define (gt size) (triangle size "solid" "green"))}}
-          @selftaught{@embedded-wescheme[#:id "Fast Functions"
-                   #:definitions-text "; gt : Number -> Image
+                 @point{@student{Being able to define values in a programming language is a powerful tool, which allows programmers to simplify their code and make it both more readable and maintainable. }
+                         @teacher{}
+                         }
+             ]
+         }
+       
+@lesson/studteach[
+     #:title "Fast Functions"
+     #:duration "15 minutes"
+     #:overview "Students are introduced to the steps of the Design Recipe, and the syntax for test cases function definition."
+     #:learning-objectives @itemlist[@item{Students will be able to define very simple functions, when given a simple word problem.}]
+     #:product-outcomes @itemlist[@item{Students will define at least two functions, using the Design Recipe.}]
+     #:standards (list)
+     #:materials @itemlist[@item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders with names on covers.}]
+     #:preparation @itemlist[]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+                 ]{
+                   @points[@point{@student{Defining a @vocab{value} is helpful when a program has lots of identical expressions. Sometimes, however, a program has expressions that aren't identical, but are just @italic{very similar}. A program that has fifty solid, green triangles can be simplified by defining a single value, @italic{as long as they are all the same size}. But what if a program has fifty green triangles of different sizes?}
+                                   @teacher{}
+                                   }
+                            @point{@student{Not only can you define values in a programming language - you can also define functions of your own. If we wanted to simplify a program that had lots of differently-sized green triangles, for example, we could define a custom function that takes in a Number and the draws a solid green triangle of whatever size we want.
+                                            @itemlist[@item{@code{(gt 10)} would be a shortcut for @code{(triangle 10 "solid" "green")}}
+                                                       @item{@code{(gt 20)} would be a shortcut for @code{(triangle 20 "solid" "green")}}
+                                                       @item{@code{(gt 1980)} would be a shortcut for @code{(triangle 1980 "solid" "green")}}
+                                                       @item{@code{(gt 98)} would be a shortcut for @code{(triangle 98 "solid" "green")}}
+                                                       @item{and so on...}]
+                                            Problems that require a function definition can be phrased as a word problem:
+                                            @bannerline{Write a function @code{gt}, which takes in a Number and produces a solid, green triangle of the given size.}
+                                            }
+                                    @teacher{To make this more concrete, have a student "act" as gt. To call the function, another student says "gt ten!" (calling out both the name of the function and the input). The actor responds "triangle ten solid green", to signify the work that the function does when it recieves an input.}
+                                    }
+                            @point{@student{@bannerline{Step 1: Write the Contract}
+                                             The first step in defining a function is to write the @vocab{Contract}. The word problem provides several clues:
+                                              @itemlist[@item{The @vocab{Name} of the function is given, as @code{gt}}
+                                                         @item{The @vocab{Domain} of a function is the types of data that the function expects - in this case, just a single Number.}
+                                                         @item{The @vocab{Range} of this function is an Image, since it produces solid, green triangles}]
+                                              @code[#:multi-line ""]{; gt : Number -> Image}
+                                              Be sure to read the problem carefully! Some word problems will describe functions that take multiple inputs in their Domain, or inputs of different types.
+                                              @activity{Open your workbooks to @worksheet-link[#:page 8 #:name "Fast-Functions"], where it says "fast functions", and write the Contract for this function.}}
+                                    @teacher{It is often a good idea to give students examples of different word problems, and have them pick out the contract for each one.}
+                                    }
+                            @point{@student{@bannerline{Step 2: Give Examples}
+                                             It's always a good idea to think through a few examples before defining the function. This programming language provides a special construct, called @code{EXAMPLE}, which helps you write down how the function is used and what it should produce. You can see two such examples here, written under the contract:
+                                             @code[#:multi-line ""]{; gt : Number -> Image
+                                                                    (EXAMPLE (gt   50) (triangle   50 "solid" "green"))
+                                                                    (EXAMPLE (gt  100) (triangle  100 "solid" "green"))}
+                                             These examples tell the computer that writing @code{(gt 50)} should produce the same result as @code{(triangle 50 "solid" "green")}, and that @code{(gt 100)} is equivalent to @code{(triangle 100 "solid" "green")}. The word problem specifies that the examples @italic{must} use the name 'gt', and must all produce solid, green triangles.
+                                             @activity{In your workbook, write two examples of your own for this function.}}
+                                    @teacher{Be sure to point out that EXAMPLE is capitalized! Many students will follow along here without really understanding, simply by pattern-matching. Be sure to ask them lots of questions, to have them justify each step:
+                                             @itemlist[@item{Why does the example have to start with gt? (Because it's the Name of the function, specified in the contract)}
+                                                        @item{How do we know @code{gt} requires only one number? (Because it's the Domain of the function, specified in the contract)}
+                                                        @item{How do we know to use @code{triangle}? (Because the word problem tells us what shape it has to produce)}
+                                                        @item{How do we know the triangle has to be solid and green? (Because the word problem tells us what shape it has to produce)}
+                                                        @item{How do we know the correct order for the inputs to @code{triangle}? (The contract for @code{triangle} says so)}]}
+                                    }
+                            @point{@student{Programmers often write several examples (called @vocab{unit tests}) for each function. Examples like these are a way for a programmer to check their own work, and guard against mistakes later. If the program has to change for some reason, having a bunch of examples handy is a great way to make sure the change doesn't break existing functionality. These examples also make it easy to look at what parts of the expression can change, or @italic{vary}, depending on the inputs.
+                                    @activity{On your paper, draw a box around the parts of the expression that are different from example to example.}
+                                    The only thing that changes here is the @italic{size} of the triangle.
+                                    @activity{Label these boxes, to indicate that each one represents the @italic{size} of the triangle.}}
+                            @teacher{One of the big ideas here is that each step informs the subsequent step. Make sure to explicitly connect them for students, pointing out that the Contract gives strong hints about how to write each part of the examples.}
+                                    }
+                            @point{@student{@bannerline{Step 3: Define the function}
+                                             After writing the Contract and two Examples, defining the function itself is relatively simple.
+                                             @itemlist[@item{Copy everything that stays the same (everything that was not boxed in the previous step)}
+                                                        @item{In place of each box, write the label that the box represents}]
+                                             @code[#:multi-line ""]{; gt : Number -> Image
+(EXAMPLE (gt   50) (triangle   50 "solid" "green"))
+(EXAMPLE (gt  100) (triangle  100 "solid" "green"))
+(define  (gt size) (triangle size "solid" "green"))}}
+                                    @teacher{This can be a good opportunity to point out that the parts of the examples that were changeable (or @italic{vary-able}) are what determines when we need to use the @italic{variable}.}
+                                    }
+                            @point{@student{@activity{@itemlist[@item{On your paper, define the @code{gt} function, then type the @vocab{Contract}, @vocab{Examples} and @code{Definition} into the Definitions window.}
+                                                         @item{Click "Run", to have the computer read this definition.}
+                                                         @item{Use the function you've defined, by typing @code{(gt 100)} in the Interactions window.}
+                                                         @item{Try using the function with different Numbers}]}
+                                    @embedded-wescheme[#:id "Fast Functions"
+                                                            #:height 300
+                                                            #:hide-project-name? #t
+                                                            #:hide-footer? #t
+                                                            #:definitions-text "; gt : Number -> Image
 (EXAMPLE (gt 50) (triangle 50 \"solid\" \"green\"))
 (EXAMPLE (gt 95) (triangle 95 \"solid\" \"green\"))
 (define (gt size) (triangle size \"solid\" \"green\"))"]}
-                                }
-          @item{What we've learned here is a @italic{recipe} for solving programming problems. By starting with a @bold{word problem}, we can act out the function, then write it's contract, imagine a few examples, and then use those examples to write the code! Let's do another for practice - you'll need to get really good at these to build the functions you'll need for your videogame!}
-          ]}
-
-
-                                                      
-@lesson[#:title "Blue Circle" #:duration "10 minutes"
-                #:prerequisites "Fast-Functions"]{
-
-@itemlist/splicing[
-          @item{Now it's your turn!}
-          @tag[selftaught]{@item{INSERT VIDEO FOR SELFTAUGHT HERE}}
-          @pedagogy{@item{Raise your hand if you want to help me act out this next function. We'll come up with some examples together, and your group will have to write two more on paper!}}
-          @pedagogy{@item{Hand the student the sign that says "bc" and ask them to come to the whiteboard.}}
-          @pedagogy{@item{@skit{When I say "bc 50", you'll draw a solid blue circle of size 50. Let's try it out. "bc fifty!". Wait for student to draw a circle. Then have several other students give examples to your function, by calling out "bc" and a number. Make sure that the student answering gives an appropriately sized circle return every time.}}}
-          @item{I want to write a function called @code{bc}, which takes in a number and draws me a solid, blue circle that is whatever size the number was. @pedagogy{Just like our volunteer here.}}
-          @item{First, you need to write down the CONTRACT for this function. @pedagogy{Once again, everyone in your group needs to have the correct answer! You'll have 2 minutes. GO!}}
-          @item{Now it's time to write some examples. Let's look at the first example "bc" drew on the board, for @code{(bc 50)}. @think-about[#:question "What shape did they draw? What color? What size? How would you write the code to draw that shape?" #:answer @list{@pedagogy{(write on the board):} @code{ (EXAMPLE (bc 50) (circle 50 "solid" "blue" ))}}]}
-          @tag[group]{@item{You have 2 minutes for EVERYONE in your group to write out 2 examples of your own. ALL OF THEM have to be correct for your team to get this point. GO!}}
-          @pedagogy{@item{Countdown: 30... 10... 5... 4... 3... 2... 1... PENCILS DOWN, EYES ON ME. (Don't forget to wait for total silence, attention.)}}
-          @pedagogy{@item{Give points, praise kids for neat handwriting and good teamwork.}}
-          @pedagogy{@item{Give the countdown, then review answers with the class and assign points. }}
-          @item{Time for the last part: writing the function header and body. @tag[group]{Your team will have 2 minutes to complete this. GO!}}
-          @pedagogy{@item{Give the countdown, then review answers with the class and assign points. }}
-          @tag[selftaught]{@item{@embedded-wescheme[#:id "Blue Circle"
-                   #:definitions-text "; Try out Blue Circle"]}}
-          ]}
-                                                 
-@lesson[#:title "Double" #:duration "10 minutes" #:prerequisites "Fast-Functions"]{
-
-@itemlist/splicing[
-         @pedagogy{@item{@think-about[#:question @list{I want a volunteer to be a function called "double", which takes in a number and multiplies it by two. @pedagogy{Hand the sign to the student.} So if I say "double 3", what will I get back?"}]}}
-         @tag[selftaught]{@item{Now think of a function that takes in a number and multiplies it by two. @think-about[#:question "What would double 3 be?" #:answer "6"]}} 
-         @pedagogy{@item{Have a couple of students try out the function by giving examples}}
-         @pedagogy{@item{You will have TWO minutes to write down that contract and two examples. Once you've got your examples, RAISE YOUR HAND and call me over, so I can check them. Two minutes, ready - go!}}
-         @pedagogy{@item{Give the countdown, then review answers with the class and assign points.}}
-         @pedagogy{@item{Raise your hand if you think you know how you could write an example for "double". (If you get blank stares, give them ONE example on the board. Otherwise, smile and move on.)}}
-         @tag[group]{@item{Your groups will now have FIVE minutes to write two examples, and then circle and label what has changed. Then you can fill out the function header and body. Once you've got your examples, RAISE YOUR HAND and call me over, so I can check them. Do NOT go on to the function header and body until I have checked your examples! Any questions? GO!}}
-         @pedagogy{@item{Give the countdown, then review answers with the class and assign points. If time allows, do another example, preferably one where the domain is something besides numbers.}}
-                 @tag[selftaught]{@item{@embedded-wescheme[#:id "Double"
-                   #:definitions-text "; Try out Double"]}}]}
-        }
+                                    @teacher{}
+                                    }
+                            @point{@student{These steps are knows as the @vocab{Design Recipe}, which is a powerful tool for defining functions based on word problems.
+                                            @bannerline{Practice: Write a function @code{bc}, which takes in a Number and produces a solid, blue circle of the given size.}
+                                            @activity{In your workbook, fill out the @vocab{Contract} for this function.
+                                                      @itemlist[@item{What is the function's Name?}
+                                                                 @item{What is the function's Domain?}
+                                                                 @item{What is the function's Range?}]
+                                                      Using the Contract you've written, write two @vocab{Examples} for the function.
+                                                      @itemlist[@item{What part of the Contract is used to get started?}
+                                                                 @item{What part of the Contract tells you what the function needs as input?}
+                                                                 @item{How can the Range of a function help you write the Example?}]
+                                                      Looking at those two examples, circle the parts that are @italic{change-able}, then label them with a good @vocab{variable name}.
+                                                      @itemlist[@item{Is the variable name you chose the same as the one you chose for @code{gt}? Why or why not?}
+                                                                 @item{Why is it helpful to choose a variable name before defining the function?}]
+                                                      Now write the function @vocab{definition}, using the Examples you've written.}
+                                            Thinking through the word problem step-by-step, we arrive at:
+                                             @code[#:multi-line ""]{; bc : Number -> Image
+(EXAMPLE (bc     16) (circle     16 "solid" "blue"))
+(EXAMPLE (bc    421) (circle    421 "solid" "blue"))
+(define  (bc radius) (circle radius "solid" "blue"))}
+                                            }
+                                    @teacher{You will want to explicitly connect each step in the Design Recipe to every other step. Ask students to justify each part of their Contract by referring back to the Word Problem, to justify each step of their Examples by referring back to the Word Problem @italic{and} Contract, and finally to justify each step of the definition by referring to the Word Problem, Contract and Examples.}
+                                    }
+                             @point{@student{@bannerline{Practice: Write a function @code{dot}, which takes in a Color and produces a solid circle of the given color, with a radius of 20.}
+                                            @activity{In your workbook, fill out the @vocab{Contract} for this function.
+                                                      @itemlist[@item{What is the function's Name?}
+                                                                 @item{What is the function's Domain?}
+                                                                 @item{What is the function's Range?}]
+                                                      Using the Contract you've written, write two @vocab{Examples} for the function, then circle and label the variables.
+                                                      @itemlist[@item{What part of the Contract is used to get started?}
+                                                                 @item{What part of the Contract tells you what the function needs as input?}
+                                                                 @item{How can the Range of a function help you write the Example?}
+                                                                 @item{What is a good variable name for what changes between these Examples.}]
+                                                      Now write the function @vocab{definition}, using the Examples you've written.}
+                                            Thinking through the word problem step-by-step, we arrive at:
+                                             @code[#:multi-line ""]{; dot : String -> Image
+(EXAMPLE (dot  "red") (circle 15 "solid"  "red"))
+(EXAMPLE (dot "blue") (circle 15 "solid" "blue"))
+(define  (dot  color) (circle 15 "solid"  color))}
+                                            }
+                                    @teacher{You will want to explicitly connect each step in the Design Recipe to every other step. Ask students to justify each part of their Contract by referring back to the Word Problem, to justify each step of their Examples by referring back to the Word Problem @italic{and} Contract, and finally to justify each step of the definition by referring to the Word Problem, Contract and Examples.}
+                                    }  
+                                     ]
+                    }
+       
 @lesson/studteach[
      #:title "Closing"
      #:duration "5 minutes"
