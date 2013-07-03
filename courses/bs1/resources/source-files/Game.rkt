@@ -78,8 +78,8 @@
 ; update-player : Number String -> Number
 ; Given the player's y-coordinate and the name of a keyboard key, 
 ; output the NEXT y.  The arrow keys are called "up" and "down".
-(define (update-player oldY key)
-  oldY)
+(define (update-player y key)
+  y)
 
 ; EXAMPLE that makes it go up, one for down, and one to stay the same.
 
@@ -141,7 +141,7 @@
 
 ;; defines a game level, using all the images and functions
 ;; defined above.
-(define game_level (make-game TITLE TITLE-COLOR 
+(define g (make-game TITLE TITLE-COLOR 
                      BACKGROUND 
                      DANGER update-danger
                      TARGET update-target
@@ -150,5 +150,5 @@
                      *distances-color* line-length distance
                      collide? onscreen?))
 
-;; starts the game, using game_level
-(play game_level)
+;; starts the game, using the level "g"
+(play g)
