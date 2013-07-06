@@ -1,7 +1,7 @@
 <html> 
 	<head>
 		<title>Bootstrap: Materials</title>
-		<link rel="stylesheet" type="text/css" href="../styles.css"/>
+		<link rel="stylesheet" type="text/css" href="/styles.css"/>
     <style>
       .BSUnitTitle{font-weight: bold;}
       .BSUnitSummary{margin: 5px;}
@@ -14,8 +14,8 @@
     </style>
 	</head>
 	<body>
-	<!--#include virtual="../menubar.ssi" -->
-	
+	<!--#include virtual="/menubar.ssi" -->
+  
 	<div id="body">
 		<div class="item">
 		<img src="/images/kids.jpg" class="item_img">
@@ -115,9 +115,9 @@
 		<p/>
 		Show the world your support for Bootstrap, and let people know that yes, <u>"I
 		 Program My Own Videogames"</u>.  All t-shirts are high-quality cotton,
-		available in sizes ranging from S to XXL, for a price of $15 each for orders 
+		available in sizes ranging from S to XXL, for a price of $15 each for orders
 		of 1-5 shirts or $10 for larger orders (cost includes shipping). 
-		<a href="mailto:schanzer_NOSPAM_@bootstrapworld.org">Contact us</a> to place an order. 
+		<a href="mailto:schanzer@bootstrapworld.org">Contact us</a> to place an order. 
 		<p/>Front and Back:
 		<br/><img src="/images/frontandback.gif" style="width:400px; float: left;">
 
