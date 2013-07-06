@@ -1,5 +1,5 @@
 #lang curr/lib
-@declare-tags[management pedagogy selftaught group]
+@declare-tags[management pedagogy group]
 
 @title{Unit 3: The Definitions Window}
 
@@ -29,12 +29,9 @@
            @item{Seating arrangements: ideally clusters of desks/tables}
            @item{Optional: demo machine with projector to show the interations and definitions windows}]}
 
-
-
 @(language-table
                  (list "Number" @code{+ - * / sq sqrt expt})
-                 (list "String" @code{string-append string-length})
-                 (list "Image"  @code{radial-star scale rotate put-image}))
+                 (list "String" @code{string-append string-length}))
 }
 @lesson/studteach[
      #:title "Review"
