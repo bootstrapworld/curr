@@ -1,18 +1,12 @@
 #lang curr/lib
-@declare-tags[group pedagogy selftaught]
+@declare-tags[pedagogy management]
 
 @title{Unit 4: The Design Recipe}
 
 @overview{
 
 @unit-descr{Students are introduced to the Design Recipe and apply it to simple problems.}
-
-@objectives[@item{Students will become familiar with the steps of the Design Recipe.}
-            @item{Students will practice Racket syntax and the Circles of Evaluation.}]
-@product-outcomes[@item{Students@tag[group]{,in pairs,} will write functions to solve simple problems by using the Design Recipe}]
-
 @state-standards
-
 @length-of-lesson[90]
 
 @pedagogy{
@@ -21,71 +15,133 @@
             @item{@tag[group]{Class posters (List of rules, language table, course calendar)}}
             @item{Language Table (See below)}
             ]
-@preparation[@item{Write agenda on board}
-              @item{Display Class posters, Language Table, Design Recipe}
-              @item{"Rocket" [Rocket.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=KY4s7msuh6" "WeScheme")] preloaded on students' machines}
-              @item{Seating arrangements: ideally clusters of desks/tables}]}
+ }
 
-@(language-table (list "Number" @code{+ - * / sq sqrt expt})
+ @(language-table (list "Number" @code{+ - * / sq sqrt expt})
                  (list "String" @code{string-append string-length})
-                 (list "Image"  @code{rectangle circle triangle ellipse radial-star scale rotate put-image}))
+                 (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image}))
 }
 
-@lesson[#:title "Introduction"
-        #:duration "15 minutes"]{@itemlist[@item{Review material from previous lessons: Coordinate Planes, Circles of Evaluation, Contracts, Strings, Images, and Functions. @tag[selftaught]{If you are having trouble remembering any of these, look back to previous lessons to refresh your memory.}}]}
-
-@lesson[#:title "Introducing the Design Recipe"
-        #:duration "25 minutes"]{
-  @itemlist/splicing[
-     @item{Now it's time to start thinking about animation, since you'll need it for your videogame!}
-     @item{You already know most of the steps from the last lesson, but we're going to do a few practice exercises before turning you loose on your own games.}
-     @item{Ever hear of a flip-book animation? @(video-link (hyperlink "http://www.youtube.com/embed/txj6nIixIq4?t=22s" "(Click here for an example.)"))}
-     @item{When you make a flip-book, you draw each page a little differently from the page before it. We can use functions to do just that! Suppose we had a function that drew a rocket ship a little higher up on each page of a flip-book. What would it look like if you moved through the pages quickly? It would look like the rocket was flying! You've already learned how to draw one frame of your videogame with the characters at certain coordinates, and now we'll learn how a program can change those coordinates. @bold{Today, you're going to learn how to animate a rocket}, then next time you will use what you learned today to animate the characters in your games!}
-     @item{Believe it or not, you're 90% of the way towards being able to write an animation function! All the steps you took to write those functions before are actually part of a process that real programmers use, called the Design Recipe.}
-     @item{Engineers all over the world use the Design Recipe to write functions. It's a way of thinking through each step of programming and making sure that you're on the right path before you even touch the keyboard.}
-     @item{Each step in the Design Recipe tells you a little more about the function you're writing, allowing you to find the answer in pieces instead of having to come up with it all at once.}
-     @item{We're going to try using the Design Recipe to animate a rocket@tag[group]{, and for this you'll be working in pairs}.}
-     @item{First, let's take a look at some BUGGY code that someone else wrote, since they forgot to use the Design Recipe.}
-     @item{Open the Rocket file, and @bold{click run.}}
-     @item{A window appears, with our rocket starting out on the ground. At the top of the window, you can see the number of seconds that have passed since blastoff, and the height of the rocket at that time. How many seconds have passed? How high is the rocket?}
-     @item{Now @italic{hit the space bar to make time go by}. What happens to the rocket? Nothing! This code has a bug in it! Let's see what went wrong...}
-     @item{Turn to @worksheet-link[#:page 11 #:name "Design-Recipe-Rocket-Height"] in your workbook@tag[group]{s}. @pedagogy{Have a student read the Word Problem aloud.} @tag[selftaught]{Read the Word Problem.}}
-     @item{Just by reading this @bold{Word Problem}, we can tell a lot about the function we're going to write. For example, what is the function's name? @tag[group]{Have one person in each pair underline the name on your paper.} @tag[selftaught]{Make a note of the name of the function.}}
-     @item{What @italic{kinds of things go into this function?} Numbers? Strings? Images? @italic{What kinds of things does the function give back?} @tag[group]{Now the other person in each pair} Circle these on your paper.}
-     @pedagogy{@item{@skit{Who would like to volunteer to @italic{act out} this function?
-                                
-                                What is your @bold{name}? @code{rocket-height} What is your @bold{Domain}? @code{Number} What is your @bold{Range}? @code{Number}
-                                When I give you the number of seconds since blast-off, what do you do? @italic{multiply it by seven}. Let's try it out: "rocket-height three!" (21) "rocket-height zero!" (0) etc.}}}
-     @item{@bold{Step 1: Contract}}
-     @item{The Contract for a function is like an instruction manual. It tells you the name of function, what types of things it expects, and what type of thing it gives back. It's important to write it down in your code, so that you can always refer back to it when you use that function!}
-     @pedagogy{@item{Copy these answers onto the board: 
-                          
-                          @code{; rocket-height : Number -> Number}}}
-     @tag[selftaught]{@item{@code{; rocket-height : Number -> Number}}}
-     @item{Copy your contract down into your Design Recipe page!}
-     @item{@bold{Step 2: Give Examples}}
-     @item{It's always a good idea to work through a few examples, to make sure you understand what the function should do. Then we can use those examples to test our function, to make sure it works the way we expect. You wouldn't build a car without testing it on some sample roads, would you? }
-     @item{@pedagogy{@skit{We already tried some examples with our volunteer.}} When we said "rocket-height three" @pedagogy{(@italic{write the accompanying code @code{(EXAMPLE (rocket-height 3) ...)} on the board)}}, what did we get back? 21! But @italic{how} did we get that? By multiplying 3 and 7. Let's write that code into our example:
-            @code{(EXAMPLE (rocket-height 3) (* 3 7))}} 
-     @tag[(pedagogy selftaught)]{@item{In your notebooks, I want you to come up with another example.}}
-     @item{Now we need to circle what's different between these two examples - what's changeable? What does that number represent? Is it the number of astronauts? No, it's the @italic{number of seconds} since blastoff.}
-     @item{@bold{Step 3: Code}}
-     @item{This next part is easy: it's exactly what you did for fast functions! Can you figure out how to plug in the header? What about the body?}
-     @item{Now let's look at the buggy code. Did they get the contract right? What about their examples? Notice that they only wrote one example, and they forgot to write down how that example worked! If they'd written a second example, they would have imnediately seen that something was wrong! But instead, they just raced through the EXAMPLE step and copied the zero into their function body.}
-     @item{Add the second EXAMPLE you and your partner came up with, and fix the one that's already there. Then fix the code and let's see that rocket fly!}
-     @item{Once you are done, you @tag[group]{and your partner} can type this function into your computer@tag[group]{s}.
-                                  @tag[selftaught]{@embedded-wescheme[#:id "example3"
-                                                     #:public-id "drawl-youth-fifty-voter-shake"
-                                                          #:interactions-text ""]}}
-     @item{@pedagogy{Do you want to see the rocket fly?} Type @code{(start rocket-height)}
- to see your code in action. We've slowed time down, so that a second passes each time you hit the spacebar.}
-     @pedagogy{@item{All right. Now let's have a little bonus round.}}
-     @tag[(group pedagogy)]{@item{One point to every team who can figure out how to make the rocket fly twice as fast. You'll have 1 minute. GO!}}
-     @tag[(group pedagogy)]{@item{One point to every team who can figure out how to make the rocket fly backwards. You'll have 1 minute. GO!}}
-     @tag[(group pedagogy)]{@item{One point to every team who can figure out how to make the rocket fly faster over time, so it gets faster and faster as it gets higher. You'll have 1 minute. GO!}}
-     ] } 
-        
-        
+@lesson/studteach[
+     #:title "Review"
+     #:duration "15 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[]
+     #:product-outcomes @itemlist[]
+     #:standards (list)
+     #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
+                            @item{Class poster (List of rules, language table, course calendar)}
+                            @item{Language Table (see below)}]
+     #:preparation @itemlist[]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[@point{@student{}
+                        @teacher{@management{Review the importance of definitions for students (defining values helps cut down on redundancy and makes future changes easier, defining functions allows for simplicity and testability. Be sure to use vocabulary regularly and carefully, pushing students to use the proper terms throughout.)}}
+                        }
+                 ]}
+       
+@lesson/studteach[
+     #:title "The Full Design Recipe"
+     #:duration "25 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[@item{Students will become familiar with the steps of the Design Recipe, using the traditional full-page format}]
+     #:product-outcomes @itemlist[@item{Students will write functions to solve simple problems by using the Design Recipe}]
+     #:standards (list)
+     #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
+                            @item{Class poster (List of rules, language table, course calendar)}
+                            @item{Language Table (see below)}]
+     #:preparation @itemlist[@item{Write agenda on board}
+                              @item{Display Class posters, Language Table, Design Recipe}
+                              @item{"Rocket" [Rocket.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=KY4s7msuh6" "WeScheme")] preloaded on students' machines}
+                              @item{Seating arrangements: ideally clusters of desks/tables}]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{Watch out for students confusing the rocket's height and time - many students will assume that the @code{rocket-height} function produces the time the rocket has been flying, rather than how high it is.}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{Can students make the rocket fly faster?}
+                                                       @item{Can students make the rocket sink, instead of fly?}
+                                                       @item{Can students make the rocket fly faster over time?}]}
+                )
+      ]{
+        @points[@point{@student{Functions are a key part of animation in computer programs. A function that draws a static picture of a cat, for example, can place the cat at a different location based on the input. When that input changes slightly based on time or user-interaction, the cat will appear to move. This is similar to the way that flip-book animations work, in which each page draws a static image that has changed by a small amount. When the pages are displayed quickly, the images appear to change smoothly. @(video-link (hyperlink "http://www.youtube.com/embed/txj6nIixIq4?t=22s" "(Click here for an example of a flip-book animation.)")).}
+                        @teacher{@management{Review the importance of definitions for students (defining values helps cut down on redundancy and makes future changes easier, defining functions allows for simplicity and testability. Be sure to use vocabulary regularly and carefully, pushing students to use the proper terms throughout.)}}
+                        }
+                 @point{@student{Let's see an example of this kind of animation, using a function to make a rocket-blast off! Turn to @worksheet-link[#:page 11 #:name "Design-Recipe-Rocket-Height"] in your workbook], and read the word problem carefully. 
+                         @bannerline{A rocket blasts off, traveling at 7 meters per second. Write a function called @code{rocket-height} that takes in the number of seconds that have passed since the rocket took off, and which produces the height of the rocket at that time.}
+                         @activity{@itemlist[@item{What is the function taking in as input? What type of data is that?}
+                                              @item{What is the function producing as outnput? What type of data is that?}
+                                              @item{What are the three parts of a @vocab{Contract?}}
+                                              @item{What is the @vocab{Name} of the function you are being asked to define?}
+                                              @item{What is the @vocab{Domain} of the function?}
+                                              @item{What is the @vocab{Range} of the function?}]}}
+                         @teacher{Check student understanding carefully, to make sure students read the problem carefully. It may be helpful to draw a diagram or table on the board, and to have students verbally walk through a few examples.}
+                         }
+                 @point{@student{The Contract is a way of thinking about the function in a general way, without having to worry about exactly how it will work or how it will be used. Starting with simple questions like these will make later steps much easier to think about. However, the Contract doesn't always enough information! The Domain for @code{star}, for example, specifies that the function needs a Number and two Strings, but doesn't mention the fact that the first String must be @code{"solid"} or @code{"outline"}. To add this information, programmers write @vocab{Purpose Statements}, which are simple sentences that explain what a function does.
+                                 @activity{Underneath the Contract, write a simple Purpose Statement for @code{rocket-height}.}
+                                 @code[#:multi-line #t]{; rocket-height : Number -> Number
+                                                        ; multiply the number of seconds by 7 to find the height}}
+                         @teacher{This is an opportunity to talk about the importance of writing, clarity, and brevity. What information is essential for a purpose statement? What information is irrelevant.}
+                         }
+                 @point{@student{Armed with the Contract and Purpose Statement, it becomes easy to write an @code{EXAMPLE}. Every example begins with the name of the function and a sample input, both of which are written in the Contract. In this case, you know that the function is called @code{rocket-height} and that it expects a single number as input. The Purpose Statement goes further, telling you that the input is multiplied by 7. We can use this two write two examples, with different numbers of seconds as inputs.
+                                @code[#:multi-line #t]{; rocket-height : Number -> Number
+                                                       ; multiply the number of seconds by 7 to find the height
+                                                       (EXAMPLE (rocket-height 11) 
+                                                                (* 11 7))
+                                                       (EXAMPLE (rocket-height 72) 
+                                                                (* 72 7))}
+                                @bold{Note:} The example shown above is broken into two lines! As functions and examples become more complex, it will become difficult to squeeze them into a single line. In your workbooks, every example and definition from this point onwards will use the two-line format.
+                                @activity{In your workbooks, write two new examples using different values for the number of seconds. Both examples will have a lot in common (they all use @code{rocket-height} as the function name, they all multiply their input by 7, etc). Once you are done writing them, circle only the parts of the examples that are @italic{changeable}.}}
+                         @teacher{The main idea for students in this activity is to realize that the Contract and Purpose Statement can be relied upon to write examples. Ask students to justify  every part of each example, using only the Contract and Purpose Statement. @pedagogy{Students are often tripped up by the switch from one-line examples to two-line ones. Be @italic{very} careful to point this out to students, and to check their workbooks to see where they are writing their examples.} At the end of the activity, make sure that students circle ONLY what has changed.}
+                 }
+                 @point{@student{By comparing two different examples, it is easy to tell what changes. According to the Purpose Statement, it is the number of seconds that the rocket has been flying.
+                                 @activity{On your paper, label the items you circled with "seconds".}}
+                         @teacher{Have a discussion with students about why "seconds" is a better name than "time". Talk about specificity, relevance, and readability.}}
+                 @point{@student{Labeling what is @italic{changeable} gives programmers a sense for the names of a function's @vocab{variables}. 
+                                                  @activity{How many variables does @code{rocket-height} have? What is it's name? Define the function, using all the information from your Examples, Contract and Purpose Statement.}
+                                  @code[#:multi-line #t]{; rocket-height : Number -> Number
+                                                       ; multiply the number of seconds by 7 to find the height
+                                                       (EXAMPLE (rocket-height 11) 
+                                                                (* 11 7))
+                                                       (EXAMPLE (rocket-height 72) 
+                                                                (* 72 7))
+                                                       (define (rocket-height seconds)
+                                                                (* seconds 7))}
+                                  }
+                         @teacher{As with the Examples, ask students to justify each part of the definition. In this case, the function name can be derived from the Contract, and the variable name and function body from the Examples.}}
+                 @point{@student{The Design Recipe allows a programmer to focus on one step of the problem at a time, and to use previous steps to help complete the next one.
+                                 @activity{@itemlist[@item{What does the @vocab{Contract} tell a programmer about a function?}
+                                                      @item{What does the @vocab{Purpose Statement} tell a programmer about a function?}
+                                                      @item{How do the Contract and Purpose Statement help a programmer write @vocab{Examples}?}
+                                                      @item{Why is it helpful to circle and label the parts of the Examples that change?}
+                                                      @item{How do do all of these steps help a programmer @vocab{define} a function?}]}
+                                 You may have noticed that the Examples for @code{rocket-height} wrote out the multiplication (@code{(* 11 7)}), rather than the actual answer (@code{77}). Why bother to show the way a calculation is performed? Programmers do this so that their Examples can provide hints about what process is taking place.
+                                 }
+                         @teacher{}
+                         }
+                 @point{@student{In the provided Rocket code ([Rocket.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=KY4s7msuh6" "WeScheme")]), you will see why it is so important to show your work when writing examples. 
+                                 @activity{Click "Run", and wait until a window appears with a rocket at the bottom of the screen and numbers for "time" and "height" at the top. This animation is set to update the rocket every time the spacebar is pressed, to simulate time going by. Hit the spacebar a few times, and notice that the time at the top of the window increases. Does the rocket move? Time is passing, but our rocket's height hasn't changed! Close the rocket window, so that you can see the code.}
+                                  The Contract for this function is correct: the function's Name, Domain and Range are all accurately written here. However, the next step definitely has some problems:
+                                  @itemlist[#:style 'ordered
+                                                    @item{There is only one Example. This makes it difficult to notice what is changing, which could lead to bugs when choosing variables}
+                                                    @item{The Example doesn't show how the height is calcluated - instead, this programmer just wrote the "answer", without showing their work.}]
+                                  }
+                         @teacher{}
+                         }
+                 @point{@student{By skipping these steps in the Examples, it can be easy to make mistakes when defining the function. 
+                                 @activity{Can you see the mistake the programmer made?}
+                                 Without seeing multiple Examples, this programmer failed to realize that the height of the rocket has to be calculated for @italic{every input}. Instead, they just produce the same number every time (in this case, zero). As a result, the rocket is always at zero, no matter how many seconds have passed. 
+                                 @activity{@itemlist[@item{Fix this programmer's Example to show their work.}
+                                                      @item{Write a second Example, below the first one.}
+                                                      @item{Fix the definition for the function, so that it multiplies the number of seconds by 7.}
+                                                      @item{Click "Run", and then use the spacebar to make the rocket fly!}]}
+                                 }
+                         @teacher{}
+                         }
+        ]}
+@pedagogy{
 @lesson[#:title "Practicing the Design Recipe"
         #:duration "20 minutes"]{@itemlist/splicing[
                   @pedagogy{@item{Note: if space allows, this section can also be done on the board with multiple, simultaneous challenges. See the video links for an example.}}
@@ -152,7 +208,7 @@
                                    @free-response[#:id "chp4review"]}}
             @pedagogy{@item{Who saw someone else in the class do something great?}}                                       
             @tag[(pedagogy group)]{@item{Cleanup, dismissal}}]}
-
+}
 @copyright[]
 
                                 
