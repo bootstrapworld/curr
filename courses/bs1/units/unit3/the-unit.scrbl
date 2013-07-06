@@ -18,19 +18,7 @@
 
 @length-of-lesson[90]
 
-@pedagogy{
-@materials[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
-           @item{Class poster (List of rules, language table, course calendar)}
-           @item{Language Table (see below)}]
-
-@preparation[@item{Create student game files. [See the (teachers-only) @resource-link[#:path "teachers/teachers-guide/teachers-guide.html" #:label "Teachers Guide"]]}
-           @item{On student machines: Student Game Files (generated from "Game" template [Game.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=Q1X9Y8ZayX" "WeScheme")])}
-           @item{Write agenda on board, and post along with class posters and the Language Table}
-           @item{Seating arrangements: ideally clusters of desks/tables}
-           @item{Optional: demo machine with projector to show the interations and definitions windows}]}
-
-@(language-table
-                 (list "Number" @code{+ - * / sq sqrt expt})
+@(language-table (list "Number" @code{+ - * / sq sqrt expt})
                  (list "String" @code{string-append string-length}))
 }
 @lesson/studteach[
@@ -40,7 +28,9 @@
      #:learning-objectives @itemlist[]
      #:product-outcomes @itemlist[]
      #:standards (list)
-     #:materials @itemlist[]
+     #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
+                            @item{Class poster (List of rules, language table, course calendar)}
+                            @item{Language Table (see below)}]
      #:preparation @itemlist[]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -63,7 +53,9 @@
                                       @item{Students will be able to explain what happens when the "Run" button is pressed.}]
      #:product-outcomes @itemlist[]
      #:standards (list)
-     #:materials @itemlist[]
+     #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
+                            @item{Class poster (List of rules, language table, course calendar)}
+                            @item{Language Table (see below)}]
      #:preparation @itemlist[]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
