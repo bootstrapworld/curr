@@ -117,19 +117,21 @@
                                                       @item{How do the Contract and Purpose Statement help a programmer write @vocab{Examples}?}
                                                       @item{Why is it helpful to circle and label the parts of the Examples that change?}
                                                       @item{How do do all of these steps help a programmer @vocab{define} a function?}]}
-                                 You may have noticed that the Examples for @code{rocket-height} wrote out the multiplication (@code{(* 11 7)}), rather than the actual answer (@code{77}). Why bother to show the way a calculation is performed? Programmers do this so that their Examples can provide hints about what process is taking place.
                                  }
                          @teacher{}
                          }
-                 @point{@student{In the provided Rocket code ([Rocket.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=KY4s7msuh6" "WeScheme")]), you will see why it is so important to show your work when writing examples. 
-                                 @activity{Click "Run", and wait until a window appears with a rocket at the bottom of the screen and numbers for "time" and "height" at the top. This animation is set to update the rocket every time the spacebar is pressed, to simulate time going by. Hit the spacebar a few times, and notice that the time at the top of the window increases. Does the rocket move? Time is passing, but our rocket's height hasn't changed! Close the rocket window, so that you can see the code.}
-                                  The Contract for this function is correct: the function's Name, Domain and Range are all accurately written here. However, the next step definitely has some problems:
+                 @point{@student{You may have noticed that the Examples for @code{rocket-height} wrote out the multiplication (@code{(* 11 7)}), rather than the actual answer (@code{77}). Why bother to show the way a calculation is performed? Programmers do this so that their Examples can provide hints about what process is taking place. In the provided Rocket code ([Rocket.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=KY4s7msuh6" "WeScheme")]), you will see why it is so important to show your work when writing examples. 
+                                 @activity{Click "Run", and wait until a window appears with a rocket at the bottom of the screen and numbers for "time" and "height" at the top. This animation is set to update the rocket every time the spacebar is pressed, to simulate time going by. Hit the spacebar a few times, and notice that the time at the top of the window increases. Does the rocket move? Time is passing, but our rocket's height hasn't changed! Close the rocket window, so that you can see the code.}}
+                         @teacher{}
+                         }
+                 @point{@student{The Contract for this function is correct: the function's Name, Domain and Range are all accurately written here. However, the next step definitely has some problems:
                                   @itemlist[#:style 'ordered
                                                     @item{There is only one Example. This makes it difficult to notice what is changing, which could lead to bugs when choosing variables}
                                                     @item{The Example doesn't show how the height is calcluated - instead, this programmer just wrote the "answer", without showing their work.}]
                                   }
                          @teacher{}
                          }
+                         
                  @point{@student{By skipping these steps in the Examples, it can be easy to make mistakes when defining the function. 
                                  @activity{Can you see the mistake the programmer made?}
                                  Without seeing multiple Examples, this programmer failed to realize that the height of the rocket has to be calculated for @italic{every input}. Instead, they just produce the same number every time (in this case, zero). As a result, the rocket is always at zero, no matter how many seconds have passed. 
