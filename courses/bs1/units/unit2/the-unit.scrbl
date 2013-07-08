@@ -8,6 +8,8 @@
 from a Domain into a Range. Coupled with their understanding of Circles of Evaluation, students generalize their understanding of functions to
 include other datatypes, including Strings and Images.}
 
+@(language-table (list "Number" @code{+ - * / sq sqrt expt}))
+
 }
 
 

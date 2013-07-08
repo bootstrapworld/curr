@@ -1,5 +1,5 @@
 #lang curr/lib
-@declare-tags[management pedagogy group]
+@declare-tags[management]
 
 @title{Unit 3: The Definitions Window}
 
@@ -9,7 +9,6 @@
 
 @objectives[@item{Learn about examples, variables and functions}
        @item{Practice Racket syntax and the Circle of Evaluation}]
-
 
 @product-outcomes[@item{Students will write functions to solve simple problems in which a number is used to create an image, when given a word problem and a worked example.}
        @item{Students will write examples (unit tests) to check those functions}]
@@ -146,7 +145,7 @@
 @lesson/studteach[
      #:title "Fast Functions"
      #:duration "15 minutes"
-     #:overview "Students are introduced to the steps of the Design Recipe, and the syntax for test cases function definition."
+     #:overview "Students are get a taste of the Design Recipe, but primarily they're introduced to the syntax for function definition."
      #:learning-objectives @itemlist[@item{Students will be able to define very simple functions, when given a simple word problem.}]
      #:product-outcomes @itemlist[@item{Students will define at least two functions, using the Design Recipe.}]
      #:standards (list)

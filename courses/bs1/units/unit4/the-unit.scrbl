@@ -1,5 +1,5 @@
 #lang curr/lib
-@declare-tags[pedagogy management]
+@declare-tags[management]
 
 @title{Unit 4: The Design Recipe}
 
@@ -9,15 +9,7 @@
 @state-standards
 @length-of-lesson[90]
 
-@pedagogy{
-@materials[@item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders @tag[group]{- in pairs! - with names on covers}}
-            @item{Pens/pencils for the student@tag[group]{s, fresh whiteboard markers for the teachers}}
-            @item{@tag[group]{Class posters (List of rules, language table, course calendar)}}
-            @item{Language Table (See below)}
-            ]
- }
-
- @(language-table (list "Number" @code{+ - * / sq sqrt expt})
+@(language-table (list "Number" @code{+ - * / sq sqrt expt})
                  (list "String" @code{string-append string-length})
                  (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image}))
 }
