@@ -1,7 +1,7 @@
 <html> 
 	<head>
 		<title>Bootstrap: Common Core Standards</title>
-		<link rel="stylesheet" type="text/css" href="../styles.css"/>
+		<link rel="stylesheet" type="text/css" href="/styles.css"/>
     <style>
       .BSUnitTitle{font-weight: bold;}
       .BSUnitSummary{margin: 5px;}
@@ -29,7 +29,7 @@
     </script>
 	</head>
 	<body>
-	<!--#include virtual="../menubar.ssi" -->
+	<!--#include virtual="/menubar.ssi" -->
 	
 	<div id="body">
 		<div class="item">
