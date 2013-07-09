@@ -7,6 +7,7 @@ div.codesexp, div.circleevalsexp, .editbox, .cm-s-scheme {
   font-size:  10pt;
   color:      #666666;
   font-style: normal;
+  clear:      both;
 }
 
 

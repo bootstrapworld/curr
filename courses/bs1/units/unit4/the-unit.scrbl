@@ -1,5 +1,5 @@
 #lang curr/lib
-@declare-tags[management]
+@declare-tags[management pedagogy]
 
 @title{Unit 4: The Design Recipe}
 
