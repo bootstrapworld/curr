@@ -872,10 +872,10 @@
 (define (unit-length timestr)
   (list (format "Length: ~a~n" (decode-flow timestr))))
 
-(define (pad-elem-list-empty-strings elist) 
-  (foldr (lambda (e res-rest)
-           (cons " " (cons e res-rest)))
-         empty elist)) 
+;(define (pad-elem-list-empty-strings elist) 
+;  (foldr (lambda (e res-rest)
+;           (cons " " (cons e res-rest)))
+;         empty elist)) 
 
 ;; converts sexp into structured markup
 ;; believe symbols only go to the first list case, not the symbol? case
@@ -887,7 +887,7 @@
         [(and (list? sexp) (eq? 'quote (first sexp)))
          (elem #:style bs-symvalue-style (format "'~a" (second sexp)))]
         [(list? sexp)
-         (let ([args (pad-elem-list-empty-strings (map sexp->block/aux (rest sexp)))])
+         (let ([args (map sexp->block/aux (rest sexp))])
            (elem #:style bs-expression-style
                  (append
                   (list (elem #:style bs-openbrace-style "(") 
