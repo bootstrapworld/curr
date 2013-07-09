@@ -622,7 +622,8 @@
                   (lesson-section "Standards" (expand-standards standards))
                   (lesson-section "Materials" materials)
                   (lesson-section "Preparation" preparation)
-                  (lesson-section "Glossary" (glossary get))
+                  ;; look at unit-level glossary generation to build lesson-level glossary
+                  ;(lesson-section "Glossary" (glossary get))
                   )))
         (nested #:style (bootstrap-div-style "segment")
                 (interleave-parbreaks/all
@@ -671,14 +672,15 @@
 ;; lookup-tags: list[string] assoc[string, string] string -> element
 ;; looks up value associated with each string in taglist in 
 ;;    association list given as second arg
+;;    optional arg controls whether undefined terms are displayed in output
 ;; used to generate standards and glossary
-(define (lookup-tags taglist in-dictionary tag-descr)
+(define (lookup-tags taglist in-dictionary tag-descr #:show-unbound (show-unbound #f))
   (foldr (lambda (elt result)
            (let ([lookup (assoc elt in-dictionary)])
              (if lookup (cons lookup result)
                  (begin 
                    (printf "WARNING: ~a not in dictionary: ~a~n" tag-descr elt)
-                   result))))
+                   (if show-unbound (cons elt result) result)))))
          '() taglist))
 
 (define (expand-standards standard-tags)
@@ -870,7 +872,7 @@
 (define (unit-length timestr)
   (list (format "Length: ~a~n" (decode-flow timestr))))
 
-(define (pad-elem-list-empty-strings elist)
+(define (pad-elem-list-empty-strings elist) 
   (foldr (lambda (e res-rest)
            (cons " " (cons e res-rest)))
          empty elist)) 
@@ -956,22 +958,27 @@
          (nested (para #:style bs-header-style (format "~a:" header))
                  (if (empty? pre-content) (elem) (first pre-content))
                  (remdups/itemization items)))))))
+
+;; retrieves vocab terms used in document and generates block containing
+;;   terms and their definitions from the dictionary file
+(define (gen-glossary)
+  (traverse-block
+   (lambda (get set)
+     (lambda (get set)
+       (let ([terms
+              (lookup-tags (remove-duplicates (get 'vocab-used '()))
+                           glossary-terms-dictionary "Vocabulary term" #:show-unbound #t)]) 
+         (nested (para #:style bs-header-style "Glossary:")
+                 (apply itemlist/splicing
+                        (for/list ([term terms])
+                                  (if (list? term)
+                                      (item (elem (format "~a: ~a" (first term) (second term))))
+                                      (item (elem (format "~a" term))))))))))))
   
 (define (preparation . items)
   (list (compound-paragraph bs-header-style 
                             (decode-flow (list "Preparation:")))
         (apply itemlist/splicing items #:style "BootstrapPreparationList")))
-
-
-(define (glossary get)
-  (let ([terms (get 'vocab-used '())])
-    ;(printf "glossary has terms ~a~n" terms)
-    (nested terms)))
-;(nested
-; (let ([known-terms (lookup-tags terms glossary-terms-dictionary "Vocabulary term")])
-;   (apply itemlist/splicing
-;          (for/list ([term known-terms])
-;                    (item (elem (format "~a: ~a" (first term) (second term))))))))
   
 ;; Cooperates with the Lesson tag.
 (define (agenda . items)
@@ -1293,7 +1300,7 @@
                 (summary-data/auto 'standards "Standards" (rest state-standards)))
             ;state-standards
             (if length (length-of-lesson length) (length-of-unit/auto))
-            (para #:style bs-header-style "Glossary:")
+            (gen-glossary)
             ;; wrap next two in pedagogy tag
             (if materialsItems (materials materialsItems) 
                 (summary-data/auto 'materials "Materials"))
