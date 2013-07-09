@@ -959,15 +959,28 @@
                  (if (empty? pre-content) (elem) (first pre-content))
                  (remdups/itemization items)))))))
 
+;; right now, this only looks for plurals within the strlist, not within 
+;;  the dictionary.  Will need to look within the dictionary once
+;;  the dictionary gets populated
+(define (remove-plurals strlist)
+  (let loop ([strs strlist])
+    (if (empty? strs) empty
+        (let ([str (first strs)])
+          (if (and (char=? #\s (string-ref str (sub1 (string-length str))))
+                   (member (substring str 0 (sub1 (string-length str))) strlist))
+              (loop (rest strs))
+              (cons str (loop (rest strs))))))))
+
 ;; retrieves vocab terms used in document and generates block containing
 ;;   terms and their definitions from the dictionary file
 (define (gen-glossary)
   (traverse-block
    (lambda (get set)
      (lambda (get set)
-       (let ([terms
-              (lookup-tags (remove-duplicates (get 'vocab-used '()))
-                           glossary-terms-dictionary "Vocabulary term" #:show-unbound #t)]) 
+       (let* ([clean-terms (sort (remove-plurals (remove-duplicates (map string-downcase (get 'vocab-used '()))))
+                                 string<=?)]
+              [terms (lookup-tags clean-terms
+                                  glossary-terms-dictionary "Vocabulary term" #:show-unbound #t)]) 
          (nested (para #:style bs-header-style "Glossary:")
                  (apply itemlist/splicing
                         (for/list ([term terms])
