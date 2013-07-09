@@ -60,11 +60,11 @@ include other datatypes, including Strings and Images.}
                 )
       ]{
         @points[          
-            @point{@student{@bitmap{images/StarCircleOfEvaluation.png}The Circles of Evaluation are a powerful tool, and can be used for much more than just numbers. Consider the Circle of Evaluation shown here.
+            @point{@student{@sexp{(star 50 "solid" "red")} The Circles of Evaluation are a powerful tool, and can be used for much more than just numbers. Consider the Circle of Evaluation shown here.
                              @itemlist[@item{What is the name of the function being used?}
                                         @item{How many arguments are being given to that function?}
                                         @item{What do you think this function will do?}]
-                             The same rules you used to convert a Circle of Evaluation into code still apply. Here is the code for that Circle: @code{(star 50 "solid" "red")}
+                             The same rules you used to convert a Circle of Evaluation into code still apply. Here is the code for that Circle: @sexp[#:form "code"]{(star 50 "solid" "red")}
                              }
                     @teacher{Students are not expected to know all the answers here - the goal is for them to apply what they know about Circles to a novel expression, and discuss for themselves what they think it might mean. Ask them to justify their answers, and to explain why they think they are correct. Linking this back to earlier examples of Circles of Evaluation may be useful.}
                     }
