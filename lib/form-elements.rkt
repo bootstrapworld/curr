@@ -5,6 +5,7 @@
          racket/stxparam
          racket/contract
          racket/string
+         racket/port
          scribble/base
          scribble/core
          scribble/decode
@@ -222,9 +223,12 @@
 (define bs-banner-style (bootstrap-div-style "banner"))
 (define bs-sexp-style (bootstrap-div-style "codesexp"))
 (define bs-circeval-style (bootstrap-div-style "circleevalsexp"))
-(define bs-value-style (bootstrap-span-style "value"))
-(define bs-openbrace-style (bootstrap-span-style "openbrace"))
-(define bs-closebrace-style (bootstrap-span-style "closebrace"))
+(define bs-numvalue-style (bootstrap-span-style "value wescheme-number"))
+(define bs-strvalue-style (bootstrap-span-style "value wescheme-string"))
+(define bs-symvalue-style (bootstrap-span-style "value wescheme-symbol"))
+(define bs-boolvalue-style (bootstrap-span-style "value wescheme-boolean"))
+(define bs-openbrace-style (bootstrap-span-style "lParen"))
+(define bs-closebrace-style (bootstrap-span-style "rParen"))
 (define bs-operator-style (bootstrap-span-style "operator"))
 (define bs-expression-style (bootstrap-span-style "expression"))
 
@@ -866,25 +870,45 @@
 (define (unit-length timestr)
   (list (format "Length: ~a~n" (decode-flow timestr))))
 
-(define (binop-sexp->block/aux sexp)
-  (if (not (list? sexp)) 
-      (elem #:style bs-value-style (format "~a" sexp))
-      (elem #:style bs-expression-style
-            (list (elem #:style bs-openbrace-style "(") 
-                  (elem #:style bs-operator-style (format "~a " (first sexp)))
-                  (binop-sexp->block/aux (second sexp))
-                  " "
-                  (binop-sexp->block/aux (third sexp))
-                  (elem #:style bs-openbrace-style ")")))))
+(define (pad-elem-list-empty-strings elist)
+  (foldr (lambda (e res-rest)
+           (cons " " (cons e res-rest)))
+         empty elist)) 
 
-(define (binop-sexp->block sexp form)
+;; converts sexp into structured markup
+;; believe symbols only go to the first list case, not the symbol? case
+(define (sexp->block/aux sexp)
+  (cond [(number? sexp) (elem #:style bs-numvalue-style (format "~a" sexp))]
+        [(string? sexp) (elem #:style bs-strvalue-style (format "~s" sexp))]
+        [(symbol? sexp) (elem #:style bs-symvalue-style (format "~v" sexp))]
+        [(boolean? sexp) (elem #:style bs-boolvalue-style (format "~a" sexp))]
+        [(and (list? sexp) (eq? 'quote (first sexp)))
+         (elem #:style bs-symvalue-style (format "'~a" (second sexp)))]
+        [(list? sexp)
+         (let ([args (pad-elem-list-empty-strings (map sexp->block/aux (rest sexp)))])
+           (elem #:style bs-expression-style
+                 (append
+                  (list (elem #:style bs-openbrace-style "(") 
+                        (elem #:style bs-operator-style (format "~a " (first sexp))))
+                  args 
+                  (list (elem #:style bs-openbrace-style ")")))))]
+        [else (error 'sexp->block 
+                     (format "Unrecognized expression type for ~a~n" sexp))]))
+
+(define (sexp->block sexp form)
   (let ([style (if (string=? form "sexp") bs-sexp-style bs-circeval-style)])
-    (elem #:style style (binop-sexp->block/aux sexp))))
+    (elem #:style style (sexp->block/aux sexp))))
 
-(define (sexp exp #:form (form "circofeval"))
-  (if (string=? form "code")
-      (binop-sexp->block exp "sexp")
-      (binop-sexp->block exp form)))
+;; convert an sexpression into structured form.  Scribble sends
+;;   data in as strings, so need to parse string into an sexp
+;;   prior to traversal/rendering
+(define (sexp exp-as-string #:form (form "circofeval"))
+  (unless (member form (list "code" "text" "circofeval"))
+    (error 'sexp "Unrecognized form ~a~n" form))
+  (let ([exp (with-input-from-string exp-as-string read)])
+    (if (member form (list "code" "text"))
+        (sexp->block exp "sexp")
+        (sexp->block exp form))))
 
 ;; generates a random binary arithmetic sexp 
 ;; - depth is the max depth of the expression
@@ -894,7 +918,7 @@
   (when (not (member form (list "sexp" "circeval")))
     (error 'gen-random-arith-sexp "Form argument must be either sexp or circeval"))
   (let ([sexp (gen-arith-sexp depth)])
-    (binop-sexp->block sexp form)))
+    (sexp->block sexp form)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
