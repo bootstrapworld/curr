@@ -308,6 +308,9 @@ span.vocab{font-style:  italic; font-weight: bold; color: darkblue;}
  * CONVERTABLE S-EXPRESSIONS
 */
 
+/*  */
+div.student div.circleevalsexp, div.student div.codesexp{width: auto; float: right;}
+
 div.circleevalsexp .expression{
 	display:        inline-block;
 	margin:         5px;
@@ -332,7 +335,7 @@ div.circleevalsexp .operator{
   border-radius:  15px 15px 0px 0px; /* top left, top right, bottom right, bottom left */
 }
 
-div.circleevalsexp .openbrace, div.circleevalsexp .closebrace{display: none;}
+div.circleevalsexp .lParen, div.circleevalsexp .rParen{display: none;}
 
 
 /************************************************************************************
