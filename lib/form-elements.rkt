@@ -26,6 +26,7 @@
          "checker.rkt"
          "javascript-support.rkt"
          "paths.rkt"
+         "tags.rkt"
          "standards-dictionary.rkt"
          "glossary-terms.rkt"
          "sexp-generator.rkt")
@@ -1298,6 +1299,8 @@
    (compound-paragraph (bootstrap-sectioning-style "BootstrapOverview") (decode-flow body))
    ))
 
+(declare-tags pedagogy)
+
 (define (unit-overview/auto 
          #:objectives (objectivesItems #f)
          #:product-outcomes (product-outcomesItems #f)
@@ -1324,11 +1327,12 @@
             ;state-standards
             (if length (length-of-lesson length) (length-of-unit/auto))
             (gen-glossary)
-            ;; wrap next two in pedagogy tag
-            (if materialsItems (materials materialsItems) 
-                (summary-data/auto 'materials "Materials"))
-            (if preparationItems (preparation preparationItems) 
-                (summary-data/auto 'preparation "Preparation"))
+            (tag pedagogy
+                 (if materialsItems (materials materialsItems) 
+                     (summary-data/auto 'materials "Materials")))
+            (tag pedagogy
+                 (if preparationItems (preparation preparationItems) 
+                     (summary-data/auto 'preparation "Preparation")))
             (if lang-table (language-table lang-table) (elem))
             ))))
                        
