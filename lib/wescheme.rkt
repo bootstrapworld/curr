@@ -74,11 +74,14 @@
   (define pid-or-interactions-alist-chunk
     (cond
      [pid
-      `(publicId . ,pid)]
+      `((publicId . ,pid))]
+     [(and interactions-text definitions-text)
+      `((interactionsText . ,interactions-text)
+        (definitionsText . ,definitions-text))]
      [interactions-text
-      `(interactionsText . ,interactions-text)]
+      `((interactionsText . ,interactions-text))]
      [definitions-text
-      `(definitionsText . ,definitions-text)]
+      `((definitionsText . ,definitions-text))]
      [else
       (error 'embed-wescheme "#:pid, #:definitions-text, or #:interactions-text must be provided")]))
 
@@ -90,7 +93,7 @@
   (define encoded-alist
     (parameterize ([current-alist-separator-mode 'amp])
       (alist->form-urlencoded
-       `(,pid-or-interactions-alist-chunk
+       `(,@pid-or-interactions-alist-chunk
          ,@(maybe-add-option with-rpc? 'embedded)
          ,@(maybe-add-option warn-on-exit? 'warnOnExit)
          ,@(maybe-add-option hide-header? 'hideHeader)
