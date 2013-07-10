@@ -664,7 +664,7 @@
      (let ([title-tag (string->symbol (string-downcase (string-replace title " " "-")))])
        ;(printf "storing ~a under tag ~a~n" contents title-tag)
        (when (itemization? contents)
-         (set title-tag (append/itemization contents (get title-tag '())))))
+         (set title-tag (append/itemization (get title-tag '()) contents))))
      (if contents
          (nested (interleave-parbreaks/all (list (bold title) contents)))
          (para)))))
