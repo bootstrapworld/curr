@@ -959,17 +959,22 @@
                  (if (empty? pre-content) (elem) (first pre-content))
                  (remdups/itemization items)))))))
 
-;; right now, this only looks for plurals within the strlist, not within 
-;;  the dictionary.  Will need to look within the dictionary once
-;;  the dictionary gets populated
-(define (remove-plurals strlist)
-  (let loop ([strs strlist])
-    (if (empty? strs) empty
-        (let ([str (first strs)])
-          (if (and (char=? #\s (string-ref str (sub1 (string-length str))))
-                   (member (substring str 0 (sub1 (string-length str))) strlist))
-              (loop (rest strs))
-              (cons str (loop (rest strs))))))))
+;; determine whether "s" is last character of given string
+(define (ends-in-s? str)
+  (char=? #\s (string-ref str (sub1 (string-length str)))))
+
+;; produces string with last character of given string removed
+(define (rem-last-char str)
+  (substring str 0 (sub1 (string-length str))))
+
+;; replace words in strlist with singular versions that appear in dictionary
+(define (singularize-vocab-terms strlist)
+  (map (lambda (str) 
+         (if (and (ends-in-s? str)
+                  (assoc (rem-last-char str) glossary-terms-dictionary))
+             (rem-last-char str)
+             str))
+       strlist))
 
 ;; retrieves vocab terms used in document and generates block containing
 ;;   terms and their definitions from the dictionary file
@@ -977,16 +982,21 @@
   (traverse-block
    (lambda (get set)
      (lambda (get set)
-       (let* ([clean-terms (sort (remove-plurals (remove-duplicates (map string-downcase (get 'vocab-used '()))))
+       (let* ([clean-terms (sort (remove-duplicates (singularize-vocab-terms (map string-downcase (get 'vocab-used '()))))
                                  string<=?)]
               [terms (lookup-tags clean-terms
                                   glossary-terms-dictionary "Vocabulary term" #:show-unbound #t)]) 
          (nested (para #:style bs-header-style "Glossary:")
                  (apply itemlist/splicing
                         (for/list ([term terms])
-                                  (if (list? term)
-                                      (item (elem (format "~a: ~a" (first term) (second term))))
-                                      (item (elem (format "~a" term))))))))))))
+                                  (cond [(and (list? term) (string=? "" (second term)))
+                                         (begin
+                                           (printf "WARNING: Vocabulary term has empty definition in dictionary: ~a ~n" (first term))
+                                           (item (elem (format "~a" (first term)))))]
+                                        [(list? term)
+                                         (item (elem (format "~a: ~a" (first term) (second term))))]
+                                        [else
+                                         (item (elem (format "~a" term)))])))))))))
   
 (define (preparation . items)
   (list (compound-paragraph bs-header-style 

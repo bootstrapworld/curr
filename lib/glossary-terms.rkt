@@ -3,5 +3,10 @@
 (provide glossary-terms-dictionary)
 
 (define glossary-terms-dictionary
-  '(("variable" "Something that changes")
+  '(("contract" "")
+    ("domain" "")
+    ("range" "")
+    ("type" "")
+    ("value" "")
+    ("variable" "Something that changes")
    ))
