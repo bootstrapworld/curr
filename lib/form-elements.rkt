@@ -1333,7 +1333,11 @@
             (tag pedagogy
                  (if preparationItems (preparation preparationItems) 
                      (summary-data/auto 'preparation "Preparation")))
-            (if lang-table (language-table lang-table) (elem))
+            (if lang-table 
+                (if (list? (first lang-table))
+                    (apply language-table lang-table)
+                    (language-table lang-table))
+                (elem))
             ))))
                        
 
