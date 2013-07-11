@@ -576,7 +576,8 @@
 (define (lesson/studteach
          #:title (title #f)
          #:duration (duration #f)
-         #:overview (overview #f)
+         #:overview (overview "")
+         #:prerequisites (prerequisites #f)
          #:learning-objectives (learning-objectives #f)
          #:product-outcomes (product-outcomes #f)
          #:standards (standards '())
@@ -641,7 +642,6 @@
                                                     [else (elem)]))))
                                  pacings)))
                   (interleave-parbreaks/all body))))
-        
         ))))))
   
 ;; append contents of two scribble itemizations, keeping style of the second
