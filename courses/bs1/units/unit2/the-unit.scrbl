@@ -134,7 +134,7 @@ include other datatypes, including Strings and Images.}
           
 @lesson/studteach[
      #:title "Contracts and Purpose Statements"
-     #:duration "45 minutes"
+     #:duration "35 minutes"
      #:overview "Students learn to describe functions and their behavior, using formalisms including Contracts (Domain and Range), Datatypes and Purpose Statements."
      #:learning-objectives @itemlist[@item{Given an expression, students will be able to identify the name of the function being used}
                                       @item{Given an expression, students will be able to identify how many arguments are used}
