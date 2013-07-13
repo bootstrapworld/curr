@@ -77,6 +77,7 @@ include other datatypes, including Strings and Images.}
                                                                    #:hide-project-name? #t
                                                                    #:hide-footer? #t
                                                                    #:hide-definitions? #t
+                                                                   #:auto-run? #t
                                                                    #:interactions-text "(star 50 \"solid\" \"red\")"]
                                        } 
                              }
