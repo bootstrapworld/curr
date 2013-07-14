@@ -1,0 +1,540 @@
+<html> 
+	<head>
+		<title>Bootstrap: Common Core Standards</title>
+		<link rel="stylesheet" type="text/css" href="/styles.css"/>
+    <style>
+      .BSUnitTitle{font-weight: bold;}
+      .BSUnitSummary{margin: 5px;}
+      td{padding: 5px; vertical-align: top; border: solid 1px black;}
+      .col{vertical-align: middle; width: 400px;}
+      .col p{font-size: 13px; font-style: italic;}
+      .bs1 {background: rgba(90, 50, 50, 0.2)}
+      .bs2 {background: rgba(90, 50, 50, 0.3)}
+      table{display: none; border-collapse:collapse;}
+      table#practice{display: block;}
+      thead  {font-weight: bold;text-align: center; background: black; color: white;}
+      tbody tr td:first-child{background: rgba(0,0,0,.1); color: black;}
+      .A, .F{background: white; }
+      .E, .N, .S, .G {background: rgba(90, 50, 50, 0.3);}
+      input{margin: 20px;}
+    </style>
+    
+    <script>
+      function showTable(id){
+        document.getElementById('practice').style.display = 'none';
+        document.getElementById('algebra').style.display  = 'none';
+        document.getElementById('algebra2').style.display = 'none';
+        document.getElementById('csta').style.display = 'none';
+        document.getElementById(id).style.display = 'block';
+      }
+    </script>
+	</head>
+	<body>
+	<!--#include virtual="/menubar.ssi" -->
+	
+	<div id="body">
+		<div class="item">
+		<img src="/images/kids.jpg" class="item_img">
+		<h1>Standards Alignment</h1>
+      <p>Extra lessons are nice, but Math teachers don't <i>have</i> 25 hours of spare classtime to spend on new materials, no matter how good it might be.
+
+      <p>That's why Bootstrap is aligned to Common Core Standards for Mathematics, covering most Functional and Algebraic standards across the Common Core from Grade 7 through Algebra 2. This alignment makes it possible to integrate Bootstrap into the classroom smoothly, using time you've already planned into your pacing guidelines or scope and sequence plans.
+      
+      <p>Bootstrap is also a model implementation of Common Core Standards for Mathematical Practice, offering explicit pedgagogical recommendation across all eight practice standards.
+
+      <p>Bootstrap also satisfies several of the CSTA (Computer Science Teacher's Association) standards across levels 1 (grades K-6), 2 (grades 6-9), and 3 (grades 9-12); Bootstrap1 (the algebra-oriented first course) covers standards in levels 1 and 2, while Bootstrap2 goes deeper into computer science and covers more standards in levels 2 and 3.
+
+      <p>Choose the course you're interested in by clicking one of the buttons below. <b>We've highlighted the Functional (F) and Algebraic (A)</b> standards in the Algebra 1 and Algebra 2 tables, to show Bootstrap's target coverage.
+    </div>
+    
+    
+    <div class="item">
+      <h1>What's Covered in 25 Hours?</h1>
+      <input type="button" onclick="showTable('practice')"  value="Mathematical Practice"/>
+      <input type="button" onclick="showTable('algebra')"   value="Algebra"/>
+      <input type="button" onclick="showTable('algebra2')"  value="Algebra 2"/>
+      <input type="button" onclick="showTable('csta')"      value="CSTA"/>
+
+      <table width="100%" id="practice">
+        <thead>
+          <tr><td>Practice Standard</td>
+            <td>Alignment</td></tr>
+        </thead>
+        <tr>
+          <td>Make sense of problems and persevere in solving them</td>
+          <td class="col">
+            Bootstrap students are confronted with challenging problems, and use a problem-solving methodology known as the <i>Design Recipe</i> to solve them. The recipe teaches critical thinking, asking students to write down what they know and think through each step on their way to a solution.
+          </td>
+        </tr>
+        <tr>
+          <td>Reason abstractly and quantitatively</td>
+          <td class="col">
+            Students focus on mathematical models of program behavior, and use quantitative examples to prove these models correct.
+          </td>
+        </tr>
+        <tr class="">
+          <td>Construct viable arguments and critique the reasoning of others</td>
+          <td class="col">
+            Teachers engage students in discussion about each step in the Design Recipe, asking them to explain how they move from one step to another. In addition, students are challenged to debug the code of others, not just by identifying programmatic flaws but by also identifying faulty reasoning.
+          </td>
+        </tr>
+        <tr>
+          <td>Model with mathematics</td>
+          <td class="col">
+            When Bootstrap students want their characters to move, to stay onscreen or collide with one another, they must first model that behavior mathematically. And since the programming language is purely algebraic, these models become the programs themselves!
+          </td>
+        </tr>
+        <tr>
+          <td>Use appropriate tools strategically</td>
+          <td class="col">
+            Even programmers know that a computer isn't the perfect tool for every situation. Bootstrap students draw graphical diagrams, write out written examnples, and use the computer <i>when the situation calls for it</i>.
+          </td>
+        </tr>
+        <tr>
+          <td>Attend to precision</td>
+          <td class="col">
+            Communicating precisely is key, whether you're a mathematician or a professional progammer. In Bootstrap, students consider datatypes, select clear function and variable names, and write comments for their code.
+          </td>
+        </tr>
+        <tr>
+          <td>Look for and make use of structure</td>
+          <td class="col">
+            Bootstrap students look closely at worked-out examples before generalizing to a formula, as part of the Design Recipe. When working with the Circles of Evaluation, students consider the structure of arithmetic expressions as functions being composed on one another -- and this structure becomes the basis for their code.
+          </td>
+        </tr>
+        <tr>
+          <td>Look for and express regularity in repeated reasoning</td>
+          <td class="col">
+            By practicing the Design Recipe repeatedly, students begin to discern the connection between multiple representations of functions. They notice patterns in the examples they write and contracts they derive.
+          </td>
+        </tr>
+      </table>
+      
+      <table width="100%" id="algebra">
+        <thead>
+          <tr><td class="col">Algebra Standard</td>
+            <td>Bootstrap Units</td>
+          </tr>
+        </thead>
+        <tr class="N">
+          <td class="col">N-RN: Extend the properties of exponents to rational exponents.</td>
+          <td></td>
+        </tr>
+        <tr class="N">
+          <td class="col">N-Q: Reason quantitatively and use units to solve problems.</td>
+          <td>Units 1, 2, 3, 4, 5, and 8</td>
+        </tr>
+        <tr class="A">
+          <td class="col">A-SSE.1-2: Interpret the structure of expressions</td>
+          <td>Units 1, 2, 3 and 7, as well as Supplemental Lessons</td>
+        </tr>
+        <tr class="A">
+          <td class="col">A-SSE.3: Write expressions in equivalent forms to solve problems</td>
+          <td>Units 1 and 2 as well as Supplemental Lessons</td>
+        </tr>
+        <tr class="A">
+          <td class="col">A-APR: Perform arithmetic operations on polynomials</td>
+          <td></td>
+        </tr>
+        <tr class="A">
+          <td class="col">A-CED.1-4: Create equations that describe numbers or relationships</td>
+          <td>Units 3, 4, 5, 6, 7, and 8, as well as Supplemental Lessons</td>
+        </tr>
+        <tr class="A">
+          <td class="col">A-REI.1-2: Understand solving equations as a process of reasoning and explain the reasoning</td>
+          <td>Units 1 and 2, as well as Supplemental Lessons</td>
+        </tr>
+        <tr class="A">
+          <td class="col">A-REI.3-4: Solve equations and inequalities in one variable</td>
+          <td>Unit 6</td>
+        </tr>
+        <tr class="A">
+          <td class="col">A-REI.5-9: Solve systems of equations</td>
+          <td></td>
+        </tr>
+        <tr class="A">
+          <td class="col">A-REI.10-12: Represent and solve equations and inequalities graphically</td>
+          <td>Unit 6</td>
+        </tr>
+        <tr class="F">
+          <td class="col">F-IF.1-3: Understand the concept of a function and use function notation</td>
+          <td>Units 1, 2, 3, 4, 5, 6, 7, 8, and 10, as well as Supplemental Lessons</td>
+        </tr>
+        <tr class="F">
+          <td class="col">F-IF.4-6: Interpret functions that arise in applications in terms of the context</td>
+          <td>Units 6 and 7, as well as Supplemental Lessons</td>
+        </tr>
+        <tr class="F">
+          <td class="col">F.IF.7-9: Analyze functions using different representations</td>
+          <td>Units 3, 4, 5, 6, 7 and 8, as well as Supplemental Lessons</td>
+        </tr>
+        <tr class="F">
+          <td class="col">F-BF.1-2: Build a function that models a relationship between two quantities</td>
+          <td>Units 3, 4, 5, 6, 7 and 8, as well as Supplemental Lessons</td>
+        </tr>
+        <tr class="F">
+          <td class="col">F-BF.3-4: Build new functions from existing functions</td>
+          <td>Units 6, 7 and 8, as well as Supplemental Lessons</td>
+        </tr>
+        <tr class="F">
+          <td class="col">F-LE.1-4: Construct and compare linear, quadratic, and exponential models and solve problems</td>
+          <td>Unit 3</td>
+        </tr>
+        <tr class="F">
+          <td class="col">F-LE.5: Interpret expressions for functions in terms of the situation they model</td>
+          <td>Units 3, 4, 5, 6, 7, and 8, as well as Supplemental Lessons</td>
+        </tr>
+        <tr class="S">
+          <td class="col">S-ID.1-4: Summarize, represent, and interpret data on a single count or measurement variable</td>
+          <td></td>
+        </tr>
+        <tr class="S">
+          <td class="col">S-ID.5-6: Summarize, represent, and interpret data on two categorical and quantitative variables</td>
+          <td></td>
+        </tr>
+        <tr class="S">
+          <td class="col">S-ID.7-9: Interpret linear models</td>
+          <td></td>
+        </tr>
+      </table>
+            
+      <table width="100%" id="algebra2">
+        <thead>
+          <tr><td class="col">Algebra 2 Standard</td>
+            <td>Bootstrap Units</td>
+          </tr>
+        </thead>
+        <tr class="N">
+          <td class="col">N-Q	: Reason quantitatively and use units to solve problems.</td>
+          <td>Units 1, 2, 3, 4, 5, and 8</td>
+        </tr>
+        <tr class="N">
+          <td class="col">N-CN:	Perform arithmetic operations with complex numbers.</td>
+          <td></td>
+        </tr>
+        <tr class="N">
+          <td class="col">N-CN.7: Use complex numbers in polynomial identities and equations.</td>
+          <td></td>
+        </tr>
+        <tr class="A">
+          <td class="col">A-SSE.1,2: Interpret the structure of expressions</td>
+          <td>Units 1, 2, 3 and 7, as well as Supplemental Lessons</td>
+        </tr>
+        <tr class="A">
+          <td class="col">A-SSE.3,4: Write expressions in equivalent forms to solve problems</td>
+          <td>Units 1 and 2 as well as Supplemental Lessons</td>
+        </tr>
+        <tr class="A">
+          <td class="col">A-APR.1: Perform arithmetic operations on polynomials</td>
+          <td></td>
+        </tr>
+        <tr class="A">
+          <td class="col">A-APR.2, 3: Understand the relationship between zeros and factors of polynomials</td>
+          <td></td>
+        </tr>
+        <tr class="A">
+          <td class="col">A-APR.4: Use polynomial identities to solve problems
+          </td>
+          <td></td>
+        </tr>
+        <tr class="A">
+          <td class="col">A-APR.6: Rewrite rational expressions</td>
+          <td></td>
+        </tr>
+        <tr class="A">
+          <td class="col">A-CED.1, 2, 3, 4: Create equations that describe numbers or relationships</td>
+          <td>Units 3, 4, 5, 6, 7, and 8, as well as Supplemental Lessons</td>
+        </tr>
+        <tr class="A">
+          <td class="col">A-REI.1,2: Understand solving equations as a process of reasoning and explain the reasoning</td>
+          <td>Units 1 and 2, as well as Supplemental Lessons</td>
+        </tr>
+        <tr class="A">
+          <td class="col">A-REI.3,4	Solve equations and inequalities in one variable</td>
+          <td>Unit 6</td>
+        </tr>
+        <tr class="A">
+          <td class="col">A-REI.10, 11, 12	Represent and solve equations and inequalities graphically</td>
+          <td>Unit 6</td>
+        </tr>
+        <tr class="F">
+          <td class="col">F-IF.1,2,3	Understand the concept of a function and use function notation</td>
+          <td>Units 1, 2, 3, 4, 5, 6, 7, 8, and 10, as well as Supplemental lessons</td>
+        </tr>
+        <tr class="F">
+          <td class="col">F-IF.4,5, 6: Interpret functions that arise in applications in terms of the context</td>
+          <td>Units 6 and 7, as well as Supplemental Lessons</td>
+        </tr>
+        <tr class="F">
+          <td class="col">F.IF.7, 8, 9: Analyze functions using different representations</td>
+          <td>Units 3, 4, 5, 6, 7 and 8, as well as Supplemental Lessons</td>
+        </tr>
+        <tr class="F">
+          <td class="col">F-BF.1, 2: Build a function that models a relationship between two quantities</td>
+          <td>Units 3, 4, 5, 6, 7 and 8, as well as Supplemental Lessons</td>
+        </tr>
+        <tr class="F">
+          <td class="col">F-BF.3,4: Build new functions from existing functions</td>
+          <td>Units 6, 7 and 8, as well as Supplemental Lessons</td>
+        </tr>
+        <tr class="F">
+          <td class="col">F-LE.1,2,3,4: Construct and compare linear, quadratic, and exponential models and solve problems</td>
+          <td>Unit 3</td>
+        </tr>
+        <tr class="F">
+          <td class="col">F-TF.1,2: Extend the domain of trigonometric functions using the unit circle</td>
+          <td></td>
+        </tr>
+        <tr class="F">
+          <td class="col">F-TF.5: Model periodic phenomena with trigonometric functions</td>
+          <td>Supplemental Lessons</td>
+        </tr>
+        <tr class="F">
+          <td class="col">F-TF.8: Prove and apply trigonometric identities</td>
+          <td></td>
+        </tr>
+        <tr class="G">
+          <td class="col">G-GPE.1, 2:Translate between the geometric description and the equation for a conic section</td>
+          <td></td>
+        </tr>
+        <tr class="S">
+          <td class="col">S-ID.1-4:Summarize, represent, and interpret data on a single count or measurement variable</td>
+          <td></td>
+        </tr>
+        <tr class="S">
+          <td class="col">S-IC.1, 2: Understand and evaluate random processes underlying statistical experiments</td>
+          <td></td>
+        </tr>
+        <tr class="S">
+          <td class="col">S-IC.3-6: Make inferences and justify conclusions from sample surveys, experiments, and observational studies</td>
+          <td></td>
+        </tr>
+        <tr class="S">
+          <td class="col">S-CP.1-5: Understand independence and conditional probability and use them to interpret data</td>
+          <td></td>
+        </tr>
+        <tr class="S">
+          <td class="col">S-CP.6, 7: Use the rules of probability to compute probabilities of compound events in a uniform probability model</td>
+          <td></td>
+        </tr>
+      </table>
+      
+      <table width="100%" id="csta">
+        <thead>
+          <tr><td>CSTA Standard</td>
+            <td>Alignment</td></tr>
+        </thead>
+        <tr>
+          <td>L1:6:CT.1: Understand and use the basic steps in algorithmic problem-solving (e.g., problem statement and exploration, examination of sample instances, design, implementation, and testing).</td>
+          <td class="col">
+            Bootstrap teaches students to develop programs and solve problems through a concrete sequence of steps called the <i>Design Recipe</i>.  Summarizing problem statements, writing test cases, designing functions around data, coding, and testing are all explicit steps in this recipe.  Strategies for designing functions around data are presented in Bootstrap 2; all remaining steps are presented starting early in Bootstrap 1.
+          </td>
+        </tr>
+        <tr>
+	  <td>L1:6:CPP.6: Implement problem solutions using a block-based visual programming language.</td>
+          <td class="col">
+          Bootstrap currently has students implement programs in a simple textual language.  A block-based programming language is under active development and testing.
+          </td>
+        </tr>
+        <tr>
+	  <td>L2:CT:1: Use the basic steps in algorithmic problem-solving to design solutions (e.g., problem statement and exploration, examination of sample instances, design, implementing a solution, testing, evaluation).</td>
+          <td class="col">
+            Bootstrap teaches students to develop programs and solve problems through a concrete sequence of steps called the <i>Design Recipe</i>.  Summarizing problem statements, writing test cases, designing functions around data, coding, and testing are all explicit steps in this recipe.  Strategies for designing functions around data are presented in Bootstrap 2; all remaining steps are presented starting early in Bootstrap 1.
+          </td>
+        </tr>
+        <tr>
+	  <td>L2:CT:6: Describe and analyze a sequence of instructions being followed (e.g., describe a character's behavior in a video game as driven by rules and algorithms).</td>
+          <td class="col">
+          In Bootstrap, students write algebraic functions that are used repeatedly to move characters across a screen and respond to key presses.   Bootstrap emphasizes sequences of instructions less than other early programming efforts, but in doing so gains close adherence to algebra.  
+          </td>
+        </tr>
+        <tr>
+	  <td>L2:CT:7: Represent data in a variety of ways including text, sounds, pictures, and numbers.</td>
+          <td class="col">
+          Students write functions that consume and produce each of text, images, and numbers in the Bootstrap curriculum.  Functions over each datatype are used in students' games, as well in as the in-class exercises.
+          </td>
+        </tr>
+        <tr>
+	  <td>L2:CT:14: Examine connections between elements of mathematics and computer science including binary numbers, logic, sets and functions.</td>
+          <td class="col">
+          Bootstrap relies heavily on algebraic functions.  Students learn how different representations of functions from mathematics (domain/range, input/output tables, and symbolic representations) correspond to important artifacts in writing programs.  Within their games, students use Boolean logic to determine how characters move, to report collisions, and to determine when characters have moved off the screen.
+          </td>
+        </tr>
+        <tr>
+	  <td>L2:CPP:4: Demonstrate an understanding of algorithms and their practical application.</td>
+          <td class="col">
+          Bootstrap emphasizes computation, particularly the idea that computations are reusable with different inputs.  Through their games and in-class exercises, students see various applications for reusable computations in practical settings.
+          </td>
+        </tr>
+        <tr>
+	  <td>L2:CPP:5: Implement problem solutions using a programming language, including: looping behavior, conditional statements, logic, expressions, variables, and functions.</td>
+          <td class="col">
+          Bootstrap1 covers functions, variables, logic, and conditionals (this is all one needs to create a rich game in our software infrastructure!).  Bootstrap2 introduces looping in the context of handling multiple similar game elements with similar behavior.
+          </td>
+        </tr>
+        <tr>
+	  <td>L2:CPP:9: Collect and analyze data that is output from multiple runs of a computer program.</td>
+          <td class="col">
+          Design and execution of test cases is emphasized throughout Bootstrap1 and Bootstrap2.  Students are required to write multiple test cases (including expected answers for each) for each function; our software helps them track which tests are passing and which are failing.
+          </td>
+        </tr>
+        <tr>
+	  <td>L3:CT:A2: Describe a software development process used to solve software problems (e.g. design, coding, testing, verification).</td>
+          <td class="col">
+          Bootstrap's Design Recipe emphasizes design, coding, and testing from early in Bootstrap1.  The process is explicit in Bootstrap's worksheets and exercises.  Bootstrap2 continues to emphasize this process.
+          </td>
+        </tr>
+        <!-- BOOTSTRAP 2 -->
+        <tr>
+	  <td>L3:CPP:A2: Use mobile devices/emulators to design, develop, and implement mobile computing applications.</td>
+          <td class="col">
+          Bootstrap2 has optional material on writing games that respond to common mobile-phone stimuli (such as shaking, tilting, and GPS), as well as a library for exporting these games to mobile phones.
+          </td>
+        </tr>
+        <tr>
+	  <td>L3:CPP:A3: Use various debugging and testing methods to ensure program correctness (e.g., test cases, unit testing, white box, black box, integration testing).</td>
+          <td class="col">
+          Testing is emphasized throughout Bootstrap.  Bootstrap1 drills black-box test cases (with tests written before corresponding code).  As problems get more challenging in Bootstrap2, students begin to confront elements of white-box testing as well.  Bootstrap does not introduce modular programming, as would be required to cover unit or integration testing.
+          </td>
+        </tr>
+        <tr>
+	  <td>L3:CPP:A4: Apply analysis, design, and implementation techniques to solve problems (e.g., use one or more software lifecycle models).</td>
+          <td class="col">
+	  Bootstrap's Design Recipe is a step-by-step software development technique that emphasixes test-first and data-driven design.  Bootstrap strongly recommends (and has exercises written for) pair programming, a common software development practice.
+          </td>
+        </tr>
+        <tr>
+	  <td>L3:CPP:A8: Explain the program execution process</td>
+          <td class="col">
+          Bootstrap1 introduces this process at a general level; students dig deeper into how programs evaluate when they reach loops in Bootstrap2.
+          </td>
+        </tr>
+        <tr>
+	  <td>L3:CPP:A12: Describe how mathematical and statistical functions, sets, and logic are used in computation.</td>
+          <td class="col">
+          Bootstrap1 puts mathematical and logical functions in the context of programming videogames.  Bootstrap2 introduces sets and their implementation via lists.  
+          </td>
+        </tr>
+        <tr>
+	  <td>L3:CT:B5: Use data analysis to enhance understanding of complex natural and human systems.</td>
+          <td class="col">
+          Bootstrap2 begins to emphasize data modeling: the Design Recipe includes an explicit step in which students determine how to model data for a problem and develop illustrative examples of the problem relative to their data model. 
+          </td>
+        </tr>
+        <tr>
+	  <td>L3:CT:B6: Compare and contrast simple data structures and their uses (e.g., arrays and lists).</td>
+          <td class="col">
+          Bootstrap2 emphasizes the differences between structs (compound data with fixed numbers of fields) and lists (compound data with arbitrary numbers of elements).  Students practice recognizing each of these basic data patterns in various problems, and learn how to nest these concepts to build richer data structures (advanced students can easily get to trees with this approach).  Bootstrap does not cover different linear data structures (lists versus arrays), preferring to emphasize how to design richer data structures from simple building blocks of structs and lists.
+          </td>
+        </tr>
+        <tr>
+	  <td>L3:CT:B10: Decompose a problem by defining new functions and classes.</td>
+          <td class="col">
+          Bootstrap2 introduces students to programming problems that benefit from decomposition into multiple functions and data structures.  The Design Recipe provides some structured guidance on when to introduce new functions when decomposing problems.
+          </td>
+        </tr>
+        <tr>
+	  <td>L3:CPP:B2: Use tools of abstraction to decompose a large-scale computational problem (e.g., procedural abstraction, object-oriented design, functional design).</td>
+          <td class="col">
+          Bootstrap1 introduces the core idea of functions as abstractions over repeated computations.  Bootstrap2 moves into larger programs that get decomposed into subproblems, which are designed, implemented, and tested independently.
+          </td>
+        </tr>
+        <tr>
+	  <td>L3:CPP:B7: Use data analysis to enhance understanding of complex natural and human systems.</td>
+          <td class="col">
+          Bootstrap2 begins to emphasize data modeling: the Design Recipe includes an explicit step in which students determine how to model data for a problem and develop illustrative examples of the problem relative to their data model. 
+          </td>
+        </tr>
+
+      </table> 
+      
+      <!--
+       <table width="100%" id="grade7">
+       <thead>
+       <tr><td class="col">Grade 7 Standard</td>
+       <td>Bootstrap Units</td>
+       </tr>
+       </thead>
+       <tr class="N">
+       <td class="col">8.NS.1-2:	Know that there are numbers that are not rational, and approximate them by rational numbers.</td>
+       <td></td>
+       </tr>
+       <tr class="N">
+       <td class="col">N-Q	: Reason quantitatively and use units to solve problems.</td>
+       <td>Units 1, 2, 3, 4, 5, and 8</td>
+       </tr>
+       <tr class="E">
+       <td class="col">7.EE.1-2: 	Use properties of operations to generate equivalent expressions.</td>
+       <td>Units 2, 3 and 6</td>
+       </tr>
+       <tr class="E">
+       <td class="col">7.EE.3-4: Solve real-life and mathematical problems using numerical and algebraic expressions and equations.</td>
+       <td>Units 4, 5, 6, 7, and 8</td>
+       </tr>
+       <tr class="E">
+       <td class="col">8.EE.1-4: Work with radicals and integer exponents.</td>
+       <td></td>
+       </tr>
+       <tr class="E">
+       <td class="col">8.EE.5-6: Understand the connections between proportional relationships, lines, and linear equations.</td>
+       <td></td>
+       </tr>
+       <tr class="E">
+       <td class="col">8.EE.7: Analyze and solve linear equations and pairs of simultaneous linear equations.</td>
+       <td></td>
+       </tr>
+       <tr class="A">
+       <td class="col">A-REI: Understand solving equations as a process of reasoning and explain the reasoning.</td>
+       <td></td>
+       </tr>
+       <tr class="F">
+       <td class="col">8.F.1-3: Define, evaluate, and compare functions.</td>
+       <td>Units 3, 4, 5, 6, 7, and 8, as well as Supplemental Actvities</td>
+       </tr>
+       <tr class="F">
+       <td class="col">8.F.4-5: Use functions to model relationships between quantities.</td>
+       <td>Units 3, 4, 5, 6, 7, and 8, as well as Supplemental Actvities</td>
+       </tr>
+       <tr class="G">
+       <td class="col">7.G.1	-4: Draw, construct, and describe geometrical figures and describe the relationships between them.</td>
+       <td>Units 1 and 8, as well as Supplemental Actvities</td>
+       </tr>
+       <tr class="G">
+       <td class="col">7.G.5: Solve real-life and mathematical problems involving angle measure, area, surface area, and volume.</td>
+       <td></td>
+       </tr>
+       <tr class="G">
+       <td class="col">8.G.1-5: Understand congruence and similarity using physical models, transparencies, or geometry software.</td>
+       <td></td>
+       </tr>
+       <tr class="G">
+       <td class="col">8.G.6-8: Understand and apply the Pythagorean Theorem.</td>
+       <td>Unit 8</td>
+       </tr>
+       <tr class="G">
+       <td class="col">8.G.9: Solve real-world and mathematical problems involving volume of cylinders, cones, and spheres.</td>
+       <td></td>
+       </tr>
+       <tr class="S">
+       <td class="col">7.SP.1-2: Use random sampling to draw inferences about a population.</td>
+       <td></td>
+       </tr>
+       <tr class="S">
+       <td class="col">7.SP.3-4: Draw informal comparative inferences about two populations.</td>
+       <td></td>
+       </tr>
+       <tr class="S">
+       <td class="col">7.SP.8: Investigate chance processes and develop, use, and evaluate probability models.</td>
+       <td></td>
+       </tr>
+       <tr class="S">
+       <td class="col">8.SP.1-4: Investigate patterns of association in bivariate data.</td>
+       <td></td>
+       </tr>
+       </table>
+       -->
+		</div>
+    
+	</div>
+	</body>
+</html>
