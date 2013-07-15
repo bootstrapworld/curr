@@ -1383,7 +1383,7 @@
 (define state-standards
   (list (para #:style bs-header-style "State Standards")
         "See our " 
-        (hyperlink "../../../../CommonCore.shtml" "Common Core Standards Table") 
+        (hyperlink "../../../../Standards.shtml" "Standards Document") 
         " provided as part of the Bootstrap curriculum."))
 
 ;creates the length of the lesson based on input
