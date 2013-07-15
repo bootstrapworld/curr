@@ -1,2 +1,26 @@
 #!/bin/sh
-racket -l errortrace -t build.rkt -- distribution pedagogy group management
+
+if [ "$1" ]
+then
+  case $1 in
+  student)
+    racket -l errortrace -t build.rkt -- --audience $1 distribution group 
+    ;;
+  volunteer)
+    racket -l errortrace -t build.rkt -- --audience $1 distribution pedagogy group management
+    ;;
+  teacher)
+    racket -l errortrace -t build.rkt -- --audience $1 distribution pedagogy group
+    ;;
+  self-taught)
+    racket -l errortrace -t build.rkt -- --audience $1 distribution group 
+    ;;
+  *) 
+    echo "Unrecognized audience argument: $1"
+    ;;
+  esac
+else #default to student
+  racket -l errortrace -t build.rkt -- --audience student distribution group
+fi
+ 
+  

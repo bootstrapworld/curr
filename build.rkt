@@ -79,6 +79,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Command line parsing.  We initialize the SCRIBBLE_TAGS environmental
 ;; variable
+(putenv "AUDIENCE" "student")
 (define current-contextual-tags
   (command-line
    #:program "build"
@@ -91,7 +92,8 @@
    ;; option is set in main entry point at end of file
    #;[("--worksheet-links-to-pdf") "Direct worksheet links to StudentWorkbook.pdf" 
     (putenv "WORKSHEET-LINKS-TO-PDF" "true")]
-   
+   [("--audience") -audience "Indicate student (default), teacher, volunteer, or self-guided"
+    (putenv "AUDIENCE" -audience)]
    [("--deploy") -deploy-dir "Deploy into the given directory, and create a .zip.  Default: deploy" 
     (current-deployment-dir (simple-form-path -deploy-dir))]
    [("--pdf") "Generate PDF documentation"

@@ -316,6 +316,7 @@
 
 
 ;; Embedded wescheme instances
+;; generate depending on audience given in audience variable
 (define (embedded-wescheme #:id id
                            #:public-id (pid #f)
                            #:width (width "90%")
@@ -329,19 +330,21 @@
                            #:hide-definitions? (hide-definitions? #f)
                            #:hide-interactions? (hide-interactions? #f)
                            #:auto-run? (auto-run? #f))
-  (wescheme:embedded-wescheme #:id (resolve-id id)
-                              #:public-id pid
-                              #:width width
-                              #:height height
-                              #:interactions-text interactions-text
-                              #:definitions-text definitions-text
-                              #:hide-header? hide-header?
-                              #:hide-toolbar? hide-toolbar?
-                              #:hide-project-name? hide-project-name?
-                              #:hide-footer? hide-footer?
-                              #:hide-definitions? hide-definitions?
-                              #:hide-interactions? hide-interactions?
-                              #:auto-run? auto-run?))
+  (if (member (getenv "AUDIENCE") (list "self-taught"))
+      (wescheme:embedded-wescheme #:id (resolve-id id)
+                                  #:public-id pid
+                                  #:width width
+                                  #:height height
+                                  #:interactions-text interactions-text
+                                  #:definitions-text definitions-text
+                                  #:hide-header? hide-header?
+                                  #:hide-toolbar? hide-toolbar?
+                                  #:hide-project-name? hide-project-name?
+                                  #:hide-footer? hide-footer?
+                                  #:hide-definitions? hide-definitions?
+                                  #:hide-interactions? hide-interactions?
+                              #:auto-run? auto-run?)
+      (elem)))
 
 
 
