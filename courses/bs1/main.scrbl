@@ -33,7 +33,7 @@ Of course, there's more to a curriculum than software and lesson plans! We also 
         (append
          (list 
            @item{@(hyperlink "resources/teachers/" "Teacher-Only Resources" ) - We also offer several teachers-only materials, including an answer key to the student workbook, a quick-start guide to making the final project, and pre- and post-tests for teachers who are paticipating in our research study. For access to these materials, please fill out the @(hyperlink "https://docs.google.com/a/bootstrapworld.org/spreadsheet/viewform?formkey=dHpQc0VHV2dBU2tSN1ptMktBUmtoZWc6MQ#gid=0" "password request form"). We’ll get back to you soon with the necessary login information.}
-          @item{@(hyperlink "../../CommonCore.shtml" "Standards Alignment") - Find out how Bootstrap aligns with Common Core Standards for Mathematics, as well as the standards for Mathematical Practice. }
+          @item{@(hyperlink "../../Standards.shtml" "Standards Alignment") - Find out how Bootstrap aligns with Common Core Standards for Mathematics, as well as the standards for Mathematical Practice. }
           @summary-item/custom["Support Forums" @(list (hyperlink "https://groups.google.com/d/forum/bootstrap-announce" "Announcements")
                                                        (hyperlink "https://groups.google.com/d/forum/bootstrap-discuss" "Discussion"))]{
             Want to be kept up-to-date about Bootstrap events, workshops, and curricular changes? 
