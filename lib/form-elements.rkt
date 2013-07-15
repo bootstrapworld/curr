@@ -643,7 +643,7 @@
                                               (cond [duration
                                                      (elem #:style bs-time-style (format "(Time ~a)" duration))]
                                                     [else (elem)]))))
-                                 pacings)))
+                                 (list (elem))))) ;pacings))) -- reinclude later if desired
                   (interleave-parbreaks/all body))))
         ))))))
   
