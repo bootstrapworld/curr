@@ -313,8 +313,6 @@
   (sxml->element `(select (@ (id ,(resolve-id id)))
                           ,@(map (lambda (o) `(option ,o)) options))))
 
-
-
 ;; Embedded wescheme instances
 ;; generate depending on audience given in audience variable
 (define (embedded-wescheme #:id id
@@ -330,7 +328,7 @@
                            #:hide-definitions? (hide-definitions? #f)
                            #:hide-interactions? (hide-interactions? #f)
                            #:auto-run? (auto-run? #f))
-  (if (member (getenv "AUDIENCE") (list "self-taught"))
+  (if (audience-in? "self-taught")
       (wescheme:embedded-wescheme #:id (resolve-id id)
                                   #:public-id pid
                                   #:width width
@@ -365,6 +363,11 @@
 
 (define (format-racket-header str)
   (format "; ~a~n" str))
+
+;; aud is either a string or a list of strings of audience tags
+;;  known tags are student, teacher, volunteer, and self-taught
+(define (audience-in? aud)
+  (member (getenv "AUDIENCE") (if (list? aud) aud (list aud))))
 
 ;; accumulate all vocab referenced in lesson so we can generate a glossary
 (define (vocab body)
@@ -515,14 +518,16 @@
 ;;;;;;;;;;;;; NEW LESSON FORMAT ;;;;;;;;;;;;;;;;;;
 
 (define (insert-toggle-buttons)
-  (cond-element
-   [html (sxml->element
-          `(center
-            (input (@ (type "button") (id "prev") (value "<<") (onclick "prevCard();")) "")
-            (input (@ (type "button") (value "Toggle Notes") (onclick "showTeacherNotes();")) "")
-            (input (@ (type "button") (id "next") (value ">>") (onclick "nextCard();")) "")
-            ))]
-   [else (elem "")]))
+  (if (audience-in? (list "teacher" "volunteer"))
+      (cond-element
+       [html (sxml->element
+              `(center
+                (input (@ (type "button") (id "prev") (value "<<") (onclick "prevCard();")) "")
+                (input (@ (type "button") (value "Toggle Teacher Notes") (onclick "showTeacherNotes();")) "")
+                (input (@ (type "button") (id "next") (value ">>") (onclick "nextCard();")) "")
+                ))]
+       [else (elem "")])
+      (elem)))
 
 (define (student . content)
   (nested #:style bs-student-style (interleave-parbreaks/select content)))

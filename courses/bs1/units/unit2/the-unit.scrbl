@@ -256,6 +256,5 @@ include other datatypes, including Strings and Images.}
                                                         @item{Pass out exit slips, dismiss, clean up.}]}}
                         }
                         ]}
-}
 
 @copyright[]
