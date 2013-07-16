@@ -523,7 +523,7 @@
        [html (sxml->element
               `(center
                 (input (@ (type "button") (id "prev") (value "<<") (onclick "prevCard();")) "")
-                (input (@ (type "button") (value "Toggle Teacher Notes") (onclick "showTeacherNotes();")) "")
+                (input (@ (type "button") (value "Toggle Teacher Notes") (onclick "showTeacherNotes(this);")) "")
                 (input (@ (type "button") (id "next") (value ">>") (onclick "nextCard();")) "")
                 ))]
        [else (elem "")])
