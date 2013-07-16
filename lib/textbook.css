@@ -198,8 +198,13 @@ span.challenge>div:before{content: 'Moving ahead...'}
   z-index: 2;
 }
 
-
-.segment ul.lesson{margin: 0px; padding-left: 0px; list-style-type:none;width: 800px;}
+.segment ul.lesson{
+  margin:         0px;
+  padding-left:   0px;
+  width:          800px;
+  border-bottom:  solid 1px lightgray;
+  list-style-type:none;
+}
 .segment ul.lesson li{
   width:          1270px;
   vertical-align: top;
@@ -256,7 +261,7 @@ ul.teacherNotes .embedded-wescheme{width: 500px;}
 /* make sure inline code is never broken across lines */
 .editbox{white-space: nowrap;}
 
-.management{font-style: oblique;}
+.management{margin-bottom: 10px; color: darkblue;}
 .exercises{width: 800px;}
 div.activity{
   width:          100%;
@@ -351,7 +356,7 @@ ol.question li:first-of-type{border: none;}
 
 /************************************************************************************
  * PRINT MEDIA
- * Hide callouts, embedded WeSchemes, and background images
+ * Hide callouts, embedded WeSchemes, box-shadows, and background images
  * which are styled a little differently
 */
 @media print {
@@ -369,8 +374,9 @@ ol.question li:first-of-type{border: none;}
     margin-bottom: -32767px;
     border:         0px none;
     background:     #eee;
-    box-shadow:     inset 3px 0px 0px black;
+    box-shadow:     inset 0px 0px 0px black;
     -webkit-transition: width 0.5s ease-in-out;
   }
+  .segment ul.teacherNotes li+li .teacher{box-shadow: none;}
   input, div.callout, .embedded-wescheme{display: none;}
 }
