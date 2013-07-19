@@ -9,7 +9,7 @@
     ("MP.4" "Model with mathematics")
     ("MP.5" "Use appropriate tools strategically")
     ("MP.6" "Attend to precision")
-    ("MP.7" "Look for an make use of structure")
+    ("MP.7" "Look for and make use of structure")
     ("MP.8" "Look for and express regularity and repeated reasoning")
     
     ("N-RN" "Extend the properties of exponents to rational exponents")
