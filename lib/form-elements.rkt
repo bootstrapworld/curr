@@ -55,6 +55,9 @@
          unit-summary/links
          summary-item/links
          summary-item/custom
+         matching-exercise
+         circeval-matching-exercise/code
+         circeval-matching-exercise/math
          gen-random-arith-sexp
          sexp
          
@@ -930,6 +933,41 @@
     (error 'gen-random-arith-sexp "Form argument must be either sexp or circeval"))
   (let ([sexp (gen-arith-sexp depth)])
     (sexp->block sexp form)))
+
+;; produces list with same elements as input list, but with order permuted
+(define (permute-list lst)
+  (let loop ([sourcelst lst])
+    (if (empty? sourcelst) empty
+        (let ([choose (list-ref sourcelst (random (length sourcelst)))])
+          (cons choose (loop (remove choose sourcelst)))))))
+
+;; given two lists of content, produces an exercise to match each item in
+;;   colA with one from colB.  If permute is true, then contents of colB
+;;   are permuted before generating the output
+(define (matching-exercise #:permute (permute #f) colA colB)
+  (let ([rowslist (map list colA (if permute (permute-list colB) colB))])
+    (tabular #:style "matching-table" rowslist)))
+
+;; Given a list of sexps as strings, create a matching exercise between
+;;   the expressions and circle-of-eval forms.  Can optionally take the
+;;   list of permuted sexpstrs as a second argument (it don't want
+;;   the permutation done automatically).  
+(define (circeval-matching-exercise/code sexplst . permutedstrs)
+  (let ([textlst (map (lambda (str) (sexp str #:form "code")) sexplst)])
+    (if (empty? permutedstrs)
+        (matching-exercise 
+         #:permute #t
+         textlst
+         (map (lambda (str) (sexp str #:form "circofeval")) sexplst))
+        (matching-exercise
+         textlst
+         (map (lambda (str) (sexp str #:form "circofeval")) (first permutedstrs))))))
+       
+(define (circeval-matching-exercise/math mathexps sexps #:permute (permute #f))
+  (matching-exercise #:permute permute 
+                     mathexps 
+                     (map (lambda (str) (sexp str #:form "circofeval")) sexps)))
+  
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
