@@ -52,7 +52,7 @@
         @points[@point{@student{@activity{What would each of the following expressions @vocab{evaluate} to? (If you're not sure, you can type it in and try it out!)
                               @itemlist[@item{@code{(+ 1 4)}}
                                          @item{@code{(/ 4 2)}}
-                                         @item{@code{circle 10 "solid" "blue"}}
+                                         @item{@code{(circle 10 "solid" "blue")}}
                                          @item{@code{(< 3 4)}}]}}
                         @teacher{}
                         }
