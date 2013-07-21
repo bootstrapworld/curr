@@ -3,16 +3,11 @@
 
 @title{Unit 4: The Design Recipe}
 
-@overview{
-
+@unit-overview/auto[#:lang-table (list "Number" @code{+ - * / sq sqrt expt})
+                                 (list "String" @code{string-append string-length})
+                                 (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image})]{
 @unit-descr{Students are introduced to the Design Recipe and apply it to simple problems.}
-@state-standards
-@length-of-lesson[90]
-
-@(language-table (list "Number" @code{+ - * / sq sqrt expt})
-                 (list "String" @code{string-append string-length})
-                 (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image}))
-}
+ }
 
 @lesson/studteach[
      #:title "Review"

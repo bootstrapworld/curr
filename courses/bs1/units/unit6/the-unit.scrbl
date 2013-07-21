@@ -3,14 +3,10 @@
 
 @title{Unit 6: Booleans: Teaching Functions to Compare}
 
-@overview{
+@unit-overview/auto[#:lang-table (list "Number" @code{+ - * / sq sqrt expt})
+                                 (list "String" @code{string-append string-length})
+                                 (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image})]{
 @unit-descr{Students discover Boolean types, and use them to create programs that test values, and then model scenarios using these programs.}
-@state-standards
-@length-of-lesson[90]
-
-@(language-table (list "Number" @code{+ - * / sq sqrt expt})
-                 (list "String" @code{string-append string-length})
-                 (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image}))
 }
 
 @lesson/studteach[

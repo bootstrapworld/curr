@@ -3,15 +3,10 @@
 
 @title{Unit 5: Game Animation}
 
-@overview{
-
+@unit-overview/auto[#:lang-table (list "Number" @code{+ - * / sq sqrt expt})
+                                 (list "String" @code{string-append string-length})
+                                 (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image})]{
 @unit-descr{Students define functions that map position n to position n+1, allowing them to move their dangers, targets, and projectiles.}
-@state-standards
-@length-of-lesson[90]
-
-@(language-table (list "Number" @code{+ - * / sq sqrt expt})
-                 (list "String" @code{string-append string-length})
-                 (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image}))
 }
 @lesson/studteach[
      #:title "Bug Hunting"

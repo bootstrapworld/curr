@@ -3,22 +3,11 @@
 
 @title{Unit 3: The Definitions Window}
 
-@overview{
+@unit-overview/auto[#:lang-table (list "Number" @code{+ - * / sq sqrt expt})
+                                 (list "String" @code{string-append string-length})
+                                 (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image})]{
+  @unit-descr{Students are introduced to the Definitions window, and learn the syntax for defining values of various types.  They are also introduced to the syntax of defining functions and creating examples.}
 
-@unit-descr{Students are introduced to the Definitions window, and learn the syntax for defining values of various types.  They are also introduced to the syntax of defining functions and creating examples.}
-
-@objectives[@item{Learn about examples, variables and functions}
-       @item{Practice Racket syntax and the Circle of Evaluation}]
-
-@product-outcomes[@item{Students will write functions to solve simple problems in which a number is used to create an image, when given a word problem and a worked example.}
-       @item{Students will write examples (unit tests) to check those functions}]
-
-@state-standards
-
-@length-of-lesson[90]
-
-@(language-table (list "Number" @code{+ - * / sq sqrt expt})
-                 (list "String" @code{string-append string-length}))
 }
 @lesson/studteach[
      #:title "Review"
