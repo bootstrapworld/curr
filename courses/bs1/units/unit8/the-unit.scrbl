@@ -5,7 +5,8 @@
 
 @unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sq sqrt expt})
                                        (list "String" @code{string-append string-length})
-                                       (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image}))]{
+                                       (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image})
+                                       (list "Boolean" @code{= > < string=? and or}))]{
 @unit-descr{Students discuss and then prove the Pythagorean theorem, and use this theorem - in conjunction with Booleans - in their games to detect when a collision has occurred.}
 }
 
