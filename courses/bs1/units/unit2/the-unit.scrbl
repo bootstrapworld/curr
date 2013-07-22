@@ -80,6 +80,7 @@ include other datatypes, including Strings and Images.}
                                                                    #:hide-footer? #t
                                                                    #:hide-definitions? #t
                                                                    #:auto-run? #t
+								   #:interactions-as-alt? #f
                                                                    #:interactions-text "(star 50 \"solid\" \"red\")"]
                                        } 
                              }
@@ -88,15 +89,16 @@ include other datatypes, including Strings and Images.}
                      }
              @point{@student{There's an entirely new @vocab{type} of value being used in these expressions: @code{"solid"} and @code{"red"} are examples of a completely new datatype, called a @vocab{String}.  
                              @bannerline{A String is anything between quotation marks.} 
-                             When you first learned about values, you saw that a program can be nothing more than a value, such as a number.  If you type a number such as @code{716} into the interactions window, for example, it evaluates to itself.
+                             When you first learned about values, you saw that a program can be nothing more than a value, such as a number.  If you type a number into the interactions window, for example, it evaluates to itself.  To remind yourself of this, tryevaluating @code{716} in the Interactions window:
                                           @embedded-wescheme[#:id "StringIntro"                                             
                                                                    #:height 50
                                                                    #:hide-toolbar? #t
                                                                    #:hide-project-name? #t
                                                                    #:hide-footer? #t
                                                                    #:hide-definitions? #t
+								   #:interactions-as-alt? #f
                                                                    #:interactions-text "716"]
-                                          Since Strings are values too, the value @code{"red"} is a perfectly valid program! Just like number values, strings will evaluate to themselves.
+                                          Since Strings are values too, the value @code{"red"} is also a perfectly valid program! Just like number values, strings will evaluate to themselves.
                                           @activity{Try entering different Strings into the Interactions window. What happens if you put quotes around multiple words? Around Numbers?}
                                        }
                      @teacher{Students should see Strings as an analog to Numbers: a different type of value, but one that is still a simple program that evaluates to itself and can be passed as an argument to a function.  Note that the Number 42 and the String "42" are different values!  You could add the Number 42 to another number, but you cannot add the String "42" to another number.}
@@ -180,7 +182,7 @@ include other datatypes, including Strings and Images.}
                                       @item{What is the type of each thing in the Domain?}
                                       @item{What is the @vocab{Range} of this function?}
                                       ]}
-                 A Contract tells you exactly how to use the function, by writing its Name and then using @vocab{values} for each of the arguments in the @vocab{Domain}. Here is an example of an expression, written to use @code{rectangle}: @code{(rectangle 100 50 "solid" "blue")}.
+                 A Contract tells you exactly how to use the function, by writing its Name and then using @vocab{values} for each of the arguments in the @vocab{Domain}. Here is an example of an expression, written to use @code{rectangle}:
                  @embedded-wescheme[#:id "ImagePlayground2"                                             
                                          #:height 150
                                          #:hide-toolbar? #t
@@ -200,7 +202,7 @@ include other datatypes, including Strings and Images.}
                              @code[#:multi-line ""]{; ellipse: Number Number String String -> Image
                                                     ; triangle: Number String String -> Image
                                                     ; circle: Number String String -> Image}
-                             @activity{See if you can figure out how to use these new functions to draw other shapes!
+                             @activity{See if you can figure out how to use these new functions to draw other shapes!  Here's an example to get you started:
                              @embedded-wescheme[#:id "ImagePlayground3"                                             
                                          #:height 150
                                          #:hide-toolbar? #t

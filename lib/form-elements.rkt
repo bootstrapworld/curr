@@ -232,6 +232,7 @@
 (define bs-logo-style (bootstrap-span-style "BootstrapLogo"))
 (define bs-vocab-style (bootstrap-span-style "vocab"))
 (define bs-banner-style (bootstrap-div-style "banner"))
+(define bs-embedded-wescheme-alt-style (bootstrap-div-style "embedded-wescheme-alt"))
 (define bs-sexp-style (bootstrap-div-style "codesexp"))
 (define bs-circeval-style (bootstrap-div-style "circleevalsexp"))
 (define bs-numvalue-style (bootstrap-span-style "value wescheme-number"))
@@ -338,22 +339,25 @@
                            #:hide-footer? (hide-footer? #t)
                            #:hide-definitions? (hide-definitions? #f)
                            #:hide-interactions? (hide-interactions? #f)
+                           #:interactions-as-alt? (interactions-as-alt? #t)
                            #:auto-run? (auto-run? #f))
-  (if (audience-in? "self-taught")
-      (wescheme:embedded-wescheme #:id (resolve-id id)
-                                  #:public-id pid
-                                  #:width width
-                                  #:height height
-                                  #:interactions-text interactions-text
-                                  #:definitions-text definitions-text
-                                  #:hide-header? hide-header?
-                                  #:hide-toolbar? hide-toolbar?
-                                  #:hide-project-name? hide-project-name?
-                                  #:hide-footer? hide-footer?
-                                  #:hide-definitions? hide-definitions?
-                                  #:hide-interactions? hide-interactions?
-                              #:auto-run? auto-run?)
-      (elem)))
+  (cond [(audience-in? "self-taught")
+         (wescheme:embedded-wescheme #:id (resolve-id id)
+                                     #:public-id pid
+                                     #:width width
+                                     #:height height
+                                     #:interactions-text interactions-text
+                                     #:definitions-text definitions-text
+                                     #:hide-header? hide-header?
+                                     #:hide-toolbar? hide-toolbar?
+                                     #:hide-project-name? hide-project-name?
+                                     #:hide-footer? hide-footer?
+                                     #:hide-definitions? hide-definitions?
+                                     #:hide-interactions? hide-interactions?
+                                     #:auto-run? auto-run?)]
+        [(and interactions-as-alt? interactions-text) 
+         (elem #:style bs-embedded-wescheme-alt-style (code interactions-text))]
+        [else (elem)]))
 
 
 

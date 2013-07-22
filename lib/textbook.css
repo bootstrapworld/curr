@@ -293,6 +293,15 @@ div.banner{
 /* Banner images are centered */
 div.banner img{float: none; margin-left: auto; margin-right: auto; display: block;}
 
+div.embedded-wescheme-alt{
+  display:        inline-block;
+  width:          100%;
+  margin:         10px 0px;
+  padding:        5px;
+  font-weight:    bold;
+  color:          black;
+}
+
 td.header{background: lightgray; font-weight: bold; text-align: center;}
 table tr{height: 16px;}
 tt{font: Courier;}
