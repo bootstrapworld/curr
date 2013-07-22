@@ -235,7 +235,7 @@
                       }
                         @teacher{From this point forward, the Circles of Evaluation are your assessment tool for Order of Operations. Quizzing students by asking them to correctly evaluate an expression is fraught with false negatives, as many student might get the order right but still have problems with basic calculation. This method is also vulnerable to Commutativity, since a student will correctly evaluate @math{1*2+2} even if they get the order of operations wrong! Circles of Evaluation have neither of these flaws, as they put them emphasis where it should be: exercising a students' ability to see the structure inside the arithemetic.}
                         }
-                @point{@student{@bitmap{images/NestedCircle.png}What does this Circle of Evaluation @vocab{evaluate to}?  Let's review how we evaluate a Circle:
+                @point{@student{@bitmap{images/NestedCircle.png}What does this Circle of Evaluation evaluate to?  Let's review how we evaluate a Circle:
                                  @itemlist[@item{We know we are multiplying because that's the function at the top of the Circle.} 
                                            @item{The Number @math{6} is the first number in the multiplication, because it's on the left-hand side.}
                                            @item{The second number in the multiplication is on the right-hand side.  The right-hand side has a separate circle, so we need to @vocab{evaluate} the number for that circle.  The second number is therefore @italic{the result of adding 4 and 5}.}
@@ -329,7 +329,7 @@
                         @teacher{@management{}}
                         }
                          
-                @point{@student{The Circles of Evaluation are also easy to convert into computer programs. To translate a Circle of Evaluation into a program, begin with an open parenthesis @code{(}, and then the function written at the top of the circle. Then translate the inputs from left to right in the same way, adding a closing parenthesis @code{)} when you're done. This process gives us the second rule for @vocab{expressions:}  
+                @point{@student{The Circles of Evaluation are also easy to convert into computer programs. To translate a Circle of Evaluation into a program, begin with an open parenthesis @code{(}, and then the function written at the top of the circle. Then translate the inputs from left to right in the same way, adding a closing parenthesis @code{)} when you're done. This process gives us the second rule for @vocab{expressions}:  
                                                                                                                                                                                               @bannerline{Code Rule 2: Each open parenthesis is followed by one function, then by one or more legal expressions, and finally by a closing parenthesis.} <ANIMATED GIF?>
                                  @bitmap{images/FixedCircle.png}Here is the code for this Circle of Evaluation: @code{(- 4 5)}
                                  @activity{Enter @code{(- 4 5)} into the Interactions window and hit Return.  You should see @math{-1} as an answer.
