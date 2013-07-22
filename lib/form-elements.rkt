@@ -167,6 +167,7 @@
 (define-runtime-path worksheet-lesson-root (build-path 'up "lessons"))
 (define-runtime-path textbook.css "textbook.css")
 (define-runtime-path pretty-printing.css "pretty-printing.css")
+;(define-runtime-path styles.css "styles.css")
 (define-runtime-path codemirror.js "codemirror.js")
 (define-runtime-path runmode.js "runmode.js")
 (define-runtime-path scheme2.js "scheme2.js")
@@ -178,6 +179,7 @@
         (make-tex-addition bootstrap-pdf.tex)
         (make-css-addition textbook.css)
         (make-css-addition pretty-printing.css)
+        ;(make-css-addition "styles.css")
         (make-js-addition codemirror.js)
         (make-js-addition runmode.js)
         (make-js-addition scheme2.js)
@@ -1390,21 +1392,24 @@
             description
             (if objectivesItems (objectives objectivesItems) 
                 (summary-data/auto 'learning-objectives "Learning Objectives"))
-            (if evidenceItems (evidence-statements evidenceItems)
-                (summary-data/auto 'evidence-statements "Evidence Statements"))
+            (if (audience-in? "teacher")
+                (if evidenceItems (evidence-statements evidenceItems)
+                    (summary-data/auto 'evidence-statements "Evidence Statements"))
+                (elem))
             (if product-outcomesItems (product-outcomes product-outcomesItems) 
                 (summary-data/auto 'product-outcomes "Product Outcomes"))
             (if standards standards 
                 (summary-data/auto 'standards "Standards" (rest state-standards)))
-            ;state-standards
             (if length (length-of-lesson length) (length-of-unit/auto))
             (gen-glossary)
-            (tag pedagogy
-                 (if materialsItems (materials materialsItems) 
-                     (summary-data/auto 'materials "Materials")))
-            (tag pedagogy
+            (if (audience-in? (list "teacher" "volunteer"))
+                (if materialsItems (materials materialsItems) 
+                    (summary-data/auto 'materials "Materials"))
+                (elem))
+            (if (audience-in? (list "teacher" "volunteer"))
                  (if preparationItems (preparation preparationItems) 
-                     (summary-data/auto 'preparation "Preparation")))
+                     (summary-data/auto 'preparation "Preparation"))
+                 (elem))
             (if lang-table 
                 (if (list? (first lang-table))
                     (apply language-table lang-table)
