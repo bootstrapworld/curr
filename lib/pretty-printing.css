@@ -18,12 +18,15 @@ div.codesexp, div.circleevalsexp, .editbox, .cm-s-scheme {
   - if an expr is wrapped, every element clears left
 */
 
-div.codesexp > *, .replOutput > * {float: left; padding-left: 10px;}
+div.codesexp *, .replOutput > * {float: left; padding-left: 10px;}
 .replOutput br{float: none;}
 .wrapped > * {clear: left;}
 
 /* Rationals, Parens, and first child after lParen NEVER have padding or clearing */
-.Rational *, .lParen, .rParen, .lParen+*{
+.Rational *, 
+div.codesexp .lParen,   .replOutput .lParen,
+div.codesexp .rParen,   .replOutput .rParen,
+div.codesexp .lParen+*, .replOutput .lParen+*{
 padding-left: 0px; clear: none;
 }
 
