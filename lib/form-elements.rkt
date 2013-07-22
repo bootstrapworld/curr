@@ -602,6 +602,7 @@
          #:overview (overview "")
          #:prerequisites (prerequisites #f)
          #:learning-objectives (learning-objectives #f)
+         #:evidence-statements (evidence-statements #f)
          #:product-outcomes (product-outcomes #f)
          #:standards (standards '())
          #:materials (materials #f)
@@ -641,8 +642,8 @@
                   (nested #:style bs-lesson-title-style
                           (nested #:style bs-lesson-name-style "Overview"))
                   overview
-                  ;(lesson-section "Overview" overview)
                   (lesson-section "Learning Objectives" learning-objectives)
+                  (lesson-section "Evidence Statements" evidence-statements)
                   (lesson-section "Product Outcomes" product-outcomes)
                   (lesson-section "Standards" (expand-standards standards))
                   (lesson-section "Materials" materials)
@@ -1005,6 +1006,12 @@
                             (decode-flow (list "Learning Objectives:")))
         (apply itemlist/splicing items #:style "BootstrapLearningObjectivesList")))
 
+(define (evidence-statements . items)
+  (list (compound-paragraph bs-header-style 
+                            (decode-flow (list "Evidence Statements:")))
+        (apply itemlist/splicing items #:style "BootstrapEvidenceStatementsList")))
+
+
 (define (product-outcomes . items)
   (list (compound-paragraph bs-header-style 
                             (decode-flow (list "Product Outcomes:")))
@@ -1017,7 +1024,7 @@
   (traverse-block
    (lambda (get set)
      (lambda (get set)
-       (let ([items (get tag (itemlist (item "No items found")))])
+       (let ([items (get tag (itemlist))])
          (nested (para #:style bs-header-style (format "~a:" header))
                  (if (empty? pre-content) (elem) (first pre-content))
                  (remdups/itemization items)))))))
@@ -1365,6 +1372,7 @@
 
 (define (unit-overview/auto 
          #:objectives (objectivesItems #f)
+         #:evidence-statments (evidenceItems #f)
          #:product-outcomes (product-outcomesItems #f)
          #:standards (standards #f)
          #:length (length #f)
@@ -1381,7 +1389,9 @@
            (list
             description
             (if objectivesItems (objectives objectivesItems) 
-                (summary-data/auto 'learning-objectives "Learning Objectives"));)))
+                (summary-data/auto 'learning-objectives "Learning Objectives"))
+            (if evidenceItems (evidence-statements evidenceItems)
+                (summary-data/auto 'evidence-statements "Evidence Statements"))
             (if product-outcomesItems (product-outcomes product-outcomesItems) 
                 (summary-data/auto 'product-outcomes "Product Outcomes"))
             (if standards standards 
