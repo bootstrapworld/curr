@@ -111,6 +111,7 @@
          state-standards
          length-of-lesson
          bootstrap-title
+         augment-head
          
          ;; stuff added by Vicki
          struct-example-with-text
@@ -184,6 +185,12 @@
         (make-js-addition mathjax-url)
         ))
 
+;; add meta attributes to HEAD (needed for iPhone rendering)
+(define bs-head-additions
+  (make-head-extra 
+   '(meta ((name "viewport")
+           (content "width=device-width, initial-scale=1, user-scalable=no")))))
+
 ;;;;;;;;;;;;;;;; Defining Styles ;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; bootstrap-sectioning-style : string -> style
@@ -249,6 +256,7 @@
 (define bs-function-exercise-style (make-bs-latex-style "BSFunctionExercise"))
 (define bs-fill-in-blank-style (make-bs-latex-style "BSFillInBlank"))
 (define bs-free-response-style (make-bs-latex-style "BSFreeResponse"))
+(define bs-head-style (make-style #f (list bs-head-additions)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; This provides form loops and indices
@@ -703,15 +711,19 @@
 
 ;;;;;;;;;;;;;;;; END NEW LESSON FORMAT ;;;;;;;;;;;;;;;;;;;;;;;;
 
+;; to add HEAD attributes, create an empty title element
+(define (augment-head)
+  (title #:style bs-head-style))
+
 (define (main-contents . body)
-  (nested #:style (make-style #f 
-                              (append (list (make-alt-tag "div") 
-                                            ;(make-body-id "body")
-                                            (make-attributes (list (cons 'id "body")))
-                                      )
-                                      css-js-additions))
-          (nested #:style (bootstrap-div-style "item") 
-                  body)))
+  (list (augment-head)
+        (nested #:style (make-style #f 
+                                    (append (list (make-alt-tag "div") 
+                                                  (make-attributes (list (cons 'id "body")))
+                                                  )
+                                            css-js-additions))
+                (nested #:style (bootstrap-div-style "item") 
+                        body))))
 
 (define (unit-separator unit-number)
   (elem #:style "BSUnitSeparationPage" (format "Lesson ~a" unit-number)))
@@ -1358,7 +1370,7 @@
          #:gen-agenda? (gen-agenda? #t) 
          . description
          )
-  (nested       
+  (nested 
    (elem #:style (bootstrap-style "BootstrapOverviewTitle") "Unit Overview")
    (if gen-agenda? (agenda) (elem))
    (nested #:style (bootstrap-sectioning-style "BootstrapOverview") 
