@@ -385,9 +385,9 @@
                                           @item{You practiced using coordinates to put characters into a screen}
                                           @item{You learned about order of operations, Circles of Evaluation, how to turn Circles of Evaluation into programs, and how to run those programs to get answers.}]
                         In the next unit, we'll begin writing programs for more interesting things than just arithmetic.}
-                        @teacher{@management{Make sure student names are on page 3. Take page 3 itself, or take photos of page 3, to prep game images for a later Unit. Images should be in PNG or GIF format. Background images should be 640x480, and character images should generally be no larger than 200px in either dimension. Make sure that the character images have transparent backgrounds!}}}
+                        @teacher{@management{Make sure student names are on page 3. Take page 3 itself, or take photos of page 3, to prep game images for a later Unit. }}}
                  @point{@student{}
-                        @teacher{TIP: use animated GIFs for the characters - not only does the animation make the game look a lot better, but these images usually have transparent backgrounds to begin with. For more instructions on setting up the game files, read the @(hyperlink "../../resources/teachers-guide/teachers-guide.html#addingimages" "Coding Instructions") document.}}
+                        @teacher{}}
                ]
          }
 
