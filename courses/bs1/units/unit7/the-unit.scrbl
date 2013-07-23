@@ -1,6 +1,6 @@
 #lang curr/lib
 
-@declare-tags[group pedagogy selftaught bootstrap management]
+@declare-tags[group selftaught bootstrap management]
 @title{Unit 7: Conditional Branching}
 
 @unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sq sqrt expt}) 

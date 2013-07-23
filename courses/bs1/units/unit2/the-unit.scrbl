@@ -29,7 +29,8 @@ include other datatypes, including Strings and Images.}
                 )
       ]{
         @points[@point{@student{@activity{Practice the Circles of Evaluation, using the activity sheet on @worksheet-link[#:page 3 #:name "Circles-of-Evaluation-Practice-2"] in your workbook.
-                       @itemlist[@item{In each row, there is a mathematical expression written on the lefthand column.}
+                       @itemlist[#:style 'compact
+	                         @item{In each row, there is a mathematical expression written on the lefthand column.}
                                  @item{Go through each of these expressions, and draw the Circle of Evaluation for each one in the second column.}
                                  @item{Once you've converted each of them, go to the third column and convert each one into a program that can be entered on the computer. Don't forget to check your parentheses, and to be careful about leaving a space between each input.}]}}
                         @teacher{Make sure students have the opportunity to practice drawing Circles from the inside-out (beginning with a large Circle and filling it in), and from the outside-in (starting with the innermost expression, and building out). @management{This can be done as a team competition, with each round requiring teams of students to fill in each square of the activity sheet. Make sure you review after @bold{every} round, to catch mistakes in understanding early.}}
