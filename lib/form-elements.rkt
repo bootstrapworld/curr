@@ -341,7 +341,7 @@
                            #:hide-footer? (hide-footer? #t)
                            #:hide-definitions? (hide-definitions? #f)
                            #:hide-interactions? (hide-interactions? #f)
-                           #:interactions-as-alt? (interactions-as-alt? #t)
+                           #:contents-as-alt? (contents-as-alt? #t)
                            #:auto-run? (auto-run? #f))
   (cond [(audience-in? "self-taught")
          (wescheme:embedded-wescheme #:id (resolve-id id)
@@ -357,8 +357,12 @@
                                      #:hide-definitions? hide-definitions?
                                      #:hide-interactions? hide-interactions?
                                      #:auto-run? auto-run?)]
-        [(and interactions-as-alt? interactions-text) 
+        [(and interactions-text definitions-text)
+         (printf "WARNING: embedded-wescheme with both interactions and defns text~n")]
+        [(and contents-as-alt? interactions-text) 
          (elem #:style bs-embedded-wescheme-alt-style (code interactions-text))]
+        [(and contents-as-alt? definitions-text)
+         (elem #:style bs-embedded-wescheme-alt-style (code definitions-text))]
         [else (elem)]))
 
 

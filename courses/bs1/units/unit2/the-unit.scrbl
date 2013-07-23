@@ -87,7 +87,7 @@ include other datatypes, including Strings and Images.}
                                                                    #:hide-footer? #t
                                                                    #:hide-definitions? #t
                                                                    #:auto-run? #t
-								   #:interactions-as-alt? #f
+								   #:contents-as-alt? #f
                                                                    #:interactions-text "(star 50 \"solid\" \"red\")"]
                                        } 
                              }
@@ -103,7 +103,7 @@ include other datatypes, including Strings and Images.}
                                                                    #:hide-project-name? #t
                                                                    #:hide-footer? #t
                                                                    #:hide-definitions? #t
-								   #:interactions-as-alt? #f
+								   #:contents-as-alt? #f
                                                                    #:interactions-text "716"]
                                           Since Strings are values too, the value @code{"red"} is also a perfectly valid program! Just like number values, strings will evaluate to themselves.
                                           @activity{Try entering different Strings into the Interactions window. What happens if you put quotes around multiple words? Around Numbers?}
@@ -287,7 +287,7 @@ include other datatypes, including Strings and Images.}
                                                         @item{Reward behaviors that you value: teamwork, note-taking, engagement, etc}
                                                         @item{Pass out exit slips, dismiss, clean up.}]}}
                         }
-                @point{@student{In the next unit, you'll learn how to create your own functions to save work in writing expressions.  You'll also begin to customize your game according to your game design.}
+                @point{@student{In the next unit, you'll learn how to create your own functions to save work in writing expressions (this will turn out to be an essential part of writing a game).  You'll also start customizing your game with images for the elements in your game design.}
                        @teacher{}}
                         ]}
 

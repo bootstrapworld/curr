@@ -26,7 +26,6 @@
     ("A-REI.10-12" "Represent and solve equations and inequalities graphically")
     
     ("F-IF.1-3" "Understand the concept of a function and use function notation")
-    ("F-IF.1-3" "Understand the concept of a function and use function notation")
     ("F-IF.4-6" "Interpret functions that arise in applications in terms of the context")
     ("F.IF.7-9" "Analyze functions using different representations")
     
