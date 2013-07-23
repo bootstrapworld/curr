@@ -18,6 +18,7 @@ include other datatypes, including Strings and Images.}
      #:duration "30 minutes"
      #:overview "Students practice converting arithmetic expressions into Circles of Evaluation, and then converting those into Code."
      #:learning-objectives @itemlist[]
+     #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[@item{}]
      #:standards (list "A-SSE.1-2" "N-Q" "MP.1" "MP.4" "MP.6" "MP.7")
      #:materials @itemlist[]
@@ -44,13 +45,18 @@ include other datatypes, including Strings and Images.}
      #:title "Strings and Images"
      #:duration "20 minutes"
      #:overview "Students extend the Circle of Evaluation metaphor to include new functions and datatypes."
-     #:learning-objectives @itemlist[@item{When given Circles of Evaluation for novel expression, functions and datatypes, students will be able to apply the rules for converting Circles of Evaluation into code}
-                                      @item{Students will be able to identify what each argument to an image-producing function means}
-                                      @item{Students will be able to write expressions that generate simple images (triangles, circle, stars, etc)}
-                                      @item{Given a value, students will be able to identify its datatype}
-                                      @item{Given an expression, students will be able to identify the datatype it will evaluate to}
-                                      @item{Students will be able to distinguish between types and values}]
-     #:product-outcomes @itemlist[@item{}]
+     #:learning-objectives @itemlist[@item{Students will be able to use functions that produce Images}
+                                     @item{Students will understand the concept of datatype}
+                                     @item{Students will understand that each value has a datatype}
+				     @item{Students will understand that datatypes describe a function's inputs and outputs}
+                                    ]
+     #:evidence-statements @itemlist[@item{When given Circles of Evaluation for novel expression, functions and datatypes, students will be able to apply the rules for converting Circles of Evaluation into code}
+                                     @item{Students will be able to identify what each argument to an image-producing function means}
+                                     @item{Students will be able to write expressions that generate simple images (triangles, circle, stars, etc)}
+                                     @item{Given a value, students will be able to identify its datatype}
+                                     @item{Given an expression, students will be able to identify the datatype it will evaluate to}
+                                     @item{Students will be able to distinguish between types and values}]
+     #:product-outcomes @itemlist[]
      #:standards (list "A-SSE.1-2" "N-Q" "MP.1" "MP.4" "MP.6" "MP.7")
      #:materials @itemlist[@item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}]
      #:preparation @itemlist[@item{Student Workbooks, and something to write with}]
@@ -139,16 +145,19 @@ include other datatypes, including Strings and Images.}
             
           
 @lesson/studteach[
-     #:title "Contracts and Purpose Statements"
+     #:title "Contracts"
      #:duration "35 minutes"
-     #:overview "Students learn to describe functions and their behavior, using formalisms including Contracts (Domain and Range), Datatypes and Purpose Statements."
-     #:learning-objectives @itemlist[@item{Given an expression, students will be able to identify the name of the function being used}
+     #:overview "Students learn to describe functions and their behavior, using formalisms including Contracts (Domain and Range) and Datatypes."
+     #:learning-objectives @itemlist[@item{Students will start to write and use Contracts, which summarize the name, range, and domain of a function}
+                                     @item{Students will learn how to use a function based on the information in its Contract}
+                                    ]
+     #:evidence-statements @itemlist[@item{Given an expression, students will be able to identify the name of the function being used}
                                       @item{Given an expression, students will be able to identify how many arguments are used}
                                       @item{Given a value, students will be able to identify its type}
                                       @item{Students will be able to identify the parts of a contract}
-                                      @item{Students will be able to distinguish between contracts and examples}
+                                      @item{Students will be able to distinguish between contracts and function calls}
                                       @item{Given an example of a function being applied, students will be able to write a contract for that function}]
-     #:product-outcomes @itemlist[@item{}]
+     #:product-outcomes @itemlist[]
      #:standards (list "A-SSE.1-2" "N-Q" "MP.1" "MP.4" "MP.6" "MP.7")
      #:materials @itemlist[@item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}]
      #:preparation @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket}
@@ -262,6 +271,7 @@ include other datatypes, including Strings and Images.}
      #:duration "5 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
+     #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
      #:standards (list)
      #:materials @itemlist[]
