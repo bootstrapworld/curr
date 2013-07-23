@@ -13,7 +13,8 @@
      #:duration "5 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
-     #:product-outcomes @itemlist[@item{}]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[]
      #:standards (list)
      #:materials @itemlist[]
      #:preparation @itemlist[]
@@ -40,6 +41,7 @@
      #:duration "10 minutes"
      #:overview "Play a simple game, then take it apart and figure out what's going on in the computer."
      #:learning-objectives @itemlist[@item{Model a simple videogame}]
+     #:evidence-statements @itemlist[@item{Students will be able to identify the elements of a game and how each one changes during gameplay}]
      #:product-outcomes @itemlist[@item{In workbooks, students create a data model that describes a simple videogame}]
      #:standards (list "MP.1" "MP.7")
      #:materials @itemlist[@item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}]
@@ -81,7 +83,8 @@
      #:title "Coordinate Planes"
      #:duration "15 minutes"
      #:overview "Students must use the Cartesian plane to describe the location of characters in a picture."
-     #:learning-objectives @itemlist[@item{Students apply the number line as a tool for objectively defining location, first identifying how to apply it to describe the position of a character onscreen in one dimension. This understanding is extended to two dimensions, ultimately motivating the use of a coordinate grid.}]
+     #:learning-objectives @itemlist[@item{Understand the use of number lines in defining locations via coordinates}]
+     #:evidence-statements @itemlist[@item{Students apply the number line as a tool for objectively defining location, first identifying how to apply it to describe the position of a character onscreen in one dimension. This understanding is extended to two dimensions, ultimately motivating the use of a coordinate grid.}]
      #:product-outcomes @itemlist[@item{Students identify the coordinates of characters in a picture}]
      #:standards (list)
      #:materials @itemlist[@item{Cutouts of  @resource-link[#:path "images/ninjacat.png" #:label "NinjaCat"],  @resource-link[#:path "images/dog.png" #:label "Dog"] and the  @resource-link[#:path "images/ruby.png" #:label "Ruby"]}
@@ -123,7 +126,8 @@
      #:title "Brainstorming"
      #:duration "15 minutes"
      #:overview "Students select the theme and characters for their videogame"
-     #:learning-objectives @itemlist[@item{}]
+     #:learning-objectives @itemlist[]
+     #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[@item{In workbooks, students complete the Videogame Design Worksheet}]
      #:standards (list)
      #:materials @itemlist[@item{}]
@@ -161,12 +165,18 @@
      #:title "Order of Operations"
      #:duration "20 minutes"
      #:overview "Students identify the order of operations for complicated arithmetic expressions through diagramming (circles) and evaluating (the numerical answer). This lesson introduces students to the Circle of Evaluation, which is a sentence diagramming tool for arithmetic expressions. This is a powerful way to understand Order of Operations, as it forces students to focus on the structure of expressions over their computed result."
-     #:learning-objectives @itemlist[@item{Students will be able to explain why arithemetic expressions require structure}
-                                     @item{Students will be able to identify the order of operations in an expression that includes adding, subtracting, multiplying and dividing}
+     #:learning-objectives @itemlist[@item{Understand the structure of arithmetic expressions}
+	                             @item{Understand order of operations in an expression}
+                                     @item{Write expressions as Circles of Evaluation}
+                                     @item{Translate between Circle of Evaluation and arithmetic expressions}
+]
+     #:evidence-statements @itemlist[@item{Students will be able to explain why arithemetic expressions require structure}
+                                     @item{Students will be able to identify the order of operations in an expression that includes adding, subtracting, multiplying and dividing}                                     
                                      @item{Given a Circle of Evaluation, students will be able translate the expression into the arithmetic expression it represents}
                                      @item{Given an arithmetic expression, students will be able to complete a partially-finished Circle of Evaluation for the same expression}
                                      @item{Given a bank of Circles of Evaluation and arithmetic expressions, students will be able to match them}
-                                     @item{Students will be able to translate the structure of an arithmetic expression using the Circles of Evaluation}]
+                                     @item{Students will be able to translate the structure of an arithmetic expression into a Circle of Evaluation}
+]
      #:product-outcomes @itemlist[@item{Students convert several arithmetic expressions between multiple representations}]
      #:standards (list "A-SSE.1-2" "N-Q"  "MP.1" "MP.4" "MP.6" "MP.7")
      #:materials @itemlist[@item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}]
@@ -263,14 +273,17 @@
      #:title "Intro to Programming"
      #:duration "15 minutes"
      #:overview "Students are introduced to the programming environment"
-     #:learning-objectives @itemlist[@item{Students will be able to identify the Interactions and Definitions windows}
-                                      @item{Students will be able to enter and evaluate simple arithmetic expressions in the Interactions window}
-                                      @item{Students will be able to convert Circles of Evaluation into correctly-formed programs}
-                                      @item{Students will be able to explain an 'unbounded identifier' error message}
-                                      @item{Students will be able to explain the purpose of error messages}
-                                      @item{Given a Circle of Evaluation, students will be able to complete a partially-written program}
-                                      @item{Given a bank of Circles of Evaluation and programs, students will be able to match them}]
-     #:product-outcomes @itemlist[@item{}]
+     #:learning-objectives @itemlist[@item{Convert Circles of Evaluation into code}
+                                     @item{Enter and evaluate code expressions for arithmetic on the computer}
+                                     @item{Understand the goal of error messages from the computer}]
+     #:evidence-statements @itemlist[@item{Students will be able to identify the Interactions and Definitions windows}
+                                     @item{Students will be able to enter and evaluate simple arithmetic expressions in the Interactions window}
+                                     @item{Students will be able to convert Circles of Evaluation into correctly-formed programs}
+                                     @item{Students will be able to explain an 'unbounded identifier' error message}
+                                     @item{Students will be able to explain the purpose of error messages}
+                                     @item{Given a Circle of Evaluation, students will be able to complete a partially-written program}
+                                     @item{Given a bank of Circles of Evaluation and programs, students will be able to match them}]
+     #:product-outcomes @itemlist[]
      #:standards (list "A-SSE.1-2" "N-Q" "MP.1" "MP.4" "MP.6" "MP.7")
      #:materials @itemlist[@item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}]
      #:preparation @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket}
@@ -369,6 +382,7 @@
      #:duration "5 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
+     #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
      #:standards (list)
      #:materials @itemlist[]
