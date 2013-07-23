@@ -113,7 +113,7 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{@activity{Open the videogame file so that you can see the code, and click "Run". (You may need to wait a few seconds for the images to load!) The window that appears is a running videogame, but you probably notice that nothing is moving - even if you hit the "up" or down" arrows! For now, click the "close" button to return to the code.}
+        @points[@point{@student{@activity{Open the videogame file (Game.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] or @(hyperlink "http://www.wescheme.org/view?publicId=Q1X9Y8ZayX" "this WeScheme File")) so that you can see the code, and click "Run". (You may need to wait a few seconds for the images to load!) The window that appears is a running videogame, but you probably notice that nothing is moving - even if you hit the "up" or down" arrows! For now, click the "close" button to return to the code.}
                                 In the Definitions window, you will see that this program defines several values: @code{TITLE}, for example, is defined to the be the String @code{"My Game"}.
                                 @activity{@itemlist[@item{If you type @code{TITLE} into the Interactions window, what do you think it would evaluate to?}
                                            @item{What other definitions do you see?}
