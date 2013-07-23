@@ -1581,6 +1581,10 @@
   (list (hyperlink (path->string the-relative-path)
                    "Page " (number->string page))))
 
+;; used to generate title in head without scribble-generated title content
+(define (head-title-no-content text)
+  (title #:style 'hidden text))
+
 ;; generates the title, which includes the bootstrap logo in html but not in latex/pdf
 ;; In unit+title case, paras shouldn't be there but that throws off the CSS spacing -- FIX
 (define (bootstrap-title #:single-line [single-line #f] . body)
@@ -1590,10 +1594,12 @@
                            [html bootstrap.gif]
                            [(or latex pdf) (elem)]))
   (cond 
-    [unit+title (list (para (elem #:style bs-title-style (list bootstrap-image (second unit+title))))
+    [unit+title (list (head-title-no-content the-title) 
+                      (para (elem #:style bs-title-style (list bootstrap-image (second unit+title))))
                       "\n"
                       (para (elem #:style bs-title-style (third unit+title))))]
-    [else (elem #:style bs-title-style (cons bootstrap-image body))]))
+    [else (list (head-title-no-content the-title)
+                (elem #:style bs-title-style (cons bootstrap-image body)))]))
 
 ;;;;;;;;;;;;;; Javascript Generation ;;;;;;;;;;;;;;;;;;;;;;;;
 
