@@ -236,11 +236,18 @@
 (define bs-banner-style (bootstrap-div-style "banner"))
 (define bs-embedded-wescheme-alt-style (bootstrap-div-style "embedded-wescheme-alt"))
 (define bs-sexp-style (bootstrap-div-style "codesexp"))
+(define bs-code-style (bootstrap-div-style "code"))
 (define bs-circeval-style (bootstrap-div-style "circleevalsexp"))
 (define bs-numvalue-style (bootstrap-span-style "value wescheme-number"))
 (define bs-strvalue-style (bootstrap-span-style "value wescheme-string"))
 (define bs-symvalue-style (bootstrap-span-style "value wescheme-symbol"))
 (define bs-boolvalue-style (bootstrap-span-style "value wescheme-boolean"))
+(define bs-comment-style (bootstrap-div-style "wescheme-comment"))
+(define bs-define-style (bootstrap-span-style "wescheme-define"))
+(define bs-example-style (bootstrap-span-style "wescheme-example"))
+(define bs-example-left-style (bootstrap-span-style "wescheme-example-left"))
+(define bs-example-right-style (bootstrap-span-style "wescheme-example-right"))
+(define bs-keyword-style (bootstrap-span-style "wescheme-cond"))
 (define bs-openbrace-style (bootstrap-span-style "lParen"))
 (define bs-closebrace-style (bootstrap-span-style "rParen"))
 (define bs-operator-style (bootstrap-span-style "operator"))
@@ -411,6 +418,28 @@
 
 ;; generate tags to format code via codemirror
 (define (code #:multi-line (multi-line #f)
+              #:malformed? (malformed? #f)
+              #:contract (contract #f)
+              #:purpose (purpose #f)
+              . body)
+  ;; first an error check to make sure we understand original API usage
+  (when (and (not multi-line) (or (and contract purpose) 
+                                  (and contract (not (null? body))) 
+                                  (and purpose (not (null? body)))))
+    (printf "WARNING: Use of code that supplied more than one of contract/purpose/body~n"))
+  (let ([make-comment (lambda (str) (string-append "; " str "\n"))])
+    (with-handlers
+        ([exn:fail:read?
+          ;; for now, assuming only malformed are simple compositional exprs: 
+          ;;    no cond, define, etc
+          (lambda (e) (elem #:style bs-code-style body))])
+      (code->block
+       (append (if contract (list (make-comment contract)) empty)
+               (if purpose (list (make-comment purpose)) empty)
+               body)))))
+
+;; generate tags to format code via codemirror
+(define (code-OLD #:multi-line (multi-line #f)
               #:contract (contract #f)
               #:purpose (purpose #f)
               . body)
@@ -907,28 +936,56 @@
 (define (unit-length timestr)
   (list (format "Length: ~a~n" (decode-flow timestr))))
 
-;(define (pad-elem-list-empty-strings elist) 
-;  (foldr (lambda (e res-rest)
-;           (cons " " (cons e res-rest)))
-;         empty elist)) 
-
 ;; converts sexp into structured markup
 ;; believe symbols only go to the first list case, not the symbol? case
 (define (sexp->block/aux sexp)
-  (cond [(number? sexp) (elem #:style bs-numvalue-style (format "~a" sexp))]
+  (cond [(member sexp '(true false))
+         (elem #:style bs-boolvalue-style (format "~a" sexp))]
+        [(eq? sexp 'else) (elem #:style bs-keyword-style "else")]
+        [(number? sexp) (elem #:style bs-numvalue-style (format "~a" sexp))]
         [(string? sexp) (elem #:style bs-strvalue-style (format "~s" sexp))]
-        [(symbol? sexp) (elem #:style bs-symvalue-style (format "~v" sexp))]
+        [(symbol? sexp) (elem #:style bs-symvalue-style (format "~a" sexp))]
         [(boolean? sexp) (elem #:style bs-boolvalue-style (format "~a" sexp))]
         [(and (list? sexp) (eq? 'quote (first sexp)))
          (elem #:style bs-symvalue-style (format "'~a" (second sexp)))]
         [(list? sexp)
-         (let ([args (map sexp->block/aux (rest sexp))])
-           (elem #:style bs-expression-style
-                 (append
+         (case (first sexp)
+           [(cond) 
+            (let ([clauses (map (lambda (clause) 
+                                  (list (elem #:style bs-openbrace-style "[") 
+                                        (sexp->block/aux (first clause))
+                                        (sexp->block/aux (second clause))
+                                        (elem #:style bs-closebrace-style "]"))) 
+                                (rest sexp))])
+              (elem #:style bs-expression-style
+                    (append
+                     (list 
+                      (elem #:style bs-openbrace-style "(") 
+                      (elem #:style bs-keyword-style "cond"))
+                     clauses
+                     (list (elem #:style bs-closebrace-style ")")))))]
+           [(EXAMPLE example Example) 
+            (elem 
+             (list (elem #:style bs-openbrace-style "(") 
+                   (elem #:style bs-keyword-style "EXAMPLE")
+                   (elem #:style bs-example-left-style (sexp->block/aux (second sexp)))
+                   (elem #:style bs-example-right-style (sexp->block/aux (third sexp)))
+                   (elem #:style bs-closebrace-style ")")))]
+           [(define) 
+            (elem #:style bs-define-style
                   (list (elem #:style bs-openbrace-style "(") 
-                        (elem #:style bs-operator-style (format "~a " (first sexp))))
-                  args 
-                  (list (elem #:style bs-openbrace-style ")")))))]
+                        (elem #:style bs-keyword-style "define")
+                        (sexp->block/aux (second sexp))
+                        (sexp->block/aux (third sexp))
+                        (elem #:style bs-closebrace-style ")")))]
+           [else ;; have a function call
+            (let ([args (map sexp->block/aux (rest sexp))])
+              (elem #:style bs-expression-style
+                    (append
+                     (list (elem #:style bs-openbrace-style "(") 
+                           (elem #:style bs-operator-style (format "~a " (first sexp))))
+                     args 
+                     (list (elem #:style bs-closebrace-style ")")))))])]
         [else (error 'sexp->block 
                      (format "Unrecognized expression type for ~a~n" sexp))]))
 
@@ -946,6 +1003,33 @@
     (if (member form (list "code" "text"))
         (sexp->block exp "sexp")
         (sexp->block exp form))))
+
+;; check whether line starts with ; to indicate a code comment
+(define (comment-line? aline)
+  (char=? (string-ref aline 0) #\;))
+
+;; takes a string containing one or more sexps and returns list of sexps
+(define (read-sexps-from-string codestr)
+  (let ([p (open-input-string codestr)])
+    (let loop ()
+      (let ([exp (read p)])
+        (if (eof-object? exp)
+            (begin (close-input-port p) empty)
+            (cons exp (loop)))))))
+          
+;; assumes that all comment lines come at the beginning of the list
+(define (code->block list-of-lines)
+  (let ([list-of-sexps-and-comments
+         (let loop ([lines list-of-lines])
+           (cond [(empty? lines) empty]
+                 [(comment-line? (first lines))
+                  (cons (elem #:style bs-comment-style (first lines))
+                        (loop (rest lines)))]
+                 [(string=? (first lines) "\n") (loop (rest lines))]
+                 [else (map (lambda (expstr) (sexp->block expstr "sexp"))
+                            (read-sexps-from-string (string-join lines)))]))])
+    (elem #:style bs-code-style list-of-sexps-and-comments)))
+  
 
 ;; generates a random binary arithmetic sexp 
 ;; - depth is the max depth of the expression
