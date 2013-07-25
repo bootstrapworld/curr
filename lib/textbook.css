@@ -321,7 +321,7 @@ span.vocab{font-style:  italic; font-weight: bold; color: darkblue;}
 */
 
 /*  */
-div.student div.circleevalsexp, div.student div.codesexp{width: auto; float: right;}
+div.student div.circleevalsexp, div.codesexp{display: inline-block;}
 
 div.circleevalsexp .expression{
 	display:        inline-block;
