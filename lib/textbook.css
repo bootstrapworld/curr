@@ -370,7 +370,6 @@ ol.question li:first-of-type{border: none;}
 @media print {
 	body			{background: white;}
 	div.content		{border: none; font-size: 12px;}
-	.BootstrapLessonTitle				{display: none;}
 	div.overview img			{width: 80px; margin-top: 0px; }
 	table, img {page-break-inside: avoid;}
   table.bordered td {border: none; padding: 0px;}
