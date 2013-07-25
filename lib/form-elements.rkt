@@ -242,16 +242,17 @@
 (define bs-strvalue-style (bootstrap-span-style "value wescheme-string"))
 (define bs-symvalue-style (bootstrap-span-style "value wescheme-symbol"))
 (define bs-boolvalue-style (bootstrap-span-style "value wescheme-boolean"))
+(define bs-clause-style (bootstrap-span-style "wescheme-clause"))
 (define bs-comment-style (bootstrap-div-style "wescheme-comment"))
-(define bs-define-style (bootstrap-span-style "wescheme-define"))
 (define bs-example-style (bootstrap-span-style "wescheme-example"))
 (define bs-example-left-style (bootstrap-span-style "wescheme-example-left"))
 (define bs-example-right-style (bootstrap-span-style "wescheme-example-right"))
-(define bs-keyword-style (bootstrap-span-style "wescheme-cond"))
+(define bs-keyword-style (bootstrap-span-style "wescheme-keyword"))
 (define bs-openbrace-style (bootstrap-span-style "lParen"))
 (define bs-closebrace-style (bootstrap-span-style "rParen"))
 (define bs-operator-style (bootstrap-span-style "operator"))
 (define bs-expression-style (bootstrap-span-style "expression"))
+(define bs-define-style (bootstrap-span-style "wescheme-define"))
 
 ;; make-bs-latex-style : string -> style
 ;; defines a style that will only be used in latex
@@ -952,10 +953,11 @@
          (case (first sexp)
            [(cond) 
             (let ([clauses (map (lambda (clause) 
-                                  (list (elem #:style bs-openbrace-style "[") 
-                                        (sexp->block/aux (first clause))
-                                        (sexp->block/aux (second clause))
-                                        (elem #:style bs-closebrace-style "]"))) 
+                                  (elem #:style bs-clause-style
+                                        (list (elem #:style bs-openbrace-style "[") 
+                                              (sexp->block/aux (first clause))
+                                              (sexp->block/aux (second clause))
+                                              (elem #:style bs-closebrace-style "]")))) 
                                 (rest sexp))])
               (elem #:style bs-expression-style
                     (append
@@ -965,7 +967,7 @@
                      clauses
                      (list (elem #:style bs-closebrace-style ")")))))]
            [(EXAMPLE example Example) 
-            (elem 
+            (elem #:style bs-example-style
              (list (elem #:style bs-openbrace-style "(") 
                    (elem #:style bs-keyword-style "EXAMPLE")
                    (elem #:style bs-example-left-style (sexp->block/aux (second sexp)))
