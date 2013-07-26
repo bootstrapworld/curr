@@ -6,13 +6,15 @@
 @unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sq sqrt expt})
                                        (list "String" @code{string-append string-length})
                                        (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image}))]{
-@unit-descr{Students define functions that map position n to position n+1, allowing them to move their dangers, targets, and projectiles.}
+@unit-descr{Students define functions that map attributes of their game from one frame to the next, allowing them to move their dangers, targets, and projectiles.}
 }
 @lesson/studteach[
      #:title "Bug Hunting"
      #:duration "20 minutes"
      #:overview ""
-     #:learning-objectives @itemlist[]
+     #:learning-objectives @itemlist[@item{Gain more experience understanding and correcting programming errors}]
+     #:evidence-statements @itemlist[@item{Students will be able to read error messages for basic syntax errors}
+                                     @item{Students will be able to edit programs to eliminate basic syntax errors}]
      #:product-outcomes @itemlist[]
      #:standards (list)
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
@@ -26,19 +28,22 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Debugging is an important part of programming, so it's a good idea to practice finding bugs in code. 
+        @points[@point{@student{Debugging (finding and correcting problems in code) is an important part of programming, so it's a good idea to practice finding bugs in code. 
                                 @activity{Open the @(hyperlink "http://www.wescheme.org/view?publicId=lQUC6RJArG" "Bug Hunting") program in a new window, and see if you can find the bug in each expression. Click "Run" and read the error message carefully! After you fix each one, clicking Run will show you the error message for the next bug.}}
                         @teacher{Make sure students understand that the goal is not to FIX the bugs, but rather just to find them.}
                         }
                  ]}
 
 @lesson/studteach[
-     #:title "Danger Movement"
+     #:title "Danger and Target Movement"
      #:duration "30 minutes"
      #:overview "Students model animation in the coordinate plane, and write a simple linear function that animates their Danger."
-     #:learning-objectives @itemlist[]
-     #:product-outcomes @itemlist[]
-     #:standards (list)
+     #:learning-objectives @itemlist[@item{Students learn to move game elements through functions that compute attributes in one frame from attributes in the previous frame}]
+     #:evidence-statements @itemlist[@item{Students will be able to write functions that take in one dimension of a game element's coordinate and produce the next coordinate value in that dimension}
+                                     @item{Students will learn how to control speed of movement through functions}]
+     #:product-outcomes @itemlist[@item{Students will add danger movement to their games}
+                                  @item{Students will add target movement to their games}]
+     #:standards (list "N-Q" "A-CED.1-4" "F-IF.1-3" "F.IF.7-9" "F-BF.1-2" "F-LE.5")
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, language table, course calendar)}
                             @item{Language Table (see below)}]
@@ -52,13 +57,13 @@
         @points[@point{@student{@bitmap{images/AnimationDiagram.png}The dimensions of your videogame are 640x480, and each character is placed on the screen at a set of (x,y) coordinates. Your Target (T), Player (P) and Danger (D) each move along the x- or y-axis, having their x- or y-coordinate changed according to an animation function. These animation functions will start off simple: they take in the current x- or y-coordinate, and produce the next x- or y-coordinate. Later on you'll be able to adapt them to create more sophisticated motion, using @italic{both} the x- and y-coordinates.}
                         @teacher{}
                         }
-                 @point{@student{@activity{Turn to @worksheet-link[#:page 15 #:name "Design-Recipe-Update-Danger"] for @code{update-danger}.
-                                           @itemlist[@item{Read the word problem carefully, and @italic{what the function takes in}.}
+                 @point{@student{@activity{Turn to @worksheet-link[#:page 15 #:name "Design-Recipe-Update-Danger"] in your workbook for @code{update-danger}.
+                                           @itemlist[@item{Read the word problem carefully, and pay attention to @italic{what the function takes in}.}
                                                       @item{Fill out the @vocab{Contract} and @vocab{Purpose Statement} for the function, using what you circled to help you choose the Domain.}
                                                       @item{Write two @vocab{Examples} for the function.}
                                                       @item{Circle and label what varies between those examples, and label it with a @vocab{variable} name.}
                                                       @item{Define the function.}]}}
-                         @teacher{If students are working on their own, check their work to make sure every last step is being executed correctly. If the class is working through it together, be sure to ask students to justify each steps in terms of a prior step. @management{Tip: tell students that they must get your permission before typing in their code, then use that expectation to check each student's paper carefully.}}
+                         @teacher{If students are working on their own, check their work to make sure every last step is being executed correctly. If the class is working through it together, be sure to ask students to justify each step in terms of a prior step. @management{Tip: tell students that they must get your permission before typing in their code, then use that expectation to check each student's paper carefully.}}
                          }
                  @point{@student{Putting all of these together, @code{update-danger} is defined by:
                                  @code[#:multi-line]{; update-danger : Number -> Number
@@ -70,8 +75,8 @@
                          @teacher{}
                          }
                  @point{@student{Now it's time to animate the Target, which moves in the opposite direction.
-                                 @activity{Turn to @worksheet-link[#:page 16 #:name "Design-Recipe-Update-Target"] for @code{update-target}.
-                                           @itemlist[@item{Read the word problem carefully, and @italic{what the function takes in}.}
+                                 @activity{Turn to @worksheet-link[#:page 16 #:name "Design-Recipe-Update-Target"] in your workbook for @code{update-target}.
+                                           @itemlist[@item{Read the word problem carefully, and pay attention to @italic{what the function takes in}.}
                                                       @item{Fill out the @vocab{Contract} and @vocab{Purpose Statement} for the function, using what you circled to help you choose the Domain.}
                                                       @item{Write two @vocab{Examples} for the function.}
                                                       @item{Circle and label what varies between those examples, and label it with a @vocab{variable} name.}
@@ -84,9 +89,10 @@
      #:title "Projectile Movement"
      #:duration "15 minutes"
      #:overview "OPTIONAL: students discover that the \"mystery\" definitions in the game are actually used to add projetiles, and adapt these definitions to add a custom projectile and projectile animation to their game."
-     #:learning-objectives @itemlist[]
-     #:product-outcomes @itemlist[]
-     #:standards (list)
+     #:learning-objectives @itemlist[@item{Students learn to move game elements through functions that compute attributes in one frame from attributes in the previous frame}]
+     #:evidence-statements @itemlist[@item{Students will be able to write functions that take in one dimension of a game element's coordinate and produce the next coordinate value in that dimension}]
+     #:product-outcomes @itemlist[@item{Students will add projectile movement to their games}]
+     #:standards (list "N-Q" "A-CED.1-4" "F-IF.1-3" "F.IF.7-9" "F-BF.1-2" "F-LE.5")
      #:materials @itemlist[]
      #:preparation @itemlist[]
      #:pacings (list 
@@ -107,6 +113,7 @@
      #:duration "5 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
+     #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
      #:standards (list)
      #:materials @itemlist[]
