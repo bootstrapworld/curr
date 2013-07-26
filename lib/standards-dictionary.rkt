@@ -28,6 +28,7 @@
     ("F-IF.1-3" "Understand the concept of a function and use function notation")
     ("F-IF.4-6" "Interpret functions that arise in applications in terms of the context")
     ("F.IF.7-9" "Analyze functions using different representations")
+    ("F-IF.7-9" "Analyze functions using different representations")
     
     ("F-BF.1-2" "Build a function that models a relationship between two quantities")
     ("F-BF.3-4" "Build new functions from existing functions")

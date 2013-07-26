@@ -14,11 +14,12 @@
      #:duration "15 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
+     #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
      #:standards (list)
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, language table, course calendar)}
-                            @item{Language Table}]
+                            @item{Language Table (see below)}]
      #:preparation @itemlist[]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -32,7 +33,11 @@
      #:title "Booleans"
      #:duration "10 minutes"
      #:overview "Students are introduced to a new type (Boolean), and practice using it with Circles of Evaluation, Contracts and Code."
-     #:learning-objectives @itemlist[]
+     #:learning-objectives @itemlist[@item{Students learn about Boolean values and functions that manipulate them}]
+     #:evidence-statements @itemlist[@item{Students will know the two Boolean values (true and false)}
+                                     @item{Students will write Circles of Evaluation for Boolean-producing functions}
+                                     @item{Students learn how to use arithmetic operators (like @code{<} and @code{>} that produce Booleans}
+                                    ]
      #:product-outcomes @itemlist[]
      #:standards (list)
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
@@ -52,12 +57,14 @@
                                          @item{@code{(< 3 4)}}]}}
                         @teacher{}
                         }
-                 @point{@student{The last expression, @code{(< 3 4)}, uses a new function that @italic{compares Numbers}, returning @code{true} if 3 less than 4. What do you think it would return if the numbers were swapped?
-                                                      @activity{The function "@code{<}" tests if one number is less than another. Can you think of some other tests? Try them out in the Interactions window.}}
+                 @point{@student{The last expression, @code{(< 3 4)},
+uses a new function that @italic{compares Numbers}, returning
+@code{true} if 3 is less than 4. What do you think it would return if the numbers were swapped?
+                                                      @activity{The function @code{<} tests if one number is less than another. Can you think of some other tests? Try them out in the Interactions window.}}
                          @teacher{Give students plenty of practice here!}
                          }
                  @point{@student{Functions like @code{<}, @code{>} and @code{=} all consume two Numbers as their Domain, and produce a special value called a @vocab{Boolean} as their Range. Booleans are answers to a yes-or-no question, and Boolean functions are used to perform tests. In a videogame, you might test if a player has walked into a wall, or if their health is equal to zero. A machine in a doctor's office might use Booleans to test if a patient's heartrate is above or below a certain level.
-                                                @bannerline{Boolean values can only be "true" or "false".}
+                                                @bannerline{Boolean values can only be @code{true} or @code{false}.}
                                                 @activity{Try typing a Number into the Interactions window and hitting Enter. What do you expect to get back? What about a String? Now try a Boolean, such as @code{false}.  As with all values, Booleans evaluate to themselves. The Circles of Evaluation can also be used with Booleans: try converting each of the following math expressions into Circles of Evaluation, and then converting those Circles into code:
                                    @itemlist[@item{@math{10 = 16.1}}
                                          @item{@math{-13 \gt 5}}
@@ -65,7 +72,7 @@
                                          @item{@math{0 = -5 + 10}}]}}
                         @teacher{You can see a video demonstration of this intro at @(video-link (hyperlink "http://www.youtube.com/watch?v=X7gAXxpBhUo" "Video Lesson: Intro to Booleans"))}
                         }
-                 @point{@student{There are many other Boolean functions. Here's one that can be used to compare two @vocab{Strings}: @code[#:multi-line #t]{(string=? "apples" "oranges")}
+                 @point{@student{There are many other functions that produce Booleans. Here's one that can be used to compare two @vocab{Strings}: @code[#:multi-line #t]{(string=? "apples" "oranges")}
                                  @activity{Make sure you've written down the complete @vocab{Contract} for all four Boolean functions.}}
                          @teacher{Make sure students are comfortable using Booleans to compare more complex subexpressions, rather than just comparing two Numbers.}
                          }
@@ -75,9 +82,14 @@
      #:title "onscreen? 1.0"
      #:duration "25 minutes"
      #:overview "Students use the Design Recipe to write a simple, Boolean-producing function"
-     #:learning-objectives @itemlist[]
+     #:learning-objectives @itemlist[@item{Students use Booleans to determine whether a game element is partly visible onscreen}
+                                     @item{Students write functions that use other functions they have written to compute answers}
+                                    ]
+     #:evidence-statements @itemlist[@item{Students can write functions that consume a single-axis coordinate and determine whether it is within the boundary of a fixed screen size}
+                                     @item{Students can use one function they have written to compute the answer for another function}
+]
      #:product-outcomes @itemlist[]
-     #:standards (list)
+     #:standards (list "N-Q" "A-CED.1-4" "A-REI.3-4" "A-REI.10-12" "F-IF.1-3" "F-IF.4-6" "F-IF.7-9" "F-BF.1-2" "F-BF.3-4" "F-LE.5" )
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, language table, course calendar)}
                             @item{Language Table (see below)}]
@@ -89,11 +101,11 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Open the "Cage" program on your computer, and click "Run". The window that pops up contains a butterfly, which you can move around using the arrow keys on your keyboard. This butterfly is named Sam, and the window is Sam's yard. Much like the videogame screen, this yard is 640 pixels wide by 480 pixels tall! As you can see, Sam is free to walk around the yard, and the coordinates at the top of the screen update to tell you his location.}
+        @points[@point{@student{Open the "Cage" program (Cage.rkt from @(resource-link #:path "source-files.zip" #:label "source-files.zip") or @(hyperlink "http://www.wescheme.org/openEditor?publicId=bM6VNiLdkv" "in WeScheme")) on your computer, and click "Run". The window that pops up contains a butterfly, which you can move around using the arrow keys on your keyboard. This butterfly is named Sam, and the window is Sam's yard. Much like the videogame screen, this yard is 640 pixels wide by 480 pixels tall! As you can see, Sam is free to walk around the yard, and the coordinates at the top of the screen update to tell you his location.}
                         @teacher{This may be a good opportunity to review coordinates, for students who need the practice.}
                         }
                  @point{@student{@bitmap{images/buffer.png}Sam's mother tells him that it's okay for him to step outside of the yard, but only by a short distance! Specifically, she wants to make sure that she can always see at least a little piece of him. Sam is safe @italic{as long as some piece of him is onscreen}. That means he can go a little past zero on the lefthand size, or a little past 640 on the right - but how far @italic{can} he go?
-                                @activity{Turn to @worksheet-link[#:page 19 #:name "Protecting Sam"], and read through the top half of the page. Using the arrow keys, see how far Sam can go to the left @italic{while still staying onscreen}. You'll find that Sam is onscreen as long as his x-coordinate is @italic{greater than} -50, which is exactly the code that's filled in for the first problem on the page.
+                                @activity{Turn to @worksheet-link[#:page 19 #:name "Protecting Sam"] in your workbook, and read through the top half of the page. Using the arrow keys, see how far Sam can go to the left @italic{while still staying onscreen}. You'll find that Sam is onscreen as long as his x-coordinate is @italic{greater than} -50, which is exactly the code that's filled in for the first problem on the page.
                                                   @itemlist[@item{Find out how far Sam can go to the right while still being onscreen}
                                                              @item{Fill in the code for the second problem.}
                                                              @item{Convert both of those expressions into Circles of Evaluation, using the empty Circles at the bottom of the page.}]}}
@@ -112,7 +124,7 @@
                          }
                  @point{@student{Right now @code{safe-left?} is ignoring Sam's x-coordinate, and blindly returning @code{true} no matter where he is. What should the function be doing instead? 
                                            @activity{Turn to @worksheet-link[#:page 20 #:name "safe-left?"] in your workbook. Use the Design Recipe to fix this function, so that @code{safe-left?} takes in Sam's x-coordinate and returns @code{true} or @code{false} depending on whether it is @italic{greater than -50}.}}
-                         @teacher{Remind students that they've already written the check for this on page 19! @management{It may be helpful to have students complete this activity in parts, by giving them a short time to do the Contract and Purpose Statement, then a short time to write their first example, their second, etc. By debriefing and reviewing after each step, you are likely to uncover misunderstandings earlier in the process.}.}
+                         @teacher{Remind students that they've already written the check for this on page 19! @management{It may be helpful to have students complete this activity in parts, by giving them a short time to do the Contract and Purpose Statement, then a short time to write their first example, their second, etc. By debriefing and reviewing after each step, you are likely to uncover misunderstandings earlier in the process.}}
                          }
                  @point{@student{Once you have typed in the EXAMPLEs and definition for @code{safe-left?}, click "Run" and see if Sam is prevented from flying off the lefthand side of the screen. Be sure to test your function in the Interactions window as well, for example:
                                   @code[#:multi-line #t]{(safe-left? 50)
@@ -122,14 +134,14 @@
                          @teacher{Have the three volunteers from earlier stand again, and act out the code now that @code{safe-left?} is written properly. As before, make sure students practice calling each function individually: now @code{safe-left?} will be able to return true and false (as will @code{onscreen?}), while @code{safe-right?} still returns only @code{true}.}
                          }
                  @point{@student{@activity{Turn to @worksheet-link[#:page 21 #:name "safe-right?"] in your workbook. Use the Design Recipe to fix this function, so that @code{safe-left?} takes in Sam's x-coordinate and returns @code{true} or @code{false} depending on whether it is @italic{less than 690}.}}
-                         @teacher{After walking through @code{safe-left?} section by section, students should be able to complete this activity on their own.}
+                         @teacher{After walking through @code{safe-left?} section by section, students should be able to complete this activity on their own.  If students are doing well with programming, you might discuss whether to compare the x-coordinate to @code{690} or @code{(+ 640 50); both yield the same computation, but the second reveals where 690 comes from (screen width plus 50).}}
                          }
                  @point{@student{Once you have typed in the EXAMPLEs and definition for @code{safe-left?}, click "Run" and see if Sam is prevented from flying off the righthand side of the screen. You may be surprised at what happens! Test your function in the Interactions window:
                                   @code[#:multi-line #t]{(safe-right? 50)
                                                          (safe-right? 810)
                                                          (onscreen? 50)
                                                          (onscreen? 810)}
-                         Is @code{safe-right?} working the way you expected? What about @code{onscreen?}.}
+                         Is @code{safe-right?} working the way you expected?  Is @code{onscreen?} working as you expected?}
                          @teacher{Have the three actors stand again, and repeat the activity. Now @code{safe-left?} and @code{safe-right?} behave correctly, but @code{onscreen?} is still @bold{only talking to @code{safe-left}!}}
                          }
                  @point{@student{The @code{onscreen?} function is only talking to @code{safe-left?}, which means that Sam is only protected on the lefthand side of the screen.
@@ -143,7 +155,11 @@
      #:title "and/or"
      #:duration "10 minutes"
      #:overview "Students are introduced to and/or, two functions that consume Booleans"
-     #:learning-objectives @itemlist[]
+     #:learning-objectives @itemlist[@item{Students learn to combine Boolean values with @code{and} and @code{or}}]
+     #:evidence-statements @itemlist[@item{Students understand when to use each of @code{and} and @code{or}}
+                                     @item{Students can write Circles of Evaluation for expressions that use @code{and} and @code{or}}
+                                     @item{Students can write code expressions that use @code{and} and @code{or}}
+                                     @item{Students can determine the answers produced by expressions that use @code{and} and @code{or}}]
      #:product-outcomes @itemlist[]
      #:standards (list)
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
@@ -157,14 +173,14 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-       @points[@point{@student{You've already learned many functions that allow you to create Booleans. < and >, for example, will all return a boolean when applied to the appropriate input. What happens when you want to @italic{combine} these tests, to see if more than one thing is true? 
+       @points[@point{@student{You've already learned many functions that allow you to create Booleans. The functions @code{<} and @code{>}, for example, will each return a boolean when applied to the appropriate input. What happens when you want to @italic{combine} these tests, to see if more than one thing is true? 
                                 @activity{Consider the following statements - are they true or false?:
                                            @itemlist[@item{Sugar is sweet}
                                                       @item{Ice is hot}
-                                                      @item{Sugar is sweet @bold{and} Ice is cold.}
-                                                      @item{Sugar is sweet @bold{and} Ice is hot.}
-                                                      @item{Sugar is sweet @bold{or} Ice is cold.}
-                                                      @item{Sugar is sweet @bold{or} Ice is hot.}]}
+                                                      @item{Sugar is sweet @bold{and} Ice is cold}
+                                                      @item{Sugar is sweet @bold{and} Ice is hot}
+                                                      @item{Sugar is sweet @bold{or} Ice is cold}
+                                                      @item{Sugar is sweet @bold{or} Ice is hot}]}
                                 }
                        @teacher{Challenge students on their answers here - ask them to explain why they choose "true" or "false" for the compound statements, especially if the individual statements are a mix of true and false.}
                        }
@@ -187,9 +203,16 @@
      #:title "onscreen? 2.0"
      #:duration "25 minutes"
      #:overview "Students use the Design Recipe alongside their newfound knowledge of and/or, to write a function that performs two boolean tests."
-     #:learning-objectives @itemlist[]
-     #:product-outcomes @itemlist[]
-     #:standards (list)
+     #:learning-objectives @itemlist[@item{Students will be able to compose Boolean functions results using @code{and} and @code{or}}
+                                     @item{Students will understand how Booleans and Boolean functions are used to control the behavior of game elements}
+                                     @item{Students will begin to appreciate why programs are written as compositions of several smaller functions}]
+     #:evidence-statements @itemlist[@item{Students will be able to write functions that combine screen-boundary tests using @code{and} and @code{or}}
+                                     @item{Students will understand why @code{and} is necessary to check for two boundaries}
+                                     @item{Students will be able to explain why re-using existing functions is better than reproducing their computations}
+                                     @item{Students will understand how they use Booleans and conditional to control how game elements behave at the screen boundaries}
+]
+     #:product-outcomes @itemlist[@item{Students detect when game elements have moved offscreen (so they can reappear on the other edge of the screen)}]
+     #:standards (list "N-Q" "A-CED.1-4" "A-REI.3-4" "A-REI.10-12" "F-IF.1-3" "F-IF.4-6" "F-IF.7-9" "F-BF.1-2" "F-BF.3-4" "F-LE.5" )
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, language table, course calendar)}
                             @item{Language Table (see below)}]
@@ -204,10 +227,10 @@
        @points[@point{@student{Now that you know how to combine tests, how can @code{onscreen?} combine both tests to keep Sam onscreen?}
                        @teacher{Have the volunteers stand once again, and ask the class what @code{onscreen?} @italic{should} do. Should it be using @code{and} or @code{or}? Be sure to give specific examples of points that are onscreen, too far to the left and too far to the right, and challenge the students to justify their answers.}
                        }
-                @point{@student{@activity{Turn to @worksheet-link[#:page 23 #:name "Design-Recipe-Onscreen"] and write the completed @code{onscreen?} function, so that it tests both @code{safe-left?} and @code{safe-right?}. Type in the examples and definition when you're done, click "Run", and see if Sam is protected on both sides!}}
+                @point{@student{@activity{Turn to @worksheet-link[#:page 23 #:name "Design-Recipe-Onscreen"] in your workbook and write the completed @code{onscreen?} function, so that it tests both @code{safe-left?} and @code{safe-right?}. Type in the examples and definition when you're done, click "Run", and see if Sam is protected on both sides!}}
                        @teacher{}
                        }
-                @point{@student{There are two ways to go about solving this word problem: 
+                @point{@student{There are two ways to go about solving the @code{onscreen?} word problem: 
                                 @code[#:multi-line #t]{(define (onscreen? x)
                                                          (and (> x -50) (< x 690)))}
                                 and...
@@ -229,7 +252,7 @@
                                 @activity{Can you list three reasons why it's good to have several simple functions, rather than a single complex one?}}
                        @teacher{}
                        }
-                @point{@student{The boundary-detection code you wrote is very useful for videogames. It can be used to stop a character from traveling through a wall, or to regenerate the character once it has left the screen. @activity{Open your game files, and scroll down past the @code{update-} functions until you see the definitions for @code{safe-left?}, @code{safe-right?} and @code{onscreen?} Right now, they all return true. Since your gamescreen has the same dimensions as Sam's yard (640x480), you can use the same code for each of these three functions! Make sure you include EXAMPLEs, so that your game code can test each function separately.}}
+                @point{@student{The boundary-detection code you wrote (through @code{safe-left?} and @code{safe-right?}) is very useful for videogames. It can be used to stop a character from traveling through a wall, or to regenerate the character once it has left the screen. @activity{Open your game file, and scroll down past the @code{update-} functions until you see the definitions for @code{safe-left?}, @code{safe-right?} and @code{onscreen?}.  Right now, they all return true. Since your gamescreen has the same dimensions as Sam's yard (640x480), you can use the same code for each of these three functions! Make sure you include EXAMPLEs, so that your game code can test each function separately.}}
                        @teacher{}
                        }
                 ]}
@@ -240,6 +263,7 @@
      #:duration "5 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
+     #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
      #:standards (list)
      #:materials @itemlist[]
@@ -250,6 +274,7 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[]}
+        @points[@student{You've learned how to use Booleans to constrain where elements can move in a game.  In the next unit, we'll discuss how to use Booleans to move game elements based on which keys users press while playing your game.}
+                @teacher{}]}
 
 @copyright[]

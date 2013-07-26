@@ -5,7 +5,7 @@
 (define glossary-terms-dictionary
   '(("apply" "use a given function on some inputs")
     ("arguments" "the inputs to a function; expressions for arguments follow the name of a function")
-    ("boolean" "a type of data with the two values: true and false")
+    ("boolean" "a type of data with two values: true and false")
     ("circle of evaluation" "a diagram of the structure of an expression (arithmetic or code)")
     ("clause" "a question and its corresponding answer in a conditional expression")
     ("conditional" "a code expression made of questions and answers")
