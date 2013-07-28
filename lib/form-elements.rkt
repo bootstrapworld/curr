@@ -418,7 +418,7 @@
   (elem #:style bs-banner-style body))
 
 ;; generate tags to format code via codemirror
-(define (code #:multi-line (multi-line #f)
+(define (code/CSS #:multi-line (multi-line #f)
               #:malformed? (malformed? #f)
               #:contract (contract #f)
               #:purpose (purpose #f)
@@ -440,7 +440,7 @@
                body)))))
 
 ;; generate tags to format code via codemirror
-(define (code-OLD #:multi-line (multi-line #f)
+(define (code #:multi-line (multi-line #f)
               #:contract (contract #f)
               #:purpose (purpose #f)
               . body)
