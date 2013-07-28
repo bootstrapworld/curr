@@ -57,7 +57,7 @@
                                                 [(string=? topping "pepperoni") 10.50]
                                                 [(string=? topping "chicken")   11.25]
                                                 [(string=? topping "broccoli")  10.25]
-                                                [else "That's not on the menu!"]))}}
+                                                [else 1000.00]))}}
              @teacher{}
              }
      @point{@student{Up to now, all of the functions you've seen have done the @italic{same thing} to their inputs:
@@ -82,8 +82,8 @@
             @teacher{Square brackets enclose the question and answer for each clause.  When students identify the questions, they should find the first expression within the square brackets.  There can only be one expression in each answer.}
            }
      @point{@student{The last clause in a conditional can be an @code{else} clause, which gets evaluated if all the questions are @code{false}. 
-                         @activity{In the @code{cost} function, what gets returned if all the questions are false? Why is it a good idea to have an @code{else} clause?}}
-            @teacher{@code{Else} clauses are best used as a catch-all for cases that you can't otherwise enumerate.  If you can state a precise question for a clause, write the precise question instead of @code{else}.  For example, if you have a function that does different things depending on whether some variable @code{x} is larger than @code{5}, it is better for beginners to write the two questions @code{(> x 5)} and @code{(<= x 5)} rather than have the second question be @code{else}.  Explicit questions make it easier to read and maintain programs.  When you use @code{else}, someone has to read all the previous questions to know what condition @code{else} corresponds to: they can't just skim all the questions to find the one that matches their situation.  This might be counterintuitive to those with prior programming experience, but it does help make code more readable and understandable.}
+                                                                @activity{In the @code{cost} function, what gets returned if all the questions are false? Why is it a good idea to have an @code{else} clause?}}
+             @teacher{@code{Else} clauses are best used as a catch-all for cases that you can't otherwise enumerate.  If you can state a precise question for a clause, write the precise question instead of @code{else}.  For example, if you have a function that does different things depending on whether some variable @code{x} is larger than @code{5}, it is better for beginners to write the two questions @code{(> x 5)} and @code{(<= x 5)} rather than have the second question be @code{else}.  Explicit questions make it easier to read and maintain programs.  When you use @code{else}, someone has to read all the previous questions to know what condition @code{else} corresponds to: they can't just skim all the questions to find the one that matches their situation.  This might be counterintuitive to those with prior programming experience, but it does help make code more readable and understandable.}
            }
      @point{@student{Functions that use conditions are called @vocab{piecewise functions}, because each condition defines a 
                      separate @italic{piece} of the function.}
@@ -111,7 +111,8 @@
                                     ]
      #:product-outcomes @itemlist[@item{Students will write @code{update-player}, which moves their player in response to key-presses}]
      #:standards (list "A-CED.1-4" "A-SSE.1-2" "F-BF.1-2" "F-IF.1-3" "F-IF.4-6" "F-IF.7-9" "F-LE.5")
-     #:materials @itemlist[]
+     #:materials @itemlist[@item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
+                           @item{All student computers should have their game templates pre-loaded, with their image files linked in}]
      #:preparation @itemlist[]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -166,7 +167,7 @@
                                          warp to the bottom (y=0). Add another condition so that 
                                          the player warps back up to the top of the screen if it 
                                          moves below the bottom.}
-                                  @item{Challenge: Have the player hide when the "h" key is pressed, 
+                                  @item{@bold{Challenge:} Have the player hide when the "h" key is pressed, 
                                         only to re-appear when it is pressed again!}]}
                @teacher{Hint on the challenge: multiply by -1.}}
        }}

@@ -44,7 +44,8 @@
      #:standards (list "A-CED.1-4" "F-IF.1-3" "F.IF.7-9" "F-BF.1-2")
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, language table, course calendar)}
-                            @item{Language Table (see below)}]
+                            @item{Language Table}
+                            @item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders with names on covers, and something to write with}]
      #:preparation @itemlist[@item{Write agenda on board}
                               @item{Display Class posters, Language Table, Design Recipe}
                               @item{"Rocket" [Rocket.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=KY4s7msuh6" "WeScheme")] preloaded on students' machines}
@@ -148,7 +149,8 @@
      #:standards (list)
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, language table, course calendar)}
-                            @item{Language Table (see below)}]
+                            @item{Language Table}
+                            @item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders with names on covers, and something to write with}]
      #:preparation @itemlist[@item{Write agenda on board}
                               @item{Display Class posters, Language Table, Design Recipe}
                               @item{Seating arrangements: ideally clusters of desks/tables}]

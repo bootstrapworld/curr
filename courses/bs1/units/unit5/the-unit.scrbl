@@ -45,11 +45,13 @@
                                   @item{Students will add target movement to their games}]
      #:standards (list "N-Q" "A-CED.1-4" "F-IF.1-3" "F.IF.7-9" "F-BF.1-2" "F-LE.5")
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
+                            @item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
+                            @item{All student computers should have their game templates pre-loaded, with their image files linked in}
                             @item{Class poster (List of rules, language table, course calendar)}
                             @item{Language Table (see below)}]
      #:preparation @itemlist[]
      #:pacings (list 
-                @pacing[#:type "remediation"]{At this point, students should ber very comfortable with the Design Recipe. If they are struggling, try reviewing the Contract with them first, then having a student act out the function. Ask that student what their name is, what they are expecting to be given, and what they will produce. Have them simulate a function call by calling out their name ("update-danger") and giving them an x-coordinate (they should produce a number that is 50 fewer than what they were given). Then refer back to this skit when writing Examples: the call-and-response is exactly how the code should behave, with students only having to write the code for whatever work your volunteer was doing in their head.}
+                @pacing[#:type "remediation"]{At this point, students should be very comfortable with the Design Recipe. If they are struggling, try reviewing the Contract with them first, then having a student act out the function. Ask that student what their name is, what they are expecting to be given, and what they will produce. Have them simulate a function call by calling out their name ("update-danger") and giving them an x-coordinate (they should produce a number that is 50 fewer than what they were given). Then refer back to this skit when writing Examples: the call-and-response is exactly how the code should behave, with students only having to write the code for whatever work your volunteer was doing in their head.}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
