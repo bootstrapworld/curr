@@ -51,7 +51,7 @@
                                                 [(string=? topping "pepperoni") 10.50]
                                                 [(string=? topping "chicken")   11.25]
                                                 [(string=? topping "broccoli")  10.25]
-                                                [else "That's not on the menu!"]))}}
+                                                [else 1000.00]))}}
              @teacher{}
              }
      @point{@student{Up to now, all of the functions you've seen have done the @italic{same thing} to their inputs:
@@ -76,7 +76,7 @@
             @teacher{Square brackets enclose the question and answer for each clause.  When students identify the questions, they should find the first expression within the square brackets.  }
            }
      @point{@student{The last clause in a conditional can be an @code{else} clause, which gets evaluated if all the questions are @code{false}. 
-                         @activity{In the @code{cost} function, what gets returned if all the questions are false? Why is it a good idea to have an @code{else} clause?}}
+                         @activity{In the @code{cost} function, If you ask Luigi for a topping that's not on the menu, he'll still make the pizza, but it will cost you! What gets returned if all the questions are false? Why is it a good idea to have an @code{else} clause?}}
             @teacher{}
            }
      @point{@student{Functions that use conditions are called @vocab{piecewise functions}, because each condition defines a 
@@ -96,7 +96,8 @@
      #:learning-objectives @itemlist[@item{Reason about the relative positioning of objects using mathematics}]
      #:product-outcomes @itemlist[@item{Students will write @code{update-player}}]
      #:standards (list)
-     #:materials @itemlist[]
+     #:materials @itemlist[@item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
+                           @item{All student computers should have their game templates pre-loaded, with their image files linked in}]
      #:preparation @itemlist[]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -151,7 +152,7 @@
                                          warp to the bottom (y=0). Add another condition so that 
                                          the player warps back up to the top of the screen if it 
                                          moves below the bottom.}
-                                  @item{Challenge: Have the player hide when the "h" key is pressed, 
+                                  @item{@bold{Challenge:} Have the player hide when the "h" key is pressed, 
                                         only to re-appear when it is pressed again!}]}
                @teacher{}}
        }}

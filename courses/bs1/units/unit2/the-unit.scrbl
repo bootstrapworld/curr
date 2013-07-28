@@ -31,7 +31,7 @@ include other datatypes, including Strings and Images.}
       ]{
         @points[@point{@student{@activity{Practice the Circles of Evaluation, using the activity sheet on @worksheet-link[#:page 3 #:name "Circles-of-Evaluation-Practice-2"] in your workbook.
                        @itemlist[#:style 'compact
-	                         @item{In each row, there is a mathematical expression written on the lefthand column.}
+	                         @item{In each row, there is a mathematical expression written on the left-hand column.}
                                  @item{Go through each of these expressions, and draw the Circle of Evaluation for each one in the second column.}
                                  @item{Once you've converted each of them, go to the third column and convert each one into a program that can be entered on the computer. Don't forget to check your parentheses, and to be careful about leaving a space between each input.}]}}
                         @teacher{Make sure students have the opportunity to practice drawing Circles from the inside-out (beginning with a large Circle and filling it in), and from the outside-in (starting with the innermost expression, and building out). @management{This can be done as a team competition, with each round requiring teams of students to fill in each square of the activity sheet. Make sure you review after @bold{every} round, to catch mistakes in understanding early.}}
@@ -96,7 +96,7 @@ include other datatypes, including Strings and Images.}
                      }
              @point{@student{There's an entirely new @vocab{type} of value being used in these expressions: @code{"solid"} and @code{"red"} are examples of a completely new datatype, called a @vocab{String}.  
                              @bannerline{A String is anything between quotation marks.} 
-                             When you first learned about values, you saw that a program can be nothing more than a value, such as a number.  If you type a number into the interactions window, for example, it evaluates to itself.  To remind yourself of this, tryevaluating @code{716} in the Interactions window:
+                             When you first learned about values, you saw that a program can be nothing more than a value, such as a number.  If you type a number into the interactions window, for example, it evaluates to itself.  To remind yourself of this, try evaluating @code{716} in the Interactions window:
                                           @embedded-wescheme[#:id "StringIntro"                                             
                                                                    #:height 50
                                                                    #:hide-toolbar? #t
@@ -204,7 +204,7 @@ include other datatypes, including Strings and Images.}
                      }
              @point{@student{By writing down the Contracts for our functions, we can easily look back to see how they are used.
                              @activity{The Contract for @code{+} is shown below.
-                                       @code[#:multi-line ""]{; + Number Number -> Number}                
+                                       @code[#:multi-line ""]{; +: Number Number -> Number}                
                                        Can you write the Contract for @code{*}, @code{-}, @code{/} and @code{sqrt}?}}
                      @teacher{}
                      }
@@ -223,7 +223,7 @@ include other datatypes, including Strings and Images.}
                              }
                      @teacher{You should start pushing students to write more sophisticated expressions, replacing Number values with entire expressions (e.g. @code{(star (* 10 5) "solid" "purple")}). Students should be comfortable looking at an entire subexpression as a single argument to the surrounding function. @management{You may wish to force students to write these Contracts into their notebooks BEFORE allowing them to play with them. Be careful about letting students rush to the keys without first taking notes!}}
                      }
-             @point{@student{Here is an expression that uses very interesting function: @code{(bitmap/url "http://bootstrapworld.org/images/icon.gif")}.  This function takes in the URL of any image you can find online, and will produce that image so that you can use it in your program.
+             @point{@student{Here is an expression that uses a very interesting function: @code{(bitmap/url "http://bootstrapworld.org/images/icon.gif")}.  This function takes in the URL of any image you can find online, and will produce that image so that you can use it in your program.
                              @activity{@itemlist[@item{What are the three parts of a Contract?}
                                                   @item{What is the Name of this new function?}
                                                   @item{How many things are in its Domain?}

@@ -18,7 +18,7 @@
      #:standards (list)
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, language table, course calendar)}
-                            @item{Language Table}]
+                            @item{Language Table (see below)}]
      #:preparation @itemlist[]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -79,6 +79,7 @@
      #:product-outcomes @itemlist[]
      #:standards (list)
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
+                            @item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
                             @item{Class poster (List of rules, language table, course calendar)}
                             @item{Language Table (see below)}]
      #:preparation @itemlist[@item{"Cage" [Cage.rkt from @(resource-link #:path "source-files.zip" #:label "source-files.zip") | @(hyperlink "http://www.wescheme.org/openEditor?publicId=bM6VNiLdkv" "WeScheme")] preloaded on student machines.}]
@@ -94,7 +95,7 @@
                         }
                  @point{@student{@bitmap{images/buffer.png}Sam's mother tells him that it's okay for him to step outside of the yard, but only by a short distance! Specifically, she wants to make sure that she can always see at least a little piece of him. Sam is safe @italic{as long as some piece of him is onscreen}. That means he can go a little past zero on the lefthand size, or a little past 640 on the right - but how far @italic{can} he go?
                                 @activity{Turn to @worksheet-link[#:page 19 #:name "Protecting Sam"], and read through the top half of the page. Using the arrow keys, see how far Sam can go to the left @italic{while still staying onscreen}. You'll find that Sam is onscreen as long as his x-coordinate is @italic{greater than} -50, which is exactly the code that's filled in for the first problem on the page.
-                                                  @itemlist[@item{Find out how far Sam can go to the right while still being onscreen}
+                                                  @itemlist[@item{Find out how far Sam can go to the right while still being onscreen.}
                                                              @item{Fill in the code for the second problem.}
                                                              @item{Convert both of those expressions into Circles of Evaluation, using the empty Circles at the bottom of the page.}]}}
                          @teacher{Pay close attention to the corner-cases: is Sam on the screen at 690? What about 680?}
@@ -191,6 +192,7 @@
      #:product-outcomes @itemlist[]
      #:standards (list)
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
+                            @item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
                             @item{Class poster (List of rules, language table, course calendar)}
                             @item{Language Table (see below)}]
      #:preparation @itemlist[]
