@@ -74,7 +74,7 @@
                    @item{Take page 3 itself, or take photos of page 3, to prep game images for Unit 3.}
                    @item{Images should be in PNG or GIF format. Background images should be 640x480, and character images should generally be no larger than 200px in either dimension. Make sure that the character images have transparent backgrounds!}
                    @item{TIP: use animated GIFs for the characters - not only does the animation make the game look a lot better, but these images usually have transparent backgrounds to begin with.}
-                   @item{For more instructions on setting up the game files, read the @(hyperlink "../../resources/teachers-guide/teachers-guide.html#addingimages" "Coding Instructions") document.}
+                   @item{For more instructions on setting up the game files, read the @(hyperlink "../../resources/teachers/teachers-guide/teachers-guide.html#addingimages" "Coding Instructions") document.}
               ]
     }
   ]
