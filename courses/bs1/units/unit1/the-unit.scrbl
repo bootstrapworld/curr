@@ -344,7 +344,7 @@
                         }
                          
                 @point{@student{The Circles of Evaluation are also easy to convert into computer programs. To translate a Circle of Evaluation into a program, begin with an open parenthesis @code{(}, and then the function written at the top of the circle. Then translate the inputs from left to right in the same way, adding a closing parenthesis @code{)} when you're done. This process gives us the second rule for @vocab{expressions}:  
-                                                                                                                                                                                              @bannerline{Code Rule 2: Each open parenthesis is followed by one function, then by one or more legal expressions, and finally by a closing parenthesis.} <ANIMATED GIF?>
+                                                                                                                                                                                              @bannerline{Code Rule 2: Each open parenthesis is followed by one function, then by one or more legal expressions, and finally by a closing parenthesis.} 
                                  @bitmap{images/FixedCircle.png}Here is the code for this Circle of Evaluation: @code{(- 4 5)}
                                  @activity{Enter @code{(- 4 5)} into the Interactions window and hit Return.  You should see @math{-1} as an answer.
                                  @embedded-wescheme[#:id "Circle1"     

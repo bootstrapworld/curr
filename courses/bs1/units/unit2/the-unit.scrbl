@@ -29,7 +29,7 @@ include other datatypes, including Strings and Images.}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{@activity{Practice the Circles of Evaluation, using the activity sheet on @worksheet-link[#:page 3 #:name "Circles-of-Evaluation-Practice-2"] in your workbook.
+        @points[@point{@student{@activity{Practice the Circles of Evaluation, using the activity sheet on @worksheet-link[#:page 6 #:name "Circles-of-Evaluation-Practice-2"] in your workbook.
                        @itemlist[#:style 'compact
 	                         @item{In each row, there is a mathematical expression written on the left-hand column.}
                                  @item{Go through each of these expressions, and draw the Circle of Evaluation for each one in the second column.}

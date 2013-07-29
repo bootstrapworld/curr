@@ -142,7 +142,7 @@
                            }
               @teacher{}}
        @point{@student{
-                       @activity{On @worksheet-link[#:page 26 #:name "Design-Recipe-Update-Player"] in your workbook, 
+                       @activity{On @worksheet-link[#:page 24 #:name "Design-Recipe-Update-Player"] in your workbook, 
                                     you'll find the word problem for @code{update-player}.}
                        }
               @teacher{Be sure to check students' Contracts and EXAMPLEs during this exercise, especially when it's time for them to circle and label what changes between examples. This is the crucial step in the Design Recipe where they should discover the need for @code{cond}.}
