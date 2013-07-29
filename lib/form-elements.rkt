@@ -45,6 +45,7 @@
          code
          math
          bannerline
+         animated-gif
          language-table
          worksheet-table
          build-table/cols
@@ -418,6 +419,11 @@
 ;; generate content to be styled as its own line in a block
 (define (bannerline  . body)
   (elem #:style bs-banner-style body))
+
+;; insert animated gif into file
+(define (animated-gif path-as-str)
+  (printf "Have pathstr ~a ~n" (string->path path-as-str))
+  (image (string->path path-as-str)))
 
 ;; generate tags to format code via codemirror
 (define (code/CSS #:multi-line (multi-line #f)
