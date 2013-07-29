@@ -323,6 +323,7 @@ span.vocab{font-style:  italic; font-weight: bold; color: darkblue;}
 /*  */
 div.code{max-width: 500px; display: inline; margin: 0px; padding: 0px;}
 div.student div.circleevalsexp, div.codesexp{display: inline-block;}
+div.circleevalsexp{float: right;}
 
 div.circleevalsexp .expression{
 	display:        inline-block;
