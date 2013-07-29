@@ -276,7 +276,7 @@ uses a new function that @italic{compares Numbers}, returning
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@student{You've learned how to use Booleans to constrain where elements can move in a game.  In the next unit, we'll discuss how to use Booleans to move game elements based on which keys users press while playing your game.}
-                @teacher{}]}
+        @points[@point{@student{You've learned how to use Booleans to constrain where elements can move in a game.  In the next unit, we'll discuss how to use Booleans to move game elements based on which keys users press while playing your game.}
+                        @teacher{}}]}
 
 @copyright[]
