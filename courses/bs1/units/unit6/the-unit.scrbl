@@ -91,6 +91,7 @@ uses a new function that @italic{compares Numbers}, returning
      #:product-outcomes @itemlist[]
      #:standards (list "N-Q" "A-CED.1-4" "A-REI.3-4" "A-REI.10-12" "F-IF.1-3" "F-IF.4-6" "F-IF.7-9" "F-BF.1-2" "F-BF.3-4" "F-LE.5" )
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
+                            @item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
                             @item{Class poster (List of rules, language table, course calendar)}
                             @item{Language Table (see below)}]
      #:preparation @itemlist[@item{"Cage" [Cage.rkt from @(resource-link #:path "source-files.zip" #:label "source-files.zip") | @(hyperlink "http://www.wescheme.org/openEditor?publicId=bM6VNiLdkv" "WeScheme")] preloaded on student machines.}]
@@ -105,8 +106,8 @@ uses a new function that @italic{compares Numbers}, returning
                         @teacher{This may be a good opportunity to review coordinates, for students who need the practice.}
                         }
                  @point{@student{@bitmap{images/buffer.png}Sam's mother tells him that it's okay for him to step outside of the yard, but only by a short distance! Specifically, she wants to make sure that she can always see at least a little piece of him. Sam is safe @italic{as long as some piece of him is onscreen}. That means he can go a little past zero on the lefthand size, or a little past 640 on the right - but how far @italic{can} he go?
-                                @activity{Turn to @worksheet-link[#:page 19 #:name "Protecting Sam"] in your workbook, and read through the top half of the page. Using the arrow keys, see how far Sam can go to the left @italic{while still staying onscreen}. You'll find that Sam is onscreen as long as his x-coordinate is @italic{greater than} -50, which is exactly the code that's filled in for the first problem on the page.
-                                                  @itemlist[@item{Find out how far Sam can go to the right while still being onscreen}
+                                @activity{Turn to @worksheet-link[#:page 19 #:name "Protecting Sam"], and read through the top half of the page. Using the arrow keys, see how far Sam can go to the left @italic{while still staying onscreen}. You'll find that Sam is onscreen as long as his x-coordinate is @italic{greater than} -50, which is exactly the code that's filled in for the first problem on the page.
+                                                  @itemlist[@item{Find out how far Sam can go to the right while still being onscreen.}
                                                              @item{Fill in the code for the second problem.}
                                                              @item{Convert both of those expressions into Circles of Evaluation, using the empty Circles at the bottom of the page.}]}}
                          @teacher{Pay close attention to the corner-cases: is Sam on the screen at 690? What about 680?}
@@ -214,6 +215,7 @@ uses a new function that @italic{compares Numbers}, returning
      #:product-outcomes @itemlist[@item{Students detect when game elements have moved offscreen (so they can reappear on the other edge of the screen)}]
      #:standards (list "N-Q" "A-CED.1-4" "A-REI.3-4" "A-REI.10-12" "F-IF.1-3" "F-IF.4-6" "F-IF.7-9" "F-BF.1-2" "F-BF.3-4" "F-LE.5" )
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
+                            @item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
                             @item{Class poster (List of rules, language table, course calendar)}
                             @item{Language Table (see below)}]
      #:preparation @itemlist[]

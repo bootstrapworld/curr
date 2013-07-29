@@ -45,11 +45,13 @@
                                   @item{Students will add target movement to their games}]
      #:standards (list "N-Q" "A-CED.1-4" "F-IF.1-3" "F.IF.7-9" "F-BF.1-2" "F-LE.5")
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
+                            @item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
+                            @item{All student computers should have their game templates pre-loaded, with their image files linked in}
                             @item{Class poster (List of rules, language table, course calendar)}
                             @item{Language Table (see below)}]
      #:preparation @itemlist[]
      #:pacings (list 
-                @pacing[#:type "remediation"]{At this point, students should ber very comfortable with the Design Recipe. If they are struggling, try reviewing the Contract with them first, then having a student act out the function. Ask that student what their name is, what they are expecting to be given, and what they will produce. Have them simulate a function call by calling out their name ("update-danger") and giving them an x-coordinate (they should produce a number that is 50 fewer than what they were given). Then refer back to this skit when writing Examples: the call-and-response is exactly how the code should behave, with students only having to write the code for whatever work your volunteer was doing in their head.}
+                @pacing[#:type "remediation"]{At this point, students should be very comfortable with the Design Recipe. If they are struggling, try reviewing the Contract with them first, then having a student act out the function. Ask that student what their name is, what they are expecting to be given, and what they will produce. Have them simulate a function call by calling out their name ("update-danger") and giving them an x-coordinate (they should produce a number that is 50 fewer than what they were given). Then refer back to this skit when writing Examples: the call-and-response is exactly how the code should behave, with students only having to write the code for whatever work your volunteer was doing in their head.}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
@@ -86,7 +88,7 @@
      ]}
 
 @lesson/studteach[
-     #:title "Projectile Movement"
+     #:title "Projectile Movement (Optional)"
      #:duration "15 minutes"
      #:overview "OPTIONAL: students discover that the \"mystery\" definitions in the game are actually used to add projetiles, and adapt these definitions to add a custom projectile and projectile animation to their game."
      #:learning-objectives @itemlist[@item{Students learn to move game elements through functions that compute attributes in one frame from attributes in the previous frame}]
@@ -104,7 +106,7 @@
         @points[@point{@student{This game template also has a mystery object, which is defined at the very bottom of the screen. The "mystery" is actually a @italic{projectile}, which will be set to the Player's position whenever the spacebar is pressed. As you can see, @code{mystery} is defined to be a small gray star, but you can change that to be any image you like. If you have a game in which the player is a monkey, you could change the definition of @code{mystery} to be a bitmap of a banana, so that the monkey will throw bananas every time you hit the spacebar. A game that takes place in space could have an alien throwing crystals, or a sports game might involve an athlete thowing a ball.
                                 @activity{@itemlist[@item{Change the definition for @code{mystery}, so that your projectile looks the way you want it to. Don't forget to use @code{scale} and @code{rotate} if you need to change the image slightly.}
                                                      @item{Use the Design Recipe to write @code{update-mystery}, so that the projectile moves to the left or right. Hint: this will be very similar to your solutions for @code{update-danger} and @code{update-target}!}]}}
-                        @teacher{}
+                        @teacher{Be careful when introducing Projectiles into the game! Many students will actually be @bold{less creative} when using them, as it will automatically push their mindset towards the standards "shoot the bad guy" format. Many teacher choose to skip this section entirely, or else add it after the games are complete.}
                          }]
          }
        

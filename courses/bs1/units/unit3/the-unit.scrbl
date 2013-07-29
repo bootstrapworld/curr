@@ -45,6 +45,7 @@
      #:standards (list)
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, language table, course calendar)}
+                            @item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}
                             @item{Language Table (see below)}]
      #:preparation @itemlist[]
      #:pacings (list 
@@ -227,7 +228,7 @@
                                     }
                             @point{@student{@bannerline{Step 3: Define the function}
                                              After writing the Contract, two Examples, and the labeled circles, defining the function itself is relatively simple.
-                                             @itemlist[@item{Copy everything that stays the same (everything that wasn't boxed) in one of your EXAMPLE lines (onto paper or into your editor)}
+                                             @itemlist[@item{Copy everything that stays the same (everything that wasn't circled) in one of your EXAMPLE lines (onto paper or into your editor)}
                                                        @item{In place of each circle, write the label you gave to that circle}
                                                        @item{Change @code{EXAMPLE} to @code{define}}]
                                              @code[#:multi-line ""]{; gt : Number -> Image

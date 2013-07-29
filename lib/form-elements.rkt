@@ -45,6 +45,7 @@
          code
          math
          bannerline
+         animated-gif
          language-table
          worksheet-table
          build-table/cols
@@ -169,6 +170,7 @@
 (define-runtime-path pretty-printing.css "pretty-printing.css")
 ;(define-runtime-path styles.css "styles.css")
 (define-runtime-path codemirror.js "codemirror.js")
+(define-runtime-path codemirror.css "codemirror.css")
 (define-runtime-path runmode.js "runmode.js")
 (define-runtime-path scheme2.js "scheme2.js")
 (define-runtime-path bootstraplesson.js "bootstraplesson.js")
@@ -179,6 +181,7 @@
         (make-tex-addition bootstrap-pdf.tex)
         (make-css-addition textbook.css)
         (make-css-addition pretty-printing.css)
+        (make-css-addition codemirror.css)
         ;(make-css-addition "styles.css")
         (make-js-addition codemirror.js)
         (make-js-addition runmode.js)
@@ -417,8 +420,13 @@
 (define (bannerline  . body)
   (elem #:style bs-banner-style body))
 
+;; insert animated gif into file
+(define (animated-gif path-as-str)
+  (let ([path-strs (string-split path-as-str "\\")])
+    (image (apply build-path path-strs))))
+
 ;; generate tags to format code via codemirror
-(define (code #:multi-line (multi-line #f)
+(define (code/CSS #:multi-line (multi-line #f)
               #:malformed? (malformed? #f)
               #:contract (contract #f)
               #:purpose (purpose #f)
@@ -440,7 +448,7 @@
                body)))))
 
 ;; generate tags to format code via codemirror
-(define (code-OLD #:multi-line (multi-line #f)
+(define (code #:multi-line (multi-line #f)
               #:contract (contract #f)
               #:purpose (purpose #f)
               . body)
