@@ -65,10 +65,10 @@
                                 @item{@code{safe-left?} always compared the input coordinate to -50, no matter what that input was.}
                                 @item{@code{update-danger} always added or subtracted the same amount}
                                 @item{and so on...}]
-                     This was evident when going from EXAMPLEs to the function definition: circling what changes essentially gives away the definition, and the number of variables would always match the number of things in the Domain.}
-            @teacher{It may be worthwhile to have some EXAMPLEs and definitions written on the board, so students can see this point illustrated.}
+                     This was evident when going from EXAMPLEs to the function definition: circling what changes essentially gives away the definition, and the number of variables would always match the number of things in the Domain. @activity{Turn to page @worksheet-link[#:page 23 #:name "Pizza-Cost"], fill in the Contract and EXAMPLEs for this function, then circle and label what changes.}}
+            @teacher{It may be worthwhile to have some EXAMPLEs and definitions written on the board, so students can follow along.}
            }
-     @point{@student{The @code{cost} function is special, because different toppings can result in totally different expressions being evaluated. If you were to circle everything that changes in the example, you would have the toppings circles @italic{and the price}. That's two changeable things, but the Domain of the function only has one thing in it!}
+     @point{@student{The @code{cost} function is special, because different toppings can result in totally different expressions being evaluated. If you were to circle everything that changes in the example, you would have the toppings circles @italic{and the price}. That's two changeable things, but the Domain of the function only has one thing in it - therefore, we can't have two variables.}
             @teacher{}
            }
      @point{@student{Of course, @code{price} isn't really an independent variable, since the price depends entirely on the @code{topping}. For example: if the topping is @code{"cheese"} the function will simply produce @code{9.00}, if the topping is @code{"pepperoni"} the function will simply produce @code{10.50}, and so on. The price is still defined in terms of the topping, and there are four possible toppings - four possible conditions - that the function needs to care about. The @code{cost} function makes use of a special language feature called @vocab{conditionals}, which is abbreviated in the code as @code{cond}.}
@@ -86,7 +86,7 @@
              @teacher{@code{Else} clauses are best used as a catch-all for cases that you can't otherwise enumerate.  If you can state a precise question for a clause, write the precise question instead of @code{else}.  For example, if you have a function that does different things depending on whether some variable @code{x} is larger than @code{5}, it is better for beginners to write the two questions @code{(> x 5)} and @code{(<= x 5)} rather than have the second question be @code{else}.  Explicit questions make it easier to read and maintain programs.  When you use @code{else}, someone has to read all the previous questions to know what condition @code{else} corresponds to: they can't just skim all the questions to find the one that matches their situation.  This might be counterintuitive to those with prior programming experience, but it does help make code more readable and understandable.}
            }
      @point{@student{Functions that use conditions are called @vocab{piecewise functions}, because each condition defines a 
-                     separate @italic{piece} of the function.}
+                     separate @italic{piece} of the function. }
             @teacher{}
            }
      @point{@student{Why are piecewise functions useful?  Think about the player in your game: you'd like the player to move one way if you hit the "up" key, and another way if you hit the "down" key. Moving up and moving down need two different expressions!  Without @code{cond}, you could only write a function that always moves the player up, or always moves it down, but not both.}
