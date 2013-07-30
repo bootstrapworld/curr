@@ -244,7 +244,7 @@
                        @teacher{}}
 
                 @point{@student{@bitmap{images/Nesting.png}To use multiple functions in the same expression, we can combine Circles of Evaluation.  Look at the Circle of Evaluation you've written for @math{351 / -1}. We already know that the Circle for @math{4 - 5} will evaluate to @math{-1}, so we can @italic{replace the number with the expression.} Does this change what the expression evaluates to?
-                                @activity{Finish writing the Circle of Evaluation started below, so that it represents @math{(23 + 7) * (13 - 5)}: @sexp{(* (+ 23 7) (- " " " "))}}
+                                @activity{@bitmap{images/fill-in-circle.png}Finish writing the Circle of Evaluation shown here, so that it represents @math{(23 + 7) * (13 - 5)}}
                       }
                         @teacher{From this point forward, the Circles of Evaluation are your assessment tool for Order of Operations. Quizzing students by asking them to correctly evaluate an expression is fraught with false negatives, as many student might get the order right but still have problems with basic calculation. This method is also vulnerable to Commutativity, since a student will correctly evaluate @math{1*2+2} even if they get the order of operations wrong! Circles of Evaluation have neither of these flaws, as they put them emphasis where it should be: exercising a students' ability to see the structure inside the arithemetic.}
                         }
