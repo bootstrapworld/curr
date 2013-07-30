@@ -57,7 +57,7 @@
                                                 [(string=? topping "pepperoni") 10.50]
                                                 [(string=? topping "chicken")   11.25]
                                                 [(string=? topping "broccoli")  10.25]
-                                                [else 1000.00]))}}
+                                                [else 00.00]))}}
              @teacher{}
              }
      @point{@student{Up to now, all of the functions you've seen have done the @italic{same thing} to their inputs:
@@ -82,7 +82,7 @@
             @teacher{Square brackets enclose the question and answer for each clause.  When students identify the questions, they should find the first expression within the square brackets.  There can only be one expression in each answer.}
            }
      @point{@student{The last clause in a conditional can be an @code{else} clause, which gets evaluated if all the questions are @code{false}. 
-                                                                @activity{In the @code{cost} function, what gets returned if all the questions are false? Why is it a good idea to have an @code{else} clause?}}
+                                                                @activity{In the @code{cost} function, what gets returned if all the questions are false? What would happen if there was no @code{else} clause? Try removing that clause from the code, and see what happens.}}
              @teacher{@code{Else} clauses are best used as a catch-all for cases that you can't otherwise enumerate.  If you can state a precise question for a clause, write the precise question instead of @code{else}.  For example, if you have a function that does different things depending on whether some variable @code{x} is larger than @code{5}, it is better for beginners to write the two questions @code{(> x 5)} and @code{(<= x 5)} rather than have the second question be @code{else}.  Explicit questions make it easier to read and maintain programs.  When you use @code{else}, someone has to read all the previous questions to know what condition @code{else} corresponds to: they can't just skim all the questions to find the one that matches their situation.  This might be counterintuitive to those with prior programming experience, but it does help make code more readable and understandable.}
            }
      @point{@student{Functions that use conditions are called @vocab{piecewise functions}, because each condition defines a 
