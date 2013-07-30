@@ -162,7 +162,7 @@
      #:learning-objectives @itemlist[@item{Students will be able to define very simple functions, given a simple word problem.}]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[@item{Students will define at least two functions, using the Design Recipe}]
-     #:standards (list "F-IF.1-3" "F.IF.7-9" "F-BF.1-2")
+     #:standards (list "F-IF.1-3" "F.IF.7-9" "F-BF.1-2", "A-CED.1-4")
      #:materials @itemlist[@item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders with names on covers.}]
      #:preparation @itemlist[]
      #:pacings (list 
