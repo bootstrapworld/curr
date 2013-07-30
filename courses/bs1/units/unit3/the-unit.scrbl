@@ -163,7 +163,7 @@
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[@item{Students will define at least two functions, using the Design Recipe}]
 
-     #:standards (list "A-CED.1-4", "A-SSE.1-2" "F-IF.1-3" "F-IF.7-9" "F-BF.1-2")
+     #:standards (list "A-CED.1-4" "A-SSE.1-2" "F-IF.1-3" "F-IF.7-9" "F-BF.1-2")
      #:materials @itemlist[@item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders with names on covers.}]
      #:preparation @itemlist[]
      #:pacings (list 
@@ -189,7 +189,7 @@
                                                      @item{@code{(gt 98)} would be a shortcut for @code{(triangle 98 "solid" "green")}}
                                                      @item{and so on...}]
                                             Problems that require a function definition can be phrased as a word problem such as the following:
-                                            @bannerline{Write a function @code{gt}, which takes in a Number and produces a solid, green triangle of the given size.}
+                                            @bannerline{Define a function @code{gt}, which takes in a Number and produces a solid, green triangle of the given size.}
                                             Luckily, we can follow specific steps to define functions from word problems.  Let's work through the steps to define @code{gt}.
                                             }
                                     @teacher{To make this more concrete, have a student "act" as gt. To call the function, another student says "gt ten!" (calling out both the name of the function and the input). The actor responds "triangle ten solid green", to signify the work that the function does when it recieves an input.}
@@ -212,12 +212,13 @@
                                                                     (EXAMPLE (gt  100) (triangle  100 "solid" "green"))}
                                              These examples tell the computer that writing @code{(gt 50)} should produce the same result as @code{(triangle 50 "solid" "green")}, and that @code{(gt 100)} is equivalent to @code{(triangle 100 "solid" "green")}. The word problem specifies that the examples @italic{must} use the name 'gt', and must all produce solid, green triangles.
                                              @activity{In your workbook, write two examples of your own for this function.}}
-                                    @teacher{Be sure to point out that EXAMPLE is capitalized! Many students will follow along here without really understanding, simply by pattern-matching. Be sure to ask them lots of questions, to have them justify each step:
+                                    @teacher{@bold{Be sure to point out that EXAMPLE is capitalized, and that all examples are written in the definitions window.} Many students will follow along here without really understanding, simply by pattern-matching. Be sure to ask them lots of questions, to have them justify each step:
                                              @itemlist[@item{Why does the example have to start with gt? (Because it's the Name of the function, specified in the contract)}
                                                         @item{How do we know @code{gt} requires only one number? (Because it's the Domain of the function, specified in the contract)}
                                                         @item{How do we know to use @code{triangle}? (Because the word problem tells us what shape it has to produce)}
                                                         @item{How do we know the triangle has to be solid and green? (Because the word problem tells us what shape it has to produce)}
-                                                        @item{How do we know the correct order for the inputs to @code{triangle}? (The contract for @code{triangle} tells us)}] One of the big ideas here is that each step informs the subsequent step. Make sure to explicitly connect them for students, pointing out that the Contract gives strong hints about how to write each part of the examples. }
+                                                        @item{How do we know the correct order for the inputs to @code{triangle}? (The contract for @code{triangle} tells us)}] 
+                                                                                                                                                                          One of the big ideas here is that each step informs the subsequent step. Make sure to explicitly connect them for students, pointing out that the Contract gives strong hints about how to write each part of the examples. }
                                     }
                             @point{@student{Programmers often write several examples for each function. Examples like these are a way for a programmer to think through their work.  Examples also make it easy to look at what parts of the expression can change, or @italic{vary}, depending on the inputs.
                                     @activity{Write the following examples on paper and circle the parts of the examples that are different:
