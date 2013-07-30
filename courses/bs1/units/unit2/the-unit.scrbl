@@ -20,7 +20,7 @@ include other datatypes, including Strings and Images.}
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[@item{}]
-     #:standards (list "A-SSE.1-2" "N-Q" "MP.1" "MP.4" "MP.6" "MP.7")
+     #:standards (list "N-Q" "A-SSE.1-2" "A-SSE.3-4" "A-REI.1-2" "MP.1" "MP.4" "MP.6" "MP.7")
      #:materials @itemlist[]
      #:preparation @itemlist[@item{Student Workbooks, and something to write with}]
      #:pacings (list 
@@ -57,7 +57,7 @@ include other datatypes, including Strings and Images.}
                                      @item{Given an expression, students will be able to identify the datatype it will evaluate to}
                                      @item{Students will be able to distinguish between types and values}]
      #:product-outcomes @itemlist[]
-     #:standards (list "A-SSE.1-2" "N-Q" "MP.1" "MP.4" "MP.6" "MP.7")
+     #:standards (list "N-Q" "A-SSE.1-2" "F-IF.1-3" "MP.1" "MP.4" "MP.6" "MP.7")
      #:materials @itemlist[@item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}]
      #:preparation @itemlist[@item{Student Workbooks, and something to write with}]
      #:pacings (list 

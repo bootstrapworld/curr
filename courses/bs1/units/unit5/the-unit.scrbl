@@ -43,7 +43,7 @@
                                      @item{Students will learn how to control speed of movement through functions}]
      #:product-outcomes @itemlist[@item{Students will add danger movement to their games}
                                   @item{Students will add target movement to their games}]
-     #:standards (list "N-Q" "A-CED.1-4" "F-IF.1-3" "F.IF.7-9" "F-BF.1-2" "F-LE.5")
+     #:standards (list "N-Q" "A-CED.1-4" "F-IF.1-3" "F-IF.7-9" "F-BF.1-2" "F-LE.5")
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
                             @item{All student computers should have their game templates pre-loaded, with their image files linked in}
@@ -94,7 +94,7 @@
      #:learning-objectives @itemlist[@item{Students learn to move game elements through functions that compute attributes in one frame from attributes in the previous frame}]
      #:evidence-statements @itemlist[@item{Students will be able to write functions that take in one dimension of a game element's coordinate and produce the next coordinate value in that dimension}]
      #:product-outcomes @itemlist[@item{Students will add projectile movement to their games}]
-     #:standards (list "N-Q" "A-CED.1-4" "F-IF.1-3" "F.IF.7-9" "F-BF.1-2" "F-LE.5")
+     #:standards (list "N-Q" "A-CED.1-4" "F-IF.1-3" "F-IF.7-9" "F-BF.1-2" "F-LE.5")
      #:materials @itemlist[]
      #:preparation @itemlist[]
      #:pacings (list 

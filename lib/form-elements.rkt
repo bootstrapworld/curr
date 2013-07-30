@@ -45,6 +45,7 @@
          code
          math
          bannerline
+         new-paragraph
          animated-gif
          language-table
          worksheet-table
@@ -419,6 +420,10 @@
 ;; generate content to be styled as its own line in a block
 (define (bannerline  . body)
   (elem #:style bs-banner-style body))
+
+;; add a paragraph break by inserting two linebreaks
+(define (new-paragraph)
+  (list (linebreak) (linebreak)))
 
 ;; insert animated gif into file
 (define (animated-gif path-as-str)
@@ -1155,18 +1160,19 @@
        (let* ([clean-terms (sort (remove-duplicates (singularize-vocab-terms (map string-downcase (get 'vocab-used '()))))
                                  string<=?)]
               [terms (lookup-tags clean-terms
-                                  glossary-terms-dictionary "Vocabulary term" #:show-unbound #t)]) 
-         (nested (para #:style bs-header-style "Glossary:")
-                 (apply itemlist/splicing
-                        (for/list ([term terms])
-                                  (cond [(and (list? term) (string=? "" (second term)))
-                                         (begin
-                                           (printf "WARNING: Vocabulary term has empty definition in dictionary: ~a ~n" (first term))
-                                           (item (elem (format "~a" (first term)))))]
-                                        [(list? term)
-                                         (item (elem (format "~a: ~a" (first term) (second term))))]
-                                        [else
-                                         (item (elem (format "~a" term)))])))))))))
+                                  glossary-terms-dictionary "Vocabulary term" #:show-unbound #t)])
+         (if (empty? terms) (para)
+             (nested (para #:style bs-header-style "Glossary:")
+                     (apply itemlist/splicing
+                            (for/list ([term terms])
+                              (cond [(and (list? term) (string=? "" (second term)))
+                                     (begin
+                                       (printf "WARNING: Vocabulary term has empty definition in dictionary: ~a ~n" (first term))
+                                       (item (elem (format "~a" (first term)))))]
+                                    [(list? term)
+                                     (item (elem (format "~a: ~a" (first term) (second term))))]
+                                    [else
+                                     (item (elem (format "~a" term)))]))))))))))
   
 (define (preparation . items)
   (list (compound-paragraph bs-header-style 

@@ -6,31 +6,9 @@
 @unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sq sqrt expt})
                                        (list "String" @code{string-append string-length})
                                        (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image}))]{
-@unit-descr{Students are introduced to the Design Recipe and apply it to simple problems.}
+@unit-descr{Students continue to practice the Design Recipe by applying it to simple problems.}
  }
 
-@lesson/studteach[
-     #:title "Review"
-     #:duration "15 minutes"
-     #:overview ""
-     #:learning-objectives @itemlist[]
-     #:product-outcomes @itemlist[]
-     #:standards (list)
-     #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
-                            @item{Class poster (List of rules, language table, course calendar)}
-                            @item{Language Table (see below)}]
-     #:preparation @itemlist[]
-     #:pacings (list 
-                @pacing[#:type "remediation"]{@itemlist[@item{}]}
-                @pacing[#:type "misconception"]{@itemlist[@item{}]}
-                @pacing[#:type "challenge"]{@itemlist[@item{}]}
-                )
-      ]{
-        @points[@point{@student{}
-                        @teacher{@management{Review the importance of definitions for students (defining values helps cut down on redundancy and makes future changes easier, defining functions allows for simplicity and testability. Be sure to use vocabulary regularly and carefully, pushing students to use the proper terms throughout.)}}
-                        }
-                 ]}
-       
 @lesson/studteach[
      #:title "The Design Recipe"
      #:duration "25 minutes"
@@ -41,10 +19,10 @@
                                       @item{Given two examples for a simple function, students will be able to identify the variable}
                                       @item{Given two examples for a simple function, students will be able to write the definition}]
      #:product-outcomes @itemlist[@item{Students will use the Design Recipe to define a function, which is used to make a rocket fly.}]
-     #:standards (list "A-CED.1-4" "F-IF.1-3" "F.IF.7-9" "F-BF.1-2")
+     #:standards (list "N-Q" "A-CED.1-4" "F-IF.1-3" "F-IF.7-9" "F-BF.1-2" "F-LE.5")
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, language table, course calendar)}
-                            @item{Language Table}
+                            @item{Language Table (see below)}
                             @item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders with names on covers, and something to write with}]
      #:preparation @itemlist[@item{Write agenda on board}
                               @item{Display Class posters, Language Table, Design Recipe}
@@ -91,7 +69,7 @@
                  @point{@student{By comparing two different examples, it is easy to tell what changes. According to the Purpose Statement, it is the number of seconds that the rocket has been flying.
                                  @activity{On your paper, label the items you circled with "seconds".}}
                          @teacher{Have a discussion with students about why "seconds" is a better name than "time". Talk about specificity, relevance, and readability.}}
-                 @point{@student{Labeling what is @italic{changeable} gives programmers a sense for the names of a function's @vocab{variables}. 
+                 @point{@student{Labeling what is @italic{changeable} gives programmers a sense for the names of a function's @vocab{variables}.  Variables are like placeholders for values that can be different at different times.  A function that computed how much you pay for text messages each month, for example, might have a variable for the number of messages that you sent in that month.  The number of messages you sent might change from month to month, but each one could still cost 20 cents.  
                                                   @activity{How many variables does @code{rocket-height} have? What is the name of each variable? Define the function, using all the information from your Examples, Contract and Purpose Statement.}
                                   @code[#:multi-line #t]{; rocket-height : Number -> Number
                                                        ; multiply the number of seconds by 7 to find the height
