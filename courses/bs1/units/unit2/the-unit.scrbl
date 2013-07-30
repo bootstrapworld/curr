@@ -20,7 +20,7 @@ include other datatypes, including Strings and Images.}
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[@item{}]
-     #:standards (list "A-SSE.1-2" "N-Q" "MP.1" "MP.4" "MP.6" "MP.7")
+     #:standards (list "N-Q" "A-SSE.1-2" "A-SSE.3-4" "A-REI.1-2" "MP.1" "MP.4" "MP.6" "MP.7")
      #:materials @itemlist[]
      #:preparation @itemlist[@item{Student Workbooks, and something to write with}]
      #:pacings (list 
@@ -29,7 +29,7 @@ include other datatypes, including Strings and Images.}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{@activity{Practice the Circles of Evaluation, using the activity sheet on @worksheet-link[#:page 3 #:name "Circles-of-Evaluation-Practice-2"] in your workbook.
+        @points[@point{@student{@activity{Practice the Circles of Evaluation, using the activity sheet on @worksheet-link[#:page 6 #:name "Circles-of-Evaluation-Practice-2"] in your workbook.
                        @itemlist[#:style 'compact
 	                         @item{In each row, there is a mathematical expression written on the left-hand column.}
                                  @item{Go through each of these expressions, and draw the Circle of Evaluation for each one in the second column.}
@@ -57,7 +57,7 @@ include other datatypes, including Strings and Images.}
                                      @item{Given an expression, students will be able to identify the datatype it will evaluate to}
                                      @item{Students will be able to distinguish between types and values}]
      #:product-outcomes @itemlist[]
-     #:standards (list "A-SSE.1-2" "N-Q" "MP.1" "MP.4" "MP.6" "MP.7")
+     #:standards (list "N-Q" "A-SSE.1-2" "F-IF.1-3" "MP.1" "MP.4" "MP.6" "MP.7")
      #:materials @itemlist[@item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}]
      #:preparation @itemlist[@item{Student Workbooks, and something to write with}]
      #:pacings (list 

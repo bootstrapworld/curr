@@ -45,8 +45,9 @@
      #:product-outcomes @itemlist[@item{In workbooks, students create a data model that describes a simple videogame}]
      #:standards (list "MP.1" "MP.7")
      #:materials @itemlist[@item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}]
-     #:preparation @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket (If using DrRacket, make sure the Ninja.rkt file is loaded)}
-                              @item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders with names on covers, and something to write with}]
+     #:preparation @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket}
+                             @item{If using DrRacket, make sure the Ninja.rkt file is loaded}
+                             @item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders with names on covers, and something to write with}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -128,11 +129,12 @@
      #:overview "Students select the theme and characters for their videogame"
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[@item{In workbooks, students complete the Videogame Design Worksheet}]
+     #:product-outcomes @itemlist[@item{Students complete the Videogame Design Worksheet to design their own game}]
      #:standards (list)
      #:materials @itemlist[@item{}]
-     #:preparation @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket (If using DrRacket, make sure the Ninja.rkt file is loaded)}
-                              @item{Student Workbooks, and something to write with}]
+     #:preparation @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket}
+                             @item{If using DrRacket, make sure the Ninja.rkt file is loaded}
+                             @item{Student Workbooks, and something to write with}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -180,8 +182,9 @@
      #:product-outcomes @itemlist[@item{Students convert several arithmetic expressions between multiple representations}]
      #:standards (list "A-SSE.1-2" "N-Q"  "MP.1" "MP.4" "MP.6" "MP.7")
      #:materials @itemlist[@item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}]
-     #:preparation @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket (If using DrRacket, make sure the Ninja.rkt file is loaded)}
-                              @item{Student Workbooks, and something to write with}]
+     #:preparation @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket}
+                             @item{If using DrRacket, make sure the Ninja.rkt file is loaded}
+                             @item{Student Workbooks, and something to write with}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{Have students practice translating very simple (one-operation) expressions into simple (one-circle) Circles of Evaluation. By choosing the numbers in these examples carefully, you can gradually introduce nesting by replacing a number in one expression with the Circle of Evaluation for another expression that evaluates to the same number. @italic{Replace the 7 in @code{7+5} with the Circle for @code{10-3}.}}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{This is the first opportunity to expose students to core vocabulary words, so be sure to use words like @bold{function}, @bold{value} and @bold{expression} carefully and consistently. Ask students to identify the parts of a Circle of Evaluation, and push them to use the vocabulary as well.}]}
@@ -320,6 +323,7 @@
                                   #:hide-project-name? #t
                                   #:hide-footer? #t
                                   #:hide-definitions? #f
+			          #:contents-as-alt? #f
                                   #:definitions-text "4"]}
                                 }
                         @teacher{The editing environment evaluates all fractions and returns them as decimals by default. This can be surprising to students at first, so you may want to take a moment to explain what's going on, and show them that these decimals can be converted back to fractions just by clicking on them.  The environment uses standard annotations for repeating, non-terminating decimal expressions and properly handles expressions like @math{(sqrt(-1))}.  If you want to work with those kinds of numbers in your class, enter them to get familiar with how they appear in the Interactions window.}
@@ -334,6 +338,7 @@
                                   #:hide-project-name? #t
                                   #:hide-footer? #t
                                   #:hide-definitions? #t
+			          #:contents-as-alt? #f
                                   #:interactions-text "dog"]}
                                  }
                         @teacher{The error message uses the term "variable".  Don't worry if your students don't already know this term; we will teach it to them shortly.  For now, students just need to get used to error messages and the kinds of problems that they catch in programs.}
@@ -344,7 +349,7 @@
                         }
                          
                 @point{@student{The Circles of Evaluation are also easy to convert into computer programs. To translate a Circle of Evaluation into a program, begin with an open parenthesis @code{(}, and then the function written at the top of the circle. Then translate the inputs from left to right in the same way, adding a closing parenthesis @code{)} when you're done. This process gives us the second rule for @vocab{expressions}:  
-                                                                                                                                                                                              @bannerline{Code Rule 2: Each open parenthesis is followed by one function, then by one or more legal expressions, and finally by a closing parenthesis.} <ANIMATED GIF?>
+                                                                                                                                                                                              @bannerline{Code Rule 2: Each open parenthesis is followed by one function, then by one or more legal expressions, and finally by a closing parenthesis.} 
                                  @bitmap{images/FixedCircle.png}Here is the code for this Circle of Evaluation: @code{(- 4 5)}
                                  @activity{Enter @code{(- 4 5)} into the Interactions window and hit Return.  You should see @math{-1} as an answer.
                                  @embedded-wescheme[#:id "Circle1"     
@@ -354,6 +359,7 @@
                                   #:hide-project-name? #t
                                   #:hide-footer? #t
                                   #:hide-definitions? #t
+			          #:contents-as-alt? #f
                                   #:interactions-text "(- 4 5)"]}}
                         @teacher{Have students practice converting simple Circles of Evaluation into code.  If you want to help students understand when to use the parentheses, here are two explanations that we find useful.  First, the parens look like the Circle, and the Circle encloses the function name and its inputs.  Second, we use a more visual description of an ant eating its way through the expression.  The ant eats into the Circle (an open paren), then goes to the function at the top, then to the arguments from left to right, then finally out of the Circle (a close paren).  If the ant encounters another Circle while writing down the arguments, it needs another open paren, etc.}
                         }   

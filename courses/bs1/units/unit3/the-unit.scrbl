@@ -126,7 +126,7 @@
                                   The purpose of this activity is to increase students' confidence in @italic{reading} and @italic{talking about} code. Make sure students get a lot of practice speaking aloud, both to each other and to the instructor.}
                         }
                  @point{@student{If you don't like the definitions provided here, you can change them! You can modify the @code{TITLE} and @code{TITLE-COLOR} to change what is displayed at the top of your screen, and you can change the definitions for your game images as well: @(video-link (hyperlink "http://www.youtube.com/watch?v=99plAjsjx78" "Video: A screencast of this section - follow along to see how to change images in your game")).}
-                         @teacher{Images should be in PNG or GIF format. Background images should be 640x480, and character images should generally be no larger than 200px in either dimension. Make sure that the character images have transparent backgrounds! TIP: use animated GIFs for the characters - not only does the animation make the game look a lot better, but these images usually have transparent backgrounds to begin with. For more instructions on setting up the game files, read the @(hyperlink "../../resources/teachers-guide/teachers-guide.html#addingimages" "Coding Instructions") document.}
+                         @teacher{Images should be in PNG or GIF format. Background images should be 640x480, and character images should generally be no larger than 200px in either dimension. Make sure that the character images have transparent backgrounds! TIP: use animated GIFs for the characters - not only does the animation make the game look a lot better, but these images usually have transparent backgrounds to begin with. For more instructions on setting up the game files and images, read the @(hyperlink "../../resources/teachers-guide/teachers-guide.html#addingimages" "Coding Instructions") document.}
                          }
                  @point{@student{If you want to change one of your definitions so that the image is smaller or larger, you can use the @code{scale} function:
                                   @code[#:multi-line #t]{; scale : Number Image -> Image}
@@ -162,7 +162,8 @@
      #:learning-objectives @itemlist[@item{Students will be able to define very simple functions, given a simple word problem.}]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[@item{Students will define at least two functions, using the Design Recipe}]
-     #:standards (list "F-IF.1-3" "F.IF.7-9" "F-BF.1-2", "A-CED.1-4")
+
+     #:standards (list "A-CED.1-4", "A-SSE.1-2" "F-IF.1-3" "F-IF.7-9" "F-BF.1-2")
      #:materials @itemlist[@item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders with names on covers.}]
      #:preparation @itemlist[]
      #:pacings (list 
@@ -187,21 +188,22 @@
                                                      @item{@code{(gt 1980)} would be a shortcut for @code{(triangle 1980 "solid" "green")}}
                                                      @item{@code{(gt 98)} would be a shortcut for @code{(triangle 98 "solid" "green")}}
                                                      @item{and so on...}]
-                                            Problems that require a function definition can be phrased as a word problem:
+                                            Problems that require a function definition can be phrased as a word problem such as the following:
                                             @bannerline{Write a function @code{gt}, which takes in a Number and produces a solid, green triangle of the given size.}
                                             Luckily, we can follow specific steps to define functions from word problems.  Let's work through the steps to define @code{gt}.
                                             }
                                     @teacher{To make this more concrete, have a student "act" as gt. To call the function, another student says "gt ten!" (calling out both the name of the function and the input). The actor responds "triangle ten solid green", to signify the work that the function does when it recieves an input.}
                                     }
                             @point{@student{@bannerline{Step 1: Write the Contract}
-                                             The first step in defining a function is to write its @vocab{Contract}. The word problem provides several clues:
-                                              @itemlist[@item{The @vocab{Name} of the function is given, as @code{gt}}
-                                                         @item{The @vocab{Domain} of a function is the types of data that the function expects: in this case, just a single Number.}
-                                                         @item{The @vocab{Range} of this function is the type of data that the function produces: in this case an Image since it produces solid, green triangles}]
+                                             The first step in defining a function is to write its @vocab{Contract}.  Contracts summarize three pieces of essential information about a function:
+                                              @itemlist[@item{The @vocab{Name} of the function: in this case, the name is given, as @code{gt}}
+                                                         @item{The @vocab{Domain} of a function, which is the types of data that the function expects: in this case, just a single Number.}
+                                                         @item{The @vocab{Range} of this function, which is the type of data that the function produces: in this case an Image since it produces solid, green triangles}]
+                                              Here's the @code{gt} Contract written as code.  The line starts with a semicolon, followed by the name, a colon, the Domain, an arrow, then the Range:
                                               @code[#:multi-line ""]{; gt : Number -> Image}
-                                              Be sure to read the problem carefully! Some word problems will describe functions that take multiple inputs in their Domain, or inputs of different types.
+                                              Word problems give several clues as to the name, Domain, and Range of a function.  Be sure to read the problem carefully! Some word problems will describe functions that take multiple inputs in their Domain, or inputs of different types.
                                               @activity{Open your workbook to @worksheet-link[#:page 8 #:name "Fast-Functions"], where it says "fast functions", and write the Contract for the @code{gt} function.}}
-                                    @teacher{It is often a good idea to give students examples of different word problems, and have them pick out the contract for each one.}
+                                    @teacher{It is often a good idea to give students examples of different word problems, and have them pick out the contract for each one. @(new-paragraph) Contracts are written as @italic{comments} in Racket: whenever Racket sees a semicolon, it ignores the rest of the line after the semicolon.  This means that you will never get an error message from Racket for a malformed comment.  That also means that you have to check your students' contracts more closely, because the computer will not check anything about them (format or contents).}
                                     }
                             @point{@student{@bannerline{Step 2: Give Examples}
                                              It's always a good idea to think through a few examples before defining the function. Examples show the shortcut that a function is trying to provide.  This programming language provides a special construct, called @code{EXAMPLE}, which helps you write down how the function is used and what it should compute. You can see two such examples here, written under the contract:

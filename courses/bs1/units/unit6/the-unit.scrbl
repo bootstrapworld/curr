@@ -106,7 +106,7 @@ uses a new function that @italic{compares Numbers}, returning
                         @teacher{This may be a good opportunity to review coordinates, for students who need the practice.}
                         }
                  @point{@student{@bitmap{images/buffer.png}Sam's mother tells him that it's okay for him to step outside of the yard, but only by a short distance! Specifically, she wants to make sure that she can always see at least a little piece of him. Sam is safe @italic{as long as some piece of him is onscreen}. That means he can go a little past zero on the lefthand size, or a little past 640 on the right - but how far @italic{can} he go?
-                                @activity{Turn to @worksheet-link[#:page 19 #:name "Protecting Sam"], and read through the top half of the page. Using the arrow keys, see how far Sam can go to the left @italic{while still staying onscreen}. You'll find that Sam is onscreen as long as his x-coordinate is @italic{greater than} -50, which is exactly the code that's filled in for the first problem on the page.
+                                @activity{Turn to @worksheet-link[#:page 17 #:name "Protecting Sam"], and read through the top half of the page. Using the arrow keys, see how far Sam can go to the left @italic{while still staying onscreen}. You'll find that Sam is onscreen as long as his x-coordinate is @italic{greater than} -50, which is exactly the code that's filled in for the first problem on the page.
                                                   @itemlist[@item{Find out how far Sam can go to the right while still being onscreen.}
                                                              @item{Fill in the code for the second problem.}
                                                              @item{Convert both of those expressions into Circles of Evaluation, using the empty Circles at the bottom of the page.}]}}
@@ -124,7 +124,7 @@ uses a new function that @italic{compares Numbers}, returning
                                              @item{Note: the volunteer for @code{onscreen?} should first call @code{safe-left?}, before replying with the value.}]}
                          }
                  @point{@student{Right now @code{safe-left?} is ignoring Sam's x-coordinate, and blindly returning @code{true} no matter where he is. What should the function be doing instead? 
-                                           @activity{Turn to @worksheet-link[#:page 20 #:name "safe-left?"] in your workbook. Use the Design Recipe to fix this function, so that @code{safe-left?} takes in Sam's x-coordinate and returns @code{true} or @code{false} depending on whether it is @italic{greater than -50}.}}
+                                           @activity{Turn to @worksheet-link[#:page 18 #:name "safe-left?"] in your workbook. Use the Design Recipe to fix this function, so that @code{safe-left?} takes in Sam's x-coordinate and returns @code{true} or @code{false} depending on whether it is @italic{greater than -50}.}}
                          @teacher{Remind students that they've already written the check for this on page 19! @management{It may be helpful to have students complete this activity in parts, by giving them a short time to do the Contract and Purpose Statement, then a short time to write their first example, their second, etc. By debriefing and reviewing after each step, you are likely to uncover misunderstandings earlier in the process.}}
                          }
                  @point{@student{Once you have typed in the EXAMPLEs and definition for @code{safe-left?}, click "Run" and see if Sam is prevented from flying off the lefthand side of the screen. Be sure to test your function in the Interactions window as well, for example:
@@ -134,7 +134,7 @@ uses a new function that @italic{compares Numbers}, returning
                                                          (onscreen? -100)}}
                          @teacher{Have the three volunteers from earlier stand again, and act out the code now that @code{safe-left?} is written properly. As before, make sure students practice calling each function individually: now @code{safe-left?} will be able to return true and false (as will @code{onscreen?}), while @code{safe-right?} still returns only @code{true}.}
                          }
-                 @point{@student{@activity{Turn to @worksheet-link[#:page 21 #:name "safe-right?"] in your workbook. Use the Design Recipe to fix this function, so that @code{safe-left?} takes in Sam's x-coordinate and returns @code{true} or @code{false} depending on whether it is @italic{less than 690}.}}
+                 @point{@student{@activity{Turn to @worksheet-link[#:page 19 #:name "safe-right?"] in your workbook. Use the Design Recipe to fix this function, so that @code{safe-left?} takes in Sam's x-coordinate and returns @code{true} or @code{false} depending on whether it is @italic{less than 690}.}}
                          @teacher{After walking through @code{safe-left?} section by section, students should be able to complete this activity on their own.  If students are doing well with programming, you might discuss whether to compare the x-coordinate to @code{690} or @code{(+ 640 50); both yield the same computation, but the second reveals where 690 comes from (screen width plus 50).}}
                          }
                  @point{@student{Once you have typed in the EXAMPLEs and definition for @code{safe-left?}, click "Run" and see if Sam is prevented from flying off the righthand side of the screen. You may be surprised at what happens! Test your function in the Interactions window:
@@ -194,7 +194,7 @@ uses a new function that @italic{compares Numbers}, returning
 ; or: Boolean Boolean -> Boolean  
 ; Returns true if EITHER of the inputs are true}}
                         @teacher{}}
-                @point{@student{@activity{Complete @worksheet-link[#:page 22 #:name "AND-and-OR"] in your workbook.}}
+                @point{@student{@activity{Complete @worksheet-link[#:page 20 #:name "AND-and-OR"] in your workbook.}}
                         @teacher{}}
                                                    
                                                    
@@ -229,7 +229,7 @@ uses a new function that @italic{compares Numbers}, returning
        @points[@point{@student{Now that you know how to combine tests, how can @code{onscreen?} combine both tests to keep Sam onscreen?}
                        @teacher{Have the volunteers stand once again, and ask the class what @code{onscreen?} @italic{should} do. Should it be using @code{and} or @code{or}? Be sure to give specific examples of points that are onscreen, too far to the left and too far to the right, and challenge the students to justify their answers.}
                        }
-                @point{@student{@activity{Turn to @worksheet-link[#:page 23 #:name "Design-Recipe-Onscreen"] in your workbook and write the completed @code{onscreen?} function, so that it tests both @code{safe-left?} and @code{safe-right?}. Type in the examples and definition when you're done, click "Run", and see if Sam is protected on both sides!}}
+                @point{@student{@activity{Turn to @worksheet-link[#:page 21 #:name "Design-Recipe-Onscreen"] in your workbook and write the completed @code{onscreen?} function, so that it tests both @code{safe-left?} and @code{safe-right?}. Type in the examples and definition when you're done, click "Run", and see if Sam is protected on both sides!}}
                        @teacher{}
                        }
                 @point{@student{There are two ways to go about solving the @code{onscreen?} word problem: 
@@ -276,7 +276,8 @@ uses a new function that @italic{compares Numbers}, returning
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{You've learned how to use Booleans to constrain where elements can move in a game.  In the next unit, we'll discuss how to use Booleans to move game elements based on which keys users press while playing your game.}
-                        @teacher{}}]}
+        @points[
+           @point{@student{You've learned how to use Booleans to constrain where elements can move in a game.  In the next unit, we'll discuss how to use Booleans to move game elements based on which keys users press while playing your game.}
+                  @teacher{}}]}
 
 @copyright[]
