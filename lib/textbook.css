@@ -275,6 +275,14 @@ div.activity{
   vertical-align: middle;
 }
 
+table.matching-table td{
+  border:         0px;
+  width:          200px;
+  padding:        0px 20px;
+}
+
+table.matching-table td>*{float: left;}
+
 img{float: right; padding: 5px;}
 img.video{width: 20px; height: 20px; padding: 0px; margin: 0px;}
 div.activity li img{float: none;}
