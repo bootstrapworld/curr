@@ -7,7 +7,7 @@ window.addEventListener("load", function(){
     var node = document.createElement('div');
     node.className = 'editbox';
     codeSnippets[i].parentNode.insertBefore(node, codeSnippets[i]);
-    CodeMirror.runMode(codeSnippets[i].value, "scheme2", node);
+                        CodeMirror.runMode(codeSnippets[i].value, {name: "scheme2"}, node, {smartIndent: true, tabSize: 16});
     codeSnippets[i].style.display = 'none';
   }
   var codeSnippets = document.getElementsByTagName('tt');
@@ -15,7 +15,7 @@ window.addEventListener("load", function(){
     var node = document.createElement('span');
     node.className = 'editbox';
     codeSnippets[i].parentNode.insertBefore(node, codeSnippets[i]);
-    CodeMirror.runMode(codeSnippets[i].firstChild.nodeValue, "scheme2", node);
+    CodeMirror.runMode(codeSnippets[i].firstChild.nodeValue, {name: "scheme2"}, node, {smartIndent: true, tabSize: 16});
     codeSnippets[i].style.display = 'none';
   }
   // setup globals we'll use later
