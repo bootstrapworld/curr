@@ -1277,7 +1277,9 @@
     (error 'include-lesson "doc binding is not a part: ~e" a-doc))
   (hash-set! (current-lesson-xref) lesson-name (list lesson-name (current-document-output-path)))
   
-  (part-blocks a-doc))
+  ;; using rest in next line to eliminate an otherwise empty <p> block 
+  ;;   that was getting inserted into each lesson
+  (interleave-parbreaks/all (rest (part-blocks a-doc))))
 
 
 (define-syntax (include-lesson stx)
@@ -1468,10 +1470,11 @@
                           (map elem math-examples))]])
 
 (define (overview #:gen-agenda? (gen-agenda? #t) . body)
-  (list
-   (elem #:style (bootstrap-style "BootstrapOverviewTitle") (list (format "Unit Overview")))
+  (nested
+   (elem #:style (bootstrap-style "BootstrapOverviewTitle") "Unit Overview")
    (if gen-agenda? (agenda) (elem))
-   (compound-paragraph (bootstrap-sectioning-style "BootstrapOverview") (decode-flow body))
+   (nested #:style (bootstrap-sectioning-style "BootstrapOverview") 
+           (list body)) ;(decode-flow body))
    ))
 
 (declare-tags pedagogy)
