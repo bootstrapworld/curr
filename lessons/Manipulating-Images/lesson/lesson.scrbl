@@ -49,7 +49,8 @@
                                   "red")}
                             This sets students up to see @code{overlay} as a logical extension - instead of image-producing Circles of Evaluation with number-producing subexpressions, there can be image-producing Circles with @italic{image-producing} subexpressions.}
                    }
-           @point{@student{Using @code{overlay}, we could make a picture of a satellite. Take a look at the code below, then hit "enter" and see what shape it makes! Can you change the color of the circle? The size of the rectangle? Can you use @code{overlay} to put a star on top of both the star @italic{and} the rectangle? If you want to reset the editor, hit the refresh button (&#x27F3) below.
+           @point{@student{Using @code{overlay}, we could make a picture of a satellite. Take a look at the code below, then hit "enter" and see what shape it makes! Can you change the color of the circle? The size of the rectangle? Can you use @code{overlay} to put a star on top of both the star @italic{and} the rectangle? 
+@;If you want to reset the editor, hit the refresh button (&#x27F3) below.
           @embedded-wescheme[#:id "manipulating-images1"
                                   #:height 100
                                   #:hide-toolbar? #t
@@ -62,12 +63,12 @@
                    @teacher{Before students type in the code and try it out, ask the class what they think will happen - what will the size be? The color? The text?}}
                               
            @point{@student{@bitmap{images/rotated-spaceship.png}This satellite is flying level in the sky.  What if a strong wind were blowing, causing the satellite to fly slightly on its side, like the image seen here? Then, we would want the Racket @code{rotate} function:
-@code{
+@code[#:multi-line #t]{
 (rotate 30
         (overlay (circle 10 "solid" "blue")
-        (rectangle 30 8 "solid" "red")))
+                 (rectangle 30 8 "solid" "red")))
 }
-            Try copying and pasting this code into the editor, and see what shape you get. What happens if you change the numebr @code{30}?}
+            Try copying and pasting this code into the editor, and see what shape you get. What happens if you change the number @code{30}?}
                    @teacher{Have the class convert this code into a Circle of Evaluation.}}
                               
            @point{@student{@bitmap{images/circles-with-images.png}Let's look at this code, viewed as a Circle of Evaluation. Our @code{rotate} function is shown here, in the blue circle. @code{30} is the number of degrees we'll be rotating, and the second input is the @code{Image} we want to rotate. That image is @italic{the result of overlaying the circle and the rectangle}, shown here in red. By looking at this Circle of Evaluation, can you guess the contract for the @code{rotate} function?}
@@ -92,7 +93,7 @@
                                   #:interactions-text "(scale 0.5 (star 50 \"solid\" \"purple\"))"]}
                    @teacher{}}
                               
-           @point{@student{There are also functions for flipping an image horizontally or vertically, and for scaling images so they get bigger or smaler.  Here are contracts and purpose statements for those functions:
+           @point{@student{There are also functions for flipping an image horizontally or vertically, and for scaling images so they get bigger or smaller.  Here are contracts and purpose statements for those functions:
                            @code[#:multi-line ""]{; flip-horizontal : Image -> Image
                                                   ; Flip the given image on the horizontal (x) axis
                                                   

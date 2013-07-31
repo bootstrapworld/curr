@@ -31,7 +31,7 @@
                      @activity{Suppose we wanted to move diagonally. What would have to change about the Domain? The Range? The Purpose Statement?}}
              @teacher{Use a diagram on the board to demonstrate that @code{update-danger} will need to take in both the x- and the y-coordinate, and that it will have to produce both as well.}}
       @point{@student{While you've seen a function take in multiple values, you have never seen a function @italic{produce} more than one thing at a time.
-                       @bannerline{All functions must product one value.}}
+                       @bannerline{All functions must produce one value.}}
               @teacher{}
               }
       @point{@student{However, Racket actually allows us to create new kinds of data that can contain more than one thing. These are called @vocab{data structures}, or "structs" for short. One kind of struct that is useful to us is called a position, which Racket abbreviates @code{posn}.
@@ -45,7 +45,7 @@
                                }}
               @teacher{Have students make @code{Posn}s for other coordinates, like the corners of the screen or the center.}
               }
-      @point{@student{Thinking back to @code{update-danger}, we now know that the @vocab{Range} be a @code{posn}.
+      @point{@student{Thinking back to an @code{update-danger} that moves diagonally, we now know that the @vocab{Range} must be a @code{posn}.
                       @activity{Open to @worksheet-link[#:page 34 #:name "design-recipe"], and rewrite @code{update-danger} to produce a Posn instead of a Number. Instead of producing @code{(- x 50)}, your function will have to produce a Posn in which the x and y have changed in some way. Here's one example, which moves the danger left by 50 pixels and down by 10:
                                @code[#:multi-line #t]{(EXAMPLE (update-danger 200 300) (make-posn (- 200 50) (- 300 10))}
                                @itemlist[@item{Write a second example.}

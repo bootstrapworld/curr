@@ -39,8 +39,8 @@
                                                             (define blank (rectangle 300 200 "outline" "black"))
                                                             ; 3) define "japan" to be the flag of japan (a red dot, centered on a blank rectangle)
                                                             (define japan (put-image dot
-                                                            150 100
-                                                            blank))}
+                                                                                     150 100
+                                                                                     blank))}
                                      @itemlist[@item{There are three values being defined here. What are they?}
                                                 @item{Click "Run" and evaluate each of those values in the Interactions window.}
                                                 @item{Change the size of the dot and click "Run". Do you expect @code{japan} to look different than it did before? Why or why not?}]}
@@ -56,7 +56,7 @@
                                     }}
                    @teacher{This is a good time to remind students about @bold{indenting}. Notice that all of the inputs to @code{put-image} line up with one another!}
           }
-           @point{@student{You've seen arithmetic functions nested before, such as @sexp{(+ 4 (+ 99 12))}. The second input to @code{+} is @italic{a number-producing subexpression}, in this case @code{+ 99 12}. @code{put-image} can be nested the same way. 
+           @point{@student{You've seen arithmetic functions nested before, such as @code{(+ 4 (+ 99 12))} @sexp{(+ 4 (+ 99 12))} (also shown as a Circle of Evaluation on the right). The second input to @code{+} is @italic{a number-producing subexpression}, in this case @code{(+ 99 12)}. @code{put-image} can be nested the same way. 
                    @activity{This Circle of Evaluation will draw a star on top of another image, which itself is a circle drawn inside a square. @sexp{(put-image (star 50 "solid" "black") 75 75 (put-image (circle 50 "solid" "red") 75 75 (square 150 "solid" "black")))} Convert this Circle of Evaluation into code, and try typing it into the computer. What image do you get back? Can you modify the code so that another image is added on top?}}
                    @teacher{Have students practice this once or twice, and point out the natural indenting pattern.}
                    }
@@ -66,7 +66,7 @@
                                                  @item{Which colors will you need?}
                                                  @item{Define a new value called @code{somalia}, which evaluates to this image.}]}}
                    @teacher{}}
-           @point{@student{@activity{Try to define as many of the ollowing flags as possible:
+           @point{@student{@activity{Try to define as many of the following flags as possible:
                                      @itemlist[@item{Indonesia @bitmap{images/indonesia.jpg}}
                                                 @item{Peru @bitmap{images/peru.jpg}}
                                                 @item{France @bitmap{images/france.jpg}}
