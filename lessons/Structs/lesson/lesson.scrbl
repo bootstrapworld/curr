@@ -46,7 +46,7 @@
               @teacher{Have students make @code{Posn}s for other coordinates, like the corners of the screen or the center.}
               }
       @point{@student{Thinking back to an @code{update-danger} that moves diagonally, we now know that the @vocab{Range} must be a @code{posn}.
-                      @activity{Open to @worksheet-link[#:page 34 #:name "design-recipe"], and rewrite @code{update-danger} to produce a Posn instead of a Number. Instead of producing @code{(- x 50)}, your function will have to produce a Posn in which the x and y have changed in some way. Here's one example, which moves the danger left by 50 pixels and down by 10:
+                      @activity{Start with a @(resource-link #:path "DesignRecipeWorksheet.pdf" #:label "blank Design Recipe"), and rewrite @code{update-danger} to produce a Posn instead of a Number. Instead of producing @code{(- x 50)}, your function will have to produce a Posn in which the x and y have changed in some way. Here's one example, which moves the danger left by 50 pixels and down by 10:
                                @code[#:multi-line #t]{(EXAMPLE (update-danger 200 300) (make-posn (- 200 50) (- 300 10))}
                                @itemlist[@item{Write a second example.}
                                           @item{Circle and label what changes.}
