@@ -57,6 +57,7 @@
          unit-summary/links
          summary-item/links
          summary-item/custom
+         summary-item/unit-link
          matching-exercise
          circeval-matching-exercise/code
          circeval-matching-exercise/math
@@ -812,6 +813,15 @@
 
 ;;@summary-item/links["Student Workbook" "resources/workbook/StudentWorkbook" #:ext1 "pdf" #:ext2 "odt"]{
 
+;; summary-item/unit-link string string content -> block
+;; generates summary entry in which unit name links to html version of lesson
+;;   (contrast to summary-item/links, which links to both html and pdf versions)
+(define (summary-item/unit-link name basefilename . descr)
+  (para #:style "BSUnitSummary"
+        (elem #:style "BSUnitTitle" (elem (hyperlink (format "~a.html" basefilename) name)))
+        ": "
+        descr))
+
 ;; summary-item/links : string string content -> block
 ;; generate a summary entry links to html and pdf versions as
 ;;   used on the main page for a course
@@ -841,10 +851,11 @@
 ;; unit-summary/links : number content -> block
 ;; generate the summary of a unit with links to html and pdf versions as
 ;;   used on the main page for the BS1 curriculum
+;; previously used summary-item/links (for both html/pdf links)
 (define (unit-summary/links num)
-  (summary-item/links (format "Unit ~a" num)
-                      (format "units/unit~a/the-unit" num)
-                      (get-unit-descr (format "unit~a" num))))
+  (summary-item/unit-link (format "Unit ~a" num)
+                          (format "units/unit~a/the-unit" num)
+                          (get-unit-descr (format "unit~a" num))))
 
 ;;;;;;;;;;;;; End of Generating Main Summary Page ;;;;;;;;;;;;;;;
 
