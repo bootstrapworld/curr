@@ -7,7 +7,7 @@
 
 @overview[#:gen-agenda? #f]{
           
-          Students will deepen their understanding of various concepts, either through continued practice and review, encountering more complicated material (structs), or through an educational field trip.
+@unit-descr{Students will deepen their understanding of various concepts, either through continued practice and review, encountering more complicated material (structs), or through an educational field trip.}
 }
 
 
