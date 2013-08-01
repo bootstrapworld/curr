@@ -50,6 +50,7 @@ div.content{
     background: lightgray;
     page-break-after: always;
     border: solid 1px black;
+    min-height: 100px;
 }
 
 /*Table Design*/
