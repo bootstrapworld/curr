@@ -1,5 +1,8 @@
 #lang curr/lib
-@(elem #:style "BSCourseName" "Bootstrap:2")
+
+
+@main-contents{
+¸@(elem #:style "BSCourseName" "Bootstrap:2")
 
 Would you like to attend a Bootstrap Workshop? Check our
 @(hyperlink "http://www.BootstrapWorld.org/workshops" "workshops page") to stay up-to-date on our workshop schedule. Don't see a workshop in your area? Let us know, and we'll work with you to bring one to your school or district.
@@ -45,3 +48,4 @@ for Mathematics, as well as the standards for Mathematical Practice. }
   ]
             
 @(copyright)
+}
