@@ -41,7 +41,7 @@
                 )
      ]{
        @points[@point{@student{Once you have a working game (will all your Contracts and EXAMPLEs included, of course!), it's time to think about how to present your work to others. Programmers spend a lot of time designing and writing their code, but they also spend time explaining their work to others. These might be other programmers on their team, other engineers within the company, or even non-technical people. Do you think you can explain your code to someone else?}
-                       @teacher{Students not finished with their games? You can use the last class to @lesson-link[#:name "Getting-things-done" #:label "get things done"], with a speed-focused game designed to get things done! Got time for a challenge? Try introducing them to @lesson-link[#:name "Structs" #:label "Data Structures"], to allow for 2-dimensional motion and more player control.}
+                       @teacher{Got time for a challenge? Try introducing them to @lesson-link[#:name "Structs" #:label "Data Structures"], to allow for 2-dimensional motion and more player control.}
                        }
                 @point{@student{@activity{Create a sample poster for your game! Every poster should have the following:
                                           @itemlist[@item{Your name(s), and the title of your game}
