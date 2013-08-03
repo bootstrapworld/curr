@@ -26,7 +26,7 @@
 @materials[@item{Computers w/DrRacket or WeScheme}
            @item{Student workbooks}
            @item{Language Table}
-           @item{The Completed Ninja World file [NWComplete.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=V8UEkAtsve" "WeScheme")] preloaded on students' machines}
+           @item{The Completed Ninja World file [NWComplete.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=SSJ5S3gDRD" "WeScheme")] preloaded on students' machines}
            @item{New background image for Ninja World level two [bg2.jpg from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] or your own 640 x 480 image}
            ]
 

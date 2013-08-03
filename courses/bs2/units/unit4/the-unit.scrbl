@@ -30,7 +30,7 @@ Students brainstorm their videogames, and derive the structure for their game wo
            @item{Student workbooks}
            @item{Design Recipe Sign}
            @item{Language Table}
-           @item{The Ninja World 2 file [NW2.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=PAATSRD5pE" "WeScheme")] preloaded on students' machines}
+           @item{The Ninja World 2 file [NW2.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=DtoM5S0yyH" "WeScheme")] preloaded on students' machines}
            ]
 
 @preparation[

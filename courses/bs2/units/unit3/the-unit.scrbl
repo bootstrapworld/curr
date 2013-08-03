@@ -31,7 +31,7 @@
            @item{Language Table}
            @item{The Autos file [Autos.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=P7qS37u1ZH" "WeScheme")] preloaded on students' machines}
            @item{The Party Planner file [Party.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=zLYLPQ5d6K" "WeScheme")] preloaded on students' machines}
-           @item{The Ninja World 1 file [NW1.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=6GDiMNDBDx" "WeScheme")] preloaded on students' machines}
+           @item{The Ninja World 1 file [NW1.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=NPU14Tr3c0" "WeScheme")] preloaded on students' machines}
            @item{update-world, big-bang, and draw-world nametags}
            @item{cutout image of dog}
            ]

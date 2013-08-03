@@ -30,7 +30,7 @@
            @item{Language Table}
 	   @item{Cutouts of Cat and Dog images}
            @item{Cutouts of Pythagorean Theorem packets [@(resource-link #:path "images/pythag1.png" #:label "1"), @(resource-link #:path "images/pythag2.png" #:label "2")] - 1 per cluster}
-           @item{The Ninja World 6 file [NW6.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=CxLm7aj7PW" "WeScheme")] preloaded on students' machines}
+           @item{The Ninja World 6 file [NW6.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=k6Bbnpu1nV" "WeScheme")] preloaded on students' machines}
            ]
 
 @preparation[
