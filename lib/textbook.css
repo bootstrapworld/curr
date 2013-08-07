@@ -225,7 +225,16 @@ span.challenge>div:before{content: 'Moving ahead...'}
   border-bottom:  solid 1px lightgray;
   list-style-type:none;
 }
-.segment ul.lesson li{
+
+
+/************************************************************************************
+ * INDIVIDUAL LESSON ITEMS
+ * lessonItems represent the smallest meaningful unit of content
+ * Each lessonItem contains a student and teacher DIV, and multiple
+ * possible components (activities, codeblocks, embedded WeSchemes, etc)
+*/
+
+li.lessonItem{
   width:          1270px;
   vertical-align: top;
   overflow:       hidden;
@@ -261,13 +270,8 @@ div.student{width: 780px; display: inline-block; -webkit-transition: width 0.5s 
 ul.teacherNotes li div.student{width: 500px;}
 ul.teacherNotes .embedded-wescheme{width: 500px;}
 
-
-/************************************************************************************
- * ELEMENTS THAT APPEAR WITHIN A LESSON
-*/
-
-/* show lists normally */
-.segment ul.lesson li li{
+/* show lists normally inside a lessonItem */
+li.lessonItem li{
   width:      100%;
   padding:    0px;
   list-style-position: inside;
