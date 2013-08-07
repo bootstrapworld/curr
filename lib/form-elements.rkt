@@ -582,6 +582,17 @@
 
 ;;;;;;;;;;;;; NEW LESSON FORMAT ;;;;;;;;;;;;;;;;;;
 
+(define (insert-teacher-toggle-button)
+  (if (audience-in? (list "teacher" "volunteer"))
+      (cond-element
+       [html (elem #:style (bootstrap-div-style "lessonToolbar")
+                   (sxml->element
+                    `(input (@ (type "button") 
+                               (value "Toggle Teacher Notes") 
+                               (onclick "showTeacherNotes(this);")) "")))]
+       [else (elem)])
+      (elem)))
+
 (define (insert-toggle-buttons)
   (if (audience-in? (list "teacher" "volunteer"))
       (cond-element
@@ -607,8 +618,9 @@
 (define (points . contents)
   (nested 
    (apply itemlist/splicing contents #:style (make-style "lesson" '(compact)))
-   "\n" "\n"
-   (insert-toggle-buttons)))
+   ;"\n" "\n"
+   ;(insert-toggle-buttons)
+   ))
 
 (define (point . contents)
   (item (nested (interleave-parbreaks/select contents)))) 
@@ -1533,6 +1545,7 @@
                     (apply language-table lang-table)
                     (language-table lang-table))
                 (elem))
+            (insert-teacher-toggle-button)
             ))))
                        
 
