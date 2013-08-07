@@ -588,8 +588,8 @@
        [html (elem #:style (bootstrap-div-style "lessonToolbar")
                    (sxml->element
                     `(input (@ (type "button") 
-                               (value "Toggle Teacher Notes") 
-                               (onclick "showTeacherNotes(this);")) "")))]
+                               (value "Show Teacher Notes") 
+                               (onclick "toggleTeacherNotes(this);")) "")))]
        [else (elem)])
       (elem)))
 
@@ -599,7 +599,7 @@
        [html (sxml->element
               `(center
                 (input (@ (type "button") (id "prev") (value "<<") (onclick "prevCard();")) "")
-                (input (@ (type "button") (value "Toggle Teacher Notes") (onclick "showTeacherNotes(this);")) "")
+                (input (@ (type "button") (value "Show Teacher Notes") (onclick "toggleTeacherNotes(this);")) "")
                 (input (@ (type "button") (id "next") (value ">>") (onclick "nextCard();")) "")
                 ))]
        [else (elem "")])
