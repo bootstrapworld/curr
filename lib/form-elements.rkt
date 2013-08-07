@@ -213,6 +213,13 @@
   (make-style name (cons (make-alt-tag "div")
                          css-js-additions)))
 
+(define (bootstrap-div-style/id name)
+  (make-style #f (cons (make-alt-tag "div")
+                       (cons 
+                        (make-attributes (list (cons 'class "")
+                                               (cons 'id name)))
+                        css-js-additions))))
+
 (define (bootstrap-span-style name)
   (make-style name (cons (make-alt-tag "span")
                          css-js-additions)))
@@ -585,11 +592,12 @@
 (define (insert-teacher-toggle-button)
   (if (audience-in? (list "teacher" "volunteer"))
       (cond-element
-       [html (elem #:style (bootstrap-div-style "lessonToolbar")
+       [html ;(elem #:style (bootstrap-div-style/id "lessonToolbar")
                    (sxml->element
-                    `(input (@ (type "button") 
-                               (value "Show Teacher Notes") 
-                               (onclick "toggleTeacherNotes(this);")) "")))]
+                    `(div (@ (id "lessonToolbar"))
+                          (input (@ (type "button") 
+                                    (value "Show Teacher Notes") 
+                                    (onclick "toggleTeacherNotes(this);")) "")))]
        [else (elem)])
       (elem)))
 
