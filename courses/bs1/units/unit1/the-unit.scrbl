@@ -17,7 +17,7 @@
      #:product-outcomes @itemlist[]
      #:standards (list)
      #:materials @itemlist[]
-     #:preparation @itemlist[]
+     #:preparation @itemlist[@item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/1USFPXkeO5AbGOzm_U0tMv4NV3RrxTMTyg-bqIKUf4q4/edit?usp=sharing" "Warmup activity sheet").}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -161,7 +161,6 @@
                 @teacher{@management{Be sure to consult with every team. A lot of students will have trouble fitting their ideas into this format, or they'll struggle with coordinates. Be clear about what can and cannot be done! (e.g. - no 3d games, joysticks, multiplayer games, etc. Hint: students who have a well-worded description of their images will be happier with any images you could find them. Try searching for "Person" versus "Jogger", for example.}}
                 }
         ]}
-
 
 @lesson/studteach[
      #:title "Order of Operations"
