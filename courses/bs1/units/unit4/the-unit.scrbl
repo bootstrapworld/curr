@@ -15,7 +15,8 @@
      #:overview "Students are formally introduced to the steps of the Design Recipe."
      #:learning-objectives @itemlist[@item{Students practice using Contracts to create examples of functions}
                                      @item{Students learn to abstract over examples to create functions}]
-     #:evidence-statements @itemlist[@item{Given a contract and purpose statement for a simple, one-variable function, students will be able to write two Examples}
+     #:evidence-statements @itemlist[@item{Given a definition, students will be able to identify the Name, Type and Value that is defined.}
+                                     @item{Given a contract and purpose statement for a simple, one-variable function, students will be able to write two Examples}
                                       @item{Given two examples for a simple function, students will be able to identify the variable}
                                       @item{Given two examples for a simple function, students will be able to write the definition}]
      #:product-outcomes @itemlist[@item{Students will use the Design Recipe to define a function, which is used to make a rocket fly.}]
@@ -27,7 +28,8 @@
      #:preparation @itemlist[@item{Write agenda on board}
                               @item{Display Class posters, Language Table, Design Recipe}
                               @item{"Rocket" [Rocket.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=KY4s7msuh6" "WeScheme")] preloaded on students' machines}
-                              @item{Seating arrangements: ideally clusters of desks/tables}]
+                              @item{Seating arrangements: ideally clusters of desks/tables}
+                              @item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/134VD2NShK_VxDog4VG4lMm4jTbpxm2H2cSXqZbHwwSg/edit?usp=sharing" "Warmup activity sheet").}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{Watch out for students confusing the rocket's height and time - many students will assume that the @code{rocket-height} function produces the time the rocket has been flying, rather than how high it is.}]}

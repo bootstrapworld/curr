@@ -20,7 +20,7 @@
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, language table, course calendar)}
                             @item{Language Table (see below)}]
-     #:preparation @itemlist[]
+     #:preparation @itemlist[@item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/1FN2uLBnwdk3N4Ci6-qf1n6z-M8KpToo27wqZmRlS5as/edit?usp=sharing" "Warmup activity sheet").}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -39,7 +39,7 @@
      #:overview "Students define names for simple values (Numbers, Strings and Images) and use them in expressions."
      #:learning-objectives @itemlist[]
      #:evidence-statements  @itemlist[@item{Students will be able to define names for Number, String and Image values.}
-                                      @item{Given a definition, students will be able to identify the Name, Type and Value that is defined.}
+                                       @item{Students will be able to identify the name, domain, range, and variable name for a function, when presented with a completed Design Recipe.}
                                       @item{Students will be able to explain what happens when the "Run" button is pressed.}]
      #:product-outcomes @itemlist[]
      #:standards (list)
@@ -76,11 +76,11 @@
                                             @item{On the next line, define a new value called @code{name} to be the String that represents your name.}]}
                         
                           @bannerline{Each time "Run" is clicked, the computer reads all of the definitions and adds them to the language. If a definition is changed, the computer will keep using the previous definition until the next time "Run" is clicked.}
-                          @activity{One a new line in the Definitions Window, define a value called @code{eyes} to be the color of your eyes.  Don't hit "Run" yet!  
-                                    @itemlist[@item{Go into the Interactions Window and try evaluating @code{eyes}.  You should get an error message that the computer doesn't know about @code{eyes}, because you didn't click "Run" after adding the definition.}
+                          @activity{One a new line in the Definitions Window, define a value called @code{eye-color} to be the color of your eyes.  Don't hit "Run" yet!  
+                                    @itemlist[@item{Go into the Interactions Window and try evaluating @code{eye-color}.  You should get an error message that the computer doesn't know about @code{eye-color}, because you didn't click "Run" after adding the definition.}
                                               @item{Click "Run".}
-                                              @item{Try asking for @code{eyes} in the Interactions Window again.  This time, you should not get the error.}]}
-                          Definitions are useful because we can reuse them in other expressions.  For example, we could use @code{eyes} inside another expression, such as @code{(circle 10 "solid" eyes)}.  Let's practice using definitions inside other expressions.
+                                              @item{Try asking for @code{eye-color} in the Interactions Window again.  This time, you should not get the error.}]}
+                          Definitions are useful because we can reuse them in other expressions.  For example, we could use @code{eye-color} inside another expression, such as @code{(circle 10 "solid" eye-color)}.  Let's practice using definitions inside other expressions.
                           @activity{Create the following definitions in the Definitions Window, and check them out in the Interactions Window:
                                     @itemlist[@item{Define a value called @code{prize} to be a solid yellow star (you pick the size).}
                                               @item{Define a value called @code{big} that uses @code{scale} to make your @code{prize} three times larger.}
@@ -107,7 +107,7 @@
      #:standards (list)
      #:materials @itemlist[@item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders with names on covers.}]
      #:preparation @itemlist[@item{Create student game files. [See the (teachers-only) @resource-link[#:path "teachers/teachers-guide/teachers-guide.html" #:label "Teachers Guide"]]}
-                              @item{On student machines: Student Game Files (generated from "Game" template [Game.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=Q1X9Y8ZayX" "WeScheme")])}]
+                              @item{On student machines: Student Game Files (generated from "Game" template [Game.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=Y36jKsvXsZ" "WeScheme")])}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
