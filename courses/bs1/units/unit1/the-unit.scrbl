@@ -30,7 +30,7 @@
                                Connect the material that's to come with things students already know:
                               @itemlist[@item{Talk to them about what makes a language - especially if you have students who speak a second or third language}
                                          @item{Programming is very much a language, with it's own syntax, semantics, etc}
-                                         @item{Ask students about their favorite videogames. Be open about the scale of a modern game: they cost millions of dollars, are build by huge teams of programmers and artists, and are developed over years.}
+                                         @item{Ask students about their favorite videogames. Be open about the scale of a modern game: they cost millions of dollars, are built by huge teams of programmers and artists, and are developed over years.}
                                          @item{Set expectations about what can be accomplished in a single, introductory programming class.}]}
                      }
               ]
