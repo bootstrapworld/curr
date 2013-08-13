@@ -37,8 +37,11 @@
 }
 }
 @(include-lesson (lib "curr/lessons/Intro-Unit9/lesson/lesson.scrbl"))
+
 @(include-lesson (lib "curr/lessons/Randomizing-Ninja-World/lesson/lesson.scrbl"))
+
 @(include-lesson (lib "curr/lessons/Scoring-and-Levels/lesson/lesson.scrbl"))
+
 @(include-lesson (lib "curr/lessons/Nested-Structures/lesson/lesson.scrbl"))
 
 
