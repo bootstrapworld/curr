@@ -9,9 +9,9 @@
 @item{The name of the theme? Like @code{"50s"}? Or @code{"laser tag"}? String. How about the guests? Number.}
 @item{So how would we write the next line on page 13? @code{;a party is a ______}}
 @item{Now let's fill out the next bit. Look above, at how you did it for auto. What were the three parts of a party? location, theme and guests. @tag[pedagogy]{Take twenty seconds to finish that page.}}
-@item{@tag[pedagogy]{When I say go, turn on your monitors and open the party planner file.}@tag[selftaught]{Open up the party planner file.} At the top of the definitions window, take a look at the first two lines. Do they match what you have written?}
+@item{@pedagogy{When I say go, turn on your monitors and open the party planner file.}@tag[selftaught]{Open up the party planner file.} At the top of the definitions window, take a look at the first two lines. Do they match what you have written?}
 @item{Take a minute and define your own party struct. No matter what it is, make sure that it has the right types of things in the right order.}
-@item{@tag[pedagogy]{5, 4, 3, 2, 1, monitors off. }Let's write some more contracts: turn to your contracts sheet. Which function did we use to make a party? @code{make-party}. What would its contract be?}
+@item{@pedagogy{5, 4, 3, 2, 1, monitors off. }Let's write some more contracts: turn to your contracts sheet. Which function did we use to make a party? @code{make-party}. What would its contract be?}
 @item{Which function did we use to get the model out of an auto? How did we get the color out of an auto? So how would you get the location out of the party? @code{party-location}.}
 @item{Which other two functions can we write, now that we've defined our party struct? Can you write their contracts?}
 @item{Now let's write some functions using our party struct. Remember, we're party planners, so we need to be able to change information for each party. Turn to @worksheet-link[#:page 14 #:name "RSVP"]. @tag[pedagogy]{Let's do the first one together. }Here's your problem statement: Write a function called @code{RSVP}, which takes in a party and adds one to its number of guests.}
