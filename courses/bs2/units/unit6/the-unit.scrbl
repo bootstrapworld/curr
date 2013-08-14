@@ -7,7 +7,7 @@
 
 @overview{
     
-@unit-descr{Students return to the subject of partial functions, this time defining a key-event handler that modifies their world on when certain keys are pressed.}
+@unit-descr{Students return to the subject of partial functions, this time defining a key-event handler that modifies their world when certain keys are pressed.}
 
 @objectives[@item{Extend their understanding of events to cover key-events}
             @item{Deepen their knowledge of conditionals, by combining them with struct accessor and constructor functions.}
@@ -28,7 +28,7 @@
            @item{Language Table}
            @item{Signs for kids, entitled "update-world", "draw-world" and "big-bang"}
            @item{Cutout images of the dog and ruby}
-           @item{The Ninja World 4 file [NW4.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=hxsj0DKmyG" "WeScheme")] preloaded on students' machines}
+           @item{The Ninja World 4 file [NW4.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=VFrG3KV1pW" "WeScheme")] preloaded on students' machines}
            ]
 
 @preparation[
