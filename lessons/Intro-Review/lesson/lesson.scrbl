@@ -9,19 +9,19 @@
            @item{Step 1: Contract and Purpose Statement @itemlist/splicing[
                  @item{Okay, what's the name of the function? double-radius! We know it takes in a radius and a color, so what is double-radius's domain? A number and a string! And what do you think the range is? Image! And what does it do? Can you tell me in English?}
 @code[#:multi-line #t]{; double-radius: Number String -> Image
-; makes an outline circle that's twice the radius}]}
+; makes an outlined circle that's twice the radius}]}
            @item{Step 2: Examples @itemlist/splicing[
                  @item{In your workbook, you will need to write at least two examples of how someone would use this function, and then what those expressions should become.} 
                  @item{How would someone else use @code{double-radius}?}
                  @item{We can look at the contract we just wrote to figure it out! We know that the name is @code{double-radius}, so we can call it using that name. If I write @code{(double-radius 50 "pink")}, describe the circle I should get back.}
            @item{Outline, 100, pink. And how would I make that circle, using Racket code?}
            @item{Can you give another example, and tell me what circle I'd get back?}
-           @item{What is changing?? Circle everything that's different between the second part of these two examples: the size! @tag[pedagogy]{(write the name, to label it)}}
+           @item{What is changing?? Circle everything that's different between the second part of these two examples: the size! @pedagogy{(write the name, to label it)}}
 @code[#:multi-line #t]{(EXAMPLE (double-radius 50 "pink")
 (circle (* 50 2) "outline" "pink"))
 
 (EXAMPLE (double-radius 918 "orange")
-		(circle (* 918 2) "outline" "orange"))}]}
+(circle (* 918 2) "outline" "orange"))}]}
            
            @item{Step 3: Definition @itemlist/splicing[
            @item{How do we start our definition? @code{define}! Then we look back at our examples for help.}

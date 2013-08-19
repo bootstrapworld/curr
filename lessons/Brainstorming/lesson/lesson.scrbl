@@ -2,7 +2,7 @@
 
 @declare-tags[group pedagogy selftaught]
 @lesson[#:title "Game Brainstorming"
-        #:duration "20 minutes"]{
+        #:duration "15 minutes"]{
           @itemlist/splicing[
             @item{@tag[pedagogy]{All of you have been working with structures for the last three lessons, and you've gotten really good at defining, making and accessing them.} Today, you're going to define the World structure for YOUR GAMES!}
             @item{Suppose I have a racing game, where my player is at the bottom of the screen, sitting in their car. In front of them, I have two lanes, with cars coming at me as I catch up to them. To move out of the way, I need to change into the left or right lane of the road. What are all the things I need to keep track of in my game? @itemlist/splicing[

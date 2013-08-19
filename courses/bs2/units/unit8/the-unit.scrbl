@@ -10,7 +10,7 @@
 @unit-descr{Students return to the Pythagorean Theorem and distance formula they used in Bootstrap 1, this time with data structures and the full update-world function.}
 
 @objectives[@item{Reinforce their understanding of the distance formula}
-            @item{Identify collision as yet another sub-domain which require different behavior of the update-world function}
+            @item{Identify collision as yet another sub-domain which requires different behavior of the update-world function}
           ]
 
 @product-outcomes[
@@ -29,7 +29,8 @@
            @item{Design Recipe Sign}
            @item{Language Table}
 	   @item{Cutouts of Cat and Dog images}
-           @item{The Ninja World 6 file [NW6.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=CxLm7aj7PW" "WeScheme")] preloaded on students' machines}
+           @item{Cutouts of Pythagorean Theorem packets [@(resource-link #:path "images/pythag1.png" #:label "1"), @(resource-link #:path "images/pythag2.png" #:label "2")] - 1 per cluster}
+           @item{The Ninja World 6 file [NW6.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=k6Bbnpu1nV" "WeScheme")] preloaded on students' machines}
            ]
 
 @preparation[
