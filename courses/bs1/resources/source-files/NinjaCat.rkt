@@ -28,24 +28,29 @@
 
 ; draw-world
 (define (draw-world w)
-  (overlay/align "middle" "top"
-                 (text (string-append "NinjaCat!                   Score:"
-                                      (number->string (world-score w))) 18 "white")
-                 (place-image (text "Use arrow keys to move. Jump on the dog and catch the ruby!" 12 "white")
-                              320 30
-                 (place-image player-image
-                            (player-x (world-player w))
-                            (player-y (world-player w))
-                            (place-image cloud-image
-                                         (thing-x (world-thing3 w))
-                                         (thing-y (world-thing3 w))
-                                         (place-image ruby-image
-                                                      (thing-x (world-thing2 w))
-                                                      (thing-y (world-thing2 w))
-                                                      (place-image dog-image
-                                                                   (thing-x (world-thing1 w))
-                                                                   (thing-y (world-thing1 w))
-                                                                   bg-image)))))))
+  (cond
+    [(game-over w)
+     (place-image (text "Game Over! Press the spacebar to play again." 20 "white")
+                  320 240
+                  (rectangle 640 480 "solid" "black"))]
+    [else (place-image (text (string-append "NinjaCat!                                              Score:"
+                                            (number->string (world-score w))) 20 "white")
+                       310 10   
+                       (place-image (text "Use arrow keys to move. Jump on the dog and catch the ruby!" 12 "white")
+                                    320 30
+                                    (place-image player-image
+                                                 (player-x (world-player w))
+                                                 (player-y (world-player w))
+                                                 (place-image cloud-image
+                                                              (thing-x (world-thing3 w))
+                                                              (thing-y (world-thing3 w))
+                                                              (place-image ruby-image
+                                                                           (thing-x (world-thing2 w))
+                                                                           (thing-y (world-thing2 w))
+                                                                           (place-image dog-image
+                                                                                        (thing-x (world-thing1 w))
+                                                                                        (thing-y (world-thing1 w))
+                                                                                        bg-image))))))]))
 ; update a thing
 (define (update-thing t)
   (make-thing (- (thing-x t) (thing-speed t)) (thing-y t) (thing-speed t)))
@@ -64,13 +69,14 @@
 
 ; collide? 
 (define (collide? p t)
-  (< (player-distance p t) 150))
+  (< (player-distance p t) 130))
 
 ; update the world
 (define (update-world w)
   (cond
-    ((and (collide? (world-player w) (world-thing1 w))
-          (> (player-y (world-player w)) 200)
+    [(game-over w) w]
+    [(and (collide? (world-player w) (world-thing1 w))
+          (> (player-y (world-player w)) 250)
           (< (player-y (world-player w)) 300))
      (make-world (+ (world-score w) 10)
                  (world-timer w)  
@@ -78,76 +84,76 @@
                               200)
                  (make-thing -1000 0 0)
                  (world-thing2 w)
-                 (world-thing3 w)))
-    ((collide? (world-player w) (world-thing2 w))
+                 (world-thing3 w))]
+    [(collide? (world-player w) (world-thing2 w))
      (make-world (+ (world-score w) 1)
                  (world-timer w)
                  (update-player (world-player w))
                  (update-thing (world-thing1 w))
                  (make-thing -400 0 0)
-                 (update-thing (world-thing3 w))))
-    ((< (thing-x (world-thing1 w)) 0) 
+                 (update-thing (world-thing3 w)))]
+    [(< (thing-x (world-thing1 w)) 0) 
      (make-world (world-score w)
                  (- (world-timer w) 1)
                  (update-player (world-player w))
                  (make-thing 700 390  5)
                  (update-thing (world-thing2 w))
-                 (update-thing (world-thing3 w))))
-    ((< (thing-x (world-thing2 w)) 0) 
+                 (update-thing (world-thing3 w)))]
+    [(< (thing-x (world-thing2 w)) 0) 
      (make-world (world-score w)
                  (- (world-timer w) 1)
                  (update-player (world-player w))
                  (update-thing (world-thing1 w))
                  (make-thing 1500 200 5)
-                 (update-thing (world-thing3 w))))
-    ((< (thing-x (world-thing3 w)) 0)
+                 (update-thing (world-thing3 w)))]
+    [(< (thing-x (world-thing3 w)) 0)
      (make-world (world-score w)
                  (- (world-timer w) 1)
                  (update-player (world-player w))
                  (update-thing (world-thing1 w))
                  (update-thing (world-thing2 w))
-                 (make-thing 700 (random 200) 5)))
-    (else (make-world (world-score w)
+                 (make-thing 700 (random 200) 5))]
+    [else (make-world (world-score w)
                       (- (world-timer w) 1)
                       (update-player (world-player w))
                       (update-thing (world-thing1 w))
                       (update-thing (world-thing2 w))
-                      (update-thing (world-thing3 w))))))
+                      (update-thing (world-thing3 w)))]))
 
 ; keypress
 (define (keypress w k)
   (cond
-    ((and (string=? k "up") (>= (player-y (world-player w)) 320))
+    [(and (game-over w) (string=? k " ")) START]
+    [(and (string=? k "up") (>= (player-y (world-player w)) 320))
      (make-world (world-score w)
                  (world-timer w)
                  (make-player (player-x (world-player w))
                               100)
                  (world-thing1 w)
                  (world-thing2 w)
-                 (world-thing3 w)))
-    ((and (string=? k "right") (< (player-x (world-player w)) 600))
+                 (world-thing3 w))]
+    [(and (string=? k "right") (< (player-x (world-player w)) 600))
      (make-world (world-score w)
                  (world-timer w)
                  (make-player (+ (player-x (world-player w)) 20)
                               (player-y (world-player w)))
                  (world-thing1 w)
                  (world-thing2 w)
-                 (world-thing3 w)))
-    ((and (string=? k "left") (> (player-x (world-player w)) 50))
+                 (world-thing3 w))]
+    [(and (string=? k "left") (> (player-x (world-player w)) 50))
      (make-world (world-score w)
                  (world-timer w)
                  (make-player (- (player-x (world-player w)) 20)
                               (player-y (world-player w)))
                  (world-thing1 w)
                  (world-thing2 w)
-                 (world-thing3 w)))
-    (else (make-world (world-score w)
+                 (world-thing3 w))]
+    [else (make-world (world-score w)
                       (world-timer w)
                       (world-player w)
                       (world-thing1 w)
                       (world-thing2 w)
-                      (world-thing3 w)))))
-
+                      (world-thing3 w))]))
 ; game over
 (define (game-over w)
   (and (collide? (world-player w) (world-thing1 w))
@@ -156,5 +162,4 @@
 (big-bang START
           (on-tick update-world .05)
           (on-draw draw-world)
-          (on-key keypress)
-          (stop-when game-over))
+          (on-key keypress))

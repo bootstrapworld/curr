@@ -55,7 +55,7 @@
                 )
       ]{
         @points[
-          @point{@student{Let's begin by exploring a simple videogame, and then figuring out how it works. Open @(hyperlink "http://www.wescheme.org/run.jsp?publicId=iK7rkNlvcS" "this link") in a new window (it is set to run automatically, so be ready!). Be sure to read the directions at the top of the screen so you know how to play!}
+          @point{@student{Let's begin by exploring a simple videogame, and then figuring out how it works. Open @(hyperlink "http://www.wescheme.org/view?publicId=LyMwExWayT" "this link") in a new window (it is set to run automatically, so be ready!). Be sure to read the directions at the top of the screen so you know how to play!}
                  @teacher{@management{Show the kids Ninjacat. Be sure to end on a frozen frame of the game, so the whole class can see the same image.}}
                  }
           
