@@ -365,7 +365,7 @@
                 @point{@student{@bitmap{images/NestedCircle.png}When a Circle of Evaluation has other circles inside of it, the translation still follows the same rules: each Circle requires a new set of parentheses: @code{(* 6 (+ 4 5))}
                                  @activity{@itemlist[@item{Try entering this code into the Interactions window. What should the program evaluate to when you hit Return?}
                                                      @item{Practice converting other Circles of Evaluation you've drawn into code.}]}}
-                        @teacher{}
+                        @teacher{@management{Scaffolding for Pair Programming: Talk to students about the roles of @italic{Driver} and @italic{Navigator}. The Driver is the student with their hands on the keyboard - they're in charge of typing, using the mouse, etc. The Navigator should be telling the Driver what to type, and pointing out mistakes or suggesting things. It's important to clarify what these roles are (perhaps reinforcing them with a visual), to ensure that both partners are active and talking to one another about the task at hand.}}
                         }
                
                 @point{@student{@bannerline{All of the expressions that follow the function name are called @vocab{arguments} to the function. The following diagram summarizes the shape of an expression that uses a function. @bitmap{images/ExpressionDiagram.png}}
