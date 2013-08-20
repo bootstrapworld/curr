@@ -325,6 +325,7 @@ div.banner{
 }
 /* Banner images are centered */
 div.banner img{float: none; margin-left: auto; margin-right: auto; display: block;}
+div.banner span.MathJax{display: block; clear: both;}
 
 div.embedded-wescheme-alt{
   display:        inline-block;
