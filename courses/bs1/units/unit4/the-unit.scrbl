@@ -30,6 +30,7 @@
                               @item{"Rocket" [Rocket.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=KY4s7msuh6" "WeScheme")] preloaded on students' machines}
                               @item{Seating arrangements: ideally clusters of desks/tables}
                               @item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/134VD2NShK_VxDog4VG4lMm4jTbpxm2H2cSXqZbHwwSg/edit?usp=sharing" "Warmup activity sheet").}]
+     #:prerequisites (list "Defining Functions")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{Watch out for students confusing the rocket's height and time - many students will assume that the @code{rocket-height} function produces the time the rocket has been flying, rather than how high it is.}]}
@@ -118,8 +119,8 @@
 
        
 @lesson/studteach[
-     #:title "Design Recipe Practice"
-     #:duration "50 minutes"
+     #:title "Practicing the Design Recipe"
+     #:duration "40 minutes"
      #:overview "Students use the Design Recipe to define simple functions (of one and two variables), given various word problems"
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[@item{Given a contract and purpose statement for a simple function, students will be able to write two Examples.}
@@ -212,8 +213,96 @@
                                  }
                          @teacher{If time allows, pass out extra Design Recipe worksheets [@resource-link[#:path "DesignRecipeWorksheet.pdf" #:label "PDF"] | @resource-link[#:path "DesignRecipeWorksheet.odt" #:label "Ooo"]], and have students practice with other word problems. Practice variations on red-square, involving two inputs changing while other parameters stay fixed.}
                         }
-                 ]}
-                                
+                 ]
+         }
+         
+@lesson/studteach[
+     #:title "The Design Recipe (Algebra)"
+     #:duration "40 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[]
+     #:standards (list)
+     #:materials @itemlist[]
+     #:preparation @itemlist[]
+     #:prerequisites (list "Practicing the Design Recipe") 
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{@points[@point{@student{The real power of programming isn't how well you know the language. It's about how well you can use it to solve problems! You've leared about a powerful tool that helps you take word problems on paper and turn them into functions on the computer: the @vocab{Design Recipe}! It turns out that the Design Recipe can also be used to help you solve word problems in algebra, too!
+@activity{Turn to @worksheet-link[#:page 36 #:name "DR"] in your workbooks, read the word problem careflly, and write down the contract for the fuction:
+                  @italic{"A rocket is flying from Earth to Mars at 80 miles per second. Write a function that describes the distance @math{D} the rocket has traveled, as a function of time @math{t}}."
+                  }}
+                        @teacher{}
+                        }
+                 @point{@student{The distance a rocket travels is measured in numbers of miles, and time is measured in numbers of seconds. This gives us the contract: 
+                                 @bannerline{@math{distance : Number \rightarrow Number}}
+                                 Just as before, the Contract gives us a strong hint about how to write the Examples. Here is one Example, written in Racket code:  @code{(EXAMPLE (distance 5) (* 5 80))}  Here's the same example, written in algebra: @math{distance(5) = 5 \times 80}
+                                 @activity{Write two additional Examples for this function, using Algebraic notation.}
+                                 }
+                         @teacher{Point out that the Contract hasn't changed @italic{at all} between Racket and Algebra. @management{If students are struggling with the change in syntax, let them first write the Examples in Racket, and then convert them to Algebra by following the model shown here.}}
+                         }
+                 @point{@student{As before, a function's variables can be identified by writing two Examples, and looking at what changes between them.
+                                 @activity{Using the Examples you've written, identify the variable(s) for the function. Then define the function @italic{using Algebraic syntax}.}}
+                         @teacher{}
+                         }
+                 @point{@student{The Design Recipe helps transition from a written description of a function into a formal definition, 
+                                 @bannerline{@math{distance(4) = 4 \times 80}
+                                              @math{distance(7) = 7 \times 80}
+                                              @math{distance(t) = t \times 80}}}
+                         @teacher{}}
+                 @point{@student{@activity{Turn to @worksheet-link[#:page 37 #:name "DR2"] in your workbooks, read the word problem, and write down the Contract for the function described there: @italic{"A rocket is traveling from Earth to Mars at 80 miles per second. Write a function that describes the time the rocket has been traveling, as a function of distance."}
+                                                   }}
+                         @teacher{Point out that this is the same relationship between distance and time as before, @bold{only now we want be able to see the relationship from the opposite direction}: time in terms of distance, rather than distance in terms of time.}
+                         }
+            @point{@student{Once we have the Contract, it's easy to write Examples:
+                            @math{time : miles \rightarrow seconds}
+                            @activity{Use the Contract to write two Examples for this function, then identify the variable(s) for the function. 
+                                      @itemlist[@item{How many variables does this function have?}
+                                                 @item{Name the variable(s).}
+                                                 @item{Define this function, using Algebraic syntax.}]}}
+                    @teacher{}
+                    }
+            @point{@student{Once your function is set up, it's easy to just plug in values and get answers back. @italic{With most word problems, the hard part is setting up the function in the first place.} Luckily, the Design Recipe makes setting up that function a lot easier! We've just used it to set up two different functions, which could be used to give us answers in terms of distance or time. Defining functions is like building tools, which you can to solve simple problems or combine together to solve more complex ones.
+                    @activity{Suppose you wanted to know how far the rocket traveled in 6 seconds: which of the two functions here would you use? What if you wanted to know how long it takes for the rocket to go a thousand miles?}}
+            @teacher{Ask students to identify which function they would use to answer a variety of different questions.}
+            }
+            @point{@student{@activity{Turn to @worksheet-link[#:page 38 #:name "DR3"] in your workbooks, read the word problem carefully: @italic{"A rocket leaves Earth, headed for Mars at 80 miles per second. At the exact same time, an asteroid leaves Mars traveling towards Earth, moving at 70 miles per second. If the distance from the Earth to Mars is 50,000,000 miles, how long will it take for them to collide?"}
+                                                    @itemlist[@item{What are the facts that the problem @bold{gives you}?}
+                                                               @item{What is the problem @bold{asking you for}?}
+                                                               @item{Use your answers to complete the following sentence: "Given ____, write a function that produces ____."}
+                                                               @item{If such this function existed, what would be a good name for it?}]}}
+                                   @teacher{Ultimately, the problem is asking students about a functional relationship between distance and collision-time.}
+                                   }
+                            @point{@student{If we had a function that computed collision-time, it would be easy to answer this question just by plugging in the distance between the Earth and Mars. Rather than start worrying about setting up an equation, you can use the Design Recipe to build the function itself!
+                                            @activity{Write down the contract for this function, then write two Examples using different distances.}}
+                                    @teacher{}
+                                    }
+                            @point{@student{By now, you've got the contract for this function and a good purpose statement:
+                                            @bannerline{@math{collide : distance \rightarrow  time}
+                                                         @math{collide(0) = ...}}}
+                                    @teacher{}
+                                    }
+                             @point{@student{So now we need to figure out what calculations go after the equals sign. Luckily, we have a hint: we know that whatever is it HAS to come out to zero, since we know that they've already collided when they are zero miles apart. 
+                                             @activity{If the rocket is going 80 miles/second, and the asteroid is going 70 miles/second, @italic{how fast are they approaching each other?}}}
+                                     @teacher{}
+                                     }
+                             @point{@student{@math{60 + 70 = 150}, so we know that they are getting closer and closer together at a rate of 150 miles per second. This isn't that different from our @code{time} function: we have some speed, and we want to know how much time it will take to go a given distance. So what do we write for our example?
+                                              @bannerline{@math{collide(0) = 0/150}}
+                                              @activity{Write two Examples of your own using different distances, then define the function so it works with any distance.}}
+                                     @teacher{}
+                                     }
+                             @point{@student{By now, you may already see the bigh pictures: the distance given in this problem can be plugged into the equation without having to define the function itself. Sometimes the Design Recipe will get you to the answer without even having to finish! Other times, however, you may not see the big picture until you've broken the problem down into smaller parts, each with it's own function.
+                                             @activity{Open your workbooks to @worksheet-link[#:page 39 #:name "DR4"], and practice using the Design Recipe to solve other problems.}}
+                                     @teacher{You can add as many pages as you like to the workbooks, using any algebra problem you like. We recommend using word problems from your students' algebra textbook, or even from your state's standardized test!}
+                                     }
+
+}
+       
+       
 @lesson/studteach[
      #:title "Closing"
      #:duration "5 minutes"
