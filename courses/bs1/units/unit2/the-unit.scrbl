@@ -3,16 +3,11 @@
 @declare-tags[management]
 
 @title{Unit 2: Contracts, Strings and Images}
-
 @unit-overview/auto[#:lang-table (list "Number" @code{+ - * / sq sqrt expt})]{
-
 @unit-descr{Students are introduced to a set-mapping representation for functions, in which the function object exists as a means of translating points
 from a Domain into a Range. Coupled with their understanding of Circles of Evaluation, students generalize their understanding of functions to
 include other datatypes, including Strings and Images.}
-
 }
-
-
 @lesson/studteach[
      #:title "Circles of Evaluation Review"
      #:duration "30 minutes"
@@ -22,7 +17,9 @@ include other datatypes, including Strings and Images.}
      #:product-outcomes @itemlist[@item{}]
      #:standards (list "N-Q" "A-SSE.1-2" "A-SSE.3-4" "A-REI.1-2" "MP.1" "MP.4" "MP.6" "MP.7")
      #:materials @itemlist[]
-     #:preparation @itemlist[@item{Student Workbooks, and something to write with}]
+     #:preparation @itemlist[@item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/1Qn59Fol2tspqOx6XQV88xm-IYsRGY769cb7MQeknSMA/edit?usp=sharing" "Warmup activity sheet").}
+                              @item{Student Workbooks, and something to write with.}]
+     #:prerequisites (list "Order of Operations")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -38,9 +35,6 @@ include other datatypes, including Strings and Images.}
                         }
                  ]
          }
-
-       
-       
 @lesson/studteach[
      #:title "Strings and Images"
      #:duration "20 minutes"
@@ -60,6 +54,7 @@ include other datatypes, including Strings and Images.}
      #:standards (list "N-Q" "A-SSE.1-2" "F-IF.1-3" "MP.1" "MP.4" "MP.6" "MP.7")
      #:materials @itemlist[@item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}]
      #:preparation @itemlist[@item{Student Workbooks, and something to write with}]
+     #:prerequisites (list "Intro to Programming")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -142,8 +137,6 @@ include other datatypes, including Strings and Images.}
                      @teacher{For added practice, have students identify the type of each argument in each of those expressions. Going Further - If time allows, you can go further into @lesson-link[#:name "Manipulating-Images" #:label "Manipulating Images"] or @lesson-link[#:name "Making-Flags" #:label "Making Flags"].}
                      }
              ]}
-            
-          
 @lesson/studteach[
      #:title "Contracts"
      #:duration "35 minutes"
@@ -162,6 +155,7 @@ include other datatypes, including Strings and Images.}
      #:materials @itemlist[@item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}]
      #:preparation @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket}
                               @item{Student Workbooks, and something to write with}]
+     #:prerequisites (list "Intro to Programming")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -230,7 +224,7 @@ include other datatypes, including Strings and Images.}
                                                   @item{What is the Domain of this function?}
                                                   @item{What will this expression evaluate to?}]}                             
                              }
-                     @teacher{If you want to have students practice using @code{bitmap/url}, it is recommended that you use an image search-engine, such as @(hyperlink"https://images.google.com" "Google Images") or @(hyperlink "http://www.bing.com/images" "Bing Images"). Make sure that students know how to get the URL for the image itself, @italic{not the URL of the web page that contains the image.}}
+                     @teacher{If you want to have students practice using @code{bitmap/url}, it is recommended that you use an image search-engine, such as @(hyperlink "https://images.google.com" "Google Images") or @(hyperlink "http://www.bing.com/images" "Bing Images"). Make sure that students know how to get the URL for the image itself, @italic{not the URL of the web page that contains the image.}}
                      }
                @point{@student{Contracts help programmers write code, so it's always a good idea to write down contracts for each function you see. 
                                @activity{Can you figure out the contract for a function, just by looking at some sample code? Look at the code below, and see if you can write the @vocab{Name}, @vocab{Domain} and @vocab{Range} for the function being used.
@@ -266,6 +260,7 @@ include other datatypes, including Strings and Images.}
                                           ]}}
                        @teacher{Controlled practice with error messages helps students gain confidence in dealing with them later on.  It is fine if students don't spot the errors for themselves at first, though having students explain the problems in their own words should reinforce correct use of these functions later in the course.}}
              ]}
+       
 @lesson/studteach[
      #:title "Closing"
      #:duration "5 minutes"

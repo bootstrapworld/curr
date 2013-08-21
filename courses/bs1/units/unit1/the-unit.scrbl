@@ -91,6 +91,7 @@
      #:materials @itemlist[@item{Cutouts of  @resource-link[#:path "images/ninjacat.png" #:label "NinjaCat"],  @resource-link[#:path "images/dog.png" #:label "Dog"] and the  @resource-link[#:path "images/ruby.png" #:label "Ruby"]}
                             @item{Student Workbooks, and something to write with}]
      #:preparation @itemlist[@item{Student Workbooks, and something to write with}]
+     #:prerequisites (list "Dissecting a Demo")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -119,8 +120,7 @@
       
       @point{@student{@activity{Turn to @worksheet-link[#:page 2 #:name "Ninja-Cat-Coordinates"] in your game-planning workbook, and look at the project sheet that has a picture of the NinjaCat game. What are the coordinates at the bottom-left corner of the screen? Top-right? Center? For practice, label the coordinates at the midpoint of @italic{each side} of the screen, then label the coordinates of each of the characters.}}
               @teacher{}
-              }
-               ]
+              }]
    }
 
 @lesson/studteach[
@@ -291,6 +291,7 @@
      #:preparation @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket}
                               @item{Student Workbooks, and something to write with}
                               @item{Overhead projector}]
+     #:prerequisites (list "Order of Operations")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}

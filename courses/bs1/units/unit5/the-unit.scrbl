@@ -22,6 +22,7 @@
                             @item{Language Table (see below)}
                             @item{Bug Hunting [Bugs.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=lQUC6RJArG" "WeScheme")] file preloaded on students' machines, in front}]
      #:preparation @itemlist[]
+     #:prerequisites (list "Defining Functions")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -49,7 +50,8 @@
                             @item{All student computers should have their game templates pre-loaded, with their image files linked in}
                             @item{Class poster (List of rules, language table, course calendar)}
                             @item{Language Table (see below)}]
-     #:preparation @itemlist[]
+     #:preparation @itemlist[@item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/1i3WQ4Q58Wn6fhqxEz027KDcUHIewtk-wLPQzJalCFt0/edit?usp=sharing" "Warmup activity sheet").}]
+     #:prerequisites (list "Game Images" "The Design Recipe")
      #:pacings (list 
                 @pacing[#:type "remediation"]{At this point, students should be very comfortable with the Design Recipe. If they are struggling, try reviewing the Contract with them first, then having a student act out the function. Ask that student what their name is, what they are expecting to be given, and what they will produce. Have them simulate a function call by calling out their name ("update-danger") and giving them an x-coordinate (they should produce a number that is 50 fewer than what they were given). Then refer back to this skit when writing Examples: the call-and-response is exactly how the code should behave, with students only having to write the code for whatever work your volunteer was doing in their head.}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -97,6 +99,7 @@
      #:standards (list "N-Q" "A-CED.1-4" "F-IF.1-3" "F-IF.7-9" "F-BF.1-2" "F-LE.5")
      #:materials @itemlist[]
      #:preparation @itemlist[]
+     #:prerequisites (list "Brainstorming" "The Design Recipe")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}

@@ -298,9 +298,8 @@
                              @point{@student{By now, you may already see the bigh pictures: the distance given in this problem can be plugged into the equation without having to define the function itself. Sometimes the Design Recipe will get you to the answer without even having to finish! Other times, however, you may not see the big picture until you've broken the problem down into smaller parts, each with it's own function.
                                              @activity{Open your workbooks to @worksheet-link[#:page 39 #:name "DR4"], and practice using the Design Recipe to solve other problems.}}
                                      @teacher{You can add as many pages as you like to the workbooks, using any algebra problem you like. We recommend using word problems from your students' algebra textbook, or even from your state's standardized test!}
-                                     }
-
-}
+                                     }]
+         }
        
        
 @lesson/studteach[
@@ -325,12 +324,3 @@
                         }
                         ]}
 @copyright[]
-
-                                
-
-                   
-                                 
-                              
-               
-                           
-   

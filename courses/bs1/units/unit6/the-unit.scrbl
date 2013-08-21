@@ -20,7 +20,7 @@
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, language table, course calendar)}
                             @item{Language Table (see below)}]
-     #:preparation @itemlist[]
+     #:preparation @itemlist[@item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/1WvlflsKM28IOwgyV2HttnGxul3sAUnL0-KOZhvb6C2s/edit?usp=sharing" "Warmup activity sheet").}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -44,6 +44,7 @@
                             @item{Class poster (List of rules, language table, course calendar)}
                             @item{Language Table (see below)}]
      #:preparation @itemlist[]
+     #:prerequisites (list "Intro to Programming" "Contracts")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -95,7 +96,7 @@ uses a new function that @italic{compares Numbers}, returning
                             @item{Class poster (List of rules, language table, course calendar)}
                             @item{Language Table (see below)}]
      #:preparation @itemlist[@item{"Cage" [Cage.rkt from @(resource-link #:path "source-files.zip" #:label "source-files.zip") | @(hyperlink "http://www.wescheme.org/openEditor?publicId=bM6VNiLdkv" "WeScheme")] preloaded on student machines.}]
-     #:prerequisites "Introducing-the-Design-Recipe Coordinate-Planes Intro-to-Booleans"
+     #:prerequisites (list "Booleans" "The Design Recipe")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{Many students struggle with the idea that "false" means "wrong". When students write EXAMPLEs for these functions, they will often avoid using "unsafe" coordinates, because they don't want to have an expression be "wrong". Remind them that these functions @bold{should} return false sometimes!}]}
@@ -167,7 +168,7 @@ uses a new function that @italic{compares Numbers}, returning
                             @item{Class poster (List of rules, language table, course calendar)}
                             @item{Language Table (see below)}]
      #:preparation @itemlist[]
-     #:prerequisites "Intro-to-Booleans Contracts"
+     #:prerequisites (list "Booleans" "Contracts")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{Many students struggle with the idea that "false" means "wrong". When students write EXAMPLEs for these functions, they will often avoid using "unsafe" coordinates, because they don't want to have an expression be "wrong". Remind them that these functions @bold{should} return false sometimes!}]}
@@ -195,10 +196,9 @@ uses a new function that @italic{compares Numbers}, returning
 ; Returns true if EITHER of the inputs are true}}
                         @teacher{}}
                 @point{@student{@activity{Complete @worksheet-link[#:page 20 #:name "AND-and-OR"] in your workbook.}}
-                        @teacher{}}
-                                                   
-                                                   
-                       ]}                                                                                                     
+                        @teacher{}
+                        }]
+        }                                                                                             
 
 @lesson/studteach[
      #:title "onscreen? 2.0"
@@ -219,7 +219,7 @@ uses a new function that @italic{compares Numbers}, returning
                             @item{Class poster (List of rules, language table, course calendar)}
                             @item{Language Table (see below)}]
      #:preparation @itemlist[]
-     #:prerequisites "onscreen? 1.0 and/or"
+     #:prerequisites (list "onscreen? 1.0" "and/or")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}

@@ -26,7 +26,7 @@
                            @item{Language Table (see below)}
                           ]
      #:preparation @itemlist[]
-     #:prerequisites "Coordinate-Planes Introducing-the-Design-Recipe Cond-Example-With-Pizza-Toppings"
+     #:prerequisites (list "Luigi's Pizza" "Coordinate Planes")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -85,8 +85,8 @@
                            @item{Class posters (List of rules, basic skills, course calendar)}
                            @item{Language Table (see below)}
                           ]
-     #:preparation @itemlist[]
-     #:prerequisites "Coordinate-Planes Introducing-the-Design-Recipe 1D Distance"
+     #:preparation @itemlist[ @item{REQUIRED: Hand out @(hyperlink "https://docs.google.com/document/d/1Vkaz30B8AAaze6fMiFJypFb1bOIeH0RzkeaBLCCPf9E/edit?usp=sharing" "Warmup Activity Sheet").}]
+     #:prerequisites (list "1D Distance")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -138,7 +138,7 @@
                            @item{Class posters (List of rules, basic skills, course calendar)}
                            @item{Language Table (see below)}
                           ]
-     #:prerequisites "Distance-Formula Collision-Introduction"
+     #:prerequisites (list "2D Distance" "and/or")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}

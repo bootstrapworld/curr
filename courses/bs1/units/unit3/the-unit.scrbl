@@ -48,6 +48,7 @@
                             @item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}
                             @item{Language Table (see below)}]
      #:preparation @itemlist[]
+     #:prerequisites (list "Intro to Programming" "Contracts")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -146,7 +147,7 @@
      #:materials @itemlist[@item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders with names on covers.}]
      #:preparation @itemlist[@item{Create student game files. [See the (teachers-only) @resource-link[#:path "teachers/teachers-guide/teachers-guide.html" #:label "Teachers Guide"]]}
                               @item{On student machines: Student Game Files (generated from "Game" template [Game.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=Y36jKsvXsZ" "WeScheme")])}]
-     #:prerequisites (list "Defining Values" "Contracts" "Strings and Images")
+     #:prerequisites (list "Defining Values" "Strings and Images" "Brainstorming")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -205,6 +206,7 @@
      #:standards (list "A-CED.1-4" "A-SSE.1-2" "F-IF.1-3" "F-IF.7-9" "F-BF.1-2")
      #:materials @itemlist[@item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders with names on covers.}]
      #:preparation @itemlist[]
+     #:prerequisites (list "Contracts" "Stings and Images" )
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
