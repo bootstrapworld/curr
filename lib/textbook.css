@@ -9,7 +9,6 @@ body{
 
 div.content{
 	max-width:		800px; 
-	border:       solid 1px gray;
 	background:		rgba(255, 255, 255, .3);
 }
 
