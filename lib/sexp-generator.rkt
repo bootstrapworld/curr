@@ -8,7 +8,7 @@
 (provide gen-arith-sexp)
 
 (define MATHOPS '(+ * -))
-(define MAXNUM 99)
+(define MAXNUM 25)
 
 ;; generate number between 1 and MAXNUM, inclusive
 (define (gen-num)

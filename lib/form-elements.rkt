@@ -63,6 +63,11 @@
          circeval-matching-exercise/math
          gen-random-arith-sexp
          sexp
+         sexp-answer
+         sexp->arith-str
+         exercise-handout
+         exercise-answers
+         create-itemlist
          
          ;; Sections
          worksheet
@@ -265,6 +270,8 @@
 (define bs-operator-style (bootstrap-span-style "operator"))
 (define bs-expression-style (bootstrap-span-style "expression"))
 (define bs-define-style (bootstrap-span-style "wescheme-define"))
+(define bs-handout-style (bootstrap-div-style "segment"))
+(define bs-exercise-style (bootstrap-paragraph-style "BootstrapExerciseItem"))
 
 ;; make-bs-latex-style : string -> style
 ;; defines a style that will only be used in latex
@@ -784,6 +791,13 @@
            (for/list ([stnd known-stnds])
              (item (elem (format "~a: ~a" (first stnd) (second stnd))))))))
 
+;; still need to figure out how to get ordered tag in here
+(define (create-itemlist #:ordered [ordered? #f] #:style [style #f] contents)
+  (let ([use-style (if (equal? style "exercise") bs-exercise-style #f)])
+    (apply itemlist/splicing
+           (for/list ([entry contents])
+             (item (elem #:style use-style entry))))))
+
 ;;;;;;;;;;;;;;;; END NEW LESSON FORMAT ;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; to add HEAD attributes, create an empty title element
@@ -1050,6 +1064,13 @@
         (sexp->block exp "sexp")
         (sexp->block exp form))))
 
+;; yields an error that + is an undefined identifier
+(define (sexp-answer sexp)
+  (let ([exp (if (string? sexp)
+                 (with-input-from-string sexp read)
+                 sexp)])
+    (eval exp)))
+
 ;; check whether line starts with ; to indicate a code comment
 (define (comment-line? aline)
   (char=? (string-ref aline 0) #\;))
@@ -1103,7 +1124,7 @@
 
 ;; Given a list of sexps as strings, create a matching exercise between
 ;;   the expressions and circle-of-eval forms.  Can optionally take the
-;;   list of permuted sexpstrs as a second argument (it don't want
+;;   list of permuted sexpstrs as a second argument (if don't want
 ;;   the permutation done automatically).  
 (define (circeval-matching-exercise/code sexplst . permutedstrs)
   (let ([textlst (map (lambda (str) (sexp str #:form "code")) sexplst)])
@@ -1121,6 +1142,16 @@
                      mathexps 
                      (map (lambda (str) (sexp str #:form "circofeval")) sexps)))
   
+;; tostring for sexps, useful in exercise generation
+(define (sexp->arith-str sexp #:wrap [wrap #f])
+  (cond [(number? sexp) (format "~a" sexp)]
+        [else
+         (let ([base (format "~a ~a ~a" 
+                             (sexp->arith-str (second sexp) #:wrap #t) 
+                             (first sexp) 
+                             (sexp->arith-str (third sexp) #:wrap #t))])
+           (if wrap (format "(~a)" base) base))]))
+                          
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -1556,6 +1587,29 @@
             (insert-teacher-toggle-button)
             ))))
                        
+(define (exercise-handout1 #:instr [instr ""]
+                          . body)
+  (nested #:style (bootstrap-div-style "content")
+          (list (nested #:style (bootstrap-div-style "segment")
+                        (interleave-parbreaks/all
+                         (list (para instr)
+                               body))))))
+
+(define (exercise-handout #:instr [instr ""]
+                          . body)
+  (nested
+   (nested-flow (bootstrap-div-style "content")
+                (decode-flow
+                 (list (nested #:style (bootstrap-div-style "segment")
+                               (interleave-parbreaks/all
+                                (list (para instr)
+                                      (nested body))))
+                       (para ""))))
+   ))
+
+(define (exercise-answers . body)
+  (list (section "Answer Key")
+        (nested body)))
 
 ;; Inputs: string [string] [string] [string] -> element
 ;;         optional argument supply answers for the workbook
