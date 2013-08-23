@@ -20,7 +20,7 @@
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, language table, course calendar)}
                             @item{Language Table (see below)}]
-     #:preparation @itemlist[]
+     #:preparation @itemlist[@item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/1FN2uLBnwdk3N4Ci6-qf1n6z-M8KpToo27wqZmRlS5as/edit?usp=sharing" "Warmup activity sheet").}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -34,12 +34,12 @@
 
        
 @lesson/studteach[
-     #:title "Defining Values"
+     #:title "Defining Variables"
      #:duration "10 minutes"
      #:overview "Students define names for simple values (Numbers, Strings and Images) and use them in expressions."
      #:learning-objectives @itemlist[]
      #:evidence-statements  @itemlist[@item{Students will be able to define names for Number, String and Image values.}
-                                      @item{Given a definition, students will be able to identify the Name, Type and Value that is defined.}
+                                       @item{Students will be able to identify the name, domain, range, and variable name for a function, when presented with a completed Design Recipe.}
                                       @item{Students will be able to explain what happens when the "Run" button is pressed.}]
      #:product-outcomes @itemlist[]
      #:standards (list)
@@ -48,6 +48,7 @@
                             @item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}
                             @item{Language Table (see below)}]
      #:preparation @itemlist[]
+     #:prerequisites (list "Intro to Programming" "Contracts")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -76,11 +77,11 @@
                                             @item{On the next line, define a new value called @code{name} to be the String that represents your name.}]}
                         
                           @bannerline{Each time "Run" is clicked, the computer reads all of the definitions and adds them to the language. If a definition is changed, the computer will keep using the previous definition until the next time "Run" is clicked.}
-                          @activity{One a new line in the Definitions Window, define a value called @code{eyes} to be the color of your eyes.  Don't hit "Run" yet!  
-                                    @itemlist[@item{Go into the Interactions Window and try evaluating @code{eyes}.  You should get an error message that the computer doesn't know about @code{eyes}, because you didn't click "Run" after adding the definition.}
+                          @activity{One a new line in the Definitions Window, define a value called @code{eye-color} to be the color of your eyes.  Don't hit "Run" yet!  
+                                    @itemlist[@item{Go into the Interactions Window and try evaluating @code{eye-color}.  You should get an error message that the computer doesn't know about @code{eye-color}, because you didn't click "Run" after adding the definition.}
                                               @item{Click "Run".}
-                                              @item{Try asking for @code{eyes} in the Interactions Window again.  This time, you should not get the error.}]}
-                          Definitions are useful because we can reuse them in other expressions.  For example, we could use @code{eyes} inside another expression, such as @code{(circle 10 "solid" eyes)}.  Let's practice using definitions inside other expressions.
+                                              @item{Try asking for @code{eye-color} in the Interactions Window again.  This time, you should not get the error.}]}
+                          Definitions are useful because we can reuse them in other expressions.  For example, we could use @code{eye-color} inside another expression, such as @code{(circle 10 "solid" eye-color)}.  Let's practice using definitions inside other expressions.
                           @activity{Create the following definitions in the Definitions Window, and check them out in the Interactions Window:
                                     @itemlist[@item{Define a value called @code{prize} to be a solid yellow star (you pick the size).}
                                               @item{Define a value called @code{big} that uses @code{scale} to make your @code{prize} three times larger.}
@@ -95,6 +96,44 @@
                         }
                  ]
 }
+       
+@lesson/studteach[
+     #:title "Defining Variables (Algebra)"
+     #:duration "10 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[]
+     #:standards (list)
+     #:materials @itemlist[@item{"Algebra Translation" [@resource-link[#:path "source-files/Algebra.rkt" #:label "DrRacket"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=s2s0tkTgeF" "WeScheme")] preloaded on students' machines, with monitors off.}]
+     #:preparation @itemlist[]
+     #:prerequisites (list "Defining Variables")
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[
+             @point{@student{In our programming language, variables are defined by: 
+                             @bannerline{@code[#:multi-line #t]{(define x 4)
+                                                                (define y (+ 4 9))
+                                                                (define z (* x 2))}}
+                             Values can be fixed (like the first example), the result of an expression (the second), or even be defined in terms of other variables (the third). We can do the same things in algebra:
+                             @bannerline{@math{x = 4}
+                                          @math{y = 4+9}
+                                          @math{z = x \times 2}}
+                             @activity{Convert the following three Algebra definitions into Racket definitions:
+                                       @itemlist[@item{@math{dollars = 16.50}}
+                                                 @item{@math{feet = 2 \times 3}}
+                                                  @item{@math{inches = feet \times 12}}]
+                                       }}
+                     @teacher{For this activity write all Racket expressions on one side of the board, and all algebra expressions on the other. You'll want to line them up as closely as possible, to reinforce the connection between the two languages.}
+                     }
+            @point{@student{@activity{Turn to @worksheet-link[#:page 35 #:name "Translating Value Definitions"] page 35 in your workbooks. You will see a bunch of value definitions written in code - take 2 minutes to convert this into math. GO!}}
+                    @teacher{}
+                    }]
+         }
      
 @lesson/studteach[
      #:title "Game Images"
@@ -107,7 +146,8 @@
      #:standards (list)
      #:materials @itemlist[@item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders with names on covers.}]
      #:preparation @itemlist[@item{Create student game files. [See the (teachers-only) @resource-link[#:path "teachers/teachers-guide/teachers-guide.html" #:label "Teachers Guide"]]}
-                              @item{On student machines: Student Game Files (generated from "Game" template [Game.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=Q1X9Y8ZayX" "WeScheme")])}]
+                              @item{On student machines: Student Game Files (generated from "Game" template [Game.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=Y36jKsvXsZ" "WeScheme")])}]
+     #:prerequisites (list "Defining Values" "Strings and Images" "Brainstorming")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -156,8 +196,8 @@
          }
        
 @lesson/studteach[
-     #:title "Fast Functions"
-     #:duration "15 minutes"
+     #:title "Defining Functions"
+     #:duration "20 minutes"
      #:overview "Students are get a taste of the Design Recipe, but primarily they're introduced to the syntax for function definition."
      #:learning-objectives @itemlist[@item{Students will be able to define very simple functions, given a simple word problem.}]
      #:evidence-statements @itemlist[]
@@ -166,6 +206,7 @@
      #:standards (list "A-CED.1-4" "A-SSE.1-2" "F-IF.1-3" "F-IF.7-9" "F-BF.1-2")
      #:materials @itemlist[@item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders with names on covers.}]
      #:preparation @itemlist[]
+     #:prerequisites (list "Contracts" "Stings and Images" )
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -294,10 +335,43 @@
 (define  (dot  color) (circle 15 "solid"  color))}
                                             }
                                     @teacher{}
-                                    }  
-                                     ]
+                                    }]
                     }
-       
+
+
+@lesson/studteach[
+     #:title "Defining Functions (Algebra)"
+     #:duration "20 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[]
+     #:standards (list)
+     #:materials @itemlist[]
+     #:preparation @itemlist[]
+     #:prerequisites (list "Defining Functions" "Defining Variables (Algebra)")
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{@points[@point{@student{You've seen many functions defined in Racket, for example: 
+                                @code{(define (f x) (+ x 1))}
+                        @activity{@itemlist[@item{What is the name of this function?}
+                                             @item{How many variables does it take?}
+                                             @item{What is the name of the variable(s)?}
+                                             @item{What does this function do to the variable @code{x}?}
+                                             @item{Define a function @code{g}, which takes in a variable @code{q} and multiplies it by 20.}]}}
+                        @teacher{Make sure students understand that the function is named @italic{f}, and not "fx" or "f of x". Have students practice other function definitions, to make sure they're comfortable translating a verbal description into Racket syntax.}
+                        }
+                 @point{@student{To translate these functions into algebra, we do something similar to what we did with the values. Here is the same function @code{g}, written in algebra syntax: @math{f(x) = x + 1}                                                                                                      @activity{Translate the function @code{g} into algebra, using the translation of @code{f} as a model. Once that is complete try defining a function @math{h}, which takes in a variable @code{x} and divides it by 2.}}
+                         @teacher{Have students practice this translation with a few other functions, again translating from a verbal description (rather than Racket syntax).}}
+                 @point{@student{@activity{Translate the rest of the functions, listed on @worksheet-link[#:page 35 #:name "Functions"].}}
+                         @teacher{}
+                         }]
+         }
+                 
+                 
 @lesson/studteach[
      #:title "Closing"
      #:duration "5 minutes"

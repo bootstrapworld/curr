@@ -28,7 +28,7 @@
            @item{Student workbooks}
            @item{Design Recipe Sign}
            @item{Language Table}
-           @item{The Ninja World 5 file [NW5.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=hF6Ngq7TF6" "WeScheme")] preloaded on students' machines}
+           @item{The Ninja World 5 file [NW5.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=z01JR1UpNu" "WeScheme")] preloaded on students' machines}
            ]
 
 @preparation[

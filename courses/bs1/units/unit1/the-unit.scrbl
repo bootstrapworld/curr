@@ -4,7 +4,7 @@
 
 @declare-tags[management]
 
-@unit-overview/auto{
+@unit-overview/auto[#:lang-table (list (list "" @code{}))]{
   @unit-descr{Students discuss the components of their favorite videogames, and discover that they can be reduced to a series of coordinates. They then explore coordinates in Cartesian space, and identify the coordinates for the characters in a game at various points in time. Once they are comfortable with coordinates, they brainstorm their own games and create sample coordinate lists for different points in time in their own game.}
 }
 
@@ -17,7 +17,7 @@
      #:product-outcomes @itemlist[]
      #:standards (list)
      #:materials @itemlist[]
-     #:preparation @itemlist[]
+     #:preparation @itemlist[@item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/1USFPXkeO5AbGOzm_U0tMv4NV3RrxTMTyg-bqIKUf4q4/edit?usp=sharing" "Warmup activity sheet").}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -30,7 +30,7 @@
                                Connect the material that's to come with things students already know:
                               @itemlist[@item{Talk to them about what makes a language - especially if you have students who speak a second or third language}
                                          @item{Programming is very much a language, with it's own syntax, semantics, etc}
-                                         @item{Ask students about their favorite videogames. Be open about the scale of a modern game: they cost millions of dollars, are build by huge teams of programmers and artists, and are developed over years.}
+                                         @item{Ask students about their favorite videogames. Be open about the scale of a modern game: they cost millions of dollars, are built by huge teams of programmers and artists, and are developed over years.}
                                          @item{Set expectations about what can be accomplished in a single, introductory programming class.}]}
                      }
               ]
@@ -55,11 +55,11 @@
                 )
       ]{
         @points[
-          @point{@student{Let's begin by exploring a simple videogame, and then figuring out how it works. Open @(hyperlink "http://www.wescheme.org/run.jsp?publicId=iK7rkNlvcS" "this link") in a new window. When you click "Run", be sure to read the directions at the top of the screen so you know how to play!}
+          @point{@student{Let's begin by exploring a simple videogame, and then figuring out how it works. Open @(hyperlink "http://www.wescheme.org/view?publicId=LyMwExWayT" "this link") in a new window (it is set to run automatically, so be ready!). Be sure to read the directions at the top of the screen so you know how to play!}
                  @teacher{@management{Show the kids Ninjacat. Be sure to end on a frozen frame of the game, so the whole class can see the same image.}}
                  }
           
-          @point{@student{This game is made up of @italic{characters}, each of which has it's own behavior. The Ruby moves from the right to the left, as does the Dog. NinjaCat only moves when you hit the arrow keys, and she can move left, right, up and down. We can figure out how the game works by first understanding about how each character works.}
+          @point{@student{This game is made up of @italic{characters}, each of which has it's own behavior. The Ruby moves from the right to the left, as does the Dog. NinjaCat only moves when you hit the arrow keys, and she can move left, right, up and down. We can figure out how the game works by first understanding how each character works.}
                  @teacher{}
                  }
           
@@ -91,6 +91,7 @@
      #:materials @itemlist[@item{Cutouts of  @resource-link[#:path "images/ninjacat.png" #:label "NinjaCat"],  @resource-link[#:path "images/dog.png" #:label "Dog"] and the  @resource-link[#:path "images/ruby.png" #:label "Ruby"]}
                             @item{Student Workbooks, and something to write with}]
      #:preparation @itemlist[@item{Student Workbooks, and something to write with}]
+     #:prerequisites (list "Dissecting a Demo")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -102,8 +103,8 @@
               @teacher{The key point for students here is @italic{precision} and @italic{objectivity}. There are many possible correct answers, but students should understand why any solution should be accurate and unambiguous. This requires students to propose solutions that share a common "zero" (the starting point of their number line) and direction (literally, the direction from which a character's position is measured). @management{Have students discuss this. If time allows, have a student leave the room and let other students come up with ways to write down where the dog is on the board. Then remove the dog, call in the other student, and have the class direct them using only what they've written down.Try positioning the characters at different places on the line, and have students tell you what their coordinates are. Try giving them verbal descriptions (e.g. "The center of the screen", "Off the righthand side of the screen", etc.) and have them translate those into coordinates.}}
               }
 
-      @point{@student{@bitmap{images/cat-coordinates.png}By adding a second number line, we can locate a character anywhere on the screen in either dimension. The first line is called the x-axis, which runs from left to right. The second line, which runs up and down, is called the y-axis. A 2-dimensional @italic{coordinate} consists of both the x- and y-locations on the axes. Suppose we wanted to locate NinjaCat's position on the screen. We can find the x-coordinate by dropping a line down from NinjaCat is and read the position on the number line. The y-coordinate is found by running a line to the y-axis.}
-              @teacher{A coordinate represents a single point, and an image is (by definition) many points. Some students will whether a character's coordinate refers to the center of the image, or one of the corners. In this particular program, the center serves as the coordinate - but other programs may use another location. The important point in discussion with students is that there is flexibility here, @italic{as long as the convention is used consistently}. @management{If time allows, invite volunteers up to the board to try placing NinjaCat and the Ruby at different locations. Have students identify the coordinates at the corners of the screen. For additional practice, have students bisect each side of the screen and label the midpoints.}}
+      @point{@student{@bitmap{images/cat-coordinates.png}By adding a second number line, we can locate a character anywhere on the screen in either dimension. The first line is called the x-axis, which runs from left to right. The second line, which runs up and down, is called the y-axis. A 2-dimensional @italic{coordinate} consists of both the x- and y-locations on the axes. Suppose we wanted to locate NinjaCat's position on the screen. We can find the x-coordinate by dropping a line down from NinjaCat and read the position on the number line. The y-coordinate is found by running a line to the y-axis.}
+              @teacher{A coordinate represents a single point, and an image is (by definition) many points. Some students will ask whether a character's coordinate refers to the center of the image, or one of the corners. In this particular program, the center serves as the coordinate - but other programs may use another location. The important point in discussion with students is that there is flexibility here, @italic{as long as the convention is used consistently}. @management{If time allows, invite volunteers up to the board to try placing NinjaCat and the Ruby at different locations. Have students identify the coordinates at the corners of the screen. For additional practice, have students bisect each side of the screen and label the midpoints.}}
               }
       @point{@student{When we write down these coordinates, we always put the x before the y (just like in the alphabet!). Most of the time, you'll see coordinates written like this: (200, 50) meaning that the x-coordinate is 200 and the y-coordinate is 50.}
               @teacher{}
@@ -119,8 +120,7 @@
       
       @point{@student{@activity{Turn to @worksheet-link[#:page 2 #:name "Ninja-Cat-Coordinates"] in your game-planning workbook, and look at the project sheet that has a picture of the NinjaCat game. What are the coordinates at the bottom-left corner of the screen? Top-right? Center? For practice, label the coordinates at the midpoint of @italic{each side} of the screen, then label the coordinates of each of the characters.}}
               @teacher{}
-              }
-               ]
+              }]
    }
 
 @lesson/studteach[
@@ -162,7 +162,6 @@
                 }
         ]}
 
-
 @lesson/studteach[
      #:title "Order of Operations"
      #:duration "20 minutes"
@@ -192,7 +191,7 @@
                 )
       ]{
         @points[
-                @point{@student{Math is a language, just like English, Spanish, or any other language. We use nouns, like "bread", "tomato", "mustard" and "cheese" to describe physical pbjects. Math has @vocab{values}, like the numbers @math{1}, @math{2} or @math{3}, to describe quantities. Humans also use verbs like "toast", "slice", "spread" and "melt" to describe operations on these nouns. Mathematics has @vocab{functions} like addition and subtraction, which are operations performed on numbers. Just as you can "slice piece of bread", a person can also "add four and five".}
+                @point{@student{Math is a language, just like English, Spanish, or any other language. We use nouns, like "bread", "tomato", "mustard" and "cheese" to describe physical objects. Math has @vocab{values}, like the numbers @math{1}, @math{2} or @math{3}, to describe quantities. Humans also use verbs like "toast", "slice", "spread" and "melt" to describe operations on these nouns. Mathematics has @vocab{functions} like addition and subtraction, which are operations performed on numbers. Just as you can "slice piece of bread", a person can also "add four and five".}
 
                         @teacher{Students should begin to look at math as a @italic{language}.  To help them with this, you can discuss syntax and grammar of math, and its potential for ambiguity in the absence of a fixed order of operations.  Help students see that math is a way to communicate calculations among people.}
                         }
@@ -212,7 +211,7 @@
                                          @item{We can add detail to expressions that indicate the order}]
                           @activity{Write down one reason why it is important to have rules about the order of operations.}}
                          @teacher{}}
-                  @point{@student{@bitmap{images/PEMDASTriangle.png} Mathematicians didn't always agree on the order of operations, but now we have a common set of rules for how to evaluate expressions.  The pyramid summarizes the order.  When evaluating an expression, we begin by applying the operations written at the top of the pyramid (multiplication and division). Only after we have completed all of those operations can we move down to the lower level. If both operations are present (as in @math{4+2-1}), we @vocab{apply} them in the order they appear in the pyramid from left to right (so addition is before subtraction).
+                  @point{@student{@bitmap{images/PEMDASTriangle.png} Mathematicians didn't always agree on the order of operations, but now we have a common set of rules for how to evaluate expressions.  The pyramid on the right summarizes the order.  When evaluating an expression, we begin by applying the operations written at the top of the pyramid (multiplication and division). Only after we have completed all of those operations can we move down to the lower level. If both operations are present (as in @math{4+2-1}), we @vocab{apply} them in the order they appear in the pyramid from left to right (so addition is before subtraction).
                           @activity{In what order should we apply the functions in the following example? 
                                     @math{19 \div 2 * 11 - 7 + 8}
                                     @itemlist[#:style 'ordered
@@ -246,7 +245,7 @@
                 @point{@student{@bitmap{images/Nesting.png}To use multiple functions in the same expression, we can combine Circles of Evaluation.  Look at the Circle of Evaluation you've written for @math{351 / -1}. We already know that the Circle for @math{4 - 5} will evaluate to @math{-1}, so we can @italic{replace the number with the expression.} Does this change what the expression evaluates to?
                                 @activity{@bitmap{images/fill-in-circle.png}Finish writing the Circle of Evaluation shown here, so that it represents @math{(23 + 7) * (13 - 5)}}
                       }
-                        @teacher{From this point forward, the Circles of Evaluation are your assessment tool for Order of Operations. Quizzing students by asking them to correctly evaluate an expression is fraught with false negatives, as many student might get the order right but still have problems with basic calculation. This method is also vulnerable to Commutativity, since a student will correctly evaluate @math{1*2+2} even if they get the order of operations wrong! Circles of Evaluation have neither of these flaws, as they put them emphasis where it should be: exercising a students' ability to see the structure inside the arithemetic.}
+                        @teacher{From this point forward, the Circles of Evaluation are your assessment tool for Order of Operations. Quizzing students by asking them to correctly evaluate an expression is fraught with false negatives, as many student might get the order right but may still have problems with basic calculations. This method is also vulnerable to Commutativity, since a student will correctly evaluate @math{1*2+2} even if they get the order of operations wrong! Circles of Evaluation have neither of these flaws, as they put the emphasis where it should be: exercising a students' ability to see the structure inside the arithemetic.}
                         }
                 @point{@student{@bitmap{images/NestedCircle.png}What does this Circle of Evaluation evaluate to?  Let's review how we evaluate a Circle:
                                  @itemlist[@item{We know we are multiplying because that's the function at the top of the Circle.} 
@@ -292,6 +291,7 @@
      #:preparation @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket}
                               @item{Student Workbooks, and something to write with}
                               @item{Overhead projector}]
+     #:prerequisites (list "Order of Operations")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -366,7 +366,7 @@
                 @point{@student{@bitmap{images/NestedCircle.png}When a Circle of Evaluation has other circles inside of it, the translation still follows the same rules: each Circle requires a new set of parentheses: @code{(* 6 (+ 4 5))}
                                  @activity{@itemlist[@item{Try entering this code into the Interactions window. What should the program evaluate to when you hit Return?}
                                                      @item{Practice converting other Circles of Evaluation you've drawn into code.}]}}
-                        @teacher{}
+                        @teacher{@management{Scaffolding for Pair Programming: Talk to students about the roles of @italic{Driver} and @italic{Navigator}. The Driver is the student with their hands on the keyboard - they're in charge of typing, using the mouse, etc. The Navigator should be telling the Driver what to type, and pointing out mistakes or suggesting things. It's important to clarify what these roles are (perhaps reinforcing them with a visual), to ensure that both partners are active and talking to one another about the task at hand.}}
                         }
                
                 @point{@student{@bannerline{All of the expressions that follow the function name are called @vocab{arguments} to the function. The following diagram summarizes the shape of an expression that uses a function. @bitmap{images/ExpressionDiagram.png}}

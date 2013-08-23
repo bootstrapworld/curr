@@ -30,8 +30,10 @@
                            @item{Language Table (see below)}
                           ]
      #:preparation @itemlist[@item{"Luigi's Pizza" [LuigisPizza.rkt from @(resource-link #:path "source-files.zip" 
-                                                                                       #:label "source-files.zip") \|
-@(hyperlink "http://www.wescheme.org/openEditor?publicId=Qzjz5xbQ8h" "WeScheme")] preloaded on students' machines, and on the projector}]
+                                                                                       #:label "source-files.zip") |
+@(hyperlink "http://www.wescheme.org/openEditor?publicId=Qzjz5xbQ8h" "WeScheme")] preloaded on students' machines, and on the projector}
+                              @item{REQUIRED: Hand out @(hyperlink "https://docs.google.com/document/d/1k67XlYWkHefd4APynvwSnPKRaSTeOvGD7_lRbI8hHrg/edit?usp=sharing" "Luigi's Pizza Worksheet").}]
+     #:prerequisites (list "The Design Recipe" "and/or")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -97,7 +99,6 @@
 @lesson/studteach[
      #:title "Player Movement" 
      #:duration "25 min" 
-     #:prerequisites "Luigi's Pizza"
      #:overview "Students write a piecewise function that allows their player to move up and down using the arrow keys."
      #:learning-objectives @itemlist[@item{Students learn that handling user input needs piecewise functions}
                                      @item{Students learn which questions to ask to detect key presses}
@@ -114,6 +115,7 @@
      #:materials @itemlist[@item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
                            @item{All student computers should have their game templates pre-loaded, with their image files linked in}]
      #:preparation @itemlist[]
+     #:prerequisites (list "Luigi's Pizza" "Target and Danger Movement")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}

@@ -1,5 +1,5 @@
-<html> 
-	<head>
+<!DOCTYPE html>
+  <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<title>Bootstrap: Materials</title>
 		<link rel="stylesheet" type="text/css" href="/styles.css"/>
@@ -25,6 +25,8 @@
 
 
       <p>If you're looking for a full-blown programming class, and want students to have the freedom to create more advanced games using data structures, events, and more, you'll want to continue to the second module (<b><a href="courses/bs2/main.shtml">Bootstrap:2</a></b>) to build on what students have done in the introductory course. We've listed the breakdown of concepts in the table below - take a look to find the best fit for you!
+
+      <p><b>We released a significant rewrite of the notes on August 1, 2013.  The new notes separate student and teacher notes, and contain more exercises for in-class use.  The <a href="../Fall2013/">older format</a> is still available.</b>
       <table width="100%">
         <thead>
           <tr><td class="col"></td><td>Mathematics</td><td>Programming</td></tr>

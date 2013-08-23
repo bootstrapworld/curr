@@ -7,7 +7,7 @@
             @item{Suppose you want to open up an autobody shop. You take people's cars and trick them out, giving them paint jobs, turbo-charging them, etc.}
                  @item{What type of thing is an auto? Is it a number? String? Image? Boolean? Of course not. You could not describe all of the important things about an automobile with any one of those things. However, we could say that we care about a couple of things in our shop that can be described with these types. @pedagogy{Start a list on the board, with the variable name on one side, and the type on the other}}
                  @item{First...the model of the car. That could be like..."Prius", "H2", "XTerra", or something else. What type would that be?}
-                 @item{How about how many horsepowers my car has? How large the rims are? What color it is? The value, that the car is worth?}
+                 @item{How about how much horsepower my car has? How large the rims are? What color it is? The value, that the car is worth?}
                  @item{@tag[pedagogy]{Write on the board:} @itemlist/splicing[
                                                               @item{model: String @bitmap{images/car1.png}}
                                                                    @item{horsepower: Number}
@@ -18,7 +18,6 @@
                  @item{Now that you have a bit more information about them, what data type could we use for this auto? A struct! This is the very first time that we're going to use structs...but they're going to play a HUGE part in your game. Let's take a look at how this works.}
                  @pedagogy{@item{Have students open the Autobody Shop file.}}
                  @pedagogy{@item{Raise your hand if you can read the line beginning with @code{define car1}. Have one student read the line aloud, while you write the definition on the board.}}
-                 @tag[pedagogy]{Read the line beginning with @code{define car1}.}
                  @code{(define car1 (make-auto "M5" 480 28 "black" 50000))}
                  @item{As you can see here, it's really easy to make this auto struct! We have a bit of code which tells the computer which order everything goes in...and we'll talk about that next class. For now, I want you to look at this new function: @code{make-auto}. @tag[pedagogy]{Let's flip to our contracts sheet and write it down.}}
                  @item{What is the name of the function? @code{make-auto}. How about the domain? How many things are in the domain? Five. They are, in fact, the five things that we have already listed@tag[pedagogy]{ on the board}. So what is in the domain of make-auto? String, Number, Number, String, Number.}
