@@ -1639,7 +1639,7 @@
 
 ;auto generates copyright section
 (define (copyright . body)
-  (nested #:style (bootstrap-div-style "copyright")
+  (nested #:style (bootstrap-div-style/id "copyright")
    (hyperlink "http://creativecommons.org/licenses/by-nc-nd/3.0/" creativeCommonsLogo) "Bootstrap by " (hyperlink "http://www.bootstrapworld.org/" "Emmanuel Schanzer") " is licensed under a "
    (hyperlink "http://creativecommons.org/licenses/by-nc-nd/3.0/" "Creative Commons 3.0 Unported License")
    ". Based on a work at " (hyperlink "http://www.bootstrapworld.org/" "www.BootstrapWorld.org")
