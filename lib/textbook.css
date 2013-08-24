@@ -397,6 +397,8 @@ ol.question>li{clear: both; border-top: solid 1px black; padding: 20px 20px; mar
 ol.question li:first-of-type{border: none;}
 .exercises img{float: right; }
 
+div#copyright{display: inline-block;}
+
 /************************************************************************************
  * PRINT MEDIA
  * Hide callouts, embedded WeSchemes, box-shadows, and background images
