@@ -7,8 +7,8 @@
                                        (list "String" @code{string-append string-length})
                                        (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image}))]{
   @unit-descr{Students are introduced to the Definitions window, and learn the syntax for defining values of various types.  They are also introduced to the syntax of defining functions and creating examples.}
-
 }
+@unit-lessons{
 @lesson/studteach[
      #:title "Review"
      #:duration "5 minutes"
@@ -394,7 +394,5 @@
                                                         @item{Pass out exit slips, dismiss, clean up.}]}}
                         }
                         ]}
+}
 
-       
-
-@copyright[]

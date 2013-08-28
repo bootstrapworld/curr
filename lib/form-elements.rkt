@@ -114,6 +114,7 @@
          ;; stuff added by the interns
          ;;edited contract-exercise
          unit-overview/auto
+         unit-lessons
          overview
          copyright
          example-with-text
@@ -1506,7 +1507,11 @@
            (list body)) 
    ))
 
+;; DEPRECATED!!!!
 (declare-tags pedagogy)
+
+(define (unit-lessons . body)
+  (interleave-parbreaks/all (append body (list (copyright)))))
 
 (define (unit-overview/auto 
          #:objectives (objectivesItems #f)

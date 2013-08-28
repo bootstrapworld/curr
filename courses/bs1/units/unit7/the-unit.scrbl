@@ -10,6 +10,7 @@
   @unit-descr{Students use geometry and conditional branching to move their player characters in response to key-presses.}
    }
 
+@unit-lessons{
 @lesson/studteach[
      #:title "Luigi's Pizza" 
      #:duration "20 min"
@@ -198,5 +199,4 @@
                                                        @item{Pass out exit slips, dismiss, clean up.}]}}
                         }
                         ]}
-
-@copyright[]
+}

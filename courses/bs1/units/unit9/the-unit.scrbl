@@ -11,7 +11,8 @@
 
 @unit-descr{Students will edit game details and prepare for their Launch Party!}
  }
-                                                                                      
+
+@unit-lessons{
 @lesson/studteach[
      #:title "Presentation Preparation" 
      #:duration "60 min"
@@ -93,4 +94,4 @@
                        }]
         }
 
-@copyright[]
+}
