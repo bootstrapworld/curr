@@ -610,14 +610,10 @@
           (nested #:style bs-callout-style (interleave-parbreaks/all contents))))
 
 (define (points . contents)
-  (nested 
-   (apply itemlist/splicing contents #:style (make-style "lesson" '(compact)))
-   ;"\n" "\n"
-   ;(insert-toggle-buttons)
-   ))
+   (apply itemlist/splicing contents #:style (make-style "lesson" '(compact))))
 
 (define (point . contents)
-  (item (nested (interleave-parbreaks/select contents)))) 
+  (interleave-parbreaks/select contents)) 
 
 (define (exercises . content)
   (lesson-section "Exercises" content))
@@ -629,7 +625,7 @@
       (and (nested-flow? content) 
            (nested-flow-style content)
            (member (style-name (nested-flow-style content)) 
-                   (list "student" "teacher")))
+                   (list "student" "teacher" "activity")))
       ))
 
 ;; Avoid Sintraparas from being introduced by adding manual parbreaks between
@@ -709,35 +705,22 @@
                   )))
         (nested #:style (bootstrap-div-style "segment")
                 (interleave-parbreaks/all
-                 (list
-                  (elem #:style (style #f (list (url-anchor anchor) (make-alt-tag "span"))))
-                  (nested #:style bs-lesson-title-style
-                          (interleave-parbreaks/all
-                           (cons (para #:style bs-lesson-name-style 
-                                       (interleave-parbreaks/all
-                                        (list (elem title) 
-                                              video-elem
-                                              (cond [duration
-                                                     (elem #:style bs-time-style (format "(Time ~a)" duration))]
-                                                    [else (elem)]))))
-                                 (list (elem))))) ;pacings))) -- reinclude later if desired
-                  (interleave-parbreaks/all body))))
+                 (append
+                  (list
+                   (elem #:style (style #f (list (url-anchor anchor) (make-alt-tag "span"))))
+                   (nested #:style bs-lesson-title-style
+                           (interleave-parbreaks/all
+                            (cons (para #:style bs-lesson-name-style 
+                                        (interleave-parbreaks/all
+                                         (list (elem title) 
+                                               video-elem
+                                               (cond [duration
+                                                      (elem #:style bs-time-style (format "(Time ~a)" duration))]
+                                                     [else (elem)]))))
+                                  (list (elem)))))) ;pacings))) -- reinclude later if desired
+                   body)))
         ))))))
   
-;;; append contents of two scribble itemizations, keeping style of the second
-;(define (append/itemization items1 items2)
-;  (cond [(empty? items2) items1]
-;        [(empty? items1) items2]
-;        [else
-;         (make-itemization (itemization-style items2)
-;                           (append (itemization-blockss items1) (itemization-blockss items2)))]))
-;
-;;; remove duplicates in an itemlist
-;(define (remdups/itemization itemz)
-;  (let ([items (apply append (itemization-blockss itemz))])
-;    (apply itemlist (remove-duplicates items equal?))))
-  
-
 ;; contents either an itemization or a traverse block
 (define (lesson-section title contents)
   (traverse-block 
@@ -896,7 +879,7 @@
 
 (define (activity . body)
   (nested #:style (bootstrap-div-style "activity")
-        body))
+          (interleave-parbreaks/select body)))
   
 
 (define (review . body)
