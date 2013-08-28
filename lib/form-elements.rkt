@@ -216,7 +216,7 @@
 
 (define (bootstrap-div-style name)
   (make-style name (cons (make-alt-tag "div")
-                         css-js-additions)))
+                         css-js-additions)))  
 
 (define (bootstrap-div-style/id name)
   (make-style #f (cons (make-alt-tag "div")
@@ -1192,9 +1192,16 @@
    (lambda (get set)
      (lambda (get set)
        (let ([items (get tag (itemlist))])
-         (nested (para #:style bs-header-style (format "~a:" header))
-                 (if (empty? pre-content) (elem) (first pre-content))
-                 (remdups/itemization items)))))))
+         (nested #:style (bootstrap-div-style (rem-spaces header))
+          (interleave-parbreaks/all
+           (list
+            (para #:style bs-header-style (format "~a:" header))
+            (if (empty? pre-content) (elem) (first pre-content))
+            (remdups/itemization items)))))))))
+
+;; strips all spaces from a string
+(define (rem-spaces str)
+  (string-replace str " " ""))
 
 ;; determine whether "s" is last character of given string
 (define (ends-in-s? str)
@@ -1554,39 +1561,43 @@
          . description
          )
   (nested 
+   (interleave-parbreaks/all
+    (list
    (elem #:style (bootstrap-style "BootstrapOverviewTitle") "Unit Overview")
    (if gen-agenda? (agenda) (elem))
    (nested #:style (bootstrap-sectioning-style "BootstrapOverview") 
-           (list
-            description
-            (if objectivesItems (objectives objectivesItems) 
-                (summary-data/auto 'learning-objectives "Learning Objectives"))
-            (if (audience-in? "teacher")
-                (if evidenceItems (evidence-statements evidenceItems)
-                    (summary-data/auto 'evidence-statements "Evidence Statements"))
-                (elem))
-            (if product-outcomesItems (product-outcomes product-outcomesItems) 
-                (summary-data/auto 'product-outcomes "Product Outcomes"))
-            (if standards standards 
-                (summary-data/auto 'standards "Standards" (rest state-standards)))
-            (if length (length-of-lesson length) (length-of-unit/auto))
-            (gen-glossary)
-            (if (audience-in? (list "teacher" "volunteer"))
-                (if materialsItems (materials materialsItems) 
-                    (summary-data/auto 'materials "Materials"))
-                (elem))
-            (if (audience-in? (list "teacher" "volunteer"))
+           (interleave-parbreaks/all
+            (list
+             description
+             (if objectivesItems (objectives objectivesItems) 
+                 (summary-data/auto 'learning-objectives "Learning Objectives"))
+             (if (audience-in? "teacher")
+                 (if evidenceItems (evidence-statements evidenceItems)
+                     (summary-data/auto 'evidence-statements "Evidence Statements"))
+                 (elem))
+             (if product-outcomesItems (product-outcomes product-outcomesItems) 
+                 (summary-data/auto 'product-outcomes "Product Outcomes"))
+             (if standards standards 
+                 (summary-data/auto 'standards "Standards" (rest state-standards)))
+             (if length (length-of-lesson length) (length-of-unit/auto))
+             (gen-glossary)
+             (if (audience-in? (list "teacher" "volunteer"))
+                 (if materialsItems (materials materialsItems) 
+                     (summary-data/auto 'materials "Materials"))
+                 (elem))
+             (if (audience-in? (list "teacher" "volunteer"))
                  (if preparationItems (preparation preparationItems) 
                      (summary-data/auto 'preparation "Preparation"))
                  (elem))
-            (if lang-table 
-                (if (list? (first lang-table))
-                    (apply language-table lang-table)
-                    (language-table lang-table))
-                (elem))
-            (insert-teacher-toggle-button)
-            ))))
-                       
+             (if lang-table 
+                 (if (list? (first lang-table))
+                     (apply language-table lang-table)
+                     (language-table lang-table))
+                 (elem))
+             (insert-teacher-toggle-button)
+             )))))
+))
+   
 (define (exercise-handout1 #:instr [instr ""]
                           . body)
   (nested #:style (bootstrap-div-style "content")
