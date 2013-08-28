@@ -27,6 +27,7 @@
          "javascript-support.rkt"
          "paths.rkt"
          "tags.rkt"
+         "scribble-helpers.rkt"
          "standards-dictionary.rkt"
          "glossary-terms.rkt"
          "sexp-generator.rkt")
@@ -91,6 +92,7 @@
          exercises
          student
          teacher
+         itemlist/splicing ;; need because bs1 teachers-guide.scrbl using it (still in old lesson format)
          
          ;; Itemizations
          materials
@@ -132,33 +134,9 @@
          video-link
          )        
 
-
-
-(provide/contract [itemlist/splicing
-                   (->* () 
-                        (#:style (or/c style? string? symbol? #f)) 
-                        #:rest list?
-                        itemization?)]
-                  
-                  [check
+(provide/contract [check
                    (-> constraint? element?)]
                   )
-
-
-
-
-
-
-;; fake-item: (listof any) -> (listof any)
-;; We try to make itemlist more pleasant to work with.  Itemlist/splicing automatically
-;; wraps items around every argument, so there's no need to call item explicitly.
-;; We provide a fake definition for fake-item that just returns the identity.
-(define (fake-item . args)
-  args)
-
-(provide fake-item)
-
-
 
 ;;;;;;;;;;;;;;;; Site Images ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (define bootstrap.gif (bitmap "bootstrap.gif"))
@@ -745,18 +723,18 @@
                   (interleave-parbreaks/all body))))
         ))))))
   
-;; append contents of two scribble itemizations, keeping style of the second
-(define (append/itemization items1 items2)
-  (cond [(empty? items2) items1]
-        [(empty? items1) items2]
-        [else
-         (make-itemization (itemization-style items2)
-                           (append (itemization-blockss items1) (itemization-blockss items2)))]))
-
-;; remove duplicates in an itemlist
-(define (remdups/itemization itemz)
-  (let ([items (apply append (itemization-blockss itemz))])
-    (apply itemlist (remove-duplicates items equal?))))
+;;; append contents of two scribble itemizations, keeping style of the second
+;(define (append/itemization items1 items2)
+;  (cond [(empty? items2) items1]
+;        [(empty? items1) items2]
+;        [else
+;         (make-itemization (itemization-style items2)
+;                           (append (itemization-blockss items1) (itemization-blockss items2)))]))
+;
+;;; remove duplicates in an itemlist
+;(define (remdups/itemization itemz)
+;  (let ([items (apply append (itemization-blockss itemz))])
+;    (apply itemlist (remove-duplicates items equal?))))
   
 
 ;; contents either an itemization or a traverse block
@@ -1292,25 +1270,7 @@
                                            (lesson-struct-title a-lesson))
                                      (lesson-struct-anchor a-lesson)))))))))))))
 
-;; itemlist/splicing is like itemlist, but also cooperates with the
-;; splice form to absorb arguments.  We use this in combination
-;; with tags.
-(define (itemlist/splicing #:style [style #f] . items)
-  (define spliced-items
-    (reverse
-     (let loop ([items items]
-                [acc '()])
-       (foldl (lambda (i acc)
-                (cond
-                  [(splice? i)
-                   (loop (splice-run i) acc)]
-                  [(item? i)
-                   (cons i acc)]
-                  [else
-                   (cons (item i) acc)]))
-              acc
-              items))))
-  (apply itemlist spliced-items #:style style))
+
 
 
 ;; lesson-module-path->lesson-name: module-path -> string
@@ -1332,8 +1292,6 @@
 ;; Raises a lesson-specific error.
 (define (raise-lesson-error mp)
   (error 'extract-lesson "lesson module path ~e does not have expected shape (e.g. (lib curr/lib/FOO/lesson.scrbl)" mp))
-
-
 
 ;; extract-lesson: module-path -> (listof block)
 ;; Extracts the lesson from the documentation portion, and also

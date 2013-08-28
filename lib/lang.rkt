@@ -19,6 +19,7 @@
          "bootstrap.rkt"
          "checker.rkt"
          "compile-time-params.rkt"
+         "scribble-helpers.rkt"
          racket/splicing
          (for-syntax racket/base))
 
