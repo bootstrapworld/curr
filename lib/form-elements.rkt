@@ -704,7 +704,7 @@
                                                    duration
                                                    anchor)
                                     (get 'bootstrap-lessons '())))     
-     (nested
+     (nested #:style "LessonBoundary"
       (para #:style bs-page-title-style title)
       "\n" "\n"
       (nested-flow 
@@ -1231,17 +1231,20 @@
               [terms (lookup-tags clean-terms
                                   glossary-terms-dictionary "Vocabulary term" #:show-unbound #t)])
          (if (empty? terms) (para)
-             (nested (para #:style bs-header-style "Glossary:")
-                     (apply itemlist/splicing
-                            (for/list ([term terms])
-                              (cond [(and (list? term) (string=? "" (second term)))
-                                     (begin
-                                       (printf "WARNING: Vocabulary term has empty definition in dictionary: ~a ~n" (first term))
-                                       (item (elem (format "~a" (first term)))))]
-                                    [(list? term)
-                                     (item (elem (format "~a: ~a" (first term) (second term))))]
-                                    [else
-                                     (item (elem (format "~a" term)))]))))))))))
+             (nested #:style (bootstrap-div-style "Glossary")
+                     (interleave-parbreaks/all
+                      (list
+                       (para #:style bs-header-style "Glossary")
+                       (apply itemlist/splicing
+                              (for/list ([term terms])
+                                (cond [(and (list? term) (string=? "" (second term)))
+                                       (begin
+                                         (printf "WARNING: Vocabulary term has empty definition in dictionary: ~a ~n" (first term))
+                                         (item (elem (format "~a" (first term)))))]
+                                      [(list? term)
+                                       (item (elem (format "~a: ~a" (first term) (second term))))]
+                                      [else
+                                       (item (elem (format "~a" term)))]))))))))))))
   
 (define (preparation . items)
   (list (compound-paragraph bs-header-style 
@@ -1256,12 +1259,9 @@
   (define (extract-minutes a-lesson)
     (first (regexp-match "[0-9]*" (lesson-struct-duration a-lesson))))
   
-  
   (traverse-block
    (lambda (get set)
-
      (lambda (get set)
-       
        (define (maybe-hyperlink elt anchor)
          (if anchor
              (hyperlink (string-append "#" anchor) elt)
@@ -1278,6 +1278,7 @@
          (set 'unit-length unit-minutes))
          
        (nested #:style (style "BootstrapAgenda" '(never-indents))
+               (interleave-parbreaks/all
                (list "Agenda"
                      (apply 
                       itemlist/splicing 
@@ -1289,7 +1290,7 @@
                                     (maybe-hyperlink
                                      (elem #:style "BSLessonName"
                                            (lesson-struct-title a-lesson))
-                                     (lesson-struct-anchor a-lesson))))))))))))
+                                     (lesson-struct-anchor a-lesson)))))))))))))
 
 ;; itemlist/splicing is like itemlist, but also cooperates with the
 ;; splice form to absorb arguments.  We use this in combination
@@ -1538,12 +1539,13 @@
    [(or latex pdf) (apply elem #:style (make-bs-latex-style "BSCircEvalExercise") 
                           (map elem math-examples))]])
 
+;; STILL IN USE???
 (define (overview #:gen-agenda? (gen-agenda? #t) . body)
-  (nested
+  (nested #:style "OverviewBoundary"
    (elem #:style (bootstrap-style "BootstrapOverviewTitle") "Unit Overview")
    (if gen-agenda? (agenda) (elem))
    (nested #:style (bootstrap-sectioning-style "BootstrapOverview") 
-           (list body)) ;(decode-flow body))
+           (list body)) 
    ))
 
 (declare-tags pedagogy)
@@ -1560,43 +1562,43 @@
          #:gen-agenda? (gen-agenda? #t) 
          . description
          )
-  (nested 
-   (interleave-parbreaks/all
-    (list
-   (elem #:style (bootstrap-style "BootstrapOverviewTitle") "Unit Overview")
-   (if gen-agenda? (agenda) (elem))
-   (nested #:style (bootstrap-sectioning-style "BootstrapOverview") 
-           (interleave-parbreaks/all
-            (list
-             description
-             (if objectivesItems (objectives objectivesItems) 
-                 (summary-data/auto 'learning-objectives "Learning Objectives"))
-             (if (audience-in? "teacher")
-                 (if evidenceItems (evidence-statements evidenceItems)
-                     (summary-data/auto 'evidence-statements "Evidence Statements"))
-                 (elem))
-             (if product-outcomesItems (product-outcomes product-outcomesItems) 
-                 (summary-data/auto 'product-outcomes "Product Outcomes"))
-             (if standards standards 
-                 (summary-data/auto 'standards "Standards" (rest state-standards)))
-             (if length (length-of-lesson length) (length-of-unit/auto))
-             (gen-glossary)
-             (if (audience-in? (list "teacher" "volunteer"))
-                 (if materialsItems (materials materialsItems) 
-                     (summary-data/auto 'materials "Materials"))
-                 (elem))
-             (if (audience-in? (list "teacher" "volunteer"))
-                 (if preparationItems (preparation preparationItems) 
-                     (summary-data/auto 'preparation "Preparation"))
-                 (elem))
-             (if lang-table 
-                 (if (list? (first lang-table))
-                     (apply language-table lang-table)
-                     (language-table lang-table))
-                 (elem))
-             (insert-teacher-toggle-button)
-             )))))
-))
+  (nested #:style "OverviewBoundary"
+          (interleave-parbreaks/all
+           (list
+            (elem #:style (bootstrap-style "BootstrapOverviewTitle") "Unit Overview")
+            (nested #:style (bootstrap-sectioning-style "BootstrapOverview") 
+                    (interleave-parbreaks/all
+                     (list
+                      (if gen-agenda? (agenda) (elem))
+                      description
+                      (if objectivesItems (objectives objectivesItems) 
+                          (summary-data/auto 'learning-objectives "Learning Objectives"))
+                      (if (audience-in? "teacher")
+                          (if evidenceItems (evidence-statements evidenceItems)
+                              (summary-data/auto 'evidence-statements "Evidence Statements"))
+                          (elem))
+                      (if product-outcomesItems (product-outcomes product-outcomesItems) 
+                          (summary-data/auto 'product-outcomes "Product Outcomes"))
+                      (if standards standards 
+                          (summary-data/auto 'standards "Standards" (rest state-standards)))
+                      (if length (length-of-lesson length) (length-of-unit/auto))
+                      (gen-glossary)
+                      (if (audience-in? (list "teacher" "volunteer"))
+                          (if materialsItems (materials materialsItems) 
+                              (summary-data/auto 'materials "Materials"))
+                          (elem))
+                      (if (audience-in? (list "teacher" "volunteer"))
+                          (if preparationItems (preparation preparationItems) 
+                              (summary-data/auto 'preparation "Preparation"))
+                          (elem))
+                      (if lang-table 
+                          (if (list? (first lang-table))
+                              (apply language-table lang-table)
+                              (language-table lang-table))
+                          (elem))
+                      (insert-teacher-toggle-button)
+                      )))))
+          ))
    
 (define (exercise-handout1 #:instr [instr ""]
                           . body)
@@ -1797,13 +1799,13 @@
   (define bootstrap-image (cond-element 
                            [html bootstrap.gif]
                            [(or latex pdf) (elem)]))
-  (cond 
-    [unit+title (list (head-title-no-content the-title) 
-                      (para (elem #:style bs-title-style (list bootstrap-image (second unit+title))))
-                      "\n"
-                      (para (elem #:style bs-title-style (third unit+title))))]
-    [else (list (head-title-no-content the-title)
-                (elem #:style bs-title-style (cons bootstrap-image body)))]))
+  (interleave-parbreaks/all
+   (cond 
+     [unit+title (list (head-title-no-content the-title) 
+                       (para (elem #:style bs-title-style (list bootstrap-image (second unit+title))))
+                       (para (elem #:style bs-title-style (third unit+title))))]
+     [else (list (head-title-no-content the-title)
+                 (elem #:style bs-title-style (cons bootstrap-image body)))])))
 
 ;;;;;;;;;;;;;; Javascript Generation ;;;;;;;;;;;;;;;;;;;;;;;;
 
