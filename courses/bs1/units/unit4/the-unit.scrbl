@@ -43,7 +43,7 @@
                                  @bannerline{@bitmap{images/flipbookSlides.png}}}
                         @teacher{@management{Review the importance of definitions for students (defining values helps cut down on redundancy and makes future changes easier, defining functions allows for simplicity and testability. Be sure to use vocabulary regularly and carefully, pushing students to use the proper terms throughout.)}}
                         }
-                 @point{@student{@bitmap{images/flipbook.gif}Putting these images together, we arrive at an animation of the rocket blasting off. Let's see an example of this kind of animation, using a function to make a rocket-blast off! Turn to @worksheet-link[#:page 11 #:name "Design-Recipe-Rocket-Height"] in your workbook, and read the word problem carefully. 
+                 @point{@student{@animated-gif{images/flipbook.gif}Putting these images together, we arrive at an animation of the rocket blasting off. Let's see an example of this kind of animation, using a function to make a rocket-blast off! Turn to @worksheet-link[#:page 11 #:name "Design-Recipe-Rocket-Height"] in your workbook, and read the word problem carefully. 
                          @bannerline{A rocket blasts off, traveling at 7 meters per second. Write a function called @code{rocket-height} that takes in the number of seconds that have passed since the rocket took off, and which produces the height of the rocket at that time.}
                          @activity{@itemlist[@item{What is the @code{rocket-height} function taking in as input? What type of data is that?}
                                               @item{What is the function producing as outnput? What type of data is that?}
