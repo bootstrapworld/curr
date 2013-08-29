@@ -79,7 +79,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Command line parsing.  We initialize the SCRIBBLE_TAGS environmental
 ;; variable
-(putenv "AUDIENCE" "student")
+(putenv "AUDIENCE" "volunteer")
 (define current-contextual-tags
   (command-line
    #:program "build"
