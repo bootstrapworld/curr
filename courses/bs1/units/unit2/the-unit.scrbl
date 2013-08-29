@@ -8,6 +8,7 @@
 from a Domain into a Range. Coupled with their understanding of Circles of Evaluation, students generalize their understanding of functions to
 include other datatypes, including Strings and Images.}
 }
+@unit-lessons{
 @lesson/studteach[
      #:title "Circles of Evaluation Review"
      #:duration "30 minutes"
@@ -285,5 +286,5 @@ include other datatypes, including Strings and Images.}
                 @point{@student{In the next unit, you'll learn how to create your own functions to save work in writing expressions (this will turn out to be an essential part of writing a game).  You'll also start customizing your game with images for the elements in your game design.}
                        @teacher{}}
                         ]}
+}
 
-@copyright[]

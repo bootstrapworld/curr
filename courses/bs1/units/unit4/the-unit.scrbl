@@ -8,7 +8,7 @@
                                        (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image}))]{
 @unit-descr{Students continue to practice the Design Recipe by applying it to simple problems.}
  }
-
+@unit-lessons{
 @lesson/studteach[
      #:title "The Design Recipe"
      #:duration "25 minutes"
@@ -324,4 +324,4 @@
                                                         @item{Pass out exit slips, dismiss, clean up.}]}}
                         }
                         ]}
-@copyright[]
+}

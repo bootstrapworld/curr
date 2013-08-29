@@ -8,6 +8,8 @@
                                        (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image}))]{
 @unit-descr{Students define functions that map attributes of their game from one frame to the next, allowing them to move their dangers, targets, and projectiles.}
 }
+
+@unit-lessons{
 @lesson/studteach[
      #:title "Bug Hunting"
      #:duration "20 minutes"
@@ -139,6 +141,5 @@
                                                         @item{Pass out exit slips, dismiss, clean up.}]}}
                         }]
          }
+}
 
-
-@copyright[]

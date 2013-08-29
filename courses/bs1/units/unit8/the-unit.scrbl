@@ -10,6 +10,7 @@
 @unit-descr{Students derive, discuss, and prove the Pythagorean theorem, then use this theorem---in conjunction with Booleans---to detect collisions in their games.}
 }
 
+@unit-lessons{
 @lesson/studteach[
      #:title "1D Distance" 
      #:duration "20 min"
@@ -165,4 +166,4 @@
                       }
                         @teacher{}}
                 ]}
-@copyright[]
+}

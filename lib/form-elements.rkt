@@ -27,6 +27,7 @@
          "javascript-support.rkt"
          "paths.rkt"
          "tags.rkt"
+         "scribble-helpers.rkt"
          "standards-dictionary.rkt"
          "glossary-terms.rkt"
          "sexp-generator.rkt")
@@ -91,6 +92,7 @@
          exercises
          student
          teacher
+         itemlist/splicing ;; need because bs1 teachers-guide.scrbl using it (still in old lesson format)
          
          ;; Itemizations
          materials
@@ -112,6 +114,7 @@
          ;; stuff added by the interns
          ;;edited contract-exercise
          unit-overview/auto
+         unit-lessons
          overview
          copyright
          example-with-text
@@ -132,33 +135,9 @@
          video-link
          )        
 
-
-
-(provide/contract [itemlist/splicing
-                   (->* () 
-                        (#:style (or/c style? string? symbol? #f)) 
-                        #:rest list?
-                        itemization?)]
-                  
-                  [check
+(provide/contract [check
                    (-> constraint? element?)]
                   )
-
-
-
-
-
-
-;; fake-item: (listof any) -> (listof any)
-;; We try to make itemlist more pleasant to work with.  Itemlist/splicing automatically
-;; wraps items around every argument, so there's no need to call item explicitly.
-;; We provide a fake definition for fake-item that just returns the identity.
-(define (fake-item . args)
-  args)
-
-(provide fake-item)
-
-
 
 ;;;;;;;;;;;;;;;; Site Images ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (define bootstrap.gif (bitmap "bootstrap.gif"))
@@ -216,7 +195,7 @@
 
 (define (bootstrap-div-style name)
   (make-style name (cons (make-alt-tag "div")
-                         css-js-additions)))
+                         css-js-additions)))  
 
 (define (bootstrap-div-style/id name)
   (make-style #f (cons (make-alt-tag "div")
@@ -631,14 +610,10 @@
           (nested #:style bs-callout-style (interleave-parbreaks/all contents))))
 
 (define (points . contents)
-  (nested 
-   (apply itemlist/splicing contents #:style (make-style "lesson" '(compact)))
-   ;"\n" "\n"
-   ;(insert-toggle-buttons)
-   ))
+   (apply itemlist/splicing contents #:style (make-style "lesson" '(compact))))
 
 (define (point . contents)
-  (item (nested (interleave-parbreaks/select contents)))) 
+  (interleave-parbreaks/select contents)) 
 
 (define (exercises . content)
   (lesson-section "Exercises" content))
@@ -650,7 +625,7 @@
       (and (nested-flow? content) 
            (nested-flow-style content)
            (member (style-name (nested-flow-style content)) 
-                   (list "student" "teacher")))
+                   (list "student" "teacher" "activity")))
       ))
 
 ;; Avoid Sintraparas from being introduced by adding manual parbreaks between
@@ -704,7 +679,7 @@
                                                    duration
                                                    anchor)
                                     (get 'bootstrap-lessons '())))     
-     (nested
+     (nested #:style "LessonBoundary"
       (para #:style bs-page-title-style title)
       "\n" "\n"
       (nested-flow 
@@ -730,35 +705,22 @@
                   )))
         (nested #:style (bootstrap-div-style "segment")
                 (interleave-parbreaks/all
-                 (list
-                  (elem #:style (style #f (list (url-anchor anchor) (make-alt-tag "span"))))
-                  (nested #:style bs-lesson-title-style
-                          (interleave-parbreaks/all
-                           (cons (para #:style bs-lesson-name-style 
-                                       (interleave-parbreaks/all
-                                        (list (elem title) 
-                                              video-elem
-                                              (cond [duration
-                                                     (elem #:style bs-time-style (format "(Time ~a)" duration))]
-                                                    [else (elem)]))))
-                                 (list (elem))))) ;pacings))) -- reinclude later if desired
-                  (interleave-parbreaks/all body))))
+                 (append
+                  (list
+                   (elem #:style (style #f (list (url-anchor anchor) (make-alt-tag "span"))))
+                   (nested #:style bs-lesson-title-style
+                           (interleave-parbreaks/all
+                            (cons (para #:style bs-lesson-name-style 
+                                        (interleave-parbreaks/all
+                                         (list (elem title) 
+                                               video-elem
+                                               (cond [duration
+                                                      (elem #:style bs-time-style (format "(Time ~a)" duration))]
+                                                     [else (elem)]))))
+                                  (list (elem)))))) ;pacings))) -- reinclude later if desired
+                   body)))
         ))))))
   
-;; append contents of two scribble itemizations, keeping style of the second
-(define (append/itemization items1 items2)
-  (cond [(empty? items2) items1]
-        [(empty? items1) items2]
-        [else
-         (make-itemization (itemization-style items2)
-                           (append (itemization-blockss items1) (itemization-blockss items2)))]))
-
-;; remove duplicates in an itemlist
-(define (remdups/itemization itemz)
-  (let ([items (apply append (itemization-blockss itemz))])
-    (apply itemlist (remove-duplicates items equal?))))
-  
-
 ;; contents either an itemization or a traverse block
 (define (lesson-section title contents)
   (traverse-block 
@@ -917,7 +879,7 @@
 
 (define (activity . body)
   (nested #:style (bootstrap-div-style "activity")
-        body))
+          (interleave-parbreaks/select body)))
   
 
 (define (review . body)
@@ -1192,9 +1154,16 @@
    (lambda (get set)
      (lambda (get set)
        (let ([items (get tag (itemlist))])
-         (nested (para #:style bs-header-style (format "~a:" header))
-                 (if (empty? pre-content) (elem) (first pre-content))
-                 (remdups/itemization items)))))))
+         (nested #:style (bootstrap-div-style (rem-spaces header))
+          (interleave-parbreaks/all
+           (list
+            (para #:style bs-header-style (format "~a:" header))
+            (if (empty? pre-content) (elem) (first pre-content))
+            (remdups/itemization items)))))))))
+
+;; strips all spaces from a string
+(define (rem-spaces str)
+  (string-replace str " " ""))
 
 ;; determine whether "s" is last character of given string
 (define (ends-in-s? str)
@@ -1224,17 +1193,20 @@
               [terms (lookup-tags clean-terms
                                   glossary-terms-dictionary "Vocabulary term" #:show-unbound #t)])
          (if (empty? terms) (para)
-             (nested (para #:style bs-header-style "Glossary:")
-                     (apply itemlist/splicing
-                            (for/list ([term terms])
-                              (cond [(and (list? term) (string=? "" (second term)))
-                                     (begin
-                                       (printf "WARNING: Vocabulary term has empty definition in dictionary: ~a ~n" (first term))
-                                       (item (elem (format "~a" (first term)))))]
-                                    [(list? term)
-                                     (item (elem (format "~a: ~a" (first term) (second term))))]
-                                    [else
-                                     (item (elem (format "~a" term)))]))))))))))
+             (nested #:style (bootstrap-div-style "Glossary")
+                     (interleave-parbreaks/all
+                      (list
+                       (para #:style bs-header-style "Glossary")
+                       (apply itemlist/splicing
+                              (for/list ([term terms])
+                                (cond [(and (list? term) (string=? "" (second term)))
+                                       (begin
+                                         (printf "WARNING: Vocabulary term has empty definition in dictionary: ~a ~n" (first term))
+                                         (item (elem (format "~a" (first term)))))]
+                                      [(list? term)
+                                       (item (elem (format "~a: ~a" (first term) (second term))))]
+                                      [else
+                                       (item (elem (format "~a" term)))]))))))))))))
   
 (define (preparation . items)
   (list (compound-paragraph bs-header-style 
@@ -1249,12 +1221,9 @@
   (define (extract-minutes a-lesson)
     (first (regexp-match "[0-9]*" (lesson-struct-duration a-lesson))))
   
-  
   (traverse-block
    (lambda (get set)
-
      (lambda (get set)
-       
        (define (maybe-hyperlink elt anchor)
          (if anchor
              (hyperlink (string-append "#" anchor) elt)
@@ -1271,6 +1240,7 @@
          (set 'unit-length unit-minutes))
          
        (nested #:style (style "BootstrapAgenda" '(never-indents))
+               (interleave-parbreaks/all
                (list "Agenda"
                      (apply 
                       itemlist/splicing 
@@ -1282,27 +1252,9 @@
                                     (maybe-hyperlink
                                      (elem #:style "BSLessonName"
                                            (lesson-struct-title a-lesson))
-                                     (lesson-struct-anchor a-lesson))))))))))))
+                                     (lesson-struct-anchor a-lesson)))))))))))))
 
-;; itemlist/splicing is like itemlist, but also cooperates with the
-;; splice form to absorb arguments.  We use this in combination
-;; with tags.
-(define (itemlist/splicing #:style [style #f] . items)
-  (define spliced-items
-    (reverse
-     (let loop ([items items]
-                [acc '()])
-       (foldl (lambda (i acc)
-                (cond
-                  [(splice? i)
-                   (loop (splice-run i) acc)]
-                  [(item? i)
-                   (cons i acc)]
-                  [else
-                   (cons (item i) acc)]))
-              acc
-              items))))
-  (apply itemlist spliced-items #:style style))
+
 
 
 ;; lesson-module-path->lesson-name: module-path -> string
@@ -1324,8 +1276,6 @@
 ;; Raises a lesson-specific error.
 (define (raise-lesson-error mp)
   (error 'extract-lesson "lesson module path ~e does not have expected shape (e.g. (lib curr/lib/FOO/lesson.scrbl)" mp))
-
-
 
 ;; extract-lesson: module-path -> (listof block)
 ;; Extracts the lesson from the documentation portion, and also
@@ -1531,15 +1481,20 @@
    [(or latex pdf) (apply elem #:style (make-bs-latex-style "BSCircEvalExercise") 
                           (map elem math-examples))]])
 
+;; STILL IN USE???
 (define (overview #:gen-agenda? (gen-agenda? #t) . body)
-  (nested
+  (nested #:style "OverviewBoundary"
    (elem #:style (bootstrap-style "BootstrapOverviewTitle") "Unit Overview")
    (if gen-agenda? (agenda) (elem))
    (nested #:style (bootstrap-sectioning-style "BootstrapOverview") 
-           (list body)) ;(decode-flow body))
+           (list body)) 
    ))
 
+;; DEPRECATED!!!!
 (declare-tags pedagogy)
+
+(define (unit-lessons . body)
+  (interleave-parbreaks/all (append body (list (copyright)))))
 
 (define (unit-overview/auto 
          #:objectives (objectivesItems #f)
@@ -1553,40 +1508,44 @@
          #:gen-agenda? (gen-agenda? #t) 
          . description
          )
-  (nested 
-   (elem #:style (bootstrap-style "BootstrapOverviewTitle") "Unit Overview")
-   (if gen-agenda? (agenda) (elem))
-   (nested #:style (bootstrap-sectioning-style "BootstrapOverview") 
+  (nested #:style "OverviewBoundary"
+          (interleave-parbreaks/all
            (list
-            description
-            (if objectivesItems (objectives objectivesItems) 
-                (summary-data/auto 'learning-objectives "Learning Objectives"))
-            (if (audience-in? "teacher")
-                (if evidenceItems (evidence-statements evidenceItems)
-                    (summary-data/auto 'evidence-statements "Evidence Statements"))
-                (elem))
-            (if product-outcomesItems (product-outcomes product-outcomesItems) 
-                (summary-data/auto 'product-outcomes "Product Outcomes"))
-            (if standards standards 
-                (summary-data/auto 'standards "Standards" (rest state-standards)))
-            (if length (length-of-lesson length) (length-of-unit/auto))
-            (gen-glossary)
-            (if (audience-in? (list "teacher" "volunteer"))
-                (if materialsItems (materials materialsItems) 
-                    (summary-data/auto 'materials "Materials"))
-                (elem))
-            (if (audience-in? (list "teacher" "volunteer"))
-                 (if preparationItems (preparation preparationItems) 
-                     (summary-data/auto 'preparation "Preparation"))
-                 (elem))
-            (if lang-table 
-                (if (list? (first lang-table))
-                    (apply language-table lang-table)
-                    (language-table lang-table))
-                (elem))
-            (insert-teacher-toggle-button)
-            ))))
-                       
+            (elem #:style (bootstrap-style "BootstrapOverviewTitle") "Unit Overview")
+            (nested #:style (bootstrap-sectioning-style "BootstrapOverview") 
+                    (interleave-parbreaks/all
+                     (list
+                      (if gen-agenda? (agenda) (elem))
+                      description
+                      (if objectivesItems (objectives objectivesItems) 
+                          (summary-data/auto 'learning-objectives "Learning Objectives"))
+                      (if (audience-in? "teacher")
+                          (if evidenceItems (evidence-statements evidenceItems)
+                              (summary-data/auto 'evidence-statements "Evidence Statements"))
+                          (elem))
+                      (if product-outcomesItems (product-outcomes product-outcomesItems) 
+                          (summary-data/auto 'product-outcomes "Product Outcomes"))
+                      (if standards standards 
+                          (summary-data/auto 'standards "Standards" (rest state-standards)))
+                      (if length (length-of-lesson length) (length-of-unit/auto))
+                      (gen-glossary)
+                      (if (audience-in? (list "teacher" "volunteer"))
+                          (if materialsItems (materials materialsItems) 
+                              (summary-data/auto 'materials "Materials"))
+                          (elem))
+                      (if (audience-in? (list "teacher" "volunteer"))
+                          (if preparationItems (preparation preparationItems) 
+                              (summary-data/auto 'preparation "Preparation"))
+                          (elem))
+                      (if lang-table 
+                          (if (list? (first lang-table))
+                              (apply language-table lang-table)
+                              (language-table lang-table))
+                          (elem))
+                      (insert-teacher-toggle-button)
+                      )))))
+          ))
+   
 (define (exercise-handout1 #:instr [instr ""]
                           . body)
   (nested #:style (bootstrap-div-style "content")
@@ -1786,13 +1745,13 @@
   (define bootstrap-image (cond-element 
                            [html bootstrap.gif]
                            [(or latex pdf) (elem)]))
-  (cond 
-    [unit+title (list (head-title-no-content the-title) 
-                      (para (elem #:style bs-title-style (list bootstrap-image (second unit+title))))
-                      "\n"
-                      (para (elem #:style bs-title-style (third unit+title))))]
-    [else (list (head-title-no-content the-title)
-                (elem #:style bs-title-style (cons bootstrap-image body)))]))
+  (interleave-parbreaks/all
+   (cond 
+     [unit+title (list (head-title-no-content the-title) 
+                       (para (elem #:style bs-title-style (list bootstrap-image (second unit+title))))
+                       (para (elem #:style bs-title-style (third unit+title))))]
+     [else (list (head-title-no-content the-title)
+                 (elem #:style bs-title-style (cons bootstrap-image body)))])))
 
 ;;;;;;;;;;;;;; Javascript Generation ;;;;;;;;;;;;;;;;;;;;;;;;
 
