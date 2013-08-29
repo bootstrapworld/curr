@@ -38,38 +38,41 @@ div.fixed{
  * Unit overviews include an agenda, and a concatenation of lesson overview lists
 */
 
+.OverviewBoundary{display: inline}
+
 .BootstrapTitle{
-    text-align: center;
-    font-size: 32px;
-    font-weight: bold;
-    display: block;
+    text-align:   center;
+    font-size:    32px;
+    font-weight:  bold;
+    display:      block;
 }
-.BootstrapTitle img{
-  float: left;
+.BootstrapTitle   img{
+  float:          left;
 }
 
 .BootstrapHeader{
-	  font-weight: bold;
-	  font-size: 16px;
-    margin-top: 15px;
+	  font-weight:  bold;
+	  font-size:    16px;
+    margin-top:   15px;
     margin-right: 5px;
 }
 
-/*Overview design*/
+/* Overview design */
 .BootstrapOverviewTitle{
-    background: black;
-    color: white;
-    font-size: 18px;
-    margin: 0px;
-    display: block;
-    width: 100%;
+    background:   black;
+    color:        white;
+    font-size:    18px;
+    margin:       0px;
+    display:      block;
+    width:        100%;
 }
 .BootstrapOverview {
-    padding: 5px;
-    background: lightgray;
+    padding:      5px;
+    width:        790px; /*  780px wide + 5px padding = 800px total */
+    background:   lightgray;
     page-break-after: always;
-    border: solid 1px black;
-    min-height: 100px;
+    border:       solid 1px black;
+    min-height:   100px;
 }
 
 /*Table Design*/
@@ -102,7 +105,7 @@ table {
 	font-weight:    bold;
 	position:       relative;
   padding:        5px;
-  margin:         2px;
+  margin-left:    10px;
   width:          225px;
 }
   
