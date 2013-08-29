@@ -726,11 +726,11 @@
   (traverse-block 
    (lambda (get set)
      (let ([title-tag (string->symbol (string-downcase (string-replace title " " "-")))])
-       ;(printf "storing ~a under tag ~a~n" contents title-tag)
        (when (itemization? contents)
          (set title-tag (append/itemization (get title-tag '()) contents))))
      (if contents
-         (nested (interleave-parbreaks/all (list (bold title) contents)))
+         (nested #:style (bootstrap-div-style (string-append "Lesson" (rem-spaces title)))
+          (interleave-parbreaks/all (list (bold title) contents)))
          (para)))))
 
 ;; lookup-tags: list[string] assoc[string, string] string -> element
@@ -766,13 +766,11 @@
 (define (augment-head)
   (title #:style bs-head-style))
 
+;; Used to generate the curriculum overview pages
+;; Not sure why we have the dual nested here ...
 (define (main-contents . body)
   (list (augment-head)
-        (nested #:style (make-style #f 
-                                    (append (list (make-alt-tag "div") 
-                                                  (make-attributes (list (cons 'id "body")))
-                                                  )
-                                            css-js-additions))
+        (nested #:style (bootstrap-div-style/id "body")
                 (nested #:style (bootstrap-div-style "item") 
                         body))))
 
