@@ -13,6 +13,7 @@
 (provide append/itemization
          remdups/itemization
          fake-item
+         list->itemization
          ;all-defined-out  --> why isn't this working???
          )
 
