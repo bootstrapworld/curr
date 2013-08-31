@@ -50,19 +50,31 @@
                          empty
                          (append finishedstds (list currstd))))]))))
 
+;; takes strings of form "num. text" and decomposes into two
+;;   values, one for number and one for text.  If string
+;;   doesn't have that form, returns #f and the original string
+(define (extract-id-descr str)
+  (let ([labeled? (regexp-match #rx"([0-9]+)\\.(.*)" str)])
+    (if labeled?
+        (values (string->number (second labeled?)) (third labeled?))
+        (values #f str))))
+
 ;; converts the csv contents (as a list) into a tree of standards,
 ;;   learning objectives, and evidence statements.  Need to refine
 ;;   once KF and ES agree on the spreadsheet format
 (define (csvlist-to-standards-tree csvlist)
   (let ([clusters (cluster-lines-by-firstcol csvlist)])
     (map (lambda (cluster)
-           ;(printf "Processing cluster: ~a~n~n" cluster)
-           (make-standard (caar cluster) (cadar cluster)
-                          (map (lambda (learnobj-cluster) 
-                                 (make-learnobj (caar learnobj-cluster) (cadar learnobj-cluster)
-                                                (map (lambda (evstr) (make-evidstmt "dummy" evstr))
-                                                     (map third cluster))))
-                               (cluster-lines-by-firstcol (map cddr cluster)))))
+           (make-standard 
+            (caar cluster) (cadar cluster)
+            (map (lambda (learnobj-cluster)
+                   (let-values ([(id descr) (extract-id-descr (caar learnobj-cluster))])
+                     (make-learnobj id descr
+                                    (map (lambda (evstr) 
+                                           (let-values ([(id descr) (extract-id-descr evstr)])
+                                             (make-evidstmt id descr)))
+                                         (map second learnobj-cluster)))))
+                 (cluster-lines-by-firstcol (map cddr cluster)))))
          clusters)))
 
 ;; use rest to strip out the header line on the spreadsheet

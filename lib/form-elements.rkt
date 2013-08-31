@@ -1152,11 +1152,13 @@
   (traverse-block
    (lambda (get set)
      (lambda (get set)
-       (printf "std-names: ~a~n" (get 'standard-names '()))
        (let* ([stdtaglist (get 'standard-names '())]
               [LOtree (apply append (map get-learnobj-tree stdtaglist))])
          (nested #:style (bootstrap-div-style "LearningObjectives")
-                 (list->itemization LOtree (list "LearningObjectivesList" "EvidenceStatementsList"))))))))
+                 (interleave-parbreaks/all
+                  (list
+                   (para #:style bs-header-style "LearningObjectives:")
+                   (list->itemization LOtree (list "LearningObjectivesList" "EvidenceStatementsList"))))))))))
 
 ;; used to pull summary data generated over an entire unit or lesson from the
 ;; traverse table
