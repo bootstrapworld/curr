@@ -676,6 +676,8 @@
    (lambda (get set!)
      (define anchor (lesson-name->anchor-name the-lesson-name))
      ;(set! 'vocab-used '()) ; reset vocabulary list for each lesson
+     ; next line for migration to new standards generation
+     (set! 'standard-names (remove-duplicates (append standards (get 'standard-names '()))))
      (set! 'bootstrap-lessons (cons (lesson-struct title
                                                    duration
                                                    anchor)
@@ -1150,7 +1152,8 @@
   (traverse-block
    (lambda (get set)
      (lambda (get set)
-       (let* ([stdtaglist (get 'standards '())]
+       (printf "std-names: ~a~n" (get 'standard-names '()))
+       (let* ([stdtaglist (get 'standard-names '())]
               [LOtree (apply append (map get-learnobj-tree stdtaglist))])
          (nested #:style (bootstrap-div-style "LearningObjectives")
                  (list->itemization LOtree (list "LearningObjectivesList" "EvidenceStatementsList"))))))))
