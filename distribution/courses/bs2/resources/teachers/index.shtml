@@ -1,0 +1,67 @@
+<html>
+	<head>
+		<title>Bootstrap: Teacher Resources</title>
+		<link rel="stylesheet" type="text/css" href="/styles.css"/>
+
+	</head>
+	<body>
+        <!--#include virtual="/menubar.ssi" -->
+        
+        <div id="body">
+            
+            <div class="item">
+              <h1>Teacher Resources</h1>
+                <li><p class="BSUnitSummary"><span class="BSUnitTitle">Workbook Solutions</span> [<a href="TeacherWorkbook.odt">odt</a> | <a href="TeacherWorkbook.pdf">pdf</a>] - completed exercises for the entire Student Workbook.</p></a>
+
+
+	<li><p class="BSUnitSummary"><span class="BSUnitTitle">Teacher Game: An example game to accompany the Workbook Solutions</span> 
+
+		<ul>Blank Template [<a href="../source-files/GameTemplate.rkt">DrRacket</a> | <a href="http://www.wescheme.org/view?publicId=ol3KiHHtYb">WeScheme</a>] </p></a></ul>
+
+		<ul>End of Unit 5 [<a href="../source-files/Game5.rkt">DrRacket</a> | <a href="http://www.wescheme.org/view?publicId=DxJcxooJvN">WeScheme</a>] </p></a></ul>
+
+		<ul>End of Unit 6 [<a href="../source-files/Game6.rkt">DrRacket</a> | <a href="http://www.wescheme.org/view?publicId=ojBB26cUYn">WeScheme</a>] </p></a></ul>
+
+		<ul>End of Unit 7 [<a href="../source-files/Game7.rkt">DrRacket</a> | <a href="http://www.wescheme.org/view?publicId=dXH5uwwnjH">WeScheme</a>] </p></a></ul>
+
+		<ul>End of Unit 8 [<a href="../source-files/Game8.rkt">DrRacket</a> | <a href="http://www.wescheme.org/view?publicId=siyL7YEJ9G">WeScheme</a>] </p></a></ul>
+
+		<ul>Completed (after week 10) [<a href="../source-files/CompletedGame.rkt">DrRacket</a> | <a href="http://www.wescheme.org/view?publicId=NuWFz3KC6a">WeScheme</a>] </p></a></ul>
+
+
+	<li><p class="BSUnitSummary"><span class="BSUnitTitle">Sample Games: Examples of what can be made with the Bootstrap 2 material</span> 
+
+		<ul>Driving Game [<a href="../source-files/DrivingGame.rkt">DrRacket</a> | <a href="http://www.wescheme.org/view?publicId=8F4F1ZnUAQ">WeScheme</a>] This game uses the <i>scale</i> function to give the appearance of 3D motion.</p></a></ul>
+
+	<ul>Paddle Game [<a href="../source-files/PaddleGame.rkt">DrRacket</a> | <a href="http://www.wescheme.org/view?publicId=MEcw6RPgJ4">WeScheme</a>] This is a two player game, which uses trigonometry to model the physics of balls bouncing off of walls at an angle.</p></a></ul></li>
+
+	<li><p class="BSUnitSummary"><span class="BSUnitTitle">Shortcuts to files used in the lessons</span> 
+
+		<ul>Autobody Shop [<a href="../source-files/Autos.rkt">DrRacket</a> | <a href="http://www.wescheme.org/view?publicId=HtHZ7zCMHZ">WeScheme</a>] </p></a></ul>
+
+		<ul>Party Planner [<a href="../source-files/DrivingGame.rkt">DrRacket</a> | <a href="http://www.wescheme.org/view?publicId=pigkYtE8Ll">WeScheme</a>] </p></a></ul>
+
+		<ul>Ninja World 1 [<a href="../source-files/NW1.rkt">DrRacket</a> | <a href="http://www.wescheme.org/view?publicId=NPU14Tr3c0">WeScheme</a>] </p></a></ul>
+
+		<ul>Ninja World 2 [<a href="../source-files/NW2.rkt">DrRacket</a> | <a href="http://www.wescheme.org/view?publicId=DtoM5S0yyH">WeScheme</a>] </p></a></ul>
+
+		<ul>Ninja World 3 [<a href="../source-files/NW3.rkt">DrRacket</a> | <a href="http://www.wescheme.org/view?publicId=XfXGclYj1F">WeScheme</a>] </p></a></ul>
+
+		<ul>Ninja World 4 [<a href="../source-files/NW4.rkt">DrRacket</a> | <a href="http://www.wescheme.org/view?publicId=VFrG3KV1pW">WeScheme</a>] </p></a></ul>
+
+		<ul>Ninja World 5 [<a href="../source-files/NW5.rkt">DrRacket</a> | <a href="http://www.wescheme.org/view?publicId=z01JR1UpNu">WeScheme</a>] </p></a></ul>
+		
+		<ul>Ninja World 6 [<a href="../source-files/NW6.rkt">DrRacket</a> | <a href="http://www.wescheme.org/view?publicId=u4AwPuREQd">WeScheme</a>] </p></a></ul>
+
+		<ul>Ninja World Completed [<a href="../source-files/NW6.rkt">DrRacket</a> | <a href="http://www.wescheme.org/view?publicId=aQw4yiqkzA">WeScheme</a>] </p></a></ul>
+
+                <li><p class="BSUnitSummary"><span class="BSUnitTitle">Support Forums</span> [<a href="https://groups.google.com/d/forum/bootstrap-announce">Announcements</a> | <a href="https://groups.google.com/d/forum/bootstrap-discuss">Discussion</a>] - Want to be kept up-to-date about Bootstrap events, workshops, and curricular changes? Want to ask a question or pose a lesson idea for other Bootstrap teachers? These forums are the place to do it.</p></li>
+       
+                  <li><p class="BSUnitSummary"><span class="BSUnitTitle">Evaluation</span> [<a href="Procedures.pdf">Procedures</a> | <a href="Pretest.pdf">Pre-test</a> | <a href="javascript: alert('coming soon')">Post-test</a>] - If you're participating in our research study: Download these files to obtain the instructions and consent forms, pre-test and post-test.</p></li>
+                </ul>
+              
+            </div>
+                
+	</div>
+            </body>
+</html>

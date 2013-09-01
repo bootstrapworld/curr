@@ -13,6 +13,7 @@
 (provide append/itemization
          remdups/itemization
          fake-item
+         list->itemization
          ;all-defined-out  --> why isn't this working???
          )
 
@@ -76,9 +77,11 @@
            (map (lambda (elt)
                   (if (not (list? elt)) 
                       (elem elt)
-                      (compound-paragraph (make-style #f '())
-                       (list (para (first elt))
-                             (list->itemization (second elt) remclassnames)))))
+                      (nested #:style (format "~aItemContents" (or stylename ""))
+                              (list "\n" "\n" 
+                                    (elem (first elt))
+                                    "\n" "\n"
+                                    (list->itemization (second elt) remclassnames)))))
                 eltlist))))
 
 ;(list->itemization '("hi" ("mom" ("sis"))) (list "a" "b"))
