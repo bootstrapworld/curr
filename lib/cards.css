@@ -111,6 +111,8 @@ tr.position{color:orange}
  * The header contains a title, time, and the stoplight
 */
 
+div.segment center{position: absolute; top: 350px;}
+
 .red, .yellow, .green{display: none;}
 .callout {display: none;}
 
