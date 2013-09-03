@@ -28,6 +28,7 @@
          "paths.rkt"
          "tags.rkt"
          "scribble-helpers.rkt"
+         "standards-csv-api.rkt"
          "standards-dictionary.rkt"
          "glossary-terms.rkt"
          "sexp-generator.rkt")
@@ -592,9 +593,9 @@
       (cond-element
        [html (sxml->element
               `(center
-                (input (@ (type "button") (class "prev") (value "<<")) "")
-                (input (@ (type "button") (value "Show Teacher Notes") (onclick "toggleTeacherNotes(this);")) "")
-                (input (@ (type "button") (class "next") (value ">>")) "")
+                (input (@ (type "button") (id "prev") (value "<<")) "")
+                (input (@ (type "button") (value "Show Teacher Notes (old)") (onclick "toggleTeacherNotes(this);")) "")
+                (input (@ (type "button") (id "next") (value ">>")) "")
                 ))]
        [else (elem "")])
       (elem)))
@@ -610,7 +611,7 @@
           (nested #:style bs-callout-style (interleave-parbreaks/all contents))))
 
 (define (points . contents)
-  (apply itemlist/splicing contents #:style (make-style "lesson" '(compact))))
+   (apply itemlist/splicing contents #:style (make-style "lesson" '(compact))))
 
 (define (point . contents)
   (interleave-parbreaks/select contents)) 
@@ -675,6 +676,8 @@
    (lambda (get set!)
      (define anchor (lesson-name->anchor-name the-lesson-name))
      ;(set! 'vocab-used '()) ; reset vocabulary list for each lesson
+     ; next line for migration to new standards generation
+     (set! 'standard-names (remove-duplicates (append standards (get 'standard-names '()))))
      (set! 'bootstrap-lessons (cons (lesson-struct title
                                                    duration
                                                    anchor)
@@ -718,7 +721,9 @@
                                                       (elem #:style bs-time-style (format "(Time ~a)" duration))]
                                                      [else (elem)]))))
                                   (list (elem)))))) ;pacings))) -- reinclude later if desired
-                   body)))
+                   body
+                   (list (insert-toggle-buttons))
+                   )))
         ))))))
   
 ;; contents either an itemization or a traverse block
@@ -1138,11 +1143,24 @@
                             (decode-flow (list "Evidence Statements:")))
         (apply itemlist/splicing items #:style "BootstrapEvidenceStatementsList")))
 
-
 (define (product-outcomes . items)
   (list (compound-paragraph bs-header-style 
                             (decode-flow (list "Product Outcomes:")))
         (apply itemlist/splicing items #:style "BootstrapProductOutcomesList")))
+
+;; assumes no duplicates in the stdtaglist
+;; do we want to suppress evidence for non-teachers, or will formatting effectively handle that?
+(define (learn-evid-from-standards)
+  (traverse-block
+   (lambda (get set)
+     (lambda (get set)
+       (let* ([stdtaglist (get 'standard-names '())]
+              [LOtree (apply append (map get-learnobj-tree stdtaglist))])
+         (nested #:style (bootstrap-div-style "LearningObjectives")
+                 (interleave-parbreaks/all
+                  (list
+                   (para #:style bs-header-style "LearningObjectives:")
+                   (list->itemization LOtree (list "LearningObjectivesList" "EvidenceStatementsList"))))))))))
 
 ;; used to pull summary data generated over an entire unit or lesson from the
 ;; traverse table
@@ -1515,6 +1533,7 @@
                      (list
                       (if gen-agenda? (agenda) (elem))
                       description
+                      (learn-evid-from-standards)
                       (if objectivesItems (objectives objectivesItems) 
                           (summary-data/auto 'learning-objectives "Learning Objectives"))
                       (if (audience-in? "teacher")
