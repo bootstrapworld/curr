@@ -589,13 +589,13 @@
       (elem)))
 
 (define (insert-toggle-buttons)
-  (if (audience-in? (list "teacher" "volunteer"))
+  (if (audience-in? (list "student"))
       (cond-element
        [html (sxml->element
               `(center
-                (input (@ (type "button") (id "prev") (value "<<")) "")
-                (input (@ (type "button") (value "Show Teacher Notes (old)") (onclick "toggleTeacherNotes(this);")) "")
-                (input (@ (type "button") (id "next") (value ">>")) "")
+                (input (@ (type "button") (class "prev")   (value "<<")) "")
+                (input (@ (type "button") (class "toggle") (value "Show Teacher Notes (old)") (onclick "toggleTeacherNotes(this);")) "")
+                (input (@ (type "button") (class "next")   (value ">>")) "")
                 ))]
        [else (elem "")])
       (elem)))
