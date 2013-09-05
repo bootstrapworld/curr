@@ -880,7 +880,7 @@
   (compound-paragraph (bootstrap-sectioning-style "BootstrapDemo")
                       (decode-flow (cons "Demo: " body))))
 
-(define (activity . body)
+(define (activity #:evidence (evidence #f) . body)
   (nested #:style (bootstrap-div-style "activity")
           (interleave-parbreaks/select body)))
   
