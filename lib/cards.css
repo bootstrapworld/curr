@@ -111,6 +111,7 @@ tr.position{color:orange}
  * The header contains a title, time, and the stoplight
 */
 
+.BootstrapLessonTitle{display: none;}
 div.segment center{position: absolute; top: 350px;}
 
 .red, .yellow, .green{display: none;}
