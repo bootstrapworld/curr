@@ -9,9 +9,8 @@
 		       (* 1 (* 21 10))
 		       (- (* 17 25) 4))))
 
-@title{Exercise: Coding Circles of Evaluation}
-
 @(exercise-handout 
+  #:title "Coding Circles of Evaluation"
   #:instr "For each Circle of Evaluation below, write down the code that corresponds to the Circle:"
   @;Using matching exercise to override right floats of CoE in CSS
   @(matching-exercise 
@@ -20,4 +19,3 @@
     (build-list (length exprs) (lambda (i) "")))
   )
 
-@(copyright)

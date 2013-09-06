@@ -10,11 +10,9 @@
 		 (- 19 (+ 12 11))
 		 ))
 
-@title{Exercise: Creating Circles of Evaluation}
-
 @(exercise-handout 
+  #:title "Creating Circles of Evaluation"
   #:instr "For each math expression below, write down its Circle of Evaluation:"
   @(create-itemlist #:ordered #t #:style "exercise"
     (map sexp->arith-str exprs)))
 
-@(copyright)

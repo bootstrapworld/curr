@@ -10,9 +10,8 @@
                      '(+ (* 2 (+ 3 1)) 10)
                      ))
 
-@title{Exercise: Evaluating Circles of Evaluation}
-
 @(exercise-handout 
+  #:title "Evaluating Circles of Evaluation"
   #:instr "For each Circle of Evaluation below, evaluate the Circle and 
    write down the answer (a number):"
   @;Using matching exercise to override right floats of CoE in CSS
@@ -22,4 +21,3 @@
     (build-list (length exprs) (lambda (i) "")))
   )
 
-@(copyright)
