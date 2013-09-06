@@ -1,6 +1,0 @@
-AuthUserFile /web/cs/password/.bootstrap_passwd
-AuthName "Please Log In"
-AuthType Basic
-Require valid-user
-
-ErrorDocument 401 /401.shtml

@@ -1161,7 +1161,7 @@
          (nested #:style (bootstrap-div-style "LearningObjectives")
                  (interleave-parbreaks/all
                   (list
-                   (para #:style bs-header-style "LearningObjectives:")
+                   (para #:style bs-header-style "Learning Objectives:")
                    (list->itemization LOtree (list "LearningObjectivesList" "EvidenceStatementsList"))))))))))
 
 ;; used to pull summary data generated over an entire unit or lesson from the
