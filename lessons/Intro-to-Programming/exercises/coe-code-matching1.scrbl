@@ -15,12 +15,9 @@
                  (* (+ 8 21) (+ 20 9)))
    )
 
-@title{Exercise: Evaluating Circles of Evaluation}
-
 @(exercise-handout 
+  #:title "Evaluating Circles of Evaluation"
   #:instr "For each Circle of Evaluation below, evaluate the Circle and 
    write down the answer (a number):"
   @(circeval-matching-exercise/code 
     (map (lambda (s) (format "~a" s)) exprs)))
-
-@(copyright)

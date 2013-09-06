@@ -222,6 +222,7 @@
 (define bs-lesson-duration-style (bootstrap-style "BSLessonDuration"))
 (define bs-video-style (bootstrap-style "BootstrapVideo"))
 (define bs-page-title-style (bootstrap-style "BootstrapPageTitle"))
+(define bs-content-style (bootstrap-div-style "content"))
 
 ;; new lesson styles
 (define bs-time-style (bootstrap-span-style "time"))
@@ -252,6 +253,7 @@
 (define bs-define-style (bootstrap-span-style "wescheme-define"))
 (define bs-handout-style (bootstrap-div-style "segment"))
 (define bs-exercise-style (bootstrap-paragraph-style "BootstrapExerciseItem"))
+(define bs-exercise-instr-style (bootstrap-div-style "exercise-instr"))
 
 ;; make-bs-latex-style : string -> style
 ;; defines a style that will only be used in latex
@@ -686,7 +688,7 @@
       (para #:style bs-page-title-style title)
       "\n" "\n"
       (nested-flow 
-       (bootstrap-div-style "content")
+       bs-content-style
        (list
         ;(include-ssi)
         (nested #:style (bootstrap-sectioning-style "overview")
@@ -1562,26 +1564,21 @@
                       (insert-teacher-toggle-button)
                       )))))
           ))
-   
-(define (exercise-handout1 #:instr [instr ""]
-                          . body)
-  (nested #:style (bootstrap-div-style "content")
-          (list (nested #:style (bootstrap-div-style "segment")
-                        (interleave-parbreaks/all
-                         (list (para instr)
-                               body))))))
 
-(define (exercise-handout #:instr [instr ""]
+(define (exercise-handout #:title [title #f]
+                          #:instr [instr #f]
+                          #:forevidence [forevidence #f]
                           . body)
-  (nested
-   (nested-flow (bootstrap-div-style "content")
-                (decode-flow
-                 (list (nested #:style (bootstrap-div-style "segment")
-                               (interleave-parbreaks/all
-                                (list (para instr)
-                                      (nested body))))
-                       (para ""))))
-   ))
+  (let ([full-title (if title (string-append "Exercise: " title) "Exercise")])
+    (interleave-parbreaks/all
+     (list (head-title-no-content full-title)
+           (elem #:style bs-title-style full-title)
+           (nested #:style bs-content-style
+                   (nested #:style bs-handout-style
+                           (interleave-parbreaks/all
+                            (cons (para #:style bs-exercise-instr-style instr) 
+                                  body))))
+           (copyright)))))
 
 (define (exercise-answers . body)
   (list (section "Answer Key")
