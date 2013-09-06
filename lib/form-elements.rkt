@@ -6,6 +6,7 @@
          racket/contract
          racket/string
          racket/port
+         racket/system ;; for extracting info from exercise handouts
          scribble/base
          scribble/core
          scribble/decode
@@ -67,6 +68,7 @@
          sexp
          sexp-answer
          sexp->arith-str
+         make-exercise-locator
          exercise-handout
          exercise-answers
          create-itemlist
@@ -662,6 +664,7 @@
          #:standards (standards '())
          #:materials (materials #f)
          #:preparation (preparation #f)
+         #:exercises (exercise-locs '())
          #:video (video #f)
          #:pacings (pacings #f)
          . body)
@@ -680,6 +683,7 @@
      ;(set! 'vocab-used '()) ; reset vocabulary list for each lesson
      ; next line for migration to new standards generation
      (set! 'standard-names (remove-duplicates (append standards (get 'standard-names '()))))
+     (set! 'exercise-locs (append exercise-locs (get 'exercise-locs '())))
      (set! 'bootstrap-lessons (cons (lesson-struct title
                                                    duration
                                                    anchor)
@@ -1214,7 +1218,7 @@
              (nested #:style (bootstrap-div-style "Glossary")
                      (interleave-parbreaks/all
                       (list
-                       (para #:style bs-header-style "Glossary")
+                       (para #:style bs-header-style "Glossary:")
                        (apply itemlist/splicing
                               (for/list ([term terms])
                                 (cond [(and (list? term) (string=? "" (second term)))
@@ -1225,6 +1229,40 @@
                                        (item (elem (format "~a: ~a" (first term) (second term))))]
                                       [else
                                        (item (elem (format "~a" term)))]))))))))))))
+
+(define (extract-exercise-title exloc)
+  (let ([filepath (build-path lessons-dir (exercise-locator-lesson exloc) 
+                              "exercises" (string-append (exercise-locator-filename exloc) ".scrbl"))]
+        )
+    (call-with-input-file filepath
+      (lambda (p)
+        (let loop [(title #f) (evtag #f)]
+          (let ([next (read p)])
+            (cond [(and title evtag) (values title evtag)]
+                  [(eof-object? next) (values title evtag)]
+                  [(equal? next "#:title") (loop (read p) evtag)]
+                  [(equal? next "#:evidence") (loop title (read p))]
+                  [else (loop title evtag)])))))))
+                                     
+(define (gen-exercises)
+  (traverse-block
+   (lambda (get set)
+     (lambda (get set)
+       (let ([exercise-locs (get 'exercise-locs '())])
+         (if (empty? exercise-locs) (para)
+             (nested #:style (bootstrap-div-style "ExtraExercises")
+                     (interleave-parbreaks/all
+                      (list 
+                       (para #:style bs-header-style "Additional Exercises:")
+                       (apply itemlist/splicing 
+                              (map (lambda (exloc)
+                                     ;; suspect there is a better way to get to distribution path through vars
+                                     (hyperlink (build-path (current-document-output-path) 'up 'up 'up "exercises"
+                                                            (exercise-locator-lesson exloc)
+                                                            (string-append (exercise-locator-filename exloc) ".html"))
+                                                (exercise-locator-filename exloc)))
+                                   exercise-locs))
+                       )))))))))
   
 (define (preparation . items)
   (list (compound-paragraph bs-header-style 
@@ -1556,6 +1594,7 @@
                           (if preparationItems (preparation preparationItems) 
                               (summary-data/auto 'preparation "Preparation"))
                           (elem))
+                      (gen-exercises)
                       (if lang-table 
                           (if (list? (first lang-table))
                               (apply language-table lang-table)
@@ -1564,6 +1603,10 @@
                       (insert-teacher-toggle-button)
                       )))))
           ))
+
+;; info required to locate an exercise within the filesystem
+;;   will be used to generate links
+(define-struct exercise-locator (lesson filename))
 
 (define (exercise-handout #:title [title #f]
                           #:instr [instr #f]

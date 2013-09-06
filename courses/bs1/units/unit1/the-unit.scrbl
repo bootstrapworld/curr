@@ -18,6 +18,8 @@
      #:standards (list)
      #:materials @itemlist[]
      #:preparation @itemlist[@item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/1USFPXkeO5AbGOzm_U0tMv4NV3RrxTMTyg-bqIKUf4q4/edit?usp=sharing" "Warmup activity sheet").}]
+     #:exercises (list (make-exercise-locator "Intro-to-Programming" "coe-code-matching1")
+                       (make-exercise-locator "Intro-to-Programming" "coe-to-code1"))
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
