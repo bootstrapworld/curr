@@ -1230,19 +1230,46 @@
                                       [else
                                        (item (elem (format "~a" term)))]))))))))))))
 
-(define (extract-exercise-title exloc)
+;; produces values for the title and forevidence arguments for given exercise locator
+;;  either or both values will be false if not found in the file
+(define (extract-exercise-data exloc)
   (let ([filepath (build-path lessons-dir (exercise-locator-lesson exloc) 
                               "exercises" (string-append (exercise-locator-filename exloc) ".scrbl"))]
         )
-    (call-with-input-file filepath
-      (lambda (p)
-        (let loop [(title #f) (evtag #f)]
-          (let ([next (read p)])
-            (cond [(and title evtag) (values title evtag)]
-                  [(eof-object? next) (values title evtag)]
-                  [(equal? next "#:title") (loop (read p) evtag)]
-                  [(equal? next "#:evidence") (loop title (read p))]
-                  [else (loop title evtag)])))))))
+    (let ([data
+           (with-input-from-file filepath
+             (lambda ()
+               (with-handlers ([(lambda (e) (eq? e 'local-break))
+                                (lambda (e) (list #f #f))])
+                 ;; check that file starts with a #lang
+                 (let ([init-line (read-line)])
+                   (unless (and (string? init-line) (string=? "#lang" (substring init-line 0 5)))
+                     (printf (format "WARNING: extract-exercise-data: ~a does not start with #lang~n" filepath))
+                     (raise 'local-break)))
+                 ;; loop until get to the exercise sexp
+                 (let ([exercise-sexp
+                        (let loop ()
+                          (let ([next (read)])
+                            (cond [(eof-object? next) 
+                                   (begin
+                                     (printf "WARNING: extract-exercise-data reached end of file without finding exercise-handout~n")
+                                     (raise 'local-break))]
+                                  [(eq? next '@)
+                                   (let ([next-sexp (read)])
+                                     (if (and (cons? next-sexp) (equal? (first next-sexp) 'exercise-handout))
+                                         next-sexp
+                                         (loop)))]
+                                  [else
+                                   (begin
+                                     (printf (format "WARNING: extract-exercise-data: got non-@ term ~a~n" next))
+                                     (raise 'local-break))])))])
+                   ;; dig into the exercise sexp to find the title and evidence tag
+                   (let loop [(title #f) (evtag #f) (rem-sexp (rest exercise-sexp))]
+                     (cond [(< (length rem-sexp) 2) (list title evtag)]
+                           [(equal? (first rem-sexp) '#:title) (loop (second rem-sexp) evtag (rest (rest rem-sexp)))]
+                           [(equal? (first rem-sexp) '#:forevidence) (loop title (second rem-sexp) (rest (rest rem-sexp)))]
+                           [else (loop title evtag (rest (rest rem-sexp)))]))))))])
+      (values (first data) (second data)))))
                                      
 (define (gen-exercises)
   (traverse-block
@@ -1256,11 +1283,13 @@
                        (para #:style bs-header-style "Additional Exercises:")
                        (apply itemlist/splicing 
                               (map (lambda (exloc)
-                                     ;; suspect there is a better way to get to distribution path through vars
-                                     (hyperlink (build-path (current-document-output-path) 'up 'up 'up "exercises"
-                                                            (exercise-locator-lesson exloc)
-                                                            (string-append (exercise-locator-filename exloc) ".html"))
-                                                (exercise-locator-filename exloc)))
+                                     (let-values ([(extitle exforevid) (extract-exercise-data exloc)])
+                                       (let ([descr (if extitle extitle (exercise-locator-filename exloc))])
+                                         ;; suspect there is a better way to get to distribution path through vars
+                                         (hyperlink (build-path (current-document-output-path) 'up 'up 'up "exercises"
+                                                                (exercise-locator-lesson exloc)
+                                                                (string-append (exercise-locator-filename exloc) ".html"))
+                                                    descr))))
                                    exercise-locs))
                        )))))))))
   
