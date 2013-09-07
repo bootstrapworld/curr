@@ -1284,12 +1284,18 @@
                        (apply itemlist/splicing 
                               (map (lambda (exloc)
                                      (let-values ([(extitle exforevid) (extract-exercise-data exloc)])
-                                       (let ([descr (if extitle extitle (exercise-locator-filename exloc))])
+                                       (let ([descr (if extitle extitle (exercise-locator-filename exloc))]
+                                             [support (if exforevid
+                                                          (let ([evidstmt (get-evid-statment/tag exforevid)])
+                                                            (if evidstmt (format " [supports ~a]" evidstmt)
+                                                                ""))
+                                                          "")])
                                          ;; suspect there is a better way to get to distribution path through vars
-                                         (hyperlink (build-path (current-document-output-path) 'up 'up 'up "exercises"
-                                                                (exercise-locator-lesson exloc)
-                                                                (string-append (exercise-locator-filename exloc) ".html"))
-                                                    descr))))
+                                         (elem (list (hyperlink (build-path (current-document-output-path) 'up 'up 'up "exercises"
+                                                                            (exercise-locator-lesson exloc)
+                                                                            (string-append (exercise-locator-filename exloc) ".html"))
+                                                                descr)
+                                                     (elem #:style (bootstrap-span-style "supports-evid") support))))))
                                    exercise-locs))
                        )))))))))
   

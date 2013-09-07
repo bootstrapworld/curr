@@ -9,6 +9,7 @@
          
 (provide get-standard-descr
          get-learnobj-tree
+         get-evid-statment/tag
          )
 
 ;; location of the standards csv file (must be a path)
@@ -101,6 +102,37 @@
            (list (learnobj-descr lobj)
                  (map evidstmt-descr (learnobj-evidence lobj))))
          lobjs)))
+
+;; returns evidence statement for given std string and numeric labels for 
+;;   learning objective and evidence statement
+(define (get-evid-statement std learnindex evidindex)
+  (let ([report-problem (lambda (msg) (printf "WARNING: get-evid-stmt: ~a~n" msg) #f)]
+        [lotree (get-learnobj-tree std)])
+    (cond [(not lotree) (report-problem (format "no learning objectives for standard ~a" std))]
+          [(or (< learnindex 1) (> learnindex (length lotree))) 
+           (report-problem (format "no learning objective with index ~a for standard ~a" learnindex std))]
+          [(or (< evidindex 1) (> evidindex (length (second (list-ref lotree (sub1 learnindex)))))) 
+           (report-problem (format "no evidence statement with index ~a for standard ~a and objective ~a" 
+                                   evidindex std learnindex))]
+          [else (list-ref (second (list-ref lotree (sub1 learnindex))) (sub1 evidindex))])))
+
+(define (get-evid-statment/tag evidtag)
+  (let-values ([(std lonum esnum) (evidtag-data evidtag)])
+    (if (not (or std lonum esnum)) #f
+        (get-evid-statement std lonum esnum))))
+
+;; an evidence tag has the form std&learnobj&evid, where learnobj and evid are numbers
+(define evidtag-regexp #rx"(.+)&([0-9]+)&([0-9]+)")
+
+;; returns values for the standard, learning objective number, and evidence number from a tag
+;;   if the given string has the wrong format, returns #f
+(define (evidtag-data evidtagstr)
+  (let ([data (regexp-match evidtag-regexp evidtagstr)])
+    (if data 
+        (values (second data) (string->number (third data)) (string->number (fourth data)))
+        (begin
+          (printf "WARNING: malformed evidence tag ~a~n" evidtagstr)
+          (values #f #f #f)))))
 
 ;;;;; ATTIC ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 

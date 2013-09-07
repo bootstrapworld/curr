@@ -11,6 +11,7 @@
 
 @(exercise-handout 
   #:title "Coding Circles of Evaluation"
+  #:forevidence "A-SSE.1-2&1&3"
   #:instr "For each Circle of Evaluation below, write down the code that corresponds to the Circle:"
   @;Using matching exercise to override right floats of CoE in CSS
   @(matching-exercise 
