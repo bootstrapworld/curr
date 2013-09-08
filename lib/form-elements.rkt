@@ -1585,7 +1585,7 @@
 (declare-tags pedagogy)
 
 (define (unit-lessons . body)
-  (interleave-parbreaks/all (append body (list (copyright)))))
+  (interleave-parbreaks/all (append body (list (gen-exercises) (copyright)))))
 
 (define (unit-overview/auto 
          #:objectives (objectivesItems #f)
@@ -1629,7 +1629,6 @@
                           (if preparationItems (preparation preparationItems) 
                               (summary-data/auto 'preparation "Preparation"))
                           (elem))
-                      (gen-exercises)
                       (if lang-table 
                           (if (list? (first lang-table))
                               (apply language-table lang-table)
