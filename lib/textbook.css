@@ -344,12 +344,12 @@ td.vertical {
 span.wp { font-weight:   bold; }
 span.vocab{font-style:  italic; font-weight: bold; color: darkblue;}
 
+div#copyright{display: inline-block;}
 
 /************************************************************************************
  * CONVERTABLE S-EXPRESSIONS
 */
 
-/*  */
 div.code{max-width: 500px; display: inline; margin: 0px; padding: 0px;}
 div.student div.circleevalsexp, div.codesexp{display: inline-block;}
 div.circleevalsexp{float: right;}
@@ -359,15 +359,16 @@ div.circleevalsexp .expression{
 	margin:         5px;
 	clear:          none;
 	border:         2px solid black;
+  background: white;
   border-radius:  20px;
 	-moz-border-radius: 20px;
 	-webkit-border-radius:20px;
-  background: white;
 }
 
 div.circleevalsexp .value{
 	display:        inline-block;
-	margin:         10px;
+	margin:         20px 10px 10px 10px;
+  vertical-align: top;
 }
 
 div.circleevalsexp .operator{
@@ -381,8 +382,24 @@ div.circleevalsexp .operator{
 
 div.circleevalsexp .lParen, div.circleevalsexp .rParen{display: none;}
 
+/* holes in code should be at least 40px x 20px */
+.partial-expr-hole, .operator:empty{
+  display:      inline-block;
+  background:   #ddd;
+  min-width:    40px;
+  min-height:   20px;
+}
 
-div#copyright{display: inline-block;}
+/* holes in code should be at least 40px x 40px */
+div.circleevalsexp  .partial-expr-hole{
+  min-height:   40px;
+  margin:       10px;
+}
+div.circleevalsexp .partial-expr-hole .partial-expr-hole{margin: 20px;}
+
+div.codesexp  .partial-expr-hole{ margin-left:       10px;}
+div.codesexp  .partial-expr-hole .partial-expr-hole { margin-left:       40px;}
+
 
 /************************************************************************************
  * EXERCISES SEGMENT
@@ -397,8 +414,6 @@ table.matching-table td{
 }
 
 table.matching-table td>*{float: left;}
-
-
 
 .exercises h2{ text-align: center; page-break-before:always;}
 ol.question>li{clear: both; border-top: solid 1px black; padding: 20px 20px; margin-bottom: 35px;}
