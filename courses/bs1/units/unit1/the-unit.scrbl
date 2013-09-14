@@ -18,8 +18,6 @@
      #:standards (list)
      #:materials @itemlist[]
      #:preparation @itemlist[@item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/1USFPXkeO5AbGOzm_U0tMv4NV3RrxTMTyg-bqIKUf4q4/edit?usp=sharing" "Warmup activity sheet").}]
-     #:exercises (list (make-exercise-locator "Intro-to-Programming" "coe-code-matching1")
-                       (make-exercise-locator "Intro-to-Programming" "coe-to-code1"))
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -182,6 +180,10 @@
 ]
      #:product-outcomes @itemlist[@item{Students convert several arithmetic expressions between multiple representations}]
      #:standards (list "A-SSE.1-2" "N-Q"  "MP.1" "MP.4" "MP.6" "MP.7")
+     #:exercises (list (make-exercise-locator "Order-of-Operations" "complete-coe-from-arith")
+                       (make-exercise-locator "Order-of-Operations" "arith-to-coe1")
+                       (make-exercise-locator "Order-of-Operations" "coe-to-arith1")
+                       (make-exercise-locator "Order-of-Operations" "match-arith-coe1"))
      #:materials @itemlist[@item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}]
      #:preparation @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket}
                              @item{If using DrRacket, make sure the Ninja.rkt file is loaded}
@@ -294,6 +296,10 @@
                               @item{Student Workbooks, and something to write with}
                               @item{Overhead projector}]
      #:prerequisites (list "Order of Operations")
+     #:exercises (list (make-exercise-locator "Intro-to-Programming" "complete-code-from-coe1")
+                       (make-exercise-locator "Intro-to-Programming" "coe-to-code1")
+                       (make-exercise-locator "Intro-to-Programming" "coe-code-matching1")
+                       )
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}

@@ -2,22 +2,28 @@
 
 @(define exprs '((* (- 4 24) (+ 13 25))
                  (- (- 14 13) 14)
-                 (- (+ 7 20) (* 16 9))
                  (* (- 6 16) 14)
-                 (* (- 14 6) 16)
-                 (+ (+ 14 20) 5)
+                 (* 16 (- 14 6))
                  (+ (- 8 11) 5)
                  (- (+ 8 11) 5)
-                 (- 5 (+ 8 11))
                  (* (+ 19 20) (- (+ 12 10) 22))
-                 (* 14 (+ 6 4))
                  (- 22 (* 7 (* 6 10)))
-                 (* (+ 8 21) (+ 20 9)))
-   )
+                 ))
+
+@(define permuted-exprs 
+               '((- (+ 8 11) 5)
+		 (- (- 14 13) 14)
+                 (- 22 (* 7 (* 6 10)))
+                 (* 16 (- 14 6))
+                 (* (- 6 16) 14)
+                 (+ (- 8 11) 5)
+		 (* (- 4 24) (+ 13 25))
+		 (* (+ 19 20) (- (+ 12 10) 22))
+                 ))
 
 @(exercise-handout 
-  #:title "Evaluating Circles of Evaluation"
-  #:instr "For each Circle of Evaluation below, evaluate the Circle and 
-   write down the answer (a number):"
-  @(circeval-matching-exercise/code 
-    (map (lambda (s) (format "~a" s)) exprs)))
+  #:title "Matching Circles of Evaluation and Code"
+  #:instr "For each Circle of Evaluation in the left column, match it with its corresponding code from the right column."
+  @(matching-exercise 
+    (map sexp exprs)
+    (map (lambda (e) (sexp #:form "code" e)) permuted-exprs)))

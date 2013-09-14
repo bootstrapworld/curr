@@ -244,6 +244,7 @@
 (define bs-boolvalue-style (bootstrap-span-style "value wescheme-boolean"))
 (define bs-clause-style (bootstrap-span-style "wescheme-clause"))
 (define bs-comment-style (bootstrap-div-style "wescheme-comment"))
+(define bs-expr-hole-style (bootstrap-span-style "partial-expr-hole"))
 (define bs-example-style (bootstrap-span-style "wescheme-example"))
 (define bs-example-left-style (bootstrap-span-style "wescheme-example-left"))
 (define bs-example-right-style (bootstrap-span-style "wescheme-example-right"))
@@ -683,7 +684,7 @@
      ;(set! 'vocab-used '()) ; reset vocabulary list for each lesson
      ; next line for migration to new standards generation
      (set! 'standard-names (remove-duplicates (append standards (get 'standard-names '()))))
-     (set! 'exercise-locs (append exercise-locs (get 'exercise-locs '())))
+     (set! 'exercise-locs (append (get 'exercise-locs '()) exercise-locs))
      (set! 'bootstrap-lessons (cons (lesson-struct title
                                                    duration
                                                    anchor)
@@ -764,12 +765,12 @@
            (for/list ([stnd known-stnds])
              (item (elem (format "~a: ~a" (first stnd) (second stnd))))))))
 
-;; still need to figure out how to get ordered tag in here
 (define (create-itemlist #:ordered [ordered? #f] #:style [style #f] contents)
-  (let ([use-style (if (equal? style "exercise") bs-exercise-style #f)])
-    (apply itemlist/splicing
+  (let ([item-style (if (equal? style "exercise") bs-exercise-style #f)]
+        [list-style (if ordered? 'ordered #f)])
+    (apply itemlist/splicing #:style list-style
            (for/list ([entry contents])
-             (item (elem #:style use-style entry))))))
+             (item (elem #:style item-style entry))))))
 
 ;;;;;;;;;;;;;;;; END NEW LESSON FORMAT ;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -966,12 +967,17 @@
 (define (unit-length timestr)
   (list (format "Length: ~a~n" (decode-flow timestr))))
 
+(define EXPR-HOLE-SYM 'BSLeaveAHoleHere)
+
 ;; converts sexp into structured markup
 ;; believe symbols only go to the first list case, not the symbol? case
+;; recognizes EXPR-HOLE-SYM (used to create partially-completed expressions)
+;;   in each of atom and operator positions
 (define (sexp->block/aux sexp)
   (cond [(member sexp '(true false))
          (elem #:style bs-boolvalue-style (format "~a" sexp))]
         [(eq? sexp 'else) (elem #:style bs-keyword-style "else")]
+        [(eq? sexp EXPR-HOLE-SYM) (elem #:style bs-expr-hole-style " ")]
         [(number? sexp) (elem #:style bs-numvalue-style (format "~a" sexp))]
         [(string? sexp) (elem #:style bs-strvalue-style (format "~s" sexp))]
         [(symbol? sexp) (elem #:style bs-symvalue-style (format "~a" sexp))]
@@ -1014,7 +1020,8 @@
               (elem #:style bs-expression-style
                     (append
                      (list (elem #:style bs-openbrace-style "(") 
-                           (elem #:style bs-operator-style (format "~a " (first sexp))))
+                           (elem #:style bs-operator-style 
+                                 (if (eq? (first sexp) EXPR-HOLE-SYM) " " (format "~a " (first sexp)))))
                      args 
                      (list (elem #:style bs-closebrace-style ")")))))])]
         [else (error 'sexp->block 
@@ -1024,13 +1031,15 @@
   (let ([style (if (string=? form "sexp") bs-sexp-style bs-circeval-style)])
     (elem #:style style (sexp->block/aux sexp))))
 
-;; convert an sexpression into structured form.  Scribble sends
-;;   data in as strings, so need to parse string into an sexp
+;; convert an sexpression into structured form.  In some contexts,
+;;   Scribble sends data in as strings, so may need to parse string into an sexp
 ;;   prior to traversal/rendering
-(define (sexp exp-as-string #:form (form "circofeval"))
+(define (sexp exp-perhaps-as-string #:form (form "circofeval"))
   (unless (member form (list "code" "text" "circofeval"))
     (error 'sexp "Unrecognized form ~a~n" form))
-  (let ([exp (with-input-from-string exp-as-string read)])
+  (let ([exp (if (string? exp) 
+                 (with-input-from-string exp-perhaps-as-string read) 
+                 exp-perhaps-as-string)])
     (if (member form (list "code" "text"))
         (sexp->block exp "sexp")
         (sexp->block exp form))))
@@ -1068,7 +1077,6 @@
                             (read-sexps-from-string (string-join lines)))]))])
     (elem #:style bs-code-style list-of-sexps-and-comments)))
   
-
 ;; generates a random binary arithmetic sexp 
 ;; - depth is the max depth of the expression
 ;; - form indicates whether to render spans for text or circle-of-evaluation
@@ -1290,12 +1298,14 @@
                                                             (if evidstmt (format " [supports ~a]" evidstmt)
                                                                 ""))
                                                           "")])
-                                         ;; suspect there is a better way to get to distribution path through vars
-                                         (elem (list (hyperlink (build-path (current-document-output-path) 'up 'up 'up "exercises"
-                                                                            (exercise-locator-lesson exloc)
-                                                                            (string-append (exercise-locator-filename exloc) ".html"))
-                                                                descr)
-                                                     (elem #:style (bootstrap-span-style "supports-evid") support))))))
+                                         (let ([exdirpath (if (current-deployment-dir)
+                                                              (build-path (current-deployment-dir) "lessons") 
+                                                              (build-path lessons-dir))])
+                                           (elem (list (hyperlink (build-path exdirpath
+                                                                              (exercise-locator-lesson exloc) "exercises"
+                                                                              (string-append (exercise-locator-filename exloc) ".html"))
+                                                                  descr)
+                                                     (elem #:style (bootstrap-span-style "supports-evid") support)))))))
                                    exercise-locs))
                        )))))))))
   
