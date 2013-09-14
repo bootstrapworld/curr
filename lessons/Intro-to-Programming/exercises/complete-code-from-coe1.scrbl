@@ -11,7 +11,7 @@
 			    (- (+ BSLeaveAHoleHere 13) (BSLeaveAHoleHere BSLeaveAHoleHere 4))
 			    (BSLeaveAHoleHere (+ BSLeaveAHoleHere 4) BSLeaveAHoleHere)
 			    (* BSLeaveAHoleHere (/ BSLeaveAHoleHere (+ 2 -4)))
-			    (+ (BSLeaveAHoleHere (BSLeaveAHoleHere 8 1) BSLeaveAHoleHere) (- BSLeaveAHoleHere 3))
+			    (+ BSLeaveAHoleHere3 (- BSLeaveAHoleHere 3))
 			    ))
 
 @(exercise-handout 

@@ -968,6 +968,8 @@
   (list (format "Length: ~a~n" (decode-flow timestr))))
 
 (define EXPR-HOLE-SYM 'BSLeaveAHoleHere)
+(define EXPR-HOLE-SYM2 'BSLeaveAHoleHere2)
+(define EXPR-HOLE-SYM3 'BSLeaveAHoleHere3)
 
 ;; converts sexp into structured markup
 ;; believe symbols only go to the first list case, not the symbol? case
@@ -977,7 +979,11 @@
   (cond [(member sexp '(true false))
          (elem #:style bs-boolvalue-style (format "~a" sexp))]
         [(eq? sexp 'else) (elem #:style bs-keyword-style "else")]
-        [(eq? sexp EXPR-HOLE-SYM) (elem #:style bs-expr-hole-style " ")]
+        [(eq? sexp EXPR-HOLE-SYM)  (elem #:style bs-expr-hole-style " ")]
+        [(eq? sexp EXPR-HOLE-SYM2) (elem #:style bs-expr-hole-style (elem #:style bs-expr-hole-style " "))]
+        [(eq? sexp EXPR-HOLE-SYM3) (elem #:style bs-expr-hole-style 
+                                         (elem #:style bs-expr-hole-style 
+                                               (elem #:style bs-expr-hole-style " ")))]
         [(number? sexp) (elem #:style bs-numvalue-style (format "~a" sexp))]
         [(string? sexp) (elem #:style bs-strvalue-style (format "~s" sexp))]
         [(symbol? sexp) (elem #:style bs-symvalue-style (format "~a" sexp))]

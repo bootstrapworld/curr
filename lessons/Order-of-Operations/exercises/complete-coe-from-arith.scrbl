@@ -10,7 +10,7 @@
 @(define exprs-with-holes '((- (* BSLeaveAHoleHere 9) (+ 2 BSLeaveAHoleHere))
                             (* (+ 3 BSLeaveAHoleHere) BSLeaveAHoleHere)
                             (+ BSLeaveAHoleHere (* BSLeaveAHoleHere 6))
-                            (/ 15 (BSLeaveAHoleHere 10 (* 4 BSLeaveAHoleHere)))
+                            (/ 15 (BSLeaveAHoleHere 10 BSLeaveAHoleHere2))
                             (+ (BSLeaveAHoleHere 20 (+ BSLeaveAHoleHere 3)) (BSLeaveAHoleHere BSLeaveAHoleHere 3))
                             ))
 
