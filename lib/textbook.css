@@ -344,7 +344,11 @@ td.vertical {
 span.wp { font-weight:   bold; }
 span.vocab{font-style:  italic; font-weight: bold; color: darkblue;}
 
-div#copyright{display: inline-block;}
+div#copyright{
+  display: inline-block;
+  border-top: dashed 2px black;
+  padding: 20px;
+}
 
 /************************************************************************************
  * CONVERTABLE S-EXPRESSIONS
