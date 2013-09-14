@@ -416,8 +416,6 @@
                                           @item{You learned about order of operations, Circles of Evaluation, how to turn Circles of Evaluation into programs, and how to run those programs to get answers.}]
                         In the next unit, we'll begin writing programs for more interesting things than just arithmetic.}
                         @teacher{@management{Make sure student names are on page 3. Take page 3 itself, or take photos of page 3, to prep game images for a later Unit. }}}
-                 @point{@student{}
-                        @teacher{}}
                ]
          }
 }
