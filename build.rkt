@@ -179,6 +179,17 @@
            (run-scribble scribble-file #:never-generate-pdf? #t)])))
 
 
+(define (build-exercise-handouts)
+  ;; and the exercise handouts
+  (for ([subdir (directory-list lessons-dir)]
+        #:when (directory-exists? (build-path lessons-dir subdir)))
+    (when (directory-exists? (build-path lessons-dir subdir "exercises"))
+      (for ([worksheet (directory-list (build-path lessons-dir subdir "exercises"))]
+            #:when (regexp-match #px".scrbl$" worksheet))
+        (printf "build.rkt: building exercise handout ~a: ~a\n" subdir worksheet)
+        (run-scribble (build-path lessons-dir subdir "exercises" worksheet))))))
+
+
 (define (build-worksheets)
   ;; and the worksheets
   (for ([subdir (directory-list lessons-dir)]
@@ -263,6 +274,7 @@
 (for ([course (in-list bootstrap-courses)])
   (parameterize ([current-course course])
     (build-course-units)
+    (build-exercise-handouts)
     (build-resources)))
 ;(build-lessons)
 ;(build-worksheets)
