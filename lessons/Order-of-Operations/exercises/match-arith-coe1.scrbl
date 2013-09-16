@@ -26,4 +26,4 @@
   #:instr "Match each Circle of Evaluation in the left column with its corresponding arithmetic expression in the right column:" 
   @(matching-exercise 
     (map sexp exprs)
-    (map sexp->arith-str permuted-exprs)))
+    (map sexp->math permuted-exprs)))

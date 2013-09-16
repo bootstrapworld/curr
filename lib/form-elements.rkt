@@ -32,7 +32,9 @@
          "standards-csv-api.rkt"
          "standards-dictionary.rkt"
          "glossary-terms.rkt"
-         "sexp-generator.rkt")
+         "sexp-generator.rkt"
+         "auto-format-within-strings.rkt"
+         )
 
 
 
@@ -67,7 +69,7 @@
          gen-random-arith-sexp
          sexp
          sexp-answer
-         sexp->arith-str
+         sexp->math
          make-exercise-locator
          exercise-handout
          exercise-answers
@@ -1137,6 +1139,8 @@
                              (sexp->arith-str (third sexp) #:wrap #t))])
            (if wrap (format "(~a)" base) base))]))
                           
+(define (sexp->math sexp #:wrap [wrap #f])
+  (math (sexp->arith-str sexp #:wrap wrap)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -1658,6 +1662,17 @@
 ;;   will be used to generate links
 (define-struct exercise-locator (lesson filename))
 
+;; breaks a string into a list of content, in which substrings in
+;;  the given list have been italicized
+(define (italicize-within-string str terms-to-ital)
+  (format-key-terms str terms-to-ital italic))
+
+(define exercise-terms-to-italicize 
+  (list "Circle of Evaluation" 
+        "Arithmetic Expression" 
+        "arithmetic expression" 
+        "code"))
+
 (define (exercise-handout #:title [title #f]
                           #:instr [instr #f]
                           #:forevidence [forevidence #f]
@@ -1669,7 +1684,8 @@
            (nested #:style bs-content-style
                    (nested #:style bs-handout-style
                            (interleave-parbreaks/all
-                            (cons (para #:style bs-exercise-instr-style instr) 
+                            (cons (para #:style bs-exercise-instr-style (bold "Directions: ") 
+                                        (italicize-within-string instr exercise-terms-to-italicize))
                                   body))))
            (copyright)))))
 

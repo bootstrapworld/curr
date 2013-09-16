@@ -12,7 +12,7 @@
 
 @(exercise-handout 
   #:title "Creating Circles of Evaluation from Arithmetic Expressions"
-  #:instr "For each math expression below, write down its Circle of Evaluation:"
+  #:instr "For each math expression below, write down its Circle of Evaluation"
   @(create-itemlist #:ordered #t #:style "exercise"
-    (map sexp->arith-str exprs)))
+    (map sexp->math exprs)))
 
