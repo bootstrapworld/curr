@@ -183,6 +183,7 @@ div.segment{
   float:      left;
   border:     1px solid black;
   background:	rgba(255, 255, 255, .8);
+  width:      800px;
   overflow:   hidden;
 }
 
@@ -225,7 +226,6 @@ span.challenge>div:before{content: 'Moving ahead...'}
 .segment ul.lesson{
   margin:         0px;
   padding-left:   0px;
-  width:          800px;
   border-bottom:  solid 1px lightgray;
   list-style-type:none;
 }
