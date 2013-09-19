@@ -74,6 +74,7 @@
          exercise-handout
          exercise-answers
          create-itemlist
+         create-exercise-itemlist
          
          ;; Sections
          worksheet
@@ -257,7 +258,6 @@
 (define bs-expression-style (bootstrap-span-style "expression"))
 (define bs-define-style (bootstrap-span-style "wescheme-define"))
 (define bs-handout-style (bootstrap-div-style "segment"))
-(define bs-exercise-style (bootstrap-paragraph-style "BootstrapExerciseItem"))
 (define bs-exercise-instr-style (bootstrap-div-style "exercise-instr"))
 
 ;; make-bs-latex-style : string -> style
@@ -767,12 +767,15 @@
            (for/list ([stnd known-stnds])
              (item (elem (format "~a: ~a" (first stnd) (second stnd))))))))
 
-(define (create-itemlist #:ordered [ordered? #f] #:style [style #f] contents)
-  (let ([item-style (if (equal? style "exercise") bs-exercise-style #f)]
-        [list-style (if ordered? 'ordered #f)])
-    (apply itemlist/splicing #:style list-style
-           (for/list ([entry contents])
-             (item (elem #:style item-style entry))))))
+(define (create-itemlist #:style [style #f] #:itemstyle [itemstyle #f] contents)
+  (apply itemlist/splicing #:style style
+         (for/list ([entry contents])
+                   (item (elem #:style itemstyle entry)))))
+
+(define (create-exercise-itemlist #:ordered [ordered? #t] contents)
+  (create-itemlist #:style (if ordered? 'ordered #f)
+                   #:itemstyle (bootstrap-span-style "ExerciseListItem") 
+                   contents))
 
 ;;;;;;;;;;;;;;;; END NEW LESSON FORMAT ;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -1045,7 +1048,7 @@
 (define (sexp exp-perhaps-as-string #:form (form "circofeval"))
   (unless (member form (list "code" "text" "circofeval"))
     (error 'sexp "Unrecognized form ~a~n" form))
-  (let ([exp (if (string? exp) 
+  (let ([exp (if (string? exp-perhaps-as-string) 
                  (with-input-from-string exp-perhaps-as-string read) 
                  exp-perhaps-as-string)])
     (if (member form (list "code" "text"))
