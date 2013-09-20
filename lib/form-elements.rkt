@@ -210,6 +210,14 @@
                                                (cons 'id name)))
                         css-js-additions))))
 
+
+(define (bootstrap-div-style/extra-id name id)
+  (make-style name (cons (make-alt-tag "div")
+                         (cons 
+                          (make-attributes (list (cons 'class "")
+                                                 (cons 'id id)))
+                          css-js-additions))))
+
 (define (bootstrap-span-style name)
   (make-style name (cons (make-alt-tag "span")
                          css-js-additions)))
@@ -257,7 +265,7 @@
 (define bs-operator-style (bootstrap-span-style "operator"))
 (define bs-expression-style (bootstrap-span-style "expression"))
 (define bs-define-style (bootstrap-span-style "wescheme-define"))
-(define bs-handout-style (bootstrap-div-style "segment"))
+(define bs-handout-style (bootstrap-div-style/extra-id "segment" "exercises"))
 (define bs-exercise-instr-style (bootstrap-div-style "exercise-instr"))
 
 ;; make-bs-latex-style : string -> style
@@ -774,7 +782,7 @@
 
 (define (create-exercise-itemlist #:ordered [ordered? #t] contents)
   (create-itemlist #:style (if ordered? 'ordered #f)
-                   #:itemstyle (bootstrap-span-style "ExerciseListItem") 
+                   ;#:itemstyle (bootstrap-span-style "ExerciseListItem") 
                    contents))
 
 ;;;;;;;;;;;;;;;; END NEW LESSON FORMAT ;;;;;;;;;;;;;;;;;;;;;;;;
