@@ -37,7 +37,7 @@
      #:learning-objectives @itemlist[@item{Students learn about Boolean values and functions that manipulate them}]
      #:evidence-statements @itemlist[@item{Students will know the two Boolean values (true and false)}
                                      @item{Students will write Circles of Evaluation for Boolean-producing functions}
-                                     @item{Students learn how to use arithmetic operators (like @code{<} and @code{>} that produce Booleans}
+                                     @item{Students learn how to use arithmetic operators (like @code{<} and @code{>}) that produce Booleans}
                                     ]
      #:product-outcomes @itemlist[]
      #:standards (list)

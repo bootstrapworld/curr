@@ -203,6 +203,8 @@
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[@item{Students will define at least two functions, using the Design Recipe}]
 
+     #:exercises (list (make-exercise-locator "Defining-Functions" "match-examples-functions1")
+                       (make-exercise-locator "Defining-Functions" "create-contracts-examples1"))
      #:standards (list "A-CED.1-4" "A-SSE.1-2" "F-IF.1-3" "F-IF.7-9" "F-BF.1-2")
      #:materials @itemlist[@item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders with names on covers.}]
      #:preparation @itemlist[]

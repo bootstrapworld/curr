@@ -125,8 +125,8 @@
      #:overview "Students use the Design Recipe to define simple functions (of one and two variables), given various word problems"
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[@item{Given a contract and purpose statement for a simple function, students will be able to write two Examples.}
-                                      @item{Given two examples for a simple function, students will be able to identify the variable.}
-                                      @item{Given two examples for a simple function, students will be able to write the definition.}]
+                                      @item{Given two examples for a simple function, students will be able to identify the variable}
+                                      @item{Given two examples for a simple function, students will be able to write the definition}]
      #:product-outcomes @itemlist[@item{Students will write functions to solve simple problems by using the Design Recipe}]
      #:standards (list)
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}

@@ -1,54 +1,45 @@
 #lang curr/lib
 
-@(define exprs (list '(+ 4 5) 
-                     '(* 7 6)
-                     '(- (* 2 3) (+ 1 0))
-                     '(- (+ 5 8) 12)
-                     '(* -2 -6)
-                     '(+ (* (- 4 1) -2) 12)
-                     '(/ 10 (* 2 (+ 3 1)))
-                     ))
-
 @(define e1
    (code #:multi-line #t 
-"(EXAMPLE (mystery \"red\")    (circle 10 \"red\"))
-(EXAMPLE (mystery \"orange\") (circle 10 \"orange\"))"))
+"(EXAMPLE (mystery \"red\") (circle 10 \"solid\" \"red\"))
+(EXAMPLE (mystery \"orange\") (circle 10 \"solid\" \"orange\"))"))
 
 @(define f1
    (code #:multi-line #t
 "(define (mystery c)
-  (circle 10 c))"))
+  (circle 10 \"solid\" c))"))
 
 @(define e2
    (code #:multi-line #t
-"(EXAMPLE (mystery 30) (circle 30 \"red\"))
-(EXAMPLE (mystery 10) (circle 10 \"red\"))"))
+"(EXAMPLE (mystery 30) (circle 30 \"outline\" \"red\"))
+(EXAMPLE (mystery 10) (circle 10 \"outline\" \"red\"))"))
 
 @(define f2
    (code #:multi-line #t
 "(define (mystery r)
-  (circle r \"red\"))"))
+  (circle r \"outline\" \"red\"))"))
 
 @(define e3
    (code #:multi-line #t
-"(EXAMPLE (mystery 30) (rectangle 30 10 \"red\"))
-(EXAMPLE (mystery 10) (rectangle 10 10 \"red\"))"))
+"(EXAMPLE (mystery 30) (rectangle 30 10 \"outline\" \"red\"))
+(EXAMPLE (mystery 10) (rectangle 10 10 \"outline\" \"red\"))"))
 
 @(define f3
    (code #:multi-line #t
 "(define (mystery w)
-  (rectangle w 10 \"red\"))"))
+  (rectangle w 10 \"outline\" \"red\"))"))
 
 @(define e4
    (code #:multi-line #t
-"(EXAMPLE (mystery 30) (rectangle 20 30 \"red\"))
-(EXAMPLE (mystery 20) (rectangle 20 20 \"red\"))
-(EXAMPLE (mystery 10) (rectangle 20 10 \"red\"))"))
+"(EXAMPLE (mystery 30) (rectangle 20 30 \"solid\" \"red\"))
+(EXAMPLE (mystery 20) (rectangle 20 20 \"solid\" \"red\"))
+(EXAMPLE (mystery 10) (rectangle 20 10 \"solid\" \"red\"))"))
 
 @(define f4
    (code #:multi-line #t
 "(define (mystery h)
-  (rectangle 20 h \"red\"))"))
+  (rectangle 20 h \"solid\" \"red\"))"))
 
 @(define e5
    (code #:multi-line #t
@@ -70,7 +61,7 @@
 @(define f7
    (code #:multi-line #t
 "(define (mystery h)
-  (rectangle 10 h \"red\"))"))
+  (rectangle 10 h \"solid\" \"red\"))"))
 
 @(define examples-lst
    (list e1 e2 e3 e4 e5 "" ""))
@@ -91,7 +82,5 @@
   #:instr "The left column shows several collections of Examples, each with the same fake function names.
            The right column has several functions.  Figure out which function goes with each collection of
            examples.  You might not use all of the functions."
-
-  @;Using matching exercise to override right floats of CoE in CSS
   @(matching-exercise examples-lst functions-lst)) 
 
