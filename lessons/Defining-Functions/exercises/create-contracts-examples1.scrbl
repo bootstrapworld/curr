@@ -43,6 +43,4 @@
   #:instr "For each of the following collections of Examples, write the contract
            for the function named in the examples."
 
-  @;Using matching exercise to override right floats of CoE in CSS
-  @(matching-exercise examples-lst (map (lambda (e) "") examples-lst))) 
-
+  @(create-exercise-itemlist (map (lambda (e) (list e "Answer:" (contract-exercise "test"))) examples-lst)))

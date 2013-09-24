@@ -307,19 +307,25 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
+(define interactive-mode? #f)
+
 ;; Inputs: string number string string -> element
 ;; Generates a single-line input area
 (define (fill-in-the-blank #:id id
                            #:columns (width 50)
                            #:label (label #f)
+                           #:class (classname #f)
                            #:answer (answer #f))
-  (cond-element [html (sxml->element `(input (@ (type "text")
-                                                (id ,(resolve-id id))
-                                                (width ,(number->string width))
-                                                ,@(if label
-                                                      `((placeholder ,label))
-                                                      '()))
-                                             ""))]
+  (cond-element [html
+                 (if interactive-mode?
+                     (sxml->element `(input (@ (type "text")
+                                               (id ,(resolve-id id))
+                                               (width ,(number->string width))
+                                               ,@(if label
+                                                     `((placeholder ,label))
+                                                     '()))
+                                            ""))
+                     (elem #:style (bootstrap-span-style classname) ""))]
                 [(or latex pdf)
                  (elem #:style bs-fill-in-blank-style 
                        (if label label " "))]))
@@ -1709,9 +1715,9 @@
 ;; Produces element with blanks for an exercise to fill in a contract
 (define (contract-exercise tag #:name [name-ans #f] #:domain [domain-ans #f] #:range [range-ans #f])
   (cond-element [html
-                 (elem "; " (fill-in-the-blank #:id (format "~aname" tag) #:label "Name")
-                       " : " (fill-in-the-blank #:id (format "~aarg" tag) #:label "Domain")
-                       " -> " (fill-in-the-blank #:id (format "~aoutput" tag) #:label "Range"))]
+                 (elem "; " (fill-in-the-blank #:id (format "~aname" tag) #:label "Name" #:class "contract-name studentAnswer")
+                       " : " (fill-in-the-blank #:id (format "~aarg" tag) #:label "Domain" #:class "contract-domain studentAnswer")
+                       " -> " (fill-in-the-blank #:id (format "~aoutput" tag) #:label "Range" #:class "contract-range studentAnswer"))]
                 [(or latex pdf)
                  (elem #:style bs-contract-exercise-style "")]))
 
