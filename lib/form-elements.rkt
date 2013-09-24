@@ -66,6 +66,7 @@
          matching-exercise
          circeval-matching-exercise/code
          circeval-matching-exercise/math
+         fill-in-blank-answers-exercise
          gen-random-arith-sexp
          sexp
          sexp-answer
@@ -255,7 +256,8 @@
 (define bs-boolvalue-style (bootstrap-span-style "value wescheme-boolean"))
 (define bs-clause-style (bootstrap-span-style "wescheme-clause"))
 (define bs-comment-style (bootstrap-div-style "wescheme-comment"))
-(define bs-expr-hole-style (bootstrap-span-style "partial-expr-hole"))
+(define bs-expr-hole-style (bootstrap-span-style "studentAnswer"))
+;(define bs-expr-hole-style (bootstrap-span-style "partial-expr-hole"))
 (define bs-example-style (bootstrap-span-style "wescheme-example"))
 (define bs-example-left-style (bootstrap-span-style "wescheme-example-left"))
 (define bs-example-right-style (bootstrap-span-style "wescheme-example-right"))
@@ -311,7 +313,7 @@
 
 ;; Inputs: string number string string -> element
 ;; Generates a single-line input area
-(define (fill-in-the-blank #:id id
+(define (fill-in-the-blank #:id (id "nonunique-id")
                            #:columns (width 50)
                            #:label (label #f)
                            #:class (classname #f)
@@ -786,10 +788,12 @@
          (for/list ([entry contents])
                    (item (elem #:style itemstyle entry)))))
 
-(define (create-exercise-itemlist #:ordered [ordered? #t] contents)
+(define (create-exercise-itemlist #:ordered [ordered? #t] #:with-answer-blanks? [with-answer-blanks? #f] contents)
   (create-itemlist #:style (if ordered? 'ordered #f)
-                   ;#:itemstyle (bootstrap-span-style "ExerciseListItem") 
-                   contents))
+                   #:itemstyle (bootstrap-span-style "ExerciseListItem") 
+                   (if with-answer-blanks?
+                       (map (lambda (c) (elem c (fill-in-the-blank #:class "studentAnswer"))) contents)
+                       contents)))
 
 ;;;;;;;;;;;;;;;; END NEW LESSON FORMAT ;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -1119,11 +1123,35 @@
         (let ([choose (list-ref sourcelst (random (length sourcelst)))])
           (cons choose (loop (remove choose sourcelst)))))))
 
+;; adds copies of with-elt to alst to produce list of length to-len
+;;   if alst already longer than to-len, return alst unchanged
+(define (pad-to alst to-len with-elt)
+  (if (>= (length alst) to-len) alst
+      (let ([extras (build-list (- to-len (length alst)) (lambda (i) with-elt))])
+        (append alst extras))))
+
 ;; given two lists of content, produces an exercise to match each item in
 ;;   colA with one from colB.  If permute is true, then contents of colB
-;;   are permuted before generating the output
+;;   are permuted before generating the output.
+;; Pads lists as needed to balance length (allows some matches to not be used)
 (define (matching-exercise #:permute (permute #f) colA colB)
-  (let ([rowslist (map list colA (if permute (permute-list colB) colB))])
+  (let* ([permutedB (if permute (permute-list colB) colB)]
+         [paddedcolA (if (> (length colB) (length colA)) (pad-to colA (length colB) "") colA)]
+         [paddedcolB (if (> (length colA) (length colB)) (pad-to permutedB (length colA) "") permutedB)])
+    (let ([rowslist (map list paddedcolA paddedcolB)])
+      (tabular #:style "matching-table" rowslist))))
+
+;; creates an elem containing string with index number before each elt in list
+(define (add-index-nums/elem elts)
+  (map (lambda (e index) (elem (format "~a." index) e))
+       elts (build-list (length elts) (lambda (i) (add1 i)))))
+
+;; generates a table with questions in the left column and blank lines in the right
+(define (fill-in-blank-answers-exercise questions #:numbered? (numbered? #t))
+  (let* ([numberedques (if numbered? (add-index-nums/elem questions) questions)]
+         [rowslist (map (lambda (ques) 
+                          (list ques (fill-in-the-blank #:class "studentAnswer")))
+                        numberedques)])
     (tabular #:style "matching-table" rowslist)))
 
 ;; Given a list of sexps as strings, create a matching exercise between
@@ -1332,7 +1360,9 @@
                                                                               (exercise-locator-lesson exloc) "exercises"
                                                                               (string-append (exercise-locator-filename exloc) ".html"))
                                                                   descr)
-                                                     (elem #:style (bootstrap-span-style "supports-evid") support)))))))
+                                                       ; uncomment next line when ready to bring evidence back in
+                                                       ;(elem #:style (bootstrap-span-style "supports-evid") support)
+                                                       ))))))
                                    exercise-locs))
                        )))))))))
   
@@ -1687,7 +1717,9 @@
 (define exercise-terms-to-italicize 
   (list "Circle of Evaluation" 
         "Arithmetic Expression" 
-        "arithmetic expression" 
+        "arithmetic expression"
+        "Expression"
+        "Contract" 
         "code"))
 
 (define (exercise-handout #:title [title #f]

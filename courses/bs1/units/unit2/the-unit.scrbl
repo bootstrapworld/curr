@@ -52,6 +52,7 @@ include other datatypes, including Strings and Images.}
                                      @item{Given an expression, students will be able to identify the datatype it will evaluate to}
                                      @item{Students will be able to distinguish between types and values}]
      #:product-outcomes @itemlist[]
+     #:exercises (list (make-exercise-locator "Strings-and-Images" "many-types-coe-to-code1"))
      #:standards (list "N-Q" "A-SSE.1-2" "F-IF.1-3" "MP.1" "MP.4" "MP.6" "MP.7")
      #:materials @itemlist[@item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}]
      #:preparation @itemlist[@item{Student Workbooks, and something to write with}]
@@ -152,6 +153,8 @@ include other datatypes, including Strings and Images.}
                                       @item{Students will be able to distinguish between contracts and function calls}
                                       @item{Given an example of a function being applied, students will be able to write a contract for that function}]
      #:product-outcomes @itemlist[]
+     #:exercises (list (make-exercise-locator "Contracts" "id-expr-pieces1")
+		       (make-exercise-locator "Contracts" "match-contracts-exprs1"))
      #:standards (list "A-SSE.1-2" "N-Q" "MP.1" "MP.4" "MP.6" "MP.7")
      #:materials @itemlist[@item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}]
      #:preparation @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket}

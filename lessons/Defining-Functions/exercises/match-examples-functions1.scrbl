@@ -1,9 +1,14 @@
 #lang curr/lib
 
+@;apparent misalignment in second piece of each first example is intentional
+@;to make code render aligned once scribbled
+
 @(define e1
    (code #:multi-line #t 
-"(EXAMPLE (mystery \"red\") (circle 10 \"solid\" \"red\"))
-(EXAMPLE (mystery \"orange\") (circle 10 \"solid\" \"orange\"))"))
+"(EXAMPLE (mystery \"red\") 
+         (circle 10 \"solid\" \"red\"))
+(EXAMPLE (mystery \"orange\") 
+         (circle 10 \"solid\" \"orange\"))"))
 
 @(define f1
    (code #:multi-line #t
@@ -12,8 +17,10 @@
 
 @(define e2
    (code #:multi-line #t
-"(EXAMPLE (mystery 30) (circle 30 \"outline\" \"red\"))
-(EXAMPLE (mystery 10) (circle 10 \"outline\" \"red\"))"))
+"(EXAMPLE (mystery 30) 
+         (circle 30 \"outline\" \"red\"))
+(EXAMPLE (mystery 10) 
+         (circle 10 \"outline\" \"red\"))"))
 
 @(define f2
    (code #:multi-line #t
@@ -22,8 +29,10 @@
 
 @(define e3
    (code #:multi-line #t
-"(EXAMPLE (mystery 30) (rectangle 30 10 \"outline\" \"red\"))
-(EXAMPLE (mystery 10) (rectangle 10 10 \"outline\" \"red\"))"))
+"(EXAMPLE (mystery 30) 
+         (rectangle 30 10 \"outline\" \"red\"))
+(EXAMPLE (mystery 10) 
+         (rectangle 10 10 \"outline\" \"red\"))"))
 
 @(define f3
    (code #:multi-line #t
@@ -32,9 +41,12 @@
 
 @(define e4
    (code #:multi-line #t
-"(EXAMPLE (mystery 30) (rectangle 20 30 \"solid\" \"red\"))
-(EXAMPLE (mystery 20) (rectangle 20 20 \"solid\" \"red\"))
-(EXAMPLE (mystery 10) (rectangle 20 10 \"solid\" \"red\"))"))
+"(EXAMPLE (mystery 30) 
+         (rectangle 20 30 \"solid\" \"red\"))
+(EXAMPLE (mystery 20) 
+         (rectangle 20 20 \"solid\" \"red\"))
+(EXAMPLE (mystery 10) 
+         (rectangle 20 10 \"solid\" \"red\"))"))
 
 @(define f4
    (code #:multi-line #t
@@ -43,9 +55,12 @@
 
 @(define e5
    (code #:multi-line #t
-"(EXAMPLE (mystery 2) (+ 2 2))
-(EXAMPLE (mystery 4) (+ 4 4))
-(EXAMPLE (mystery 5) (+ 5 5))
+"(EXAMPLE (mystery 2) 
+         (+ 2 2))
+(EXAMPLE (mystery 4) 
+         (+ 4 4))
+(EXAMPLE (mystery 5) 
+         (+ 5 5))
 "))
 
 @(define f5
@@ -79,8 +94,8 @@
 
 @(exercise-handout 
   #:title "Matching Examples and Function Definitions"
-  #:instr "The left column shows several collections of Examples, each with the same fake function names.
-           The right column has several functions.  Figure out which function goes with each collection of
+  #:instr "The left column shows several collections of Examples, each with the same fake function name (mystery).
+           The right column has several definitions of the mystery function.  Figure out which function goes with each collection of
            examples.  You might not use all of the functions."
   @(matching-exercise examples-lst functions-lst)) 
 
