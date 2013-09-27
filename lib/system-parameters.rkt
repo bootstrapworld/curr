@@ -1,6 +1,7 @@
 #lang racket/base
 
 (provide current-deployment-dir
+ 	 current-solutions-mode?
          current-generate-pdf?
          current-course
          current-lesson-xref
@@ -12,6 +13,10 @@
 ;; Under deployment mode, the worksheets and drills are written as subdirectories of the deployment directory.
 ;; The toplevel build.rkt script will initialize this parameter.
 (define current-deployment-dir (make-parameter #f))
+
+
+;; Generate solutions?
+(define current-solutions-mode? (make-parameter #f))
 
 
 ;; Generate pdf files after scribbling?

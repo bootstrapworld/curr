@@ -80,6 +80,7 @@
 ;; Command line parsing.  We initialize the SCRIBBLE_TAGS environmental
 ;; variable
 (putenv "AUDIENCE" "volunteer")
+(putenv "CURRENT-SOLUTIONS-MODE" "off")
 (define current-contextual-tags
   (command-line
    #:program "build"
@@ -168,19 +169,20 @@
           [else
            (printf "Could not find a \"lesson.scrbl\" in directory ~a\n"
                    (build-path lessons-dir subdir))]))
+  )
 
-  ;; and the long-lessons
-  (printf "build.rkt: building long lessons\n")
-  (for ([subdir (directory-list lessons-dir)]
-        #:when (directory-exists? (build-path lessons-dir subdir)))
-    (define scribble-file (simple-form-path (build-path lessons-dir subdir "lesson" "lesson-long.scrbl")))
-    (cond [(file-exists? scribble-file)
-           (printf "build.rkt: Building ~a\n" scribble-file)
-           (run-scribble scribble-file #:never-generate-pdf? #t)])))
+;  ;; and the long-lessons
+;  (printf "build.rkt: building long lessons\n")
+;  (for ([subdir (directory-list lessons-dir)]
+;        #:when (directory-exists? (build-path lessons-dir subdir)))
+;    (define scribble-file (simple-form-path (build-path lessons-dir subdir "lesson" "lesson-long.scrbl")))
+;    (cond [(file-exists? scribble-file)
+;           (printf "build.rkt: Building ~a\n" scribble-file)
+;           (run-scribble scribble-file #:never-generate-pdf? #t)])))
 
 
+;; Building exercise handouts
 (define (build-exercise-handouts)
-  ;; and the exercise handouts
   (for ([subdir (directory-list lessons-dir)]
         #:when (directory-exists? (build-path lessons-dir subdir)))
     (when (directory-exists? (build-path lessons-dir subdir "exercises"))
@@ -189,6 +191,21 @@
         (printf "build.rkt: building exercise handout ~a: ~a\n" subdir worksheet)
         (run-scribble (build-path lessons-dir subdir "exercises" worksheet))))))
 
+;; Building exercise handout solutions
+;;  need putenv rather than parameter to communicate with form-elements.rkt -- not sure why
+(define (build-exercise-handout-solutions)
+  (parameterize ([current-deployment-dir (build-path (current-deployment-dir) "solutions")])
+    (unless (directory-exists? (current-deployment-dir))
+      (make-directory (current-deployment-dir))) 
+    (for ([subdir (directory-list lessons-dir)]
+          #:when (directory-exists? (build-path lessons-dir subdir)))
+      (let ([exercises-path (build-path lessons-dir subdir "exercises")])
+        (when (directory-exists? exercises-path)
+          (for ([worksheet (directory-list exercises-path)]
+                #:when (regexp-match #px".scrbl$" worksheet))
+            (printf "build.rkt: building exercise handout solution ~a: ~a\n" subdir worksheet)
+            (run-scribble (build-path exercises-path worksheet)))))))
+  )
 
 (define (build-worksheets)
   ;; and the worksheets
@@ -274,8 +291,9 @@
 (for ([course (in-list bootstrap-courses)])
   (parameterize ([current-course course])
     (build-course-units)
-    (build-exercise-handouts)
-    (build-resources)))
+    (build-resources)))  ;; should resources get built once, or once per course?
+(build-exercise-handouts)
+;(build-exercise-handout-solutions)
 ;(build-lessons)
 ;(build-worksheets)
 ;(build-drills)

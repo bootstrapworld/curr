@@ -1738,9 +1738,27 @@
                                   body))))
            (copyright)))))
 
+(define (exercise-handout/solutions #:title [title #f]
+                                    #:instr [instr #f]
+                                    #:forevidence [forevidence #f]
+                                    . body)
+  (let ([full-title (if title (string-append "Solutions to " title) "Solutions")])
+    (interleave-parbreaks/all
+     (list (head-title-no-content full-title)
+           (elem #:style bs-title-style full-title)
+           (nested #:style bs-content-style
+                   (nested #:style bs-handout-style
+                           (interleave-parbreaks/all
+                            (cons (para #:style bs-exercise-instr-style (bold "Directions: ") 
+                                        (italicize-within-string instr exercise-terms-to-italicize))
+                                  body))))
+           (copyright)))))
+
 (define (exercise-answers . body)
-  (list (section "Answer Key")
-        (nested body)))
+  (if (string=? "on" (getenv "CURRENT-SOLUTIONS-MODE"))
+      ;(list (section "Answer Key")
+            (nested body);)
+      (elem)))
 
 ;; Inputs: string [string] [string] [string] -> element
 ;;         optional argument supply answers for the workbook
