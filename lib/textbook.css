@@ -290,8 +290,6 @@ li.lessonItem li{
 .editbox{white-space: nowrap;}
 
 .management{margin-bottom: 10px; color: darkblue;}
-div#exercises{width: 800px;}
-div#exercises li{padding-bottom: 150px;}
 div.activity{
   width:          100%;
   padding:        10px 0px;
@@ -389,24 +387,6 @@ div.circleevalsexp .operator{
 
 div.circleevalsexp .lParen, div.circleevalsexp .rParen{display: none;}
 
-/* student answers should be at least 20px tall */
-.studentAnswer, .operator:empty{
-  display:      inline-block;
-  background:   #ddd;
-  min-height:   20px;
-}
-
-/* holes in code should be at least 40px x 40px */
-div.circleevalsexp  .studentAnswer{
-  min-height:   40px;
-  margin:       10px;
-}
-
-/* .studentAnswers should appear differently if they're in code or circles of Eval */
-div.circleevalsexp .studentAnswer .studentAnswer{margin: 20px;}
-div.codesexp       .studentAnswer                { min-width:    40px; margin-left:       10px;}
-div.codesexp       .studentAnswer .studentAnswer { min-width:    40px; margin-left:       40px;}
-
 
 /************************************************************************************
  * EXERCISES SEGMENT
@@ -428,6 +408,30 @@ ol.question li:first-of-type{border: none;}
 .exercises img{float: right; }
 
 BootstrapExerciseItem{}
+
+div#exercises{width: 800px;}
+div#exercises li{margin-bottom: 50px; border-bottom: 2px solid black;}
+div#exercises div.circleevalsexp{float: none;}
+
+/* student answers should be at least 20px tall */
+.studentAnswer, .operator:empty{
+  display:      inline-block;
+  background:   #ddd;
+  min-height:   15px;
+}
+
+/* holes in code should be at least 40px x 40px */
+div.circleevalsexp  .studentAnswer{
+  min-height:   40px;
+  margin:       10px;
+}
+
+/* .studentAnswers should appear differently if they're in code or circles of Eval */
+div.circleevalsexp .studentAnswer .studentAnswer{margin: 20px;}
+div.codesexp       .studentAnswer                { min-width: 40px; margin-bottom: 2px; margin-left: 10px; border-bottom: solid 1px black;}
+div.codesexp       .studentAnswer .studentAnswer { min-width: 40px; margin-bottom: 2px; margin-left: 40px; border-bottom: none;}
+div.codesexp       .studentAnswer+.studentAnswer { margin-left: 10px;}
+
 
 /************************************************************************************
  * PRINT MEDIA
