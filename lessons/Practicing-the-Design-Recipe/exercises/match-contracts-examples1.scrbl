@@ -67,6 +67,19 @@
 @(define c5 (code "; match-me : number -> image"))
 @(define c6 (code "; match-me : image number -> number"))
 
+@(define answer-key
+    (list (list e1a c1)
+          (list e1b c1)
+	  (list e2a c2)
+	  (list e2b c2)
+	  (list e3a c3)
+	  (list e4a c4)
+	  (list e4b c4)
+	  (list e5a c5)
+	  (list e6b c6)
+          ))
+
+
 @(exercise-handout
   #:title "Matching Contracts and Examples"
   #:instr "Match each Example in the left column with the Contract in the right column 
@@ -74,4 +87,7 @@
            may match to the same contract."
   @(matching-exercise
     (list e1a e1b e2a e2b e3a e4a e4b e5a e6b)
-    (list c1 c2 c3 c4 c5 c6)))
+    (list c4 c1 c3 c5 c6 c2))
+  @(exercise-answers
+    (matching-exercise (QAlst->QAelems answer-key) '()))
+  )

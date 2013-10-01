@@ -37,4 +37,9 @@
            might not have a match."
   @(matching-exercise
     (list e1 e2 e3 e4 e5 e6 e7 e8 e9)
-    (list c2 c4 c3 c6a c6b c5 c9 c9a c8)))
+    (list c2 c4 c3 c6a c6b c5 c9 c9a c8))
+  @(exercise-answers
+    (matching-exercise
+      (list e1 e2 e3 e4 e5 e6 e7 e8 e9)
+      (list c1 c2 c3 c4 c5 c6 c7 c8 c9)))
+  )

@@ -10,14 +10,16 @@
                      '(+ (* 2 (+ 3 1)) 10)
                      ))
 
+
+@(define exprs-as-coe (map sexp->coe exprs))
+@(define expr-vals (map (lambda (e) (math (format "~a" (eval e)))) exprs))
+
 @(exercise-handout 
   #:title "Evaluating Circles of Evaluation"
   #:instr "For each Circle of Evaluation below, evaluate the Circle and 
    write down the answer (a number):"
-  @;Using matching exercise to override right floats of CoE in CSS
-  @(matching-exercise 
-    (map (lambda (s index) (elem (format "~a:" index) (sexp (format "~a" s))))
-         exprs (build-list (length exprs) (lambda (i) (add1 i))))
-    (build-list (length exprs) (lambda (i) "")))
+  @(create-exercise-itemlist #:with-answer-blanks? #t exprs-as-coe)
+  @(exercise-answers
+    (create-itemlist #:style 'ordered (QAlst->QAelems (map list exprs-as-coe expr-vals))))
   )
 

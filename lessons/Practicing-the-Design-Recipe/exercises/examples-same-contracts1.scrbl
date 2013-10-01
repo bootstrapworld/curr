@@ -92,4 +92,9 @@
            why they don't match."
   @(create-exercise-itemlist
     (map (lambda (e) (list e "Answer:" (contract-exercise "test"))) 
-         (list e1 e2 e3 e4 e5 e6 e7 e8 e9))))
+         (list e1 e2 e3 e4 e5 e6 e7 e8 e9)))
+  @(exercise-answers
+     (create-itemlist #:style 'ordered 
+                      (QAlst->QAelems (map list (list e1 e2 e3 e4 e5 e6 e7 e8 e9)
+                                                (list a1 a2 a3 a4 a5 a6 a7 a8 a9)))))
+  ) 

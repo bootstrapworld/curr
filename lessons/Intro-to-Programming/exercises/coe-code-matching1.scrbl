@@ -21,9 +21,13 @@
 		 (* (+ 19 20) (- (+ 12 10) 22))
                  ))
 
+@(define expr-coes (map sexp->coe exprs))
+
 @(exercise-handout 
   #:title "Matching Circles of Evaluation and Code"
   #:instr "For each Circle of Evaluation in the left column, match it with its corresponding code from the right column."
-  @(matching-exercise 
-    (map sexp exprs)
-    (map (lambda (e) (sexp #:form "code" e)) permuted-exprs)))
+  @(matching-exercise expr-coes (map sexp->code permuted-exprs))
+  @(exercise-answers
+    (matching-exercise expr-coes (map sexp->code exprs)))
+  )
+

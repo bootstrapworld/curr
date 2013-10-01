@@ -71,14 +71,18 @@
          sexp
          sexp-answer
          sexp->math
+	 sexp->coe
+	 sexp->code
          make-exercise-locator
          exercise-handout
          attach-exercise-answer
+         QAlst->QAelems
          exercise-answers
          solutions-mode-on?
          create-itemlist
          create-exercise-itemlist
-         
+         create-exercise-itemlist/contract-answers
+
          ;; Sections
          worksheet
          worksheet-segment
@@ -801,6 +805,11 @@
                        (map (lambda (c) (elem c (fill-in-the-blank #:class "studentAnswer"))) contents)
                        contents)))
 
+(define (create-exercise-itemlist/contract-answers #:ordered [ordered? #t] contents)
+  (create-itemlist #:style (if ordered? 'ordered #f)
+                   #:itemstyle (bootstrap-span-style "ExerciseListItem") 
+                   (map (lambda (c) (elem c (contract-exercise "test"))) contents)))
+
 ;;;;;;;;;;;;;;;; END NEW LESSON FORMAT ;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; to add HEAD attributes, create an empty title element
@@ -1192,6 +1201,12 @@
                           
 (define (sexp->math sexp #:wrap [wrap #f])
   (math (sexp->arith-str sexp #:wrap wrap)))
+
+(define (sexp->coe e)
+  (sexp #:form "circofeval" e))
+
+(define (sexp->code e)
+  (sexp #:form "code" e))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -1760,8 +1775,16 @@
                                   body))))
            (copyright)))))
 
+;; format a question and answer for a solution key
 (define (attach-exercise-answer question answer)
   (elem question (bold " Answer: ") answer))
+
+;; input is list[list(ques ans)] -- converts to scribble structure
+;;   with annotations for the answer
+(define (QAlst->QAelems qalst)
+  (map (lambda (qaL) 
+         (attach-exercise-answer (car qaL) (cadr qaL)))
+       qalst))
 
 ;; exercise-answers merely tags content.  The module reader will leave answers
 ;; in or remove them based on the solutions generation mode

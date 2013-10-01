@@ -38,8 +38,5 @@
   #:instr "Answer each of the following questions in the space provided below the question:"
   @(create-exercise-itemlist #:with-answer-blanks? #t (list q1 q8 q2 q9 q3 q10 q7 q4 q5 q6))
   @(exercise-answers 
-    (create-itemlist #:style 'ordered 
-                     (map (lambda (key) (attach-exercise-answer (car key) (cadr key)))
-                          answer-key
-                          )))
+    (create-itemlist #:style 'ordered (QAlst->QAelems answer-key)))
   )
