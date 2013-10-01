@@ -337,7 +337,7 @@
                                                      `((placeholder ,label))
                                                      '()))
                                             ""))
-                     (elem #:style (bootstrap-span-style classname) ""))]
+                     (elem #:style (bootstrap-span-style classname) "answer here"))]
                 [(or latex pdf)
                  (elem #:style bs-fill-in-blank-style 
                        (if label label " "))]))
@@ -800,15 +800,15 @@
 
 (define (create-exercise-itemlist #:ordered [ordered? #t] #:with-answer-blanks? [with-answer-blanks? #f] contents)
   (create-itemlist #:style (if ordered? 'ordered #f)
-                   #:itemstyle (bootstrap-span-style "ExerciseListItem") 
+                   #:itemstyle (bootstrap-div-style "ExerciseListItem") 
                    (if with-answer-blanks?
-                       (map (lambda (c) (elem c (fill-in-the-blank #:class "studentAnswer"))) contents)
+                       (map (lambda (c) (list c (fill-in-the-blank #:class "studentAnswer"))) contents)
                        contents)))
 
 (define (create-exercise-itemlist/contract-answers #:ordered [ordered? #t] contents)
   (create-itemlist #:style (if ordered? 'ordered #f)
-                   #:itemstyle (bootstrap-span-style "ExerciseListItem") 
-                   (map (lambda (c) (elem c (contract-exercise "test"))) contents)))
+                   #:itemstyle (bootstrap-div-style "ExerciseListItem") 
+                   (map (lambda (c) (list c (contract-exercise "test"))) contents)))
 
 ;;;;;;;;;;;;;;;; END NEW LESSON FORMAT ;;;;;;;;;;;;;;;;;;;;;;;;
 
