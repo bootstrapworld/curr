@@ -365,8 +365,9 @@ div.circleevalsexp .expression{
 	margin:         5px;
 	clear:          none;
 	border:         2px solid black;
-  background: white;
+  background:     white;
   border-radius:  20px;
+  text-align:     center;
 	-moz-border-radius: 20px;
 	-webkit-border-radius:20px;
 }
@@ -378,7 +379,7 @@ div.circleevalsexp .value{
 }
 
 div.circleevalsexp .operator{
-  display:        block;
+  display:        inline-block;
   height:         20px;
   text-align:     center;
   width:          100%;
@@ -388,23 +389,23 @@ div.circleevalsexp .operator{
 
 div.circleevalsexp .lParen, div.circleevalsexp .rParen{display: none;}
 
-/* holes in code should be at least 40px x 20px */
-.partial-expr-hole, .operator:empty{
+/* student answers should be at least 20px tall */
+.studentAnswer, .operator:empty{
   display:      inline-block;
   background:   #ddd;
-  min-width:    40px;
   min-height:   20px;
 }
 
 /* holes in code should be at least 40px x 40px */
-div.circleevalsexp  .partial-expr-hole{
+div.circleevalsexp  .studentAnswer{
   min-height:   40px;
   margin:       10px;
 }
-div.circleevalsexp .partial-expr-hole .partial-expr-hole{margin: 20px;}
 
-div.codesexp  .partial-expr-hole{ margin-left:       10px;}
-div.codesexp  .partial-expr-hole .partial-expr-hole { margin-left:       40px;}
+/* .studentAnswers should appear differently if they're in code or circles of Eval */
+div.circleevalsexp .studentAnswer .studentAnswer{margin: 20px;}
+div.codesexp       .studentAnswer                { min-width:    40px; margin-left:       10px;}
+div.codesexp       .studentAnswer .studentAnswer { min-width:    40px; margin-left:       40px;}
 
 
 /************************************************************************************
