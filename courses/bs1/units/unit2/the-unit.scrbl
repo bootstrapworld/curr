@@ -15,7 +15,7 @@ include other datatypes, including Strings and Images.}
      #:overview "Students practice converting arithmetic expressions into Circles of Evaluation, and then converting those into Code."
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[@item{}]
+     #:product-outcomes @itemlist[]
      #:standards (list "N-Q" "A-SSE.1-2" "A-SSE.3-4" "A-REI.1-2" "MP.1" "MP.4" "MP.6" "MP.7")
      #:materials @itemlist[]
      #:preparation @itemlist[@item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/1Qn59Fol2tspqOx6XQV88xm-IYsRGY769cb7MQeknSMA/edit?usp=sharing" "Warmup activity sheet").}
@@ -32,7 +32,7 @@ include other datatypes, including Strings and Images.}
 	                         @item{In each row, there is a mathematical expression written on the left-hand column.}
                                  @item{Go through each of these expressions, and draw the Circle of Evaluation for each one in the second column.}
                                  @item{Once you've converted each of them, go to the third column and convert each one into a program that can be entered on the computer. Don't forget to check your parentheses, and to be careful about leaving a space between each input.}]}}
-                        @teacher{Make sure students have the opportunity to practice drawing Circles from the inside-out (beginning with a large Circle and filling it in), and from the outside-in (starting with the innermost expression, and building out). @management{This can be done as a team competition, with each round requiring teams of students to fill in each square of the activity sheet. Make sure you review after @bold{every} round, to catch mistakes in understanding early.}}
+                        @teacher{Make sure students have the opportunity to practice drawing Circles from the outside-in (beginning with a large Circle and filling it in), and from the inside-out (starting with the innermost expression, and building out). @management{This can be done as a team competition, with each round requiring teams of students to fill in each square of the activity sheet. Make sure you review after @bold{every} round, to catch mistakes in understanding early.}}
                         }
                  ]
          }
@@ -51,11 +51,11 @@ include other datatypes, including Strings and Images.}
                                      @item{Given a value, students will be able to identify its datatype}
                                      @item{Given an expression, students will be able to identify the datatype it will evaluate to}
                                      @item{Students will be able to distinguish between types and values}]
-     #:product-outcomes @itemlist[]
+     #:product-outcomes @itemlist[@item{Students will enter (evaluate) expressions for generating Strings and Images}]
      #:exercises (list (make-exercise-locator "Strings-and-Images" "many-types-coe-to-code1"))
      #:standards (list "N-Q" "A-SSE.1-2" "F-IF.1-3" "MP.1" "MP.4" "MP.6" "MP.7")
      #:materials @itemlist[@item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}]
-     #:preparation @itemlist[@item{Student Workbooks, and something to write with}]
+     #:preparation @itemlist[@item{Student Workbooks, and something to write with.}]
      #:prerequisites (list "Intro to Programming")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -64,7 +64,7 @@ include other datatypes, including Strings and Images.}
                 )
       ]{
         @points[          
-            @point{@student{@sexp{(star 50 "solid" "red")} The Circles of Evaluation are a powerful tool, and can be used for much more than just numbers. Consider the Circle of Evaluation shown here.
+            @point{@student{The Circles of Evaluation are a powerful tool, and can be used for much more than just numbers. Consider the Circle of Evaluation shown here. @sexp{(star 50 "solid" "red")}
                              @itemlist[@item{What is the name of the function being used?}
                                         @item{How many arguments are being given to that function?}
                                         @item{What do you think this function will do?}]
@@ -152,7 +152,7 @@ include other datatypes, including Strings and Images.}
                                       @item{Students will be able to identify the parts of a contract}
                                       @item{Students will be able to distinguish between contracts and function calls}
                                       @item{Given an example of a function being applied, students will be able to write a contract for that function}]
-     #:product-outcomes @itemlist[]
+     #:product-outcomes @itemlist[@item{Students will write down Contracts for arithmetic expressions, as well as several image-producing expressions}]
      #:exercises (list (make-exercise-locator "Contracts" "id-expr-pieces1")
 		       (make-exercise-locator "Contracts" "match-contracts-exprs1"))
      #:standards (list "A-SSE.1-2" "N-Q" "MP.1" "MP.4" "MP.6" "MP.7")
@@ -169,9 +169,9 @@ include other datatypes, including Strings and Images.}
         @points[@point{@student{You've already seen several functions that take in two Numbers, such as @code{+}, and @code{-}. Meanwhile, @code{star} takes in a Number and two Strings.  Different functions therefore take in different inputs.  We therefore need a way to refer to the kinds of inputs that a function expects.
                         @bannerline{The Domain of a function is the data that the function expects.}
                         @activity{Why is it helpful to know the @vocab{Domain} of a function?}
-                        By keeping a list of all the functions in a language, and their Domains, programmers can easily look up how each function is used. However, it's also important to keep remember what each function produces! For example, a program wouldn't use @code{star} if they were trying to produce a Number, because @code{star} only produces Images.
+                        By keeping a list of all the functions in a language, and their Domains, programmers can easily look up how each function is used. However, it's also important to keep track of what each function produces! For example, a program wouldn't use @code{star} if they were trying to produce a Number, because @code{star} only produces Images.
                         @bannerline{The Range of a function is the data that the function produces.}
-                        Domains and Ranges help programmers write better code, by preventing silly mistakes and giving themselves hints about what to do next. A programmer who wants to use @code{star} can look up the Domain and immediately know that the first input has to be a Number (like @code{100}), without having to remember it each time. Instead of writing a single value there, suppose a programmer wanted to write a whole expression, like @code{(* 25 4)}. We know this code will return an appropriate value (Number) by looking at the Range for @code{*}; therefore, the result of @code{*} can be used in place of any Number value.}
+                        Domains and Ranges help programmers write better code, by preventing silly mistakes and giving themselves hints about what to do next. A programmer who wants to use @code{star} can look up the Domain and immediately know that the first input has to be a Number (like @code{100}), without having to remember it each time. Instead of writing a single value there, a programmer could write a whole expression, like @code{(* 25 4)}. We know this code will return an appropriate value (Number) by looking at the Range for @code{*}; therefore, the result of @code{*} can be used in place of any Number value.}
                         @teacher{Domain and Range are critical concepts. They can be reinforced by modifying a simple expression (such as @code{(+ 1 2)}), asking questions at every step. For example, we know that @code{+} takes two Numbers, which is why 1 and 2 are used in the example. However, each of those values could be replaced by @italic{another expression} -- as long as that expression evaluates to a Number. Have students systematically replace each value with an expression, asking them to justify their replacement using the Domain and Range of each function.}
                         }
                  @point{@student{When programmers write down the Domains and Ranges of each function, they write what are called @vocab{contracts}, to keep track of what each function needs.
