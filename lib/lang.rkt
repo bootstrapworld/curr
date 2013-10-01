@@ -35,9 +35,73 @@
          (rename-out [module-begin #%module-begin])
          bitmap)
 
+;;;;;;;;;;;;;;;;;;; content filtering ;;;;;;;;;;;;;;;;;;;;;
+
+;; clean up replication in form-elements.rkt
+(define-for-syntax (solutions-mode?) 
+  (let ([env (getenv "CURRENT-SOLUTIONS-MODE")])
+    ;(printf "Solutions mode is ~a ~n" env)
+    (and env (string=? env "on"))))
+
+;(define-for-syntax (process-lesson d)
+;  ;; given a lesson point, extract just the activities from the student portions
+;  (define (point->activitylist pt)
+;    (let ([student-part (car pt)])
+;      (filter (lambda (elt) (and (pair? elt) (eq? (car elt) 'activity))) student-part)))
+;  ;; create list of all the activities across the points
+;  (define (process-points plst)
+;    (apply append (map point->activitylist plst)))
+;  ;; alter lesson content based on mode
+;  (cond [(solutions-mode?)
+;         (map (lambda (elt) 
+;                (if (and (pair? elt) (eq? (car elt) 'points)) 
+;                    (process-points elt) 
+;                    elt))
+;              d)]
+;        [else d]))
+
+ 
+(define-for-syntax (process-lesson-contents clst)
+  "Found lesson")
+
+;; filters content from an exercise handout based on the solutions mode.
+;;   - in solutions mode, keep only the answers (wrapped in exercise-answers)
+;;   - in non-solutions mode, remove the answers
+(define-for-syntax (process-exercise-handout-contents elst)
+  (let ([body-filter
+         (cond [(solutions-mode?) (lambda (synelt)
+                                    (syntax-case synelt (exercise-answers)
+                                      [(exercise-answers x ...) synelt]
+                                      [(_ ...) #f]
+                                      [else synelt]))]
+               [else (lambda (synelt) 
+                       (syntax-case synelt (exercise-answers)
+                         [(exercise-answers x ...) #f]
+                         [(_ ...) synelt]
+                         [else synelt]))])])
+  (filter body-filter (syntax->list elst))))
+
+(define-for-syntax (process-term e)
+  (syntax-case e (exercise-handout unit-lessons lesson/studteach)
+    [(exercise-handout x ...) 
+     ;(printf "Found a handout~n")
+     (with-syntax ([(new-elt ...) (process-exercise-handout-contents #'(x ...))])
+       #'(exercise-handout new-elt ...))]
+;    [(unit-lessons (lesson/studteach c) ...) 
+;     (with-syntax ([(new-lesson ...) (process-lesson-contents #'(c ...))])
+;       #'(unit-lessons (lesson/studteach new-lesson) ...))]
+    [else e]))     
+
+(define-for-syntax (process-body e)
+  ;(printf "Processing doc body~n")
+  (datum->syntax e (map process-term (syntax->list e))))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  
 (define-syntax (module-begin stx)
   (syntax-case stx ()
     [(_ id body ...)
+     (with-syntax ([(new-body ...) (process-body #'(body ...))]) 
      #`(#%module-begin id change-defaults ()
                        (inject-javascript-url "http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js")
                        (splice (map inject-javascript-path js-paths))
@@ -46,7 +110,7 @@
                        (splicing-syntax-parameterize 
                          ([current-the-unit-description
                            (make-rename-transformer #'the-unit-description)])
-                         body ...))]))
+                         new-body ...)))]))
 
 
 ;; Our customized prefix simply declares the document as HTML5.

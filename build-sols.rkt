@@ -105,6 +105,7 @@
 
 ;; Building exercise handout solutions
 (define (build-exercise-handout-solutions)
+  (putenv "CURRENT-SOLUTIONS-MODE" "on")
   (parameterize ([current-deployment-dir (build-path (current-deployment-dir) "solutions")])
     (unless (directory-exists? (current-deployment-dir))
       (make-directory (current-deployment-dir))) 
@@ -116,6 +117,7 @@
                 #:when (regexp-match #px".scrbl$" worksheet))
             (printf "build.rkt: building exercise handout solution ~a: ~a\n" subdir worksheet)
             (run-scribble (build-path exercises-path worksheet)))))))
+  (putenv "CURRENT-SOLUTIONS-MODE" "off")
   )
 
 

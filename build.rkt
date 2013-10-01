@@ -45,14 +45,17 @@
 
 ;; run-scribble: path -> void
 ;; Runs scribble on the given file.
-(define (run-scribble scribble-file #:never-generate-pdf? [never-generate-pdf? #f])
+(define (run-scribble scribble-file #:never-generate-pdf? [never-generate-pdf? #f]
+                                    #:include-base-path? [include-base-path? #t])
   (define output-dir (cond [(current-deployment-dir)
                             ;; Rendering to a particular deployment directory.
-                            (let-values ([(base name dir?) 
-                                          (split-path 
-                                           (find-relative-path (simple-form-path root-path)
-                                                               (simple-form-path scribble-file)))])
-                              (simple-form-path (build-path (current-deployment-dir) base)))]
+			    (if include-base-path?
+				(let-values ([(base name dir?) 
+					      (split-path 
+					       (find-relative-path (simple-form-path root-path)
+								   (simple-form-path scribble-file)))])
+					    (simple-form-path (build-path (current-deployment-dir) base)))
+				(current-deployment-dir))]
                            [else
                             (error 'run-scribble "No deployment directory?")
                             ;; In-place rendering
@@ -194,6 +197,7 @@
 ;; Building exercise handout solutions
 ;;  need putenv rather than parameter to communicate with form-elements.rkt -- not sure why
 (define (build-exercise-handout-solutions)
+  (putenv "CURRENT-SOLUTIONS-MODE" "on")
   (parameterize ([current-deployment-dir (build-path (current-deployment-dir) "solutions")])
     (unless (directory-exists? (current-deployment-dir))
       (make-directory (current-deployment-dir))) 
@@ -204,7 +208,8 @@
           (for ([worksheet (directory-list exercises-path)]
                 #:when (regexp-match #px".scrbl$" worksheet))
             (printf "build.rkt: building exercise handout solution ~a: ~a\n" subdir worksheet)
-            (run-scribble (build-path exercises-path worksheet)))))))
+            (run-scribble #:include-base-path? #f (build-path exercises-path worksheet)))))))
+  (putenv "CURRENT-SOLUTIONS-MODE" "off")
   )
 
 (define (build-worksheets)
@@ -287,6 +292,7 @@
 (define bootstrap-courses '("bs1" "bs2"))
 ;; remove next line if ever want to generate links to web docs instead of PDF
 (putenv "WORKSHEET-LINKS-TO-PDF" "true")
+(putenv "CURRENT-SOLUTIONS-MODE" "off")
 (initialize-tagging-environment)
 (for ([course (in-list bootstrap-courses)])
   (parameterize ([current-course course])

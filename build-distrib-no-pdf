@@ -22,5 +22,7 @@ then
 else #default to student
   racket -l errortrace -t build.rkt -- --audience student distribution group
 fi
+# then build the solutions
+racket -l errortrace -t build-sols.rkt 
  
   

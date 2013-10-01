@@ -73,7 +73,9 @@
          sexp->math
          make-exercise-locator
          exercise-handout
+         attach-exercise-answer
          exercise-answers
+         solutions-mode-on?
          create-itemlist
          create-exercise-itemlist
          
@@ -145,6 +147,10 @@
 (provide/contract [check
                    (-> constraint? element?)]
                   )
+
+;(provide-for-syntax 
+;         solutions-mode-on?/syntax
+;         )
 
 ;;;;;;;;;;;;;;;; Site Images ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (define bootstrap.gif (bitmap "bootstrap.gif"))
@@ -1754,12 +1760,25 @@
                                   body))))
            (copyright)))))
 
-(define (exercise-answers . body)
-  (if (string=? "on" (getenv "CURRENT-SOLUTIONS-MODE"))
-      ;(list (section "Answer Key")
-            (nested body);)
-      (elem)))
+(define (attach-exercise-answer question answer)
+  (elem question (bold " Answer: ") answer))
 
+;; exercise-answers merely tags content.  The module reader will leave answers
+;; in or remove them based on the solutions generation mode
+(define (exercise-answers . body)
+  body)
+  
+;; determine whether we are currently in solutions-generation mode
+;; need two versions of this: one for syntax phase and one for runtime
+(define (solutions-mode-on?)
+  (let ([env (getenv "CURRENT-SOLUTIONS-MODE")])
+    ;(printf "Solutions mode is ~a ~n" env)
+    (and env (string=? env "on"))))
+;(define-for-syntax (solutions-mode-on?/syntax) 
+;  (let ([env (getenv "CURRENT-SOLUTIONS-MODE")])
+;    (and env (string=? env "on"))))
+  
+  
 ;; Inputs: string [string] [string] [string] -> element
 ;;         optional argument supply answers for the workbook
 ;; Produces element with blanks for an exercise to fill in a contract

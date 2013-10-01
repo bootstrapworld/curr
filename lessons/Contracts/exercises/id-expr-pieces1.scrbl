@@ -10,7 +10,7 @@
 
 @(define q3 (elem "What is the name of the function being used in" @code{(rotate 45 (star 15 "solid" "orange"))} "?"))
 
-@(define q10 (elem "Is \"outline\" the name of a function or an argument in" @code{(triangle 48 "outline" "pink")} "?"))
+@(define q10 (elem "Is " (code "\"outline\"") " the name of a function or an argument in" @code{(triangle 48 "outline" "pink")} "?"))
 
 @(define q7 (elem "How many arguments does rotate expect in" @code{(rotate 45 (star 15 "solid" "orange"))} "?"))
 
@@ -20,8 +20,26 @@
 
 @(define q6 (elem "What is the third argument to the star function in" @code{(rotate 45 (star 15 "solid" "orange"))} "?"))
 
+@(define answer-key
+   (list (list q1 "3")
+         (list q8 "2")
+         (list q2 "*")
+         (list q9 "string-length")
+         (list q3 "rotate (star is also a function, but not the one in the overall expression)")
+         (list q10 "an argument")
+         (list q7 "2")
+         (list q4 "45")
+         (list q5 "15")
+         (list q6 "\"orange\"")
+         ))
+
 @(exercise-handout 
   #:title "Identifying Parts of Expressions"
   #:instr "Answer each of the following questions in the space provided below the question:"
   @(create-exercise-itemlist #:with-answer-blanks? #t (list q1 q8 q2 q9 q3 q10 q7 q4 q5 q6))
+  @(exercise-answers 
+    (create-itemlist #:style 'ordered 
+                     (map (lambda (key) (attach-exercise-answer (car key) (cadr key)))
+                          answer-key
+                          )))
   )
