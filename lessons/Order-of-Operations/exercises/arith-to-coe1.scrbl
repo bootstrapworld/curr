@@ -10,8 +10,14 @@
 		 (- 19 (+ 12 11))
 		 ))
 
+@(define exprs-as-math (map sexp->math exprs))
+@(define exprs-as-coe (map sexp->coe exprs))
+
 @(exercise-handout 
   #:title "Creating Circles of Evaluation from Arithmetic Expressions"
   #:instr "For each math expression below, write down its Circle of Evaluation"
-  @(create-exercise-itemlist (map sexp->math exprs)))
+  @(create-exercise-itemlist (map sexp->math exprs))
+  @(exercise-answers
+    (create-itemlist #:style 'ordered (QAlst->QAelems (map list exprs-as-math exprs-as-coe))))
+  )
 

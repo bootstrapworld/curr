@@ -25,5 +25,8 @@
   #:title "Matching Circles of Evaluation and Arithmetic Expressions"
   #:instr "Match each Circle of Evaluation in the left column with its corresponding arithmetic expression in the right column:" 
   @(matching-exercise 
-    (map sexp exprs)
-    (map sexp->math permuted-exprs)))
+    (map sexp->coe exprs)
+    (map sexp->math permuted-exprs))
+  @(exercise-answers
+    (matching-exercise (map sexp->coe exprs) (map sexp->math exprs)))
+  )

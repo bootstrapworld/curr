@@ -136,7 +136,9 @@
                 [else w]))}]}
             @pedagogy{@item{If students finish early, have them add a keypress for "c", which causes the cat to jump to the center, or any other "cheat codes".}}]}
 
-@(include-lesson (lib "curr/lessons/Keys-in-Game/lesson/lesson.scrbl"))
+@;KATHI COMMENTED OUT BECAUSE WAS CAUSING BUILD TO BREAK--LESSON
+@;  DOESN'T EXIST IN FILESYSTEM
+@;@(include-lesson (lib "curr/lessons/Keys-in-Game/lesson/lesson.scrbl"))
 
 
 @lesson/studteach[#:title "Closing"

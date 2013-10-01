@@ -71,12 +71,18 @@
          sexp
          sexp-answer
          sexp->math
+	 sexp->coe
+	 sexp->code
          make-exercise-locator
          exercise-handout
+         attach-exercise-answer
+         QAlst->QAelems
          exercise-answers
+         solutions-mode-on?
          create-itemlist
          create-exercise-itemlist
-         
+         create-exercise-itemlist/contract-answers
+
          ;; Sections
          worksheet
          worksheet-segment
@@ -145,6 +151,10 @@
 (provide/contract [check
                    (-> constraint? element?)]
                   )
+
+;(provide-for-syntax 
+;         solutions-mode-on?/syntax
+;         )
 
 ;;;;;;;;;;;;;;;; Site Images ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (define bootstrap.gif (bitmap "bootstrap.gif"))
@@ -327,7 +337,7 @@
                                                      `((placeholder ,label))
                                                      '()))
                                             ""))
-                     (elem #:style (bootstrap-span-style classname) ""))]
+                     (elem #:style (bootstrap-span-style classname) "answer here"))]
                 [(or latex pdf)
                  (elem #:style bs-fill-in-blank-style 
                        (if label label " "))]))
@@ -790,10 +800,15 @@
 
 (define (create-exercise-itemlist #:ordered [ordered? #t] #:with-answer-blanks? [with-answer-blanks? #f] contents)
   (create-itemlist #:style (if ordered? 'ordered #f)
-                   #:itemstyle (bootstrap-span-style "ExerciseListItem") 
+                   #:itemstyle (bootstrap-div-style "ExerciseListItem") 
                    (if with-answer-blanks?
-                       (map (lambda (c) (elem c (fill-in-the-blank #:class "studentAnswer"))) contents)
+                       (map (lambda (c) (list c (fill-in-the-blank #:class "studentAnswer"))) contents)
                        contents)))
+
+(define (create-exercise-itemlist/contract-answers #:ordered [ordered? #t] contents)
+  (create-itemlist #:style (if ordered? 'ordered #f)
+                   #:itemstyle (bootstrap-div-style "ExerciseListItem") 
+                   (map (lambda (c) (list c (contract-exercise "test"))) contents)))
 
 ;;;;;;;;;;;;;;;; END NEW LESSON FORMAT ;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -1186,6 +1201,12 @@
                           
 (define (sexp->math sexp #:wrap [wrap #f])
   (math (sexp->arith-str sexp #:wrap wrap)))
+
+(define (sexp->coe e)
+  (sexp #:form "circofeval" e))
+
+(define (sexp->code e)
+  (sexp #:form "code" e))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -1738,10 +1759,49 @@
                                   body))))
            (copyright)))))
 
-(define (exercise-answers . body)
-  (list (section "Answer Key")
-        (nested body)))
+(define (exercise-handout/solutions #:title [title #f]
+                                    #:instr [instr #f]
+                                    #:forevidence [forevidence #f]
+                                    . body)
+  (let ([full-title (if title (string-append "Solutions to " title) "Solutions")])
+    (interleave-parbreaks/all
+     (list (head-title-no-content full-title)
+           (elem #:style bs-title-style full-title)
+           (nested #:style bs-content-style
+                   (nested #:style bs-handout-style
+                           (interleave-parbreaks/all
+                            (cons (para #:style bs-exercise-instr-style (bold "Directions: ") 
+                                        (italicize-within-string instr exercise-terms-to-italicize))
+                                  body))))
+           (copyright)))))
 
+;; format a question and answer for a solution key
+(define (attach-exercise-answer question answer)
+  (elem question (bold " Answer: ") answer))
+
+;; input is list[list(ques ans)] -- converts to scribble structure
+;;   with annotations for the answer
+(define (QAlst->QAelems qalst)
+  (map (lambda (qaL) 
+         (attach-exercise-answer (car qaL) (cadr qaL)))
+       qalst))
+
+;; exercise-answers merely tags content.  The module reader will leave answers
+;; in or remove them based on the solutions generation mode
+(define (exercise-answers . body)
+  body)
+  
+;; determine whether we are currently in solutions-generation mode
+;; need two versions of this: one for syntax phase and one for runtime
+(define (solutions-mode-on?)
+  (let ([env (getenv "CURRENT-SOLUTIONS-MODE")])
+    ;(printf "Solutions mode is ~a ~n" env)
+    (and env (string=? env "on"))))
+;(define-for-syntax (solutions-mode-on?/syntax) 
+;  (let ([env (getenv "CURRENT-SOLUTIONS-MODE")])
+;    (and env (string=? env "on"))))
+  
+  
 ;; Inputs: string [string] [string] [string] -> element
 ;;         optional argument supply answers for the workbook
 ;; Produces element with blanks for an exercise to fill in a contract

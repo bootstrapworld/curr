@@ -10,8 +10,14 @@
                  (image-width (rectangle 65 16 "outline" "magenta"))
                  ))
 
+@(define sexps-as-coe (map sexp->coe exprs))
+@(define sexps-as-code (map sexp->code exprs))
+
 @(exercise-handout 
   #:title "Converting Circles of Evaluation to Code"
   #:forevidence "A-SSE.1-2&1&3"
   #:instr "For each Circle of Evaluation below, write down the code that corresponds to the Circle:"
-  @(create-exercise-itemlist #:with-answer-blanks? #t (map sexp exprs)))
+  @(create-exercise-itemlist #:with-answer-blanks? #t (map sexp exprs))
+  @(exercise-answers
+    (create-itemlist #:style 'ordered (QAlst->QAelems (map list sexps-as-coe sexps-as-code))))
+  )

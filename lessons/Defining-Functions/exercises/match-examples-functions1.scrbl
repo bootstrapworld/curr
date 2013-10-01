@@ -78,24 +78,17 @@
 "(define (mystery h)
   (rectangle 10 h \"solid\" \"red\"))"))
 
-@(define examples-lst
-   (list e1 e2 e3 e4 e5 "" ""))
-
-@(define functions-lst
-   (list 
-    f2
-    f6
-    f3
-    f5
-    f7
-    f1
-    f4
-    ))
+@(define examples-lst (list e1 e2 e3 e4 e5))
+@(define functions-lst (list f1 f2 f3 f4 f5))
+@(define permuted-functions-lst (list f2 f6 f3 f5 f7 f1 f4))
 
 @(exercise-handout 
   #:title "Matching Examples and Function Definitions"
   #:instr "The left column shows several collections of Examples, each with the same fake function name (mystery).
            The right column has several definitions of the mystery function.  Figure out which function goes with each collection of
            examples.  You might not use all of the functions."
-  @(matching-exercise examples-lst functions-lst)) 
+  @(matching-exercise examples-lst permuted-functions-lst)) 
+  @(exercise-answers
+    (matching-exercise examples-lst functions-lst))
+  )
 

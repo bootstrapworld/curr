@@ -14,12 +14,16 @@
                             (+ (BSLeaveAHoleHere 20 (+ BSLeaveAHoleHere 3)) (BSLeaveAHoleHere BSLeaveAHoleHere 3))
                             ))
 
+@(define exprs-as-code (map sexp->code exprs))
+@(define exprs-as-coe (map sexp->coe exprs))
+
 @(exercise-handout 
   #:title "Completing Partial Circles of Evaluation from Arithmetic Expressions"
   #:instr "Each exercise below gives an arithmetic expression and a partially-finished 
            circle of evaluation for that expression.  Finish the Circle of Evaluation
            so that it represents the arithmetic expression."
-  @(matching-exercise 
-    (map (lambda (e) (sexp e #:form "code")) exprs) 
-    (map sexp exprs-with-holes)))
+  @(matching-exercise exprs-as-code (map sexp->coe exprs-with-holes))
+  @(exercise-answers
+     (matching-exercise exprs-as-code exprs-as-coe))
+  )
 
