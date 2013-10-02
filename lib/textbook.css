@@ -228,6 +228,7 @@ span.challenge>div:before{content: 'Moving ahead...'}
   padding-left:   0px;
   border-bottom:  solid 1px lightgray;
   list-style-type:none;
+  max-width:      790px;
 }
 
 
@@ -396,8 +397,9 @@ div.circleevalsexp .lParen, div.circleevalsexp .rParen{display: none;}
 
 table.matching-table td{
   border:         0px;
-  width:          250px;
+  width:          350px;
   padding:        0px 20px;
+  height:         75px; /* table cells use 'height' as 'min-height' in CSS */
 }
 
 table.matching-table td>*{float: left;}
@@ -407,7 +409,7 @@ ol.question>li{clear: both; border-top: solid 1px black; padding: 20px 20px; mar
 ol.question li:first-of-type{border: none;}
 .exercises img{float: right; }
 
-BootstrapExerciseItem{}
+div.ExerciseListItem{min-height: 150px;}
 
 div#exercises{width: 800px;}
 div#exercises li{margin-bottom: 50px; border-bottom: 2px solid black;}
@@ -418,6 +420,7 @@ div#exercises div.circleevalsexp{float: none;}
   display:      inline-block;
   background:   #ddd;
   min-height:   15px;
+  min-width: 40px;
 }
 
 /* holes in code should be at least 40px x 40px */
@@ -428,8 +431,8 @@ div.circleevalsexp  .studentAnswer{
 
 /* .studentAnswers should appear differently if they're in code or circles of Eval */
 div.circleevalsexp .studentAnswer .studentAnswer{margin: 20px;}
-div.codesexp       .studentAnswer                { min-width: 40px; margin-bottom: 2px; margin-left: 10px; border-bottom: solid 1px black;}
-div.codesexp       .studentAnswer .studentAnswer { min-width: 40px; margin-bottom: 2px; margin-left: 40px; border-bottom: none;}
+div.codesexp       .studentAnswer                { margin-bottom: 2px; margin-left: 10px; border-bottom: solid 1px black;}
+div.codesexp       .studentAnswer .studentAnswer { margin-bottom: 2px; margin-left: 40px; border-bottom: none;}
 div.codesexp       .studentAnswer+.studentAnswer { margin-left: 10px;}
 
 
