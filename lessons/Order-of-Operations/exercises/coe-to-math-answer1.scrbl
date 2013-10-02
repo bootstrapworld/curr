@@ -20,6 +20,6 @@
    write down the answer (a number):"
   @(create-exercise-itemlist #:with-answer-blanks? #t exprs-as-coe)
   @(exercise-answers
-    (create-itemlist #:style 'ordered (QAlst->QAelems (map list exprs-as-coe expr-vals))))
+    (create-exercise-sols-itemlist exprs-as-coe expr-vals))
   )
 

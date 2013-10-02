@@ -81,7 +81,7 @@
 
   @(create-exercise-itemlist/contract-answers examples-lst)
   @(exercise-answers
-    (create-exercise-itemlist (QAlst->QAelems (map list examples-lst answers-lst))))
+    (create-exercise-sols-itemlist examples-lst answers-lst))
   )
 
 

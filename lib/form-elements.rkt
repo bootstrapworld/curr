@@ -75,13 +75,13 @@
 	 sexp->code
          make-exercise-locator
          exercise-handout
-         attach-exercise-answer
-         QAlst->QAelems
          exercise-answers
          solutions-mode-on?
          create-itemlist
          create-exercise-itemlist
          create-exercise-itemlist/contract-answers
+         create-exercise-sols-itemlist
+         matching-exercise-sols
 
          ;; Sections
          worksheet
@@ -793,22 +793,35 @@
            (for/list ([stnd known-stnds])
              (item (elem (format "~a: ~a" (first stnd) (second stnd))))))))
 
-(define (create-itemlist #:style [style #f] #:itemstyle [itemstyle #f] contents)
-  (apply itemlist/splicing #:style style
-         (for/list ([entry contents])
-                   (item (elem #:style itemstyle entry)))))
+(define (create-itemlist #:style [style #f] contents)
+  (apply itemlist/splicing #:style style contents))
 
 (define (create-exercise-itemlist #:ordered [ordered? #t] #:with-answer-blanks? [with-answer-blanks? #f] contents)
   (create-itemlist #:style (if ordered? 'ordered #f)
-                   #:itemstyle (bootstrap-div-style "ExerciseListItem") 
-                   (if with-answer-blanks?
-                       (map (lambda (c) (list c (fill-in-the-blank #:class "studentAnswer"))) contents)
-                       contents)))
+                   (map (lambda (c) (para #:style (bootstrap-div-style "ExerciseListItem") 
+                                          (if with-answer-blanks?
+                                              (list c (fill-in-the-blank #:class "studentAnswer"))
+                                              c)))
+                        contents)))
 
 (define (create-exercise-itemlist/contract-answers #:ordered [ordered? #t] contents)
-  (create-itemlist #:style (if ordered? 'ordered #f)
-                   #:itemstyle (bootstrap-div-style "ExerciseListItem") 
-                   (map (lambda (c) (list c (contract-exercise "test"))) contents)))
+  (create-exercise-itemlist #:ordered ordered? 
+                            (map (lambda (c) (list c (contract-exercise "dummyid"))) contents)))
+
+(define (create-exercise-sols-itemlist #:ordered [ordered? #t] questions answers)
+  (create-itemlist #:style (if ordered? 'ordered #f) 
+                   (map (lambda (q a) (para #:style (bootstrap-div-style "QuestionWithAnswer") 
+                                            q (bold " Answer: " a)))
+                        questions answers)))
+
+;; format a question and answer for a solution key
+(define (attach-exercise-answer question answer)
+  (elem #:style (bootstrap-div-style "question-with-answer") question (bold " Answer: ") answer))
+
+(define (matching-exercise-sols matches)
+  (matching-exercise (map (lambda (m) (attach-exercise-answer (first m) (second m))) matches)
+                     '()))
+  
 
 ;;;;;;;;;;;;;;;; END NEW LESSON FORMAT ;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -1774,17 +1787,6 @@
                                         (italicize-within-string instr exercise-terms-to-italicize))
                                   body))))
            (copyright)))))
-
-;; format a question and answer for a solution key
-(define (attach-exercise-answer question answer)
-  (elem question (bold " Answer: ") answer))
-
-;; input is list[list(ques ans)] -- converts to scribble structure
-;;   with annotations for the answer
-(define (QAlst->QAelems qalst)
-  (map (lambda (qaL) 
-         (attach-exercise-answer (car qaL) (cadr qaL)))
-       qalst))
 
 ;; exercise-answers merely tags content.  The module reader will leave answers
 ;; in or remove them based on the solutions generation mode

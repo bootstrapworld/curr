@@ -89,5 +89,6 @@
     (list e1a e1b e2a e2b e3a e4a e4b e5a e6b)
     (list c4 c1 c3 c5 c6 c2))
   @(exercise-answers
-    (matching-exercise (QAlst->QAelems answer-key) '()))
+    (matching-exercise-sols answer-key))
+    ;(matching-exercise (QAlst->QAelems answer-key) '()))
   )

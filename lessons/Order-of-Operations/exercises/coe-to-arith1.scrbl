@@ -17,6 +17,6 @@
            that corresponds to the Circle:" 
   @(create-exercise-itemlist #:with-answer-blanks? #t sexps-as-coe)
   @(exercise-answers
-    (create-itemlist #:style 'ordered (QAlst->QAelems (map list sexps-as-coe sexps-as-math))))
+    (create-exercise-sols-itemlist sexps-as-coe sexps-as-math))
   )
 
