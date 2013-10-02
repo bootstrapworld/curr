@@ -128,6 +128,8 @@
                                       @item{Given two examples for a simple function, students will be able to identify the variable}
                                       @item{Given two examples for a simple function, students will be able to write the definition}]
      #:product-outcomes @itemlist[@item{Students will write functions to solve simple problems by using the Design Recipe}]
+     #:exercises (list (make-exercise-locator "Practicing-the-Design-Recipe" "examples-same-contracts1")
+                       (make-exercise-locator "Practicing-the-Design-Recipe" "match-contracts-examples1"))
      #:standards (list)
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, language table, course calendar)}

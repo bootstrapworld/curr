@@ -1,59 +1,143 @@
-var strip, cards, cardNumber = 0;
+/*******************************************
+ * CARD INITIALIZATION AND SCROLLING
+ *******************************************/
 
-window.addEventListener("load", function(){
-  // translate all the TEXTAREA nodes into DIVs, and all TT nodes into SPANs
-  var codeSnippets = document.getElementsByTagName('textarea');
-  for(var i=0; i < codeSnippets.length; i++){
-    var node = document.createElement('div');
-    node.className = 'editbox';
-    codeSnippets[i].parentNode.insertBefore(node, codeSnippets[i]);
-                        CodeMirror.runMode(codeSnippets[i].value, {name: "scheme2"}, node, {smartIndent: true, tabSize: 16});
-    codeSnippets[i].style.display = 'none';
+// for each lesson, initialize the list of cards and set button behaviors
+function initializeCards(){
+
+  function drawSegment(segment){
+    segment.prev.disabled = (segment.currentCard <= 0);
+    segment.next.disabled = (segment.currentCard >= segment.cards.length-1);
+    var width = segment.cards[0].offsetWidth;
+    var lessonUL = segment.getElementsByClassName('lesson')[0];
+    lessonUL.style.left = (-segment.currentCard * width) + 'px';
   }
-  var codeSnippets = document.getElementsByTagName('tt');
+
+  var segments = document.getElementsByClassName('segment');
+  for(var i=0; i<segments.length; i++){
+    var segment = segments[i];
+    segment.prev = segment.getElementsByClassName('prev')[0],
+    segment.next = segment.getElementsByClassName('next')[0];
+    segment.cards = segment.getElementsByClassName('lessonItem');
+    segment.currentCard = 0;
+    segment.prev.segment = segment.next.segment = segment;
+    segment.prev.onclick = function(){
+      this.segment.currentCard--;
+      drawSegment(this.segment);
+    };
+    segment.next.onclick = function(){
+      this.segment.currentCard++;
+      drawSegment(this.segment);
+    };
+    drawSegment(segment);
+  }
+}
+
+/*******************************************
+ * CODE RE-INDENTING
+ *******************************************/
+
+// rewrap all REPL content onresize, throttled by 250ms
+var rewrapThrottle = null;
+var rewrapCodeExps = function(){
+  
+  // calculateWidth : node -> number
+  // cache and return the width of the current node, and all of its children
+  var calculateWidth = function(node){
+    node.cachedWidth = 1;
+    for(var i = 0; i < node.children.length; i++) {
+      node.cachedWidth += (node.children[i].cachedWidth || calculateWidth(node.children[i]));
+    }
+    node.cachedWidth = Math.max(node.cachedWidth, node.offsetWidth);
+    return node.cachedWidth;
+  }
+  
+  // rewrap a single CodeExp: either every child fits on one line, or they all get their own line
+  var rewrapCodeExp = function(node){
+    var oldWrap   = node.className.indexOf("wrapped") > -1,      // original wrap state
+        expWidth  = node.cachedWidth || calculateWidth(node),   // unwrapped exp width (use cache if possible)
+        maxWidth  = node.parentNode.clientWidth,                // maximum width, including padding but not margin
+        newWrap   = expWidth > maxWidth;                        // new wrapped state
+//    console.log('parent node\'s width is '+maxWidth+', while expression\'s width is '+expWidth);
+//    console.log('previously, the node was '+(oldWrap? 'wrapped' : 'unwrapped')+', and now it should be '+(newWrap? 'wrapped' : 'unwrapped'))
+    // if the wrapping status has changed, update the className and re-check all the children
+    if(oldWrap !== newWrap){
+//      console.log('REWRAPPING: old className is '+node.className+'. setting className to '+(newWrap? 'wrapped' : 'not wrapped'));
+      node.className = newWrap? node.className+" wrapped" : node.className.replace(/ wrapped/g, "");
+      for(var i = 0; i < node.children.length; i++){ rewrapCodeExp(node.children[i]); }
+    }
+  }
+  
+  // clear the throttle and set timer for rewrapping
+  clearTimeout(rewrapThrottle);
+  rewrapThrottle = setTimeout(function(){
+                              var repls = document.getElementsByClassName('codesexp');
+                              for(var i=0; i<repls.length; i++){ rewrapCodeExp(repls[i])};
+                              }, 250);
+};
+
+
+/*******************************************
+ * CODEMIRROR
+ *******************************************/
+function attachCodeMirror(){
+  // translate all the TEXTAREA nodes into full-blown CM instances, and color TTs with runmode
+  // (we use the more expensive CM stuff for indenting)
+  var codeSnippets = document.querySelectorAll('textarea');
+  for(var i=0; i < codeSnippets.length; i++){
+    CodeMirror.fromTextArea(codeSnippets[i], {mode:"scheme2", readOnly: "nocursor"});
+  }
+  var codeSnippets = document.querySelectorAll('tt');
   for(var i=0; i < codeSnippets.length; i++){
     var node = document.createElement('span');
     node.className = 'editbox';
     codeSnippets[i].parentNode.insertBefore(node, codeSnippets[i]);
-    CodeMirror.runMode(codeSnippets[i].firstChild.nodeValue, {name: "scheme2"}, node, {smartIndent: true, tabSize: 16});
+    // if for some reason there's an empty @code{} block, skip over it
+    if(!codeSnippets[i].firstChild) continue;
+    CodeMirror.runMode(codeSnippets[i].firstChild.nodeValue, "scheme2", node);
     codeSnippets[i].style.display = 'none';
   }
-  // setup globals we'll use later
-  cardNumber = 0;
-  strip = document.getElementsByClassName('lesson')[0];
-  cards = strip.getElementsByTagName('LI');
-  gotoCard(0);
-                        
-                        
-  // find all sexps and circevalsexps and assign onClick handlers
-  var circles = document.getElementsByClassName('circleevalsexp'),
-      codes   = document.getElementsByClassName('codesexp');
-  for(var i=0; i<circles.length; i++){
-    circles[i].onclick = function(){this.className = (this.className=="codesexp")? "circleevalsexp" : "codesexp";};
-  }
-  for(var i=0; i<codes.length; i++){
-    codes[i].onclick = function(){this.className = (this.className=="codesexp")? "circleevalsexp" : "codesexp";};
-  }
+}
 
-  
+/*******************************************
+ * LESSON TOOLBAR
+ *******************************************/
+function updateLessonToolbar(){
+  var toolbar         = document.getElementById('lessonToolbar'),
+      overviewBlock   = document.getElementsByTagName('blockquote')[0],
+      blockDimensions = overviewBlock.getBoundingClientRect(),
+      threshold       = blockDimensions.height+overviewBlock.offsetTop,
+      scrollTop       = (document.documentElement && document.documentElement.scrollTop) ||
+                        document.body.scrollTop,
+      fixed           = scrollTop > threshold;
+  // if there's no toolbar (in the student distribution, for example), abort
+  if(!toolbar) return;
+  toolbar.className = (fixed)? 'fixed lessonToolbar' : 'lessonToolbar';
+}
+
+// find all lesson segments in the file, and toggle the notes className for each
+function toggleTeacherNotes(button){
+  button.value = (button.value == 'Show Teacher Notes')? 'Hide Teacher Notes' : 'Show Teacher Notes';
+  var lessons = document.getElementsByClassName('lesson');
+  for(var i=0; i<lessons.length; i++){
+    lessons[i].className = (lessons[i].className == 'lesson')? 'lesson teacherNotes' : 'lesson';
+  }
+}
+
+/*******************************************
+ * EVENT HANDLERS
+ *******************************************/
+window.addEventListener("resize", function(){
+  rewrapCodeExps();
 });
 
-function gotoCard(cardNum){
-  var width = cards[0].offsetWidth;
-  if(cardNum < 0 || cardNum > cards.length-1) return;
-  document.getElementById('prev').disabled = (cardNum <= 0);
-  document.getElementById('next').disabled = (cardNum == cards.length-1);
-  strip.style.left = (-cardNum * width) + 'px';
-  cardNumber = cardNum;
-}
+window.addEventListener("load", function(){
+  attachCodeMirror();
+  initializeCards();
+  rewrapCodeExps();
+});
 
-function nextCard(){gotoCard(cardNumber+1);}
-function prevCard(){gotoCard(cardNumber-1);}
 
-function showTeacherNotes(elt){
-  parentStrip = elt.parentNode.parentNode.getElementsByTagName('ul')[0];
-  parentStrip.className = (parentStrip.className == 'lesson')? 'lesson teacherNotes' : 'lesson';
-//  var strips = document.getElementsByClassName('lesson');
-//  for(var i=0; i< strips.length; i++)
-//    strips[i].className = (strips[i].className == 'lesson')? 'lesson teacherNotes' : 'lesson';
-}
+window.addEventListener("scroll", function(){
+  updateLessonToolbar();
+});
