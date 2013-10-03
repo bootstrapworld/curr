@@ -395,24 +395,30 @@ div.circleevalsexp .lParen, div.circleevalsexp .rParen{display: none;}
  * which are styled a little differently
 */
 
-table.matching-table td{
-  border:         0px;
-  width:          350px;
-  padding:        0px 20px;
-  height:         75px; /* table cells use 'height' as 'min-height' in CSS */
+div.TwoColumnLayout li {
+  height:         200px;
+  margin:         0px;
+  padding:        10px;
+}
+div.TwoColumnLayout li > * { vertical-align: top; display: inline-block;}
+
+div.TwoColumnLayout div.rightColumn, 
+div.TwoColumnLayout div.leftColumn {
+  width:          400px;
+  display:        inline-block;
+  vertical-align: top;
 }
 
-table.matching-table td>*{float: left;}
+div.TwoColumnLayout ol {list-style-position: inside; padding: 0px;}
+div.rightColumn li{list-style-type: lower-alpha;}
 
 .exercises h2{ text-align: center; page-break-before:always;}
 ol.question>li{clear: both; border-top: solid 1px black; padding: 20px 20px; margin-bottom: 35px;}
 ol.question li:first-of-type{border: none;}
 .exercises img{float: right; }
 
-div.ExerciseListItem{min-height: 150px;}
-
 div#exercises{width: 800px;}
-div#exercises li{margin-bottom: 50px; border-bottom: 2px solid black;}
+div#exercises li{border: 1px solid black;}
 div#exercises div.circleevalsexp{float: none;}
 
 /* student answers should be at least 20px tall */
