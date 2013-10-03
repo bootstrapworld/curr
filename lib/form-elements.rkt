@@ -796,9 +796,11 @@
 (define (create-itemlist #:style [style #f] contents)
   (apply itemlist/splicing #:style style contents))
 
-(define (create-exercise-itemlist #:ordered [ordered? #t] #:with-answer-blanks? [with-answer-blanks? #f] contents)
+(define (create-exercise-itemlist #:ordered [ordered? #t] #:with-answer-blanks? [with-answer-blanks? #f] 
+                                  #:itemstyle [itemstyle #f]
+                                  contents)
   (create-itemlist #:style (if ordered? 'ordered #f)
-                   (map (lambda (c) (para #:style (bootstrap-div-style "ExerciseListItem") 
+                   (map (lambda (c) (para #:style (or itemstyle (bootstrap-div-style "ExerciseListItem")) 
                                           (if with-answer-blanks?
                                               (list c (fill-in-the-blank #:class "studentAnswer"))
                                               c)))
@@ -816,12 +818,7 @@
 
 ;; format a question and answer for a solution key
 (define (attach-exercise-answer question answer)
-  (elem #:style (bootstrap-div-style "question-with-answer") question (bold " Answer: ") answer))
-
-(define (matching-exercise-sols matches)
-  (matching-exercise (map (lambda (m) (attach-exercise-answer (first m) (second m))) matches)
-                     '()))
-  
+  (elem #:style (bootstrap-div-style "question-with-answer") question (bold " Answer: ") answer))  
 
 ;;;;;;;;;;;;;;;; END NEW LESSON FORMAT ;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -1166,8 +1163,22 @@
   (let* ([permutedB (if permute (permute-list colB) colB)]
          [paddedcolA (if (> (length colB) (length colA)) (pad-to colA (length colB) "") colA)]
          [paddedcolB (if (> (length colA) (length colB)) (pad-to permutedB (length colA) "") permutedB)])
-    (let ([rowslist (map list paddedcolA paddedcolB)])
-      (tabular #:style "matching-table" rowslist))))
+    (nested #:style (bootstrap-div-style "TwoColumnLayout")
+            (interleave-parbreaks/all
+             (list
+              (nested #:style (bootstrap-div-style "leftColumn") 
+                      (create-exercise-itemlist #:itemstyle (bootstrap-div-style "MatchingExerciseItem") 
+                                                paddedcolA))
+              (nested #:style (bootstrap-div-style "rightColumn") 
+                      (create-exercise-itemlist #:itemstyle (bootstrap-div-style "MatchingExerciseItem") 
+                                                paddedcolB)))))))
+;    (let ([rowslist (map list paddedcolA paddedcolB)])
+;      (tabular #:style "matching-table" rowslist))))
+
+;; given answer key for matching exercise, generate solutions
+(define (matching-exercise-sols matches)
+  (matching-exercise (map (lambda (m) (attach-exercise-answer (first m) (second m))) matches)
+                     '()))
 
 ;; creates an elem containing string with index number before each elt in list
 (define (add-index-nums/elem elts)
