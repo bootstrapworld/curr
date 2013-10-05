@@ -19,7 +19,7 @@
 @(exercise-handout 
   #:title "Converting Circles of Evaluation with Booleans to Code"
   #:forevidence "A-SSE.1-2&1&3"
-  #:instr "For each Circle of Evaluation below, write down the code that corresponds to the Circle:"
+  #:instr "For each Circle of Evaluation in the left column, write the code that corresponds to the Circle in the right column:"
   @(create-exercise-itemlist #:with-answer-blanks? #t exprs-as-coe)
   @(exercise-answers
     (create-exercise-sols-itemlist exprs-as-coe exprs-as-code))

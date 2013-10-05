@@ -337,7 +337,7 @@
                                                      `((placeholder ,label))
                                                      '()))
                                             ""))
-                     (elem #:style (bootstrap-span-style classname) "answer here"))]
+                     (elem #:style (bootstrap-span-style classname) ""))] ;"answer here"
                 [(or latex pdf)
                  (elem #:style bs-fill-in-blank-style 
                        (if label label " "))]))
@@ -799,12 +799,14 @@
 (define (create-exercise-itemlist #:ordered [ordered? #t] #:with-answer-blanks? [with-answer-blanks? #f] 
                                   #:itemstyle [itemstyle #f]
                                   contents)
-  (create-itemlist #:style (if ordered? 'ordered #f)
-                   (map (lambda (c) (para #:style (or itemstyle (bootstrap-div-style "ExerciseListItem")) 
-                                          (if with-answer-blanks?
-                                              (list c (fill-in-the-blank #:class "studentAnswer"))
-                                              c)))
-                        contents)))
+  (if with-answer-blanks?
+      (matching-exercise contents
+                         (build-list (length contents)
+                                     (lambda (i) (fill-in-the-blank #:class "studentAnswer"))))
+      (create-itemlist #:style (if ordered? 'ordered #f)
+                       (map (lambda (c) (para #:style (or itemstyle (bootstrap-div-style "ExerciseListItem")) 
+                                              c))
+                            contents))))
 
 (define (create-exercise-itemlist/contract-answers #:ordered [ordered? #t] contents)
   (create-exercise-itemlist #:ordered ordered? 
@@ -1163,7 +1165,7 @@
   (let* ([permutedB (if permute (permute-list colB) colB)]
          [paddedcolA (if (> (length colB) (length colA)) (pad-to colA (length colB) "") colA)]
          [paddedcolB (if (> (length colA) (length colB)) (pad-to permutedB (length colA) "") permutedB)])
-    (nested #:style (bootstrap-div-style "TwoColumnLayout")
+    (nested #:style (bootstrap-div-style "twoColumnLayout")
             (interleave-parbreaks/all
              (list
               (nested #:style (bootstrap-div-style "leftColumn") 
@@ -1214,14 +1216,20 @@
                      (map (lambda (str) (sexp str #:form "circofeval")) sexps)))
   
 ;; tostring for sexps, useful in exercise generation
+;;   wrap indicates whether to wrap result in parens
+;;   special handling for / so that it renders as a fraction
 (define (sexp->arith-str sexp #:wrap [wrap #f])
   (cond [(number? sexp) (format "~a" sexp)]
-        [else
-         (let ([base (format "~a ~a ~a" 
-                             (sexp->arith-str (second sexp) #:wrap #t) 
-                             (first sexp) 
-                             (sexp->arith-str (third sexp) #:wrap #t))])
-           (if wrap (format "(~a)" base) base))]))
+        [else 
+         (cond [(eq? (first sexp) '/) (format "{~a\\over~a}" 
+                                              (sexp->arith-str (second sexp))
+                                              (sexp->arith-str (third sexp)))]
+               [else
+                (let ([base (format "~a ~a ~a" 
+                                    (sexp->arith-str (second sexp) #:wrap #t) 
+                                    (first sexp) 
+                                    (sexp->arith-str (third sexp) #:wrap #t))])
+                  (if wrap (format "(~a)" base) base))])]))
                           
 (define (sexp->math sexp #:wrap [wrap #f])
   (math (sexp->arith-str sexp #:wrap wrap)))
@@ -1764,6 +1772,7 @@
         "Arithmetic Expression" 
         "arithmetic expression"
         "Expression"
+        "Example"
         "Contract" 
         "code"))
 

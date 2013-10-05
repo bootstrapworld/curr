@@ -395,21 +395,21 @@ div.circleevalsexp .lParen, div.circleevalsexp .rParen{display: none;}
  * which are styled a little differently
 */
 
-div.TwoColumnLayout li {
+div.twoColumnLayout li {
   height:         200px;
   margin:         0px;
   padding:        10px;
 }
-div.TwoColumnLayout li > * { vertical-align: top; display: inline-block;}
+div.twoColumnLayout li > * { vertical-align: top; display: inline-block;}
 
-div.TwoColumnLayout div.rightColumn, 
-div.TwoColumnLayout div.leftColumn {
+div.twoColumnLayout div.rightColumn, 
+div.twoColumnLayout div.leftColumn {
   width:          400px;
   display:        inline-block;
   vertical-align: top;
 }
 
-div.TwoColumnLayout ol {list-style-position: inside; padding: 0px;}
+div.twoColumnLayout ol {list-style-position: inside; padding: 0px;}
 div.rightColumn li{list-style-type: lower-alpha;}
 
 .exercises h2{ text-align: center; page-break-before:always;}
