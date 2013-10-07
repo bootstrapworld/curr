@@ -163,7 +163,7 @@
 ;;;;;;;;;;;;;;;;; URLs ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (define mathjax-url
   (neturl:string->url 
-   "http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"))
+   "http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,http://www.cs.wpi.edu/~kfisler/mathjaxlocal.js"))
   
 ;;;;;;;;;;;;;;;; Runtime Paths ;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (define-runtime-path bootstrap.css "bootstrap.css")
@@ -178,6 +178,7 @@
 (define-runtime-path scheme2.js "scheme2.js")
 (define-runtime-path bootstraplesson.js "bootstraplesson.js")
 (define-runtime-path logo.png "logo.png")
+;(define-runtime-path mathjaxlocal.js "mathjaxlocal.js")
 
 (define css-js-additions
   (list (make-css-addition bootstrap.css)
@@ -190,6 +191,7 @@
         (make-js-addition runmode.js)
         (make-js-addition scheme2.js)
         (make-js-addition bootstraplesson.js)
+        ;(make-js-addition mathjaxlocal.js)
         (make-js-addition mathjax-url)
         ))
 
