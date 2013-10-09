@@ -404,12 +404,12 @@ div.twoColumnLayout li > * { vertical-align: top; display: inline-block;}
 
 div.twoColumnLayout div.rightColumn, 
 div.twoColumnLayout div.leftColumn {
-  width:          400px;
+  width:          50%;
   display:        inline-block;
   vertical-align: top;
 }
 
-div.twoColumnLayout ol {list-style-position: inside; padding: 0px;}
+div.twoColumnLayout ol {list-style-position: inside; padding: 0px; margin: 0px;}
 div.rightColumn li{list-style-type: lower-alpha;}
 
 .exercises h2{ text-align: center; page-break-before:always;}
@@ -424,9 +424,9 @@ div#exercises div.circleevalsexp{float: none;}
 /* student answers should be at least 20px tall */
 .studentAnswer, .operator:empty{
   display:      inline-block;
-  background:   #ddd;
+  background:   #eee;
   min-height:   15px;
-  min-width: 40px;
+  min-width:    40px;
 }
 
 /* holes in code should be at least 40px x 40px */
