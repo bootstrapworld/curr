@@ -798,17 +798,28 @@
 (define (create-itemlist #:style [style #f] contents)
   (apply itemlist/splicing #:style style contents))
 
-(define (create-exercise-itemlist #:ordered [ordered? #t] #:with-answer-blanks? [with-answer-blanks? #f] 
+(define (create-exercise-itemlist #:ordered [ordered? #t] 
+                                  #:with-answer-blanks? [with-answer-blanks? #f] 
+                                  #:large-blanks? [large-blanks? #f]
                                   #:itemstyle [itemstyle #f]
                                   contents)
-  (if with-answer-blanks?
-      (matching-exercise contents
-                         (build-list (length contents)
-                                     (lambda (i) (fill-in-the-blank #:class "studentAnswer"))))
-      (create-itemlist #:style (if ordered? 'ordered #f)
-                       (map (lambda (c) (para #:style (or itemstyle (bootstrap-div-style "ExerciseListItem")) 
-                                              c))
-                            contents))))
+  (cond [(and with-answer-blanks? large-blanks?)
+         (matching-exercise #:leftitemstyletag "ExerciseListItem"
+                            #:rightitemstyletag #f
+                            #:rightcolextratag "studentAnswer"
+                            #:rightcolitemsempty? #t
+                            contents
+                            (build-list (length contents)
+                                        (lambda (i) (elem))))]
+        [with-answer-blanks?
+         (matching-exercise contents
+                            (build-list (length contents)
+                                        (lambda (i) (fill-in-the-blank #:class "studentAnswer"))))]
+        [else
+         (create-itemlist #:style (if ordered? 'ordered #f)
+                          (map (lambda (c) (para #:style (or itemstyle (bootstrap-div-style "ExerciseListItem")) 
+                                                 c))
+                               contents))]))
 
 (define (create-exercise-itemlist/contract-answers #:ordered [ordered? #t] contents)
   (create-exercise-itemlist #:ordered ordered? 
@@ -1163,21 +1174,29 @@
 ;;   colA with one from colB.  If permute is true, then contents of colB
 ;;   are permuted before generating the output.
 ;; Pads lists as needed to balance length (allows some matches to not be used)
-(define (matching-exercise #:permute (permute #f) colA colB)
+(define (matching-exercise #:permute [permute #f] 
+                           #:leftitemstyletag [leftitemstyletag "MatchingExerciseItem"]
+                           #:rightitemstyletag [rightitemstyletag "MatchingExerciseItem"]
+                           #:leftcolextratag [leftcolextratag ""]
+                           #:rightcolextratag [rightcolextratag ""]
+                           #:rightcolitemsempty? [rightcolitemsempty? #f]
+                           colA colB)
   (let* ([permutedB (if permute (permute-list colB) colB)]
          [paddedcolA (if (> (length colB) (length colA)) (pad-to colA (length colB) "") colA)]
-         [paddedcolB (if (> (length colA) (length colB)) (pad-to permutedB (length colA) "") permutedB)])
+         [paddedcolB (if (> (length colA) (length colB)) (pad-to permutedB (length colA) "") permutedB)]
+         [leftitemstyle (if leftitemstyletag (bootstrap-div-style leftitemstyletag) #f)]
+         [rightitemstyle (if rightitemstyletag (bootstrap-div-style rightitemstyletag) #f)])        
     (nested #:style (bootstrap-div-style "twoColumnLayout")
             (interleave-parbreaks/all
              (list
-              (nested #:style (bootstrap-div-style "leftColumn") 
-                      (create-exercise-itemlist #:itemstyle (bootstrap-div-style "MatchingExerciseItem") 
+              (nested #:style (bootstrap-div-style (string-append "leftColumn" " " leftcolextratag)) 
+                      (create-exercise-itemlist #:itemstyle leftitemstyle
                                                 paddedcolA))
-              (nested #:style (bootstrap-div-style "rightColumn") 
-                      (create-exercise-itemlist #:itemstyle (bootstrap-div-style "MatchingExerciseItem") 
-                                                paddedcolB)))))))
-;    (let ([rowslist (map list paddedcolA paddedcolB)])
-;      (tabular #:style "matching-table" rowslist))))
+              (nested #:style (bootstrap-div-style (string-append "rightColumn" " " rightcolextratag))
+                      (if rightcolitemsempty?
+                          (create-itemlist #:style 'ordered paddedcolB)
+                          (create-exercise-itemlist #:itemstyle rightitemstyle 
+                                                    paddedcolB))))))))
 
 ;; given answer key for matching exercise, generate solutions
 (define (matching-exercise-sols matches)
