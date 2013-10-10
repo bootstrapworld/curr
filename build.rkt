@@ -283,6 +283,15 @@
         (zip output-file file)))))
 
 
+(define (create-distribution-lib)
+  (let ([distrib-lib-dir (build-path (current-deployment-dir) "lib")])
+    (if (directory-exists? distrib-lib-dir)
+        (delete-directory/files distrib-lib-dir)
+        (make-directory distrib-lib-dir))
+    (copy-file (build-path "lib" "mathjaxlocal.js")
+               (build-path distrib-lib-dir "mathjaxlocal.js")
+               #t)))
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -299,6 +308,7 @@
     (build-course-units)
     (build-resources)))  ;; should resources get built once, or once per course?
 (build-exercise-handouts)
+(create-distribution-lib)
 ;(build-exercise-handout-solutions)
 ;(build-lessons)
 ;(build-worksheets)
