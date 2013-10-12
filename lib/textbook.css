@@ -143,6 +143,8 @@ div.overview{
 .overview h2 {float: none; clear: none;}
 .overview img {float: left; position: relative; top: -50px; margin-bottom: -50px;}
 
+blockquote.LessonBoundary{margin: 0px; display: inline-block;}
+
 .BootstrapLessonTitle{
     background: black;
     color: white;
@@ -179,7 +181,7 @@ input.toggle{display:none;}
 
 
 
-div.segment{ 
+div.ExtraExercises, div.segment{
   float:      left;
   border:     1px solid black;
   background:	rgba(255, 255, 255, .8);
@@ -395,6 +397,8 @@ div.circleevalsexp .lParen, div.circleevalsexp .rParen{display: none;}
  * which are styled a little differently
 */
 
+div.ExtraExercises {background:	rgba(200, 200, 200, .8); }
+
 div.twoColumnLayout li {
   height:         200px;
   margin:         0px;
@@ -449,7 +453,7 @@ div.codesexp       .studentAnswer+.studentAnswer { margin-left: 10px;}
 */
 @media print {
 	body			{background: white;}
-	div.content		{border: none; font-size: 12px;}
+	div.content		{border: none; font-size: 12px; display: inline-block;}
 	div.overview img			{width: 80px; margin-top: 0px; }
 	table, img {page-break-inside: avoid;}
   table.bordered td {border: none; padding: 0px;}
