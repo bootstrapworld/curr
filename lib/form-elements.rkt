@@ -1417,7 +1417,7 @@
              (nested #:style (bootstrap-div-style "ExtraExercises")
                      (interleave-parbreaks/all
                       (list 
-                       (para #:style bs-page-title-style "Additional Exercises:")
+                       (para #:style bs-lesson-title-style "Additional Exercises:")
                        (apply itemlist/splicing 
                               (map (lambda (exloc)
                                      (let-values ([(extitle exforevid) (extract-exercise-data exloc)])
