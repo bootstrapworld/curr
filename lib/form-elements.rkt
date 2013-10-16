@@ -1749,7 +1749,8 @@
                      (list
                       (if gen-agenda? (agenda) (elem))
                       description
-                      (learn-evid-from-standards)
+                      ; uncomment next line to resume generating evidence from standards spreadsheet
+                      ;(learn-evid-from-standards)
                       (if objectivesItems (objectives objectivesItems) 
                           (summary-data/auto 'learning-objectives "Learning Objectives"))
                       (if (audience-in? "teacher")
