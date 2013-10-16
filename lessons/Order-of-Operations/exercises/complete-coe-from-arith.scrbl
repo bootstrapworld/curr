@@ -22,8 +22,8 @@
   #:instr "Each exercise below gives an arithmetic expression and a partially-finished 
            circle of evaluation for that expression.  Finish the Circle of Evaluation
            so that it represents the arithmetic expression."
-  @(matching-exercise exprs-as-code (map sexp->coe exprs-with-holes))
+  @(completion-exercise exprs-as-code (map sexp->coe exprs-with-holes))
   @(exercise-answers
-     (matching-exercise exprs-as-code exprs-as-coe))
+     (completion-exercise exprs-as-code exprs-as-coe))
   )
 

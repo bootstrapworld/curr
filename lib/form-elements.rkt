@@ -64,6 +64,8 @@
          summary-item/custom
          summary-item/unit-link
          matching-exercise
+         completion-exercise
+         open-response-exercise
          circeval-matching-exercise/code
          circeval-matching-exercise/math
          fill-in-blank-answers-exercise
@@ -804,16 +806,18 @@
                                   #:itemstyle [itemstyle #f]
                                   contents)
   (cond [(and with-answer-blanks? large-blanks?)
-         (matching-exercise #:leftitemstyletag "ExerciseListItem"
-                            #:rightitemstyletag #f
-                            #:rightcolextratag "studentAnswer"
-                            #:rightcolitemsempty? #t
-                            #:real-matching? #f
-                            contents
-                            (build-list (length contents)
-                                        (lambda (i) (elem))))]
+         (open-response-exercise contents)]
+;         (matching-exercise #:leftitemstyletag "ExerciseListItem"
+;                            #:rightitemstyletag #f
+;                            #:rightcolextratag "studentAnswer"
+;                            #:rightcolitemsempty? #t
+;                            #:real-matching? #f
+;                            contents
+;                            (build-list (length contents)
+;                                        (lambda (i) (elem))))]
         [with-answer-blanks?
-         (matching-exercise #:real-matching? #f
+         (completion-exercise 
+         ;(matching-exercise #:real-matching? #f
                             contents
                             (build-list (length contents)
                                         (lambda (i) (fill-in-the-blank #:class "studentAnswer"))))]
@@ -1176,31 +1180,77 @@
 ;;   colA with one from colB.  If permute is true, then contents of colB
 ;;   are permuted before generating the output.
 ;; Pads lists as needed to balance length (allows some matches to not be used)
+;; real-matching? distinguishes actual matching exercises that need labels on
+;;   the right column from cases that use this to generate twoColumnLayouts (like answer blanks)
 (define (matching-exercise #:permute [permute #f] 
-                           #:leftitemstyletag [leftitemstyletag "MatchingExerciseItem"]
-                           #:rightitemstyletag [rightitemstyletag "MatchingExerciseItem"]
-                           #:leftcolextratag [leftcolextratag ""]
-                           #:rightcolextratag [rightcolextratag ""]
-                           #:rightcolitemsempty? [rightcolitemsempty? #f]
-                           #:real-matching? [real-matching? #t]
+                           ;#:leftitemstyletag [leftitemstyletag "MatchingExerciseItem"]
+                           ;#:rightitemstyletag [rightitemstyletag "MatchingExerciseItem"]
+                           ;#:leftcolextratag [leftcolextratag ""]
+                           ;#:rightcolextratag [rightcolextratag ""]
+                           ;#:rightcolitemsempty? [rightcolitemsempty? #f]
+                           ;#:real-matching? [real-matching? #t]
                            colA colB)
   (let* ([permutedB (if permute (permute-list colB) colB)]
          [paddedcolA (if (> (length colB) (length colA)) (pad-to colA (length colB) "") colA)]
-         [paddedcolB (if (> (length colA) (length colB)) (pad-to permutedB (length colA) "") permutedB)]
-         [leftitemstyle (if leftitemstyletag (bootstrap-div-style leftitemstyletag) #f)]
-         [rightitemstyle (if rightitemstyletag (bootstrap-div-style rightitemstyletag) #f)])        
-    (nested #:style (bootstrap-div-style (string-append "twoColumnLayout"
-                                                        (if real-matching? " matching" "")))
-            (interleave-parbreaks/all
-             (list
-              (nested #:style (bootstrap-div-style (string-append "leftColumn" " " leftcolextratag)) 
-                      (create-exercise-itemlist #:itemstyle leftitemstyle
-                                                paddedcolA))
-              (nested #:style (bootstrap-div-style (string-append "rightColumn" " " rightcolextratag))
-                      (if rightcolitemsempty?
-                          (create-itemlist #:style 'ordered paddedcolB)
-                          (create-exercise-itemlist #:itemstyle rightitemstyle 
-                                                    paddedcolB))))))))
+         [paddedcolB (if (> (length colA) (length colB)) (pad-to permutedB (length colA) "") permutedB)])
+    (two-col-layout #:layoutstyle "matching"
+                    paddedcolA paddedcolB)))
+
+;; generic function for creating a two-column layout.  Not meant to be called
+;; directly from .scrbl files.  Mostly used for exercise generation
+(define (two-col-layout #:leftcolextratag [leftcolextratag ""]
+                        #:rightcolextratag [rightcolextratag ""]
+                        #:layoutstyle [layoutstyle #f]
+                        colA colB)
+  (let* ([paddedcolA (if (> (length colB) (length colA)) (pad-to colA (length colB) "") colA)]
+         [paddedcolB (if (> (length colA) (length colB)) (pad-to colB (length colA) "") colB)]
+         [leftcolstyle (bootstrap-div-style (string-append "leftColumn" " " leftcolextratag))]
+         [rightcolstyle (bootstrap-div-style (string-append "rightColumn" " " rightcolextratag))])       
+    (nested #:style (bootstrap-div-style "twoColumnLayout")
+            (create-itemlist #:style layoutstyle
+             (map (lambda (left right)
+                    (interleave-parbreaks/all
+                     (list 
+                      (nested #:style leftcolstyle left)
+                      (nested #:style rightcolstyle right))))
+                  paddedcolA paddedcolB)))))
+
+;; generate a two-column layout with no special formatting towards item labeling
+(define (completion-exercise colA colB)
+  (two-col-layout colA colB))
+
+;; generates a two-column layout with larger blanks for the answers in the right column
+;; two-col-layout will pad the given empty list to match the length of colA
+(define (open-response-exercise colA)
+  (two-col-layout #:rightcolextratag "studentAnswer" 
+                  colA '()))
+                     
+;;; holding old version until we are satisfied with the new one
+;(define (matching-exercise-old #:permute [permute #f] 
+;                           #:leftitemstyletag [leftitemstyletag "MatchingExerciseItem"]
+;                           #:rightitemstyletag [rightitemstyletag "MatchingExerciseItem"]
+;                           #:leftcolextratag [leftcolextratag ""]
+;                           #:rightcolextratag [rightcolextratag ""]
+;                           #:rightcolitemsempty? [rightcolitemsempty? #f]
+;                           #:real-matching? [real-matching? #t]
+;                           colA colB)
+;  (let* ([permutedB (if permute (permute-list colB) colB)]
+;         [paddedcolA (if (> (length colB) (length colA)) (pad-to colA (length colB) "") colA)]
+;         [paddedcolB (if (> (length colA) (length colB)) (pad-to permutedB (length colA) "") permutedB)]
+;         [leftitemstyle (if leftitemstyletag (bootstrap-div-style leftitemstyletag) #f)]
+;         [rightitemstyle (if rightitemstyletag (bootstrap-div-style rightitemstyletag) #f)])        
+;    (nested #:style (bootstrap-div-style (string-append "twoColumnLayout"
+;                                                        (if real-matching? " matching" "")))
+;            (interleave-parbreaks/all
+;             (list
+;              (nested #:style (bootstrap-div-style (string-append "leftColumn" " " leftcolextratag)) 
+;                      (create-exercise-itemlist #:itemstyle leftitemstyle
+;                                                paddedcolA))
+;              (nested #:style (bootstrap-div-style (string-append "rightColumn" " " rightcolextratag))
+;                      (if rightcolitemsempty?
+;                          (create-itemlist #:style 'ordered paddedcolB)
+;                          (create-exercise-itemlist #:itemstyle rightitemstyle 
+;                                                    paddedcolB))))))))
 
 ;; given answer key for matching exercise, generate solutions
 (define (matching-exercise-sols matches)

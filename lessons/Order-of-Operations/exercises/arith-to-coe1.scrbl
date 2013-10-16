@@ -16,8 +16,8 @@
 @(exercise-handout 
   #:title "Creating Circles of Evaluation from Arithmetic Expressions"
   #:instr "For each math expression below, write down its Circle of Evaluation"
-  @(create-exercise-itemlist (map sexp->math exprs))
+  @(open-response-exercise (map sexp->math exprs))
   @(exercise-answers
-    (create-exercise-sols-itemlist exprs-as-math exprs-as-coe))
+    (completion-exercise exprs-as-math exprs-as-coe))
   )
 
