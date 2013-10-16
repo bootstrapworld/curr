@@ -1186,7 +1186,7 @@
          [paddedcolB (if (> (length colA) (length colB)) (pad-to permutedB (length colA) "") permutedB)]
          [leftitemstyle (if leftitemstyletag (bootstrap-div-style leftitemstyletag) #f)]
          [rightitemstyle (if rightitemstyletag (bootstrap-div-style rightitemstyletag) #f)])        
-    (nested #:style (bootstrap-div-style "twoColumnLayout")
+    (nested #:style (bootstrap-div-style "twoColumnLayout matching")
             (interleave-parbreaks/all
              (list
               (nested #:style (bootstrap-div-style (string-append "leftColumn" " " leftcolextratag)) 
