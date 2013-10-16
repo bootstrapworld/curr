@@ -27,7 +27,7 @@ div.lessonToolbar * {margin: 10px;}
 
 div.fixed{
   position:     fixed;
-  left:         808px;
+  left:         806px;
   top:          0px;
   background:   black;
   border-bottom-right-radius: 10px;
@@ -68,7 +68,7 @@ div.fixed{
 }
 .BootstrapOverview {
     padding:      5px;
-    width:        790px; /*  780px wide + 5px padding = 800px total */
+    width:        788px; /*  788px wide + 5px padding + 2px border = 800px total */
     background:   lightgray;
     page-break-after: always;
     border:       solid 1px black;
@@ -105,7 +105,7 @@ table {
 	font-weight:    bold;
 	position:       relative;
   padding:        5px;
-  margin-left:    10px;
+  margin:         0px 0px 10px 10px;
   width:          225px;
 }
   
