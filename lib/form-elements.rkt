@@ -808,11 +808,13 @@
                             #:rightitemstyletag #f
                             #:rightcolextratag "studentAnswer"
                             #:rightcolitemsempty? #t
+                            #:real-matching? #f
                             contents
                             (build-list (length contents)
                                         (lambda (i) (elem))))]
         [with-answer-blanks?
-         (matching-exercise contents
+         (matching-exercise #:real-matching? #f
+                            contents
                             (build-list (length contents)
                                         (lambda (i) (fill-in-the-blank #:class "studentAnswer"))))]
         [else
@@ -1180,13 +1182,15 @@
                            #:leftcolextratag [leftcolextratag ""]
                            #:rightcolextratag [rightcolextratag ""]
                            #:rightcolitemsempty? [rightcolitemsempty? #f]
+                           #:real-matching? [real-matching? #t]
                            colA colB)
   (let* ([permutedB (if permute (permute-list colB) colB)]
          [paddedcolA (if (> (length colB) (length colA)) (pad-to colA (length colB) "") colA)]
          [paddedcolB (if (> (length colA) (length colB)) (pad-to permutedB (length colA) "") permutedB)]
          [leftitemstyle (if leftitemstyletag (bootstrap-div-style leftitemstyletag) #f)]
          [rightitemstyle (if rightitemstyletag (bootstrap-div-style rightitemstyletag) #f)])        
-    (nested #:style (bootstrap-div-style "twoColumnLayout matching")
+    (nested #:style (bootstrap-div-style (string-append "twoColumnLayout"
+                                                        (if real-matching? " matching" "")))
             (interleave-parbreaks/all
              (list
               (nested #:style (bootstrap-div-style (string-append "leftColumn" " " leftcolextratag)) 
