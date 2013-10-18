@@ -346,6 +346,8 @@ td.vertical {
 span.wp { font-weight:   bold; }
 span.vocab{font-style:  italic; font-weight: bold; color: darkblue;}
 
+div.ExtraExercises {background:	rgba(200, 200, 200, .8); }
+
 div#copyright{
   display: inline-block;
   border-top: dashed 2px black;
@@ -392,37 +394,32 @@ div.circleevalsexp .lParen, div.circleevalsexp .rParen{display: none;}
 
 
 /************************************************************************************
- * EXERCISES SEGMENT
- * The last .segment always contains a list of exercises,
- * which are styled a little differently
+ * EXERCISES
+ * Most exercises use the twoColumn layout, in which each LI has a left and right div
+ * All LIs have top borders, except in matching activities.
 */
 
-div.ExtraExercises {background:	rgba(200, 200, 200, .8); }
+div.twoColumnLayout ul  {list-style-type: none; padding: 0px;}
+div.twoColumnLayout li  {border-top: solid 1px black; overflow: hidden;}
+ul.matching li          {border-top: none;}
 
-div.twoColumnLayout li {
-  height:         200px;
-  margin:         0px;
-  padding:        10px;
-}
-div.twoColumnLayout li > * { vertical-align: top; display: inline-block;}
-
-div.twoColumnLayout div.rightColumn, 
-div.twoColumnLayout div.leftColumn {
+div.rightColumn, div.leftColumn {
   width:          50%;
   display:        inline-block;
   vertical-align: top;
+  padding-bottom: 100%;
+  margin-bottom:  -100%;
 }
 
-div.twoColumnLayout ol {list-style-position: inside; padding: 0px; margin: 0px;}
-div.rightColumn li{list-style-type: lower-alpha;}
+div.rightColumn>*, div.leftColumn>*{padding: 5px 15px;}
+div.rightColumn{border-left: solid 1px black; margin-right: -1px; min-height: 150px;}
+div.leftColumn{border-right: solid 1px black; margin-right: -1px; min-height: 150px;}
 
 .exercises h2{ text-align: center; page-break-before:always;}
 ol.question>li{clear: both; border-top: solid 1px black; padding: 20px 20px; margin-bottom: 35px;}
 ol.question li:first-of-type{border: none;}
 .exercises img{float: right; }
 
-div#exercises{width: 800px;}
-div#exercises li{border: 1px solid black;}
 div#exercises div.circleevalsexp{float: none;}
 
 /* student answers should be at least 20px tall */
@@ -430,7 +427,7 @@ div#exercises div.circleevalsexp{float: none;}
   display:      inline-block;
   background:   #eee;
   min-height:   15px;
-  min-width:    40px;
+  min-width:    60px;
 }
 
 /* holes in code should be at least 40px x 40px */
