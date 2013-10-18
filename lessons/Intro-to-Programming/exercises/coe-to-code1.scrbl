@@ -16,7 +16,7 @@
   #:instr "For each Circle of Evaluation on the left-hand side, write the code
            for the Circle on the right-hand side:" 
   #:forevidence "A-SSE.1-2&1&3"
-  @(create-exercise-itemlist #:with-answer-blanks? #t #:large-blanks? #t exprs-as-coe)
+  @(open-response-exercise exprs-as-coe "code")
   @(exercise-answers
-    (create-exercise-sols-itemlist exprs-as-coe exprs-as-code))
+    (questions-and-answers exprs-as-coe exprs-as-code))
   )

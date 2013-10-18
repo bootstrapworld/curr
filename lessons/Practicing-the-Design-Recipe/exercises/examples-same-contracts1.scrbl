@@ -88,12 +88,10 @@
   #:title "Do Examples Have the Same Contracts?"
   #:instr "For each of the following pairs of Examples, decide whether the two examples
            correspond to the same contract. If the examples have the same contract, write
-           it down.  If they do not, write \"don't match\" and say a few words about
+           it above the examples.  If they do not, write a few words explaining
            why they don't match."
-  @(create-exercise-itemlist
-    (map (lambda (e) (list e "Answer:" (contract-exercise "test"))) 
-         (list e1 e2 e3 e4 e5 e6 e7 e8 e9)))
+  @(create-exercise-itemlist/contract-answers (list e1 e2 e3 e4 e5 e6 e7 e8 e9))
   @(exercise-answers
-     (create-exercise-sols-itemlist (list e1 e2 e3 e4 e5 e6 e7 e8 e9)
-                                    (list a1 a2 a3 a4 a5 a6 a7 a8 a9)))
+     (questions-and-answers (list e1 e2 e3 e4 e5 e6 e7 e8 e9)
+                            (list a1 a2 a3 a4 a5 a6 a7 a8 a9))))
   ) 

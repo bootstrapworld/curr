@@ -77,11 +77,11 @@
 @(exercise-handout 
   #:title "Creating Contracts From Examples"
   #:instr "For each of the following collections of Examples, write the contract
-           for the function named in the examples."
+           for the function above the examples."
 
   @(create-exercise-itemlist/contract-answers examples-lst)
   @(exercise-answers
-    (create-exercise-sols-itemlist examples-lst answers-lst))
+    (questions-and-answers examples-lst answers-lst))
   )
 
 

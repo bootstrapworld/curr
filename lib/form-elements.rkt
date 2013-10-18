@@ -66,6 +66,7 @@
          matching-exercise
          completion-exercise
          open-response-exercise
+         questions-and-answers
          circeval-matching-exercise/code
          circeval-matching-exercise/math
          fill-in-blank-answers-exercise
@@ -801,41 +802,23 @@
   (apply itemlist/splicing #:style style contents))
 
 (define (create-exercise-itemlist #:ordered [ordered? #t] 
-                                  #:with-answer-blanks? [with-answer-blanks? #f] 
-                                  #:large-blanks? [large-blanks? #f]
                                   #:itemstyle [itemstyle #f]
                                   contents)
-  (cond [(and with-answer-blanks? large-blanks?)
-         (open-response-exercise contents)]
-;         (matching-exercise #:leftitemstyletag "ExerciseListItem"
-;                            #:rightitemstyletag #f
-;                            #:rightcolextratag "studentAnswer"
-;                            #:rightcolitemsempty? #t
-;                            #:real-matching? #f
-;                            contents
-;                            (build-list (length contents)
-;                                        (lambda (i) (elem))))]
-        [with-answer-blanks?
-         (completion-exercise 
-         ;(matching-exercise #:real-matching? #f
-                            contents
-                            (build-list (length contents)
-                                        (lambda (i) (fill-in-the-blank #:class "studentAnswer"))))]
-        [else
-         (create-itemlist #:style (if ordered? 'ordered #f)
-                          (map (lambda (c) (para #:style (or itemstyle (bootstrap-div-style "ExerciseListItem")) 
-                                                 c))
-                               contents))]))
+  (create-itemlist #:style (if ordered? 'ordered #f)
+                   (map (lambda (c) (para #:style (or itemstyle (bootstrap-div-style "ExerciseListItem")) 
+                                          c))
+                        contents)))
 
 (define (create-exercise-itemlist/contract-answers #:ordered [ordered? #t] contents)
   (create-exercise-itemlist #:ordered ordered? 
-                            (map (lambda (c) (list c (contract-exercise "dummyid"))) contents)))
+                            (map (lambda (c) (list (contract-exercise "dummyid") c)) contents)))
 
 (define (create-exercise-sols-itemlist #:ordered [ordered? #t] questions answers)
-  (create-itemlist #:style (if ordered? 'ordered #f) 
-                   (map (lambda (q a) (para #:style (bootstrap-div-style "QuestionWithAnswer") 
-                                            q (bold " Answer: " a)))
-                        questions answers)))
+  (questions-and-answers questions answers))
+;  (create-itemlist #:style (if ordered? 'ordered #f) 
+;                   (map (lambda (q a) (para #:style (bootstrap-div-style "QuestionWithAnswer") 
+;                                            q (bold " Answer: " a)))
+;                        questions answers)))
 
 ;; format a question and answer for a solution key
 (define (attach-exercise-answer question answer)
@@ -1219,39 +1202,17 @@
 (define (completion-exercise colA colB)
   (two-col-layout colA colB))
 
-;; generates a two-column layout with larger blanks for the answers in the right column
+(define questions-and-answers two-col-layout)
+
+;; generates a two-column layout with blanks for the answers in the right column
+;;   answer-type argument used to control the amount of space left for answers
 ;; two-col-layout will pad the given empty list to match the length of colA
-(define (open-response-exercise colA)
-  (two-col-layout #:rightcolextratag "studentAnswer" 
+(define (open-response-exercise colA answer-type)
+  (unless (member answer-type '("circeval" "code" "math" "text"))
+    (error 'open-response-exercise (format "Unexpected answer type ~a~n" answer-type)))
+  (two-col-layout #:rightcolextratag (string-append "studentAnswer " answer-type)
                   colA '()))
                      
-;;; holding old version until we are satisfied with the new one
-;(define (matching-exercise-old #:permute [permute #f] 
-;                           #:leftitemstyletag [leftitemstyletag "MatchingExerciseItem"]
-;                           #:rightitemstyletag [rightitemstyletag "MatchingExerciseItem"]
-;                           #:leftcolextratag [leftcolextratag ""]
-;                           #:rightcolextratag [rightcolextratag ""]
-;                           #:rightcolitemsempty? [rightcolitemsempty? #f]
-;                           #:real-matching? [real-matching? #t]
-;                           colA colB)
-;  (let* ([permutedB (if permute (permute-list colB) colB)]
-;         [paddedcolA (if (> (length colB) (length colA)) (pad-to colA (length colB) "") colA)]
-;         [paddedcolB (if (> (length colA) (length colB)) (pad-to permutedB (length colA) "") permutedB)]
-;         [leftitemstyle (if leftitemstyletag (bootstrap-div-style leftitemstyletag) #f)]
-;         [rightitemstyle (if rightitemstyletag (bootstrap-div-style rightitemstyletag) #f)])        
-;    (nested #:style (bootstrap-div-style (string-append "twoColumnLayout"
-;                                                        (if real-matching? " matching" "")))
-;            (interleave-parbreaks/all
-;             (list
-;              (nested #:style (bootstrap-div-style (string-append "leftColumn" " " leftcolextratag)) 
-;                      (create-exercise-itemlist #:itemstyle leftitemstyle
-;                                                paddedcolA))
-;              (nested #:style (bootstrap-div-style (string-append "rightColumn" " " rightcolextratag))
-;                      (if rightcolitemsempty?
-;                          (create-itemlist #:style 'ordered paddedcolB)
-;                          (create-exercise-itemlist #:itemstyle rightitemstyle 
-;                                                    paddedcolB))))))))
-
 ;; given answer key for matching exercise, generate solutions
 (define (matching-exercise-sols matches)
   (matching-exercise (map (lambda (m) (attach-exercise-answer (first m) (second m))) matches)

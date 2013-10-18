@@ -21,8 +21,8 @@
   #:title "Evaluating Circles of Evaluation"
   #:instr "For each Circle of Evaluation below, evaluate the Circle and 
    write down the answer (a number):"
-  @(create-exercise-itemlist #:with-answer-blanks? #t exprs-as-coe)
+  @(open-response-exercise exprs-as-coe "text")
   @(exercise-answers
-    (create-exercise-sols-itemlist exprs-as-coe expr-vals))
+    (questions-and-answers exprs-as-coe expr-vals))
   )
 

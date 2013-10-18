@@ -36,7 +36,6 @@
 @(exercise-handout 
   #:title "Identifying Parts of Expressions"
   #:instr "Answer each of the following questions in the space provided below the question:"
-  @(create-exercise-itemlist #:with-answer-blanks? #t #:large-blanks? #t ques)
-  @(exercise-answers 
-    (create-exercise-sols-itemlist ques ans))
+  @(open-response-exercise ques "text")
+  @(exercise-answers (questions-and-answers ques ans))
   )
