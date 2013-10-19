@@ -412,8 +412,12 @@ div.rightColumn, div.leftColumn {
 }
 
 div.rightColumn>*, div.leftColumn>*{padding: 5px 15px;}
-div.rightColumn{border-left: solid 1px black; margin-right: -1px; min-height: 150px;}
-div.leftColumn{border-right: solid 1px black; margin-right: -1px; min-height: 150px;}
+div.rightColumn{border-left: solid 1px black; margin-right: -1px; }
+div.leftColumn{border-right: solid 1px black; margin-right: -1px; }
+
+/* Define minimum heights for various answer types */
+div.circeval {min-height: 250px;}
+div.code, div.math, div.text,  {min-height: 50px;}
 
 .exercises h2{ text-align: center; page-break-before:always;}
 ol.question>li{clear: both; border-top: solid 1px black; padding: 20px 20px; margin-bottom: 35px;}
