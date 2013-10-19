@@ -72,6 +72,73 @@
                 <li>Unit 10 [coming soon!]</li>
               </ul>
 
+              <h2>Additional Exercise Solutions</h2>
+              These are the solutions to the exercise handouts linked to the end of each unit.  
+              Links to the handouts themselves are included here for convenience.
+
+              <ul>
+                <li>Unit 1: Completing Partial Circles of Evaluation from Arithmetic Expressions 
+	            [<a href="../../../../lessons/Order-of-Operations/exercises/complete-coe-from-arith.html">original</a> | 
+                     <a href="../../../../solutions/complete-coe-from-arith.html"> answers</a>]</li>
+
+                <li>Unit 1: Creating Circles of Evaluation from Arithmetic Expressions 
+                    [<a href="../../../../lessons/Order-of-Operations/exercises/arith-to-coe1.html">original</a> | 
+                     <a href="../../../../solutions/arith-to-coe1.html">answers</a>] </li>
+
+                <li>Unit 1: Creating Circles of Evaluation to Arithmetic Expressions 
+                    [<a href="../../../../lessons/Order-of-Operations/exercises/coe-to-arith1.html">original</a> | 
+                     <a href="../../../../solutions/coe-to-arith1.html">answers</a>] </li>
+
+                <li>Unit 1: Matching Circles of Evaluation and Arithmetic Expressions 
+                    [<a href="../../../../lessons/Order-of-Operations/exercises/match-arith-coe1.html">original</a> | 
+                     <a href="../../../../solutions/match-arith-coe1.html">answers</a>] </li>
+
+                <li>Unit 1: Completing Partial Code from Circles of Evaluation
+                    [<a href="../../../../lessons/Intro-to-Programming/exercises/complete-code-from-coe1.html">original</a> | 
+                     <a href="../../../../solutions/complete-code-from-coe1.html">answers</a>] </li>
+
+                <li>Unit 1: Converting Circles of Evaluation to Code
+                    [<a href="../../../../lessons/Intro-to-Programming/exercises/coe-to-code1.html">original</a> | 
+                     <a href="../../../../solutions/coe-to-code1.html">answers</a>] </li>
+
+                <li>Unit 1: Matching Circles of Evaluation and Code
+                    [<a href="../../../../lessons/Intro-to-Programming/exercises/coe-code-matching1.html">original</a> | 
+                     <a href="../../../../solutions/coe-code-matching1.html">answers</a>] </li>
+
+                <li>Unit 2: Converting Circles of Evaluation to Code
+                    [<a href="../../../../lessons/Strings-and-Images/exercises/many-types-coe-to-code1.html">original</a> | 
+                     <a href="../../../../solutions/many-types-coe-to-code1.html">answers</a>] </li>
+
+                <li>Unit 2: Identifying Parts of Expressions
+                    [<a href="../../../../lessons/Contracts/exercises/id-expr-pieces1.html">original</a> | 
+                     <a href="../../../../solutions/id-expr-pieces1.html">answers</a>] </li>
+
+                <li>Unit 2: Matching Expressions and Contracts
+                    [<a href="../../../../lessons/Contracts/exercises/match-contracts-exprs1.html">original</a> | 
+                     <a href="../../../../solutions/match-contracts-exprs1.html">answers</a>] </li>
+
+                <li>Unit 3: Matching Expressions and Function Definitions
+                    [<a href="../../../../lessons/Defining-Functions/exercises/match-examples-functions1.html">original</a> | 
+                     <a href="../../../../solutions/match-examples-functions1.html">answers</a>] </li>
+
+                <li>Unit 3: Creating Contracts From Examples
+                    [<a href="../../../../lessons/Defining-Functions/exercises/create-contracts-examples1.html">original</a> | 
+                     <a href="../../../../solutions/create-contracts-examples1.html">answers</a>] </li>
+
+                <li>Unit 4: Do Examples Have the Same Contracts?
+                    [<a href="../../../../lessons/Practicing-the-Design-Recipe/exercises/examples-same-contracts1.html">original</a> | 
+                     <a href="../../../../solutions/examples-same-contracts1.html">answers</a>] </li>
+
+                <li>Unit 4: Matching Contracts and Examples
+                    [<a href="../../../../lessons/Practicing-the-Design-Recipe/exercises/match-contracts-examples1.html">original</a> | 
+                     <a href="../../../../solutions/match-contracts-examples1.html">answers</a>] </li>
+
+                <li>Unit 6: Converting Circles of Evaluation with Booleans to Code
+                    [<a href="../../../../lessons/AndOr/exercises/boolean-coe-to-code1.html">original</a> | 
+                     <a href="../../../../solutions/boolean-coe-to-code1.html">answers</a>] </li>
+
+              </ul>
+
               <h1>Shortcuts to files used throughout the Teacher Workshop</h2>
               <ul>
                 <li><a target="_blank" href="http://www.wescheme.org/view?publicId=LyMwExWayT">NinjaCat</a></li>
