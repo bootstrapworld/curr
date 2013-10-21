@@ -57,11 +57,13 @@
                   @item{Every Example has to include an expression for what the function should do when given an input. Where could you look to find out what this function does?}
                   @item{Write two Examples on your paper, then circle and label what is changing between them. When labeling, think about what the changing things represent.}]}
                                   Your examples should look similar to:
-                                  @code[#:multi-line #t]{(EXAMPLE (double-radius 50 "pink")
-(circle (* 50 2) "outline" "pink"))
+                                  @code[#:multi-line #t]{
+(EXAMPLE (double-radius 50 "pink")
+         (circle (* 50 2) "outline" "pink"))
 
 (EXAMPLE (double-radius 918 "orange")
 (circle (* 918 2) "outline" "orange"))}}
+                         
                          @teacher{Each one of these answers can be found in the Contract or Purpose Statement. Suggestion: write these steps on the board, and draw arrows between them to highlight the process. The goal here is to get students into the habit of asking themselves these questions each time they write Examples, and then using their own work from the previous step to find the answers.}}
                 @point{@student{@bannerline{Step 3: Definition}
                                 Once we know what's changing between our two examples, we can define our function easily. The things that were circled and labeled in the two examples will be replaced with @vocab{variables} in the function definition. We don't @bold{always} want to make a pink circle whose radius is double 50, we want to be able to change the color and radius. @activity{Underneath your examples, copy everything that @bold{doesn't} change, and replace the changing things with the variable names you used.}
