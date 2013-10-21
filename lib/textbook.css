@@ -365,6 +365,7 @@ div.circleevalsexp{float: right;}
 
 div.circleevalsexp .expression{
 	display:        inline-block;
+  padding-top:    6px;   /* top padding pushes the rounded corners up slightly, so as not to clip function name */
 	margin:         5px;
 	clear:          none;
 	border:         2px solid black;
@@ -377,12 +378,12 @@ div.circleevalsexp .expression{
 
 div.circleevalsexp .value{
 	display:        inline-block;
-	margin:         20px 10px 10px 10px;
+	margin:         10px 10px 5px 10px;
   vertical-align: top;
 }
 
 div.circleevalsexp .operator{
-  display:        inline-block;
+  display:        block;
   height:         20px;
   text-align:     center;
   width:          100%;
