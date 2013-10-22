@@ -427,23 +427,30 @@ ol.question li:first-of-type{border: none;}
 
 div#exercises div.circleevalsexp{float: none;}
 
-/* student answers should be at least 20px tall */
+/* student answers should be at least 15px tall */
 .studentAnswer, .operator:empty{
   display:      inline-block;
   background:   #eee;
   min-height:   15px;
   min-width:    60px;
+  border-bottom: solid 1px black;
 }
 
 /* holes in code should be at least 40px x 40px */
 div.circleevalsexp  .studentAnswer{
   min-height:   40px;
   margin:       10px;
+  border-bottom: none;
 }
+
+/* Specify min-sizes for parts of a contract, to give students room to fill them in */
+.contract-name  {min-width: 1.5in; min-height: .2in;}
+.contract-domain{min-width: 3.0in; min-height: .2in;}
+.contract-range {min-width: 1.0in; min-height: .2in;}
 
 /* .studentAnswers should appear differently if they're in code or circles of Eval */
 div.circleevalsexp .studentAnswer .studentAnswer{margin: 20px;}
-div.codesexp       .studentAnswer                { margin-bottom: 2px; margin-left: 10px; border-bottom: solid 1px black;}
+div.codesexp       .studentAnswer                { margin-bottom: 2px; margin-left: 10px; }
 div.codesexp       .studentAnswer .studentAnswer { margin-bottom: 2px; margin-left: 40px; border-bottom: none;}
 div.codesexp       .studentAnswer+.studentAnswer { margin-left: 10px;}
 
