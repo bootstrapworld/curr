@@ -16,7 +16,7 @@
 @(exercise-handout 
   #:title "Converting Circles of Evaluation to Code"
   #:forevidence "A-SSE.1-2&1&3"
-  #:instr "For each Circle of Evaluation below, write down the code that corresponds to the Circle:"
+  #:instr "For each Circle of Evaluation on the left, write down the code on the right:"
   @(open-response-exercise (map sexp exprs) "code")
   @(exercise-answers
     (questions-and-answers sexps-as-coe sexps-as-code))

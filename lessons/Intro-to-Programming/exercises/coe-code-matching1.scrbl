@@ -25,7 +25,7 @@
 
 @(exercise-handout 
   #:title "Matching Circles of Evaluation and Code"
-  #:instr "For each Circle of Evaluation in the left column, match it with its corresponding code from the right column."
+  #:instr "Draw a line from each Circle of Evaluation on the left to the corresponding code on the right."
   @(matching-exercise expr-coes (map sexp->code permuted-exprs))
   @(exercise-answers
     (matching-exercise expr-coes (map sexp->code exprs)))

@@ -19,9 +19,8 @@
 
 @(exercise-handout 
   #:title "Completing Partial Circles of Evaluation from Arithmetic Expressions"
-  #:instr "Each exercise below gives an arithmetic expression and a partially-finished 
-           circle of evaluation for that expression.  Finish the Circle of Evaluation
-           so that it represents the arithmetic expression."
+  #:instr "For each arithmetic expression on the left,  finish the Circle of Evaluation
+           on the right by filling in the blanks."
   @(completion-exercise exprs-as-code (map sexp->coe exprs-with-holes))
   @(exercise-answers
      (completion-exercise exprs-as-code exprs-as-coe))

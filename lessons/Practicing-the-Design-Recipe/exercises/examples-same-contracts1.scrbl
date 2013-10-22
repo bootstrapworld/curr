@@ -86,10 +86,9 @@
 
 @(exercise-handout
   #:title "Do Examples Have the Same Contracts?"
-  #:instr "For each of the following pairs of Examples, decide whether the two examples
-           correspond to the same contract. If the examples have the same contract, write
-           it above the examples.  If they do not, write a few words explaining
-           why they don't match."
+  #:instr "For each pairs of Examples below, decide whether the two examples
+           have the same contract. If they do, fill in the contract in the space
+           provided. If not, write a few words explaining why."
   @(create-exercise-itemlist/contract-answers (list e1 e2 e3 e4 e5 e6 e7 e8 e9))
   @(exercise-answers
      (questions-and-answers (list e1 e2 e3 e4 e5 e6 e7 e8 e9)

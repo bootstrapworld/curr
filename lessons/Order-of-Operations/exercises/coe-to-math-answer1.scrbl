@@ -19,8 +19,8 @@
 
 @(exercise-handout 
   #:title "Evaluating Circles of Evaluation"
-  #:instr "For each Circle of Evaluation below, evaluate the Circle and 
-   write down the answer (a number):"
+  #:instr "For each Circle of Evaluation on the left, evaluate the Circle and 
+   write down the ANSWER (a number) on the right:"
   @(open-response-exercise exprs-as-coe "text")
   @(exercise-answers
     (questions-and-answers exprs-as-coe expr-vals))

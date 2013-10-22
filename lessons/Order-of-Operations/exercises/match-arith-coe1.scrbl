@@ -23,7 +23,7 @@
 
 @(exercise-handout 
   #:title "Matching Circles of Evaluation and Arithmetic Expressions"
-  #:instr "Match each Circle of Evaluation in the left column with its corresponding arithmetic expression in the right column:" 
+  #:instr "Draw a line from each Circle of Evaluation in the left to its corresponding arithmetic expression on the right:" 
   @(matching-exercise 
     (map sexp->coe exprs)
     (map sexp->math permuted-exprs))

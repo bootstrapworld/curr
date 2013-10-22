@@ -84,10 +84,8 @@
 
 @(exercise-handout 
   #:title "Matching Examples and Function Definitions"
-  #:instr "The left column shows several collections of Examples, each with the same fake function name (mystery).
-           The right column has several definitions of the mystery function.  Figure out which function goes with each collection of
-           examples.  You might not use all of the functions."
-  @(matching-exercise examples-lst permuted-functions-lst)) 
+  #:instr "Match the EXAMPLEs on the left with the definitions on the right. NOTE: Some definitions may not match any examples!"
+  @(matching-exercise examples-lst permuted-functions-lst))
   @(exercise-answers
     (matching-exercise examples-lst functions-lst))
   )

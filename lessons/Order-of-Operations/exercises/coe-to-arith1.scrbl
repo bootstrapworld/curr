@@ -13,8 +13,8 @@
 
 @(exercise-handout 
   #:title "Converting Circles of Evaluation to Arithmetic Expressions"
-  #:instr "For each Circle of Evaluation on the left-hand side, write the Arithmetic expression
-           for the Circle on the right-hand side:" 
+  #:instr "For each Circle of Evaluation on left, write the Arithmetic expression
+           on the right:" 
   @(open-response-exercise sexps-as-coe "math")
   @(exercise-answers (questions-and-answers sexps-as-coe sexps-as-math))
   )

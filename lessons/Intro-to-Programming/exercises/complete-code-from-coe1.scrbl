@@ -19,8 +19,8 @@
 
 @(exercise-handout 
   #:title "Completing Partial Code from Circles of Evaluation"
-  #:instr "Each exercise below gives an Circle of Evaluation and partially-finished 
-           code for that Circle.  Finish the code so that it corresponds to the Circle."
+  #:instr "Each Circle of Evaluation on the left has been partially-converted to code on the right.
+   Finish the code by filling in the gaps, so that it matches the Circle."
   @(completion-exercise exprs-as-coe (map sexp->code exprs-with-holes)) 
   @(exercise-answers
      (completion-exercise exprs-as-coe exprs-as-code))

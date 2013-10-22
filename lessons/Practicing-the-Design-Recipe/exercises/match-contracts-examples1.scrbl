@@ -82,9 +82,8 @@
 
 @(exercise-handout
   #:title "Matching Contracts and Examples"
-  #:instr "Match each Example in the left column with the Contract in the right column 
-           that has the domain and range used in the example.  Multiple examples 
-           may match to the same contract."
+  #:instr "Match each Example on the left with the Contract on the right. NOTE: Multiple examples 
+           may match to the same contract!"
   @(matching-exercise
     (list e1a e1b e2a e2b e3a e4a e4b e5a e6b)
     (list c4 c1 c3 c5 c6 c2))
