@@ -85,8 +85,8 @@
 @(exercise-handout 
   #:title "Matching Examples and Function Definitions"
   #:instr "Match the EXAMPLEs on the left with the definitions on the right. NOTE: Some definitions may not match any examples!"
-  @(matching-exercise examples-lst permuted-functions-lst))
+  @(matching-exercise examples-lst permuted-functions-lst)
   @(exercise-answers
-    (matching-exercise examples-lst functions-lst))
-  )
+    (matching-exercise examples-lst functions-lst)))
+
 

@@ -78,10 +78,7 @@
   #:title "Creating Contracts From Examples"
   #:instr "For each of the following collections of Examples, write the contract
            for the function above the examples."
-
   @(create-exercise-itemlist/contract-answers examples-lst)
   @(exercise-answers
     (questions-and-answers examples-lst answers-lst))
   )
-
-

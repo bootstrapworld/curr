@@ -13,15 +13,21 @@
 @(define c4 (code "; message-cost : string -> number"))
 
 @(define e5 (code "(show-score \"Red Sox\" 6 \"Cardinals\" 4)"))
-@(define c5 (code "; show-score : string number string number -> image"))
+@(define c5 (code #:multi-line #t
+"; show-score : string number string number 
+;              -> image"))
 
 @(define e6 (code "(show-score \"Red Sox\" \"Cardinals\" 5 5)"))
-@(define c6 (code "; show-score : string string number number -> image"))
+@(define c6 (code #:multi-line #t
+"; show-score : string string number number 
+;              -> image"))
 @(define c6a (code "; show-score : string string -> image"))
 @(define c6b (code "; show-score : string number -> image"))
 
 @(define e7 (code "(find-winner \"Red Sox\" 4 \"Cardinals\" 6)"))
-@(define c7 (code "; find-winner : string number string number -> string"))
+@(define c7 (code #:multi-line #t
+"; find-winner : string number string number 
+;               -> string"))
 
 @(define e8 (code "(pick-flavor \"vanilla\" \"oreo\" \"mint\")"))
 @(define c8 (code "; pick-flavor : string string string -> image"))
