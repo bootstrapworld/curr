@@ -451,7 +451,7 @@ div.circleevalsexp  .studentAnswer{
 /* .studentAnswers should appear differently if they're in code or circles of Eval */
 div.circleevalsexp .studentAnswer .studentAnswer{margin: 20px;}
 div.codesexp       .studentAnswer                { margin-bottom: 2px; margin-left: 10px; }
-div.codesexp       .studentAnswer .studentAnswer { margin-bottom: 2px; margin-left: 40px; border-bottom: none;}
+div.codesexp       .studentAnswer .studentAnswer { margin-bottom: 2px; margin-left: 60px; border-bottom: none;}
 div.codesexp       .studentAnswer+.studentAnswer { margin-left: 10px;}
 
 
