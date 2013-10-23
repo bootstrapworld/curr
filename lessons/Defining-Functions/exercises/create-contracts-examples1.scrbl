@@ -73,6 +73,7 @@
 
 @(define examples-lst (list e1 e2 e3 e4 e5 e6 e7))
 @(define answers-lst (list c1 c2 c3 c4 c5 c6 c7))
+@(define answers-atop (map list answers-lst examples-lst))
 
 @(exercise-handout 
   #:title "Creating Contracts From Examples"
@@ -80,5 +81,6 @@
            for the function above the examples."
   @(create-exercise-itemlist/contract-answers examples-lst)
   @(exercise-answers
-    (questions-and-answers examples-lst answers-lst))
+    (create-exercise-itemlist answers-atop))
+    @;(questions-and-answers examples-lst answers-lst))
   )
