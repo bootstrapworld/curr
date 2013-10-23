@@ -20,7 +20,7 @@
 @(define e2b
    (code #:multi-line #t
 "(EXAMPLE (match (circle 10 \"solid\" \"orange\") 
-                 22)
+                22)
          (scale 22 
                 (circle 10 \"solid\" \"orange\"))"))
 
