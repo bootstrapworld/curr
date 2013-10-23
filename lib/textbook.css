@@ -400,7 +400,8 @@ div.circleevalsexp .lParen, div.circleevalsexp .rParen{display: none;}
  * All LIs have top borders, except in matching activities.
 */
 
-div.twoColumnLayout ul  {list-style-type: none; padding: 0px;}
+div.exercise-instr{margin: 10px;}
+div.twoColumnLayout ul  {list-style-type: none; padding: 0px; margin: 0px;}
 div.twoColumnLayout li  {border-top: solid 1px black; overflow: hidden;}
 ul.matching li          {border-top: none;}
 
