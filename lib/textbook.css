@@ -401,8 +401,20 @@ div.circleevalsexp .lParen, div.circleevalsexp .rParen{display: none;}
 */
 
 div.exercise-instr{margin: 10px;}
-div.twoColumnLayout ul  {list-style-type: none; padding: 0px; margin: 0px;}
-div.twoColumnLayout li  {border-top: solid 1px black; overflow: hidden;}
+ul.twoColumnLayout {
+  list-style-type:  none;
+  padding:          0px; 
+  margin:           0px;
+  counter-reset:    item; /* initialize the "item" counter */
+
+}
+
+ul.twoColumnLayout li {
+  border-top: solid 1px black; overflow: hidden;
+  counter-increment:  item; /* increment the counter for each row */
+}
+
+}
 ul.matching li          {border-top: none;}
 
 div.rightColumn, div.leftColumn {
@@ -412,6 +424,22 @@ div.rightColumn, div.leftColumn {
   padding-bottom: 100%;
   margin-bottom:  -100%;
 }
+
+div.leftColumn:before,
+div.rightColumn:before{
+  box-sizing:         border-box;
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  padding:            4px;
+  color:              #fff;
+  background:         #666;
+  font-weight:        bold;
+  font-family:        "Helvetica Neue", Arial, sans-serif;
+}
+
+div.leftColumn:before{content: counter(item);}
+div.rightColumn:before{content: counter(item,lower-latin);}
+
 
 div.rightColumn>*, div.leftColumn>*{padding: 5px 15px;}
 div.rightColumn{border-left: solid 1px black; margin-right: -1px; }
