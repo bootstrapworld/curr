@@ -166,4 +166,26 @@
                       }
                         @teacher{}}
                 ]}
+      
+@lesson/studteach[
+     #:title "Closing"
+     #:duration "5 min"
+     #:overview ""
+     #:learning-objectives @itemlist[]
+     #:product-outcomes @itemlist[]
+     #:standards (list)
+     #:materials @itemlist[]
+     #:preparation @itemlist[]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[@point{@student{Congratulations - your game is complete!  }
+                        @teacher{@management{@itemlist[@item{Have students volunteer what they learned in this lesson}
+                                                       @item{Reward behaviors that you value: teamwork, note-taking, engagement, etc}
+                                                       @item{Pass out exit slips, dismiss, clean up.}]}}
+                        }
+                        ]}
 }

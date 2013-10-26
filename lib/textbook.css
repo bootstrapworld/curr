@@ -437,8 +437,11 @@ div.rightColumn:before{
   font-family:        "Helvetica Neue", Arial, sans-serif;
 }
 
+/* display numbers in all left columns */
 div.leftColumn:before{content: counter(item);}
-div.rightColumn:before{content: counter(item,lower-latin);}
+
+/*  display letters in all right columns inside matching exercises */
+ul.matching div.rightColumn:before{content: counter(item,lower-latin);}
 
 
 div.rightColumn>*, div.leftColumn>*{padding: 5px 15px;}
