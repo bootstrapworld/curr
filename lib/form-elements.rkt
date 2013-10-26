@@ -1166,12 +1166,6 @@
 ;; real-matching? distinguishes actual matching exercises that need labels on
 ;;   the right column from cases that use this to generate twoColumnLayouts (like answer blanks)
 (define (matching-exercise #:permute [permute #f] 
-                           ;#:leftitemstyletag [leftitemstyletag "MatchingExerciseItem"]
-                           ;#:rightitemstyletag [rightitemstyletag "MatchingExerciseItem"]
-                           ;#:leftcolextratag [leftcolextratag ""]
-                           ;#:rightcolextratag [rightcolextratag ""]
-                           ;#:rightcolitemsempty? [rightcolitemsempty? #f]
-                           ;#:real-matching? [real-matching? #t]
                            colA colB)
   (let* ([permutedB (if permute (permute-list colB) colB)]
          [paddedcolA (if (> (length colB) (length colA)) (pad-to colA (length colB) "") colA)]
@@ -1183,20 +1177,19 @@
 ;; directly from .scrbl files.  Mostly used for exercise generation
 (define (two-col-layout #:leftcolextratag [leftcolextratag ""]
                         #:rightcolextratag [rightcolextratag ""]
-                        #:layoutstyle [layoutstyle "twoColumnLayout"] ;#f]
+                        #:layoutstyle [layoutstyle ""]
                         colA colB)
   (let* ([paddedcolA (if (> (length colB) (length colA)) (pad-to colA (length colB) "") colA)]
          [paddedcolB (if (> (length colA) (length colB)) (pad-to colB (length colA) "") colB)]
          [leftcolstyle (bootstrap-div-style (string-append "leftColumn" " " leftcolextratag))]
          [rightcolstyle (bootstrap-div-style (string-append "rightColumn" " " rightcolextratag))])       
-    ;(nested #:style (bootstrap-div-style "twoColumnLayout")
-            (create-itemlist #:style layoutstyle
-             (map (lambda (left right)
-                    (interleave-parbreaks/all
-                     (list 
-                      (nested #:style leftcolstyle left)
-                      (nested #:style rightcolstyle right))))
-                  paddedcolA paddedcolB))));)
+    (create-itemlist #:style (string-append "twoColumnLayout " layoutstyle)
+                     (map (lambda (left right)
+                            (interleave-parbreaks/all
+                             (list 
+                              (nested #:style leftcolstyle left)
+                              (nested #:style rightcolstyle right))))
+                          paddedcolA paddedcolB))))
 
 ;; generate a two-column layout with no special formatting towards item labeling
 (define (completion-exercise colA colB)
