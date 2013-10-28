@@ -89,15 +89,16 @@
 	  (list e6b c6)
           ))
 
+@(define ques (map car answer-key))
+@(define ans (map cadr answer-key))
+@(define permuted-ans (list c4 c1 c3 c5 c6 c2))
 
 @(exercise-handout
   #:title "Matching Contracts and Examples"
   #:instr "Match each Example on the left with the Contract on the right. NOTE: Multiple examples 
            may match to the same contract!"
-  @(matching-exercise
-    (list e1a e1b e2a e2b e3a e4a e4b e5a e6b)
-    (list c4 c1 c3 c5 c6 c2))
+  @(matching-exercise ques permuted-ans)
   @(exercise-answers 
-      (questions-and-answers (map car answer-key) (map cadr answer-key)))
+     (matching-exercise-answers ques ans permuted-ans))
 )
 

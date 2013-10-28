@@ -28,6 +28,8 @@
   #:instr "Draw a line from each Circle of Evaluation on the left to the corresponding code on the right."
   @(matching-exercise expr-coes (map sexp->code permuted-exprs))
   @(exercise-answers
-    (matching-exercise expr-coes (map sexp->code exprs)))
+    (matching-exercise-answers #:compare-with equal?
+                               #:content-of-ans exprs
+        expr-coes (map sexp->code exprs) permuted-exprs))
   )
 

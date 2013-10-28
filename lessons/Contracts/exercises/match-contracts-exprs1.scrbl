@@ -36,16 +36,18 @@
 @(define c9 (code "; prefer-flavor : string string -> number"))
 @(define c9a (code "; choose-flavor : string string -> string"))
 
+@(define examples-lst (list e1 e2 e3 e4 e5 e6 e7 e8 e9))
+@(define correct-ans (list c1 c2 c3 c4 c5 c6 c7 c8 c9))
+@(define permuted-ans (list c2 c4 c3 c6a c6b c5 c9 c9a c8))
+
 @(exercise-handout
   #:title "Matching Expressions and Contracts"
   #:instr "Try to match each Expression in the left column with a Contract in the right column 
            that describes the function used in the expression.  Some expressions or contracts
            might not have a match."
-  @(matching-exercise
-    (list e1 e2 e3 e4 e5 e6 e7 e8 e9)
-    (list c2 c4 c3 c6a c6b c5 c9 c9a c8))
+  @(matching-exercise examples-lst permuted-ans)
   @(exercise-answers
-    (matching-exercise
-      (list e1 e2 e3 e4 e5 e6 e7 e8 e9)
-      (list c1 c2 c3 c4 c5 c6 c7 c8 c9)))
+    (matching-exercise-answers 
+      #:some-no-match? #t
+      examples-lst correct-ans permuted-ans))
   )

@@ -28,5 +28,7 @@
     (map sexp->coe exprs)
     (map sexp->math permuted-exprs))
   @(exercise-answers
-    (matching-exercise (map sexp->coe exprs) (map sexp->math exprs)))
+    (matching-exercise-answers #:compare-with equal?
+	                       #:content-of-ans exprs
+        (map sexp->coe exprs) (map sexp->math exprs) permuted-exprs))
   )

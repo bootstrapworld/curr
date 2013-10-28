@@ -64,6 +64,7 @@
          summary-item/custom
          summary-item/unit-link
          matching-exercise
+         matching-exercise-answers
          completion-exercise
          open-response-exercise
          questions-and-answers
@@ -1158,6 +1159,42 @@
   (if (>= (length alst) to-len) alst
       (let ([extras (build-list (- to-len (length alst)) (lambda (i) with-elt))])
         (append alst extras))))
+
+;; converts a numeric list index (0-based) to a lowercase char index
+(define (int-index->char-index i)
+  (format "~a" (integer->char (+ i 97))))
+
+;; produces 0-based index of element in list, defaults to eq? as comparator
+(define (get-index #:compare-with [compare-with eq?] elt lst)
+  (let loop [(index 0) (L lst)]
+    (cond [(empty? L) (raise 'get-index-elt-not-found)]
+          [(compare-with (first L) elt) index]
+          [else (loop (add1 index) (rest L))])))
+
+;; gets the lowercase letter label of an answer from a list of answers
+;;  intended to compute original label of answer in a matching problem
+(define (matching-label #:compare-with [compare-with eq?] ans presented-order)
+  (int-index->char-index (get-index #:compare-with compare-with ans presented-order)))
+
+;; annotates each answer in a matching exercise with the label of the
+;;   answer in the presented problem
+(define (matching-exercise-answers #:compare-with [compare-with eq?] 
+                                   #:content-of-ans [content-of-ans #f]
+                                   #:some-no-match? [some-no-match? #f]
+                                   ques formatted-ans presented-ans)
+  (let ([annotated-ans 
+         (map (lambda (ansF ansC)
+                (with-handlers ([(lambda (e) (eq? e 'get-index-elt-not-found))
+                                 (lambda (e)
+                                   (if some-no-match?
+                                       (elem #:style "matchLabelAns" "No matching answer")
+                                       (raise 'matching-exercise-answers (format "No match for ~a" ansC))))])
+                  (let ([label (matching-label #:compare-with compare-with
+                                               ansC presented-ans)])
+                        (elem (elem #:style "matchLabelAns" "Answer: " label)
+                              ansF))))
+              formatted-ans (or content-of-ans formatted-ans))])
+    (two-col-layout ques annotated-ans)))
 
 ;; given two lists of content, produces an exercise to match each item in
 ;;   colA with one from colB.  If permute is true, then contents of colB
