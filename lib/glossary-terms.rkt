@@ -38,5 +38,5 @@
     ("unit test" "an example showing the use of a function with a specific value or values, and the answer it should produce")
     ("value" "a specific piece of data, like 5 or \"hello\"")
     ("variable" "something that changes")
-    ("variable name" "name of the information that can be different teach time a function is used")
+    ("variable name" "name of the information that can be different each time a function is used")
    ))
