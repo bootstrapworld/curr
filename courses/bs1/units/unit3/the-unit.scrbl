@@ -3,7 +3,7 @@
 
 @title{Unit 3: Introduction to Definitions}
 
-@unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sq sqrt expt})
+@unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sqr sqrt expt})
                                        (list "String" @code{string-append string-length})
                                        (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image}))]{
   @unit-descr{Students are introduced to the Definitions window, and learn the syntax for defining values of various types.  They are also introduced to the syntax of defining functions and creating examples.}
@@ -154,7 +154,7 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{@activity{Open the videogame file (Game.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] or @(hyperlink "http://www.wescheme.org/view?publicId=Q1X9Y8ZayX" "this WeScheme File")) so that you can see the code, and click "Run". (You may need to wait a few seconds for the images to load!) The window that appears is a running videogame, but you probably notice that nothing is moving - even if you hit the "up" or down" arrows! For now, click the "close" button to return to the code.}
+        @points[@point{@student{@activity{Open the videogame file (Game.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] or @(hyperlink "http://www.wescheme.org/openEditor?publicId=Q1X9Y8ZayX" "this WeScheme File")) so that you can see the code, and click "Run". (You may need to wait a few seconds for the images to load!) The window that appears is a running videogame, but you probably notice that nothing is moving - even if you hit the "up" or "down" arrows! For now, click the "close" button to return to the code.}
                                 In the Definitions window, you will see that this program defines several values: @code{TITLE}, for example, is defined to the be the String @code{"My Game"}.
                                 @activity{@itemlist[@item{If you type @code{TITLE} into the Interactions window, what do you think it would evaluate to?}
                                            @item{What other definitions do you see?}
@@ -162,7 +162,7 @@
                                            @item{What are their types?}
                                            @item{Try evaluating each of these values in the Interactions window, starting with @code{BACKGROUND}}]}
                                 }
-                        @teacher{@management{By now, you should have students' graphics already created, and @(hyperlink "http://www.bootstrapworld.org/materials/resources/teachers/teachers-guide/teachers-guide.html#addingimages" "added to the file)").}
+                        @teacher{@management{By now, you should have students' graphics already created, and @(hyperlink "resources/teachers/teachers-guide/teachers-guide.html#addingimages" "added to the file)").}
                                   The purpose of this activity is to increase students' confidence in @italic{reading} and @italic{talking about} code. Make sure students get a lot of practice speaking aloud, both to each other and to the instructor.}
                         }
                  @point{@student{If you don't like the definitions provided here, you can change them! You can modify the @code{TITLE} and @code{TITLE-COLOR} to change what is displayed at the top of your screen, and you can change the definitions for your game images as well: @(video-link (hyperlink "http://www.teachertube.com/viewVideo.php?video_id=288261" "Video: A screencast of this section - follow along to see how to change images in your game")).}
@@ -235,7 +235,7 @@
                                             @bannerline{Define a function @code{gt}, which takes in a Number and produces a solid, green triangle of the given size.}
                                             Luckily, we can follow specific steps to define functions from word problems.  Let's work through the steps to define @code{gt}.
                                             }
-                                    @teacher{To make this more concrete, have a student "act" as gt. To call the function, another student says "gt ten!" (calling out both the name of the function and the input). The actor responds "triangle ten solid green", to signify the work that the function does when it recieves an input.}
+                                    @teacher{To make this more concrete, have a student "act" as gt. To call the function, another student says "gt ten!" (calling out both the name of the function and the input). The actor responds "triangle ten solid green", to signify the work that the function does when it receives an input.}
                                     }
                             @point{@student{@bannerline{Step 1: Write the Contract}
                                              The first step in defining a function is to write its @vocab{Contract}.  Contracts summarize three pieces of essential information about a function:
@@ -268,7 +268,7 @@
                                              @code[#:multi-line ""]{(EXAMPLE (gt   50) (triangle   50 "solid" "green"))
                                                                     (EXAMPLE (gt  100) (triangle  100 "solid" "green"))}}
 
-                                    Once you know which parts of the expression change, label the circles with a names that describe their contents.  For example, in our two @code{gt} examples, we have circled the @italic{size} of the triangle.  Your circled and labeled expressions should look like the following diagram: 
+                                    Once you know which parts of the expression change, label the circles with a name that describe their contents.  For example, in our two @code{gt} examples, we have circled the @italic{size} of the triangle.  Your circled and labeled expressions should look like the following diagram: 
                                     @item{@bitmap{images/circled-examples.png}}}
                             @teacher{Pay close attention to what students circle: they should circle something in each part of the Example (the function use on the left and the expression on the right); they should also use the same name for the same concept across the expressions.  Their circles will correspond to the variables in their functions, so the variables should appear in both the left and the right sides of the Example.}
                                     }
@@ -305,7 +305,7 @@
                                                                  @item{What is the function's Range?}]
                                                       Using the Contract you've written, write two @vocab{Examples} for the function.
                                                       @itemlist[@item{What part of the Contract helps you fill in the left side of an Example?}
-                                                                 @item{What part of the Contract tells you what the function needs as input?}
+                                                                 @item{What part of the Contract tells you what the function needs as an input?}
                                                                  @item{How can the Range of a function help you write the Example?}]
                                                       Looking at those two examples, circle the parts that are @italic{change-able}, then label them with a good @vocab{variable name}.
                                                       @itemlist[@item{Is the variable name you chose the same as the one you chose for @code{gt}? Why or why not?}
@@ -317,7 +317,7 @@
 (EXAMPLE (bc    421) (circle    421 "solid" "blue"))
 (define  (bc radius) (circle radius "solid" "blue"))}
                                             }
-                                    @teacher{You will want to explicitly connect each step in the Design Recipe to every other step. Ask students to justify each part of their Contract by referring back to the Word Problem, to justify each step of their Examples by referring back to the Word Problem @italic{and} Contract, and finally to justify each step of the definition by referring to the Word Problem, Contract and Examples. The same variable name can be used in multiple functions, just as in math (where many functions use @code{x} as the variable name, for example)}
+                                    @teacher{You will want to explicitly connect each step in the Design Recipe to every other step. Ask students to justify each part of their @bold{Contract} by referring back to the Word Problem, to justify each step of their @bold{Examples} by referring back to the Word Problem @italic{and} Contract, and finally to justify each step of the @bold{definition} by referring to the Examples. The same variable name can be used in multiple functions, just as in math (where many functions use @code{x} as the variable name, for example)}
                                              }
                              @point{@student{@bannerline{Practice: Write a function @code{dot}, which takes in a Color and produces a solid circle of the given color, with a radius of 20.}
                                             @activity{In your workbook (still on @worksheet-link[#:page 8 #:name "Fast-Functions"]), fill out the @vocab{Contract} for this function.
