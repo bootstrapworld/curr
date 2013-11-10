@@ -1,7 +1,7 @@
 #lang curr/lib
 @declare-tags[management]
 
-@title{Unit 3: The Autobody Shop}
+@title{Unit 3: Structures and Worlds}
 
 @unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sq sqrt expt})
                                        (list "String" @code{string-append string-length})
@@ -11,7 +11,7 @@
 @unit-descr{Students, having made pre-built data structures in the last lesson (autos), will generalize their understanding by defining various data structures of their own and accessing their fields. Students are introduced to Racket's purely-functional microworld implementation. This requires an understanding of functions, data structures, and an introduction to events-based programming. To accomplish this, students first work with a simple world (a number, representing a dog's x-coordinate). This world is consumed and produced by the update-world function, and drawn by draw-world. To understand events, they act out the World model, actually becoming event handlers and timers, to simulate a running program.}
 }
 @unit-lessons{
-@lesson/studteach[#:title "Review"
+@lesson/studteach[#:title "Review: the Autobody Shop"
         #:duration "20 minutes"
         #:overview ""
         #:learning-objectives @itemlist[]
@@ -51,11 +51,11 @@
                                        ]}
 Putting it all together, the first example should look like:
 
-@code{(EXAMPLE (pimp car3) (make-auto (auto-model car3)
-                                   (+ (auto-hp car3) 100)
-                                      30
-                                      red
-                                   (+ (auto-value car3) 10000)))}
+@code[#:multi-line #t]{(EXAMPLE (pimp car3) (make-auto (auto-model car3)
+                                                    (+ (auto-hp car3) 100)
+                                                        30
+                                                        red
+                                                    (+ (auto-value car3) 10000)))}
 @activity{Write one more example, circle what changes, and then define the @code{pimp} function. If you're stuck, look back at the contract and your first example!}}                             
                     @teacher{This is an opportunity for students to practice nested expressions. Not only will they use accessor functions to access the fields of the original auto, they will need to modify them according to the problem statement. If they get stuck, have them draw the circle of evaluation for adding 100 to the auto's horsepower, 10,000 to the auto's value, etc.}}
             ]
