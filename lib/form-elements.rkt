@@ -1191,8 +1191,8 @@
                                        (raise 'matching-exercise-answers (format "No match for ~a" ansC))))])
                   (let ([label (matching-label #:compare-with compare-with
                                                ansC presented-ans)])
-                        (elem (elem #:style "matchLabelAns" "Answer: " label)
-                              ansF))))
+                    (elem (elem #:style (bootstrap-span-style "rightColumnLabel") label)
+                          ansF))))
               formatted-ans (or content-of-ans formatted-ans))])
     (two-col-layout ques annotated-ans)))
 
