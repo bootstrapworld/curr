@@ -1468,7 +1468,7 @@
                                      (let-values ([(extitle exforevid) (extract-exercise-data exloc)])
                                        (let ([descr (if extitle extitle (exercise-locator-filename exloc))]
                                              [support (if exforevid
-                                                          (let ([evidstmt (get-evid-statment/tag exforevid)])
+                                                          (let ([evidstmt (get-evid-summary exforevid)])
                                                             (if evidstmt (format " [supports ~a]" evidstmt)
                                                                 ""))
                                                           "")])

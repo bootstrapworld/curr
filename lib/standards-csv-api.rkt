@@ -10,6 +10,7 @@
 (provide get-standard-descr
          get-learnobj-tree
          get-evid-statment/tag
+         get-evid-summary
          )
 
 ;; location of the standards csv file (must be a path)
@@ -117,9 +118,17 @@
           [else (list-ref (second (list-ref lotree (sub1 learnindex))) (sub1 evidindex))])))
 
 (define (get-evid-statment/tag evidtag)
+  (printf "get-stmt got tag ~a~n" evidtag)
   (let-values ([(std lonum esnum) (evidtag-data evidtag)])
     (if (not (or std lonum esnum)) #f
         (get-evid-statement std lonum esnum))))
+
+;; the evidence tag list is coming in quoted, so need to remove the leading list operator
+;;   if it is there
+(define (get-evid-summary evidtag)
+  (if (list? evidtag)
+      (map get-evid-statment/tag (if (eq? 'list (first evidtag)) (rest evidtag) evidtag))
+      (get-evid-statment/tag evidtag)))
 
 ;; an evidence tag has the form std&learnobj&evid, where learnobj and evid are numbers
 (define evidtag-regexp #rx"(.+)&([0-9]+)&([0-9]+)")

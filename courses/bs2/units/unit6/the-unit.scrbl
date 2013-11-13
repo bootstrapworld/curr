@@ -103,7 +103,7 @@ Your first example should look like:
 @code[#:multi-line #t]{(EXAMPLE (keypress START "down") (make-world (world-dogX START) 
 (world-rubyX START) 
 (- (world-catY START) 10)))}
-@activity{Next, carefully go through your examples and circle @italics{everything} that changes. Does this function behave like the functions you've been working with?}
+@activity{Next, carefully go through your examples and circle @italic{everything} that changes. Does this function behave like the functions you've been working with?}
             @bannerline{Step 3 - Definition}
                 @activity{What goes into the function header? What are some good variable names for the world and string (representing the key pressed!) in the Domain?}
                  @code[#:multi-line #t]{(define (keypress w key)
