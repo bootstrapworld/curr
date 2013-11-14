@@ -1194,7 +1194,7 @@
                     (elem (elem #:style (bootstrap-span-style "rightColumnLabel") label)
                           ansF))))
               formatted-ans (or content-of-ans formatted-ans))])
-    (two-col-layout ques annotated-ans)))
+    (two-col-layout #:layoutstyle "matching" ques annotated-ans)))
 
 ;; given two lists of content, produces an exercise to match each item in
 ;;   colA with one from colB.  If permute is true, then contents of colB
