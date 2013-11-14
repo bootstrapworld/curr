@@ -24,6 +24,7 @@
 @(exercise-handout 
   #:title "Matching Circles of Evaluation and Arithmetic Expressions"
   #:instr "Draw a line from each Circle of Evaluation in the left to its corresponding arithmetic expression on the right:" 
+  #:forevidence (list "BS-CE&1&1" "BS-CE&1&2")
   @(matching-exercise 
     (map sexp->coe exprs)
     (map sexp->math permuted-exprs))

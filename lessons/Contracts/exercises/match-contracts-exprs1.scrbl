@@ -45,6 +45,7 @@
   #:instr "Try to match each Expression in the left column with a Contract in the right column 
            that describes the function used in the expression.  Some expressions or contracts
            might not have a match."
+  #:forevidence (list "BS-PL&1&2" "BS-PL&1&3" "F-IF.1-3&1&1" "F-IF.1-3&1&3")
   @(matching-exercise examples-lst permuted-ans)
   @(exercise-answers
     (matching-exercise-answers 

@@ -79,6 +79,7 @@
   #:title "Creating Contracts From Examples"
   #:instr "For each of the following collections of Examples, write the contract
            for the function above the examples."
+  #:forevidence (list "BS-DR&1&3" "F-IF.1-3&1&1" "F-IF.1-3&1&2")
   @(create-exercise-itemlist/contract-answers examples-lst)
   @(exercise-answers
     (create-exercise-itemlist answers-atop))

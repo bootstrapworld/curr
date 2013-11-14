@@ -85,6 +85,7 @@
 @(exercise-handout 
   #:title "Matching Examples and Function Definitions"
   #:instr "Match the EXAMPLEs on the left with the definitions on the right. NOTE: Some definitions may not match any examples!"
+  #:forevidence (list "BS-DR&1&5" "F-IF.1-3&1&2" "F-IF.1-3&1&4" "F-LE.1-4&1&5")
   @(matching-exercise examples-lst permuted-functions-lst)
   @(exercise-answers
     (matching-exercise-answers examples-lst functions-lst permuted-functions-lst)))
