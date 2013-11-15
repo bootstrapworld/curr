@@ -16,7 +16,7 @@
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
-     #:standards (list)
+     #:standards (list "BS-PL" "N-Q" "F-IF.1-3" "MP.1" "MP.4" "MP.6" "MP.7")
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, language table, course calendar)}
                             @item{Language Table (see below)}]
@@ -42,7 +42,7 @@
                                        @item{Students will be able to identify the name, domain, range, and variable name for a function, when presented with a completed Design Recipe.}
                                       @item{Students will be able to explain what happens when the "Run" button is pressed.}]
      #:product-outcomes @itemlist[]
-     #:standards (list)
+     #:standards (list "7.EE.4.a" "BS-PL")
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, language table, course calendar)}
                             @item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}
@@ -205,7 +205,7 @@
 
      #:exercises (list (make-exercise-locator "Defining-Functions" "match-examples-functions1")
                        (make-exercise-locator "Defining-Functions" "create-contracts-examples1"))
-     #:standards (list "A-CED.1-4" "A-SSE.1-2" "F-IF.1-3" "F-IF.7-9" "F-BF.1-2")
+     #:standards (list "A-SSE.1-2" "F-IF.1-3" "F-IF.4-6" "F-BF.1-2" "BS-PL" "BS-IDE")
      #:materials @itemlist[@item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders with names on covers.}]
      #:preparation @itemlist[]
      #:prerequisites (list "Contracts" "Stings and Images" )
@@ -348,7 +348,7 @@
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
-     #:standards (list)
+     #:standards (list "A-SSE.1-2" "F-IF.1-3" "F-IF.4-6" "F-BF.1-2")
      #:materials @itemlist[]
      #:preparation @itemlist[]
      #:prerequisites (list "Defining Functions" "Defining Variables (Algebra)")

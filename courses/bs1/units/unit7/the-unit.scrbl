@@ -23,7 +23,7 @@
                                      @item{Students will understand that @code{cond} statements capture pairs of questions and answers when coding a piecewise function}
                                     ]
      #:product-outcomes @itemlist[]
-     #:standards (list "A-SSE.1-2" "F-IF.1-3" "F-IF.4-6" "F-IF.7-9" "F-LE.5")
+     #:standards (list "A-SSE.1-2" "F-IF.1-3" "F-IF.4-6" "F-IF.7-9" "F-LE.5" "BS-DR")
      #:materials @itemlist[@item{Computers w/ DrRacket or WeScheme}
                            @item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
                            @item{Pens/pencils for the students, fresh whiteboard markers for teachers}
@@ -112,7 +112,7 @@
                                      @item{Students will be able to experiment with using functions to change the speed or nature of character movement in a game}
                                     ]
      #:product-outcomes @itemlist[@item{Students will write @code{update-player}, which moves their player in response to key-presses}]
-     #:standards (list "A-CED.1-4" "A-SSE.1-2" "F-BF.1-2" "F-IF.1-3" "F-IF.4-6" "F-IF.7-9" "F-LE.5")
+     #:standards (list "A-CED.1-4" "A-SSE.1-2" "F-BF.1-2" "F-IF.1-3" "F-IF.4-6" "F-IF.7-9" "F-LE.5" "BS-DR")
      #:materials @itemlist[@item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
                            @item{All student computers should have their game templates pre-loaded, with their image files linked in}]
      #:preparation @itemlist[]

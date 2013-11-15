@@ -43,7 +43,7 @@
      #:learning-objectives @itemlist[@item{Model a simple videogame}]
      #:evidence-statements @itemlist[@item{Students will be able to identify the elements of a game and how each one changes during gameplay}]
      #:product-outcomes @itemlist[@item{In workbooks, students create a data model that describes a simple videogame}]
-     #:standards (list "MP.1" "MP.7")
+     #:standards (list "BS-M" "N-Q")
      #:materials @itemlist[@item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}]
      #:preparation @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket}
                              @item{If using DrRacket, make sure the Ninja.rkt file is loaded}
@@ -63,7 +63,9 @@
                  @teacher{}
                  }
           
-          @point{@student{@activity{@bitmap{images/game-table1.png} Turn to @worksheet-link[#:name "How-Does-Ninja-Cat-Work" #:page 1] in your workbook. Here we have a table, which we'll use to reverse-engineer NinjaCat and see how it works. Fill out the first column with a complete list of all things in the game.}}
+          @point{@student{@activity{
+                             @bitmap{images/game-table1.png} Turn to @worksheet-link[#:name "How-Does-Ninja-Cat-Work" #:page 1] in your workbook. Here we have a table, which we'll use to reverse-engineer NinjaCat and see how it works. Fill out the first column with a complete list of all things in the game.}
+                           }
                  @teacher{This can be a team activity. Solicit a few examples from students, to make sure they understand what's being listed here: nouns like "the cat", not verbs like "jumping". @management{During this activity, walk around and see how groups are doing. This is the time to encourage expectations of community and respect - call out good teamwork when you see it! When time is up, give them a countdown: "30...10... 5... 4... 3... 2... 1... PENCILS DOWN, EYES UP HERE!" Wait for total silence and complete attention. }}
                  }
           
@@ -87,7 +89,7 @@
      #:learning-objectives @itemlist[@item{Understand the use of number lines in defining locations via coordinates}]
      #:evidence-statements @itemlist[@item{Students apply the number line as a tool for objectively defining location, first identifying how to apply it to describe the position of a character onscreen in one dimension. This understanding is extended to two dimensions, ultimately motivating the use of a coordinate grid.}]
      #:product-outcomes @itemlist[@item{Students identify the coordinates of characters in a picture}]
-     #:standards (list)
+     #:standards (list "MP.1" "MP.7")
      #:materials @itemlist[@item{Cutouts of  @resource-link[#:path "images/ninjacat.png" #:label "NinjaCat"],  @resource-link[#:path "images/dog.png" #:label "Dog"] and the  @resource-link[#:path "images/ruby.png" #:label "Ruby"]}
                             @item{Student Workbooks, and something to write with}]
      #:preparation @itemlist[@item{Student Workbooks, and something to write with}]
@@ -179,7 +181,7 @@
                                      @item{Students will be able to translate the structure of an arithmetic expression into a Circle of Evaluation}
 ]
      #:product-outcomes @itemlist[@item{Students convert several arithmetic expressions between multiple representations}]
-     #:standards (list "A-SSE.1-2" "N-Q"  "MP.1" "MP.4" "MP.6" "MP.7")
+     #:standards (list "A-SSE.1-2" "N-Q"  "MP.1" "MP.4" "MP.6" "MP.7" "BS-CE")
      #:exercises (list (make-exercise-locator "Order-of-Operations" "complete-coe-from-arith")
                        (make-exercise-locator "Order-of-Operations" "arith-to-coe1")
                        (make-exercise-locator "Order-of-Operations" "coe-to-arith1")
@@ -290,7 +292,7 @@
                                      @item{Given a Circle of Evaluation, students will be able to complete a partially-written program}
                                      @item{Given a bank of Circles of Evaluation and programs, students will be able to match them}]
      #:product-outcomes @itemlist[]
-     #:standards (list "A-SSE.1-2" "N-Q" "MP.1" "MP.4" "MP.6" "MP.7")
+     #:standards (list "A-SSE.1-2" "N-Q"  "MP.1" "MP.4" "MP.6" "MP.7" "BS-CE" "BS-PL" "BS-IDE")
      #:materials @itemlist[@item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}]
      #:preparation @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket}
                               @item{Student Workbooks, and something to write with}

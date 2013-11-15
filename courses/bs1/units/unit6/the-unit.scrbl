@@ -41,7 +41,7 @@
                                      @item{Students learn how to use arithmetic operators (like @code{<} and @code{>}) that produce Booleans}
                                     ]
      #:product-outcomes @itemlist[]
-     #:standards (list)
+     #:standards (list "7.EE.4.b" "BS-M")
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, language table, course calendar)}
                             @item{Language Table (see below)}]
@@ -92,7 +92,7 @@ uses a new function that @italic{compares Numbers}, returning
                                      @item{Students can use one function they have written to compute the answer for another function}
 ]
      #:product-outcomes @itemlist[]
-     #:standards (list "N-Q" "A-CED.1-4" "A-REI.3-4" "A-REI.10-12" "F-IF.1-3" "F-IF.4-6" "F-IF.7-9" "F-BF.1-2" "F-BF.3-4" "F-LE.5" )
+     #:standards (list "A-CED.1-4" "A-REI.3-4" "F-IF.1-3" "F-IF.4-6" "F-IF.7-9" "F-BF.1-2" "F-LE.5" "BS-DR")
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
                             @item{Class poster (List of rules, language table, course calendar)}
@@ -216,7 +216,7 @@ uses a new function that @italic{compares Numbers}, returning
                                      @item{Students will understand how they use Booleans and conditional to control how game elements behave at the screen boundaries}
 ]
      #:product-outcomes @itemlist[@item{Students detect when game elements have moved offscreen (so they can reappear on the other edge of the screen)}]
-     #:standards (list "N-Q" "A-CED.1-4" "A-REI.3-4" "A-REI.10-12" "F-IF.1-3" "F-IF.4-6" "F-IF.7-9" "F-BF.1-2" "F-BF.3-4" "F-LE.5" )
+     #:standards (list "F-BF.1-2" "F-BF.3-4")
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
                             @item{Class poster (List of rules, language table, course calendar)}

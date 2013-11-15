@@ -19,7 +19,7 @@
      #:evidence-statements @itemlist[@item{Students will be able to explain how a Number line is used to calculate distance in one dimension}
                                      @item{Students will be able to explain why the @code{line-length} function uses a conditional}]
      #:product-outcomes @itemlist[]
-     #:standards (list "N-Q")
+     #:standards (list "")
      #:materials @itemlist[@item{Computers w/ DrRacket or WeScheme}
                            @item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
                            @item{Pens/pencils for the students, fresh whiteboard markers for teachers}
@@ -77,7 +77,7 @@
                                      @item{Students can turn the Pythagorean Theorem into code by writing a @code{distance} function}
                                     ]
      #:product-outcomes @itemlist[@item{Students write the distance function in their game files.}]
-     #:standards (list "N-Q" "A-CED.1-4" "F-BF.1-2" "F-LE.5")
+     #:standards (list "8.G.8" "8.G.7" "8.G.8")
      #:materials @itemlist[@item{Computers w/ DrRacket or WeScheme}
                            @item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
                            @item{All student computers should have their game templates pre-loaded, with their image files linked in}
