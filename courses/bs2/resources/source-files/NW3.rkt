@@ -12,7 +12,7 @@
 (define NEXT (make-world 10 595))
 
 (define BACKGROUND (bitmap "Teachpacks/teachpack-images/bg.jpg"))
-(define DANGER (flip-horizontal (bitmap "Teachpacks/teachpack-images/dog.png")))
+(define DANGER (bitmap "Teachpacks/teachpack-images/dog.png"))
 (define TARGET (scale .3 (bitmap "Teachpacks/teachpack-images/ruby.png")))
 (define PLAYER (bitmap "Teachpacks/teachpack-images/ninja.png"))
 (define CLOUD (bitmap "Teachpacks/teachpack-images/clouds.png"))
@@ -49,6 +49,6 @@
 
 (big-bang START
           (on-tick update-world) 
-          (on-draw draw-world)
+          (to-draw draw-world)
           )
           
