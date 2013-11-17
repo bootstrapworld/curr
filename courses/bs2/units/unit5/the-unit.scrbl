@@ -71,16 +71,16 @@ Some hints for finding images: Your images should be in PNG or GIF format, and t
       ]{
         @points[@point{@student{Now that we've got our world structure, we need to know how to draw it. @activity{Turn to  @worksheet-link[#:page 23 #:name "Drawing START"], and fill in your @code{START} world at the bottom. @itemlist[@item{According to your world struct, where should everything be when the game starts?}
                                             @item{Draw a simple sketch of your @code{START} world in the space provided.}]}
-The next thing to decide is what order the images need to go in. We know we have to stack images, so you're going to have to use @code{put-image}. @activity{What is the contract for @code{put-image}? What does the first image represent? The numbers? The last image?}
-In the chart on @worksheet-link[#:page 23 #:name "Drawing START"], figure out which image goes on top, which goes second, and so on. @activity{Make a list from top to bottom in the left column, and then write each image's coordinates in the right column.}
-Let's set up one more example, so that when you get into writing your function that draws the world, you're ready to go. On @worksheet-link[#:page 24 #:name "Drawing NEXT"] there's a nearly identical page. You've already written a @code{START} world, which has everything where it will be when the game starts. Now do the same for a world called @code{NEXT}. This world is where everything is ONE SECOND after the game starts. @activity{@itemlist[@item{Fill in the world struct, and sketch the NEXT world.}
+The next thing to decide is what order the images need to go in. We know we have to stack images, so you're going to have to use @code{put-image}. @activity{In the chart on @worksheet-link[#:page 23 #:name "Drawing START"], figure out which image goes on top, which goes second, and so on. Make a list from top to bottom in the left column, and then write each image's coordinates in the right column.}
+Let's set up one more example, so that when you get into writing your function that draws the world, you're ready to go. On @worksheet-link[#:page 24 #:name "Drawing NEXT"] there's a nearly identical page. You've already written a @code{START} world, which has everything where it will be when the game starts. Now do the same for a world called @code{NEXT}. This world is where everything is ONE SECOND after the game starts. @activity{@itemlist[@item{Fill in the world struct, and sketch the @code{NEXT} world.}
                                            @item{Now put the images in the same order as the @code{START} world (we don't want them to be switching around in the middle of the game!) and write the NEW coordinates beside them.}]}}
                         @teacher{}}
                         @point{@student{@activity{Which function is used to draw the world?} Just like @code{draw-auto}, and the @code{draw-world} function in Ninja World, @code{draw-world} takes in a struct and produces an Image. @activity{@itemlist[@item{What is the Domain of this function? The Range?}
                                                   @item{At the top of @worksheet-link[#:page 25 #:name "draw-world"], write the contract for @code{draw-world}.}
-                     @item{What is the name of this function? What's in its domain? What would be a good variable name?}
-                     @item{Fill in the first line of @code{draw-world}.}]}
-Below the first line, there is a sort of 'staircase' pattern using @code{put-image}, just like in Ninja World. Do you remember the contract for @code{put-image}? It takes in an image, the coordinates of where to put the image, and another image, on top of which the first image is placed.
+                     @item{Fill in the function header for @code{draw-world}.}]}
+Below the function header, there is a sort of 'staircase' pattern using @code{put-image}, just like in Ninja World. Do you remember the contract for @code{put-image}? It takes in an image, the coordinates of where to put the image, and another image, on top of which the first image is placed.
+@code[#:multi-line #t]{; put-image : Image Number Number Image -> Image
+                       ; places the first image at the given x and y-coordinates on top of the second image}
 @activity{@itemlist[@item{Start out on the bottom of this 'staircase' by putting one of your images onto the background.}
                     @item{If you wanted the image to be centered on the scene, what are the x- and y-coordinates you'll need?}
                     @item{But you probably don't want your image to be at the center of the background. Look back at your @code{START} world picture a couple of pages back. You made a note of which coordinates you want that image to be on, above the background!}]}
@@ -88,8 +88,9 @@ Start with something that looks like this, substituting YOUR image and coordinat
 @code[#:multi-line #t]{(put-image IMAGE
                                   320 240
                                   BACKGROUND)}
-@activity{Now add another one of the images from your world.}
-Remember, you're placing another image on top of the one that this staircase has already created! @activity{Keep adding to it, until you have a stack of all of the images in your game.}}
+@activity{@itemlist[@item{Now add another one of the images from your world. Remember, you're placing another image on top of the one that this staircase has already created!}
+                    @item{Keep adding to it, until you have a stack of all of the images in your game.}]}
+}
                                 @teacher{Work with small groups to complete this section. When students finish writing draw-world, have them type their NEXT world and draw-world into their games, in the @code{;; GRAPHICS} section. If they type @code{(draw-world START)} into the interactions window, they can see a screenshot of their game.}}
                         ]
          }
@@ -132,7 +133,7 @@ Remember, you're placing another image on top of the one that this staircase has
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Now you have the basic shell of your videogame, with your character images placed onto the background and moving. However, we still haven't written any functions to take in player input! If you want the player's character to move, you'll need to learn about how to make the game respond to keypresses, which is what we'll learn in the next unit.}         
+        @points[@point{@student{Now you have the basic shell of your videogame, with your character images placed onto the background and moving. However, we still haven't written any functions to take in player input! If you want the player's character to move, you'll need to learn about how to make the game respond to keypresses, which is what you'll learn in the next unit.}         
                        @teacher{Have students show each other their their animated games! @management{At this point in the course students will have very different games and world structures. The Ninja World examples serve as templates and guides for what students should be adding to their games at each step, but most will require a lot of individual attention to make their unique games behave the way they want.}}
                        }
                  ]
