@@ -32,7 +32,8 @@
                 )
       ]{
         @points[@point{@student{Debugging (finding and correcting problems in code) is an important part of programming, so it's a good idea to practice finding bugs in code. 
-                                @activity{Open the @(hyperlink "http://www.wescheme.org/view?publicId=lQUC6RJArG" "Bug Hunting") program in a new window, and see if you can find the bug in each expression. Click "Run" and read the error message carefully! After you fix each one, clicking Run will show you the error message for the next bug.}}
+                                @activity[#:forevidence (list "BS-IDE&1&2" "BS-PL&1&3" "BS-PL&1&7")]{
+                                        Open the @(hyperlink "http://www.wescheme.org/view?publicId=lQUC6RJArG" "Bug Hunting") program in a new window, and see if you can find the bug in each expression. Click "Run" and read the error message carefully! After you fix each one, clicking Run will show you the error message for the next bug.}}
                         @teacher{Make sure students understand that the goal is not to FIX the bugs, but rather just to find them.}
                         }
                  ]}
@@ -63,7 +64,8 @@
         @points[@point{@student{@bitmap{images/AnimationDiagram.png}The dimensions of your videogame are 640x480, and each character is placed on the screen at a set of (x,y) coordinates. Your Target (T), Player (P) and Danger (D) each move along the x- or y-axis, having their x- or y-coordinate changed according to an animation function. These animation functions will start off simple: they take in the current x- or y-coordinate, and produce the next x- or y-coordinate. Later on you'll be able to adapt them to create more sophisticated motion, using @italic{both} the x- and y-coordinates.}
                         @teacher{}
                         }
-                 @point{@student{@activity{Turn to @worksheet-link[#:page 15 #:name "Design-Recipe-Update-Danger"] in your workbook for @code{update-danger}.
+                 @point{@student{@activity[#:forevidence (list "BS-DR&1&5" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2" "7.EE.4.a&1&1" "F-IF.1-3&4")]{
+                                           Turn to @worksheet-link[#:page 15 #:name "Design-Recipe-Update-Danger"] in your workbook for @code{update-danger}.
                                            @itemlist[@item{Read the word problem carefully, and pay attention to @italic{what the function takes in}.}
                                                       @item{Fill out the @vocab{Contract} and @vocab{Purpose Statement} for the function, using what you circled to help you choose the Domain.}
                                                       @item{Write two @vocab{Examples} for the function.}
@@ -81,7 +83,8 @@
                          @teacher{}
                          }
                  @point{@student{Now it's time to animate the Target, which moves in the opposite direction.
-                                 @activity{Turn to @worksheet-link[#:page 16 #:name "Design-Recipe-Update-Target"] in your workbook for @code{update-target}.
+                                 @activity[#:forevidence (list "BS-DR&1&5" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2" "7.EE.4.a&1&1" "F-IF.1-3&4")]{
+                                           Turn to @worksheet-link[#:page 16 #:name "Design-Recipe-Update-Target"] in your workbook for @code{update-target}.
                                            @itemlist[@item{Read the word problem carefully, and pay attention to @italic{what the function takes in}.}
                                                       @item{Fill out the @vocab{Contract} and @vocab{Purpose Statement} for the function, using what you circled to help you choose the Domain.}
                                                       @item{Write two @vocab{Examples} for the function.}
@@ -98,7 +101,7 @@
      #:learning-objectives @itemlist[@item{Students learn to move game elements through functions that compute attributes in one frame from attributes in the previous frame}]
      #:evidence-statements @itemlist[@item{Students will be able to write functions that take in one dimension of a game element's coordinate and produce the next coordinate value in that dimension}]
      #:product-outcomes @itemlist[@item{Students will add projectile movement to their games}]
-     #:standards (list "N-Q" "A-CED.1-4" "F-IF.1-3" "F-IF.7-9" "F-BF.1-2" "F-LE.5" "BF-DR")
+     #:standards (list "N-Q" "F-IF.1-3" "F-LE.5" "BS-DR")
      #:materials @itemlist[]
      #:preparation @itemlist[]
      #:prerequisites (list "Brainstorming" "The Design Recipe")
@@ -109,7 +112,8 @@
                 )
       ]{
         @points[@point{@student{This game template also has a mystery object, which is defined at the very bottom of the screen. The "mystery" is actually a @italic{projectile}, which will be set to the Player's position whenever the spacebar is pressed. As you can see, @code{mystery} is defined to be a small gray star, but you can change that to be any image you like. If you have a game in which the player is a monkey, you could change the definition of @code{mystery} to be a bitmap of a banana, so that the monkey will throw bananas every time you hit the spacebar. A game that takes place in space could have an alien throwing crystals, or a sports game might involve an athlete thowing a ball.
-                                @activity{@itemlist[@item{Change the definition for @code{mystery}, so that your projectile looks the way you want it to. Don't forget to use @code{scale} and @code{rotate} if you need to change the image slightly.}
+                                @activity[#:forevidence (list "BS-DR&1&5" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2" "7.EE.4.a&1&1" "F-IF.1-3&4")]{
+                                          @itemlist[@item{Change the definition for @code{mystery}, so that your projectile looks the way you want it to. Don't forget to use @code{scale} and @code{rotate} if you need to change the image slightly.}
                                                      @item{Use the Design Recipe to write @code{update-mystery}, so that the projectile moves to the left or right. Hint: this will be very similar to your solutions for @code{update-danger} and @code{update-target}!}]}}
                         @teacher{Be careful when introducing Projectiles into the game! Many students will actually be @bold{less creative} when using them, as it will automatically push their mindset towards the standards "shoot the bad guy" format. Many teacher choose to skip this section entirely, or else add it after the games are complete.}
                          }]

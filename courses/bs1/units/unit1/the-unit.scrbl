@@ -231,11 +231,11 @@
                 @point{@student{@bitmap{images/FixedCircle.png} One way to indicate the order of operations in an expression is to first draw the expression as a diagram.  This diagram is called a @vocab{Circle of Evaluation}.  Here you can see an example of a Circle of Evaluation, for the math expression @math{4-5}. Circles of Evaluation show the structure that's going on inside an expression.  All Circles of Evaluation have two rules:
                        @bannerline{Circle Rule 1: Each circle must have one function, which goes at the top of the circle.}
                        @bannerline{Circle Rule 2: The numbers are written below, in order from left to right.}
-                       @activity{@bitmap{images/CircleBug.png}Which rule does this Circle of Evaluation break?}
+                       @activity[#:forevidence "BS-CE&1&1"]{@bitmap{images/CircleBug.png}Which rule does this Circle of Evaluation break?}
                        }
                 @teacher{This section benefits enormously from visual aids, diagrams, etc. Make sure you have plenty of board space to draw examples!}
                 }
-                @point{@student{@activity{Try drawing the Circle of Evaluation for each of the following expressions:
+                @point{@student{@activity[#:forevidence "BS-CE&1&1"]{Try drawing the Circle of Evaluation for each of the following expressions:
                                           @itemlist[#:style 'ordered
                                                     @item{@math{6*4}}
                                                     @item{@math{7-10}}
@@ -248,7 +248,7 @@
                        @teacher{}}
 
                 @point{@student{@bitmap{images/Nesting.png}To use multiple functions in the same expression, we can combine Circles of Evaluation.  Look at the Circle of Evaluation you've written for @math{351 / -1}. We already know that the Circle for @math{4 - 5} will evaluate to @math{-1}, so we can @italic{replace the number with the expression.} Does this change what the expression evaluates to?
-                                @activity{@bitmap{images/fill-in-circle.png}Finish writing the Circle of Evaluation shown here, so that it represents @math{(23 + 7) * (13 - 5)}}
+                                @activity[#:forevidence "BS-CE&1&2"]{@bitmap{images/fill-in-circle.png}Finish writing the Circle of Evaluation shown here, so that it represents @math{(23 + 7) * (13 - 5)}}
                       }
                         @teacher{From this point forward, the Circles of Evaluation are your assessment tool for Order of Operations. Quizzing students by asking them to correctly evaluate an expression is fraught with false negatives, as many student might get the order right but may still have problems with basic calculations. This method is also vulnerable to Commutativity, since a student will correctly evaluate @math{1*2+2} even if they get the order of operations wrong! Circles of Evaluation have neither of these flaws, as they put the emphasis where it should be: exercising a students' ability to see the structure inside the arithemetic.}
                         }
@@ -257,8 +257,8 @@
                                            @item{The Number @math{6} is the first number in the multiplication, because it's on the left-hand side.}
                                            @item{The second number in the multiplication is on the right-hand side.  The right-hand side has a separate circle, so we need to @vocab{evaluate} the number for that circle.  The second number is therefore @italic{the result of adding 4 and 5}.}
                                            @item{@math{4 + 5} (the inner circle) evaluates to @math{9}, and @math{6 * 9} (the outer circle) evaluates to @math{54}.  This circle evaluates to @math{54}.}]
-                        @activity{@bitmap{images/NestedCircle2.png}Convert this Circle of Evaluation into an arithmetic expression.}    
-                        @activity{Match the following Circles of Evaluation with the corresponding arithmetic expressions:
+                        @activity[#:forevidence "BS-CE&1&3"]{@bitmap{images/NestedCircle2.png}Convert this Circle of Evaluation into an arithmetic expression.}    
+                        @activity[#:forevidence "BS-CE&1&3"]{Match the following Circles of Evaluation with the corresponding arithmetic expressions:
                                   @(circeval-matching-exercise/math 
 				    (list (math "9 * (4 - 3)")
 					  (math "(9 * 4) - 3")
@@ -320,7 +320,7 @@
                         @teacher{@management{Draw students' attention to the Language Table (see Lesson Overview for Unit 1), which currently sits empty. Add "Numbers" to the Types section of the language table.}}
                         }
                 @point{@student{@bannerline{Code Rule 1: All values are legal expressions.}
-                                 @activity{What do you think @code{4} will evaluate to? 
+                                 @activity[#:forevidence "BS-IDE&1&1"]{What do you think @code{4} will evaluate to? 
                                               @itemlist[@item{Enter 4 in the Interactions window and hit "Return". You will see the value @code{4} appear on the next line in the Interactions window.}
                                                         @item{Type 10 in the Interactions window and hit "Return".  Now the value @code{10} appears in the Interactions window.}
                                                          @item{Try evaluating numbers, like @code{10345017}, or negative numbers, like @code{-2}. Is there a limit to how big a number can be? What happens if you write a decimal? What happens when you click on a decimal, like @code{1.5}? You get a new type of number, a fraction, like @code{3/4}.}]
@@ -339,7 +339,7 @@
                         }
            
                 
-                @point{@student{@activity{The computer obviously knows about Numbers, but what happens if you type in something that it @italic{doesn't} know about? Will it complain? Crash? Guess? Try asking the computer to evaluate @code{dog} in the Interactions window.
+                @point{@student{@activity[#:forevidence "BS-IDE&1&2"]{The computer obviously knows about Numbers, but what happens if you type in something that it @italic{doesn't} know about? Will it complain? Crash? Guess? Try asking the computer to evaluate @code{dog} in the Interactions window.
                               @embedded-wescheme[#:id "Exploring bugs"                                                                                   
                                   #:height 100
                                   #:width "100%"
@@ -360,7 +360,7 @@
                 @point{@student{The Circles of Evaluation are also easy to convert into computer programs. To translate a Circle of Evaluation into a program, begin with an open parenthesis @code{(}, and then the function written at the top of the circle. Then translate the inputs from left to right in the same way, adding a closing parenthesis @code{)} when you're done. This process gives us the second rule for @vocab{expressions}:  
                                 @bannerline{Code Rule 2: Each open parenthesis is followed by one function, then by one or more legal expressions, and finally by a closing parenthesis.}
                                  @bitmap{images/FixedCircle.png}Here is the code for this Circle of Evaluation: @code{(- 4 5)}
-                                 @activity{Enter @code{(- 4 5)} into the Interactions window and hit Return.  You should see @math{-1} as an answer.
+                                 @activity[#:forevidence "BS-PL&1&2"]{Enter @code{(- 4 5)} into the Interactions window and hit Return.  You should see @math{-1} as an answer.
                                  @embedded-wescheme[#:id "Circle1"     
                                   #:height 100
                                   #:width "100%"
@@ -373,17 +373,17 @@
                         @teacher{Have students practice converting simple Circles of Evaluation into code.  If you want to help students understand when to use the parentheses, here are two explanations that we find useful.  First, the parens look like the Circle, and the Circle encloses the function name and its inputs.  Second, we use a more visual description of an ant eating its way through the expression.  The ant eats into the Circle (an open paren), then goes to the function at the top, then to the arguments from left to right, then finally out of the Circle (a close paren).  If the ant encounters another Circle while writing down the arguments, it needs another open paren, etc.}
                         }   
                 @point{@student{@bitmap{images/NestedCircle.png}When a Circle of Evaluation has other circles inside of it, the translation still follows the same rules: each Circle requires a new set of parentheses: @code{(* 6 (+ 4 5))}
-                                 @activity{@itemlist[@item{Try entering this code into the Interactions window. What should the program evaluate to when you hit Return?}
+                                 @activity[#:forevidence "BS-PL&1&2"]{@itemlist[@item{Try entering this code into the Interactions window. What should the program evaluate to when you hit Return?}
                                                      @item{Practice converting other Circles of Evaluation you've drawn into code.}]}}
                         @teacher{@management{Scaffolding for Pair Programming: Talk to students about the roles of @italic{Driver} and @italic{Navigator}. The Driver is the student with their hands on the keyboard - they're in charge of typing, using the mouse, etc. The Navigator should be telling the Driver what to type, and pointing out mistakes or suggesting things. It's important to clarify what these roles are (perhaps reinforcing them with a visual), to ensure that both partners are active and talking to one another about the task at hand.}}
                         }
                
                 @point{@student{@bannerline{All of the expressions that follow the function name are called @vocab{arguments} to the function. The following diagram summarizes the shape of an expression that uses a function. @bitmap{images/ExpressionDiagram.png}}
-                                @activity{For practice, turn to @worksheet-link[#:page 4 #:name "Circle of Evaluation Practice"] in your workbook. For each mathematical expression, draw the Circle of Evaluation, then convert that Circle into Racket code.}}
+                                @activity[#:forevidence (list "BS-CE&1&2" "BS-CE&1&4")]{For practice, turn to @worksheet-link[#:page 4 #:name "Circle of Evaluation Practice"] in your workbook. For each mathematical expression, draw the Circle of Evaluation, then convert that Circle into Racket code.}}
                         @teacher{}
                         }
                 @point{@student{When expressions don't follow the code rules, the computer will tell you that it found a problem.  The computer also gives you information to help you fix the problem. This information is called an @vocab{error message}. We'll talk more about error messages later.  For now, we just want you to see a couple of error messages so that you'll know what they are if you run into one while programming.
-                       @activity{Enter each of the following illegal expressions in the Interactions Window and look at the error message or behavior that the computer gives you. 
+                       @activity[#:forevidence "BS-IDE&1&2"]{Enter each of the following illegal expressions in the Interactions Window and look at the error message or behavior that the computer gives you. 
                                  @itemlist[@item{@code{(5 * 6)} [puts the function in the middle, instead of at the front]}
                                            @item{@code{(*5 6)}  [missing a space after the function]}
                                            @item{@code{* 5 6)}  [forgets the open parenthesis]}
