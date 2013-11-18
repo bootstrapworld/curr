@@ -41,7 +41,7 @@
                        @teacher{Work through a number of examples, using a number line on the board and asking students how they calculate the distance between the points.  Having students act this out can also work well: draw a number line, have two students stand at different points on the line, using their arms or cutouts to give objects of different sizes.  Move students along the number line until they touch, then compute the distance on the number line.  The first few seconds of our @(hyperlink "http://www.youtube.com/watch?v=leP3tQ_GZL8&feature=player_embedded" "Bootstrap video") show this exercise in action.}
                        }
                 @point{@student{Your game file provides a function called @code{line-length} that computes the difference between two points on a number line.  Specifically, @code{line-length} takes two numbers as input and determines the distance between them.
-                       @activity{What answers would you expect from each of the following two uses of @code{line-length}:
+                       @activity[#:forevidence (list "BS-PL&1&5" "BS-PL&1&6")]{What answers would you expect from each of the following two uses of @code{line-length}:
                                  @itemlist[@item{@code{(line-length 2 5)}}
 			                   @item{@code{(line-length 5 2)}}
                                           ]
@@ -49,7 +49,7 @@
                        @teacher{If you have time and want to reinforce how conditionals arise from examples, you can have students fill in blanks in Examples such as @code{(EXAMPLE (line-length 2 5) ___)}, circle what's different, and notice that the circle labels are in different orders depending on whether the first or the second input is larger.  This in turn suggests that the code for @code{line-length} will need a conditional.  In this case, one could avoid the conditional by taking the absolute value of the difference (the function @code{abs} does this); if you are working with older students who already know about absolute value you could show it.  Using @code{cond}, however, emphasizes how code structure arises from examples.}}
 
                 @point{@student{Scroll to the @code{line-length} and @code{collide?} functions in your game file.  Notice that @code{line-length} uses a conditional so that it subtracts the smaller number from the bigger one. 
-                       @activity{Can you explain why @code{line-length} needs to use @code{cond}? What are the two conditions?}}
+                       @activity[#:forevidence (list "BS-M&1&1" "8.F.5&1&1")]{Can you explain why @code{line-length} needs to use @code{cond}? What are the two conditions?}}
                        @teacher{The two conditions are: @itemlist[@item{A is @italic{less than} B} @item{B is @italic{less than or equal} to A}]}}
                        
                 @point{@student{@bitmap{images/3004graph.png}Unfortunately, @code{line-length} can only calculate the distance between points in a single dimension (x or y). How would the distance be calculated between objects moving in 2-dimensions (like your game elements)? @code{line-length} can calculate the vertical and horizontal lines in the graphic shown here, using the distance between the x-coordinates and the distance between the y-coordinates. Unfortunately, it doesn't tell us how far apart the two centers are.}
@@ -77,7 +77,7 @@
                                      @item{Students can turn the Pythagorean Theorem into code by writing a @code{distance} function}
                                     ]
      #:product-outcomes @itemlist[@item{Students write the distance function in their game files.}]
-     #:standards (list "8.G.8" "8.G.7" "8.G.8")
+     #:standards (list "8.G.6")
      #:materials @itemlist[@item{Computers w/ DrRacket or WeScheme}
                            @item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
                            @item{All student computers should have their game templates pre-loaded, with their image files linked in}
@@ -101,23 +101,23 @@
                        @teacher{Have students place their gray triangles onto the paper, to match the diagram.}
                        }
                 @point{@student{@animated-gif{images\Pythag_anim.gif} By moving the gray triangles, it is possible to create two rectangles that fit inside the original square. While the space taken up by the triangles has shifted, it hasn't gotten any bigger or smaller. Likewise, the white space has been broken into two smaller squares, but in total it remains the same size. By using the side-lengths A and B, one can calculate the area of the two squares.
-                                 @activity{What is the area of the smaller square? The larger square?}}
+                                 @activity[#:forevidence (list "8.G.6&1&1" "8.G.6&1&1" "8.G.6&1&3")]{What is the area of the smaller square? The larger square?}}
                        @teacher{You may need to explicitly point out that the side-lengths of the triangles can be used as the side-lengths of the squares.}
                        }
                 @point{@student{@bitmap{images/absquare.png}The smaller square has an area of @math{A^{2}}, and the larger square has an area of @math{B^{2}}. Since these squares are just the original square broken up into two pieces, we know that the sum of these areas must be equal to the area of the original square:
                                  @bannerline{@math{A^{2} + B^{2} = C^{2}}}
-                                 @activity{Does the same equation work for any values of A and B?}}
+                                 @activity[#:forevidence (list "8.G.6&1&1" "8.G.6&1&2" "8.G.6&1&3")]{Does the same equation work for any values of A and B?}}
                        @teacher{}
                        }
                 @point{@student{To get C by itself, we take the square-root of the sum of the areas:
                                 @bannerline{@math{\sqrt{A^{2} + B^{2}} = C}}}
                        @teacher{Remind students that A and B are the horizontal and vertical lengths, which are calculated by @code{line-length}.}
                        }
-                @point{@student{@activity{Turn to @worksheet-link[#:page 27 #:name "Distance-Formula-With-Numbers"] in your workbook - you'll see the same formula written out, this time using @code{line-length} to calculate the distance along the x- and y-axis. The Circle of Evaluation has already been partially-completed here, but you'll have to finish it on your own. Once you're done, convert that circle into code on the bottom of the page.}}
+                @point{@student{@activity[#:forevidence (list "BS-CE&1&1&4")]{Turn to @worksheet-link[#:page 27 #:name "Distance-Formula-With-Numbers"] in your workbook - you'll see the same formula written out, this time using @code{line-length} to calculate the distance along the x- and y-axis. The Circle of Evaluation has already been partially-completed here, but you'll have to finish it on your own. Once you're done, convert that circle into code on the bottom of the page.}}
                         @teacher{}
                         }
                 @point{@student{The code on page 27 will accurately calculate the distance between two objects whose centers are at (3,0) and (0,4). But what about other points? It would be nice to have a function that calculates the distance for @italic{any} two sets of points.
-                                @activity{Turn to @worksheet-link[#:page 28 #:name "Distance"] in your workbook, and use the Design Recipe to write your @code{distance} function. Feel free to use the work from the previous page as your first example, and then come up with a new one of your own.}}
+                                @activity[#:forevidence (list "BS-DR&1&5" "BS-PL&1&6" "8.G.6&1&3" "8.F.1&1" "8.F.1&1&3")]{Turn to @worksheet-link[#:page 28 #:name "Distance"] in your workbook, and use the Design Recipe to write your @code{distance} function. Feel free to use the work from the previous page as your first example, and then come up with a new one of your own.}}
                         @teacher{WARNING: make sure students are giving @code{line-length} the proper coordinates! Many students mistakenly pair @code{px} and @code{py} together, rather than pairing the x-coordinates. Check student work carefully!}
                         }
                 ]}
@@ -131,7 +131,7 @@
                                      @item{Students understand how to determine the collision threshhold between two objects}
                                      @item{Students write a @code{collide?} function that determines whether the player and danger elements in their games have collided}]
      #:product-outcomes @itemlist[@item{Students add a @code{collide?} function to their games to detect when the player and danger have collided}]
-     #:standards (list "N-Q" "A-CED.1-4" "F-IF.1-3" "F-IF.4-6" "F-IF.7-9" "F-BF.1-2" "F-BF.3-4" "F-LE.5")
+     #:standards (list "F-IF.1-3" "F-IF.4-6" "8.F.1" "A-SSE.1-2" "8.G.6")
      #:materials @itemlist[@item{Computers w/ DrRacket or WeScheme}
                            @item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
                            @item{All student computers should have their game templates pre-loaded, with their image files linked in}
@@ -147,7 +147,7 @@
                 )
      ]{
        @points[@point{@student{By now, you have defined a function called @code{distance}: it has four Number inputs (representing playerX, playerY, dangerX and dangerY) and produces a Number representing the distance between those coordinates. If the player is standing at (320, 240) and the danger is at (400, 159), the distance can be calculated by evaluating @code{(distance 320 240 400 159)}.
-                              @activity{For each of the following player and danger coordinates, write the expression that uses the @code{distance} function to compute the distance between the points.  You may write in code or in a Circle of Evaluation:
+                              @activity[#:forevidence (list "F-IF.1-3&1&1" "F-IF.4-6&1&3" "A-SSE.1-2&1&4")]{For each of the following player and danger coordinates, write the expression that uses the @code{distance} function to compute the distance between the points.  You may write in code or in a Circle of Evaluation:
                                         @itemlist[@item{The player is at (100, 225) and the danger is at (174, 300)}
                                                   @item{The player is at (48, 20) and the danger is at (210, 160)}
                                                   @item{The player is at (300, 60) and the danger is at (130, 240)}
@@ -158,10 +158,10 @@
                 @point{@student{Now that you know how to compute the distance between two objects, you need to decide when two objects have collided.  We discussed this earlier in the unit using circles: two circles collide when the distance between them is less than the sum of their radii.  If your objects have more interesting outlines than circles, this computation can be hard to do precisely.  Fortunately, most games don't have to be precise (they move too fast for people to see the exact moment of impact).  We just need to figure out when items are close enough, and use that to detect collision.}
                        @teacher{You can spend additional time on this point by having students think about collision distances between different shapes.  The rest of Bootstrap doesn't require this, but this may be a good point to integrate additional geometry if you are teaching math.}}
                 @point{@student{Unless the images you chose for your game are very small, 50 is usually a sufficient distance for detecting collisions between your player and danger.  If you are using very small images, you might want to detect a collision when the distance between characters is below 20.
-                              @activity{How would you check whether the distance between (320, 240) and (400, 159) is @italic{less than 50?}  How would you check whether the distance between those coordinates is less than 20?}}
+                              @activity[#:forevidence (list "8.G.6&1&3")]{How would you check whether the distance between (320, 240) and (400, 159) is @italic{less than 50?}  How would you check whether the distance between those coordinates is less than 20?}}
                        @teacher{We are intentionally being vague about the distance units here.  The units are in pixels, which is a notion of distance on a computer screen.  If you want to explain pixels to your students, you can introduce that terminology and talk in terms of "50 pixels".  Otherwise, you can fall back on the number line if you want to explain units for distance. @(new-paragraph) If you want your students to compute a more accurate distance threshhold, you can use the functions @code{image-height} and @code{image-width}, each of which takes an image as input and returns a number.  The returned number is the maximal length of the image along the corresponding dimension (diameter for a circle, width or height for a rectangle or bitmap/url image).  You can have students develop, code, and experiment with expressions like @math{(widthA + widthB)/2} to compute the horizontal distance between two objects (where @math{widthA} stands for the first object width, etc).  This is a significant computational exercise in its own right, which could form the basis of an extended classroom exercise or homework assignment.}
                        }
-                @point{@student{@activity{Turn to @worksheet-link[#:page 29 #:name "collide?"] in your workbook, and use the Design Recipe to write a function that produces @code{true} if the distance between two coordinates is less than 50. HINT: You should use your @code{distance} function!}
+                @point{@student{@activity[#:forevidence (list "8.F.1&1" "8.F.1&1&3")]{Turn to @worksheet-link[#:page 29 #:name "collide?"] in your workbook, and use the Design Recipe to write a function that produces @code{true} if the distance between two coordinates is less than 50. HINT: You should use your @code{distance} function!}
                                 @activity{Enter your @code{collide?} function definition into your game file.  Play your game, and make your player collide with the danger.  Does your game now do something different than it did before you wrote @code{collide?}?}
                       }
                         @teacher{}}

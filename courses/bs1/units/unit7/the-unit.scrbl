@@ -23,7 +23,7 @@
                                      @item{Students will understand that @code{cond} statements capture pairs of questions and answers when coding a piecewise function}
                                     ]
      #:product-outcomes @itemlist[]
-     #:standards (list "A-SSE.1-2" "F-IF.1-3" "F-IF.4-6" "F-IF.7-9" "F-LE.5" "BS-DR")
+     #:standards (list "BS-DR" "BS-PL")
      #:materials @itemlist[@item{Computers w/ DrRacket or WeScheme}
                            @item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
                            @item{Pens/pencils for the students, fresh whiteboard markers for teachers}
@@ -78,14 +78,15 @@
              @teacher{}
              }
      @point{@student{Each conditional has at least one @vocab{clause}. Each clause has a Boolean question and a result. In Luigi's function, there is a clause for cheese, another for pepperoni, and so on. If the question evaluates to @code{true}, the expression gets evaluated and returned. If the question is @code{false}, the computer will skip to the next clause. 
-                     @activity{Look at the @code{cost} function: 
+                     @activity[#:forevidence (list "BS-PL&1&1" "BS-PL&1&2" "BS-PL&1&3" "BS-PL&1&4" "BS-PL&1&6")]{
+                               Look at the @code{cost} function: 
                                @itemlist[@item{How many clauses are there for the @code{cost} function?}
                                          @item{Identify the question in the first clause.}
                                          @item{Identify the question in the second clause.}]}}
             @teacher{Square brackets enclose the question and answer for each clause.  When students identify the questions, they should find the first expression within the square brackets.  There can only be one expression in each answer.}
            }
      @point{@student{The last clause in a conditional can be an @code{else} clause, which gets evaluated if all the questions are @code{false}. 
-                                                                @activity{In the @code{cost} function, what gets returned if all the questions are false? What would happen if there was no @code{else} clause? Try removing that clause from the code and evaluating an unknown topping, and see what happens.}}
+                      @activity[#:forevidence (list "BS-PL&1&6")]{In the @code{cost} function, what gets returned if all the questions are false? What would happen if there was no @code{else} clause? Try removing that clause from the code and evaluating an unknown topping, and see what happens.}}
              @teacher{@code{Else} clauses are best used as a catch-all for cases that you can't otherwise enumerate.  If you can state a precise question for a clause, write the precise question instead of @code{else}.  For example, if you have a function that does different things depending on whether some variable @code{x} is larger than @code{5}, it is better for beginners to write the two questions @code{(> x 5)} and @code{(<= x 5)} rather than have the second question be @code{else}.  Explicit questions make it easier to read and maintain programs.  When you use @code{else}, someone has to read all the previous questions to know what condition @code{else} corresponds to: they can't just skim all the questions to find the one that matches their situation.  This might be counterintuitive to those with prior programming experience, but it does help make code more readable and understandable.}
            }
      @point{@student{Functions that use conditions are called @vocab{piecewise functions}, because each condition defines a 
@@ -112,7 +113,7 @@
                                      @item{Students will be able to experiment with using functions to change the speed or nature of character movement in a game}
                                     ]
      #:product-outcomes @itemlist[@item{Students will write @code{update-player}, which moves their player in response to key-presses}]
-     #:standards (list "A-CED.1-4" "A-SSE.1-2" "F-BF.1-2" "F-IF.1-3" "F-IF.4-6" "F-IF.7-9" "F-LE.5" "BS-DR")
+     #:standards (list "A-SSE.1-2" "BS-DR")
      #:materials @itemlist[@item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
                            @item{All student computers should have their game templates pre-loaded, with their image files linked in}]
      #:preparation @itemlist[]
@@ -125,7 +126,8 @@
     ]{
       @points{
        @point{@student{Now that we know @code{cond}, we can write @code{update-player}.
-                       @activity{@bitmap{images/update-player.png} Look at the following picture, which describes what happens when the "up" arrow key is pressed. 
+                       @activity[#:forevidence (list "BS-M&1&1" "BS-M&1&2" "BS-DR&1&5" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2")]{
+                                 @bitmap{images/update-player.png} Look at the following picture, which describes what happens when the "up" arrow key is pressed. 
                                  @itemlist[@item{What is the player's starting x-coordinate?}
                                            @item{What is the player's starting y-coordinate?}
                                            @item{What about after the player moves? 
@@ -145,7 +147,8 @@
                            }
               @teacher{}}
        @point{@student{
-                       @activity{On @worksheet-link[#:page 24 #:name "Design-Recipe-Update-Player"] in your workbook, 
+                       @activity[#:forevidence (list "BS-M&1&1" "BS-M&1&2" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2")]{
+                                    On @worksheet-link[#:page 24 #:name "Design-Recipe-Update-Player"] in your workbook, 
                                     you'll find the word problem for @code{update-player}.}
                        }
               @teacher{Be sure to check students' Contracts and EXAMPLEs during this exercise, especially when it's time for them to circle and label what changes between examples. This is the crucial step in the Design Recipe where they should discover the need for @code{cond}.}
