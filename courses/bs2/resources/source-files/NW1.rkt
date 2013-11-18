@@ -11,7 +11,7 @@
 (define START (make-world 0))
 
 (define BACKGROUND (bitmap "Teachpacks/teachpack-images/bg.jpg"))
-(define DOG (flip-horizontal (bitmap "Teachpacks/teachpack-images/dog.png")))
+(define DOG (bitmap "Teachpacks/teachpack-images/dog.png"))
 (define TARGET (scale .3 (bitmap "Teachpacks/teachpack-images/ruby.png")))
 (define PLAYER (bitmap "Teachpacks/teachpack-images/ninja.png"))
 (define CLOUD (bitmap "Teachpacks/teachpack-images/clouds.png"))
@@ -43,5 +43,5 @@
 
 (big-bang START
           (on-tick update-world)
-          (on-draw draw-world)
+          (to-draw draw-world)
           )
