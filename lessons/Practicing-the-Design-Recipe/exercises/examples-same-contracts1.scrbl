@@ -89,7 +89,7 @@
   #:instr "For each pairs of Examples below, decide whether the two examples
            have the same contract. If they do, fill in the contract in the space
            provided. If not, write a few words explaining why."
-  #:forevidence (list "BS-DR&1&3" "F-IF.1-3&1&1" "F-IF.1-3&1&2")
+  @;#:forevidence (list "BS-DR&1&3" "F-IF.1-3&1&1" "F-IF.1-3&1&2")
   @(create-exercise-itemlist/contract-answers (list e1 e2 e3 e4 e5 e6 e7 e8 e9))
   @(exercise-answers
      (questions-and-answers (list e1 e2 e3 e4 e5 e6 e7 e8 e9)

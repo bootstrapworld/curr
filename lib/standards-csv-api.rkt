@@ -16,6 +16,7 @@
 ;; location of the standards csv file (must be a path)
 (define-runtime-path lib-path (build-path 'up "lib"))
 (define STDS-CSV-FILE (build-path lib-path "standards.csv"))
+(define STDS-GDRIVE-SOURCE "https://docs.google.com/spreadsheet/ccc?key=0AjzMl1BJlJDkdFRkR0RRRUJqa21oZHJ3WEhHWE1IVHc&usp=sharing#gid=0")
 
 ;;;;; STANDARDS TREE DATA DEFN ;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -98,7 +99,7 @@
 ;; given standard id-tag, produce list of ((lobj (evidence ...)) ...) for that standard
 (define (get-learnobj-tree std-tag)
   (let* ([std (find-std/tag std-tag)]
-         [lobjs (if (void? std) '() (standard-learnobjs (find-std/tag std-tag)))])
+         [lobjs (if (void? std) '() (standard-learnobjs std))])
     (map (lambda (lobj)
            (list (learnobj-descr lobj)
                  (map evidstmt-descr (learnobj-evidence lobj))))
@@ -118,7 +119,6 @@
           [else (list-ref (second (list-ref lotree (sub1 learnindex))) (sub1 evidindex))])))
 
 (define (get-evid-statment/tag evidtag)
-  (printf "get-stmt got tag ~a~n" evidtag)
   (let-values ([(std lonum esnum) (evidtag-data evidtag)])
     (if (not (or std lonum esnum)) #f
         (get-evid-statement std lonum esnum))))

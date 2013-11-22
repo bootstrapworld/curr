@@ -21,7 +21,7 @@
   #:title "Evaluating Circles of Evaluation"
   #:instr "For each Circle of Evaluation on the left, evaluate the Circle and 
    write down the ANSWER (a number) on the right:"
-  #:forevidence (list "BS-CE&1&3")
+  @;#:forevidence (list "BS-CE&1&3")
   @(open-response-exercise exprs-as-coe "text")
   @(exercise-answers
     (questions-and-answers exprs-as-coe expr-vals))

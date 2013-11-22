@@ -70,8 +70,11 @@
 (define-for-syntax (process-exercise-handout-contents elst)
   (let ([body-filter
          (cond [(solutions-mode?) (lambda (synelt)
-                                    (syntax-case synelt (exercise-answers)
+                                    ;(printf "have synelt ~a~n" synelt)
+                                    (syntax-case synelt (exercise-answers list)
                                       [(exercise-answers x ...) synelt]
+                                      ; next line needed to allow forevidence lists
+                                      ;[(#%list ...) (begin (printf "in list~n") synelt)]
                                       [(_ ...) #f]
                                       [else synelt]))]
                [else (lambda (synelt) 

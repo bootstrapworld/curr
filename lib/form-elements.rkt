@@ -1451,6 +1451,7 @@
                            [(equal? (first rem-sexp) '#:title) (loop (second rem-sexp) evtag (rest (rest rem-sexp)))]
                            [(equal? (first rem-sexp) '#:forevidence) (loop title (second rem-sexp) (rest (rest rem-sexp)))]
                            [else (loop title evtag (rest (rest rem-sexp)))]))))))])
+      ;(printf "extract-data got ~a ~n" data)
       (values (first data) (second data)))))
                                      
 (define (gen-exercises)
@@ -1847,6 +1848,9 @@
                           #:instr [instr #f]
                           #:forevidence [forevidence #f]
                           . body)
+  ;(printf "processing handout~n")
+  ;(printf "evidence is ~a~n" forevidence)
+  ;(printf "body has length ~a~n~n" (length body))
   (let ([full-title (if title (string-append "Exercise: " title) "Exercise")])
     (interleave-parbreaks/all
      (list (head-title-no-content full-title)
@@ -1859,21 +1863,21 @@
                                   body))))
            (copyright)))))
 
-(define (exercise-handout/solutions #:title [title #f]
-                                    #:instr [instr #f]
-                                    #:forevidence [forevidence #f]
-                                    . body)
-  (let ([full-title (if title (string-append "Solutions to " title) "Solutions")])
-    (interleave-parbreaks/all
-     (list (head-title-no-content full-title)
-           (elem #:style bs-title-style full-title)
-           (nested #:style bs-content-style
-                   (nested #:style bs-handout-style
-                           (interleave-parbreaks/all
-                            (cons (para #:style bs-exercise-instr-style (bold "Directions: ") 
-                                        (italicize-within-string instr exercise-terms-to-italicize))
-                                  body))))
-           (copyright)))))
+;(define (exercise-handout/solutions #:title [title #f]
+;                                    #:instr [instr #f]
+;                                    #:forevidence [forevidence #f]
+;                                    . body)
+;  (let ([full-title (if title (string-append "Solutions to " title) "Solutions")])
+;    (interleave-parbreaks/all
+;     (list (head-title-no-content full-title)
+;           (elem #:style bs-title-style full-title)
+;           (nested #:style bs-content-style
+;                   (nested #:style bs-handout-style
+;                           (interleave-parbreaks/all
+;                            (cons (para #:style bs-exercise-instr-style (bold "Directions: ") 
+;                                        (italicize-within-string instr exercise-terms-to-italicize))
+;                                  body))))
+;           (copyright)))))
 
 ;; exercise-answers merely tags content.  The module reader will leave answers
 ;; in or remove them based on the solutions generation mode
