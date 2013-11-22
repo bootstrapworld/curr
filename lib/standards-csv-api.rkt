@@ -31,6 +31,16 @@
 
 ;;;;; CSV TO STANDARDS TREE ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;; The csv file has four columns: a tag (combining standard and objective label),
+;; a description of the objective, the evidence statements, and whether or not
+;; we claim to cover the objective.
+;;
+;; The original design of these data structures separated the standard and the
+;; objective.  The description of each standard will now be taken from the
+;; single learning objective per tag (thus we will have replication between the
+;; standard description and the learning objective.  Might want to rewrite later
+;; but duplication preserves the rest of the code for now.
+
 (define (read-csv filename)
   (call-with-input-file filename
     (lambda (p)
@@ -77,7 +87,7 @@
                                            (let-values ([(id descr) (extract-id-descr evstr)])
                                              (make-evidstmt id descr)))
                                          (map second learnobj-cluster)))))
-                 (cluster-lines-by-firstcol (map cddr cluster)))))
+                 (cluster-lines-by-firstcol (map cdr cluster)))))
          clusters)))
 
 ;; use rest to strip out the header line on the spreadsheet
