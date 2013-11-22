@@ -425,6 +425,8 @@ div.rightColumn, div.leftColumn {
   margin-bottom:  -100%;
 }
 
+div.rightColumn>p{padding: 0px; padding-bottom: 5px;}
+span.rightColumnLabel,
 div.leftColumn:before,
 div.rightColumn:before{
   box-sizing:         border-box;
@@ -436,12 +438,12 @@ div.rightColumn:before{
   font-weight:        bold;
   font-family:        "Helvetica Neue", Arial, sans-serif;
 }
+/*  don't auto-number the rightColumn for matching solutions */
+ul.solutions li.matchingItem div.rightColumn:before{display: none}
 
 /* display numbers in all left columns */
 div.leftColumn:before{content: counter(item);}
-
-/*  display letters in all right columns inside matching exercises */
-ul.matching div.rightColumn:before{content: counter(item,lower-latin);}
+div.rightColumn:before{content: counter(item, lower-latin);}
 
 
 div.rightColumn>*, div.leftColumn>*{padding: 5px 15px;}
