@@ -217,7 +217,7 @@ uses a new function that @italic{compares Numbers}, returning
                                      @item{Students will understand how they use Booleans and conditional to control how game elements behave at the screen boundaries}
 ]
      #:product-outcomes @itemlist[@item{Students detect when game elements have moved offscreen (so they can reappear on the other edge of the screen)}]
-     #:standards (list "A.CED.1-4" "F-IF.4-6" "A-SSE.1-2&1&4")
+     #:standards (list "A-CED.1-4" "F-IF.4-6" "A-SSE.1-2")
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
                             @item{Class poster (List of rules, language table, course calendar)}

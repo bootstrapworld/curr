@@ -19,7 +19,7 @@
      #:evidence-statements @itemlist[@item{Students will be able to explain how a Number line is used to calculate distance in one dimension}
                                      @item{Students will be able to explain why the @code{line-length} function uses a conditional}]
      #:product-outcomes @itemlist[]
-     #:standards (list "")
+     #:standards (list)
      #:materials @itemlist[@item{Computers w/ DrRacket or WeScheme}
                            @item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
                            @item{Pens/pencils for the students, fresh whiteboard markers for teachers}

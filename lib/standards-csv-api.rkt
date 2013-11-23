@@ -103,8 +103,9 @@
         (first matches))))
 
 ;; given a standard id-tag, extract the description string for that id
-(define (get-standard-descr tag) 
-  (standard-descr (find-std/tag tag)))
+(define (get-standard-descr tag)
+  (let ([std (find-std/tag tag)])
+    (if (void? std) #f (standard-descr std))))
 
 ;; given standard id-tag, produce list of ((lobj (evidence ...)) ...) for that standard
 (define (get-learnobj-tree std-tag)

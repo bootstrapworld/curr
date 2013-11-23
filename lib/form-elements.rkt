@@ -741,7 +741,8 @@
                   (lesson-section "Learning Objectives" learning-objectives)
                   (lesson-section "Evidence Statements" evidence-statements)
                   (lesson-section "Product Outcomes" product-outcomes)
-                  (lesson-section "Standards" (expand-standards standards))
+                  ; commented out to suppress warnings that aren't relevant with unit-level generation
+                  ;(lesson-section "Standards" (expand-standards standards))
                   (lesson-section "Materials" materials)
                   (lesson-section "Preparation" preparation)
                   ;; look at unit-level glossary generation to build lesson-level glossary
@@ -792,6 +793,32 @@
                    (printf "WARNING: ~a not in dictionary: ~a~n" tag-descr elt)
                    (if show-unbound (cons elt result) result)))))
          '() taglist))
+
+(define (standards-from-names)
+  (traverse-block
+   (lambda (get set)
+     (lambda (get set)
+       (let ([stdtaglist (sort (get 'standard-names '()) string>=?)])
+         (nested #:style (bootstrap-div-style "Standards")
+                 (interleave-parbreaks/all
+                  (list
+                   (para #:style bs-header-style "Standards:")
+                   (list "See our " 
+                         (hyperlink "../../../../Standards.shtml" "Standards Document") 
+                         " provided as part of the Bootstrap curriculum.  Standards with"
+                         " prefix BS are specific to Bootstrap; others are from the Common Core.")
+                   (expand-standards/csv stdtaglist)))))))))
+    
+(define (expand-standards/csv standard-tags)
+  (let ([known-stnds (foldl (lambda (t res-rest)
+                              (let ([descr (get-standard-descr t)])
+                                (if descr
+                                    (cons (list t descr) res-rest)
+                                    res-rest)))
+                            empty standard-tags)])
+    (apply itemlist/splicing
+           (for/list ([stnd known-stnds])
+             (item (elem (format "~a: ~a" (first stnd) (second stnd))))))))     
 
 (define (expand-standards standard-tags)
   (let ([known-stnds (lookup-tags standard-tags commoncore-standards-dict "Standard")])
@@ -1795,18 +1822,22 @@
                      (list
                       (if gen-agenda? (agenda) (elem))
                       description
-                      ; uncomment next line to resume generating evidence from standards spreadsheet
-                      ;(learn-evid-from-standards)
-                      (if objectivesItems (objectives objectivesItems) 
-                          (summary-data/auto 'learning-objectives "Learning Objectives"))
-                      (if (audience-in? "teacher")
-                          (if evidenceItems (evidence-statements evidenceItems)
-                              (summary-data/auto 'evidence-statements "Evidence Statements"))
-                          (elem))
+                      ; use next line to generate evidence from standards spreadsheet
+                      (learn-evid-from-standards)
+                      ; use next two if-statements to take objectives/evidence from lesson headers
+                      ;(if objectivesItems (objectives objectivesItems) 
+                      ;    (summary-data/auto 'learning-objectives "Learning Objectives"))
+                      ;(if (audience-in? "teacher")
+                      ;    (if evidenceItems (evidence-statements evidenceItems)
+                      ;        (summary-data/auto 'evidence-statements "Evidence Statements"))
+                      ;    (elem))
                       (if product-outcomesItems (product-outcomes product-outcomesItems) 
                           (summary-data/auto 'product-outcomes "Product Outcomes"))
-                      (if standards standards 
-                          (summary-data/auto 'standards "Standards" (rest state-standards)))
+                      ; use next line to lookup standards in spreadsheet
+                      (standards-from-names) 
+                      ; use next if-statement to lookup standards in lib/standards-dictionary
+                      ;(if standards standards 
+                      ;    (summary-data/auto 'standards "Standards" (rest state-standards)))
                       (if length (length-of-lesson length) (length-of-unit/auto))
                       (gen-glossary)
                       (if (audience-in? (list "teacher" "volunteer"))

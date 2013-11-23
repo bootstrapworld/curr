@@ -47,7 +47,7 @@
                                      @item{Students will learn how to control speed of movement through functions}]
      #:product-outcomes @itemlist[@item{Students will add danger movement to their games}
                                   @item{Students will add target movement to their games}]
-     #:standards (list "N-Q" "A-CED.1-4" "F-IF.1-3" "F-IF.7-9" "F-BF.1-2" "F-LE.5" "BF-DR")
+     #:standards (list "N-Q" "A-CED.1-4" "F-IF.1-3" "F-IF.7-9" "F-BF.1-2" "F-LE.5" "BS-DR")
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
                             @item{All student computers should have their game templates pre-loaded, with their image files linked in}
