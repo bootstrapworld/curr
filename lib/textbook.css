@@ -283,9 +283,19 @@ ul.teacherNotes li div.teacher{
   height: auto;
   padding-bottom: 32767px;
   margin-bottom: -32767px;
+  transition: width 0.5s ease-in-out;
   -webkit-transition: width 0.5s ease-in-out;
+  -moz-transition: width 0.5s ease-in-out;
+  -o-transition: width 0.5s ease-in-out;
 }
-div.student{width: 780px; display: inline-block; -webkit-transition: width 0.5s ease-in-out;}
+div.student{
+  width: 780px; 
+  display: inline-block; 
+  transition: width 0.5s ease-in-out;
+  -webkit-transition: width 0.5s ease-in-out;
+  -moz-transition: width 0.5s ease-in-out;
+  -o-transition: width 0.5s ease-in-out;
+}
 ul.teacherNotes li div.student{width: 500px;}
 ul.teacherNotes .embedded-wescheme{width: 500px;}
 
@@ -521,7 +531,6 @@ div.codesexp       .studentAnswer+.studentAnswer { margin-left: 10px;}
     border:         0px none;
     background:     #eee;
     box-shadow:     inset 0px 0px 0px black;
-    -webkit-transition: width 0.5s ease-in-out;
   }
   .segment ul.teacherNotes li+li .teacher{box-shadow: none;}
   input, div.callout, .embedded-wescheme{display: none;}
