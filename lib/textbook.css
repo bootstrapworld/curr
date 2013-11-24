@@ -125,6 +125,18 @@ ul.BootstrapAgendaList .BSLessonName{float: left;}
   list-style-image: url('box.gif');
 }
 
+/* Standards and Evidence Statements (make sub-lists transition in and out of view) */
+ul.EvidenceStatementsList{
+    opacity: 0; height: 0px; overflow: hidden;
+    transition: opacity 1s ease-out;
+    -webkit-transition: opacity 1s ease-out;
+    -moz-transition: opacity 1s ease-out;
+    -o-transition: opacity 1s ease-out;
+}
+li.LearningObjectivesListItem:hover ul.EvidenceStatementsList,
+ul.EvidenceStatementsList:hover{opacity: 1; height: auto;}
+
+
 
 /************************************************************************************
  * LESSON SEGMENT
