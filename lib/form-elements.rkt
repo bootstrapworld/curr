@@ -1374,7 +1374,14 @@
          (nested #:style (bootstrap-div-style "LearningObjectives")
                  (interleave-parbreaks/all
                   (list
-                   (para #:style bs-header-style "Learning Objectives:")
+                   (para #:style bs-header-style "Standards and Evidence Statements:")
+                   (list "Standards with"
+                         " prefix BS are specific to Bootstrap; others are from the Common Core."
+                         " Mouse over each standard to see its corresponding evidence statements."
+                         "Our " 
+                         (hyperlink "../../../../Standards.shtml" "Standards Document") 
+                         " shows which units cover each standard. "
+                         )
                    (list->itemization LOtree (list "LearningObjectivesList" "EvidenceStatementsList"))))))))))
 
 ;; used to pull summary data generated over an entire unit or lesson from the
@@ -1822,6 +1829,8 @@
                      (list
                       (if gen-agenda? (agenda) (elem))
                       description
+                      (if product-outcomesItems (product-outcomes product-outcomesItems) 
+                          (summary-data/auto 'product-outcomes "Product Outcomes"))
                       ; use next line to generate evidence from standards spreadsheet
                       (learn-evid-from-standards)
                       ; use next two if-statements to take objectives/evidence from lesson headers
@@ -1831,10 +1840,8 @@
                       ;    (if evidenceItems (evidence-statements evidenceItems)
                       ;        (summary-data/auto 'evidence-statements "Evidence Statements"))
                       ;    (elem))
-                      (if product-outcomesItems (product-outcomes product-outcomesItems) 
-                          (summary-data/auto 'product-outcomes "Product Outcomes"))
                       ; use next line to lookup standards in spreadsheet
-                      (standards-from-names) 
+                      ;(standards-from-names) 
                       ; use next if-statement to lookup standards in lib/standards-dictionary
                       ;(if standards standards 
                       ;    (summary-data/auto 'standards "Standards" (rest state-standards)))

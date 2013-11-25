@@ -108,11 +108,14 @@
     (if (void? std) #f (standard-descr std))))
 
 ;; given standard id-tag, produce list of ((lobj (evidence ...)) ...) for that standard
-(define (get-learnobj-tree std-tag)
+;; optionally include tag name with lobj name (reasonable since spreadsheet conflates std and lobj)
+(define (get-learnobj-tree std-tag #:include-tag [include-tag? #t])
   (let* ([std (find-std/tag std-tag)]
          [lobjs (if (void? std) '() (standard-learnobjs std))])
     (map (lambda (lobj)
-           (list (learnobj-descr lobj)
+           (list (if include-tag? 
+                     (format "~a: ~a" std-tag (learnobj-descr lobj))
+                     (learnobj-descr lobj))
                  (map evidstmt-descr (learnobj-evidence lobj))))
          lobjs)))
 

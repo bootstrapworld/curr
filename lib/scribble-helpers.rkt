@@ -7,6 +7,7 @@
          scribble/core
          scribble/decode
          scribble/basic
+         scribble/html-properties
          ;"checker.rkt"
          )
 
@@ -65,6 +66,13 @@
               items))))
   (apply itemlist spliced-items #:style style))
 
+;; using this to override scribble's default to blockquotes in styles
+;; similar to function with same name in form-elements.rkt, but didn't
+;; have imports set up to reuse that defn here (and this one does not
+;; include the css-js-additions, which aren't needed here anyway)
+(define (make-div-style name)
+  (make-style name (list (make-alt-tag "div"))))
+
 ;; converts a racket nested list (of strings) into a scribble
 ;; itemization.  Classnames is a list of strings,
 ;; one for each nesting level in the input list.
@@ -73,11 +81,11 @@
 (define (list->itemization eltlist classnames)
   (let ([stylename (if (empty? classnames) #f (first classnames))]
         [remclassnames (if (empty? classnames) empty (rest classnames))])
-    (apply itemlist/splicing #:style stylename
+    (apply itemlist/splicing #:style (make-div-style stylename)
            (map (lambda (elt)
                   (if (not (list? elt)) 
                       (elem elt)
-                      (nested #:style (format "~aItemContents" (or stylename ""))
+                      (nested #:style (make-div-style (format "~aItemContents" (or stylename "")))
                               (list "\n" "\n" 
                                     (elem (first elt))
                                     "\n" "\n"
