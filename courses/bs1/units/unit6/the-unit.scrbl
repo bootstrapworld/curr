@@ -41,7 +41,7 @@
                                      @item{Students learn how to use arithmetic operators (like @code{<} and @code{>}) that produce Booleans}
                                     ]
      #:product-outcomes @itemlist[]
-     #:standards (list "7.EE.4.b" "BS-IDE" "BS-PL")
+     #:standards (list "7.EE.4.b" "BS-IDE" "BS-PL.1" "BS-PL.2")
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, language table, course calendar)}
                             @item{Language Table (see below)}]
@@ -68,7 +68,7 @@ uses a new function that @italic{compares Numbers}, returning
                          }
                  @point{@student{Functions like @code{<}, @code{>} and @code{=} all consume two Numbers as their Domain, and produce a special value called a @vocab{Boolean} as their Range. Booleans are answers to a yes-or-no question, and Boolean functions are used to perform tests. In a videogame, you might test if a player has walked into a wall, or if their health is equal to zero. A machine in a doctor's office might use Booleans to test if a patient's heartrate is above or below a certain level.
                                                 @bannerline{Boolean values can only be @code{true} or @code{false}.}
-                                                @activity[#:forevidence (list "BS-IDE&1&1" "BS-PL&1&1")]{Try typing a Number into the Interactions window and hitting Enter. What do you expect to get back? What about a String? Now try a Boolean, such as @code{false}.  As with all values, Booleans evaluate to themselves. The Circles of Evaluation can also be used with Booleans: try converting each of the following math expressions into Circles of Evaluation, and then converting those Circles into code:
+                                                @activity[#:forevidence (list "BS-IDE&1&1" "BS-PL.1&1&1")]{Try typing a Number into the Interactions window and hitting Enter. What do you expect to get back? What about a String? Now try a Boolean, such as @code{false}.  As with all values, Booleans evaluate to themselves. The Circles of Evaluation can also be used with Booleans: try converting each of the following math expressions into Circles of Evaluation, and then converting those Circles into code:
                                    @itemlist[@item{@math{10 = 16.1}}
                                          @item{@math{-13 \gt 5}}
                                          @item{@math{40-1 \lt 90*2}}
@@ -76,7 +76,7 @@ uses a new function that @italic{compares Numbers}, returning
                         @teacher{You can see a video demonstration of this intro at @(video-link (hyperlink "http://www.youtube.com/watch?v=X7gAXxpBhUo" "Video Lesson: Intro to Booleans"))}
                         }
                  @point{@student{There are many other functions that produce Booleans. Here's one that can be used to compare two @vocab{Strings}: @code[#:multi-line #t]{(string=? "apples" "oranges")}
-                                 @activity[#:forevidence (list "BS-PL&1&3" "BS-PL&1&4")]{Make sure you've written down the complete @vocab{Contract} for all four Boolean functions.}}
+                                 @activity[#:forevidence (list "BS-PL.2&1&1" "BS-PL.2&1&3")]{Make sure you've written down the complete @vocab{Contract} for all four Boolean functions.}}
                          @teacher{Make sure students are comfortable using Booleans to compare more complex subexpressions, rather than just comparing two Numbers.}
                          }
                  ]}
@@ -92,7 +92,7 @@ uses a new function that @italic{compares Numbers}, returning
                                      @item{Students can use one function they have written to compute the answer for another function}
 ]
      #:product-outcomes @itemlist[]
-     #:standards (list "BS-DR" "F-IF.1-3" "F-IF.4-6" "7.EE.3" "8.F.1")
+     #:standards (list "BS-DR.2" "BS-DR.3" "F-IF.1-3" "F-IF.4-6" "7.EE.3" "8.F.1")
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
                             @item{Class poster (List of rules, language table, course calendar)}
@@ -127,7 +127,7 @@ uses a new function that @italic{compares Numbers}, returning
                                              @item{Note: the volunteer for @code{onscreen?} should first call @code{safe-left?}, before replying with the value.}]}
                          }
                  @point{@student{Right now @code{safe-left?} is ignoring Sam's x-coordinate, and blindly returning @code{true} no matter where he is. What should the function be doing instead? 
-                                           @activity[#:forevidence (list "BS-DR&1&1" "BS-DR&1&2" "BS-DR&1&3" "BS-DR&1&4" "BS-DR&1&5" "8.F.1&1&1" "F-IF.1-3&1&1")]{
+                                           @activity[#:forevidence (list "BS-DR.1&1&1" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1" "8.F.1&1&1" "F-IF.1-3&1&1")]{
                                                  Turn to @worksheet-link[#:page 18 #:name "safe-left?"] in your workbook. Use the Design Recipe to fix this function, so that @code{safe-left?} takes in Sam's x-coordinate and returns @code{true} or @code{false} depending on whether it is @italic{greater than -50}.}}
                          @teacher{Remind students that they've already written the check for this on page 19! @management{It may be helpful to have students complete this activity in parts, by giving them a short time to do the Contract and Purpose Statement, then a short time to write their first example, their second, etc. By debriefing and reviewing after each step, you are likely to uncover misunderstandings earlier in the process.}}
                          }
@@ -217,7 +217,7 @@ uses a new function that @italic{compares Numbers}, returning
                                      @item{Students will understand how they use Booleans and conditional to control how game elements behave at the screen boundaries}
 ]
      #:product-outcomes @itemlist[@item{Students detect when game elements have moved offscreen (so they can reappear on the other edge of the screen)}]
-     #:standards (list "A-CED.1-4" "F-IF.4-6" "A-SSE.1-2")
+     #:standards (list "A-CED.1-4" "F-IF.4-6" "A-SSE.1-2" "BS-DR.2")
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
                             @item{Class poster (List of rules, language table, course calendar)}
@@ -233,7 +233,8 @@ uses a new function that @italic{compares Numbers}, returning
        @points[@point{@student{Now that you know how to combine tests, how can @code{onscreen?} combine both tests to keep Sam onscreen?}
                        @teacher{Have the volunteers stand once again, and ask the class what @code{onscreen?} @italic{should} do. Should it be using @code{and} or @code{or}? Be sure to give specific examples of points that are onscreen, too far to the left and too far to the right, and challenge the students to justify their answers.}
                        }
-                @point{@student{@activity[#:forevidence (list "BS-DR&1&4" "F-IF.4-6&1&3" "A-SSE.1-2&1&4" "A-CED.1-4&1&1")]{Turn to @worksheet-link[#:page 21 #:name "Design-Recipe-Onscreen"] in your workbook and write the completed @code{onscreen?} function, so that it tests both @code{safe-left?} and @code{safe-right?}. Type in the examples and definition when you're done, click "Run", and see if Sam is protected on both sides!}}
+                @point{@student{@activity[#:forevidence (list "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1" "F-IF.4-6&1&3" "A-SSE.1-2&1&4" "A-CED.1-4&1&1")]{
+                                    Turn to @worksheet-link[#:page 21 #:name "Design-Recipe-Onscreen"] in your workbook and write the completed @code{onscreen?} function, so that it tests both @code{safe-left?} and @code{safe-right?}. Type in the examples and definition when you're done, click "Run", and see if Sam is protected on both sides!}}
                        @teacher{}
                        }
                 @point{@student{There are two ways to go about solving the @code{onscreen?} word problem: 

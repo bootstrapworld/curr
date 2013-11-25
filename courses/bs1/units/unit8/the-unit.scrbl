@@ -19,7 +19,7 @@
      #:evidence-statements @itemlist[@item{Students will be able to explain how a Number line is used to calculate distance in one dimension}
                                      @item{Students will be able to explain why the @code{line-length} function uses a conditional}]
      #:product-outcomes @itemlist[]
-     #:standards (list)
+     #:standards (list "BS-PL.3" "BS-PL.4")
      #:materials @itemlist[@item{Computers w/ DrRacket or WeScheme}
                            @item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
                            @item{Pens/pencils for the students, fresh whiteboard markers for teachers}
@@ -41,7 +41,7 @@
                        @teacher{Work through a number of examples, using a number line on the board and asking students how they calculate the distance between the points.  Having students act this out can also work well: draw a number line, have two students stand at different points on the line, using their arms or cutouts to give objects of different sizes.  Move students along the number line until they touch, then compute the distance on the number line.  The first few seconds of our @(hyperlink "http://www.youtube.com/watch?v=leP3tQ_GZL8&feature=player_embedded" "Bootstrap video") show this exercise in action.}
                        }
                 @point{@student{Your game file provides a function called @code{line-length} that computes the difference between two points on a number line.  Specifically, @code{line-length} takes two numbers as input and determines the distance between them.
-                       @activity[#:forevidence (list "BS-PL&1&5" "BS-PL&1&6")]{What answers would you expect from each of the following two uses of @code{line-length}:
+                       @activity[#:forevidence (list "BS-PL.3&1&3" "BS-PL.4&1&1")]{What answers would you expect from each of the following two uses of @code{line-length}:
                                  @itemlist[@item{@code{(line-length 2 5)}}
 			                   @item{@code{(line-length 5 2)}}
                                           ]
@@ -77,7 +77,7 @@
                                      @item{Students can turn the Pythagorean Theorem into code by writing a @code{distance} function}
                                     ]
      #:product-outcomes @itemlist[@item{Students write the distance function in their game files.}]
-     #:standards (list "8.G.6")
+     #:standards (list "8.G.6" "BS-PL.4" "BS-DR.3")
      #:materials @itemlist[@item{Computers w/ DrRacket or WeScheme}
                            @item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
                            @item{All student computers should have their game templates pre-loaded, with their image files linked in}
@@ -117,7 +117,7 @@
                         @teacher{}
                         }
                 @point{@student{The code on page 27 will accurately calculate the distance between two objects whose centers are at (3,0) and (0,4). But what about other points? It would be nice to have a function that calculates the distance for @italic{any} two sets of points.
-                                @activity[#:forevidence (list "BS-DR&1&5" "BS-PL&1&6" "8.G.6&1&3" "8.F.1&1" "8.F.1&1&3")]{Turn to @worksheet-link[#:page 28 #:name "Distance"] in your workbook, and use the Design Recipe to write your @code{distance} function. Feel free to use the work from the previous page as your first example, and then come up with a new one of your own.}}
+                                @activity[#:forevidence (list "BS-DR.3&1&1" "BS-PL.4&1&1" "8.G.6&1&3" "8.F.1&1" "8.F.1&1&3")]{Turn to @worksheet-link[#:page 28 #:name "Distance"] in your workbook, and use the Design Recipe to write your @code{distance} function. Feel free to use the work from the previous page as your first example, and then come up with a new one of your own.}}
                         @teacher{WARNING: make sure students are giving @code{line-length} the proper coordinates! Many students mistakenly pair @code{px} and @code{py} together, rather than pairing the x-coordinates. Check student work carefully!}
                         }
                 ]}

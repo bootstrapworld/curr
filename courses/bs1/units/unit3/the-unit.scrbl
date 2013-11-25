@@ -16,7 +16,7 @@
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
-     #:standards (list "BS-PL" "N-Q" "F-IF.1-3" "MP.1" "MP.4" "MP.6" "MP.7")
+     #:standards (list "BS-PL.2" "N-Q" "F-IF.1-3" "MP.1" "MP.4" "MP.6" "MP.7")
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, language table, course calendar)}
                             @item{Language Table (see below)}]
@@ -42,7 +42,7 @@
                                        @item{Students will be able to identify the name, domain, range, and variable name for a function, when presented with a completed Design Recipe.}
                                       @item{Students will be able to explain what happens when the "Run" button is pressed.}]
      #:product-outcomes @itemlist[]
-     #:standards (list "7.EE.4.a" "BS-PL" "BS-IDE")
+     #:standards (list "7.EE.4.a" "BS-PL.3" "BS-IDE")
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, language table, course calendar)}
                             @item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}
@@ -68,7 +68,7 @@
                                                           #:definitions-text "(define shape1 (triangle 50 \"solid\" \"red\"))\n"]
                                  Definitions go in the upper window in your editor (the one above the 
                                  Interactions Window); this upper window is called the @vocab{Definitions Window}.        
-                                  @activity[#:forevidence (list "BS-PL&1&5")]{@itemlist[@item{Enter the @code{shape1} definition into the @vocab{Definitions Window}.}
+                                  @activity[#:forevidence (list "BS-PL.3&1&1")]{@itemlist[@item{Enter the @code{shape1} definition into the @vocab{Definitions Window}.}
                                             @item{Click "Run" to have the computer read that definition.}
                                             @item{What do you think will happen when you evaluate @code{shape1} in the Interactions window?}
                                             @item{Add a new line to the definitions window, just below the definition of @code{shape1}. Add a new definition called @code{shape2}, and define it to be a solid, blue circle of radius 20.}
@@ -77,12 +77,12 @@
                                             @item{On the next line, define a new value called @code{name} to be the String that represents your name.}]}
                         
                           @bannerline{Each time "Run" is clicked, the computer reads all of the definitions and adds them to the language. If a definition is changed, the computer will keep using the previous definition until the next time "Run" is clicked.}
-                          @activity[#:forevidence (list "BS-PL&1&5" "BS-IDE&1&2")]{One a new line in the Definitions Window, define a value called @code{eye-color} to be the color of your eyes.  Don't hit "Run" yet!  
+                          @activity[#:forevidence (list "BS-PL.3&1&1" "BS-IDE&1&2")]{One a new line in the Definitions Window, define a value called @code{eye-color} to be the color of your eyes.  Don't hit "Run" yet!  
                                     @itemlist[@item{Go into the Interactions Window and try evaluating @code{eye-color}.  You should get an error message that the computer doesn't know about @code{eye-color}, because you didn't click "Run" after adding the definition.}
                                               @item{Click "Run".}
                                               @item{Try asking for @code{eye-color} in the Interactions Window again.  This time, you should not get the error.}]}
                           Definitions are useful because we can reuse them in other expressions.  For example, we could use @code{eye-color} inside another expression, such as @code{(circle 10 "solid" eye-color)}.  Let's practice using definitions inside other expressions.
-                          @activity[#:forevidence (list "BS-PL&1&5" "BS-IDE&1&1")]{Create the following definitions in the Definitions Window, and check them out in the Interactions Window:
+                          @activity[#:forevidence (list "BS-PL.3&1&1" "BS-IDE&1&1")]{Create the following definitions in the Definitions Window, and check them out in the Interactions Window:
                                     @itemlist[@item{Define a value called @code{prize} to be a solid yellow star (you pick the size).}
                                               @item{Define a value called @code{big} that uses @code{scale} to make your @code{prize} three times larger.}
                                               @item{Define a value called @code{tilt} that uses @code{rotate} to turn your big yellow star by @code{45} degrees.}
@@ -143,7 +143,7 @@
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[@item{Students will name their videogame project}
                                   @item{Students will modify the definitions for @code{TITLE, TITLE-COLOR, BACKGROUND, PLAYER, TARGET} and @code{DANGER}}]
-     #:standards (list)
+     #:standards (list "BS-PL.3")
      #:materials @itemlist[@item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders with names on covers.}]
      #:preparation @itemlist[@item{Create student game files. [See the (teachers-only) @resource-link[#:path "teachers/teachers-guide/teachers-guide.html" #:label "Teachers Guide"]]}
                               @item{On student machines: Student Game Files (generated from "Game" template [Game.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=Y36jKsvXsZ" "WeScheme")])}]
@@ -156,7 +156,7 @@
       ]{
         @points[@point{@student{@activity{Open the videogame file (Game.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] or @(hyperlink "http://www.wescheme.org/openEditor?publicId=Q1X9Y8ZayX" "this WeScheme File")) so that you can see the code, and click "Run". (You may need to wait a few seconds for the images to load!) The window that appears is a running videogame, but you probably notice that nothing is moving - even if you hit the "up" or "down" arrows! For now, click the "close" button to return to the code.}
                                 In the Definitions window, you will see that this program defines several values: @code{TITLE}, for example, is defined to the be the String @code{"My Game"}.
-                                @activity[#:forevidence (list "BS-PL&1&5")]{@itemlist[@item{If you type @code{TITLE} into the Interactions window, what do you think it would evaluate to?}
+                                @activity[#:forevidence (list "BS-PL.3&1&1")]{@itemlist[@item{If you type @code{TITLE} into the Interactions window, what do you think it would evaluate to?}
                                            @item{What other definitions do you see?}
                                            @item{What are their values?}
                                            @item{What are their types?}
@@ -205,7 +205,7 @@
 
      #:exercises (list (make-exercise-locator "Defining-Functions" "match-examples-functions1")
                        (make-exercise-locator "Defining-Functions" "create-contracts-examples1"))
-     #:standards (list "A-SSE.1-2" "F-IF.1-3" "F-IF.4-6" "F-BF.1-2" "BS-PL" "BS-DR")
+     #:standards (list "A-SSE.1-2" "F-IF.1-3" "F-IF.4-6" "F-BF.1-2" "BS-PL.3" "BS-DR.1" "BS-DR.2" "BS-DR.3")
      #:materials @itemlist[@item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders with names on covers.}]
      #:preparation @itemlist[]
      #:prerequisites (list "Contracts" "Stings and Images" )
@@ -245,7 +245,8 @@
                                               Here's the @code{gt} Contract written as code.  The line starts with a semicolon, followed by the name, a colon, the Domain, an arrow, then the Range:
                                               @code[#:multi-line ""]{; gt : Number -> Image}
                                               Word problems give several clues as to the name, Domain, and Range of a function.  Be sure to read the problem carefully! Some word problems will describe functions that take multiple inputs in their Domain, or inputs of different types.
-                                              @activity[#:forevidence (list "BS-PL&1&3" "BS-DR&1&1" "F-IF.1-3&1&1" )]{Open your workbook to @worksheet-link[#:page 8 #:name "Fast-Functions"], where it says "fast functions", and write the Contract for the @code{gt} function.}}
+                                              @activity[#:forevidence (list)]{
+                                                              Open your workbook to @worksheet-link[#:page 8 #:name "Fast-Functions"], where it says "fast functions", and write the Contract for the @code{gt} function.}}
                                     @teacher{It is often a good idea to give students examples of different word problems, and have them pick out the contract for each one. @(new-paragraph) Contracts are written as @italic{comments} in Racket: whenever Racket sees a semicolon, it ignores the rest of the line after the semicolon.  This means that you will never get an error message from Racket for a malformed comment.  That also means that you have to check your students' contracts more closely, because the computer will not check anything about them (format or contents).}
                                     }
                             @point{@student{@bannerline{Step 2: Give Examples}
@@ -254,7 +255,8 @@
                                                                     (EXAMPLE (gt   50) (triangle   50 "solid" "green"))
                                                                     (EXAMPLE (gt  100) (triangle  100 "solid" "green"))}
                                              These examples tell the computer that writing @code{(gt 50)} should produce the same result as @code{(triangle 50 "solid" "green")}, and that @code{(gt 100)} is equivalent to @code{(triangle 100 "solid" "green")}. The word problem specifies that the examples @italic{must} use the name 'gt', and must all produce solid, green triangles.
-                                             @activity[#:forevidence (list "BS-PL&1&5" "BS-DR&1&3" "F-BF.1-2&1" "F-IF.1-3&1&2" "F-IF.1-3&1&4")]{In your workbook, write two examples of your own for this function.}}
+                                             @activity[#:forevidence (list "BS-PL.3&1&2" "BS-DR.2&1&1" "F-BF.1-2&1" "F-IF.1-3&1&2" "F-IF.1-3&1&4")]{
+                                                       In your workbook, write two examples of your own for this function.}}
                                     @teacher{@bold{Be sure to point out that EXAMPLE is capitalized, and that all examples are written in the definitions window.} Many students will follow along here without really understanding, simply by pattern-matching. Be sure to ask them lots of questions, to have them justify each step:
                                              @itemlist[@item{Why does the example have to start with gt? (Because it's the Name of the function, specified in the contract)}
                                                         @item{How do we know @code{gt} requires only one number? (Because it's the Domain of the function, specified in the contract)}
@@ -264,7 +266,8 @@
                                                                                                                                                                           One of the big ideas here is that each step informs the subsequent step. Make sure to explicitly connect them for students, pointing out that the Contract gives strong hints about how to write each part of the examples. }
                                     }
                             @point{@student{Programmers often write several examples for each function. Examples like these are a way for a programmer to think through their work.  Examples also make it easy to look at what parts of the expression can change, or @italic{vary}, depending on the inputs.
-                                    @activity[#:forevidence (list "BS-DR&1&4" "F-IF.1-3&1&2" "F-IF.1-3&1&4" "F-IF.4-6&1&1")]{Write the following examples on paper and circle the parts of the examples that are different:
+                                    @activity[#:forevidence (list "BS-DR.2&1&3" "F-IF.1-3&1&2" "F-IF.1-3&1&4" "F-IF.4-6&1&1")]{
+                                                  Write the following examples on paper and circle the parts of the examples that are different:
                                              @code[#:multi-line ""]{(EXAMPLE (gt   50) (triangle   50 "solid" "green"))
                                                                     (EXAMPLE (gt  100) (triangle  100 "solid" "green"))}}
 
@@ -283,7 +286,7 @@
 (define  (gt size) (triangle size "solid" "green"))}}
                                     @teacher{This can be a good opportunity to point out that the parts of the examples that were changeable (or @italic{vary-able}) are what determines when we need to use the @italic{variable}.}
                                     }
-                            @point{@student{@activity[#:forevidence (list "BS-PL&1&6" "BS-DR&1&5" "F-IF.1-3&1&2")]{@itemlist[@item{On your paper, define the @code{gt} function, then type the @vocab{Contract}, @vocab{Examples} and @code{Definition} into the Definitions window.}
+                            @point{@student{@activity[#:forevidence (list "BS-PL.3&1&3" "BS-DR.3&1&1" "F-IF.1-3&1&2")]{@itemlist[@item{On your paper, define the @code{gt} function, then type the @vocab{Contract}, @vocab{Examples} and @code{Definition} into the Definitions window.}
                                                          @item{Click "Run", to have the computer read this definition.}
                                                          @item{Use the function you've defined, by typing @code{(gt 100)} in the Interactions window.}
                                                          @item{Try using the function with different Numbers}]}
@@ -299,7 +302,7 @@
                                     }
                             @point{@student{These steps are knows as the @vocab{Design Recipe}, which is a powerful tool for defining functions based on word problems.
                                             @bannerline{Practice: Write a function @code{bc}, which takes in a Number and produces a solid, blue circle of the given size.}
-                                            @activity[#:forevidence (list "BS-DR&1&1" "BS-DR&1&3" "BS-DR&1&4" "BS-DR&1&5" "BS-DR&1&6" "F-IF.1-3&1&2" "F-IF.1-3&1&4" "F-IF.4-6&1&1")]{In your workbook (still on @worksheet-link[#:page 8 #:name "Fast-Functions"]), fill out the @vocab{Contract} for this function.
+                                            @activity[#:forevidence (list "BS-DR.1&1&1" "BS-DR.2&1" "BS-DR&2&3" "BS-DR.3&1&1" "F-IF.1-3&1&2" "F-IF.1-3&1&4" "F-IF.4-6&1&1")]{In your workbook (still on @worksheet-link[#:page 8 #:name "Fast-Functions"]), fill out the @vocab{Contract} for this function.
                                                       @itemlist[@item{What is the function's Name?}
                                                                  @item{What is the function's Domain?}
                                                                  @item{What is the function's Range?}]
@@ -320,7 +323,7 @@
                                     @teacher{You will want to explicitly connect each step in the Design Recipe to every other step. Ask students to justify each part of their @bold{Contract} by referring back to the Word Problem, to justify each step of their @bold{Examples} by referring back to the Word Problem @italic{and} Contract, and finally to justify each step of the @bold{definition} by referring to the Examples. The same variable name can be used in multiple functions, just as in math (where many functions use @code{x} as the variable name, for example)}
                                              }
                              @point{@student{@bannerline{Practice: Write a function @code{dot}, which takes in a Color and produces a solid circle of the given color, with a radius of 20.}
-                                            @activity[#:forevidence (list "BS-DR&1&1" "BS-DR&1&3" "BS-DR&1&4" "BS-DR&1&5" "BS-DR&1&6" "F-IF.1-3&1&2" "F-IF.1-3&1&4" "F-IF.4-6&1&1")]{In your workbook (still on @worksheet-link[#:page 8 #:name "Fast-Functions"]), fill out the @vocab{Contract} for this function.
+                                            @activity[#:forevidence (list  "BS-DR.1&1&1" "BS-DR.2&1" "BS-DR&2&3" "BS-DR.3&1&1" "F-IF.1-3&1&2" "F-IF.1-3&1&4" "F-IF.4-6&1&1")]{In your workbook (still on @worksheet-link[#:page 8 #:name "Fast-Functions"]), fill out the @vocab{Contract} for this function.
                                                       @itemlist[@item{What is the function's Name?}
                                                                  @item{What is the function's Domain?}
                                                                  @item{What is the function's Range?}]

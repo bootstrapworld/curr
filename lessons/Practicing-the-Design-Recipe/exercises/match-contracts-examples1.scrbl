@@ -97,7 +97,7 @@
   #:title "Matching Contracts and Examples"
   #:instr "Match each Example on the left with the Contract on the right. NOTE: Multiple examples 
            may match to the same contract!"
-  @;#:forevidence (list "BS-DR&1&3" "F-IF.1-3&1&1" "F-IF.1-3&1&2")
+  @;#:forevidence (list "BS-DR.2&1&2" "F-IF.1-3&1&1" "F-IF.1-3&1&2")
   @(matching-exercise ques permuted-ans)
   @(exercise-answers 
      (matching-exercise-answers ques ans permuted-ans))
