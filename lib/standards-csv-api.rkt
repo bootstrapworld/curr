@@ -24,8 +24,8 @@
 (define-struct standard (tag descr learnobjs))
 ;; (make-learnobj (number string list[evidstmt])
 (define-struct learnobj (id descr evidence))
-;; (make-evidstmt (number string))
-(define-struct evidstmt (id descr))
+;; (make-evidstmt (number string string))
+(define-struct evidstmt (id descr coverage))
 
 ;; the standardslist is a list of standards
 
@@ -83,10 +83,10 @@
             (map (lambda (learnobj-cluster)
                    (let-values ([(id descr) (extract-id-descr (caar learnobj-cluster))])
                      (make-learnobj id descr
-                                    (map (lambda (evstr) 
+                                    (map (lambda (evstr coveragestr) 
                                            (let-values ([(id descr) (extract-id-descr evstr)])
-                                             (make-evidstmt id descr)))
-                                         (map second learnobj-cluster)))))
+                                             (make-evidstmt id descr coveragestr)))
+                                         (map second learnobj-cluster) (map third learnobj-cluster)))))
                  (cluster-lines-by-firstcol (map cdr cluster)))))
          clusters)))
 
@@ -107,16 +107,28 @@
   (let ([std (find-std/tag tag)])
     (if (void? std) #f (standard-descr std))))
 
+;; determine whether evidence statement is considered covered versus a list of coverage tags
+;; uses string-trim to protect against whitespace in spreadsheet values
+(define (evid-covered-by taglist)
+  (lambda (e)
+    (member (string-trim (evidstmt-coverage e)) taglist)))
+
+;; return list of descriptions of all covered evidence statements
+(define (get-evidence-descrs/coverage evidstmtlst coverage-tags)
+  (map evidstmt-descr (filter (evid-covered-by coverage-tags) evidstmtlst)))
+
 ;; given standard id-tag, produce list of ((lobj (evidence ...)) ...) for that standard
 ;; optionally include tag name with lobj name (reasonable since spreadsheet conflates std and lobj)
-(define (get-learnobj-tree std-tag #:include-tag [include-tag? #t])
+(define (get-learnobj-tree std-tag 
+                           #:include-tag [include-tag? #t] 
+                           #:with-coverage [with-coverage (list "Y")])
   (let* ([std (find-std/tag std-tag)]
          [lobjs (if (void? std) '() (standard-learnobjs std))])
     (map (lambda (lobj)
            (list (if include-tag? 
                      (format "~a: ~a" std-tag (learnobj-descr lobj))
                      (learnobj-descr lobj))
-                 (map evidstmt-descr (learnobj-evidence lobj))))
+                 (get-evidence-descrs/coverage (learnobj-evidence lobj) with-coverage)))
          lobjs)))
 
 ;; returns evidence statement for given std string and numeric labels for 
