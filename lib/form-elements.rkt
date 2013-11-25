@@ -1420,6 +1420,14 @@
              str))
        strlist))
 
+;; glossary-entry : string (string or #f) -> elem
+;; generates markup for glossary entry; defn may be missing
+(define (glossary-entry term defn)
+  (let ([term-elem (elem #:style (bootstrap-span-style "vocab") term)])
+    (if defn
+        (elem term-elem ": " defn)
+        term-elem)))
+
 ;; retrieves vocab terms used in document and generates block containing
 ;;   terms and their definitions from the dictionary file
 (define (gen-glossary)
@@ -1440,11 +1448,10 @@
                                 (cond [(and (list? term) (string=? "" (second term)))
                                        (begin
                                          (printf "WARNING: Vocabulary term has empty definition in dictionary: ~a ~n" (first term))
-                                         (item (elem (format "~a" (first term)))))]
+                                         (glossary-entry (first term) #f))]
                                       [(list? term)
-                                       (item (elem (format "~a: ~a" (first term) (second term))))]
-                                      [else
-                                       (item (elem (format "~a" term)))]))))))))))))
+                                       (glossary-entry (first term) (second term))]
+                                      [else (glossary-entry term #f)]))))))))))))
 
 ;; produces values for the title and forevidence arguments for given exercise locator
 ;;  either or both values will be false if not found in the file
