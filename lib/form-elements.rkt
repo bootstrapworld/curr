@@ -793,21 +793,6 @@
                    (printf "WARNING: ~a not in dictionary: ~a~n" tag-descr elt)
                    (if show-unbound (cons elt result) result)))))
          '() taglist))
-
-(define (standards-from-names)
-  (traverse-block
-   (lambda (get set)
-     (lambda (get set)
-       (let ([stdtaglist (sort (get 'standard-names '()) string>=?)])
-         (nested #:style (bootstrap-div-style "Standards")
-                 (interleave-parbreaks/all
-                  (list
-                   (para #:style bs-header-style "Standards:")
-                   (list "See our " 
-                         (hyperlink "../../../../Standards.shtml" "Standards Document") 
-                         " provided as part of the Bootstrap curriculum.  Standards with"
-                         " prefix BS are specific to Bootstrap; others are from the Common Core.")
-                   (expand-standards/csv stdtaglist)))))))))
     
 (define (expand-standards/csv standard-tags)
   (let ([known-stnds (foldl (lambda (t res-rest)
@@ -1838,20 +1823,7 @@
                       description
                       (if product-outcomesItems (product-outcomes product-outcomesItems) 
                           (summary-data/auto 'product-outcomes "Product Outcomes"))
-                      ; use next line to generate evidence from standards spreadsheet
                       (learn-evid-from-standards)
-                      ; use next two if-statements to take objectives/evidence from lesson headers
-                      ;(if objectivesItems (objectives objectivesItems) 
-                      ;    (summary-data/auto 'learning-objectives "Learning Objectives"))
-                      ;(if (audience-in? "teacher")
-                      ;    (if evidenceItems (evidence-statements evidenceItems)
-                      ;        (summary-data/auto 'evidence-statements "Evidence Statements"))
-                      ;    (elem))
-                      ; use next line to lookup standards in spreadsheet
-                      ;(standards-from-names) 
-                      ; use next if-statement to lookup standards in lib/standards-dictionary
-                      ;(if standards standards 
-                      ;    (summary-data/auto 'standards "Standards" (rest state-standards)))
                       (if length (length-of-lesson length) (length-of-unit/auto))
                       (gen-glossary)
                       (if (audience-in? (list "teacher" "volunteer"))
@@ -1975,6 +1947,8 @@
    ". Permissions beyond the scope of this license may be available at "
    (hyperlink "mailto:schanzer@BootstrapWorld.org" "schanzer@BootstrapWorld.org") "."))
 
+;; ONLY USED IN BS2 UNITS FOLLOWING OLD FORMAT
+;; remove this as soon as bs2 units convert to the bs1-style lesson headers
 ;autogenerates state-standards section
 (define state-standards
   (list (para #:style bs-header-style "State Standards")
