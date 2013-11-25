@@ -16,7 +16,7 @@
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
-     #:standards (list "BS-PL.2" "N-Q" "F-IF.1-3" "MP.1" "MP.4" "MP.6" "MP.7")
+     #:standards (list "BS-PL.2" "N-Q" "F-IF.1-3")
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, language table, course calendar)}
                             @item{Language Table (see below)}]

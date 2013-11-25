@@ -16,7 +16,7 @@ include other datatypes, including Strings and Images.}
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
-     #:standards (list "A-SSE.1-2" "N-Q"  "MP.1" "MP.4" "MP.6" "MP.7" "BS-CE")
+     #:standards (list "A-SSE.1-2" "N-Q" "BS-CE")
      #:materials @itemlist[]
      #:preparation @itemlist[@item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/1Qn59Fol2tspqOx6XQV88xm-IYsRGY769cb7MQeknSMA/edit?usp=sharing" "Warmup activity sheet").}
                               @item{Student Workbooks, and something to write with.}]
@@ -155,7 +155,7 @@ include other datatypes, including Strings and Images.}
      #:product-outcomes @itemlist[@item{Students will write down Contracts for arithmetic expressions, as well as several image-producing expressions}]
      #:exercises (list (make-exercise-locator "Contracts" "id-expr-pieces1")
 		       (make-exercise-locator "Contracts" "match-contracts-exprs1"))
-     #:standards (list "BS-PL.2" "BS-IDE" "N-Q" "F-IF.1-3" "MP.1" "MP.4" "MP.6" "MP.7")
+     #:standards (list "BS-PL.2" "BS-IDE" "N-Q" "F-IF.1-3")
      #:materials @itemlist[@item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}]
      #:preparation @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket}
                               @item{Student Workbooks, and something to write with}]
