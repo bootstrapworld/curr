@@ -20,7 +20,7 @@
                                       @item{Given two examples for a simple function, students will be able to identify the variable}
                                       @item{Given two examples for a simple function, students will be able to write the definition}]
      #:product-outcomes @itemlist[@item{Students will use the Design Recipe to define a function, which is used to make a rocket fly.}]
-     #:standards (list "A-SSE.1-2" "F-IF.1-3" "F-IF.4-6" "BS-DR" "8.F.1")
+     #:standards (list "A-SSE.1-2" "F-IF.1-3" "F-IF.4-6" "BS-DR.1" "BS-DR.2" "BS-DR.3" "8.F.1")
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, language table, course calendar)}
                             @item{Language Table (see below)}
@@ -45,7 +45,7 @@
                         }
                  @point{@student{@animated-gif{images/flipbook.gif}Putting these images together, we arrive at an animation of the rocket blasting off. Let's see an example of this kind of animation, using a function to make a rocket-blast off! Turn to @worksheet-link[#:page 11 #:name "Design-Recipe-Rocket-Height"] in your workbook, and read the word problem carefully. 
                          @bannerline{A rocket blasts off, traveling at 7 meters per second. Write a function called @code{rocket-height} that takes in the number of seconds that have passed since the rocket took off, and which produces the height of the rocket at that time.}
-                         @activity[#:forevidence (list "BS-M&1&1" "BS-DR&1&1" "F-IF.1-3&1&1" "F-IF.4-6&1&1")]{@itemlist[@item{What is the @code{rocket-height} function taking in as input? What type of data is that?}
+                         @activity[#:forevidence (list "BS-M&1&1" "BS-DR.1&1&1" "F-IF.1-3&1&1" "F-IF.4-6&1&1")]{@itemlist[@item{What is the @code{rocket-height} function taking in as input? What type of data is that?}
                                               @item{What is the function producing as outnput? What type of data is that?}
                                               @item{What are the three parts of a @vocab{Contract}?}
                                               @item{What is the @vocab{Name} of the function you are being asked to define?}
@@ -54,7 +54,7 @@
                          @teacher{Check student understanding carefully, to make sure students read the problem carefully. It may be helpful to draw a diagram or table showing the change of rocket position on the board, and to have students verbally walk through a few examples.}
                          }
                  @point{@student{The Contract is a way of thinking about the function in a general way, without having to worry about exactly how it will work or how it will be used. Starting with simple questions like these will make later steps much easier to think about. However, the Contract doesn't always enough information! The Domain for @code{star}, for example, specifies that the function needs a Number and two Strings, but doesn't mention the fact that the first String must be @code{"solid"} or @code{"outline"}. To add this information, programmers write @vocab{Purpose Statements}, which are simple sentences that explain what a function does.
-                                 @activity[#:forevidence (list "BS-DR&1&2" "F-IF.1-3&1&5")]{Underneath the Contract, copy the following simple Purpose Statement for @code{rocket-height}.}
+                                 @activity[#:forevidence (list "BS-DR.1&1&2" "F-IF.1-3&1&5")]{Underneath the Contract, copy the following simple Purpose Statement for @code{rocket-height}.}
                                  @code[#:multi-line #t]{; rocket-height : Number -> Number
                                                         ; multiply the number of seconds by 7 to find the height}}
                          @teacher{This is an opportunity to talk about the importance of writing, clarity, and brevity. What information is essential for a purpose statement? What information is irrelevant?  A good purpose statement describes what is computed and how its inputs are used; it should go beyond the information given in the contract and implicit in the name of the function.}
@@ -67,14 +67,14 @@
                                                        (EXAMPLE (rocket-height 72) 
                                                                 (* 72 7))}
                                 @bold{Note:} The example shown above is broken into two lines! As functions and examples become more complex, it will become difficult to squeeze them into a single line. In your workbooks, every example and definition from this point onwards will use the two-line format.
-                                @activity[#:forevidence (list "BS-DR&1&3" "8.F.1&1&3" "F-IF.1-3&1&4")]{In your workbook, write two new examples of @code{rocket-height} using different values for the number of seconds. Both examples will have a lot in common (they all use @code{rocket-height} as the function name, they all multiply their input by 7, etc). Once you are done writing them, circle only the parts of the examples that are @italic{changeable}.}}
+                                @activity[#:forevidence (list "BS-DR.2&1&1" "8.F.1&1&3" "F-IF.1-3&1&4")]{In your workbook, write two new examples of @code{rocket-height} using different values for the number of seconds. Both examples will have a lot in common (they all use @code{rocket-height} as the function name, they all multiply their input by 7, etc). Once you are done writing them, circle only the parts of the examples that are @italic{changeable}.}}
                          @teacher{The main idea for students in this activity is to realize that the Contract and Purpose Statement can be relied upon to write examples. Ask students to justify  every part of each example, using only the Contract and Purpose Statement.  Students are often tripped up by the switch from one-line examples to two-line ones. Be @italic{very} careful to point this out to students, and to check their workbooks to see where they are writing their examples. At the end of the activity, make sure that students circle ONLY what has changed.}
                  }
                  @point{@student{By comparing two different examples, it is easy to tell what changes. According to the Purpose Statement, it is the number of seconds that the rocket has been flying.
-                                 @activity[#:forevidence (list "BS-DR&1&4" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2" "7.EE.4.a&1&1")]{On your paper, label the items you circled with "seconds".}}
+                                 @activity[#:forevidence (list "BS-DR.2&1&3" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2" "7.EE.4.a&1&1")]{On your paper, label the items you circled with "seconds".}}
                          @teacher{Have a discussion with students about why "seconds" is a better name than "time". Talk about specificity, relevance, and readability.}}
                  @point{@student{Labeling what is @italic{changeable} gives programmers a sense for the names of a function's @vocab{variables}.  Variables are like placeholders for values that can be different at different times.  A function that computed how much you pay for text messages each month, for example, might have a variable for the number of messages that you sent in that month.  The number of messages you sent might change from month to month, but each one could still cost 20 cents.  
-                                                  @activity[#:forevidence (list "BS-DR&1&5" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2")]{How many variables does @code{rocket-height} have? What is the name of each variable? Define the function, using all the information from your Examples, Contract and Purpose Statement.}
+                                                  @activity[#:forevidence (list "BS-DR.3&1&1" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2")]{How many variables does @code{rocket-height} have? What is the name of each variable? Define the function, using all the information from your Examples, Contract and Purpose Statement.}
                                   @code[#:multi-line #t]{; rocket-height : Number -> Number
                                                        ; multiply the number of seconds by 7 to find the height
                                                        (EXAMPLE (rocket-height 11) 
@@ -130,7 +130,7 @@
      #:product-outcomes @itemlist[@item{Students will write functions to solve simple problems by using the Design Recipe}]
      #:exercises (list (make-exercise-locator "Practicing-the-Design-Recipe" "examples-same-contracts1")
                        (make-exercise-locator "Practicing-the-Design-Recipe" "match-contracts-examples1"))
-     #:standards (list "A-SSE.1-2" "F-IF.1-3" "F-IF.4-6" "BS-DR")
+     #:standards (list "A-SSE.1-2" "F-IF.1-3" "F-IF.4-6" "BS-DR.1" "BS-DR.2" "BS-DR.3")
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, language table, course calendar)}
                             @item{Language Table}
@@ -151,7 +151,7 @@
                                            @item{Writing Examples based on the contract}
                                            @item{Defining a function that matches the examples}]
                         Start out by practicing each of these steps, one at a time.
-                        @activity[#:forevidence (list "BS-DR&1&1" "F-IF.1-3&1" "F-IF.4-6&1&3" "A-SSE.1-2&1&1")]{
+                        @activity[#:forevidence (list "BS-DR.1&1&1" "F-IF.1-3&1" "F-IF.4-6&1&3" "A-SSE.1-2&1&1")]{
                                   For each of the following word problems, write down the Contract:
                                   @itemlist[@item{Define a function 'purple-star', that takes in the size of the star and produces an outlined, purple star of the given size.}
                                              @item{Define a function 'spot', that takes in a color and produces a solid circle of radius 50, filled in with that color}
@@ -161,14 +161,14 @@
                         @teacher{If students come up with different Domains or Ranges for their functions, have them explain their thinking for each one. These conversations are an important part of this step!}
                         }
                  @point{@student{A Contract is the foundation for a function, which gives programmers just enough information to use them: the name of the function, the types of data it expects and the type of data it returns.
-                                 @activity[#:forevidence (list "BS-DR&1&3" "8.F.1&1&3" "F-IF.1-3&1&4")]{
+                                 @activity[#:forevidence (list "BS-DR.2&1&1" "8.F.1&1&3" "F-IF.1-3&1&4")]{
                                           Now that you've completed the Contracts for all four word problems, try to generate two Examples for each one.}}
                          @teacher{Challenge students to defend their Examples (their function name, the number of inputs, their types and the type of the returned value). Make sure that the two Examples for each function have @italic{different input values}! For each of these questions, students must be able to point to the specific part of their Contract as the justification for their Example.}}
                  @point{@student{Once you have two or more Examples, it should be easy to identify what has changed between them. In fact, the number of things that change should match the number of things in the function's Domain: if the Domain has a Number and a String in it, then those two values should be the things that differ between your Examples.
-                                 @activity[#:forevidence (list "BS-DR&1&4" "BS-DR&1&5" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2" "7.EE.4.a&1&1")]{
+                                 @activity[#:forevidence (list "BS-DR.1&1&3" "BS-DR&1&5" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2" "7.EE.4.a&1&1")]{
                                        Identify what has changed between these Examples, and use this information to define all four functions.}}
                          @teacher{Make sure students have chosen good variable names for their function definitions, and ask students to justify every part of the function body. The only acceptable answers should be "I copied this because it's the same in both Examples", or "I used a variable name because it differs between Examples."}}
-                @point{@student{@activity[#:forevidence (list "BS-DR&1&1" "F-IF.1-3&1" "F-IF.4-6&1&3" "A-SSE.1-2&1&1")]{
+                @point{@student{@activity[#:forevidence (list "BS-DR.3&1&1" "F-IF.1-3&1" "F-IF.4-6&1&3" "A-SSE.1-2&1&1")]{
                                        Turn to @worksheet-link[#:page 12 #:name "Design-Recipe-Red-Square"] in your workbook, and read the word problem carefully.
                                           @itemlist[@item{Circle the @vocab{Name} of the function, and underline what it takes in and what it produces.}
                                                        @item{Write the @vocab{Contract} for this function, using what you underlined to help you find the @vocab{Domain} and @vocab{Range}.}
@@ -177,7 +177,7 @@
                         @teacher{Challenge students to explain why this function does not need to know the color of the square, or whether or not it is solid. They main idea here is that the function already "knows" these things, so the only thing that is changing is the size of the square.}
                         }
                  @point{@student{Remember that the Contract and Purpose Statement can be used to write the Examples, even if a programmer isn't sure how to begin.
-                                 @activity[#:forevidence (list "BS-DR&1&3" "8.F.1&1&3" "F-IF.1-3&1&4")]{
+                                 @activity[#:forevidence (list "BS-DR.1&1&1" "BS-DR.2&1&1" "8.F.1&1&3" "F-IF.1-3&1&4")]{
                                            Using only the Contract and Purpose Statement, see if you can answer the following questions:
                                            @itemlist[@item{Every Example begins with the name of the function. Where could you find the name of the function?}
                                                       @item{Every Example has to include sample inputs. Where could you find out how many inputs this function needs, and what types they are?}
@@ -186,7 +186,7 @@
                         @teacher{Make sure students realize that every answer can be found in the Contract or Purpose Statement. Suggestion: write these steps on the board, and draw arrows between them to highlight the process. The goal here is to get students into the habit of asking themselves these questions each time they write Examples, and then using their own work from the previous step to find the answers. NOTE: students can solve this using either @code{square} or @code{rectangle}. The latter requires them to use the same variable twice, which is a useful thought-exercise.}
                         }
                  @point{@student{Once the two Examples are written and the variable (or variables) are labeled, it becomes easy to define the function. 
-                                 @activity[#:forevidence (list "BS-DR&1&4" "BS-DR&1&5" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2" "7.EE.4.a&1&1")]{
+                                 @activity[#:forevidence (list "BS-DR.3&1&1" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2" "7.EE.4.a&1&1")]{
                                            Using the Contract, Purpose Statement and Examples, see if you can answer the following questions:
                                            @itemlist[@item{Every function definition begins with the name. Where did you write this already?}
                                                       @item{Every definition has to include variable names for the inputs. Where did you write these down?}
@@ -206,7 +206,7 @@
                         @teacher{}
                         }
                  @point{@student{Some functions take more than one input. The @code{red-square} function always makes solid red squares, with size being the only thing that varies. Suppose, however, we wanted the function to make red squares that could be @italic{either} solid or outline? This would mean that both the size and the style can vary, so a user might type @code{(red-square 50 "solid")} or @code{(red-square 50 "outline")}
-                                 @activity[#:forevidence (list "BS-DR&1&1" "F-IF.1-3&1" "F-IF.4-6&1&3" "A-SSE.1-2&1&1")]{
+                                 @activity[#:forevidence (list "BS-DR.1&1&1" "F-IF.1-3&1" "F-IF.4-6&1&3" "A-SSE.1-2&1&1")]{
                                            @itemlist[@item{How would that change the Domain of the function?}
                                                       @item{How would the Examples have to change?}
                                                       @item{How would the definition change?}]
@@ -214,7 +214,7 @@
                         @teacher{}
                         }
                  @point{@student{The Design Recipe can be used for functions that take any number of inputs. As a simple example, take the following word problem:
-                                 @activity[#:forevidence (list "BS-DR&1&1" "F-IF.1-3&1" "F-IF.4-6&1&3" "A-SSE.1-2&1&1" "BS-DR&1&3" "8.F.1&1&3" "F-IF.1-3&1&4" "BS-DR&1&4" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2" "7.EE.4.a&1&1")]{
+                                 @activity[#:forevidence (list "8.F.1&1&3" "F-IF.1-3&1&4" "BS-DR.3&1&1" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2" "7.EE.4.a&1&1")]{
                                            Turn to @worksheet-link[#:page 13 #:name "Design-Recipe-Yard-Area"] in the workbook, and read the word problem carefully.
                                                    @itemlist[@item{Circle the @vocab{Name} of the function, and underline what it takes in and what it produces.}
                                                               @item{How many things does this function take as input? Are they Numbers? Strings? Images?}
@@ -235,7 +235,7 @@
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
-     #:standards (list "A-SSE.1-2" "F-IF.1-3" "F-IF.4-6" "F-BF.1-2" "BS-DR")
+     #:standards (list "A-SSE.1-2" "F-IF.1-3" "F-IF.4-6" "F-BF.1-2" "BS-DR.1" "BS-DR.2" "BS-DR.3")
      #:materials @itemlist[]
      #:preparation @itemlist[]
      #:prerequisites (list "Practicing the Design Recipe") 
@@ -245,7 +245,7 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{@points[@point{@student{The real power of programming isn't how well you know the language. It's about how well you can use it to solve problems! You've leared about a powerful tool that helps you take word problems on paper and turn them into functions on the computer: the @vocab{Design Recipe}! It turns out that the Design Recipe can also be used to help you solve word problems in algebra, too!
-@activity[#:forevidence (list "F-IF.1-3&1" "F-IF.4-6&1&3" "A-SSE.1-2&1&1")]{
+@activity[#:forevidence (list "F-IF.1-3&1" "F-IF.4-6&1&3" "A-SSE.1-2&1&1" "BS-DR.1&1&1")]{
           Turn to @worksheet-link[#:page 36 #:name "DR"] in your workbooks, read the word problem careflly, and write down the contract for the fuction:
                   @italic{"A rocket is flying from Earth to Mars at 80 miles per second. Write a function that describes the distance @math{D} the rocket has traveled, as a function of time @math{t}}."
                   }}
@@ -254,13 +254,13 @@
                  @point{@student{The distance a rocket travels is measured in numbers of miles, and time is measured in numbers of seconds. This gives us the contract: 
                                  @bannerline{@math{distance : Number \rightarrow Number}}
                                  Just as before, the Contract gives us a strong hint about how to write the Examples. Here is one Example, written in Racket code:  @code{(EXAMPLE (distance 5) (* 5 80))}  Here's the same example, written in algebra: @math{distance(5) = 5 \times 80}
-                                 @activity[#:forevidence (list "F-IF.1-3&1" "F-IF.1-3&4" "F-IF.1-3&5" "F-IF.4-6&1&3" "A-SSE.1-2&1&1")]{
+                                 @activity[#:forevidence (list "F-IF.1-3&1" "F-IF.1-3&4" "F-IF.1-3&5" "F-IF.4-6&1&3" "A-SSE.1-2&1&1" "BS-DR.2&1&1")]{
                                      Write two additional Examples for this function, using Algebraic notation.}
                                  }
                          @teacher{Point out that the Contract hasn't changed @italic{at all} between Racket and Algebra. @management{If students are struggling with the change in syntax, let them first write the Examples in Racket, and then convert them to Algebra by following the model shown here.}}
                          }
                  @point{@student{As before, a function's variables can be identified by writing two Examples, and looking at what changes between them.
-                                 @activity[#:forevidence (list "A-SSE.1-2&1&1" "A-SSE.1-2&1&2" "7.EE.4.a&1&1")]{
+                                 @activity[#:forevidence (list "A-SSE.1-2&1&1" "A-SSE.1-2&1&2" "7.EE.4.a&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1")]{
                                            Using the Examples you've written, identify the variable(s) for the function. Then define the function @italic{using Algebraic syntax}.}}
                          @teacher{}
                          }
@@ -269,14 +269,14 @@
                                               @math{distance(7) = 7 \times 80}
                                               @math{distance(t) = t \times 80}}}
                          @teacher{}}
-                 @point{@student{@activity[#:forevidence (list "F-IF.1-3&1" "F-IF.4-6&1&3" "A-SSE.1-2&1&1")]{
+                 @point{@student{@activity[#:forevidence (list "F-IF.1-3&1" "F-IF.4-6&1&3" "A-SSE.1-2&1&1" "BS-DR.1&1&1")]{
                                            Turn to @worksheet-link[#:page 37 #:name "DR2"] in your workbooks, read the word problem, and write down the Contract for the function described there: @italic{"A rocket is traveling from Earth to Mars at 80 miles per second. Write a function that describes the time the rocket has been traveling, as a function of distance."}
                                                    }}
                          @teacher{Point out that this is the same relationship between distance and time as before, @bold{only now we want be able to see the relationship from the opposite direction}: time in terms of distance, rather than distance in terms of time.}
                          }
             @point{@student{Once we have the Contract, it's easy to write Examples:
                             @math{time : miles \rightarrow seconds}
-                            @activity[#:forevidence (list "F-IF.1-3&1" "F-IF.1-3&4" "F-IF.1-3&5" "F-IF.4-6&1&3" "A-SSE.1-2&1&1")]{
+                            @activity[#:forevidence (list "F-IF.1-3&1" "F-IF.1-3&4" "F-IF.1-3&5" "F-IF.4-6&1&3" "A-SSE.1-2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1")]{
                                       Use the Contract to write two Examples for this function, then identify the variable(s) for the function. 
                                       @itemlist[@item{How many variables does this function have?}
                                                  @item{Name the variable(s).}
@@ -295,7 +295,7 @@
                                    @teacher{Ultimately, the problem is asking students about a functional relationship between distance and collision-time.}
                                    }
                             @point{@student{If we had a function that computed collision-time, it would be easy to answer this question just by plugging in the distance between the Earth and Mars. Rather than start worrying about setting up an equation, you can use the Design Recipe to build the function itself!
-                                            @activity[#:forevidence (list "F-IF.1-3&1" "F-IF.4-6&1&3" "A-SSE.1-2&1&1")]{
+                                            @activity[#:forevidence (list "F-IF.1-3&1" "F-IF.4-6&1&3" "A-SSE.1-2&1&1" "BS-DR.2&1&1")]{
                                                    Write down the contract for this function, then write two Examples using different distances.}}
                                     @teacher{}
                                     }

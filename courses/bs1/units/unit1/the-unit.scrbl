@@ -88,7 +88,7 @@
      #:learning-objectives @itemlist[@item{Understand the use of number lines in defining locations via coordinates}]
      #:evidence-statements @itemlist[@item{Students apply the number line as a tool for objectively defining location, first identifying how to apply it to describe the position of a character onscreen in one dimension. This understanding is extended to two dimensions, ultimately motivating the use of a coordinate grid.}]
      #:product-outcomes @itemlist[@item{Students identify the coordinates of characters in a picture}]
-     #:standards (list "MP.1" "MP.7")
+     #:standards (list )
      #:materials @itemlist[@item{Cutouts of  @resource-link[#:path "images/ninjacat.png" #:label "NinjaCat"],  @resource-link[#:path "images/dog.png" #:label "Dog"] and the  @resource-link[#:path "images/ruby.png" #:label "Ruby"]}
                             @item{Student Workbooks, and something to write with}]
      #:preparation @itemlist[@item{Student Workbooks, and something to write with}]
@@ -180,7 +180,7 @@
                                      @item{Students will be able to translate the structure of an arithmetic expression into a Circle of Evaluation}
 ]
      #:product-outcomes @itemlist[@item{Students convert several arithmetic expressions between multiple representations}]
-     #:standards (list "A-SSE.1-2" "N-Q"  "MP.1" "MP.4" "MP.6" "MP.7" "BS-CE")
+     #:standards (list "A-SSE.1-2" "N-Q" "BS-CE")
      #:exercises (list (make-exercise-locator "Order-of-Operations" "complete-coe-from-arith")
                        (make-exercise-locator "Order-of-Operations" "arith-to-coe1")
                        (make-exercise-locator "Order-of-Operations" "coe-to-arith1")
@@ -291,7 +291,7 @@
                                      @item{Given a Circle of Evaluation, students will be able to complete a partially-written program}
                                      @item{Given a bank of Circles of Evaluation and programs, students will be able to match them}]
      #:product-outcomes @itemlist[]
-     #:standards (list "A-SSE.1-2" "N-Q"  "MP.1" "MP.4" "MP.6" "MP.7" "BS-CE" "BS-PL" "BS-IDE")
+     #:standards (list "A-SSE.1-2" "N-Q" "BS-CE" "BS-PL.1" "BS-IDE")
      #:materials @itemlist[@item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}]
      #:preparation @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket}
                               @item{Student Workbooks, and something to write with}
@@ -360,7 +360,7 @@
                 @point{@student{The Circles of Evaluation are also easy to convert into computer programs. To translate a Circle of Evaluation into a program, begin with an open parenthesis @code{(}, and then the function written at the top of the circle. Then translate the inputs from left to right in the same way, adding a closing parenthesis @code{)} when you're done. This process gives us the second rule for @vocab{expressions}:  
                                 @bannerline{Code Rule 2: Each open parenthesis is followed by one function, then by one or more legal expressions, and finally by a closing parenthesis.}
                                  @bitmap{images/FixedCircle.png}Here is the code for this Circle of Evaluation: @code{(- 4 5)}
-                                 @activity[#:forevidence "BS-PL&1&2"]{Enter @code{(- 4 5)} into the Interactions window and hit Return.  You should see @math{-1} as an answer.
+                                 @activity[#:forevidence "BS-PL.1&1&2"]{Enter @code{(- 4 5)} into the Interactions window and hit Return.  You should see @math{-1} as an answer.
                                  @embedded-wescheme[#:id "Circle1"     
                                   #:height 100
                                   #:width "100%"
@@ -373,7 +373,7 @@
                         @teacher{Have students practice converting simple Circles of Evaluation into code.  If you want to help students understand when to use the parentheses, here are two explanations that we find useful.  First, the parens look like the Circle, and the Circle encloses the function name and its inputs.  Second, we use a more visual description of an ant eating its way through the expression.  The ant eats into the Circle (an open paren), then goes to the function at the top, then to the arguments from left to right, then finally out of the Circle (a close paren).  If the ant encounters another Circle while writing down the arguments, it needs another open paren, etc.}
                         }   
                 @point{@student{@bitmap{images/NestedCircle.png}When a Circle of Evaluation has other circles inside of it, the translation still follows the same rules: each Circle requires a new set of parentheses: @code{(* 6 (+ 4 5))}
-                                 @activity[#:forevidence "BS-PL&1&2"]{@itemlist[@item{Try entering this code into the Interactions window. What should the program evaluate to when you hit Return?}
+                                 @activity[#:forevidence "BS-PL.1&1&2"]{@itemlist[@item{Try entering this code into the Interactions window. What should the program evaluate to when you hit Return?}
                                                      @item{Practice converting other Circles of Evaluation you've drawn into code.}]}}
                         @teacher{@management{Scaffolding for Pair Programming: Talk to students about the roles of @italic{Driver} and @italic{Navigator}. The Driver is the student with their hands on the keyboard - they're in charge of typing, using the mouse, etc. The Navigator should be telling the Driver what to type, and pointing out mistakes or suggesting things. It's important to clarify what these roles are (perhaps reinforcing them with a visual), to ensure that both partners are active and talking to one another about the task at hand.}}
                         }

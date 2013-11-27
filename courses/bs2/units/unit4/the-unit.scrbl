@@ -1,13 +1,15 @@
 #lang curr/lib
 
 @title{Unit 4: Welcome to the World}
-
 @declare-tags[management]
 
-@overview{
+@unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sq sqrt expt})
+                                       (list "String" @code{string-append string-length})
+                                       (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image})
+                                       (list "Auto" @code{make-auto auto-model auto-hp auto-rims auto-color auto-value})
+                                       (list "Party" @code{make-party party-theme party-location party-guests}))]{
 @unit-descr{Students return to the Ninja World game, and codewalk through the 'update-world' and 'draw-world' functions. Making minimal changes to these functions, they are able to modify the dog's speed, add static clouds, etc. They then modify the world to include the ruby's x-coordinate, and systematically update each function in the source code to accommodate this new world. Additional iterations are possible if time allows, by adding more sets of coordinates to the World.
 Students brainstorm their videogames, and derive the structure for their game world.}
-
 }
 @unit-lessons{
 @lesson/studteach[#:title "Review"

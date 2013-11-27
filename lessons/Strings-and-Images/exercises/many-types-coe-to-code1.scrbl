@@ -15,7 +15,7 @@
 
 @(exercise-handout 
   #:title "Converting Circles of Evaluation to Code"
-  #:forevidence "BS-PL&1&1"
+  #:forevidence "BS-PL.2&1&1"
   #:instr "For each Circle of Evaluation on the left, write down the code on the right:"
   @(open-response-exercise (map sexp exprs) "code")
   @(exercise-answers

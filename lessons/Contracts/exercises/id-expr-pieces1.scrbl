@@ -36,7 +36,7 @@
 @(exercise-handout 
   #:title "Identifying Parts of Expressions"
   #:instr "Answer each of the following questions in the space provided:"
-  @;#:forevidence (list "BS-PL&1&2")
+  @;#:forevidence (list "BS-PL.2&1&1" "BS-PL.2&1&3")
   @(open-response-exercise ques "text")
   @(exercise-answers (questions-and-answers ques ans))
   )
