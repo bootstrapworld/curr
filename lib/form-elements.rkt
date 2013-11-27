@@ -1357,7 +1357,12 @@
    (lambda (get set)
      (lambda (get set)
        (let* ([stdtaglist (get 'standard-names '())]
-              [LOtree (apply append (map get-learnobj-tree stdtaglist))])
+              [LOtree (apply append (map get-learnobj-tree stdtaglist))]
+              [tag-formatted-LOtree
+               (map (lambda (lo) (list (elem (bold (third lo)) ": " (first lo))
+                                       (second lo)))
+                    LOtree)]
+              )
          (nested #:style (bootstrap-div-style "LearningObjectives")
                  (interleave-parbreaks/all
                   (list
@@ -1369,7 +1374,8 @@
                          (hyperlink "../../../../Standards.shtml" "Standards Document") 
                          " shows which units cover each standard. "
                          )
-                   (list->itemization LOtree (list "LearningObjectivesList" "EvidenceStatementsList"))))))))))
+                   (list->itemization tag-formatted-LOtree 
+                                      (list "LearningObjectivesList" "EvidenceStatementsList"))))))))))
 
 ;; used to pull summary data generated over an entire unit or lesson from the
 ;; traverse table

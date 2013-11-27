@@ -73,6 +73,14 @@
 (define (make-div-style name)
   (make-style name (list (make-alt-tag "div"))))
 
+;; used to distinguish simple values from lists or structs
+;; not same as mzscheme atom? which just checks non-pairness
+;; cheating a bit here -- using this in place where we really
+;; want to check whether we have scribble content (of some form),
+;; but thing string? is a sufficient approximation
+(define (atomic? v)
+  (or (string? v) (number? v) (symbol? v)))
+
 ;; converts a racket nested list (of strings) into a scribble
 ;; itemization.  Classnames is a list of strings,
 ;; one for each nesting level in the input list.
@@ -84,10 +92,10 @@
     (apply itemlist/splicing #:style (make-div-style stylename)
            (map (lambda (elt)
                   (if (not (list? elt)) 
-                      (elem elt)
+                      (if (atomic? elt) (elem elt) elt)
                       (nested #:style (make-div-style (format "~aItemContents" (or stylename "")))
                               (list "\n" "\n" 
-                                    (elem (first elt))
+                                    (if (atomic? (first elt)) (elem (first elt)) (first elt))
                                     "\n" "\n"
                                     (list->itemization (second elt) remclassnames)))))
                 eltlist))))
