@@ -502,9 +502,11 @@
                                 )])
     ;; we do not use the built-in Racket code formatting in order
     ;; to let codemirror can handle it instead
+    ;; the nbsp is there to hack around a rendering error that occurs when
+    ;; an activity is immediately followed by code
     (cond-element 
      [html (if multi-line 
-               (sxml->element `(textarea ,(string-append "\n" allcode "\n")))
+               (elem (list (sxml->element 'nbsp) (sxml->element `(textarea ,(string-append "\n" allcode "\n")))))
                (sxml->element `(tt ,allcode)))]               
      [else allcode])))
 
