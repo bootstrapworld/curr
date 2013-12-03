@@ -149,8 +149,8 @@ Can you write the Contracts for @code{*}, @code{-}, @code{/} and @code{sqrt}?}}
                 @bannerline{Step 1: Write the Contract}
                 @activity{@itemlist[
             @item{What is the @vocab{Name} of this function?  How do you know?}
-            @item{How many inputs does it have in its @vocab{Domain?}}
-            @item{What kind of data is the @vocab{Domain?}}
+            @item{How many inputs does it have in its @vocab{Domain}?}
+            @item{What kind of data is the @vocab{Domain}?}
             @item{What is the Name given to this input?}
             @item{What's the @vocab{Range} of this function?}
             ]}
