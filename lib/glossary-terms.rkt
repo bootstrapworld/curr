@@ -3,13 +3,15 @@
 (provide glossary-terms-dictionary)
 
 (define glossary-terms-dictionary
-  '(("apply" "use a given function on some inputs")
+  '(("accessor functions" "functions to extract values from a data structure")
+    ("apply" "use a given function on some inputs")
     ("arguments" "the inputs to a function; expressions for arguments follow the name of a function")
     ("boolean" "a type of data with two values: true and false")
     ("circle of evaluation" "a diagram of the structure of an expression (arithmetic or code)")
     ("clause" "a question and its corresponding answer in a conditional expression")
     ("conditional" "a code expression made of questions and answers")
     ("contract" "a statement of the name, domain, and range of a function")
+    ("data structure" "A group of values that can be returned as a single datatype")
     ("define" "associate a descriptive name with a value")
     ("definitions window" "the text box at the top of the Editor (DrRacket or WeScheme), where definitions for values and functions are written")
     ("design recipe" "a sequence of steps that help people document, test, and write functions")
