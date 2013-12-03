@@ -138,7 +138,7 @@ Can you write the Contracts for @code{*}, @code{-}, @code{/} and @code{sqrt}?}}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-          @points[@point{@student{You remember how to define values, and you know how to use contracts for pre-built functions. Do you remember how to define a function of your own? In Bootstrap 1, you used a tool called @vocab{The Design Recipe} to define functions from word problems. Let's review the steps of the Design Recipe: 
+          @points[@point{@student{You remember how to define values, and you know how to use contracts for pre-built functions. Do you remember how to define a function of your own? In Bootstrap 1, you used a tool called the @vocab{Design Recipe} to define functions from word problems. Let's review the steps of the Design Recipe: 
                                   @activity{Turn to @worksheet-link[#:page 4 #:name "Fast-Functions"] in your workbook.} Here we have a function definition: @code[#:multi-line #t]{;double : Number -> Number
 ;takes a number and multiplies it by two
 
