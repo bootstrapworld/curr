@@ -85,7 +85,10 @@ The expression 10 - 6 can be drawn as a Circle of Evaluation like so:
                     @item{How do you end, or close a Racket expression?}]}
 The above Circle of Evaluation converts to this Racket expression: @code{(- 10 6)} Why would it be incorrect to write @code{(- 6 10)}?
 @activity{Turn to @worksheet-link[#:page 3 #:name "circles-competition"] in your workbooks. Each row has a math expression. You'll have to convert that math expression into Circles of Evaluation, and then convert the Circle into Racket code.}}
-                   @teacher{Review circles of evaluation and nested circles with numbers, as well as how to convert them to Racket code. Remind students that inputs are read from left to right, and order does matter!}
+                   @teacher{Review circles of evaluation and nested circles with numbers, as well as how to convert them to Racket code.
+                           Remind students that inputs are read from left to right, and that order matters. Be sure to challenge students with 
+                           Circles that are nested at least two levels deep - many students who are able to do simple nesting still struggle 
+                           when dealing with more complex expressions.}
                    }
            ]}
        
@@ -116,7 +119,7 @@ A contract is like a note we write to ourselves about how to use the function. J
 @activity{The Contract for @code{+} is shown below.
           @code[#:multi-line ""]{; +: Number Number -> Number}                
 Write down the Contracts for @code{*}, @code{-}, @code{/} and @code{sqrt}}}                             
-       @teacher{Emphasize to students that a function's contract can tell you a LOT about that function. @management{Make sure they write every contract down in their workbooks.} Review contracts for image-producing functions like @code{circle}, @code{triangle}, @code{rectangle}, @code{ellipse}, etc.}}
+       @teacher{Emphasize to students that a function's contract can tell you a LOT about that function. It may also be useful to ask them to articulate reasons why Contracts are a good thing, so they are able to say it in their own voice. @management{Make sure they write every contract down in their workbooks.} Review contracts for image-producing functions like @code{circle}, @code{triangle}, @code{rectangle}, @code{ellipse}, etc.}}
                    @point{@student{@activity{Below are some expressions using functions you used in bootstrap 1. For each one, identify which function is being used, and write its Contract in your Contracts page. If you need help, try typing the expressions into your computer. @itemlist[@item{@code{(circle 75 "solid" "red")}}
                     @item{@code{(rectangle 20 30 "outline" "green")}}
                     @item{@code{(ellipse 85 100 "solid" "pink")}}
