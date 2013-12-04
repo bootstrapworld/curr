@@ -157,7 +157,7 @@
                                                          @item{how many pets you have}
                                                          @item{a picture of a shape, with the number of sides and its color}
                                                          @item{a direction that a plane is traveling, and how fast it is going}]}}
-                            @teacher{@bold{STRUCTURES!!!!}}
+                            @teacher{@bold{STRUCTURES!!!!}}}
                     ]
            }
 
@@ -401,12 +401,16 @@ After replacing the changing things with variables, your definition should look 
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Structures are a powerful tool for representing complex data in a computer program. Simple videogames, like Pong, might only need to keep track of a few numbers at once, like the position of the ball, position of each paddle, and the score. But if a game has many different enemies, each with their own position and health, or multiple levels with their own background image, the game can get very coplicated very fast, and structs are a great way to manage and make sense of all the data. Programmers can do a LOT with data structures, and in the upcoming lessons you will create your own structs to make a customized videogame.}
+        @points[@point{@student{Structures are a powerful tool for representing complex data in a computer program. Simple videogames, like Pong, might only need to
+                                keep track of a few numbers at once, like the position of the ball, position of each paddle, and the score. But if a game has many 
+                                different enemies, each with their own position and health, or multiple levels with their own background image, the game can get 
+                                very complicated very fast, and structs are a great way to manage and make sense of all the data. Programmers can do a LOT with data
+                                structures, and in the upcoming lessons you will create your own structs to make a customized videogame.}
            @teacher{@management{@itemlist[@item{Have students volunteer what they learned in this lesson}
                                           @item{Reward behaviors that you value: teamwork, note-taking, engagement, etc}
                                           @item{Pass out exit slips, dismiss, clean up.}]}}
   
-}
+           }
  ]}
        }
        
