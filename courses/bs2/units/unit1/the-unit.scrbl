@@ -124,7 +124,7 @@ Write down the Contracts for @code{*}, @code{-}, @code{/} and @code{sqrt}}}
                     @item{@code{(rectangle 20 30 "outline" "green")}}
                     @item{@code{(ellipse 85 100 "solid" "pink")}}
                     @item{@code{(text "Hello world!" 50 "blue")}}]}}
-                           @teacher{For even more practice, have students write contracts for various word problems. this is a great time to remind them about connections to algebra:}}
+                           @teacher{For even more practice, have students write contracts for various word problems. this is a great time to remind them about connections to algebra, and applying skills learned in Bootstrap to their math classes.}}
                    ]
            }
           
@@ -153,22 +153,24 @@ Write down the Contracts for @code{*}, @code{-}, @code{/} and @code{sqrt}}}
                                                                                              (EXAMPLE (double 7) (* 2 7))
 
                                                                                              (define (double n)  (* 2 n))}
-                                  @bannerline{Step 1: Write the Contract}
+                                  @bannerline{Step 1: Write the Contract and Purpose Statement}
                                   @activity{@itemlist[@item{What is the @vocab{Name} of this function?  How do you know?}
                                                        @item{How many inputs does it have in its @vocab{Domain}?}
                                                        @item{What kind of data is the @vocab{Domain}?}
                                                        @item{What is the Name given to this input?}
                                                        @item{What's the @vocab{Range} of this function?}
+                                                       @item{In your own words, what does this function do?}
                                                        ]}
                                   The @vocab{Contract} is a way of thinking about the function in a general way, without having to worry about exactly how it will work or how it will be used. Starting with simple questions like these will make later steps @bold{much} easier to think about.}
-                          @teacher{}}
+                          @teacher{@management{Review the importance of definitions for students (defining values helps cut down on redundancy and makes future changes easier, defining functions allows for simplicity and testability. Be sure to use vocabulary regularly and carefully, pushing students to use the proper terms throughout.)}
+                                   The Design Recipe is a useful tool for having students think about word problems and break them down into smaller parts (Contract, purpose statement, EXAMPLEs, and code). Instead of jumping into writing a function, students should first note what datatypes the fuction will take in and produce, and practice using their own words to describe what the function does. After this step, the Contract and Purpose Statement can be relied on to write EXAMPLEs for the function.}}
                    
                   @point{@student{@bannerline{Step 2: Give Examples}
                                   What happens to the function's input? 
                                   @activity{Look at the two EXAMPLEs, written above. @itemlist[@item{What will happen if you type @code{(double 5)} into the interactions window? What about @code{(double 7)}?}
                  @item{What would happen if you changed the name of the input @code{n} to something else, like @code{x}? What else would have to change?}]}
 Once we know a function's contract, it becomes easy to write examples: we start by using the function with some input(s) (@code{(double 5)}), then writing in racket code what we expect the computer to do with those inputs. (In this case, @code{double} will multiply the example input by 2.)}
-                           @teacher{}}
+                           @teacher{Writing EXAMPLEs is akin to "showing your work" in math class: As a teacher, you want to see @italic{how} a student arrived at their answer, not just that they have an answer. It is also much easier to debug a function uding the design recipe, because you can check each section individually for errors. Writing EXAMPLEs for code is also called "unit testing", something professional programmers do all the time.}}
                            
                     @point{@student{@activity{In your workbook, write the contract and two EXAMPLEs for a function called @code{triple}, which takes in a number as its input and multiplies it by 3.}}
                           @teacher{}}                                         
@@ -176,7 +178,8 @@ Once we know a function's contract, it becomes easy to write examples: we start 
                The only thing that changes is the Number being given to @code{triple} and multiplied by 3. Remember from Bootstrap 1 that once you've circled and labeled what changes in each example, it becomes incredibly easy to define the function! All you need to do is replace the thing that changes with its label! 
                @bannerline{Step 3: Define the function}
                @activity{Now write the function header and body for @code{triple}. Don't forget to replace the changing thing with a variable!}}
-            @teacher{This activity can be done as a team competition: teams have one minute to write the contract and two examples for @code{triple}, and another minute for the function header and body. Assign points to the teams that complete each function! Make sure students fill out the ENTIRE contract, with two examples, before they circle what changes and move on to the function body. Build these good habits early in the course!}}                                         
+            @teacher{Just as writing a Contract helps us write Examples, writing the function definition is much easier with Examples: circling what changes between the examples makes it obvious that the @italic{changeable} thing is where we need to use a @italic{variable} in our function. You will want to explicitly connect each step in the Design Recipe to every other step. Ask students to justify each part of their Contract by referring back to the Word Problem, to justify each step of their Examples by referring back to the Word Problem and Contract, and finally to justify each step of the definition by referring to the Word Problem, Contract and Examples.) The same variable name can be used in multiple functions, just as in math (where many functions use x as the variable name, for example)
+                     @management{This activity can be done as a team competition: teams have one minute to write the contract and two examples for @code{triple}, and another minute for the function header and body. Assign points to the teams that complete each function.} Make sure students fill out the ENTIRE contract, with two examples, before they circle what changes and move on to the function body. Build these good habits early in the course!}}                                         
           @point{@student{Try using the Design Recipe to solve the following word problems:
                           @activity{@itemlist/splicing[
                                @item{Write a function @code{plus1}, that takes in a number and adds one to it}
