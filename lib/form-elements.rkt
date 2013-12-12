@@ -625,7 +625,10 @@
                     `(div (@ (id "lessonToolbar"))
                           (input (@ (type "button") 
                                     (value "Show Teacher Notes") 
-                                    (onclick "toggleTeacherNotes(this);")) "")))]
+                                    (onclick "toggleTeacherNotes(this);")) "")
+                          (input (@ (type "button")
+                                    (value "Discussion Group")
+                                    (onclick "showGroup()")))))]
        [else (elem)])
       (elem)))
 

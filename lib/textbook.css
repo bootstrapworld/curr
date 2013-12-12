@@ -23,7 +23,7 @@ div.lessonToolbar{
   text-align:   center;
 }
 
-div.lessonToolbar * {margin: 10px;}
+div.lessonToolbar * {margin: 10px; display: inline-block;}
 
 div.fixed{
   position:     fixed;
@@ -125,13 +125,9 @@ ul.BootstrapAgendaList .BSLessonName{float: left;}
   list-style-image: url('box.gif');
 }
 
-/* Standards and Evidence Statements (make sub-lists transition in and out of view) */
+/* Standards and Evidence Statements (make sub-lists fade in and out of view) */
 ul.EvidenceStatementsList{
     opacity: 0; height: 0px; overflow: hidden;
-    transition: opacity 1s ease-out;
-    -webkit-transition: opacity 1s ease-out;
-    -moz-transition: opacity 1s ease-out;
-    -o-transition: opacity 1s ease-out;
 }
 li.LearningObjectivesListItem:hover ul.EvidenceStatementsList,
 ul.EvidenceStatementsList:hover{opacity: 1; height: auto;}
@@ -283,18 +279,10 @@ ul.teacherNotes li div.teacher{
   height: auto;
   padding-bottom: 32767px;
   margin-bottom: -32767px;
-  transition: width 0.5s ease-in-out;
-  -webkit-transition: width 0.5s ease-in-out;
-  -moz-transition: width 0.5s ease-in-out;
-  -o-transition: width 0.5s ease-in-out;
 }
 div.student{
   width: 780px; 
   display: inline-block; 
-  transition: width 0.5s ease-in-out;
-  -webkit-transition: width 0.5s ease-in-out;
-  -moz-transition: width 0.5s ease-in-out;
-  -o-transition: width 0.5s ease-in-out;
 }
 ul.teacherNotes li div.student{width: 500px;}
 ul.teacherNotes .embedded-wescheme{width: 500px;}
@@ -306,8 +294,9 @@ li.lessonItem li{
   list-style-position: inside;
 }
 
+
 /* embedded WeSchemes should be full-width, and transform during animation */
-.embedded-wescheme{width: 780px; -webkit-transition: width 0.5s ease-in-out; margin-bottom: 40px;}
+.embedded-wescheme{width: 780px; margin-bottom: 40px;}
 .embedded-wescheme .editbox{display: none;}
 .embedded-wescheme .refreshButton {background: black; color: white; font-size: 16px; border: outset;}
 
@@ -359,6 +348,7 @@ tt{font: Courier;}
 
 td.vertical {
 	writing-mode:tb-rl;
+	transform:rotate(90deg);
 	-webkit-transform:rotate(90deg);
 	-moz-transform:rotate(90deg);
 	-o-transform: rotate(90deg);
@@ -376,6 +366,41 @@ div#copyright{
   padding: 20px;
   margin-top: 20px;
 }
+
+/************************************************************************************
+ * ANIMATIONS
+ * consolidate all vendor prefixes into one place
+*/
+
+ul.EvidenceStatementsList, ul.teacherNotes li div.teacher, div.student, .embedded-wescheme, iframe#forum_embed{
+  transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+}
+
+/************************************************************************************
+ * EMBEDDED GOOGLE GROUP
+*/
+
+iframe#forum_embed{
+  width:    80%;
+  height:   80%;
+  z-index:  -1;
+  position: fixed;
+  margin:   20px;
+  visibility:hidden;
+  opacity:  0;
+  background: white;
+  box-shadow: 5px 5px 7px #000;
+  -moz-box-shadow: 5px 5px 7px #000;
+  -webkit-box-shadow: 5px 5px 7px #000;
+}
+
+iframe#forum_embed.shown{
+  opacity: 1; visibility: visible;  z-index:  100;
+}
+
 
 /************************************************************************************
  * CONVERTABLE S-EXPRESSIONS
@@ -532,6 +557,8 @@ div.codesexp       .studentAnswer+.studentAnswer { margin-left: 10px;}
     background:     #eee;
     box-shadow:     inset 0px 0px 0px black;
   }
+  iframe#forum_embed{display: none;}
   .segment ul.teacherNotes li+li .teacher{box-shadow: none;}
   input, div.callout, .embedded-wescheme{display: none;}
+  ul.EvidenceStatementsList{display: block; height: auto; opacity: 1;}
 }
