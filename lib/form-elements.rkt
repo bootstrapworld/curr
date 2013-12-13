@@ -1805,6 +1805,11 @@
            (list body)) 
    ))
 
+(define (insert-help-button)
+  (elem #:style (make-style #f (list (make-alt-tag "iframe") 
+                                     (make-attributes (list (cons 'id "forum_embed"))))) 
+        ""))
+                                     
 ;; DEPRECATED!!!!
 (declare-tags pedagogy)
 
@@ -1826,6 +1831,7 @@
   (nested #:style "OverviewBoundary"
           (interleave-parbreaks/all
            (list
+            (insert-help-button)
             (elem #:style (bootstrap-style "BootstrapOverviewTitle") "Unit Overview")
             (nested #:style (bootstrap-sectioning-style "BootstrapOverview") 
                     (interleave-parbreaks/all
