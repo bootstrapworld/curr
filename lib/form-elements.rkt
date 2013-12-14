@@ -626,6 +626,7 @@
                           (input (@ (type "button") 
                                     (value "Show Teacher Notes") 
                                     (onclick "toggleTeacherNotes(this);")) "")
+                          (br)
                           (input (@ (type "button")
                                     (value "Discussion Group")
                                     (onclick "showGroup()")))))]
