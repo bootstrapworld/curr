@@ -35,7 +35,7 @@
                                                     @item{How do you get the model out of an auto? The value? The color?}]}
      Last time all of these were used to make an autobody shop, where you had functions that would increase the auto's @code{hp}, or paint it a new @code{color}. This next problem 
      will be even harder, so remember to refer back to the last two functions you wrote in your workbook, in case you need some hints.}
-                        @teacher{}}
+                        @teacher{Take a few minutes to review structs and autos with your students.}}
             @point{@student{You may have heard of the show "Pimp My Ride", where the hosts get an old, beat-up car and make it WAY cooler. Let's implement something like this in Racket...
             @activity{Turn to @worksheet-link[#:page 12 #:name "pimp"] in your workbooks. Write a function called @code{pimp}, which takes in an Auto and returns a new Auto which has an 
                               extra 100 horsepower, has 30 inch rims, is painted red, and has increased in value by $10,000.
@@ -88,7 +88,7 @@ Putting it all together, the first example should look like:
 In the last unit we skipped over the part of the code that defines the auto struct, or tells the computer what an auto is and what goes into it. Just like we would expect from having
 worked with autos, the @code{define-struct} line says that an auto has five things....a model, hp, rim, color, and value. But how do we know which number is which? Remember that order
 matters! Look at the order of the fields in the @code{define-struct} line. The first string is the model, the first number is the horsepower, the second number is the rim size, and so on.}
-                        @teacher{}}
+                        @teacher{Stress the importance of being able to define your own datatypes to students: no longer are they bound by the single values of numbers, strings, or booleans! Racket allows you to define brand new structures, containing any combination of values. But these structures won't be usable without the @code{(define-struct ...)} line!}}
                  
             @point{@student{A struct is defined using the @code{define-struct} function, which tells the computer what things make up that struct, and what order and type each 
                                                           thing is. In return, we get new functions to use. Until we write this @code{define-struct} line, we don't have 
@@ -171,7 +171,7 @@ matters! Look at the order of the fields in the @code{define-struct} line. The f
 @code[#:multi-line #t]{(EXAMPLE (RSVP Halloween) (make-party (party-location Halloween)
                                                              (party-theme Halloween)
                                                           (+ (party-guests Halloween) 1)))}}
-                         @teacher{}}
+                         @teacher{Every structure will have its own unique accessor functions for each field. Have students practice accessing each part of the Party Struct and altering them (or not!) based on the word problem.}}
                  @point{@student{@activity{On @worksheet-link[#:page 15 #:name "relocate"], write a function called @code{relocate}, which takes in a party AND the location that
                                               it's moving to, and makes a new party at that location. Go through each part of the design recipe: contract, examples, and definition.}}
                          @teacher{}}
