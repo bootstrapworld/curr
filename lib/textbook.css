@@ -17,15 +17,15 @@ div.content{
  * Sits on the bottom of the page at all times
  * Displays buttons for teachers
 */
-div.lessonToolbar{
+div#lessonToolbar{
   display:      block;
   z-index:      999;
   text-align:   center;
 }
 
-div.lessonToolbar * {margin: 10px; display: inline-block;}
+div#lessonToolbar * {margin: 10px; display: inline-block;}
 
-div.fixed{
+div#lessonToolbar.fixed{
   position:     fixed;
   left:         806px;
   top:          0px;
