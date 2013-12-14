@@ -71,7 +71,7 @@
                          @teacher{The main idea for students in this activity is to realize that the Contract and Purpose Statement can be relied upon to write examples. Ask students to justify  every part of each example, using only the Contract and Purpose Statement.  Students are often tripped up by the switch from one-line examples to two-line ones. Be @italic{very} careful to point this out to students, and to check their workbooks to see where they are writing their examples. At the end of the activity, make sure that students circle ONLY what has changed.}
                  }
                  @point{@student{By comparing two different examples, it is easy to tell what changes. According to the Purpose Statement, it is the number of seconds that the rocket has been flying.
-                                 @activity[#:forevidence (list "BS-DR.2&1&3" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2" "7.EE.4.a&1&1")]{On your paper, label the items you circled with "seconds".}}
+                                 @activity[#:forevidence (list "BS-DR.2&1&3" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2" "7.EE.3-4&1&4")]{On your paper, label the items you circled with "seconds".}}
                          @teacher{Have a discussion with students about why "seconds" is a better name than "time". Talk about specificity, relevance, and readability.}}
                  @point{@student{Labeling what is @italic{changeable} gives programmers a sense for the names of a function's @vocab{variables}.  Variables are like placeholders for values that can be different at different times.  A function that computed how much you pay for text messages each month, for example, might have a variable for the number of messages that you sent in that month.  The number of messages you sent might change from month to month, but each one could still cost 20 cents.  
                                                   @activity[#:forevidence (list "BS-DR.3&1&1" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2")]{How many variables does @code{rocket-height} have? What is the name of each variable? Define the function, using all the information from your Examples, Contract and Purpose Statement.}
@@ -165,7 +165,7 @@
                                           Now that you've completed the Contracts for all four word problems, try to generate two Examples for each one.}}
                          @teacher{Challenge students to defend their Examples (their function name, the number of inputs, their types and the type of the returned value). Make sure that the two Examples for each function have @italic{different input values}! For each of these questions, students must be able to point to the specific part of their Contract as the justification for their Example.}}
                  @point{@student{Once you have two or more Examples, it should be easy to identify what has changed between them. In fact, the number of things that change should match the number of things in the function's Domain: if the Domain has a Number and a String in it, then those two values should be the things that differ between your Examples.
-                                 @activity[#:forevidence (list "BS-DR.1&1&3" "BS-DR&1&5" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2" "7.EE.4.a&1&1")]{
+                                 @activity[#:forevidence (list "BS-DR.1&1&3" "BS-DR&1&5" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2" "7.EE.3-4&1&4")]{
                                        Identify what has changed between these Examples, and use this information to define all four functions.}}
                          @teacher{Make sure students have chosen good variable names for their function definitions, and ask students to justify every part of the function body. The only acceptable answers should be "I copied this because it's the same in both Examples", or "I used a variable name because it differs between Examples."}}
                 @point{@student{@activity[#:forevidence (list "BS-DR.3&1&1" "F-IF.1-3&1" "F-IF.4-6&1&3" "A-SSE.1-2&1&1")]{
@@ -186,7 +186,7 @@
                         @teacher{Make sure students realize that every answer can be found in the Contract or Purpose Statement. Suggestion: write these steps on the board, and draw arrows between them to highlight the process. The goal here is to get students into the habit of asking themselves these questions each time they write Examples, and then using their own work from the previous step to find the answers. NOTE: students can solve this using either @code{square} or @code{rectangle}. The latter requires them to use the same variable twice, which is a useful thought-exercise.}
                         }
                  @point{@student{Once the two Examples are written and the variable (or variables) are labeled, it becomes easy to define the function. 
-                                 @activity[#:forevidence (list "BS-DR.3&1&1" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2" "7.EE.4.a&1&1")]{
+                                 @activity[#:forevidence (list "BS-DR.3&1&1" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2" "7.EE.3-4&1&4")]{
                                            Using the Contract, Purpose Statement and Examples, see if you can answer the following questions:
                                            @itemlist[@item{Every function definition begins with the name. Where did you write this already?}
                                                       @item{Every definition has to include variable names for the inputs. Where did you write these down?}
@@ -214,7 +214,7 @@
                         @teacher{}
                         }
                  @point{@student{The Design Recipe can be used for functions that take any number of inputs. As a simple example, take the following word problem:
-                                 @activity[#:forevidence (list "8.F.1&1&3" "F-IF.1-3&1&4" "BS-DR.3&1&1" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2" "7.EE.4.a&1&1")]{
+                                 @activity[#:forevidence (list "8.F.1&1&3" "F-IF.1-3&1&4" "BS-DR.3&1&1" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2" "7.EE.3-4&1&4")]{
                                            Turn to @worksheet-link[#:page 13 #:name "Design-Recipe-Yard-Area"] in the workbook, and read the word problem carefully.
                                                    @itemlist[@item{Circle the @vocab{Name} of the function, and underline what it takes in and what it produces.}
                                                               @item{How many things does this function take as input? Are they Numbers? Strings? Images?}
@@ -260,7 +260,7 @@
                          @teacher{Point out that the Contract hasn't changed @italic{at all} between Racket and Algebra. @management{If students are struggling with the change in syntax, let them first write the Examples in Racket, and then convert them to Algebra by following the model shown here.}}
                          }
                  @point{@student{As before, a function's variables can be identified by writing two Examples, and looking at what changes between them.
-                                 @activity[#:forevidence (list "A-SSE.1-2&1&1" "A-SSE.1-2&1&2" "7.EE.4.a&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1")]{
+                                 @activity[#:forevidence (list "A-SSE.1-2&1&1" "A-SSE.1-2&1&2" "7.EE.3-4&1&4" "BS-DR.2&1&3" "BS-DR.3&1&1")]{
                                            Using the Examples you've written, identify the variable(s) for the function. Then define the function @italic{using Algebraic syntax}.}}
                          @teacher{}
                          }

@@ -42,7 +42,7 @@
                                        @item{Students will be able to identify the name, domain, range, and variable name for a function, when presented with a completed Design Recipe.}
                                       @item{Students will be able to explain what happens when the "Run" button is pressed.}]
      #:product-outcomes @itemlist[]
-     #:standards (list "7.EE.4.a" "BS-PL.3" "BS-IDE")
+     #:standards (list "7.EE.3-4" "BS-PL.3" "BS-IDE")
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, language table, course calendar)}
                             @item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}
@@ -55,7 +55,7 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Suppose you were making an image that had fifty identical, solid red triangles. You would have to write @code{(triangle 50 "solid" "red")} fifty times! To make matters worse, any change to those triangles would have to be repeated for all fifty expressions! Good programmers know that their effort is better spent elsewhere, so they made sure that programming languages have a way to avoid all that repetition.  They write something once, define it as a shortcut in the language, and then use the shortcut wherever they want.}
+        @points[@point{@student{Suppose we want to make an image that had fifty identical, solid red triangles. You would have to write @code{(triangle 50 "solid" "red")} fifty times! To make matters worse, any change to those triangles would have to be repeated for all fifty expressions! Good programmers know that their effort is better spent elsewhere, so they made sure that programming languages have a way to avoid all that repetition.  They write something once, define it as a shortcut in the language, and then use the shortcut wherever they want.}
                        @teacher{}}
                 @point{@student{We name values in our language using @vocab{define} statements.  The following code gives the name @code{shape1} to an expression that draws a solid red triangle..  
                                   @embedded-wescheme[#:id "definitions"     
