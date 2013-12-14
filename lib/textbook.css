@@ -388,6 +388,8 @@ iframe#forum_embed{
   height:   80%;
   z-index:  -1;
   position: fixed;
+  left:     30px;
+  top:      30px;
   margin:   20px;
   visibility:hidden;
   opacity:  0;
