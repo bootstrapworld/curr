@@ -92,7 +92,7 @@ uses a new function that @italic{compares Numbers}, returning
                                      @item{Students can use one function they have written to compute the answer for another function}
 ]
      #:product-outcomes @itemlist[]
-     #:standards (list "BS-DR.2" "BS-DR.3" "F-IF.1-3" "F-IF.4-6" "7.EE.3-4" "8.F.1")
+     #:standards (list "BS-DR.2" "BS-DR.3" "F-IF.1-3" "F-IF.4-6" "7.EE.3-4" "8.F.1-3")
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
                             @item{Class poster (List of rules, language table, course calendar)}
@@ -127,7 +127,7 @@ uses a new function that @italic{compares Numbers}, returning
                                              @item{Note: the volunteer for @code{onscreen?} should first call @code{safe-left?}, before replying with the value.}]}
                          }
                  @point{@student{Right now @code{safe-left?} is ignoring Sam's x-coordinate, and blindly returning @code{true} no matter where he is. What should the function be doing instead? 
-                                           @activity[#:forevidence (list "BS-DR.1&1&1" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1" "8.F.1&1&1" "F-IF.1-3&1&1")]{
+                                           @activity[#:forevidence (list "BS-DR.1&1&1" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1" "8.F.1-3&1&1" "F-IF.1-3&1&1")]{
                                                  Turn to @worksheet-link[#:page 18 #:name "safe-left?"] in your workbook. Use the Design Recipe to fix this function, so that @code{safe-left?} takes in Sam's x-coordinate and returns @code{true} or @code{false} depending on whether it is @italic{greater than -50}.}}
                          @teacher{Remind students that they've already written the check for this on page 19! @management{It may be helpful to have students complete this activity in parts, by giving them a short time to do the Contract and Purpose Statement, then a short time to write their first example, their second, etc. By debriefing and reviewing after each step, you are likely to uncover misunderstandings earlier in the process.}}
                          }

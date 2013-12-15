@@ -20,7 +20,7 @@
                                       @item{Given two examples for a simple function, students will be able to identify the variable}
                                       @item{Given two examples for a simple function, students will be able to write the definition}]
      #:product-outcomes @itemlist[@item{Students will use the Design Recipe to define a function, which is used to make a rocket fly.}]
-     #:standards (list "A-SSE.1-2" "F-IF.1-3" "F-IF.4-6" "BS-DR.1" "BS-DR.2" "BS-DR.3" "8.F.1")
+     #:standards (list "A-SSE.1-2" "F-IF.1-3" "F-IF.4-6" "BS-DR.1" "BS-DR.2" "BS-DR.3" "8.F.1-3")
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, language table, course calendar)}
                             @item{Language Table (see below)}
@@ -67,7 +67,7 @@
                                                        (EXAMPLE (rocket-height 72) 
                                                                 (* 72 7))}
                                 @bold{Note:} The example shown above is broken into two lines! As functions and examples become more complex, it will become difficult to squeeze them into a single line. In your workbooks, every example and definition from this point onwards will use the two-line format.
-                                @activity[#:forevidence (list "BS-DR.2&1&1" "8.F.1&1&3" "F-IF.1-3&1&4")]{In your workbook, write two new examples of @code{rocket-height} using different values for the number of seconds. Both examples will have a lot in common (they all use @code{rocket-height} as the function name, they all multiply their input by 7, etc). Once you are done writing them, circle only the parts of the examples that are @italic{changeable}.}}
+                                @activity[#:forevidence (list "BS-DR.2&1&1" "8.F.1-3&1&3" "F-IF.1-3&1&4")]{In your workbook, write two new examples of @code{rocket-height} using different values for the number of seconds. Both examples will have a lot in common (they all use @code{rocket-height} as the function name, they all multiply their input by 7, etc). Once you are done writing them, circle only the parts of the examples that are @italic{changeable}.}}
                          @teacher{The main idea for students in this activity is to realize that the Contract and Purpose Statement can be relied upon to write examples. Ask students to justify  every part of each example, using only the Contract and Purpose Statement.  Students are often tripped up by the switch from one-line examples to two-line ones. Be @italic{very} careful to point this out to students, and to check their workbooks to see where they are writing their examples. At the end of the activity, make sure that students circle ONLY what has changed.}
                  }
                  @point{@student{By comparing two different examples, it is easy to tell what changes. According to the Purpose Statement, it is the number of seconds that the rocket has been flying.
@@ -107,7 +107,7 @@
                          }
                          
                  @point{@student{By skipping these steps in the Examples, it can be easy to make mistakes when defining the function. 
-                                 @activity[#:forevidence (list "BS-DR&1&3" "8.F.1&1&3")]{Can you see the mistake the programmer made?}
+                                 @activity[#:forevidence (list "BS-DR&1&3" "8.F.1-3&1&3")]{Can you see the mistake the programmer made?}
                                  Without seeing multiple Examples, this programmer failed to realize that the height of the rocket has to be calculated for @italic{every input}. Instead, they just produce the same number every time (in this case, zero). As a result, the rocket is always at zero, no matter how many seconds have passed. 
                                  @activity{@itemlist[@item{Fix this programmer's Example to show their work.}
                                                       @item{Write a second Example, below the first one.}
@@ -161,7 +161,7 @@
                         @teacher{If students come up with different Domains or Ranges for their functions, have them explain their thinking for each one. These conversations are an important part of this step!}
                         }
                  @point{@student{A Contract is the foundation for a function, which gives programmers just enough information to use them: the name of the function, the types of data it expects and the type of data it returns.
-                                 @activity[#:forevidence (list "BS-DR.2&1&1" "8.F.1&1&3" "F-IF.1-3&1&4")]{
+                                 @activity[#:forevidence (list "BS-DR.2&1&1" "8.F.1-3&1&3" "F-IF.1-3&1&4")]{
                                           Now that you've completed the Contracts for all four word problems, try to generate two Examples for each one.}}
                          @teacher{Challenge students to defend their Examples (their function name, the number of inputs, their types and the type of the returned value). Make sure that the two Examples for each function have @italic{different input values}! For each of these questions, students must be able to point to the specific part of their Contract as the justification for their Example.}}
                  @point{@student{Once you have two or more Examples, it should be easy to identify what has changed between them. In fact, the number of things that change should match the number of things in the function's Domain: if the Domain has a Number and a String in it, then those two values should be the things that differ between your Examples.
@@ -177,7 +177,7 @@
                         @teacher{Challenge students to explain why this function does not need to know the color of the square, or whether or not it is solid. They main idea here is that the function already "knows" these things, so the only thing that is changing is the size of the square.}
                         }
                  @point{@student{Remember that the Contract and Purpose Statement can be used to write the Examples, even if a programmer isn't sure how to begin.
-                                 @activity[#:forevidence (list "BS-DR.1&1&1" "BS-DR.2&1&1" "8.F.1&1&3" "F-IF.1-3&1&4")]{
+                                 @activity[#:forevidence (list "BS-DR.1&1&1" "BS-DR.2&1&1" "8.F.1-3&1&3" "F-IF.1-3&1&4")]{
                                            Using only the Contract and Purpose Statement, see if you can answer the following questions:
                                            @itemlist[@item{Every Example begins with the name of the function. Where could you find the name of the function?}
                                                       @item{Every Example has to include sample inputs. Where could you find out how many inputs this function needs, and what types they are?}
@@ -214,7 +214,7 @@
                         @teacher{}
                         }
                  @point{@student{The Design Recipe can be used for functions that take any number of inputs. As a simple example, take the following word problem:
-                                 @activity[#:forevidence (list "8.F.1&1&3" "F-IF.1-3&1&4" "BS-DR.3&1&1" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2" "7.EE.3-4&1&4")]{
+                                 @activity[#:forevidence (list "8.F.1-3&1&3" "F-IF.1-3&1&4" "BS-DR.3&1&1" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2" "7.EE.3-4&1&4")]{
                                            Turn to @worksheet-link[#:page 13 #:name "Design-Recipe-Yard-Area"] in the workbook, and read the word problem carefully.
                                                    @itemlist[@item{Circle the @vocab{Name} of the function, and underline what it takes in and what it produces.}
                                                               @item{How many things does this function take as input? Are they Numbers? Strings? Images?}

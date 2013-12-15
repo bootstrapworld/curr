@@ -15,7 +15,7 @@
   #:title "Converting Circles of Evaluation to Arithmetic Expressions"
   #:instr "For each Circle of Evaluation on left, write the Arithmetic expression
            on the right:" 
-  #:forevidence (list "BS-CE&1&3" "6.EE.1-4")
+  #:forevidence (list "BS-CE&1&3")
   @(open-response-exercise sexps-as-coe "math")
   @(exercise-answers (questions-and-answers sexps-as-coe sexps-as-math))
   )
