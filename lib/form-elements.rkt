@@ -1365,8 +1365,14 @@
               [tag-formatted-LOtree
                (map (lambda (lo) (list (elem (bold (third lo)) ": " (first lo))
                                        (second lo)))
-                    LOtree)]
-              )
+                    ;; separately alphabetize Common Core and BS standards
+                    (let loop [(Allobjs LOtree) (BSobjs empty) (Others empty)]
+                      (cond [(empty? Allobjs) 
+                             (append (sort Others (lambda (o1 o2) (string<=? (third o1) (third o2))))
+                                     (sort BSobjs (lambda (o1 o2) (string<=? (third o1) (third o2)))))]
+                            [(string=? "BS-" (substring (third (first Allobjs)) 0 3))
+                             (loop (rest Allobjs) (cons (first Allobjs) BSobjs) Others)]
+                            [else (loop (rest Allobjs) BSobjs (cons (first Allobjs) Others))])))])
          (nested #:style (bootstrap-div-style "LearningObjectives")
                  (interleave-parbreaks/all
                   (list
