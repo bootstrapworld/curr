@@ -103,7 +103,10 @@
                                 @activity{@itemlist[@item{Fill in the world struct, and sketch the @code{NEXT} world.}
                                                      @item{Now put the images in the same order as the @code{START} world (we don't want them to 
                                                            be switching around in the middle of the game!) and write the NEW coordinates beside them.}]}}
-                        @teacher{}}
+                        @teacher{These workbook pages help students prganize their thinking before writing their own @code{draw-world} function. The order of
+                                 images determines which game images appear above the others. (Does it make more sense to have the ruby appear to be flying 
+                                 @italic{behind} the cloud, or in front of it?)}}
+                 
                         @point{@student{@activity{Which function is used to draw the world?} Just like @code{draw-auto}, and the @code{draw-world} 
                                          function in Ninja World, @code{draw-world} takes in a struct and produces an Image. 
                                          @activity{@itemlist[@item{What is the Domain of this function? The Range?}
@@ -159,8 +162,11 @@
                                 @item{On @worksheet-link[#:page 26 #:name "update-world"], make a list of what changed and how it changed
                                          as a problem statement for writing @code{update-world}, using the design recipe. Be sure to fill
                                          out the @vocab{Contract} and two EXAMPLEs before defining the function.}]}}
-                        @teacher{Work with small groups to complete this section as needed. Upon completion, have students type
-                                 update-world into their games.}}
+                        @teacher{@code{update-world} is the function that will handle the 'logic' of student' games. It determines what changes
+                                 from one second to the next, and updates the world accordingly. Make sure students are making a new world with
+                                 @code{make-world}, and using their accessor functions to change the values of each world fields according to 
+                                 their game's behavior. @management{Work with small groups to complete this section as needed. Upon completion, have students type
+                                 @code{update-world} into their games.}}}
                  ]
          }
 
