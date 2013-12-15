@@ -35,7 +35,7 @@ Students brainstorm their videogames, and derive the structure for their game wo
         @points[@point{@student{You have had a lot of practice with structs over the past few lessons, so now it's time for a challenge. 
                                 @activity{Turn to @worksheet-link[#:page 19 #:name "Intro-unit4"] in your workbook. Fill in the blanks with the 
                                                   information you know about @code{auto}, @code{party}, and @code{world} structs.}}
-                        @teacher{}}
+                        @teacher{Refresh students' memories about the Structs they have already seen, in preparation for defining their own.}}
                  ]
          }
 @lesson/studteach[#:title "Codewalking"
@@ -73,7 +73,8 @@ Students brainstorm their videogames, and derive the structure for their game wo
                                  There are also a number of of values for images defined below, which will be used in the game. What are they 
                                  images of? 
                                  @activity{Type in their names in the interactions window to find out.}}
-                        @teacher{}}
+                        @teacher{World structures will be used to define every @italic{changing} value within the game world. At the moment, the 
+                                 game contains only one changing thing, the dog's x-coordinate.}}
                  
                  @point{@student{Now that we have a world structure, we need to know how to draw it.
                                  @activity{Scroll down to where you see @code{;; GRAPHICS FUNCTIONS}. What is the name of this function? What 
@@ -107,7 +108,8 @@ Students brainstorm their videogames, and derive the structure for their game wo
 @bitmap{images/NWorld2.png}
 }                                                   
                          @teacher{Write the code with the kids, since this is their first time using @code{put-image} themselves. They'll have 
-                                  time to practice on their own later. Once they've put the image onto the background, have them click "Run" and 
+                                  time to practice on their own later. Point pot the "staircase" pattern that develops when you put images on
+                                  top of each other. Once they've put the image onto the background, have them click "Run" and 
                                   take a look at that cloud!}}
                  
                  @point{@student{Now scroll down to where it says @code{;; UPDATING FUNCTIONS}. This code is responsible for changing the World.
@@ -118,7 +120,10 @@ Students brainstorm their videogames, and derive the structure for their game wo
                                                        @item{How could you make the dog move faster? Slower? Backwards?}
                                                        @item{Write two @vocab{examples} for @code{update-world}, using the @code{START} world and the 
                                                                        @code{NEXT} world you already defined.}]}}
-                         @teacher{}
+                         @teacher{Each of these three functions work together to create the game that students see. @code{define-struct world} tells the 
+                                  computer what a world contains, @code{draw-world} draws the images onto the screen, and @code{update-world} changes the 
+                                  world according to the game rules. Point out to students that without all of these functions, the game would not be 
+                                  playable.}
                          }
                  ]
          }
@@ -284,7 +289,9 @@ Students brainstorm their videogames, and derive the structure for their game wo
                      @item{Now make a list of all the images you'll need in your game.}
                      @item{Now make a list of everything that changes in your game - if something moves, will you need to keep track of it's
                            x-coordinate? y? both?}]}}
-                        @teacher{}}
+                        @teacher{Many students will want to create ambitious games at first, with many values in their world structure. Make sure they start
+                                 simple at first: Once they have a simple game working, they can add more elements and features to make it more advanced.
+                                 Check their work: Does each pair's world structure correspond to the things that are changing in their game?}}
                  ]
          }
 

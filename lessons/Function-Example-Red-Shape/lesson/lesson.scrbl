@@ -36,7 +36,8 @@
               @teacher{Pause and debrief after each section, if necessary.}}
 
      @point{@student{Conditions can be used in many places inside a videogame:
-                     @itemlist[@item{Have the player drawn differently when they get a power boost}                                                         @item{Open doors when the player is holding a key}
+                     @itemlist[@item{Have the player drawn differently when they get a power boost}                                                         
+                                @item{Open doors when the player is holding a key}
                                 @item{Move differently depending on keyboard input}]}
              @teacher{}
            }]
