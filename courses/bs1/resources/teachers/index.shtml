@@ -12,7 +12,7 @@
             <div class="item">
               <h1>Teacher Resources</h1>
               <ul>
-                <li><p class="BSUnitSummary"><span class="BSUnitTitle">Teacher&rsquo;s Guide</span> [<a href="teachers-guide/teachers-guide.html">html</a>]- a "quick start" reference to
+                <li><p class="BSUnitSummary"><span class="BSUnitTitle">Teacher&rsquo;s Guide</span> [<a href="teachers-guide/teachers-guide.html">html</a>] - a "quick start" reference to
         all the various functionality in the <a href="http://www.wescheme.org/openEditor?publicId=q3fgrbasAi">Game Template</a>. You can also check out an <a href="http://www.wescheme.org/view?publicId=oN4mUJ35c9">advanced game </a> that uses some of the features of the supplemental lessons, including 2d-motion and multiple dangers and targets.</p></li>
                 <li><p class="BSUnitSummary"><span class="BSUnitTitle">Workbook Solutions</span> [<a href="TeacherWorkbook.odt">odt</a> | <a href="TeacherWorkbook.pdf">pdf</a>] - completed exercises for the entire Student Workbook.</p></a>
                 <li><p class="BSUnitSummary"><span class="BSUnitTitle">Workshop Slides</span> [<a href="WorkshopSlides.ppt">ppt</a>] - The slide deck we use in our PD workshops, in PowerPoint format. This includes the background and context slides, as well as all slides used during the sample-teaching session.</p></li>
@@ -25,7 +25,7 @@
               <p/>The evaluation consists of the following:
               <ul>
                 <li><a href="Procedures.pdf">Procedures and teacher/parent consent forms</a>, for administering the pre- and post-tests.</a></li>
-                <li>Students should take the Algebra <a href="Pretest.pdf">Pre-</a> and <a href="Posttest.pdf">Post-tests</a>, as well as the <a href="https://harvard.qualtrics.com/SE/?SID=SV_3JDsKkE1h2DV2Ac">Math Affect Survey</a> <b>before and after</b> taking Bootstrap (or a comparison class).</li>
+                <li>Students should take the <b>Algebra</b> <a href="Pretest.pdf">Pre-</a> and <a href="Posttest.pdf">Post-tests</a>, as well as the <b>Math Affect</b> <a href="https://harvard.qualtrics.com/SE/?SID=SV_3JDsKkE1h2DV2Ac">pre-<a/> and <a href="https://harvard.qualtrics.com/SE/?SID=SV_eyROZNHKvZl30jP">post</a> surveys.</li>
               </ul>
               
               <h2>Warmup Exercises</h2>
@@ -70,73 +70,6 @@
                 <li>Unit 8 [<a href="https://docs.google.com/document/d/1zVzKaBmCf_rLBxT5lhuhYkRaUMW_3mNEMYdmRXtrE3s/edit">original</a>]</li>
                 <li>Unit 9 [n/a]</li>
                 <li>Unit 10 [coming soon!]</li>
-              </ul>
-
-              <h2>Additional Exercise Solutions</h2>
-              These are the solutions to the exercise handouts linked to the end of each unit.  
-              Links to the handouts themselves are included here for convenience.
-
-              <ul>
-                <li>Unit 1: Completing Partial Circles of Evaluation from Arithmetic Expressions 
-	            [<a href="../../../../lessons/Order-of-Operations/exercises/complete-coe-from-arith.html">original</a> | 
-                     <a href="../../../../solutions/complete-coe-from-arith.html"> answers</a>]</li>
-
-                <li>Unit 1: Creating Circles of Evaluation from Arithmetic Expressions 
-                    [<a href="../../../../lessons/Order-of-Operations/exercises/arith-to-coe1.html">original</a> | 
-                     <a href="../../../../solutions/arith-to-coe1.html">answers</a>] </li>
-
-                <li>Unit 1: Creating Circles of Evaluation to Arithmetic Expressions 
-                    [<a href="../../../../lessons/Order-of-Operations/exercises/coe-to-arith1.html">original</a> | 
-                     <a href="../../../../solutions/coe-to-arith1.html">answers</a>] </li>
-
-                <li>Unit 1: Matching Circles of Evaluation and Arithmetic Expressions 
-                    [<a href="../../../../lessons/Order-of-Operations/exercises/match-arith-coe1.html">original</a> | 
-                     <a href="../../../../solutions/match-arith-coe1.html">answers</a>] </li>
-
-                <li>Unit 1: Completing Partial Code from Circles of Evaluation
-                    [<a href="../../../../lessons/Intro-to-Programming/exercises/complete-code-from-coe1.html">original</a> | 
-                     <a href="../../../../solutions/complete-code-from-coe1.html">answers</a>] </li>
-
-                <li>Unit 1: Converting Circles of Evaluation to Code
-                    [<a href="../../../../lessons/Intro-to-Programming/exercises/coe-to-code1.html">original</a> | 
-                     <a href="../../../../solutions/coe-to-code1.html">answers</a>] </li>
-
-                <li>Unit 1: Matching Circles of Evaluation and Code
-                    [<a href="../../../../lessons/Intro-to-Programming/exercises/coe-code-matching1.html">original</a> | 
-                     <a href="../../../../solutions/coe-code-matching1.html">answers</a>] </li>
-
-                <li>Unit 2: Converting Circles of Evaluation to Code
-                    [<a href="../../../../lessons/Strings-and-Images/exercises/many-types-coe-to-code1.html">original</a> | 
-                     <a href="../../../../solutions/many-types-coe-to-code1.html">answers</a>] </li>
-
-                <li>Unit 2: Identifying Parts of Expressions
-                    [<a href="../../../../lessons/Contracts/exercises/id-expr-pieces1.html">original</a> | 
-                     <a href="../../../../solutions/id-expr-pieces1.html">answers</a>] </li>
-
-                <li>Unit 2: Matching Expressions and Contracts
-                    [<a href="../../../../lessons/Contracts/exercises/match-contracts-exprs1.html">original</a> | 
-                     <a href="../../../../solutions/match-contracts-exprs1.html">answers</a>] </li>
-
-                <li>Unit 3: Matching Examples and Function Definitions
-                    [<a href="../../../../lessons/Defining-Functions/exercises/match-examples-functions1.html">original</a> | 
-                     <a href="../../../../solutions/match-examples-functions1.html">answers</a>] </li>
-
-                <li>Unit 3: Creating Contracts From Examples
-                    [<a href="../../../../lessons/Defining-Functions/exercises/create-contracts-examples1.html">original</a> | 
-                     <a href="../../../../solutions/create-contracts-examples1.html">answers</a>] </li>
-
-                <li>Unit 4: Do Examples Have the Same Contracts?
-                    [<a href="../../../../lessons/Practicing-the-Design-Recipe/exercises/examples-same-contracts1.html">original</a> | 
-                     <a href="../../../../solutions/examples-same-contracts1.html">answers</a>] </li>
-
-                <li>Unit 4: Matching Contracts and Examples
-                    [<a href="../../../../lessons/Practicing-the-Design-Recipe/exercises/match-contracts-examples1.html">original</a> | 
-                     <a href="../../../../solutions/match-contracts-examples1.html">answers</a>] </li>
-
-                <li>Unit 6: Converting Circles of Evaluation with Booleans to Code
-                    [<a href="../../../../lessons/AndOr/exercises/boolean-coe-to-code1.html">original</a> | 
-                     <a href="../../../../solutions/boolean-coe-to-code1.html">answers</a>] </li>
-
               </ul>
 
               <h1>Shortcuts to files used throughout the Teacher Workshop</h2>
