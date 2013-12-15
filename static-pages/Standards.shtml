@@ -14,17 +14,18 @@
       table{display: none; border-collapse:collapse;}
       table#practice{display: block;}
       thead  {font-weight: bold;text-align: center; background: black; color: white;}
-      tbody tr td:first-child{background: rgba(0,0,0,.1); color: black;}
-      .A, .F{background: white; }
-      .E, .N, .S, .G {background: rgba(90, 50, 50, 0.3);}
+      tbody tr td:first-child{background: rgba(0,0,0,.1); color: black; width: 50%;}
+/*
+.A-REI, .A-SSE, .A-CED, .F-IF, .F-BF, F-TF.{background: white; }
+.EE, .NS, .G {background: rgba(90, 50, 50, 0.3);}
+*/
       input{margin: 20px;}
     </style>
     
     <script>
       function showTable(id){
         document.getElementById('practice').style.display = 'none';
-        document.getElementById('algebra').style.display  = 'none';
-        document.getElementById('algebra2').style.display = 'none';
+        document.getElementById('content').style.display  = 'none';
         document.getElementById('csta').style.display = 'none';
         document.getElementById(id).style.display = 'block';
       }
@@ -51,9 +52,8 @@
     
     <div class="item">
       <h1>What's Covered in 25 Hours?</h1>
-      <input type="button" onclick="showTable('practice')"  value="Mathematical Practice"/>
-      <input type="button" onclick="showTable('algebra')"   value="Algebra"/>
-      <input type="button" onclick="showTable('algebra2')"  value="Algebra 2"/>
+      <input type="button" onclick="showTable('practice')"  value="Mathematical Practice Standards"/>
+      <input type="button" onclick="showTable('content')"   value="Mathematical Content Standards"/>
       <input type="button" onclick="showTable('csta')"      value="CSTA"/>
 
       <table width="100%" id="practice">
@@ -111,212 +111,104 @@
         </tr>
       </table>
       
-      <table width="100%" id="algebra">
+      <table width="100%" id="content">
         <thead>
           <tr><td class="col">Algebra Standard</td>
             <td>Bootstrap Units</td>
           </tr>
         </thead>
-        <tr class="N">
-          <td class="col">N-RN: Extend the properties of exponents to rational exponents.</td>
-          <td></td>
         </tr>
-        <tr class="N">
+        
+        <!-- Number System -->
+        <tr class="NS">
           <td class="col">N-Q: Reason quantitatively and use units to solve problems.</td>
           <td>Units 1, 2, 3 and 5</td>
         </tr>
-        <tr class="A">
+        <tr class="NS">
+          <td class="col">6.NS.5-8: Apply and extend previous understandings of numbers to the system of rational numbers.</td>
+          <td>Unit 1</td>
+        </tr>
+        
+        <!-- Expressions and Equations -->
+        <tr class="EE">
+          <td class="col">7.EE.1-4: The student uses numerical and algebraic expressions and equations to solve real-life and mathematical problems.</td>
+          <td>Units 3, 4, 5 and 6</td>
+        </tr>
+        
+        <!-- Seeing Structure in Expressions -->
+        <tr class="A-SSE">
           <td class="col">A-SSE.1-2: Interpret the structure of expressions</td>
-          <td>Units 1, 2, 3, 4, 6, 7 and 8, as well as Supplemental Lessons</td>
+          <td>Units 1, 2, 3, 7 and Supplemental Lessons</td>
         </tr>
-        <tr class="A">
-          <td class="col">A-SSE.3: Write expressions in equivalent forms to solve problems</td>
-          <td></td>
+        <tr class="A-SSE">
+          <td class="col">A-SSE.3-4: Write expressions in equivalent forms to solve problems</td>
+          <td>Units 1, 2 and Supplemental Lessons</td>
         </tr>
-        <tr class="A">
-          <td class="col">A-APR: Perform arithmetic operations on polynomials</td>
-          <td></td>
-        </tr>
-        <tr class="A">
+        
+        <!-- Creating Equations -->
+        <tr class="A-CED">
           <td class="col">A-CED.1-4: Create equations that describe numbers or relationships</td>
-          <td>Units 5 and 6</td>
+          <td>Units 3, 4, 5, 6, 7, 8 and Supplemental Lessons</td>
         </tr>
-        <tr class="A">
+        
+        <!-- Reasoning with Equations and Inequalities -->
+        <tr class="A-REI">
           <td class="col">A-REI.1-2: Understand solving equations as a process of reasoning and explain the reasoning</td>
-          <td></td>
+          <td>Units 1, 2 and Supplemental Lessons</td>
         </tr>
-        <tr class="A">
+        <tr class="A-REI">
           <td class="col">A-REI.3-4: Solve equations and inequalities in one variable</td>
-          <td></td>
+          <td>Unit 6</td>
         </tr>
-        <tr class="A">
-          <td class="col">A-REI.5-9: Solve systems of equations</td>
-          <td></td>
-        </tr>
-        <tr class="A">
+        <tr class="A-REI">
           <td class="col">A-REI.10-12: Represent and solve equations and inequalities graphically</td>
-          <td></td>
+          <td>Unit 6</td>
         </tr>
-        <tr class="F">
+        
+        <!-- Geometry -->
+        <tr class="G">
+          <td class="col">8.G.6-8: Understand and apply the Pythagorean Theorem</td>
+          <td>Unit 8</td>
+        </tr>
+        
+        <!-- Interpreting Functions -->
+        <tr class="F_IF">
           <td class="col">F-IF.1-3: Understand the concept of a function and use function notation</td>
-          <td>Units 2, 3, 4, 5, 6 and 8, as well as Supplemental Lessons</td>
+          <td>Units 2-9 and Supplemental Lessons</td>
         </tr>
-        <tr class="F">
+        <tr class="F-IF">
           <td class="col">F-IF.4-6: Interpret functions that arise in applications in terms of the context</td>
-          <td>Units 3, 4, 6 and 8, as well as Supplemental Lessons</td>
+          <td>Units 3, 4, 6, 8 and Supplemental Lessons</td>
         </tr>
-        <tr class="F">
+        <tr class="F-IF">
           <td class="col">F.IF.7-9: Analyze functions using different representations</td>
-          <td>Unit 5, as well as Supplemental Lessons</td>
+          <td>Units 3-9 and Supplemental Lessons</td>
         </tr>
-        <tr class="F">
+        
+        <!-- Building Functions -->
+        <tr class="F-BF">
           <td class="col">F-BF.1-2: Build a function that models a relationship between two quantities</td>
-          <td>Units 3, 4 and 5</td>
+          <td>Units 3-9 and Supplemental Lessons</td>
         </tr>
-        <tr class="F">
+        <tr class="F-BF">
           <td class="col">F-BF.3-4: Build new functions from existing functions</td>
-          <td></td>
+          <td>Units 6, 7, 8 and Supplemental Lessons</td>
         </tr>
-        <tr class="F">
+        
+        <!-- Linear, Quadratic, and Exponential Models -->
+        <tr class="F_LE">
           <td class="col">F-LE.1-4: Construct and compare linear, quadratic, and exponential models and solve problems</td>
-          <td></td>
-        </tr>
-        <tr class="F">
-          <td class="col">F-LE.5: Interpret expressions for functions in terms of the situation they model</td>
-          <td>Unit 5, as well as Supplemental Lessons</td>
-        </tr>
-        <tr class="S">
-          <td class="col">S-ID.1-4: Summarize, represent, and interpret data on a single count or measurement variable</td>
-          <td></td>
-        </tr>
-        <tr class="S">
-          <td class="col">S-ID.5-6: Summarize, represent, and interpret data on two categorical and quantitative variables</td>
-          <td></td>
-        </tr>
-        <tr class="S">
-          <td class="col">S-ID.7-9: Interpret linear models</td>
-          <td></td>
-        </tr>
-      </table>
-            
-      <table width="100%" id="algebra2">
-        <thead>
-          <tr><td class="col">Algebra 2 Standard</td>
-            <td>Bootstrap Units</td>
-          </tr>
-        </thead>
-        <tr class="N">
-          <td class="col">N-Q	: Reason quantitatively and use units to solve problems.</td>
-          <td>Units 1, 2, 3, 4, 5, and 8</td>
-        </tr>
-        <tr class="N">
-          <td class="col">N-CN:	Perform arithmetic operations with complex numbers.</td>
-          <td></td>
-        </tr>
-        <tr class="N">
-          <td class="col">N-CN.7: Use complex numbers in polynomial identities and equations.</td>
-          <td></td>
-        </tr>
-        <tr class="A">
-          <td class="col">A-SSE.1,2: Interpret the structure of expressions</td>
-          <td>Units 1, 2, 3 and 7, as well as Supplemental Lessons</td>
-        </tr>
-        <tr class="A">
-          <td class="col">A-SSE.3,4: Write expressions in equivalent forms to solve problems</td>
-          <td>Units 1 and 2 as well as Supplemental Lessons</td>
-        </tr>
-        <tr class="A">
-          <td class="col">A-APR.1: Perform arithmetic operations on polynomials</td>
-          <td></td>
-        </tr>
-        <tr class="A">
-          <td class="col">A-APR.2, 3: Understand the relationship between zeros and factors of polynomials</td>
-          <td></td>
-        </tr>
-        <tr class="A">
-          <td class="col">A-APR.4: Use polynomial identities to solve problems
-          </td>
-          <td></td>
-        </tr>
-        <tr class="A">
-          <td class="col">A-APR.6: Rewrite rational expressions</td>
-          <td></td>
-        </tr>
-        <tr class="A">
-          <td class="col">A-CED.1, 2, 3, 4: Create equations that describe numbers or relationships</td>
-          <td>Units 3, 4, 5, 6, 7, and 8, as well as Supplemental Lessons</td>
-        </tr>
-        <tr class="A">
-          <td class="col">A-REI.1,2: Understand solving equations as a process of reasoning and explain the reasoning</td>
-          <td>Units 1 and 2, as well as Supplemental Lessons</td>
-        </tr>
-        <tr class="A">
-          <td class="col">A-REI.3,4	Solve equations and inequalities in one variable</td>
-          <td>Unit 6</td>
-        </tr>
-        <tr class="A">
-          <td class="col">A-REI.10, 11, 12	Represent and solve equations and inequalities graphically</td>
-          <td>Unit 6</td>
-        </tr>
-        <tr class="F">
-          <td class="col">F-IF.1,2,3	Understand the concept of a function and use function notation</td>
-          <td>Units 1, 2, 3, 4, 5, 6, 7, 8, and 10, as well as Supplemental lessons</td>
-        </tr>
-        <tr class="F">
-          <td class="col">F-IF.4,5, 6: Interpret functions that arise in applications in terms of the context</td>
-          <td>Units 6 and 7, as well as Supplemental Lessons</td>
-        </tr>
-        <tr class="F">
-          <td class="col">F.IF.7, 8, 9: Analyze functions using different representations</td>
-          <td>Units 3, 4, 5, 6, 7 and 8, as well as Supplemental Lessons</td>
-        </tr>
-        <tr class="F">
-          <td class="col">F-BF.1, 2: Build a function that models a relationship between two quantities</td>
-          <td>Units 3, 4, 5, 6, 7 and 8, as well as Supplemental Lessons</td>
-        </tr>
-        <tr class="F">
-          <td class="col">F-BF.3,4: Build new functions from existing functions</td>
-          <td>Units 6, 7 and 8, as well as Supplemental Lessons</td>
-        </tr>
-        <tr class="F">
-          <td class="col">F-LE.1,2,3,4: Construct and compare linear, quadratic, and exponential models and solve problems</td>
           <td>Unit 3</td>
         </tr>
-        <tr class="F">
-          <td class="col">F-TF.1,2: Extend the domain of trigonometric functions using the unit circle</td>
-          <td></td>
+        <tr class="F-LE">
+          <td class="col">F-LE.5: Interpret expressions for functions in terms of the situation they model</td>
+          <td>Unit 5 and Supplemental Lessons</td>
         </tr>
-        <tr class="F">
+        
+        <!-- Trigonometric Functions -->
+        <tr class="F-TF">
           <td class="col">F-TF.5: Model periodic phenomena with trigonometric functions</td>
           <td>Supplemental Lessons</td>
-        </tr>
-        <tr class="F">
-          <td class="col">F-TF.8: Prove and apply trigonometric identities</td>
-          <td></td>
-        </tr>
-        <tr class="G">
-          <td class="col">G-GPE.1, 2:Translate between the geometric description and the equation for a conic section</td>
-          <td></td>
-        </tr>
-        <tr class="S">
-          <td class="col">S-ID.1-4:Summarize, represent, and interpret data on a single count or measurement variable</td>
-          <td></td>
-        </tr>
-        <tr class="S">
-          <td class="col">S-IC.1, 2: Understand and evaluate random processes underlying statistical experiments</td>
-          <td></td>
-        </tr>
-        <tr class="S">
-          <td class="col">S-IC.3-6: Make inferences and justify conclusions from sample surveys, experiments, and observational studies</td>
-          <td></td>
-        </tr>
-        <tr class="S">
-          <td class="col">S-CP.1-5: Understand independence and conditional probability and use them to interpret data</td>
-          <td></td>
-        </tr>
-        <tr class="S">
-          <td class="col">S-CP.6, 7: Use the rules of probability to compute probabilities of compound events in a uniform probability model</td>
-          <td></td>
         </tr>
       </table>
       
@@ -389,7 +281,7 @@
         <tr>
 	  <td>L3:CPP:A2: Use mobile devices/emulators to design, develop, and implement mobile computing applications.</td>
           <td class="col">
-          Bootstrap2 has optional material on writing games that respond to common mobile-phone stimuli (such as shaking, tilting, and GPS), as well as a library for exporting these games to mobile phones.
+          Bootstrap2 has optional material on writing games that respond to common mobile-phone stimuli (such as shaking, tilting, and GPS), and a library for exporting these games to mobile phones.
           </td>
         </tr>
         <tr>
@@ -490,15 +382,15 @@
        </tr>
        <tr class="F">
        <td class="col">8.F.1-3: Define, evaluate, and compare functions.</td>
-       <td>Units 3, 4, 5, 6, 7, and 8, as well as Supplemental Actvities</td>
+       <td>Units 3, 4, 5, 6, 7, and 8, and Supplemental Actvities</td>
        </tr>
        <tr class="F">
        <td class="col">8.F.4-5: Use functions to model relationships between quantities.</td>
-       <td>Units 3, 4, 5, 6, 7, and 8, as well as Supplemental Actvities</td>
+       <td>Units 3, 4, 5, 6, 7, and 8, and Supplemental Actvities</td>
        </tr>
        <tr class="G">
        <td class="col">7.G.1	-4: Draw, construct, and describe geometrical figures and describe the relationships between them.</td>
-       <td>Units 1 and 8, as well as Supplemental Actvities</td>
+       <td>Units 1 and 8, and Supplemental Actvities</td>
        </tr>
        <tr class="G">
        <td class="col">7.G.5: Solve real-life and mathematical problems involving angle measure, area, surface area, and volume.</td>
