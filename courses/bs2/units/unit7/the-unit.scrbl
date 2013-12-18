@@ -70,7 +70,8 @@
 @code[#:multi-line #t]{; > : Number Number -> Boolean
                      ; Checks whether the first number is greater than the second}
                                @activity{Copy this into your Contracts page, and write down the contracts for the other two Boolean functions.}}
-                        @teacher{@management{Review Booleans and Boolean functions.}}}
+                        @teacher{@management{Review Booleans and Boolean functions, including @code{>}, @code{<}, @code{=}, @code{and}, and 
+                                             @code{or}. Make sure students copy the contracts into their workbook.}}}
                  
                  @point{@student{@activity{@itemlist[@item{Turn to @worksheet-link[#:page 33 #:name "Boundary Checks"] in your workbook.}
                                                       @item{What is the name of the first function on this page?}
@@ -88,7 +89,12 @@
                                  @code{(EXAMPLE (off-right? 320) (> 320 640))}
                                  @activity{Write another EXAMPLE for a coordinate that is off the screen on the right side, circle what 
                                            changes, and write your function definition.}}
-                         @teacher{ }}
+                         @teacher{Remind students about Sam the butterfly from Bootstrap 1. This function does the same thing as @code{safe-right},
+                                  to determine whether the character has gone off the screen based on its x-coordinate.@management{Ensure that students
+                                  are using the full name of @code{off-right?}, including the question mark. Question marks are often used in functions
+                                  that return booleans as a convention: The function asks a question (Is the character off the right side of the screen?)
+                                  and receives either @code{true} or @code{false} as an answer.}}}
+                 
                  @point{@student{You now have a function to check whether an object has run off the right side of the screen. But think
                                  about Ninja World: do you care whether the ruby goes off the right side, if it's moving to the left? 
                                  @activity{@itemlist[@item{Complete the design recipe for @code{off-left?} on
