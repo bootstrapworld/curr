@@ -250,7 +250,8 @@ The last clause in a conditional can be an @code{else} clause, which gets evalua
                                                                    Write down the various keys that the user can hit to control the game. 
                                                                    For each one, write down the field in your world struct that changes, 
                                                                    and how it changes.}]}}
-                        @teacher{  }}
+                        @teacher{Review students' workbook pages, and check for understanding: could they change multiple things in their game
+                                 with one keypress?}}
                  @point{@student{@activity{Turn to @worksheet-link[#:page 30 #:name "Keypress-in-Game"] in your workbooks. Choose 3 
                                            keys that control the game, and go through the design recipe: Write EXAMPLES for what should 
                                            happen to your START world depending on which key was pressed. The define your function. Once
