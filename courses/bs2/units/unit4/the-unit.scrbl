@@ -47,14 +47,14 @@ Students brainstorm their videogames, and derive the structure for their game wo
         #:product-outcomes @itemlist[]
         #:standards (list)
         #:materials @itemlist[]
-        #:preparation @itemlist[@item{The Ninja World 2 file [NW2.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=DtoM5S0yyH" "WeScheme")] preloaded on students' machines}]
+        #:preparation @itemlist[@item{The Ninja World 2 file [NW2.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=nQq3AAg5nn" "WeScheme")] preloaded on students' machines}]
         #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{@activity{Open up @(hyperlink "http://www.wescheme.org/view?publicId=DtoM5S0yyH" "Ninja World 2") and click "Run". 
+        @points[@point{@student{@activity{Open up @(hyperlink "http://www.wescheme.org/view?publicId=nQq3AAg5nn" "Ninja World 2") and click "Run". 
                                           What happens? Does it do the same thing as in the simulation last unit?}
                                 
                                  Let's walk through it and figure out what's wrong. At the top of the screen, you see the @code{;; DATA} section. 

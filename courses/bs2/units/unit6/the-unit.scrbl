@@ -24,7 +24,7 @@
                             @item{Signs for kids, entitled "update-world", "draw-world" and "big-bang"}
                             @item{Cutout images of the dog and ruby}]
      #:preparation @itemlist[@item{Seating arrangements: ideally clusters of desks/tables}
-                             @item{The Ninja World 3 file [NW3.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=XfXGclYj1F" "WeScheme")] projected onto the board}]
+                             @item{The Ninja World 3 file [NW3.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=t77yPXKDWs " "WeScheme")] projected onto the board}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -34,7 +34,7 @@
         @points[@point{@student{So far, we've been working with three main functions to make our game and animate our world: @code{update-world}, 
                                 @code{draw-world}, and @code{big-bang}. At this point, your game might use a few more functions than these, but 
                                 Ninja World is still as basic as you remember. 
-                                @activity{@itemlist[@item{Open the @(hyperlink "http://www.wescheme.org/view?publicId=XfXGclYj1F" "Ninja World 3")
+                                @activity{@itemlist[@item{Open the @(hyperlink "http://www.wescheme.org/view?publicId=t77yPXKDWs " "Ninja World 3")
                                                          file and press "Run", to watch the dog and the ruby fly across the screen.}
                                                      @item{What is the contract for each of the functions in this game? What do they do?}
                                                      @item{Each time @code{update-world} is called, What changes about the dog? How does it change?

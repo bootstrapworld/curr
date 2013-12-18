@@ -187,7 +187,7 @@ matters! Look at the order of the fields in the @code{define-struct} line. The f
         #:product-outcomes @itemlist[]
         #:standards (list)
         #:materials @itemlist[]
-        #:preparation @itemlist[@item{The Ninja World 1 file [NW1.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=NPU14Tr3c0" "WeScheme")] preloaded on students' machines}
+        #:preparation @itemlist[@item{The Ninja World 1 file [NW1.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=fW705a0idU" "WeScheme")] preloaded on students' machines}
                                 @item{update-world, big-bang, and draw-world nametags}
                                 @item{cutout image of dog}]
         #:pacings (list 
@@ -198,7 +198,7 @@ matters! Look at the order of the fields in the @code{define-struct} line. The f
       ]{
         @points[@point{@student{Do you remember the Ninja Cat game from Bootstrap 1? In this course, you're going to completely deconstruct the game, and recreate it using 
                                 a world structure to make it more complex. This version of Ninja Cat might look a bit different than you remember: 
-                                @activity{Open the @(hyperlink "http://www.wescheme.org/view?publicId=NPU14Tr3c0" "Ninja World 1") file and press "Run". 
+                                @activity{Open the @(hyperlink "http://www.wescheme.org/view?publicId=fW705a0idU" "Ninja World 1") file and press "Run". 
                                                    @itemlist[@item{What do you see in this game?}
                                                               @item{Go back to the code and look at the line where the @code{world} structure is defined.}
                                                               @item{What function defines a struct?}

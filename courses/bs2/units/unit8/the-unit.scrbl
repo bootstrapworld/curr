@@ -24,7 +24,7 @@
                             @item{Language Table}
                             @item{Cutouts of Cat and Dog images}
                             @item{Cutouts of Pythagorean Theorem packets [@(resource-link #:path "images/pythag1.png" #:label "1"), @(resource-link #:path "images/pythag2.png" #:label "2")] - 1 per cluster}
-                            @item{The Ninja World 6 file [NW6.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=k6Bbnpu1nV" "WeScheme")] preloaded on students' machines}]
+                            @item{The Ninja World 5 file [NW5.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=hTE94bR2V5" "WeScheme")] preloaded on students' machines}]
         #:preparation @itemlist[@item{Seating arrangements: ideally clusters of desks/tables}]
         #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}

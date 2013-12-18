@@ -55,9 +55,9 @@
         #:product-outcomes @itemlist[@item{Students will use the random function to make their game characters 
                                            appear at different loations on the screen}]
         #:standards (list)
-        #:materials @itemlist[@item{The Completed Ninja World file [NWComplete.rkt from 
+        #:materials @itemlist[@item{The Ninja World 6 file [NW6.rkt from 
                                     @resource-link[#:path "source-files.zip" #:label "source-files.zip"] |
-                                    @(hyperlink "http://www.wescheme.org/view?publicId=SSJ5S3gDRD" "WeScheme")] preloaded on students' machines}]
+                                    @(hyperlink "http://www.wescheme.org/view?publicId=LPpLz5AKHd" "WeScheme")] preloaded on students' machines}]
         #:preparation @itemlist[@item{}]
         #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -65,7 +65,7 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{If you open up the @(hyperlink "http://www.wescheme.org/view?publicId=SSJ5S3gDRD" "Ninja World")
+        @points[@point{@student{If you open up the @(hyperlink "http://www.wescheme.org/view?publicId=LPpLz5AKHd" "Ninja World")
                                 file, you'll see the (almost) completed game. However, right now the ruby and
                                 dog appear at the same part of the screen every time, making this a pretty 
                                 easy game. 

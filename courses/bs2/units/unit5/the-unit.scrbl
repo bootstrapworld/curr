@@ -24,7 +24,7 @@
                             @item{Language Table}]
      #:preparation @itemlist[@item{Seating arrangements: ideally clusters of desks/tables}
                              @item{Clear plastic sheet protectors: put pages 20 & 21 at the front of the workbook for ease of reference}
-                             @item{The Ninja World 3 file [NW3.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=XfXGclYj1F" "WeScheme")] preloaded on students' machines}
+                             @item{The Ninja World 3 file [NW3.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=t77yPXKDWs" "WeScheme")] preloaded on students' machines}
                              @item{BS:2 Blank Game Template [GameTemplate.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=ZcK2dqANbT" "WeScheme")] preloaded on students' machines with student images included.}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -32,7 +32,7 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{@activity{Open the @(hyperlink "http://www.wescheme.org/view?publicId=XfXGclYj1F" "Ninja World") file, and look 
+        @points[@point{@student{@activity{Open the @(hyperlink "http://www.wescheme.org/view?publicId=t77yPXKDWs" "Ninja World") file, and look 
                                           at the @code{world} defined at the top.
             @itemlist[@item{How many things are in this world? What are they?}
                       @item{What does @code{dogX} represent? @code{rubyX}? @bitmap{images/gameimage.png}}

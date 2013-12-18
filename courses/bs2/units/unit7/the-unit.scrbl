@@ -21,7 +21,7 @@
                             @item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}
                             @item{Student workbooks}
                             @item{Language Table}
-                            @item{The Ninja World 5 file [NW5.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=z01JR1UpNu" "WeScheme")] preloaded on students' machines}]
+                            @item{The Ninja World 4 file [NW4.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=gbz2w2pCTu" "WeScheme")] preloaded on students' machines}]
         #:preparation @itemlist[@item{Seating arrangements: ideally clusters of desks/tables}
                                 @item{Write the Ninja World version of update-world towards the bottom of the board, with room to transform it into a cond branch under the function header.}]
         #:pacings (list 
@@ -30,7 +30,7 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{@activity{@itemlist[@item{Open the @(hyperlink "http://www.wescheme.org/view?publicId=z01JR1UpNu" "Ninja World 5") file.}
+        @points[@point{@student{@activity{@itemlist[@item{Open the @(hyperlink "http://www.wescheme.org/view?publicId=gbz2w2pCTu" "Ninja World 4") file.}
                                           @item{What is in the world structure?}
                                           @item{What does the @code{update-world} function do?}
                                           @item{What is @code{dogX} when the dog is in the center of the screen? According to the code, what will the 
@@ -95,7 +95,7 @@
                                                            @worksheet-link[#:page 33 #:name "Boundary Checks"]. Instead of checking if 
                                                            a number is greater than 640, what will you need to check?}
                                                       @item{When finished, copy your functions into your 
-                                                            @(hyperlink "http://www.wescheme.org/view?publicId=z01JR1UpNu" "Ninja World 5") 
+                                                            @(hyperlink "http://www.wescheme.org/view?publicId=gbz2w2pCTu" "Ninja World 4") 
                                                             file, where it says @code{;; TESTS FOR COND}.}]}
                                  Now we have a way to check whether something has gone off the right OR the left of the screen, but we still
                                  haven't told the game what to do when it does. In Ninja World, after the dog goes off the right side of the
