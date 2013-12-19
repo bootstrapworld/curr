@@ -48,7 +48,10 @@
                                 @activity{When the cat and dog were switched, did you still subtract the dog's position from the 
                                           cat's, or subtract the cat's position from the dog's? Why?}}
                         @teacher{Draw the number line on the board, with the cutouts of the cat and dog at the given positions.
-                                 Ask students to tell you the distance between them, and move the images accordingly.}}
+                                 Ask students to tell you the distance between them, and move the images accordingly. 
+                                 Having students act this out can also work well: draw a number line, have two students stand at different 
+                                 points on the line, using their arms or cutouts to give objects of different sizes. Move students along 
+                                 the number line until they touch, then compute the distance on the number line.}}
                  ]
          }
 
@@ -87,12 +90,22 @@
                                                      @item{And what would the result for that test be? If @code{a} is
                                                            greater than @code{b}, which number would we subtract from 
                                                            which?}
+                                                     @item{How could you include a test for wheather the two numbers are equal,
+                                                           @italic{without} adding a third @code{cond} branch?}
                                                      @item{Write down the definition for @code{line-length}.}]}     
 @code[#:multi-line #t]{(define (line-length a b)
                        (cond
                        [(> a b) (- a b)]
-                       [(> b a) (- b a)]))}}
-                        @teacher{}}
+                       [(>= b a) (- b a)]))}}
+                        @teacher{It is possible to replace the second test with @code{else}, because there will only be two options:
+                                 @code{line-length} will either subtract @code{b} from @code{a}, or @code{a} from @code{b}. (If the 
+                                 numbers are equal, it doesn't matter which is subtracted.) However, having students write out the full 
+                                 test and result gets them thinking about what exactly is being tested in each branch of the function.
+                                 
+                                 It is possible to avoid using a conditional entirely by taking the absolute value of the difference 
+                                 (the function @code{abs} does this); if you are working with older students who already know about
+                                 absolute value you could show it. Using @code{cond}, however, emphasizes how code structure arises 
+                                 from examples.}}
                  ]
          }
 
@@ -141,7 +154,7 @@
                                  here, the white square is surrounded by four gray, identical right-triangles, each 
                                  with sides A and B. The square itself has four identical sides of length C, which 
                                  are the hypoteneuses for the triangles. If the area of a square is expressed by 
-                                 @math{side ∗ side}, then the area of the white space is @math{C^{2}}.}
+                                 @math{side * side}, then the area of the white space is @math{C^{2}}.}
                         @teacher{Have students place their gray triangles onto the paper, to match the diagram.}
                        }
                 @point{@student{@animated-gif{images/Pythag_anim.gif} By moving the gray triangles, it is possible 
@@ -267,7 +280,7 @@
                                                           cat and dog are colliding? Have you written a function 
                                                           to check that?}
                                                      @item{What do the inputs need to be?}
-                                                     @item{How do you get the @code{catX} out of the world?}
+                                                     @item{How do you get the @code{catY} out of the world?}
                                                      @item{What about the Cat's x-coordinate? She's always in the
                                                            center of the screen, so what will her x-coordinate 
                                                            always be?}
@@ -291,7 +304,12 @@ Remember that @code{update-world} gives back a world, so what function should co
              @code[#:multi-line #t]{[(collide? 360 (world-catY w) (world-dogX w) 400) (make-world -100
 					                                                          (world-rubyX w)
 					                                                          (world-catY w))]}}
-                        @teacher{}}
+                        @teacher{Collision detection must be part of the @code{update-world} function because the
+                                 game should be checking for a collision @italic{every time} the world is updated. Students may
+                                 assume that @code{draw-world} should handle collision detection, but point out that the
+                                 Range of @code{draw-world} is an Image, and their function must return a new world in order to
+                                 set the locations of the characters after a collision.}}
+                 
                  @point{@student{Now it's time to handle collisions in your game...
                                  @activity{Turn to @worksheet-link[#:page 40 #:name "Collide-Examples"] and write 
                                            some more tests and results. What characters in your game could collide 
@@ -319,7 +337,8 @@ Remember that @code{update-world} gives back a world, so what function should co
         @points[@point{@student{Congratulations! You've finished every lesson, and now it's up to you to make your 
                                 game even better. Take some time to brainstorm...what else do you want your game to 
                                 do? Next unit you can add even more things, so that your games are even cooler.}
-                        @teacher{Have students show each other their finished games!}}
+                        @teacher{@management{Have students show each other their finished games, and start thinking about what 
+                                 features they want to add next!}}}
                  ]
          }
        }
