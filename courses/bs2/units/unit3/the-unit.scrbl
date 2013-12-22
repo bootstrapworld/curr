@@ -109,7 +109,7 @@ matters! Look at the order of the fields in the @code{define-struct} line. The f
         #:learning-objectives @itemlist[@item{Write complex functions that consume, modify and produce structures}
             @item{Deepen their understanding of structures, constructors and accessors by being introduced to two new data structures.}]
         #:evidence-statements @itemlist[]
-        #:product-outcomes @itemlist[@item{Students define two new complex data structure: party and world}
+        #:product-outcomes @itemlist[@item{Students define two new complex data structures: party and world}
           @item{Students will write functions that access fields of an auto, party, or world, and produce new autos, parties, and worlds.}]
         #:standards (list)
         #:materials @itemlist[@item{The Party Planner file [Party.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=zLYLPQ5d6K" "WeScheme")] preloaded on students' machines}]
@@ -217,7 +217,7 @@ matters! Look at the order of the fields in the @code{define-struct} line. The f
                         @teacher{These activities encourage students to read others' code and think about how it works, looking at the contracts and definitions and 
                                  piecing together what they already know. Ask a LOT of questions when going through the file: How do we know we need to make a new 
                                  world in @code{update-world}? (Because the range is a world). Why is @code{dogX} a good variable name for our world? Ask them to
-                                 guess what they think expressions like (on-tick update-world) will do in the game.}}
+                                 guess what they think expressions like @activity{(on-tick update-world)} will do in the game.}}
                  
                  @point{@student{@activity{Now skip down to the last function defined in our code: @code{big-bang}. This is a special function that will begin an animation, 
                                           but it needs help from other functions to update and draw the world. 
