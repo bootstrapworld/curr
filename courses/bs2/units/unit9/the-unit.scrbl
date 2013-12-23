@@ -82,7 +82,7 @@
                                  world structure.
                                  @activity{Go back to the top of the page where the World is defined and add in 
                                            a @code{dogY}. Don't forget to redefine your START and NEXT worlds, 
-                                           to account for the extra item in the world struct!}
+                                           to account for the extra item in the world struct.}
            @code[#:multi-line #t]{;; The World is the x and y positions of the dog, x position of the ruby, and y position of the cat
                                   (define-struct world (dogX dogY rubyX catY))}
                                  Right now the @code{draw-world} function draws the dog at it's current 
@@ -152,7 +152,12 @@
                                 progress to a new level if the player has reached a certain goal: Collected
                                 a certain number of rubies, destroyed a certain number of zombies, or reached
                                 a certain score. Let's start by adding a scoring system to the Ninja World game.}
-                        @teacher{}}
+                        @teacher{Both the scoring system and randomizing the y-coordinates of the target and danger
+                                 were part of the included teachpack in Bootstrap 1, code which ran "under the hood"
+                                 in students' first Bootstrap game. Let them know that in Bootstrap 2, they no longer 
+                                 @italic{need} this hidden code, because they've learned enough to program the entire 
+                                 game (and more!) themselves.}}
+                 
                  @point{@student{The score is something that will be changing in the game, so you can be 
                                  sure that it has to be added to the world structure.
                                  @activity{@itemlist[@item{What data type is the score? Number, String, 
@@ -161,8 +166,8 @@
                                                       @item{Change the world structure so it includes a 
                                                             @code{score}.}]}
 @code[#:multi-line #t]{;; The World is the x and y positions of the dog, x position of the ruby,
-                                 ;; y position of the cat, and the player's score
-                                  (define-struct world (dogX dogY rubyX catY score))}
+                       ;; y position of the cat, and the player's score
+                       (define-struct world (dogX dogY rubyX catY score))}
                                  Remember: Since the world structure is changing, you now have to go through 
                                  your game code- every time you make a world, the score must be included in 
                                  that world. @activity{How do you get the @code{score} out of the world?}}
@@ -177,15 +182,27 @@
                                                             the player collides with the danger?}]}
 
 @code[#:multi-line #t]{(define (update-world w)
-                                 (cond [(collide? 320 (world-catY w) (world-dogX w) (world-dogY w)) (make-world -50 
-                                                                                                    (random 480)
-                                                                                                    (world-rubyX w)
-                                                                                                    (world-catY w)
-                                                                                                    (-(world-score w) 20))]))}
+                       (cond 
+                       [(collide? 320 (world-catY w) (world-dogX w) (world-dogY w)) (make-world -50 
+                                                                                              (random 480)
+                                                                                              (world-rubyX w)
+                                                                                              (world-catY w)
+                                                                                            (-(world-score w) 20))]))}
 
                                  @activity{On the next cond branch, make the score increase by 30 points 
                                            when the cat collides with the ruby.}}
-                         @teacher{}}
+                         @teacher{Many students will want to display the score on their game screens. In order to do this 
+                                  they will need to place an @italic{Image} of the score onto their scene in 
+                                  @code{draw-world}. The function @code{number->string} takes in a Number for its domain and 
+                                  returns a String representation of that number. This string can be passed to the @code{text}
+                                  function to return an Image that can then be used in @code{draw-world}. For example, the
+                                  expression:
+                                  (@code{; text: String Number String String -> Image}) to return an Image. The expression:
+                                  @code{(put-image (text (number->string (world-score w)) 50 "solid" "purple")
+                                                    320 240
+                                                    BACKGROUND)}
+                                  will place the score (drawn in size 50, solid purple text) onto the center of the BACKGROUND.}}
+                 
                  @point{@student{Ninja World has a scoring system: Now it's time to add some levels. For 
                                  this example, you'll make the game have a different background image when
                                  the player progresses to the next level. The player will reach level two 
@@ -310,8 +327,8 @@
                                 For even more of a challenge, every level in the game can be its own structure. A level 
                                 could have a background image, characters, a boolean value representing wheather the 
                                 player has collided with another character, or anything you like!}
-                        @teacher{}
-                        }
+                        @teacher{Using many nested structures can get tricky: if a student is struggling, have them draw
+                                 the circles of evaluation for their expressions.}}
                 ]
          }
 
