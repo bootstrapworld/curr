@@ -165,7 +165,7 @@
                             @teacher{In Bootstrap 1, students' games were made by keeping track of only a few numbers: the x-positions of the danger and target, and y-position 
                                      of the payer. In Bootstrap 2, students' games will be much more complex, and will require many more values to move characters, test conditions, 
                                      keep track of the score, etc. Data structures simplify code by organizing many different values: You couldn't represent every part of a player 
-                                     (position, health, inventory, etc.) with one number or string, but you can represent all these things with a @vocab{data structure.}}}
+                                     (position, health, inventory, etc.) with one number or string, but you can represent all these things with a @vocab{data structure}.}}
                     ]
            }
 
