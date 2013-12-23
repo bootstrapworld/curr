@@ -41,9 +41,7 @@
                        @teacher{At this point in the course, students will have very different games, and will probably 
                                 need individual help adding the finishing touches or extra elements. This unit includes 
                                 ideas and instructions for frequently requested game elements (Using Ninja World as a 
-                                template), but feel free to have your students get creative with their additions. For 
-                                more practice with algebra, try challenging students to some 
-                                @lesson-link[#:name "Harder-Problems-Algebra" #:label "harder problems"].}}
+                                template), but feel free to have your students get creative with their additions.}}
            ]
          }
                                
@@ -121,11 +119,11 @@
                                  the dog. Once the dog is reappearing randomly when it leaves the screen, you can 
                                  make the same changes to the ruby's y-coordinate to make it appear randomly, or
                                  add this concept to your own game.}
-                         @teacher{Pay particular attention to the @code{distance} and @code{collide?} functions: 
-                                  They take in the dog's y-coordinate, but it's currently hard-coded to always be 
-                                  @code{400)}. Make sure students realize that every function that uses the dog's 
-                                  y-coordinate must now get that value from the world structure, using 
-                                  @code{(world-dogY w)}.}
+                         @teacher{Pay particular attention to the use of @code{distance} and @code{collide?} in the
+                                  @code{update-world} function: They take in the dog's y-coordinate, but it is 
+                                  currently hard-coded to always be @code{400)}. Make sure students realize that every
+                                  function that uses the dog's y-coordinate must now get that value from the world 
+                                  structure, using @code{(world-dogY w)}.}
                          }
                           ]
          }
@@ -198,10 +196,10 @@
                                   function to return an Image that can then be used in @code{draw-world}. For example, the
                                   expression:
                                   (@code{; text: String Number String String -> Image}) to return an Image. The expression:
-                                  @code{(put-image (text (number->string (world-score w)) 50 "solid" "purple")
+                                  @code{(put-image (text (number->string (world-score w)) 30 "purple")
                                                     320 240
                                                     BACKGROUND)}
-                                  will place the score (drawn in size 50, solid purple text) onto the center of the BACKGROUND.}}
+                                  will place the score (drawn in size 30 purple text) onto the center of the BACKGROUND.}}
                  
                  @point{@student{Ninja World has a scoring system: Now it's time to add some levels. For 
                                  this example, you'll make the game have a different background image when
@@ -236,15 +234,15 @@
                                  Instead of putting all your images on top of @code{BACKGROUND}, you'll put 
                                  them over @code{BACKGROUND2}, your new background image:
 @code[#:multi-line #t]{(define (draw-world w)
-                                       (cond 
-                                       [(> (world-score w) 500) (put-image PLAYER 
-                                                                  320 (world-catY w)  
-                                                                      (put-image TARGET
+                        (cond 
+                        [(> (world-score w) 500) (put-image PLAYER 
+                                                           320 (world-catY w)  
+                                                               (put-image TARGET
                                                                       (world-rubyX w) 300
                                                                             (put-image CLOUD
                                                                                        500 400  
-                                                                                (put-image DANGER 
-                                                                                (world-dogX w) (world-dogY w)
+                                                                                      (put-image DANGER 
+                                                                                      (world-dogX w) (world-dogY w)
                                                                                       BACKGROUND2))))]))}
                                  @activity{Don't forget to add an @code{else} clause before your original code, 
                                            right underneath what you just wrote. If the score is @bold{not} 
@@ -267,7 +265,11 @@
                                    danger move faster.}
                          @teacher{@management{You can use the provided background image for level 2 of Ninja World, 
                                               or walk students through finding and adding their own image to the game.}
-
+                                   
+                                   These modifications can be seen in action in the 
+                                   @(hyperlink "http://www.wescheme.org/view?publicId=ZTt2BzE0UX" "Completed Ninja World file"), 
+                                   or NWComplete.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"].
+                                    
                                    Some more options for students who finish early: 
                                    @itemlist/splicing[@item{Change the update-world function so that the danger and
                                                             target move faster if the score is greater than 500.}
