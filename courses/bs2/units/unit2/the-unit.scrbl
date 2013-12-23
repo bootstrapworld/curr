@@ -56,7 +56,7 @@
                                  @code[#:multi-line #t]{
 ; double-radius: Number String -> Image
 ; makes an outlined circle that's twice the radius}}
-                         @teacher{}}
+                         @teacher{Review the purpose of Contracts: once we know the Name, Domain, and Range of a function, it's easy to write EXAMPLEs using those datatypes.}}
            
                  @point{@student{@bannerline{Step 2: Examples} 
                                   @activity{Using only the Contract and Purpose Statement, see if you can answer the following questions:
@@ -86,7 +86,8 @@
                                           names you used.}  
            @code[#:multi-line #t]{(define (double-radius radius color)
                                           (circle (* radius 2) "solid" color))}}
-                @teacher{}}
+                @teacher{Check students understanding: Why do we use variables in place of specific values? Why is it important to have descriptive variable
+                         names, as opposed to @code{n} or @code{x}?}}
                 
                 @point{@student{@activity{Turn to @worksheet-link[#:page 8 #:name "double-width"] in your workbooks. Write a function called @code{double-width}, 
                                                   which takes in a height and a color. The function produces a solid rectangle, which is whatever height and 
@@ -102,7 +103,9 @@
                                                     @item{Looking at those two examples, circle the parts that are @italic{change-able}, then label them with a good @vocab{variable name}.
                                                           @itemlist[@item{Why is it helpful to choose a variable name before defining the function?}]}]
                                          Now write the @vocab{function definition}, using the Examples you've written.}}
-                        @teacher{This is very similar to the previous problem, and is meant to get students very comfortable with using the design recipe before delving into more complex problems.}}
+                        @teacher{This is very similar to the previous problem, and is meant to get students very comfortable with using the design recipe before delving into more complex problems. 
+                                 Remind students about nested functions: A function whose range is a number can be used inside of a function requiring a number in its domian, as in 
+                                 @code{(circle (* 2 25) "solid" "red")}.}}
                                    ]
          }
        
@@ -137,7 +140,9 @@
                                @item{a set of coordinates}]}
             A set of coordinates requires two numbers: an x and a y. Unfortunately, functions can only return one piece of data at a time. 
             Can you use a String to return two numbers? Not if you want to add or subtract them! Why do you think you can't use an Image or a Boolean to represent two numbers?}
-             @teacher{You can illustrate the importance of structures with an activity: Pass out bags of datatype cards, and instruct students to take out all of the cards from the bags, and set them on the table in front of them. List each thing above that could be returned by a Racket function, and have students hold up a card to show what datatype each would be.}}
+             @teacher{You can illustrate the importance of structures with an activity: Pass out bags of datatype cards, and instruct students to take out all of the cards from 
+                      the bags, and set them on the table in front of them. List each thing above that could be returned by a Racket function, and have students hold up a card 
+                      to show what datatype each would be.}}
                     
                     @point{@student{Every function that you could possibly write or use in Racket can only give back one thing. That is, the range only has one thing in it. 
                                     You need a new type of data - something that can hold more than one thing at once. Racket actually has a tool to make such a thing, and 
@@ -157,7 +162,10 @@
                                                          @item{how many pets you have}
                                                          @item{a picture of a shape, with the number of sides and its color}
                                                          @item{a direction that a plane is traveling, and how fast it is going}]}}
-                            @teacher{@bold{STRUCTURES!!!!}}}
+                            @teacher{In Bootstrap 1, students' games were made by keeping track of only a few numbers: the x-positions of the danger and target, and y-position 
+                                     of the payer. In Bootstrap 2, students' games will be much more complex, and will require many more values to move characters, test conditions, 
+                                     keep track of the score, etc. Data structures simplify code by organizing many different values: You couldn't represent every part of a player 
+                                     (position, health, inventory, etc.) with one number or string, but you can represent all these things with a @vocab{data structure.}}}
                     ]
            }
 
@@ -194,11 +202,11 @@
                                    Let's represent the different parts of a car like so:
                                    @itemlist[@item{@code{model}: @bold{String}}
                                               @item{@code{horsepower}: @bold{Number}}
-                                              @item{@code{rims}: @bold{Number}}
+                                              @item{@code{rims}: @bold{Number}} 
                                               @item{@code{color}: @bold{String}}
                                               @item{@code{value}: @bold{Number}}]
                                    These are the only things that you're going to keep track of in an auto, but you can imagine how you might extend it to include other things.}
-                           @teacher{Copy the fields of an auto struct and their types onto the board.}}
+                           @teacher{@management{Copy the fields of an auto struct and their types onto the board.}}}
                     
                     @point{@student{Now that you know everything that is part of an auto, you can use a struct to represent the auto itself. (This is the very first time that 
                                     you're going to use structs, and they're going to play a HUGE part in your videogame.) Let's take a look at how this works.
@@ -213,7 +221,9 @@
                                                           @item{Finally, what is the value of @code{car1}?}]}
                             As you can see here, it's really easy to make this auto struct! We have a bit of code which tells the computer which order everything goes 
                             in...and we'll talk about that shortly. For now, let's practice defining some new autos.}
-                            @teacher{}}
+                            @teacher{The first line in this file tells the computer that an @code{auto} is a new data structure, and the names of its fields. 
+                                     Below there are three autos defined and assigned to the variables @code{car1}, @code{car2}, and @code{car3}. Ask students 
+                                     questions about these autos to get them thinking about how they would define their own.}}
 
                     @point{@student{@activity{Define another car, called @code{new-car}. To start, 
                                                                          @itemlist[@item{how would you define this variable?}
@@ -222,7 +232,7 @@
                                               Now what do you expect to happen when you type @code{new-car} into the interactions window? Click Run and try it out.}             
                                               @code{(define new-car (make-auto "Taurus" 300 20 "white" 5000))}}
                  @teacher{Have students walk you through the process of defining a variable called @code{new-car} and making an auto with whatever model, hp, rims, etc. they like.
-                          If they struggle with making an auto, have them check their contracts page! }}
+                          If they struggle with making an auto, have them check their contracts page!}}
                  
                  @point{@student{@activity{Define two new variables for each of your favorite cars. Call one [yourname]-car (@code{nathan-car}, @code{sam-car}, @code{jill-car}, etc),
                                            or whatever name you prefer. You can make any kind of cars that you want, as long as your struct has the right types in the right orders!}}
@@ -239,19 +249,31 @@
 ; Model, hp, rims, color, value}}
                             @teacher{Remember to have students copy the contract into their workbooks, and write the contracts yourself on the board.}}
                     
-                    @point{@student{With data structures, the order is very important: we always want the first string in @code{make-auto} to be the auto's model, the first number to be its horsepower, etc. @activity{Underneath the contract, write what each part of @code{make-auto}'s domain represents.}}
+                    @point{@student{With data structures, the order is very important: we always want the first string in @code{make-auto} to be the auto's model, the first number 
+                                    to be its horsepower, etc. 
+                                    @activity{Underneath the contract, write what each part of @code{make-auto}'s domain represents.}}
                             @teacher{}}
                     
-                    @point{@student{We know the name and domain, but what's the range? If I give @code{make-auto} a String representing the model of an auto, a number for the hp, another number for the rim size, a string for the color, AND a number for the value, what should I get back? An Auto! But Racket doesn't have a datatype for an Auto. We'll have to use a struct. Racket doesn't have autos built into it, so later on we'll learn about defining our own structures to use in YOUR videogame.}
-                         @teacher{}}
+                    @point{@student{We know the name and domain, but what's the range? If I give @code{make-auto} a String representing the model of an auto, a number for the hp, 
+                                    another number for the rim size, a string for the color, AND a number for the value, what should I get back? An Auto! But Racket doesn't have a 
+                                    datatype for an Auto. We'll have to use a struct. Racket doesn't have autos built into it, so later on you'll learn about defining your own 
+                                    structures to use in YOUR videogame.}
+                         @teacher{Autos are the first example of defining a new datatype that students will see, but Racket allows you to define any number of new data structures to hold
+                                  any combination of values. The important points to remember about structures is that whenever @code{make-[structure]} is called, it must take in the same 
+                                  number and type of values as in the structure's definition, and its inputs must be in the @italic{same order} as the definition. Unit Three introduces 
+                                  students to even more data structures, and in Unit Four they begin defining their own.}}
               
                  @point{@student{@activity{After clicking the "Run" button, in WeScheme, type @code{car1} into the interactions window and hit enter. What do you get back?}
-Does this make sense? What happened when you typed just a number into the interactions window? We got that same number back! What about strings? Images? Booleans? If we don't do anything to our input, or use any function on it, we get back exactly what we put in! Here, you put in an auto, and got back that auto!}
-                         @teacher{Remind students that values will always evaluate to themselves. 4 evaluates to 4, the string "pizza" evaluates to "pizza", and @code{car1} evaluates to @code{(make-auto "M5" 480 28 "black" 50000)}}}
+                                  Does this make sense? What happened when you typed just a number into the interactions window? We got that same number back! What about strings? Images? 
+                                  Booleans? If we don't do anything to our input, or use any function on it, we get back exactly what we put in! Here, you put in an auto, and got back that auto!}
+                         @teacher{Remind students that values will always evaluate to themselves. 4 evaluates to 4, the string @code{"pizza"} evaluates to @code{"pizza"}, and @code{car1} evaluates
+                                  to @code{(make-auto "M5" 480 28 "black" 50000)}}}
                 
-                  @point{@student{You can see what your cars look like by using the function provided at the bottom of the screen. It's called @code{draw-auto}, and it takes an auto as input and gives you back an Image with your car in it.
-@activity{In the interactions window, type @code{(draw-auto car1)} and see what happens. Use the function with the cars YOU defined!} @bitmap{images/car1.png}}
-                         @teacher{Students will spend lots of time "drawing" their autos. Encourage them to define some new autos, and alter the color, rim size, value, etc. to see their changes reflected in the images. Don't forget to remind them to click "Run" after making any changes!}}
+                  @point{@student{You can see what your cars look like by using the function provided at the bottom of the screen. It's called @code{draw-auto}, and it takes an auto as input and 
+                                  gives you back an Image with your car in it.
+                                  @activity{In the interactions window, type @code{(draw-auto car1)} and see what happens. Use the function with the cars YOU defined!} @bitmap{images/car1.png}}
+                         @teacher{Students will spend lots of time "drawing" their autos. Encourage them to define some new autos, and alter the color, rim size, value, etc. to see their changes 
+                                  reflected in the images. Don't forget to remind them to click "Run" after making any changes!}}
                   ]
            }
                  
@@ -371,7 +393,7 @@ After replacing the changing things with variables, your definition should look 
                                                                 (auto-rims car)
                                                                  color
                                                                 (auto-value car)))}}
-                         @teacher{Students may be tempted to put color in quotes, because the color of the car must be a string. However, the domain of 
+                         @teacher{Students may be tempted to put @code{color} in quotes, because the color of the car must be a string. However, the domain of 
                                   @code{paint-job} tells us that the function will take in an auto and a string, so whatever color is input will already 
                                   have quotes around it. Values evaluate to themselves, so the string "color" cannot evaluate to anything other than "color".
                                   If we want color to be a variable, or shortcut for "purple", "green", "blue", etc. it must be written WITHOUT quotation marks.}}
@@ -383,7 +405,7 @@ After replacing the changing things with variables, your definition should look 
                               @item{Write two @vocab{Examples} for how one would use @code{turbocharge}.}
                               @item{Circle and label what varies between those examples, and label it with a @vocab{variable} name.}
                               @item{Define the function.}]}}
-                         @teacher{}}]
+                         @teacher{Give students plenty of time to practice using accessor functions, extracting pieces of the Auto structs, and modifying them.}}]
          }
 
                                                                                                                                                                                 @lesson/studteach[#:title "Closing"
