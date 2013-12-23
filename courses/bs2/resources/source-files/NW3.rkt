@@ -4,7 +4,7 @@
 (require "Teachpacks/bootstrap-teachpack.rkt")
 
 ;; DATA:
-;; The World is the x position of the dog
+;; The World is the x position of the dog and x position of the ruby
 (define-struct world (dogX rubyX))
 
 ;; STARTING WORLD
@@ -39,6 +39,14 @@
 (define (update-world w)
   (make-world (+ (world-dogX w) 10) 
               (- (world-rubyX w) 5)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; KEY EVENTS:
+
+;; keypress: world string -> world
+;; make catY respond to key events
+
+
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

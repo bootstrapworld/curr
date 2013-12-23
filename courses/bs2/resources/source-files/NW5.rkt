@@ -1,6 +1,6 @@
 ;; The first three lines of this file were inserted by DrRacket. They record metadata
 ;; about the language level of this file in a form that our tools can easily process.
-#reader(lib "htdp-beginner-reader.ss" "lang")((modname NW5) (read-case-sensitive #t) (teachpacks ()) (htdp-settings #(#t constructor repeating-decimal #f #t none #f ())))
+#reader(lib "htdp-beginner-reader.ss" "lang")((modname NW6) (read-case-sensitive #t) (teachpacks ()) (htdp-settings #(#t constructor repeating-decimal #f #t none #f ())))
 (require "Teachpacks/bootstrap-teachpack.rkt")
 
 ;; DATA:
@@ -39,9 +39,16 @@
 ;; update-world: world -> world
 ;; increase dogX by 10, decrease rubyX by 5
 (define (update-world w)
-  (make-world (+ (world-dogX w) 10) 
+  (cond
+    [(off-left? (world-rubyX w))   (make-world (world-dogX w) 
+                                               650
+                                               (world-catY w))]
+    [(off-right? (world-dogX w))   (make-world -50 
+                                               (world-rubyX w)
+                                               (world-catY w))]
+    [else   (make-world (+ (world-dogX w) 10) 
               (- (world-rubyX w) 5)
-                 (world-catY w)))
+              (world-catY w))]))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; KEY EVENTS:
 
@@ -67,10 +74,26 @@
 ;; off-left? : number -> boolean
 ;; Checks whether an object has gone off the left side of the screen
 
-
+(define (off-left? x)
+  (< x 0))
 
 ;; off-right? : number -> boolean
 ;; Checks whether an object has gone off the right side of the screen
+
+(define (off-right? x)
+  (> x 640))
+
+;; line-length : number number -> number
+;; Finds 1D distance 
+
+
+;; distance : number number number number -> number
+;; Finds the 2D distance between two points
+
+
+
+;; collide? : number number number number -> boolean
+;; determines whether two objects are within 50 pixels of eachother
 
 
 

@@ -4,14 +4,15 @@
 (require "Teachpacks/bootstrap-teachpack.rkt")
 
 ;; DATA:
-;; The World is the x position of the dog, x position of the ruby, and y position of the cat
-(define-struct world (dogX rubyX catY))
+;; The World is the x and y positions of the dog, x position of the ruby, y position of the cat, and the player's score
+(define-struct world (dogX dogY rubyX catY score))
 
 ;; STARTING WORLD
-(define START (make-world 0 600 240))
-(define NEXT (make-world 10 595 240))
+(define START (make-world 0 400 600 240 0))
+(define NEXT (make-world 10 400 595 240 0))
 
 (define BACKGROUND (bitmap "Teachpacks/teachpack-images/bg.jpg"))
+(define BACKGROUND2 (bitmap "Teachpacks/teachpack-images/bg2.jpg"))
 (define DANGER (bitmap "Teachpacks/teachpack-images/dog.png"))
 (define TARGET (scale .3 (bitmap "Teachpacks/teachpack-images/ruby.png")))
 (define PLAYER (bitmap "Teachpacks/teachpack-images/ninja.png"))
@@ -21,17 +22,31 @@
 ;; GRAPHICS FUNCTIONS:
 
 ;; draw-world: world -> Image
-;; place DANGER, TARGET, CLOUD and PLAYER onto BACKGROUND at the right coordinates
+;; place DANGER, TARGET, CLOUD, PLAYER and SCORE onto BACKGROUND at the right coordinates
 (define (draw-world w)
-  (put-image PLAYER
-             320 (world-catY w)  
-             (put-image TARGET
-                        (world-rubyX w) 300
-                        (put-image CLOUD
-                                   500 400  
-                                   (put-image DANGER 
-                                              (world-dogX w) 400
-                                              BACKGROUND)))))
+  (cond
+    [(> (world-score w) 500) (put-image (text (number->string (world-score w)) 30 "white")
+                                       320 440
+                                       (put-image PLAYER
+                                                  320 (world-catY w)  
+                                                  (put-image TARGET
+                                                             (world-rubyX w) 300
+                                                             (put-image CLOUD
+                                                                        500 400  
+                                                                        (put-image DANGER 
+                                                                                   (world-dogX w) (world-dogY w)
+                                                                                   BACKGROUND2)))))]
+    [else (put-image (text (number->string (world-score w)) 30 "white")
+                                       320 440
+                                       (put-image PLAYER
+                                                  320 (world-catY w)  
+                                                  (put-image TARGET
+                                                             (world-rubyX w) 300
+                                                             (put-image CLOUD
+                                                                        500 400  
+                                                                        (put-image DANGER 
+                                                                                   (world-dogX w) (world-dogY w)
+                                                                                   BACKGROUND)))))]))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; UPDATING FUNCTIONS:
@@ -40,24 +55,34 @@
 ;; increase dogX by 10, decrease rubyX by 5
 (define (update-world w)
   (cond
-    [(collide? 320 (world-catY w) (world-dogX w) 400) (make-world -50 
+    [(collide? 320 (world-catY w) (world-dogX w) (world-dogY w)) (make-world -50 
+                                                                  (random 480)
                                                                   (world-rubyX w)
-                                                                  (world-catY w))]
-    [(collide? 320 (world-catY w) (world-rubyX w) 300) (make-world (world-dogX w) 
+                                                                  (world-catY w)
+                                                                  (- (world-score w) 20))]
+    [(collide? 320 (world-catY w) (world-rubyX w) 300) (make-world (world-dogX w)
+                                                                   (world-dogY w)
                                                                   650
-                                                                  (world-catY w))]
+                                                                  (world-catY w)
+                                                                  (+ (world-score w) 30))]
     
     
     
-    [(off-left? (world-rubyX w))   (make-world (world-dogX w) 
+    [(off-left? (world-rubyX w))   (make-world (world-dogX w)
+                                               (world-dogY w)
                                                700
-                                               (world-catY w))]
+                                               (world-catY w)
+                                               (world-score w))]
     [(off-right? (world-dogX w))   (make-world -100 
+                                               (random 480)
                                                (world-rubyX w)
-                                               (world-catY w))]
-    [else   (make-world (+ (world-dogX w) 10) 
-              (- (world-rubyX w) 5)
-              (world-catY w))]))
+                                               (world-catY w)
+                                               (world-score w))]
+    [else   (make-world (+ (world-dogX w) 10)
+                        (world-dogY w)
+                        (- (world-rubyX w) 5)
+                        (world-catY w)
+                        (world-score w))]))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; KEY EVENTS:
 
@@ -67,14 +92,20 @@
 (define (keypress w key)
   (cond
     [(string=? key "up") (make-world (world-dogX w)
+                                     (world-dogY w)
                                      (world-rubyX w)
-                                     (+ (world-catY w) 10))]
+                                     (+ (world-catY w) 10)
+                                     (world-score w))]
     [(string=? key "down") (make-world (world-dogX w)
+                                       (world-dogY w)
                                      (world-rubyX w)
-                                     (- (world-catY w) 10))]
+                                     (- (world-catY w) 10)
+                                     (world-score w))]
     [else (make-world (world-dogX w)
+                      (world-dogY w)
                       (world-rubyX w)
-                      (world-catY w))]))
+                      (world-catY w)
+                      (world-score w))]))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; TESTS FOR COND:
