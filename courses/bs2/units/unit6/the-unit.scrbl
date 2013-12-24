@@ -33,7 +33,7 @@
       ]{
         @points[@point{@student{So far, we've been working with three main functions to make our game and animate our world: @code{update-world}, 
                                 @code{draw-world}, and @code{big-bang}. At this point, your game might use a few more functions than these, but 
-                                Ninja World is still as basic as you remember. 
+                                Ninja World is still as basic as you remember it. 
                                 @activity{@itemlist[@item{Open the @(hyperlink "http://www.wescheme.org/view?publicId=t77yPXKDWs " "Ninja World 3")
                                                          file and press "Run", to watch the dog and the ruby fly across the screen.}
                                                      @item{What is the contract for each of the functions in this game? What do they do?}
@@ -46,28 +46,28 @@
                                 In this version of Ninja World, both the dog and the ruby are moving as they should. But that's old news: you've already 
                                 made the characters in your game move on their own. Let's add more.}
                         
-                        @teacher{This lesson is another opportunity to have students "act out" the three main functions in Ninja World. Draw a box on the 
-                                 board with @code{(make-world 0 640)} in it, labelled "world". Ask for a volunteer, and hang the @code{update-world}
-                                 nametag around their neck. Ask them for their contract and purpose statement. Go through a few iterations of having 
+                        @teacher{This lesson is another opportunity to have students"act out the three main functions in Ninja World. Draw a box on the 
+                                 board with @code{(make-world 0 640)} in it, labelled "world". Ask for a volunteer, and given them the @code{update-world}
+                                 nametag to wear. Ask for @code{update-world}'s Contract and Purpose Statement. Go through a few iterations of having 
                                  @code{update-world} evaluate the world on the board, and each subsequent world that they update. 
                                  @management{Make sure to call them by name, i.e. "@code{(update-world (make-world 0 640))}"} (In the first example, 
                                  the student should erase the 0 and write a 10, and erase the 640 and write a 635. If they are stuck, refer them back 
-                                 to the code.) Take another student, and put the @code{big-bang} sign around their neck. They'll start the whole 
+                                 to the code.) Take another student, and give them the @code{big-bang} sign. They'll start the whole 
                                  animation, and will have a timer. Instruct the class to yell "tick!" every five seconds, and when they do, 
                                  @code{big-bang} will give the current world to @code{update-world}, who will then update it and replace it with the new 
                                  world. Let this go on for a few iterations, so the rest of the class can see the world structure being changed while 
-                                 they count down. Finally, take another student, put the @code{draw-world} sign around them, and give them the cutouts 
-                                 of the dog and ruby. Ask for their name, domain, range, and what they (as @code{draw-world}!) will do to the world. 
-                                 Whenever they are evaluated, they will be given a world, and will place the image of the dog and the ruby at the 
+                                 they count down. Finally, give the @code{draw-world} sign to another volunteer, along with the cutouts 
+                                 of the dog and ruby. As before, ask for their name, domain, range. 
+                                 When they are called, they will be given a @code{world} structure and will place the image of the dog and the ruby at the 
                                  appropriate spots on the board. Change the value of the world back to @code{(make-world 0 640)}. Call on @code{draw-world}
                                  a few times with different worlds, so the class can see the dog and ruby moving accross the screen. When each 
                                  volunteer has practiced, put all the functions together: On each "tick" the class makes, @code{big-bang} will call on 
                                  @code{update-world} to update the current world, and then @code{draw-world} to draw that updated world. Again, go 
                                  through a few iterations, so the class can see the world structure changing and characters moving in as a result.}}
                  
-                 @point{@student{The time is nigh: we need to get that ninja cat onto the screen, so that our game is playable. She'll be able to move up and down. 
+                 @point{@student{The time is nigh: we need to get that ninja cat onto the screen so that our game is playable. She'll be able to move up and down. 
                                  @activity{@itemlist[@item{Do we need to change anything in the code to make this work?}
-                                        @item{What part of the game will we need to keep track of, if Ninja Cat is moving up and down? What would be a 
+                                        @item{What part of the game will we need to keep track of if Ninja Cat is moving up and down? What would be a 
                                               good @vocab{variable} name for this?}]}
                                  We need to keep track of the cat's y-coordinate, so let's add a @code{catY} to the world.  
                                  @activity{@itemlist[@item{Where in the code is the world struct defined?}
@@ -82,13 +82,13 @@
                                                            @code{make-world}, changing it to reflect the new world struct.}
                                                       @item{How do you get the @code{catY} out of the world?}                                       
                                                       @item{We said that we'll be writing another function to handle keypresses and moving the cat, so just 
-                                                            add the @code{catY} to @code{update-world}, don't worry about changing its value.}
+                                                            add the @code{catY} to @code{update-world}. Don't worry about changing its value.}
                                             @item{Inside  @code{draw-world}, use the @code{put-image} function to place the image of Ninja Cat on top of 
                                                           the other images in the game. If she starts in the center of the screen, on what x-coordinate 
                                                           will she be placed? What about her y-coordinate?}]}}
                          @teacher{After the @code{catY} is added to the world struct, but before any of the functions have changed, try running the 
                                   simulation again, giving the ninja cat cutout to the @code{draw-world} volunteer. The world now has three things in it
-                                  (@code{dogX}, @code{rubyX}, and @code{catY}), but the updating and drawing functions will only change the dog and ruby's 
+                                  (@code{dogX}, @code{rubyX}, and @code{catY}), but the updating and drawing functions will change only the dog and ruby's 
                                   positions. When @code{big-bang} starts the animation, only the @code{dogX} and @code{rubyX} will be updated. After a few 
                                   iterations, tell the volunteers that you've pressed the "up" key. If @code{draw-world} begins moving the ninja cat cutout,
                                   refer them back to the code. You haven't programmed anything to change @code{catY} yet.}}
@@ -111,7 +111,7 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Now that the world structure is conistant across all the functions in Ninja World, we're ready to make the cat move.
+        @points[@point{@student{Now that the world structure is consistant across all the functions in Ninja World, we're ready to make the cat move.
                                 @activity{Open your workbook to @worksheet-link[#:page 28 #:name "Keypress"]. Using the Design Recipe, write the
                                                                 function @code{keypress} for the Ninja World game.} 
                                 @bannerline{Step 1 - Contract and Purpose Statement}
@@ -120,7 +120,7 @@
                                 update. But it also needs to know what key was pressed (either @code{"up"} or @code{"down"}).
                                 @activity{@itemlist[@item{What datatypes are @code{"up"} and @code{"down"}?}
                                                      @item{What is the Domain of @code{keypress}? The Range?}
-                                                     @item{What is a good purpose statement for this function?}]}   
+                                                     @item{What is a good Purpose Statement for this function?}]}   
           @code[#:multi-line #t]{; keypress : World String -> World
                                  ; Given a world and key pressed, updates the world's catY}       
                                @bannerline{Step 2 - Examples}
@@ -166,12 +166,12 @@ Your first example should look like:
                  @point{@student{Each @vocab{piecewise function} has at least one @vocab{clause}. Each clause has a Boolean question and a result. In 
                                       your @code{keypress} function, there is a clause for the @code{"up"} key, and another for the @code{"down"} key.
                                       If the question evaluates to true, the expression gets evaluated and returned. If the question is false, the computer 
-                                      will skip to the next @vocab{clause}. To write a function with multiple conditions, start with @code{cond}, and use
+                                      will skip to the next @vocab{clause}. To write a function with multiple conditions, start with @code{cond} and use
                                       square brackets to add a branch. We know that every branch has a test and a result, making a @vocab{clause}. 
                                       @code[#:multi-line #t]{(define (keypress w key)
 	                                   (cond
 		                                 [...test...  ...result...]))}
-Let's start the first branch, where we'll test if the @code{key} pressed is equal to @code{"up"}. @activity{What function checks if two strings are equal?}
+Let's start the first branch. It will test if the @code{key} pressed is equal to @code{"up"}. @activity{What function can we use to test if two strings are equal?}
 @code[#:multi-line #t]{(define (keypress w key)
 	(cond
 		[(string=? key "up")  ...result...]))}}
@@ -202,7 +202,7 @@ We also need to test whether the user pressed the @code{"down"} key:
                                Racket doesn't know what to do if any other key is pressed, because we haven't told it what to do. 
                                @activity{@itemlist[@item{Should the world change if the user hits the spacebar, or the @code{"r"} key?}
                                                     @item{Which world should be returned if any other key is pressed?}]}
-Instead of accessing all the values of the original world, we can just use the variable, @code{w}: 
+Instead of enumerating all the values of the original world, we can use the variable, @code{w}: 
 @code[#:multi-line #t]{(define (keypress w key)
 	(cond
                 [(string=? key "up")  (make-world (world-dogX w) 
@@ -215,14 +215,13 @@ Instead of accessing all the values of the original world, we can just use the v
                 [else w]))}
                  
 The last clause in a conditional can be an @code{else} clause, which gets evaluated if all the previous clauses were @code{false}.}
-                         @teacher{@code{else} clauses are best used as a catch-all for cases that you can’t otherwise enumerate. If you can state a p
-                                   recise question for a clause, write the precise question instead of else. For example, if you have a function that does
-                                   different things depending on whether some variable @code{x} is larger than @code{5}, it is better for beginners to w
-                                   rite the two questions @code{(> x 5)} and @code{(<= x 5)} rather than have the second question be @code{else}. 
+                         @teacher{@code{else} clauses are best used as a catch-all for cases that you can’t otherwise enumerate. If you can state a precise 
+                                   question for a clause, write the precise question instead of else. For example, if you have a function that does
+                                   different things depending on whether some variable @code{x} is larger than @code{5}, it is better for beginners to
+                                   write the two questions @code{(> x 5)} and @code{(<= x 5)} rather than have the second question be @code{else}. 
                                    Explicit questions make it easier to read and maintain programs. When you use @code{else}, someone has to read
                                    all the previous questions to know what condition else corresponds to: they can’t just skim all the questions 
-                                   to find the one that matches their situation. This might be counterintuitive to those with prior programming 
-                                   experience, but it does help make code more readable and understandable.}}
+                                   to find the one that matches their situation. This makes code more readable and understandable.}}
                  ]
          }     
 @lesson/studteach[#:title "Keypresses in Your Game"
@@ -243,7 +242,7 @@ The last clause in a conditional can be an @code{else} clause, which gets evalua
         @points[@point{@student{In Ninja World, the player can only press two keys: @code{"up"} or @code{"down"}. 
                                 @activity{@itemlist[@item{What field in the World changes when the player presses @code{"up"}? 
                                                          How does it change?}
-                                                     @item{Think about the user playing your game. How will they control the game? What
+                                                     @item{Think about the person playing your game. How will they control the game? What
                                                            key will make YOUR player move up? Down? What else can they do? Move side-to-side? 
                                                            Jump? Teleport? Shoot a projectile?}
                                                      @item{Turn to @worksheet-link[#:page 27 #:name "Lesson 6"] in your workbooks.
@@ -254,11 +253,11 @@ The last clause in a conditional can be an @code{else} clause, which gets evalua
                                  with one keypress?}}
                  @point{@student{@activity{Turn to @worksheet-link[#:page 30 #:name "Keypress-in-Game"] in your workbooks. Choose 3 
                                            keys that control the game, and go through the design recipe: Write EXAMPLES for what should 
-                                           happen to your START world depending on which key was pressed. The define your function. Once
+                                           happen to your START world depending on which key was pressed. Then define your function. Once
                                            you've completed the Design Recipe, type your @code{keypress} function into your games.}
 
-                                  Of course, keypresses can do a lot more in a videogame than just move a character up and down. You can
-                                  also add more advanced movement, by using what you learned about boolean functions. Here are some ideas:
+                                  Of course, keypresses can do a lot more in a videogame than just move a character up and down. By using what
+                                  your learned about Boolean functions, you can add more advanced movement. Here are some ideas:
 @itemlist[
           @item{@bold{Warping:} instead of having the player’s y-coordinate change by adding or subtracting, replace it with a Number to 
                  have the player suddenly appear at that location. (For example, hitting the @code{"c"} key causes your player to warp back
