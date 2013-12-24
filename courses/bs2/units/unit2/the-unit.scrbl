@@ -9,7 +9,7 @@
                                        (list "String" @code{string-append string-length})
                                        (list "Image"  @code{rectangle circle triangle ellipse star text}))
                                                                                                           ]{
-@unit-descr{Students discover the need for data structures, and practice defining them, making examples, and writing functions that produce them.}
+@unit-descr{Students discover the need for data structures and they practice defining them, making examples, and writing functions that produce them.}
 }
 @unit-lessons{
               
@@ -21,10 +21,10 @@
      #:evidence-statements @itemlist[@item{}]
      #:product-outcomes @itemlist[@item{}]
      #:standards (list)
-     #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
+     #:materials @itemlist[@item{Pens/pencils for students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, language table, course calendar)}
                             @item{Language Table (see below)}
-                            @item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders with names on covers, and something to write with}]
+                            @item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "Workbook"] folders with names on covers, and something to write with}]
      #:preparation @itemlist[@item{Write Agenda on board}
                              @item{Display class posters, Language Table, Design Recipe}
                              @item{Seating arrangements: ideally clusters of desks/tables}]
@@ -75,9 +75,9 @@
 (EXAMPLE (double-radius 918 "orange")
          (circle (* 918 2) "outline" "orange"))}}
                          
-                         @teacher{Each one of these answers can be found in the Contract or Purpose Statement. Suggestion: write these steps on the board, and draw 
+                         @teacher{Each one of these answers can be found in the Contract or Purpose Statement. Suggestion: Write these steps on the board, and draw 
                                   arrows between them to highlight the process. The goal here is to get students into the habit of asking themselves these questions
-                                  each time they write Examples, and then using their own work from the previous step to find the answers.}}
+                                  each time they write examples, and then using their own work from the previous step to find the answers.}}
                 @point{@student{@bannerline{Step 3: Definition}
                                 Once you know what is changing between our two examples, you can define the function easily. The things that were circled and labeled in
                                 the two examples will be replaced with @vocab{variables} in the function definition. (You don't @bold{always} want to make a pink 
@@ -155,7 +155,7 @@
                     @point{@student{Now imagine that you've put the two numbers that you're using to describe the x and y into a box. If you were to hold up the box, you'd 
                                     only be holding one thing! In the same way, complex structs can be defined in Racket to hold multiple things. Look at some more examples, 
                                     but remember that you might need a "struct" to group things together. 
-                                    @activity{which of the following things can represented using one piece of data (and which @italic{type} is it?), and which ones need a 
+                                    @activity{Which of the following things can represented using one piece of data (and which @italic{type} is it?), and which ones need a 
                                               struct to contain multiple pieces of data? 
                                               @itemlist[@item{the name and the age of a character}
                                                          @item{a flavor of soup, and whether it is hot or not}
@@ -174,7 +174,7 @@
         #:overview ""
         #:learning-objectives @itemlist[@item{}]
         #:evidence-statements @itemlist[@item{}]
-        #:product-outcomes @itemlist[@item{Students make use of a complex data structure: auto}
+        #:product-outcomes @itemlist[@item{Students make use of a complex data structure: @code{Auto}}
                                      @item{Students define variables bound to autos}]
         #:standards (list )
         #:materials @itemlist[@item{}]
@@ -193,10 +193,10 @@
                                    described with these types.
                                    @activity{For each of the following aspects of an automobile, think about what datatype you might use to represent it:
                                              @itemlist[@item{The model of the car. That could be "Prius", "H2", "XTerra", or something else.}
-                                                        @item{How much horsepower the car has}
-                                                        @item{How large the rims are}
-                                                        @item{What color the car is}
-                                                        @item{The value, or price of the car}
+                                                        @item{How much horsepower the car has.}
+                                                        @item{How large the rims are.}
+                                                        @item{What color the car is.}
+                                                        @item{The value, or price of the car.}
                                                         @item{What datatype could we use to represent the entire auto?}]}
                                    @bitmap{images/car3.png}                                                   
                                    Let's represent the different parts of a car like so:
@@ -210,7 +210,7 @@
                     
                     @point{@student{Now that you know everything that is part of an auto, you can use a struct to represent the auto itself. (This is the very first time that 
                                     you're going to use structs, and they're going to play a HUGE part in your videogame.) Let's take a look at how this works.
-                            @activity{Open the @(hyperlink "http://www.wescheme.org/view?publicId=P7qS37u1ZH" "Autobody Shop") file, and read the line that starts with 
+                            @activity{Open the @(hyperlink "http://www.wescheme.org/view?publicId=P7qS37u1ZH" "Autobody Shop") file and read the line that starts with 
                                                @code{(define car1....)}
                                                @code{(define car1 (make-auto "M5" 480 28 "black" 50000))}
                                                @itemlist[@item{What is the name of this auto?}
@@ -225,7 +225,7 @@
                                      Below there are three autos defined and assigned to the variables @code{car1}, @code{car2}, and @code{car3}. Ask students 
                                      questions about these autos to get them thinking about how they would define their own.}}
 
-                    @point{@student{@activity{Define another car, called @code{new-car}. To start, 
+                    @point{@student{@activity{Define another car, called @code{new-car}. To start
                                                                          @itemlist[@item{how would you define this variable?}
                                                                                     @item{What function is used to make an auto?}
                                                                                     @item{Which thing comes first in an auto struct?}] 
@@ -272,7 +272,7 @@
                   @point{@student{You can see what your cars look like by using the function provided at the bottom of the screen. It's called @code{draw-auto}, and it takes an auto as input and 
                                   gives you back an Image with your car in it.
                                   @activity{In the interactions window, type @code{(draw-auto car1)} and see what happens. Use the function with the cars YOU defined!} @bitmap{images/car1.png}}
-                         @teacher{Students will spend lots of time "drawing" their autos. Encourage them to define some new autos, and alter the color, rim size, value, etc. to see their changes 
+                         @teacher{Students will spend lots of time "drawing" their autos. Encourage them to define some new autos, and to alter the color, rim size, value, etc. to see their changes 
                                   reflected in the images. Don't forget to remind them to click "Run" after making any changes!}}
                   ]
            }
@@ -312,7 +312,7 @@
                                 Of course, there are functions to access any part of an auto, not just the model! What do you think the contract for @code{auto-hp} is? 
                                 Write it down in your workbook.
                                 @activity{Write down the contracts for @code{auto-rims}, @code{auto-color} and @code{auto-value}. Then try them out on your autos! Do they do what you expect?}}
-                 @teacher{A way to prompt students to use these functions is to ask "How do you get the horsepower out of an auto?" "How do you get the color out of an auto?"
+                 @teacher{A way to prompt students to use these functions is to ask: "How do you get the horsepower out of an auto?" "How do you get the color out of an auto?"
                           Throughout the course you can set up a call and response system with students, where the question "How do you get the X out of a Y?" 
                           will prompt the name of the accessor function.}}
                  
@@ -357,16 +357,16 @@
                                                                     @code{paint-job}?}]}
                @code[#:multi-line #t]{; paint-job : Auto String -> Auto
 ; changes the color of an auto}
-               In your first example, use the original @code{car1}, and turn it purple. We know our customer will expect to get an auto back: you wouldn't bring your car
+               In your first example, use the original @code{car1} and turn it purple. We know our customer will expect to get an auto back: you wouldn't bring your car
                into the shop and be OK with only getting a pair of rims back! But we won't be returning the same auto- it will be almost identical, with only the color changed.}
                          @teacher{It might not be immediately obvious to students that when a function returns an auto, they must use the @code{make-auto} function to 
                                   produce it. By starting with a "fresh" auto, students are forced to think about every single field in order. Thinking about what exactly
-                                  makes up an auto, and going back to the contract for @code{make-auto} gives them lots of practice with the auto struct and accessor 
+                                  makes up an auto and going back to the contract for @code{make-auto} gives them lots of practice with the auto struct and accessor 
                                   functions.}}
                  
                  @point{@student{The moment you write @code{make-auto}, you know that you'll need to give it five things: the model, hp, rims, color, and value of that auto. 
                                  We already know what model this car should be: the same as the given auto! But what if you didn't know exactly what string to use. 
-                                 How could you access JUST the model of @code{car1}, and use it in your @code{make-auto} function?
+                                 How could you access JUST the model of @code{car1} and use it in your @code{make-auto} function?
                        
     @code[#:multi-line #t]{(EXAMPLE (paint-job car1 "purple" (make-auto .....))}
                                 @activity{@itemlist[@item{The horsepower also doesn't change with a paint job. So how do you get the hp out of @code{car1}?}
@@ -403,9 +403,9 @@ After replacing the changing things with variables, your definition should look 
                                            else the same. 
                     @itemlist[@item{Fill out the @vocab{Contract} and @vocab{Purpose Statement} for the function.}
                               @item{Write two @vocab{Examples} for how one would use @code{turbocharge}.}
-                              @item{Circle and label what varies between those examples, and label it with a @vocab{variable} name.}
+                              @item{Circle and label what varies between those examples and label it with a @vocab{variable} name.}
                               @item{Define the function.}]}}
-                         @teacher{Give students plenty of time to practice using accessor functions, extracting pieces of the Auto structs, and modifying them.}}]
+                         @teacher{Give students plenty of time to practice using accessor functions, extracting pieces of the Auto structs and modifying them.}}]
          }
 
                                                                                                                                                                                 @lesson/studteach[#:title "Closing"
@@ -424,7 +424,7 @@ After replacing the changing things with variables, your definition should look 
                 )
       ]{
         @points[@point{@student{Structures are a powerful tool for representing complex data in a computer program. Simple videogames, like Pong, might only need to
-                                keep track of a few numbers at once, like the position of the ball, position of each paddle, and the score. But if a game has many 
+                                keep track of a few numbers at once, like the position of the ball, position of each paddle and the score. But if a game has many 
                                 different enemies, each with their own position and health, or multiple levels with their own background image, the game can get 
                                 very complicated very fast, and structs are a great way to manage and make sense of all the data. Programmers can do a LOT with data
                                 structures, and in the upcoming lessons you will create your own structs to make a customized videogame.}
