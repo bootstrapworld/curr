@@ -17,7 +17,7 @@ We provide all of the our materials @italic{free of charge}, to anyone who is in
            The lesson plans linked below are tightly integrated into the Student Workbook, 
            which should be used with the curriculum. A @bold{Teacher's Edition} is also available upon request. 
            Please fill out a request using our @hyperlink["https://docs.google.com/a/bootstrapworld.org/spreadsheet/viewform?formkey=dHpQc0VHV2dBU2tSN1ptMktBUmtoZWc6MQ#gid=0"]{online form}, and we'll get back to you right away.})
-         (for/list ([n (in-range 1 (add1 8))])
+         (for/list ([n (in-range 1 (add1 9))])
            (unit-summary/links n))
          ))
 

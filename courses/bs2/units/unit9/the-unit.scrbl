@@ -189,19 +189,33 @@
 
                                  @activity{On the next cond branch, make the score increase by 30 points 
                                            when the cat collides with the ruby.}}
-                         @teacher{Many students will want to display the score on their game screens. In order to do this 
-                                  they will need to place an @italic{Image} of the score onto their scene in 
-                                  @code{draw-world}. The function @code{number->string} takes in a Number for its domain and 
-                                  returns a String representation of that number. This string can be passed to the @code{text}
-                                  function to return an Image that can then be used in @code{draw-world}. For example, the
-                                  expression:
-                                  (@code{; text: String Number String String -> Image}) to return an Image. The expression:
-                                  @code{(put-image (text (number->string (world-score w)) 30 "purple")
-                                                    320 240
-                                                    BACKGROUND)}
-                                  will place the score (drawn in size 30 purple text) onto the center of the BACKGROUND.}}
+                         @teacher{}}
                  
-                 @point{@student{Ninja World has a scoring system: Now it's time to add some levels. For 
+                 @point{@student{The scoring system is in place, but how will the player know what their score is? You'll need
+                                 to display the score on the game screen. 
+                                 @activity{Which function handles how the world is drawn?}
+                                 In @code{draw-world}, images are placed onto the background using @code{put-image} to draw the
+                                 game. But the score is represented by a Number: we need a way to represent it as an Image.
+                                 Thankfully, Racket has some built-in functions that can help with this: the function 
+                                 @code{number->string} takes in a Number for its domain and returns a String representation 
+                                 of that number. This string can then be passed to the @code{text} function to return an 
+                                 Image that can then be used in @code{draw-world}. 
+                                 @activity{Copy the following contracts into your workbook:
+                                           @itemlist[@item{@code{; number->string : Number -> String}}
+                                                     @item{@code{; text : String Number String -> Image}}
+                                                     @item{How would you use the @code{number->string} and @code{text}
+                                                           functions together to draw the score into the world?}
+                                                     @item{How do you get the @code{score} out of the world?}
+                                                     @item{How large should the text of the score be? Where should it be
+                                                           placed on your game scene?}]}
+                                 The expression:
+                                 @code[#:multi-line #t]{(put-image (text (number->string (world-score w)) 30 "purple")
+                                                                          320 240
+                                                                          BACKGROUND)}
+                                  will place the score (drawn in size 30 purple text) onto the center of the BACKGROUND.}
+                         @teacher{}}
+                 
+                 @point{@student{Ninja World has a visible scoring system: Now it's time to add some levels. For 
                                  this example, you'll make the game have a different background image when
                                  the player progresses to the next level. The player will reach level two 
                                  when his or her score is greater than 500.
