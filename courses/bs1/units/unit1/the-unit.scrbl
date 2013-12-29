@@ -29,7 +29,7 @@
                      @teacher{@management{Introduce the teaching staff. Give some background: age, where you're from, something surprising about yourself, favorite food, etc. Anything to allow kids to connect. Ask kids for their names! Set expectations and rules for the class.}
                                Connect the material that's to come with things students already know:
                               @itemlist[@item{Talk to them about what makes a language - especially if you have students who speak a second or third language}
-                                         @item{Programming is very much a language, with it's own syntax, semantics, etc}
+                                         @item{Programming is very much a language, with its own syntax, semantics, etc}
                                          @item{Ask students about their favorite videogames. Be open about the scale of a modern game: they cost millions of dollars, are built by huge teams of programmers and artists, and are developed over years.}
                                          @item{Set expectations about what can be accomplished in a single, introductory programming class.}]}
                      }
@@ -59,7 +59,7 @@
                  @teacher{@management{Show the kids Ninjacat. Be sure to end on a frozen frame of the game, so the whole class can see the same image.}}
                  }
           
-          @point{@student{This game is made up of @italic{characters}, each of which has it's own behavior. The Ruby moves from the right to the left, as does the Dog. NinjaCat only moves when you hit the arrow keys, and she can move left, right, up and down. We can figure out how the game works by first understanding how each character works.}
+          @point{@student{This game is made up of @italic{characters}, each of which has its own behavior. The Ruby moves from the right to the left, as does the Dog. NinjaCat only moves when you hit the arrow keys, and she can move left, right, up and down. We can figure out how the game works by first understanding how each character works.}
                  @teacher{}
                  }
           
@@ -345,7 +345,7 @@
                                  as many student might get the order right but may still have problems with basic calculations. This 
                                  method is also vulnerable to Commutativity, since a student will correctly evaluate @math{1*2+2} 
                                  even if they get the order of operations wrong! Circles of Evaluation have neither of these flaws,
-                                 as they put the emphasis where it should be: exercising a students' ability to see the structure 
+                                 as they put the emphasis where it should be: exercising a student's ability to see the structure 
                                  inside the arithemetic.}
                         }
                 @point{@student{@bitmap{images/NestedCircle.png}What does this Circle of Evaluation evaluate to?  Let's review how
