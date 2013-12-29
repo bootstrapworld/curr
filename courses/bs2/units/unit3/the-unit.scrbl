@@ -209,7 +209,7 @@ matters! Look at the order of the fields in the @code{define-struct} line. The f
                                                                     @code{START}. What kind of a thing is @code{START}? A number? String? Image? Boolean?}
                                                               @item{what function makes a @code{world}?}
                                                               @item{Skip a bit farther down to where it says @code{;; UPDATING FUNCTIONS}. What is the name of the function 
-                                                                    defined here? What's it's domain and range?}
+                                                                    defined here? What's its domain and range?}
                                                               @item{Think about what the @code{update-world} function is doing. How does it get the @code{dogX} out of the
                                                                     world? What is it doing to the dog's x-coordinate?}]}
                                 Every time @code{update-world} runs, it makes a new world, adding 10 to the @code{dogX} of the original world.}
