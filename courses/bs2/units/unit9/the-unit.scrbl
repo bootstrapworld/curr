@@ -72,7 +72,7 @@
                                 make the dog show up at a random y-coordinate whenever it goes off the screen?
                                 Racket already has a function to give you a random number, which could represent 
                                 a character's y-coordinate: @code{random}. @code{random} takes 
-                                in one number as it's domain, and returns a random number between 0 and that number. 
+                                in one number as its domain, and returns a random number between 0 and that number. 
                                 So if a game contains @code{(random 480)} in the code, it will return any number 
                                 between 1 and 480.}
                         @teacher{}}
@@ -83,7 +83,7 @@
                                            to account for the extra item in the world struct.}
            @code[#:multi-line #t]{;; The World is the x and y positions of the dog, x position of the ruby, and y position of the cat
                                   (define-struct world (dogX dogY rubyX catY))}
-                                 Right now the @code{draw-world} function draws the dog at it's current 
+                                 Right now the @code{draw-world} function draws the dog at its current 
                                  x-coordinate, and a pre-set y-coordinate. 
                                  @activity{@itemlist[@item{At what y-coordinate is the dog drawn right now?}
                                                       @item{Now that @code{dogY} has been added to the world

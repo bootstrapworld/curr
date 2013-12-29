@@ -180,14 +180,14 @@ Students brainstorm their videogames, and derive the structure for their game wo
                  
                  @point{@student{Because the world structure is different, we need to go through the code, line-by-line, and change every
                                  @code{world} we find. Look at the @code{START} variable - It uses @code{make-world}, which now requires 
-                                 two inputs in it's Domain. 
+                                 two inputs in its Domain. 
                                  @activity{@itemlist[@item{What should the ruby's x-coordinate be when the simulation starts? Include 
                                                            this number in the @code{START} world.}
                                                       @item{Now change the definition of @code{NEXT}. Don't forget to think about how 
                                                            the ruby's x-coordinate will change from the @code{START} world to the @code{NEXT} world}
                                                       @item{Do the definitions of the image variable need to change? Why not?}
                                                       @item{What about @code{draw-world}? Does its contract change? The contract says it 
-                                                            takes a World as it's Domain, and it still does. The only thing that has changed 
+                                                            takes a World as its Domain, and it still does. The only thing that has changed 
                                                             is @italic{what a world contains}. Does @code{draw-world} still produce an Image?}
                                                       @item{What needs to change about the body of @code{draw-world}? Right now the ruby is being 
                                                             drawn at the coordinates (500, 300) every time, but we want the position (namely, its 

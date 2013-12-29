@@ -228,7 +228,7 @@
                                                            thing flies offscreen. For example, with the dog we said
                                                            @code{(off-right? (world-dogX w))}. On the right, figure out 
                                                            which world you need to make, so that the thing
-                                                           you're testing re-appears on screen once it's flown off.}]}}
+                                                           you're testing re-appears on screen once it has flown off.}]}}
                         @teacher{Work in small groups to complete the workbook page.}}
                  ]
          }
@@ -254,7 +254,7 @@
                                             surround each row of your table with square brackets and type it into 
                                             your game.
                                             @activity{Adapt @code{update-world} so that that each thing re-appears on 
-                                                            screen once it's flown off.}}
+                                                            screen once it has flown off.}}
                         @teacher{Work in pairs or small groups to assist students with their own @code{update-world} 
                                  functions.}}
                  ]
