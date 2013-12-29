@@ -169,13 +169,18 @@
   (neturl:string->url 
    "http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,http://www.cs.wpi.edu/~kfisler/mathjaxlocal.js"))
   
+;; aud is either a string or a list of strings of audience tags
+;;  known tags are student, teacher, volunteer, and self-taught
+(define (audience-in? aud)
+  (member (getenv "AUDIENCE") (if (list? aud) aud (list aud))))
+
 ;;;;;;;;;;;;;;;; Runtime Paths ;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (define-runtime-path bootstrap.css "bootstrap.css")
 (define-runtime-path bootstrap-pdf.tex "bootstrap-pdf.tex")
 (define-runtime-path worksheet-lesson-root (build-path 'up "lessons"))
 (define-runtime-path textbook.css "textbook.css")
 (define-runtime-path pretty-printing.css "pretty-printing.css")
-;(define-runtime-path styles.css "styles.css")
+(define-runtime-path cards.css "cards.css")
 (define-runtime-path codemirror.js "codemirror.js")
 (define-runtime-path codemirror.css "codemirror.css")
 (define-runtime-path runmode.js "runmode.js")
@@ -187,10 +192,11 @@
 (define css-js-additions
   (list (make-css-addition bootstrap.css)
         (make-tex-addition bootstrap-pdf.tex)
-        (make-css-addition textbook.css)
+        (if (audience-in? (list "student"))
+            (make-css-addition cards.css)
+            (make-css-addition textbook.css))
         (make-css-addition pretty-printing.css)
         (make-css-addition codemirror.css)
-        ;(make-css-addition "styles.css")
         (make-js-addition codemirror.js)
         (make-js-addition runmode.js)
         (make-js-addition scheme2.js)
@@ -431,11 +437,6 @@
 (define (format-racket-header str)
   (format "; ~a~n" str))
 
-;; aud is either a string or a list of strings of audience tags
-;;  known tags are student, teacher, volunteer, and self-taught
-(define (audience-in? aud)
-  (member (getenv "AUDIENCE") (if (list? aud) aud (list aud))))
-
 ;; accumulate all vocab referenced in lesson so we can generate a glossary
 (define (vocab body)
   (traverse-element
@@ -634,16 +635,14 @@
       (elem)))
 
 (define (insert-toggle-buttons)
-  (if (audience-in? (list "student"))
-      (cond-element
-       [html (sxml->element
-              `(center
-                (input (@ (type "button") (class "prev")   (value "<<")) "")
-                (input (@ (type "button") (class "toggle") (value "Show Teacher Notes (old)") (onclick "toggleTeacherNotes(this);")) "")
-                (input (@ (type "button") (class "next")   (value ">>")) "")
-                ))]
-       [else (elem "")])
-      (elem)))
+  (cond-element
+   [html (sxml->element
+          `(center
+            (input (@ (type "button") (class "prev")   (value "<<")) "")
+            (input (@ (type "button") (class "toggle") (value "Show Teacher Notes") (onclick "toggleTeacherNotes(this);")) "")
+            (input (@ (type "button") (class "next")   (value ">>")) "")
+            ))]
+   [else (elem "")]))
 
 (define (student . content)
   (nested #:style bs-student-style (interleave-parbreaks/select content)))
