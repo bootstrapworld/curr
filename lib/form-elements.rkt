@@ -769,7 +769,9 @@
                                                      [else (elem)]))))
                                   (list (elem)))))) ;pacings))) -- reinclude later if desired
                    body
-                   (list (insert-toggle-buttons))
+                   (if (audience-in? (list "student")) 
+                       (list (insert-toggle-buttons))
+                       (list (insert-teacher-toggle-button)))
                    )))
         ))))))
   

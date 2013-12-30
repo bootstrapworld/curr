@@ -9,7 +9,6 @@ body{
 
 div.content{
 	max-width:		800px; 
-	background:		rgba(255, 255, 255, .3);
 }
 
 
@@ -58,7 +57,7 @@ div.fixed{
     display:      block;
 }
 .BootstrapTitle   img{float:          left;}
-
+.BootstrapPageTitle{display: none;}
 
 div.overview{
 	background:		lightgray; 
@@ -112,13 +111,15 @@ tr.position{color:orange}
 */
 
 .BootstrapLessonTitle{display: none;}
-div.segment center{position: absolute; top: 350px;}
+div.segment center{position: absolute; bottom: 0px; width: 100%;}
 
 .red, .yellow, .green{display: none;}
 .callout {display: none;}
 
+div.ExtraExercises{display: none;}
+
 div.segment{
-  width: 400px;
+  width: 500px;
   height: 500px;
   position: relative;
   overflow: hidden;
@@ -129,6 +130,8 @@ div.segment{
        -o-perspective: 10000px;
           perspective: 10000px;
 }
+
+.lessonItem{background: rgba(255, 255, 255, .75);}
 
 ul.lesson{
   margin: 0px; 
@@ -148,7 +151,7 @@ ul.lesson{
 ul.lesson>li{
   display: inline-block;
   font-size: 20px;
-  width: 400px;
+  width: 500px;
   height: 500px;
   -webkit-transition: -webkit-transform 1s;
      -moz-transition: -moz-transform 1s;
@@ -168,17 +171,14 @@ ul.teacherNotes>li {
 ul.lesson>li>div {
   display:block;
   height: 100%;
-  width:  100%;
-  font-size: 14px;
+  width:  480px;
+  padding: 10px;
+  font-size: 16px;
   position: absolute;
   -webkit-backface-visibility: hidden;
      -moz-backface-visibility: hidden;
        -o-backface-visibility: hidden;
           backface-visibility: hidden;
-}
-
-ul.lesson>li>.student {
-
 }
 
 ul.lesson>li>.teacher {
@@ -189,6 +189,32 @@ ul.lesson>li>.teacher {
           transform: rotateY( 180deg );
 }
 
+div.activity{
+  padding:        10px 0px;
+  background:     rgba(200,200,255,0.5);
+  float:          left;
+  width:          100%;
+  margin:         10px 0px;
+  display:        inline-block;
+  border-top:     dashed 1px black;
+  border-bottom:  dashed 1px black;
+  vertical-align: middle;
+}
+
+/* all banners have borders, and text is bold */
+div.banner{
+  display:        inline-block;
+  width:          460px;
+  margin:         10px 0px;
+  padding:        5px;
+  font-weight:    bold;
+  color:          black;
+  border-top:     solid 1px black;
+  border-bottom:  solid 1px black;
+}
+/* Banner images are centered */
+div.banner img{float: none; margin-left: auto; margin-right: auto; display: block;}
+div.banner span.MathJax{display: block; clear: both;}
 
 
 .embedded-wescheme{width: 95%; margin-left: 5px; margin-right: 5px;}
