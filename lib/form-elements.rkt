@@ -635,14 +635,16 @@
       (elem)))
 
 (define (insert-toggle-buttons)
-  (cond-element
-   [html (sxml->element
-          `(center
-            (input (@ (type "button") (class "prev")   (value "<<")) "")
-            (input (@ (type "button") (class "toggle") (value "Show Teacher Notes") (onclick "toggleTeacherNotes(this);")) "")
-            (input (@ (type "button") (class "next")   (value ">>")) "")
-            ))]
-   [else (elem "")]))
+  (if (audience-in? (list "student"))
+      (cond-element
+       [html (sxml->element
+              `(center
+                (input (@ (type "button") (class "prev")   (value "<<")) "")
+                (input (@ (type "button") (class "toggle") (value "Show Teacher Notes") (onclick "toggleTeacherNotes(this);")) "")
+                (input (@ (type "button") (class "next")   (value ">>")) "")
+                ))]
+       [else (elem "")])
+      (elem)))
 
 (define (student . content)
   (nested #:style bs-student-style (interleave-parbreaks/select content)))
@@ -769,9 +771,7 @@
                                                      [else (elem)]))))
                                   (list (elem)))))) ;pacings))) -- reinclude later if desired
                    body
-                   (if (audience-in? (list "student")) 
-                       (list (insert-toggle-buttons))
-                       (list (insert-teacher-toggle-button)))
+                   (list (insert-toggle-buttons))
                    )))
         ))))))
   
