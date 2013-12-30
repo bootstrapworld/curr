@@ -119,7 +119,7 @@ div.segment center{position: absolute; bottom: 0px; width: 100%;}
 div.ExtraExercises{display: none;}
 
 div.segment{
-  width: 500px;
+  width: 700px;
   height: 500px;
   position: relative;
   overflow: hidden;
@@ -137,7 +137,7 @@ ul.lesson{
   margin: 0px; 
   padding-left: 0px; 
   list-style-type:none; 
-  width: 10000px; 
+  width: 50000px;
   height: 500px;
   font-size: 0px;
   position: absolute;
@@ -151,7 +151,7 @@ ul.lesson{
 ul.lesson>li{
   display: inline-block;
   font-size: 20px;
-  width: 500px;
+  width: 700px;
   height: 500px;
   -webkit-transition: -webkit-transform 1s;
      -moz-transition: -moz-transform 1s;
@@ -171,7 +171,7 @@ ul.teacherNotes>li {
 ul.lesson>li>div {
   display:block;
   height: 100%;
-  width:  480px;
+/*  width:  480px; */
   padding: 10px;
   font-size: 16px;
   position: absolute;
@@ -190,21 +190,19 @@ ul.lesson>li>.teacher {
 }
 
 div.activity{
-  padding:        10px 0px;
+  padding:        10px 5px;
   background:     rgba(200,200,255,0.5);
-  float:          left;
-  width:          100%;
   margin:         10px 0px;
-  display:        inline-block;
+  display:        block;
   border-top:     dashed 1px black;
   border-bottom:  dashed 1px black;
   vertical-align: middle;
 }
+div.activity li img{float: none;}
 
 /* all banners have borders, and text is bold */
 div.banner{
-  display:        inline-block;
-  width:          460px;
+  display:        block;
   margin:         10px 0px;
   padding:        5px;
   font-weight:    bold;
@@ -223,25 +221,3 @@ div.banner span.MathJax{display: block; clear: both;}
 
 img{float: right;}
 img.video{width: 20px; height: 20px; padding: 0px; margin: 0px;}
-@media print {
-	body			{background: white;}
-  div.instructions{display: none;}
-	div.content		{border: none; font-size: 12px;}
-	h1				{clear: both;}
-	div.overview img			{width: 80px; margin-top: 0px; }
-	h2{color: white; border-bottom: solid black 2px; font-size: 14px; page-break-after: avoid;}
-	h3{color: black; font-size: 12px;}
-	table, img {page-break-inside: avoid;}
-  table.bordered td {border: none; padding: 0px;}
-  div.teacher{
-    height: auto;
-    padding-bottom: 32767px;
-    margin-bottom: -32767px;
-    -webkit-transition: width 0.5s ease-in-out;
-    border: 0px none;
-    background: #eee;
-    box-shadow:     inset 3px 0px 0px black;
-  }
-  div.student{width: 500px;}
-  div.callout{display: block; z-index: 2;}
-}
