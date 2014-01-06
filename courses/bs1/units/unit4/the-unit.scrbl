@@ -244,7 +244,7 @@
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
-      ]{@points[@point{@student{The real power of programming isn't how well you know the language. It's about how well you can use it to solve problems! You've leared about a powerful tool that helps you take word problems on paper and turn them into functions on the computer: the @vocab{Design Recipe}! It turns out that the Design Recipe can also be used to help you solve word problems in algebra, too!
+      ]{@points[@point{@student{The real power of programming isn't how well you know the language. It's about how well you can use it to solve problems! You've learned about a powerful tool that helps you take word problems on paper and turn them into functions on the computer: the @vocab{Design Recipe}! It turns out that the Design Recipe can also be used to help you solve word problems in algebra, too!
 @activity[#:forevidence (list "F-IF.1-3&1" "F-IF.4-6&1&3" "A-SSE.1-2&1&1" "BS-DR.1&1&1")]{
           Turn to @worksheet-link[#:page 36 #:name "DR"] in your workbooks, read the word problem careflly, and write down the contract for the fuction:
                   @italic{"A rocket is flying from Earth to Mars at 80 miles per second. Write a function that describes the distance @math{D} the rocket has traveled, as a function of time @math{t}}."
