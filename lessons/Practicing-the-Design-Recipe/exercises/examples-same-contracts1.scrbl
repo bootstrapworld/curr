@@ -14,7 +14,7 @@
 "(EXAMPLE (mystery 30 40)
          (- 40 (* 2 30)))
 (EXAMPLE (mystery 10 15)
-         (- 15 (* 2 10))"))
+         (- 15 (* 2 10)))"))
 @(define a2 (code "; mystery : number number -> number"))
 
 
@@ -40,7 +40,7 @@
 "(EXAMPLE (mystery 6 9 10)
          (/ 6 (+ 9 10)))
 (EXAMPLE (mystery 3 7)
-         (/ 3 (+ 7 10))"))
+         (/ 3 (+ 7 10)))"))
 @(define a5 "no match (the domains have different numbers of arguments)")
 
 @(define e6
