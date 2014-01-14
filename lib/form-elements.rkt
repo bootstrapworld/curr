@@ -618,33 +618,46 @@
 
 ;;;;;;;;;;;;; NEW LESSON FORMAT ;;;;;;;;;;;;;;;;;;
 
+; the extra class "fixed" in the toolbar is for consistency with what gets
+; generated when we add the toolbar id through a bootstrap-div-style/id
+; for the student toolbar
 (define (insert-teacher-toggle-button)
-  (if (audience-in? (list "teacher" "volunteer"))
-      (cond-element
-       [html ;(elem #:style (bootstrap-div-style/id "lessonToolbar")
-                   (sxml->element
-                    `(div (@ (id "lessonToolbar"))
-                          (input (@ (type "button") 
-                                    (value "Show Teacher Notes") 
-                                    (onclick "toggleTeacherNotes(this);")) "")
-                          (br)
-                          (input (@ (type "button")
-                                    (value "Discussion Group")
-                                    (onclick "showGroup()")))))]
-       [else (elem)])
-      (elem)))
+  (cond-element
+   [html (sxml->element
+          `(div (@ (class "fixed") (id "lessonToolbar"))
+                (input (@ (type "button") 
+                          (value "Show Teacher Notes") 
+                          (onclick "toggleTeacherNotes(this);")) "")
+                (br)
+                (input (@ (type "button")
+                          (value "Discussion Group")
+                          (onclick "showGroup()")))))]
+   [else (elem)]))
 
-(define (insert-toggle-buttons)
-  (if (audience-in? (list "student"))
-      (cond-element
-       [html (sxml->element
-              `(center
-                (input (@ (type "button") (class "prev")   (value "<<")) "")
-                (input (@ (type "button") (class "toggle") (value "Show Teacher Notes") (onclick "toggleTeacherNotes(this);")) "")
-                (input (@ (type "button") (class "next")   (value ">>")) "")
-                ))]
-       [else (elem "")])
-      (elem)))
+(define (insert-student-buttons)
+  (cond-element
+   [html (sxml->element
+          `(center
+            (input (@ (type "button") (class "prev")   (value "<<")) "")
+            (input (@ (type "button") (class "toggle") (value "Show Teacher Notes") (onclick "toggleTeacherNotes(this);")) "")
+            (input (@ (type "button") (class "next")   (value ">>")) "")
+            ))]
+   [else (elem "")]))
+
+(define (insert-toolbar)
+  (cond [(audience-in? (list "teacher" "volunteer")) (insert-teacher-toggle-button)]
+        [(audience-in? (list "student")) 
+         (elem #:style (bootstrap-div-style/id "lessonToolbar")
+               (list (insert-student-buttons)
+                     (embedded-wescheme #:id "IDE"
+                                        #:height 100
+                                        #:width "100%"
+                                        #:hide-toolbar? #f
+                                        #:hide-project-name? #f
+                                        #:hide-footer? #f
+                                        #:hide-definitions? #f
+                                        #:definitions-text "this is a test")))]
+        [else (elem)]))
 
 (define (student . content)
   (nested #:style bs-student-style (interleave-parbreaks/select content)))
@@ -771,7 +784,7 @@
                                                      [else (elem)]))))
                                   (list (elem)))))) ;pacings))) -- reinclude later if desired
                    body
-                   (list (insert-toggle-buttons))
+                   ;(list (insert-toggle-buttons))
                    )))
         ))))))
   
@@ -1864,7 +1877,7 @@
                               (apply language-table lang-table)
                               (language-table lang-table))
                           (elem))
-                      (insert-teacher-toggle-button)
+                      (insert-toolbar)
                       )))))
           ))
 
