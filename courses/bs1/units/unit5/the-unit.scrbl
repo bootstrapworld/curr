@@ -22,7 +22,7 @@
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, language table, course calendar)}
                             @item{Language Table (see below)}
-                            @item{Bug Hunting [Bugs.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=lQUC6RJArG" "WeScheme")] file preloaded on students' machines, in front}]
+                            @item{Bug Hunting [Bugs.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=lQUC6RJArG" "WeScheme")] file preloaded on students' machines, as the front-most window.}]
      #:preparation @itemlist[]
      #:prerequisites (list "Defining Functions")
      #:pacings (list 
@@ -115,7 +115,7 @@
                                 @activity[#:forevidence (list "BS-DR.3&1&1" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2" "7.EE.3-4&1&4" "F-IF.1-3&4")]{
                                           @itemlist[@item{Change the definition for @code{mystery}, so that your projectile looks the way you want it to. Don't forget to use @code{scale} and @code{rotate} if you need to change the image slightly.}
                                                      @item{Use the Design Recipe to write @code{update-mystery}, so that the projectile moves to the left or right. Hint: this will be very similar to your solutions for @code{update-danger} and @code{update-target}!}]}}
-                        @teacher{Be careful when introducing Projectiles into the game! Many students will actually be @bold{less creative} when using them, as it will automatically push their mindset towards the standards "shoot the bad guy" format. Many teacher choose to skip this section entirely, or else add it after the games are complete.}
+                        @teacher{Be careful when introducing Projectiles into the game! Many students will actually be @bold{less creative} when using them, as it will automatically push their mindset towards the standards "shoot the bad guy" format. Many teachers choose to skip this section entirely, or else add it after the games are complete.}
                          }]
          }
        
