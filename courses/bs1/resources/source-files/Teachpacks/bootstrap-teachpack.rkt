@@ -203,11 +203,33 @@
                       distances-color line-length distance
                       collide*? onscreen*?)
   (begin
+    ;; error-checking
+    (unless (string? title)               (display "ERROR: TITLE must be defined as a string.\n"))
+    (unless (string? title-color)         (display "ERROR: TITLE-COLOR must be defined as a string.\n"))
+    (unless (string? distances-color)     (display "ERROR: The *distances-color* must be defined as a string.\n"))
+    (unless (string? title-color)         (display "ERROR: TITLE-COLOR must be defined as a string.\n"))
+    (unless (image? background)           (display "ERROR: BACKGROUND must be defined as an image\n."))
+    (unless (image? playerImg)            (display "ERROR: PLAYER must be defined as an image\n."))
+    (unless (image? projectileImg)        (display "ERROR: mystery must be defined as an image\n."))
+    (unless (andmap image? (list dangerImgs))(display "ERROR: DANGERs must be defined as images.\n"))
+    (unless (andmap image? (list dangerImgs))(display "ERROR: TARGETs must be defined as images.\n"))
+    (unless (procedure? update-danger*)   (display "ERROR: update-danger must be defined as a function\n."))
+    (unless (procedure? update-target*)   (display "ERROR: update-target must be defined as a function\n."))
+    (unless (procedure? update-player*)   (display "ERROR: update-player must be defined as a function\n."))
+    (unless (procedure? update-projectile*)(display "ERROR: update-mystery must be defined as a function\n."))
+    (unless (procedure? update-player*)   (display "ERROR: update-player must be defined as a function\n."))
+    (unless (procedure? line-length)      (display "ERROR: line-length must be defined as a function\n."))
+    (unless (procedure? distance)         (display "ERROR: distance must be defined as a function\n."))
+    (unless (procedure? collide*?)        (display "ERROR: collide? must be defined as a function\n."))
+    (unless (procedure? onscreen*?)       (display "ERROR: onscreen? must be defined as a function\n."))
+    
+    
     (set! TITLE-COLOR title-color)
     (set! BACKGROUND (fit-image-to WIDTH HEIGHT background))
     (set! *line-length* line-length)
     (set! *distance* distance)
     (set! *distances-color* distances-color)
+    
     (let* ((player (make-being (make-posn (/ WIDTH 2) (/ HEIGHT 2)) playerImg))
            
            ; normalize all user functions to use Beings, not x/y coords
