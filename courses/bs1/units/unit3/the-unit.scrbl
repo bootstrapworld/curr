@@ -154,8 +154,18 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{@activity{Open the videogame file (Game.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] or @(hyperlink "http://www.wescheme.org/openEditor?publicId=Q1X9Y8ZayX" "this WeScheme File")) so that you can see the code, and click "Run". (You may need to wait a few seconds for the images to load!) The window that appears is a running videogame, but you probably notice that nothing is moving - even if you hit the "up" or "down" arrows! For now, click the "close" button to return to the code.}
-                                In the Definitions window, you will see that this program defines several values: @code{TITLE}, for example, is defined to the be the String @code{"My Game"}.
+        @points[@point{@student{@activity{Open the videogame file (Game.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] or @(hyperlink "http://www.wescheme.org/openEditor?publicId=Q1X9Y8ZayX" "this WeScheme File")) so that you can see the code,
+                                           and click "Run". (You may need to wait a few seconds for the images to load!) The window that appears is a running videogame, but you probably notice that nothing is moving - even if you hit the "up" or "down" arrows! For now, 
+                                           click the "close" button to return to the code.}
+                                 This file contains a list of definitions, where you will get to define how your game characters look, move, and interact. As you scroll down to the bottom, you'll see a bunch of 
+                                 dummy definitions that have been filled in for you. It is up to @italic{you} to come up with definitions for your own game!
+                                 @activity{Scroll to the very bottom of the screen, reading each of the things you will have to define. Stop when you get to the very bottom, where you see 
+                                           @code{(make_game...)} used as part of a definition. What do you notice about the values passed into @code{make_game}?}
+                                 @code{make_game} is a function that has been provided for you, which takes all of your definitions and assembles them into a running game. Behind the scenes, @code{make_game}
+                                 inserts your definitions inside a giant function that is called every tenth of a second, and uses your definitions to decide what is happening at that moment.}
+                        @teacher{You can remind students that Bootstrap:2 will show them how to write this function, and customize it to create more advanced games (multiplayer, maze, etc).}
+                        }
+                 @point{@student{In the Definitions window, you will see that this program defines several values: @code{TITLE}, for example, is defined to the be the String @code{"My Game"}.
                                 @activity[#:forevidence (list "BS-PL.3&1&1")]{@itemlist[@item{If you type @code{TITLE} into the Interactions window, what do you think it would evaluate to?}
                                            @item{What other definitions do you see?}
                                            @item{What are their values?}
