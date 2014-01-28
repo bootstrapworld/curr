@@ -292,8 +292,8 @@
                                    we have a common set of rules for how to evaluate expressions.  The pyramid on the right summarizes the 
                                    order.  When evaluating an expression, we begin by applying the operations written at the top of the 
                                    pyramid (multiplication and division). Only after we have completed all of those operations can we 
-                                   move down to the lower level. If both operations are present (as in @math{4+2-1}), we @vocab{apply} 
-                                   them in the order they appear in the pyramid from left to right (so addition is before subtraction).
+                                   move down to the lower level. If both operations are present (as in @math{4+2-1}), we read the expression
+                                   from left to right, @vocab{apply}ing the operations in the order in which they appear.
                           @activity{In what order should we apply the functions in the following example? 
                                     @math{19 \div 2 * 11 - 7 + 8}
                                     @itemlist[#:style 'ordered
