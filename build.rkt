@@ -249,7 +249,13 @@
           (delete-directory/files output-resources-dir))
         (copy-directory/files input-resources-dir
                               (simple-form-path
-                               (build-path output-resources-dir))))))
+                               (build-path output-resources-dir)))
+        (let ([sourcefiles (build-path output-resources-dir "source-files")]
+              [sourcezip (build-path output-resources-dir "source-files.zip")])
+          (when (file-exists? sourcezip)
+            (delete-file sourcezip))
+          (zip sourcezip sourcefiles))
+        )))
 
   ;; copy auxiliary files into units within distribution
   (when (current-deployment-dir)
