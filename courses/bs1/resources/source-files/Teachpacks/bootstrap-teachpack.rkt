@@ -26,22 +26,22 @@
 (define WIDTH 640)
 (define HEIGHT 480)
 (define EXPLOSION-COLOR "gray")
-(define TITLE-COLOR "white")
-(define BACKGROUND (rectangle WIDTH HEIGHT "solid" "black"))
+(define TITLE-COLOR (box "white"))
+(define BACKGROUND (box(rectangle WIDTH HEIGHT "solid" "black")))
 (define (spacing) (random 200))
 (define *target-increment* 20)
 (define *danger-increment* -50)
 (define LOSS-SCORE 0)
 
 ;; Globals available to the students:
-(define *score* 0)
-(define *player-x* 0)
-(define *player-y* 0)
+(define *score* (box 0))
+(define *player-x* (box 0))
+(define *player-y* (box 0))
 
 ;; Student debugging:
-(define *line-length* (λ(a b) 0))
-(define *distance* (λ(px cx py cy) 0))
-(define *distances-color* "")
+(define *line-length* (box (lambda(a b) 0)))
+(define *distance* (box (lambda(px cx py cy) 0)))
+(define *distances-color* (box ""))
 
 ;fit-image-to: number number image -> image
 ;ensures the image is of size first number by second number, may crop the given image
@@ -88,7 +88,7 @@
 
 ; add-informative-triangle : Number Number String Image -> Image
 (define (add-informative-triangle cx cy color background)
-  (let* ((player-point (posn->point (make-posn *player-x* *player-y*)))
+  (let* ((player-point (posn->point (make-posn (unbox *player-x*) (unbox *player-y*))))
          (px (posn-x player-point))
          (py (posn-y player-point)))
     (if (and (= px cx) (= py cy))
@@ -97,19 +97,19 @@
               (dy (- cy py))
               (n->s (λ (num) (number->string (inexact->exact (round num))))))
           (place-image 
-           (text (n->s (*line-length* cx px)) 12 color)
+           (text (n->s ((unbox *line-length*) cx px)) 12 color)
            (- cx (/ dx 2)) cy
            (place-image
             (line dx 0 color)
             (- cx (/ dx 2)) cy
             (place-image
-             (text (n->s (*line-length* cy py)) 12 color)
+             (text (n->s ((unbox *line-length*) cy py)) 12 color)
              px (- cy (/ dy 2))
              (place-image
               (line 0 dy color)
               px (- cy (/ dy 2))
               (place-image
-               (text (n->s (*distance* px py cx cy)) 12 color)
+               (text (n->s ((unbox *distance*) px py cx cy)) 12 color)
                (- cx (/ dx 2)) (- cy (/ dy 2))
                (place-image
                 (line dx dy color)
@@ -122,9 +122,9 @@
   (let* ((screen-point (posn->point (being-posn being)))
          (cx (posn-x screen-point))
          (cy (posn-y screen-point))
-         (dbg-bkgnd (if (string=? *distances-color* "")
+         (dbg-bkgnd (if (string=? (unbox *distances-color*) "")
                         background
-                        (add-informative-triangle cx cy *distances-color*
+                        (add-informative-triangle cx cy (unbox *distances-color*)
                                                   background))))
     (place-image (being-costume being) cx cy dbg-bkgnd)))
 
@@ -140,11 +140,13 @@
                      (world-player w)))
          (all-beings
           (append (world-targets w) (world-dangers w) (world-shots w) (list player))))
-    (set! *player-x* (posn-x (being-posn (world-player w))))
-    (set! *player-y* (posn-y (being-posn (world-player w))))
-    (set! *score* (world-score w))
-        (overlay/align "middle" "top" (text/font score-string 18 TITLE-COLOR #f 'default 'italic 'bold '#t) 
-                       (foldl draw-being BACKGROUND all-beings))))
+    (begin
+      (set-box! *player-x* (posn-x (being-posn (world-player w))))
+      (set-box! *player-y* (posn-y (being-posn (world-player w))))
+      
+      (set-box! *score* (world-score w))
+      (overlay/align "middle" "top" (text/font score-string 18 (unbox TITLE-COLOR) #f 'default 'italic 'bold '#t) 
+                     (foldl draw-being (unbox BACKGROUND) all-beings)))))
 
 ; wrap-update : (Number->Number or Number Number -> Posn) (list String) -> (Being -> Being)
 ; wrap the update function to ensure that it takes and returns a Being
@@ -203,11 +205,36 @@
                       distances-color line-length distance
                       collide*? onscreen*?)
   (begin
-    (set! TITLE-COLOR title-color)
-    (set! BACKGROUND (fit-image-to WIDTH HEIGHT background))
-    (set! *line-length* line-length)
-    (set! *distance* distance)
-    (set! *distances-color* distances-color)
+    ;; error-checking
+    (unless (string? title)               (display "ERROR: TITLE must be defined as a string.\n"))
+    (unless (string? title-color)         (display "ERROR: TITLE-COLOR must be defined as a string.\n"))
+    (unless (string? distances-color)     (display "ERROR: The *distances-color* must be defined as a string.\n"))
+    (unless (string? title-color)         (display "ERROR: TITLE-COLOR must be defined as a string.\n"))
+    (unless (image? background)           (display "ERROR: BACKGROUND must be defined as an image\n."))
+    (unless (image? playerImg)            (display "ERROR: PLAYER must be defined as an image\n."))
+    (unless (image? projectileImg)        (display "ERROR: mystery must be defined as an image\n."))
+    (unless (andmap image? (flatten (list dangerImgs)))
+                                          (display "ERROR: DANGERs must be defined as images.\n"))
+    (unless (andmap image? (flatten (list targetImgs)))
+                                          (display "ERROR: TARGETs must be defined as images.\n"))
+    (unless (procedure? update-danger*)   (display "ERROR: update-danger must be defined as a function\n."))
+    (unless (procedure? update-target*)   (display "ERROR: update-target must be defined as a function\n."))
+    (unless (procedure? update-player*)   (display "ERROR: update-player must be defined as a function\n."))
+    (unless (procedure? update-projectile*)(display "ERROR: update-mystery must be defined as a function\n."))
+    (unless (procedure? update-player*)   (display "ERROR: update-player must be defined as a function\n."))
+    (unless (procedure? line-length)      (display "ERROR: line-length must be defined as a function\n."))
+    (unless (procedure? distance)         (display "ERROR: distance must be defined as a function\n."))
+    (unless (procedure? collide*?)        (display "ERROR: collide? must be defined as a function\n."))
+    (unless (procedure? onscreen*?)       (display "ERROR: onscreen? must be defined as a function\n."))
+    
+    
+    ;; store important values
+    (set-box! TITLE-COLOR title-color)
+    (set-box! BACKGROUND (fit-image-to WIDTH HEIGHT background))
+    (set-box! *line-length* line-length)
+    (set-box! *distance* distance)
+    (set-box! *distances-color* distances-color)
+    
     (let* ((player (make-being (make-posn (/ WIDTH 2) (/ HEIGHT 2)) playerImg))
            
            ; normalize all user functions to use Beings, not x/y coords
@@ -258,7 +285,7 @@
                          [(and (string=? key " ")
                                (or (> (procedure-arity update-projectile*) 1)
                                    (not (= (update-projectile* 100) 100))))
-                          (world-with-shots w (cons (make-being (make-posn *player-x* *player-y*) projectileImg)
+                          (world-with-shots w (cons (make-being (make-posn (unbox *player-x*) (unbox *player-y*)) projectileImg)
                                                     (world-shots w)))]
                          [else (world-with-player w (update-player (world-player w) key))])))
            
