@@ -1,9 +1,10 @@
+.maincolumn { margin-left: 0;}
+
 body{
 	padding:      0px;
 	margin:       0px;
   background:   no-repeat url("http://www.bootstrapworld.org/images/bootBG.png") fixed bottom right;
   background-color: #f5deb3;
-	max-width:    800px;
   font-family:  Times;
 }
 
@@ -24,10 +25,16 @@ ul.lesson .SIntrapara {display: inline;}
  * Sits on the bottom of the page at all times
  * Displays buttons for teachers
 */
-div.lessonToolbar{
+div#lessonToolbar{
   display:      block;
-  z-index:      999;
+  z-index:      1;
   text-align:   center;
+  position:     fixed;
+  width:        100%;
+  bottom:       0px;
+  left:         0px;
+  background:   black;
+  color:        white;
 }
 
 div.lessonToolbar * {margin: 10px;}
@@ -48,15 +55,15 @@ div.fixed{
  * Unit overviews include an agenda, and a concatenation of lesson overview lists
 */
 
-.OverviewBoundary{display: none;}
-
 .BootstrapTitle{
     text-align:   center;
     font-size:    32px;
     font-weight:  bold;
     display:      block;
+    border-bottom: solid 2px black;
+    box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.75);
 }
-.BootstrapTitle   img{float:          left;}
+.BootstrapTitle   img{float:          left; }
 .BootstrapPageTitle{display: none;}
 
 div.overview{
@@ -119,29 +126,45 @@ div.segment center{position: absolute; bottom: 0px; width: 100%;}
 div.ExtraExercises{display: none;}
 
 div.segment{
-  width: 700px;
-  height: 500px;
-  position: relative;
+  width:    400px;
+  position: absolute;
+  top:      75px; /* height of the title bar */
+  bottom:   22px;
   overflow: hidden;
-  margin: 0 auto 40px;
-  border: 1px solid #CCC;
-  -webkit-perspective: 10000px;
-     -moz-perspective: 10000px;
-       -o-perspective: 10000px;
-          perspective: 10000px;
+  border:   1px solid #CCC;
+  z-index:  -1;
+  background: #fcf7f5;
+  -webkit-transition: all 1s;
+     -moz-transition: all 1s;
+       -o-transition: all 1s;
+          transition: all 1s;
 }
 
-.lessonItem{background: rgba(255, 255, 255, .75);}
+
+
+.embedded-wescheme{
+  position: fixed;
+  top:      75px;
+  bottom:   22px;
+  right:    0px;
+  left:     400px;
+  z-index:  -1;
+  border-left: solid 1px black;
+  -webkit-transition: all 1s;
+     -moz-transition: all 1s;
+       -o-transition: all 1s;
+          transition: all 1s;
+}
+
 
 ul.lesson{
-  margin: 0px; 
-  padding-left: 0px; 
-  list-style-type:none; 
-  width: 50000px;
-  height: 500px;
-  font-size: 0px;
-  position: absolute;
-  left: 0px;
+  list-style-type:none;
+  width:      50000px;
+  font-size:  0px;
+  position:   absolute;
+  padding:    65px 0px 0px 0px;
+  top:        0px;
+  bottom:     0px;
   -webkit-transition: all 1s;
      -moz-transition: all 1s;
        -o-transition: all 1s;
@@ -151,8 +174,8 @@ ul.lesson{
 ul.lesson>li{
   display: inline-block;
   font-size: 20px;
-  width: 700px;
-  height: 500px;
+  width: 400px;
+  height: 100%;
   -webkit-transition: -webkit-transform 1s;
      -moz-transition: -moz-transform 1s;
        -o-transition: -o-transform 1s;
@@ -162,31 +185,14 @@ ul.lesson>li{
        -o-transform-style: preserve-3d;
           transform-style: preserve-3d;
 }
-ul.teacherNotes>li {
-  -webkit-transform: rotateY( 180deg );
-     -moz-transform: rotateY( 180deg );
-       -o-transform: rotateY( 180deg );
-          transform: rotateY( 180deg );
-}
-ul.lesson>li>div {
-  display:block;
-  height: 100%;
-/*  width:  480px; */
-  padding: 10px;
-  font-size: 16px;
-  position: absolute;
-  -webkit-backface-visibility: hidden;
-     -moz-backface-visibility: hidden;
-       -o-backface-visibility: hidden;
-          backface-visibility: hidden;
-}
 
-ul.lesson>li>.teacher {
-  background: lightgray;
-  -webkit-transform: rotateY( 180deg );
-     -moz-transform: rotateY( 180deg );
-       -o-transform: rotateY( 180deg );
-          transform: rotateY( 180deg );
+ul.lesson>li>div {
+  display:    block;
+  height:     100%;
+  padding:    10px;
+  font-size:  16px;
+  position:   absolute;
+  overflow-y: scroll;
 }
 
 div.activity{
@@ -198,6 +204,7 @@ div.activity{
   border-bottom:  dashed 1px black;
   vertical-align: middle;
 }
+ul.lesson>li img{display: block; margin: auto auto 20px auto; max-width: 100%;}
 div.activity li img{float: none;}
 
 /* all banners have borders, and text is bold */
@@ -213,11 +220,74 @@ div.banner{
 /* Banner images are centered */
 div.banner img{float: none; margin-left: auto; margin-right: auto; display: block;}
 div.banner span.MathJax{display: block; clear: both;}
-
-
-.embedded-wescheme{width: 95%; margin-left: 5px; margin-right: 5px;}
-.embedded-wescheme .refreshButton {background: black; color: white; font-size: 16px; border: outset;}
 .overview, .exercises{display: none;}
 
-img{float: right;}
+/*img{float: right;}*/
 img.video{width: 20px; height: 20px; padding: 0px; margin: 0px;}
+
+#BootstrapOverviewTitle, #UnitDescription, #ProductOutcomes, .BootstrapHeader,
+#LearningObjectives, #Glossary, #LanguageTable, .BSLessonDuration, #forum_embed,
+#toggle, #copyright, #flip{
+  display: none;
+}
+.teacher{visibility: hidden;}
+
+
+@media (max-width: 650px) {
+  body{width: 100%; margin: 0px auto;}
+  div.content{margin: auto; max-width: 400px;}
+
+  .BootstrapTitle{font-size: 20px; box-shadow: 0px 0px 0px 0px;}
+  .BootstrapTitle img{display: none;}
+  
+  ul.lesson{padding-top: 10px;}
+  #flip{display: inline;}
+
+  div.segment{
+    width:    400px;
+    top:      48px; /* height of the title bar */
+    bottom:   22px;
+    overflow: hidden;
+    z-index:  -1;
+    -webkit-perspective: 10000px;
+       -moz-perspective: 10000px;
+         -o-perspective: 10000px;
+            perspective: 10000px;
+    -webkit-backface-visibility: hidden;
+       -moz-backface-visibility: hidden;
+         -o-backface-visibility: hidden;
+            backface-visibility: hidden;
+  }
+
+
+
+  .embedded-wescheme{
+    top:      48px;
+    left:     0px;
+    width:    400px;
+    border-left:  none;
+    margin:   auto;
+    -webkit-transform: rotateY( 180deg );
+       -moz-transform: rotateY( 180deg );
+         -o-transform: rotateY( 180deg );
+            transform: rotateY( 180deg );
+    -webkit-backface-visibility: hidden;
+       -moz-backface-visibility: hidden;
+         -o-backface-visibility: hidden;
+            backface-visibility: hidden;
+  }
+
+  div.flipped div.segment{
+    -webkit-transform: rotateY( 180deg );
+       -moz-transform: rotateY( 180deg );
+         -o-transform: rotateY( 180deg );
+            transform: rotateY( 180deg );
+  }
+  
+  div.flipped .embedded-wescheme{
+    -webkit-transform: rotateY( 0deg );
+       -moz-transform: rotateY( 0deg );
+         -o-transform: rotateY( 0deg );
+            transform: rotateY( 0deg );
+  }
+}
