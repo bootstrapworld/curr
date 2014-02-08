@@ -102,7 +102,10 @@
          ,@(maybe-add-option hide-footer? 'hideFooter)
          ,@(maybe-add-option hide-definitions? 'hideDefinitions)
          ,@(maybe-add-option hide-interactions? 'hideInteractions)
-         ,@(maybe-add-option auto-run? 'autorun)))))
+         ,@(maybe-add-option auto-run? 'autorun)
+         ,@`((seamless . "seamless"))
+         ,@`((name . "embedded"))
+         ))))
 
   (define url
     (string-append

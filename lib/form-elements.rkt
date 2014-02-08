@@ -229,7 +229,7 @@
 (define (bootstrap-div-style/id name)
   (make-style #f (cons (make-alt-tag "div")
                        (cons 
-                        (make-attributes (list (cons 'class "")
+                        (make-attributes (list ;(cons 'class "")
                                                (cons 'id name)))
                         css-js-additions))))
 
@@ -244,6 +244,11 @@
 (define (bootstrap-span-style name)
   (make-style name (cons (make-alt-tag "span")
                          css-js-additions)))
+
+(define (bootstrap-span-style/id name)
+  (make-style #f (cons (make-alt-tag "span")
+                       (cons (make-attributes (list (cons 'id name)))
+                             css-js-additions))))
 
 ;; bootstrap-style : string -> style
 ;; defines a style for both latex and css with the given name
@@ -639,7 +644,7 @@
    [html (sxml->element
           `(center
             (input (@ (type "button") (class "prev")   (value "<<")) "")
-            (input (@ (type "button") (class "toggle") (value "Show Teacher Notes") (onclick "toggleTeacherNotes(this);")) "")
+            (input (@ (type "button") (class "flip")   (value "flip")) "")
             (input (@ (type "button") (class "next")   (value ">>")) "")
             ))]
    [else (elem "")]))
@@ -647,16 +652,17 @@
 (define (insert-toolbar)
   (cond [(audience-in? (list "teacher" "volunteer")) (insert-teacher-toggle-button)]
         [(audience-in? (list "student")) 
-         (elem #:style (bootstrap-div-style/id "lessonToolbar")
-               (list (insert-student-buttons)
-                     (embedded-wescheme #:id "IDE"
-                                        #:height 100
-                                        #:width "100%"
-                                        #:hide-toolbar? #f
-                                        #:hide-project-name? #f
-                                        #:hide-footer? #f
-                                        #:hide-definitions? #f
-                                        #:definitions-text "this is a test")))]
+         (list
+          (elem #:style (bootstrap-div-style/id "lessonToolbar")
+                (insert-student-buttons))
+          (embedded-wescheme #:id "IDE"
+                             #:height 100
+                             #:width "100%"
+                             #:hide-toolbar? #f
+                             #:hide-project-name? #f
+                             #:hide-footer? #f
+                             #:hide-definitions? #f
+                             #:definitions-text "this is a test"))]         
         [else (elem)]))
 
 (define (student . content)
@@ -985,7 +991,8 @@
 ;; language-table : list[list[elements]] -> table
 ;; produces table with the particular formatting for the Bootstrap language table
 (define (language-table . rows)
-  (table (style  #f 
+  (nested #:style (bootstrap-div-style/id "LanguageTable")
+  (table (style  #f
                  (list 
                   (table-columns
                    (list 
@@ -993,7 +1000,7 @@
                     (style "BootstrapTable" '(center))))))   
          (cons (list (para #:style "BootstrapTableHeader" "Types")
                      (para #:style "BootstrapTableHeader" "Functions"))
-               (map (lambda (r) (map para r)) rows))))
+               (map (lambda (r) (map para r)) rows)))))
 
 ;; worksheet-table : list[string] list[element] list[string] number number -> table
 ;; assert: col-headers should be same length as (add1 id-tags)
@@ -1409,7 +1416,7 @@
    (lambda (get set)
      (lambda (get set)
        (let ([items (get tag (itemlist))])
-         (nested #:style (bootstrap-div-style (rem-spaces header))
+         (nested #:style (bootstrap-div-style/id (rem-spaces header))
           (interleave-parbreaks/all
            (list
             (para #:style bs-header-style (format "~a:" header))
@@ -1456,7 +1463,7 @@
               [terms (lookup-tags clean-terms
                                   glossary-terms-dictionary "Vocabulary term" #:show-unbound #t)])
          (if (empty? terms) (para)
-             (nested #:style (bootstrap-div-style "Glossary")
+             (nested #:style (bootstrap-div-style/id "Glossary")
                      (interleave-parbreaks/all
                       (list
                        (para #:style bs-header-style "Glossary:")
@@ -1853,12 +1860,12 @@
           (interleave-parbreaks/all
            (list
             (insert-help-button)
-            (elem #:style (bootstrap-style "BootstrapOverviewTitle") "Unit Overview")
+            (elem #:style (bootstrap-div-style/id "BootstrapOverviewTitle") "Unit Overview")
             (nested #:style (bootstrap-sectioning-style "BootstrapOverview") 
                     (interleave-parbreaks/all
                      (list
                       (if gen-agenda? (agenda) (elem))
-                      description
+                      (elem #:style (bootstrap-div-style/id "overviewDescr") description)
                       (if product-outcomesItems (product-outcomes product-outcomesItems) 
                           (summary-data/auto 'product-outcomes "Product Outcomes"))
                       (learn-evid-from-standards)
@@ -2120,7 +2127,6 @@
   (title #:style 'hidden text))
 
 ;; generates the title, which includes the bootstrap logo in html but not in latex/pdf
-;; In unit+title case, paras shouldn't be there but that throws off the CSS spacing -- FIX
 (define (bootstrap-title #:single-line [single-line #f] . body)
   (define the-title (apply string-append body))
   (define unit+title (if single-line #f (regexp-match #px"^([^:]+):\\s*(.+)$" the-title))) 
@@ -2130,8 +2136,8 @@
   (interleave-parbreaks/all
    (cond 
      [unit+title (list (head-title-no-content the-title) 
-                       (para (elem #:style bs-title-style (list bootstrap-image (second unit+title))))
-                       (para (elem #:style bs-title-style (third unit+title))))]
+                       (elem #:style bs-title-style 
+                             (list bootstrap-image (elem #:style "TitleUnitNum" (second unit+title)) (third unit+title))))]
      [else (list (head-title-no-content the-title)
                  (elem #:style bs-title-style (cons bootstrap-image body)))])))
 
