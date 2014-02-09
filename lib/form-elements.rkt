@@ -86,7 +86,8 @@
          create-exercise-itemlist/contract-answers
          create-exercise-sols-itemlist
          matching-exercise-sols
-         wescheme-link
+         editor-link
+         run-link
          
          ;; Sections
          worksheet
@@ -396,10 +397,10 @@
   (sxml->element `(select (@ (id ,(resolve-id id)))
                           ,@(map (lambda (o) `(option ,o)) options))))
 
-(define (wescheme-link #:public-id (pid #f)
-                       #:interactions-text (interactions-text #f)
-                       #:definitions-text (definitions-text #f)
-                       link-text)                      
+(define (editor-link #:public-id (pid #f)
+                     #:interactions-text (interactions-text #f)
+                     #:definitions-text (definitions-text #f)
+                     link-text)                      
   (if (and definitions-text pid)
       (printf "WARNING: creating wescheme link with both defns text and public id~n")
       (let ([argstext (string-append (if pid (format "pid=~a&" pid) "")
@@ -407,10 +408,22 @@
                                      (if definitions-text (format "definitionsText=~a" definitions-text) ""))])
         (cond-element
          [html
-          (sxml->element `(a (@ (href ,(format "http://www.wescheme.org/openEditor?hideHeader=true&warnOnExit=false&~a" argstext))
+          (sxml->element `(a (@ (href ,(format "http://www.wescheme.org/openEditor?hideHeader=true&warnOnExit=false~a" argstext))
                                 (target "embedded"))
                              ,link-text))]
          [else (elem)]))))
+
+(define (run-link #:public-id (pid #f) link-text)
+  (if (not pid)
+      (printf "WARNING: run-link needs a public-id argument")
+      (cond-element
+       [html
+        (sxml->element `(a (@ (href ,(format "http://www.wescheme.org/view?publicId=~a" pid))
+                              (target "embedded"))
+                           ,link-text))]
+       [else (elem)])))
+  
+  
 
 ;; Embedded wescheme instances
 ;; generate depending on audience given in audience variable
