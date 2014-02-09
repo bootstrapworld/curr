@@ -408,7 +408,7 @@
                                      (if definitions-text (format "definitionsText=~a" definitions-text) ""))])
         (cond-element
          [html
-          (sxml->element `(a (@ (href ,(format "http://www.wescheme.org/openEditor?hideHeader=true&warnOnExit=false~a" argstext))
+          (sxml->element `(a (@ (href ,(format "http://www.wescheme.org/openEditor?hideHeader=true&warnOnExit=false&~a" argstext))
                                 (target "embedded"))
                              ,link-text))]
          [else (elem)]))))
