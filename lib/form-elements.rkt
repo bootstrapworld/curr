@@ -1876,7 +1876,7 @@
                     (interleave-parbreaks/all
                      (list
                       (if gen-agenda? (agenda) (elem))
-                      (elem #:style (bootstrap-div-style/id "BootstrapOverviewTitle") "Unit Overview")
+                      (elem #:style bs-header-style "Unit Overview")
                       (elem #:style (bootstrap-div-style/id "overviewDescr") description)
                       (if product-outcomesItems (product-outcomes product-outcomesItems) 
                           (summary-data/auto 'product-outcomes "Product Outcomes"))
