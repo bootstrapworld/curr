@@ -1,7 +1,6 @@
 #lang racket/base
 
-(require (prefix-in wescheme: "wescheme.rkt")
-         racket/runtime-path
+(require racket/runtime-path
          racket/stxparam
          racket/contract
          racket/string
@@ -44,7 +43,6 @@
          fill-in-the-blank
          free-response
          drop-down
-         ;embedded-wescheme
          think-about
          vocab
          code
@@ -286,7 +284,6 @@
 (define bs-logo-style (bootstrap-span-style "BootstrapLogo"))
 (define bs-vocab-style (bootstrap-span-style "vocab"))
 (define bs-banner-style (bootstrap-div-style "banner"))
-(define bs-embedded-wescheme-alt-style (bootstrap-div-style "embedded-wescheme-alt"))
 (define bs-sexp-style (bootstrap-div-style "codesexp"))
 (define bs-code-style (bootstrap-div-style "code"))
 (define bs-circeval-style (bootstrap-div-style "circleevalsexp"))
@@ -424,48 +421,6 @@
        [else (elem)])))
   
   
-
-;; Embedded wescheme instances
-;; generate depending on audience given in audience variable
-(define (embedded-wescheme #:id id
-                           #:public-id (pid #f)
-                           #:width (width "90%")
-                           #:height (height 500)
-                           #:interactions-text (interactions-text #f)
-                           #:definitions-text (definitions-text #f)
-                           #:hide-header? (hide-header? #t)
-                           #:hide-toolbar? (hide-toolbar? #f)
-                           #:hide-project-name? (hide-project-name? #t)
-                           #:hide-footer? (hide-footer? #t)
-                           #:hide-definitions? (hide-definitions? #f)
-                           #:hide-interactions? (hide-interactions? #f)
-                           #:contents-as-alt? (contents-as-alt? #t)
-                           #:auto-run? (auto-run? #f))
-  (cond [(audience-in? "student")
-         (wescheme:embedded-wescheme #:id (resolve-id id)
-                                     #:public-id pid
-                                     #:width width
-                                     #:height height
-                                     #:interactions-text interactions-text
-                                     #:definitions-text definitions-text
-                                     #:hide-header? hide-header?
-                                     #:hide-toolbar? hide-toolbar?
-                                     #:hide-project-name? hide-project-name?
-                                     #:hide-footer? hide-footer?
-                                     #:hide-definitions? hide-definitions?
-                                     #:hide-interactions? hide-interactions?
-                                     #:auto-run? auto-run?)]
-        [(and interactions-text definitions-text)
-         (printf "WARNING: embedded-wescheme with both interactions and defns text~n")]
-        [(and contents-as-alt? interactions-text) 
-         (elem #:style bs-embedded-wescheme-alt-style (code interactions-text))]
-        [(and contents-as-alt? definitions-text)
-         (elem #:style bs-embedded-wescheme-alt-style (code definitions-text))]
-        [else (elem)]))
-
-
-
-
 ;; Lightweight questions with optional hints and answers
 ;; ideally hints/answers come up on some action, not by default
 ;; hints and answers may contain arbitrary formatting, not just strings
@@ -701,14 +656,6 @@
                   `(div (@ (id "IDE"))
                         (iframe (@ (id "embedded") (name "embedded")))))]
            [else (elem)]))]
-;          (embedded-wescheme #:id "IDE"
-;                             #:height "100%"
-;                             #:width "100%"
-;                             #:hide-toolbar? #f
-;                             #:hide-project-name? #f
-;                             #:hide-footer? #f
-;                             #:hide-definitions? #f
-;                             #:definitions-text "this is a test"))]         
         [else (elem)]))
 
 (define (student . content)
