@@ -233,7 +233,7 @@
                         css-js-additions))))
 
 (define (bootstrap-div-style/id/nested name)
-  (make-style #f (cons (make-alt-tag "div")
+  (make-style "" (cons (make-alt-tag "div")
                        (cons 
                         (make-attributes (list (cons 'class "")
                                                (cons 'id name)))
@@ -1872,11 +1872,11 @@
           (interleave-parbreaks/all
            (list
             (insert-help-button)
-            (elem #:style (bootstrap-div-style/id "BootstrapOverviewTitle") "Unit Overview")
             (nested #:style (bootstrap-sectioning-style "BootstrapOverview") 
                     (interleave-parbreaks/all
                      (list
                       (if gen-agenda? (agenda) (elem))
+                      (elem #:style (bootstrap-div-style/id "BootstrapOverviewTitle") "Unit Overview")
                       (elem #:style (bootstrap-div-style/id "overviewDescr") description)
                       (if product-outcomesItems (product-outcomes product-outcomesItems) 
                           (summary-data/auto 'product-outcomes "Product Outcomes"))
