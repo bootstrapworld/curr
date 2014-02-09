@@ -44,7 +44,7 @@
          fill-in-the-blank
          free-response
          drop-down
-         embedded-wescheme
+         ;embedded-wescheme
          think-about
          vocab
          code
