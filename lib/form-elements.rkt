@@ -699,7 +699,7 @@
           (cond-element
            [html (sxml->element
                   `(div (@ (id "IDE"))
-                        (iframe (@ (name "embedded")))))]
+                        (iframe (@ (id "embedded") (name "embedded")))))]
            [else (elem)]))]
 ;          (embedded-wescheme #:id "IDE"
 ;                             #:height "100%"
