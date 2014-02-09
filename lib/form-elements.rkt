@@ -411,7 +411,7 @@
                            #:hide-interactions? (hide-interactions? #f)
                            #:contents-as-alt? (contents-as-alt? #t)
                            #:auto-run? (auto-run? #f))
-  (cond [(audience-in? "self-taught")
+  (cond [(audience-in? "student")
          (wescheme:embedded-wescheme #:id (resolve-id id)
                                      #:public-id pid
                                      #:width width
