@@ -77,15 +77,8 @@ include other datatypes, including Strings and Images.}
                                                   @item{Type the expression again, but this time use a much larger number in place of @code{50}. What does the first argument tell the computer?}
                                                   @item{Type the expression again, this time using @code{"outline"} in place of @code{"solid"}, being careful to keep the quotation marks! What does the second argument tell the computer?}
                                                   @item{Now replace @code{"red"} with something else (again, keep the quotation marks!). What does the third argument tell the computer?}]
-                                       @embedded-wescheme[#:id "ImagePlayground1"                                             
-                                                                   #:height 150
-                                                                   #:hide-toolbar? #t
-                                                                   #:hide-project-name? #t
-                                                                   #:hide-footer? #t
-                                                                   #:hide-definitions? #t
-                                                                   #:auto-run? #t
-								   #:contents-as-alt? #f
-                                                                   #:interactions-text "(star 50 \"solid\" \"red\")"]
+                                       @editor-link[#:interactions-text "(star 50 \"solid\" \"red\")"
+                                                    "Try it out!"]
                                        } 
                              }
                
@@ -94,14 +87,8 @@ include other datatypes, including Strings and Images.}
              @point{@student{There's an entirely new @vocab{type} of value being used in these expressions: @code{"solid"} and @code{"red"} are examples of a completely new datatype, called a @vocab{String}.  
                              @bannerline{A String is anything between quotation marks.} 
                              When you first learned about values, you saw that a program can be nothing more than a value, such as a number.  If you type a number into the interactions window, for example, it evaluates to itself.  To remind yourself of this, try evaluating @code{716} in the Interactions window:
-                                          @embedded-wescheme[#:id "StringIntro"                                             
-                                                                   #:height 50
-                                                                   #:hide-toolbar? #t
-                                                                   #:hide-project-name? #t
-                                                                   #:hide-footer? #t
-                                                                   #:hide-definitions? #t
-								   #:contents-as-alt? #f
-                                                                   #:interactions-text "716"]
+                                          @editor-link[#:interactions-text "716"
+                                                    "Load and run this example."]
                                           Since Strings are values too, the value @code{"red"} is also a perfectly valid program! Just like number values, strings will evaluate to themselves.
                                           @activity[#:forevidence "BS-PL.1&1&1"]{Try entering different Strings into the Interactions window. What happens if you put quotes around multiple words? Around Numbers?}
                                        }
@@ -191,13 +178,8 @@ include other datatypes, including Strings and Images.}
                                       @item{What is the @vocab{Range} of this function?}
                                       ]}
                  A Contract tells you exactly how to use the function, by writing its Name and then using @vocab{values} for each of the arguments in the @vocab{Domain}. Here is an example of an expression, written to use @code{rectangle}:
-                 @embedded-wescheme[#:id "ImagePlayground2"                                             
-                                         #:height 150
-                                         #:hide-toolbar? #t
-                                         #:hide-project-name? #t
-                                         #:hide-footer? #t
-                                         #:hide-definitions? #t
-                                         #:interactions-text "(rectangle 100 50 \"solid\" \"blue\")"]}
+                 @editor-link[#:interactions-text "(rectangle 100 50 \"solid\" \"blue\")"
+                                                  "Load and run this example."]}
                      @teacher{Have students experiment with changing the argument values, always drawing attention back to the Domain.}
                      }
              @point{@student{By writing down the Contracts for our functions, we can easily look back to see how they are used.
@@ -211,13 +193,8 @@ include other datatypes, including Strings and Images.}
                                                     ; triangle: Number String String -> Image
                                                     ; circle: Number String String -> Image}
                              @activity[#:forevidence (list "BS-PL.2&1&1" "BS-PL.2&1&3")]{See if you can figure out how to use these new functions to draw other shapes!  Here's an example to get you started:
-                             @embedded-wescheme[#:id "ImagePlayground3"                                             
-                                         #:height 150
-                                         #:hide-toolbar? #t
-                                         #:hide-project-name? #t
-                                         #:hide-footer? #t
-                                         #:hide-definitions? #t
-                                         #:interactions-text "(ellipse 150 40 \"outline\" \"black\")"]}
+                             @editor-link[#:interactions-text "(ellipse 150 40 \"outline\" \"black\")"
+                                                  "Load and run this example."]}
                              }
                      @teacher{You should start pushing students to write more sophisticated expressions, replacing Number values with entire expressions (e.g. @code{(star (* 10 5) "solid" "purple")}). Students should be comfortable looking at an entire subexpression as a single argument to the surrounding function. @management{You may wish to force students to write these Contracts into their notebooks BEFORE allowing them to play with them. Be careful about letting students rush to the keys without first taking notes!}}
                      }
@@ -232,13 +209,8 @@ include other datatypes, including Strings and Images.}
                      }
                @point{@student{Contracts help programmers write code, so it's always a good idea to write down contracts for each function you see. 
                                @activity[#:forevidence (list "BS-PL.2&1&2" "F-IF.1-3&1&1")]{Can you figure out the contract for a function, just by looking at some sample code? Look at the code below, and see if you can write the @vocab{Name}, @vocab{Domain} and @vocab{Range} for the function being used.
-                                         @embedded-wescheme[#:id "ImagePlayground4"                                             
-                                         #:height 150
-                                         #:hide-toolbar? #t
-                                         #:hide-project-name? #t
-                                         #:hide-footer? #t
-                                         #:hide-definitions? #t
-                                         #:interactions-text "(text \"Bootstrap\" 30 \"purple\")"]
+                                         @editor-link[#:interactions-text "(text \"Bootstrap\" 30 \"purple\")"
+                                                  "Load and run this example."]
                                          Make sure you don't confuse the @vocab{Contract} for a function with code! Some of the items listed below are Contracts, but others are just examples of those functions being used. Can you tell which is which?
                                          @itemlist[@item{@code{; triangle : Number String String -> Image}}
                                                     @item{@code{(triangle 100 "outline" "blue")}}

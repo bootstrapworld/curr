@@ -55,7 +55,7 @@
                 )
       ]{
         @points[
-          @point{@student{Let's begin by exploring a simple videogame, and then figuring out how it works. Open @(hyperlink "http://www.wescheme.org/view?publicId=LyMwExWayT" "this link") in a new window (it is set to run automatically, so be ready!). Be sure to read the directions at the top of the screen so you know how to play!}
+          @point{@student{Let's begin by exploring a simple videogame, and then figuring out how it works. Open @run-link[#:public-id "LyMwExWayT" "this link"] in a new window (it is set to run automatically, so be ready!). Be sure to read the directions at the top of the screen so you know how to play!}
                  @teacher{@management{Show the kids Ninjacat. Be sure to end on a frozen frame of the game, so the whole class can see the same image.}}
                  }
           
@@ -458,15 +458,9 @@
                                                                a decimal, like @code{1.5}? You get a new type of number, a 
                                                                fraction, like @code{3/4}.}]
                                               
-                                @embedded-wescheme[#:id "Intro to Racket and Numbers"                                             
-                                  #:height 200
-                                  #:width "100%"
-                                  #:hide-toolbar? #f
-                                  #:hide-project-name? #t
-                                  #:hide-footer? #t
-                                  #:hide-definitions? #f
-			          #:contents-as-alt? #f
-                                  #:definitions-text "4"]}
+                                @editor-link[#:definitions-text "4"
+                                             #:interactions-text "4"
+                                             "See an example."]}
                                 }
                         @teacher{The editing environment evaluates all fractions and returns them as decimals by default. This can be
                                  surprising to students at first, so you may want to take a moment to explain what's going on, and 
@@ -481,15 +475,9 @@
                                                                       if you type in something that it @italic{doesn't} know about?
                                                                       Will it complain? Crash? Guess? Try asking the computer to 
                                                                       evaluate @code{dog} in the Interactions window.
-                              @embedded-wescheme[#:id "Exploring bugs"                                                                                   
-                                  #:height 100
-                                  #:width "100%"
-                                  #:hide-toolbar? #t
-                                  #:hide-project-name? #t
-                                  #:hide-footer? #t
-                                  #:hide-definitions? #t
-			          #:contents-as-alt? #f
-                                  #:interactions-text "dog"]}
+                                @editor-link[#:definitions-text ""
+                                             #:interactions-text "dog"
+                                             "Try it out!"]}
                                  }
                         @teacher{The error message uses the term "variable".  Don't worry if your students don't already know this 
                                  term; we will teach it to them shortly.  For now, students just need to get used to error messages 
@@ -511,15 +499,12 @@
                                  @bitmap{images/FixedCircle.png}Here is the code for this Circle of Evaluation: @code{(- 4 5)}
                                  @activity[#:forevidence "BS-PL.1&1&2"]{Enter @code{(- 4 5)} into the Interactions window and 
                                                                               hit Return.  You should see @math{-1} as an answer.
-                                 @embedded-wescheme[#:id "Circle1"     
-                                  #:height 100
-                                  #:width "100%"
-                                  #:hide-toolbar? #t
-                                  #:hide-project-name? #t
-                                  #:hide-footer? #t
-                                  #:hide-definitions? #t
-			          #:contents-as-alt? #f
-                                  #:interactions-text "(- 4 5)"]}}
+                                 @editor-link[#:definitions-text ""
+                                             #:interactions-text "(- 4 5)"
+                                             "Try it out!"]
+                                 }
+                        }
+                        
                         @teacher{Have students practice converting simple Circles of Evaluation into code.  If you want to help students 
                                  understand when to use the parentheses, here are two explanations that we find useful.  First, the
                                  parens look like the Circle, and the Circle encloses the function name and its inputs.  Second, we

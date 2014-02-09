@@ -198,12 +198,10 @@
                  @point{@student{When typing in a function definition, be sure to type in all three parts: The Contract and Purpose Statement, the Examples and the Definition. When "Run" is clicked, the computer will read the definition, test your Examples to make sure it works correctly, and then add the definition to your language. Once added, you can use the function as if it were built into the computer. 
                                  @activity[#:forevidence (list "BS-IDE&1&1")]{
                                              Test out your function by using it with various inputs.
-                                 @embedded-wescheme[#:id "redSquare"                                             
-                                                                   #:height 200
-                                                                   #:hide-project-name? #t
-                                                                   #:hide-footer? #t
-                                                                   #:definitions-text "; red-square : Number -> Image\n; draw a solid, red square using the given size\n(EXAMPLE (red-square 42) (square 42 \"solid\" \"red\"))\n(EXAMPLE (red-square 73) (square 73 \"solid\" \"red\"))\n(define (red-square size) (square size \"solid\" \"red\"))"
-                                                                  ]}}
+                                             @editor-link[#:interactions-text "(text \"Bootstrap\" 30 \"purple\")"
+                                                                              "; red-square : Number -> Image\n; draw a solid, red square using the given size\n(EXAMPLE (red-square 42) (square 42 \"solid\" \"red\"))\n(EXAMPLE (red-square 73) (square 73 \"solid\" \"red\"))\n(define (red-square size) (square size \"solid\" \"red\"))"]
+                                             }
+                                 }
                         @teacher{}
                         }
                  @point{@student{Some functions take more than one input. The @code{red-square} function always makes solid red squares, with size being the only thing that varies. Suppose, however, we wanted the function to make red squares that could be @italic{either} solid or outline? This would mean that both the size and the style can vary, so a user might type @code{(red-square 50 "solid")} or @code{(red-square 50 "outline")}

@@ -7,15 +7,18 @@
         @pedagogy{@item{@demo{Have students open their game files, and click Run. They should see a frozen screenshot of their game, using the images they requested. (By now, you should have students' graphics already created, and @(hyperlink "http://www.bootstrapworld.org/materials/resources/teachers/teachers-guide/teachers-guide.html#addingimages" "added to the file)")}}} 
          
         @item{So far, everything that you've been doing has been down in the Interactions window. What happens when you click Run at the top? All the work you did disappears!
-              @tag[selftaught]{@embedded-wescheme[#:id "Defining Variables"
-                                                       #:interactions-text "Click Run above. What happens to this line of text?"]}}
+              @tag[student]{@editor-link[#:definitions-text "4"
+                                             #:interactions-text "Click Run above. What happens to this line of text?"
+                                             "See an example."]
+                             }}
         @item{That's because the Interactions window is meant just for trying things out. If you want to define something permanently, you need to use the Definitions window.}
         
         @item{The game in front of you is a bare-bones, totally broken game. It doesn't DO anything...YET!}
         
         @tag[selftaught]{@item{The following is a bare-bones, totally broken game. It doesn't DO anything...YET!}
-                         @item{@embedded-wescheme[#:id "Defining Variables"   
-                                                 #:public-id "http://www.wescheme.org/openEditor?publicId=q3fgrbasAi"]}}
+                         @item{@editor-link[#:public-id "q3fgrbasAi"
+                                             "See an example."]
+                                }}
         
         @item{Look below Step 0, near the top of the screen. @pedagogy{Raise your hand if you can read the line of code just below that (Have a volunteer read it aloud).} @think-about[#:question (list "What will happen if I type " @code{TITLE} " into the Interactions window down at the bottom?") #:hint "Try it out!"]}
         @item{@think-about[#:question (list "What will happen if you type " @code{TITLE} " into the Interactions window down at the bottom?") #:answer (list "This code tells the computer that the name " @code{TITLE} " is a shortcut for the string " @code{"My Game"} ". When you click Run, the computer learns that name and that shortcut, along with any other definitions.")]}

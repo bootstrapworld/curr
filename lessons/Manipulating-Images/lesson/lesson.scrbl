@@ -50,16 +50,8 @@
                             This sets students up to see @code{overlay} as a logical extension - instead of image-producing Circles of Evaluation with number-producing subexpressions, there can be image-producing Circles with @italic{image-producing} subexpressions.}
                    }
            @point{@student{Using @code{overlay}, we could make a picture of a satellite. Take a look at the code below, then hit "enter" and see what shape it makes! Can you change the color of the circle? The size of the rectangle? Can you use @code{overlay} to put a star on top of both the star @italic{and} the rectangle? 
-@;If you want to reset the editor, hit the refresh button (&#x27F3) below.
-          @embedded-wescheme[#:id "manipulating-images1"
-                                  #:height 100
-                                  #:hide-toolbar? #t
-                                  #:hide-project-name? #t
-                                  #:hide-footer? #t
-                                  #:hide-definitions? #t
-                                  #:auto-run? #t
-                                  #:interactions-text "(overlay (circle 10 \"solid\" \"blue\")
-         (rectangle 30 8 \"solid\" \"red\"))"]}
+                           @editor-link[#:interactions-text "(overlay (circle 10 \"solid\" \"blue\") (rectangle 30 8 \"solid\" \"red\"))"
+                                                            "See an example."]}
                    @teacher{Before students type in the code and try it out, ask the class what they think will happen - what will the size be? The color? The text?}}
                               
            @point{@student{@bitmap{images/rotated-spaceship.png}This satellite is flying level in the sky.  What if a strong wind were blowing, causing the satellite to fly slightly on its side, like the image seen here? Then, we would want the Racket @code{rotate} function:
@@ -84,13 +76,9 @@
                                                   ; Reproduce the given image with both dimensions multiplied
                                                   ;     by the given number}
           Below is some code that will scale a star to make it one-half the original size. What would you change to make it bigger instead of smaller? What would you need to change to scale a different-color star? What if you wanted to scale a circle instead? @italic{Can you figure out how to scale the entire spaceship}?
-          @embedded-wescheme[#:id "manipulating-images2"
-                                  #:height 100
-                                  #:hide-toolbar? #t
-                                  #:hide-project-name? #t
-                                  #:hide-footer? #t
-                                  #:hide-definitions? #t
-                                  #:interactions-text "(scale 0.5 (star 50 \"solid\" \"purple\"))"]}
+          
+           @editor-link[#:interactions-text "(scale 0.5 (star 50 \"solid\" \"purple\"))"
+                                                            "See an example."]}
                    @teacher{}}
                               
            @point{@student{There are also functions for flipping an image horizontally or vertically, and for scaling images so they get bigger or smaller.  Here are contracts and purpose statements for those functions:

@@ -57,15 +57,10 @@
       ]{
         @points[@point{@student{Suppose we want to make an image that had fifty identical, solid red triangles. You would have to write @code{(triangle 50 "solid" "red")} fifty times! To make matters worse, any change to those triangles would have to be repeated for all fifty expressions! Good programmers know that their effort is better spent elsewhere, so they made sure that programming languages have a way to avoid all that repetition.  They write something once, define it as a shortcut in the language, and then use the shortcut wherever they want.}
                        @teacher{}}
-                @point{@student{We name values in our language using @vocab{define} statements.  The following code gives the name @code{shape1} to an expression that draws a solid red triangle..  
-                                  @embedded-wescheme[#:id "definitions"     
-                                                          #:height 300
-                                                          #:width "100%"
-                                                          #:hide-toolbar? #f
-                                                          #:hide-project-name? #t
-                                                          #:hide-footer? #t
-                                                          #:hide-definitions? #f
-                                                          #:definitions-text "(define shape1 (triangle 50 \"solid\" \"red\"))\n"]
+                @point{@student{We name values in our language using @vocab{define} statements.  To see an example of code that defines @code{shape1} to be a solid red triangle,
+                                  @editor-link[#:definitions-text "(define shape1 (triangle 50 \"solid\" \"red\"))\n"
+                                             #:interactions-text ""
+                                             "Click here!"]
                                  Definitions go in the upper window in your editor (the one above the 
                                  Interactions Window); this upper window is called the @vocab{Definitions Window}.        
                                   @activity[#:forevidence (list "BS-PL.3&1&1")]{@itemlist[@item{Enter the @code{shape1} definition into the @vocab{Definitions Window}.}
@@ -185,13 +180,10 @@
                                                            @code[#:multi-line #t]{; flip-vertical : Image -> Image
                                                                                   ; flip-horizontal : Image -> Image
                                                                                   ; rotate : Number Image -> Image}
-                                                            @embedded-wescheme[#:id "ScalePlayground"                                             
-                                                                   #:height 200
-                                                                   #:hide-toolbar? #t
-                                                                   #:hide-project-name? #t
-                                                                   #:hide-footer? #t
-                                                                   #:hide-definitions? #t
-                                                                   #:interactions-text "(scale 3 (star 50 \"solid\" \"red\"))"]}
+                                                              @editor-link[#:definitions-text ""
+                                                                           #:interactions-text "(scale 3 (star 50 \"solid\" \"red\"))"
+                                                                           "Try playing with this example"]
+                                                           }
                                   }
                          @teacher{If a student struggles here, you should fall back to the Circles of Evaluation and Contracts. For example: have the student first draw a circle for @code{rotate}, and have them use the Contract to figure out what the inputs are. When they get to the second input (the @code{image}), ask them what kind of shape they want to rotate. Whatever their answer is, have them look it up in their contracts page, and draw a Circle of Evaluation @italic{inside} the one they drew for @code{rotate}. Once the Circle of Evaluation is correct, have them convert it to code. Once they are confident, you can challenge them to apply another operation to the whole expression, perhaps flipping the rotated shape vertically.}
                          }
@@ -300,14 +292,12 @@
                                                          @item{Click "Run", to have the computer read this definition.}
                                                          @item{Use the function you've defined, by typing @code{(gt 100)} in the Interactions window.}
                                                          @item{Try using the function with different Numbers}]}
-                                    @embedded-wescheme[#:id "Fast Functions"
-                                                            #:height 300
-                                                            #:hide-project-name? #t
-                                                            #:hide-footer? #t
-                                                            #:definitions-text "; gt : Number -> Image
+                                    @editor-link[#:definitions-text "; gt : Number -> Image
 (EXAMPLE (gt 50) (triangle 50 \"solid\" \"green\"))
 (EXAMPLE (gt 95) (triangle 95 \"solid\" \"green\"))
-(define (gt size) (triangle size \"solid\" \"green\"))"]}
+(define (gt size) (triangle size \"solid\" \"green\"))"
+                                                 "Click here to see the function defined."]
+                                    }
                                     @teacher{}
                                     }
                             @point{@student{These steps are knows as the @vocab{Design Recipe}, which is a powerful tool for defining functions based on word problems.
