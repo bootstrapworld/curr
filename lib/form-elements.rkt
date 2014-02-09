@@ -255,6 +255,12 @@
                        (cons (make-attributes (list (cons 'id name)))
                              css-js-additions))))
 
+(define bootstrap-agenda-style
+  (make-style #f (cons 'never-indents
+                       (cons (make-alt-tag "div")
+                             (cons (make-attributes (list (cons 'id "BootstrapAgenda")))
+                                   css-js-additions)))))
+
 ;; bootstrap-style : string -> style
 ;; defines a style for both latex and css with the given name
 (define (bootstrap-style name)
@@ -1399,7 +1405,7 @@
                             [(string=? "BS-" (substring (third (first Allobjs)) 0 3))
                              (loop (rest Allobjs) (cons (first Allobjs) BSobjs) Others)]
                             [else (loop (rest Allobjs) BSobjs (cons (first Allobjs) Others))])))])
-         (nested #:style (bootstrap-div-style "LearningObjectives")
+         (nested #:style (bootstrap-div-style/id/nested "LearningObjectives")
                  (interleave-parbreaks/all
                   (list
                    (para #:style bs-header-style "Standards and Evidence Statements:")
@@ -1587,7 +1593,8 @@
          ;(printf "Computed ~a minutes~n" unit-minutes)
          (set 'unit-length unit-minutes))
          
-       (nested #:style (style "BootstrapAgenda" '(never-indents))
+       (nested #:style bootstrap-agenda-style 
+                      ;(style "BootstrapAgenda" '(never-indents))
                (interleave-parbreaks/all
                (list "Agenda"
                      (apply 
