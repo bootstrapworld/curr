@@ -696,14 +696,19 @@
          (list
           (elem #:style (bootstrap-div-style/id "lessonToolbar")
                 (insert-student-buttons))
-          (embedded-wescheme #:id "IDE"
-                             #:height "100%"
-                             #:width "100%"
-                             #:hide-toolbar? #f
-                             #:hide-project-name? #f
-                             #:hide-footer? #f
-                             #:hide-definitions? #f
-                             #:definitions-text "this is a test"))]         
+          (cond-element
+           [html (sxml->element
+                  `(div (@ (id "IDE"))
+                        (iframe (@ (name "embedded")))))]
+           [else (elem)]))]
+;          (embedded-wescheme #:id "IDE"
+;                             #:height "100%"
+;                             #:width "100%"
+;                             #:hide-toolbar? #f
+;                             #:hide-project-name? #f
+;                             #:hide-footer? #f
+;                             #:hide-definitions? #f
+;                             #:definitions-text "this is a test"))]         
         [else (elem)]))
 
 (define (student . content)
