@@ -103,6 +103,8 @@
          ,@(maybe-add-option hide-definitions? 'hideDefinitions)
          ,@(maybe-add-option hide-interactions? 'hideInteractions)
          ,@(maybe-add-option auto-run? 'autorun)
+         ,@`((seamless . "seamless"))
+         ,@`((name . "embedded"))
          ))))
 
   (define url
@@ -116,12 +118,6 @@
             (@ (id ,id)
                (class "embedded-wescheme"))
             ""))
-         (inject-javascript
-          (format "document.getElementById(~s).style.width=~s; document.getElementById(~s).style.height=~s;"
-                  id
-                  (dimension->string width)
-                  id
-                  (dimension->string height)))
          (inject-javascript
           (format (if with-rpc?
                       "document.getElementById(~s).controller = WeSchemeEmbedded.withRpc(~s, ~s)"

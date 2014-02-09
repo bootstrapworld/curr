@@ -30,7 +30,8 @@ div#lessonToolbar{
   z-index:      1;
   text-align:   center;
   position:     fixed;
-  width:        100%;
+  width:        405px;
+  height:       25px;
   bottom:       0px;
   left:         0px;
   background:   black;
@@ -130,7 +131,7 @@ div.segment{
   width:    400px;
   position: absolute;
   top:      75px; /* height of the title bar */
-  bottom:   22px;
+  bottom:   25px;
   overflow: hidden;
   border:   1px solid #CCC;
   z-index:  -1;
@@ -146,9 +147,9 @@ div.segment{
 .embedded-wescheme{
   position: fixed;
   top:      75px;
-  bottom:   22px;
+  bottom:   0px;
   right:    0px;
-  left:     400px;
+  left:     405px;
   z-index:  -1;
   border-left: solid 1px black;
   -webkit-transition: all 1s;
@@ -163,7 +164,7 @@ ul.lesson{
   width:      50000px;
   font-size:  0px;
   position:   absolute;
-  padding:    65px 0px 0px 0px;
+  padding:    70px 0px 0px 0px;
   top:        0px;
   bottom:     0px;
   -webkit-transition: all 1s;
@@ -190,7 +191,7 @@ ul.lesson>li{
 ul.lesson>li>div {
   display:    block;
   height:     100%;
-  padding:    10px;
+  padding:    0px 10px;
   font-size:  16px;
   position:   absolute;
   overflow-y: scroll;
@@ -247,7 +248,7 @@ img.video{width: 20px; height: 20px; padding: 0px; margin: 0px;}
   div.segment{
     width:    400px;
     top:      48px; /* height of the title bar */
-    bottom:   22px;
+    bottom:   25px;
     overflow: hidden;
     z-index:  -1;
     -webkit-perspective: 10000px;
