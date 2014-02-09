@@ -1412,7 +1412,7 @@
                    (list "Standards with"
                          " prefix BS are specific to Bootstrap; others are from the Common Core."
                          " Mouse over each standard to see its corresponding evidence statements."
-                         "Our " 
+                         " Our " 
                          (hyperlink "../../../../Standards.shtml" "Standards Document") 
                          " shows which units cover each standard. "
                          )
