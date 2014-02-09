@@ -229,10 +229,15 @@
 (define (bootstrap-div-style/id name)
   (make-style #f (cons (make-alt-tag "div")
                        (cons 
-                        (make-attributes (list ;(cons 'class "")
-                                               (cons 'id name)))
+                        (make-attributes (list (cons 'id name)))
                         css-js-additions))))
 
+(define (bootstrap-div-style/id/nested name)
+  (make-style #f (cons (make-alt-tag "div")
+                       (cons 
+                        (make-attributes (list (cons 'class "")
+                                               (cons 'id name)))
+                        css-js-additions))))
 
 (define (bootstrap-div-style/extra-id name id)
   (make-style name (cons (make-alt-tag "div")
@@ -643,9 +648,9 @@
   (cond-element
    [html (sxml->element
           `(center
-            (input (@ (type "button") (class "prev")   (value "<<")) "")
-            (input (@ (type "button") (class "flip")   (value "flip")) "")
-            (input (@ (type "button") (class "next")   (value ">>")) "")
+            (input (@ (type "button") (id "prev")   (value "<<")) "")
+            (input (@ (type "button") (id "flip")   (value "flip")) "")
+            (input (@ (type "button") (id "next")   (value ">>")) "")
             ))]
    [else (elem "")]))
 
@@ -873,7 +878,7 @@
 ;; Not sure why we have the dual nested here ...
 (define (main-contents . body)
   (list (augment-head)
-        (nested #:style (bootstrap-div-style/id "body")
+        (nested #:style (bootstrap-div-style/id/nested "body")
                 (nested #:style (bootstrap-div-style "item") 
                         body))))
 
@@ -991,16 +996,16 @@
 ;; language-table : list[list[elements]] -> table
 ;; produces table with the particular formatting for the Bootstrap language table
 (define (language-table . rows)
-  (nested #:style (bootstrap-div-style/id "LanguageTable")
-  (table (style  #f
-                 (list 
-                  (table-columns
-                   (list 
-                    (style "BootstrapTable" '(center))
-                    (style "BootstrapTable" '(center))))))   
-         (cons (list (para #:style "BootstrapTableHeader" "Types")
-                     (para #:style "BootstrapTableHeader" "Functions"))
-               (map (lambda (r) (map para r)) rows)))))
+  (nested #:style (bootstrap-div-style/id/nested "LanguageTable")    
+          (table (style "thetable"
+                        (list 
+                         (table-columns
+                          (list 
+                           (style "BootstrapTable" '(center))
+                           (style "BootstrapTable" '(center))))))   
+                 (cons (list (para #:style "BootstrapTableHeader" "Types")
+                             (para #:style "BootstrapTableHeader" "Functions"))
+                       (map (lambda (r) (map para r)) rows)))))
 
 ;; worksheet-table : list[string] list[element] list[string] number number -> table
 ;; assert: col-headers should be same length as (add1 id-tags)
@@ -1416,7 +1421,7 @@
    (lambda (get set)
      (lambda (get set)
        (let ([items (get tag (itemlist))])
-         (nested #:style (bootstrap-div-style/id (rem-spaces header))
+         (nested #:style (bootstrap-div-style/id/nested (rem-spaces header))
           (interleave-parbreaks/all
            (list
             (para #:style bs-header-style (format "~a:" header))
@@ -1463,7 +1468,7 @@
               [terms (lookup-tags clean-terms
                                   glossary-terms-dictionary "Vocabulary term" #:show-unbound #t)])
          (if (empty? terms) (para)
-             (nested #:style (bootstrap-div-style/id "Glossary")
+             (nested #:style (bootstrap-div-style/id/nested "Glossary")
                      (interleave-parbreaks/all
                       (list
                        (para #:style bs-header-style "Glossary:")
@@ -1985,7 +1990,7 @@
 
 ;auto generates copyright section
 (define (copyright . body)
-  (nested #:style (bootstrap-div-style/id "copyright")
+  (para #:style (bootstrap-div-style/id "copyright")
    (hyperlink "http://creativecommons.org/licenses/by-nc-nd/3.0/" creativeCommonsLogo) "Bootstrap by " (hyperlink "http://www.bootstrapworld.org/" "Emmanuel Schanzer") " is licensed under a "
    (hyperlink "http://creativecommons.org/licenses/by-nc-nd/3.0/" "Creative Commons 3.0 Unported License")
    ". Based on a work at " (hyperlink "http://www.bootstrapworld.org/" "www.BootstrapWorld.org")
