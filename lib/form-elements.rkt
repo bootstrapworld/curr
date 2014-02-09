@@ -405,7 +405,7 @@
       (let ([argstext (string-append (if pid (format "pid=~a&" pid) "")
                                      (if interactions-text (format "interactionsText=~a&" interactions-text) "")
                                      (if definitions-text (format "definitionsText=~a" definitions-text) ""))])
-        (hyperlink (format "http://www.wescheme.org/openEditor?~a" argstext)
+        (hyperlink (format "http://www.wescheme.org/openEditor?~a target=embedded" argstext)
                    link-text))))
       
 

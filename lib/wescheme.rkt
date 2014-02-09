@@ -103,8 +103,6 @@
          ,@(maybe-add-option hide-definitions? 'hideDefinitions)
          ,@(maybe-add-option hide-interactions? 'hideInteractions)
          ,@(maybe-add-option auto-run? 'autorun)
-         ,@`((seamless . "seamless"))
-         ,@`((name . "embedded"))
          ))))
 
   (define url
