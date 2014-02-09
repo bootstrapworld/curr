@@ -86,7 +86,8 @@
          create-exercise-itemlist/contract-answers
          create-exercise-sols-itemlist
          matching-exercise-sols
-
+         wescheme-link
+         
          ;; Sections
          worksheet
          worksheet-segment
@@ -395,6 +396,19 @@
   (sxml->element `(select (@ (id ,(resolve-id id)))
                           ,@(map (lambda (o) `(option ,o)) options))))
 
+(define (wescheme-link #:public-id (pid #f)
+                       #:interactions-text (interactions-text #f)
+                       #:definitions-text (definitions-text #f)
+                       link-text)                      
+  (if (and definitions-text pid)
+      (printf "WARNING: creating wescheme link with both defns text and public id~n")
+      (let ([argstext (string-append (if pid (format "pid=~a&" pid) "")
+                                     (if interactions-text (format "interactionsText=~a&" interactions-text) "")
+                                     (if definitions-text (format "definitionsText=~a" definitions-text) ""))])
+        (hyperlink (format "http://www.wescheme.org/openEditor?~a" argstext)
+                   link-text))))
+      
+
 ;; Embedded wescheme instances
 ;; generate depending on audience given in audience variable
 (define (embedded-wescheme #:id id
@@ -667,7 +681,7 @@
           (elem #:style (bootstrap-div-style/id "lessonToolbar")
                 (insert-student-buttons))
           (embedded-wescheme #:id "IDE"
-                             #:height 100
+                             #:height "100%"
                              #:width "100%"
                              #:hide-toolbar? #f
                              #:hide-project-name? #f
