@@ -63,6 +63,7 @@ div.fixed{
     border-bottom: solid 2px black;
     box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.75);
 }
+.TitleUnitNum{display: block;}
 .BootstrapTitle   img{float:          left; }
 .BootstrapPageTitle{display: none;}
 
@@ -225,7 +226,7 @@ div.banner span.MathJax{display: block; clear: both;}
 /*img{float: right;}*/
 img.video{width: 20px; height: 20px; padding: 0px; margin: 0px;}
 
-#BootstrapOverviewTitle, #UnitDescription, #ProductOutcomes, .BootstrapHeader,
+#BootstrapOverviewTitle, #overviewDescr, #BootstrapAgenda, #ProductOutcomes, .BootstrapHeader,
 #LearningObjectives, #Glossary, #LanguageTable, .BSLessonDuration, #forum_embed,
 #toggle, #copyright, #flip{
   display: none;
