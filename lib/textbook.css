@@ -46,6 +46,7 @@ div#lessonToolbar.fixed{
     font-weight:  bold;
     display:      block;
 }
+.TitleUnitNum {display: block;}
 .BootstrapTitle   img{
   float:          left;
 }
@@ -96,7 +97,7 @@ table {
   margin: 20px auto;
 }
 
-.BootstrapAgenda{
+#BootstrapAgenda{
 	border:         1px solid black;
 	display:        inline-block;
 	text-align:     center;
@@ -183,9 +184,9 @@ tr.image{color:   purple}
 tr.boolean{color: red}
 tr.position{color:orange}
 
-input.prev{display:none;}
-input.next{display:none;}
-input.toggle{display:none;}
+input#prev{display:none;}
+input#next{display:none;}
+input#toggle{display:none;}
 
 
 
