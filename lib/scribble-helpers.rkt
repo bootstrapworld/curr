@@ -2,8 +2,7 @@
 
 ;; various generic scribble helper functions
 
-(require (prefix-in wescheme: "wescheme.rkt")
-         scribble/base
+(require scribble/base
          scribble/core
          scribble/decode
          scribble/basic
