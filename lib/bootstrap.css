@@ -35,6 +35,7 @@ div.content{max-width:		800px;}
     font-size:    32px;
     font-weight:  bold;
     display:      block;
+    z-index:      2;
 }
 .TitleUnitNum {display: block;}
 .BootstrapTitle   img{float: left;}
