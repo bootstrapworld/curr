@@ -1366,45 +1366,46 @@
                                 )
   (nested #:style (bootstrap-div-style/extra-id "segment" "exercises")
           (elem #:style "exercise-instr" (bold "Directions:") (string-append " " directions))
-          (design-recipe-section "recipe_contract" 
-                                 "Contract and Purpose Statement"
-                                 "Every contract has three parts ..."
-                                 (make-spacer ";")
-                                 (para #:style (bootstrap-div-style "wrapper")
-                                       (dr-student-answer #:id? #f "recipe-name" funname)
-                                       (elem #:style (bootstrap-span-style "") ":")
-                                       (dr-student-answer "recipe-domain" domain-list)
-                                       (elem #:style (bootstrap-span-style "") "->")
-                                       (dr-student-answer "recipe-range" range))
-                                 (make-spacer ";")
-                                 (para #:style (bootstrap-div-style "wrapper")
-                                       (dr-student-answer "recipe-purpose" purpose)))
-          ;; need one of these for each example provided/expected
-          (design-recipe-section "recipe_examples"
-                                 "Examples"
-                                 "Write some examples of your function in action..."
-                                 (make-spacer "(EXAMPLE ")
-                                 (make-spacer "(")
-                                 (para #:style (bootstrap-div-style "wrapper")
-                                       (dr-student-answer #:id? #f "recipe_name" funname)
-                                       (dr-student-answer "recipe_example_inputs" "")
-                                       (make-spacer ")")
-                                       (make-clear)
-                                       (dr-student-answer "recipe_body" "")
-                                       (make-spacer ")")))
-          (design-recipe-section "recipe_definition"
-                                 "Definition"
-                                 "Write the definition, giving variable names to all your input values..."
-                                 (make-spacer "(define ")
-                                 (make-spacer "(")
-                                 (para #:style (bootstrap-div-style "wrapper")
-                                       (dr-student-answer #:id? #f "recipe_name" funname)
-                                       (dr-student-answer "recipe_variables" param-list)
-                                       (make-spacer ")")
-                                       (make-clear)
-                                       (dr-student-answer "recipe_definition_body" body)
-                                       (make-spacer ")")))
-          ))
+          (nested #:style (bootstrap-div-style "designRecipeLayout")
+                  (design-recipe-section "recipe_contract" 
+                                         "Contract and Purpose Statement"
+                                         "Every contract has three parts ..."
+                                         (make-spacer ";")
+                                         (para #:style (bootstrap-div-style "wrapper")
+                                               (dr-student-answer #:id? #f "recipe-name" funname)
+                                               (elem #:style (bootstrap-span-style "") ":")
+                                               (dr-student-answer "recipe-domain" domain-list)
+                                               (elem #:style (bootstrap-span-style "") "->")
+                                               (dr-student-answer "recipe-range" range))
+                                         (make-spacer ";")
+                                         (para #:style (bootstrap-div-style "wrapper")
+                                               (dr-student-answer "recipe-purpose" purpose)))
+                  ;; need one of these for each example provided/expected
+                  (design-recipe-section "recipe_examples"
+                                         "Examples"
+                                         "Write some examples of your function in action..."
+                                         (make-spacer "(EXAMPLE ")
+                                         (make-spacer "(")
+                                         (para #:style (bootstrap-div-style "wrapper")
+                                               (dr-student-answer #:id? #f "recipe_name" funname)
+                                               (dr-student-answer "recipe_example_inputs" "")
+                                               (make-spacer ")")
+                                               (make-clear)
+                                               (dr-student-answer "recipe_body" "")
+                                               (make-spacer ")")))
+                  (design-recipe-section "recipe_definition"
+                                         "Definition"
+                                         "Write the definition, giving variable names to all your input values..."
+                                         (make-spacer "(define ")
+                                         (make-spacer "(")
+                                         (para #:style (bootstrap-div-style "wrapper")
+                                               (dr-student-answer #:id? #f "recipe_name" funname)
+                                               (dr-student-answer "recipe_variables" param-list)
+                                               (make-spacer ")")
+                                               (make-clear)
+                                               (dr-student-answer "recipe_definition_body" body)
+                                               (make-spacer ")")))
+                  )))
                      
 (define (design-recipe-section id title instructions . body)
   (nested #:style (bootstrap-div-style/id/nested id)
