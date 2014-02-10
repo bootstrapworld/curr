@@ -246,6 +246,13 @@
                                                  (cons 'id id)))
                           css-js-additions))))
 
+(define (bootstrap-span-style/extra-id name id)
+  (make-style name (cons (make-alt-tag "span")
+                         (cons 
+                          (make-attributes (list ;(cons 'class "")
+                                                 (cons 'id id)))
+                          css-js-additions))))
+
 (define (bootstrap-span-style name)
   (make-style name (cons (make-alt-tag "span")
                          css-js-additions)))
@@ -1338,6 +1345,88 @@
 (define (sexp->code e)
   (sexp #:form "code" e))
 
+;;;;;;;;; API for Design Receipe Exercises ;;;;;;;;;;;;;;;;;;;;;
+
+;; Create a design-recipe exercise
+;;   funname: string naming the function
+;;   directions: instructions for the problem 
+(define (design-recipe-exercise funname directions
+                                #:domain-list (domain-list '())
+                                #:show-domains (show-domains '())
+                                #:range (range #f)
+                                #:show-range? (show-range? #f)
+                                #:purpose (purpose #f)
+                                #:show-purpose? (show-purpose? #f)
+                                #:example-list (example-list '())
+                                #:show-examples (show-examples '())
+                                #:param-list (param-list '())
+                                #:show-params (show-params '())
+                                #:body (body #f)
+                                #:show-body? (show-body? #f)
+                                )
+  (nested #:style (bootstrap-div-style/extra-id "segment" "exercises")
+          (elem #:style "exercise-instr" (bold "Directions:") (string-append " " directions))
+          (design-recipe-section "recipe_contract" 
+                                 "Contract and Purpose Statement"
+                                 "Every contract has three parts ..."
+                                 (make-spacer ";")
+                                 (para #:style (bootstrap-div-style "wrapper")
+                                       (dr-student-answer #:id? #f "recipe-name" funname)
+                                       (elem #:style (bootstrap-span-style "") ":")
+                                       (dr-student-answer "recipe-domain" domain-list)
+                                       (elem #:style (bootstrap-span-style "") "->")
+                                       (dr-student-answer "recipe-range" range))
+                                 (make-spacer ";")
+                                 (para #:style (bootstrap-div-style "wrapper")
+                                       (dr-student-answer "recipe-purpose" purpose)))
+          ;; need one of these for each example provided/expected
+          (design-recipe-section "recipe_examples"
+                                 "Examples"
+                                 "Write some examples of your function in action..."
+                                 (make-spacer "(EXAMPLE ")
+                                 (make-spacer "(")
+                                 (para #:style (bootstrap-div-style "wrapper")
+                                       (dr-student-answer #:id? #f "recipe_name" funname)
+                                       (dr-student-answer "recipe_example_inputs" "")
+                                       (make-spacer ")")
+                                       (make-clear)
+                                       (dr-student-answer "recipe_body" "")
+                                       (make-spacer ")")))
+          (design-recipe-section "recipe_definition"
+                                 "Definition"
+                                 "Write the definition, giving variable names to all your input values..."
+                                 (make-spacer "(define ")
+                                 (make-spacer "(")
+                                 (para #:style (bootstrap-div-style "wrapper")
+                                       (dr-student-answer #:id? #f "recipe_name" funname)
+                                       (dr-student-answer "recipe_variables" param-list)
+                                       (make-spacer ")")
+                                       (make-clear)
+                                       (dr-student-answer "recipe_definition_body" body)
+                                       (make-spacer ")")))
+          ))
+                     
+(define (design-recipe-section id title instructions . body)
+  (nested #:style (bootstrap-div-style/id/nested id)
+          (interleave-parbreaks/all
+           (append (list (elem #:style (bootstrap-div-style "sectionTitle") title)
+                         (elem #:style (bootstrap-div-style "sectionInstructions") instructions))
+                   body))))      
+
+(define (make-spacer contents)
+  (elem #:style (bootstrap-span-style "spacer") contents))
+
+(define (make-clear)
+  (elem #:style (bootstrap-span-style "clear") ""))
+  
+(define (dr-student-answer class-or-id answer #:id? (id? #t) #:show? (show? #f))
+  (let ([style (if id? 
+                   (bootstrap-span-style/extra-id "studentAnswer" class-or-id) 
+                   (bootstrap-span-style (string-append "studentAnswer " class-or-id)))])
+    (elem #:style style
+          (let ([space-size (if (string? answer) (string-length answer) 0)])
+            (make-string space-size #\M)))))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (define (materials . items)
@@ -1779,7 +1868,7 @@
 ;;         optional arguments are elements 
 ;; Generates all components of a design-recipe exercise.  Optional arguments fill in solutions
 ;;    for teacher's edition
-(define (design-recipe-exercise func-name . description)
+(define (design-recipe-exercise-old func-name . description)
   (let ([tagbase (format "recipe-~a" func-name)])
     (nested
      #:style (style "BootstrapDRExercise" '())
