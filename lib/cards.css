@@ -10,15 +10,12 @@ div#lessonToolbar{
   z-index:      1;
   text-align:   center;
   position:     fixed;
-  width:        405px;
-  height:       25px;
-  bottom:       0px;
+  top:          75px;
   left:         0px;
-  background:   black;
-  color:        white;
+  width:        402px;
+  padding:      5px 0px;
+  background:   steelblue;
 }
-
-div.lessonToolbar * {margin: 10px;}
 
 /************************************************************************************
  * OVERVIEW PAGE
@@ -28,7 +25,10 @@ div.lessonToolbar * {margin: 10px;}
 
 .BootstrapTitle{
     border-bottom: solid 2px black;
-    box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.75);
+    box-shadow:   0px 3px 3px 0px rgba(0,0,0,0.75);
+    width:        100%;
+    height:       75px;
+    position:     absolute;
 }
 .BootstrapPageTitle{display: none;}
 
@@ -58,8 +58,8 @@ div.ExtraExercises{display: none;}
 div.segment{
   width:    400px;
   position: absolute;
-  top:      75px; /* height of the title bar */
-  bottom:   25px;
+  top:      100px; /* height of the title bar */
+  bottom:   0px;
   overflow: hidden;
   border:   1px solid #CCC;
   z-index:  -1;
@@ -173,11 +173,12 @@ img.video{width: 20px; height: 20px; padding: 0px; margin: 0px;}
   .BootstrapTitle img{display: none;}
   
   ul.lesson{padding-top: 10px;}
+  div#lessonToolbar{width: 100%; bottom: 0px; top: auto;}
   #flip{display: inline;}
 
   div.segment{
     width:    400px;
-    top:      48px; /* height of the title bar */
+    top:      75px; /* height of the title bar */
     bottom:   25px;
     overflow: hidden;
     z-index:  -1;
@@ -193,7 +194,8 @@ img.video{width: 20px; height: 20px; padding: 0px; margin: 0px;}
 
 
 div#IDE{
-    top:      48px;
+    top:      75px;
+    bottom:   32px;
     left:     0px;
     width:    400px;
     border-left:  none;
@@ -215,7 +217,7 @@ div#IDE{
             transform: rotateY( 180deg );
   }
   
-  div.flipped .embedded-wescheme{
+  div.flipped div#IDE{
     -webkit-transform: rotateY( 0deg );
        -moz-transform: rotateY( 0deg );
          -o-transform: rotateY( 0deg );

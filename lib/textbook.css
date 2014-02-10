@@ -27,6 +27,8 @@ div#lessonToolbar.fixed{
  * Unit overviews include an agenda, and a concatenation of lesson overview lists
 */
 
+.BootstrapTitle{width: 800px;}
+
 .OverviewBoundary{display: inline}
 
 .BootstrapHeader{
