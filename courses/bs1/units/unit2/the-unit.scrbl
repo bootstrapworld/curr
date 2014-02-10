@@ -189,9 +189,9 @@ include other datatypes, including Strings and Images.}
                      @teacher{}
                      }
              @point{@student{Now that you know how to use a Contract to write an expression, here are the Contracts for several new functions that produce Images:
-                             @code[#:multi-line ""]{; ellipse: Number Number String String -> Image
-                                                    ; triangle: Number String String -> Image
-                                                    ; circle: Number String String -> Image}
+                             @code[#:multi-line ""]{; ellipse:  Number Number String String -> Image
+                                                    ; triangle: Number String String        -> Image
+                                                    ; circle:   Number String String        -> Image}
                              @activity[#:forevidence (list "BS-PL.2&1&1" "BS-PL.2&1&3")]{See if you can figure out how to use these new functions to draw other shapes!  Here's an example to get you started:
                              @editor-link[#:interactions-text "(ellipse 150 40 \"outline\" \"black\")"
                                                   "Load and run this example."]}

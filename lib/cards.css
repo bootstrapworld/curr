@@ -188,6 +188,9 @@ ul.lesson>li{
           transform-style: preserve-3d;
 }
 
+/* CodeMirrors should be 20px less wide, to account for padding */
+.CodeMirror{max-width: 380px;}
+
 ul.lesson>li>div {
   display:    block;
   height:     100%;

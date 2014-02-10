@@ -1,7 +1,7 @@
 #lang curr/lib
 @declare-tags[management]
 
-@title{Unit 6: Booleans: Teaching Functions to Compare}
+@title{Unit 6: Teaching Functions to Compare}
 
 @unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sq sqrt expt})
                                        (list "String" @code{string-append string-length})
