@@ -128,7 +128,6 @@
 (define-runtime-path-list js-paths
   (list (build-path "easyXDM.min.js")
         (build-path "json2.min.js")
-        (build-path "wescheme-embedded.js")
         (build-path "bootstrap-helpers.js")))
 
 
