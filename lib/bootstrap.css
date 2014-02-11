@@ -217,7 +217,7 @@ div.codesexp       .studentAnswer+.studentAnswer { margin-left: 10px;}
     vertical-align: top;
     margin-right:   20px;
 }
-
+.designRecipeLayout .wrapper *{ vertical-align: top; }
 .designRecipeLayout span.spacer{
     display:        inline-block; 
     font-family:    courier, monaco, serif; 
