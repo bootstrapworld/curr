@@ -209,7 +209,7 @@ div.codesexp       .studentAnswer+.studentAnswer { margin-left: 10px;}
 
 .designRecipeLayout div.section span{vertical-align: top; line-height: 30px;}
 
-.designRecipeLayoutspan .clear{clear: both; display: block; content: "", width: 100%;}
+.designRecipeLayout span.clear{clear: both; display: block; content: "", width: 100%;}
 
 .designRecipeLayout .wrapper{
     width:          80%;
@@ -224,17 +224,30 @@ div.codesexp       .studentAnswer+.studentAnswer { margin-left: 10px;}
     vertical-align: top;
 }
 
-.designRecipeLayout .studentAnswer{margin-bottom: 30px; min-width: 180px; height: 30px; position: relative;}
+.designRecipeLayout .studentAnswer{
+  margin-bottom:  30px;
+  min-width:      120px;
+  min-height:     30px; 
+  line-height:    30px;
+  height:         auto;
+  position:       relative; 
+  margin-right:   10px;
+  padding:        0px 20px;
+  word-break:     break-all;
+}
 
 .designRecipeLayout span.studentAnswer::after{
   position:     absolute;
-  top:          30px;
+  bottom:       -25px;
+  left:         0px;
   font-size:    12px;
   font-weight:  normal;
   width:        100%;
   text-align:   center;
   font-style:   italic;
 }
+
+#recipe_purpose{width: 100%;}
 
 .recipe_name::after     {content: "function name";}
 #recipe_domain::after   {content: "domain";}
@@ -246,7 +259,7 @@ div.codesexp       .studentAnswer+.studentAnswer { margin-left: 10px;}
 .recipe_example_inputs::after{  content: "input(s)";}
 #recipe_definition_body::after{ content: "what the function does with those variables";}
 
-#recipe_purpose, #recipe_definition_body, .recipe_example_body{width: 90%;}
+#recipe_definition_body, .recipe_example_body{min-width: 200px;}
 
 /******************************************************************************
   Copyright at the end of the file

@@ -1385,9 +1385,10 @@
                                               (dr-student-answer "recipe_domain" domain-list)
                                               (para #:style (bootstrap-span-style "") "->")
                                               (dr-student-answer "recipe_range" range))
+                                             (make-clear)
                                              (make-spacer ";")
                                              (make-wrapper
-                                              (dr-student-answer "recipe-purpose" purpose)))
+                                              (dr-student-answer "recipe_purpose" purpose)))
                       ;; need one of these for each example provided/expected
                       (design-recipe-section "recipe_examples"
                                              "Examples"
@@ -1396,10 +1397,10 @@
                                              (make-spacer "(")
                                              (make-wrapper
                                               (dr-student-answer #:id? #f "recipe_name" funname)
-                                              (dr-student-answer "recipe_example_inputs" "")
+                                              (dr-student-answer #:id? #f "recipe_example_inputs" "")
                                               (make-spacer ")")
-                                              (make-clear)
-                                              (dr-student-answer "recipe_body" "")
+                                              ;(make-clear) ; only force this for long-form DR (maybe via a flag?)
+                                              (dr-student-answer #:id? #f "recipe_body" "")
                                               (make-spacer ")")))
                       (design-recipe-section "recipe_definition"
                                              "Definition"
@@ -1410,7 +1411,7 @@
                                               (dr-student-answer #:id? #f "recipe_name" funname)
                                               (dr-student-answer "recipe_variables" param-list)
                                               (make-spacer ")")
-                                              (make-clear)
+                                              ;(make-clear)  ; only force this for long-form DR (maybe via a flag?)
                                               (dr-student-answer "recipe_definition_body" body)
                                               (make-spacer ")")))
                       )))))))
