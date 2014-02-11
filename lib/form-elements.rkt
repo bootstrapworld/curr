@@ -1366,6 +1366,8 @@
 
 ;;;;;;;;; API for Design Receipe Exercises ;;;;;;;;;;;;;;;;;;;;;
 
+(define htmlRarr (cond-element [html (sxml->element 'rarr)] [else "->"]))
+
 ;; Create a design-recipe exercise
 ;;   funname: string naming the function
 ;;   directions: instructions for the problem 
@@ -1399,7 +1401,7 @@
                                               (dr-student-answer #:id? #f "recipe_name" funname)
                                               (para #:style (bootstrap-span-style "") ":")
                                               (dr-student-answer "recipe_domain" domain-list)
-                                              (para #:style (bootstrap-span-style "") (literal "&#9658;"))
+                                              (para #:style (bootstrap-span-style "") htmlRarr)
                                               (dr-student-answer "recipe_range" range))
                                              (make-clear)
                                              (make-spacer ";")
