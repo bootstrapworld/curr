@@ -108,8 +108,10 @@ ul.twoColumnLayout {
 }
 
 ul.twoColumnLayout li {
-  border-top: solid 1px black; overflow: hidden;
+  border-top:         solid 1px black; overflow: hidden;
   counter-increment:  item; /* increment the counter for each row */
+  min-height:         80px;
+  position:           relative;
 }
 
 }
@@ -134,8 +136,10 @@ div.rightColumn:before{
   background:         #666;
   font-weight:        bold;
   font-family:        "Helvetica Neue", Arial, sans-serif;
-  float:              left;
   vertical-align:     top;
+  left:               -1px;
+  margin-right:       10px;
+  margin-bottom:      10px;
 }
 /*  don't auto-number the rightColumn for matching solutions */
 ul.solutions li.matchingItem div.rightColumn:before{display: none}
@@ -145,9 +149,11 @@ div.leftColumn:before{content: counter(item);}
 div.rightColumn:before{content: counter(item, lower-latin);}
 
 
-div.rightColumn>*, div.leftColumn>*{padding-left: 30px; width: 80%; float: none; display: inline;}
-div.rightColumn{border-left: solid 1px black; margin-right: -1px; }
-div.leftColumn{border-right: solid 1px black; margin-right: -1px; }
+div.rightColumn>*, div.leftColumn>*{ width: 80%; float: none; display: inline;}
+div.leftColumn{margin-right: -3px; }
+div.rightColumn{border-left: solid 1px black; margin-right: -2px; }
+
+.twoColumnLayout div.codesexp{margin-left: 30px; position: absolute;}
 
 /* Define minimum heights for various answer types */
 div.circeval {min-height: 250px;}
@@ -262,12 +268,23 @@ div.codesexp       .studentAnswer+.studentAnswer { margin-left: 10px;}
 
 #recipe_definition_body, .recipe_example_body{min-width: 200px;}
 
-/******************************************************************************
-  Copyright at the end of the file
-   ****************************************************************************/
-.BootstrapCopyright{
-
-}
+/* Copyright at the end of the file */
 .BootstrapCopyright img{
 	 float:right;
+}
+
+
+/********************************************************************
+ Print adjustments
+ *********************************************************************/
+@media print{
+  .BootstrapTitle{font-size: 20px; width: 100%;}
+  .twoColumnLayout{width: 100%;}
+
+  span.rightColumnLabel,
+  div.leftColumn:before,
+  div.rightColumn:before{
+    border: solid 1px black;
+    color: black;
+  }
 }
