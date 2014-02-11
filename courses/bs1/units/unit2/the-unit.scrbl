@@ -64,10 +64,11 @@ include other datatypes, including Strings and Images.}
                 )
       ]{
         @points[          
-            @point{@student{The Circles of Evaluation are a powerful tool, and can be used for much more than just numbers. Consider the Circle of Evaluation shown here. @sexp{(star 50 "solid" "red")}
-                             @itemlist[@item{What is the name of the function being used?}
-                                        @item{How many arguments are being given to that function?}
-                                        @item{What do you think this function will do?}]
+            @point{@student{The Circles of Evaluation are a powerful tool, and can be used for much more than just numbers.
+                            Consider the Circle of Evaluation shown here. @sexp{(star 50 "solid" "red")}
+                            @activity{@itemlist[@item{What is the name of the function being used?}
+                                                 @item{How many arguments are being given to that function?}
+                                                 @item{What do you think this function will do?}]}
                              The same rules you used to convert a Circle of Evaluation into code still apply. Here is the code for that Circle: @sexp[#:form "code"]{(star 50 "solid" "red")}
                              }
                     @teacher{Students are not expected to know all the answers here - the goal is for them to apply what they know about Circles to a novel expression, and discuss for themselves what they think it might mean. Ask them to justify their answers, and to explain why they think they are correct. Linking this back to earlier examples of Circles of Evaluation may be useful.}
@@ -77,8 +78,7 @@ include other datatypes, including Strings and Images.}
                                                   @item{Type the expression again, but this time use a much larger number in place of @code{50}. What does the first argument tell the computer?}
                                                   @item{Type the expression again, this time using @code{"outline"} in place of @code{"solid"}, being careful to keep the quotation marks! What does the second argument tell the computer?}
                                                   @item{Now replace @code{"red"} with something else (again, keep the quotation marks!). What does the third argument tell the computer?}]
-                                       @editor-link[#:interactions-text "(star 50 \"solid\" \"red\")"
-                                                    "Try it out!"]
+                                       @editor-link[#:interactions-text "(star 50 \"solid\" \"red\")" "Click here to try it out!"]
                                        } 
                              }
                
@@ -86,9 +86,11 @@ include other datatypes, including Strings and Images.}
                      }
              @point{@student{There's an entirely new @vocab{type} of value being used in these expressions: @code{"solid"} and @code{"red"} are examples of a completely new datatype, called a @vocab{String}.  
                              @bannerline{A String is anything between quotation marks.} 
-                             When you first learned about values, you saw that a program can be nothing more than a value, such as a number.  If you type a number into the interactions window, for example, it evaluates to itself.  To remind yourself of this, try evaluating @code{716} in the Interactions window:
+                             When you first learned about values, you saw that a program can be nothing more than a value, such as a number.  
+                             If you type a number into the interactions window, for example, it evaluates to itself.  To remind yourself of this,
+                             try evaluating @code{716} in the Interactions window.
                                           @editor-link[#:interactions-text "716"
-                                                    "Load and run this example."]
+                                                    "What do you expect to get back?"]
                                           Since Strings are values too, the value @code{"red"} is also a perfectly valid program! Just like number values, strings will evaluate to themselves.
                                           @activity[#:forevidence "BS-PL.1&1&1"]{Try entering different Strings into the Interactions window. What happens if you put quotes around multiple words? Around Numbers?}
                                        }
@@ -177,9 +179,10 @@ include other datatypes, including Strings and Images.}
                                       @item{What is the type of each thing in the Domain?}
                                       @item{What is the @vocab{Range} of this function?}
                                       ]}
-                 A Contract tells you exactly how to use the function, by writing its Name and then using @vocab{values} for each of the arguments in the @vocab{Domain}. Here is an example of an expression, written to use @code{rectangle}:
+                 A Contract tells you exactly how to use the function, by writing its Name and then using @vocab{values} for each of the arguments in 
+                 the @vocab{Domain}. Here is an example of an expression, written to use @code{rectangle}: @code{(rectangle 100 50 "solid" "blue")}.
                  @editor-link[#:interactions-text "(rectangle 100 50 \"solid\" \"blue\")"
-                                                  "Load and run this example."]}
+                                                  "What do you think this code will produce?"]}
                      @teacher{Have students experiment with changing the argument values, always drawing attention back to the Domain.}
                      }
              @point{@student{By writing down the Contracts for our functions, we can easily look back to see how they are used.
@@ -192,9 +195,10 @@ include other datatypes, including Strings and Images.}
                              @code[#:multi-line ""]{; ellipse:  Number Number String String -> Image
                                                     ; triangle: Number String String        -> Image
                                                     ; circle:   Number String String        -> Image}
-                             @activity[#:forevidence (list "BS-PL.2&1&1" "BS-PL.2&1&3")]{See if you can figure out how to use these new functions to draw other shapes!  Here's an example to get you started:
-                             @editor-link[#:interactions-text "(ellipse 150 40 \"outline\" \"black\")"
-                                                  "Load and run this example."]}
+                             @activity[#:forevidence (list "BS-PL.2&1&1" "BS-PL.2&1&3")]{See if you can figure out how to use these new functions to draw
+                                                                                         other shapes!
+                                                                                         @editor-link[#:interactions-text "(ellipse 150 40 \"outline\" \"black\")"
+                                                                                                                          "Here's an example to get you started"]}
                              }
                      @teacher{You should start pushing students to write more sophisticated expressions, replacing Number values with entire expressions (e.g. @code{(star (* 10 5) "solid" "purple")}). Students should be comfortable looking at an entire subexpression as a single argument to the surrounding function. @management{You may wish to force students to write these Contracts into their notebooks BEFORE allowing them to play with them. Be careful about letting students rush to the keys without first taking notes!}}
                      }
@@ -208,9 +212,12 @@ include other datatypes, including Strings and Images.}
                      @teacher{If you want to have students practice using @code{bitmap/url}, it is recommended that you use an image search-engine, such as @(hyperlink "https://images.google.com" "Google Images") or @(hyperlink "http://www.bing.com/images" "Bing Images"). Make sure that students know how to get the URL for the image itself, @italic{not the URL of the web page that contains the image.}}
                      }
                @point{@student{Contracts help programmers write code, so it's always a good idea to write down contracts for each function you see. 
-                               @activity[#:forevidence (list "BS-PL.2&1&2" "F-IF.1-3&1&1")]{Can you figure out the contract for a function, just by looking at some sample code? Look at the code below, and see if you can write the @vocab{Name}, @vocab{Domain} and @vocab{Range} for the function being used.
-                                         @editor-link[#:interactions-text "(text \"Bootstrap\" 30 \"purple\")"
-                                                  "Load and run this example."]
+                               @activity[#:forevidence (list "BS-PL.2&1&2" "F-IF.1-3&1&1")]{
+                                  Can you figure out the contract for a function, just by looking at 
+                                  some sample code? @editor-link[#:interactions-text "(text \"Bootstrap\" 30 \"purple\")"
+                                                                                     "Look at the function being used here"], 
+                                  and see if you can write the @vocab{Name}, @vocab{Domain} and @vocab{Range} for that function.
+                                         
                                          Make sure you don't confuse the @vocab{Contract} for a function with code! Some of the items listed below are Contracts, but others are just examples of those functions being used. Can you tell which is which?
                                          @itemlist[@item{@code{; triangle : Number String String -> Image}}
                                                     @item{@code{(triangle 100 "outline" "blue")}}
@@ -253,12 +260,17 @@ include other datatypes, including Strings and Images.}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{This lesson expanded Circles of Evaluations, expressions, and code to include Strings and Images (as well as Numbers).  You learned that everything you knew about functions on Numbers also works on Strings and Images (which will make your programs more interesting).  You also learned how to use the Image functions to create your own images, and how to use existing Images in your programs (through @code{bitmap/url}.)}
+        @points[@point{@student{This lesson expanded Circles of Evaluations, expressions, and code to include Strings and Images (as well as Numbers).  
+                                You learned that everything you knew about functions on Numbers also works on Strings and Images (which will make your
+                                programs more interesting).  You also learned how to use the Image functions to create your own images, and how to 
+                                use existing Images in your programs (through @code{bitmap/url}).}
                         @teacher{@management{@itemlist[@item{Have students volunteer what they learned in this lesson}
                                                         @item{Reward behaviors that you value: teamwork, note-taking, engagement, etc}
                                                         @item{Pass out exit slips, dismiss, clean up.}]}}
                         }
-                @point{@student{In the next unit, you'll learn how to create your own functions to save work in writing expressions (this will turn out to be an essential part of writing a game).  You'll also start customizing your game with images for the elements in your game design.}
+                @point{@student{In the next unit, you'll learn how to create your own functions to save work in writing expressions (this will turn 
+                                out to be an essential part of writing a game).  You'll also start customizing your game with images for the elements
+                                in your game design.}
                        @teacher{}}
                         ]}
 }

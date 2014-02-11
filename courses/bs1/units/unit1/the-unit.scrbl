@@ -55,7 +55,9 @@
                 )
       ]{
         @points[
-          @point{@student{Let's begin by exploring a simple videogame, and then figuring out how it works. Open @run-link[#:public-id "LyMwExWayT" "this link"] in a new window (it is set to run automatically, so be ready!). Be sure to read the directions at the top of the screen so you know how to play!}
+          @point{@student{Let's begin by exploring a simple videogame, and then figuring out how it works. Open @run-link[#:public-id "LyMwExWayT" "this link"] 
+                         to play the game, and spend a minute or two exploring it. @italic{You can use the arrow keys to move the cat left, right and jump - try to catch 
+                         the ruby and avoid the dog!}}
                  @teacher{@management{Show the kids Ninjacat. Be sure to end on a frozen frame of the game, so the whole class can see the same image.}}
                  }
           
@@ -324,15 +326,13 @@
                                                     @item{@math{7-10}}
                                                     @item{@math{5 + 8}}
                                                     @item{@math{\frac{351}{-1} }}]
-                                          }}
+                                          }
+                                 @bitmap{images/FixedCircle.png} Every Circle of Evaluation @vocab{evaluates to} the result of its 
+                                 corresponding expression.  For example, the circle on the right evaluates to @math{-1}, because 
+                                 the circle says to use subtraction (the function at the top) on the numbers in order (@math{4-5}).}
                         @teacher{It's important for students to view the Circles of Evaluation as "just another way of writing arithemetic". 
                                  Have students discuss whether associativity and commutativity still matter here (they do).}
                         }
-                @point{@student{@bitmap{images/FixedCircle.png} Every Circle of Evaluation @vocab{evaluates to} the result of its 
-                                 corresponding expression.  For example, the circle on the right evaluates to @math{-1}, because 
-                                 the circle says to use subtraction (the function at the top) on the numbers in order (@math{4-5}).}
-                       @teacher{}}
-
                 @point{@student{@bitmap{images/Nesting.png}To use multiple functions in the same expression, we can combine Circles
                                  of Evaluation.  Look at the Circle of Evaluation you've written for @math{351 / -1}. We already 
                                  know that the Circle for @math{4 - 5} will evaluate to @math{-1}, so we can @italic{replace the 
@@ -359,9 +359,18 @@
                                            @item{@math{4 + 5} (the inner circle) evaluates to @math{9}, and @math{6 * 9} (the outer 
                                                   circle) evaluates to @math{54}.  This circle evaluates to @math{54}.}]
                         @activity[#:forevidence "BS-CE&1&3"]{@bitmap{images/NestedCircle2.png}Convert this Circle of Evaluation into
-                                                              an arithmetic expression.}    
-                        @activity[#:forevidence "BS-CE&1&3"]{Match the following Circles of Evaluation with the corresponding
-                                                             arithmetic expressions:
+                                                              an arithmetic expression.}
+                        }
+                        @teacher{Work through several of these examples with students, asking them to come up with arithmetic
+                                 expressions and then convert them into Circles, or giving them Circles and having them 
+                                 translate them back into arithmetic.  When you talk about Circles, be sure to consistently use
+                                 the term @italic{function} for what's on top, rather than similar terms like "operation", "symbol",
+                                 "procedure", "name", etc.  The Circles of Evaluation will help students see the similarity between
+                                 arithmetic functions (like @math{+}) and algebraic functions (like @math{f}) if you use 
+                                 terminology carefully.}
+                        }
+                @point{@student{@activity[#:forevidence "BS-CE&1&3"]{Match the following Circles of Evaluation with the corresponding
+                                                                     arithmetic expressions:
                                   @(circeval-matching-exercise/math 
 				    (list (math "9 * (4 - 3)")
 					  (math "(9 * 4) - 3")
@@ -374,13 +383,7 @@
 					  "(* 9 (- 4 3))"
 					  "(* (- 9 3) 4)"))}
                         }
-                        @teacher{Work through several of these examples with students, asking them to come up with arithmetic
-                                 expressions and then convert them into Circles, or giving them Circles and having them 
-                                 translate them back into arithmetic.  When you talk about Circles, be sure to consistently use
-                                 the term @italic{function} for what's on top, rather than similar terms like "operation", "symbol",
-                                 "procedure", "name", etc.  The Circles of Evaluation will help students see the similarity between
-                                 arithmetic functions (like @math{+}) and algebraic functions (like @math{f}) if you use 
-                                 terminology carefully.}
+                        @teacher{}
                         }
              ]
          }
@@ -418,7 +421,7 @@
       ]{
         @points[
                 @point{@student{Open the programming tool of your choice: If you've installed, DrRacket, double-click the 
-                                application to launch it. If you are using @(hyperlink "http://www.wescheme.org" "WeScheme.org"), 
+                                application to launch it. If you are using the online-tool, @login-link["click here to log in"]
                                 enter your username and password to log in, then click "Start a New Program".}
                         @teacher{@management{Have the students look at the editor on their computers. Refer to overhead 
                                              projector as necessary.}}
@@ -447,6 +450,8 @@
                         }
                 @point{@student{@bannerline{Code Rule 1: All values are legal expressions.}
                                  @activity[#:forevidence "BS-IDE&1&1"]{What do you think @code{4} will evaluate to? 
+                                                                       @editor-link[#:interactions-text "4"
+                                                                                    "Click here to test it out."]}
                                               @itemlist[@item{Enter 4 in the Interactions window and hit "Return". You
                                                               will see the value @code{4} appear on the next line in 
                                                               the Interactions window.}
@@ -457,10 +462,6 @@
                                                                What happens if you write a decimal? What happens when you click on
                                                                a decimal, like @code{1.5}? You get a new type of number, a 
                                                                fraction, like @code{3/4}.}]
-                                              
-                                @editor-link[#:definitions-text "4"
-                                             #:interactions-text "4"
-                                             "See an example."]}
                                 }
                         @teacher{The editing environment evaluates all fractions and returns them as decimals by default. This can be
                                  surprising to students at first, so you may want to take a moment to explain what's going on, and 
@@ -473,23 +474,18 @@
                 
                 @point{@student{@activity[#:forevidence "BS-IDE&1&2"]{The computer obviously knows about Numbers, but what happens
                                                                       if you type in something that it @italic{doesn't} know about?
-                                                                      Will it complain? Crash? Guess? Try asking the computer to 
-                                                                      evaluate @code{dog} in the Interactions window.
-                                @editor-link[#:definitions-text ""
-                                             #:interactions-text "dog"
-                                             "Try it out!"]}
+                                                                      Will it complain? Crash? Guess?
+                                                                      @editor-link[#:interactions-text "dog" "Try asking the computer"] 
+                                                                      to evaluate @code{dog} in the Interactions window.}
+                                 These error messages are really useful for programmers. Rather than saying "this program doesn't 
+                                work", the computer does the best it can to tell you what went wrong, and to give you as much 
+                                information as possible to help you fix the problem. Make sure you always read these messages carefully!
                                  }
                         @teacher{The error message uses the term "variable".  Don't worry if your students don't already know this 
                                  term; we will teach it to them shortly.  For now, students just need to get used to error messages 
                                  and the kinds of problems that they catch in programs.}
                         }
                 
-                @point{@student{These error messages are really useful for programmers. Rather than saying "this program doesn't 
-                                work", the computer does the best it can to tell you what went wrong, and to give you as much 
-                                information as possible to help you fix the problem. Make sure you always read these messages carefully!}
-                        @teacher{@management{}}
-                        }
-                         
                 @point{@student{The Circles of Evaluation are also easy to convert into computer programs. To translate a Circle of
                                 Evaluation into a program, begin with an open parenthesis @code{(}, and then the function written at
                                 the top of the circle. Then translate the inputs from left to right in the same way, adding a closing
@@ -497,12 +493,11 @@
                                 @bannerline{Code Rule 2: Each open parenthesis is followed by one function, then by one or more legal
                                             expressions, and finally by a closing parenthesis.}
                                  @bitmap{images/FixedCircle.png}Here is the code for this Circle of Evaluation: @code{(- 4 5)}
-                                 @activity[#:forevidence "BS-PL.1&1&2"]{Enter @code{(- 4 5)} into the Interactions window and 
-                                                                              hit Return.  You should see @math{-1} as an answer.
-                                 @editor-link[#:definitions-text ""
-                                             #:interactions-text "(- 4 5)"
-                                             "Try it out!"]
-                                 }
+                                 @activity[#:forevidence "BS-PL.1&1&2"]{ @editor-link[#:interactions-text "(- 4 5)" "See what happens"]
+                                                                         when this code is entered into the Interactions window.
+                                                                         Press the Return key to evaluate the program. You should 
+                                                                         see @math{-1} as an answer.
+                                                                        }
                         }
                         
                         @teacher{Have students practice converting simple Circles of Evaluation into code.  If you want to help students 
