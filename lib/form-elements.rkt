@@ -861,7 +861,7 @@
 
 ;; format a question and answer for a solution key
 (define (attach-exercise-answer question answer)
-  (elem #:style (bootstrap-div-style "question-with-answer") question (bold " Answer: ") answer))  
+  (nested #:style (bootstrap-div-style "question-with-answer") question (bold " Answer: ") answer))  
 
 ;;;;;;;;;;;;;;;; END NEW LESSON FORMAT ;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -1127,7 +1127,8 @@
 
 (define (sexp->block sexp form)
   (let ([style (if (string=? form "sexp") bs-sexp-style bs-circeval-style)])
-    (elem #:style style (sexp->block/aux sexp))))
+    ;; changed from elem to para
+    (para #:style style (sexp->block/aux sexp))))
 
 ;; convert an sexpression into structured form.  In some contexts,
 ;;   Scribble sends data in as strings, so may need to parse string into an sexp
@@ -1173,7 +1174,7 @@
                  [(string=? (first lines) "\n") (loop (rest lines))]
                  [else (map (lambda (expstr) (sexp->block expstr "sexp"))
                             (read-sexps-from-string (string-join lines)))]))])
-    (elem #:style bs-code-style list-of-sexps-and-comments)))
+    (nested #:style bs-code-style list-of-sexps-and-comments)))
   
 ;; generates a random binary arithmetic sexp 
 ;; - depth is the max depth of the expression
@@ -1230,8 +1231,10 @@
                                        (raise 'matching-exercise-answers (format "No match for ~a" ansC))))])
                   (let ([label (matching-label #:compare-with compare-with
                                                ansC presented-ans)])
-                    (elem (elem #:style (bootstrap-span-style "rightColumnLabel") label)
-                          ansF))))
+                    (nested #:style (bootstrap-div-style "labeledRightColumn")
+                            (interleave-parbreaks/all
+                             (list (para #:style (bootstrap-span-style "rightColumnLabel") label)
+                                   ansF))))))
               formatted-ans (or content-of-ans formatted-ans))])
     (two-col-layout #:layoutstyle "solutions matching" ques annotated-ans)))
 
@@ -1434,8 +1437,9 @@
                    (bootstrap-span-style/extra-id "studentAnswer" class-or-id) 
                    (bootstrap-span-style (string-append "studentAnswer " class-or-id)))])
     (para #:style style
-          (let ([space-size (if (string? answer) (string-length answer) 0)])
-            (make-string space-size #\M)))))
+          (if (string? answer) 
+              (make-string (string-length answer) #\M)
+              " "))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
