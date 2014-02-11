@@ -1383,7 +1383,7 @@
                                               (dr-student-answer #:id? #f "recipe_name" funname)
                                               (para #:style (bootstrap-span-style "") ":")
                                               (dr-student-answer "recipe_domain" domain-list)
-                                              (para #:style (bootstrap-span-style "") "->")
+                                              (para #:style (bootstrap-span-style "") (literal "&#9658;"))
                                               (dr-student-answer "recipe_range" range))
                                              (make-clear)
                                              (make-spacer ";")
