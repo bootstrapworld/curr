@@ -123,7 +123,6 @@ div.rightColumn, div.leftColumn {
   margin-bottom:  -100%;
 }
 
-div.rightColumn>p{padding: 0px; padding-bottom: 5px;}
 span.rightColumnLabel,
 div.leftColumn:before,
 div.rightColumn:before{
@@ -135,6 +134,8 @@ div.rightColumn:before{
   background:         #666;
   font-weight:        bold;
   font-family:        "Helvetica Neue", Arial, sans-serif;
+  float:              left;
+  vertical-align:     top;
 }
 /*  don't auto-number the rightColumn for matching solutions */
 ul.solutions li.matchingItem div.rightColumn:before{display: none}
@@ -144,7 +145,7 @@ div.leftColumn:before{content: counter(item);}
 div.rightColumn:before{content: counter(item, lower-latin);}
 
 
-div.rightColumn>*, div.leftColumn>*{padding: 5px 15px;}
+div.rightColumn>*, div.leftColumn>*{padding-left: 30px; width: 80%; float: none; display: inline;}
 div.rightColumn{border-left: solid 1px black; margin-right: -1px; }
 div.leftColumn{border-right: solid 1px black; margin-right: -1px; }
 
