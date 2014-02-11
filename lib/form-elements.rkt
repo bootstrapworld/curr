@@ -1418,7 +1418,7 @@
                                               (dr-student-answer #:id? #f "recipe_example_inputs" "")
                                               (make-spacer ")")
                                               ;(make-clear) ; only force this for long-form DR (maybe via a flag?)
-                                              (dr-student-answer #:id? #f "recipe_body" "")
+                                              (dr-student-answer #:id? #f "recipe_example_body" "")
                                               (make-spacer ")")))
                       (design-recipe-section "recipe_definition"
                                              "Definition"

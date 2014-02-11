@@ -153,7 +153,9 @@ div.rightColumn>*, div.leftColumn>*{ width: 80%; float: none; display: inline;}
 div.leftColumn{margin-right: -3px; }
 div.rightColumn{border-left: solid 1px black; margin-right: -2px; }
 
-.twoColumnLayout div.codesexp{margin-left: 30px; position: absolute;}
+.twoColumnLayout div.circleevalsexp{display: inline;}
+.twoColumnLayout div.codesexp{display: inline-block;}
+.twoColumnLayout div.codesexp>.expression{margin-left: 30px; position: relative;}
 
 /* Define minimum heights for various answer types */
 div.circeval {min-height: 250px;}
@@ -163,8 +165,6 @@ div.code, div.math, div.text,  {min-height: 50px;}
 ol.question>li{clear: both; border-top: solid 1px black; padding: 20px 20px; margin-bottom: 35px;}
 ol.question li:first-of-type{border: none;}
 .exercises img{float: right; }
-
-div#exercises div.circleevalsexp{float: none;}
 
 /* student answers should be at least 15px tall */
 .studentAnswer, .operator:empty{
@@ -212,7 +212,11 @@ div.codesexp       .studentAnswer+.studentAnswer { margin-left: 10px;}
   padding:      5px;
   font-size:    20px;
 }
-.designRecipeLayout div.sectionInstructions{}
+.designRecipeLayout div.sectionInstructions{
+  font-weight:  normal;
+  font-style:   italic;
+  margin-bottom: 20px;
+}
 
 .designRecipeLayout div.section span{vertical-align: top; line-height: 30px;}
 
@@ -229,6 +233,7 @@ div.codesexp       .studentAnswer+.studentAnswer { margin-left: 10px;}
     display:        inline-block; 
     font-family:    courier, monaco, serif; 
     vertical-align: top;
+    margin:         0px 5px;
 }
 
 .designRecipeLayout .studentAnswer{
@@ -266,7 +271,7 @@ div.codesexp       .studentAnswer+.studentAnswer { margin-left: 10px;}
 .recipe_example_inputs::after{  content: "input(s)";}
 #recipe_definition_body::after{ content: "what the function does with those variables";}
 
-#recipe_definition_body, .recipe_example_body{min-width: 200px;}
+#recipe_definition_body, .designRecipeLayout .recipe_example_body{min-width: 170px;}
 
 /* Copyright at the end of the file */
 .BootstrapCopyright img{
