@@ -412,7 +412,7 @@
       (let ([optionstext (if (audience-in? (list "student"))
                              "hideHeader=true&warnOnExit=false&"
                              "")]
-            [argstext (string-append (if pid (format "pid=~a&" pid) "")
+            [argstext (string-append (if pid (format "publicId=~a&" pid) "")
                                      (if interactions-text (format "interactionsText=~a&" interactions-text) "")
                                      (if definitions-text (format "definitionsText=~a" definitions-text) ""))])
         (cond-element
