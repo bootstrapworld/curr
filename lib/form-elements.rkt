@@ -86,6 +86,7 @@
          matching-exercise-sols
          editor-link
          run-link
+         login-link
          
          ;; Sections
          worksheet
@@ -401,22 +402,27 @@
   (sxml->element `(select (@ (id ,(resolve-id id)))
                           ,@(map (lambda (o) `(option ,o)) options))))
 
+;; create a link to a wescheme editor, possibly initialized with interactions/defn contents
 (define (editor-link #:public-id (pid #f)
                      #:interactions-text (interactions-text #f)
                      #:definitions-text (definitions-text #f)
                      link-text)                      
   (if (and definitions-text pid)
       (printf "WARNING: creating wescheme link with both defns text and public id~n")
-      (let ([argstext (string-append (if pid (format "pid=~a&" pid) "")
+      (let ([optionstext (if (audience-in? (list "student"))
+                             "hideHeader=true&warnOnExit=false&"
+                             "")]
+            [argstext (string-append (if pid (format "pid=~a&" pid) "")
                                      (if interactions-text (format "interactionsText=~a&" interactions-text) "")
                                      (if definitions-text (format "definitionsText=~a" definitions-text) ""))])
         (cond-element
          [html
-          (sxml->element `(a (@ (href ,(format "http://www.wescheme.org/openEditor?hideHeader=true&warnOnExit=false&~a" argstext))
+          (sxml->element `(a (@ (href ,(format "http://www.wescheme.org/openEditor?~a~a" optionstext argstext))
                                 (target "embedded"))
                              ,link-text))]
          [else (elem)]))))
 
+;; create a link to a particular program at wescheme.org, with the embedded target
 (define (run-link #:public-id (pid #f) link-text)
   (if (not pid)
       (printf "WARNING: run-link needs a public-id argument")
@@ -426,6 +432,16 @@
                               (target "embedded"))
                            ,link-text))]
        [else (elem)])))
+
+;; create a link to wescheme.org's home page, with the embedded target
+(define (login-link link-text)
+  (cond-element
+   [html
+    (sxml->element `(a (@ (href "http://www.wescheme.org/")
+                          (target "embedded"))
+                       ,link-text))]
+   [else (elem)]))
+  
   
   
 ;; Lightweight questions with optional hints and answers
