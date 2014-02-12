@@ -22,7 +22,7 @@ body{
   font-family:  Times;
 }
 
-div.content{max-width:		800px;}
+div.content{max-width:		7in;}
 
 /************************************************************************************
  * OVERVIEW PAGE
@@ -112,6 +112,8 @@ ul.twoColumnLayout li {
   counter-increment:  item; /* increment the counter for each row */
   min-height:         80px;
   position:           relative;
+  page-break-inside:  avoid;
+  page-break-inside:  auto;
 }
 
 }
@@ -285,6 +287,8 @@ div.codesexp       .studentAnswer+.studentAnswer { margin-left: 10px;}
 @media print{
   .BootstrapTitle{font-size: 20px; width: 100%;}
   .twoColumnLayout{width: 100%;}
+
+  div.rightColumn, div.leftColumn {width: 3.5in;}
 
   span.rightColumnLabel,
   div.leftColumn:before,
