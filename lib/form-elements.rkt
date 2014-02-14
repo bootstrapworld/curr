@@ -78,6 +78,7 @@
          make-exercise-locator
          exercise-handout
          exercise-answers
+         exercise-evid-tags
          solutions-mode-on?
          create-itemlist
          create-exercise-itemlist
@@ -2061,6 +2062,8 @@
 ;; in or remove them based on the solutions generation mode
 (define (exercise-answers . body)
   body)
+
+(define exercise-evid-tags list)
   
 ;; determine whether we are currently in solutions-generation mode
 ;; need two versions of this: one for syntax phase and one for runtime

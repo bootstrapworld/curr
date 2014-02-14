@@ -21,7 +21,7 @@
   #:title "Completing Partial Circles of Evaluation from Arithmetic Expressions"
   #:instr "For each arithmetic expression on the left,  finish the Circle of Evaluation
            on the right by filling in the blanks."
-  #:forevidence (list "BS-CE&1&1" "BS-CE&1&2")
+  #:forevidence (exercise-evid-tags "BS-CE&1&1" "BS-CE&1&2")
   @(completion-exercise exprs-as-code (map sexp->coe exprs-with-holes))
   @(exercise-answers
      (completion-exercise exprs-as-code exprs-as-coe))

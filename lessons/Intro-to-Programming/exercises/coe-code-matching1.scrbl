@@ -26,7 +26,7 @@
 @(exercise-handout 
   #:title "Matching Circles of Evaluation and Code"
   #:instr "Draw a line from each Circle of Evaluation on the left to the corresponding code on the right."
-  @;#:forevidence (list "BS-CE&1&4")
+  #:forevidence (exercise-evid-tags "BS-CE&1&4")
   @(matching-exercise expr-coes (map sexp->code permuted-exprs))
   @(exercise-answers
     (matching-exercise-answers #:compare-with equal?

@@ -152,11 +152,12 @@
     (if (not (or std lonum esnum)) #f
         (get-evid-statement std lonum esnum))))
 
-;; the evidence tag list is coming in quoted, so need to remove the leading list operator
-;;   if it is there
+;; the evidence tag list is coming in quoted, so need to remove the leading operator
+;;   if it is there.  Current operator name is "exercise-evid-tags", as defined
+;;   in the macros for parsing solutions in lang.rkt
 (define (get-evid-summary evidtag)
   (if (list? evidtag)
-      (map get-evid-statment/tag (if (eq? 'list (first evidtag)) (rest evidtag) evidtag))
+      (map get-evid-statment/tag (if (memq (first evidtag) '(exercise-evid-tags)) (rest evidtag) evidtag))
       (get-evid-statment/tag evidtag)))
 
 ;; an evidence tag has the form std&learnobj&evid, where learnobj and evid are numbers
