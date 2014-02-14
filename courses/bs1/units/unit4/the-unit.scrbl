@@ -39,13 +39,26 @@
                                                        @item{Can students make the rocket fly faster over time?}]}
                 )
       ]{
-        @points[@point{@student{Functions are a key part of animation in computer programs. A function that draws a static picture of a cat, for example, can place the cat at a different location based on the input. When that input changes slightly based on time or user-interaction, the cat will appear to move. This is similar to the way that flip-book animations work, in which each page draws a static image that has changed by a small amount. When the pages are displayed quickly, the images appear to change smoothly.
-                                 @bannerline{@bitmap{images/flipbookSlides.png}}}
-                        @teacher{@management{Review the importance of definitions for students (defining values helps cut down on redundancy and makes future changes easier, defining functions allows for simplicity and testability. Be sure to use vocabulary regularly and carefully, pushing students to use the proper terms throughout.)}}
+        @points[ @point{@student{Functions are a key part of animation in computer programs. A function that draws a static picture of a cat, 
+                                for example, can place the cat at a different location based on the input. When that input changes slightly 
+                                based on time or user-interaction, the cat will appear to move. This is similar to the way that flip-book
+                                animations work, in which each page draws a static image that has changed by a small amount. When the pages 
+                                are displayed quickly, the images appear to change smoothly.
+                                 @bannerline{@bitmap{images/flipbookSlides.png}}
+                                 }
+                        @teacher{@management{Review the importance of definitions for students (defining values helps cut down on redundancy 
+                                             and makes future changes easier, defining functions allows for simplicity and testability. 
+                                             Be sure to use vocabulary regularly and carefully, pushing students to use the proper terms 
+                                             throughout.)}
+                                  }
                         }
-                 @point{@student{@animated-gif{images/flipbook.gif}Putting these images together, we arrive at an animation of the rocket blasting off. Let's see an example of this kind of animation, using a function to make a rocket-blast off! Turn to @worksheet-link[#:page 11 #:name "Design-Recipe-Rocket-Height"] in your workbook, and read the word problem carefully. 
-                         @bannerline{A rocket blasts off, traveling at 7 meters per second. Write a function called @code{rocket-height} that takes in the number of seconds that have passed since the rocket took off, and which produces the height of the rocket at that time.}
-                         @activity[#:forevidence (list "BS-M&1&1" "BS-DR.1&1&1" "F-IF.1-3&1&1" "F-IF.4-6&1&1")]{@itemlist[@item{What is the @code{rocket-height} function taking in as an input? What type of data is that?}
+                 @point{@student{@animated-gif{images/flipbook.gif}Putting these images together, we arrive at an animation of the rocket moving up the screen. 
+                                  Let's see an example of this kind of animation, using a function to make a rocket-blast off! Turn to 
+                                  @worksheet-link[#:page 11 #:name "Design-Recipe-Rocket-Height"] in your workbook, and read the word problem carefully. 
+                         @bannerline{A rocket blasts off, traveling at 7 meters per second. Write a function called @code{rocket-height} that takes in the
+                                     number of seconds that have passed since the rocket took off, and which produces the height of the rocket at that time.}
+                         @activity[#:forevidence (list "BS-M&1&1" "BS-DR.1&1&1" "F-IF.1-3&1&1" "F-IF.4-6&1&1")]{
+                                    @itemlist[@item{What is the @code{rocket-height} function taking in as an input? What type of data is that?}
                                               @item{What is the function producing as an output? What type of data is that?}
                                               @item{What are the three parts of a @vocab{Contract}?}
                                               @item{What is the @vocab{Name} of the function you are being asked to define?}
@@ -94,7 +107,11 @@
                                  }
                          @teacher{}
                          }
-                 @point{@student{You may have noticed that the Examples for @code{rocket-height} wrote out the multiplication (@code{(* 11 7)}), rather than the actual answer (@code{77}). Why bother to show the way a calculation is performed?  By doing this, Examples can provide hints about what process is taking place. In the provided Rocket code ([Rocket.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=KY4s7msuh6" "WeScheme")]), you will see why it is so important to show your work when writing examples. 
+                 @point{@student{You may have noticed that the Examples for @code{rocket-height} wrote out the multiplication as @code{(* 11 7)}, 
+                                 rather than the actual answer (@code{77}). Why bother to show the way a calculation is performed?  By doing this, 
+                                 Examples can provide hints about what process is taking place. In the provided Rocket code (Rocket.rkt from
+                                 @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | or the @editor-link[#:public-id "KY4s7msuh6" "online file"]),
+                                 you will see why it is so important to show your work when writing examples. 
                                  @activity{Click "Run", and wait until a window appears with a rocket at the bottom of the screen and numbers for "time" and "height" at the top. This animation is set to update the rocket every time the spacebar is pressed, to simulate time going by. Hit the spacebar a few times, and notice that the time at the top of the window increases. Does the rocket move? Time is passing, but our rocket's height hasn't changed! Close the rocket window, so that you can see the code.}}
                          @teacher{}
                          }
@@ -195,11 +212,17 @@
                                                       @item{Write the function definition on your paper.}]}}
                         @teacher{}
                         }
-                 @point{@student{When typing in a function definition, be sure to type in all three parts: The Contract and Purpose Statement, the Examples and the Definition. When "Run" is clicked, the computer will read the definition, test your Examples to make sure it works correctly, and then add the definition to your language. Once added, you can use the function as if it were built into the computer. 
+                 @point{@student{When typing in a function definition, be sure to type in all three parts: The Contract and Purpose Statement, 
+                                 the Examples and the Definition. When "Run" is clicked, the computer will read the definition, test your 
+                                 Examples to make sure it works correctly, and then add the definition to your language. Once added, you 
+                                 can use the function as if it were built into the computer. 
                                  @activity[#:forevidence (list "BS-IDE&1&1")]{
-                                             Test out your function by using it with various inputs.
-                                             @editor-link[#:interactions-text "(text \"Bootstrap\" 30 \"purple\")"
-                                                                              "; red-square : Number -> Image\n; draw a solid, red square using the given size\n(EXAMPLE (red-square 42) (square 42 \"solid\" \"red\"))\n(EXAMPLE (red-square 73) (square 73 \"solid\" \"red\"))\n(define (red-square size) (square size \"solid\" \"red\"))"]
+                                             @editor-link[#:definitions-text "; red-square : Number -> Image
+; draw a solid, red square using the given size
+(EXAMPLE (red-square 42) (square 42 \"solid\" \"red\"))
+(EXAMPLE (red-square 73) (square 73 \"solid\" \"red\"))
+(define (red-square size) (square size \"solid\" \"red\"))"
+                                                          "Test out this function by using it with various inputs."]
                                              }
                                  }
                         @teacher{}
@@ -260,10 +283,9 @@
                          }
                  @point{@student{As before, a function's variables can be identified by writing two Examples, and looking at what changes between them.
                                  @activity[#:forevidence (list "A-SSE.1-2&1&1" "A-SSE.1-2&1&2" "7.EE.3-4&1&4" "BS-DR.2&1&3" "BS-DR.3&1&1")]{
-                                           Using the Examples you've written, identify the variable(s) for the function. Then define the function @italic{using Algebraic syntax}.}}
-                         @teacher{}
-                         }
-                 @point{@student{The Design Recipe helps transition from a written description of a function into a formal definition, 
+                                           Using the Examples you've written, identify the variable(s) for the function. 
+                                           Then define the function @italic{using Algebraic syntax}.}
+                                 The Design Recipe helps transition from a written description of a function into a formal definition, 
                                  @bannerline{@math{distance(4) = 4 \times 80}
                                               @math{distance(7) = 7 \times 80}
                                               @math{distance(t) = t \times 80}}}
