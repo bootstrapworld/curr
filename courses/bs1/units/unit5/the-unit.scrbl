@@ -33,7 +33,7 @@
       ]{
         @points[@point{@student{Debugging (finding and correcting problems in code) is an important part of programming, so it's a good idea to practice finding bugs in code. 
                                 @activity[#:forevidence (list "BS-IDE&1&2" "BS-PL.1&1&2" "BS-PL.1&1&3" "BS-PL.2&1&2" "BS-PL.3&1&3")]{
-                                        Open the @(hyperlink "http://www.wescheme.org/view?publicId=lQUC6RJArG" "Bug Hunting") program in a new window, and see if you can find the bug in each expression. Click "Run" and read the error message carefully! After you fix each one, clicking Run will show you the error message for the next bug.}}
+                                        Open the @editor-link[#:public-id "lQUC6RJArG" "Bug Hunting"] program in a new window, and see if you can find the bug in each expression. Click "Run" and read the error message carefully! After you fix each one, clicking Run will show you the error message for the next bug.}}
                         @teacher{Make sure students understand that the goal is not to FIX the bugs, but rather just to find them.}
                         }
                  ]}
@@ -79,7 +79,11 @@
                                                      (EXAMPLE (update-danger 171) (- 171 50))
                                                      (EXAMPLE (update-danger -90) (- -90 50))
                                                      (define (update-danger x) (- x 50))}
-                                 (Note: you may have slightly different Examples or variable names.)}
+                                 (Note: you may have slightly different Examples or variable names.)
+                                 @activity{Open your saved Game file and scroll until you find the definition for @code{update-danger}. Is the contract correct?
+                                           Make sure it matches what you have in your workbook, add both of your examples, and fix the definition. When you 
+                                           click "Run" you should see your danger fly across the screen!}
+                                 }
                          @teacher{}
                          }
                  @point{@student{Now it's time to animate the Target, which moves in the opposite direction.
