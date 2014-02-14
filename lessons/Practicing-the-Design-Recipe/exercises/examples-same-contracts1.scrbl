@@ -70,28 +70,14 @@
 @(define a8 "no match (the domains have different numbers and order of arguments)")
 
 
-@(define e9
-   (code #:multi-line #t
-"(EXAMPLE (mystery 30)
-         (rectangle 30 30 \"outline\" \"red\"))
-(EXAMPLE (mystery 10)
-         (circle 10 \"outline\" \"red\"))"))
-@(define a9 (elem (code "; mystery : number -> image") 
-                  "This is tricky: the datatypes match (which is what a contract
-                   requires), but the output is different (a rectangle instead of 
-                   a circle).  Students will learn how to write functions that 
-                   produce different outputs like this later in the course."))
-
-
-
 @(exercise-handout
   #:title "Do Examples Have the Same Contracts?"
   #:instr "For each pairs of Examples below, decide whether the two examples
            have the same contract. If they do, fill in the contract in the space
            provided. If not, write a few words explaining why."
   #:forevidence (exercise-evid-tags "BS-DR.2&1&2" "F-IF.1-3&1&1" "F-IF.1-3&1&2")
-  @(create-exercise-itemlist/contract-answers (list e1 e2 e3 e4 e5 e6 e7 e8 e9))
+  @(create-exercise-itemlist/contract-answers (list e1 e2 e3 e4 e5 e6 e7 e8))
   @(exercise-answers
-     (questions-and-answers (list e1 e2 e3 e4 e5 e6 e7 e8 e9)
-                            (list a1 a2 a3 a4 a5 a6 a7 a8 a9))))
+     (questions-and-answers (list e1 e2 e3 e4 e5 e6 e7 e8)
+                            (list a1 a2 a3 a4 a5 a6 a7 a8))))
   ) 
