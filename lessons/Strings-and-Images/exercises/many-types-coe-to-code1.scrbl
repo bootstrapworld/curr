@@ -1,13 +1,12 @@
 #lang curr/lib
 
 @(define exprs '((rotate 20 (triangle (- 45 6) "solid" "gold"))
-                 (star (* 5 6) "solid" "brown")
-                 (scale (+ 4 (* 3 2)) (rectangle 5 8 "outline" "pink"))
-                 (rectangle (/ 20 2) 30 "solid" "darkred")
-                 (rotate (- 360 25) (scale 3 (ellipse 30 10 "solid" "gray")))
+                 (scale (+ 4 6) (rectangle 5 8 "outline" "pink"))
+                 (rectangle (/ 20 2) 30 "solid" "black")
+                 (rotate 255 (scale 3 (ellipse 30 10 "solid" "gray")))
                  (+ 15 (image-height (circle 16 "outline" "teal")))
-                 (ellipse 30 (+ 20 30) "outline" "hotpink")
-                 (image-width (rectangle 65 16 "outline" "magenta"))
+                 (ellipse 30 (+ 20 30) "outline" "red")
+                 (image-width (rectangle 65 16 "outline" "blue"))
                  ))
 
 @(define sexps-as-coe (map sexp->coe exprs))

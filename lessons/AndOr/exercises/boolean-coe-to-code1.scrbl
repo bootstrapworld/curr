@@ -1,16 +1,14 @@
 #lang curr/lib
 
 @(define exprs '((> (+ 4 5) 9)
-                 (= (+ 5 5) (- 20 10))
                  (or (> 10 11) (<= 7 9))
                  (and (< 5 10) (< 10 15))
-                 (or (string=? favfruit "apple") (string=? favfruit "banana"))
+                 (or (string=? yum "apple") (string=? yum "banana"))
                  (>= (string-length "My Game") 6)
                  (or (and (< 1 x) (< x 5))
                      (and (< 8 x) (< x 10)))
-                 (>= (+ (image-width target) 200) 250)
-                 (and (string=? winner "me") 
-                      (or (>= score 50) (<= score 2)))                  
+                 (and (string=? place "safe") 
+                      (or (>= x 50) (<= y 2)))                  
                  ))
 
 @(define exprs-as-coe (map sexp exprs))
