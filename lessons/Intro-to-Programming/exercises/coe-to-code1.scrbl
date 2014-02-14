@@ -15,7 +15,7 @@
   #:title "Converting Circles of Evaluation to Code"
   #:instr "For each Circle of Evaluation on the left-hand side, write the code
            for the Circle on the right-hand side:" 
-  @;#:forevidence (list "BS-CE&1&4")
+  #:forevidence (exercise-evid-tags "BS-CE&1&4")
   @(open-response-exercise exprs-as-coe "code")
   @(exercise-answers
     (questions-and-answers exprs-as-coe exprs-as-code))

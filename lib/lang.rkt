@@ -71,10 +71,9 @@
   (let ([body-filter
          (cond [(solutions-mode?) (lambda (synelt)
                                     ;(printf "have synelt ~a~n" synelt)
-                                    (syntax-case synelt (exercise-answers list)
+                                    (syntax-case synelt (exercise-answers exercise-evid-tags list)
                                       [(exercise-answers x ...) synelt]
-                                      ; next line needed to allow forevidence lists
-                                      ;[(#%list ...) (begin (printf "in list~n") synelt)]
+                                      [(exercise-evid-tags x ...) synelt]
                                       [(_ ...) #f]
                                       [else synelt]))]
                [else (lambda (synelt) 
