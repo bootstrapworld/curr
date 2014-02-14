@@ -38,13 +38,13 @@
         @points[
                 @point{@student{In the previous unit, you reviewed almost everything from Bootstrap 1 including Datatypes, Contracts, and the Design Recipe. 
                                 In this unit you will go above and beyond all that, and learn an entirely new datatype that will be the basis for everything you'll do in 
-                                Bootstrap 2. To make sure the material is fresh in your mind, tackle the following activity:}
+                                Bootstrap 2.}
                         @teacher{Ask a few introductory review questions to test students' understanding, such as: 
                                  @itemlist[@item{What are the three parts of a Contract?}        
                                             @item{What is the racket code to draw a solid, green triangle of size 22?}
                                             @item{Why is it important to write at least 2 examples before defining a function?}]}} 
                  
-                 @point{@student{@activity{Turn to @worksheet-link[#:page 7 #:name "double-radius"] in your workbook. Write a function called @code{double-radius}, 
+                 @point{@student{To make sure the material from last unit is fresh in your mind, tackle the following activity: @activity{Turn to @worksheet-link[#:page 7 #:name "double-radius"] in your workbook. Write a function called @code{double-radius}, 
                                                    which takes in a radius and a color. It produces an outlined circle of whatever color was passed in, whose radius 
                                                    is twice as big as the input.}}
                         @teacher{@management{If walking through this example as a class, use a projector so kids can see the function being written on the computer: }}}
@@ -178,7 +178,7 @@
                                      @item{Students define variables bound to autos}]
         #:standards (list )
         #:materials @itemlist[@item{}]
-        #:preparation @itemlist[@item{The Autos file [Autos.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=P7qS37u1ZH" "WeScheme")] preloaded on students' machines}]
+        #:preparation @itemlist[@item{The Autos file [Autos.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] |  @editor-link[#:public-id "P7qS37u1ZH" "WeScheme"] preloaded on students' machines}]
         #:prerequisites (list)
         #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -210,7 +210,7 @@
                     
                     @point{@student{Now that you know everything that is part of an auto, you can use a struct to represent the auto itself. (This is the very first time that 
                                     you're going to use structs, and they're going to play a HUGE part in your videogame.) Let's take a look at how this works.
-                            @activity{Open the @(hyperlink "http://www.wescheme.org/view?publicId=P7qS37u1ZH" "Autobody Shop") file and read the line that starts with 
+                            @activity{Open the @editor-link[#:public-id "P7qS37u1ZH" "Autobody Shop"] file and read the line that starts with 
                                                @code{(define car1....)}
                                                @code{(define car1 (make-auto "M5" 480 28 "black" 50000))}
                                                @itemlist[@item{What is the name of this auto?}
