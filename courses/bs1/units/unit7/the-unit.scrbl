@@ -43,7 +43,7 @@
      ]{
   @points[
      @point{@student{@activity[#:forevidence (list "BS-DR.1&1&1" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1")]{
-                           Complete @(hyperlink "https://docs.google.com/document/d/1k67XlYWkHefd4APynvwSnPKRaSTeOvGD7_lRbI8hHrg/edit" 
+                           To get started with this lesson, complete @(hyperlink "https://docs.google.com/document/d/1k67XlYWkHefd4APynvwSnPKRaSTeOvGD7_lRbI8hHrg/edit" 
                                       "Luigi's Pizza Worksheet").}}
             @teacher{Review students' answers to the exercise. You can see a video demonstration of this intro at these links: @(video-link (hyperlink "http://www.youtube.com/watch?v=2ckWSjWum-8" "1")),
                      @(video-link (hyperlink "http://www.youtube.com/watch?v=iTrY-N3MLRY#t=3m8s" "2"))}
@@ -88,14 +88,25 @@
             @teacher{Square brackets enclose the question and answer for each clause.  When students identify the questions, they should find the first expression within the square brackets.  There can only be one expression in each answer.}
            }
      @point{@student{The last clause in a conditional can be an @code{else} clause, which gets evaluated if all the questions are @code{false}. 
-                      @activity[#:forevidence (list "BS-PL.4&1&1")]{In the @code{cost} function, what gets returned if all the questions are false? What would happen if there was no @code{else} clause? Try removing that clause from the code and evaluating an unknown topping, and see what happens.}}
-             @teacher{@code{Else} clauses are best used as a catch-all for cases that you can't otherwise enumerate.  If you can state a precise question for a clause, write the precise question instead of @code{else}.  For example, if you have a function that does different things depending on whether some variable @code{x} is larger than @code{5}, it is better for beginners to write the two questions @code{(> x 5)} and @code{(<= x 5)} rather than have the second question be @code{else}.  Explicit questions make it easier to read and maintain programs.  When you use @code{else}, someone has to read all the previous questions to know what condition @code{else} corresponds to: they can't just skim all the questions to find the one that matches their situation.  This might be counterintuitive to those with prior programming experience, but it does help make code more readable and understandable.}
+                      @activity[#:forevidence (list "BS-PL.4&1&1")]{
+                              In the @code{cost} function, what gets returned if all the questions are false? What would happen 
+                              if there was no @code{else} clause? Try removing that clause from the code and evaluating an unknown 
+                              topping, and see what happens.
+                              }
+                    }
+             @teacher{@code{Else} clauses are best used as a catch-all for cases that you can't otherwise enumerate.  If you can state a precise question
+                       for a clause, write the precise question instead of @code{else}.  For example, if you have a function that does different things 
+                       depending on whether some variable @code{x} is larger than @code{5}, it is better for beginners to write the two questions 
+                       @code{(> x 5)} and @code{(<= x 5)} rather than have the second question be @code{else}.  Explicit questions make it easier to 
+                       read and maintain programs.  When you use @code{else}, someone has to read all the previous questions to know what condition
+                       @code{else} corresponds to: they can't just skim all the questions to find the one that matches their situation.  This might 
+                       be counterintuitive to those with prior programming experience, but it does help make code more readable and understandable.}
            }
      @point{@student{Functions that use conditions are called @vocab{piecewise functions}, because each condition defines a 
-                     separate @italic{piece} of the function. }
-            @teacher{}
-           }
-     @point{@student{Why are piecewise functions useful?  Think about the player in your game: you'd like the player to move one way if you hit the "up" key, and another way if you hit the "down" key. Moving up and moving down need two different expressions!  Without @code{cond}, you could only write a function that always moves the player up, or always moves it down, but not both.}
+                     separate @italic{piece} of the function. Why are piecewise functions useful?  Think about the player in your game: you'd like the
+                     player to move one way if you hit the "up" key, and another way if you hit the "down" key. Moving up and moving down need two
+                     different expressions!  Without @code{cond}, you could only write a function that always moves the player up, or always moves it
+                     down, but not both.}
             @teacher{}
            }
    ]}
@@ -139,25 +150,25 @@
                                                            @item{What should the new coordinates be then?}
                                                            @item{What should happen if a user presses a key @italic{other} than the up or down arrows? }]}]}
                       }
-              @teacher{Draw a screen on the board, and label the coordinates for a player, target and danger. Circle all the data associated with the Player.}}
+              @teacher{Draw a screen on the board, and label the coordinates for a player, target and danger. Circle all the data associated with the Player.}
+              }
        @point{@student{The following table summarizes what should happen to the player for each key:
                            @build-table/cols['("When..." "Do...")
                                              '(("key is \"up\"" "key is \"down\"" "key is anything else")
                                                ("add 20 to player-y" "subtract 20 from player-y" "return y unchanged"))
                                              (lambda (r c) (para ""))
                                              2 3]
-                           }
-              @teacher{}}
-       @point{@student{
-                       @activity[#:forevidence (list "BS-M&1&1" "BS-M&1&2" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2")]{
+                           
+                           @activity[#:forevidence (list "BS-M&1&1" "BS-M&1&2" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2")]{
                                     On @worksheet-link[#:page 24 #:name "Design-Recipe-Update-Player"] in your workbook, 
                                     you'll find the word problem for @code{update-player}.}
-                       }
-              @teacher{Be sure to check students' Contracts and EXAMPLEs during this exercise, especially when it's time for them to circle and label what changes between examples. This is the crucial step in the Design Recipe where they should discover the need for @code{cond}.}
-              }
-       @point{@student{If you don't like using the arrow keys to make the player move up and down, 
-                          you can just as easily change them to work with "w" and "x".}
-              @teacher{}}
+                           (If you don't like using the arrow keys to make the player move up and down, 
+                           you can just as easily change them to work with "w" and "x"!)
+                           }
+               @teacher{Be sure to check students' Contracts and EXAMPLEs during this exercise, especially when it's time for them
+                        to circle and label what changes between examples. This is the crucial step in the Design Recipe where they 
+                        should discover the need for @code{cond}.}
+               }
        @point{@student{You can also add more advanced movement, by using what you learned about 
                        boolean functions. Here are some ideas:
                        @itemlist[@item{@bold{Warping:} instead of having the player's y-coordinate 

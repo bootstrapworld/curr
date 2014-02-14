@@ -111,10 +111,12 @@
                        }
                 @point{@student{To get C by itself, we take the square-root of the sum of the areas:
                                 @bannerline{@math{\sqrt{A^{2} + B^{2}} = C}}}
-                       @teacher{Remind students that A and B are the horizontal and vertical lengths, which are calculated by @code{line-length}.}
-                       }
-                @point{@student{@activity[#:forevidence (list "BS-CE&1&1&4")]{Turn to @worksheet-link[#:page 27 #:name "Distance-Formula-With-Numbers"] in your workbook - you'll see the same formula written out, this time using @code{line-length} to calculate the distance along the x- and y-axis. The Circle of Evaluation has already been partially-completed here, but you'll have to finish it on your own. Once you're done, convert that circle into code on the bottom of the page.}}
-                        @teacher{}
+                        @activity[#:forevidence (list "BS-CE&1&1&4")]{
+                               Turn to @worksheet-link[#:page 27 #:name "Distance-Formula-With-Numbers"] in your workbook - you'll see the same formula 
+                               written out, this time using @code{line-length} to calculate the distance along the x- and y-axis. The Circle of Evaluation
+                               has already been partially-completed here, but you'll have to finish it on your own. Once you're done, convert that circle 
+                               into code on the bottom of the page.}
+                        @teacher{Remind students that A and B are the horizontal and vertical lengths, which are calculated by @code{line-length}.}
                         }
                 @point{@student{The code on page 27 will accurately calculate the distance between two objects whose centers are at (3,0) and (0,4). But what about other points? It would be nice to have a function that calculates the distance for @italic{any} two sets of points.
                                 @activity[#:forevidence (list "BS-DR.3&1&1" "BS-PL.4&1&1" "8.G.6-8&1&3" "8.F.1-3&1&1" "8.F.1-3&1&3")]{Turn to @worksheet-link[#:page 28 #:name "Distance"] in your workbook, and use the Design Recipe to write your @code{distance} function. Feel free to use the work from the previous page as your first example, and then come up with a new one of your own.}}
@@ -182,7 +184,21 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Congratulations - your game is complete!  }
+        @points[@point{@student{Congratulations - your game is complete! Take a minute to scroll through all the code you've written, and think
+                                back on how much you've learned: The Circles of Evaluation, datatypes like @code{Number}, @code{String}, @code{Image}
+                                and @code{Boolean}, the importance of Contracts and Purpose Statements, and Piecewise functions. You've learned a whole 
+                                new programming language, and even more importantly you've learned the Design Recipe, which lets you solve word problems
+                                and programming challenges by focusing on just one step at a time, making sure that each step is checked against the
+                                one that came before it.
+                                @activity{Once programmers get something working, they always go back over their code and make sure that it's readable, 
+                                          clear, and easy for other people to understand. A car that runs well might be nice, but if it's not worth much
+                                          if it's impossible for a mechanic to repair or upgrade! Make sure your code is beautiful, inside and out.
+                                          @itemlist[@item{Does every function have its contract written out correctly?}
+                                                     @item{Does every function have a purpose statement that accurately describes what it does?}
+                                                     @item{Does every single function have at least two EXAMPLEs?}
+                                                     @item{When you click "Run", do all of your EXAMPLEs pass?}
+                                                     ]}
+                                }
                         @teacher{@management{@itemlist[@item{Have students volunteer what they learned in this lesson}
                                                        @item{Reward behaviors that you value: teamwork, note-taking, engagement, etc}
                                                        @item{Pass out exit slips, dismiss, clean up.}]}}
