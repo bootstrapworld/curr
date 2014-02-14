@@ -106,7 +106,7 @@
 ;; Building exercise handout solutions
 (define (build-exercise-handout-solutions)
   (putenv "CURRENT-SOLUTIONS-MODE" "on")
-  (parameterize ([current-deployment-dir (build-path (current-deployment-dir) "solutions")])
+  (parameterize ([current-deployment-dir (build-path (current-deployment-dir) "courses" (current-course) "resources" "teachers" "solutions")])
     (unless (directory-exists? (current-deployment-dir))
       (make-directory (current-deployment-dir))) 
     (for ([subdir (directory-list lessons-dir)]
