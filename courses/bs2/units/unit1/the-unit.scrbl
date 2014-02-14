@@ -47,7 +47,7 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{@points[
-           @point{@student{@activity{Open @(hyperlink "http://www.wescheme.org/openEditor?publicId=pTQwdxSDp2" "this link") in a new window. At the top of the definitions window, there are a number of @vocab{variables} defined. 
+           @point{@student{@activity{Open @editor-link[#:public-id "pTQwdxSDp2" "this link"] in a new window. At the top of the definitions window, there are a number of @vocab{variables} defined. 
                                           @itemlist[@item{What are the names of the variables defined here? What is the value of each variable?}
                                                      @item{What would you get back if you were to evaluate each of those variables in the Interactions window? Take a guess first, then click "Run" and type the name of each variable into the interactions window. Were your guesses correct?}]
                                           Look at the variable @code{OUTLINE} on line 20. 
@@ -174,9 +174,8 @@ Write down the Contracts for @code{*}, @code{-}, @code{/} and @code{sqrt}}}
 Once we know a function's contract, it becomes easy to write examples: we start by using the function with some input(s) (@code{(double 5)}), then writing in Racket code what we expect the computer to do with those inputs. (In this case, @code{double} will multiply the example input by 2.)}
                            @teacher{Writing EXAMPLEs is akin to "showing your work" in math class: You want to see @italic{how} students arrived at their answers, not just that they have an answer. It is also much easier to debug a function using the design recipe, because you can check each section individually for errors. Writing EXAMPLEs for code is also called "unit testing," something professional programmers do all the time.}}
                            
-                    @point{@student{@activity{In your workbook, write the contract and two EXAMPLEs for a function called @code{triple}, which takes in a number as its input and multiplies it by 3.}}
-                          @teacher{}}                                         
-                    @point{@student{Now look at your two EXAMPLEs. What is the only thing that changes from one to the other? @activity{In your workbook, circle what is changeable, or @vocab{variable}, between your two EXAMPLEs.} 
+                    @point{@student{@activity{In your workbook, write the contract and two EXAMPLEs for a function called @code{triple}, which takes in a number as its input and multiplies it by 3.}
+                                    Now look at your two EXAMPLEs. What is the only thing that changes from one to the other? @activity{In your workbook, circle what is changeable, or @vocab{variable}, between your two EXAMPLEs.} 
                The only thing that changes is the Number being given to @code{triple} and multiplied by 3. Remember from Bootstrap 1 that once you've circled and labeled what changes in each example, it becomes incredibly easy to define the function! All you need to do is replace the thing that changes with its label! 
                @bannerline{Step 3: Define the function}
                @activity{Now write the function header and body for @code{triple}. Don't forget to replace the changing thing with a variable!}}
