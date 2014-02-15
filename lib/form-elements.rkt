@@ -403,6 +403,9 @@
   (sxml->element `(select (@ (id ,(resolve-id id)))
                           ,@(map (lambda (o) `(option ,o)) options))))
 
+(define (escape-webstring-newlines str)
+  (string-replace str (list->string (list #\newline)) "%0A"))
+
 ;; create a link to a wescheme editor, possibly initialized with interactions/defn contents
 (define (editor-link #:public-id (pid #f)
                      #:interactions-text (interactions-text #f)
@@ -415,7 +418,7 @@
                              "")]
             [argstext (string-append (if pid (format "publicId=~a&" pid) "")
                                      (if interactions-text (format "interactionsText=~a&" interactions-text) "")
-                                     (if definitions-text (format "definitionsText=~a" definitions-text) ""))])
+                                     (if definitions-text (format "definitionsText=~a" (escape-webstring-newlines definitions-text)) ""))])
         (cond-element
          [html
           (sxml->element `(a (@ (href ,(format "http://www.wescheme.org/openEditor?~a~a" optionstext argstext))
