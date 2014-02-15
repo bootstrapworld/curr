@@ -999,8 +999,19 @@
                       (decode-flow (cons "Demo: " body))))
 
 (define (activity #:forevidence (evidence #f) . body)
-  (nested #:style (bootstrap-div-style "activity")
-          (interleave-parbreaks/select body)))
+  (traverse-block
+   (lambda (get set!)
+     ;; first, check that evidence tags on activity are valid
+     (let* ([evidlist (cond [(list? evidence) evidence] [(not evidence) '()] [else (list evidence)])]
+            [checked-evidlist (foldr (lambda (evidtag result-rest)
+                                       (if (get-evid-statement/tag evidtag) 
+                                           (cons evidtag result-rest)
+                                           (begin ;(printf "WARNING: activity using invalid evidence tag ~a~n" evidtag)
+                                                  result-rest)))
+                                     '() evidlist)])
+         (when evidence (set! 'activity-evid (append checked-evidlist (get 'activity-evid '()))))
+         (nested #:style (bootstrap-div-style "activity")
+                 (interleave-parbreaks/select body))))))
   
 
 (define (review . body)
@@ -1496,15 +1507,23 @@
 
 ;; assumes no duplicates in the stdtaglist
 ;; do we want to suppress evidence for non-teachers, or will formatting effectively handle that?
+;; NOTE: this function reflects an API weakness relative to standards-csv-api: the map in 
+;;   tag-formatted-LOtree really shouldn't be looking into the first/second/third of lists or at indices
 (define (learn-evid-from-standards)
   (traverse-block
    (lambda (get set)
      (lambda (get set)
-       (let* ([stdtaglist (get 'standard-names '())]
+       (let* ([evid-used (get 'activity-evid '())]
+              [stdtaglist (get 'standard-names '())]
               [LOtree (apply append (map get-learnobj-tree stdtaglist))]
               [tag-formatted-LOtree
-               (map (lambda (lo) (list (elem (bold (third lo)) ": " (first lo))
-                                       (second lo)))
+               (map (lambda (lo)
+                      (let* ([usedevid (sort (get-used-evidnums/std (third lo) evid-used) <=)]
+                             [keep-evid (map (lambda (keep-index) (list-ref (second lo) (sub1 keep-index))) usedevid)])
+                        (when (empty? keep-evid)
+                          (printf "WARNING: Unit has no activities for evidence statments under listed standard ~a~n" (third lo)))
+                        (list (elem (bold (third lo)) ": " (first lo))
+                              keep-evid)))
                     ;; separately alphabetize Common Core and BS standards
                     (let loop [(Allobjs LOtree) (BSobjs empty) (Others empty)]
                       (cond [(empty? Allobjs) 
@@ -1513,6 +1532,9 @@
                             [(string=? "BS-" (substring (third (first Allobjs)) 0 3))
                              (loop (rest Allobjs) (cons (first Allobjs) BSobjs) Others)]
                             [else (loop (rest Allobjs) BSobjs (cons (first Allobjs) Others))])))])
+         ;(printf "Have activity tags ~a~n" (get 'activity-evid '()))
+         ;(for-each (lambda (std) (printf "Std ~a uses nums ~a ~n" std (get-used-evidnums/std std evid-used))) stdtaglist)
+         ;(printf "~n")
          (nested #:style (bootstrap-div-style/id/nested "LearningObjectives")
                  (interleave-parbreaks/all
                   (list

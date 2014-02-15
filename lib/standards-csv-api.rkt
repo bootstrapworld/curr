@@ -9,8 +9,9 @@
          
 (provide get-standard-descr
          get-learnobj-tree
-         get-evid-statment/tag
+         get-evid-statement/tag
          get-evid-summary
+         get-used-evidnums/std
          )
 
 ;; location of the standards csv file (must be a path)
@@ -121,7 +122,7 @@
 ;; optionally include tag name with lobj name (reasonable since spreadsheet conflates std and lobj)
 (define (get-learnobj-tree std-tag 
                            #:include-tag [include-tag? #t] 
-                           #:with-coverage [with-coverage (list "Y")])
+                           #:with-coverage [with-coverage (list "Y" "N")])
   (let* ([std (find-std/tag std-tag)]
          [lobjs (if (void? std) '() (standard-learnobjs std))])
     (map (lambda (lobj)
@@ -139,7 +140,8 @@
 (define (get-evid-statement std learnindex evidindex)
   (let ([report-problem (lambda (msg) (printf "WARNING: get-evid-stmt: ~a~n" msg) #f)]
         [lotree (get-learnobj-tree std)])
-    (cond [(not lotree) (report-problem (format "no learning objectives for standard ~a" std))]
+    (cond [(empty? lotree) #f] ;; if this happens, find-std/tag already reported unknown standard error
+          [(not lotree) (report-problem (format "no learning objectives for standard ~a" std))]
           [(or (< learnindex 1) (> learnindex (length lotree))) 
            (report-problem (format "no learning objective with index ~a for standard ~a" learnindex std))]
           [(or (< evidindex 1) (> evidindex (length (second (list-ref lotree (sub1 learnindex)))))) 
@@ -147,7 +149,7 @@
                                    evidindex std learnindex))]
           [else (list-ref (second (list-ref lotree (sub1 learnindex))) (sub1 evidindex))])))
 
-(define (get-evid-statment/tag evidtag)
+(define (get-evid-statement/tag evidtag)
   (let-values ([(std lonum esnum) (evidtag-data evidtag)])
     (if (not (or std lonum esnum)) #f
         (get-evid-statement std lonum esnum))))
@@ -157,8 +159,8 @@
 ;;   in the macros for parsing solutions in lang.rkt
 (define (get-evid-summary evidtag)
   (if (list? evidtag)
-      (map get-evid-statment/tag (if (memq (first evidtag) '(exercise-evid-tags)) (rest evidtag) evidtag))
-      (get-evid-statment/tag evidtag)))
+      (map get-evid-statement/tag (if (memq (first evidtag) '(exercise-evid-tags)) (rest evidtag) evidtag))
+      (get-evid-statement/tag evidtag)))
 
 ;; an evidence tag has the form std&learnobj&evid, where learnobj and evid are numbers
 (define evidtag-regexp #rx"(.+)&([0-9]+)&([0-9]+)")
@@ -173,6 +175,15 @@
           (printf "WARNING: malformed evidence tag ~a~n" evidtagstr)
           (values #f #f #f)))))
 
+;; given standard tag and a list of evidence tag, return list of indices of those in evid-used
+;; ASSUMES only one learning objective per standard
+(define (get-used-evidnums/std stdtag evid-used)
+  (remove-duplicates
+   (foldr (lambda (evidtagstr result-rest)
+            (let-values ([(evidstd lo evidnum) (evidtag-data evidtagstr)])
+              (if (equal? evidstd stdtag) (cons evidnum result-rest) result-rest)))
+          '() evid-used)))
+  
 ;;;;; ATTIC ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; convert master spreadsheet to csv

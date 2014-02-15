@@ -311,7 +311,7 @@
                                              @code{(triangle 50 "solid" "green")}, and that @code{(gt 100)} is equivalent to 
                                              @code{(triangle 100 "solid" "green")}. The word problem specifies that the examples @italic{must} 
                                              use the name 'gt', and must all produce solid, green triangles.
-                                             @activity[#:forevidence (list "BS-PL.3&1&2" "BS-DR.2&1&1" "F-BF.1-2&1" "F-IF.1-3&1&2" "F-IF.1-3&1&4")]{
+                                             @activity[#:forevidence (list "BS-PL.3&1&2" "BS-DR.2&1&1" "F-BF.1-2&1&1" "F-IF.1-3&1&2" "F-IF.1-3&1&4")]{
                                                        In your workbook, write two examples of your own for this function.}}
                                     @teacher{@bold{Be sure to point out that EXAMPLE is capitalized, and that all examples are written in the definitions window.} Many students will follow along here without really understanding, simply by pattern-matching. Be sure to ask them lots of questions, to have them justify each step:
                                              @itemlist[@item{Why does the example have to start with gt? (Because it's the Name of the function, specified in the contract)}
