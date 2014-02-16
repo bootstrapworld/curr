@@ -16,7 +16,7 @@
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
-     #:standards (list "BS-PL.2" "N-Q" "F-IF.1-3")
+     #:standards (list "BS-PL.2" "6.NS.5-8" "F-IF.1-3")
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, language table, course calendar)}
                             @item{Language Table (see below)}]
@@ -29,7 +29,13 @@
       ]{
         @points[@point{@student{So far, you've seen the Circles of Evaluation, learned about Contracts and experimented with multiple
                                 datatypes. Make sure you remember what each of those are, and look back at previous lessons for a refresher 
-                                if you need.}
+                                if you need.
+                                @activity[#:forevidence (list "BS-PL.2&1&1" "6.NS.5-8&1&2")]{
+                                     Can you think of three functions that draw shapes? See if you can write their contracts without
+                                     needing to look back at your Contracts page. What type of data is always surrounded in quotes?
+                                     What are the coordinates for the bottom left-hand corner of the screen? What about the top-right?
+                                     }
+                                }
                         @teacher{@management{Review Circles of Evaluation, paying special attention to @vocab{types} and @vocab{contracts}. 
                                             Make sure that students are comfortable hearing - and using - the proper terminology to describe code.}}
                         }
@@ -45,7 +51,7 @@
                                        @item{Students will be able to identify the name, domain, range, and variable name for a function, when presented with a completed Design Recipe.}
                                       @item{Students will be able to explain what happens when the "Run" button is pressed.}]
      #:product-outcomes @itemlist[]
-     #:standards (list "7.EE.3-4" "BS-PL.3" "BS-IDE")
+     #:standards (list "BS-PL.3" "BS-IDE")
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, language table, course calendar)}
                             @item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}
@@ -134,7 +140,7 @@
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
-     #:standards (list)
+     #:standards (list "7.EE.3-4" "A-SSE.1-2")
      #:materials @itemlist[@item{"Algebra Translation" [@resource-link[#:path "source-files/Algebra.rkt" #:label "DrRacket"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=s2s0tkTgeF" "WeScheme")] preloaded on students' machines, with monitors off.}]
      #:preparation @itemlist[]
      #:prerequisites (list "Defining Variables")
@@ -154,7 +160,7 @@
                              @bannerline{@math{x = 4}
                                           @math{y = 4+9}
                                           @math{z = x \times 2}}
-                             @activity{Convert the following three Algebra definitions into Racket definitions:
+                             @activity[#:forevidence (list "7.EE.3-4&1&4" "A-SSE.1-2&1&1")]{Convert the following three Algebra definitions into Racket definitions:
                                        @itemlist[@item{@math{dollars = 16.50}}
                                                  @item{@math{feet = 2 \times 3}}
                                                   @item{@math{inches = feet \times 12}}]
@@ -246,7 +252,7 @@
 
      #:exercises (list (make-exercise-locator "Defining-Functions" "match-examples-functions1")
                        (make-exercise-locator "Defining-Functions" "create-contracts-examples1"))
-     #:standards (list "A-SSE.1-2" "F-IF.1-3" "F-IF.4-6" "F-BF.1-2" "BS-PL.3" "BS-DR.1" "BS-DR.2" "BS-DR.3")
+     #:standards (list "F-IF.1-3" "F-IF.4-6" "F-BF.1-2" "BS-PL.3" "BS-DR.1" "BS-DR.2" "BS-DR.3")
      #:materials @itemlist[@item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders with names on covers.}]
      #:preparation @itemlist[]
      #:prerequisites (list "Contracts" "Stings and Images" )
@@ -290,7 +296,7 @@
                                               Here's the @code{gt} Contract written as code.  The line starts with a semicolon, followed by the name, a colon, the Domain, an arrow, then the Range:
                                               @code[#:multi-line ""]{; gt : Number -> Image}
                                               Word problems give several clues as to the name, Domain, and Range of a function.  Be sure to read the problem carefully! Some word problems will describe functions that take multiple inputs in their Domain, or inputs of different types.
-                                              @activity[#:forevidence (list)]{
+                                              @activity[#:forevidence (list "BS-DR.1&1&1")]{
                                                               Open your workbook to @worksheet-link[#:page 8 #:name "Fast-Functions"], where it says 
                                                               "fast functions", and write the Contract for the @code{gt} function.}}
                                     @teacher{It is often a good idea to give students examples of different word problems, and have them pick out the 
@@ -368,7 +374,7 @@
                                     }
                             @point{@student{These steps are knows as the @vocab{Design Recipe}, which is a powerful tool for defining functions based on word problems.
                                             @bannerline{Practice: Write a function @code{bc}, which takes in a Number and produces a solid, blue circle of the given size.}
-                                            @activity[#:forevidence (list "BS-DR.1&1&1" "BS-DR.2&1" "BS-DR&2&3" "BS-DR.3&1&1" "F-IF.1-3&1&2" "F-IF.1-3&1&4" "F-IF.4-6&1&1")]{In your workbook (still on @worksheet-link[#:page 8 #:name "Fast-Functions"]), fill out the @vocab{Contract} for this function.
+                                            @activity[#:forevidence (list "BS-DR.1&1&1" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1" "F-IF.1-3&1&2" "F-IF.1-3&1&4" "F-IF.4-6&1&1")]{In your workbook (still on @worksheet-link[#:page 8 #:name "Fast-Functions"]), fill out the @vocab{Contract} for this function.
                                                       @itemlist[@item{What is the function's Name?}
                                                                  @item{What is the function's Domain?}
                                                                  @item{What is the function's Range?}]
@@ -396,7 +402,7 @@
                                     @teacher{}
                                     }
                              @point{@student{@bannerline{Practice: Write a function @code{dot}, which takes in a Color and produces a solid circle of the given color, with a radius of 20.}
-                                            @activity[#:forevidence (list  "BS-DR.1&1&1" "BS-DR.2&1" "BS-DR&2&3" "BS-DR.3&1&1" "F-IF.1-3&1&2" "F-IF.1-3&1&4" "F-IF.4-6&1&1")]{In your workbook (still on @worksheet-link[#:page 8 #:name "Fast-Functions"]), fill out the @vocab{Contract} for this function.
+                                            @activity[#:forevidence (list  "BS-DR.1&1&1" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1" "F-IF.1-3&1&2" "F-IF.1-3&1&4" "F-IF.4-6&1&1")]{In your workbook (still on @worksheet-link[#:page 8 #:name "Fast-Functions"]), fill out the @vocab{Contract} for this function.
                                                       @itemlist[@item{What is the function's Name?}
                                                                  @item{What is the function's Domain?}
                                                                  @item{What is the function's Range?}]

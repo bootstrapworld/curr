@@ -163,7 +163,7 @@
                                  Likewise, the white space has been broken into two smaller squares, but in total
                                  it remains the same size. By using the side-lengths A and B, one can calculate
                                  the area of the two squares.
-                                 @activity[#:forevidence (list "8.G.6&1&1" "8.G.6&1&1" "8.G.6&1&3")]{
+                                 @activity[#:forevidence (list "8.G.6-8&1&1" "8.G.6-8&1&1" "8.G.6-8&1&3")]{
                                       What is the area of the smaller square? The larger square?}}
                        @teacher{You may need to explicitly point out that the side-lengths of the triangles can be
                                 used as the side-lengths of the squares.}
@@ -173,7 +173,7 @@
                                  square broken up into two pieces, we know that the sum of these areas must be equal 
                                  to the area of the original square:
                                  @bannerline{@math{A^{2} + B^{2} = C^{2}}}
-                                 @activity[#:forevidence (list "8.G.6&1&1" "8.G.6&1&2" "8.G.6&1&3")]{
+                                 @activity[#:forevidence (list "8.G.6-8&1&1" "8.G.6-8&1&2" "8.G.6-8&1&3")]{
                                      Does the same equation work for any values of A and B?}}
                        @teacher{}
                        }

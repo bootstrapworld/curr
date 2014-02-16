@@ -43,7 +43,7 @@
      #:learning-objectives @itemlist[@item{Model a simple videogame}]
      #:evidence-statements @itemlist[@item{Students will be able to identify the elements of a game and how each one changes during gameplay}]
      #:product-outcomes @itemlist[@item{In workbooks, students create a data model that describes a simple videogame}]
-     #:standards (list "BS-M" "N-Q")
+     #:standards (list "BS-M")
      #:materials @itemlist[@item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}]
      #:preparation @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket}
                              @item{If using DrRacket, make sure the Ninja.rkt file is loaded}
@@ -65,7 +65,7 @@
                  @teacher{}
                  }
           
-          @point{@student{@activity{@bitmap{images/game-table1.png} Turn to @worksheet-link[#:name "How-Does-Ninja-Cat-Work" #:page 1] in your workbook. Here we have a table, which we'll use to reverse-engineer NinjaCat and see how it works. Fill out the first column with a complete list of all things in the game.}
+          @point{@student{@activity[#:forevidence (list "BS-M&1&1")]{@bitmap{images/game-table1.png} Turn to @worksheet-link[#:name "How-Does-Ninja-Cat-Work" #:page 1] in your workbook. Here we have a table, which we'll use to reverse-engineer NinjaCat and see how it works. Fill out the first column with a complete list of all things in the game.}
                            }
                  @teacher{This can be a team activity. Solicit a few examples from students, to make sure they understand what's being listed here: nouns like "the cat", not verbs like "jumping". @management{During this activity, walk around and see how groups are doing. This is the time to encourage expectations of community and respect - call out good teamwork when you see it! When time is up, give them a countdown: "30...10... 5... 4... 3... 2... 1... PENCILS DOWN, EYES UP HERE!" Wait for total silence and complete attention. }}
                  }
@@ -92,7 +92,7 @@
                                            describe the position of a character onscreen in one dimension. This understanding is extended to two dimensions, 
                                            ultimately motivating the use of a coordinate grid.}]
      #:product-outcomes @itemlist[@item{Students identify the coordinates of characters in a picture}]
-     #:standards (list "6.NS.5-8")
+     #:standards (list "6.NS.5-8" "N-Q")
      #:materials @itemlist[@item{Cutouts of  @resource-link[#:path "images/ninjacat.png" #:label "NinjaCat"],  @resource-link[#:path "images/dog.png" #:label "Dog"]
                                  and the  @resource-link[#:path "images/ruby.png" #:label "Ruby"]}
                             @item{Student Workbooks, and something to write with}]
@@ -148,7 +148,7 @@
               @teacher{}
               }
       
-      @point{@student{@activity{@bitmap{images/game-table3.png}Fill in the rest of the table, identifying what is changing for each of your characters.}}
+      @point{@student{@activity[#:forevidence (list "N-Q&1&4")]{@bitmap{images/game-table3.png}Fill in the rest of the table, identifying what is changing for each of your characters.}}
               @teacher{}
               }
       
@@ -231,7 +231,7 @@
                                            Evaluation}
 ]
      #:product-outcomes @itemlist[@item{Students convert several arithmetic expressions between multiple representations}]
-     #:standards (list "A-SSE.1-2" "N-Q" "BS-CE")
+     #:standards (list "A-SSE.1-2" "BS-CE")
      #:exercises (list (make-exercise-locator "Order-of-Operations" "complete-coe-from-arith")
                        (make-exercise-locator "Order-of-Operations" "arith-to-coe1")
                        (make-exercise-locator "Order-of-Operations" "coe-to-arith1")
@@ -296,7 +296,7 @@
                                    pyramid (multiplication and division). Only after we have completed all of those operations can we 
                                    move down to the lower level. If both operations are present (as in @math{4+2-1}), we read the expression
                                    from left to right, @vocab{apply}ing the operations in the order in which they appear.
-                          @activity{In what order should we apply the functions in the following example? 
+                          @activity[#:forevidence (list "A-SSE.1-2&1&3")]{In what order should we apply the functions in the following example? 
                                     @math{19 \div 2 * 11 - 7 + 8}
                                     @itemlist[#:style 'ordered
                                               @item{@math{+ \div * - }}
@@ -337,8 +337,9 @@
                                  of Evaluation.  Look at the Circle of Evaluation you've written for @math{351 / -1}. We already 
                                  know that the Circle for @math{4 - 5} will evaluate to @math{-1}, so we can @italic{replace the 
                                  number with the expression.} Does this change what the expression evaluates to?
-                                @activity[#:forevidence "BS-CE&1&2"]{@bitmap{images/fill-in-circle.png}Finish writing the Circle of 
-                                                                      Evaluation shown here, so that it represents @math{(23 + 7) * (13 - 5)}}
+                                @activity[#:forevidence "BS-CE&1&2"]{
+                                      @bitmap{images/fill-in-circle.png}Finish writing the Circle of 
+                                       Evaluation shown here, so that it represents @math{(23 + 7) * (13 - 5)}}
                       }
                         @teacher{From this point forward, the Circles of Evaluation are your assessment tool for Order of Operations. 
                                  Quizzing students by asking them to correctly evaluate an expression is fraught with false negatives,
@@ -358,7 +359,7 @@
                                                  circle.  The second number is therefore @italic{the result of adding 4 and 5}.}
                                            @item{@math{4 + 5} (the inner circle) evaluates to @math{9}, and @math{6 * 9} (the outer 
                                                   circle) evaluates to @math{54}.  This circle evaluates to @math{54}.}]
-                        @activity[#:forevidence "BS-CE&1&3"]{@bitmap{images/NestedCircle2.png}Convert this Circle of Evaluation into
+                        @activity[#:forevidence (list "BS-CE&1&3" "A-SSE.1-2&1&3")]{@bitmap{images/NestedCircle2.png}Convert this Circle of Evaluation into
                                                               an arithmetic expression.}
                         }
                         @teacher{Work through several of these examples with students, asking them to come up with arithmetic
@@ -369,7 +370,7 @@
                                  arithmetic functions (like @math{+}) and algebraic functions (like @math{f}) if you use 
                                  terminology carefully.}
                         }
-                @point{@student{@activity[#:forevidence "BS-CE&1&3"]{Match the following Circles of Evaluation with the corresponding
+                @point{@student{@activity[#:forevidence (list "BS-CE&1&3" "A-SSE.1-2&1&3")]]{Match the following Circles of Evaluation with the corresponding
                                                                      arithmetic expressions:
                                   @(circeval-matching-exercise/math 
 				    (list (math "9 * (4 - 3)")

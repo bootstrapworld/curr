@@ -153,8 +153,16 @@ uses a new function that @italic{compares Numbers}, returning
                                              By debriefing and reviewing after each step, you are likely to uncover misunderstandings earlier in the process.}
                                  Have the three volunteers from earlier stand again, and act out the code now that @code{safe-left?} is written properly. As before, make sure students practice calling each function individually: now @code{safe-left?} will be able to return true and false (as will @code{onscreen?}), while @code{safe-right?} still returns only @code{true}.}
                          }
-                 @point{@student{@activity[#:forevidence (list "7.EE.3-4&1&1" "7.EE.3-4&1&3" "7.EE.3-4&1&4" "7.EE.3-4&1&5" "7.EE.3-4&1&10" "F-IF.4-6&1&1")]{Turn to @worksheet-link[#:page 19 #:name "safe-right?"] in your workbook. Use the Design Recipe to fix this function, so that @code{safe-left?} takes in Sam's x-coordinate and returns @code{true} or @code{false} depending on whether it is @italic{less than 690}.}}
-                         @teacher{After walking through @code{safe-left?} section by section, students should be able to complete this activity on their own.  If students are doing well with programming, you might discuss whether to compare the x-coordinate to @code{690} or @code{(+ 640 50); both yield the same computation, but the second reveals where 690 comes from (screen width plus 50).}}
+                 @point{@student{@activity[#:forevidence (list "7.EE.3-4&1&1" "7.EE.3-4&1&3" "7.EE.3-4&1&4" "7.EE.3-4&1&5" "7.EE.3-4&1&10" "F-IF.4-6&1&1")]{
+                                     Turn to @worksheet-link[#:page 19 #:name "safe-right?"] in your workbook. Use the Design Recipe to fix this function, 
+                                     so that @code{safe-left?} takes in Sam's x-coordinate and returns @code{true} or @code{false} depending on whether it 
+                                     is @italic{less than 690}.
+                                     }
+                                  }
+                         @teacher{After walking through @code{safe-left?} section by section, students should be able to complete this activity on their own. 
+                                  If students are doing well with programming, you might discuss whether to compare the x-coordinate to @code{690} or 
+                                  @code{(+ 640 50); both yield the same computation, but the second reveals where 690 comes from (screen width plus 50).}
+                                  }
                          }
                  @point{@student{Once you have typed in the EXAMPLEs and definition for @code{safe-left?}, click "Run" and see if Sam is prevented from flying off the righthand side of the screen. You may be surprised at what happens! Test your function in the Interactions window:
                                   @code[#:multi-line #t]{(safe-right? 50)
@@ -244,7 +252,7 @@ uses a new function that @italic{compares Numbers}, returning
                 )
       ]{
        @points[@point{@student{Now that you know how to combine tests, how can @code{onscreen?} combine both tests to keep Sam onscreen?
-                               @activity[#:forevidence (list "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1" "F-IF.4-6&1&3" "A-SSE.1-2&1&4" "A-CED.1-4&1&1")]{
+                               @activity[#:forevidence (list "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1" "F-IF.4-6&1&3" "A-SSE.1-2&1&4" "A-CED.1-4&1&1")]{
                                     Turn to @worksheet-link[#:page 21 #:name "Design-Recipe-Onscreen"] in your workbook and write the completed @code{onscreen?} 
                                     function, so that it tests both @code{safe-left?} and @code{safe-right?}. Type in the examples and definition when you're done,
                                     click "Run", and see if Sam is protected on both sides!}
@@ -270,7 +278,7 @@ uses a new function that @italic{compares Numbers}, returning
                        @teacher{}
                        }
                 @point{@student{Badly designed programs can work just fine, but they are hard to read, hard to test, and easy to screw up if things change. As you grow and develop as a programmer, you'll need to think beyond just "making code work". It's not good enough if it just works - as artists, we should care about whether or not code is @italic{well designed}, too. This is what functions allow us to do! Everyone from programmers to mathematicians uses functions to carve up complex problems into simpler pieces, which make it possible to design elegant solutions to difficult problems.
-                                @activity[#:forevidence (list "")]{Can you list three reasons why it's good to have several simple functions, rather than a single complex one?}}
+                                @activity{Can you list three reasons why it's good to have several simple functions, rather than a single complex one?}}
                        @teacher{}
                        }
                 @point{@student{The boundary-detection code you wrote (through @code{safe-left?} and @code{safe-right?}) is very useful for videogames. It can be used to stop a character from traveling through a wall, or to regenerate the character once it has left the screen. @activity{Open your game file, and scroll down past the @code{update-} functions until you see the definitions for @code{safe-left?}, @code{safe-right?} and @code{onscreen?}.  Right now, they all return true. Since your gamescreen has the same dimensions as Sam's yard (640x480), you can use the same code for each of these three functions! Make sure you include EXAMPLEs, so that your game code can test each function separately.}}
