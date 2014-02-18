@@ -47,14 +47,14 @@ Students brainstorm their videogames, and derive the structure for their game wo
         #:product-outcomes @itemlist[]
         #:standards (list)
         #:materials @itemlist[]
-        #:preparation @itemlist[@item{The Ninja World 2 file [NW2.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=nQq3AAg5nn" "WeScheme")] preloaded on students' machines}]
+        #:preparation @itemlist[@item{The Ninja World 2 file [NW2.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "nQq3AAg5nn" "WeScheme"] preloaded on students' machines}]
         #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{@activity{Open up @(hyperlink "http://www.wescheme.org/view?publicId=nQq3AAg5nn" "Ninja World 2") and click "Run". 
+        @points[@point{@student{@activity{Open up @editor-link[#:public-id "nQq3AAg5nn" "Ninja World 2"] and click "Run". 
                                           What happens? Does it do the same thing as in the simulation last unit?}
                                 
                                  Let's walk through it and figure out what's wrong. At the top of the screen, you see the @code{;; DATA} section. 
@@ -81,8 +81,9 @@ Students brainstorm their videogames, and derive the structure for their game wo
                                           is the Domain? The Range?}
                                  As in the last lesson, the @code{draw-world} function is using @code{put-image} to place the @code{DOG} onto the
                                  @code{BACKGROUND} at some coordinates. @activity{What is it using for the dog's x-coordinate? The dog's 
-                                                                                  y-coordinate?}
-                                 Think for a moment about how the Ninja World "game" worked in the last lesson. On each "tick"
+                                                                                  y-coordinate?}}
+                         @teacher{}}
+                 @point{@student{Think for a moment about how the Ninja World "game" worked in the last lesson. On each "tick"
                                  @code{draw-world} would take in the current world and extract the @code{dogX} before using it to draw dog.
                                  But  this @code{draw-world} function never looks at the current world! If the function isn't 
                                  looking at the world it's taking in, so it has no way to change the position of the dog.
@@ -203,8 +204,9 @@ Students brainstorm their videogames, and derive the structure for their game wo
                                  not? @activity{Get rid of the function body of @code{update-world} completely, because a lot needs to change 
                                                 here. Don't delete the Contract - we're not going to change the Domain or Range of the function!}
                                  Once again, the contract tells you a LOT about how to write the function. Here's a quick tip: if the range is 
-                                 a World, you know that you'll have to make a world at some point. @activity{How do you make a world?}
-                                 The moment you write @code{make-world}, your instincts should kick in right away: Every world contains a @code{dogX}
+                                 a World, you know that you'll have to make a world at some point. @activity{How do you make a world?}}
+                         @teacher{}}
+                 @point{@student{The moment you write @code{make-world}, your instincts should kick in right away: Every world contains a @code{dogX}
                                  and a @code{rubyX}, so you can write them down automatically.
                                  Now you can ask yourself: What happens to @code{dogX} be? In the game, the dog will still be moving to the right by 
                                  10 pixels. 

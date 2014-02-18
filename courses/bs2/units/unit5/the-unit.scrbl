@@ -24,15 +24,15 @@
                             @item{Language Table}]
      #:preparation @itemlist[@item{Seating arrangements: ideally clusters of desks/tables}
                              @item{Clear plastic sheet protectors: put pages 20 & 21 at the front of the workbook for ease of reference}
-                             @item{The Ninja World 3 file [NW3.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=t77yPXKDWs" "WeScheme")] preloaded on students' machines}
-                             @item{BS:2 Blank Game Template [GameTemplate.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=ZcK2dqANbT" "WeScheme")] preloaded on students' machines with student images included.}]
+                             @item{The Ninja World 3 file [NW3.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "t77yPXKDWs" "WeScheme"] preloaded on students' machines}
+                             @item{BS:2 Blank Game Template [GameTemplate.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "ZcK2dqANbT" "WeScheme"] preloaded on students' machines with student images included.}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{@activity{Open the @(hyperlink "http://www.wescheme.org/view?publicId=t77yPXKDWs" "Ninja World") file, and look 
+        @points[@point{@student{@activity{Open the @editor-link[#:public-id "t77yPXKDWs" "Ninja World"] file, and look 
                                           at the @code{world} defined at the top.
             @itemlist[@item{How many things are in this world? What are they?}
                       @item{What does @code{dogX} represent? @code{rubyX}? @bitmap{images/gameimage.png}}
@@ -46,7 +46,7 @@
                                  the world?"}}
                  
                  @point{@student{Now it's time to start programming YOUR videogame. 
-                                 @activity{Open the @(hyperlink "http://www.wescheme.org/view?publicId=ZcK2dqANbT" "BS:2 blank game file").} In Bootstrap 1,
+                                 @activity{Open the @editor-link[#:public-id "ZcK2dqANbT" "BS:2 blank game file"].} In Bootstrap 1,
                                  you started with the shell of a game, with some sample images and functions defined. In this class the game template is just
                                  a collection of comments, telling you how to organize your functions and variables. You'll be writing @italic{every line} of 
                                  code yourself. Let's begin: 
@@ -96,8 +96,9 @@
                                 Next put your images in order. We know we have to stack images, so you're going to have to use @code{put-image}. 
                                 @activity{Using the chart on @worksheet-link[#:page 23 #:name "Drawing START"], figure out which image goes on top,
                                                           which goes second, and so on. Make a list from top to bottom in the column on the left. 
-                                                          Then write each image's coordinates in the right column.}
-                                Let's set up one more example. This will help when you begin writing your function that draws the world, you're ready to 
+                                                          Then write each image's coordinates in the right column.}}
+                        @teacher{}}
+                 @point{@student{Let's set up one more example. This will help when you begin writing your function that draws the world, you're ready to 
                                 go. On @worksheet-link[#:page 24 #:name "Drawing NEXT"] there's a page nearly identical to page 23. You've already written a 
                                 @code{START} world, which has everything where it will be when the game starts. Now do the same for a world called
                                 @code{NEXT}. This world represents the game in the NEXT FRAME after START.
@@ -113,8 +114,9 @@
                                          @activity{@itemlist[@item{What is the Domain of this function? The Range?}
                                                               @item{At the top of @worksheet-link[#:page 25 #:name "draw-world"], write the
                                                                     contract for @code{draw-world}.}
-                                                              @item{Fill in the function header for @code{draw-world}.}]}
-                                         Below the function header, there is a sort of 'staircase' pattern using @code{put-image}, just like in 
+                                                              @item{Fill in the function header for @code{draw-world}.}]}}
+                                @teacher{}}
+                        @point{@student{Below the function header, there is a sort of 'staircase' pattern using @code{put-image}, just like in 
                                          Ninja World. Do you remember the contract for @code{put-image}? It takes in an image, the coordinates for 
                                          where to put the image, and another image, on top of which the first image is placed.
 @code[#:multi-line #t]{; put-image : Image Number Number Image -> Image
