@@ -33,6 +33,7 @@
          "glossary-terms.rkt"
          "sexp-generator.rkt"
          "auto-format-within-strings.rkt"
+         "workbook-index-api.rkt"
          )
 
 
@@ -2237,9 +2238,9 @@
 ;; Creates a link to the worksheet.
 ;; Under development mode, the URL is relative to the development sources.
 ;; Under deployment mode, the URL assumes worksheets have been written 
-(define (worksheet-link #:name name
-                        #:page page
-                        #:lesson [lesson #f]
+(define (worksheet-link #:name (name #f)
+                        #:page (page #f)
+                        #:lesson (lesson #f)
                         #:src-path src-path)
   
   (define-values (base-path _ dir?) (split-path src-path))
@@ -2264,7 +2265,9 @@
                                                          "worksheets"
                                                          (format "~a.html" name)))])))
   (list (hyperlink (path->string the-relative-path)
-                   "Page " (number->string page))))
+                   "Page " (number->string (cond [page page] 
+                                                 [name (get-workbook-page/name name)] 
+                                                 [else (begin (printf "WARNING: worksheet link needs one of page or name~n") 0)])))))
 
 ;; used to generate title in head without scribble-generated title content
 (define (head-title-no-content text)
