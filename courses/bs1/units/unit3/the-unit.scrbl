@@ -297,7 +297,7 @@
                                               @code[#:multi-line ""]{; gt : Number -> Image}
                                               Word problems give several clues as to the name, Domain, and Range of a function.  Be sure to read the problem carefully! Some word problems will describe functions that take multiple inputs in their Domain, or inputs of different types.
                                               @activity[#:forevidence (list "BS-DR.1&1&1")]{
-                                                              Open your workbook to @worksheet-link[#:page 8 #:name "Fast-Functions"], where it says 
+                                                              Open your workbook to @worksheet-link[#:name "Fast-Functions"], where it says 
                                                               "fast functions", and write the Contract for the @code{gt} function.}}
                                     @teacher{It is often a good idea to give students examples of different word problems, and have them pick out the 
                                              contract for each one. @(new-paragraph) Contracts are written as @italic{comments} in Racket: whenever Racket 
@@ -374,7 +374,7 @@
                                     }
                             @point{@student{These steps are knows as the @vocab{Design Recipe}, which is a powerful tool for defining functions based on word problems.
                                             @bannerline{Practice: Write a function @code{bc}, which takes in a Number and produces a solid, blue circle of the given size.}
-                                            @activity[#:forevidence (list "BS-DR.1&1&1" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1" "F-IF.1-3&1&2" "F-IF.1-3&1&4" "F-IF.4-6&1&1")]{In your workbook (still on @worksheet-link[#:page 8 #:name "Fast-Functions"]), fill out the @vocab{Contract} for this function.
+                                            @activity[#:forevidence (list "BS-DR.1&1&1" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1" "F-IF.1-3&1&2" "F-IF.1-3&1&4" "F-IF.4-6&1&1")]{In your workbook (still on @worksheet-link[#:name "Fast-Functions"]), fill out the @vocab{Contract} for this function.
                                                       @itemlist[@item{What is the function's Name?}
                                                                  @item{What is the function's Domain?}
                                                                  @item{What is the function's Range?}]
@@ -402,7 +402,7 @@
                                     @teacher{}
                                     }
                              @point{@student{@bannerline{Practice: Write a function @code{dot}, which takes in a Color and produces a solid circle of the given color, with a radius of 20.}
-                                            @activity[#:forevidence (list  "BS-DR.1&1&1" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1" "F-IF.1-3&1&2" "F-IF.1-3&1&4" "F-IF.4-6&1&1")]{In your workbook (still on @worksheet-link[#:page 8 #:name "Fast-Functions"]), fill out the @vocab{Contract} for this function.
+                                            @activity[#:forevidence (list  "BS-DR.1&1&1" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1" "F-IF.1-3&1&2" "F-IF.1-3&1&4" "F-IF.4-6&1&1")]{In your workbook (still on @worksheet-link[#:name "Fast-Functions"]), fill out the @vocab{Contract} for this function.
                                                       @itemlist[@item{What is the function's Name?}
                                                                  @item{What is the function's Domain?}
                                                                  @item{What is the function's Range?}]

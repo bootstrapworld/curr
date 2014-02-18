@@ -1,5 +1,7 @@
 #lang racket
 
+(require "paths.rkt")
+
 (provide
  get-workbook-page/name
  )
@@ -12,7 +14,7 @@
 (define WORKBOOK-INDEX-FILE "workbook-index.rkt")
 
 (define (read-workbook-index) 
-  (with-input-from-file WORKBOOK-INDEX-FILE read))
+  (with-input-from-file (build-path root-path "lib" WORKBOOK-INDEX-FILE) read))
 
 ;; get-workbook-page/tag : string -> num or #f
 ;; return page number associated with tag, or #f if tag not in workbook index
