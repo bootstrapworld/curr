@@ -24,7 +24,7 @@
                             @item{Signs for kids, entitled "update-world", "draw-world" and "big-bang"}
                             @item{Cutout images of the dog and ruby}]
      #:preparation @itemlist[@item{Seating arrangements: ideally clusters of desks/tables}
-                             @item{The Ninja World 3 file [NW3.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=t77yPXKDWs " "WeScheme")] projected onto the board}]
+                             @item{The Ninja World 3 file [NW3.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "t77yPXKDWs " "WeScheme"] projected onto the board}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -34,7 +34,7 @@
         @points[@point{@student{So far, we've been working with three main functions to make our game and animate our world: @code{update-world}, 
                                 @code{draw-world}, and @code{big-bang}. At this point, your game might use a few more functions than these, but 
                                 Ninja World is still as basic as you remember it. 
-                                @activity{@itemlist[@item{Open the @(hyperlink "http://www.wescheme.org/view?publicId=t77yPXKDWs " "Ninja World 3")
+                                @activity{@itemlist[@item{Open the @editor-link[#:public-id "t77yPXKDWs" "Ninja World 3"]
                                                          file and press "Run", to watch the dog and the ruby fly across the screen.}
                                                      @item{What is the contract for each of the functions in this game? What do they do?}
                                                      @item{Each time @code{update-world} is called, What changes about the dog? How does it change?
@@ -72,8 +72,9 @@
                                  We need to keep track of the cat's y-coordinate, so let's add a @code{catY} to the world.  
                                  @activity{@itemlist[@item{Where in the code is the world struct defined?}
                                                       @item{If the cat is in the center of the screen, what should the value of @code{catY} be?}
-                                                      @item{Add another number to the world struct, representing the cat's y-coordinate.}]}
-                                 Right now, even though the cat's y-coordinate has been added to the world struct, there's no function to take in keypresses and
+                                                      @item{Add another number to the world struct, representing the cat's y-coordinate.}]}}
+                         @teacher{}}
+                 @point{@student{Right now, even though the cat's y-coordinate has been added to the world struct, there's no function to take in keypresses and
                                  make it move. This is what we're going to write next. But before we figure out how to write the function to move the cat,
                                  we need to actually add her into the game. 
                                  @activity{Which functions will need to change, now that the world structure is different?}
@@ -122,8 +123,9 @@
                                                      @item{What is the Domain of @code{keypress}? The Range?}
                                                      @item{What is a good Purpose Statement for this function?}]}   
           @code[#:multi-line #t]{; keypress : World String -> World
-                                 ; Given a world and key pressed, updates the world's catY}       
-                               @bannerline{Step 2 - Examples}
+                                 ; Given a world and key pressed, updates the world's catY}}
+                        @teacher{}}
+                 @point{@student{@bannerline{Step 2 - Examples}
                                @activity{Write an example using the @code{START} world, when the user presses @code{"up"}.
                                                                     @itemlist[@item{@code{(EXAMPLE (keypress START "up") ...)}}
                            @item{What should you get back? (HINT: Look at the Range)}
@@ -145,13 +147,15 @@ Your first example should look like:
 @code[#:multi-line #t]{
 (EXAMPLE (keypress START "up") (make-world (world-dogX START)
                                            (world-rubyX START) 
-                                        (+ (world-catY START) 10)))}
-                @activity{Write one more example for @code{keypress} using the @code{START} world and the @code{"down"} key. Think about how the @code{catY} will change this time}
+                                        (+ (world-catY START) 10)))}}
+                         @teacher{}}
+                 @point{@student{@activity{Write one more example for @code{keypress} using the @code{START} world and the @code{"down"} key. Think about how the @code{catY} will change this time}
 @code[#:multi-line #t]{(EXAMPLE (keypress START "down") (make-world (world-dogX START) 
                                          (world-rubyX START) 
                                          (- (world-catY START) 10)))}
-@activity{Next, carefully go through your examples and circle @italic{everything} that changes. Does this function behave like the functions you've been working with?}
-            @bannerline{Step 3 - Definition}
+@activity{Next, carefully go through your examples and circle @italic{everything} that changes. Does this function behave like the functions you've been working with?}}
+                         @teacher{}}
+                 @point{@student{@bannerline{Step 3 - Definition}
                 @activity{What goes into the function header? What are some good variable names for the world and string (representing the key pressed) in the Domain?}
                  @code[#:multi-line #t]{(define (keypress w key)
 	                                              ...)}
@@ -170,8 +174,9 @@ Your first example should look like:
                                       square brackets to add a branch. We know that every branch has a test and a result, making a @vocab{clause}. 
                                       @code[#:multi-line #t]{(define (keypress w key)
 	                                   (cond
-		                                 [...test...  ...result...]))}
-Let's start the first branch. It will test if the @code{key} pressed is equal to @code{"up"}. @activity{What function can we use to test if two strings are equal?}
+		                                 [...test...  ...result...]))}}
+                         @teacher{}}
+                 @point{@student{Let's start the first branch. It will test if the @code{key} pressed is equal to @code{"up"}. @activity{What function can we use to test if two strings are equal?}
 @code[#:multi-line #t]{(define (keypress w key)
 	(cond
 		[(string=? key "up")  ...result...]))}}
@@ -184,8 +189,9 @@ Let's start the first branch. It will test if the @code{key} pressed is equal to
 		[(string=? key "up")  (make-world (world-dogX w) 
                                                   (world-rubyX w) 
                                                (+ (world-catY w) 10))]))}
-@activity{What is the second condition that needs to be considered? What expression will test that condition? Write the second branch of the @code{keypress} function.}
-We also need to test whether the user pressed the @code{"down"} key:
+@activity{What is the second condition that needs to be considered? What expression will test that condition? Write the second branch of the @code{keypress} function.}}
+                         @teacher{}}
+                 @point{@student{We also need to test whether the user pressed the @code{"down"} key:
                  @code[#:multi-line #t]{(define (keypress w key)
 	(cond
                 [(string=? key "up")  (make-world (world-dogX w) 
@@ -197,9 +203,9 @@ We also need to test whether the user pressed the @code{"down"} key:
                                                  (- (world-catY w) 10))]))}
                                Now the computer knows what to do when either @code{"up"} or @code{"down"} is pressed, but there are lots of other keys on your keyboard. 
                                @activity{Type the above code into the Ninja Cat game and click "Run". Ninja Cat moves when you press the "up" and "down" 
-                                         arrow keys. What happens if you press a different key? You should get an error...can you guess why?}
-
-                               Racket doesn't know what to do if any other key is pressed, because we haven't told it what to do. 
+                                         arrow keys. What happens if you press a different key? You should get an error...can you guess why?}}
+                         @teacher{}}
+                 @point{@student{Racket doesn't know what to do if any other key is pressed, because we haven't told it what to do. 
                                @activity{@itemlist[@item{Should the world change if the user hits the spacebar, or the @code{"r"} key?}
                                                     @item{Which world should be returned if any other key is pressed?}]}
 Instead of enumerating all the values of the original world, we can use the variable, @code{w}: 
