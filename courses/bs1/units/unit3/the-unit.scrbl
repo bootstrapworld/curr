@@ -168,7 +168,7 @@
                      @teacher{For this activity write all Racket expressions on one side of the board, and all algebra expressions on the other.
                               You'll want to line them up as closely as possible, to reinforce the connection between the two languages.}
                      }
-            @point{@student{@activity{Turn to @worksheet-link[#:page 35 #:name "Translating Value Definitions"] page 35 in your workbooks. 
+            @point{@student{@activity{Turn to @worksheet-link[#:page 35 #:name "Translating-to-Algebra"] page 35 in your workbooks. 
                                       You will see a bunch of value definitions written in code - take 2 minutes to convert this into math. GO!}}
                     @teacher{}
                     }]
@@ -374,7 +374,9 @@
                                     }
                             @point{@student{These steps are knows as the @vocab{Design Recipe}, which is a powerful tool for defining functions based on word problems.
                                             @bannerline{Practice: Write a function @code{bc}, which takes in a Number and produces a solid, blue circle of the given size.}
-                                            @activity[#:forevidence (list "BS-DR.1&1&1" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1" "F-IF.1-3&1&2" "F-IF.1-3&1&4" "F-IF.4-6&1&1")]{In your workbook (still on @worksheet-link[#:name "Fast-Functions"]), fill out the @vocab{Contract} for this function.
+                                            @activity[#:forevidence (list "BS-DR.1&1&1" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1" "F-IF.1-3&1&2" "F-IF.1-3&1&4" "F-IF.4-6&1&1")]{
+                                                      In your workbook (still on @worksheet-link[#:name "Fast-Functions"]), fill out the @vocab{Contract} 
+                                                      for this function.
                                                       @itemlist[@item{What is the function's Name?}
                                                                  @item{What is the function's Domain?}
                                                                  @item{What is the function's Range?}]
@@ -402,7 +404,8 @@
                                     @teacher{}
                                     }
                              @point{@student{@bannerline{Practice: Write a function @code{dot}, which takes in a Color and produces a solid circle of the given color, with a radius of 20.}
-                                            @activity[#:forevidence (list  "BS-DR.1&1&1" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1" "F-IF.1-3&1&2" "F-IF.1-3&1&4" "F-IF.4-6&1&1")]{In your workbook (still on @worksheet-link[#:name "Fast-Functions"]), fill out the @vocab{Contract} for this function.
+                                            @activity[#:forevidence (list  "BS-DR.1&1&1" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1" "F-IF.1-3&1&2" "F-IF.1-3&1&4" "F-IF.4-6&1&1")]{
+                                                    In your workbook (still on @worksheet-link[#:name "Fast-Functions"]), fill out the @vocab{Contract} for this function.
                                                       @itemlist[@item{What is the function's Name?}
                                                                  @item{What is the function's Domain?}
                                                                  @item{What is the function's Range?}]
@@ -450,7 +453,7 @@
                         }
                  @point{@student{To translate these functions into algebra, we do something similar to what we did with the values. Here is the same function @code{f}, written in algebra syntax: @math{f(x) = x + 1}                                                                                                      @activity{Translate the function @code{g} into algebra, using the translation of @code{f} as a model. Once that is complete try defining a function @math{h}, which takes in a variable @code{x} and divides it by 2.}}
                          @teacher{Have students practice this translation with a few other functions, again translating from a verbal description (rather than Racket syntax).}}
-                 @point{@student{@activity{Translate the rest of the functions, listed on @worksheet-link[#:page 35 #:name "Functions"].}}
+                 @point{@student{@activity{Translate the rest of the functions, listed on @worksheet-link[#:page 35 #:name "Translating-to-Algebra"].}}
                          @teacher{}
                          }]
          }
