@@ -16,7 +16,7 @@ include other datatypes, including Strings and Images.}
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
-     #:standards (list "A-SSE.1-2" "N-Q" "BS-CE")
+     #:standards (list "A-SSE.1-2" "BS-CE")
      #:materials @itemlist[]
      #:preparation @itemlist[@item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/1Qn59Fol2tspqOx6XQV88xm-IYsRGY769cb7MQeknSMA/edit?usp=sharing" "Warmup activity sheet").}
                               @item{Student Workbooks, and something to write with.}]
@@ -27,7 +27,7 @@ include other datatypes, including Strings and Images.}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{@activity[#:forevidence (list "BS-CE&1&2" "BS-CE&1&4")]{Practice the Circles of Evaluation, using the activity sheet on @worksheet-link[#:page 6 #:name "Circles-of-Evaluation-Practice-2"] in your workbook.
+        @points[@point{@student{@activity[#:forevidence (list "BS-CE&1&2" "BS-CE&1&4" "A-SSE.1-2&1&3")]{Practice the Circles of Evaluation, using the activity sheet on @worksheet-link[#:page 6 #:name "Circles-of-Evaluation-Practice-2"] in your workbook.
                        @itemlist[#:style 'compact
 	                         @item{In each row, there is a mathematical expression written on the left-hand column.}
                                  @item{Go through each of these expressions, and draw the Circle of Evaluation for each one in the second column.}
@@ -66,7 +66,7 @@ include other datatypes, including Strings and Images.}
         @points[          
             @point{@student{The Circles of Evaluation are a powerful tool, and can be used for much more than just numbers.
                             Consider the Circle of Evaluation shown here. @sexp{(star 50 "solid" "red")}
-                            @activity{@itemlist[@item{What is the name of the function being used?}
+                            @activity[#:forevidence "N-Q&1&2"]{@itemlist[@item{What is the name of the function being used?}
                                                  @item{How many arguments are being given to that function?}
                                                  @item{What do you think this function will do?}]}
                              The same rules you used to convert a Circle of Evaluation into code still apply. Here is the code for that Circle: @sexp[#:form "code"]{(star 50 "solid" "red")}
