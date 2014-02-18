@@ -26,14 +26,17 @@
  ("safe-right?"             19)
  ("AND-and-OR"                20)
  ("onscreen?"               21)
+ ;;;;; UNIT 7 ;;;;;;;;;
  ("Unit 7"                  22)
  ("Pizza-Cost"                    23)
  ("Design-Recipe-Update-Player"  24)
+ ;;;;; UNIT 8 ;;;;;;;;;
  ("Unit 8"                  25)
  ("line-length"             26)
  ("Distance-Formula-With-Numbers"     27)
  ("distance"                28)
  ("collide?"                29)
+ ;;;;; UNIT 9 ;;;;;;;;;
  ("Unit 9"                  30)
  ("Lines"                   31)
  ("Feedback"                32)
