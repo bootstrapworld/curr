@@ -24,7 +24,7 @@
                             @item{Language Table}
                             @item{Cutouts of Cat and Dog images}
                             @item{Cutouts of Pythagorean Theorem packets [@(resource-link #:path "images/pythag1.png" #:label "1"), @(resource-link #:path "images/pythag2.png" #:label "2")] - 1 per cluster}
-                            @item{The Ninja World 5 file [NW5.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=hTE94bR2V5" "WeScheme")] preloaded on students' machines}]
+                            @item{The Ninja World 5 file [NW5.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "hTE94bR2V5" "WeScheme"] preloaded on students' machines}]
         #:preparation @itemlist[@item{Seating arrangements: ideally clusters of desks/tables}]
         #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -82,8 +82,9 @@
                                                            the numbers 23 and 5, then do a second example with 5 and 23 in 
                                                            the @italic{other order}.}]}
 @code[#:multi-line #t]{(EXAMPLE (line-length 23 5) (- 23 5))
-                       (EXAMPLE (line-length 5 23) (- 23 5))}
-                                Now we have an idea of the results for the @code{cond} statement, but a @code{cond} function also 
+                       (EXAMPLE (line-length 5 23) (- 23 5))}}
+                        @teacher{}}
+                 @point{@student{Now we have an idea of the results for the @code{cond} statement, but a @code{cond} function also 
                                 needs Tests. We want to @italic{test} to see whether the first 
                                 number given to @code{line-length} is greater than the second number. 
                                 @activity{@itemlist[@item{How would you write that test in Racket code?}
@@ -195,8 +196,9 @@
                                                            with @code{(EXAMPLE (distance 4 2 0 5) ...)}}]}
                                  Now you've got code that tells you the distance between the points (4, 2) and (0, 5).
                                  But we want to have it work for @italic{any} two points. It would be great if we had a 
-                                 function that would just take the x's and y's as input, and do the math for us. 
-                                 @activity{@itemlist[@item{Turn to @worksheet-link[#:page 38 #:name "Distance"], 
+                                 function that would just take the x's and y's as input, and do the math for us.}
+                        @teacher{}}
+                @point{@student{@activity{@itemlist[@item{Turn to @worksheet-link[#:page 38 #:name "Distance"], 
                                                            and read the problem statement and function header 
                                                            carefully.}
                                                       @item{Use the Design Recipe to write your distance function. 
@@ -275,8 +277,9 @@
                                           do you think you'll need to edit to handle collisions?}
                                 We'll need to make some more branches for @code{cond} in @code{update-world}. 
                                 What should happen when the cat collides with the dog? We want to put the dog 
-                                offscreen, so that he can come back to attack again. 
-                                @activity{@itemlist[@item{Start with the test: how could you check whether the
+                                offscreen, so that he can come back to attack again.}
+                        @teacher{}}
+                 @point{@student{@activity{@itemlist[@item{Start with the test: how could you check whether the
                                                           cat and dog are colliding? Have you written a function 
                                                           to check that?}
                                                      @item{What do the inputs need to be?}

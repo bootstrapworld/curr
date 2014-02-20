@@ -21,7 +21,7 @@
                             @item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}
                             @item{Student workbooks}
                             @item{Language Table}
-                            @item{The Ninja World 4 file [NW4.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=gbz2w2pCTu" "WeScheme")] preloaded on students' machines}]
+                            @item{The Ninja World 4 file [NW4.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "gbz2w2pCTu" "WeScheme"] preloaded on students' machines}]
         #:preparation @itemlist[@item{Seating arrangements: ideally clusters of desks/tables}
                                 @item{Write the Ninja World version of update-world towards the bottom of the board, with room to transform it into a cond branch under the function header.}]
         #:pacings (list 
@@ -30,7 +30,7 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{@activity{@itemlist[@item{Open the @(hyperlink "http://www.wescheme.org/view?publicId=gbz2w2pCTu" "Ninja World 4") file.}
+        @points[@point{@student{@activity{@itemlist[@item{Open the @editor-link[#:public-id "gbz2w2pCTu" "Ninja World 4"] file.}
                                           @item{What is in the world structure?}
                                           @item{What does the @code{update-world} function do?}
                                           @item{What is @code{dogX} when the dog is in the center of the screen? According to the code, what will the 
@@ -101,9 +101,10 @@
                                                            @worksheet-link[#:page 33 #:name "Boundary Checks"]. Instead of checking if 
                                                            a number is greater than 640, what will you need to check?}
                                                       @item{When finished, copy your functions into your 
-                                                            @(hyperlink "http://www.wescheme.org/view?publicId=gbz2w2pCTu" "Ninja World 4") 
-                                                            file, where it says @code{;; TESTS FOR COND}.}]}
-                                 Now we have a way to check whether something has gone off the right OR the left of the screen, but we still
+                                                            @editor-link[#:public-id "gbz2w2pCTu" "Ninja World 4"] 
+                                                            file, where it says @code{;; TESTS FOR COND}.}]}}
+                         @teacher{}}
+                 @point{@student{Now we have a way to check whether something has gone off the right OR the left of the screen, but we still
                                  haven't told the game what to do when it does. In Ninja World, after the dog goes off the right side of the
                                  screen, he should reappear on the left-hand side. 
                                  @activity{In this situation, what would the next @code{dogX} be after 640?}
@@ -118,8 +119,9 @@
 		[...test...  ...result...]
 		[else  (make-world  (+ (world-dogX w) 10) 
 				    (- (world-rubyX w) 5)
-				       (world-catY w))]))}
-                                  We still want our original code to be there. It's now going to be used in the @code{else} clause, 
+				       (world-catY w))]))}}
+                         @teacher{Remind students that each @code{cond} branch will contain a test and a result, which is evaluated if its test returns @code{true}.}}
+                 @point{@student{We still want our original code to be there. It's now going to be used in the @code{else} clause, 
                                   because when @code{dogX} is not off the right side of the screen, we want the world to update normally.
                                   @activity{Think about the first condition. What is the test that tells you if a number is greater than 640?}
                                   You could use the greater than function(@code{>}) and compare two numbers, but you've already written a
@@ -134,8 +136,9 @@
 		[(off-right? (world-dogX w)) ...result...]
 		[else  (make-world  (+ (world-dogX w) 10) 
 				    (- (world-rubyX w) 5)
-				       (world-catY w))]))}
-                                   The first clause tests whether the dog's x-coordinate is off the right side of the screen. If the test 
+				       (world-catY w))]))}}
+                         @teacher{}}
+                 @point{@student{The first clause tests whether the dog's x-coordinate is off the right side of the screen. If the test 
                                    returns @code{true}, what should the result be? We know that we need to return a World, since the Range
                                    of @code{update-world} is a World. That means we can immediately write @code{(make-world...)}: 
  @code[#:multi-line #t]{(define (update-world w)
@@ -160,8 +163,9 @@
 				    (world-catY w))]
 		[else  (make-world  (+ (world-dogX w) 10) 
 				    (- (world-rubyX w) 5)
-				    (world-catY w))]))}
-                                  Now it's time to think about the ruby...
+				    (world-catY w))]))}}
+                         @teacher{}}
+                 @point{@student{Now it's time to think about the ruby...
                                   @activity{@itemlist[@item{Instead of checking if @code{rubyX} was off the @bold{right} side of the screen,
                                                             what do we need to check?}
                                                        @item{What function have you already written that checks if a number is less than 0?}

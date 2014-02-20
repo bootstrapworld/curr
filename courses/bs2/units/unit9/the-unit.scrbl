@@ -55,7 +55,7 @@
         #:standards (list)
         #:materials @itemlist[@item{The Ninja World 6 file [NW6.rkt from 
                                     @resource-link[#:path "source-files.zip" #:label "source-files.zip"] |
-                                    @(hyperlink "http://www.wescheme.org/view?publicId=LPpLz5AKHd" "WeScheme")] preloaded on students' machines}]
+                                    @editor-link[#:public-id "LPpLz5AKHd" "WeScheme"] preloaded on students' machines}]
         #:preparation @itemlist[@item{}]
         #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -63,7 +63,7 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{If you open up the @(hyperlink "http://www.wescheme.org/view?publicId=LPpLz5AKHd" "Ninja World")
+        @points[@point{@student{If you open up the @editor-link[#:public-id "LPpLz5AKHd" "Ninja World"]
                                 file, you'll see the (almost) completed game. However, right now the ruby and
                                 dog appear at the same part of the screen every time, making this a pretty 
                                 easy game. 
@@ -89,9 +89,9 @@
                                                       @item{Now that @code{dogY} has been added to the world
                                                             structure, how do you get the @code{dogY} out of the world?}
                                                       @item{Change the @code{draw-world} function so that it 
-                                                           draws the dog at the current y-coordinate instead of 400.}]}
-
-                                 The dog's y-coordinate should change when it leaves the screen. 
+                                                           draws the dog at the current y-coordinate instead of 400.}]}}
+                         @teacher{}}
+                 @point{@student{The dog's y-coordinate should change when it leaves the screen. 
                                  @activity{@itemlist[@item{What function changes the game state depending on 
                                                            the game's conditions?}
                                                       @item{What does the first @code{cond} branch in 
@@ -103,9 +103,9 @@
           @code[#:multi-line #t]{[(collide? 320 (world-catY w) (world-dogX w) (world-dogY w)) (make-world -50
                                                                                               (random 480)
                                                                                               (world-rubyX w)
-                                                                                              (world-catY w))]}
-
-                                 Further down in @code{update-world}, you check to see if the dog has gone 
+                                                                                              (world-catY w))]}}
+                         @teacher{}}
+                 @point{@student{Further down in @code{update-world}, you check to see if the dog has gone 
                                  off the right side of the screen.
                                  @activity{@itemlist[@item{If this test evaluates to @code{true}, to what x-coordinate 
                                                            does the dog return?}
@@ -227,8 +227,9 @@
                                  @activity{@itemlist[@item{What must be true for the player to progress to
                                                            level 2 in the game?}
                                                       @item{Which function handles the way the game looks?}
-                                                      @item{What is the only thing different in level 2 of Ninja World?}]}
-                                 The only thing that changes at level 2 is the way the game @italic{looks}: 
+                                                      @item{What is the only thing different in level 2 of Ninja World?}]}}
+                         @teacher{}}
+                 @point{@student{The only thing that changes at level 2 is the way the game @italic{looks}: 
                                  specifically, the background image. Because the background only changes when 
                                  a certain condition is met, you'll need to change the @code{draw-world} 
                                  function so that it uses @code{cond}. Leave the current code alone for now
@@ -257,8 +258,9 @@
                                                                                        500 400  
                                                                                       (put-image DANGER 
                                                                                       (world-dogX w) (world-dogY w)
-                                                                                      BACKGROUND2))))]))}
-                                 @activity{Don't forget to add an @code{else} clause before your original code, 
+                                                                                      BACKGROUND2))))]))}}
+                         @teacher{}}
+                 @point{@student{@activity{Don't forget to add an @code{else} clause before your original code, 
                                            right underneath what you just wrote. If the score is @bold{not} 
                                            greater than 500, the world will be drawn with the images on the 
                                            original background.}
@@ -281,7 +283,7 @@
                                               or walk students through finding and adding their own image to the game.}
                                    
                                    These modifications can be seen in action in the 
-                                   @(hyperlink "http://www.wescheme.org/view?publicId=ZTt2BzE0UX" "Completed Ninja World file"), 
+                                   @editor-link[#:public-id "ZTt2BzE0UX" "Completed Ninja World file"], 
                                    or NWComplete.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"].
                                     
                                    Some more options for students who finish early: 
@@ -322,8 +324,9 @@
                                           They don't have to follow the same pattern- your characters can have a 
                                           health property instead of a speed, for example. Just be sure your newly 
                                           defined characters have the same properties as the character structure 
-                                          you define.}
-                                If each character is now its own structure, what will the world look like? Something like:
+                                          you define.}}
+                        @teacher{}}
+                 @point{@student{If each character is now its own structure, what will the world look like? Something like:
           @code[#:multi-line #t]{;; The World is three characters: (dog, cat, ruby) and a score
                                  (define-struct world (c1 c2 c3 score))}
                                 @activity{Why is it important to use variable names (@code{c1}, @code{c2}, 
