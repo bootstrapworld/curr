@@ -130,12 +130,14 @@ li.lessonItem>div {
 
 div.activity{
   padding:        10px 5px;
-  background:     rgba(200,200,255,0.5);
   margin:         10px 0px;
+  max-width:      370px; /* 400 - (10px margin on each side) - (5px padding) */
+  background:     rgba(200,200,255,0.5);
   display:        block;
   border-top:     dashed 1px black;
   border-bottom:  dashed 1px black;
   vertical-align: middle;
+  overflow-x:     scroll;
 }
 li.lessonItem img{display: block; margin: auto auto 20px auto; max-width: 100%;}
 div.activity li img{float: none;}
