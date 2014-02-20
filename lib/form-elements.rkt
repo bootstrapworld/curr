@@ -86,6 +86,8 @@
          create-exercise-itemlist/contract-answers
          create-exercise-sols-itemlist
          matching-exercise-sols
+         three-col-exercise
+         three-col-answers
          editor-link
          run-link
          login-link
@@ -1290,17 +1292,56 @@
                         #:rightcolextratag [rightcolextratag ""]
                         #:layoutstyle [layoutstyle ""]
                         colA colB)
-  (let* ([paddedcolA (if (> (length colB) (length colA)) (pad-to colA (length colB) "") colA)]
-         [paddedcolB (if (> (length colA) (length colB)) (pad-to colB (length colA) "") colB)]
+  (two-or-three-col-layout #:leftcolextratag leftcolextratag
+                           #:rightcolextratag rightcolextratag
+                           #:layoutstyle layoutstyle
+                           #:include-center? #f
+                           colA colB '()))
+;  (let* ([paddedcolA (if (> (length colB) (length colA)) (pad-to colA (length colB) "") colA)]
+;         [paddedcolB (if (> (length colA) (length colB)) (pad-to colB (length colA) "") colB)]
+;         [leftcolstyle (bootstrap-div-style (string-append "leftColumn" " " leftcolextratag))]
+;         [rightcolstyle (bootstrap-div-style (string-append "rightColumn" " " rightcolextratag))])       
+;    (create-itemlist #:style (string-append "twoColumnLayout " layoutstyle)
+;                     (map (lambda (left right)
+;                            (interleave-parbreaks/all
+;                             (list 
+;                              (nested #:style leftcolstyle left)
+;                              (nested #:style rightcolstyle right))))
+;                          paddedcolA paddedcolB))))
+
+;; generic function for creating a three-column layout.  Not meant to be called
+;; directly from .scrbl files.  Mostly used for exercise generation
+(define (two-or-three-col-layout #:leftcolextratag [leftcolextratag ""]
+                                 #:centercolextratag [centercolextratag ""]
+                                 #:rightcolextratag [rightcolextratag ""]
+                                 #:include-center? [include-center? #t]
+                                 #:layoutstyle [layoutstyle ""]
+                                 colA colB colC)
+  (let* ([maxcollength (max (length colA) (length colB) (length colC))]
+         [paddedcolA (pad-to colA maxcollength "")]
+         [paddedcolB (pad-to colB maxcollength "")]
+         [paddedcolC (pad-to colC maxcollength "")]
          [leftcolstyle (bootstrap-div-style (string-append "leftColumn" " " leftcolextratag))]
-         [rightcolstyle (bootstrap-div-style (string-append "rightColumn" " " rightcolextratag))])       
+         [centercolstyle (bootstrap-div-style (string-append "centerColumn" " " centercolextratag))]
+         [rightcolstyle (bootstrap-div-style (string-append "rightColumn" " " rightcolextratag))])
     (create-itemlist #:style (string-append "twoColumnLayout " layoutstyle)
-                     (map (lambda (left right)
-                            (interleave-parbreaks/all
-                             (list 
-                              (nested #:style leftcolstyle left)
-                              (nested #:style rightcolstyle right))))
-                          paddedcolA paddedcolB))))
+                     (if include-center?
+                         (map (lambda (left center right)
+                                (interleave-parbreaks/all
+                                 (list 
+                                  (nested #:style leftcolstyle left)
+                                  (nested #:style centercolstyle center)
+                                  (nested #:style rightcolstyle right))))
+                              paddedcolA paddedcolB paddedcolC)
+                         (map (lambda (left right)
+                                (interleave-parbreaks/all
+                                 (list 
+                                  (nested #:style leftcolstyle left)
+                                  (nested #:style rightcolstyle right))))
+                              paddedcolA paddedcolB)))))
+
+(define three-col-exercise two-or-three-col-layout)
+(define three-col-answers two-or-three-col-layout)
 
 ;; generate a two-column layout with no special formatting towards item labeling
 (define (completion-exercise colA colB)
