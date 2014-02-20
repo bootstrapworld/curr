@@ -50,8 +50,11 @@
                                          @item{According to the @vocab{purpose statement}, every auto that gets pimped will have 30 inch rims. Does it matter what the original rim size was?}
                                          @item{Likewise, every car will be painted red. Do we need to reference the original color at all?}
                                          @item{Finally, how do you get the @code{value} out of @code{car3}? Will the @code{value} increase or decrease after the auto is upgraded?}
-                                       ]}
-Putting it all together, the first example should look like:
+                                       ]}}
+                    @teacher{This is an opportunity for students to practice nested expressions. Not only will they use accessor functions to access the fields of the original auto, 
+                             they will need to modify them according to the problem statement. If they get stuck, have them draw the circle of evaluation for adding 100 to the auto's 
+                             horsepower, 10,000 to the auto's value, etc.}}
+            @point{@student{Putting it all together, the first example should look like:
 
 @code[#:multi-line #t]{(EXAMPLE (pimp car3) (make-auto (auto-model car3)
                                                     (+ (auto-hp car3) 100)
@@ -59,9 +62,7 @@ Putting it all together, the first example should look like:
                                                         red
                                                     (+ (auto-value car3) 10000)))}
 @activity{Write one more example, circle what changes, and then define the @code{pimp} function. If you're stuck, look back at the contract and your first example.}}                             
-                    @teacher{This is an opportunity for students to practice nested expressions. Not only will they use accessor functions to access the fields of the original auto, 
-                             they will need to modify them according to the problem statement. If they get stuck, have them draw the circle of evaluation for adding 100 to the auto's 
-                             horsepower, 10,000 to the auto's value, etc.}}
+                    @teacher{}}
             ]
          }
                                                                  
@@ -72,7 +73,7 @@ Putting it all together, the first example should look like:
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[]
         #:standards (list)
-        #:materials @itemlist[@item{The Autos file [Autos.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=P7qS37u1ZH" "WeScheme")] preloaded on students' machines}]
+        #:materials @itemlist[@item{The Autos file [Autos.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "P7qS37u1ZH" "WeScheme"] preloaded on students' machines}]
         #:preparation @itemlist[]
         #:prerequisites (list)
         #:pacings (list 
@@ -80,15 +81,16 @@ Putting it all together, the first example should look like:
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
-      ]{@points[@point{@student{@activity{Open the @(hyperlink "http://www.wescheme.org/view?publicId=P7qS37u1ZH" "Autobody Shop") file, and look at the first two lines at the top. 
-                                                   They start with @code{;an auto is...} and @code{define-struct}.}}
-                        @teacher{You can use the given Autos file, or your students' own files from the previous lesson.}}
-                @point{@student{@code[#:multi-line #t]{; an auto is a (make-auto String Number Number String Number)
+      ]{@points[@point{@student{@activity{Open the @editor-link[#:public-id "P7qS37u1ZH" "Autobody Shop"] file, and look at the first two lines at the top. 
+                                                   They start with @code{;an auto is...} and @code{define-struct}.}
+                                @code[#:multi-line #t]{; an auto is a (make-auto String Number Number String Number)
 (define-struct auto (model hp rims color value))}
 In the last unit we skipped over the part of the code that defines the auto struct, or tells the computer what an auto is and what goes into it. Just like we would expect from having
 worked with autos, the @code{define-struct} line says that an auto has five things....a model, hp, rim, color, and value. But how do we know which number is which? Remember that order
 matters! Look at the order of the fields in the @code{define-struct} line. The first string is the model, the first number is the horsepower, the second number is the rim size, and so on.}
-                        @teacher{Stress the importance of being able to define your own datatypes to students: no longer are they bound by the single values of numbers, strings, or booleans! Racket allows you to define brand new structures, containing any combination of values. But these structures won't be usable without the @code{(define-struct ...)} line!}}
+                        @teacher{You can use the given Autos file, or your students' own files from the previous lesson. Stress the importance of being able to define your own datatypes
+                                 to students: no longer are they bound by the single values of numbers, strings, or booleans! Racket allows you to define brand new structures, containing 
+                                 any combination of values. But these structures won't be usable without the @code{(define-struct ...)} line!}}
                  
             @point{@student{A struct is defined using the @code{define-struct} function, which tells the computer what things make up that struct, and what order and type each 
                                                           thing is. In return, we get new functions to use. Until we write this @code{define-struct} line, we don't have 
@@ -112,7 +114,7 @@ matters! Look at the order of the fields in the @code{define-struct} line. The f
         #:product-outcomes @itemlist[@item{Students define two new complex data structures: party and world}
           @item{Students will write functions that access fields of an auto, party, or world, and produce new autos, parties, and worlds.}]
         #:standards (list)
-        #:materials @itemlist[@item{The Party Planner file [Party.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=zLYLPQ5d6K" "WeScheme")] preloaded on students' machines}]
+        #:materials @itemlist[@item{The Party Planner file [Party.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "zLYLPQ5d6K" "WeScheme"] preloaded on students' machines}]
         #:preparation @itemlist[]
         #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -131,7 +133,7 @@ matters! Look at the order of the fields in the @code{define-struct} line. The f
                        (define-struct party (location theme guests))}}
                         @teacher{}}
                  
-                 @point{@student{@activity{Open the @(hyperlink "http://www.wescheme.org/view?publicId=zLYLPQ5d6K" "Party Planner") file. Take a look at the first two 
+                 @point{@student{@activity{Open the @editor-link[#:public-id "zLYLPQ5d6K" "Party Planner"] file. Take a look at the first two 
                                                     lines in the definitions window. Do they match what you have written?} 
                                  Now that the party struct is defined, you have access to four new functions: One to make a new party, and three @vocab{accessor functions}
                                  to get the location, theme, and number of guests out of the party. 
@@ -187,7 +189,7 @@ matters! Look at the order of the fields in the @code{define-struct} line. The f
         #:product-outcomes @itemlist[]
         #:standards (list)
         #:materials @itemlist[]
-        #:preparation @itemlist[@item{The Ninja World 1 file [NW1.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=fW705a0idU" "WeScheme")] preloaded on students' machines}
+        #:preparation @itemlist[@item{The Ninja World 1 file [NW1.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "fW705a0idU" "WeScheme"] preloaded on students' machines}
                                 @item{update-world, big-bang, and draw-world nametags}
                                 @item{cutout image of dog}]
         #:pacings (list 
@@ -198,7 +200,7 @@ matters! Look at the order of the fields in the @code{define-struct} line. The f
       ]{
         @points[@point{@student{Do you remember the Ninja Cat game from Bootstrap 1? In this course, you're going to completely deconstruct the game, and recreate it using 
                                 a world structure to make it more complex. This version of Ninja Cat might look a bit different than you remember: 
-                                @activity{Open the @(hyperlink "http://www.wescheme.org/view?publicId=fW705a0idU" "Ninja World 1") file and press "Run". 
+                                @activity{Open the @editor-link[#:public-id "fW705a0idU" "Ninja World 1"] file and press "Run". 
                                                    @itemlist[@item{What do you see in this game?}
                                                               @item{Go back to the code and look at the line where the @code{world} structure is defined.}
                                                               @item{What function defines a struct?}
@@ -229,9 +231,9 @@ matters! Look at the order of the fields in the @code{define-struct} line. The f
                                   the world on every tick.
                                  @activity{@itemlist[@item{How does it do that? think back to what @code{update-world} does to the @code{dogX} of the world.}
                                                       @item{Try evaluating @code{(big-bang START (on-tick update-world))} in to the interactions window and see what happens.}]}
-
-                                 The world structure is updating, but this isn't much of a game without images! We need to know how to @italic{draw} the world.
-                                 @activity{Scroll up to where you see @code{;; GRAPHICS FUNCTIONS}. 
+                                 The world structure is updating, but this isn't much of a game without images! We need to know how to @italic{draw} the world.}
+                         @teacher{}}
+                 @point{@student{@activity{Scroll up to where you see @code{;; GRAPHICS FUNCTIONS}. 
                                                                       @itemlist[@item{What is the name of the function defined here?}
                                                                                  @item{What is the Domain of this function? The Range?}
                                                                                  @item{According to the purpose statement, what does this function do?}]}
