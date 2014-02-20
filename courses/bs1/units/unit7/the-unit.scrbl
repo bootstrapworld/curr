@@ -70,13 +70,23 @@
                                 @item{@code{safe-left?} always compared the input coordinate to -50, no matter what that input was.}
                                 @item{@code{update-danger} always added or subtracted the same amount}
                                 @item{and so on...}]
-                     This was evident when going from EXAMPLEs to the function definition: circling what changes essentially gives away the definition, and the number of variables would always match the number of things in the Domain. @activity{Turn to page @worksheet-link[#:page 23 #:name "Pizza-Cost"], fill in the Contract and EXAMPLEs for this function, then circle and label what changes.}}
+                     This was evident when going from EXAMPLEs to the function definition: circling what changes essentially gives away
+                     the definition, and the number of variables would always match the number of things in the Domain. 
+                     @activity{Turn to page @worksheet-link[#:page 23 #:name "Pizza-Cost"], fill in the Contract and EXAMPLEs for this function,
+                               then circle and label what changes.}}
             @teacher{It may be worthwhile to have some EXAMPLEs and definitions written on the board, so students can follow along.}
            }
-     @point{@student{The @code{cost} function is special, because different toppings can result in totally different expressions being evaluated. If you were to circle everything that changes in the example, you would have the toppings circles @italic{and the price}. That's two changeable things, but the Domain of the function only has one thing in it - therefore, we can't have two variables.}
+     @point{@student{The @code{cost} function is special, because different toppings can result in totally different expressions being evaluated. 
+                     If you were to circle everything that changes in the example, you would have the toppings circles @italic{and the price}. 
+                     That's two changeable things, but the Domain of the function only has one thing in it - therefore, we can't have two variables.}
             @teacher{}
            }
-     @point{@student{Of course, @code{price} isn't really an independent variable, since the price depends entirely on the @code{topping}. For example: if the topping is @code{"cheese"} the function will simply produce @code{9.00}, if the topping is @code{"pepperoni"} the function will simply produce @code{10.50}, and so on. The price is still defined in terms of the topping, and there are four possible toppings - four possible conditions - that the function needs to care about. The @code{cost} function makes use of a special language feature called @vocab{conditionals}, which is abbreviated in the code as @code{cond}.}
+     @point{@student{Of course, @code{price} isn't really an independent variable, since the price depends entirely on the @code{topping}. 
+                     For example: if the topping is @code{"cheese"} the function will simply produce @code{9.00}, if the topping is 
+                     @code{"pepperoni"} the function will simply produce @code{10.50}, and so on. The price is still defined in terms 
+                     of the topping, and there are four possible toppings - four possible conditions - that the function needs to care 
+                     about. The @code{cost} function makes use of a special language feature called @vocab{conditionals}, which is 
+                     abbreviated in the code as @code{cond}.}
              @teacher{}
              }
      @point{@student{Each conditional has at least one @vocab{clause}. Each clause has a Boolean question and a result. In Luigi's function, there is a clause for cheese, another for pepperoni, and so on. If the question evaluates to @code{true}, the expression gets evaluated and returned. If the question is @code{false}, the computer will skip to the next clause. 

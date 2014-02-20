@@ -119,8 +119,11 @@
                         @teacher{Remind students that A and B are the horizontal and vertical lengths, which are calculated by @code{line-length}.}
                         }
                 @point{@student{The code on page 27 will accurately calculate the distance between two objects whose centers are at (3,0) and (0,4). But what about other points? It would be nice to have a function that calculates the distance for @italic{any} two sets of points.
-                                @activity[#:forevidence (list "BS-DR.3&1&1" "BS-PL.4&1&1" "8.G.6-8&1&3" "8.F.1-3&1&1" "8.F.1-3&1&3")]{Turn to @worksheet-link[#:page 28 #:name "Distance"] in your workbook, and use the Design Recipe to write your @code{distance} function. Feel free to use the work from the previous page as your first example, and then come up with a new one of your own.}}
-                        @teacher{WARNING: make sure students are giving @code{line-length} the proper coordinates! Many students mistakenly pair @code{px} and @code{py} together, rather than pairing the x-coordinates. Check student work carefully!}
+                                @activity[#:forevidence (list "BS-DR.3&1&1" "BS-PL.4&1&1" "8.G.6-8&1&3" "8.F.1-3&1&1" "8.F.1-3&1&3")]{
+                                   Turn to @worksheet-link[#:page 28 #:name "distance"] in your workbook, and use the Design Recipe to write your @code{distance} function. 
+                                   Feel free to use the work from the previous page as your first example, and then come up with a new one of your own.}}
+                        @teacher{WARNING: make sure students are giving @code{line-length} the proper coordinates! Many students mistakenly pair @code{px} and @code{py} 
+                                 together, rather than pairing the x-coordinates. Check student work carefully!}
                         }
                 ]}
 

@@ -116,7 +116,7 @@ uses a new function that @italic{compares Numbers}, returning
                         @teacher{This may be a good opportunity to review coordinates, for students who need the practice.}
                         }
                  @point{@student{@bitmap{images/buffer.png}Sam's mother tells him that it's okay for him to step outside of the yard, but only by a short distance! Specifically, she wants to make sure that she can always see at least a little piece of him. Sam is safe @italic{as long as some piece of him is onscreen}. That means he can go a little past zero on the lefthand size, or a little past 640 on the right - but how far @italic{can} he go?
-                                @activity[#:forevidence (list "7.EE.3-4&1&5" "A-CED.1-4&1&1")]{Turn to @worksheet-link[#:page 17 #:name "Protecting Sam"], and read through the top half of the page. Using the arrow keys, see how far Sam can go to the left @italic{while still staying onscreen}. You'll find that Sam is onscreen as long as his x-coordinate is @italic{greater than} -50, which is exactly the code that's filled in for the first problem on the page.
+                                @activity[#:forevidence (list "7.EE.3-4&1&5" "A-CED.1-4&1&1")]{Turn to @worksheet-link[#:page 17 #:name "Protecting-Sam"], and read through the top half of the page. Using the arrow keys, see how far Sam can go to the left @italic{while still staying onscreen}. You'll find that Sam is onscreen as long as his x-coordinate is @italic{greater than} -50, which is exactly the code that's filled in for the first problem on the page.
                                                   @itemlist[@item{Find out how far Sam can go to the right while still being onscreen.}
                                                              @item{Fill in the code for the second problem.}
                                                              @item{Convert both of those expressions into Circles of Evaluation, using the empty Circles at the bottom of the page.}]}}
@@ -253,7 +253,7 @@ uses a new function that @italic{compares Numbers}, returning
       ]{
        @points[@point{@student{Now that you know how to combine tests, how can @code{onscreen?} combine both tests to keep Sam onscreen?
                                @activity[#:forevidence (list "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1" "F-IF.4-6&1&3" "A-SSE.1-2&1&4" "A-CED.1-4&1&1")]{
-                                    Turn to @worksheet-link[#:page 21 #:name "Design-Recipe-Onscreen"] in your workbook and write the completed @code{onscreen?} 
+                                    Turn to @worksheet-link[#:page 21 #:name "onscreen?"] in your workbook and write the completed @code{onscreen?} 
                                     function, so that it tests both @code{safe-left?} and @code{safe-right?}. Type in the examples and definition when you're done,
                                     click "Run", and see if Sam is protected on both sides!}
                                }

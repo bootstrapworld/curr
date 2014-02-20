@@ -527,7 +527,8 @@
                 @point{@student{@bannerline{All of the expressions that follow the function name are called @vocab{arguments} to the 
                                             function. The following diagram summarizes the shape of an expression that uses a function. 
                                             @bitmap{images/ExpressionDiagram.png}}
-                                @activity[#:forevidence (list "BS-CE&1&2" "BS-CE&1&4")]{For practice, turn to @worksheet-link[#:page 4 #:name "Circle of Evaluation Practice"]
+                                @activity[#:forevidence (list "BS-CE&1&2" "BS-CE&1&4")]{
+                                        For practice, turn to @worksheet-link[#:page 4 #:name "Circle-of-Evaluation-Practice"]
                                         in your workbook. For each mathematical expression, draw the Circle of Evaluation, then convert
                                         that Circle into Racket code.}}
                         @teacher{}

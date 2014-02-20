@@ -270,7 +270,8 @@
                                 You've learned about a powerful tool that helps you take word problems on paper and turn them into functions on the computer: 
                                 the @vocab{Design Recipe}! It turns out that the Design Recipe can also be used to help you solve word problems in algebra, too!
                                 @activity[#:forevidence (list "F-IF.1-3&1&1" "F-IF.4-6&1&3" "A-SSE.1-2&1&1" "BS-DR.1&1&1")]{
-          Turn to @worksheet-link[#:page 36 #:name "DR"] in your workbooks, read the word problem careflly, and write down the contract for the function:
+          Turn to @worksheet-link[#:page 36 #:name "Math-Rocket-Distance"] in your workbooks, read the word problem careflly, and write down the contract 
+                  for the function:
                   @italic{"A rocket is flying from Earth to Mars at 80 miles per second. Write a function that describes the distance @math{D} the rocket 
                            has traveled, as a function of time @math{t}}."
                   }}
@@ -299,7 +300,7 @@
                                               @math{distance(t) = t \times 80}}}
                          @teacher{}}
                  @point{@student{@activity[#:forevidence (list "F-IF.1-3&1&1" "F-IF.4-6&1&3" "A-SSE.1-2&1&1" "BS-DR.1&1&1")]{
-                                           Turn to @worksheet-link[#:page 37 #:name "DR2"] in your workbooks, read the word problem, and write 
+                                           Turn to @worksheet-link[#:page 37 #:name "Math-Rocket-Time"] in your workbooks, read the word problem, and write 
                                            down the Contract for the function described there: @italic{"A rocket is traveling from Earth to Mars
                                            at 80 miles per second. Write a function that describes the time the rocket has been traveling, as 
                                            a function of distance."}
@@ -322,7 +323,10 @@
                     @activity{Suppose you wanted to know how far the rocket traveled in 6 seconds: which of the two functions here would you use? What if you wanted to know how long it takes for the rocket to go a thousand miles?}}
             @teacher{Ask students to identify which function they would use to answer a variety of different questions.}
             }
-            @point{@student{@activity{Turn to @worksheet-link[#:page 38 #:name "DR3"] in your workbooks, read the word problem carefully: @italic{"A rocket leaves Earth, headed for Mars at 80 miles per second. At the exact same time, an asteroid leaves Mars traveling towards Earth, moving at 70 miles per second. If the distance from the Earth to Mars is 50,000,000 miles, how long will it take for them to collide?"}
+            @point{@student{@activity{Turn to @worksheet-link[#:page 38 #:name "Math-Rocket-Collision"] in your workbooks, read the word problem carefully: 
+                                              @italic{"A rocket leaves Earth, headed for Mars at 80 miles per second. At the exact same time, an asteroid
+                                                      leaves Mars traveling towards Earth, moving at 70 miles per second. If the distance from the Earth 
+                                                      to Mars is 50,000,000 miles, how long will it take for them to collide?"}
                                                     @itemlist[@item{What are the facts that the problem @bold{gives you}?}
                                                                @item{What is the problem @bold{asking you for}?}
                                                                @item{Use your answers to complete the following sentence: "Given ____, write a function that produces ____."}
@@ -349,7 +353,7 @@
                                      @teacher{}
                                      }
                              @point{@student{By now, you may already see the big picture: the distance given in this problem can be plugged into the equation without having to define the function itself. Sometimes the Design Recipe will get you to the answer without even having to finish! Other times, however, you may not see the big picture until you've broken the problem down into smaller parts, each with it's own function.
-                                             @activity{Open your workbooks to @worksheet-link[#:page 39 #:name "DR4"], and practice using the Design Recipe to solve other problems.}}
+                                             @activity{Open your workbooks to @worksheet-link[#:page 39 #:name "Math-Blank-Recipe"], and practice using the Design Recipe to solve other problems.}}
                                      @teacher{You can add as many pages as you like to the workbooks, using any algebra problem you like. We recommend using word problems from your students' algebra textbook, or even from your state's standardized test!}
                                      }]
          }
