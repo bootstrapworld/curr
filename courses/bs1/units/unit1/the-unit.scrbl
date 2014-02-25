@@ -92,7 +92,7 @@
                                            describe the position of a character onscreen in one dimension. This understanding is extended to two dimensions, 
                                            ultimately motivating the use of a coordinate grid.}]
      #:product-outcomes @itemlist[@item{Students identify the coordinates of characters in a picture}]
-     #:standards (list "6.NS.5-8" "N-Q")
+     #:standards (list "6.NS.5-8" "N-Q" "5.G.1-2")
      #:materials @itemlist[@item{Cutouts of  @resource-link[#:path "images/ninjacat.png" #:label "NinjaCat"],  @resource-link[#:path "images/dog.png" #:label "Dog"]
                                  and the  @resource-link[#:path "images/ruby.png" #:label "Ruby"]}
                             @item{Student Workbooks, and something to write with}]
@@ -148,7 +148,9 @@
               @teacher{}
               }
       
-      @point{@student{@activity[#:forevidence (list "N-Q&1&4")]{@bitmap{images/game-table3.png}Fill in the rest of the table, identifying what is changing for each of your characters.}}
+      @point{@student{@activity[#:forevidence (list "N-Q&1&4" "5.G.1-2&1&1" "5.G.1-2&1&2")]{
+                          @bitmap{images/game-table3.png}Fill in the rest of the table, identifying what is changing for each of your characters.}
+                       }
               @teacher{}
               }
       
@@ -231,7 +233,7 @@
                                            Evaluation}
 ]
      #:product-outcomes @itemlist[@item{Students convert several arithmetic expressions between multiple representations}]
-     #:standards (list "A-SSE.1-2" "BS-CE")
+     #:standards (list "A-SSE.1-2" "BS-CE" "5.OA.1-2")
      #:exercises (list (make-exercise-locator "Order-of-Operations" "complete-coe-from-arith")
                        (make-exercise-locator "Order-of-Operations" "arith-to-coe1")
                        (make-exercise-locator "Order-of-Operations" "coe-to-arith1")
@@ -296,7 +298,7 @@
                                    pyramid (multiplication and division). Only after we have completed all of those operations can we 
                                    move down to the lower level. If both operations are present (as in @math{4+2-1}), we read the expression
                                    from left to right, @vocab{apply}ing the operations in the order in which they appear.
-                          @activity[#:forevidence (list "A-SSE.1-2&1&3")]{In what order should we apply the functions in the following example? 
+                          @activity[#:forevidence (list "A-SSE.1-2&1&3" "5.OA.1-2&1&2")]{In what order should we apply the functions in the following example? 
                                     @math{19 \div 2 * 11 - 7 + 8}
                                     @itemlist[#:style 'ordered
                                               @item{@math{+ \div * - }}
@@ -319,7 +321,7 @@
                 @teacher{This section benefits enormously from visual aids, diagrams, etc. Make sure you have plenty of board space to 
                          draw examples!}
                 }
-                @point{@student{@activity[#:forevidence "BS-CE&1&1"]{Try drawing the Circle of Evaluation for each of the following 
+                @point{@student{@activity[#:forevidence (list "BS-CE&1&1" "5.OA.1-2&1&1")]{Try drawing the Circle of Evaluation for each of the following 
                                                                      expressions:
                                           @itemlist[#:style 'ordered
                                                     @item{@math{6*4}}
@@ -337,7 +339,7 @@
                                  of Evaluation.  Look at the Circle of Evaluation you've written for @math{351 / -1}. We already 
                                  know that the Circle for @math{4 - 5} will evaluate to @math{-1}, so we can @italic{replace the 
                                  number with the expression.} Does this change what the expression evaluates to?
-                                @activity[#:forevidence "BS-CE&1&2"]{
+                                @activity[#:forevidence (list "BS-CE&1&2" "5.OA.1-2&1&1")]{
                                       @bitmap{images/fill-in-circle.png}Finish writing the Circle of 
                                        Evaluation shown here, so that it represents @math{(23 + 7) * (13 - 5)}}
                       }
@@ -359,8 +361,8 @@
                                                  circle.  The second number is therefore @italic{the result of adding 4 and 5}.}
                                            @item{@math{4 + 5} (the inner circle) evaluates to @math{9}, and @math{6 * 9} (the outer 
                                                   circle) evaluates to @math{54}.  This circle evaluates to @math{54}.}]
-                        @activity[#:forevidence (list "BS-CE&1&3" "A-SSE.1-2&1&3")]{@bitmap{images/NestedCircle2.png}Convert this Circle of Evaluation into
-                                                              an arithmetic expression.}
+                        @activity[#:forevidence (list "BS-CE&1&3" "A-SSE.1-2&1&3" "5.OA.1-2&1&1")]{
+                               @bitmap{images/NestedCircle2.png}Convert this Circle of Evaluation into an arithmetic expression.}
                         }
                         @teacher{Work through several of these examples with students, asking them to come up with arithmetic
                                  expressions and then convert them into Circles, or giving them Circles and having them 
@@ -370,8 +372,8 @@
                                  arithmetic functions (like @math{+}) and algebraic functions (like @math{f}) if you use 
                                  terminology carefully.}
                         }
-                @point{@student{@activity[#:forevidence (list "BS-CE&1&3" "A-SSE.1-2&1&3")]]{Match the following Circles of Evaluation with the corresponding
-                                                                     arithmetic expressions:
+                @point{@student{@activity[#:forevidence (list "BS-CE&1&3" "A-SSE.1-2&1&3" "5.OA.1-2&1&1")]]{
+                              Match the following Circles of Evaluation with the corresponding arithmetic expressions:
                                   @(circeval-matching-exercise/math 
 				    (list (math "9 * (4 - 3)")
 					  (math "(9 * 4) - 3")
