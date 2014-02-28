@@ -2,7 +2,9 @@
 	<head>
 		<title>Bootstrap: Teacher Resources</title>
 		<link rel="stylesheet" type="text/css" href="/styles.css"/>
-    
+    <style>
+      .links{float: right;}
+    </style>
 	</head>
 	<body>
         <!--#include virtual="/menubar.ssi" -->
@@ -27,49 +29,195 @@
                 <li><a href="Procedures.pdf">Procedures and teacher/parent consent forms</a>, for administering the pre- and post-tests.</a></li>
                 <li>Students should take the <b>Algebra</b> <a href="Pretest.pdf">Pre-</a> and <a href="Posttest.pdf">Post-tests</a>, as well as the <b>Math Affect</b> <a href="https://harvard.qualtrics.com/SE/?SID=SV_3JDsKkE1h2DV2Ac">pre-<a/> and <a href="https://harvard.qualtrics.com/SE/?SID=SV_eyROZNHKvZl30jP">post</a> surveys.</li>
               </ul>
+ 	    </div>
               
-              <h2>Warmup Exercises</h2>
+            <div class="item">
+              <h1>Exercises and Solutions</h1>
+              <h2>Unit 1</h2>
               <ul>
-                <li>Unit 1 [<a href="https://docs.google.com/document/d/1USFPXkeO5AbGOzm_U0tMv4NV3RrxTMTyg-bqIKUf4q4/edit">original</a>
-                          | <a href="https://docs.google.com/document/d/1nVUf8se8OzQownIorbh6KJ9fU36GFF6L1Bi3ekwp9L4/edit">answers</a>]</li>
-                <li>Unit 2 [<a href="https://docs.google.com/document/d/1Qn59Fol2tspqOx6XQV88xm-IYsRGY769cb7MQeknSMA/edit">original</a>
-                          | <a href="https://docs.google.com/document/d/1CB7S_-w3YyWTe15yt5kHtlIZrLW-lUicPTM6oz2ge0I/edit">answers</a>]</li>
-                <li>Unit 3 [<a href="https://docs.google.com/document/d/1FN2uLBnwdk3N4Ci6-qf1n6z-M8KpToo27wqZmRlS5as/edit">original</a>
-                          | <a href="https://docs.google.com/document/d/1mkMV_iUuXN1GEE5fgVymdONRp94o2ubcTnz8QquWw24/edit">answers</a>]</li>
-                <li>Unit 4 [<a href="https://docs.google.com/document/d/134VD2NShK_VxDog4VG4lMm4jTbpxm2H2cSXqZbHwwSg/edit">original</a>
-                          | <a href="https://docs.google.com/document/d/1LOwntowvbi6jfvMwAdrRtMJijkgqyT85NZS4BGp-z74/edit">answers</a>]</li>
-                <li>Unit 5 [<a href="https://docs.google.com/document/d/1i3WQ4Q58Wn6fhqxEz027KDcUHIewtk-wLPQzJalCFt0/edit">original</a>
-                          | <a href="https://docs.google.com/document/d/1UuiIkCIOqMRfnC5rTO9nNlsqmr1y1D9IwTZIWk3wYT4/edit">answers</a>]</li>
-                <li>Unit 6 [<a href="https://docs.google.com/document/d/1WvlflsKM28IOwgyV2HttnGxul3sAUnL0-KOZhvb6C2s/edit">original</a>
-                          | <a href="https://docs.google.com/document/d/1Vqiq-s_QOrnaEydgtOiNal8pq1Io1Xd8WyV0uA_TAbQ/edit">answers</a>]</li>
-                <li>Unit 7 [<a href="https://docs.google.com/document/d/1k67XlYWkHefd4APynvwSnPKRaSTeOvGD7_lRbI8hHrg/edit">original</a>
-                          | <a href="https://docs.google.com/document/d/1BhTRRD6Q-U3_IluazP0X8gh7Sb_LIPP1ur7QjIIiks8/edit">answers</a>]</li>
-                <li>Unit 8 [<a href="https://docs.google.com/document/d/1Vkaz30B8AAaze6fMiFJypFb1bOIeH0RzkeaBLCCPf9E/edit">original</a>
-                          | <a href="https://docs.google.com/document/d/1vFtsTOvu_531NNpqp8rRSH9soSomX1NSFs4OhVCbY6M/edit">answers</a>]</li>
-                <li>Unit 9 [n/a]</li>
+                <li>Warmup
+                  <span class="links">
+                    [<a href="https://docs.google.com/document/d/1USFPXkeO5AbGOzm_U0tMv4NV3RrxTMTyg-bqIKUf4q4/edit">original</a>
+                    | <a href="https://docs.google.com/document/d/1nVUf8se8OzQownIorbh6KJ9fU36GFF6L1Bi3ekwp9L4/edit">answers</a>]
+                  </span>
+                </li>
+                <li>Completing Circles of Evaluation from Math Expressions
+                  <span class="links">
+                    [<a href="../../../../lessons/Order-of-Operations/exercises/complete-coe-from-arith.html">original</a>
+                    | <a href="solutions/complete-coe-from-arith.html">answers</a>]
+                  <span>
+                </li>
+                <li>Creating Circles of Evaluation from Math Expressions
+                  <span class="links">
+                    [<a href="../../../../lessons/Order-of-Operations/exercises/arith-to-coe1.html">original</a>
+                    | <a href="solutions/arith-to-coe1.html">answers</a>]
+                  </span>
+                </li>
+                <li>Converting Circles of Evaluation to Math Expressions
+                  <span class="links">
+                    [<a href="../../../../lessons/Order-of-Operations/exercises/coe-to-arith1.html">original</a>
+                    | <a href="solutions/coe-to-arith1.html">answers</a>]
+                  </span>
+                </li>
+                <li>Matching Circles of Evaluation and Math Expressions
+                  <span class="links">
+                    [<a href="../../../../lessons/Order-of-Operations/exercises/match-arith-coe1.html">original</a>
+                    | <a href="solutions/match-arith-coe1.html">answers</a>]
+                  </span>
+                </li>
+                <li>Completing Code from Circles of Evaluation
+                  <span class="links">
+                    [<a href="../../../../lessons/Intro-to-Programming/exercises/complete-code-from-coe1.html">original</a>
+                    | <a href="solutions/complete-code-from-coe1.html">answers</a>]
+                  </span>
+                </li>
+                <li>Converting Circles of Evaluation to Code
+                  <span class="links">
+                    [<a href="../../../../lessons/Intro-to-Programming/exercises/coe-to-code1.html">original</a>
+                    | <a href="solutions/coe-to-code1.html">answers</a>]
+                  </span>
+                </li>
+                <li>Matching Circles of Evaluation and Code
+                  <span class="links">
+                    [<a href="../../../../lessons/Intro-to-Programming/exercises/coe-code-matching1.html">original</a>
+                    | <a href="solutions/coe-code-matching1.html">answers</a>]
+                  </span>
+                </li>
               </ul>
-
-              <h2>Homework Exercises</h2>
+              <h2>Unit 2</h2>
               <ul>
-                <li>Unit 1 [<a href="https://docs.google.com/document/d/1JyfLe76QNLhiZJGaAGSPFv1HcHEheMsF-wwi5RpVgIw/edit">original</a>
-                          | <a href="https://docs.google.com/document/d/1k9ownCsF17Xpt37Dk6Ubgmk6rMF1oTZ4HRQFFDBIkrc/edit">answers</a>]</li>
-                <li>Unit 2 [<a href="https://docs.google.com/document/d/1boY2UfWCvrPkjcEbfvAwkba9fglPOn1Mq-AfycV3sDs/edit">original</a>
-                          | <a href="https://docs.google.com/document/d/12bwxExmmFVMrs5yONupHy8LjVP5un2Vamc-HbAe4TiA/edit">answers</a>]</li>
-                <li>Unit 3 [<a href="https://docs.google.com/document/d/1NCWr5UrzHoLXo-CSG-hANL2yrGHPKXJ9wXrwVAd_3gE/edit">original</a>
-                          | <a href="https://docs.google.com/document/d/10L0haSZ-wfa7-IbUSfDU_22VkKM-CAEGYIkBsVwPYTE/edit">answers</a>]</li>
-                <li>Unit 4 [<a href="https://docs.google.com/document/d/1MS2Ye2yJD6u1xMyHckp-CAd02Uh-6nU_JQGyuUme6Y0/edit">original</a>
-                          | <a href="https://docs.google.com/document/d/1ym9iONhhEuAxw5vq8QPQBEtY15dAQrc2x0IitTfV4GY/edit">answers</a>]</li>
-                <li>Unit 5 [<a href="https://docs.google.com/document/d/1U6QxfTTNHT6YWZmVpVnI9CX6MJ8KHlauNqdOpYKOeaw/edit">original</a>
-                          | <a href="https://docs.google.com/document/d/1aA46sBhD-KgZjrnK7HHX00fh8wiiwz4-nASKAox0TSY/edit">answers</a>]</li>
-                <li>Unit 6 [<a href="https://docs.google.com/document/d/15PRTrE8N2B30mEbV2fLV6ZzqGjA8EI1xl9F8PnTlBcU/edit">original</a>
-                          | <a href="https://docs.google.com/document/d/1NZTu7jl8TpknqomyQ3CKT5IQqioJcpe926aHaaWxhUg/edit">answers</a>]</li>
-                <li>Unit 7 [<a href="https://docs.google.com/document/d/1pMYcAQ5B6iVbMUSziKeGo2xJr3NQV4pbQ9nUWPtQRtg/edit">original</a>
-                          | <a href="https://docs.google.com/document/d/1Iq3xzshAMxESBeemd9l5WEejWZs6wNBbv1Ve6BG_y0c/edit">answers</a>]</li>
-                <li>Unit 8 [<a href="https://docs.google.com/document/d/1zVzKaBmCf_rLBxT5lhuhYkRaUMW_3mNEMYdmRXtrE3s/edit">original</a>
-			  | <a href="https://docs.google.com/document/d/154MIuHfRCNKg02lsaZTOz6Wc7CQSp8nIvZcI6Nr-6J8/edit">answers</a>]</li>                		<li>Unit 9 [n/a]</li>
+                <li>Warmup
+                  <span class="links">
+                    [<a href="https://docs.google.com/document/d/1Qn59Fol2tspqOx6XQV88xm-IYsRGY769cb7MQeknSMA/edit">original</a>
+                          | <a href="https://docs.google.com/document/d/1CB7S_-w3YyWTe15yt5kHtlIZrLW-lUicPTM6oz2ge0I/edit">answers</a>]
+                  </span>
+                </li>
+                <li>Converting Circles of Evaluation to Code
+                  <span class="links">
+                    [<a href="../../../../lessons/Strings-and-Images/exercises/many-types-coe-to-code1.html">original</a>
+                    | <a href="solutions/many-types-coe-to-code1.html">answers</a>]
+                  <span>
+                </li>
+                <li>Identifying Parts of Expressions
+                  <span class="links">
+                    [<a href="../../../../lessons/Contracts/exercises/id-expr-pieces1.html">original</a>
+                    | <a href="solutions/id-expr-pieces1.html">answers</a>]
+                  </span>
+                </li>
+                <li>Matching Expressions and Contracts
+                  <span class="links">
+                    [<a href="../../../../lessons/Contracts/exercises/match-contracts-exprs1.html">original</a>
+                    | <a href="solutions/match-contracts-exprs1.html">answers</a>]
+                  </span>
+                </li>
               </ul>
-
-              <h1>Shortcuts to files used throughout the Teacher Workshop</h2>
+              <h2>Unit 3</h2>
+              <ul>
+                <li>Warmup
+                  <span class="links">
+                    [<a href="https://docs.google.com/document/d/1FN2uLBnwdk3N4Ci6-qf1n6z-M8KpToo27wqZmRlS5as/edit">original</a>
+                          | <a href="https://docs.google.com/document/d/1mkMV_iUuXN1GEE5fgVymdONRp94o2ubcTnz8QquWw24/edit">answers</a>]
+                  </span>
+                </li>
+                <li>Matching Examples and Function Definitions
+                  <span class="links">
+                    [<a href="../../../../lessons/Defining-Functions/exercises/match-examples-functions1.html">original</a>
+                    | <a href="solutions/match-examples-functions1.html">answers</a>]
+                  <span>
+                </li>
+                <li>Creating Contracts From Examples
+                  <span class="links">
+                    [<a href="../../../../lessons/Defining-Functions/exercises/create-contracts-examples1.html">original</a>
+                    | <a href="solutions/create-contracts-examples1.html">answers</a>]
+                  </span>
+                </li>
+              </ul>
+              <h2>Unit 4</h2>
+              <ul>
+                <li>Warmup
+                  <span class="links">
+                    [<a href="https://docs.google.com/document/d/134VD2NShK_VxDog4VG4lMm4jTbpxm2H2cSXqZbHwwSg/edit">original</a>
+                          | <a href="https://docs.google.com/document/d/1LOwntowvbi6jfvMwAdrRtMJijkgqyT85NZS4BGp-z74/edit">answers</a>]
+                  </span>
+                </li>
+                <li>Do Examples Have the Same Contracts?
+                  <span class="links">
+                    [<a href="../../../../lessons/Practicing-the-Design-Recipe/exercises/examples-same-contracts1.html">original</a>
+                    | <a href="solutions/match-examples-functions1.html">answers</a>]
+                  <span>
+                </li>
+                <li>Matching Contracts and Examples
+                  <span class="links">
+                    [<a href="../../../../lessons/Practicing-the-Design-Recipe/exercises/match-contracts-examples1.html">original</a>
+                    | <a href="solutions/match-contracts-examples1.html">answers</a>]
+                  </span>
+                </li>
+              </ul>
+              <h2>Unit 5</h2>
+              <ul>
+                <li>Warmup
+                  <span class="links">
+                    [<a href="https://docs.google.com/document/d/1i3WQ4Q58Wn6fhqxEz027KDcUHIewtk-wLPQzJalCFt0/edit">original</a>
+                    | <a href="https://docs.google.com/document/d/1UuiIkCIOqMRfnC5rTO9nNlsqmr1y1D9IwTZIWk3wYT4/edit">answers</a>]
+                  </span>
+                </li>
+                <li>Design Recipe Practice
+                  <span class="links">
+                    [<a href="https://docs.google.com/document/d/1U6QxfTTNHT6YWZmVpVnI9CX6MJ8KHlauNqdOpYKOeaw/edit">original</a>
+                    | <a href="https://docs.google.com/document/d/1aA46sBhD-KgZjrnK7HHX00fh8wiiwz4-nASKAox0TSY/edit">answers</a>]
+                  </span>
+                </li>
+              </ul>
+              <h2>Unit 6</h2>
+              <ul>
+                <li>Warmup
+                  <span class="links">
+                    [<a href="https://docs.google.com/document/d/1WvlflsKM28IOwgyV2HttnGxul3sAUnL0-KOZhvb6C2s/edit">original</a>
+                    | <a href="https://docs.google.com/document/d/1Vqiq-s_QOrnaEydgtOiNal8pq1Io1Xd8WyV0uA_TAbQ/edit">answers</a>]
+                  </span>
+                <li>Converting Circles of Evaluation with Booleans to Code
+                  <span class="links">
+                    [<a href="../../../../lessons/AndOr/exercises/boolean-coe-to-code1.html">original</a>
+                    | <a href="solutions/match-examples-functions1.html">answers</a>]
+                  </span>
+                </li>
+              </ul>
+              <h2>Unit 7</h2>
+              <ul>
+                </li>
+                <li>Warmup
+                  <span class="links">
+                    [<a href="https://docs.google.com/document/d/1k67XlYWkHefd4APynvwSnPKRaSTeOvGD7_lRbI8hHrg/edit">original</a>
+                    | <a href="https://docs.google.com/document/d/1BhTRRD6Q-U3_IluazP0X8gh7Sb_LIPP1ur7QjIIiks8/edit">answers</a>]
+                  </span>
+                </li>
+                <li>Design Recipe Practice
+                  <span class="links">
+                    [<a href="https://docs.google.com/document/d/1pMYcAQ5B6iVbMUSziKeGo2xJr3NQV4pbQ9nUWPtQRtg/edit">original</a>
+                    | <a href="https://docs.google.com/document/d/1Iq3xzshAMxESBeemd9l5WEejWZs6wNBbv1Ve6BG_y0c/edit">answers</a>]
+                  </span>
+                </li>
+              </ul>
+              <h2>Unit 8</h2>
+              <ul>
+                <li>Warmup
+                  <span class="links">
+                    [<a href="https://docs.google.com/document/d/1Vkaz30B8AAaze6fMiFJypFb1bOIeH0RzkeaBLCCPf9E/edit">original</a>
+                    | <a href="https://docs.google.com/document/d/1vFtsTOvu_531NNpqp8rRSH9soSomX1NSFs4OhVCbY6M/edit">answers</a>]
+                  </span>
+                </li>
+                <li>Design Recipe Practice
+                  <span class="links">
+                    [<a href="https://docs.google.com/document/d/1zVzKaBmCf_rLBxT5lhuhYkRaUMW_3mNEMYdmRXtrE3s/edit">original</a>
+                    | <a href="https://docs.google.com/document/d/154MIuHfRCNKg02lsaZTOz6Wc7CQSp8nIvZcI6Nr-6J8/edit">answers</a>]
+                  </span>
+                </li>
+              </ul>
+              <h2>Unit 9</h2>
+              n/a
+            </div>
+            <div class="item">
+              <h1>Source Files</h1>
               <ul>
                 <li><a target="_blank" href="http://www.wescheme.org/view?publicId=LyMwExWayT">NinjaCat</a></li>
                 <li><a target="_blank" href="http://www.wescheme.org/openEditor?publicId=KY4s7msuh6">Rocket (Code)</a></li>
