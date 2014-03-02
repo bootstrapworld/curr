@@ -372,7 +372,7 @@
                                  arithmetic functions (like @math{+}) and algebraic functions (like @math{f}) if you use 
                                  terminology carefully.}
                         }
-                @point{@student{@activity[#:forevidence (list "BS-CE&1&3" "A-SSE.1-2&1&3" "5.OA.1-2&1&1")]]{
+                @point{@student{@activity[#:forevidence (list "BS-CE&1&3" "A-SSE.1-2&1&3" "5.OA.1-2&1&1")]{
                               Match the following Circles of Evaluation with the corresponding arithmetic expressions:
                                   @(circeval-matching-exercise/math 
 				    (list (math "9 * (4 - 3)")

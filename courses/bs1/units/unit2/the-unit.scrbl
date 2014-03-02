@@ -182,7 +182,8 @@ include other datatypes, including Strings and Images.}
                                       @item{What is the @vocab{Range} of this function?}
                                       ]}
                  A Contract tells you exactly how to use the function, by writing its Name and then using @vocab{values} for each of the arguments in 
-                 the @vocab{Domain}. Here is an example of an expression, written to use @code{rectangle}: @code{(rectangle 100 50 "solid" "blue")}.
+                 the @vocab{Domain}. Here is an example of an expression, written to use @code{rectangle}: 
+                 @code[#:multi-line ""]{(rectangle 100 50 "solid" "blue")}
                  @editor-link[#:interactions-text "(rectangle 100 50 \"solid\" \"blue\")"
                                                   "What do you think this code will produce?"]}
                      @teacher{Have students experiment with changing the argument values, always drawing attention back to the Domain.}
