@@ -12,20 +12,62 @@
       .col p{font-size: 13px; font-style: italic;}
       .bs1 {background: rgba(90, 50, 50, 0.2)}
       .bs2 {background: rgba(90, 50, 50, 0.3)}
+button{
+	display: block;
+	font-size: 1em;
+	padding: 5px 10px;
+	margin: 5px auto;
+	color: #eee;
+	background: linear-gradient(#AAA, #777);
+	border: 1px solid black;
+	border-radius: 3px;
+	box-shadow: 0 3px 3px rgba(0,0,0,0.6);
+	cursor: pointer;
+}
+button:hover{color: white;}
+button:active{	-webkit-transform: translateY(3px); transform: translateY(3px);box-shadow: none;}
+
     </style>
+    
+    <script>
+	<!-- Controls the loading of the embedded Google Group -->
+	function loadGroup(){
+	  document.getElementById("forum_embed").src = "https://groups.google.com/forum/embed/?place=forum/bootstrap-discuss" +
+	  "&showsearch=true&showpopout=true&hideforumtitle=true&parenturl=" +
+	  encodeURIComponent(window.location.href);
+	}
+
+      function showGroup(){
+        var frame = document.getElementById('forum_embed');
+        if(frame.className === ''){
+          frame.className = 'shown';
+          setTimeout("window.onclick = showGroup", 500);
+        } else {
+          frame.className = '';
+          window.onclick = null;
+        }
+      }
+    </script>
+    
 	</head>
-	<body>
+	<body onload="loadGroup();">
+    
 	<!--#include virtual="/menubar.ssi" -->
   
 	<div id="body">
 		<div class="item">
-		<img src="/images/kids.jpg" class="item_img">
+	      <img src="/images/teacher.jpg" class="side">
 		<h1>Materials</h1>
-    <p>If you're a math teacher, and are looking for a fun way for students to practice and apply what they've learned, or a programming teacher who is looking for a rigorous introduction to basic functions and datatypes, you'll find <b><a href="courses/bs1/main.shtml">Bootstrap:1</a></b> to be a perfect fit! All of our lessons are <a href="Standards.shtml">aligned to Common Core Standards for Mathematics</a> -- including the new standards for Mathematical Practice!
+    <p>If you're looking for a fun way for students to apply mathematical concepts and rigorous programming principles to creating a simple vidoegame, you'll find <b><a href="courses/bs1/main.shtml">Bootstrap:1</a></b> to be a perfect fit! All of our lessons are <a href="Standards.shtml">aligned to Common Core Standards for Mathematics</a> -- including the new standards for Mathematical Practice!
 
 
-      <p>If you're looking for a full-blown programming class, and want students to have the freedom to create more advanced games using data structures, events, and more, you'll want to continue to the second module (<b><a href="courses/bs2/main.shtml">Bootstrap:2</a></b>) to build on what students have done in the introductory course. We've listed the breakdown of concepts in the table below - take a look to find the best fit for you!
+      <p>If you're looking for a full-blown programming class, and want students to have the freedom to create more advanced games using data structures, events, and more, you'll want to continue to the second module (<b><a href="courses/bs2/main.shtml">Bootstrap:2</a></b>) to build on what students have done in the introductory course. We've listed the breakdown of concepts in the table below, so you can find the best fit for your class.
+		</div>
+		<div class="item" style="width: 640px; text-align: center">
+        <button onclick="showGroup()">Ask a Question on our Discussion Group!</button>
+		</div>
 
+		<div class="item">
       <p><b>We released a significant rewrite of the notes on August 1, 2013.  The new notes separate student and teacher notes, and contain more exercises for in-class use.  The <a href="../Fall2013/">older format</a> is still available.</b>
       <table width="100%">
         <thead>
@@ -109,7 +151,29 @@
         <p/>
         Want to run everything locally? Bootstrap also supports <a href="http://www.drracket.org/">DrRacket</a>, a multi-platform graphical environment.  DrRacket runs on all major platforms (Windows, OS X, Unix/Linux) and programs written for one platform run seamlessly on the others, supporting a wide variety of classroom and home computing scenarios.  Its emphasis on beginner-friendly features and support for images makes it ideal for Bootstrap.
         </div>
+<!--    
+		<div class="item">
+		<img src="/images/shirt.png" style="width: 235px; height: 421px"/>
+		<h1>Wear It</h1>
 
+		You've got the curriculum, <i>but do you own the t-shirt?</i>
+		<p/>
+		Show the world your support for Bootstrap, and let people know that yes, <u>"I
+		 Program My Own Videogames"</u>.  All t-shirts are high-quality cotton,
+		available in sizes ranging from S to XXL, for a price of $15 each for orders
+		of 1-5 shirts or $10 for larger orders (cost includes shipping). 
+		<a href="mailto:schanzer@bootstrapworld.org">Contact us</a> to place an order. 
+		<p/>Front and Back:
+		<br/><img src="/images/frontandback.gif" style="width:350px; float: left;">
+
+		</div>
+-->
 	</div>
+
+	<!-- The Bootstrap-Discuss forum will load here -->
+	<iframe id="forum_embed"></iframe>
+
+
 	</body>
+
 </html>
