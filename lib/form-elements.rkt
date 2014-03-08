@@ -193,9 +193,11 @@
 (define-runtime-path bootstraplesson.js "bootstraplesson.js")
 (define-runtime-path logo.png "logo.png")
 ;(define-runtime-path mathjaxlocal.js "mathjaxlocal.js")
+(define-runtime-path extra_curriculum.css "extra_curriculum.css")
 
 (define css-js-additions
-  (list (make-css-addition bootstrap.css)
+  (list ;(make-css-addition bootstrap.css) ;; removed because lang.rkt already loads this
+        (make-css-addition extra_curriculum.css)
         (make-tex-addition bootstrap-pdf.tex)
         (if (audience-in? (list "student"))
             (make-css-addition cards.css)
@@ -268,7 +270,7 @@
                              css-js-additions))))
 
 (define bootstrap-agenda-style
-  (make-style #f (cons 'never-indents
+  (make-style "" (cons 'never-indents
                        (cons (make-alt-tag "div")
                              (cons (make-attributes (list (cons 'id "BootstrapAgenda")))
                                    css-js-additions)))))
@@ -280,6 +282,7 @@
                          css-js-additions)))
 
 (define bs-header-style (bootstrap-paragraph-style "BootstrapHeader"))
+(define bs-header-style/span (bootstrap-span-style "BootstrapHeader"))
 (define bs-title-style (bootstrap-style "BootstrapTitle"))
 (define bs-lesson-title-style (bootstrap-style "BootstrapLessonTitle"))
 (define bs-lesson-name-style (bootstrap-style "BSLessonName"))
@@ -679,7 +682,7 @@
   (cond [(audience-in? (list "teacher" "volunteer")) (insert-teacher-toggle-button)]
         [(audience-in? (list "student")) 
          (list
-          (elem #:style (bootstrap-div-style/id "lessonToolbar")
+          (para #:style (bootstrap-div-style/id "lessonToolbar")
                 (insert-student-buttons))
           (cond-element
            [html (sxml->element
@@ -1543,6 +1546,8 @@
         (apply itemlist/splicing items #:style "BootstrapEvidenceStatementsList")))
 
 (define (product-outcomes . items)
+;  (list (para #:style bs-header-style "Product Outcomes:")
+;        (apply itemlist/splicing items #:style "BootstrapProductOutcomesList")))
   (list (compound-paragraph bs-header-style 
                             (decode-flow (list "Product Outcomes:")))
         (apply itemlist/splicing items #:style "BootstrapProductOutcomesList")))
@@ -1580,7 +1585,7 @@
          (nested #:style (bootstrap-div-style/id/nested "LearningObjectives")
                  (interleave-parbreaks/all
                   (list
-                   (para #:style bs-header-style "Standards and Evidence Statements:")
+                   (para #:style bs-header-style/span "Standards and Evidence Statements:")
                    (list "Standards with"
                          " prefix BS are specific to Bootstrap; others are from the Common Core."
                          " Mouse over each standard to see its corresponding evidence statements."
@@ -1602,8 +1607,8 @@
          (nested #:style (bootstrap-div-style/id/nested (rem-spaces header))
           (interleave-parbreaks/all
            (list
-            (para #:style bs-header-style (format "~a:" header))
-            (if (empty? pre-content) (elem) (first pre-content))
+            (para #:style bs-header-style/span (format "~a:" header))
+            (if (empty? pre-content) "" (first pre-content))
             (remdups/itemization items)))))))))
 
 ;; strips all spaces from a string
@@ -1649,7 +1654,7 @@
              (nested #:style (bootstrap-div-style/id/nested "Glossary")
                      (interleave-parbreaks/all
                       (list
-                       (para #:style bs-header-style "Glossary:")
+                       (para #:style bs-header-style/span "Glossary:")
                        (apply itemlist/splicing
                               (for/list ([term terms])
                                 (cond [(and (list? term) (string=? "" (second term)))
@@ -1766,7 +1771,6 @@
          (set 'unit-length unit-minutes))
          
        (nested #:style bootstrap-agenda-style 
-                      ;(style "BootstrapAgenda" '(never-indents))
                (interleave-parbreaks/all
                (list "Agenda"
                      (apply 
@@ -2018,7 +2022,7 @@
    ))
 
 (define (insert-help-button)
-  (elem #:style (make-style #f (list (make-alt-tag "iframe") 
+  (para #:style (make-style #f (list (make-alt-tag "iframe") 
                                      (make-attributes (list (cons 'id "forum_embed"))))) 
         ""))
                                      
@@ -2040,37 +2044,42 @@
          #:gen-agenda? (gen-agenda? #t) 
          . description
          )
-  (nested #:style "OverviewBoundary"
-          (interleave-parbreaks/all
-           (list
-            (insert-help-button)
-            (nested #:style (bootstrap-sectioning-style "BootstrapOverview") 
-                    (interleave-parbreaks/all
-                     (list
-                      (if gen-agenda? (agenda) (elem))
-                      (elem #:style bs-header-style "Unit Overview")
-                      (elem #:style (bootstrap-div-style/id "overviewDescr") description)
-                      (if product-outcomesItems (product-outcomes product-outcomesItems) 
-                          (summary-data/auto 'product-outcomes "Product Outcomes"))
-                      (learn-evid-from-standards)
-                      (if length (length-of-lesson length) (length-of-unit/auto))
-                      (gen-glossary)
-                      (if (audience-in? (list "teacher" "volunteer"))
-                          (if materialsItems (materials materialsItems) 
-                              (summary-data/auto 'materials "Materials"))
-                          (elem))
-                      (if (audience-in? (list "teacher" "volunteer"))
-                          (if preparationItems (preparation preparationItems) 
-                              (summary-data/auto 'preparation "Preparation"))
-                          (elem))
-                      (if lang-table 
-                          (if (list? (first lang-table))
-                              (apply language-table lang-table)
-                              (language-table lang-table))
-                          (elem))
-                      (insert-toolbar)
-                      )))))
-          ))
+  (interleave-parbreaks/all
+   (list (para #:style bs-header-style/span "Unit Overview")
+         (para #:style (bootstrap-div-style/id "overviewDescr") description)
+         (nested #:style "OverviewBoundary summary"
+                 (interleave-parbreaks/all
+                  (list
+                   (insert-help-button)
+                   (nested #:style (bootstrap-sectioning-style "BootstrapOverview") 
+                           (interleave-parbreaks/all
+                            (list
+                             (if gen-agenda? (agenda) "")
+                             ; moved these outside summary for code.org prep -- remove next two lines once E confirms
+                             ;(para #:style bs-header-style/span "Unit Overview")
+                             ;(para #:style (bootstrap-div-style/id "overviewDescr") description)
+                             (if product-outcomesItems (product-outcomes product-outcomesItems) 
+                                 (summary-data/auto 'product-outcomes "Product Outcomes"))
+                             (learn-evid-from-standards)
+                             (if length (length-of-lesson length) (length-of-unit/auto))
+                             (gen-glossary)
+                             (if (audience-in? (list "teacher" "volunteer"))
+                                 (if materialsItems (materials materialsItems) 
+                                     (summary-data/auto 'materials "Materials"))
+                                 (elem))
+                             (if (audience-in? (list "teacher" "volunteer"))
+                                 (if preparationItems (preparation preparationItems) 
+                                     (summary-data/auto 'preparation "Preparation"))
+                                 (elem))
+                             (if lang-table 
+                                 (if (list? (first lang-table))
+                                     (apply language-table lang-table)
+                                     (language-table lang-table))
+                                 "")
+                             (insert-toolbar)
+                             )))))
+                 ))
+   ))
 
 ;; info required to locate an exercise within the filesystem
 ;;   will be used to generate links
@@ -2190,7 +2199,7 @@
 ;creates the length of the lesson based on input
 ;input ONLY THE NUMBER!
 (define (length-of-lesson l)
-  (para #:style bs-header-style (format "Length: ~a minutes" l)))
+  (para #:style bs-header-style/span (format "Length: ~a minutes" l)))
 
 (define (length-of-unit/auto)
   (traverse-block
@@ -2323,11 +2332,17 @@
                            [(or latex pdf) (elem)]))
   (interleave-parbreaks/all
    (cond 
-     [unit+title (list (head-title-no-content the-title) 
-                       (elem #:style bs-title-style 
-                             (list bootstrap-image (elem #:style "TitleUnitNum" (second unit+title)) (third unit+title))))]
+     [unit+title (list (head-title-no-content the-title)                                           
+                       (nested #:style (bootstrap-div-style "headercontent")
+                               (list (para #:style (bootstrap-span-style "BootstrapTitle")
+                                           bootstrap-image
+                                           (elem #:style (bootstrap-span-style "TitleUnitNum") (second unit+title)) 
+                                           (third unit+title)
+                                           ))))]
      [else (list (head-title-no-content the-title)
-                 (elem #:style bs-title-style (cons bootstrap-image body)))])))
+                 (nested #:style (bootstrap-div-style "headercontent") 
+                         (list (para #:style (bootstrap-span-style "BootstrapTitle") 
+                                     (cons bootstrap-image body)))))])))
 
 ;;;;;;;;;;;;;; Javascript Generation ;;;;;;;;;;;;;;;;;;;;;;;;
 
