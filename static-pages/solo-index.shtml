@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<title>Bootstrap: Materials</title>
+		<link rel="stylesheet" type="text/css" href="/styles.css"/>
+    <style>
+      .BSUnitTitle{font-weight: bold;}
+      .BSUnitSummary{margin: 5px;}
+      thead  {font-weight: bold;text-align: center; background: rgba(0, 0, 0, 0.1)}
+      td{padding: 5px; vertical-align: top; width: 200px; }
+      .col{vertical-align: middle; width: 220px;}
+      .col p{font-size: 13px; font-style: italic;}
+      .bs1 {background: rgba(90, 50, 50, 0.2)}
+      .bs2 {background: rgba(90, 50, 50, 0.3)}
+button{
+	display: block;
+	font-size: 1em;
+	padding: 5px 10px;
+	margin: 5px auto;
+	color: #eee;
+	background: linear-gradient(#AAA, #777);
+	border: 1px solid black;
+	border-radius: 3px;
+	box-shadow: 0 3px 3px rgba(0,0,0,0.6);
+	cursor: pointer;
+}
+button:hover{color: white;}
+button:active{	-webkit-transform: translateY(3px); transform: translateY(3px);box-shadow: none;}
+
+    </style>
+    
+    <script>
+	<!-- Controls the loading of the embedded Google Group -->
+	function loadGroup(){
+	  document.getElementById("forum_embed").src = "https://groups.google.com/forum/embed/?place=forum/bootstrap-discuss" +
+	  "&showsearch=true&showpopout=true&hideforumtitle=true&parenturl=" +
+	  encodeURIComponent(window.location.href);
+	}
+
+      function showGroup(){
+        var frame = document.getElementById('forum_embed');
+        if(frame.className === ''){
+          frame.className = 'shown';
+          setTimeout("window.onclick = showGroup", 500);
+        } else {
+          frame.className = '';
+          window.onclick = null;
+        }
+      }
+    </script>
+    
+	</head>
+	<body onload="loadGroup();">
+    
+	<!--#include virtual="/menubar.ssi" -->
+  
+	<div id="body">
+		<div class="item">
+	      <img src="/images/teacher.jpg" class="side">
+                <h1>Welcome</h1>
+
+   <p>This is a limited-distribution, prototype-release of a self-guided version of our Bootstrap curricula.  This version takes students step-by-step through our materials, integrating lesson materials with a programming environment.  We're still refining this version, and welcome comments or feedback.</p>
+
+   <p>Once you enter the materials, you will see a split screen with notes/instructions on the left and (initially) a larger blank area on the right.  A few steps in, you will get a link to access our online programming environment (WeScheme).  The programming environment will then fill the right-side space.  If you prefer to program outside of the notes pages, you can access <a href="http://www.wescheme.org">WeScheme</a> online (saving files through a Google account), or you can work locally in <a href="http://www.drracket.org/">DrRacket</a>.</p>
+
+<p>The notes make frequent reference to the student workbook, which has various exercises to help students through the curriculum.  You will find a link to the workbook on the index page for whichever curriculum you click on in the Materials table that follows.</p>
+
+<p>If you have questions, feel free to email us (we assume that you know someone on the Bootstrap team personally if you are using this prototype version).</p>
+
+		<h1>Materials</h1>
+    <p>We provide two curricula.  <b><a href="courses/bs1/main.shtml">Bootstrap:1</a></b> teaches students to apply mathematical concepts and rigorous programming principles to create a simple videogame.  The second module, <b><a href="courses/bs2/main.shtml">Bootstrap:2</a></b>, helps students create more advanced games using data structures, events, and other more advanced computing topics.  We've listed the breakdown of concepts in the table below.
+		</div>
+
+		<div class="item">
+      <table width="100%">
+        <thead>
+          <tr><td class="col"></td><td>Mathematics</td><td>Programming</td></tr>
+        </thead>
+        <tr class="bs1">
+          <td class="col">
+            <b><a href="courses/bs1/main.shtml">Starting with Bootstrap:1...</a></b>
+            <p/>Students create a simple, 3-character game involving a player, a target and a danger. They design what each character looks like, and use algebraic concepts to detect collisions, handle keystrokes, and determine how they move and interact.
+          </td>
+          <td>
+          <ul>
+            <li>Word Problems</li>
+            <li>Coordinate planes</li>
+            <li>Order of Operations</li>
+            <li>Variables</li>
+            <li>Functions</li>
+            <li>Function Tables</li>
+            <li>Domain and Range</li>
+            <li>Function Composition</li>
+            <li>Inequalities</li>
+            <li>Piecewise Functions</li>
+            <li>Pythagorean Theorem</li>
+            <li>Number lines</li>
+            <li>Polygons</li>
+          </ul>
+          </td>
+          <td>
+            <ul>
+              <li>Numbers, Strings and Images</li>
+              <li>Defining Functions</li>
+              <li>Unit Testing</li>
+              <li>Boolean Logic</li>
+              <li>Multi-input Functions</li>
+              <li>Mixed-Type Functions</li>
+            </ul>
+          </td>
+        </tr>
+        <tr class="bs2">
+          <td class="col">
+            <b><a href="courses/bs2/main.shtml">Continuing to Bootstrap:2...</a></b>
+            <p/>Students learn how the world-based event loop that drives their Bootstrap 1 game works, and use it to create animations using simple datatypes for their world. They then learn about data structures, and design a World structure for a sophisticated game of their own design.
+          </td>
+          <td>
+            <ul>
+              <li>Complex functional relationships</li>
+              <li>Exploring Randomness</li>
+              <li><i>Connections to Trigonometry</i></li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>Event-Driven Programming</li>
+              <li>Data Structures</li>
+              <li>Whole-Program Design</li>
+              <li>Data Modeling</li>
+              <li>Encapsulation</li>
+              <li><i>Connections to recursion, lists, and algorithms</i></li>
+            </ul>
+          </td>
+        </tr>
+      </table>
+    </div>
+    
+		<div class="item">
+    <img src="/images/htdw-v1.jpg" class="item_img">
+        <h1>After Bootstrap...</h1>
+        
+If you want to move on from Bootstrap, we recommend one of the following options:
+     <ul>
+        <li><a href="http://picturingprograms.com/">Picturing Programs</a> focuses heavily on images and animation, as students explore recursion, lists, trees and algorithms -- all using the same language and Design Recipe they've learned in Bootstrap.</li>
+        <li><a href="http://www.ccs.neu.edu/home/matthias/HtDP2e/">How to Design Programs</a> is a textbook aimed at more college-level audiences, going beyond the material covered in Picturing Programs. HtDP is currently in its second edition, and the material is being actively updated.</li>
+      </ul>
+    </div>
+        
+		<div class="item">
+      <img src="/images/drschemeshot.jpg" class="item_img">
+	</div>
+
+	</body>
+
+</html>
