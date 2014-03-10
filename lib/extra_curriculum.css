@@ -113,13 +113,24 @@ body {
 }
 
 
-/* Added for Bootstrap */
+
+/**************************************************
+* Added for Bootstrap
+**************************************************/
+.main{font-family: 'Gotham A','Gotham B',sans-serif;}
+
+.BootstrapTitle img{float: right; width: 90px; height: 90px;}
+.TitleUnitNum{font-size: 12px; }
 .BootstrapLength {
   font-weight: normal;
   border-top: solid 1px black;
 }
-#overviewDescr {background: none; border: none; font-style: normal;}
+#overviewDescr {background: none; border: none; font-style: normal; margin-left: 40px;}
 #overviewDescr .BootstrapHeader{display: block;}
+
+/* fix items that are outside of the main lesson flow */
+.OverviewBoundary, div.ExtraExercises{border: none; margin-left: 40px; background: none;}
+
 .segment ul.lesson{border-bottom: none;}
 ul.lesson li div.teacher{
   height: auto;
@@ -134,6 +145,7 @@ ul.lesson .embedded-wescheme{width: 500px;}
 div.segment{border:none;}
 span.BootstrapLessonTitle{
   border-top: solid 2px black;
+  padding-top: 10px;
   margin-bottom: 50px;
 }
 .segment ul.teacherNotes li+li .teacher{box-shadow: none; border-top: none;}
