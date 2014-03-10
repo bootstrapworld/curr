@@ -2045,13 +2045,15 @@
          . description
          )
   (interleave-parbreaks/all
-   (list (para #:style bs-header-style/span "Unit Overview")
-         (para #:style (bootstrap-div-style/id "overviewDescr") description)
-         (nested #:style "OverviewBoundary summary"
+   (list (nested #:style (bootstrap-div-style/id "overviewDescr") 
+               (interleave-parbreaks/all
+                (list (para #:style bs-header-style/span "Unit Overview")
+                      description)))
+         (nested #:style "OverviewBoundary"
                  (interleave-parbreaks/all
                   (list
                    (insert-help-button)
-                   (nested #:style (bootstrap-sectioning-style "BootstrapOverview") 
+                   (nested #:style (bootstrap-sectioning-style "summary") 
                            (interleave-parbreaks/all
                             (list
                              (if gen-agenda? (agenda) "")
