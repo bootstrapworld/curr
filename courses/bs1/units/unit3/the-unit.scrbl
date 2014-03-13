@@ -213,11 +213,20 @@
                                            @item{What are their types?}
                                            @item{Try evaluating each of these values in the Interactions window, starting with @code{BACKGROUND}}]}
                                 }
-                        @teacher{@management{By now, you should have students' graphics already created, and @(hyperlink "resources/teachers/teachers-guide/teachers-guide.html#addingimages" "added to the file)").}
-                                  The purpose of this activity is to increase students' confidence in @italic{reading} and @italic{talking about} code. Make sure students get a lot of practice speaking aloud, both to each other and to the instructor.}
+                        @teacher{@management{By now, you should have students' graphics already created, and 
+                                             @(hyperlink "../../resources/teachers/teachers-guide/teachers-guide.html#addingimages" "added to the file)").}
+                                  The purpose of this activity is to increase students' confidence in @italic{reading} and @italic{talking about} code. 
+                                  Make sure students get a lot of practice speaking aloud, both to each other and to the instructor.}
                         }
-                 @point{@student{If you don't like the definitions provided here, you can change them! You can modify the @code{TITLE} and @code{TITLE-COLOR} to change what is displayed at the top of your screen, and you can change the definitions for your game images as well: @(video-link (hyperlink "http://www.teachertube.com/viewVideo.php?video_id=288261" "Video: A screencast of this section - follow along to see how to change images in your game")).}
-                         @teacher{Images should be in PNG or GIF format. Background images should be 640x480, and character images should generally be no larger than 200px in either dimension. Make sure that the character images have transparent backgrounds! TIP: use animated GIFs for the characters - not only does the animation make the game look a lot better, but these images usually have transparent backgrounds to begin with. For more instructions on setting up the game files and images, read the @(hyperlink "../../resources/teachers-guide/teachers-guide.html#addingimages" "Coding Instructions") document.}
+                 @point{@student{If you don't like the definitions provided here, you can change them! You can modify the @code{TITLE} and @code{TITLE-COLOR} 
+                                    to change what is displayed at the top of your screen, and you can change the definitions for your game images as well: 
+                                    @(video-link (hyperlink "http://www.teachertube.com/viewVideo.php?video_id=288261" "Video: A screencast of this section - follow along to see how to change images in your game")).}
+                         @teacher{Images should be in PNG or GIF format. Background images should be 640x480, and character images should generally be 
+                                   no larger than 200px in either dimension. Make sure that the character images have transparent backgrounds! 
+                                   TIP: use animated GIFs for the characters - not only does the animation make the game look a lot better, but these 
+                                   images usually have transparent backgrounds to begin with. For more instructions on setting up the game files and
+                                   images, read the @(hyperlink "../../resources/teachers/teachers-guide/teachers-guide.html#addingimages" "Coding Instructions") 
+                                   document.}
                          }
                  @point{@student{If you want to change one of your definitions so that the image is smaller or larger, you can use the @code{scale} function:
                                   @code[#:multi-line #t]{; scale : Number Image -> Image}
