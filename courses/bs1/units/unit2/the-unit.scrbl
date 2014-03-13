@@ -157,7 +157,7 @@ include other datatypes, including Strings and Images.}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{You've already seen several functions that take in two Numbers, such as @code{+}, and @code{-}. Meanwhile, @code{star} takes in a Number and two Strings.  Different functions therefore take in different inputs.  We therefore need a way to refer to the kinds of inputs that a function expects.
+        @points[@point{@student{You've already seen several functions that take in two Numbers, such as @code{+}, and @code{-}. Meanwhile, @code{star} takes in a Number and two Strings.  Different functions take in different inputs, and we need a way to keep track of the requirements for each function.
                         @bannerline{The Domain of a function is the data that the function expects.}
                         @activity[#:forevidence (list "F-IF.1-3&1&1")]{Why is it helpful to know the @vocab{Domain} of a function?}
                         By keeping a list of all the functions in a language, and their Domains, programmers can easily look up how each function is used. However, it's also important to keep track of what each function produces! For example, a program wouldn't use @code{star} if they were trying to produce a Number, because @code{star} only produces Images.

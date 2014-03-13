@@ -155,8 +155,8 @@ matters! Look at the order of the fields in the @code{define-struct} line. The f
                         guests.
                         @itemlist[@item{What's the name of the function? Domain? Range?}
                                    @item{Write the @vocab{contract} and @vocab{purpose statement} on your page.}
-                                   @item{Write your first EXAMPLE for the party "Halloween". How do you start?}
-                                   @item{@code[#:multi-line #t]{(EXAMPLE (RSVP "Halloween")....)}}
+                                   @item{Write your first EXAMPLE for the party @code{Halloween}. How do you start?}
+                                   @item{@code[#:multi-line #t]{(EXAMPLE (RSVP Halloween)....)}}
                                    @item{What does this function produce? (If you're stuck, look back at your contract.)}
                                    @item{Which function do we use to make a party?}
                                    @item{According to the @code{RSVP} function, will the location of this party change? Of course not. So how do you get the @code{location}
