@@ -1,4 +1,5 @@
 .maincolumn { margin-left: 5px;}
+.main{width: 800px;}
 div.content{	background:		rgba(255, 255, 255, .3); }
 
 /************************************************************************************
@@ -16,7 +17,7 @@ div#lessonToolbar * {margin: 10px; display: inline-block;}
 
 div#lessonToolbar.fixed{
   position:     fixed;
-  left:         806px;
+  left:         804px;
   top:          0px;
   background:   black;
   border-bottom-right-radius: 10px;
@@ -26,8 +27,6 @@ div#lessonToolbar.fixed{
  * Lesson overviews contain logo, various lists, Language Table, title and duration
  * Unit overviews include an agenda, and a concatenation of lesson overview lists
 */
-
-.BootstrapTitle{width: 800px;}
 
 .OverviewBoundary{display: inline-block;}
 
@@ -40,16 +39,15 @@ div#lessonToolbar.fixed{
 
 /* Overview design */
 .BootstrapOverviewTitle{
+    width:        100%;
     background:   black;
     color:        white;
     font-size:    18px;
     margin:       0px;
     display:      block;
-    width:        100%;
 }
 
 #overviewDescr {
-    width:         788px; /*  788px wide + 5px padding + 2px border = 800px total */
     background:     lightgray;
     border:         solid 1px black;
     border-bottom:  none;
@@ -60,7 +58,6 @@ div#lessonToolbar.fixed{
 #overviewDescr .BootstrapHeader{display: none;}
 .summary {
     padding:      5px;
-    width:        788px; /*  788px wide + 5px padding + 2px border = 800px total */
     background:   lightgray;
     page-break-after: always;
     border:       solid 1px black;
@@ -70,22 +67,21 @@ div#lessonToolbar.fixed{
 
 /*Table Design*/
 .BootstrapTableHeader{
-	border:       1px solid black;
-	background:   lightgrey;
-  color:        black;
-	font-weight:  bold;
-  padding:      5px;
-  font-family:  monospace;
+	background:     lightgrey;
+  color:          black;
+	font-weight:    bold;
+  padding:        5px;
+  font-family:    monospace;
 }
 .BootstrapTable{
-	width: 300px;
-	border: 1px solid black;
-	background: white;
-  padding: 0px;
+	width:          300px;
+	border:         1px solid black;
+	background:     white;
+  padding:        0px;
 }
 
 table {
-  margin: 20px auto;
+  margin:         20px auto;
 }
 
 #BootstrapAgenda{
@@ -182,10 +178,8 @@ input#toggle{display:none;}
 
 
 div.ExtraExercises, div.segment{
-  float:      left;
   border:     1px solid black;
   background:	rgba(255, 255, 255, .8);
-  width:      800px;
   overflow:   hidden;
 }
 
@@ -228,7 +222,6 @@ span.challenge>div:before{content: 'Moving ahead...'}
 .segment ul.lesson{
   margin:         0px;
   padding-left:   0px;
-  border-bottom:  solid 1px lightgray;
   list-style-type:none;
   max-width:      790px;
 }
@@ -256,19 +249,13 @@ li.lessonItem{
 div.teacher{
   width:          250px;
   display:        inline-block;
-  height:         100px;
+  height:         auto;
   vertical-align: top;
-  height:         35px;
-  padding-bottom: 35px;
-  margin-bottom: -35px;
   padding-left:   10px;
   padding-right:  10px;
+  margin-left:    20px;
   box-shadow:     inset 3px 0px 3px black;
   background:     lightgray;
-  margin-left:    20px;
-}
-ul.teacherNotes li div.teacher{
-  height: auto;
   padding-bottom: 32767px;
   margin-bottom: -32767px;
 }
@@ -405,38 +392,25 @@ iframe#forum_embed.shown{
     size: 8.5in 11in;
 
     /* this affects the margin in the printer settings */ 
-    margin: .75in;
+    margin: .5in;
 }
 
 @media print {
-  html, body, .maincolumn, .main, .segment, .segment ul, 
-  .OverviewBoundary, #overviewDescr, .summary,
-  div#copyright { width: 7in;}
+  /* turn off backgrounds, borders, shadows and elements we don't want to print */
+	body                                                                          {background: none;}
+  div.segment, div.teacher, li.lessonItem, table.bordered td, 
+  div.ExtraExercises, div.content                                               {border: none;}
+  div.teacher, .segment ul.teacherNotes li+li .teacher                          {box-shadow: none;}
+  div#lessonToolbar, iframe#forum_embed, input, div.callout, .embedded-wescheme {display: none;}
 
+  /* page breaks */
+  .LessonBoundary                                                               {page-break-before: always;}
+  #LearningObjectives,#Glossary, #Materials, table, img,
+    li.lessonItem, div.activity                                                 {page-break-inside: avoid;}
 
-	body			{background: white;}
-  div#lessonToolbar{display: none;}
-	div.content		{border: none; font-size: 12px; display: inline-block;}
-	div.overview img			{width: 80px; margin-top: 0px; }
-	#LearningObjectives,#Glossary, #Materials, table, img {page-break-inside: avoid;}
-  table.bordered td {border: none; padding: 0px;}
-  div.segment{border: none;}
-  li.lessonItem{page-break-inside: avoid; border: none;}
-  div.teacher{
-    height:         auto;
-    padding-bottom: 32767px;
-    margin-bottom: -32767px;
-    border:         0px none;
-    background:     #eee;
-    box-shadow:     inset 0px 0px 0px black;
-  }
-  iframe#forum_embed{display: none;}
-  .segment ul.teacherNotes li+li .teacher{box-shadow: none;}
-  input, div.callout, .embedded-wescheme{display: none;}
-  .student{font-size: 16px;}
-  li.LearningObjectivesListItem ul.EvidenceStatementsList, ul.EvidenceStatementsListItem{opacity: 1; display: block;}
-  .BootstrapLessonTitle{color: black; border-top: solid 3px black; font-size: 24px; margin-bottom: 20px;}
-  div.activity{border: solid 1px dashed;}
-  .segment ul.lesson{border-bottom: none;}
-  div.ExtraExercises{border: none;}
+  /* styling we want CHANGED for the printed page */
+	div.content	{font-size: 16px; display: inline-block;}
+  .BootstrapLessonTitle{color: black; border-top: solid 3px black; font-size: 24px; margin-bottom: 50px;}
+  table.bordered td {padding: 0px;}
+  div.teacher{border-left: solid 1px gray; font-style: italic;}
 }
