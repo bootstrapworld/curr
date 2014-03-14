@@ -197,7 +197,6 @@
 
 (define css-js-additions
   (list ;(make-css-addition bootstrap.css) ;; removed because lang.rkt already loads this
-        (make-css-addition extra_curriculum.css)
         (make-tex-addition bootstrap-pdf.tex)
         (if (audience-in? (list "student"))
             (make-css-addition cards.css)
@@ -210,6 +209,7 @@
         (make-js-addition bootstraplesson.js)
         ;(make-js-addition mathjaxlocal.js)
         (make-js-addition mathjax-url)
+        (make-css-addition extra_curriculum.css)
         ))
 
 ;; add meta attributes to HEAD (needed for iPhone rendering)
@@ -2048,7 +2048,8 @@
    (list (nested #:style (bootstrap-div-style/id "overviewDescr") 
                (interleave-parbreaks/all
                 (list (para #:style bs-header-style/span "Unit Overview")
-                      description)))
+                      description                      
+                      )))
          (nested #:style "OverviewBoundary"
                  (interleave-parbreaks/all
                   (list
@@ -2340,6 +2341,7 @@
                                            bootstrap-image
                                            (elem #:style (bootstrap-span-style "TitleUnitNum") (second unit+title)) 
                                            (third unit+title)
+                                           ;(length-of-unit/auto)
                                            ))))]
      [else (list (head-title-no-content the-title)
                  (nested #:style (bootstrap-div-style "headercontent") 

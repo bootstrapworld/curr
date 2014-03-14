@@ -138,7 +138,8 @@
 (define (change-defaults doc)
   (struct-copy part doc
                [style (make-style (style-name (part-style doc))
-                                  (list* (html-defaults bootstrap-prefix.html bootstrap.css js-paths)
+                                  (list* (html-defaults bootstrap-prefix.html bootstrap.css js-paths) ; out to control loading order of bootstrap.css
+                                         ;(html-defaults bootstrap-prefix.html js-paths)
                                          (style-properties (part-style doc))))]))
 
 
