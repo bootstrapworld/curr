@@ -27,9 +27,6 @@ div#lessonToolbar.fixed{
  * Lesson overviews contain logo, various lists, Language Table, title and duration
  * Unit overviews include an agenda, and a concatenation of lesson overview lists
 */
-
-.OverviewBoundary{display: inline-block;}
-
 .BootstrapHeader{
 	  font-weight:  bold;
 	  font-size:    16px;
@@ -39,7 +36,6 @@ div#lessonToolbar.fixed{
 
 /* Overview design */
 .BootstrapOverviewTitle{
-    width:        100%;
     background:   black;
     color:        white;
     font-size:    18px;
@@ -59,7 +55,6 @@ div#lessonToolbar.fixed{
 .summary {
     padding:      5px;
     background:   lightgray;
-    page-break-after: always;
     border:       solid 1px black;
     border-top:   none;
     min-height:   100px;
@@ -80,9 +75,7 @@ div#lessonToolbar.fixed{
   padding:        0px;
 }
 
-table {
-  margin:         20px auto;
-}
+table {  margin:         20px auto; }
 
 #BootstrapAgenda{
 	border:         1px solid black;
@@ -114,11 +107,9 @@ ul.BootstrapAgendaList .BSLessonName{float: left;}
 }
 
 /* Standards and Evidence Statements (make sub-lists fade in and out of view) */
-ul.EvidenceStatementsList{
-    opacity: 0; height: 0px; overflow: hidden;
-}
+ul.EvidenceStatementsList{ opacity: 0; height: 0px; overflow: hidden;}
 li.LearningObjectivesListItem:hover ul.EvidenceStatementsList,
-ul.EvidenceStatementsList:hover{opacity: 1; height: auto;}
+  ul.EvidenceStatementsList:hover{opacity: 1; height: auto;}
 
 
 
@@ -134,7 +125,6 @@ div.overview{
 	background:		lightgray; 
 	margin:       5px;
 	padding-bottom: 20px;
-	page-break-after: always;
 }
 .overview h2 {float: none; clear: none;}
 .overview img {float: left; position: relative; top: -50px; margin-bottom: -50px;}
@@ -150,8 +140,6 @@ div.overview{
 .BootstrapPageTitle{display: none; font-size: 24px; margin-top: 0px;}
 .BSLessonDuration{float: right;}
 
-h2{width: 100%; background: black; color: white; font-size: 18px; padding: 0px; margin: 0px; clear: both;}
-h3{font-size: 16px; margin-bottom: 0px; }
 span.time{float: right; padding-right: 5px;}
 span.board{font-weight: bold; padding: 40px;}
 
