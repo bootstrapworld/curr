@@ -275,7 +275,6 @@ div.activity{
   width:          100%;
   padding:        10px 0px;
   background:     rgba(200,200,255,0.5);
-  float:          left;
   margin:         10px 0px;
   display:        inline-block;
   border-top:     dashed 1px black;
@@ -394,11 +393,13 @@ iframe#forum_embed.shown{
   /* page breaks */
   .LessonBoundary                                                               {page-break-before: always;}
   #LearningObjectives,#Glossary, #Materials, table, img,
-    li.lessonItem, div.activity                                                 {page-break-inside: avoid;}
+    div.activity                                                                {page-break-inside: avoid;}
 
   /* styling we want CHANGED for the printed page */
-	div.content	{font-size: 16px; display: inline-block;}
-  .BootstrapLessonTitle{color: black; border-top: solid 3px black; font-size: 24px; margin-bottom: 50px;}
+	.content	{font-size: 16px; display: inline-block;}
+  span.vocab {color: black;}
+  .BootstrapLessonTitle{color: black; border-top: solid 3px black; font-size: 30px; margin-bottom: 50px;}
   table.bordered td {padding: 0px;}
+  li.lessonItem>*:first-child {padding-bottom: 10px;}
   div.teacher{border-left: solid 1px gray; font-style: italic;}
 }

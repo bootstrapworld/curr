@@ -44,3 +44,13 @@ Define coloring for basic WeScheme types, and re-use them for our CM instances
 /* CM-only stuff */
 span.cm-scheme-punctuation                 {color: black;}
 span.cm-scheme-rparen                      {color: black;}
+
+
+@media print {
+  .wescheme-string,     .cm-scheme-string    {color: black;}
+  .wescheme-number,     .cm-scheme-number    {color: black;}
+  .wescheme-boolean,    .cm-scheme-boolean   {color: black;}
+  .wescheme-character,  .cm-scheme-character {color: black;}
+  .wescheme-symbol,     .cm-scheme-symbol    {color: black;}
+  .wescheme-comment,    .cm-scheme-comment   {color: black;}
+}
