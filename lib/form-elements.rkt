@@ -196,8 +196,7 @@
 (define-runtime-path extra_curriculum.css "extra_curriculum.css")
 
 (define css-js-additions
-  (list ;(make-css-addition bootstrap.css) ;; removed because lang.rkt already loads this
-        (make-tex-addition bootstrap-pdf.tex)
+  (list (make-tex-addition bootstrap-pdf.tex)
         (if (audience-in? (list "student"))
             (make-css-addition cards.css)
             (make-css-addition textbook.css))
@@ -209,7 +208,7 @@
         (make-js-addition bootstraplesson.js)
         ;(make-js-addition mathjaxlocal.js)
         (make-js-addition mathjax-url)
-        (make-css-addition extra_curriculum.css)
+        (make-css-style-addition extra_curriculum.css)
         ))
 
 ;; add meta attributes to HEAD (needed for iPhone rendering)
