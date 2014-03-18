@@ -1441,8 +1441,6 @@
 ;; Create a design-recipe exercise
 ;;   funname: string naming the function
 ;;   directions: instructions for the problem 
-;; For each of the "show" arguments other than show-examples, 
-;;    length must match that of the corresponding component unless empty
 ;; num-examples says how many examples to generate.  Some of the examples may be specified
 ;;   by populating the example-list and configuring show-examples (keep reading)
 ;; example-list is a list of lists giving the input and output: e.g., (list (list 5 '(* 5 2)))
@@ -1460,7 +1458,7 @@
 (define (design-recipe-exercise funname directions
                                 #:show-funname-contract? (show-funname-contract? #f)
                                 #:domain-list (domain-list '()) ; list of string
-                                #:show-domains (show-domains '()) ; list of bool, same length as domain-list unless empty
+                                #:show-domains? (show-domains? #f) 
                                 #:range (range #f)
                                 #:show-range? (show-range? #f)
                                 #:purpose (purpose #f)
@@ -1470,17 +1468,17 @@
                                 #:show-examples (show-examples '()) ; see doc above func for details
                                 #:show-funname-defn? (show-funname-defn? #f)
                                 #:param-list (param-list '()) ; list of string
-                                #:show-params (show-params '()) ; list of bool, same length as param-list unless empty
+                                #:show-params? (show-params? #f) 
                                 #:body (body #f) ; a string
                                 #:show-body? (show-body? #f)
                                 )
-  (unless (or (empty? show-domains) (= (length show-domains) (length domain-list)))
-    (error 'design-recipe-exercise 
-           (format "Functon ~a: show-domains ~a must be empty or same length as domain-list ~a ~n" 
-                   funname show-domains domain-list)))
+  ; INSERT check that show-examples is no longer than example-list
+  ; ALSO handle num-examples less than length of example-list
   (nested #:style (bootstrap-div-style/extra-id "segment" "exercises")
           (interleave-parbreaks/all
            (list
+            (para #:style (bootstrap-div-style "exercise-header")
+                  (bold "Word Problem:") (string-append " " funname))
             (para #:style (bootstrap-div-style "exercise-instr")
                   (bold "Directions:") (string-append " " directions))
             (nested #:style (bootstrap-div-style "designRecipeLayout")
@@ -1494,8 +1492,7 @@
                        (make-wrapper
                         (dr-student-answer #:id? #f "recipe_name" #:show? show-funname-contract? funname)
                         (para #:style (bootstrap-span-style "") ":")
-                        (dr-student-answer "recipe_domain" #:show? (cons? show-domains) 
-                                           (string-join domain-list " "))
+                        (dr-student-answer "recipe_domain" #:show? show-domains? (string-join domain-list " "))
                         (para #:style (bootstrap-span-style "") htmlRarr)
                         (dr-student-answer "recipe_range" #:show? show-range? range))
                        (make-clear)
@@ -1540,8 +1537,7 @@
                        (make-spacer "(")
                        (make-wrapper
                         (dr-student-answer #:id? #f "recipe_name" #:show? show-funname-defn? funname)
-                        (dr-student-answer "recipe_variables" #:show? (cons? show-params) 
-                                           (string-join param-list " "))
+                        (dr-student-answer "recipe_variables" #:show? show-params? (string-join param-list " "))
                         (make-spacer ")")
                         ;(make-clear)  ; only force this for long-form DR (maybe via a flag?)
                         (dr-student-answer "recipe_definition_body" #:show? show-body? body)

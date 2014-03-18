@@ -9,7 +9,7 @@
 @(design-recipe-exercise "double" "Write a function called double that consumes a number and multiplies it by 2." 
                          #:show-funname-contract? #t
                          #:domain-list (list "Number")
-                         #:show-domains (list #t)
+                         #:show-domains? #t
                          #:range "Number"
                          #:show-range? #t
                          #:purpose "multiply given number by 2"
@@ -19,7 +19,7 @@
                          #:show-examples '((#t #f #f))
                          #:show-funname-defn? #t
                          #:param-list (list "x")
-                         #:show-params (list #t)
+                         #:show-params? #t
                          #:body "(* x 2)"
                          #:show-body? #t
                          )
