@@ -22,8 +22,6 @@ body{
   font-family:  Times;
 }
 
-div.content{max-width:		7in;}
-
 /************************************************************************************
  * OVERVIEW PAGE
  * Lesson overviews contain logo, various lists, Language Table, title and duration
@@ -285,8 +283,8 @@ div.codesexp       .studentAnswer+.studentAnswer { margin-left: 10px;}
  Print adjustments
  *********************************************************************/
 @media print{
-  .BootstrapTitle{font-size: 20px; width: 100%;}
   .twoColumnLayout{width: 100%;}
+  a{color: black;}
 
   div.rightColumn, div.leftColumn {width: 3.5in;}
 

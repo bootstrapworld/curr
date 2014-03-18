@@ -1,3 +1,4 @@
+/*
 body {
   font-family: 'Gotham A','Gotham B',sans-serif;
   font-size: 13px;
@@ -113,10 +114,6 @@ body {
 }
 
 
-
-/**************************************************
-* Added for Bootstrap
-**************************************************/
 .main{font-family: 'Gotham A','Gotham B',sans-serif;}
 
 .BootstrapTitle img{float: right; width: 90px; height: 90px;}
@@ -128,7 +125,6 @@ body {
 #overviewDescr {background: none; border: none; font-style: normal; margin-left: 40px;}
 #overviewDescr .BootstrapHeader{display: block;}
 
-/* fix items that are outside of the main lesson flow */
 .OverviewBoundary, div.ExtraExercises{border: none; margin-left: 40px; background: none;}
 
 .segment ul.lesson{border-bottom: none;}
@@ -148,6 +144,7 @@ span.BootstrapLessonTitle{
   padding-top: 10px;
   margin-bottom: 50px;
 }
+.OverviewBoundary p{margin-left: 0px;}
 .segment ul.teacherNotes li+li .teacher{box-shadow: none; border-top: none;}
-
 div#lessonToolbar, #lessonToolbar.fixed{display: none;}
+*/

@@ -33,10 +33,7 @@
 ;; rocket-add : Number Image -> Image 
 ;; add the satellite to the image assuming w seconds since start of simulation
 (define (rocket-add w BG)
-  (cond
-    [(>= (image-height ROCKET) (- HEIGHT ((cdr w) (car w))))
-     (place-image ROCKET 100 100 BG)]
-    [else (place-image ROCKET 100 (- HEIGHT ((cdr w) (car w))) BG)]))
+  (place-image ROCKET 100 (- HEIGHT ((cdr w) (car w))) BG))
 
 
 ;; (Number (Number -> Number)) Symbol -> (Number (Number -> Number))
