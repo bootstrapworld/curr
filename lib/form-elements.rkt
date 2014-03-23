@@ -1005,6 +1005,7 @@
 
 (define (activity #:forevidence (evidence #f) 
                   #:answer (answer #f)
+                  #:show-answer? (show-answer? #f)
                   . body)
   (traverse-block
    (lambda (get set!)
