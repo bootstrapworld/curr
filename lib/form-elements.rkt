@@ -1003,7 +1003,9 @@
   (compound-paragraph (bootstrap-sectioning-style "BootstrapDemo")
                       (decode-flow (cons "Demo: " body))))
 
-(define (activity #:forevidence (evidence #f) . body)
+(define (activity #:forevidence (evidence #f) 
+                  #:answer (answer #f)
+                  . body)
   (traverse-block
    (lambda (get set!)
      ;; first, check that evidence tags on activity are valid
