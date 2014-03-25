@@ -1474,6 +1474,7 @@
                                 #:show-params? (show-params? #f) 
                                 #:body (body #f) ; a string
                                 #:show-body? (show-body? #f)
+                                #:grid-lines? (grid-lines? #f)
                                 )
   ; INSERT check that show-examples is no longer than example-list
   ; ALSO handle num-examples less than length of example-list
@@ -1564,6 +1565,16 @@
 (define (make-clear)
   (para #:style (bootstrap-span-style "clear") ""))
   
+;; return last element in a list
+;(define (last L) (list-ref L (sub1 (length L))))
+
+;; return sublist of L containing all but the last argument
+(define (all-but-last L) (reverse (rest (reverse L))))
+
+;; format a list as a string with spaces between each element
+(define (list->spaced-string L)
+  (apply string-append (map (lambda (e) (format "~a " e)) L)))
+
 ;; generate an example within a design recipe activity
 ;; in-out-list is either empty or a list with the input and output expressions
 ;;   these expressions can be any type, but will be formatted to strings
@@ -1573,8 +1584,8 @@
                     #:show-input? (show-input? #f)
                     #:show-output? (show-output? #f)
                     )
-  (let ([input (if (empty? in-out-list) "" (format "~a" (first in-out-list)))]
-        [output (if (empty? in-out-list) "" (format "~a" (second in-out-list)))])
+  (let ([input (if (empty? in-out-list) "" (list->spaced-string (all-but-last in-out-list)))]
+        [output (if (empty? in-out-list) "" (format "~a" (last in-out-list)))])
     (interleave-parbreaks/all
      (list (make-spacer "(EXAMPLE ")
            (make-spacer "(")
