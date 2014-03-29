@@ -27,6 +27,9 @@
 
 (define (get-resources)
   (build-path courses-base (current-course) "resources"))
+
+(define (get-workbook-dir)
+  (build-path (get-resources) "workbook"))
   
 (define (get-teachers-guide)
   (build-path courses-base (current-course) "resources" "teachers" "teachers-guide" "teachers-guide.scrbl"))
