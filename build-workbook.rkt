@@ -49,7 +49,10 @@
   ; map and get pdf size, create pairs of page name and page number
   (let loop ([pages pdfpages] [nextpage startpage] [indexlist '()])
     (if (empty? pages) 
-        (with-output-to-file #:exists 'replace indexfile (lambda () (pretty-print (reverse indexlist))))
+        (with-output-to-file #:exists 'replace indexfile 
+          (lambda ()
+            (printf ";; This file is generated automatically.  DO NOT EDIT IT MANUALLY!~n~n")
+            (write (reverse indexlist))))
         (let ([p (first pages)])
           (let* ([output (with-output-to-string 
                           (lambda () (system (format "pdftk ~a dump_data" 
