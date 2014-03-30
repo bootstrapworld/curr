@@ -14,7 +14,7 @@
 ;;  get-workbook-dir function from paths.rkt.  However, that is
 ;;  capturing a binding for the current-course parameter that
 ;;  I haven't figured out how to access when setting the current-course.
-;;  As a result, we always generate the bs1 workbook, even when our
+;;  As a result, we'd always generate the bs1 workbook, even when our
 ;;  current-course is set to bs2.
 (define (kf-get-workbook-dir) (build-path courses-base (current-course) "resources" "workbook"))
 
@@ -87,7 +87,7 @@
                         (let ([fhtml (regexp-replace #px"\\.scrbl$" f ".html")]
                               [fpdf (regexp-replace #px"\\.scrbl$" f ".pdf")])
                           ; -q option is for "quiet" operation
-                          (system (format "wkhtmltopdf -q ~a ~a" 
+                          (system (format "wkhtmltopdf --print-media-type ~a ~a" 
                                           (path->string (build-path pagesdir fhtml))
                                           (path->string (build-path pagesdir fpdf)))))))
                     pages)
