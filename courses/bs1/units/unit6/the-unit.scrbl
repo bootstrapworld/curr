@@ -155,16 +155,16 @@ uses a new function that @italic{compares Numbers}, returning
                          }
                  @point{@student{@activity[#:forevidence (list "7.EE.3-4&1&1" "7.EE.3-4&1&3" "7.EE.3-4&1&4" "7.EE.3-4&1&5" "7.EE.3-4&1&10" "F-IF.4-6&1&1")]{
                                      Turn to @worksheet-link[#:page 19 #:name "safe-right?"] in your workbook. Use the Design Recipe to fix this function, 
-                                     so that @code{safe-left?} takes in Sam's x-coordinate and returns @code{true} or @code{false} depending on whether it 
+                                     so that @code{safe-right?} takes in Sam's x-coordinate and returns @code{true} or @code{false} depending on whether it 
                                      is @italic{less than 690}.
                                      }
                                   }
-                         @teacher{After walking through @code{safe-left?} section by section, students should be able to complete this activity on their own. 
+                         @teacher{After walking through @code{safe-right?} section by section, students should be able to complete this activity on their own. 
                                   If students are doing well with programming, you might discuss whether to compare the x-coordinate to @code{690} or 
                                   @code{(+ 640 50); both yield the same computation, but the second reveals where 690 comes from (screen width plus 50).}
                                   }
                          }
-                 @point{@student{Once you have typed in the EXAMPLEs and definition for @code{safe-left?}, click "Run" and see if Sam is prevented from flying off the righthand side of the screen. You may be surprised at what happens! Test your function in the Interactions window:
+                 @point{@student{Once you have typed in the EXAMPLEs and definition for @code{safe-right?}, click "Run" and see if Sam is prevented from flying off the righthand side of the screen. You may be surprised at what happens! Test your function in the Interactions window:
                                   @code[#:multi-line #t]{(safe-right? 50)
                                                          (safe-right? 810)
                                                          (onscreen? 50)
