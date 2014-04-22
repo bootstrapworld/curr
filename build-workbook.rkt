@@ -68,7 +68,7 @@
 (define (merge-pages pdfpages 
                      #:pagesdir [pagesdir (build-path (get-workbook-dir) "pages")]
                      #:outputdir [outputdir (get-workbook-dir)]
-                     #:output [output "workbook.pdf"])
+                     #:output [output "workbook-no-pagenums.pdf"])
   (system (format "pdftk ~a output ~a" 
                   (pdflist-to-argstring pdfpages #:pdfdir pagesdir)
                   (build-path outputdir output))))
@@ -87,7 +87,7 @@
                         (let ([fhtml (regexp-replace #px"\\.scrbl$" f ".html")]
                               [fpdf (regexp-replace #px"\\.scrbl$" f ".pdf")])
                           ; -q option is for "quiet" operation
-                          (system (format "wkhtmltopdf --print-media-type ~a ~a" 
+                          (system (format "wkhtmltopdf --print-media-type -q ~a ~a" 
                                           (path->string (build-path pagesdir fhtml))
                                           (path->string (build-path pagesdir fpdf)))))))
                     pages)
@@ -95,6 +95,7 @@
             (gen-wkbk-index pdfpagenames)
             (merge-pages pdfpagenames)
             ; add page numbers to final PD
+            ;(system "pdflatex workbook.tex")
             )))))
 
 (define bootstrap-courses '("bs1" "bs2"))

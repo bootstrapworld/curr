@@ -32,10 +32,10 @@
  "update-target.pdf"
  ;;;; UNIT 6 ;;;;;;;;;
  "Unit-6.pdf"
- "safe-left?.pdf"
- "safe-right?.pdf"
+; "safe-left?.pdf"
+; "safe-right?.pdf"
  "AND-and-OR.pdf"
- "onscreen?.pdf"
+; "onscreen?.pdf"
  ;;;; UNIT 7 ;;;;;;;;;
  "Unit-7.pdf"
  "cost.pdf"
@@ -45,9 +45,9 @@
  "line-length.pdf"
  "distance-example.pdf"
  "distance.pdf"
- "collide?.pdf"
+; "collide?.pdf"
  ;;;; UNIT 9 ;;;;;;;;;
- "Unit-9.pdf"
+; "Unit-9.pdf"
  "Lines.pdf"
  "Feedback.pdf"
  "Feedback.pdf"
