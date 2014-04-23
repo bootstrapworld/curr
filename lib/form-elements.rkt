@@ -1571,9 +1571,13 @@
 ;; return sublist of L containing all but the last argument
 (define (all-but-last L) (reverse (rest (reverse L))))
 
+(define (format-exercise-text e #:fmt-quotes? (fmt-quotes? #t))
+  (cond [fmt-quotes? (format "~s " e)]
+        [else (format "~a " e)]))
+
 ;; format a list as a string with spaces between each element
 (define (list->spaced-string L)
-  (apply string-append (map (lambda (e) (format "~s " e)) L)))
+  (apply string-append (map (lambda (e) (format-exercise-text e)) L)))
 
 ;; generate an example within a design recipe activity
 ;; in-out-list is either empty or a list with the input and output expressions
@@ -1585,24 +1589,24 @@
                     #:show-output? (show-output? #f)
                     )
   (let ([input (if (empty? in-out-list) "" (list->spaced-string (all-but-last in-out-list)))]
-        [output (if (empty? in-out-list) "" (format "~s" (last in-out-list)))])
+        [output (if (empty? in-out-list) "" (format-exercise-text (last in-out-list)))])
     (interleave-parbreaks/all
      (list (make-spacer "(EXAMPLE ")
            (make-spacer "(")
            (make-wrapper
-            (dr-student-answer #:id? #f "recipe_name" #:show? show-funname? funname)
+            (dr-student-answer #:id? #f "recipe_name" #:show? show-funname? funname #:fmt-quotes? #f)
             (dr-student-answer #:id? #f "recipe_example_inputs" #:show? show-input? input)
             (make-spacer ")")
             ;(make-clear) ; only force this for long-form DR (maybe via a flag?)
             (dr-student-answer #:id? #f "recipe_example_body"#:show? show-output? output)
             (make-spacer ")")))))) 
 
-(define (dr-student-answer class-or-id answer #:id? (id? #t) #:show? (show? #f))
+(define (dr-student-answer class-or-id answer #:id? (id? #t) #:show? (show? #f) #:fmt-quotes? (fmt-quotes? #f))
   (let ([style (if id? 
                    (bootstrap-span-style/extra-id "studentAnswer" class-or-id) 
                    (bootstrap-span-style (string-append "studentAnswer " class-or-id)))])
     (para #:style style
-          (cond [show? (format "~s" answer)]
+          (cond [show? (format-exercise-text answer #:fmt-quotes? fmt-quotes?)]
                 [(string? answer) (make-string (string-length answer) #\M)]
                 [else  " "]))))
 
