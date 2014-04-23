@@ -1573,7 +1573,7 @@
 
 ;; format a list as a string with spaces between each element
 (define (list->spaced-string L)
-  (apply string-append (map (lambda (e) (format "~a " e)) L)))
+  (apply string-append (map (lambda (e) (format "~s " e)) L)))
 
 ;; generate an example within a design recipe activity
 ;; in-out-list is either empty or a list with the input and output expressions
