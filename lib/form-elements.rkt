@@ -1585,7 +1585,7 @@
                     #:show-output? (show-output? #f)
                     )
   (let ([input (if (empty? in-out-list) "" (list->spaced-string (all-but-last in-out-list)))]
-        [output (if (empty? in-out-list) "" (format "~a" (last in-out-list)))])
+        [output (if (empty? in-out-list) "" (format "~s" (last in-out-list)))])
     (interleave-parbreaks/all
      (list (make-spacer "(EXAMPLE ")
            (make-spacer "(")
@@ -1602,7 +1602,7 @@
                    (bootstrap-span-style/extra-id "studentAnswer" class-or-id) 
                    (bootstrap-span-style (string-append "studentAnswer " class-or-id)))])
     (para #:style style
-          (cond [show? (format "~a" answer)]
+          (cond [show? (format "~s" answer)]
                 [(string? answer) (make-string (string-length answer) #\M)]
                 [else  " "]))))
 
