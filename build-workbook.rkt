@@ -75,6 +75,11 @@
                            (list "output" output))])
       (apply system* (cons (get-prog-cmd "pdftk") arglist)))))
 
+;; invoke latex to add page numbers to the document
+(define (add-pagenums)
+  (parameterize ([current-directory (kf-get-workbook-dir)])
+    (system*/exit-code (get-prog-cmd "pdflatex") "workbook.tex")))
+
 ; report on any contentlist.rkt files that don't actually exist in filesystem
 ; remove non-existing files so that rest of build process works on clean data
 (define (check-contents-exist ctlist basedir)
@@ -84,9 +89,16 @@
           (printf "Content list references missing files ~a ~n" missing)
           (filter (lambda (f) (file-exists? (build-path basedir f))) ctlist)))))
 
+;; delete files if they are present.  Arg can be a single path or a list of paths
+(define (delete-if-exists files)
+  (for-each (lambda (f)
+              (when (file-exists? f)
+                (delete-file f)))
+            (if (list? files) files (list files))))
+
 ;; the MAIN function to build the workbook
 (define (build-workbook)
-  (let* ([pages-spec (with-input-from-file (build-path (kf-get-workbook-dir) "content-tmp.rkt") read)]
+  (let* ([pages-spec (with-input-from-file (build-path (kf-get-workbook-dir) "contentlist.rkt") read)]
          [pagesdir (build-path (kf-get-workbook-dir) "pages")]
          [pages (check-contents-exist pages-spec pagesdir)])
     (if (empty? pages)
@@ -107,13 +119,15 @@
             (gen-wkbk-index pdfpagenames)
             (merge-pages pdfpagenames)
             ; add page numbers to final PD
-            ;(parameterize ([current-directory (kf-get-workbook-dir)])
-            ;  (system*/exit-code (get-prog-cmd "pdflatex") "workbook.tex"))
+            (add-pagenums)
             ; clean out auxiliary tex files (ie, texwipe, intermed no page nums file)
-            ;(delete-file (build-path (kf-get-workbook-dir) "workbook.aux"))
+            (delete-if-exists (list (build-path (kf-get-workbook-dir) "workbook.aux")
+                                    (build-path (kf-get-workbook-dir) "workbook.log")))
             )))))
 
-(define bootstrap-courses '("bs1")) ; "bs2"))
+
+
+(define bootstrap-courses '("bs1" "bs2"))
 
 (for ([course (in-list bootstrap-courses)])
   (parameterize ([current-course course])
