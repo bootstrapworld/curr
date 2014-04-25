@@ -194,12 +194,13 @@
 (define-runtime-path logo.png "logo.png")
 ;(define-runtime-path mathjaxlocal.js "mathjaxlocal.js")
 (define-runtime-path extra_curriculum.css "extra_curriculum.css")
+(define-runtime-path workbook.css "workbook.css")
 
 (define css-js-additions
   (list (make-tex-addition bootstrap-pdf.tex)
-        (if (audience-in? (list "student"))
-            (make-css-addition cards.css)
-            (make-css-addition textbook.css))
+        (cond [(audience-in? (list "student")) (make-css-addition cards.css)]
+              [(member (getenv "BOOTSTRAP-TARGET") (list "workbook")) (make-css-addition "workbook.css")]
+              [else (make-css-addition textbook.css)])
         (make-css-addition pretty-printing.css)
         (make-css-addition codemirror.css)
         (make-js-addition codemirror.js)
@@ -1572,8 +1573,9 @@
 (define (all-but-last L) (reverse (rest (reverse L))))
 
 (define (format-exercise-text e #:fmt-quotes? (fmt-quotes? #t))
-  (cond [fmt-quotes? (format "~s " e)]
-        [else (format "~a " e)]))
+  (cond [(or (list? e) (number? e)) (format "~a " e)]
+        [(and (string? e) (not fmt-quotes?)) (format "~a " e)]
+        [else (format "~s " e)]))
 
 ;; format a list as a string with spaces between each element
 (define (list->spaced-string L)
@@ -1595,10 +1597,10 @@
            (make-spacer "(")
            (make-wrapper
             (dr-student-answer #:id? #f "recipe_name" #:show? show-funname? funname #:fmt-quotes? #f)
-            (dr-student-answer #:id? #f "recipe_example_inputs" #:show? show-input? input)
+            (dr-student-answer #:id? #f "recipe_example_inputs" #:show? show-input? input #:fmt-quotes? #f)
             (make-spacer ")")
             ;(make-clear) ; only force this for long-form DR (maybe via a flag?)
-            (dr-student-answer #:id? #f "recipe_example_body"#:show? show-output? output)
+            (dr-student-answer #:id? #f "recipe_example_body"#:show? show-output? output #:fmt-quotes? #f)
             (make-spacer ")")))))) 
 
 (define (dr-student-answer class-or-id answer #:id? (id? #t) #:show? (show? #f) #:fmt-quotes? (fmt-quotes? #f))

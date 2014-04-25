@@ -129,6 +129,9 @@
 
 (define bootstrap-courses '("bs1" "bs2"))
 
+; use this to tell scribble to use the workbook.css file
+(putenv "BOOTSTRAP-TARGET" "workbook")
+
 (for ([course (in-list bootstrap-courses)])
   (parameterize ([current-course course])
     (build-workbook)))
