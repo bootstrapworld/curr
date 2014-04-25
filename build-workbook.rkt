@@ -1,3 +1,4 @@
+#!/usr/bin/env racket
 #lang racket
 (require racket/runtime-path
          racket/system
@@ -19,6 +20,7 @@
 (define (kf-get-workbook-dir) (build-path courses-base (current-course) "resources" "workbook"))
 
 (define (run-scribble scribble-file)
+  (printf "Scribbling ~a~n" scribble-file)
   (define output-dir (current-deployment-dir))
   (define-values (base name dir?) (split-path scribble-file))
   (define output-path (build-path output-dir (string->path (regexp-replace #px"\\.scrbl$" (path->string name) ".html"))))
@@ -33,12 +35,12 @@
 (define (pdf-pagenames pages)
   (map (lambda (p) (regexp-replace #px"\\.scrbl$" p ".pdf")) pages))
 
-; combines all PDF filenames into a string with an optional dir prefixed
-; used to create command-line arguments for system calls 
-(define (pdflist-to-argstring pdfpages #:pdfdir [pdfdir (build-path (get-workbook-dir) "pages")])
-  (apply string-append 
-         (map (lambda (p) (string-append (path->string (build-path pdfdir p)) " ")) 
-              pdfpages)))
+; cross-platform helper for locating executables.  Looks for progname with and without .exe extension
+(define (get-prog-cmd progname)
+ (let ([progpath (or (find-executable-path progname) 
+                     (find-executable-path (string-append progname ".exe")))])
+   (if progpath progpath
+       (error (format "Unable to find program ~a~n" progname)))))
 
 ; generate index of entire workbook by computing page sizes per PDF
 (define (gen-wkbk-index pdfpages 
@@ -55,8 +57,7 @@
             (write (reverse indexlist))))
         (let ([p (first pages)])
           (let* ([output (with-output-to-string 
-                          (lambda () (system (format "pdftk ~a dump_data" 
-                                                     (path->string (build-path pdfdir p))))))]
+                          (lambda () (system* (get-prog-cmd "pdftk") (build-path pdfdir p) "dump_data")))]
                  [match (regexp-match #px".*NumberOfPages: ([0-9]*).*" output)]
                  [numpages (if match (string->number (second match)) 
                                (error 'gen-wkbk-index 
@@ -66,22 +67,33 @@
 
 ; create a single PDF from the files named in pdfpages, output filename is optional
 (define (merge-pages pdfpages 
-                     #:pagesdir [pagesdir (build-path (get-workbook-dir) "pages")]
-                     #:outputdir [outputdir (get-workbook-dir)]
+                     #:pagesdir [pagesdir (build-path (kf-get-workbook-dir) "pages")]
+                     #:outputdir [outputdir (kf-get-workbook-dir)]
                      #:output [output "workbook-no-pagenums.pdf"])
-  (system (format "pdftk ~a output ~a" 
-                  (pdflist-to-argstring pdfpages #:pdfdir pagesdir)
-                  (build-path outputdir output))))
+  (parameterize ([current-directory (kf-get-workbook-dir)])
+    (let ([arglist (append (map (lambda (f) (build-path "pages" f)) pdfpages)
+                           (list "output" output))])
+      (apply system* (cons (get-prog-cmd "pdftk") arglist)))))
+
+; report on any contentlist.rkt files that don't actually exist in filesystem
+; remove non-existing files so that rest of build process works on clean data
+(define (check-contents-exist ctlist basedir)
+  (let ([missing (filter (lambda (f) (not (file-exists? (build-path basedir f)))) ctlist)])
+    (if (empty? missing) ctlist
+        (begin
+          (printf "Content list references missing files ~a ~n" missing)
+          (filter (lambda (f) (file-exists? (build-path basedir f))) ctlist)))))
 
 ;; the MAIN function to build the workbook
 (define (build-workbook)
-  (let ([pages (with-input-from-file (build-path (kf-get-workbook-dir) "contentlist.rkt") read)]
-        [pagesdir (build-path (kf-get-workbook-dir) "pages")])
+  (let* ([pages-spec (with-input-from-file (build-path (kf-get-workbook-dir) "content-tmp.rkt") read)]
+         [pagesdir (build-path (kf-get-workbook-dir) "pages")]
+         [pages (check-contents-exist pages-spec pagesdir)])
     (if (empty? pages)
         (printf "WARNING: Empty workbook contents for ~a, no workbook generated~n" (current-course))
         (parameterize ([current-deployment-dir pagesdir])
           ; scribble the scrbl pages and run wkhtmltopdf on the resulting html
-          (for-each (lambda (f) 
+          (for-each (lambda (f)
                       (when (regexp-match #px".*\\.scrbl$" f)
                         (run-scribble (build-path pagesdir f))
                         (let ([fhtml (regexp-replace #px"\\.scrbl$" f ".html")]
@@ -95,10 +107,14 @@
             (gen-wkbk-index pdfpagenames)
             (merge-pages pdfpagenames)
             ; add page numbers to final PD
-            ;(system "pdflatex workbook.tex")
+            ;(parameterize ([current-directory (kf-get-workbook-dir)])
+            ;  (system*/exit-code (get-prog-cmd "pdflatex") "workbook.tex"))
+            ; clean out auxiliary tex files (ie, texwipe, intermed no page nums file)
+            ;(delete-file (build-path (kf-get-workbook-dir) "workbook.aux"))
             )))))
 
-(define bootstrap-courses '("bs1" "bs2"))
+(define bootstrap-courses '("bs1")) ; "bs2"))
+
 (for ([course (in-list bootstrap-courses)])
   (parameterize ([current-course course])
     (build-workbook)))
