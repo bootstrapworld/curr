@@ -44,9 +44,9 @@
  "line-length.scrbl"
  "distance-example.pdf"
  "distance.pdf"
-; "collide?.pdf"
+ "collide.pdf"
  ;;;; UNIT 9 ;;;;;;;;;
-; "Unit-9.pdf"
+ "Unit-9.pdf"
  "Lines.pdf"
  "Feedback.pdf"
  "Feedback.pdf"
