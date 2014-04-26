@@ -405,3 +405,4 @@ iframe#forum_embed.shown{
   table.bordered td {padding: 0px;}
   li.lessonItem>*:first-child {padding-bottom: 10px;}
   div.teacher{border-left: solid 1px gray; font-style: italic;}
+  .studentAnswer{background: white; color: white;}
