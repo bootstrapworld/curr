@@ -1,5 +1,14 @@
 #!/usr/bin/env racket
 #lang racket
+
+;; This is the build file for the workbook.  This script assumes:
+;; that courses/*/resources/workbook contains:
+;;   - a file contentlist.rkt with the contents of the numbered portion
+;;     (this file contains a list of scrbl and pdf filenames)
+;;   - a file frontmatterlist.rkt with the contents of the unnumbered portion
+;;     that will appear at the front of the workbook
+;;   - a pages directory containing the files named in contentlist.rkt and frontmatterlist.rkt
+
 (require racket/runtime-path
          racket/system
          racket/string
@@ -37,8 +46,9 @@
 
 ; cross-platform helper for locating executables.  Looks for progname with and without .exe extension
 (define (get-prog-cmd progname)
- (let ([progpath (or (find-executable-path progname) 
-                     (find-executable-path (string-append progname ".exe")))])
+ (let ([progpath (or (find-executable-path (string-append progname ".exe"))
+                     (find-executable-path progname) 
+                     )])
    (if progpath progpath
        (error (format "Unable to find program ~a~n" progname)))))
 
@@ -78,7 +88,7 @@
 ;; invoke latex to add page numbers to the document
 (define (add-pagenums)
   (parameterize ([current-directory (kf-get-workbook-dir)])
-    (system*/exit-code (get-prog-cmd "pdflatex") "workbook.tex")))
+    (system*/exit-code (get-prog-cmd "pdflatex") "workbook-numbered.tex")))
 
 ; report on any contentlist.rkt files that don't actually exist in filesystem
 ; remove non-existing files so that rest of build process works on clean data
@@ -86,7 +96,7 @@
   (let ([missing (filter (lambda (f) (not (file-exists? (build-path basedir f)))) ctlist)])
     (if (empty? missing) ctlist
         (begin
-          (printf "Content list references missing files ~a ~n" missing)
+          (printf "Pages listing references missing files ~a ~n" missing)
           (filter (lambda (f) (file-exists? (build-path basedir f))) ctlist)))))
 
 ;; delete files if they are present.  Arg can be a single path or a list of paths
@@ -99,8 +109,10 @@
 ;; the MAIN function to build the workbook
 (define (build-workbook)
   (let* ([pages-spec (with-input-from-file (build-path (kf-get-workbook-dir) "contentlist.rkt") read)]
+         [front-spec (with-input-from-file (build-path (kf-get-workbook-dir) "frontmatterlist.rkt") read)]
          [pagesdir (build-path (kf-get-workbook-dir) "pages")]
-         [pages (check-contents-exist pages-spec pagesdir)])
+         [pages (check-contents-exist pages-spec pagesdir)]
+         [frontpages (check-contents-exist front-spec pagesdir)])
     (if (empty? pages)
         (printf "WARNING: Empty workbook contents for ~a, no workbook generated~n" (current-course))
         (parameterize ([current-deployment-dir pagesdir])
@@ -111,20 +123,32 @@
                         (let ([fhtml (regexp-replace #px"\\.scrbl$" f ".html")]
                               [fpdf (regexp-replace #px"\\.scrbl$" f ".pdf")])
                           ; -q option is for "quiet" operation
-                          (system (format "wkhtmltopdf --print-media-type -q ~a ~a" 
-                                          (path->string (build-path pagesdir fhtml))
-                                          (path->string (build-path pagesdir fpdf)))))))
+                          (system* (get-prog-cmd "wkhtmltopdf") "--print-media-type" "-q"
+                                   (build-path pagesdir fhtml)
+                                   (build-path pagesdir fpdf)))
+                        ))
                     pages)
           (let* ([pdfpagenames (pdf-pagenames pages)])
             (gen-wkbk-index pdfpagenames)
             (merge-pages pdfpagenames)
-            ; add page numbers to final PD
             (add-pagenums)
+            ; add front pages
+            (if (empty? frontpages)
+                (copy-file (build-path (kf-get-workbook-dir) "workbook-numbered.pdf")
+                           (build-path (kf-get-workbook-dir) "workbook.pdf")
+                           #:exists-ok? #t)
+                (begin (merge-pages frontpages #:output "front-matter.pdf")
+                       (let ([frontpdf (build-path (kf-get-workbook-dir) "front-matter.pdf")]
+                             [workbooknums (build-path (kf-get-workbook-dir) "workbook-numbered.pdf")]
+                             [workbook (build-path (kf-get-workbook-dir) "workbook.pdf")])
+                         (system* (get-prog-cmd "pdftk") frontpdf workbooknums "output" workbook))))
             ; clean out auxiliary tex files (ie, texwipe, intermed no page nums file)
-            (delete-if-exists (list (build-path (kf-get-workbook-dir) "workbook.aux")
-                                    (build-path (kf-get-workbook-dir) "workbook.log")))
+            (delete-if-exists (list (build-path (kf-get-workbook-dir) "workbook-numbered.aux")
+                                    (build-path (kf-get-workbook-dir) "workbook-numbered.log")
+                                    (build-path (kf-get-workbook-dir) "workbook-numbered.pdf")
+                                    (build-path (kf-get-workbook-dir) "workbook-no-pagenums.pdf")
+                                    ))
             )))))
-
 
 
 (define bootstrap-courses '("bs1" "bs2"))

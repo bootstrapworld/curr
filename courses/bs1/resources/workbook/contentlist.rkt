@@ -1,5 +1,5 @@
-; This file specifies the pages that make up the workbook for the
-; course containing this resources/workbook directory.  ]
+; This file specifies the pages that make up the numbered portion of the 
+; workbook for the course containing this resources/workbook directory.  
 
 ; The list should contain names of either .scrbl or .pdf files that 
 ; are in the workbook/pages directory.  Each list element must 
@@ -8,7 +8,6 @@
 ; The workbook will be generated from these pages in order
 
 (
- "Contracts.pdf"
  ;;;;; UNIT 1 ;;;;;;;;;
  "NinjaCat-Dissection.pdf"
  "NinjaCat-Coordinates.pdf"

@@ -198,9 +198,6 @@
 
 (define css-js-additions
   (list (make-tex-addition bootstrap-pdf.tex)
-        (cond [(audience-in? (list "student")) (make-css-addition cards.css)]
-              [(member (getenv "BOOTSTRAP-TARGET") (list "workbook")) (make-css-addition "workbook.css")]
-              [else (make-css-addition textbook.css)])
         (make-css-addition pretty-printing.css)
         (make-css-addition codemirror.css)
         (make-js-addition codemirror.js)
@@ -209,6 +206,9 @@
         (make-js-addition bootstraplesson.js)
         ;(make-js-addition mathjaxlocal.js)
         (make-js-addition mathjax-url)
+        (cond [(audience-in? (list "student")) (make-css-style-addition cards.css)]
+              [(member (getenv "BOOTSTRAP-TARGET") (list "workbook")) (make-css-style-addition "workbook.css")]
+              [else (make-css-style-addition textbook.css)])
         (make-css-style-addition extra_curriculum.css)
         ))
 
