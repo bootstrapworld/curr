@@ -95,8 +95,16 @@ div.circleevalsexp .lParen, div.circleevalsexp .rParen{display: none;}
  * Most exercises use the twoColumn layout, in which each LI has a left and right div
  * All LIs have top borders, except in matching activities.
 */
-
-div.exercise-instr{margin: 10px;}
+div.exercise-header{
+  margin:       0px;
+  background:   black;
+  color:        white;
+  font-size:    20px;
+  font-weight:  bold;
+  padding:      10px;
+  text-align:   center;
+}
+div.exercise-instr{margin: 10px; font-style: italic;}
 ul.twoColumnLayout {
   list-style-type:  none;
   padding:          0px; 
@@ -210,7 +218,7 @@ div.codesexp       .studentAnswer+.studentAnswer { margin-left: 10px;}
   background:   black;
   display:      block;
   padding:      5px;
-  font-size:    20px;
+  font-size:    18px;
 }
 .designRecipeLayout div.sectionInstructions{
   font-weight:  normal;
@@ -244,7 +252,7 @@ div.codesexp       .studentAnswer+.studentAnswer { margin-left: 10px;}
   height:         auto;
   position:       relative; 
   margin-right:   10px;
-  padding:        0px 20px;
+  padding:        0px 10px;
   word-break:     break-all;
 }
 
@@ -271,7 +279,7 @@ div.codesexp       .studentAnswer+.studentAnswer { margin-left: 10px;}
 .recipe_example_inputs::after{  content: "input(s)";}
 #recipe_definition_body::after{ content: "what the function does with those variables";}
 
-#recipe_definition_body, .designRecipeLayout .recipe_example_body{min-width: 170px;}
+#recipe_definition_body, .designRecipeLayout .recipe_example_body{min-width: 170px; width: 80%;}
 
 /* Copyright at the end of the file */
 .BootstrapCopyright img{
