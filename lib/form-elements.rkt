@@ -1596,11 +1596,11 @@
      (list (make-spacer "(EXAMPLE ")
            (make-spacer "(")
            (make-wrapper
-            (dr-student-answer #:id? #f "recipe_name" #:show? show-funname? funname #:fmt-quotes? #f)
-            (dr-student-answer #:id? #f "recipe_example_inputs" #:show? show-input? input #:fmt-quotes? #f)
+            (dr-student-answer #:id? #f "recipe_name" #:show? show-funname? funname)
+            (dr-student-answer #:id? #f "recipe_example_inputs" #:show? show-input? input)
             (make-spacer ")")
             ;(make-clear) ; only force this for long-form DR (maybe via a flag?)
-            (dr-student-answer #:id? #f "recipe_example_body"#:show? show-output? output #:fmt-quotes? #f)
+            (dr-student-answer #:id? #f "recipe_example_body"#:show? show-output? output)
             (make-spacer ")")))))) 
 
 (define (dr-student-answer class-or-id answer #:id? (id? #t) #:show? (show? #f) #:fmt-quotes? (fmt-quotes? #f))
