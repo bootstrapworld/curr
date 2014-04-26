@@ -210,7 +210,7 @@
               [(member (getenv "BOOTSTRAP-TARGET") (list "workbook")) (make-css-style-addition "workbook.css")]
               [else (make-css-style-addition textbook.css)])
         (make-css-style-addition extra_curriculum.css)
-        ))
+        )) 
 
 ;; add meta attributes to HEAD (needed for iPhone rendering)
 (define bs-head-additions
