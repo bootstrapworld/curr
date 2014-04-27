@@ -208,7 +208,7 @@
         ;(make-js-addition mathjaxlocal.js)
         (make-js-addition mathjax-url)
         (cond [(audience-in? (list "student")) (make-css-style-addition cards.css)]
-              [(member (getenv "BOOTSTRAP-TARGET") (list "workbook")) (make-css-style-addition "workbook.css")]
+              [(member (getenv "BOOTSTRAP-TARGET") (list "workbook")) (make-css-style-addition workbook.css)]
               [else (make-css-style-addition textbook.css)])
         (make-css-style-addition extra_curriculum.css)
         )) 
