@@ -57,6 +57,7 @@
          contract-exercise
          function-exercise
          design-recipe-exercise
+         design-recipe-exercise/pyret
          circles-evaluation-exercise
          unit-summary/links
          summary-item/links
@@ -1566,9 +1567,6 @@
 (define (make-clear)
   (para #:style (bootstrap-span-style "clear") ""))
   
-;; return last element in a list
-;(define (last L) (list-ref L (sub1 (length L))))
-
 ;; return sublist of L containing all but the last argument
 (define (all-but-last L) (reverse (rest (reverse L))))
 
@@ -1604,6 +1602,127 @@
             (make-spacer ")")))))) 
 
 (define (dr-student-answer class-or-id answer #:id? (id? #t) #:show? (show? #f) #:fmt-quotes? (fmt-quotes? #f))
+  (let ([style (if id? 
+                   (bootstrap-span-style/extra-id "studentAnswer" class-or-id) 
+                   (bootstrap-span-style (string-append "studentAnswer " class-or-id)))])
+    (para #:style style
+          (cond [show? (format-exercise-text answer #:fmt-quotes? fmt-quotes?)]
+                [(string? answer) (make-string (string-length answer) #\M)]
+                [else  " "]))))
+
+(define (design-recipe-exercise/pyret funname directions
+                                #:show-funname-contract? (show-funname-contract? #f)
+                                #:domain-list (domain-list '()) ; list of string
+                                #:show-domains? (show-domains? #f) 
+                                #:range (range #f)
+                                #:show-range? (show-range? #f)
+                                #:purpose (purpose #f)
+                                #:show-purpose? (show-purpose? #f)
+                                #:num-examples (num-examples 1) ; number of total example spaces to generate
+                                #:example-list (example-list '()) ;concrete examples -- see doc above func for details
+                                #:show-examples (show-examples '()) ; see doc above func for details
+                                #:show-funname-defn? (show-funname-defn? #f)
+                                #:param-list (param-list '()) ; list of string
+                                #:show-params? (show-params? #f) 
+                                #:body (body #f) ; a string
+                                #:show-body? (show-body? #f)
+                                #:grid-lines? (grid-lines? #f)
+                                )
+  ; INSERT check that show-examples is no longer than example-list
+  ; ALSO handle num-examples less than length of example-list
+  (nested #:style (bootstrap-div-style/extra-id "segment" "exercises")
+          (interleave-parbreaks/all
+           (list
+            (para #:style (bootstrap-div-style "exercise-header")
+                  (bold "Word Problem:") (string-append " " funname))
+            (para #:style (bootstrap-div-style "exercise-instr")
+                  (bold "Directions:") (string-append " " directions))
+            (nested #:style (bootstrap-div-style "designRecipeLayout")
+                    (interleave-parbreaks/all
+                     (list
+                      (design-recipe-section
+                       "recipe_contract" 
+                       "Contract and Purpose Statement"
+                       "Every contract has three parts ..."
+                       (make-spacer "#")
+                       (make-wrapper
+                        (dr-student-answer #:id? #f "recipe_name" #:show? show-funname-contract? funname)
+                        (para #:style (bootstrap-span-style "") ":")
+                        (dr-student-answer "recipe_domain" #:show? show-domains? (string-join domain-list " "))
+                        (para #:style (bootstrap-span-style "") htmlRarr)
+                        (dr-student-answer "recipe_range" #:show? show-range? range))
+                       (make-clear)
+                       (make-spacer "#")
+                       (make-wrapper
+                        (dr-student-answer "recipe_purpose" #:show? show-purpose? purpose)))
+                      ;; need one of these for each example provided/expected
+                      (design-recipe-section 
+                        "recipe_examples"
+                        "Examples"
+                        "Write some examples of your function in action..."
+                        (let ([example-elts 
+                               (let ([num-blank-examples (- num-examples (length example-list))])
+                                 (append 
+                                  ; generate contents of example-list according to show-examples
+                                  (map (lambda (e s) 
+                                         ; e is either empty or a two-element list of input and output
+                                         ; s is either a boolean or a three-element list of booleans
+                                         ;   indicating whether to show the funname/input/output
+                                         (dr-example/pyret funname e
+                                                     #:show-funname? (show-example-component? s 'funname)
+                                                     #:show-input? (show-example-component? s 'input)
+                                                     #:show-output? (show-example-component? s 'output))) 
+                                       example-list
+                                       ; pad show-examples to match length of example-list
+                                       ; padding value of #f means default is to not show example
+                                       (append show-examples
+                                               (build-list (- (length example-list) (length show-examples))
+                                                           (lambda (i) #f))))
+                                  ; pad example list with empty examples to get to specified num-examples
+                                  (build-list num-blank-examples (lambda (i) (dr-example funname '())))
+                                 ))])
+                          ; insert clear-breaks between examples and merge the example content lists
+                          (append (list "checks:")
+                                  (foldr (lambda (e res-rest) (append (cons (make-clear) e) res-rest))
+                                         '() example-elts)
+                                  (list "end")))
+                        )
+                      (design-recipe-section 
+                       "recipe_definition"
+                       "Definition"
+                       "Write the definition, giving variable names to all your input values..."
+                       (make-spacer "fun ")
+                       (make-wrapper
+                        (dr-student-answer #:id? #f "recipe_name" #:show? show-funname-defn? funname)
+                        (make-spacer "(")
+                        (dr-student-answer "recipe_variables" #:show? show-params? (string-join param-list " "))
+                        (make-spacer "):")
+                        ;(make-clear)  ; only force this for long-form DR (maybe via a flag?)
+                        (dr-student-answer "recipe_definition_body" #:show? show-body? body)
+                        (make-clear)
+                        (make-spacer "end")))
+                      )))))))
+
+(define (dr-example/pyret funname in-out-list
+                    #:show-funname? (show-funname? #t) 
+                    #:show-input? (show-input? #t)
+                    #:show-output? (show-output? #t)
+                    )
+  (let ([input (if (empty? in-out-list) "" (list->spaced-string (all-but-last in-out-list)))]
+        [output (if (empty? in-out-list) "" (format-exercise-text (last in-out-list)))])
+    (interleave-parbreaks/all
+     (list (make-wrapper
+            (dr-student-answer/pyret #:id? #f "recipe_name" #:show? show-funname? funname)
+            (make-spacer "(")
+            (dr-student-answer/pyret #:id? #f "recipe_example_inputs" #:show? show-input? input)
+            (make-spacer ")")
+            (make-spacer "is")
+            ;(make-clear) ; only force this for long-form DR (maybe via a flag?)
+            (dr-student-answer/pyret #:id? #f "recipe_example_body"#:show? show-output? output)
+            )
+           ))))
+
+(define (dr-student-answer/pyret class-or-id answer #:id? (id? #t) #:show? (show? #f) #:fmt-quotes? (fmt-quotes? #f))
   (let ([style (if id? 
                    (bootstrap-span-style/extra-id "studentAnswer" class-or-id) 
                    (bootstrap-span-style (string-append "studentAnswer " class-or-id)))])
