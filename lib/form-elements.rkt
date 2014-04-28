@@ -1486,8 +1486,14 @@
            (list
             (para #:style (bootstrap-div-style "exercise-header")
                   (bold "Word Problem:") (string-append " " funname))
-            (para #:style (bootstrap-div-style "exercise-instr")
-                  (bold "Directions:") (string-append " " directions))
+            (if (string? directions)
+                (para #:style (bootstrap-div-style "exercise-instr")
+                      (bold "Directions: ") directions)
+                (nested #:style (bootstrap-div-style "exercise-instr")
+                        (interleave-parbreaks/all
+                         (list
+                          (elem (bold "Directions: ") (first directions))
+                          (rest directions)))))
             (nested #:style (bootstrap-div-style "designRecipeLayout")
                     (interleave-parbreaks/all
                      (list
@@ -1637,8 +1643,14 @@
            (list
             (para #:style (bootstrap-div-style "exercise-header")
                   (bold "Word Problem:") (string-append " " funname))
-            (para #:style (bootstrap-div-style "exercise-instr")
-                  (bold "Directions:") (string-append " " directions))
+            (if (string? directions)
+                (para #:style (bootstrap-div-style "exercise-instr")
+                      (bold "Directions: ") directions)
+                (nested #:style (bootstrap-div-style "exercise-instr")
+                        (interleave-parbreaks/all
+                         (list
+                          (elem (bold "Directions: ") (first directions))
+                          (rest directions)))))
             (nested #:style (bootstrap-div-style "designRecipeLayout")
                     (interleave-parbreaks/all
                      (list
@@ -1730,7 +1742,7 @@
                     (bootstrap-span-style/extra-id base-style class-or-id) 
                     (bootstrap-span-style (string-append base-style " " class-or-id)))])
     (para #:style style
-          (cond [show? (format-exercise-text (bs1->pyret answer) #:fmt-quotes? fmt-quotes?)]
+          (cond [show? (format-exercise-text (bs1-string->pyret-string answer) #:fmt-quotes? fmt-quotes?)]
                 [(string? answer) (make-string (string-length answer) #\M)]
                 [else  " "]))))
 
