@@ -1709,7 +1709,7 @@
                        (make-wrapper
                         (dr-student-answer/pyret #:id? #f "recipe_name" #:show? show-funname-defn? funname)
                         (make-spacer "(")
-                        (dr-student-answer/pyret "recipe_variables" #:show? show-params? (string-join param-list " "))
+                        (dr-student-answer/pyret "recipe_variables" #:show? show-params? (string-join param-list ", "))
                         (make-spacer "):")
                         ;(make-clear)  ; only force this for long-form DR (maybe via a flag?)
                         (dr-student-answer/pyret "recipe_definition_body" #:show? show-body? body)
@@ -1737,6 +1737,7 @@
            ))))
 
 (define (dr-student-answer/pyret class-or-id answer #:id? (id? #t) #:show? (show? #f) #:fmt-quotes? (fmt-quotes? #f))
+  (printf "Preparing ~a~n" answer)
   (let* ([base-style (if show? "studentAnswer" "studentAnswer blank")]
          [style (if id? 
                     (bootstrap-span-style/extra-id base-style class-or-id) 

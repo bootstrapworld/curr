@@ -2,7 +2,11 @@
 
 ; BS1 -> pyret compiler
 
-(provide bs1->pyret)
+(provide bs1->pyret
+         pyret->string
+         bs1->pyret-string
+         bs1-string->pyret-string
+         )
 
 ;--------- PYRET AST -----------
 (define-struct pyatom (a))
@@ -71,13 +75,21 @@
                                 (string-join (map pyret->string (pyapp-args pyast)) ", "))]
         [else (error 'pyret->string "Unknown ast ~a~n" pyast)]))
         
+(define (bs1->pyret-string sexp)
+  (pyret->string (bs1->pyret sexp)))
+
+(define (bs1-string->pyret-string sexpstr)
+  (bs1->pyret-string (with-input-from-string sexpstr read)))
+
 ;; TESTS
 (define (test-bs1->pyret expr)
   (display (pyret->string (bs1->pyret expr)))
   (printf "~n~n"))
 
-(test-bs1->pyret 3)
-(test-bs1->pyret '(+ 2 3))
-(test-bs1->pyret '(define (f x) (+ x 2)))
-(test-bs1->pyret '(example (f x) (+ x 2)))
-(test-bs1->pyret '(cond [(* 4 5) "cake"] [else "pizza"]))
+(define (run-tests)
+  (test-bs1->pyret 3)
+  (test-bs1->pyret '(+ 2 3))
+  (test-bs1->pyret '(define (f x) (+ x 2)))
+  (test-bs1->pyret '(example (f x) (+ x 2)))
+  (test-bs1->pyret '(cond [(* 4 5) "cake"] [else "pizza"]))
+  )

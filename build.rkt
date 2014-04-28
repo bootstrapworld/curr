@@ -84,6 +84,7 @@
 ;; variable
 (putenv "AUDIENCE" "volunteer")
 (putenv "CURRENT-SOLUTIONS-MODE" "off")
+(putenv "TARGET-LANG" "racket")
 (define current-contextual-tags
   (command-line
    #:program "build"
@@ -100,6 +101,8 @@
     (putenv "AUDIENCE" -audience)]
    [("--deploy") -deploy-dir "Deploy into the given directory, and create a .zip.  Default: deploy" 
     (current-deployment-dir (simple-form-path -deploy-dir))]
+   [("--lang") -lang "Indicate which language (Racket or Pyret) to generate"
+    (putenv "TARGETLANG" -lang)]
    [("--pdf") "Generate PDF documentation"
     (current-generate-pdf? #t)]
    
