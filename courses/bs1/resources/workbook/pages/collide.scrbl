@@ -7,4 +7,8 @@
            @(item "cy: the y-coordinate of another game character"))
 "It should return true if the coordinates of the player are within 50 pixels of the coordinates of the other character. Otherwise, false.")
                          #:num-examples 2
+                         #:param-list (list "px" "py" "cx" "cy")
+                         #:show-params? #f
+                         #:body "(< (distance px py cx cy) 50)"
+                         #:show-body? '(#f)
                          )

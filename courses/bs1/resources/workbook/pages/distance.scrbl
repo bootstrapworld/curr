@@ -7,4 +7,9 @@
            @(item "cy: the y-coordinate of another game character"))
 "It should return the distance between the two, using the Distance formula. (HINT: look at what you did on the previous page!)")
                          #:num-examples 2
+                         #:param-list (list "px" "py" "cx" "cy")
+                         #:show-params? #f
+                         #:body "(sqrt (+ (sqr (line-length px cx))
+                                          (sqr (line-length py cy))))"
+                         #:show-body? '(#f)
                          )

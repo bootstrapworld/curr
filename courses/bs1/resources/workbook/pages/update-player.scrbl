@@ -4,5 +4,11 @@
                          #:num-examples 4
                          #:example-list '((128 "up" (+ y 20)) (451 "down" (- y 20)))
                          #:show-examples '((#t #t #f) (#t #t #f))
+                         #:param-list (list "y" "key")
+                         #:show-params? #f
+                         #:body "(cond [(string=? \"up\" key) (+ y 20)]
+                                       [(string=? \"down\" key) (- y 20)]
+                                       [else y])"
+                         #:show-body? '(cond (#f))
                          #:grid-lines? #t
                          )

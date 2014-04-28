@@ -4,5 +4,10 @@
                          #:num-examples 2
                          #:example-list '((10 5 (- 10 5)) (2 8 (- 8 2))) 
                          #:show-examples'((#t #t #t) (#t #t #t))
+                         #:param-list (list "a" "b")
+                         #:show-params? #f
+                         #:body "(cond [(> a b) (- a b)]
+                                       [(< a b) (- b a)])"
+                         #:show-body? '(cond (#f))
                          #:grid-lines? #t
                          )
