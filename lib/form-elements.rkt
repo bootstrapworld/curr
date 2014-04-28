@@ -34,6 +34,7 @@
          "sexp-generator.rkt"
          "auto-format-within-strings.rkt"
          "workbook-index-api.rkt"
+         "racket2pyret.rkt"
          )
 
 
@@ -1602,9 +1603,10 @@
             (make-spacer ")")))))) 
 
 (define (dr-student-answer class-or-id answer #:id? (id? #t) #:show? (show? #f) #:fmt-quotes? (fmt-quotes? #f))
-  (let ([style (if id? 
-                   (bootstrap-span-style/extra-id "studentAnswer" class-or-id) 
-                   (bootstrap-span-style (string-append "studentAnswer " class-or-id)))])
+  (let* ([base-style (if show? "studentAnswer" "studentAnswer blank")]
+         [style (if id? 
+                    (bootstrap-span-style/extra-id base-style class-or-id) 
+                    (bootstrap-span-style (string-append base-style " " class-or-id)))])
     (para #:style style
           (cond [show? (format-exercise-text answer #:fmt-quotes? fmt-quotes?)]
                 [(string? answer) (make-string (string-length answer) #\M)]
@@ -1693,20 +1695,20 @@
                        "Write the definition, giving variable names to all your input values..."
                        (make-spacer "fun ")
                        (make-wrapper
-                        (dr-student-answer #:id? #f "recipe_name" #:show? show-funname-defn? funname)
+                        (dr-student-answer/pyret #:id? #f "recipe_name" #:show? show-funname-defn? funname)
                         (make-spacer "(")
-                        (dr-student-answer "recipe_variables" #:show? show-params? (string-join param-list " "))
+                        (dr-student-answer/pyret "recipe_variables" #:show? show-params? (string-join param-list " "))
                         (make-spacer "):")
                         ;(make-clear)  ; only force this for long-form DR (maybe via a flag?)
-                        (dr-student-answer "recipe_definition_body" #:show? show-body? body)
-                        (make-clear)
-                        (make-spacer "end")))
+                        (dr-student-answer/pyret "recipe_definition_body" #:show? show-body? body)
+                        (make-clear))
+                       (make-spacer "end"))
                       )))))))
 
 (define (dr-example/pyret funname in-out-list
-                    #:show-funname? (show-funname? #t) 
-                    #:show-input? (show-input? #t)
-                    #:show-output? (show-output? #t)
+                    #:show-funname? (show-funname? #f) 
+                    #:show-input? (show-input? #f)
+                    #:show-output? (show-output? #f)
                     )
   (let ([input (if (empty? in-out-list) "" (list->spaced-string (all-but-last in-out-list)))]
         [output (if (empty? in-out-list) "" (format-exercise-text (last in-out-list)))])
@@ -1723,11 +1725,12 @@
            ))))
 
 (define (dr-student-answer/pyret class-or-id answer #:id? (id? #t) #:show? (show? #f) #:fmt-quotes? (fmt-quotes? #f))
-  (let ([style (if id? 
-                   (bootstrap-span-style/extra-id "studentAnswer" class-or-id) 
-                   (bootstrap-span-style (string-append "studentAnswer " class-or-id)))])
+  (let* ([base-style (if show? "studentAnswer" "studentAnswer blank")]
+         [style (if id? 
+                    (bootstrap-span-style/extra-id base-style class-or-id) 
+                    (bootstrap-span-style (string-append base-style " " class-or-id)))])
     (para #:style style
-          (cond [show? (format-exercise-text answer #:fmt-quotes? fmt-quotes?)]
+          (cond [show? (format-exercise-text (bs1->pyret answer) #:fmt-quotes? fmt-quotes?)]
                 [(string? answer) (make-string (string-length answer) #\M)]
                 [else  " "]))))
 

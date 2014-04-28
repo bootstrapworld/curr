@@ -59,10 +59,10 @@
                                 (pyfun-name pyast) 
                                 (pyfun-args pyast)
                                 (pyret->string (pyfun-body pyast)))]
-        [(pyask-clause? pyast) (format " | ~a => ~a"
+        [(pyask-clause? pyast) (format " | ~a => ~a~n"
                                        (pyret->string (pyask-clause-test pyast))
                                        (pyret->string (pyask-clause-then pyast)))]
-        [(pyask? pyast) (format "ask: ~n ~a ~nend" (string-join (map pyret->string (pyask-clauses pyast)) "~n "))]
+        [(pyask? pyast) (format "ask: ~n ~a ~nend" (string-join (map pyret->string (pyask-clauses pyast)) " "))]
         [(pyexample? pyast) (format "~a is ~a"
                                     (pyret->string (pyexample-in pyast))
                                     (pyret->string (pyexample-out pyast)))]
