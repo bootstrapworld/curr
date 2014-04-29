@@ -125,6 +125,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Main entry point:
+(putenv "TARGET-LANG" "racket")
 (build-exercise-handout-solutions)
 ;; need to create an index file for the solutions
 ;; ideally include solutions to the activities as well

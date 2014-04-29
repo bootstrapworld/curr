@@ -78,7 +78,7 @@
 (define (bs1->pyret-string sexp)
   (pyret->string (bs1->pyret sexp)))
 
-(define (bs1-string->pyret-string sexpstr)
+(define (bs1-string->pyret-string sexpstr) 
   (bs1->pyret-string (with-input-from-string sexpstr read)))
 
 ;; TESTS

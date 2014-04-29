@@ -5,5 +5,5 @@
                          #:param-list (list "n")
                          #:show-params? #f
                          #:body "(rectangle n n \"solid\" \"red\")"
-                         #:show-body? '(#f)
+                         #:show-body? #f
                          )

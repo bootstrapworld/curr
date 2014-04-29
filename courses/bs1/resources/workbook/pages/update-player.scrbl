@@ -9,6 +9,6 @@
                          #:body "(cond [(string=? \"up\" key) (+ y 20)]
                                        [(string=? \"down\" key) (- y 20)]
                                        [else y])"
-                         #:show-body? '(cond (#f))
+                         #:show-body? #f
                          #:grid-lines? #t
                          )

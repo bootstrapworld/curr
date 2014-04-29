@@ -524,18 +524,24 @@
                body)))))
 
 ;; generate tags to format code via codemirror
+;; pyret-alt lets us manually provide the pyret code to insert in place of
+;;   the provided body.  This will be used for content that cannot be
+;;   read as sexps, such as malformed expressions used to teach about error messages
 (define (code #:multi-line (multi-line #f)
               #:contract (contract #f)
               #:purpose (purpose #f)
+              #:pyret-alt (pyret-alt #f)
               . body)
   ;; first an error check to make sure we understand original API usage
   (when (and (not multi-line) (or (and contract purpose) 
                                   (and contract (not (null? body))) 
                                   (and purpose (not (null? body)))))
     (printf "WARNING: Use of code that supplied more than one of contract/purpose/body~n"))
-  (let ([allcode (string-append (if contract (string-append "; " contract "\n") "")
-                                (if purpose (string-append "; " purpose "\n") "")
-                                (apply string-append body) 
+  (let ([allcode (string-append (if contract (string-append (curr-comment-char) " " contract "\n") "")
+                                (if purpose (string-append (curr-comment-char) " " purpose "\n") "")
+                                (cond [(gen-racket?) (apply string-append body)]
+                                      [(gen-pyret?) (apply string-append (map bs1-string->pyret-string body))]
+                                      [else (error 'code "Unknown target language")])
                                 )])
     ;; we do not use the built-in Racket code formatting in order
     ;; to let codemirror can handle it instead
@@ -546,6 +552,19 @@
                (elem (list (sxml->element 'nbsp) (sxml->element `(textarea ,(string-append "\n" allcode "\n")))))
                (sxml->element `(tt ,allcode)))]               
      [else allcode])))
+
+;;; tailoring to pyret vs racket
+
+(define (gen-racket?)
+  (equal? (getenv "TARGET-LANG") "racket"))
+
+(define (gen-pyret?)
+  (equal? (getenv "TARGET-LANG") "pyret"))
+
+(define (curr-comment-char)
+  (cond [(gen-pyret?) "#"]
+        [(gen-racket?) ";"]
+        [else (error 'curr-comment "Current target lang unclear")]))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -1553,9 +1572,37 @@
                         (dr-student-answer "recipe_variables" #:show? show-params? (string-join param-list " "))
                         (make-spacer ")")
                         ;(make-clear)  ; only force this for long-form DR (maybe via a flag?)
-                        (dr-student-answer "recipe_definition_body" #:show? show-body? body)
+                        (dr-body body #:show show-body?)
+                        ;(dr-student-answer "recipe_definition_body" #:show? show-body? body)
                         (make-spacer ")")))
                       )))))))
+
+(define (atom? v) (not (list? v)))
+
+; format the body of a design recipe worksheet -- formatting may depend on body contents
+(define (dr-body body #:show (show #f))
+  (if body
+      (let ([body-contents (with-input-from-string body read)])
+        (cond [(atom? body-contents) (dr-student-answer "recipe_definition_body" #:show? show body)]
+              [(eq? (first body-contents) 'cond) 
+               (let ([clauselines (map (lambda (c s) 
+                                         (make-wrapper
+                                          ;(make-spacer "[")
+                                          (dr-student-answer "recipe_definition_body clause" (first c) #:show? (if (list? s) (first s) s))
+                                          (dr-student-answer "recipe_definition_body clause" (second c) #:show? (if (list? s) (second s) s))
+                                          ;(make-spacer "]")
+                                          ))
+                                       (rest body-contents) 
+                                       ; show is either a single boolean or a list of specs with same length as number of clauses
+                                       (if (not show) (build-list (length (rest body-contents)) (lambda (i) #f))
+                                           (rest show)))])
+                 (apply make-wrapper
+                        (cons (dr-student-answer "recipe_definition_body cond" #:show? #f (first body-contents))
+                              clauselines)))]
+              [else ;; assume single-line expression for now
+               (dr-student-answer "recipe_definition_body" #:show? show body)]))
+      ;; eventually, this should become a warning about the body missing
+      (dr-student-answer "recipe_definition_body" #:show? show body)))
 
 (define (design-recipe-section id title instructions . body)
   (nested #:style (bootstrap-div-style/id/nested id)
@@ -1696,6 +1743,7 @@
                                   (build-list num-blank-examples (lambda (i) (dr-example funname '())))
                                  ))])
                           ; insert clear-breaks between examples and merge the example content lists
+                          ;; NEED TO GET SINTRAPARAS OUT OF HERE
                           (append (list "checks:")
                                   (foldr (lambda (e res-rest) (append (cons (make-clear) e) res-rest))
                                          '() example-elts)
@@ -1712,18 +1760,22 @@
                         (dr-student-answer/pyret "recipe_variables" #:show? show-params? (string-join param-list ", "))
                         (make-spacer "):")
                         ;(make-clear)  ; only force this for long-form DR (maybe via a flag?)
-                        (dr-student-answer/pyret "recipe_definition_body" #:show? show-body? body)
+                        (dr-student-answer/pyret "recipe_definition_body" #:show? show-body? #:parse-as-pyret? #t body)
                         (make-clear))
                        (make-spacer "end"))
                       )))))))
+
+;; does bs1-string->pyret-string really return strings in all cases, or sometimes numbers?
+(define (list->pyret-inputs input-strs) 
+  (string-join (map (lambda (e) (format-exercise-text (bs1->pyret-string e))) input-strs) ", "))
 
 (define (dr-example/pyret funname in-out-list
                     #:show-funname? (show-funname? #f) 
                     #:show-input? (show-input? #f)
                     #:show-output? (show-output? #f)
                     )
-  (let ([input (if (empty? in-out-list) "" (list->spaced-string (all-but-last in-out-list)))]
-        [output (if (empty? in-out-list) "" (format-exercise-text (last in-out-list)))])
+  (let ([input (if (empty? in-out-list) "" (list->pyret-inputs (all-but-last in-out-list)))]
+        [output (if (empty? in-out-list) "" (last in-out-list))])
     (interleave-parbreaks/all
      (list (make-wrapper
             (dr-student-answer/pyret #:id? #f "recipe_name" #:show? show-funname? funname)
@@ -1732,19 +1784,23 @@
             (make-spacer ")")
             (make-spacer "is")
             ;(make-clear) ; only force this for long-form DR (maybe via a flag?)
-            (dr-student-answer/pyret #:id? #f "recipe_example_body"#:show? show-output? output)
+            (dr-student-answer/pyret #:id? #f "recipe_example_body"#:show? show-output? #:parse-as-pyret? #t output)
             )
            ))))
 
-(define (dr-student-answer/pyret class-or-id answer #:id? (id? #t) #:show? (show? #f) #:fmt-quotes? (fmt-quotes? #f))
-  (printf "Preparing ~a~n" answer)
+(define (dr-student-answer/pyret class-or-id answer #:id? (id? #t)
+                                 #:parse-as-pyret? (parse-as-pyret? #f)
+                                 #:show? (show? #f) 
+                                 #:fmt-quotes? (fmt-quotes? #f)
+                                 )
   (let* ([base-style (if show? "studentAnswer" "studentAnswer blank")]
          [style (if id? 
                     (bootstrap-span-style/extra-id base-style class-or-id) 
-                    (bootstrap-span-style (string-append base-style " " class-or-id)))])
+                    (bootstrap-span-style (string-append base-style " " class-or-id)))]
+         [converted-ans (if parse-as-pyret? (bs1->pyret-string answer) answer)])
     (para #:style style
-          (cond [show? (format-exercise-text (bs1-string->pyret-string answer) #:fmt-quotes? fmt-quotes?)]
-                [(string? answer) (make-string (string-length answer) #\M)]
+          (cond [show? (format-exercise-text converted-ans #:fmt-quotes? fmt-quotes?)]
+                [(string? answer) (make-string (string-length converted-ans) #\M)]
                 [else  " "]))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

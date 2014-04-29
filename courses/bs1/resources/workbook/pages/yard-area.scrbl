@@ -5,5 +5,5 @@
                          #:param-list (list "length" "width")
                          #:show-params? #f
                          #:body "(* length width)"
-                         #:show-body? '(#f)
+                         #:show-body? #f
                          )

@@ -8,6 +8,6 @@
                          #:show-params? #f
                          #:body "(cond [(> a b) (- a b)]
                                        [(< a b) (- b a)])"
-                         #:show-body? '(cond (#f))
+                         #:show-body? '(cond #f #f)
                          #:grid-lines? #t
                          )

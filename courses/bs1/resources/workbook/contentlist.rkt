@@ -50,7 +50,7 @@
  "Lines.pdf"
  "Feedback.pdf"
  "Feedback.pdf"
- "red-shape.pdf"
+ "red-shape.scrbl"
  "Translating-to-Algebra.pdf"
  "Math-Rocket-Distance.pdf"
  "Math-Rocket-Time.pdf"

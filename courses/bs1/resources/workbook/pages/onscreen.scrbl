@@ -5,5 +5,5 @@
                          #:param-list (list "x")
                          #:show-params? #f
                          #:body "(and (safe-left? x) (safe-right? x))"
-                         #:show-body? '(#f)
+                         #:show-body? #f
                          )

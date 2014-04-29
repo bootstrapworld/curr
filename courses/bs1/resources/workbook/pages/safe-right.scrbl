@@ -5,5 +5,5 @@
                          #:param-list (list "x")
                          #:show-params? #f
                          #:body "(< x 690)"
-                         #:show-body? '(#f)
+                         #:show-body? #f
                          )
