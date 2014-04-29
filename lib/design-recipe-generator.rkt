@@ -10,7 +10,7 @@
          scriblib/render-cond
          "scribble-helpers.rkt"
          "styles.rkt"
-         "process-code.rkt"
+        ; "process-code.rkt"
          "sxml.rkt"
          "racket2pyret.rkt"
          )

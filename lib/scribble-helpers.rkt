@@ -16,7 +16,8 @@
          list->itemization
          interleave-parbreaks/select
          interleave-parbreaks/all
-         ;(all-defined-out)  ;--> why isn't this working???
+         create-itemlist
+         ;(all-defined-out)  ;--> clashes with provide/contract
          )
 
 (provide/contract [itemlist/splicing
@@ -27,6 +28,9 @@
                  )
 
 ;;;;; ITEMIZATIONS ;;;;;;;;;;;;
+
+(define (create-itemlist #:style [style #f] contents)
+  (apply itemlist/splicing #:style style contents))
 
 ;; append contents of two scribble itemizations, keeping style of the second
 (define (append/itemization items1 items2)
