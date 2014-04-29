@@ -40,26 +40,16 @@
 
 
 ;; FIXME: must add contracts!
-(provide row
-         current-row
-         fill-in-the-blank
-         free-response
-         drop-down
-         think-about
-         vocab
+(provide vocab
          code
          math
          bannerline
          new-paragraph
          animated-gif
          language-table
-         worksheet-table
          build-table/cols
-         contract-exercise
-         function-exercise
          design-recipe-exercise
          design-recipe-exercise/pyret
-         circles-evaluation-exercise
          unit-summary/links
          summary-item/links
          summary-item/custom
@@ -95,15 +85,7 @@
          login-link
          
          ;; Sections
-         worksheet
-         worksheet-segment
-         lesson
-         drill
-         exercise
-         skit
-         demo
          activity
-         review
          unit-separator
          unit-descr
          main-contents
@@ -120,39 +102,24 @@
          
          ;; Itemizations
          materials
-         goals
-         do-now
          objectives
          product-outcomes
          preparation
          agenda
          
-         ;; Misc
-         standards
          unit-length
          
          ;; Include lesson/lesson link
          include-lesson
          lesson-link
          
-         ;; stuff added by the interns
-         ;;edited contract-exercise
          unit-overview/auto
          unit-lessons
-         overview
          copyright
-         example-with-text
-         example-fast-functions
-         state-standards
          length-of-lesson
          bootstrap-title
          augment-head
-         
-         ;; stuff added by Vicki
-         struct-example-with-text
-         struct-design-recipe-exercise
-         struct-function-exercise
-         
+                  
          [rename-out [worksheet-link/src-path worksheet-link]]
          
          resource-link
@@ -163,10 +130,6 @@
                    (-> constraint? element?)]
                   )
 
-;(provide-for-syntax 
-;         solutions-mode-on?/syntax
-;         )
-
 ;;;;;;;;;;;;;;;; Site Images ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (define bootstrap.gif (bitmap "bootstrap.gif"))
 (define creativeCommonsLogo (bitmap "creativeCommonsLogo.png"))
@@ -176,6 +139,8 @@
   (neturl:string->url 
    "http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,http://www.cs.wpi.edu/~kfisler/mathjaxlocal.js"))
   
+;;;;;;;;;;;;;;;;; Runtime Params ;;;;;;;;;;;;;;;;;;;;;;;;;
+
 ;; aud is either a string or a list of strings of audience tags
 ;;  known tags are student, teacher, volunteer, and self-taught
 (define (audience-in? aud)
@@ -340,7 +305,8 @@
 (define bs-head-style (make-style #f (list bs-head-additions)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; This provides form loops and indices
+;; This section appears tied to free-response, and setting up ability to
+;; look up IDs later.  We don't use in practice, so warrants cleaning up
 
 (define current-row (make-parameter #f))
 
@@ -353,17 +319,14 @@
                          (paragraph (make-style "BootstrapRow" (list (make-alt-tag "div")))
                                     (list body ...)))))]))
 
-;; When creating the ids for the form elements, if we're in the context of a row,
-;; add it to the identifier as a ";~a" suffix.
+; When creating the ids for the form elements, if we're in the context of a row,
+; add it to the identifier as a ";~a" suffix.
 (define (resolve-id id)
   (cond [(current-row)
          (format "~a;~a" id (current-row))]
         [else id]))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-
-(define interactive-mode? #f)
 
 ;; Inputs: string number string string -> element
 ;; Generates a single-line input area
@@ -373,21 +336,13 @@
                            #:class (classname #f)
                            #:answer (answer #f))
   (cond-element [html
-                 (if interactive-mode?
-                     (sxml->element `(input (@ (type "text")
-                                               (id ,(resolve-id id))
-                                               (width ,(number->string width))
-                                               ,@(if label
-                                                     `((placeholder ,label))
-                                                     '()))
-                                            ""))
-                     (elem #:style (bootstrap-span-style classname) ""))] ;"answer here"
+                 (elem #:style (bootstrap-span-style classname) "")] ;"answer here"
                 [(or latex pdf)
                  (elem #:style bs-fill-in-blank-style 
                        (if label label " "))]))
-
-;; Inputs: string element number number string -> element
-;; Generates a multi-line input area of size given in column/row arguments
+;
+;;; Inputs: string element number number string -> element
+;;; Generates a multi-line input area of size given in column/row arguments
 (define (free-response #:id id
                        #:answer (answer #f)
                        #:columns (width 50)
@@ -403,13 +358,6 @@
                                    ""))]
    [(or latex pdf)
     (elem #:style bs-free-response-style (number->string width) (number->string height))]))
-
-
-;; drop-down menus
-(define (drop-down #:id id
-                   #:options (options '()))
-  (sxml->element `(select (@ (id ,(resolve-id id)))
-                          ,@(map (lambda (o) `(option ,o)) options))))
 
 (define (escape-webstring-newlines str)
   (string-replace str (list->string (list #\newline)) "%0A"))
@@ -453,25 +401,6 @@
                           (target "embedded"))
                        ,link-text))]
    [else (elem)]))
-  
-  
-  
-;; Lightweight questions with optional hints and answers
-;; ideally hints/answers come up on some action, not by default
-;; hints and answers may contain arbitrary formatting, not just strings
-(define (think-about #:question (question #f) 
-                     #:hint (hint #f)
-                     #:answer (answer #f))
-  (list question
-        (if hint
-            (list " (Hint: " hint ")")
-            "")
-        (if answer 
-            (list " (Answer: " answer ")") 
-            "")))
-
-(define (format-racket-header str)
-  (format "; ~a~n" str))
 
 ;; accumulate all vocab referenced in lesson so we can generate a glossary
 (define (vocab body)
@@ -568,12 +497,6 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; The following provides sectioning for bootstrap.  
-(define (worksheet . body)
-  (nested #:style (bootstrap-sectioning-style "BootstrapWorksheet")
-          body))
-
-
 
 ;; lesson-struct records the outline of a structure: basically, its
 ;; title, how long it takes, and the anchor to get to it within the
@@ -585,58 +508,6 @@
 
 
 
-;; lesson: #:title #:duration #:subsumes #:prerequisites #:video body ... -> block
-;;
-;; Creates a lesson block; this block is hyperlinked.  Internally,
-;; it's a traverse-block.  In the traverse phase, we assign to
-;; 'bootstrap-lessons so that other phases can pick out which lessons
-;; have been defined.
-;;
-;; bootstrap-lessons is a (listof lesson-struct), whose structure should be
-;; defined right above us.
-(define (lesson #:title (title #f)
-                #:duration (duration #f)
-                #:subsumes (subsumes #f)
-                #:prerequisites (prerequisites #f)
-                #:video (video #f)
-                . body)
-  
-  (define the-lesson-name 
-    (or (current-lesson-name) 
-        (symbol->string (gensym (string->symbol (or title 'lesson))))))
-  
-  (define video-elem (cond [(and video (list? video))
-                            (map (lambda (v) (elem #:style bs-video-style v)) video)]
-                           [video (elem #:style bs-video-style video)]
-                           [else (elem)]))
-  (traverse-block
-   (lambda (get set!)
-     (define anchor (lesson-name->anchor-name the-lesson-name))
-     (set! 'bootstrap-lessons (cons (lesson-struct title
-                                                   duration
-                                                   anchor)
-                                    (get 'bootstrap-lessons '())))     
-     (nested-flow 
-      (style "BootstrapLesson" '())
-      (decode-flow
-       (list
-        (elem #:style (style #f (list (url-anchor anchor))))
-        (cond [(and title duration)
-               (para #:style bs-lesson-title-style
-                     (list (elem #:style bs-lesson-name-style title) 
-                           video-elem
-                           (elem #:style bs-lesson-duration-style (format "(Time ~a)" duration))))]
-              [title 
-               (para #:style bs-lesson-title-style
-                     (list (elem #:style bs-lesson-name-style title)
-                           video-elem))]
-              [duration 
-               (para #:style bs-lesson-title-style
-                     (list (elem #:style bs-lesson-name-style (format "Lesson "))
-                           video-elem
-                           (elem #:style bs-lesson-duration-style (format "(Time ~a)" duration))))])
-        (nested #:style (bootstrap-sectioning-style "BootstrapLesson")
-                body)))))))
 
 
 ;;;;;;;;;;;;; SSI COMMANDS ;;;;;;;;;;;;;;;;;;;;;;;
@@ -1003,28 +874,7 @@
 
 ;;;;;;;;;;;;; End of Generating Main Summary Page ;;;;;;;;;;;;;;;
 
-(define (drill . body)
-  (compound-paragraph (bootstrap-sectioning-style "BootstrapDrill")
-                      (decode-flow body)))
-
-(define (exercise . body) 
-  (list (compound-paragraph bs-header-style
-                            (decode-flow (list "Exercise:")))
-        (compound-paragraph (bootstrap-sectioning-style "BootstrapExercise")
-                            (decode-flow body))))
-
-
-;; this needs some sort of ALT tag
-(define (skit . body) 
-  (list "Skit:"	
-        (compound-paragraph (bootstrap-sectioning-style "BootstrapSkit")
-                            (decode-flow body))))
-
-
-(define (demo . body) 
-  (compound-paragraph (bootstrap-sectioning-style "BootstrapDemo")
-                      (decode-flow (cons "Demo: " body))))
-
+;; activities that are interspersed into the notes
 (define (activity #:forevidence (evidence #f) 
                   #:answer (answer #f)
                   #:show-answer? (show-answer? #f)
@@ -1043,12 +893,6 @@
          (nested #:style (bootstrap-div-style "activity")
                  (interleave-parbreaks/select body))))))
   
-
-(define (review . body)
-  (list "Review:"
-        (compound-paragraph (bootstrap-sectioning-style "BootstrapReview")
-                            (decode-flow body))))
-
 ;; language-table : list[list[elements]] -> table
 ;; produces table with the particular formatting for the Bootstrap language table
 (define (language-table . rows)
@@ -1062,16 +906,6 @@
                  (cons (list (para #:style "BootstrapTableHeader" "Types")
                              (para #:style "BootstrapTableHeader" "Functions"))
                        (map (lambda (r) (map para r)) rows)))))
-
-;; worksheet-table : list[string] list[element] list[string] number number -> table
-;; assert: col-headers should be same length as (add1 id-tags)
-(define (worksheet-table col-headers left-col id-tags width height)
-  (build-table/cols col-headers 
-                    (if (null? left-col) '() (list left-col))
-                    (lambda (row-num col-num)
-                      (para (fill-in-the-blank
-                             #:id (format "~a~a" (list-ref id-tags col-num) row-num))))
-                    width height))
 
 ;; build-table : list[string] list[list[element]] (number number -> element) 
 ;;               number number -> table
@@ -1111,11 +945,6 @@
                        (lambda (row-num) 
                          (map (lambda (col) (list-ref col row-num))
                               all-columns))))))
-
-(define (standards . body)
-  (list "State Standards: "
-        (para (bootstrap-sectioning-style "BootstrapStandards")
-              (decode-flow body))))
 
 (define (unit-length timestr)
   (list (format "Length: ~a~n" (decode-flow timestr))))
@@ -1324,17 +1153,6 @@
                            #:layoutstyle layoutstyle
                            #:include-center? #f
                            colA colB '()))
-;  (let* ([paddedcolA (if (> (length colB) (length colA)) (pad-to colA (length colB) "") colA)]
-;         [paddedcolB (if (> (length colA) (length colB)) (pad-to colB (length colA) "") colB)]
-;         [leftcolstyle (bootstrap-div-style (string-append "leftColumn" " " leftcolextratag))]
-;         [rightcolstyle (bootstrap-div-style (string-append "rightColumn" " " rightcolextratag))])       
-;    (create-itemlist #:style (string-append "twoColumnLayout " layoutstyle)
-;                     (map (lambda (left right)
-;                            (interleave-parbreaks/all
-;                             (list 
-;                              (nested #:style leftcolstyle left)
-;                              (nested #:style rightcolstyle right))))
-;                          paddedcolA paddedcolB))))
 
 ;; generic function for creating a three-column layout.  Not meant to be called
 ;; directly from .scrbl files.  Mostly used for exercise generation
@@ -1810,14 +1628,6 @@
                             (decode-flow (list "Materials and Equipment:")))
         (apply itemlist/splicing items #:style "BootstrapMaterialsList")))
 
-(define (goals . items)
-  (list "Goals:"
-        (apply itemlist/splicing items #:style "BootstrapGoalsList")))
-
-(define (do-now . items)
-  (list "Do Now:"
-        (apply itemlist/splicing items #:style "BootstrapDoNowList")))
-
 (define (objectives . items)
   (list (compound-paragraph bs-header-style 
                             (decode-flow (list "Learning Objectives:")))
@@ -2156,162 +1966,11 @@
         (hyperlink (path->string the-relative-path)
                    (if label label lesson-name))]))))
 
-
-
-;;Vicki
-
-;; Inputs: string list[element] -> nested-flow
-;;         optional arguments are elements 
-;; Generates all components of a design-recipe exercise.  Optional arguments fill in solutions
-;;    for teacher's edition
-(define (struct-design-recipe-exercise fields func-name . description)
-  (let ([tagbase (format "recipe-~a" func-name)])
-    (nested
-     #:style (style "BootstrapDRExercise" '())
-     
-     ;(bootstrap-title (format "Design Recipe for ~a" func-name))
-     (apply para #:style "BSRecipeExerciseDescr" description)
-     (worksheet-segment "I. Contract + Purpose Statement")
-     (elem "Every contract has three parts")
-     "\n" "\n" 
-     (contract-purpose-exercise tagbase)
-     (make-element 'newline '("\n"))(make-element 'newline '("\n"))
-     (worksheet-segment "II. Give Examples")
-     (elem "Write two examples of your function in action")
-     "\n" "\n" 
-     (struct-example-with-text (string-append tagbase "ex1" ) fields)
-     "\n" "\n"
-     (struct-example-with-text (string-append tagbase "ex2") fields)
-     (worksheet-segment "III. Function")
-     "\n" "\n"
-     (elem "Write the function header, giving variable names to all your input values")
-     "\n""\n"
-     (struct-function-exercise (string-append tagbase "function") fields)
-     )))
-
-;; input: -two optional text labels for the two fill-in-the-blanks 
-;;        -a tag which can be anything unqiue which helps to generate a 
-;;         unique id 
-;;        number of fields in struct
-;; output: in format (EXAMPLE ( /*with text1label*/ _____) /*with text2label*/ _____)
-(define (struct-example-with-text #:text1 [text1 ""]
-                                  #:text2 [text2 ""]
-                                  tag
-                                  #:example1 [example1 #f]
-                                  #:example2 [example2 #f]
-                                  fields)
-  (cond-element 
-   [html (apply elem (flatten-1 (list "(EXAMPLE ( " 
-                                      (fill-in-the-blank #:id (format "~a.1" tag) #:label "function name")
-                                      (fill-in-the-blank #:id (format "~a.1" tag) #:label "inputs")
-                                      " ) ( " (fill-in-the-blank #:id (format "~a.2" tag) #:label "what it does") 
-                                      
-                                      (duplicate fields (list (make-element 'newline '("\n"))(fill-in-the-blank #:id (format "~a.2" tag) #:label "") ))
-                                      
-                                      " ))")))]
-   [(or latex pdf) (elem #:style bs-example-exercise-style "")]))
-
-
-;; input: optional values for the name, args, and body fields of a function
-;;        a tag to use for generating html id names
-;;        number of fields in struct
-;; output: a define with text boxes formatted for inputs to the exercise
-(define (struct-function-exercise #:name [name ""]
-                                  #:args [args ""]
-                                  #:body [body ""]
-                                  tag
-                                  fields)
-  (cond-element 
-   [html
-    (apply elem (flatten-1 (list "(define ( "
-                                 (fill-in-the-blank #:id (format "fname-~a" tag) #:label "function name")
-                                 (fill-in-the-blank #:id (format "args-~a" tag) #:label "variable names") 
-                                 " ) ( " (fill-in-the-blank #:id (format "body-~a" tag) #:label "what it does") 
-                                 
-                                 (duplicate fields (list (make-element 'newline '("\n"))(fill-in-the-blank #:id (format "~a.2" tag) #:label "") ))
-                                 
-                                 " ))")))]
-   [(or latex pef) (elem #:style bs-function-exercise-style "")]))
-
-
-
-
-
-(define (duplicate n things . _)
-  (let ((res (if (eq? _ '()) '() (car _))))
-    (if (= n 0)
-        res
-        (duplicate (- n 1) things (append things res)))))
-
-(define (flatten-1 lol)
-  (cond
-    ((null? lol) lol)
-    ((list? (car lol)) (append (car lol) (flatten-1 (cdr lol))))
-    (#t (cons (car lol) (flatten-1 (cdr lol))))))
-
-
-;;interns
-
-;; Inputs: string list[element] -> nested-flow
-;;         optional arguments are elements 
-;; Generates all components of a design-recipe exercise.  Optional arguments fill in solutions
-;;    for teacher's edition
-(define (design-recipe-exercise-old func-name . description)
-  (let ([tagbase (format "recipe-~a" func-name)])
-    (nested
-     #:style (style "BootstrapDRExercise" '())
-     
-     ;(bootstrap-title (format "Design Recipe for ~a" func-name))
-     (apply para #:style "BSRecipeExerciseDescr" description)
-     (worksheet-segment "I. Contract + Purpose Statement")
-     (elem "Every contract has three parts")
-     "\n" "\n"
-     (contract-purpose-exercise tagbase)
-     (worksheet-segment "II. Give Examples")
-     (elem "Write two examples of your function in action")
-     "\n" "\n" 
-     (example-with-text (string-append tagbase "ex1"))
-     "\n" "\n"
-     (example-with-text (string-append tagbase "ex2"))
-     (worksheet-segment "III. Function")
-     "\n" "\n"
-     (elem "Write the function header, giving variable names to all your input values")
-     "\n""\n"
-     (function-exercise (string-append tagbase "function"))
-     )))
-
-;; Inputs: list[string or image] -> nested-flow
-;; Generates all components of a math/circle-of-evaluation/racket exercise
-;;    Corresponding LaTeX macro currently assumes 4 examples
-;;    FIX:: HTML version currently lacks header and warning text
-(define (circles-evaluation-exercise tag math-examples)
-  [cond-element 
-   [html (build-table/cols 
-          (list "Math" "Circle of Evaluation" "Racket Code")
-          math-examples
-          (lambda (row-num col-num) (free-response (format "~ar~ac~a" tag row-num col-num))) 
-          3 
-          4)]
-   [(or latex pdf) (apply elem #:style (make-bs-latex-style "BSCircEvalExercise") 
-                          (map elem math-examples))]])
-
-;; STILL IN USE???
-(define (overview #:gen-agenda? (gen-agenda? #t) . body)
-  (nested #:style "OverviewBoundary"
-   (elem #:style (bootstrap-style "BootstrapOverviewTitle") "Unit Overview")
-   (if gen-agenda? (agenda) (elem))
-   (nested #:style (bootstrap-sectioning-style "BootstrapOverview") 
-           (list body)) 
-   ))
-
 (define (insert-help-button)
   (para #:style (make-style #f (list (make-alt-tag "iframe") 
                                      (make-attributes (list (cons 'id "forum_embed"))))) 
         ""))
                                      
-;; DEPRECATED!!!!
-(declare-tags pedagogy)
-
 (define (unit-lessons . body)
   (interleave-parbreaks/all (append body (list (gen-exercises) (copyright)))))
 
@@ -2404,22 +2063,6 @@
                                   body))))
            (copyright)))))
 
-;(define (exercise-handout/solutions #:title [title #f]
-;                                    #:instr [instr #f]
-;                                    #:forevidence [forevidence #f]
-;                                    . body)
-;  (let ([full-title (if title (string-append "Solutions to " title) "Solutions")])
-;    (interleave-parbreaks/all
-;     (list (head-title-no-content full-title)
-;           (elem #:style bs-title-style full-title)
-;           (nested #:style bs-content-style
-;                   (nested #:style bs-handout-style
-;                           (interleave-parbreaks/all
-;                            (cons (para #:style bs-exercise-instr-style (bold "Directions: ") 
-;                                        (italicize-within-string instr exercise-terms-to-italicize))
-;                                  body))))
-;           (copyright)))))
-
 ;; exercise-answers merely tags content.  The module reader will leave answers
 ;; in or remove them based on the solutions generation mode
 (define (exercise-answers . body)
@@ -2432,15 +2075,12 @@
 (define (solutions-mode-on?)
   (let ([env (getenv "CURRENT-SOLUTIONS-MODE")])
     ;(printf "Solutions mode is ~a ~n" env)
-    (and env (string=? env "on"))))
-;(define-for-syntax (solutions-mode-on?/syntax) 
-;  (let ([env (getenv "CURRENT-SOLUTIONS-MODE")])
-;    (and env (string=? env "on"))))
-  
+    (and env (string=? env "on"))))  
   
 ;; Inputs: string [string] [string] [string] -> element
 ;;         optional argument supply answers for the workbook
 ;; Produces element with blanks for an exercise to fill in a contract
+;; only used by create-exercise-itemlist
 (define (contract-exercise tag #:name [name-ans #f] #:domain [domain-ans #f] #:range [range-ans #f])
   (cond-element [html
                  (elem "; " (fill-in-the-blank #:id (format "~aname" tag) #:label "Name" #:class "contract-name studentAnswer")
@@ -2448,21 +2088,6 @@
                        " -> " (fill-in-the-blank #:id (format "~aoutput" tag) #:label "Range" #:class "contract-range studentAnswer"))]
                 [(or latex pdf)
                  (elem #:style bs-contract-exercise-style "")]))
-
-;; Inputs: string [string] [string] [string] string -> element
-;;         optional argument supply answers for the workbook
-;; Produces element with blanks for an exercise to fill in a contract and purpose
-(define (contract-purpose-exercise tag #:name [name-ans #f] #:domain [domain-ans #f] #:range [range-ans #f]
-                                   #:purpose [purpose-ans #f])
-  (cond-element [html (list (contract-exercise tag #:name name-ans #:domain domain-ans #:range range-ans)
-                            (make-element 'newline '("\n")) "; " (fill-in-the-blank #:id (format "~apurpose" tag) #:label "Purpose statement"))]
-                [(or latex pdf)
-                 (elem #:style bs-contract-purpose-exercise-style "")]))
-
-;; Inputs: string
-;; Produces an element for the title bar for a worksheet segment
-(define (worksheet-segment title)
-  (elem #:style (bootstrap-sectioning-style "BootstrapWorksheetSegment") (list title)))
 
 ;auto generates copyright section
 (define (copyright . body)
@@ -2472,15 +2097,6 @@
    ". Based on a work at " (hyperlink "http://www.bootstrapworld.org/" "www.BootstrapWorld.org")
    ". Permissions beyond the scope of this license may be available at "
    (hyperlink "mailto:schanzer@BootstrapWorld.org" "schanzer@BootstrapWorld.org") "."))
-
-;; ONLY USED IN BS2 UNITS FOLLOWING OLD FORMAT
-;; remove this as soon as bs2 units convert to the bs1-style lesson headers
-;autogenerates state-standards section
-(define state-standards
-  (list (para #:style bs-header-style "State Standards")
-        "See our " 
-        (hyperlink "../../../../Standards.shtml" "Standards Document") 
-        " provided as part of the Bootstrap curriculum."))
 
 ;creates the length of the lesson based on input
 ;input ONLY THE NUMBER!
@@ -2493,52 +2109,7 @@
      (lambda (get set)
        (length-of-lesson (get 'unit-length "No value found for"))))))
 
-;;example: optional text, example for cond (p23), example for not cond (p21), example for with name (p8)
 
-;; input: -a tag which can be anything unqiue which helps to generate a 
-;;         unique id
-;; output: in format (EXAMPLE (____ ____) _________)
-(define (example-fast-functions tag)
-  (cond-element 
-   [html (elem "(EXAMPLE (" 
-               (fill-in-the-blank #:id (format "~a.1" tag) #:label "")
-               " "
-               (fill-in-the-blank #:id (format "~a.2" tag) #:label "")
-               ") "
-               (fill-in-the-blank #:id (format "~a.3" tag) #:label "")
-               ")")]
-   [(or latex pdf) (elem #:style bs-function-example-exercise-style "")]))
-
-;; input: -two optional text labels for the two fill-in-the-blanks 
-;;        -a tag which can be anything unqiue which helps to generate a 
-;;         unique id 
-;; output: in format (EXAMPLE ( /*with text1label*/ _____) /*with text2label*/ _____)
-(define (example-with-text #:text1 [text1 ""]
-                           #:text2 [text2 ""]
-                           tag
-                           #:example1 [example1 #f]
-                           #:example2 [example2 #f])
-  (cond-element 
-   [html (elem "(EXAMPLE (" 
-               (fill-in-the-blank #:id (format "~a.1" tag) #:label text1)
-               ") "
-               (fill-in-the-blank #:id (format "~a.2" tag) #:label text2)
-               ")")]
-   [(or latex pdf) (elem #:style bs-example-exercise-style "")]))
-
-;; input: optional values for the name, args, and body fields of a function
-;;        a tag to use for generating html id names
-;; output: a define with text boxes formatted for inputs to the exercise
-(define (function-exercise #:name [name ""]
-                           #:args [args ""]
-                           #:body [body ""]
-                           tag)
-  (cond-element 
-   [html
-    (elem "(define ("(fill-in-the-blank #:id (format "fname-~a" tag) #:label "function name")
-          (fill-in-the-blank #:id (format "args-~a" tag) #:label "variable names") ")"
-          (fill-in-the-blank #:id (format "body-~a" tag) #:label "what it does") ")")]
-   [(or latex pef) (elem #:style bs-function-exercise-style "")]))
 
 ;; We need to do a little compile-time computation to get the file's source
 ;; where worksheet-link/src-path is used, since we want the path relative to
