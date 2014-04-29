@@ -12,14 +12,14 @@
          scribble/basic
          (prefix-in manual: scribble/manual)
          scribble/html-properties
-         scribble/latex-properties
+         ;scribble/latex-properties
          scriblib/render-cond
          racket/path
          (for-syntax racket/base racket/syntax)
          2htdp/image
          racket/list
          net/uri-codec
-         (prefix-in neturl: net/url) ;; so we can load mathjax from a url
+         ;(prefix-in neturl: net/url) ;; so we can load mathjax from a url
          racket/match
          "compile-time-params.rkt"
          "system-parameters.rkt"
@@ -35,6 +35,9 @@
          "auto-format-within-strings.rkt"
          "workbook-index-api.rkt"
          "racket2pyret.rkt"
+         "styles.rkt"
+         "process-code.rkt"
+         "design-recipe-generator.rkt"
          )
 
 
@@ -49,7 +52,7 @@
          language-table
          build-table/cols
          design-recipe-exercise
-         design-recipe-exercise/pyret
+         ;design-recipe-exercise/pyret
          unit-summary/links
          summary-item/links
          summary-item/custom
@@ -64,7 +67,7 @@
          fill-in-blank-answers-exercise
          gen-random-arith-sexp
          sexp
-         sexp-answer
+         ;sexp-answer
          sexp->math
 	 sexp->coe
 	 sexp->code
@@ -131,123 +134,20 @@
                    (-> constraint? element?)]
                   )
 
+(define-runtime-path worksheet-lesson-root (build-path 'up "lessons"))
+
+;; determine whether we are currently in solutions-generation mode
+;; need two versions of this: one for syntax phase and one for runtime
+(define (solutions-mode-on?)
+  (let ([env (getenv "CURRENT-SOLUTIONS-MODE")])
+    ;(printf "Solutions mode is ~a ~n" env)
+    (and env (string=? env "on")))) 
+
 ;;;;;;;;;;;;;;;; Site Images ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (define bootstrap.gif (bitmap "bootstrap.gif"))
 (define creativeCommonsLogo (bitmap "creativeCommonsLogo.png"))
 
-;;;;;;;;;;;;;;;;; URLs ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(define mathjax-url
-  (neturl:string->url 
-   "http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,http://www.cs.wpi.edu/~kfisler/mathjaxlocal.js"))
-  
-;;;;;;;;;;;;;;;;; Runtime Params ;;;;;;;;;;;;;;;;;;;;;;;;;
-
-;; aud is either a string or a list of strings of audience tags
-;;  known tags are student, teacher, volunteer, and self-taught
-(define (audience-in? aud)
-  (member (getenv "AUDIENCE") (if (list? aud) aud (list aud))))
-
-;;;;;;;;;;;;;;;; Runtime Paths ;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(define-runtime-path bootstrap.css "bootstrap.css")
-(define-runtime-path bootstrap-pdf.tex "bootstrap-pdf.tex")
-(define-runtime-path worksheet-lesson-root (build-path 'up "lessons"))
-(define-runtime-path textbook.css "textbook.css")
-(define-runtime-path pretty-printing.css "pretty-printing.css")
-(define-runtime-path cards.css "cards.css")
-(define-runtime-path codemirror.js "codemirror.js")
-(define-runtime-path codemirror.css "codemirror.css")
-(define-runtime-path runmode.js "runmode.js")
-(define-runtime-path scheme2.js "scheme2.js")
-(define-runtime-path bootstraplesson.js "bootstraplesson.js")
-(define-runtime-path logo.png "logo.png")
-;(define-runtime-path mathjaxlocal.js "mathjaxlocal.js")
-(define-runtime-path extra_curriculum.css "extra_curriculum.css")
-(define-runtime-path workbook.css "workbook.css")
-
-(define css-js-additions
-  (list (make-tex-addition bootstrap-pdf.tex)
-        (make-css-addition pretty-printing.css)
-        (make-css-addition codemirror.css)
-        (make-js-addition codemirror.js)
-        (make-js-addition runmode.js)
-        (make-js-addition scheme2.js)
-        (make-js-addition bootstraplesson.js)
-        ;(make-js-addition mathjaxlocal.js)
-        (make-js-addition mathjax-url)
-        (cond [(audience-in? (list "student")) (make-css-style-addition cards.css)]
-              [(member (getenv "BOOTSTRAP-TARGET") (list "workbook")) (make-css-style-addition workbook.css)]
-              [else (make-css-style-addition textbook.css)])
-        (make-css-style-addition extra_curriculum.css)
-        )) 
-
-;; add meta attributes to HEAD (needed for iPhone rendering)
-(define bs-head-additions
-  (make-head-extra 
-   '(meta ((name "viewport")
-           (content "width=device-width, initial-scale=1, user-scalable=no")))))
-
-;;;;;;;;;;;;;;;; Defining Styles ;;;;;;;;;;;;;;;;;;;;;;;;;
-
-;; bootstrap-sectioning-style : string -> style
-;; defines a style for a section based on the <div> tag
-(define (bootstrap-sectioning-style name)
-  (make-style name (cons (make-alt-tag "div")
-                         css-js-additions)))
-
-(define (bootstrap-paragraph-style name)
-  (make-style name css-js-additions))
-
-(define (bootstrap-div-style name)
-  (make-style name (cons (make-alt-tag "div")
-                         css-js-additions)))  
-
-(define (bootstrap-div-style/id name)
-  (make-style #f (cons (make-alt-tag "div")
-                       (cons 
-                        (make-attributes (list (cons 'id name)))
-                        css-js-additions))))
-
-(define (bootstrap-div-style/id/nested name)
-  (make-style "" (cons (make-alt-tag "div")
-                       (cons 
-                        (make-attributes (list (cons 'class "")
-                                               (cons 'id name)))
-                        css-js-additions))))
-
-(define (bootstrap-div-style/extra-id name id)
-  (make-style name (cons (make-alt-tag "div")
-                         (cons 
-                          (make-attributes (list (cons 'class "")
-                                                 (cons 'id id)))
-                          css-js-additions))))
-
-(define (bootstrap-span-style/extra-id name id)
-  (make-style name (cons (make-alt-tag "span")
-                         (cons 
-                          (make-attributes (list ;(cons 'class "")
-                                                 (cons 'id id)))
-                          css-js-additions))))
-
-(define (bootstrap-span-style name)
-  (make-style name (cons (make-alt-tag "span")
-                         css-js-additions)))
-
-(define (bootstrap-span-style/id name)
-  (make-style #f (cons (make-alt-tag "span")
-                       (cons (make-attributes (list (cons 'id name)))
-                             css-js-additions))))
-
-(define bootstrap-agenda-style
-  (make-style "" (cons 'never-indents
-                       (cons (make-alt-tag "div")
-                             (cons (make-attributes (list (cons 'id "BootstrapAgenda")))
-                                   css-js-additions)))))
-
-;; bootstrap-style : string -> style
-;; defines a style for both latex and css with the given name
-(define (bootstrap-style name)
-  (make-style name (cons (make-alt-tag "span")
-                         css-js-additions)))
+;;;;;;;;;;;;;;;; Styles ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (define bs-header-style (bootstrap-paragraph-style "BootstrapHeader"))
 (define bs-header-style/span (bootstrap-span-style "BootstrapHeader"))
@@ -259,7 +159,6 @@
 (define bs-page-title-style (bootstrap-style "BootstrapPageTitle"))
 (define bs-content-style (bootstrap-div-style "content"))
 
-;; new lesson styles
 (define bs-time-style (bootstrap-span-style "time"))
 (define bs-callout-style (bootstrap-div-style "callout"))
 (define bs-student-style (bootstrap-div-style "student"))
@@ -267,40 +166,11 @@
 (define bs-logo-style (bootstrap-span-style "BootstrapLogo"))
 (define bs-vocab-style (bootstrap-span-style "vocab"))
 (define bs-banner-style (bootstrap-div-style "banner"))
-(define bs-sexp-style (bootstrap-div-style "codesexp"))
-(define bs-code-style (bootstrap-div-style "code"))
-(define bs-circeval-style (bootstrap-div-style "circleevalsexp"))
-(define bs-numvalue-style (bootstrap-span-style "value wescheme-number"))
-(define bs-strvalue-style (bootstrap-span-style "value wescheme-string"))
-(define bs-symvalue-style (bootstrap-span-style "value wescheme-symbol"))
-(define bs-boolvalue-style (bootstrap-span-style "value wescheme-boolean"))
-(define bs-clause-style (bootstrap-span-style "wescheme-clause"))
-(define bs-comment-style (bootstrap-div-style "wescheme-comment"))
-(define bs-expr-hole-style (bootstrap-span-style "studentAnswer"))
-;(define bs-expr-hole-style (bootstrap-span-style "partial-expr-hole"))
-(define bs-example-style (bootstrap-span-style "wescheme-example"))
-(define bs-example-left-style (bootstrap-span-style "wescheme-example-left"))
-(define bs-example-right-style (bootstrap-span-style "wescheme-example-right"))
-(define bs-keyword-style (bootstrap-span-style "wescheme-keyword"))
-(define bs-openbrace-style (bootstrap-span-style "lParen"))
-(define bs-closebrace-style (bootstrap-span-style "rParen"))
-(define bs-operator-style (bootstrap-span-style "operator"))
-(define bs-expression-style (bootstrap-span-style "expression"))
-(define bs-define-style (bootstrap-span-style "wescheme-define"))
+
 (define bs-handout-style (bootstrap-div-style/extra-id "segment" "exercises"))
 (define bs-exercise-instr-style (bootstrap-div-style "exercise-instr"))
 
-;; make-bs-latex-style : string -> style
-;; defines a style that will only be used in latex
-(define (make-bs-latex-style name) 
-  (make-style name (list (make-tex-addition bootstrap-pdf.tex))))
-
-(define bs-lesson-style (make-bs-latex-style "BootstrapLesson"))
-(define bs-example-exercise-style (make-bs-latex-style "BSExampleExercise"))
-(define bs-function-example-exercise-style (make-bs-latex-style "BSFunctionExampleExercise"))
 (define bs-contract-exercise-style (make-bs-latex-style "BSContractExercise"))
-(define bs-contract-purpose-exercise-style (make-bs-latex-style "BSContractPurposeExercise"))
-(define bs-function-exercise-style (make-bs-latex-style "BSFunctionExercise"))
 (define bs-fill-in-blank-style (make-bs-latex-style "BSFillInBlank"))
 (define bs-free-response-style (make-bs-latex-style "BSFreeResponse"))
 (define bs-head-style (make-style #f (list bs-head-additions)))
@@ -361,48 +231,6 @@
    [(or latex pdf)
     (elem #:style bs-free-response-style (number->string width) (number->string height))]))
 
-(define (escape-webstring-newlines str)
-  (string-replace str (list->string (list #\newline)) "%0A"))
-
-;; create a link to a wescheme editor, possibly initialized with interactions/defn contents
-(define (editor-link #:public-id (pid #f)
-                     #:interactions-text (interactions-text #f)
-                     #:definitions-text (definitions-text #f)
-                     link-text)                      
-  (if (and definitions-text pid)
-      (printf "WARNING: creating wescheme link with both defns text and public id~n")
-      (let ([optionstext (if (audience-in? (list "student"))
-                             "hideHeader=true&warnOnExit=false&"
-                             "")]
-            [argstext (string-append (if pid (format "publicId=~a&" pid) "")
-                                     (if interactions-text (format "interactionsText=~a&" interactions-text) "")
-                                     (if definitions-text (format "definitionsText=~a" (escape-webstring-newlines definitions-text)) ""))])
-        (cond-element
-         [html
-          (sxml->element `(a (@ (href ,(format "http://www.wescheme.org/openEditor?~a~a" optionstext argstext))
-                                (target "embedded"))
-                             ,link-text))]
-         [else (elem)]))))
-
-;; create a link to a particular program at wescheme.org, with the embedded target
-(define (run-link #:public-id (pid #f) link-text)
-  (if (not pid)
-      (printf "WARNING: run-link needs a public-id argument")
-      (cond-element
-       [html
-        (sxml->element `(a (@ (href ,(format "http://www.wescheme.org/view?publicId=~a" pid))
-                              (target "embedded"))
-                           ,link-text))]
-       [else (elem)])))
-
-;; create a link to wescheme.org's home page, with the embedded target
-(define (login-link link-text)
-  (cond-element
-   [html
-    (sxml->element `(a (@ (href "http://www.wescheme.org/")
-                          (target "embedded"))
-                       ,link-text))]
-   [else (elem)]))
 
 ;; accumulate all vocab referenced in lesson so we can generate a glossary
 (define (vocab body)
@@ -432,73 +260,7 @@
   (let ([path-strs (string-split path-as-str "\\")])
     (image (apply build-path path-strs))))
 
-;; generate tags to format code via codemirror
-(define (code/CSS #:multi-line (multi-line #f)
-              #:malformed? (malformed? #f)
-              #:contract (contract #f)
-              #:purpose (purpose #f)
-              . body)
-  ;; first an error check to make sure we understand original API usage
-  (when (and (not multi-line) (or (and contract purpose) 
-                                  (and contract (not (null? body))) 
-                                  (and purpose (not (null? body)))))
-    (printf "WARNING: Use of code that supplied more than one of contract/purpose/body~n"))
-  (let ([make-comment (lambda (str) (string-append "; " str "\n"))])
-    (with-handlers
-        ([exn:fail:read?
-          ;; for now, assuming only malformed are simple compositional exprs: 
-          ;;    no cond, define, etc
-          (lambda (e) (elem #:style bs-code-style body))])
-      (code->block
-       (append (if contract (list (make-comment contract)) empty)
-               (if purpose (list (make-comment purpose)) empty)
-               body)))))
-
-;; generate tags to format code via codemirror
-;; pyret-alt lets us manually provide the pyret code to insert in place of
-;;   the provided body.  This will be used for content that cannot be
-;;   read as sexps, such as malformed expressions used to teach about error messages
-(define (code #:multi-line (multi-line #f)
-              #:contract (contract #f)
-              #:purpose (purpose #f)
-              #:pyret-alt (pyret-alt #f)
-              . body)
-  ;; first an error check to make sure we understand original API usage
-  (when (and (not multi-line) (or (and contract purpose) 
-                                  (and contract (not (null? body))) 
-                                  (and purpose (not (null? body)))))
-    (printf "WARNING: Use of code that supplied more than one of contract/purpose/body~n"))
-  (let ([allcode (string-append (if contract (string-append (curr-comment-char) " " contract "\n") "")
-                                (if purpose (string-append (curr-comment-char) " " purpose "\n") "")
-                                (cond [(gen-racket?) (apply string-append body)]
-                                      [(gen-pyret?) (apply string-append (map bs1-string->pyret-string body))]
-                                      [else (error 'code "Unknown target language")])
-                                )])
-    ;; we do not use the built-in Racket code formatting in order
-    ;; to let codemirror can handle it instead
-    ;; the nbsp is there to hack around a rendering error that occurs when
-    ;; an activity is immediately followed by code
-    (cond-element 
-     [html (if multi-line 
-               (elem (list (sxml->element 'nbsp) (sxml->element `(textarea ,(string-append "\n" allcode "\n")))))
-               (sxml->element `(tt ,allcode)))]               
-     [else allcode])))
-
-;;; tailoring to pyret vs racket
-
-(define (gen-racket?)
-  (equal? (getenv "TARGET-LANG") "racket"))
-
-(define (gen-pyret?)
-  (equal? (getenv "TARGET-LANG") "pyret"))
-
-(define (curr-comment-char)
-  (cond [(gen-pyret?) "#"]
-        [(gen-racket?) ";"]
-        [else (error 'curr-comment "Current target lang unclear")]))
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 
 ;; lesson-struct records the outline of a structure: basically, its
 ;; title, how long it takes, and the anchor to get to it within the
@@ -507,40 +269,6 @@
                        duration  ;; string e.g. "15 min"
                        anchor)   ;; string
   #:transparent)
-
-
-
-
-
-;;;;;;;;;;;;; SSI COMMANDS ;;;;;;;;;;;;;;;;;;;;;;;
-
-
-;<!-- #include virtual="../menubar.ssi" -->
-
-(define (include-ssi)
-  (cond-element 
-   [html (elem "<!-- #include virtual=\"../menubar.ssi\" -->")]
-   [(or latex pdf) (elem "")]))
-
-;; this just here as a sample while I get includes and injections working
-#;(define (check constraint #:id (id (gensym 'check)))
-    (elem (sxml->element
-           `(input
-             (@ (id ,(format "~a" id))
-                (type "button")
-                (value "Check answer")
-                (class "BootstrapCheckbox"))
-             ""))
-          (inject-javascript
-           (format "jQuery(document.getElementById(~s)).click(function() {
-                       if (~a) {
-                            alert('Congrats! You got it right');
-                       } else {
-                            alert('Sorry! Try again.');
-                       }
-                   });"
-                   (format "~a" id)
-                   (constraint->js constraint)))))
 
 ;;;;;;;;;;; OLD LESSON FORMAT ;;;;;;;;;;;;;;;;;;;;;
 
@@ -661,36 +389,6 @@
 (define (exercises . content)
   (lesson-section "Exercises" content))
 
-;; determine which elements need manual parbreaks to prevent surrounding SIntraparas
-;; currently suppress around itemizations and student/teacher blocks
-(define (suppress-intrapara-around? content)
-  (or (itemization? content)
-      (and (nested-flow? content) 
-           (nested-flow-style content)
-           (member (style-name (nested-flow-style content)) 
-                   (list "student" "teacher" "activity")))
-      ))
-
-;; Avoid Sintraparas from being introduced by adding manual parbreaks between
-;;   select items in a list.  Good for settings in which some items in list are 
-;;   part of the same paragraph and others (like itemlists) introduce breaks
-(define (interleave-parbreaks/select contentlist)
-  (cond [(empty? contentlist) (list "\n" "\n")]
-        [(cons? contentlist) 
-         (cond [(suppress-intrapara-around? (first contentlist))
-                (append (list "\n" "\n" (first contentlist) "\n" "\n")
-                        (interleave-parbreaks/select (rest contentlist)))]
-               [else (cons (first contentlist) (interleave-parbreaks/select (rest contentlist)))])]))
-
-;; Avoid Sintraparas from being introduced by adding manual parbreaks between
-;;   every pair of items in a list.  Good for settings in which items in list are
-;;   never intended to be part of the same paragraph (like lesson segments)
-(define (interleave-parbreaks/all contentlist)
-  (cond [(empty? contentlist) (list "\n" "\n")]
-        [(cons? contentlist) 
-         (cons "\n" (cons "\n" (cons (first contentlist) 
-                                     (interleave-parbreaks/all (rest contentlist)))))]))
-
 (define (lesson/studteach
          #:title (title #f)
          #:duration (duration #f)
@@ -732,7 +430,6 @@
       (nested-flow 
        bs-content-style
        (list
-        ;(include-ssi)
         (nested #:style (bootstrap-sectioning-style "overview")
                 (interleave-parbreaks/all
                  (list
@@ -831,10 +528,6 @@
 
 (define (create-exercise-sols-itemlist #:ordered [ordered? #t] questions answers)
   (questions-and-answers questions answers))
-;  (create-itemlist #:style (if ordered? 'ordered #f) 
-;                   (map (lambda (q a) (para #:style (bootstrap-div-style "QuestionWithAnswer") 
-;                                            q (bold " Answer: " a)))
-;                        questions answers)))
 
 ;; format a question and answer for a solution key
 (define (attach-exercise-answer question answer)
@@ -883,9 +576,6 @@
       (begin 
         (printf "WARNING: no unit-descr for ~a~n" unit-name)
         "")))
-
-
-;;@summary-item/links["Student Workbook" "resources/workbook/StudentWorkbook" #:ext1 "pdf" #:ext2 "odt"]{
 
 ;; summary-item/unit-link string string content -> block
 ;; generates summary entry in which unit name links to html version of lesson
@@ -1008,122 +698,7 @@
 (define (unit-length timestr)
   (list (format "Length: ~a~n" (decode-flow timestr))))
 
-(define EXPR-HOLE-SYM 'BSLeaveAHoleHere)
-(define EXPR-HOLE-SYM2 'BSLeaveAHoleHere2)
-(define EXPR-HOLE-SYM3 'BSLeaveAHoleHere3)
 
-;; converts sexp into structured markup
-;; believe symbols only go to the first list case, not the symbol? case
-;; recognizes EXPR-HOLE-SYM (used to create partially-completed expressions)
-;;   in each of atom and operator positions
-(define (sexp->block/aux sexp)
-  (cond [(member sexp '(true false))
-         (elem #:style bs-boolvalue-style (format "~a" sexp))]
-        [(eq? sexp 'else) (elem #:style bs-keyword-style "else")]
-        [(eq? sexp EXPR-HOLE-SYM)  (elem #:style bs-expr-hole-style " ")]
-        [(eq? sexp EXPR-HOLE-SYM2) (elem #:style bs-expr-hole-style (elem #:style bs-expr-hole-style " "))]
-        [(eq? sexp EXPR-HOLE-SYM3) (elem #:style bs-expr-hole-style 
-                                         (elem #:style bs-expr-hole-style 
-                                               (elem #:style bs-expr-hole-style " ")))]
-        [(number? sexp) (elem #:style bs-numvalue-style (format "~a" sexp))]
-        [(string? sexp) (elem #:style bs-strvalue-style (format "~s" sexp))]
-        [(symbol? sexp) (elem #:style bs-symvalue-style (format "~a" sexp))]
-        [(boolean? sexp) (elem #:style bs-boolvalue-style (format "~a" sexp))]
-        [(and (list? sexp) (eq? 'quote (first sexp)))
-         (elem #:style bs-symvalue-style (format "'~a" (second sexp)))]
-        [(list? sexp)
-         (case (first sexp)
-           [(cond) 
-            (let ([clauses (map (lambda (clause) 
-                                  (elem #:style bs-clause-style
-                                        (list (elem #:style bs-openbrace-style "[") 
-                                              (sexp->block/aux (first clause))
-                                              (sexp->block/aux (second clause))
-                                              (elem #:style bs-closebrace-style "]")))) 
-                                (rest sexp))])
-              (elem #:style bs-expression-style
-                    (append
-                     (list 
-                      (elem #:style bs-openbrace-style "(") 
-                      (elem #:style bs-keyword-style "cond"))
-                     clauses
-                     (list (elem #:style bs-closebrace-style ")")))))]
-           [(EXAMPLE example Example) 
-            (elem #:style bs-example-style
-             (list (elem #:style bs-openbrace-style "(") 
-                   (elem #:style bs-keyword-style "EXAMPLE")
-                   (elem #:style bs-example-left-style (sexp->block/aux (second sexp)))
-                   (elem #:style bs-example-right-style (sexp->block/aux (third sexp)))
-                   (elem #:style bs-closebrace-style ")")))]
-           [(define) 
-            (elem #:style bs-define-style
-                  (list (elem #:style bs-openbrace-style "(") 
-                        (elem #:style bs-keyword-style "define")
-                        (sexp->block/aux (second sexp))
-                        (sexp->block/aux (third sexp))
-                        (elem #:style bs-closebrace-style ")")))]
-           [else ;; have a function call
-            (let ([args (map sexp->block/aux (rest sexp))])
-              (elem #:style bs-expression-style
-                    (append
-                     (list (elem #:style bs-openbrace-style "(") 
-                           (elem #:style bs-operator-style 
-                                 (if (eq? (first sexp) EXPR-HOLE-SYM) " " (format "~a " (first sexp)))))
-                     args 
-                     (list (elem #:style bs-closebrace-style ")")))))])]
-        [else (error 'sexp->block 
-                     (format "Unrecognized expression type for ~a~n" sexp))]))
-
-(define (sexp->block sexp form)
-  (let ([style (if (string=? form "sexp") bs-sexp-style bs-circeval-style)])
-    ;; changed from elem to para
-    (para #:style style (sexp->block/aux sexp))))
-
-;; convert an sexpression into structured form.  In some contexts,
-;;   Scribble sends data in as strings, so may need to parse string into an sexp
-;;   prior to traversal/rendering
-(define (sexp exp-perhaps-as-string #:form (form "circofeval"))
-  (unless (member form (list "code" "text" "circofeval"))
-    (error 'sexp "Unrecognized form ~a~n" form))
-  (let ([exp (if (string? exp-perhaps-as-string) 
-                 (with-input-from-string exp-perhaps-as-string read) 
-                 exp-perhaps-as-string)])
-    (if (member form (list "code" "text"))
-        (sexp->block exp "sexp")
-        (sexp->block exp form))))
-
-;; yields an error that + is an undefined identifier
-(define (sexp-answer sexp)
-  (let ([exp (if (string? sexp)
-                 (with-input-from-string sexp read)
-                 sexp)])
-    (eval exp)))
-
-;; check whether line starts with ; to indicate a code comment
-(define (comment-line? aline)
-  (char=? (string-ref aline 0) #\;))
-
-;; takes a string containing one or more sexps and returns list of sexps
-(define (read-sexps-from-string codestr)
-  (let ([p (open-input-string codestr)])
-    (let loop ()
-      (let ([exp (read p)])
-        (if (eof-object? exp)
-            (begin (close-input-port p) empty)
-            (cons exp (loop)))))))
-          
-;; assumes that all comment lines come at the beginning of the list
-(define (code->block list-of-lines)
-  (let ([list-of-sexps-and-comments
-         (let loop ([lines list-of-lines])
-           (cond [(empty? lines) empty]
-                 [(comment-line? (first lines))
-                  (cons (elem #:style bs-comment-style (first lines))
-                        (loop (rest lines)))]
-                 [(string=? (first lines) "\n") (loop (rest lines))]
-                 [else (map (lambda (expstr) (sexp->block expstr "sexp"))
-                            (read-sexps-from-string (string-join lines)))]))])
-    (nested #:style bs-code-style list-of-sexps-and-comments)))
   
 ;; generates a random binary arithmetic sexp 
 ;; - depth is the max depth of the expression
@@ -1325,360 +900,6 @@
 (define (sexp->code e)
   (sexp #:form "code" e))
 
-;;;;;;;;; API for Design Receipe Exercises ;;;;;;;;;;;;;;;;;;;;;
-
-(define htmlRarr (cond-element [html (sxml->element 'rarr)] [else "->"]))
-
-;; retrieves info on whether to show named component from given spec
-;; currently, spec is either a boolean or a list of three booleans
-;;   corresponding to the funname, input, or output, respectively
-(define (show-example-component? spec comp)
-  (let [(pos (case comp 
-               [(funname) first]
-               [(input) second]
-               [(output) third]))]
-    (or (and (boolean? spec) spec) 
-        (and (cons? spec) (pos spec)))))
-
-;; Create a design-recipe exercise
-;;   funname: string naming the function
-;;   directions: instructions for the problem 
-;; num-examples says how many examples to generate.  Some of the examples may be specified
-;;   by populating the example-list and configuring show-examples (keep reading)
-;; example-list is a list of lists giving the input and output: e.g., (list (list 5 '(* 5 2)))
-;;   the list contents can be num/string/sexp -- anything that format can convert to a string
-;; show-examples is a list of configurations of which parts of each elt in example-list to show
-;;    - each configuration is either a boolean or a list of three booleans
-;;    - e.g., show-examples of (list #f (list #t #f #t) #t) says
-;;      * don't show any components of the first example in example-list
-;;      * show the function name and output of the second example in example-list
-;;      * show all components of the third example in example-list
-;;    - show-examples cannot be longer than example-list  
-;;    - if show-examples is shorter than example-list, remaining elts in example-list get configuration #f
-;; if num-examples is larger than length of example-list, additional blank exercises are added after the
-;;   contents of example-list
-(define (design-recipe-exercise funname directions
-                                #:show-funname-contract? (show-funname-contract? #f)
-                                #:domain-list (domain-list '()) ; list of string
-                                #:show-domains? (show-domains? #f) 
-                                #:range (range #f)
-                                #:show-range? (show-range? #f)
-                                #:purpose (purpose #f)
-                                #:show-purpose? (show-purpose? #f)
-                                #:num-examples (num-examples 1) ; number of total example spaces to generate
-                                #:example-list (example-list '()) ;concrete examples -- see doc above func for details
-                                #:show-examples (show-examples '()) ; see doc above func for details
-                                #:show-funname-defn? (show-funname-defn? #f)
-                                #:param-list (param-list '()) ; list of string
-                                #:show-params? (show-params? #f) 
-                                #:body (body #f) ; a string
-                                #:show-body? (show-body? #f)
-                                #:grid-lines? (grid-lines? #f)
-                                )
-  ; INSERT check that show-examples is no longer than example-list
-  ; ALSO handle num-examples less than length of example-list
-  (nested #:style (bootstrap-div-style/extra-id "segment" "exercises")
-          (interleave-parbreaks/all
-           (list
-            (para #:style (bootstrap-div-style "exercise-header")
-                  (bold "Word Problem:") (string-append " " funname))
-            (if (string? directions)
-                (para #:style (bootstrap-div-style "exercise-instr")
-                      (bold "Directions: ") directions)
-                (nested #:style (bootstrap-div-style "exercise-instr")
-                        (interleave-parbreaks/all
-                         (list
-                          (elem (bold "Directions: ") (first directions))
-                          (rest directions)))))
-            (nested #:style (bootstrap-div-style "designRecipeLayout")
-                    (interleave-parbreaks/all
-                     (list
-                      (design-recipe-section
-                       "recipe_contract" 
-                       "Contract and Purpose Statement"
-                       "Every contract has three parts ..."
-                       (make-spacer ";")
-                       (make-wrapper
-                        (dr-student-answer #:id? #f "recipe_name" #:show? show-funname-contract? funname)
-                        (para #:style (bootstrap-span-style "") ":")
-                        (dr-student-answer "recipe_domain" #:show? show-domains? (string-join domain-list " "))
-                        (para #:style (bootstrap-span-style "") htmlRarr)
-                        (dr-student-answer "recipe_range" #:show? show-range? range))
-                       (make-clear)
-                       (make-spacer ";")
-                       (make-wrapper
-                        (dr-student-answer "recipe_purpose" #:show? show-purpose? purpose)))
-                      ;; need one of these for each example provided/expected
-                      (design-recipe-section 
-                        "recipe_examples"
-                        "Examples"
-                        "Write some examples of your function in action..."
-                        (let ([example-elts 
-                               (let ([num-blank-examples (- num-examples (length example-list))])
-                                 (append 
-                                  ; generate contents of example-list according to show-examples
-                                  (map (lambda (e s) 
-                                         ; e is either empty or a two-element list of input and output
-                                         ; s is either a boolean or a three-element list of booleans
-                                         ;   indicating whether to show the funname/input/output
-                                         (dr-example funname e
-                                                     #:show-funname? (show-example-component? s 'funname)
-                                                     #:show-input? (show-example-component? s 'input)
-                                                     #:show-output? (show-example-component? s 'output))) 
-                                       example-list
-                                       ; pad show-examples to match length of example-list
-                                       ; padding value of #f means default is to not show example
-                                       (append show-examples
-                                               (build-list (- (length example-list) (length show-examples))
-                                                           (lambda (i) #f))))
-                                  ; pad example list with empty examples to get to specified num-examples
-                                  (build-list num-blank-examples (lambda (i) (dr-example funname '()))))
-                                 )])
-                          ; insert clear-breaks between examples and merge the example content lists
-                          (foldr (lambda (e res-rest) (append (cons (make-clear) e) res-rest))
-                                 '() example-elts))
-                        )
-                      (design-recipe-section 
-                       "recipe_definition"
-                       "Definition"
-                       "Write the definition, giving variable names to all your input values..."
-                       (make-spacer "(define ")
-                       (make-spacer "(")
-                       (make-wrapper
-                        (dr-student-answer #:id? #f "recipe_name" #:show? show-funname-defn? funname)
-                        (dr-student-answer "recipe_variables" #:show? show-params? (string-join param-list " "))
-                        (make-spacer ")")
-                        ;(make-clear)  ; only force this for long-form DR (maybe via a flag?)
-                        (dr-body body #:show show-body?)
-                        ;(dr-student-answer "recipe_definition_body" #:show? show-body? body)
-                        (make-spacer ")")))
-                      )))))))
-
-(define (atom? v) (not (list? v)))
-
-; format the body of a design recipe worksheet -- formatting may depend on body contents
-(define (dr-body body #:show (show #f))
-  (if body
-      (let ([body-contents (with-input-from-string body read)])
-        (cond [(atom? body-contents) (dr-student-answer "recipe_definition_body" #:show? show body)]
-              [(eq? (first body-contents) 'cond) 
-               (let ([clauselines (map (lambda (c s) 
-                                         (make-wrapper
-                                          ;(make-spacer "[")
-                                          (dr-student-answer "recipe_definition_body clause" (first c) #:show? (if (list? s) (first s) s))
-                                          (dr-student-answer "recipe_definition_body clause" (second c) #:show? (if (list? s) (second s) s))
-                                          ;(make-spacer "]")
-                                          ))
-                                       (rest body-contents) 
-                                       ; show is either a single boolean or a list of specs with same length as number of clauses
-                                       (if (not show) (build-list (length (rest body-contents)) (lambda (i) #f))
-                                           (rest show)))])
-                 (apply make-wrapper
-                        (cons (dr-student-answer "recipe_definition_body cond" #:show? #f (first body-contents))
-                              clauselines)))]
-              [else ;; assume single-line expression for now
-               (dr-student-answer "recipe_definition_body" #:show? show body)]))
-      ;; eventually, this should become a warning about the body missing
-      (dr-student-answer "recipe_definition_body" #:show? show body)))
-
-(define (design-recipe-section id title instructions . body)
-  (nested #:style (bootstrap-div-style/id/nested id)
-          (interleave-parbreaks/all
-           (append (list (para #:style (bootstrap-div-style "sectionTitle") title)
-                         (para #:style (bootstrap-div-style "sectionInstructions") instructions))
-                   (interleave-parbreaks/all body)))))     
-
-(define (make-wrapper . contents)
-  (nested #:style (bootstrap-div-style "wrapper")
-          (interleave-parbreaks/all contents))) 
-
-(define (make-spacer contents)
-  (para #:style (bootstrap-span-style "spacer") contents))
-
-(define (make-clear)
-  (para #:style (bootstrap-span-style "clear") ""))
-  
-;; return sublist of L containing all but the last argument
-(define (all-but-last L) (reverse (rest (reverse L))))
-
-(define (format-exercise-text e #:fmt-quotes? (fmt-quotes? #t))
-  (cond [(or (list? e) (number? e)) (format "~a " e)]
-        [(and (string? e) (not fmt-quotes?)) (format "~a " e)]
-        [else (format "~s " e)]))
-
-;; format a list as a string with spaces between each element
-(define (list->spaced-string L)
-  (apply string-append (map (lambda (e) (format-exercise-text e)) L)))
-
-;; generate an example within a design recipe activity
-;; in-out-list is either empty or a list with the input and output expressions
-;;   these expressions can be any type, but will be formatted to strings
-;; the optional show arguments control which parts of the example are displayed
-(define (dr-example funname in-out-list
-                    #:show-funname? (show-funname? #f) 
-                    #:show-input? (show-input? #f)
-                    #:show-output? (show-output? #f)
-                    )
-  (let ([input (if (empty? in-out-list) "" (list->spaced-string (all-but-last in-out-list)))]
-        [output (if (empty? in-out-list) "" (format-exercise-text (last in-out-list)))])
-    (interleave-parbreaks/all
-     (list (make-spacer "(EXAMPLE ")
-           (make-spacer "(")
-           (make-wrapper
-            (dr-student-answer #:id? #f "recipe_name" #:show? show-funname? funname)
-            (dr-student-answer #:id? #f "recipe_example_inputs" #:show? show-input? input)
-            (make-spacer ")")
-            ;(make-clear) ; only force this for long-form DR (maybe via a flag?)
-            (dr-student-answer #:id? #f "recipe_example_body"#:show? show-output? output)
-            (make-spacer ")")))))) 
-
-(define (dr-student-answer class-or-id answer #:id? (id? #t) #:show? (show? #f) #:fmt-quotes? (fmt-quotes? #f))
-  (let* ([base-style (if show? "studentAnswer" "studentAnswer blank")]
-         [style (if id? 
-                    (bootstrap-span-style/extra-id base-style class-or-id) 
-                    (bootstrap-span-style (string-append base-style " " class-or-id)))])
-    (para #:style style
-          (cond [show? (format-exercise-text answer #:fmt-quotes? fmt-quotes?)]
-                [(string? answer) (make-string (string-length answer) #\M)]
-                [else  " "]))))
-
-(define (design-recipe-exercise/pyret funname directions
-                                #:show-funname-contract? (show-funname-contract? #f)
-                                #:domain-list (domain-list '()) ; list of string
-                                #:show-domains? (show-domains? #f) 
-                                #:range (range #f)
-                                #:show-range? (show-range? #f)
-                                #:purpose (purpose #f)
-                                #:show-purpose? (show-purpose? #f)
-                                #:num-examples (num-examples 1) ; number of total example spaces to generate
-                                #:example-list (example-list '()) ;concrete examples -- see doc above func for details
-                                #:show-examples (show-examples '()) ; see doc above func for details
-                                #:show-funname-defn? (show-funname-defn? #f)
-                                #:param-list (param-list '()) ; list of string
-                                #:show-params? (show-params? #f) 
-                                #:body (body #f) ; a string
-                                #:show-body? (show-body? #f)
-                                #:grid-lines? (grid-lines? #f)
-                                )
-  ; INSERT check that show-examples is no longer than example-list
-  ; ALSO handle num-examples less than length of example-list
-  (nested #:style (bootstrap-div-style/extra-id "segment" "exercises")
-          (interleave-parbreaks/all
-           (list
-            (para #:style (bootstrap-div-style "exercise-header")
-                  (bold "Word Problem:") (string-append " " funname))
-            (if (string? directions)
-                (para #:style (bootstrap-div-style "exercise-instr")
-                      (bold "Directions: ") directions)
-                (nested #:style (bootstrap-div-style "exercise-instr")
-                        (interleave-parbreaks/all
-                         (list
-                          (elem (bold "Directions: ") (first directions))
-                          (rest directions)))))
-            (nested #:style (bootstrap-div-style "designRecipeLayout")
-                    (interleave-parbreaks/all
-                     (list
-                      (design-recipe-section
-                       "recipe_contract" 
-                       "Contract and Purpose Statement"
-                       "Every contract has three parts ..."
-                       (make-spacer "#")
-                       (make-wrapper
-                        (dr-student-answer #:id? #f "recipe_name" #:show? show-funname-contract? funname)
-                        (para #:style (bootstrap-span-style "") ":")
-                        (dr-student-answer "recipe_domain" #:show? show-domains? (string-join domain-list " "))
-                        (para #:style (bootstrap-span-style "") htmlRarr)
-                        (dr-student-answer "recipe_range" #:show? show-range? range))
-                       (make-clear)
-                       (make-spacer "#")
-                       (make-wrapper
-                        (dr-student-answer "recipe_purpose" #:show? show-purpose? purpose)))
-                      ;; need one of these for each example provided/expected
-                      (design-recipe-section 
-                        "recipe_examples"
-                        "Examples"
-                        "Write some examples of your function in action..."
-                        (let ([example-elts 
-                               (let ([num-blank-examples (- num-examples (length example-list))])
-                                 (append 
-                                  ; generate contents of example-list according to show-examples
-                                  (map (lambda (e s) 
-                                         ; e is either empty or a two-element list of input and output
-                                         ; s is either a boolean or a three-element list of booleans
-                                         ;   indicating whether to show the funname/input/output
-                                         (dr-example/pyret funname e
-                                                     #:show-funname? (show-example-component? s 'funname)
-                                                     #:show-input? (show-example-component? s 'input)
-                                                     #:show-output? (show-example-component? s 'output))) 
-                                       example-list
-                                       ; pad show-examples to match length of example-list
-                                       ; padding value of #f means default is to not show example
-                                       (append show-examples
-                                               (build-list (- (length example-list) (length show-examples))
-                                                           (lambda (i) #f))))
-                                  ; pad example list with empty examples to get to specified num-examples
-                                  (build-list num-blank-examples (lambda (i) (dr-example funname '())))
-                                 ))])
-                          ; insert clear-breaks between examples and merge the example content lists
-                          ;; NEED TO GET SINTRAPARAS OUT OF HERE
-                          (append (list "checks:")
-                                  (foldr (lambda (e res-rest) (append (cons (make-clear) e) res-rest))
-                                         '() example-elts)
-                                  (list "end")))
-                        )
-                      (design-recipe-section 
-                       "recipe_definition"
-                       "Definition"
-                       "Write the definition, giving variable names to all your input values..."
-                       (make-spacer "fun ")
-                       (make-wrapper
-                        (dr-student-answer/pyret #:id? #f "recipe_name" #:show? show-funname-defn? funname)
-                        (make-spacer "(")
-                        (dr-student-answer/pyret "recipe_variables" #:show? show-params? (string-join param-list ", "))
-                        (make-spacer "):")
-                        ;(make-clear)  ; only force this for long-form DR (maybe via a flag?)
-                        (dr-student-answer/pyret "recipe_definition_body" #:show? show-body? #:parse-as-pyret? #t body)
-                        (make-clear))
-                       (make-spacer "end"))
-                      )))))))
-
-;; does bs1-string->pyret-string really return strings in all cases, or sometimes numbers?
-(define (list->pyret-inputs input-strs) 
-  (string-join (map (lambda (e) (format-exercise-text (bs1->pyret-string e))) input-strs) ", "))
-
-(define (dr-example/pyret funname in-out-list
-                    #:show-funname? (show-funname? #f) 
-                    #:show-input? (show-input? #f)
-                    #:show-output? (show-output? #f)
-                    )
-  (let ([input (if (empty? in-out-list) "" (list->pyret-inputs (all-but-last in-out-list)))]
-        [output (if (empty? in-out-list) "" (last in-out-list))])
-    (interleave-parbreaks/all
-     (list (make-wrapper
-            (dr-student-answer/pyret #:id? #f "recipe_name" #:show? show-funname? funname)
-            (make-spacer "(")
-            (dr-student-answer/pyret #:id? #f "recipe_example_inputs" #:show? show-input? input)
-            (make-spacer ")")
-            (make-spacer "is")
-            ;(make-clear) ; only force this for long-form DR (maybe via a flag?)
-            (dr-student-answer/pyret #:id? #f "recipe_example_body"#:show? show-output? #:parse-as-pyret? #t output)
-            )
-           ))))
-
-(define (dr-student-answer/pyret class-or-id answer #:id? (id? #t)
-                                 #:parse-as-pyret? (parse-as-pyret? #f)
-                                 #:show? (show? #f) 
-                                 #:fmt-quotes? (fmt-quotes? #f)
-                                 )
-  (let* ([base-style (if show? "studentAnswer" "studentAnswer blank")]
-         [style (if id? 
-                    (bootstrap-span-style/extra-id base-style class-or-id) 
-                    (bootstrap-span-style (string-append base-style " " class-or-id)))]
-         [converted-ans (if parse-as-pyret? (bs1->pyret-string answer) answer)])
-    (para #:style style
-          (cond [show? (format-exercise-text converted-ans #:fmt-quotes? fmt-quotes?)]
-                [(string? answer) (make-string (string-length converted-ans) #\M)]
-                [else  " "]))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -1698,8 +919,6 @@
         (apply itemlist/splicing items #:style "BootstrapEvidenceStatementsList")))
 
 (define (product-outcomes . items)
-;  (list (para #:style bs-header-style "Product Outcomes:")
-;        (apply itemlist/splicing items #:style "BootstrapProductOutcomesList")))
   (list (compound-paragraph bs-header-style 
                             (decode-flow (list "Product Outcomes:")))
         (apply itemlist/splicing items #:style "BootstrapProductOutcomesList")))
@@ -1994,36 +1213,7 @@
 
 
 
-;; Link to a particular lesson by name
-;; lesson-link: #:name string #:label (U string #f) -> element
-(define (lesson-link #:name lesson-name
-                     #:label [label #f])
-  ;; We make this a traverse-element so that we can re-evaluate this code at document-generation
-  ;; time, rather than just at module-loading time.
-  (traverse-element 
-   (lambda (get set)
-     (cond
-       ;; First, check to see whether or not we can find the cross reference to the lesson.
-       [(and (hash-has-key? (current-lesson-xref) lesson-name)
-             (current-document-output-path))
-        (define-values (unit-path anchor)
-          (match (hash-ref (current-lesson-xref) lesson-name)
-            [(list lesson-name unit-path)
-             (values unit-path (lesson-name->anchor-name lesson-name))]))
-        (define the-relative-path
-          (find-relative-path (simple-form-path (path-only (current-document-output-path)))
-                              (simple-form-path unit-path)))
-        (hyperlink (string-append (path->string the-relative-path) "#" anchor)
-                   (if label label lesson-name))]
-       
-       ;; If not, fail for now by producing a hyperlink that doesn't quite go to the right place.
-       [else
-        (fprintf (current-output-port) "Warning: could not find cross reference to ~a\n" lesson-name)
-        (define the-relative-path
-          (find-relative-path (simple-form-path (current-directory))
-                              (simple-form-path (build-path worksheet-lesson-root lesson-name "lesson" "lesson.html"))))
-        (hyperlink (path->string the-relative-path)
-                   (if label label lesson-name))]))))
+
 
 (define (insert-help-button)
   (para #:style (make-style #f (list (make-alt-tag "iframe") 
@@ -2129,13 +1319,6 @@
 
 (define exercise-evid-tags list)
   
-;; determine whether we are currently in solutions-generation mode
-;; need two versions of this: one for syntax phase and one for runtime
-(define (solutions-mode-on?)
-  (let ([env (getenv "CURRENT-SOLUTIONS-MODE")])
-    ;(printf "Solutions mode is ~a ~n" env)
-    (and env (string=? env "on"))))  
-  
 ;; Inputs: string [string] [string] [string] -> element
 ;;         optional argument supply answers for the workbook
 ;; Produces element with blanks for an exercise to fill in a contract
@@ -2168,6 +1351,50 @@
      (lambda (get set)
        (length-of-lesson (get 'unit-length "No value found for"))))))
 
+;;;;;;;; LINKING BETWEEN COMPONENTS ;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(define (escape-webstring-newlines str)
+  (string-replace str (list->string (list #\newline)) "%0A"))
+
+;; create a link to a wescheme editor, possibly initialized with interactions/defn contents
+(define (editor-link #:public-id (pid #f)
+                     #:interactions-text (interactions-text #f)
+                     #:definitions-text (definitions-text #f)
+                     link-text)                      
+  (if (and definitions-text pid)
+      (printf "WARNING: creating wescheme link with both defns text and public id~n")
+      (let ([optionstext (if (audience-in? (list "student"))
+                             "hideHeader=true&warnOnExit=false&"
+                             "")]
+            [argstext (string-append (if pid (format "publicId=~a&" pid) "")
+                                     (if interactions-text (format "interactionsText=~a&" interactions-text) "")
+                                     (if definitions-text (format "definitionsText=~a" (escape-webstring-newlines definitions-text)) ""))])
+        (cond-element
+         [html
+          (sxml->element `(a (@ (href ,(format "http://www.wescheme.org/openEditor?~a~a" optionstext argstext))
+                                (target "embedded"))
+                             ,link-text))]
+         [else (elem)]))))
+
+;; create a link to a particular program at wescheme.org, with the embedded target
+(define (run-link #:public-id (pid #f) link-text)
+  (if (not pid)
+      (printf "WARNING: run-link needs a public-id argument")
+      (cond-element
+       [html
+        (sxml->element `(a (@ (href ,(format "http://www.wescheme.org/view?publicId=~a" pid))
+                              (target "embedded"))
+                           ,link-text))]
+       [else (elem)])))
+
+;; create a link to wescheme.org's home page, with the embedded target
+(define (login-link link-text)
+  (cond-element
+   [html
+    (sxml->element `(a (@ (href "http://www.wescheme.org/")
+                          (target "embedded"))
+                       ,link-text))]
+   [else (elem)]))
 
 
 ;; We need to do a little compile-time computation to get the file's source
@@ -2182,8 +1409,6 @@
            (worksheet-link #:src-path src-path
                            args ...))))]))
 
-
-
 ;; Link to a particular resource by path.
 ;; resource-path should be a path string relative to the resources subdirectory.
 (define (resource-link #:path resource-path
@@ -2194,12 +1419,9 @@
   (hyperlink (path->string the-relative-path)
              (if label label resource-path)))
 
-
-
 ;; wraps a hyperlink in the bootstrap styling tag
 (define (video-link hylink)
   (elem #:style bs-video-style hylink))
-
 
 ;; Creates a link to the worksheet.
 ;; Under development mode, the URL is relative to the development sources.
@@ -2234,6 +1456,39 @@
                    "Page " (number->string (cond [page page] 
                                                  [name (get-workbook-page/name name)] 
                                                  [else (begin (printf "WARNING: worksheet link needs one of page or name~n") 0)])))))
+
+;; Link to a particular lesson by name
+;; lesson-link: #:name string #:label (U string #f) -> element
+(define (lesson-link #:name lesson-name
+                     #:label [label #f])
+  ;; We make this a traverse-element so that we can re-evaluate this code at document-generation
+  ;; time, rather than just at module-loading time.
+  (traverse-element 
+   (lambda (get set)
+     (cond
+       ;; First, check to see whether or not we can find the cross reference to the lesson.
+       [(and (hash-has-key? (current-lesson-xref) lesson-name)
+             (current-document-output-path))
+        (define-values (unit-path anchor)
+          (match (hash-ref (current-lesson-xref) lesson-name)
+            [(list lesson-name unit-path)
+             (values unit-path (lesson-name->anchor-name lesson-name))]))
+        (define the-relative-path
+          (find-relative-path (simple-form-path (path-only (current-document-output-path)))
+                              (simple-form-path unit-path)))
+        (hyperlink (string-append (path->string the-relative-path) "#" anchor)
+                   (if label label lesson-name))]
+       
+       ;; If not, fail for now by producing a hyperlink that doesn't quite go to the right place.
+       [else
+        (fprintf (current-output-port) "Warning: could not find cross reference to ~a\n" lesson-name)
+        (define the-relative-path
+          (find-relative-path (simple-form-path (current-directory))
+                              (simple-form-path (build-path worksheet-lesson-root lesson-name "lesson" "lesson.html"))))
+        (hyperlink (path->string the-relative-path)
+                   (if label label lesson-name))]))))
+
+;;;;;;;;;;;; END OF LINKING ;;;;;;;;;;;;;;;;;;;;;
 
 ;; used to generate title in head without scribble-generated title content
 (define (head-title-no-content text)

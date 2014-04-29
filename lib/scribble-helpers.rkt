@@ -14,7 +14,9 @@
          remdups/itemization
          fake-item
          list->itemization
-         ;all-defined-out  --> why isn't this working???
+         interleave-parbreaks/select
+         interleave-parbreaks/all
+         ;(all-defined-out)  ;--> why isn't this working???
          )
 
 (provide/contract [itemlist/splicing
@@ -101,5 +103,37 @@
 
 ;(list->itemization '("hi" ("mom" ("sis"))) (list "a" "b"))
   
+
+;;;;;;;;;; MANAGING SINTRAPARAS ;;;;;;;;;;;;;;;;;;;
+
+;; determine which elements need manual parbreaks to prevent surrounding SIntraparas
+;; currently suppress around itemizations and student/teacher blocks
+(define (suppress-intrapara-around? content)
+  (or (itemization? content)
+      (and (nested-flow? content) 
+           (nested-flow-style content)
+           (member (style-name (nested-flow-style content)) 
+                   (list "student" "teacher" "activity")))
+      ))
+
+;; Avoid Sintraparas from being introduced by adding manual parbreaks between
+;;   select items in a list.  Good for settings in which some items in list are 
+;;   part of the same paragraph and others (like itemlists) introduce breaks
+(define (interleave-parbreaks/select contentlist)
+  (cond [(empty? contentlist) (list "\n" "\n")]
+        [(cons? contentlist) 
+         (cond [(suppress-intrapara-around? (first contentlist))
+                (append (list "\n" "\n" (first contentlist) "\n" "\n")
+                        (interleave-parbreaks/select (rest contentlist)))]
+               [else (cons (first contentlist) (interleave-parbreaks/select (rest contentlist)))])]))
+
+;; Avoid Sintraparas from being introduced by adding manual parbreaks between
+;;   every pair of items in a list.  Good for settings in which items in list are
+;;   never intended to be part of the same paragraph (like lesson segments)
+(define (interleave-parbreaks/all contentlist)
+  (cond [(empty? contentlist) (list "\n" "\n")]
+        [(cons? contentlist) 
+         (cons "\n" (cons "\n" (cons (first contentlist) 
+                                     (interleave-parbreaks/all (rest contentlist)))))]))
   
   
