@@ -1,12 +1,9 @@
 #lang racket
 
+; Functions for creating scribbled exercises 
+
 (require scribble/base
-         scribble/core
-         scribble/decode
          scribble/basic
-         (prefix-in manual: scribble/manual)
-         scribble/html-properties
-         scribble/latex-properties
          scriblib/render-cond
          "scribble-helpers.rkt"
          "styles.rkt"
@@ -15,36 +12,32 @@
          "racket2pyret.rkt"
          )
 
-(provide (all-defined-out))
+(provide fill-in-the-blank
+         free-response
+         contract-exercise
+         create-exercise-itemlist
+         create-exercise-itemlist/contract-answers
+         create-exercise-sols-itemlist
+         questions-and-answers
+         open-response-exercise
+         fill-in-blank-answers-exercise
+         circeval-matching-exercise/code
+         circeval-matching-exercise/math
+         matching-exercise
+         matching-exercise-sols
+         matching-exercise-answers
+         completion-exercise
+         three-col-exercise
+         three-col-answers
+         )
+
+;;;;;; Styles ;;;;;;;;;;;;;;;;
 
 (define bs-contract-exercise-style (make-bs-latex-style "BSContractExercise"))
 (define bs-fill-in-blank-style (make-bs-latex-style "BSFillInBlank"))
 (define bs-free-response-style (make-bs-latex-style "BSFreeResponse"))
 
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; This section appears tied to free-response, and setting up ability to
-;; look up IDs later.  We don't use in practice, so warrants cleaning up
-
-(define current-row (make-parameter #f))
-
-(define-syntax (row stx)
-  (syntax-case stx ()
-    [(row #:count n body ...)
-     ;; FIXME: set up the parameterizations so we can repeat the content
-     #'(build-list n (lambda (i)
-                       (parameterize ([current-row i])
-                         (paragraph (make-style "BootstrapRow" (list (make-alt-tag "div")))
-                                    (list body ...)))))]))
-
-; When creating the ids for the form elements, if we're in the context of a row,
-; add it to the identifier as a ";~a" suffix.
-(define (resolve-id id)
-  (cond [(current-row)
-         (format "~a;~a" id (current-row))]
-        [else id]))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;; Basic Exercise Types ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; Inputs: string number string string -> element
 ;; Generates a single-line input area
@@ -68,7 +61,7 @@
                        #:rows (height 20)
                        #:label (label #f))
   (cond-element 
-   [html (sxml->element `(textarea (@ (id ,(resolve-id id))
+   [html (sxml->element `(textarea (@ (id ,id)
                                       (cols ,(number->string width))
                                       (rows ,(number->string height))
                                       ,@(if label
@@ -77,7 +70,6 @@
                                    ""))]
    [(or latex pdf)
     (elem #:style bs-free-response-style (number->string width) (number->string height))]))
-
 
 ;; Inputs: string [string] [string] [string] -> element
 ;;         optional argument supply answers for the workbook
@@ -90,6 +82,8 @@
                        " -> " (fill-in-the-blank #:id (format "~aoutput" tag) #:label "Range" #:class "contract-range studentAnswer"))]
                 [(or latex pdf)
                  (elem #:style bs-contract-exercise-style "")]))
+
+;;;;;;;;;;;; Exercise itemlists ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (define (create-exercise-itemlist #:ordered [ordered? #t] 
                                   #:itemstyle [itemstyle #f]
@@ -106,35 +100,7 @@
 (define (create-exercise-sols-itemlist #:ordered [ordered? #t] questions answers)
   (questions-and-answers questions answers))
 
-;; format a question and answer for a solution key
-(define (attach-exercise-answer question answer)
-  (nested #:style (bootstrap-div-style "question-with-answer") question (bold " Answer: ") answer))  
-
-
-;; produces list with same elements as input list, but with order permuted
-(define (permute-list lst)
-  (let loop ([sourcelst lst])
-    (if (empty? sourcelst) empty
-        (let ([choose (list-ref sourcelst (random (length sourcelst)))])
-          (cons choose (loop (remove choose sourcelst)))))))
-
-;; adds copies of with-elt to alst to produce list of length to-len
-;;   if alst already longer than to-len, return alst unchanged
-(define (pad-to alst to-len with-elt)
-  (if (>= (length alst) to-len) alst
-      (let ([extras (build-list (- to-len (length alst)) (lambda (i) with-elt))])
-        (append alst extras))))
-
-;; converts a numeric list index (0-based) to a lowercase char index
-(define (int-index->char-index i)
-  (format "~a" (integer->char (+ i 97))))
-
-;; produces 0-based index of element in list, defaults to eq? as comparator
-(define (get-index #:compare-with [compare-with eq?] elt lst)
-  (let loop [(index 0) (L lst)]
-    (cond [(empty? L) (raise 'get-index-elt-not-found)]
-          [(compare-with (first L) elt) index]
-          [else (loop (add1 index) (rest L))])))
+;;;;;;;;;; Two-column open-response exercise ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; generates a two-column layout with blanks for the answers in the right column
 ;;   answer-type argument used to control the amount of space left for answers
@@ -145,10 +111,7 @@
   (two-col-layout #:rightcolextratag (string-append "studentAnswer " answer-type)
                   colA '()))
                      
-;; given answer key for matching exercise, generate solutions
-(define (matching-exercise-sols matches)
-  (matching-exercise (map (lambda (m) (attach-exercise-answer (first m) (second m))) matches)
-                     '()))
+;;;;;;;; Two-column fill-in-the-blank exercise ;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; creates an elem containing string with index number before each elt in list
 (define (add-index-nums/elem elts)
@@ -162,6 +125,8 @@
                           (list ques (fill-in-the-blank #:class "studentAnswer")))
                         numberedques)])
     (tabular #:style "matching-table" rowslist)))
+
+;;;;;;; Circles of evaluation matching exercises ;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; Given a list of sexps as strings, create a matching exercise between
 ;;   the expressions and circle-of-eval forms.  Can optionally take the
@@ -183,10 +148,35 @@
                      mathexps 
                      (map (lambda (str) (sexp str #:form "circofeval")) sexps)))
 
+;;;;;;;;;;;;; Matching Exercises ;;;;;;;;;;;;;;;;;;;;;;
+
+;; given two lists of content, produces an exercise to match each item in
+;;   colA with one from colB.  If permute is true, then contents of colB
+;;   are permuted before generating the output.
+;; Pads lists as needed to balance length (allows some matches to not be used)
+;; real-matching? distinguishes actual matching exercises that need labels on
+;;   the right column from cases that use this to generate twoColumnLayouts (like answer blanks)
+(define (matching-exercise #:permute [permute #f] 
+                           colA colB)
+  (let* ([permutedB (if permute (permute-list colB) colB)]
+         [paddedcolA (if (> (length colB) (length colA)) (pad-to colA (length colB) "") colA)]
+         [paddedcolB (if (> (length colA) (length colB)) (pad-to permutedB (length colA) "") permutedB)])
+    (two-col-layout #:layoutstyle "matching"
+                    paddedcolA paddedcolB)))
+
 ;; gets the lowercase letter label of an answer from a list of answers
 ;;  intended to compute original label of answer in a matching problem
 (define (matching-label #:compare-with [compare-with eq?] ans presented-order)
   (int-index->char-index (get-index #:compare-with compare-with ans presented-order)))
+
+;; format a question and answer for a solution key
+(define (attach-exercise-answer question answer)
+  (nested #:style (bootstrap-div-style "question-with-answer") question (bold " Answer: ") answer))  
+
+;; given answer key for matching exercise, generate solutions
+(define (matching-exercise-sols matches)
+  (matching-exercise (map (lambda (m) (attach-exercise-answer (first m) (second m))) matches)
+                     '()))
 
 ;; annotates each answer in a matching exercise with the label of the
 ;;   answer in the presented problem
@@ -210,19 +200,13 @@
               formatted-ans (or content-of-ans formatted-ans))])
     (two-col-layout #:layoutstyle "solutions matching" ques annotated-ans)))
 
-;; given two lists of content, produces an exercise to match each item in
-;;   colA with one from colB.  If permute is true, then contents of colB
-;;   are permuted before generating the output.
-;; Pads lists as needed to balance length (allows some matches to not be used)
-;; real-matching? distinguishes actual matching exercises that need labels on
-;;   the right column from cases that use this to generate twoColumnLayouts (like answer blanks)
-(define (matching-exercise #:permute [permute #f] 
-                           colA colB)
-  (let* ([permutedB (if permute (permute-list colB) colB)]
-         [paddedcolA (if (> (length colB) (length colA)) (pad-to colA (length colB) "") colA)]
-         [paddedcolB (if (> (length colA) (length colB)) (pad-to permutedB (length colA) "") permutedB)])
-    (two-col-layout #:layoutstyle "matching"
-                    paddedcolA paddedcolB)))
+;;;;;;;;;; Completion Exercises ;;;;;;;;;;;;;;;;;
+
+;; generate a two-column layout with no special formatting towards item labeling
+(define (completion-exercise colA colB)
+  (two-col-layout colA colB))
+
+;;;;;;; Foundational Helpers ;;;;;;;;;;;;;;;
 
 ;; generic function for creating a two-column layout.  Not meant to be called
 ;; directly from .scrbl files.  Mostly used for exercise generation
@@ -269,9 +253,29 @@
 
 (define three-col-exercise two-or-three-col-layout)
 (define three-col-answers two-or-three-col-layout)
-
-;; generate a two-column layout with no special formatting towards item labeling
-(define (completion-exercise colA colB)
-  (two-col-layout colA colB))
-
 (define questions-and-answers two-col-layout)
+
+;; produces list with same elements as input list, but with order permuted
+(define (permute-list lst)
+  (let loop ([sourcelst lst])
+    (if (empty? sourcelst) empty
+        (let ([choose (list-ref sourcelst (random (length sourcelst)))])
+          (cons choose (loop (remove choose sourcelst)))))))
+
+;; adds copies of with-elt to alst to produce list of length to-len
+;;   if alst already longer than to-len, return alst unchanged
+(define (pad-to alst to-len with-elt)
+  (if (>= (length alst) to-len) alst
+      (let ([extras (build-list (- to-len (length alst)) (lambda (i) with-elt))])
+        (append alst extras))))
+
+;; converts a numeric list index (0-based) to a lowercase char index
+(define (int-index->char-index i)
+  (format "~a" (integer->char (+ i 97))))
+
+;; produces 0-based index of element in list, defaults to eq? as comparator
+(define (get-index #:compare-with [compare-with eq?] elt lst)
+  (let loop [(index 0) (L lst)]
+    (cond [(empty? L) (raise 'get-index-elt-not-found)]
+          [(compare-with (first L) elt) index]
+          [else (loop (add1 index) (rest L))])))

@@ -6,15 +6,28 @@
          scribble/core
          scribble/html-properties
          scribble/latex-properties
-         (prefix-in neturl: net/url) ;; so we can load mathjax from a url
+         ;(prefix-in neturl: net/url) ;; so we can load mathjax from a url
+	 "math-rendering.rkt"
        )
 
-(provide (all-defined-out))
+(provide bootstrap-sectioning-style
+         bootstrap-paragraph-style 
+	 bootstrap-div-style
+	 bootstrap-div-style/id
+	 bootstrap-div-style/id/nested
+	 bootstrap-div-style/extra-id
+	 bootstrap-span-style/extra-id
+	 bootstrap-span-style
+	 bootstrap-span-style/id
+	 bootstrap-agenda-style
+	 bootstrap-style
+	 bs-head-additions
+	 make-bs-latex-style 
+	 bs-title-style
+	 bs-content-style
+	 audience-in?
+)
 
-(define mathjax-url
-  (neturl:string->url 
-   "http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,http://www.cs.wpi.edu/~kfisler/mathjaxlocal.js"))
-  
 ;;;;;;;;;;;;;;;;; Runtime Params ;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; aud is either a string or a list of strings of audience tags
@@ -33,7 +46,6 @@
 (define-runtime-path runmode.js "runmode.js")
 (define-runtime-path scheme2.js "scheme2.js")
 (define-runtime-path bootstraplesson.js "bootstraplesson.js")
-(define-runtime-path logo.png "logo.png")
 (define-runtime-path extra_curriculum.css "extra_curriculum.css")
 (define-runtime-path workbook.css "workbook.css")
 

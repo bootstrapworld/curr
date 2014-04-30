@@ -12,7 +12,11 @@
          sexp->block ; used in gen-arith-exp in form-elements
          code
          code/CSS
+	 sexp->coe
+         sexp->code         
          )
+
+;;;;;;; styles ;;;;;;;;;;;;;;;;;;;;;;;
 
 (define bs-numvalue-style (bootstrap-span-style "value wescheme-number"))
 (define bs-strvalue-style (bootstrap-span-style "value wescheme-string"))
@@ -33,6 +37,8 @@
 (define bs-sexp-style (bootstrap-div-style "codesexp"))
 (define bs-code-style (bootstrap-div-style "code"))
 (define bs-circeval-style (bootstrap-div-style "circleevalsexp"))
+
+;;;;;; DOM-based sexps ;;;;;;;;;;;;;;;;;;;;;;;
 
 (define EXPR-HOLE-SYM 'BSLeaveAHoleHere)
 (define EXPR-HOLE-SYM2 'BSLeaveAHoleHere2)
@@ -137,6 +143,14 @@
         (if (eof-object? exp)
             (begin (close-input-port p) empty)
             (cons exp (loop)))))))
+
+(define (sexp->coe e)
+  (sexp #:form "circofeval" e))
+
+(define (sexp->code e)
+  (sexp #:form "code" e))
+
+;;;;;;;;;; Formatting blocks of code ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
           
 ;; assumes that all comment lines come at the beginning of the list
 (define (code->block list-of-lines)

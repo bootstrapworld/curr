@@ -39,6 +39,7 @@
          "process-code.rkt"
          "design-recipe-generator.rkt"
          "exercise-generator.rkt"
+	 "math-rendering.rkt"
          )
 
 ;; FIXME: must add contracts!
@@ -64,7 +65,6 @@
          circeval-matching-exercise/code
          circeval-matching-exercise/math
          fill-in-blank-answers-exercise
-         gen-random-arith-sexp
          sexp
          sexp->math
 	 sexp->coe
@@ -134,6 +134,7 @@
 ;;;;;;;;;;;; Runtime paths and settings ;;;;;;;;;;;;;;;;;;;;;;;
 
 (define-runtime-path worksheet-lesson-root (build-path 'up "lessons"))
+(define-runtime-path logo.png "logo.png")
 
 ;; determine whether we are currently in solutions-generation mode
 ;; need two versions of this: one for syntax phase and one for runtime
@@ -177,14 +178,6 @@
      (set 'vocab-used (cons body (get 'vocab-used '())))
      (elem #:style bs-vocab-style body))))
 
-;; generate math rendering towards the MathJax library
-(define (math body)
-  (cond-element
-   [html (sxml->element `(script (@ (type "math/tex"))
-                                 ,body))]
-   [(or latex pdf)
-    (printf "WARNING: IMPLEMENT MATH MODE for latex/pdf")])) 
-
 ;; generate content to be styled as its own line in a block
 (define (bannerline  . body)
   (elem #:style bs-banner-style body))
@@ -199,45 +192,6 @@
     (image (apply build-path path-strs))))
 
 ;;;;;;;;;;;;;; Lesson structuring ;;;;;;;;;;;;;;;;;;;;;;;
-
-; the extra class "fixed" in the toolbar is for consistency with what gets
-; generated when we add the toolbar id through a bootstrap-div-style/id
-; for the student toolbar
-(define (insert-teacher-toggle-button)
-  (cond-element
-   [html (sxml->element
-          `(div (@ (class "fixed") (id "lessonToolbar"))
-                (input (@ (type "button") 
-                          (value "Show Teacher Notes") 
-                          (onclick "toggleTeacherNotes(this);")) "")
-                (br)
-                (input (@ (type "button")
-                          (value "Discussion Group")
-                          (onclick "showGroup()")))))]
-   [else (elem)]))
-
-(define (insert-student-buttons)
-  (cond-element
-   [html (sxml->element
-          `(center
-            (input (@ (type "button") (id "prev")   (value "<<")) "")
-            (input (@ (type "button") (id "flip")   (value "flip")) "")
-            (input (@ (type "button") (id "next")   (value ">>")) "")
-            ))]
-   [else (elem "")]))
-
-(define (insert-toolbar)
-  (cond [(audience-in? (list "teacher" "volunteer")) (insert-teacher-toggle-button)]
-        [(audience-in? (list "student")) 
-         (list
-          (para #:style (bootstrap-div-style/id "lessonToolbar")
-                (insert-student-buttons))
-          (cond-element
-           [html (sxml->element
-                  `(div (@ (id "IDE"))
-                        (iframe (@ (id "embedded") (name "embedded")))))]
-           [else (elem)]))]
-        [else (elem)]))
 
 (define (student . content)
   (nested #:style bs-student-style (interleave-parbreaks/select content)))
@@ -264,7 +218,77 @@
    ". Permissions beyond the scope of this license may be available at "
    (hyperlink "mailto:schanzer@BootstrapWorld.org" "schanzer@BootstrapWorld.org") "."))
 
+;; activities that are interspersed into the notes
+(define (activity #:forevidence (evidence #f) 
+                  #:answer (answer #f)
+                  #:show-answer? (show-answer? #f)
+                  . body)
+  (traverse-block
+   (lambda (get set!)
+     ;; first, check that evidence tags on activity are valid
+     (let* ([evidlist (cond [(list? evidence) evidence] [(not evidence) '()] [else (list evidence)])]
+            [checked-evidlist (foldr (lambda (evidtag result-rest)
+                                       (if (get-evid-statement/tag evidtag) 
+                                           (cons evidtag result-rest)
+                                           (begin ;(printf "WARNING: activity using invalid evidence tag ~a~n" evidtag)
+                                                  result-rest)))
+                                     '() evidlist)])
+         (when evidence (set! 'activity-evid (append checked-evidlist (get 'activity-evid '()))))
+         (nested #:style (bootstrap-div-style "activity")
+                 (interleave-parbreaks/select body))))))
+  
+;; language-table : list[list[elements]] -> table
+;; produces table with the particular formatting for the Bootstrap language table
+(define (language-table . rows)
+  (nested #:style (bootstrap-div-style/id/nested "LanguageTable")    
+          (table (style "thetable"
+                        (list 
+                         (table-columns
+                          (list 
+                           (style "BootstrapTable" '(center))
+                           (style "BootstrapTable" '(center))))))   
+                 (cons (list (para #:style "BootstrapTableHeader" "Types")
+                             (para #:style "BootstrapTableHeader" "Functions"))
+                       (map (lambda (r) (map para r)) rows)))))
 
+;; build-table : list[string] list[list[element]] (number number -> element) 
+;;               number number -> table
+;; consumes column headers, contents for a prefix of the columns, a function to
+;;          format each cell based on its row and col number, 
+;;          and the number of columns and rows for the table
+;;          (col-headers count as a row if they are provided)
+;; produces a table (list of list of cell contents, row-major order)
+;; ASSUMES: each list in col-contents has length height (which is the number of data rows)
+(define (build-table/cols col-headers col-contents fmt-cell numCols numDataRows)
+  ;; check assumption on col-contents lengths
+  (for-each (lambda (col-content)
+              (unless (or (null? col-content) (= (length col-content) numDataRows))
+                (error 'build-table/cols 
+                       (format "column contents ~a needs to have one entry for each of ~a rows" 
+                               col-content numDataRows))))
+            col-contents)
+  (let* ([blank-column (lambda (col-num)
+                         (build-list numDataRows (lambda (row-num) 
+                                                   (fmt-cell row-num col-num))))]
+         [data-columns 
+          (build-list numCols
+                      (lambda (col-num) 
+                        (cond [(>= col-num (length col-contents)) (blank-column col-num)]
+                              [(null? (list-ref col-contents col-num)) (blank-column col-num)]
+                              [else (map para (list-ref col-contents col-num))])))]
+         [all-columns (if (null? col-headers) data-columns
+                          (map cons 
+                               (map (lambda (h) (para (bold h))) col-headers)
+                               data-columns))])   
+    (table (style #f
+                  (list (table-columns
+                         (build-list numCols
+                                     (lambda (n) (style #f '(left)))))))
+           ;; convert list of columns to list of rows
+           (build-list (if (null? col-headers) numDataRows (add1 numDataRows))
+                       (lambda (row-num) 
+                         (map (lambda (col) (list-ref col row-num))
+                              all-columns))))))
 
 ;;;;;;;;;; Sections of Units ;;;;;;;;;;;;;;;;;;;;;;
 
@@ -344,6 +368,27 @@
     (if defn
         (elem term-elem ": " defn)
         term-elem)))
+
+;; strips all spaces from a string
+(define (rem-spaces str)
+  (string-replace str " " ""))
+
+;; determine whether "s" is last character of given string
+(define (ends-in-s? str)
+  (char=? #\s (string-ref str (sub1 (string-length str)))))
+
+;; produces string with last character of given string removed
+(define (rem-last-char str)
+  (substring str 0 (sub1 (string-length str))))
+
+;; replace words in strlist with singular versions that appear in dictionary
+(define (singularize-vocab-terms strlist)
+  (map (lambda (str) 
+         (if (and (ends-in-s? str)
+                  (assoc (rem-last-char str) glossary-terms-dictionary))
+             (rem-last-char str)
+             str))
+       strlist))
 
 ;; retrieves vocab terms used in document and generates block containing
 ;;   terms and their definitions from the dictionary file
@@ -530,6 +575,8 @@
          (nested #:style (bootstrap-div-style (string-append "Lesson" (rem-spaces title)))
           (interleave-parbreaks/all (list (bold title) contents)))
          (para)))))
+
+;;;;;;;;;;;; generating standards ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
     
 (define (expand-standards/csv standard-tags)
   (let ([known-stnds (foldl (lambda (t res-rest)
@@ -548,6 +595,98 @@
            (for/list ([stnd known-stnds])
              (item (elem (format "~a: ~a" (first stnd) (second stnd))))))))
 
+;;;;;;;;;;; evidence statements ;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; assumes no duplicates in the stdtaglist
+;; do we want to suppress evidence for non-teachers, or will formatting effectively handle that?
+;; NOTE: this function reflects an API weakness relative to standards-csv-api: the map in 
+;;   tag-formatted-LOtree really shouldn't be looking into the first/second/third of lists or at indices
+(define (learn-evid-from-standards)
+  (traverse-block
+   (lambda (get set)
+     (lambda (get set)
+       (let* ([evid-used (get 'activity-evid '())]
+              [stdtaglist (get 'standard-names '())]
+              [LOtree (apply append (map get-learnobj-tree stdtaglist))]
+              [tag-formatted-LOtree
+               (map (lambda (lo)
+                      (let* ([usedevid (sort (get-used-evidnums/std (third lo) evid-used) <=)]
+                             [keep-evid (map (lambda (keep-index) (list-ref (second lo) (sub1 keep-index))) usedevid)])
+                        (when (empty? keep-evid)
+                          (printf "WARNING: Unit has no activities for evidence statments under listed standard ~a~n" (third lo)))
+                        (list (elem (bold (third lo)) ": " (first lo))
+                              keep-evid)))
+                    ;; separately alphabetize Common Core and BS standards
+                    (let loop [(Allobjs LOtree) (BSobjs empty) (Others empty)]
+                      (cond [(empty? Allobjs) 
+                             (append (sort Others (lambda (o1 o2) (string<=? (third o1) (third o2))))
+                                     (sort BSobjs (lambda (o1 o2) (string<=? (third o1) (third o2)))))]
+                            [(string=? "BS-" (substring (third (first Allobjs)) 0 3))
+                             (loop (rest Allobjs) (cons (first Allobjs) BSobjs) Others)]
+                            [else (loop (rest Allobjs) BSobjs (cons (first Allobjs) Others))])))])
+         ;(printf "Have activity tags ~a~n" (get 'activity-evid '()))
+         ;(for-each (lambda (std) (printf "Std ~a uses nums ~a ~n" std (get-used-evidnums/std std evid-used))) stdtaglist)
+         ;(printf "~n")
+         (nested #:style (bootstrap-div-style/id/nested "LearningObjectives")
+                 (interleave-parbreaks/all
+                  (list
+                   (para #:style bs-header-style/span "Standards and Evidence Statements:")
+                   (list "Standards with"
+                         " prefix BS are specific to Bootstrap; others are from the Common Core."
+                         " Mouse over each standard to see its corresponding evidence statements."
+                         " Our " 
+                         (hyperlink "../../../../Standards.shtml" "Standards Document") 
+                         " shows which units cover each standard. "
+                         )
+                   (list->itemization tag-formatted-LOtree 
+                                      (list "LearningObjectivesList" "EvidenceStatementsList"))))))))))
+
+;;;;; HTML elements for unit pages ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+; the extra class "fixed" in the toolbar is for consistency with what gets
+; generated when we add the toolbar id through a bootstrap-div-style/id
+; for the student toolbar
+(define (insert-teacher-toggle-button)
+  (cond-element
+   [html (sxml->element
+          `(div (@ (class "fixed") (id "lessonToolbar"))
+                (input (@ (type "button") 
+                          (value "Show Teacher Notes") 
+                          (onclick "toggleTeacherNotes(this);")) "")
+                (br)
+                (input (@ (type "button")
+                          (value "Discussion Group")
+                          (onclick "showGroup()")))))]
+   [else (elem)]))
+
+(define (insert-student-buttons)
+  (cond-element
+   [html (sxml->element
+          `(center
+            (input (@ (type "button") (id "prev")   (value "<<")) "")
+            (input (@ (type "button") (id "flip")   (value "flip")) "")
+            (input (@ (type "button") (id "next")   (value ">>")) "")
+            ))]
+   [else (elem "")]))
+
+(define (insert-toolbar)
+  (cond [(audience-in? (list "teacher" "volunteer")) (insert-teacher-toggle-button)]
+        [(audience-in? (list "student")) 
+         (list
+          (para #:style (bootstrap-div-style/id "lessonToolbar")
+                (insert-student-buttons))
+          (cond-element
+           [html (sxml->element
+                  `(div (@ (id "IDE"))
+                        (iframe (@ (id "embedded") (name "embedded")))))]
+           [else (elem)]))]
+        [else (elem)]))
+
+(define (insert-help-button)
+  (para #:style (make-style #f (list (make-alt-tag "iframe") 
+                                     (make-attributes (list (cons 'id "forum_embed"))))) 
+        ""))
+                                     
 ;;;;;;;;;;;;; Generating the Main Summary Page ;;;;;;;;;;;;;;;;;
 
 ;; to add HEAD attributes, create an empty title element
@@ -630,168 +769,10 @@
                           (format "units/unit~a/the-unit" num)
                           (get-unit-descr (format "unit~a" num))))
 
-;;;;;;;;;;;;; End of Generating Main Summary Page ;;;;;;;;;;;;;;;
-
-;; activities that are interspersed into the notes
-(define (activity #:forevidence (evidence #f) 
-                  #:answer (answer #f)
-                  #:show-answer? (show-answer? #f)
-                  . body)
-  (traverse-block
-   (lambda (get set!)
-     ;; first, check that evidence tags on activity are valid
-     (let* ([evidlist (cond [(list? evidence) evidence] [(not evidence) '()] [else (list evidence)])]
-            [checked-evidlist (foldr (lambda (evidtag result-rest)
-                                       (if (get-evid-statement/tag evidtag) 
-                                           (cons evidtag result-rest)
-                                           (begin ;(printf "WARNING: activity using invalid evidence tag ~a~n" evidtag)
-                                                  result-rest)))
-                                     '() evidlist)])
-         (when evidence (set! 'activity-evid (append checked-evidlist (get 'activity-evid '()))))
-         (nested #:style (bootstrap-div-style "activity")
-                 (interleave-parbreaks/select body))))))
-  
-;; language-table : list[list[elements]] -> table
-;; produces table with the particular formatting for the Bootstrap language table
-(define (language-table . rows)
-  (nested #:style (bootstrap-div-style/id/nested "LanguageTable")    
-          (table (style "thetable"
-                        (list 
-                         (table-columns
-                          (list 
-                           (style "BootstrapTable" '(center))
-                           (style "BootstrapTable" '(center))))))   
-                 (cons (list (para #:style "BootstrapTableHeader" "Types")
-                             (para #:style "BootstrapTableHeader" "Functions"))
-                       (map (lambda (r) (map para r)) rows)))))
-
-;; build-table : list[string] list[list[element]] (number number -> element) 
-;;               number number -> table
-;; consumes column headers, contents for a prefix of the columns, a function to
-;;          format each cell based on its row and col number, 
-;;          and the number of columns and rows for the table
-;;          (col-headers count as a row if they are provided)
-;; produces a table (list of list of cell contents, row-major order)
-;; ASSUMES: each list in col-contents has length height (which is the number of data rows)
-(define (build-table/cols col-headers col-contents fmt-cell numCols numDataRows)
-  ;; check assumption on col-contents lengths
-  (for-each (lambda (col-content)
-              (unless (or (null? col-content) (= (length col-content) numDataRows))
-                (error 'build-table/cols 
-                       (format "column contents ~a needs to have one entry for each of ~a rows" 
-                               col-content numDataRows))))
-            col-contents)
-  (let* ([blank-column (lambda (col-num)
-                         (build-list numDataRows (lambda (row-num) 
-                                                   (fmt-cell row-num col-num))))]
-         [data-columns 
-          (build-list numCols
-                      (lambda (col-num) 
-                        (cond [(>= col-num (length col-contents)) (blank-column col-num)]
-                              [(null? (list-ref col-contents col-num)) (blank-column col-num)]
-                              [else (map para (list-ref col-contents col-num))])))]
-         [all-columns (if (null? col-headers) data-columns
-                          (map cons 
-                               (map (lambda (h) (para (bold h))) col-headers)
-                               data-columns))])   
-    (table (style #f
-                  (list (table-columns
-                         (build-list numCols
-                                     (lambda (n) (style #f '(left)))))))
-           ;; convert list of columns to list of rows
-           (build-list (if (null? col-headers) numDataRows (add1 numDataRows))
-                       (lambda (row-num) 
-                         (map (lambda (col) (list-ref col row-num))
-                              all-columns))))))
+;;;;;;;;;; Unit summary generation ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (define (unit-length timestr)
   (list (format "Length: ~a~n" (decode-flow timestr))))
-
-
-  
-;; generates a random binary arithmetic sexp 
-;; - depth is the max depth of the expression
-;; - form indicates whether to render spans for text or circle-of-evaluation
-;; in future, do we need ability to generate both forms?  Seems possible -- think about that
-(define (gen-random-arith-sexp #:depth (depth 2) #:form (form "sexp"))
-  (when (not (member form (list "sexp" "circeval")))
-    (error 'gen-random-arith-sexp "Form argument must be either sexp or circeval"))
-  (let ([sexp (gen-arith-sexp depth)])
-    (sexp->block sexp form)))
-
-
-  
-;; tostring for sexps, useful in exercise generation
-;;   wrap indicates whether to wrap result in parens
-;;   special handling for / so that it renders as a fraction
-(define (sexp->arith-str sexp #:wrap [wrap #f])
-  (cond [(number? sexp) (format "~a" sexp)]
-        [else 
-         (cond [(eq? (first sexp) '/) (format "{~a\\over~a}" 
-                                              (sexp->arith-str (second sexp))
-                                              (sexp->arith-str (third sexp)))]
-               [else
-                (let ([base (format "~a ~a ~a" 
-                                    (sexp->arith-str (second sexp) #:wrap #t) 
-                                    (first sexp) 
-                                    (sexp->arith-str (third sexp) #:wrap #t))])
-                  (if wrap (format "(~a)" base) base))])]))
-                          
-(define (sexp->math sexp #:wrap [wrap #f])
-  (math (sexp->arith-str sexp #:wrap wrap)))
-
-(define (sexp->coe e)
-  (sexp #:form "circofeval" e))
-
-(define (sexp->code e)
-  (sexp #:form "code" e))
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-;; assumes no duplicates in the stdtaglist
-;; do we want to suppress evidence for non-teachers, or will formatting effectively handle that?
-;; NOTE: this function reflects an API weakness relative to standards-csv-api: the map in 
-;;   tag-formatted-LOtree really shouldn't be looking into the first/second/third of lists or at indices
-(define (learn-evid-from-standards)
-  (traverse-block
-   (lambda (get set)
-     (lambda (get set)
-       (let* ([evid-used (get 'activity-evid '())]
-              [stdtaglist (get 'standard-names '())]
-              [LOtree (apply append (map get-learnobj-tree stdtaglist))]
-              [tag-formatted-LOtree
-               (map (lambda (lo)
-                      (let* ([usedevid (sort (get-used-evidnums/std (third lo) evid-used) <=)]
-                             [keep-evid (map (lambda (keep-index) (list-ref (second lo) (sub1 keep-index))) usedevid)])
-                        (when (empty? keep-evid)
-                          (printf "WARNING: Unit has no activities for evidence statments under listed standard ~a~n" (third lo)))
-                        (list (elem (bold (third lo)) ": " (first lo))
-                              keep-evid)))
-                    ;; separately alphabetize Common Core and BS standards
-                    (let loop [(Allobjs LOtree) (BSobjs empty) (Others empty)]
-                      (cond [(empty? Allobjs) 
-                             (append (sort Others (lambda (o1 o2) (string<=? (third o1) (third o2))))
-                                     (sort BSobjs (lambda (o1 o2) (string<=? (third o1) (third o2)))))]
-                            [(string=? "BS-" (substring (third (first Allobjs)) 0 3))
-                             (loop (rest Allobjs) (cons (first Allobjs) BSobjs) Others)]
-                            [else (loop (rest Allobjs) BSobjs (cons (first Allobjs) Others))])))])
-         ;(printf "Have activity tags ~a~n" (get 'activity-evid '()))
-         ;(for-each (lambda (std) (printf "Std ~a uses nums ~a ~n" std (get-used-evidnums/std std evid-used))) stdtaglist)
-         ;(printf "~n")
-         (nested #:style (bootstrap-div-style/id/nested "LearningObjectives")
-                 (interleave-parbreaks/all
-                  (list
-                   (para #:style bs-header-style/span "Standards and Evidence Statements:")
-                   (list "Standards with"
-                         " prefix BS are specific to Bootstrap; others are from the Common Core."
-                         " Mouse over each standard to see its corresponding evidence statements."
-                         " Our " 
-                         (hyperlink "../../../../Standards.shtml" "Standards Document") 
-                         " shows which units cover each standard. "
-                         )
-                   (list->itemization tag-formatted-LOtree 
-                                      (list "LearningObjectivesList" "EvidenceStatementsList"))))))))))
 
 ;; used to pull summary data generated over an entire unit or lesson from the
 ;; traverse table
@@ -808,84 +789,6 @@
             (if (empty? pre-content) "" (first pre-content))
             (remdups/itemization items)))))))))
 
-;; strips all spaces from a string
-(define (rem-spaces str)
-  (string-replace str " " ""))
-
-;; determine whether "s" is last character of given string
-(define (ends-in-s? str)
-  (char=? #\s (string-ref str (sub1 (string-length str)))))
-
-;; produces string with last character of given string removed
-(define (rem-last-char str)
-  (substring str 0 (sub1 (string-length str))))
-
-;; replace words in strlist with singular versions that appear in dictionary
-(define (singularize-vocab-terms strlist)
-  (map (lambda (str) 
-         (if (and (ends-in-s? str)
-                  (assoc (rem-last-char str) glossary-terms-dictionary))
-             (rem-last-char str)
-             str))
-       strlist))
-
-
-
-
-;; lesson-module-path->lesson-name: module-path -> string
-(define (lesson-module-path->lesson-name mp)
-  (match mp
-    [(list 'lib path)
-     (cond
-       [(regexp-match #px"^curr/lessons/([^/]+)/lesson/lesson.scrbl$" path)
-        =>
-        (lambda (result)
-          (list-ref result 1))]
-       [else
-        (raise-lesson-error mp)])]
-    [else
-     (raise-lesson-error mp)]))
-
-
-;; raise-lesson-error: module-path -> void
-;; Raises a lesson-specific error.
-(define (raise-lesson-error mp)
-  (error 'extract-lesson "lesson module path ~e does not have expected shape (e.g. (lib curr/lib/FOO/lesson.scrbl)" mp))
-
-;; extract-lesson: module-path -> (listof block)
-;; Extracts the lesson from the documentation portion, and also
-;; registers the use in the current document.
-(define (extract-lesson mp)
-  (define lesson-name (lesson-module-path->lesson-name mp))
-  (define a-doc (parameterize ([current-lesson-name lesson-name])
-                  (dynamic-require mp 'doc)))
-  
-  (unless (part? a-doc)
-    (error 'include-lesson "doc binding is not a part: ~e" a-doc))
-  (hash-set! (current-lesson-xref) lesson-name (list lesson-name (current-document-output-path)))
-  
-  ;; using rest in next line to eliminate an otherwise empty <p> block 
-  ;;   that was getting inserted into each lesson
-  (interleave-parbreaks/all (rest (part-blocks a-doc))))
-
-(define-syntax (include-lesson stx)
-  (syntax-case stx ()
-    [(_ mp)
-     (with-syntax ([(temporary-name) (generate-temporaries #'(mp))])
-       (syntax/loc stx
-         (extract-lesson 'mp)))]))
-
-;; lesson-name->anchor-name: string -> string
-;; Given that the lesson names are unique, we can create an <a name="..."> anchor
-;; for each included lesson.  We put a "lesson_" prefix in front of each name.
-(define (lesson-name->anchor-name a-name)
-  (uri-encode (string-append "lesson_" a-name)))
-
-(define (insert-help-button)
-  (para #:style (make-style #f (list (make-alt-tag "iframe") 
-                                     (make-attributes (list (cons 'id "forum_embed"))))) 
-        ""))
-                                     
 (define (unit-lessons . body)
   (interleave-parbreaks/all (append body (list (gen-exercises) (copyright)))))
 
@@ -952,7 +855,59 @@
      (lambda (get set)
        (length-of-lesson (get 'unit-length "No value found for"))))))
 
+;;;;;;;;; Including lessons ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; lesson-module-path->lesson-name: module-path -> string
+(define (lesson-module-path->lesson-name mp)
+  (match mp
+    [(list 'lib path)
+     (cond
+       [(regexp-match #px"^curr/lessons/([^/]+)/lesson/lesson.scrbl$" path)
+        =>
+        (lambda (result)
+          (list-ref result 1))]
+       [else
+        (raise-lesson-error mp)])]
+    [else
+     (raise-lesson-error mp)]))
+
+;; raise-lesson-error: module-path -> void
+;; Raises a lesson-specific error.
+(define (raise-lesson-error mp)
+  (error 'extract-lesson "lesson module path ~e does not have expected shape (e.g. (lib curr/lib/FOO/lesson.scrbl)" mp))
+
+;; extract-lesson: module-path -> (listof block)
+;; Extracts the lesson from the documentation portion, and also
+;; registers the use in the current document.
+(define (extract-lesson mp)
+  (define lesson-name (lesson-module-path->lesson-name mp))
+  (define a-doc (parameterize ([current-lesson-name lesson-name])
+                  (dynamic-require mp 'doc)))
+  
+  (unless (part? a-doc)
+    (error 'include-lesson "doc binding is not a part: ~e" a-doc))
+  (hash-set! (current-lesson-xref) lesson-name (list lesson-name (current-document-output-path)))
+  
+  ;; using rest in next line to eliminate an otherwise empty <p> block 
+  ;;   that was getting inserted into each lesson
+  (interleave-parbreaks/all (rest (part-blocks a-doc))))
+
+(define-syntax (include-lesson stx)
+  (syntax-case stx ()
+    [(_ mp)
+     (with-syntax ([(temporary-name) (generate-temporaries #'(mp))])
+       (syntax/loc stx
+         (extract-lesson 'mp)))]))
+
+;; lesson-name->anchor-name: string -> string
+;; Given that the lesson names are unique, we can create an <a name="..."> anchor
+;; for each included lesson.  We put a "lesson_" prefix in front of each name.
+(define (lesson-name->anchor-name a-name)
+  (uri-encode (string-append "lesson_" a-name)))
+
 ;;;;;;;; EXERCISE HANDOUTS ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Tried factoring into own module, but too much sharing of styles
+;;  and other basics needed for units/lessons
 
 (define exercise-evid-tags list)
 
@@ -1071,8 +1026,6 @@
                                                        ))))))
                                    exercise-locs))
                        )))))))))
-  
-
 
 ;;;;;;;; LINKING BETWEEN COMPONENTS ;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
