@@ -1,5 +1,8 @@
 #lang racket/base
 
+;; sxml->element and tagged->element are also defined in
+;; lib/sxml.rkt -- merge if ever start using this file again
+
 ;; this supports javascript evaluation for Scribble.
 (require scribble/html-properties
          scribble/core
@@ -64,3 +67,24 @@
   (define content (map sxml->element children))
   (make-element (make-style #f (list tag-attr attrs-attr))
                 content))
+
+;; generates a button that checks given constraint when clicked
+;; NEED TO document the language of the constraint input
+(define (check constraint #:id (id (gensym 'check)))
+  (elem (sxml->element
+         `(input
+           (@ (id ,(format "~a" id))
+              (type "button")
+              (value "Check answer")
+              (class "BootstrapCheckbox"))
+           ""))
+        (inject-javascript
+         (format "jQuery(document.getElementById(~s)).click(function() {
+                       if (~a) {
+                            alert('Congrats! You got it right');
+                       } else {
+                            alert('Sorry! Try again.');
+                       }
+                   });"
+                 (format "~a" id)
+                 (constraint->js constraint)))))

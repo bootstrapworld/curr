@@ -4,7 +4,7 @@
 ;; - generate some negative numbers
 ;; - generate some real numbers
 
-(require "javascript-support.rkt")
+;(require "javascript-support.rkt")
 (provide gen-arith-sexp)
 
 (define MATHOPS '(+ * -))

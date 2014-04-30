@@ -1,40 +1,31 @@
 #lang racket/base
 
 (require racket/runtime-path
-         racket/stxparam
          racket/contract
          racket/string
-         racket/port
-         racket/system ;; for extracting info from exercise handouts
          scribble/base
          scribble/core
          scribble/decode
          scribble/basic
-         (prefix-in manual: scribble/manual)
          scribble/html-properties
-         ;scribble/latex-properties
          scriblib/render-cond
          racket/path
          (for-syntax racket/base racket/syntax)
          2htdp/image
          racket/list
          net/uri-codec
-         ;(prefix-in neturl: net/url) ;; so we can load mathjax from a url
          racket/match
          "compile-time-params.rkt"
          "system-parameters.rkt"
          "checker.rkt"
-         "javascript-support.rkt"
+         "sxml.rkt"
          "paths.rkt"
-         "tags.rkt"
          "scribble-helpers.rkt"
          "standards-csv-api.rkt"
          "standards-dictionary.rkt"
          "glossary-terms.rkt"
-         "sexp-generator.rkt"
          "auto-format-within-strings.rkt"
          "workbook-index-api.rkt"
-         "racket2pyret.rkt"
          "styles.rkt"
          "process-code.rkt"
          "design-recipe-generator.rkt"
@@ -52,7 +43,6 @@
          language-table
          build-table/cols
          design-recipe-exercise
-         ;design-recipe-exercise/pyret
          unit-summary/links
          summary-item/links
          summary-item/custom
@@ -84,52 +74,45 @@
          editor-link
          run-link
          login-link
-         
-         ;; Sections
-         activity
-         unit-descr
-         main-contents
-         
-         ;; lesson formatting stuff
+         resource-link
+         video-link
+         [rename-out [worksheet-link/src-path worksheet-link]]         
+                
+         ;; lesson formatting 
          lesson
          lesson/studteach
          pacing
          points
          point
-         exercises
          student
          teacher
          itemlist/splicing ;; need because bs1 teachers-guide.scrbl using it (still in old lesson format)
+         activity
+         unit-descr
+         main-contents
          
-         ;; Itemizations
+         ;; Unit sections
+         exercises
          materials
          objectives
          product-outcomes
          preparation
          agenda
-         
-         unit-length
+         copyright
          
          ;; Include lesson/lesson link
          include-lesson
          lesson-link
-         
+
+         ;; Unit summaries
+         unit-length
          unit-overview/auto
          unit-lessons
-         copyright
          length-of-lesson
          bootstrap-title
          augment-head
                   
-         [rename-out [worksheet-link/src-path worksheet-link]]
-         
-         resource-link
-         video-link
          )        
-
-(provide/contract [check
-                   (-> constraint? element?)]
-                  )
 
 ;;;;;;;;;;;; Runtime paths and settings ;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -1187,29 +1170,6 @@
                  (nested #:style (bootstrap-div-style "headercontent") 
                          (list (para #:style (bootstrap-span-style "BootstrapTitle") 
                                      (cons bootstrap-image body)))))])))
-
-;;;;;;;;;;;;;; Javascript Generation ;;;;;;;;;;;;;;;;;;;;;;;;
-
-;; generates a button that checks given constraint when clicked
-;; NEED TO document the language of the constraint input
-(define (check constraint #:id (id (gensym 'check)))
-  (elem (sxml->element
-         `(input
-           (@ (id ,(format "~a" id))
-              (type "button")
-              (value "Check answer")
-              (class "BootstrapCheckbox"))
-           ""))
-        (inject-javascript
-         (format "jQuery(document.getElementById(~s)).click(function() {
-                       if (~a) {
-                            alert('Congrats! You got it right');
-                       } else {
-                            alert('Sorry! Try again.');
-                       }
-                   });"
-                 (format "~a" id)
-                 (constraint->js constraint)))))
 
 ;;;;;;;;;;;;;; MISC HELPERS ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
