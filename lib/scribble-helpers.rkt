@@ -17,6 +17,7 @@
          interleave-parbreaks/select
          interleave-parbreaks/all
          create-itemlist
+         head-title-no-content
          ;(all-defined-out)  ;--> clashes with provide/contract
          )
 
@@ -26,6 +27,12 @@
                         #:rest list?
                         itemization?)]
                  )
+
+;;;;;; page headings ;;;;;;;;;;;;;
+
+;; used to generate title in head without scribble-generated title content
+(define (head-title-no-content text)
+  (title #:style 'hidden text))
 
 ;;;;; ITEMIZATIONS ;;;;;;;;;;;;
 

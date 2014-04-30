@@ -87,7 +87,6 @@
          
          ;; Sections
          activity
-         unit-separator
          unit-descr
          main-contents
          
@@ -132,6 +131,8 @@
                    (-> constraint? element?)]
                   )
 
+;;;;;;;;;;;; Runtime paths and settings ;;;;;;;;;;;;;;;;;;;;;;;
+
 (define-runtime-path worksheet-lesson-root (build-path 'up "lessons"))
 
 ;; determine whether we are currently in solutions-generation mode
@@ -149,13 +150,11 @@
 
 (define bs-header-style (bootstrap-paragraph-style "BootstrapHeader"))
 (define bs-header-style/span (bootstrap-span-style "BootstrapHeader"))
-(define bs-title-style (bootstrap-style "BootstrapTitle"))
 (define bs-lesson-title-style (bootstrap-style "BootstrapLessonTitle"))
 (define bs-lesson-name-style (bootstrap-style "BSLessonName"))
 (define bs-lesson-duration-style (bootstrap-style "BSLessonDuration"))
 (define bs-video-style (bootstrap-style "BootstrapVideo"))
 (define bs-page-title-style (bootstrap-style "BootstrapPageTitle"))
-(define bs-content-style (bootstrap-div-style "content"))
 
 (define bs-time-style (bootstrap-span-style "time"))
 (define bs-callout-style (bootstrap-div-style "callout"))
@@ -165,69 +164,11 @@
 (define bs-vocab-style (bootstrap-span-style "vocab"))
 (define bs-banner-style (bootstrap-div-style "banner"))
 
+(define bs-head-style (make-style #f (list bs-head-additions)))
 (define bs-handout-style (bootstrap-div-style/extra-id "segment" "exercises"))
 (define bs-exercise-instr-style (bootstrap-div-style "exercise-instr"))
 
-(define bs-fill-in-blank-style (make-bs-latex-style "BSFillInBlank"))
-(define bs-free-response-style (make-bs-latex-style "BSFreeResponse"))
-(define bs-head-style (make-style #f (list bs-head-additions)))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; This section appears tied to free-response, and setting up ability to
-;; look up IDs later.  We don't use in practice, so warrants cleaning up
-
-(define current-row (make-parameter #f))
-
-(define-syntax (row stx)
-  (syntax-case stx ()
-    [(row #:count n body ...)
-     ;; FIXME: set up the parameterizations so we can repeat the content
-     #'(build-list n (lambda (i)
-                       (parameterize ([current-row i])
-                         (paragraph (make-style "BootstrapRow" (list (make-alt-tag "div")))
-                                    (list body ...)))))]))
-
-; When creating the ids for the form elements, if we're in the context of a row,
-; add it to the identifier as a ";~a" suffix.
-(define (resolve-id id)
-  (cond [(current-row)
-         (format "~a;~a" id (current-row))]
-        [else id]))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-;; Inputs: string number string string -> element
-;; Generates a single-line input area
-(define (fill-in-the-blank #:id (id "nonunique-id")
-                           #:columns (width 50)
-                           #:label (label #f)
-                           #:class (classname #f)
-                           #:answer (answer #f))
-  (cond-element [html
-                 (elem #:style (bootstrap-span-style classname) "")] ;"answer here"
-                [(or latex pdf)
-                 (elem #:style bs-fill-in-blank-style 
-                       (if label label " "))]))
-;
-;;; Inputs: string element number number string -> element
-;;; Generates a multi-line input area of size given in column/row arguments
-;; This is not in active use in current build.  Used in hw and worksheet dirs inside units
-(define (free-response #:id id
-                       #:answer (answer #f)
-                       #:columns (width 50)
-                       #:rows (height 20)
-                       #:label (label #f))
-  (cond-element 
-   [html (sxml->element `(textarea (@ (id ,(resolve-id id))
-                                      (cols ,(number->string width))
-                                      (rows ,(number->string height))
-                                      ,@(if label
-                                            `((placeholder ,label))
-                                            '()))
-                                   ""))]
-   [(or latex pdf)
-    (elem #:style bs-free-response-style (number->string width) (number->string height))]))
-
+;;;;;;;;;;;;; Basic formatting ;;;;;;;;;;;;;;;;;;;
 
 ;; accumulate all vocab referenced in lesson so we can generate a glossary
 (define (vocab body)
@@ -257,7 +198,179 @@
   (let ([path-strs (string-split path-as-str "\\")])
     (image (apply build-path path-strs))))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;; Lesson structuring ;;;;;;;;;;;;;;;;;;;;;;;
+
+; the extra class "fixed" in the toolbar is for consistency with what gets
+; generated when we add the toolbar id through a bootstrap-div-style/id
+; for the student toolbar
+(define (insert-teacher-toggle-button)
+  (cond-element
+   [html (sxml->element
+          `(div (@ (class "fixed") (id "lessonToolbar"))
+                (input (@ (type "button") 
+                          (value "Show Teacher Notes") 
+                          (onclick "toggleTeacherNotes(this);")) "")
+                (br)
+                (input (@ (type "button")
+                          (value "Discussion Group")
+                          (onclick "showGroup()")))))]
+   [else (elem)]))
+
+(define (insert-student-buttons)
+  (cond-element
+   [html (sxml->element
+          `(center
+            (input (@ (type "button") (id "prev")   (value "<<")) "")
+            (input (@ (type "button") (id "flip")   (value "flip")) "")
+            (input (@ (type "button") (id "next")   (value ">>")) "")
+            ))]
+   [else (elem "")]))
+
+(define (insert-toolbar)
+  (cond [(audience-in? (list "teacher" "volunteer")) (insert-teacher-toggle-button)]
+        [(audience-in? (list "student")) 
+         (list
+          (para #:style (bootstrap-div-style/id "lessonToolbar")
+                (insert-student-buttons))
+          (cond-element
+           [html (sxml->element
+                  `(div (@ (id "IDE"))
+                        (iframe (@ (id "embedded") (name "embedded")))))]
+           [else (elem)]))]
+        [else (elem)]))
+
+(define (student . content)
+  (nested #:style bs-student-style (interleave-parbreaks/select content)))
+
+(define (teacher . content)
+  (nested #:style bs-teacher-style (interleave-parbreaks/select content)))
+
+(define (pacing #:type (type #f) . contents) 
+  (nested #:style (bootstrap-span-style type)
+          (nested #:style bs-callout-style (interleave-parbreaks/all contents))))
+
+(define (points . contents)
+   (apply itemlist/splicing contents #:style (make-style "lesson" '(compact))))
+
+(define (point . contents)
+  (interleave-parbreaks/select contents)) 
+
+;auto generates copyright section
+(define (copyright . body)
+  (para #:style (bootstrap-div-style/id "copyright")
+   (hyperlink "http://creativecommons.org/licenses/by-nc-nd/3.0/" creativeCommonsLogo) "Bootstrap by " (hyperlink "http://www.bootstrapworld.org/" "Emmanuel Schanzer") " is licensed under a "
+   (hyperlink "http://creativecommons.org/licenses/by-nc-nd/3.0/" "Creative Commons 3.0 Unported License")
+   ". Based on a work at " (hyperlink "http://www.bootstrapworld.org/" "www.BootstrapWorld.org")
+   ". Permissions beyond the scope of this license may be available at "
+   (hyperlink "mailto:schanzer@BootstrapWorld.org" "schanzer@BootstrapWorld.org") "."))
+
+
+
+;;;;;;;;;; Sections of Units ;;;;;;;;;;;;;;;;;;;;;;
+
+(define (materials . items)
+  (list (compound-paragraph bs-header-style 
+                            (decode-flow (list "Materials and Equipment:")))
+        (apply itemlist/splicing items #:style "BootstrapMaterialsList")))
+
+(define (objectives . items)
+  (list (compound-paragraph bs-header-style 
+                            (decode-flow (list "Learning Objectives:")))
+        (apply itemlist/splicing items #:style "BootstrapLearningObjectivesList")))
+
+(define (evidence-statements . items)
+  (list (compound-paragraph bs-header-style 
+                            (decode-flow (list "Evidence Statements:")))
+        (apply itemlist/splicing items #:style "BootstrapEvidenceStatementsList")))
+
+(define (product-outcomes . items)
+  (list (compound-paragraph bs-header-style 
+                            (decode-flow (list "Product Outcomes:")))
+        (apply itemlist/splicing items #:style "BootstrapProductOutcomesList")))
+
+(define (exercises . content)
+  (lesson-section "Exercises" content))
+
+(define (preparation . items)
+  (list (compound-paragraph bs-header-style 
+                            (decode-flow (list "Preparation:")))
+        (apply itemlist/splicing items #:style "BootstrapPreparationList")))
+  
+;; Cooperates with the Lesson tag.
+(define (agenda . items)
+  
+  ;; extract-minutes: lesson-struct -> string
+  ;; Extracts the number of minutes the lesson should take.
+  (define (extract-minutes a-lesson)
+    (first (regexp-match "[0-9]*" (lesson-struct-duration a-lesson))))
+  
+  (traverse-block
+   (lambda (get set)
+     (lambda (get set)
+       (define (maybe-hyperlink elt anchor)
+         (if anchor
+             (hyperlink (string-append "#" anchor) elt)
+             elt))
+       
+       (define lessons (reverse (get 'bootstrap-lessons '())))
+      
+       ;; compute total unit length to include in the unit overview
+       (let ([unit-minutes (foldr (lambda (elt result)
+                                    (let ([mins (string->number (extract-minutes elt))])
+                                      (+ (if mins mins 0) result)))
+                                  0 lessons)])
+         ;(printf "Computed ~a minutes~n" unit-minutes)
+         (set 'unit-length unit-minutes))
+         
+       (nested #:style bootstrap-agenda-style 
+               (interleave-parbreaks/all
+               (list "Agenda"
+                     (apply 
+                      itemlist/splicing 
+                      #:style "BootstrapAgendaList"
+                      (for/list ([a-lesson lessons])
+                        (item (para (elem #:style "BSLessonDuration"
+                                          (format "~a min" 
+                                                  (extract-minutes a-lesson)))
+                                    (maybe-hyperlink
+                                     (elem #:style "BSLessonName"
+                                           (lesson-struct-title a-lesson))
+                                     (lesson-struct-anchor a-lesson)))))))))))))
+
+;; glossary-entry : string (string or #f) -> elem
+;; generates markup for glossary entry; defn may be missing
+(define (glossary-entry term defn)
+  (let ([term-elem (elem #:style (bootstrap-span-style "vocab") term)])
+    (if defn
+        (elem term-elem ": " defn)
+        term-elem)))
+
+;; retrieves vocab terms used in document and generates block containing
+;;   terms and their definitions from the dictionary file
+(define (gen-glossary)
+  (traverse-block
+   (lambda (get set)
+     (lambda (get set)
+       (let* ([clean-terms (sort (remove-duplicates (singularize-vocab-terms (map string-downcase (get 'vocab-used '()))))
+                                 string<=?)]
+              [terms (lookup-tags clean-terms
+                                  glossary-terms-dictionary "Vocabulary term" #:show-unbound #t)])
+         (if (empty? terms) (para)
+             (nested #:style (bootstrap-div-style/id/nested "Glossary")
+                     (interleave-parbreaks/all
+                      (list
+                       (para #:style bs-header-style/span "Glossary:")
+                       (apply itemlist/splicing
+                              (for/list ([term terms])
+                                (cond [(and (list? term) (string=? "" (second term)))
+                                       (begin
+                                         (printf "WARNING: Vocabulary term has empty definition in dictionary: ~a ~n" (first term))
+                                         (glossary-entry (first term) #f))]
+                                      [(list? term)
+                                       (glossary-entry (first term) (second term))]
+                                      [else (glossary-entry term #f)]))))))))))))
+
+;;;;;;;;;;;;;;; Lessons ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; lesson-struct records the outline of a structure: basically, its
 ;; title, how long it takes, and the anchor to get to it within the
@@ -325,66 +438,7 @@
         (nested #:style (bootstrap-sectioning-style "BootstrapLesson")
                 body)))))))
 
-
-;;;;;;;;;;;;; NEW LESSON FORMAT ;;;;;;;;;;;;;;;;;;
-
-; the extra class "fixed" in the toolbar is for consistency with what gets
-; generated when we add the toolbar id through a bootstrap-div-style/id
-; for the student toolbar
-(define (insert-teacher-toggle-button)
-  (cond-element
-   [html (sxml->element
-          `(div (@ (class "fixed") (id "lessonToolbar"))
-                (input (@ (type "button") 
-                          (value "Show Teacher Notes") 
-                          (onclick "toggleTeacherNotes(this);")) "")
-                (br)
-                (input (@ (type "button")
-                          (value "Discussion Group")
-                          (onclick "showGroup()")))))]
-   [else (elem)]))
-
-(define (insert-student-buttons)
-  (cond-element
-   [html (sxml->element
-          `(center
-            (input (@ (type "button") (id "prev")   (value "<<")) "")
-            (input (@ (type "button") (id "flip")   (value "flip")) "")
-            (input (@ (type "button") (id "next")   (value ">>")) "")
-            ))]
-   [else (elem "")]))
-
-(define (insert-toolbar)
-  (cond [(audience-in? (list "teacher" "volunteer")) (insert-teacher-toggle-button)]
-        [(audience-in? (list "student")) 
-         (list
-          (para #:style (bootstrap-div-style/id "lessonToolbar")
-                (insert-student-buttons))
-          (cond-element
-           [html (sxml->element
-                  `(div (@ (id "IDE"))
-                        (iframe (@ (id "embedded") (name "embedded")))))]
-           [else (elem)]))]
-        [else (elem)]))
-
-(define (student . content)
-  (nested #:style bs-student-style (interleave-parbreaks/select content)))
-
-(define (teacher . content)
-  (nested #:style bs-teacher-style (interleave-parbreaks/select content)))
-
-(define (pacing #:type (type #f) . contents) 
-  (nested #:style (bootstrap-span-style type)
-          (nested #:style bs-callout-style (interleave-parbreaks/all contents))))
-
-(define (points . contents)
-   (apply itemlist/splicing contents #:style (make-style "lesson" '(compact))))
-
-(define (point . contents)
-  (interleave-parbreaks/select contents)) 
-
-(define (exercises . content)
-  (lesson-section "Exercises" content))
+;;;;;;;;;;;;; CURRENT LESSON FORMAT ;;;;;;;;;;;;;;;;;;
 
 (define (lesson/studteach
          #:title (title #f)
@@ -476,20 +530,6 @@
          (nested #:style (bootstrap-div-style (string-append "Lesson" (rem-spaces title)))
           (interleave-parbreaks/all (list (bold title) contents)))
          (para)))))
-
-;; lookup-tags: list[string] assoc[string, string] string -> element
-;; looks up value associated with each string in taglist in 
-;;    association list given as second arg
-;;    optional arg controls whether undefined terms are displayed in output
-;; used to generate standards and glossary
-(define (lookup-tags taglist in-dictionary tag-descr #:show-unbound (show-unbound #f))
-  (foldr (lambda (elt result)
-           (let ([lookup (assoc elt in-dictionary)])
-             (if lookup (cons lookup result)
-                 (begin 
-                   (printf "WARNING: ~a not in dictionary: ~a~n" tag-descr elt)
-                   (if show-unbound (cons elt result) result)))))
-         '() taglist))
     
 (define (expand-standards/csv standard-tags)
   (let ([known-stnds (foldl (lambda (t res-rest)
@@ -508,8 +548,7 @@
            (for/list ([stnd known-stnds])
              (item (elem (format "~a: ~a" (first stnd) (second stnd))))))))
 
-
-;;;;;;;;;;;;;;;; END NEW LESSON FORMAT ;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;; Generating the Main Summary Page ;;;;;;;;;;;;;;;;;
 
 ;; to add HEAD attributes, create an empty title element
 (define (augment-head)
@@ -523,9 +562,6 @@
                 (nested #:style (bootstrap-div-style "item") 
                         body))))
 
-(define (unit-separator unit-number)
-  (elem #:style "BSUnitSeparationPage" (format "Lesson ~a" unit-number)))
-
 ;; unit-descr : list[element] -> block
 ;; stores the unit description to use in building the summary, then generates the text
 (define-syntax (unit-descr stx)
@@ -535,9 +571,6 @@
        (begin
          (set! current-the-unit-description (list body ...))
          current-the-unit-description))]))
-
-
-;;;;;;;;;;;;; Generating the Main Summary Page ;;;;;;;;;;;;;;;;;
 
 ;; get-unit-descr : string -> pre-content
 ;; extract the content for the unit-descr from the unit with the given name
@@ -716,26 +749,6 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(define (materials . items)
-  (list (compound-paragraph bs-header-style 
-                            (decode-flow (list "Materials and Equipment:")))
-        (apply itemlist/splicing items #:style "BootstrapMaterialsList")))
-
-(define (objectives . items)
-  (list (compound-paragraph bs-header-style 
-                            (decode-flow (list "Learning Objectives:")))
-        (apply itemlist/splicing items #:style "BootstrapLearningObjectivesList")))
-
-(define (evidence-statements . items)
-  (list (compound-paragraph bs-header-style 
-                            (decode-flow (list "Evidence Statements:")))
-        (apply itemlist/splicing items #:style "BootstrapEvidenceStatementsList")))
-
-(define (product-outcomes . items)
-  (list (compound-paragraph bs-header-style 
-                            (decode-flow (list "Product Outcomes:")))
-        (apply itemlist/splicing items #:style "BootstrapProductOutcomesList")))
-
 ;; assumes no duplicates in the stdtaglist
 ;; do we want to suppress evidence for non-teachers, or will formatting effectively handle that?
 ;; NOTE: this function reflects an API weakness relative to standards-csv-api: the map in 
@@ -815,159 +828,6 @@
              (rem-last-char str)
              str))
        strlist))
-
-;; glossary-entry : string (string or #f) -> elem
-;; generates markup for glossary entry; defn may be missing
-(define (glossary-entry term defn)
-  (let ([term-elem (elem #:style (bootstrap-span-style "vocab") term)])
-    (if defn
-        (elem term-elem ": " defn)
-        term-elem)))
-
-;; retrieves vocab terms used in document and generates block containing
-;;   terms and their definitions from the dictionary file
-(define (gen-glossary)
-  (traverse-block
-   (lambda (get set)
-     (lambda (get set)
-       (let* ([clean-terms (sort (remove-duplicates (singularize-vocab-terms (map string-downcase (get 'vocab-used '()))))
-                                 string<=?)]
-              [terms (lookup-tags clean-terms
-                                  glossary-terms-dictionary "Vocabulary term" #:show-unbound #t)])
-         (if (empty? terms) (para)
-             (nested #:style (bootstrap-div-style/id/nested "Glossary")
-                     (interleave-parbreaks/all
-                      (list
-                       (para #:style bs-header-style/span "Glossary:")
-                       (apply itemlist/splicing
-                              (for/list ([term terms])
-                                (cond [(and (list? term) (string=? "" (second term)))
-                                       (begin
-                                         (printf "WARNING: Vocabulary term has empty definition in dictionary: ~a ~n" (first term))
-                                         (glossary-entry (first term) #f))]
-                                      [(list? term)
-                                       (glossary-entry (first term) (second term))]
-                                      [else (glossary-entry term #f)]))))))))))))
-
-;; produces values for the title and forevidence arguments for given exercise locator
-;;  either or both values will be false if not found in the file
-(define (extract-exercise-data exloc)
-  (let ([filepath (build-path lessons-dir (exercise-locator-lesson exloc) 
-                              "exercises" (string-append (exercise-locator-filename exloc) ".scrbl"))]
-        )
-    (let ([data
-           (with-input-from-file filepath
-             (lambda ()
-               (with-handlers ([(lambda (e) (eq? e 'local-break))
-                                (lambda (e) (list #f #f))])
-                 ;; check that file starts with a #lang
-                 (let ([init-line (read-line)])
-                   (unless (and (string? init-line) (string=? "#lang" (substring init-line 0 5)))
-                     (printf (format "WARNING: extract-exercise-data: ~a does not start with #lang~n" filepath))
-                     (raise 'local-break)))
-                 ;; loop until get to the exercise sexp
-                 (let ([exercise-sexp
-                        (let loop ()
-                          (let ([next (read)])
-                            (cond [(eof-object? next) 
-                                   (begin
-                                     (printf "WARNING: extract-exercise-data reached end of file without finding exercise-handout~n")
-                                     (raise 'local-break))]
-                                  [(eq? next '@)
-                                   (let ([next-sexp (read)])
-                                     (if (and (cons? next-sexp) (equal? (first next-sexp) 'exercise-handout))
-                                         next-sexp
-                                         (loop)))]
-                                  [else
-                                   (begin
-                                     (printf (format "WARNING: extract-exercise-data: got non-@ term ~a~n" next))
-                                     (raise 'local-break))])))])
-                   ;; dig into the exercise sexp to find the title and evidence tag
-                   (let loop [(title #f) (evtag #f) (rem-sexp (rest exercise-sexp))]
-                     (cond [(< (length rem-sexp) 2) (list title evtag)]
-                           [(equal? (first rem-sexp) '#:title) (loop (second rem-sexp) evtag (rest (rest rem-sexp)))]
-                           [(equal? (first rem-sexp) '#:forevidence) (loop title (second rem-sexp) (rest (rest rem-sexp)))]
-                           [else (loop title evtag (rest (rest rem-sexp)))]))))))])
-      ;(printf "extract-data got ~a ~n" data)
-      (values (first data) (second data)))))
-                                     
-(define (gen-exercises)
-  (traverse-block
-   (lambda (get set)
-     (lambda (get set)
-       (let ([exercise-locs (get 'exercise-locs '())])
-         (if (empty? exercise-locs) (para)
-             (nested #:style (bootstrap-div-style "ExtraExercises")
-                     (interleave-parbreaks/all
-                      (list 
-                       (para #:style bs-lesson-title-style "Additional Exercises:")
-                       (apply itemlist/splicing 
-                              (map (lambda (exloc)
-                                     (let-values ([(extitle exforevid) (extract-exercise-data exloc)])
-                                       (let ([descr (if extitle extitle (exercise-locator-filename exloc))]
-                                             [support (if exforevid
-                                                          (let ([evidstmt (get-evid-summary exforevid)])
-                                                            (if evidstmt (format " [supports ~a]" evidstmt)
-                                                                ""))
-                                                          "")])
-                                         (let ([exdirpath (if (current-deployment-dir)
-                                                              (build-path (current-deployment-dir) "lessons") 
-                                                              (build-path lessons-dir))])
-                                           (elem (list (hyperlink (build-path exdirpath
-                                                                              (exercise-locator-lesson exloc) "exercises"
-                                                                              (string-append (exercise-locator-filename exloc) ".html"))
-                                                                  descr)
-                                                       ; uncomment next line when ready to bring evidence back in
-                                                       ;(elem #:style (bootstrap-span-style "supports-evid") support)
-                                                       ))))))
-                                   exercise-locs))
-                       )))))))))
-  
-(define (preparation . items)
-  (list (compound-paragraph bs-header-style 
-                            (decode-flow (list "Preparation:")))
-        (apply itemlist/splicing items #:style "BootstrapPreparationList")))
-  
-;; Cooperates with the Lesson tag.
-(define (agenda . items)
-  
-  ;; extract-minutes: lesson-struct -> string
-  ;; Extracts the number of minutes the lesson should take.
-  (define (extract-minutes a-lesson)
-    (first (regexp-match "[0-9]*" (lesson-struct-duration a-lesson))))
-  
-  (traverse-block
-   (lambda (get set)
-     (lambda (get set)
-       (define (maybe-hyperlink elt anchor)
-         (if anchor
-             (hyperlink (string-append "#" anchor) elt)
-             elt))
-       
-       (define lessons (reverse (get 'bootstrap-lessons '())))
-      
-       ;; compute total unit length to include in the unit overview
-       (let ([unit-minutes (foldr (lambda (elt result)
-                                    (let ([mins (string->number (extract-minutes elt))])
-                                      (+ (if mins mins 0) result)))
-                                  0 lessons)])
-         ;(printf "Computed ~a minutes~n" unit-minutes)
-         (set 'unit-length unit-minutes))
-         
-       (nested #:style bootstrap-agenda-style 
-               (interleave-parbreaks/all
-               (list "Agenda"
-                     (apply 
-                      itemlist/splicing 
-                      #:style "BootstrapAgendaList"
-                      (for/list ([a-lesson lessons])
-                        (item (para (elem #:style "BSLessonDuration"
-                                          (format "~a min" 
-                                                  (extract-minutes a-lesson)))
-                                    (maybe-hyperlink
-                                     (elem #:style "BSLessonName"
-                                           (lesson-struct-title a-lesson))
-                                     (lesson-struct-anchor a-lesson)))))))))))))
 
 
 
@@ -1080,6 +940,21 @@
                              )))))
                  ))
    ))
+  
+;creates the length of the lesson based on input
+;input ONLY THE NUMBER!
+(define (length-of-lesson l)
+  (para #:style bs-header-style/span (format "Length: ~a minutes" l)))
+
+(define (length-of-unit/auto)
+  (traverse-block
+   (lambda (get set)
+     (lambda (get set)
+       (length-of-lesson (get 'unit-length "No value found for"))))))
+
+;;;;;;;; EXERCISE HANDOUTS ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(define exercise-evid-tags list)
 
 ;; info required to locate an exercise within the filesystem
 ;;   will be used to generate links
@@ -1123,29 +998,81 @@
 (define (exercise-answers . body)
   body)
 
-(define exercise-evid-tags list)
-  
-
-
-;auto generates copyright section
-(define (copyright . body)
-  (para #:style (bootstrap-div-style/id "copyright")
-   (hyperlink "http://creativecommons.org/licenses/by-nc-nd/3.0/" creativeCommonsLogo) "Bootstrap by " (hyperlink "http://www.bootstrapworld.org/" "Emmanuel Schanzer") " is licensed under a "
-   (hyperlink "http://creativecommons.org/licenses/by-nc-nd/3.0/" "Creative Commons 3.0 Unported License")
-   ". Based on a work at " (hyperlink "http://www.bootstrapworld.org/" "www.BootstrapWorld.org")
-   ". Permissions beyond the scope of this license may be available at "
-   (hyperlink "mailto:schanzer@BootstrapWorld.org" "schanzer@BootstrapWorld.org") "."))
-
-;creates the length of the lesson based on input
-;input ONLY THE NUMBER!
-(define (length-of-lesson l)
-  (para #:style bs-header-style/span (format "Length: ~a minutes" l)))
-
-(define (length-of-unit/auto)
+;; produces values for the title and forevidence arguments for given exercise locator
+;;  either or both values will be false if not found in the file
+(define (extract-exercise-data exloc)
+  (let ([filepath (build-path lessons-dir (exercise-locator-lesson exloc) 
+                              "exercises" (string-append (exercise-locator-filename exloc) ".scrbl"))]
+        )
+    (let ([data
+           (with-input-from-file filepath
+             (lambda ()
+               (with-handlers ([(lambda (e) (eq? e 'local-break))
+                                (lambda (e) (list #f #f))])
+                 ;; check that file starts with a #lang
+                 (let ([init-line (read-line)])
+                   (unless (and (string? init-line) (string=? "#lang" (substring init-line 0 5)))
+                     (printf (format "WARNING: extract-exercise-data: ~a does not start with #lang~n" filepath))
+                     (raise 'local-break)))
+                 ;; loop until get to the exercise sexp
+                 (let ([exercise-sexp
+                        (let loop ()
+                          (let ([next (read)])
+                            (cond [(eof-object? next) 
+                                   (begin
+                                     (printf "WARNING: extract-exercise-data reached end of file without finding exercise-handout~n")
+                                     (raise 'local-break))]
+                                  [(eq? next '@)
+                                   (let ([next-sexp (read)])
+                                     (if (and (cons? next-sexp) (equal? (first next-sexp) 'exercise-handout))
+                                         next-sexp
+                                         (loop)))]
+                                  [else
+                                   (begin
+                                     (printf (format "WARNING: extract-exercise-data: got non-@ term ~a~n" next))
+                                     (raise 'local-break))])))])
+                   ;; dig into the exercise sexp to find the title and evidence tag
+                   (let loop [(title #f) (evtag #f) (rem-sexp (rest exercise-sexp))]
+                     (cond [(< (length rem-sexp) 2) (list title evtag)]
+                           [(equal? (first rem-sexp) '#:title) (loop (second rem-sexp) evtag (rest (rest rem-sexp)))]
+                           [(equal? (first rem-sexp) '#:forevidence) (loop title (second rem-sexp) (rest (rest rem-sexp)))]
+                           [else (loop title evtag (rest (rest rem-sexp)))]))))))])
+      ;(printf "extract-data got ~a ~n" data)
+      (values (first data) (second data)))))
+                                     
+(define (gen-exercises)
   (traverse-block
    (lambda (get set)
      (lambda (get set)
-       (length-of-lesson (get 'unit-length "No value found for"))))))
+       (let ([exercise-locs (get 'exercise-locs '())])
+         (if (empty? exercise-locs) (para)
+             (nested #:style (bootstrap-div-style "ExtraExercises")
+                     (interleave-parbreaks/all
+                      (list 
+                       (para #:style bs-lesson-title-style "Additional Exercises:")
+                       (apply itemlist/splicing 
+                              (map (lambda (exloc)
+                                     (let-values ([(extitle exforevid) (extract-exercise-data exloc)])
+                                       (let ([descr (if extitle extitle (exercise-locator-filename exloc))]
+                                             [support (if exforevid
+                                                          (let ([evidstmt (get-evid-summary exforevid)])
+                                                            (if evidstmt (format " [supports ~a]" evidstmt)
+                                                                ""))
+                                                          "")])
+                                         (let ([exdirpath (if (current-deployment-dir)
+                                                              (build-path (current-deployment-dir) "lessons") 
+                                                              (build-path lessons-dir))])
+                                           (elem (list (hyperlink (build-path exdirpath
+                                                                              (exercise-locator-lesson exloc) "exercises"
+                                                                              (string-append (exercise-locator-filename exloc) ".html"))
+                                                                  descr)
+                                                       ; uncomment next line when ready to bring evidence back in
+                                                       ;(elem #:style (bootstrap-span-style "supports-evid") support)
+                                                       ))))))
+                                   exercise-locs))
+                       )))))))))
+  
+
 
 ;;;;;;;; LINKING BETWEEN COMPONENTS ;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -1284,11 +1211,7 @@
         (hyperlink (path->string the-relative-path)
                    (if label label lesson-name))]))))
 
-;;;;;;;;;;;; END OF LINKING ;;;;;;;;;;;;;;;;;;;;;
-
-;; used to generate title in head without scribble-generated title content
-(define (head-title-no-content text)
-  (title #:style 'hidden text))
+;;;;;;;;;;;; Page titles ;;;;;;;;;;;;;;;;;;;;;
 
 ;; generates the title, which includes the bootstrap logo in html but not in latex/pdf
 (define (bootstrap-title #:single-line [single-line #f] . body)
@@ -1334,3 +1257,19 @@
                    });"
                  (format "~a" id)
                  (constraint->js constraint)))))
+
+;;;;;;;;;;;;;; MISC HELPERS ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; lookup-tags: list[string] assoc[string, string] string -> element
+;; looks up value associated with each string in taglist in 
+;;    association list given as second arg
+;;    optional arg controls whether undefined terms are displayed in output
+;; used to generate standards and glossary
+(define (lookup-tags taglist in-dictionary tag-descr #:show-unbound (show-unbound #f))
+  (foldr (lambda (elt result)
+           (let ([lookup (assoc elt in-dictionary)])
+             (if lookup (cons lookup result)
+                 (begin 
+                   (printf "WARNING: ~a not in dictionary: ~a~n" tag-descr elt)
+                   (if show-unbound (cons elt result) result)))))
+         '() taglist))

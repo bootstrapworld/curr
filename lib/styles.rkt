@@ -126,3 +126,9 @@
 (define (make-bs-latex-style name) 
   (make-style name (list (make-tex-addition bootstrap-pdf.tex))))
 
+;;;;;;;; Shared styles ;;;;;;;;;;;;;;;;;;;;
+
+(define bs-title-style (bootstrap-style "BootstrapTitle"))
+(define bs-content-style (bootstrap-div-style "content"))
+
+

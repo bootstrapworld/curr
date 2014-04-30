@@ -1,0 +1,9 @@
+This directory stores files that are no longer part of the active
+build, but that we may want to refer back to at some point.  For
+example, some of the early lesson files are in here (when we were
+playing around with javascript based interaction within lessons).
+
+The copy of form-elements.rkt in this directory was saved at the time
+when we began moving items into the attic.  It should therefore have
+all scribble functions mentioned in these files (though the current
+form-elements file has been cleaned up).
