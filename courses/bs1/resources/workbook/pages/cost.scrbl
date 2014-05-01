@@ -6,8 +6,8 @@
                          #:show-examples '((#t #t #f))
                          #:param-list (list "topping")
                          #:show-params? #f
-                         #:body "(cond [(string=? \"cheese\" topping) "$$9.00"]
-                                       [(string=? \"pepperoni\" topping) "$$10.50"]
+                         #:body "(cond [(string=? \"cheese\" topping) \"$$9.00\"]
+                                       [(string=? \"pepperoni\" topping) \"$$10.50\"]
                                        [else \"That's not on the menu!\"])"
                          #:show-body? '(cond (#f #f) #f #f)
                          #:grid-lines? #t
