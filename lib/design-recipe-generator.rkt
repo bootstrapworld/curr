@@ -10,9 +10,9 @@
          scriblib/render-cond
          "scribble-helpers.rkt"
          "styles.rkt"
-        ; "process-code.rkt"
          "sxml.rkt"
          "racket2pyret.rkt"
+         "escape-values.rkt"
          )
 
 (provide design-recipe-exercise
@@ -194,10 +194,16 @@
 ;; return sublist of L containing all but the last argument
 (define (all-but-last L) (reverse (rest (reverse L))))
 
+;; format values for display in exercises.  Handles escapes for things like dollar amounts
 (define (format-exercise-text e #:fmt-quotes? (fmt-quotes? #t))
-  (cond [(or (list? e) (number? e)) (format "~a " e)]
-        [(and (string? e) (not fmt-quotes?)) (format "~a " e)]
-        [else (format "~s " e)]))
+  (cond [(number? e) (format "~a " e)]
+        [(string? e) (cond [(money-escaped? e) (format "~a " (~r (rem-money-escape e) #:precision '(= 2)))]
+                           [fmt-quotes? (format "~s " e)]
+                           [else (format "~a " e)])]
+        [(list? e) (string-append "(" 
+                                  (apply string-append (map (lambda (c) (format-exercise-text c #:fmt-quotes? fmt-quotes?)) e))
+                                  ")")]
+        [else (format "~a " e)]))
 
 ;; format a list as a string with spaces between each element
 (define (list->spaced-string L)
