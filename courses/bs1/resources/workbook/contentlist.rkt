@@ -9,51 +9,51 @@
 
 (
  ;;;;; UNIT 1 ;;;;;;;;;
- "NinjaCat-Dissection.pdf"
- "NinjaCat-Coordinates.pdf"
- "Game-Design.pdf"
- "Circle-of-Evaluation-Practice.pdf"
+ ("StudentWorkbook.pdf" "NinjaCat-Dissection")
+ ("StudentWorkbook.pdf" "NinjaCat-Dissection")
+ ("StudentWorkbook.pdf" "Game-Design")
+ ("StudentWorkbook.pdf" "Circle-of-Evaluation-Practice")
  ;;;;; UNIT 2 ;;;;;;;;;
- "Unit-2.pdf"
- "Circle-of-Evaluation-Practice-2.pdf"
+ ("StudentWorkbook.pdf" "Unit-2")
+ ("StudentWorkbook.pdf" "Circle-of-Evaluation-Practice-2")
  ;;;;; UNIT 3 ;;;;;;;;;
- "Unit-3.pdf"
- "Fast-Functions.pdf"
- "Fast-Functions.pdf"
+ ("StudentWorkbook.pdf" "Unit-3")
+ ("StudentWorkbook.pdf" "Fast-Functions")
+ ("StudentWorkbook.pdf" "Fast-Functions")
  ;;;;; UNIT 4 ;;;;;;;;;
- "Unit-4.pdf"
+ ("StudentWorkbook" "Unit-4")
  "rocket-height.scrbl"
  "red-square.scrbl"
  "yard-area.scrbl"
  ;;;;; UNIT 5 ;;;;;;;;;
- "Unit-5.pdf"
+ ("StudentWorkbook.pdf" "Unit-5")
  "update-danger.scrbl"
  "update-target.scrbl"
  ;;;; UNIT 6 ;;;;;;;;;
- "Unit-6.pdf"
+ ("StudentWorkbook" "Unit-6")
  "safe-left.scrbl"
  "safe-right.scrbl"
- "AND-and-OR.pdf"
+ ("StudentWorkbook.pdf" "AND-and-OR")
  "onscreen.scrbl"
  ;;;; UNIT 7 ;;;;;;;;;
- "Unit-7.pdf"
+ ("StudentWorkbook.pdf" "Unit-7")
  "cost.scrbl"
  "update-player.scrbl"
  ;;;; UNIT 8 ;;;;;;;;;
- "Unit-8.pdf"
+ ("StudentWorkbook.pdf" "Unit-8")
  "line-length.scrbl"
- "distance-example.pdf"
- "distance.pdf"
- "collide.pdf"
+ ("StudentWorkbook.pdf" "distance-example")
+ "distance.scrbl"
+ "collide.scrbl"
  ;;;; UNIT 9 ;;;;;;;;;
- "Unit-9.pdf"
- "Lines.pdf"
- "Feedback.pdf"
- "Feedback.pdf"
+ ("StudentWorkbook.pdf" "Unit-9")
+ ("StudentWorkbook.pdf" "Lines")
+ ("StudentWorkbook.pdf" "Feedback")
+ ("StudentWorkbook.pdf" "Feedback")
  "red-shape.scrbl"
- "Translating-to-Algebra.pdf"
- "Math-Rocket-Distance.pdf"
- "Math-Rocket-Time.pdf"
- "Math-Rocket-Collision.pdf"
- "Math-Blank-Recipe.pdf"
+ ("StudentWorkbook.pdf" "Translating-to-Algebra")
+ ("StudentWorkbook.pdf" "Math-Rocket-Distance")
+ ("StudentWorkbook.pdf" "Math-Rocket-Time")
+ ("StudentWorkbook.pdf" "Math-Rocket-Collision")
+ ("StudentWorkbook.pdf" "Math-Blank-Recipe")
  )
