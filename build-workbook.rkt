@@ -42,7 +42,11 @@
 
 ; converts list of pages to having all pdf extensions
 (define (pdf-pagenames pages)
-  (map (lambda (p) (regexp-replace #px"\\.scrbl$" p ".pdf")) pages))
+  (map (lambda (p) 
+         (if (string? p) 
+             (regexp-replace #px"\\.scrbl$" p ".pdf")
+             (string-append (second p) ".pdf")))
+       pages))
 
 ; cross-platform helper for locating executables.  Looks for progname with and without .exe extension
 (define (get-prog-cmd progname)
@@ -92,12 +96,17 @@
 
 ; report on any contentlist.rkt files that don't actually exist in filesystem
 ; remove non-existing files so that rest of build process works on clean data
+; each element of ctlist is either a filename or a pair with a filename in the first position
 (define (check-contents-exist ctlist basedir)
-  (let ([missing (filter (lambda (f) (not (file-exists? (build-path basedir f)))) ctlist)])
-    (if (empty? missing) ctlist
-        (begin
-          (printf "Pages listing references missing files ~a ~n" missing)
-          (filter (lambda (f) (file-exists? (build-path basedir f))) ctlist)))))
+  (let ([havefile? (lambda (f) 
+                     (if (string? f) 
+                         (file-exists? (build-path basedir f))
+                         (file-exists? (build-path basedir 'up (first f)))))])
+    (let ([missing (filter (lambda (f) (not (havefile? f))) ctlist)])
+      (if (empty? missing) ctlist
+          (begin
+            (printf "Pages listing references missing files ~a ~n" missing)
+            (filter havefile? ctlist))))))
 
 ;; delete files if they are present.  Arg can be a single path or a list of paths
 (define (delete-if-exists files)
@@ -105,6 +114,37 @@
               (when (file-exists? f)
                 (delete-file f)))
             (if (list? files) files (list files))))
+
+;; run scribble on each .scrbl file in the pages listing
+(define (scribble-files pages pagesdir)
+  (for-each (lambda (f)
+              (when (and (string? f) (regexp-match #px".*\\.scrbl$" f))
+                (run-scribble (build-path pagesdir f))
+                (let ([fhtml (regexp-replace #px"\\.scrbl$" f ".html")]
+                      [fpdf (regexp-replace #px"\\.scrbl$" f ".pdf")])
+                  ; -q option is for "quiet" operation
+                  (system* (get-prog-cmd "wkhtmltopdf") "--print-media-type" "-q"
+                           (build-path pagesdir fhtml)
+                           (build-path pagesdir fpdf)))
+                ))
+            pages))
+
+;; get the page number associated with given pagename in manualpages-index.rkt
+(define (get-manual-page pagename)
+  (let ([pageindex (with-input-from-file (build-path (kf-get-workbook-dir) "manualpages-index.rkt") read)])
+    (let ([pageinfo (assoc pagename pageindex)])
+      (if pageinfo (second pageinfo)
+          (error 'get-manual-page "No manual page entry for page name ~a" pagename)))))
+
+;; extract single PDF pages for each page due to pull from an existing PDF file
+(define (extract-PDF-pages pages)
+  (for-each (lambda (pspec)
+              (when (list? pspec)
+                (let* ([fromfile (first pspec)]
+                       [tofile (second pspec)]
+                       [loc (get-manual-page tofile)])
+                  (system* (get-prog-cmd "pdftk") fromfile "cat" loc "output" tofile))))
+            pages))
 
 ;; the MAIN function to build the workbook
 (define (build-workbook)
@@ -117,17 +157,7 @@
         (printf "WARNING: Empty workbook contents for ~a, no workbook generated~n" (current-course))
         (parameterize ([current-deployment-dir pagesdir])
           ; scribble the scrbl pages and run wkhtmltopdf on the resulting html
-          (for-each (lambda (f)
-                      (when (regexp-match #px".*\\.scrbl$" f)
-                        (run-scribble (build-path pagesdir f))
-                        (let ([fhtml (regexp-replace #px"\\.scrbl$" f ".html")]
-                              [fpdf (regexp-replace #px"\\.scrbl$" f ".pdf")])
-                          ; -q option is for "quiet" operation
-                          (system* (get-prog-cmd "wkhtmltopdf") "--print-media-type" "-q"
-                                   (build-path pagesdir fhtml)
-                                   (build-path pagesdir fpdf)))
-                        ))
-                    pages)
+          (scribble-files pages pagesdir)
           (let* ([pdfpagenames (pdf-pagenames pages)])
             (gen-wkbk-index pdfpagenames)
             (merge-pages pdfpagenames)
