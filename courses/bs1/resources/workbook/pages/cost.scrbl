@@ -5,7 +5,7 @@
 			 #:range "number"
 			 #:purpose "Produce cost of a pizza with given topping"
                          #:num-examples 2
-                         #:example-list '(("pepperoni" "$$10.50") ("chicken" "$$11:25")) 
+                         #:example-list '(("pepperoni" "$$10.50") ("chicken" "$$11.25")) 
                          #:show-examples '((#t #t #f) #f)
                          #:param-list (list "topping")
                          #:show-params? #f
