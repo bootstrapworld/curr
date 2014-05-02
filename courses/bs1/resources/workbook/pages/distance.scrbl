@@ -10,7 +10,7 @@
                          #:range "number"
 			 #:purpose "Produce distance between two points with given coordinates"
                          #:num-examples 2
-			 #:example-list '(((0 0 3 4) 5) ((10 20 13 24) 5))
+			 #:example-list '((0 0 3 4 5) (10 20 13 24 5))
                          #:param-list (list "px" "py" "cx" "cy")
                          #:show-params? #f
                          #:body '(sqrt (+ (sqr (line-length px cx))

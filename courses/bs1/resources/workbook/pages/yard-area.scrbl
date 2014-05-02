@@ -5,7 +5,7 @@
 			 #:range "number"
 			 #:purpose "Produce area of yard with given length and width"
                          #:num-examples 2
-			 #:example-list '(((10 20) 200) ((5 5) 25))
+			 #:example-list '((10 20 200) (5 5 25))
                          #:param-list (list "length" "width")
                          #:show-params? #f
                          #:body '(* length width)
