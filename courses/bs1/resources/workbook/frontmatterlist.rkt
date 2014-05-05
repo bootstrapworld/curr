@@ -7,5 +7,5 @@
 ; The frontmatter will be generated from these pages in order
 
 (
- "Contracts.pdf"
+ ("StudentWorkbook.pdf" "Contracts")
 )
