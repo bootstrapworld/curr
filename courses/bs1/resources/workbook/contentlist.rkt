@@ -10,7 +10,7 @@
 (
  ;;;;; UNIT 1 ;;;;;;;;;
  ("StudentWorkbook.pdf" "NinjaCat-Dissection")
- ("StudentWorkbook.pdf" "NinjaCat-Dissection")
+ ("StudentWorkbook.pdf" "NinjaCat-Coordinates")
  ("StudentWorkbook.pdf" "Game-Design")
  ("StudentWorkbook.pdf" "Circle-of-Evaluation-Practice")
  ;;;;; UNIT 2 ;;;;;;;;;
@@ -21,7 +21,7 @@
  ("StudentWorkbook.pdf" "Fast-Functions")
  ("StudentWorkbook.pdf" "Fast-Functions")
  ;;;;; UNIT 4 ;;;;;;;;;
- ("StudentWorkbook" "Unit-4")
+ ("StudentWorkbook.pdf" "Unit-4")
  "rocket-height.scrbl"
  "red-square.scrbl"
  "yard-area.scrbl"
@@ -30,7 +30,7 @@
  "update-danger.scrbl"
  "update-target.scrbl"
  ;;;; UNIT 6 ;;;;;;;;;
- ("StudentWorkbook" "Unit-6")
+ ("StudentWorkbook.pdf" "Unit-6")
  "safe-left.scrbl"
  "safe-right.scrbl"
  ("StudentWorkbook.pdf" "AND-and-OR")

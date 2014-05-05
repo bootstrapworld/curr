@@ -86,7 +86,7 @@
                      #:output [output "workbook-no-pagenums.pdf"])
   (parameterize ([current-directory (kf-get-workbook-dir)])
     (let ([arglist (append (map (lambda (f) (build-path "pages" f)) pdfpages)
-                           (list "output" output))])
+                           (list "output" output "dont_ask"))])
       (apply system* (cons (get-prog-cmd "pdftk") arglist)))))
 
 ;; invoke latex to add page numbers to the document
@@ -116,9 +116,11 @@
             (if (list? files) files (list files))))
 
 ;; run scribble on each .scrbl file in the pages listing
-(define (scribble-files pages pagesdir)
+(define (scribble-files pages pagesdir wkbk-mod-sec)
   (for-each (lambda (f)
-              (when (and (string? f) (regexp-match #px".*\\.scrbl$" f))
+              (when (and (string? f) 
+                         (regexp-match #px".*\\.scrbl$" f)
+                         (< wkbk-mod-sec (file-or-directory-modify-seconds (build-path pagesdir f))))
                 (run-scribble (build-path pagesdir f))
                 (let ([fhtml (regexp-replace #px"\\.scrbl$" f ".html")]
                       [fpdf (regexp-replace #px"\\.scrbl$" f ".pdf")])
@@ -137,14 +139,22 @@
           (error 'get-manual-page "No manual page entry for page name ~a" pagename)))))
 
 ;; extract single PDF pages for each page due to pull from an existing PDF file
-(define (extract-PDF-pages pages)
-  (for-each (lambda (pspec)
-              (when (list? pspec)
-                (let* ([fromfile (first pspec)]
-                       [tofile (second pspec)]
-                       [loc (get-manual-page tofile)])
-                  (system* (get-prog-cmd "pdftk") fromfile "cat" loc "output" tofile))))
-            pages))
+;; assumes existing PDF file is in workbook directory
+(define (extract-PDF-pages pages wkbk-mod-sec)
+  (parameterize ([current-directory (kf-get-workbook-dir)])
+    (for-each (lambda (pspec)
+                (when (and (list? pspec)
+                           (or (not (file-exists? (build-path "pages" (string-append (second pspec) ".pdf"))))
+                               (< wkbk-mod-sec (file-or-directory-modify-seconds (first pspec)))
+                               (< wkbk-mod-sec (file-or-directory-modify-seconds "manualpages-index.rkt"))
+                               ))
+                  (printf "Extracting PDF for ~a from ~a~n" pspec (current-directory))
+                  (let* ([fromfile (first pspec)]
+                         [tofile (second pspec)]
+                         [loc (get-manual-page tofile)])
+                    (system* (get-prog-cmd "pdftk") fromfile "cat" (format "~a" loc) 
+                             "output" (format "pages/~a.pdf" tofile) "dont_ask"))))
+              pages)))
 
 ;; the MAIN function to build the workbook
 (define (build-workbook)
@@ -152,12 +162,16 @@
          [front-spec (with-input-from-file (build-path (kf-get-workbook-dir) "frontmatterlist.rkt") read)]
          [pagesdir (build-path (kf-get-workbook-dir) "pages")]
          [pages (check-contents-exist pages-spec pagesdir)]
-         [frontpages (check-contents-exist front-spec pagesdir)])
+         [frontpages (check-contents-exist front-spec pagesdir)]
+         [workbook-last-gen-sec (file-or-directory-modify-seconds (build-path (kf-get-workbook-dir) "workbook.pdf"))]
+         )
     (if (empty? pages)
         (printf "WARNING: Empty workbook contents for ~a, no workbook generated~n" (current-course))
         (parameterize ([current-deployment-dir pagesdir])
           ; scribble the scrbl pages and run wkhtmltopdf on the resulting html
-          (scribble-files pages pagesdir)
+          (scribble-files pages pagesdir workbook-last-gen-sec)
+          ; extract any manual PDF pages from their source file
+          (extract-PDF-pages pages workbook-last-gen-sec)
           (let* ([pdfpagenames (pdf-pagenames pages)])
             (gen-wkbk-index pdfpagenames)
             (merge-pages pdfpagenames)
@@ -167,11 +181,12 @@
                 (copy-file (build-path (kf-get-workbook-dir) "workbook-numbered.pdf")
                            (build-path (kf-get-workbook-dir) "workbook.pdf")
                            #:exists-ok? #t)
-                (begin (merge-pages frontpages #:output "front-matter.pdf")
+                (begin (extract-PDF-pages frontpages workbook-last-gen-sec)
+                       (merge-pages (pdf-pagenames frontpages) #:output "front-matter.pdf")
                        (let ([frontpdf (build-path (kf-get-workbook-dir) "front-matter.pdf")]
                              [workbooknums (build-path (kf-get-workbook-dir) "workbook-numbered.pdf")]
                              [workbook (build-path (kf-get-workbook-dir) "workbook.pdf")])
-                         (system* (get-prog-cmd "pdftk") frontpdf workbooknums "output" workbook))))
+                         (system* (get-prog-cmd "pdftk") frontpdf workbooknums "output" workbook "dont_ask"))))
             ; clean out auxiliary tex files (ie, texwipe, intermed no page nums file)
             (delete-if-exists (list (build-path (kf-get-workbook-dir) "workbook-numbered.aux")
                                     (build-path (kf-get-workbook-dir) "workbook-numbered.log")
