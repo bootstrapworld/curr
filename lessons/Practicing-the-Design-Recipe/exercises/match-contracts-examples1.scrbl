@@ -22,7 +22,7 @@
 "(EXAMPLE (match (circle 10 \"solid\" \"orange\") 
                 22)
          (scale 22 
-                (circle 10 \"solid\" \"orange\"))"))
+                (circle 10 \"solid\" \"orange\")))"))
 
 @(define e3a
    (code #:multi-line #t
@@ -33,7 +33,7 @@
 @(define e3b
    (code #:multi-line #t
 "(EXAMPLE (match 73 (star 10 \"outline\" \"orange\") 22)
-         (rotate (- 90 73) (star 10 \"outline\" \"orange\"))"))
+         (rotate (- 90 73) (star 10 \"outline\" \"orange\")))"))
 
 @(define e4a
    (code #:multi-line #t
@@ -45,7 +45,7 @@
    (code #:multi-line #t
 "(EXAMPLE (match (circle 10 \"solid\" \"green\"))
          (rotate 37 
-                 (circle 10 \"solid\" \"green\"))"))
+                 (circle 10 \"solid\" \"green\")))"))
 
 @(define e5a
    (code #:multi-line #t
@@ -68,7 +68,7 @@
                 16)
          (* 16 
             (image-height 
-                (circle 10 \"solid\" \"silver\"))"))
+                (circle 10 \"solid\" \"silver\"))))"))
 
 @(define c1 (code "; match : number string -> number"))
 @(define c2 (code "; match : image number -> image"))
