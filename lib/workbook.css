@@ -1,6 +1,7 @@
 .maincolumn { margin-left: 5px;}
 .main{width: 800px;}
-div.content{	background:		rgba(255, 255, 255, .3); }
+div.content{	background:		rgba(255, 255, 255, .3); 
+                font-family: "Century Gothic", monospace; }
 
 /************************************************************************************
  * LESSON TOOLBAR

@@ -151,7 +151,7 @@
 ; format the body of a design recipe worksheet -- formatting may depend on body contents
 (define (dr-body body #:show (show #f))
   (if body
-      (let ([body-contents (with-input-from-string body read)])
+      (let ([body-contents (if (string? body) (with-input-from-string body read) body)])
         (cond [(atom? body-contents) (dr-student-answer "recipe_definition_body" #:show? show body)]
               [(eq? (first body-contents) 'cond) 
                (let ([clauselines (map (lambda (c s) 

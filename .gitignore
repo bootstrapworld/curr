@@ -27,5 +27,6 @@ pretty-printing.css
 !lib/workbook.css
 !lib/pretty-printing.css
 !lib/extra_curriculum.css
+courses/bs1/resources/workbook/pages/*.pdf
 courses/*/units/*/box.gif
 distribution
