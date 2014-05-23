@@ -205,7 +205,6 @@ div.codesexp       .studentAnswer+.studentAnswer { margin-left: 10px;}
 #recipe_contract, #recipe_examples, #recipe_definition{
 	min-width:		400px; 
 	background:		white;
-	font-weight:	bold;
 	font-size:		18px;
 	margin:       0px;
   margin:       20px;
@@ -219,14 +218,15 @@ div.codesexp       .studentAnswer+.studentAnswer { margin-left: 10px;}
   display:      block;
   padding:      5px;
   font-size:    18px;
+  font-weight:  bold;
 }
 .designRecipeLayout div.sectionInstructions{
-  font-weight:  normal;
   font-style:   italic;
+  font-size:    14px;
   margin-bottom: 20px;
 }
 
-.designRecipeLayout div.section span{vertical-align: top; line-height: 30px;}
+.designRecipeLayout div.section span{vertical-align: top; line-height: 20px;}
 
 .designRecipeLayout span.clear{clear: both; display: block; content: "", width: 100%;}
 
@@ -236,6 +236,9 @@ div.codesexp       .studentAnswer+.studentAnswer { margin-left: 10px;}
     vertical-align: top;
     margin-right:   20px;
 }
+.designRecipeLayout .wrapper .wrapper{ width: 90%; }
+
+
 .designRecipeLayout .wrapper *{ vertical-align: top; }
 .designRecipeLayout span.spacer{
     display:        inline-block; 
@@ -247,10 +250,9 @@ div.codesexp       .studentAnswer+.studentAnswer { margin-left: 10px;}
 .designRecipeLayout .studentAnswer{
   margin-bottom:  30px;
   min-width:      120px;
-  min-height:     30px; 
-  line-height:    30px;
-  height:         auto;
-  position:       relative; 
+  height:         20px;
+  line-height:    20px;
+  position:       relative;
   margin-right:   10px;
   padding:        0px 10px;
   word-break:     break-all;
@@ -258,7 +260,7 @@ div.codesexp       .studentAnswer+.studentAnswer { margin-left: 10px;}
 
 .designRecipeLayout span.studentAnswer::after{
   position:     absolute;
-  bottom:       -25px;
+  bottom:       -18px;
   left:         0px;
   font-size:    12px;
   font-weight:  normal;
@@ -267,19 +269,25 @@ div.codesexp       .studentAnswer+.studentAnswer { margin-left: 10px;}
   font-style:   italic;
 }
 
-#recipe_purpose{width: 100%;}
+.recipe_name    {width: 20%;}
+#recipe_purpose {width: 100%;}
+#recipe_domain  {width: 40%;}
+#recipe_range   {width: 20%;}
 
-.recipe_name::after     {content: "function name";}
-#recipe_domain::after   {content: "domain";}
-#recipe_range::after    {content: "range";}
-#recipe_purpose::after  {content: "what does the function do?";}
-#recipe_variables::after{content: "variables";}
-.recipe_example_body::after  {  content: "what the function does with those inputs";}
-.recipe_example_inputs::after{  content: "input(s)";}
-.recipe_example_inputs::after{  content: "input(s)";}
-#recipe_definition_body::after{ content: "what the function does with those variables";}
+.recipe_name::after     {color:black; content: "function name";}
+#recipe_domain::after   {color:black; content: "domain";}
+#recipe_range::after    {color:black; content: "range";}
+#recipe_purpose::after  {color:black; content: "what does the function do?";}
+#recipe_variables::after{color:black; content: "variables";}
+.recipe_example_body::after  {color:black;   content: "what the function does with those inputs";}
+.recipe_example_inputs::after{color:black;   content: "input(s)";}
+.recipe_example_inputs::after{color:black;   content: "input(s)";}
+#recipe_definition_body::after{color:black;  content: "what the function does with those variables";}
 
 #recipe_definition_body, .designRecipeLayout .recipe_example_body{min-width: 170px; width: 80%;}
+/* make sure to always break after "(cond" */
+.designRecipeLayout .cond{margin-right: 100%;}
+
 
 /* Copyright at the end of the file */
 .BootstrapCopyright img{
