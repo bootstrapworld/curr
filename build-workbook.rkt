@@ -120,7 +120,8 @@
   (for-each (lambda (f)
               (when (and (string? f) 
                          (regexp-match #px".*\\.scrbl$" f)
-                         (< wkbk-mod-sec (file-or-directory-modify-seconds (build-path pagesdir f))))
+                         (or (< wkbk-mod-sec (file-or-directory-modify-seconds (build-path pagesdir f)))
+                             (< wkbk-mod-sec (file-or-directory-modify-seconds (build-path root-path "lib" "workbook.css")))))
                 (run-scribble (build-path pagesdir f))
                 (let ([fhtml (regexp-replace #px"\\.scrbl$" f ".html")]
                       [fpdf (regexp-replace #px"\\.scrbl$" f ".pdf")])
