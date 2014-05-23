@@ -79,7 +79,7 @@
                       (bold "Directions: ") directions)
                 (nested #:style (bootstrap-div-style "exercise-instr")
                         (interleave-parbreaks/all
-                         (list
+                         (cons
                           (elem (bold "Directions: ") (first directions))
                           (rest directions)))))
             (nested #:style (bootstrap-div-style "designRecipeLayout")
@@ -166,12 +166,14 @@
                                        ; show is either a single boolean or a list of specs with same length as number of clauses
                                        (if (not show) (build-list (length (rest body-contents)) (lambda (i) #f))
                                            (rest show)))])
-                 (list (make-spacer "(")
+                 (interleave-parbreaks/all
+                  (list (make-spacer "(")
                        (apply make-wrapper
-                        (append (list (dr-student-answer "recipe_definition_body cond" #:show? #f (first body-contents)))
+                        (append (list (dr-student-answer "recipe_definition_body" #:extra-class "cond" 
+                                                         #:show? #f (first body-contents)))
                                 (apply append clauselines)
                                 (list (make-spacer ")")))
-                        #:extra-class "cond")))]
+                        #:extra-class "cond"))))]
               [else ;; assume single-line expression for now
                (dr-student-answer "recipe_definition_body" #:show? show body)]))
       ;; eventually, this should become a warning about the body missing
@@ -234,8 +236,12 @@
             (dr-student-answer #:id? #f "recipe_example_body"#:show? show-output? output)
             (make-spacer ")")))))) 
 
-(define (dr-student-answer class-or-id answer #:id? (id? #t) #:show? (show? #f) #:fmt-quotes? (fmt-quotes? #f))
-  (let* ([base-style (if show? "studentAnswer" "studentAnswer blank")]
+(define (dr-student-answer class-or-id answer 
+                           #:id? (id? #t) 
+                           #:extra-class (extra-class "")
+                           #:show? (show? #f) 
+                           #:fmt-quotes? (fmt-quotes? #f))
+  (let* ([base-style (string-append (if show? "studentAnswer" "studentAnswer blank") " " extra-class)]
          [style (if id? 
                     (bootstrap-span-style/extra-id base-style class-or-id) 
                     (bootstrap-span-style (string-append base-style " " class-or-id)))])
