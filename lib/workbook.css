@@ -1,6 +1,5 @@
 body{background: white;}
-.maincolumn, .main { width: 7.5in; margin: 10px;}
-
+.maincolumn, .main { width: 7.5in; margin: 10px; font-family: "Century Gothic";}
 .studentAnswer{background: #fdfdfd; color: #fdfdfd;}
 
 /********************************************************************
