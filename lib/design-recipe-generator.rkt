@@ -142,7 +142,6 @@
                         (make-spacer ")")
                         ;(make-clear)  ; only force this for long-form DR (maybe via a flag?)
                         (dr-body body #:show show-body?)
-                        ;(dr-student-answer "recipe_definition_body" #:show? show-body? body)
                         (make-spacer ")")))
                       )))))))
 
@@ -151,27 +150,30 @@
 ; format the body of a design recipe worksheet -- formatting may depend on body contents
 (define (dr-body body #:show (show #f))
   (if body
-      (let ([body-contents (if (string? body) (with-input-from-string body read) body)])
-        (cond [(atom? body-contents) (dr-student-answer "recipe_definition_body" #:show? show body)]
+      (let ([body-contents body]) ;(if (string? body) (with-input-from-string body read) body)])
+        (cond [(atom? body-contents) (dr-student-answer "recipe_definition_body" #:id? #f #:show? show body)]
               [(eq? (first body-contents) 'cond) 
                (let ([clauselines (map (lambda (c s) 
-                                         (make-wrapper
-                                          ;(make-spacer "[")
-                                          (dr-student-answer "recipe_definition_body clause" (first c) #:show? (if (list? s) (first s) s))
-                                          (dr-student-answer "recipe_definition_body clause" (second c) #:show? (if (list? s) (second s) s))
-                                          ;(make-spacer "]")
-                                          ))
+                                         (list 
+                                          (make-spacer "[")
+                                          (make-wrapper #:extra-class "clause"
+                                                        (dr-student-answer "recipe_definition_body clause questions" (first c) 
+                                                                           #:id? #f #:show? (if (list? s) (first s) s))
+                                                        (dr-student-answer "recipe_definition_body clause answers" (second c) 
+                                                                           #:id? #f #:show? (if (list? s) (second s) s))
+                                                        (make-spacer "]"))))
                                        (rest body-contents) 
                                        ; show is either a single boolean or a list of specs with same length as number of clauses
                                        (if (not show) (build-list (length (rest body-contents)) (lambda (i) #f))
                                            (rest show)))])
                  (apply make-wrapper
-                        (cons (dr-student-answer "recipe_definition_body cond" #:show? #f (first body-contents))
-                              clauselines)))]
+                        (cons (dr-student-answer "recipe_definition_body cond" #:id? #f #:show? #f (first body-contents))
+                              (apply append clauselines))
+                        #:extra-class "cond"))]
               [else ;; assume single-line expression for now
-               (dr-student-answer "recipe_definition_body" #:show? show body)]))
+               (dr-student-answer "recipe_definition_body" #:id? #f #:show? show body)]))
       ;; eventually, this should become a warning about the body missing
-      (dr-student-answer "recipe_definition_body" #:show? show body)))
+      (dr-student-answer "recipe_definition_body" #:id? #f #:show? show body)))
 
 (define (design-recipe-section id title instructions . body)
   (nested #:style (bootstrap-div-style/id/nested id)
@@ -180,8 +182,8 @@
                          (para #:style (bootstrap-div-style "sectionInstructions") instructions))
                    (interleave-parbreaks/all body)))))     
 
-(define (make-wrapper . contents)
-  (nested #:style (bootstrap-div-style "wrapper")
+(define (make-wrapper #:extra-class (extra-class "") . contents)
+  (nested #:style (bootstrap-div-style (string-append "wrapper" " " extra-class))
           (interleave-parbreaks/all contents))) 
 
 (define (make-spacer contents)
