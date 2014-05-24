@@ -140,7 +140,7 @@
                         (dr-student-answer #:id? #f "recipe_name" #:show? show-funname-defn? funname)
                         (dr-student-answer "recipe_variables" #:show? show-params? (string-join param-list " "))
                         (make-spacer ")")
-                        ;(make-clear)  ; only force this for long-form DR (maybe via a flag?)
+                        (make-clear)  
                         (dr-body body #:show show-body?)
                         (make-spacer ")")))
                       )))))))
@@ -155,6 +155,7 @@
               [(eq? (first body-contents) 'cond) 
                (let ([clauselines (map (lambda (c s) 
                                          (list 
+                                          (make-clear)
                                           (make-spacer "[")
                                           (make-wrapper #:extra-class "clause"
                                                         (dr-student-answer "clause questions" (first c) 
@@ -168,7 +169,7 @@
                                            (rest show)))])
                  (interleave-parbreaks/all
                   (list (make-spacer "(")
-                       (apply make-wrapper
+                        (apply make-wrapper
                         (append (list (dr-student-answer "recipe_definition_body" #:extra-class "cond" 
                                                          #:show? #f (first body-contents)))
                                 (apply append clauselines)
@@ -248,5 +249,5 @@
     (para #:style style
           (cond [show? (format-exercise-text answer #:fmt-quotes? fmt-quotes?)]
                 [(string? answer) (make-string (string-length answer) #\M)]
-                [else  " "]))))
+                [else (make-string (string-length (format "~a" answer)) #\M)]))))
 
