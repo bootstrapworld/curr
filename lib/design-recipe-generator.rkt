@@ -170,8 +170,7 @@
                  (interleave-parbreaks/all
                   (list (make-spacer "(")
                         (apply make-wrapper
-                        (append (list (dr-student-answer "recipe_definition_body" #:extra-class "cond" 
-                                                         #:show? #f (first body-contents)))
+                        (append (list (dr-student-answer "cond" #:show? #f (first body-contents)))
                                 (apply append clauselines)
                                 (list (make-spacer ")")))
                         #:extra-class "cond"))))]
@@ -234,20 +233,34 @@
             (dr-student-answer #:id? #f "recipe_example_inputs" #:show? show-input? input)
             (make-spacer ")")
             ;(make-clear) ; only force this for long-form DR (maybe via a flag?)
-            (dr-student-answer #:id? #f "recipe_example_body"#:show? show-output? output)
-            (make-spacer ")")))))) 
+            (dr-student-answer #:id? #f "recipe_example_body"#:show? show-output? #:extra-answer (make-spacer ")") output)
+            ;(make-spacer ")")
+            ))))) 
 
+;; extra-answer allows us to put the closing paren spacer into the answer field
 (define (dr-student-answer class-or-id answer 
                            #:id? (id? #t) 
                            #:extra-class (extra-class "")
+                           #:extra-answer (extra-answer #f)
                            #:show? (show? #f) 
                            #:fmt-quotes? (fmt-quotes? #f))
   (let* ([base-style (string-append (if show? "studentAnswer" "studentAnswer blank") " " extra-class)]
          [style (if id? 
                     (bootstrap-span-style/extra-id base-style class-or-id) 
-                    (bootstrap-span-style (string-append base-style " " class-or-id)))])
-    (para #:style style
-          (cond [show? (format-exercise-text answer #:fmt-quotes? fmt-quotes?)]
-                [(string? answer) (make-string (string-length answer) #\M)]
-                [else (make-string (string-length (format "~a" answer)) #\M)]))))
+                    (bootstrap-span-style (string-append base-style " " class-or-id)))]
+         [raw-ans (cond [show? (format-exercise-text answer #:fmt-quotes? fmt-quotes?)]
+                        [(string? answer) (make-string (string-length answer) #\M)]
+                        [else (make-string (string-length (format "~a" answer)) #\M)])])
+    (if extra-answer 
+        (nested #:style style (interleave-parbreaks/all (list raw-ans extra-answer)))
+        (para #:style style raw-ans))))
 
+    
+;    ; was para
+;    (nested #:style style
+;            (let ([raw-ans
+;                   (cond [show? (format-exercise-text answer #:fmt-quotes? fmt-quotes?)]
+;                         [(string? answer) (make-string (string-length answer) #\M)]
+;                         [else (make-string (string-length (format "~a" answer)) #\M)])]
+;          (if extra-answer extra-answer ""))))
+;
