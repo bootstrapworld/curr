@@ -1,5 +1,5 @@
 body{background: white;}
-.maincolumn, .main { width: 7.5in; margin: 10px; font-family: "Century Gothic";}
+.maincolumn, .main { width: 7.5in; margin: 10px; font-family: "Century Gothic"; font-size: 16pt;}
 .studentAnswer{background: #fdfdfd; color: #fdfdfd;}
 
 /********************************************************************
@@ -37,17 +37,24 @@ body{background: white;}
   margin: 0px;
   display: inline-block;
 }
-#recipe_examples, #recipe_definition{
-}
-
 
 .designRecipeLayout .wrapper *{ vertical-align: top; }
+
 .designRecipeLayout span.spacer{
     display:        inline-block; 
     font-family:    courier, monaco, serif; 
     vertical-align: top;
-    margin:         0px 5px;
+    background:     inherit;
+    color:          black;
 }
+/* a spacer inside a .studentAnswer is used for close parens
+  make sure the left-margin is slightly less than the min-width 
+  for the .studentAnswer, and give it 10px of padding everywhere else
+ */
+.studentAnswer>.spacer{margin-left: 180px; padding: 0px 10px 10px 10px;}
+
+/* When one spacer follows another, there is no need for padding */
+.designRecipeLayout .spacer+.spacer{padding: 0px;}
 
 .designRecipeLayout .studentAnswer{
   margin-bottom:  30px;
@@ -58,6 +65,7 @@ body{background: white;}
   padding:        0px 0px;
   margin-right:   5px;
   word-break:     break-all;
+  font-family:    monospace;
 }
 
 .designRecipeLayout span.studentAnswer::after{
@@ -69,6 +77,7 @@ body{background: white;}
   width:        100%;
   text-align:   center;
   font-style:   italic;
+  font-family:  "Century Gothic";
 }
 
 .recipe_name    {width: 30%;}
@@ -76,22 +85,20 @@ body{background: white;}
 #recipe_range   {width: 15%;}
 #recipe_purpose {width: 95%;}
 
-.recipe_name::after     {color:black; content: "function name";}
-#recipe_domain::after   {color:black; content: "domain";}
-#recipe_range::after    {color:black; content: "range";}
-#recipe_purpose::after  {color:black; content: "what does the function do?";}
-#recipe_variables::after{color:black; content: "variables";}
-.recipe_example_body::after  {color:black;   content: "what the function does with those inputs";}
-.recipe_example_inputs::after{color:black;   content: "input(s)";}
-.recipe_example_inputs::after{color:black;   content: "input(s)";}
+.recipe_name::after           {color:black; content: "function name";}
+#recipe_domain::after         {color:black; content: "domain";}
+#recipe_range::after          {color:black; content: "range";}
+#recipe_purpose::after        {color:black; content: "what does the function do?";}
+#recipe_variables::after      {color:black; content: "variables";}
+.recipe_example_body::after   {color:black;   content: "what the function produces";}
+.recipe_example_inputs::after {color:black;   content: "input(s)";}
+.recipe_example_inputs::after {color:black;   content: "input(s)";}
 #recipe_definition_body::after{color:black;  content: "what the function does with those variables";}
 
-#recipe_definition_body, .designRecipeLayout .recipe_example_body{min-width: 170px; width: 80%;}
+.designRecipeLayout .recipe_example_body{min-width: 220px; max-width: 95%; display: inline-block;}
+#recipe_definition_body{min-width: 500px; max-width: 95%;}
 
-/* make sure to always break after "(cond", and ensure that cond takes up the width of the page */
-.designRecipeLayout .cond:first-child{margin-right: 100%;}
-.designRecipeLayout .cond {margin-right: 100%;}
-
+.cond > #recipe_definition_body::after{content:"";}
 
 /* Copyright at the end of the file */
 .BootstrapCopyright img{ float:right; }
