@@ -132,10 +132,11 @@ ul.lesson li div.teacher{
   height: auto;
   padding-bottom: 32767px;
   margin-bottom: -32767px;
-  background: none;
+  background:     none;
   box-shadow:     none;
+  margin-left:    0px;
 }
-ul.lesson li div.student{width: 500px;}
+ul.lesson li div.student{width: 480px;}
 ul.lesson .embedded-wescheme{width: 500px;}
 
 div.segment{border:none;}
@@ -147,4 +148,5 @@ span.BootstrapLessonTitle{
 .OverviewBoundary p{margin-left: 0px;}
 .segment ul.teacherNotes li+li .teacher{box-shadow: none; border-top: none;}
 div#lessonToolbar, #lessonToolbar.fixed{display: none;}
+
 */
