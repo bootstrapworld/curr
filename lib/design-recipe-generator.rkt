@@ -193,6 +193,10 @@
 (define (make-spacer contents)
   (para #:style (bootstrap-span-style "spacer") contents))
 
+(define (make-spacer/elem contents)
+  (elem #:style (bootstrap-span-style "spacer") contents))
+
+
 (define (make-clear)
   (para #:style (bootstrap-span-style "clear") ""))
   
@@ -233,7 +237,7 @@
             (dr-student-answer #:id? #f "recipe_example_inputs" #:show? show-input? input)
             (make-spacer ")")
             ;(make-clear) ; only force this for long-form DR (maybe via a flag?)
-            (dr-student-answer #:id? #f "recipe_example_body"#:show? show-output? #:extra-answer (make-spacer ")") output)
+            (dr-student-answer #:id? #f "recipe_example_body"#:show? show-output? #:extra-answer (make-spacer/elem ")") output)
             ;(make-spacer ")")
             ))))) 
 
@@ -251,16 +255,4 @@
          [raw-ans (cond [show? (format-exercise-text answer #:fmt-quotes? fmt-quotes?)]
                         [(string? answer) (make-string (string-length answer) #\M)]
                         [else (make-string (string-length (format "~a" answer)) #\M)])])
-    (if extra-answer 
-        (nested #:style style (interleave-parbreaks/all (list raw-ans extra-answer)))
-        (para #:style style raw-ans))))
-
-    
-;    ; was para
-;    (nested #:style style
-;            (let ([raw-ans
-;                   (cond [show? (format-exercise-text answer #:fmt-quotes? fmt-quotes?)]
-;                         [(string? answer) (make-string (string-length answer) #\M)]
-;                         [else (make-string (string-length (format "~a" answer)) #\M)])]
-;          (if extra-answer extra-answer ""))))
-;
+    (para #:style style (if extra-answer (list raw-ans extra-answer) raw-ans))))
