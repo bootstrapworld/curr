@@ -5,7 +5,7 @@
 			 #:range "boolean"
 			 #:purpose "Determine whether given x-coordinate is on the screen"
                          #:num-examples 2
-			 #:example-list '((10 #t) (-15 #f))
+			 #:example-list '((10 (and (safe-left? 10) (safe-right? 10))) (-15 (and (safe-left? -15) (safe-right? -15))))
                          #:param-list (list "x")
                          #:show-params? #f
                          #:body '(and (safe-left? x) (safe-right? x))

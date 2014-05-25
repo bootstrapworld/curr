@@ -5,7 +5,7 @@
 			 #:range "boolean"
 			 #:purpose "Determine whether given number is less than 690"
                          #:num-examples 2
-			 #:example-list '((100 #t) (690 #f))
+			 #:example-list '((100 (< 100 690)) (820 (< 820 690)))
                          #:param-list (list "x")
                          #:show-params? #f
                          #:body '(< x 690)

@@ -41,7 +41,7 @@ body{background: white;}
 .designRecipeLayout .wrapper *{ vertical-align: top; }
 
 .designRecipeLayout span.spacer{
-    display:        inline-block; 
+    display:        inline-block;
     font-family:    courier, monaco, serif; 
     vertical-align: top;
     background:     inherit;
@@ -51,7 +51,12 @@ body{background: white;}
   make sure the left-margin is slightly less than the min-width 
   for the .studentAnswer, and give it 10px of padding everywhere else
  */
-.studentAnswer>.spacer{margin-left: 170px; padding: 0px 10px 10px 10px;}
+.studentAnswer>.spacer{
+  float:          right;
+  padding:        0px 10px 10px 5px;
+  font-size:      16px; /* override .studentAnswer sizing */
+  letter-spacing: 0px;   /* override .studentAnswer letter-spacing */
+}
 
 /* When one spacer follows another, there is no need for padding */
 .designRecipeLayout .spacer+.spacer{padding: 0px;}
@@ -66,18 +71,20 @@ body{background: white;}
   margin-right:   5px;
   word-break:     break-all;
   font-family:    monospace;
+  letter-spacing: 2px;  /* give kids more room to write */
 }
 
 .designRecipeLayout span.studentAnswer::after{
   position:     absolute;
   bottom:       -18px;
   left:         0px;
-  font-size:    12px;
+  font-size:    10px;
   font-weight:  normal;
   width:        100%;
   text-align:   center;
   font-style:   italic;
   font-family:  "Century Gothic";
+  letter-spacing: 0px;   /* override .studentAnswer letter-spacing */
 }
 
 .recipe_name    {width: 30%;}

@@ -10,7 +10,7 @@
                          #:range "boolean"
 			 #:purpose "Determine whether player coordinates are within 50 pixels of character coordinates"
                          #:num-examples 2
-			 #:example-list '((25 75 30 70 #t) (25 75 100 75 #f))
+			 #:example-list '((25 75 30 70 (< (distance 25 75 30 70) 50)) (25 75 100 75 (< (distance 25 75 100 75) 50)))
 			 #:show-examples (list #f #f)
                          #:param-list (list "px" "py" "cx" "cy")
                          #:show-params? #f

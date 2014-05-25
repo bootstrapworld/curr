@@ -5,7 +5,7 @@
 			 #:range "number"
 			 #:purpose "Produce new coordinate by adding 50 to the given number"
                          #:num-examples 2
-			 #:example-list '((0 50) (20 70))
+			 #:example-list '((0 (+ 0 50)) (20 (+ 20 50)))
                          #:param-list (list "x")
                          #:show-params? #f
                          #:body '(+ x 50)
