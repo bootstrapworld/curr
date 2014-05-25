@@ -1,5 +1,5 @@
 body{background: white;}
-.maincolumn, .main { width: 7.5in; margin: 10px; font-family: "Century Gothic"; font-size: 16pt;}
+.maincolumn, .main { width: 7.5in; margin: 10px; font-family: "Century Gothic"; font-size: 16px;}
 .studentAnswer{background: #fdfdfd; color: #fdfdfd;}
 
 /********************************************************************
@@ -30,7 +30,7 @@ body{background: white;}
     vertical-align: top;
     margin-right:   20px;
 }
-.designRecipeLayout .wrapper .wrapper{ width: 90%; }
+.designRecipeLayout .wrapper .wrapper{ width: 90%; margin-right: 40px;}
 
 #recipe_contract .wrapper{
   width: 95%;
@@ -51,7 +51,7 @@ body{background: white;}
   make sure the left-margin is slightly less than the min-width 
   for the .studentAnswer, and give it 10px of padding everywhere else
  */
-.studentAnswer>.spacer{margin-left: 180px; padding: 0px 10px 10px 10px;}
+.studentAnswer>.spacer{margin-left: 170px; padding: 0px 10px 10px 10px;}
 
 /* When one spacer follows another, there is no need for padding */
 .designRecipeLayout .spacer+.spacer{padding: 0px;}
@@ -98,7 +98,8 @@ body{background: white;}
 .designRecipeLayout .recipe_example_body{min-width: 220px; max-width: 95%; display: inline-block;}
 #recipe_definition_body{min-width: 500px; max-width: 95%;}
 
-.cond > #recipe_definition_body::after{content:"";}
+/* Inside a cond, there's no ::after elements, so we can use less space between lines */
+.cond .studentAnswer{margin-bottom: 20px;}
 
 /* Copyright at the end of the file */
 .BootstrapCopyright img{ float:right; }
