@@ -72,7 +72,7 @@
                                 @item{and so on...}]
                      This was evident when going from EXAMPLEs to the function definition: circling what changes essentially gives away
                      the definition, and the number of variables would always match the number of things in the Domain. 
-                     @activity{Turn to page @worksheet-link[#:page 23 #:name "Pizza-Cost"], fill in the Contract and EXAMPLEs for this function,
+                     @activity{Turn to @worksheet-link[#:name "cost"], fill in the Contract and EXAMPLEs for this function,
                                then circle and label what changes.}}
             @teacher{It may be worthwhile to have some EXAMPLEs and definitions written on the board, so students can follow along.}
            }
@@ -170,7 +170,7 @@
                                              2 3]
                            
                            @activity[#:forevidence (list "BS-M&1&1" "BS-M&1&2" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2")]{
-                                    On @worksheet-link[#:page 24 #:name "Design-Recipe-Update-Player"] in your workbook, 
+                                    On @worksheet-link[#:name "update-player"] in your workbook, 
                                     you'll find the word problem for @code{update-player}.}
                            (If you don't like using the arrow keys to make the player move up and down, 
                            you can just as easily change them to work with "w" and "x"!)
