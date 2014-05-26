@@ -273,7 +273,7 @@
           Turn to @worksheet-link[#:name "Math-Rocket-Distance"] in your workbooks, read the word problem carefully, and write down the Contract 
                   for the function:
                   @italic{"A rocket is flying from Earth to Mars at 80 miles per second. Write a function that describes the distance @math{D} the rocket 
-                           has traveled, as a function of time @math{t}}."
+                           has traveled, as a function of time.}"
                   }}
                         @teacher{}
                         }
@@ -352,9 +352,12 @@
                                               @activity{Write two Examples of your own using different distances, then define the function so it works with any distance.}}
                                      @teacher{}
                                      }
-                             @point{@student{By now, you may already see the big picture: the distance given in this problem can be plugged into the equation without having to define the function itself. Sometimes the Design Recipe will get you to the answer without even having to finish! Other times, however, you may not see the big picture until you've broken the problem down into smaller parts, each with it's own function.
-                                             @activity{Open your workbooks to @worksheet-link[#:name "Math-Blank-Recipe"], and practice using the Design Recipe to solve other problems.}}
-                                     @teacher{You can add as many pages as you like to the workbooks, using any algebra problem you like. We recommend using word problems from your students' algebra textbook, or even from your state's standardized test!}
+                             @point{@student{By now, you may already see the big picture: the distance given in this problem can be plugged into the equation 
+                                             without having to define the function itself. Sometimes the Design Recipe will get you to the answer without 
+                                             even having to finish! Other times, however, you may not see the big picture until you've broken the problem
+                                             down into smaller parts, each with it's own function.}
+                                     @teacher{You can add as many Design Recipe pages as you like to the workbooks, using any algebra problem you like. 
+                                              We recommend using word problems from your students' algebra textbook, or even from your state's standardized test!}
                                      }]
          }
        
