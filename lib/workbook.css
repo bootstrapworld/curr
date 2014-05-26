@@ -1,6 +1,6 @@
-body{background: white;}
+html, body{background: white; 7.5in;}
 .maincolumn, .main { width: 7.5in; margin: 10px; font-family: "Century Gothic"; font-size: 16px;}
-.studentAnswer{background: #fdfdfd; color: #fdfdfd;}
+.studentAnswer{background: #fdfdfd; color: rgba(0,0,0,0);}
 
 /********************************************************************
  Design Recipe
