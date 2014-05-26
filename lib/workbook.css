@@ -35,8 +35,8 @@ html, body{background: white; width: 7.5in; position: absolute;}
   text-align:       right;
   width:            400px;
   position:         absolute;
-  right:            0px;
-  padding-bottom:   4px;
+  right:            20px;
+  line-height:      20px;
   border-bottom:    solid 1px black;
   font-family:      monospace;
 }
@@ -115,7 +115,6 @@ html, body{background: white; width: 7.5in; position: absolute;}
 .designRecipeLayout .recipe_example_body{min-width: 220px; max-width: 95%; display: inline-block;}
 #recipe_definition_body{min-width: 500px; max-width: 95%;}
 
-#recipe_examples .wrapper::after {content: ")";}
 
 
 /* Inside a cond, there's no ::after elements, so we can use less space between lines 
@@ -123,8 +122,11 @@ html, body{background: white; width: 7.5in; position: absolute;}
     and insert breaks using righthand borders
 */
 .cond .studentAnswer{margin-bottom: 20px;}
-.questions{border-right: solid 10px white; z-index: 2;}
+.designRecipeLayout .questions{border-right: solid 10px white; z-index: 2; min-width: 50%;}
+
+#recipe_examples .wrapper::after {content: ")";}
 .clause::after { content: "]"; }
+.cond>.clause:last-of-type::after{content: "]))"; right: 0px}
 
 /* Copyright at the end of the file */
 .BootstrapCopyright img{ float:right; }

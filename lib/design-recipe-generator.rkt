@@ -173,8 +173,7 @@
                   (list (make-spacer "(")
                         (apply make-wrapper
                         (append (list (dr-student-answer "cond" #:show? #f (first body-contents)))
-                                (apply append clauselines)
-                                (list (make-spacer ")")))
+                                (apply append clauselines))
                         #:extra-class "cond"))))]
               [else ;; assume single-line expression for now
                (dr-student-answer "recipe_definition_body" #:show? show body)]))
