@@ -142,7 +142,8 @@
                         (make-spacer ")")
                         (make-clear)  
                         (dr-body body #:show show-body?)
-                        (make-spacer ")")))
+                        (make-spacer ")")
+                        ))
                       )))))))
 
 (define (atom? v) (not (list? v)))
@@ -162,7 +163,8 @@
                                                                            #:id? #f #:show? (if (list? s) (first s) s))
                                                         (dr-student-answer "clause answers" (second c) 
                                                                            #:id? #f #:show? (if (list? s) (second s) s))
-                                                        (make-spacer "]"))))
+                                                        ;(make-spacer "]")
+                                                        )))
                                        (rest body-contents) 
                                        ; show is either a single boolean or a list of specs with same length as number of clauses
                                        (if (not show) (build-list (length (rest body-contents)) (lambda (i) #f))
@@ -237,7 +239,7 @@
             (dr-student-answer #:id? #f "recipe_example_inputs" #:show? show-input? input)
             (make-spacer ")")
             ;(make-clear) ; only force this for long-form DR (maybe via a flag?)
-            (dr-student-answer #:id? #f "recipe_example_body"#:show? show-output? #:extra-answer (make-spacer/elem ")") output)
+            (dr-student-answer #:id? #f "recipe_example_body"#:show? show-output? output)
             ;(make-spacer ")")
             ))))) 
 

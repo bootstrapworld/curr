@@ -1,6 +1,6 @@
-html, body{background: white; 7.5in;}
+html, body{background: white; width: 7.5in; position: absolute;}
 .maincolumn, .main { width: 7.5in; margin: 0px; font-family: "Century Gothic"; font-size: 16px;}
-.studentAnswer{background: #fdfdfd; color: rgba(0,0,0,0);}
+.studentAnswer{background: white; color: rgba(0,0,0,0);}
 
 /********************************************************************
  Design Recipe
@@ -30,6 +30,16 @@ html, body{background: white; 7.5in;}
     vertical-align: top;
 }
 .designRecipeLayout .wrapper .wrapper{ width: 98%;}
+
+.wrapper::after{
+  text-align:       right;
+  width:            400px;
+  position:         absolute;
+  right:            0px;
+  padding-bottom:   4px;
+  border-bottom:    solid 1px black;
+  font-family:      monospace;
+}
 
 /* Let the Range overflow the wrapper, and hide the overflow */
 .recipe_name    {width: 20%;}
@@ -102,12 +112,19 @@ html, body{background: white; 7.5in;}
 .recipe_example_inputs::after {color:black; content: "input(s)";}
 .recipe_example_inputs::after {color:black; content: "input(s)";}
 #recipe_definition_body::after{color:black; content: "what the function does with those variables";}
-
 .designRecipeLayout .recipe_example_body{min-width: 220px; max-width: 95%; display: inline-block;}
 #recipe_definition_body{min-width: 500px; max-width: 95%;}
 
-/* Inside a cond, there's no ::after elements, so we can use less space between lines */
+#recipe_examples .wrapper::after {content: ")";}
+
+
+/* Inside a cond, there's no ::after elements, so we can use less space between lines 
+    We also change the ::after brace of each clause to be a square bracket,
+    and insert breaks using righthand borders
+*/
 .cond .studentAnswer{margin-bottom: 20px;}
+.questions{border-right: solid 10px white; z-index: 2;}
+.clause::after { content: "]"; }
 
 /* Copyright at the end of the file */
 .BootstrapCopyright img{ float:right; }
