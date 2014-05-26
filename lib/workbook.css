@@ -1,5 +1,5 @@
 html, body{background: white; 7.5in;}
-.maincolumn, .main { width: 7.5in; margin: 10px; font-family: "Century Gothic"; font-size: 16px;}
+.maincolumn, .main { width: 7.5in; margin: 0px; font-family: "Century Gothic"; font-size: 16px;}
 .studentAnswer{background: #fdfdfd; color: rgba(0,0,0,0);}
 
 /********************************************************************
@@ -25,17 +25,23 @@ html, body{background: white; 7.5in;}
 .designRecipeLayout span.clear{clear: both; display: block; content: "", width: 100%;}
 
 .designRecipeLayout .wrapper{
-    width:          80%;
+    width:          85%;
     display:        inline-block; 
     vertical-align: top;
-    margin-right:   20px;
 }
-.designRecipeLayout .wrapper .wrapper{ width: 90%; margin-right: 40px;}
+.designRecipeLayout .wrapper .wrapper{ width: 98%;}
 
+/* Let the Range overflow the wrapper, and hide the overflow */
+.recipe_name    {width: 20%;}
+#recipe_domain  {width: 50%;}
+#recipe_range   {width: 25%;}
+#recipe_purpose {width: 100%;}
 #recipe_contract .wrapper{
-  width: 95%;
-  margin: 0px;
-  display: inline-block;
+  width:            98%;
+  margin:           0px;
+  display:          inline-block;
+  overflow:         hidden;
+  white-space:      nowrap;
 }
 
 .designRecipeLayout .wrapper *{ vertical-align: top; }
@@ -51,11 +57,12 @@ html, body{background: white; 7.5in;}
   make sure the left-margin is slightly less than the min-width 
   for the .studentAnswer, and give it 10px of padding everywhere else
  */
-.studentAnswer>.spacer{
+.designRecipeLayout .studentAnswer>.spacer{
   float:          right;
-  padding:        0px 10px 10px 5px;
+  padding-bottom: 10px;
+  background:     white;
   font-size:      16px; /* override .studentAnswer sizing */
-  letter-spacing: 0px;   /* override .studentAnswer letter-spacing */
+  margin:         0px;
 }
 
 /* When one spacer follows another, there is no need for padding */
@@ -68,10 +75,10 @@ html, body{background: white; 7.5in;}
   line-height:    20px;
   position:       relative;
   padding:        0px 0px;
-  margin-right:   5px;
   word-break:     break-all;
   font-family:    monospace;
-  letter-spacing: 2px;  /* give kids more room to write */
+  white-space:    pre;
+  margin-right:   5px;
 }
 
 .designRecipeLayout span.studentAnswer::after{
@@ -84,23 +91,17 @@ html, body{background: white; 7.5in;}
   text-align:   center;
   font-style:   italic;
   font-family:  "Century Gothic";
-  letter-spacing: 0px;   /* override .studentAnswer letter-spacing */
 }
-
-.recipe_name    {width: 30%;}
-#recipe_domain  {width: 45%;}
-#recipe_range   {width: 15%;}
-#recipe_purpose {width: 95%;}
 
 .recipe_name::after           {color:black; content: "function name";}
 #recipe_domain::after         {color:black; content: "domain";}
 #recipe_range::after          {color:black; content: "range";}
 #recipe_purpose::after        {color:black; content: "what does the function do?";}
 #recipe_variables::after      {color:black; content: "variables";}
-.recipe_example_body::after   {color:black;   content: "what the function produces";}
-.recipe_example_inputs::after {color:black;   content: "input(s)";}
-.recipe_example_inputs::after {color:black;   content: "input(s)";}
-#recipe_definition_body::after{color:black;  content: "what the function does with those variables";}
+.recipe_example_body::after   {color:black; content: "what the function produces";}
+.recipe_example_inputs::after {color:black; content: "input(s)";}
+.recipe_example_inputs::after {color:black; content: "input(s)";}
+#recipe_definition_body::after{color:black; content: "what the function does with those variables";}
 
 .designRecipeLayout .recipe_example_body{min-width: 220px; max-width: 95%; display: inline-block;}
 #recipe_definition_body{min-width: 500px; max-width: 95%;}
