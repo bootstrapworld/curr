@@ -67,7 +67,7 @@
                         @teacher{}
                         }
                  @point{@student{@activity[#:forevidence (list "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2" "F-LE.5&1&1" "7.EE.3-4&1&4" "F-IF.1-3&1&4")]{
-                                           Turn to @worksheet-link[#:page 15 #:name "Design-Recipe-Update-Danger"] in your workbook for @code{update-danger}.
+                                           Turn to @worksheet-link[#:name "update-danger"] in your workbook for @code{update-danger}.
                                            @itemlist[@item{Read the word problem carefully, and pay attention to @italic{what the function takes in}.}
                                                       @item{Fill out the @vocab{Contract} and @vocab{Purpose Statement} for the function, using what you circled to help you choose the Domain.}
                                                       @item{Write two @vocab{Examples} for the function.}
@@ -90,7 +90,7 @@
                          }
                  @point{@student{Now it's time to animate the Target, which moves in the opposite direction.
                                  @activity[#:forevidence (list "BS-DR.3&1&1" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2" "7.EE.3-4&1&4" "F-IF.1-3&1&4")]{
-                                           Turn to @worksheet-link[#:page 16 #:name "Design-Recipe-Update-Target"] in your workbook for @code{update-target}.
+                                           Turn to @worksheet-link[#:name "update-target"] in your workbook for @code{update-target}.
                                            @itemlist[@item{Read the word problem carefully, and pay attention to @italic{what the function takes in}.}
                                                       @item{Fill out the @vocab{Contract} and @vocab{Purpose Statement} for the function, using what you circled to help you choose the Domain.}
                                                       @item{Write two @vocab{Examples} for the function.}

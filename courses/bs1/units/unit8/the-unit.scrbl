@@ -110,17 +110,17 @@
                        @teacher{}
                        }
                 @point{@student{To get C by itself, we take the square-root of the sum of the areas:
-                                @bannerline{@math{\sqrt{A^{2} + B^{2}} = C}}}
+                                @bannerline{@math{\sqrt{A^{2} + B^{2}} = C}}
                         @activity[#:forevidence (list "BS-CE&1&4")]{
-                               Turn to @worksheet-link[#:page 27 #:name "Distance-Formula-With-Numbers"] in your workbook - you'll see the same formula 
+                               Turn to @worksheet-link[#:name "distance-example"] in your workbook - you'll see the same formula 
                                written out, this time using @code{line-length} to calculate the distance along the x- and y-axis. The Circle of Evaluation
                                has already been partially-completed here, but you'll have to finish it on your own. Once you're done, convert that circle 
-                               into code on the bottom of the page.}
+                               into code on the bottom of the page.}}
                         @teacher{Remind students that A and B are the horizontal and vertical lengths, which are calculated by @code{line-length}.}
                         }
-                @point{@student{The code on page 27 will accurately calculate the distance between two objects whose centers are at (3,0) and (0,4). But what about other points? It would be nice to have a function that calculates the distance for @italic{any} two sets of points.
+                @point{@student{The code on @worksheet-link[#:name "distance-example"] will accurately calculate the distance between two objects whose centers are at (3,0) and (0,4). But what about other points? It would be nice to have a function that calculates the distance for @italic{any} two sets of points.
                                 @activity[#:forevidence (list "BS-DR.3&1&1" "BS-PL.4&1&1" "8.G.6-8&1&3" "8.F.1-3&1&1" "8.F.1-3&1&3")]{
-                                   Turn to @worksheet-link[#:page 28 #:name "distance"] in your workbook, and use the Design Recipe to write your @code{distance} function. 
+                                   Turn to @worksheet-link[#:name "distance"] in your workbook, and use the Design Recipe to write your @code{distance} function. 
                                    Feel free to use the work from the previous page as your first example, and then come up with a new one of your own.}}
                         @teacher{WARNING: make sure students are giving @code{line-length} the proper coordinates! Many students mistakenly pair @code{px} and @code{py} 
                                  together, rather than pairing the x-coordinates. Check student work carefully!}
@@ -166,7 +166,7 @@
                               @activity[#:forevidence (list "8.G.6-8&1&3")]{How would you check whether the distance between (320, 240) and (400, 159) is @italic{less than 50?}  How would you check whether the distance between those coordinates is less than 20?}}
                        @teacher{We are intentionally being vague about the distance units here.  The units are in pixels, which is a notion of distance on a computer screen.  If you want to explain pixels to your students, you can introduce that terminology and talk in terms of "50 pixels".  Otherwise, you can fall back on the number line if you want to explain units for distance. @(new-paragraph) If you want your students to compute a more accurate distance threshhold, you can use the functions @code{image-height} and @code{image-width}, each of which takes an image as input and returns a number.  The returned number is the maximal length of the image along the corresponding dimension (diameter for a circle, width or height for a rectangle or bitmap/url image).  You can have students develop, code, and experiment with expressions like @math{(widthA + widthB)/2} to compute the horizontal distance between two objects (where @math{widthA} stands for the first object width, etc).  This is a significant computational exercise in its own right, which could form the basis of an extended classroom exercise or homework assignment.}
                        }
-                @point{@student{@activity[#:forevidence (list "8.F.1-3&1&1" "8.F.1-3&1&3")]{Turn to @worksheet-link[#:page 29 #:name "collide?"] in your workbook, and use the Design Recipe to write a function that produces @code{true} if the distance between two coordinates is less than 50. HINT: You should use your @code{distance} function!}
+                @point{@student{@activity[#:forevidence (list "8.F.1-3&1&1" "8.F.1-3&1&3")]{Turn to @worksheet-link[#:name "collide"] in your workbook, and use the Design Recipe to write a function that produces @code{true} if the distance between two coordinates is less than 50. HINT: You should use your @code{distance} function!}
                                 @activity{Enter your @code{collide?} function definition into your game file.  Play your game, and make your player collide with the danger.  Does your game now do something different than it did before you wrote @code{collide?}?}
                       }
                         @teacher{}}

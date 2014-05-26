@@ -6,7 +6,6 @@
 
 ; The backmatter will be generated from these pages in order
 
-(
- ("StudentWorkbook.pdf" "Contracts")
- ("StudentWorkbook.pdf" "Contracts")
+("Contracts.pdf"
+ "Contracts.pdf"
 )

@@ -32,6 +32,7 @@
  "update-target.scrbl"
  ;;;; UNIT 6 ;;;;;;;;;
  ("ColleenPages.pdf" "Unit-6")
+ ("StudentWorkbook.pdf" "Protecting-Sam")
  "safe-left.scrbl"
  "safe-right.scrbl"
  ("StudentWorkbook.pdf" "AND-and-OR")

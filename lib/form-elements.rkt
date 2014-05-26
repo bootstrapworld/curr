@@ -1112,9 +1112,12 @@
                                                          "worksheets"
                                                          (format "~a.html" name)))])))
   (list (hyperlink (path->string the-relative-path)
-                   "Page " (number->string (cond [page page] 
-                                                 [name (get-workbook-page/name name)] 
-                                                 [else (begin (printf "WARNING: worksheet link needs one of page or name~n") 0)])))))
+                   "Page " (number->string 
+                            (cond [page page] 
+                                  [name (let ([num (get-workbook-page/name name)])
+                                          (if num num
+                                              (error 'worksheek-link (format "Unknown page name ~a" name))))]
+                                  [else (begin (printf "WARNING: worksheet link needs one of page or name~n") 0)])))))
 
 ;; Link to a particular lesson by name
 ;; lesson-link: #:name string #:label (U string #f) -> element

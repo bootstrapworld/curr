@@ -65,7 +65,7 @@
                  @teacher{}
                  }
           
-          @point{@student{@activity[#:forevidence (list "BS-M&1&1")]{@bitmap{images/game-table1.png} Turn to @worksheet-link[#:name "How-Does-Ninja-Cat-Work" #:page 1] in your workbook. Here we have a table, which we'll use to reverse-engineer NinjaCat and see how it works. Fill out the first column with a complete list of all things in the game.}
+          @point{@student{@activity[#:forevidence (list "BS-M&1&1")]{@bitmap{images/game-table1.png} Turn to @worksheet-link[#:name "NinjaCat-Dissection"] in your workbook. Here we have a table, which we'll use to reverse-engineer NinjaCat and see how it works. Fill out the first column with a complete list of all things in the game.}
                            }
                  @teacher{This can be a team activity. Solicit a few examples from students, to make sure they understand what's being listed here: nouns like "the cat", not verbs like "jumping". @management{During this activity, walk around and see how groups are doing. This is the time to encourage expectations of community and respect - call out good teamwork when you see it! When time is up, give them a countdown: "30...10... 5... 4... 3... 2... 1... PENCILS DOWN, EYES UP HERE!" Wait for total silence and complete attention. }}
                  }
@@ -142,7 +142,7 @@
               }
 
       @point{@student{Depending on how a character moves, their position might change only along the x-axis, only along the y-axis, or both. Look
-                      back to the table you wrote in the workbook (@worksheet-link[#:page 1 #:lesson "Ninja-Cat-Demo" #:name "How-Does-Ninja-Cat-Work"]).
+                      back to the table you wrote in the workbook (@worksheet-link[#:name "NinjaCat-Dissection"]).
                       Can NinjaCat move up and down in the game? Can she move left and right? So what's changing: her x-coordinate, her y-coordinate, 
                       or both? What about the clouds? Do they move up and down? Left and right? Both?}
               @teacher{}
@@ -154,7 +154,7 @@
               @teacher{}
               }
       
-      @point{@student{@activity[#:forevidence (list "6.NS.5-8&1&2")]{Turn to @worksheet-link[#:page 2 #:name "Ninja-Cat-Coordinates"] in your game-planning workbook, and look at the
+      @point{@student{@activity[#:forevidence (list "6.NS.5-8&1&2")]{Turn to @worksheet-link[#:name "NinjaCat-Coordinates"] in your game-planning workbook, and look at the
                                         project sheet that has a picture of the NinjaCat game. What are the coordinates at the bottom-left corner 
                                         of the screen? Top-right? Center? For practice, label the coordinates at the midpoint of @italic{each side}
                                         of the screen, then label the coordinates of each of the characters.}}
@@ -183,7 +183,7 @@
         
         
 @points[
-        @point{@student{On @worksheet-link[#:page 3 #:name "Elements-of-a-Videogame"], you'll find a planning template for you to make your own game. 
+        @point{@student{On @worksheet-link[#:name "Game-Design"], you'll find a planning template for you to make your own game. 
                            Just like we made a list of everything in the NinjaCat game, we're going to start with a list of everything in your game.}
                 @teacher{@management{Put your names at the top of this page.}}
                 }
@@ -199,7 +199,7 @@
                          might have a monkey as the player, a snake as the danger, and bananas as the target.}
                 }
         
-        @point{@student{@activity{Now it's time to get creative! Fill out @worksheet-link[#:page 3 #:name "Elements-of-a-Videogame"] in your 
+        @point{@student{@activity{Now it's time to get creative! Fill out @worksheet-link[#:name "Game-Design"] in your 
                                   workbook for @italic{your} game, using your own player, target and danger.}}
                 @teacher{@management{Be sure to consult with every team. A lot of students will have trouble fitting their ideas into this 
                                      format, or they'll struggle with coordinates. Be clear about what can and cannot be done! (e.g. - no 
@@ -530,7 +530,7 @@
                                             function. The following diagram summarizes the shape of an expression that uses a function. 
                                             @bitmap{images/ExpressionDiagram.png}}
                                 @activity[#:forevidence (list "BS-CE&1&2" "BS-CE&1&4")]{
-                                        For practice, turn to @worksheet-link[#:page 4 #:name "Circle-of-Evaluation-Practice"]
+                                        For practice, turn to @worksheet-link[#:name "Circle-of-Evaluation-Practice"]
                                         in your workbook. For each mathematical expression, draw the Circle of Evaluation, then convert
                                         that Circle into Racket code.}}
                         @teacher{}
