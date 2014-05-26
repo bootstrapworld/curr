@@ -161,9 +161,11 @@
 (define (build-workbook)
   (let* ([pages-spec (with-input-from-file (build-path (kf-get-workbook-dir) "contentlist.rkt") read)]
          [front-spec (with-input-from-file (build-path (kf-get-workbook-dir) "frontmatterlist.rkt") read)]
+         [back-spec (with-input-from-file (build-path (kf-get-workbook-dir) "backmatterlist.rkt") read)]
          [pagesdir (build-path (kf-get-workbook-dir) "pages")]
          [pages (check-contents-exist pages-spec pagesdir)]
          [frontpages (check-contents-exist front-spec pagesdir)]
+         [backpages (check-contents-exist back-spec pagesdir)]
          [workbook-last-gen-sec (file-or-directory-modify-seconds (build-path (kf-get-workbook-dir) "workbook.pdf"))]
          )
     (if (empty? pages)
@@ -177,17 +179,21 @@
             (gen-wkbk-index pdfpagenames)
             (merge-pages pdfpagenames)
             (add-pagenums)
-            ; add front pages
-            (if (empty? frontpages)
+            ; add front and back pages
+	    ; current assumes both or neither front/back pages -- can adjust later if needed
+            (if (and (empty? frontpages) (empty? backpages))
                 (copy-file (build-path (kf-get-workbook-dir) "workbook-numbered.pdf")
                            (build-path (kf-get-workbook-dir) "workbook.pdf")
                            #:exists-ok? #t)
                 (begin (extract-PDF-pages frontpages workbook-last-gen-sec)
                        (merge-pages (pdf-pagenames frontpages) #:output "front-matter.pdf")
+                       (extract-PDF-pages backpages workbook-last-gen-sec)
+                       (merge-pages (pdf-pagenames backpages) #:output "back-matter.pdf")
                        (let ([frontpdf (build-path (kf-get-workbook-dir) "front-matter.pdf")]
+                             [backpdf (build-path (kf-get-workbook-dir) "back-matter.pdf")]
                              [workbooknums (build-path (kf-get-workbook-dir) "workbook-numbered.pdf")]
                              [workbook (build-path (kf-get-workbook-dir) "workbook.pdf")])
-                         (system* (get-prog-cmd "pdftk") frontpdf workbooknums "output" workbook "dont_ask"))))
+                         (system* (get-prog-cmd "pdftk") frontpdf workbooknums backpdf "output" workbook "dont_ask"))))
             ; clean out auxiliary tex files (ie, texwipe, intermed no page nums file)
             (delete-if-exists (list (build-path (kf-get-workbook-dir) "workbook-numbered.aux")
                                     (build-path (kf-get-workbook-dir) "workbook-numbered.log")
