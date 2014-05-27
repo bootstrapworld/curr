@@ -142,9 +142,12 @@
                         (make-spacer ")")
                         (make-clear)  
                         (dr-body body #:show show-body?)
-                        (make-spacer ")")
+                        ;; CSS generates closing ) for cond, so only gen in other cases
+                        (if (cond-body? body) "" (make-spacer ")"))
                         ))
                       )))))))
+
+(define (cond-body? e) (and (list? e) (eq? (first e) 'cond)))
 
 (define (atom? v) (not (list? v)))
 
