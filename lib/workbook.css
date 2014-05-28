@@ -1,6 +1,7 @@
 html, body{background: white; width: 7.5in; position: absolute;}
 .maincolumn, .main { width: 7.5in; margin: 0px; font-family: "Century Gothic"; font-size: 16px;}
-.studentAnswer{background: white; color: rgba(0,0,0,0);}
+.studentAnswer{background: white; color: black;}
+.blank{color: rgba(0,0,0,0);}
 
 /********************************************************************
  Design Recipe
