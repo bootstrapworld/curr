@@ -21,6 +21,11 @@
 
 (define htmlRarr (cond-element [html (sxml->element 'rarr)] [else "->"]))
 
+(define (gen-solutions?)
+  (let ([sols (getenv "CURRENT-SOLUTIONS-MODE")])
+    ;(printf "sols mode is ~a~n" sols)
+    (equal? sols "on")))
+
 ;; retrieves info on whether to show named component from given spec
 ;; currently, spec is either a boolean or a list of three booleans
 ;;   corresponding to the funname, input, or output, respectively
@@ -252,7 +257,12 @@
                            #:extra-answer (extra-answer #f)
                            #:show? (show? #f) 
                            #:fmt-quotes? (fmt-quotes? #f))
-  (let* ([base-style (string-append (if show? "studentAnswer" "studentAnswer blank") " " extra-class)]
+  (let* ([show? (or show? (gen-solutions?))]
+         [base-style (string-append (if show? 
+                                        "studentAnswer solution" 
+                                        "studentAnswer blank") 
+                                    " " 
+                                    extra-class)]
          [style (if id? 
                     (bootstrap-span-style/extra-id base-style class-or-id) 
                     (bootstrap-span-style (string-append base-style " " class-or-id)))]

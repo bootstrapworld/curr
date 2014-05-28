@@ -121,7 +121,8 @@
               (when (and (string? f) 
                          (regexp-match #px".*\\.scrbl$" f)
                          (or (< wkbk-mod-sec (file-or-directory-modify-seconds (build-path pagesdir f)))
-                             (< wkbk-mod-sec (file-or-directory-modify-seconds (build-path root-path "lib" "workbook.css")))))
+                             (< wkbk-mod-sec (file-or-directory-modify-seconds (build-path root-path "lib" "workbook.css")))
+                             #t))
                 (run-scribble (build-path pagesdir f))
                 (let ([fhtml (regexp-replace #px"\\.scrbl$" f ".html")]
                       [fpdf (regexp-replace #px"\\.scrbl$" f ".pdf")])
@@ -208,6 +209,15 @@
 
 ; use this to tell scribble to use the workbook.css file
 (putenv "BOOTSTRAP-TARGET" "workbook")
+
+; by default, generate student workbook, not solutions workbook
+(putenv "CURRENT-SOLUTIONS-MODE" "off")
+
+; parse command-line arguments
+(command-line #:program "build-workbook"
+              #:once-each
+              [("--solutions") "Generate workbook with solutions"
+                               (putenv "CURRENT-SOLUTIONS-MODE" "on")])
 
 (for ([course (in-list bootstrap-courses)])
   (parameterize ([current-course course])

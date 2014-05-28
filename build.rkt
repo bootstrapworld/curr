@@ -177,16 +177,6 @@
                    (build-path lessons-dir subdir))]))
   )
 
-;  ;; and the long-lessons
-;  (printf "build.rkt: building long lessons\n")
-;  (for ([subdir (directory-list lessons-dir)]
-;        #:when (directory-exists? (build-path lessons-dir subdir)))
-;    (define scribble-file (simple-form-path (build-path lessons-dir subdir "lesson" "lesson-long.scrbl")))
-;    (cond [(file-exists? scribble-file)
-;           (printf "build.rkt: Building ~a\n" scribble-file)
-;           (run-scribble scribble-file #:never-generate-pdf? #t)])))
-
-
 ;; Building exercise handouts
 (define (build-exercise-handouts)
   (for ([subdir (directory-list lessons-dir)]
@@ -251,8 +241,17 @@
         (when (directory-exists? output-resources-dir)
           (delete-directory/files output-resources-dir))
         (copy-directory/files input-resources-dir
-                              (simple-form-path
-                               (build-path output-resources-dir)))
+                              (simple-form-path output-resources-dir))
+   
+        ; keep only certain files in workbook resources dir
+        (let ([keep-workbook-files (list "workbook.pdf")])
+          (for ([wbfile (directory-list (build-path output-resources-dir "workbook"))])
+            (printf "processing ~a~n" wbfile)
+            (unless (member (path->string wbfile) keep-workbook-files)
+              (if (directory-exists? (build-path output-resources-dir "workbook" wbfile))
+                  (delete-directory/files (build-path output-resources-dir "workbook" wbfile))
+                  (delete-file (build-path output-resources-dir "workbook" wbfile))))))
+      
         (let ([sourcefiles (build-path output-resources-dir "source-files")]
               [sourcezip (build-path output-resources-dir "source-files.zip")])
           (when (file-exists? sourcezip)
