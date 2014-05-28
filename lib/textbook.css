@@ -369,7 +369,6 @@ iframe#forum_embed.shown{
   opacity: 1; visibility: visible;  z-index:  100;
 }
 
-
 /************************************************************************************
  * PRINT MEDIA
  * Hide callouts, embedded WeSchemes, box-shadows, and background images
@@ -389,12 +388,6 @@ iframe#forum_embed.shown{
   div.ExtraExercises, div.content                                               {border: none;}
   div.teacher, .segment ul.teacherNotes li+li .teacher                          {box-shadow: none;}
   div#lessonToolbar, iframe#forum_embed, input, div.callout, .embedded-wescheme {display: none;}
-  
-  /* Fix for Firefox printing, which is terribly broken. See:
-   *  http://www.bennadel.com/blog/851-Fixing-DIVs-That-Cause-Content-Truncation-When-Printing.htm
-   */
-  div.content{display: inline;}
-
 
   /* page breaks */
   .LessonBoundary                                                               {page-break-before: always;}
@@ -408,4 +401,11 @@ iframe#forum_embed.shown{
   table.bordered td {padding: 0px;}
   li.lessonItem>*:first-child {padding-bottom: 10px;}
   div.teacher{border-left: solid 1px gray; font-style: italic;}
+  
+    /* Fix for Firefox printing, which is terribly broken. See:
+   *  http://www.bennadel.com/blog/851-Fixing-DIVs-That-Cause-Content-Truncation-When-Printing.htm
+   */
+  @-moz-document url-prefix() {
+    div.content{display: inline;}
+  }
 }
