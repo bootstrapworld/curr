@@ -246,11 +246,16 @@
         ; keep only certain files in workbook resources dir
         (let ([keep-workbook-files (list "workbook.pdf")])
           (for ([wbfile (directory-list (build-path output-resources-dir "workbook"))])
-            (printf "processing ~a~n" wbfile)
             (unless (member (path->string wbfile) keep-workbook-files)
               (if (directory-exists? (build-path output-resources-dir "workbook" wbfile))
                   (delete-directory/files (build-path output-resources-dir "workbook" wbfile))
                   (delete-file (build-path output-resources-dir "workbook" wbfile))))))
+        ; ideally, modify workbook build process to generate right filename from the
+        ; outset.  In the meantime, this puts the right filename in the distribution
+        ; the "when" is there to avoid error in bs2 (which has no workbook yet)
+        (when (file-exists? (build-path output-resources-dir "workbook" "workbook.pdf"))
+          (rename-file-or-directory (build-path output-resources-dir "workbook" "workbook.pdf")
+                                    (build-path output-resources-dir "workbook" "StudentWorkbook.pdf")))
       
         (let ([sourcefiles (build-path output-resources-dir "source-files")]
               [sourcezip (build-path output-resources-dir "source-files.zip")])
