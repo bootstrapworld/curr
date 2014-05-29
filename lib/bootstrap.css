@@ -209,7 +209,7 @@ div.codesexp       .studentAnswer+.studentAnswer { margin-left: 10px;}
   .twoColumnLayout{width: 100%;}
   a{color: black;}
 
-  div.rightColumn, div.leftColumn {width: 3.5in;}
+  div.rightColumn, div.leftColumn {width: 50%;}
 
   span.rightColumnLabel,
   div.leftColumn:before,
