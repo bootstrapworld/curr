@@ -6,6 +6,7 @@
          racket/cmdline
          racket/path
          racket/file
+         racket/list
          (lib "curr/lib/system-parameters.rkt")
          "lib/translate-pdfs.rkt"
          "lib/paths.rkt"
@@ -157,7 +158,54 @@
             [else
              (printf "Could not find a \"the-unit.scrbl\" in directory ~a\n"
                      (build-path (get-units-dir) subdir))])))
-
+    
+      ;; copy exercises from individual lessons into units that reference them 
+    (for ([subdir (directory-list (get-units-dir))]
+          #:when (directory-exists? (build-path (get-units-dir) subdir)))
+      (let ([exercises-dir (build-path (get-units-dir) subdir "exercises")]
+            [deploy-exercises-dir (build-path (current-deployment-dir) "courses" (current-course)
+                                              "units" subdir "exercises")])
+        (when (directory-exists? exercises-dir)
+          (delete-directory/files exercises-dir))
+        (make-directory exercises-dir)
+        (make-directory deploy-exercises-dir)
+        (let ([exer-list-path (build-path (get-units-dir) subdir "exercise-list.rkt")])
+          (when (file-exists? exer-list-path)
+            (let ([unit-exercises (with-input-from-file exer-list-path read)])
+              ;; copies all exercise from relevant lessons into units
+              ;; - this will cause problems if exercises generate images, as
+              ;;   png files will overwrite one another.  Ideally need something
+              ;;   more intelligent, but don't see what that is just yet
+              (let ([lessonnames (remove-duplicates
+                                  (map (lambda (exer-str)
+                                         (let ([splits (string-split exer-str "\\")])
+                                          (list-ref splits (- (length splits) 3))))
+                                      unit-exercises))])
+                (for-each (lambda (lessonname)
+                            (let ([lessonexerpath (build-path lessons-dir lessonname "exercises")])
+                              (for ([exerfile (directory-list lessonexerpath)])
+                                ; don't copy some file extensions
+                                (unless (or (regexp-match #px".*\\.scrbl$" exerfile)
+                                            (regexp-match #px".*\\.bak$" exerfile)
+                                            (regexp-match #px".*\\.*~$" exerfile))
+                                  (copy-file (build-path lessonexerpath exerfile)
+                                             (build-path deploy-exercises-dir exerfile)
+                                             #t)))))
+                          lessonnames))
+              
+;              #'(for-each (lambda (exer-str) 
+;                          ;(printf "trying exercise ~a~n" exer-str)
+;                          (let ([exer-path (string->path exer-str)])
+;                            (when (file-exists? exer-path)
+;                              (let-values ([(base filename dir?) (split-path exer-path)])
+;                                (let ([target (build-path exercises-dir filename)]
+;                                      [target-deploy (build-path deploy-exercises-dir filename)])
+;                                  (printf "copying exercise ~a to ~a ~n" exer-str target)
+;                                  (copy-file exer-path target #t)
+;                                  (copy-file exer-path target-deploy #t)
+;                                  )))))
+;                        unit-exercises)
+              )))))
 
   (printf "build.rkt: building ~a main\n" (current-course))
   (run-scribble (get-course-main)))
@@ -316,11 +364,12 @@
 (putenv "WORKSHEET-LINKS-TO-PDF" "true")
 (putenv "CURRENT-SOLUTIONS-MODE" "off")
 (initialize-tagging-environment)
+(build-exercise-handouts)
 (for ([course (in-list bootstrap-courses)])
   (parameterize ([current-course course])
     (build-course-units)
-    (build-resources)))  ;; should resources get built once, or once per course?
-(build-exercise-handouts)
+    (build-resources)))  
+;(build-exercise-handouts)
 (create-distribution-lib)
 ;(build-exercise-handout-solutions)
 ;(build-lessons)

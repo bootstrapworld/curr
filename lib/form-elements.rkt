@@ -982,33 +982,47 @@
   (traverse-block
    (lambda (get set)
      (lambda (get set)
-       (let ([exercise-locs (get 'exercise-locs '())])
-         (if (empty? exercise-locs) (para)
-             (nested #:style (bootstrap-div-style "ExtraExercises")
-                     (interleave-parbreaks/all
-                      (list 
-                       (para #:style bs-lesson-title-style "Additional Exercises:")
-                       (apply itemlist/splicing 
-                              (map (lambda (exloc)
-                                     (let-values ([(extitle exforevid) (extract-exercise-data exloc)])
-                                       (let ([descr (if extitle extitle (exercise-locator-filename exloc))]
-                                             [support (if exforevid
-                                                          (let ([evidstmt (get-evid-summary exforevid)])
-                                                            (if evidstmt (format " [supports ~a]" evidstmt)
-                                                                ""))
-                                                          "")])
-                                         (let ([exdirpath (if (current-deployment-dir)
-                                                              (build-path (current-deployment-dir) "lessons") 
-                                                              (build-path lessons-dir))])
-                                           (elem (list (hyperlink (build-path exdirpath
-                                                                              (exercise-locator-lesson exloc) "exercises"
-                                                                              (string-append (exercise-locator-filename exloc) ".html"))
-                                                                  descr)
-                                                       ; uncomment next line when ready to bring evidence back in
-                                                       ;(elem #:style (bootstrap-span-style "supports-evid") support)
-                                                       ))))))
-                                   exercise-locs))
-                       )))))))))
+       (with-output-to-file "exercise-list.rkt" (lambda () (printf "(")) #:exists 'replace)
+       (let* ([exercise-locs (get 'exercise-locs '())]
+              [exercise-output
+               (if (empty? exercise-locs) (para)
+                   (nested #:style (bootstrap-div-style "ExtraExercises")
+                           (interleave-parbreaks/all
+                            (list 
+                             (para #:style bs-lesson-title-style "Additional Exercises:")
+                             (apply itemlist/splicing 
+                                    (map (lambda (exloc)
+                                           (let-values ([(extitle exforevid) (extract-exercise-data exloc)])
+                                             (let ([descr (if extitle extitle (exercise-locator-filename exloc))]
+                                                   [support (if exforevid
+                                                                (let ([evidstmt (get-evid-summary exforevid)])
+                                                                  (if evidstmt (format " [supports ~a]" evidstmt)
+                                                                      ""))
+                                                                "")])
+                                               (let ([exdirpath (if (current-deployment-dir)
+                                                                    (build-path (current-deployment-dir) "lessons") 
+                                                                    (build-path lessons-dir))]
+                                                     [expathname 
+                                                      (build-path "lessons" (exercise-locator-lesson exloc) 
+                                                                  "exercises" (string-append (exercise-locator-filename exloc) ".html"))])
+                                                 (with-output-to-file "exercise-list.rkt" 
+                                                   (lambda () (write (path->string expathname)) (printf " ")) 
+                                                   #:exists 'append)
+                                                 (elem (list (hyperlink (string-append "exercises/" (exercise-locator-filename exloc) ".html")
+                                                              ;(build-path "exercises"
+                                                              ;                      (string-append (exercise-locator-filename exloc) ".html"))
+                                                                        descr)
+                                                             ;(hyperlink (build-path exdirpath
+                                                             ;                       (exercise-locator-lesson exloc) "exercises"
+                                                             ;                       (string-append (exercise-locator-filename exloc) ".html"))
+                                                             ;           descr)
+                                                             ; uncomment next line when ready to bring evidence back in
+                                                             ;(elem #:style (bootstrap-span-style "supports-evid") support)
+                                                             ))))))
+                                         exercise-locs))
+                             ))))])
+         (with-output-to-file "exercise-list.rkt" (lambda () (printf ")")) #:exists 'append)
+         exercise-output)))))
 
 ;;;;;;;; LINKING BETWEEN COMPONENTS ;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
