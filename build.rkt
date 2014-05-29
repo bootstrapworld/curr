@@ -177,10 +177,13 @@
               ;;   png files will overwrite one another.  Ideally need something
               ;;   more intelligent, but don't see what that is just yet
               (let ([lessonnames (remove-duplicates
-                                  (map (lambda (exer-str)
-                                         (let ([splits (string-split exer-str "\\")])
-                                          (list-ref splits (- (length splits) 3))))
-                                      unit-exercises))])
+                                  (map (lambda (exer-path-str)
+                                         (let* ([exer-path (string->path exer-path-str)]
+                                                [path-elts (explode-path exer-path)])
+                                           (if (< (length path-elts) 2)
+                                               (error "WARNING: problem with path ~a in build ~n" path-elts)
+                                               (second path-elts))))
+                                       unit-exercises))])
                 (for-each (lambda (lessonname)
                             (let ([lessonexerpath (build-path lessons-dir lessonname "exercises")])
                               (for ([exerfile (directory-list lessonexerpath)])
