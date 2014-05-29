@@ -1008,7 +1008,8 @@
                                                  (with-output-to-file "exercise-list.rkt" 
                                                    (lambda () (write (path->string expathname)) (printf " ")) 
                                                    #:exists 'append)
-                                                 (elem (list (hyperlink (string-append "exercises/" (exercise-locator-filename exloc) ".html")
+                                                 (elem (list (hyperlink (string-append "exercises/" (exercise-locator-lesson exloc) "/"
+                                                                                       (exercise-locator-filename exloc) ".html")
                                                               ;(build-path "exercises"
                                                               ;                      (string-append (exercise-locator-filename exloc) ".html"))
                                                                         descr)

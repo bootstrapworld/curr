@@ -173,26 +173,26 @@
           (when (file-exists? exer-list-path)
             (let ([unit-exercises (with-input-from-file exer-list-path read)])
               ;; copies all exercise from relevant lessons into units
-              ;; - this will cause problems if exercises generate images, as
-              ;;   png files will overwrite one another.  Ideally need something
-              ;;   more intelligent, but don't see what that is just yet
               (let ([lessonnames (remove-duplicates
                                   (map (lambda (exer-path-str)
                                          (let* ([exer-path (string->path exer-path-str)]
                                                 [path-elts (explode-path exer-path)])
                                            (if (< (length path-elts) 2)
-                                               (error "WARNING: problem with path ~a in build ~n" path-elts)
+                                               (error "ERROR: unexpected exercise path ~a during build ~n" exer-path)
                                                (second path-elts))))
                                        unit-exercises))])
                 (for-each (lambda (lessonname)
-                            (let ([lessonexerpath (build-path lessons-dir lessonname "exercises")])
+                            (let ([lessonexerpath (build-path lessons-dir lessonname "exercises")]
+                                  [deploy-exer-path (build-path deploy-exercises-dir lessonname)])
+                              (unless (directory-exists? deploy-exer-path)
+                                (make-directory deploy-exer-path))
                               (for ([exerfile (directory-list lessonexerpath)])
                                 ; don't copy some file extensions
                                 (unless (or (regexp-match #px".*\\.scrbl$" exerfile)
                                             (regexp-match #px".*\\.bak$" exerfile)
                                             (regexp-match #px".*\\.*~$" exerfile))
                                   (copy-file (build-path lessonexerpath exerfile)
-                                             (build-path deploy-exercises-dir exerfile)
+                                             (build-path deploy-exer-path exerfile)
                                              #t)))))
                           lessonnames))
               
