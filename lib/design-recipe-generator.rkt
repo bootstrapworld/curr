@@ -167,9 +167,9 @@
                                           (make-clear)
                                           (make-spacer "[")
                                           (make-wrapper #:extra-class "clause"
-                                                        (dr-student-answer "clause questions" (first c) 
+                                                        (dr-student-answer "questions" (first c) 
                                                                            #:id? #f #:show? (if (list? s) (first s) s))
-                                                        (dr-student-answer "clause answers" (second c) 
+                                                        (dr-student-answer "answers" (second c) 
                                                                            #:id? #f #:show? (if (list? s) (second s) s))
                                                         ;(make-spacer "]")
                                                         )))
