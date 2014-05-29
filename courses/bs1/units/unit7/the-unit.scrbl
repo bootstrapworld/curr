@@ -7,7 +7,7 @@
                                        (list "String" @code{string-append string-length})                          
                                        (list "Image" @code{rectangle circle triangle ellipse radial-star scale rotate put-image})
                                        (list "Boolean" @code{= > < string=? and or}))]{
-  @unit-descr{Students use geometry and conditional branching to move their player characters in response to key-presses.}
+  @unit-descr{Students use piecewise functions to move their players in response to key-presses.}
    }
 
 @unit-lessons{

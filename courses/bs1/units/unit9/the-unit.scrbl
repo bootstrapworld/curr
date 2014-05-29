@@ -9,7 +9,7 @@
                                        (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image})
                                        (list "Boolean" @code{= > < string=? and or}))]{
 
-@unit-descr{Students will edit game details and prepare for their Launch Party!}
+@unit-descr{Students edit game details, practice talking about their code, and prepare for their Launch Party!}
  }
 
 @unit-lessons{
