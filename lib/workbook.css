@@ -90,6 +90,8 @@ html, body{background: white; width: 7.5in; position: absolute;}
   font-family:    monospace;
   white-space:    pre;
   margin-right:   5px;
+  text-align:     center;
+  word-spacing:   5px;
 }
 
 .designRecipeLayout span.studentAnswer::after{
@@ -102,6 +104,7 @@ html, body{background: white; width: 7.5in; position: absolute;}
   text-align:   center;
   font-style:   italic;
   font-family:  "Century Gothic";
+  word-spacing:  5px;  /* don't inherit spacing from .studentAnswer */
 }
 
 .recipe_name::after           {color:black; content: "function name";}
