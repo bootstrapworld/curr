@@ -44,8 +44,8 @@ body {
 }
 
 .headercontent h1, .BootstrapTitle {
-  font-size: 80px;
-  line-height: 80px;
+  font-size: 30px;
+  line-height: 30px;
   margin-top:30px;
   margin-bottom:30px;
 }
