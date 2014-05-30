@@ -1,5 +1,5 @@
 html, body{background: white; width: 7.5in; position: absolute;}
-.maincolumn, .main { width: 7.5in; margin: 0px; font-family: "Century Gothic"; font-size: 16px;}
+.maincolumn, .main { width: 7.5in; margin: 0pt; font-family: "Century Gothic"; font-size: 11pt;}
 .studentAnswer{background: white; color: black;}
 .blank{color: rgba(0,0,0,0);}
 
@@ -11,17 +11,17 @@ html, body{background: white; width: 7.5in; position: absolute;}
   color:        white;
   background:   gray;
   display:      block;
-  padding:      5px;
-  font-size:    18px;
+  padding:      5pt;
+  font-size:    14pt;
   font-weight:  bold;
 }
 .designRecipeLayout div.sectionInstructions{
   font-style:   italic;
-  font-size:    14px;
-  margin-bottom: 20px;
+  font-size:    9pt;
+  margin-bottom: 6pt;
 }
 
-.designRecipeLayout div.section span{vertical-align: top; line-height: 20px;}
+.designRecipeLayout div.section span{vertical-align: top; line-height: 20pt;}
 
 .designRecipeLayout span.clear{clear: both; display: block; content: "", width: 100%;}
 
@@ -34,11 +34,11 @@ html, body{background: white; width: 7.5in; position: absolute;}
 
 .wrapper::after{
   text-align:       right;
-  width:            400px;
+  width:            300pt;
   position:         absolute;
-  right:            20px;
-  line-height:      20px;
-  border-bottom:    solid 1px black;
+  right:            20pt;
+  line-height:      20pt;
+  border-bottom:    solid 1pt black;
   font-family:      monospace;
 }
 
@@ -49,7 +49,7 @@ html, body{background: white; width: 7.5in; position: absolute;}
 #recipe_purpose {width: 100%;}
 #recipe_contract .wrapper{
   width:            98%;
-  margin:           0px;
+  margin:           0pt;
   display:          inline-block;
   overflow:         hidden;
   white-space:      nowrap;
@@ -63,48 +63,49 @@ html, body{background: white; width: 7.5in; position: absolute;}
     vertical-align: top;
     background:     inherit;
     color:          black;
+    line-height:    20pt;
 }
 /* a spacer inside a .studentAnswer is used for close parens
   make sure the left-margin is slightly less than the min-width 
-  for the .studentAnswer, and give it 10px of padding everywhere else
+  for the .studentAnswer, and give it 10pt of padding everywhere else
  */
 .designRecipeLayout .studentAnswer>.spacer{
   float:          right;
-  padding-bottom: 10px;
+  padding-bottom: 10pt;
   background:     white;
-  font-size:      16px; /* override .studentAnswer sizing */
-  margin:         0px;
+  font-size:      16pt; /* override .studentAnswer sizing */
+  margin:         0pt;
 }
 
 /* When one spacer follows another, there is no need for padding */
-.designRecipeLayout .spacer+.spacer{padding: 0px;}
+.designRecipeLayout .spacer+.spacer{padding: 0pt;}
 
 .designRecipeLayout .studentAnswer{
-  margin-bottom:  30px;
-  min-width:      120px;
-  height:         20px;
-  line-height:    20px;
+  margin-bottom:  20pt;
+  min-width:      100pt;
+  height:         20pt;
+  line-height:    20pt;
   position:       relative;
-  padding:        0px 0px;
+  padding:        0pt 0pt;
   word-break:     break-all;
   font-family:    monospace;
   white-space:    pre;
-  margin-right:   5px;
+  margin-right:   5pt;
   text-align:     center;
-  word-spacing:   5px;
+  word-spacing:   5pt;
 }
 
 .designRecipeLayout span.studentAnswer::after{
   position:     absolute;
-  bottom:       -18px;
-  left:         0px;
-  font-size:    10px;
+  bottom:       -18pt;
+  left:         0pt;
+  font-size:    7pt;
   font-weight:  normal;
   width:        100%;
   text-align:   center;
   font-style:   italic;
   font-family:  "Century Gothic";
-  word-spacing:  5px;  /* don't inherit spacing from .studentAnswer */
+  word-spacing:  0pt;  /* don't inherit spacing from .studentAnswer */
 }
 
 .recipe_name::after           {color:black; content: "function name";}
@@ -116,8 +117,8 @@ html, body{background: white; width: 7.5in; position: absolute;}
 .recipe_example_inputs::after {color:black; content: "input(s)";}
 .recipe_example_inputs::after {color:black; content: "input(s)";}
 #recipe_definition_body::after{color:black; content: "what the function does with those variables";}
-.designRecipeLayout .recipe_example_body{min-width: 220px; max-width: 95%; display: inline-block;}
-#recipe_definition_body{min-width: 500px; max-width: 95%;}
+.designRecipeLayout .recipe_example_body{min-width: 220pt; max-width: 95%; display: inline-block;}
+#recipe_definition_body{min-width: 440pt; max-width: 95%;}
 
 
 
@@ -125,12 +126,12 @@ html, body{background: white; width: 7.5in; position: absolute;}
     We also change the ::after brace of each clause to be a square bracket,
     and insert breaks using righthand borders
 */
-.cond .studentAnswer{margin-bottom: 20px;}
-.designRecipeLayout .questions{border-right: solid 10px white; z-index: 2; min-width: 50%;}
+.cond .studentAnswer{margin-bottom: 20pt;}
+.designRecipeLayout .questions{border-right: solid 10pt white; z-index: 2; min-width: 50%;}
 
 #recipe_examples .wrapper::after {content: ")";}
 .clause::after { content: "]"; }
-.cond>.clause:last-of-type::after{content: "]))"; right: 0px}
+.cond>.clause:last-of-type::after{content: "]))"; right: 0pt}
 
 /* Copyright at the end of the file */
 .BootstrapCopyright img{ float:right; }
@@ -140,5 +141,5 @@ html, body{background: white; width: 7.5in; position: absolute;}
  Print adjustments
  *********************************************************************/
 @media print{
-  .maincolumn, .main, body, html { width: 7.5in; margin: 0px;}
+  .maincolumn, .main, body, html { width: 7.5in; margin-top: 5pt;}
 }
