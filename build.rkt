@@ -241,7 +241,8 @@
 ;;  need putenv rather than parameter to communicate with form-elements.rkt -- not sure why
 (define (build-exercise-handout-solutions)
   (putenv "CURRENT-SOLUTIONS-MODE" "on")
-  (parameterize ([current-deployment-dir (build-path (deploy-resources-dir) "teachers" "solutions")])
+  ; generating sols to our internal distribution dir, not the public one
+  (parameterize ([current-deployment-dir (build-path (root-deployment-dir) "courses" (current-course) "resources")])
     (unless (directory-exists? (current-deployment-dir))
       (make-directory (current-deployment-dir))) 
     (for ([subdir (directory-list lessons-dir)]

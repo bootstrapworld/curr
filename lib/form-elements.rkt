@@ -618,7 +618,7 @@
                          " prefix BS are specific to Bootstrap; others are from the Common Core."
                          " Mouse over each standard to see its corresponding evidence statements."
                          " Our " 
-                         (hyperlink "../../../../Standards.shtml" "Standards Document") 
+                         (standards-link "Standards Document") 
                          " shows which units cover each standard. "
                          )
                    (list->itemization tag-formatted-LOtree 
@@ -1106,6 +1106,11 @@
 ;    (define the-relative-path (find-relative-path doc-path deploy-path))
     (hyperlink (path->string the-relative-path)
                (if label label resource-path))))
+
+;; produces a link to the standards documents
+(define (standards-link descr)
+  (hyperlink "http://www.bootstrapworld.org/materials/Standards.shtml"
+             descr))
 
 ;; wraps a hyperlink in the bootstrap styling tag
 (define (video-link hylink)
