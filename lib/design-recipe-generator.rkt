@@ -168,9 +168,11 @@
                                           (make-spacer "[")
                                           (make-wrapper #:extra-class "clause"
                                                         (dr-student-answer "questions" (first c) 
-                                                                           #:id? #f #:show? (if (list? s) (first s) s))
+                                                                           #:id? #f #:show? (if (list? s) (first s) s)
+                                                                           #:fmt-quotes? #t)
                                                         (dr-student-answer "answers" (second c) 
-                                                                           #:id? #f #:show? (if (list? s) (second s) s))
+                                                                           #:id? #f #:show? (if (list? s) (second s) s)
+                                                                           #:fmt-quotes? #t)
                                                         ;(make-spacer "]")
                                                         )))
                                        (rest body-contents) 
@@ -184,7 +186,7 @@
                                 (apply append clauselines))
                         #:extra-class "cond"))))]
               [else ;; assume single-line expression for now
-               (dr-student-answer "recipe_definition_body" #:show? show body)]))
+               (dr-student-answer "recipe_definition_body" #:show? show body #:fmt-quotes? #t)]))
       ;; eventually, this should become a warning about the body missing
       (dr-student-answer "recipe_definition_body" #:show? show body)))
 
