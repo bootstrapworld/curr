@@ -162,12 +162,12 @@
       ;; copy exercises from individual lessons into units that reference them 
     (for ([subdir (directory-list (get-units-dir))]
           #:when (directory-exists? (build-path (get-units-dir) subdir)))
-      (let ([exercises-dir (build-path (get-units-dir) subdir "exercises")]
+      (let (;[exercises-dir (build-path (get-units-dir) subdir "exercises")]
             [deploy-exercises-dir (build-path (current-deployment-dir) "courses" (current-course)
                                               "units" subdir "exercises")])
-        (when (directory-exists? exercises-dir)
-          (delete-directory/files exercises-dir))
-        (make-directory exercises-dir)
+        ;(when (directory-exists? exercises-dir)
+        ;  (delete-directory/files exercises-dir))
+        ;(make-directory exercises-dir)
         (make-directory deploy-exercises-dir)
         (let ([exer-list-path (build-path (get-units-dir) subdir "exercise-list.rkt")])
           (when (file-exists? exer-list-path)
@@ -182,7 +182,7 @@
                                                (second path-elts))))
                                        unit-exercises))])
                 (for-each (lambda (lessonname)
-                            (let ([lessonexerpath (build-path lessons-dir lessonname "exercises")]
+                            (let ([lessonexerpath (build-path (current-deployment-dir) "lessons" lessonname "exercises")]
                                   [deploy-exer-path (build-path deploy-exercises-dir lessonname)])
                               (unless (directory-exists? deploy-exer-path)
                                 (make-directory deploy-exer-path))
@@ -193,7 +193,7 @@
                                             (regexp-match #px".*\\.*~$" exerfile))
                                   (copy-file (build-path lessonexerpath exerfile)
                                              (build-path deploy-exer-path exerfile)
-                                             #t)))))
+                                             )))))
                           lessonnames))
               
 ;              #'(for-each (lambda (exer-str) 
