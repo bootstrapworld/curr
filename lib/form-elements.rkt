@@ -723,10 +723,13 @@
 (define (summary-item/links name basefilename 
                             #:label1 (label1 "html") #:ext1 (ext1 "html") 
                             #:label2 (label2 "pdf") #:ext2 (ext2 "pdf") 
+                            #:only-one-label? (only-one-label? #f)
                             . descr)
   (apply summary-item/custom name
-         (list (hyperlink (format "~a.~a" basefilename ext1) label1)
-               (hyperlink (format "~a.~a" basefilename ext2) label2))
+         (if only-one-label?
+             (list (hyperlink (format "~a.~a" basefilename ext1) label1)) 
+             (list (hyperlink (format "~a.~a" basefilename ext1) label1)
+                   (hyperlink (format "~a.~a" basefilename ext2) label2)))
          descr))
 
 ;; summary-item/custom : string list[hyperlink] pre-content -> block
@@ -734,14 +737,22 @@
 ;;   used on the main page for a course
 ;; CURRENTLY HANDLES ONLY TWO LINKS -- MUST GENERALIZE TO MORE
 (define (summary-item/custom name links . descr)
-  (para #:style "BSUnitSummary"
-        (elem #:style "BSUnitTitle" name)
-        " ["
-        (elem (first links))      
-        " | "
-        (elem (second links))
-        "] - "
-        descr))
+  (if (= (length links) 2)
+      (para #:style "BSUnitSummary"
+            (elem #:style "BSUnitTitle" name)
+            " ["
+            (elem (first links))      
+            " | "
+            (elem (second links))
+            "] - "
+            descr)
+      (para #:style "BSUnitSummary"
+            (elem #:style "BSUnitTitle" name)
+            " ["
+            (elem (first links))      
+            "] - "
+            descr)))
+      
 
 ;; unit-summary/links : number content -> block
 ;; generate the summary of a unit with links to html and pdf versions as
