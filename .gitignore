@@ -30,3 +30,4 @@ pretty-printing.css
 courses/bs1/resources/workbook/pages/*.pdf
 courses/*/units/*/box.gif
 distribution
+exercise-list.rkt

@@ -26,7 +26,18 @@
   (build-path courses-base (current-course) "main.scrbl"))
 
 (define (get-resources)
+;  (build-path (get-units-dir) "_resources"))
   (build-path courses-base (current-course) "resources"))
+
+(define (get-resources-deploy)
+  (cond [(string=? (getenv "BUILD-FOR") "codeorg")
+	 (build-path (root-deployment-dir) "courses" (current-course) "units" "_resources")]
+	[else (get-resources)]))
+
+(define (get-resources-distrib-loc)
+  (cond [(string=? (getenv "BUILD-FOR") "codeorg")
+	 (build-path (root-deployment-dir) "_resources")]
+	[else (get-resources)]))
 
 (define (get-workbook-dir)
   (build-path (get-resources) "workbook"))

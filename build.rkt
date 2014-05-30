@@ -21,9 +21,21 @@
 ;; to HTML files, written under the deployment directory for simple
 ;; distribution.
 
+(define (build-for-codeorg?) (string=? (getenv "BUILD-FOR") "codeorg"))
 
 ;; The default deployment directory is "distribution"
-(current-deployment-dir (simple-form-path "distribution"))
+(root-deployment-dir (simple-form-path "distribution"))
+(current-deployment-dir (root-deployment-dir))
+(deploy-resources-dir (build-path (root-deployment-dir) "courses" (current-course) "resources"))
+; think should be able to use find-relative-path to compute this from paths.rkt
+(unit-to-resources-path (build-path 'up 'up 'up "resources"))
+
+;; Depending on who we are generating for, we need to relocate the resources dirs.
+;; This function sets the resource-locating parameters based on the BUILD-FOR env setting
+(define (initialize-resource-paths)
+  (when (build-for-codeorg?)
+    (deploy-resources-dir (build-path (root-deployment-dir) "courses" (current-course) "units" "_resources"))
+    (unit-to-resources-path (build-path 'up "_resources"))))
 
 
 ;; The following is a bit of namespace magic to avoid funkiness that 
@@ -195,19 +207,6 @@
                                              (build-path deploy-exer-path exerfile)
                                              )))))
                           lessonnames))
-              
-;              #'(for-each (lambda (exer-str) 
-;                          ;(printf "trying exercise ~a~n" exer-str)
-;                          (let ([exer-path (string->path exer-str)])
-;                            (when (file-exists? exer-path)
-;                              (let-values ([(base filename dir?) (split-path exer-path)])
-;                                (let ([target (build-path exercises-dir filename)]
-;                                      [target-deploy (build-path deploy-exercises-dir filename)])
-;                                  (printf "copying exercise ~a to ~a ~n" exer-str target)
-;                                  (copy-file exer-path target #t)
-;                                  (copy-file exer-path target-deploy #t)
-;                                  )))))
-;                        unit-exercises)
               )))))
 
   (printf "build.rkt: building ~a main\n" (current-course))
@@ -242,7 +241,7 @@
 ;;  need putenv rather than parameter to communicate with form-elements.rkt -- not sure why
 (define (build-exercise-handout-solutions)
   (putenv "CURRENT-SOLUTIONS-MODE" "on")
-  (parameterize ([current-deployment-dir (build-path (current-deployment-dir) "courses" (current-course) "resources" "teachers" "solutions")])
+  (parameterize ([current-deployment-dir (build-path (deploy-resources-dir) "teachers" "solutions")])
     (unless (directory-exists? (current-deployment-dir))
       (make-directory (current-deployment-dir))) 
     (for ([subdir (directory-list lessons-dir)]
@@ -286,21 +285,20 @@
     (when (directory-exists? (get-resources))
       
       (let ([input-resources-dir (get-resources)]
-            [output-resources-dir
-             (build-path (current-deployment-dir) "courses" (current-course)
-                         "resources")])
+            [output-resources-dir (deploy-resources-dir)])
         (when (directory-exists? output-resources-dir)
           (delete-directory/files output-resources-dir))
+        (printf "Copying from ~a to ~a ~n" input-resources-dir output-resources-dir)
         (copy-directory/files input-resources-dir
                               (simple-form-path output-resources-dir))
    
         ; keep only certain files in workbook resources dir
         (let ([keep-workbook-files (list "workbook.pdf")])
-          (for ([wbfile (directory-list (build-path output-resources-dir "workbook"))])
-            (unless (member (path->string wbfile) keep-workbook-files)
-              (if (directory-exists? (build-path output-resources-dir "workbook" wbfile))
-                  (delete-directory/files (build-path output-resources-dir "workbook" wbfile))
-                  (delete-file (build-path output-resources-dir "workbook" wbfile))))))
+          (for ([wbfiledir (directory-list (build-path output-resources-dir "workbook"))])
+            (unless (member (path->string wbfiledir) keep-workbook-files)
+              (if (directory-exists? (build-path output-resources-dir "workbook" wbfiledir))
+                  (delete-directory/files (build-path output-resources-dir "workbook" wbfiledir))
+                  (delete-file (build-path output-resources-dir "workbook" wbfiledir))))))
         ; ideally, modify workbook build process to generate right filename from the
         ; outset.  In the meantime, this puts the right filename in the distribution
         ; the "when" is there to avoid error in bs2 (which has no workbook yet)
@@ -328,11 +326,16 @@
   ;; resources subdirectory.
   (cond [(file-exists? (get-teachers-guide))
          (printf "build.rkt: building teacher's guide\n")
-         (run-scribble (get-teachers-guide))]
+         (run-scribble (get-teachers-guide))
+         (let ([deploy-teachers-dir (build-path (deploy-resources-dir) "teachers" "teachers-guide")])
+           (when (directory-exists? deploy-teachers-dir)
+             (delete-directory/files deploy-teachers-dir))
+           (copy-directory/files (build-path (root-deployment-dir) "courses" (current-course) "resources"
+                                             "teachers" "teachers-guide")
+                                 deploy-teachers-dir))
+         ]
         [else
          (printf "build.rkt: no teacher's guide found; skipping\n")]))
-
-
 
 
 
@@ -362,11 +365,14 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Main entry point:
 (make-fresh-deployment-and-copy-static-pages)
-(define bootstrap-courses '("bs1" "bs2"))
+; right now, building bs1 overwrites bs1 resources directory
+(define bootstrap-courses '("bs1")) ; "bs2"))
 ;; remove next line if ever want to generate links to web docs instead of PDF
 (putenv "WORKSHEET-LINKS-TO-PDF" "true")
 (putenv "CURRENT-SOLUTIONS-MODE" "off")
+(putenv "BUILD-FOR" "codeorg")
 (initialize-tagging-environment)
+(initialize-resource-paths)
 (build-exercise-handouts)
 (for ([course (in-list bootstrap-courses)])
   (parameterize ([current-course course])

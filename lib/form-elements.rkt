@@ -1096,13 +1096,16 @@
 
 ;; Link to a particular resource by path.
 ;; resource-path should be a path string relative to the resources subdirectory.
+;; The use of unit-to-resources-path reflects an assumption that all links are
+;;  created within the-unit.html files.  Will need to add a param if other cases arise
 (define (resource-link #:path resource-path
                        #:label [label #f])
-  (define the-relative-path
-    (find-relative-path (simple-form-path (current-directory))
-                        (simple-form-path (build-path (get-resources) resource-path))))
-  (hyperlink (path->string the-relative-path)
-             (if label label resource-path)))
+  (let ([the-relative-path (build-path (unit-to-resources-path) resource-path)])
+;  (let ([doc-path (simple-form-path (current-deployment-dir))]
+;        [deploy-path (simple-form-path (build-path (get-resources-distrib-loc) resource-path))])
+;    (define the-relative-path (find-relative-path doc-path deploy-path))
+    (hyperlink (path->string the-relative-path)
+               (if label label resource-path))))
 
 ;; wraps a hyperlink in the bootstrap styling tag
 (define (video-link hylink)

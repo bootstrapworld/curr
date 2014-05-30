@@ -214,7 +214,7 @@
                                            @item{Try evaluating each of these values in the Interactions window, starting with @code{BACKGROUND}}]}
                                 }
                         @teacher{@management{By now, you should have students' graphics already created, and 
-                                             @(hyperlink "../../resources/teachers/teachers-guide/teachers-guide.html#addingimages" "added to the file)").}
+                                            @resource-link[#:path "teachers/teachers-guide/teachers-guide.html#addingimages" #:label "added to the file"].}
                                   The purpose of this activity is to increase students' confidence in @italic{reading} and @italic{talking about} code. 
                                   Make sure students get a lot of practice speaking aloud, both to each other and to the instructor.}
                         }
@@ -225,7 +225,7 @@
                                    no larger than 200px in either dimension. Make sure that the character images have transparent backgrounds! 
                                    TIP: use animated GIFs for the characters - not only does the animation make the game look a lot better, but these 
                                    images usually have transparent backgrounds to begin with. For more instructions on setting up the game files and
-                                   images, read the @(hyperlink "../../resources/teachers/teachers-guide/teachers-guide.html#addingimages" "Coding Instructions") 
+                                   images, read the @resource-link[#:path "teachers/teachers-guide/teachers-guide.html#addingimages" #:label "Coding Instructions"] 
                                    document.}
                          }
                  @point{@student{If you want to change one of your definitions so that the image is smaller or larger, you can use the @code{scale} function:

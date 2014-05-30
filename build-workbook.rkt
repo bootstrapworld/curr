@@ -26,7 +26,7 @@
 ;;  I haven't figured out how to access when setting the current-course.
 ;;  As a result, we'd always generate the bs1 workbook, even when our
 ;;  current-course is set to bs2.
-(define (kf-get-workbook-dir) (build-path courses-base (current-course) "resources" "workbook"))
+(define (kf-get-workbook-dir) (build-path courses-base (current-course) "units" "_resources" "workbook"))
 
 (define (run-scribble scribble-file)
   (printf "Scribbling ~a~n" scribble-file)
