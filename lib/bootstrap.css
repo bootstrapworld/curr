@@ -126,7 +126,7 @@ ul.twoColumnLayout li {
 ul.matching li          {border-top: none;}
 
 div.rightColumn, div.leftColumn {
-  width:          50%;
+  width:          49.5%;
   display:        inline-block;
   vertical-align: top;
   padding-bottom: 100%;
