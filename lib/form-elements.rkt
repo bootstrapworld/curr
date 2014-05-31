@@ -1100,6 +1100,7 @@
 ;;  created within the-unit.html files.  Will need to add a param if other cases arise
 (define (resource-link #:path resource-path
                        #:label [label #f])
+  (printf "creating link with ~a ~n" (unit-to-resources-path))
   (let ([the-relative-path (build-path (unit-to-resources-path) resource-path)])
 ;  (let ([doc-path (simple-form-path (current-deployment-dir))]
 ;        [deploy-path (simple-form-path (build-path (get-resources-distrib-loc) resource-path))])
@@ -1124,27 +1125,29 @@
                         #:lesson (lesson #f)
                         #:src-path src-path)
   
-  (define-values (base-path _ dir?) (split-path src-path))
-  (define the-relative-path
-    (find-relative-path (simple-form-path (current-directory))
-                        (cond 
-                          ;; FIXME: communicate parameter values via parameters.
-                          ;; The reason it's not working right now is because we're
-                          ;; calling into scribble with system*, which means we don't
-                          ;; get to preserve any parameters between the build script
-                          ;; and us.
-                          [(getenv "WORKSHEET-LINKS-TO-PDF")
-                           (simple-form-path (get-worksheet-pdf-path))]
-                          [lesson
-                           (simple-form-path (build-path worksheet-lesson-root
-                                                         lesson
-                                                         "worksheets"
-                                                         (format "~a.html" name)))]
-                          [else
-                           (simple-form-path (build-path base-path
-                                                         'up
-                                                         "worksheets"
-                                                         (format "~a.html" name)))])))
+  ;(define-values (base-path _ dir?) (split-path src-path))
+  (define the-relative-path (build-path (unit-to-resources-path) "workbook" "StudentWorkbook.pdf"))
+    ;; what follows (comments) is Danny's original code.  Commenting out to
+    ;; update to new deployment parameters, assuming we always link to PDF (for now)
+    ;    (find-relative-path (simple-form-path (current-directory))
+    ;                        (cond 
+    ;                          ;; FIXME: communicate parameter values via parameters.
+    ;                          ;; The reason it's not working right now is because we're
+    ;                          ;; calling into scribble with system*, which means we don't
+    ;                          ;; get to preserve any parameters between the build script
+    ;                          ;; and us.
+    ;                          [(getenv "WORKSHEET-LINKS-TO-PDF")
+    ;                           (simple-form-path (get-worksheet-pdf-path))]
+    ;                          [lesson
+    ;                           (simple-form-path (build-path worksheet-lesson-root
+    ;                                                         lesson
+    ;                                                         "worksheets"
+    ;                                                         (format "~a.html" name)))]
+    ;                          [else
+    ;                           (simple-form-path (build-path base-path
+    ;                                                         'up
+    ;                                                         "worksheets"
+    ;                                                         (format "~a.html" name)))])))
   (list (hyperlink (path->string the-relative-path)
                    "Page " (number->string 
                             (cond [page page] 
