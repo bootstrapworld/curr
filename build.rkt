@@ -39,7 +39,7 @@
 (define (update-resource-paths)
   (when (build-for-bootstrap?)
     (deploy-resources-dir (build-path (root-deployment-dir) "courses" (current-course) "resources"))
-    (unit-to-resources-path (build-path 'up 'up 'up "resources")))
+    (unit-to-resources-path (build-path 'up 'up "resources")))
   (when (build-for-codeorg?)
     (deploy-resources-dir (build-path (root-deployment-dir) "courses" (current-course) "units" "_resources"))
     (unit-to-resources-path (build-path 'up "_resources"))))
