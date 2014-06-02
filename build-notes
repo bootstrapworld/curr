@@ -1,27 +1,20 @@
 #!/bin/sh
 
-if [ "$1" ]
+# First argument (if any) should be the audience (teacher student volunteer self-guided)
+# Second argument (if any) should be the distribution target (bootstrap codeorg)
+# Args default to teacher and codeorg
+
+# build the notes
+if [ "$2" ]
 then
-  case $1 in
-  student)
-    racket -l errortrace -t build.rkt -- --audience $1 distribution group 
-    ;;
-  volunteer)
-    racket -l errortrace -t build.rkt -- --audience $1 distribution pedagogy group management
-    ;;
-  teacher)
-    racket -l errortrace -t build.rkt -- --audience $1 distribution pedagogy group
-    ;;
-  self-taught)
-    racket -l errortrace -t build.rkt -- --audience $1 distribution group 
-    ;; 
-  *) 
-    echo "Unrecognized audience argument: $1"
-    ;;
-  esac
-else #default to student
-  racket -l errortrace -t build.rkt -- --audience student distribution group
-fi
+  racket -l errortrace -t build.rkt -- --audience $1 --buildfor $2
+elif [ "$1" ]
+then
+  racket -l errortrace -t build.rkt -- --audience $1 --buildfor bootstrap
+else
+  racket -l errortrace -t build.rkt -- --audience teacher --buildfor bootstrap
+fi  
+
 # then build the solutions
 racket -l errortrace -t build-sols.rkt 
  

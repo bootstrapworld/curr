@@ -1100,11 +1100,7 @@
 ;;  created within the-unit.html files.  Will need to add a param if other cases arise
 (define (resource-link #:path resource-path
                        #:label [label #f])
-  (printf "creating link with ~a ~n" (unit-to-resources-path))
   (let ([the-relative-path (build-path (unit-to-resources-path) resource-path)])
-;  (let ([doc-path (simple-form-path (current-deployment-dir))]
-;        [deploy-path (simple-form-path (build-path (get-resources-distrib-loc) resource-path))])
-;    (define the-relative-path (find-relative-path doc-path deploy-path))
     (hyperlink (path->string the-relative-path)
                (if label label resource-path))))
 

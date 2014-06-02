@@ -1,5 +1,8 @@
 #!/bin/sh
 
+### THIS IS OUT OF DATE
+## look at build-distrib-no-pdf and build-notes when ready to update this
+
 if [ "$1" ]
 then
   case $1 in

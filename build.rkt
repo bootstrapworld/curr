@@ -21,22 +21,29 @@
 ;; to HTML files, written under the deployment directory for simple
 ;; distribution.
 
+;; In some cases, we need a distribution with a different directory 
+;; structure (e.g. code.org needs everything in the units directories).
+;; Distribution configuration occurs in update-resource-paths, and is
+;; currently limited in flexibility.  Will expand that as needed.
+
 (define (build-for-codeorg?) (string=? (getenv "BUILD-FOR") "codeorg"))
+(define (build-for-bootstrap?) (string=? (getenv "BUILD-FOR") "bootstrap"))
 
 ;; The default deployment directory is "distribution"
 (root-deployment-dir (simple-form-path "distribution"))
 (current-deployment-dir (root-deployment-dir))
-(deploy-resources-dir (build-path (root-deployment-dir) "courses" (current-course) "resources"))
-; think should be able to use find-relative-path to compute this from paths.rkt
-(unit-to-resources-path (build-path 'up 'up 'up "resources"))
 
 ;; Depending on who we are generating for, we need to relocate the resources dirs.
 ;; This function sets the resource-locating parameters based on the BUILD-FOR env setting
-(define (initialize-resource-paths)
+;; May be able to do unit-to-resources-path in the bootstrap case using find-relative path
+(define (update-resource-paths)
+  (when (build-for-bootstrap?)
+    (deploy-resources-dir (build-path (root-deployment-dir) "courses" (current-course) "resources"))
+    (unit-to-resources-path (build-path 'up 'up 'up "resources")))
   (when (build-for-codeorg?)
     (deploy-resources-dir (build-path (root-deployment-dir) "courses" (current-course) "units" "_resources"))
     (unit-to-resources-path (build-path 'up "_resources"))))
-
+ 
 
 ;; The following is a bit of namespace magic to avoid funkiness that 
 ;; several of our team members observed when running this build script
@@ -78,7 +85,7 @@
   (define-values (base name dir?) (split-path scribble-file))
   (define output-path (build-path output-dir (string->path (regexp-replace #px"\\.scrbl$" (path->string name) ".html"))))
   (parameterize ([current-directory base]
-                 [current-namespace document-namespace]
+                 ;[current-namespace document-namespace]
                  [current-document-output-path output-path])
     (render (list (dynamic-require `(file ,(path->string name)) 'doc))
             (list name)
@@ -98,6 +105,7 @@
 (putenv "AUDIENCE" "volunteer")
 (putenv "CURRENT-SOLUTIONS-MODE" "off")
 (putenv "TARGET-LANG" "racket")
+(putenv "BUILD-FOR" "bootstrap")
 (define current-contextual-tags
   (command-line
    #:program "build"
@@ -110,14 +118,20 @@
    ;; option is set in main entry point at end of file
    #;[("--worksheet-links-to-pdf") "Direct worksheet links to StudentWorkbook.pdf" 
     (putenv "WORKSHEET-LINKS-TO-PDF" "true")]
-   [("--audience") -audience "Indicate student (default), teacher, volunteer, or self-guided"
-    (putenv "AUDIENCE" -audience)]
+   [("--audience") -audience "Indicate student, teacher, volunteer, or self-guided"
+    (if (member -audience (list "student" "teacher" "volunteer" "self-guided"))
+        (putenv "AUDIENCE" -audience)
+        (error "Build got unrecognized audience" -audience " -- expected student teacher volunteer or self-guided"))]
    [("--deploy") -deploy-dir "Deploy into the given directory, and create a .zip.  Default: deploy" 
     (current-deployment-dir (simple-form-path -deploy-dir))]
    [("--lang") -lang "Indicate which language (Racket or Pyret) to generate"
     (putenv "TARGETLANG" -lang)]
    [("--pdf") "Generate PDF documentation"
     (current-generate-pdf? #t)]
+   [("--buildfor") -buildfor "Indicate bootstrap or codeorg"
+                   (if (member -buildfor (list "bootstrap" "codeorg"))
+                       (putenv "BUILD-FOR" -buildfor)
+                       (error "Build got unrecognized distribution target" -buildfor " -- expected codeorg or boostrap"))]
    
    #:args tags
    tags))
@@ -240,21 +254,22 @@
 ;; Building exercise handout solutions
 ;;  need putenv rather than parameter to communicate with form-elements.rkt -- not sure why
 (define (build-exercise-handout-solutions)
-  (putenv "CURRENT-SOLUTIONS-MODE" "on")
-  ; generating sols to our internal distribution dir, not the public one
-  (parameterize ([current-deployment-dir (build-path (root-deployment-dir) "courses" (current-course) "resources")])
-    (unless (directory-exists? (current-deployment-dir))
-      (make-directory (current-deployment-dir))) 
-    (for ([subdir (directory-list lessons-dir)]
-          #:when (directory-exists? (build-path lessons-dir subdir)))
-      (let ([exercises-path (build-path lessons-dir subdir "exercises")])
-        (when (directory-exists? exercises-path)
-          (for ([worksheet (directory-list exercises-path)]
-                #:when (regexp-match #px".scrbl$" worksheet))
-            (printf "build.rkt: building exercise handout solution ~a: ~a\n" subdir worksheet)
-            (run-scribble #:include-base-path? #f (build-path exercises-path worksheet)))))))
-  (putenv "CURRENT-SOLUTIONS-MODE" "off")
-  )
+  (when (build-for-bootstrap?)
+    (putenv "CURRENT-SOLUTIONS-MODE" "on")
+    ; generating sols to our internal distribution dir, not the public one
+    (parameterize ([current-deployment-dir (build-path (root-deployment-dir) "courses" (current-course) "resources")])
+      (unless (directory-exists? (current-deployment-dir))
+        (make-directory (current-deployment-dir))) 
+      (for ([subdir (directory-list lessons-dir)]
+            #:when (directory-exists? (build-path lessons-dir subdir)))
+        (let ([exercises-path (build-path lessons-dir subdir "exercises")])
+          (when (directory-exists? exercises-path)
+            (for ([worksheet (directory-list exercises-path)]
+                  #:when (regexp-match #px".scrbl$" worksheet))
+              (printf "build.rkt: building exercise handout solution ~a: ~a\n" subdir worksheet)
+              (run-scribble #:include-base-path? #f (build-path exercises-path worksheet)))))))
+    (putenv "CURRENT-SOLUTIONS-MODE" "off")
+    ))
 
 (define (build-worksheets)
   ;; and the worksheets
@@ -280,16 +295,22 @@
 
 
 
+;; the use of deploy-resources-dir in setting output-resources-dir enables
+;; configuration of where the resources directory lives.  All scribble files 
+;; will have been generated in the current-deployment-dir before this runs.
+;; This function mainly copies materials from other parts of the build into
+;; the distribution directories
 (define (build-resources)
-  ;; Under deployment mode, include the resources.
+  ;; Under deployment mode (currently always enabled), include the resources.
   (when (current-deployment-dir)
     (when (directory-exists? (get-resources))
       
+      ; first copy over all of the resources files to the deployment resources dir
       (let ([input-resources-dir (get-resources)]
             [output-resources-dir (deploy-resources-dir)])
         (when (directory-exists? output-resources-dir)
           (delete-directory/files output-resources-dir))
-        (printf "Copying from ~a to ~a ~n" input-resources-dir output-resources-dir)
+        ;(printf "Copying from ~a to ~a ~n" input-resources-dir output-resources-dir)
         (copy-directory/files input-resources-dir
                               (simple-form-path output-resources-dir))
    
@@ -323,20 +344,29 @@
                  #t)))
 
 
+  ;; Process the teacher materials: for any deployment other than our default,
+  ;;   omit the teacher resources from the distribution
   ;; Subtle: this must come after we potentially touch the output
   ;; resources subdirectory.
-  (cond [(file-exists? (get-teachers-guide))
-         (printf "build.rkt: building teacher's guide\n")
-         (run-scribble (get-teachers-guide))
-         (let ([deploy-teachers-dir (build-path (deploy-resources-dir) "teachers" "teachers-guide")])
+  (cond [(build-for-bootstrap?)
+         (cond [(file-exists? (get-teachers-guide))
+                (printf "build.rkt: building teacher's guide\n")
+                (run-scribble (get-teachers-guide))
+                (let ([deploy-teachers-dir (build-path (deploy-resources-dir) "teachers" "teachers-guide")])
+                  (when (directory-exists? deploy-teachers-dir)
+                    (delete-directory/files deploy-teachers-dir))
+                  (copy-directory/files (build-path (root-deployment-dir) "courses" (current-course) "resources"
+                                                    "teachers" "teachers-guide")
+                                        deploy-teachers-dir))
+                ]
+               [else
+                (printf "build.rkt: no teacher's guide found; skipping\n")])]
+        [else ;; skip building teacher stuff, will just remove it anyway
+         (let ([deploy-teachers-dir (build-path (deploy-resources-dir) "teachers")])
            (when (directory-exists? deploy-teachers-dir)
-             (delete-directory/files deploy-teachers-dir))
-           (copy-directory/files (build-path (root-deployment-dir) "courses" (current-course) "resources"
-                                             "teachers" "teachers-guide")
-                                 deploy-teachers-dir))
-         ]
-        [else
-         (printf "build.rkt: no teacher's guide found; skipping\n")]))
+             (delete-directory/files deploy-teachers-dir)))]
+        ))
+         
 
 
 
@@ -366,17 +396,16 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Main entry point:
 (make-fresh-deployment-and-copy-static-pages)
-; right now, building bs1 overwrites bs1 resources directory
-(define bootstrap-courses '("bs1")) ; "bs2"))
+(define bootstrap-courses '("bs1" "bs2"))
 ;; remove next line if ever want to generate links to web docs instead of PDF
 (putenv "WORKSHEET-LINKS-TO-PDF" "true")
 (putenv "CURRENT-SOLUTIONS-MODE" "off")
-(putenv "BUILD-FOR" "codeorg")
-(initialize-tagging-environment)
-(initialize-resource-paths)
 (build-exercise-handouts)
+(printf "building for ~a and audience ~a ~n" (getenv "BUILD-FOR") (getenv "AUDIENCE"))
 (for ([course (in-list bootstrap-courses)])
   (parameterize ([current-course course])
+    (update-resource-paths)
+    (printf "building ~a with ~a~n" (current-course) (deploy-resources-dir))
     (build-course-units)
     (build-resources)))  
 ;(build-exercise-handouts)

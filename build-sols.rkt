@@ -13,8 +13,9 @@
          file/zip)
 
 ;; The default deployment directory is "distribution"
-(current-deployment-dir (simple-form-path "distribution"))
-
+(root-deployment-dir (simple-form-path "distribution"))
+(current-deployment-dir (root-deployment-dir))
+(deploy-resources-dir (build-path (root-deployment-dir) "courses" (current-course) "resources"))
 
 ;; The following is a bit of namespace magic to avoid funkiness that 
 ;; several of our team members observed when running this build script
@@ -64,61 +65,27 @@
    tags))
 
 
-;; Building the units of the course.
-;; We must do this twice to resolve cross references for lessons.
-(define (build-course-units)
-  (printf "build.rkt: building ~a\n" (current-course))
-  (for ([phase (in-range 2)])
-    (printf "Phase ~a\n" phase)
-    (for ([subdir (directory-list (get-units-dir))]
-          #:when (directory-exists? (build-path (get-units-dir) subdir)))
-      (define scribble-file (simple-form-path (build-path (get-units-dir) subdir "the-unit.scrbl")))
-      (cond [(file-exists? scribble-file)
-             (printf "build.rkt: Building ~a\n" scribble-file)
-             (copy-file (build-path "lib" "box.gif") 
-                        (build-path (get-units-dir) subdir "box.gif")
-                        #t)
-             (run-scribble scribble-file #:never-generate-pdf? (= phase 0))]
-            [else
-             (printf "Could not find a \"the-unit.scrbl\" in directory ~a\n"
-                     (build-path (get-units-dir) subdir))])))
-
-
-  (printf "build.rkt: building ~a main\n" (current-course))
-  (run-scribble (get-course-main)))
-
-
-;; Building the lessons
-(define (build-lessons)
-  (printf "build.rkt: building lessons\n")
-  (for ([subdir (directory-list lessons-dir)]
-        #:when (directory-exists? (build-path lessons-dir subdir)))
-    (define scribble-file (simple-form-path (build-path lessons-dir subdir "lesson" "lesson.scrbl")))
-    (cond [(file-exists? scribble-file)
-           (printf "build.rkt: Building ~a\n" scribble-file)
-           (run-scribble scribble-file #:never-generate-pdf? #t)]
-          [else
-           (printf "Could not find a \"lesson.scrbl\" in directory ~a\n"
-                   (build-path lessons-dir subdir))]))
-  )
-
-
 ;; Building exercise handout solutions
 (define (build-exercise-handout-solutions)
-  (putenv "CURRENT-SOLUTIONS-MODE" "on")
-  (parameterize ([current-deployment-dir (build-path (current-deployment-dir) "courses" (current-course) "resources" "teachers" "solutions")])
-    (unless (directory-exists? (current-deployment-dir))
-      (make-directory (current-deployment-dir))) 
-    (for ([subdir (directory-list lessons-dir)]
-          #:when (directory-exists? (build-path lessons-dir subdir)))
-      (let ([exercises-path (build-path lessons-dir subdir "exercises")])
-        (when (directory-exists? exercises-path)
-          (for ([worksheet (directory-list exercises-path)]
-                #:when (regexp-match #px".scrbl$" worksheet))
-            (printf "build.rkt: building exercise handout solution ~a: ~a\n" subdir worksheet)
-            (run-scribble (build-path exercises-path worksheet)))))))
-  (putenv "CURRENT-SOLUTIONS-MODE" "off")
-  )
+  (when (or (not (getenv "BUILD-FOR")) (string=? (getenv "BUILD-FOR") "bootstrap"))
+    (putenv "CURRENT-SOLUTIONS-MODE" "on")
+    (unless (directory-exists? (deploy-resources-dir))
+      (make-directory (deploy-resources-dir)))
+    (unless (directory-exists? (build-path (deploy-resources-dir) "teachers"))
+      (make-directory (build-path (deploy-resources-dir) "teachers")))
+    (unless (directory-exists? (build-path (deploy-resources-dir) "teachers" "solutions"))
+      (make-directory (build-path (deploy-resources-dir) "teachers" "solutions")))
+    (parameterize ([current-deployment-dir (build-path (deploy-resources-dir) "teachers" "solutions")])
+      (for ([subdir (directory-list lessons-dir)]
+            #:when (directory-exists? (build-path lessons-dir subdir)))
+        (let ([exercises-path (build-path lessons-dir subdir "exercises")])
+          (when (directory-exists? exercises-path)
+            (for ([worksheet (directory-list exercises-path)]
+                  #:when (regexp-match #px".scrbl$" worksheet))
+              (printf "build.rkt: building exercise handout solution ~a: ~a\n" subdir worksheet)
+              (run-scribble (build-path exercises-path worksheet)))))))
+    (putenv "CURRENT-SOLUTIONS-MODE" "off")
+    ))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
