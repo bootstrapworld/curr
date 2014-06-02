@@ -116,11 +116,13 @@
             (if (list? files) files (list files))))
 
 ;; run scribble on each .scrbl file in the pages listing
+;; wkbk-mod-sec could be #f if the previous workbook file is not available
 (define (scribble-files pages pagesdir wkbk-mod-sec)
   (for-each (lambda (f)
               (when (and (string? f) 
                          (regexp-match #px".*\\.scrbl$" f)
-                         (or (< wkbk-mod-sec (file-or-directory-modify-seconds (build-path pagesdir f)))
+                         (or (not wkbk-mod-sec)
+                             (< wkbk-mod-sec (file-or-directory-modify-seconds (build-path pagesdir f)))
                              (< wkbk-mod-sec (file-or-directory-modify-seconds (build-path root-path "lib" "workbook.css")))
                              #t))
                 (run-scribble (build-path pagesdir f))
@@ -142,11 +144,13 @@
 
 ;; extract single PDF pages for each page due to pull from an existing PDF file
 ;; assumes existing PDF file is in workbook directory
+;; wkbk-mod-sec could be #f if the previous workbook file is not available
 (define (extract-PDF-pages pages wkbk-mod-sec)
   (parameterize ([current-directory (kf-get-workbook-dir)])
     (for-each (lambda (pspec)
                 (when (and (list? pspec)
                            (or (not (file-exists? (build-path "pages" (string-append (second pspec) ".pdf"))))
+                               (not wkbk-mod-sec)
                                (< wkbk-mod-sec (file-or-directory-modify-seconds (first pspec)))
                                (< wkbk-mod-sec (file-or-directory-modify-seconds "manualpages-index.rkt"))
                                ))
@@ -167,7 +171,10 @@
          [pages (check-contents-exist pages-spec pagesdir)]
          [frontpages (check-contents-exist front-spec pagesdir)]
          [backpages (check-contents-exist back-spec pagesdir)]
-         [workbook-last-gen-sec (file-or-directory-modify-seconds (build-path (kf-get-workbook-dir) "workbook.pdf"))]
+         [workbook-last-gen-sec 
+          (if (file-exists? (build-path (kf-get-workbook-dir) "workbook.pdf"))
+              (file-or-directory-modify-seconds (build-path (kf-get-workbook-dir) "workbook.pdf"))
+              #f)]
          )
     (if (empty? pages)
         (printf "WARNING: Empty workbook contents for ~a, no workbook generated~n" (current-course))

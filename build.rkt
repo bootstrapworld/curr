@@ -85,7 +85,7 @@
   (define-values (base name dir?) (split-path scribble-file))
   (define output-path (build-path output-dir (string->path (regexp-replace #px"\\.scrbl$" (path->string name) ".html"))))
   (parameterize ([current-directory base]
-                 ;[current-namespace document-namespace]
+                 [current-namespace document-namespace]
                  [current-document-output-path output-path])
     (render (list (dynamic-require `(file ,(path->string name)) 'doc))
             (list name)
@@ -102,7 +102,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Command line parsing.  We initialize the SCRIBBLE_TAGS environmental
 ;; variable
-(putenv "AUDIENCE" "volunteer")
+(putenv "AUDIENCE" "teacher")
 (putenv "CURRENT-SOLUTIONS-MODE" "off")
 (putenv "TARGET-LANG" "racket")
 (putenv "BUILD-FOR" "bootstrap")
@@ -353,11 +353,9 @@
                 (printf "build.rkt: building teacher's guide\n")
                 (run-scribble (get-teachers-guide))
                 (let ([deploy-teachers-dir (build-path (deploy-resources-dir) "teachers" "teachers-guide")])
-                  (when (directory-exists? deploy-teachers-dir)
-                    (delete-directory/files deploy-teachers-dir))
-                  (copy-directory/files (build-path (root-deployment-dir) "courses" (current-course) "resources"
-                                                    "teachers" "teachers-guide")
-                                        deploy-teachers-dir))
+                  ; remove the scrbl file from the distribution
+                  (when (file-exists? (build-path deploy-teachers-dir "teachers-guide.scrbl"))
+                    (delete-file (build-path deploy-teachers-dir "teachers-guide.scrbl"))))
                 ]
                [else
                 (printf "build.rkt: no teacher's guide found; skipping\n")])]

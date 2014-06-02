@@ -1,5 +1,12 @@
 #!/usr/bin/env racket
 #lang racket/base
+
+;; Ideally, this should only run when we are building for bootstrap.  We haven't
+;; yet set up the arguments from the main script (which knows the build target) to
+;; tell this one whether or not to run.  So this runs regardless of audience, which 
+;; in turn puts solutions in our internal distribution files (but not the public one
+;; for other organizations).
+
 (require racket/runtime-path
          racket/system
          racket/string
