@@ -5,10 +5,10 @@
            @(item "py: The y-coordinate of the player")
            @(item "cx: the x-coordinate of another game character")
            @(item "cy: the y-coordinate of another game character"))
-"It should return true if the coordinates of the player are within 50 pixels of the coordinates of the other character. Otherwise, false.")
+"Are the coordinates of the player within 50 pixels of the coordinates of the other character?")
                          #:domain-list (list "number" "number" "number" "number")
                          #:range "boolean"
-			 #:purpose "Determine whether player coordinates are within 50 pixels of character coordinates"
+			 #:purpose "Is the Player (px, py) within 50 pixels of another Character (cx, cy)?"
                          #:num-examples 2
 			 #:example-list '((25 75 30 70 (< (distance 25 75 30 70) 50)) (25 75 100 75 (< (distance 25 75 100 75) 50)))
 			 #:show-examples (list #f #f)

@@ -9,6 +9,6 @@
 					  (12 (rectangle 12 12 "solid" "red")))
                          #:param-list (list "n")
                          #:show-params? #f
-                         #:body '(rectangle n n "solid" "red")
+                         #:body '(rectangle size size "solid" "red")
                          #:show-body? #f
                          )
