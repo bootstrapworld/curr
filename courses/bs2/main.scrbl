@@ -35,7 +35,7 @@ request form"). We’ll get back to you soon with the necessary login
 information.}
 
 
-  @item{@(hyperlink "../../Standards.shtml" "Standards
+  @item{@(hyperlink "www.bootstrapworld.org/materials/Standards.shtml" "Standards
 Alignment") - Find out how Bootstrap aligns with Common Core Standards
 for Mathematics, as well as the standards for Mathematical Practice. }
 
