@@ -127,6 +127,7 @@ html, body{background: white; width: 7.5in; position: absolute;}
     and insert breaks using righthand borders
 */
 .cond .studentAnswer{margin-bottom: 20pt;}
+.cond .clause .questions{text-align: left;}
 .designRecipeLayout .questions{border-right: solid 10pt white; z-index: 2; min-width: 50%;}
 
 #recipe_examples .wrapper::after {content: ")";}
