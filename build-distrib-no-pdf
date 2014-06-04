@@ -5,10 +5,14 @@
 # Args default to teacher and codeorg
 
 # build the workbook (for students)
+echo "BUILDING STUDENT WORKBOOK"
 racket -l errortrace -t build-workbook.rkt
+echo "DONE BUILDING STUDENT WORKBOOK"
 
 # and the workbook solutions manual
-racket -l errortrace -t build-workbook.rkt --solutions
+echo "BUILDING TEACHER WORKBOOK"
+racket -l errortrace -t build-workbook.rkt -- --solutions
+echo "DONE BUILDING TEACHER WORKBOOK"
 
 ./build-notes "$@"
 

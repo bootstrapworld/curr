@@ -177,6 +177,7 @@
 
 ;; the MAIN function to build the workbook
 (define (build-workbook)
+  (printf "In build-workbook~n")
   (let* ([pages-spec (with-input-from-file (build-path (kf-get-workbook-dir) "contentlist.rkt") read)]
          [front-spec (with-input-from-file (build-path (kf-get-workbook-dir) "frontmatterlist.rkt") read)]
          [back-spec (with-input-from-file (build-path (kf-get-workbook-dir) "backmatterlist.rkt") read)]
@@ -193,6 +194,7 @@
     (if (empty? pages)
         (printf "WARNING: Empty workbook contents for ~a, no workbook generated~n" (current-course))
         (parameterize ([current-deployment-dir pagesdir])
+          (printf "Building workbook with file ~a~n" workbook-file)
           ; scribble the scrbl pages and run wkhtmltopdf on the resulting html
           (scribble-files pages pagesdir workbook-last-gen-sec)
           ; extract any manual PDF pages from their source file
