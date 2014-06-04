@@ -16,7 +16,8 @@
          racket/path
          racket/file
          "lib/paths.rkt"
-         (lib "curr/lib/system-parameters.rkt")
+         "lib/system-parameters.rkt"
+         "lib/build-modes.rkt"
          scribble/render
          file/zip)
 
@@ -142,6 +143,16 @@
       (if pageinfo (second pageinfo)
           (error 'get-manual-page "No manual page entry for page name ~a" pagename)))))
 
+;; in solutions mode, want to extract page from the solutions version of the file
+;; solutions files, when they exist will have "Sols" as the last part of the base filename
+(define (source-pdf/sols-mode filename)
+  (if (solutions-mode?)
+      (let* ([fileparts (string-split filename ".")]
+             [solsfile (string-append (first fileparts) "Sols" "." (second fileparts))])
+        (printf "Checking for ~a~n" (build-path (kf-get-workbook-dir) solsfile))
+        (if (file-exists? (build-path (kf-get-workbook-dir) solsfile)) solsfile filename))
+      filename))
+
 ;; extract single PDF pages for each page due to pull from an existing PDF file
 ;; assumes existing PDF file is in workbook directory
 ;; wkbk-mod-sec could be #f if the previous workbook file is not available
@@ -152,10 +163,12 @@
                            (or (not (file-exists? (build-path "pages" (string-append (second pspec) ".pdf"))))
                                (not wkbk-mod-sec)
                                (< wkbk-mod-sec (file-or-directory-modify-seconds (first pspec)))
+                               (and (solutions-mode?) 
+                                    (< wkbk-mod-sec (file-or-directory-modify-seconds (source-pdf/sols-mode (first pspec)))))
                                (< wkbk-mod-sec (file-or-directory-modify-seconds "manualpages-index.rkt"))
                                ))
                   (printf "Extracting PDF for ~a from ~a~n" pspec (current-directory))
-                  (let* ([fromfile (first pspec)]
+                  (let* ([fromfile (source-pdf/sols-mode (first pspec))]
                          [tofile (second pspec)]
                          [loc (get-manual-page tofile)])
                     (system* (get-prog-cmd "pdftk") fromfile "cat" (format "~a" loc) 

@@ -12,6 +12,7 @@
          "styles.rkt"
          "sxml.rkt"
          "escape-values.rkt"
+         "build-modes.rkt"
          )
 
 (provide design-recipe-exercise
@@ -20,11 +21,6 @@
 ;;;;;;;;; API for Design Receipe Exercises ;;;;;;;;;;;;;;;;;;;;;
 
 (define htmlRarr (cond-element [html (sxml->element 'rarr)] [else "->"]))
-
-(define (gen-solutions?)
-  (let ([sols (getenv "CURRENT-SOLUTIONS-MODE")])
-    ;(printf "sols mode is ~a~n" sols)
-    (equal? sols "on")))
 
 ;; retrieves info on whether to show named component from given spec
 ;; currently, spec is either a boolean or a list of three booleans
@@ -259,7 +255,7 @@
                            #:extra-answer (extra-answer #f)
                            #:show? (show? #f) 
                            #:fmt-quotes? (fmt-quotes? #f))
-  (let* ([show? (or show? (gen-solutions?))]
+  (let* ([show? (or show? (solutions-mode?))]
          [base-style (string-append (if show? 
                                         "studentAnswer solution" 
                                         "studentAnswer blank") 
