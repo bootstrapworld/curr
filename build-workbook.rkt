@@ -184,9 +184,10 @@
          [pages (check-contents-exist pages-spec pagesdir)]
          [frontpages (check-contents-exist front-spec pagesdir)]
          [backpages (check-contents-exist back-spec pagesdir)]
+         [workbook-file (if (solutions-mode?) "workbooksols.pdf" "workbook.pdf")]
          [workbook-last-gen-sec 
-          (if (file-exists? (build-path (kf-get-workbook-dir) "workbook.pdf"))
-              (file-or-directory-modify-seconds (build-path (kf-get-workbook-dir) "workbook.pdf"))
+          (if (file-exists? (build-path (kf-get-workbook-dir) workbook-file))
+              (file-or-directory-modify-seconds (build-path (kf-get-workbook-dir) workbook-file))
               #f)]
          )
     (if (empty? pages)
@@ -204,7 +205,7 @@
 	    ; current assumes both or neither front/back pages -- can adjust later if needed
             (if (and (empty? frontpages) (empty? backpages))
                 (copy-file (build-path (kf-get-workbook-dir) "workbook-numbered.pdf")
-                           (build-path (kf-get-workbook-dir) "workbook.pdf")
+                           (build-path (kf-get-workbook-dir) workbook-file)
                            #:exists-ok? #t)
                 (begin (extract-PDF-pages frontpages workbook-last-gen-sec)
                        (merge-pages (pdf-pagenames frontpages) #:output "front-matter.pdf")
@@ -213,7 +214,7 @@
                        (let ([frontpdf (build-path (kf-get-workbook-dir) "front-matter.pdf")]
                              [backpdf (build-path (kf-get-workbook-dir) "back-matter.pdf")]
                              [workbooknums (build-path (kf-get-workbook-dir) "workbook-numbered.pdf")]
-                             [workbook (build-path (kf-get-workbook-dir) "workbook.pdf")])
+                             [workbook (build-path (kf-get-workbook-dir) workbook-file)])
                          (system* (get-prog-cmd "pdftk") frontpdf workbooknums backpdf "output" workbook "dont_ask"))))
             ; clean out auxiliary tex files (ie, texwipe, intermed no page nums file)
             (delete-if-exists (list (build-path (kf-get-workbook-dir) "workbook-numbered.aux")
@@ -239,6 +240,7 @@
               [("--solutions") "Generate workbook with solutions"
                                (putenv "CURRENT-SOLUTIONS-MODE" "on")])
 
+(printf "Building workbook (solutions-mode is ~a) ~n" (solutions-mode?))
 (for ([course (in-list bootstrap-courses)])
   (parameterize ([current-course course])
     (build-workbook)))

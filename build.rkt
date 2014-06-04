@@ -355,7 +355,22 @@
                 (let ([deploy-teachers-dir (build-path (deploy-resources-dir) "teachers" "teachers-guide")])
                   ; remove the scrbl file from the distribution
                   (when (file-exists? (build-path deploy-teachers-dir "teachers-guide.scrbl"))
-                    (delete-file (build-path deploy-teachers-dir "teachers-guide.scrbl"))))
+                    (delete-file (build-path deploy-teachers-dir "teachers-guide.scrbl")))
+                  ;; copy the teacher workbook into place
+                  ;; THIS ASSUMES WORKBOOK SOLS ALREADY BUILT -- SHOULDN'T BE IN THIS FILE
+                  ;; ideally, need a separate script to create distribution that cleans up
+                  ;;   all of the mess around the resources-deploy paths.  This isn't part of
+                  ;;   notes building, so shouldn't be here, but this trashes the dirs so
+                  ;;   needs to be here until we get the scripts refactored
+                  ;; Once building bs2 workbook sols, need to check that get-resources here gets the right dir
+                  (let ([workbooksols (build-path (get-resources) "workbook" "workbooksols.pdf")])
+                    (when (file-exists? workbooksols)
+                      (let ([oldsols (build-path (deploy-resources-dir) "teachers" "TeacherWorkbook.pdf")])
+                        (when (file-exists? oldsols)
+                          (delete-file oldsols))
+                        (printf "Copying teachers workbook solutions into distribution~n")
+                        (copy-file workbooksols oldsols))))
+                  )
                 ]
                [else
                 (printf "build.rkt: no teacher's guide found; skipping\n")])]

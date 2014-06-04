@@ -4,12 +4,13 @@
 # Second argument (if any) should be the distribution target (bootstrap codeorg)
 # Args default to teacher and codeorg
 
-# build the workbook (student mode only for now)
+# build the workbook (for students)
 racket -l errortrace -t build-workbook.rkt
+
+# and the workbook solutions manual
+racket -l errortrace -t build-workbook.rkt --solutions
 
 ./build-notes "$@"
 
-# then build the solutions
-racket -l errortrace -t build-sols.rkt 
  
   
