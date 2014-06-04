@@ -10,6 +10,7 @@
          (lib "curr/lib/system-parameters.rkt")
          "lib/translate-pdfs.rkt"
          "lib/paths.rkt"
+         "lib/build-modes.rkt"
          scribble/render
          file/zip)
 
@@ -25,9 +26,6 @@
 ;; structure (e.g. code.org needs everything in the units directories).
 ;; Distribution configuration occurs in update-resource-paths, and is
 ;; currently limited in flexibility.  Will expand that as needed.
-
-(define (build-for-codeorg?) (string=? (getenv "BUILD-FOR") "codeorg"))
-(define (build-for-bootstrap?) (string=? (getenv "BUILD-FOR") "bootstrap"))
 
 ;; The default deployment directory is "distribution"
 (root-deployment-dir (simple-form-path "distribution"))
@@ -255,7 +253,7 @@
 ;;  need putenv rather than parameter to communicate with form-elements.rkt -- not sure why
 (define (build-exercise-handout-solutions)
   (when (build-for-bootstrap?)
-    (putenv "CURRENT-SOLUTIONS-MODE" "on")
+    (solutions-mode-on)
     ; generating sols to our internal distribution dir, not the public one
     (parameterize ([current-deployment-dir (build-path (root-deployment-dir) "courses" (current-course) "resources")])
       (unless (directory-exists? (current-deployment-dir))
@@ -268,7 +266,7 @@
                   #:when (regexp-match #px".scrbl$" worksheet))
               (printf "build.rkt: building exercise handout solution ~a: ~a\n" subdir worksheet)
               (run-scribble #:include-base-path? #f (build-path exercises-path worksheet)))))))
-    (putenv "CURRENT-SOLUTIONS-MODE" "off")
+    (solutions-mode-off)
     ))
 
 (define (build-worksheets)
@@ -412,13 +410,11 @@
 (define bootstrap-courses '("bs1" "bs2"))
 ;; remove next line if ever want to generate links to web docs instead of PDF
 (putenv "WORKSHEET-LINKS-TO-PDF" "true")
-(putenv "CURRENT-SOLUTIONS-MODE" "off")
+(solutions-mode-off)
 (build-exercise-handouts)
-(printf "building for ~a and audience ~a ~n" (getenv "BUILD-FOR") (getenv "AUDIENCE"))
 (for ([course (in-list bootstrap-courses)])
   (parameterize ([current-course course])
     (update-resource-paths)
-    (printf "building ~a with ~a~n" (current-course) (deploy-resources-dir))
     (build-course-units)
     (build-resources)))  
 ;(build-exercise-handouts)
