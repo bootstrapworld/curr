@@ -95,6 +95,12 @@ html, body{background: white; width: 7.5in; position: absolute;}
   word-spacing:   5pt;
 }
 
+/* Left-align purposes, bodies and cond statements */
+.designRecipeLayout #recipe_purpose,
+.designRecipeLayout .recipe_example_body,
+.designRecipeLayout #recipe_definition_body,
+.designRecipeLayout #cond   {text-align: left;}
+
 .designRecipeLayout span.studentAnswer::after{
   position:     absolute;
   bottom:       -18pt;
@@ -120,7 +126,7 @@ html, body{background: white; width: 7.5in; position: absolute;}
 .designRecipeLayout .recipe_example_body{min-width: 220pt; max-width: 95%; display: inline-block;}
 #recipe_definition_body{min-width: 440pt; max-width: 95%;}
 
-
+.recipe_example_body{margin-left: 20px;}
 
 /* Inside a cond, there's no ::after elements, so we can use less space between lines 
     We also change the ::after brace of each clause to be a square bracket,
