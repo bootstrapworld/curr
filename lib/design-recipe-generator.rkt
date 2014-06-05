@@ -100,7 +100,7 @@
                        (make-clear)
                        (make-spacer ";")
                        (make-wrapper
-                        (dr-student-answer "recipe_purpose" #:show? show-purpose? purpose)))
+                        (dr-student-answer "recipe_purpose" #:show? show-purpose? (string-append " " purpose))))
                       ;; need one of these for each example provided/expected
                       (design-recipe-section 
                         "recipe_examples"
@@ -212,18 +212,20 @@
 
 ;; format values for display in exercises.  Handles escapes for things like dollar amounts
 (define (format-exercise-text e #:fmt-quotes? (fmt-quotes? #t))
-  (cond [(number? e) (format "~a " e)]
-        [(string? e) (cond [(money-escaped? e) (format "~a " (~r (rem-money-escape e) #:precision '(= 2)))]
-                           [fmt-quotes? (format "~s " e)]
-                           [else (format "~a " e)])]
+  (cond [(number? e) (format "~a" e)]
+        [(string? e) (cond [(money-escaped? e) (format "~a" (~r (rem-money-escape e) #:precision '(= 2)))]
+                           [fmt-quotes? (format "~s" e)]
+                           [else (format "~a" e)])]
         [(list? e) (string-append "(" 
-                                  (apply string-append (map (lambda (c) (format-exercise-text c #:fmt-quotes? fmt-quotes?)) e))
+                                  (string-join (map (lambda (c) (format-exercise-text c #:fmt-quotes? fmt-quotes?)) e))
+                                  ;(apply string-append (map (lambda (c) (format-exercise-text c #:fmt-quotes? fmt-quotes?)) e))
                                   ")")]
-        [else (format "~a " e)]))
+        [else (format "~a" e)]))
 
 ;; format a list as a string with spaces between each element
 (define (list->spaced-string L)
-  (apply string-append (map (lambda (e) (format-exercise-text e)) L)))
+  (string-join (map format-exercise-text L)))
+  ;(apply string-append (map (lambda (e) (format-exercise-text e)) L)))
 
 ;; generate an example within a design recipe activity
 ;; in-out-list is either empty or a list with the input and output expressions

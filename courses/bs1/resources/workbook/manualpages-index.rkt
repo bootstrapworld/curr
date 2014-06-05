@@ -25,6 +25,7 @@
  ;;;;; UNIT 3 ;;;;;;;;;
  ("Unit-3" 9)
  ("Fast-Functions" 10)
+ ("Fast-Functions2" 11)
  ;;;;; UNIT 4 ;;;;;;;;;
  ("Unit-4" 12)
  ("rocket-height.scrbl" 13)

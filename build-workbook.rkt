@@ -149,7 +149,6 @@
   (if (solutions-mode?)
       (let* ([fileparts (string-split filename ".")]
              [solsfile (string-append (first fileparts) "Sols" "." (second fileparts))])
-        (printf "Checking for ~a~n" (build-path (kf-get-workbook-dir) solsfile))
         (if (file-exists? (build-path (kf-get-workbook-dir) solsfile)) solsfile filename))
       filename))
 

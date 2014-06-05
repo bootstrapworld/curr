@@ -20,7 +20,7 @@
  ;;;;; UNIT 3 ;;;;;;;;;
  ("ColleenPages.pdf" "Unit-3")
  ("StudentWorkbook.pdf" "Fast-Functions")
- ("StudentWorkbook.pdf" "Fast-Functions")
+ ("StudentWorkbook.pdf" "Fast-Functions2")
  ;;;;; UNIT 4 ;;;;;;;;;
  ("ColleenPages.pdf" "Unit-4")
  "rocket-height.scrbl"
