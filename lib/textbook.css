@@ -389,10 +389,20 @@ iframe#forum_embed.shown{
   div.teacher, .segment ul.teacherNotes li+li .teacher                          {box-shadow: none;}
   div#lessonToolbar, iframe#forum_embed, input, div.callout, .embedded-wescheme {display: none;}
 
+  /* turn off overflow: hidden, which messes with page breaks
+      (see http://www.appnovation.com/blog/how-avoid-your-web-printing-page-being-cut)
+    */
+  *{overflow: visible; float: none;}
+  div.ExtraExercises, div.segment, li.lessonItem, .OverviewBoundary, .LessonBoundary{width: 100%; padding: 0px;}
+  .segment ul div.teacher{display: none;}
+  .segment ul div.student{width: 100%;}
+  .segment ul.teacherNotes div.student{width: 60%;}
+  .segment ul.teacherNotes div.teacher{width: 30%; display: inline-block;}
+
   /* page breaks */
-  .LessonBoundary                                                               {page-break-before: always;}
-  #LearningObjectives,#Glossary, #Materials, table, img,
-    div.activity                                                                {page-break-inside: avoid;}
+  .LessonBoundary                                                             {page-break-before: always;}
+  #LearningObjectives, #Glossary, #Materials, #LanguageTable, img,
+     .student li, .teacher li, .banner                               {page-break-inside: avoid; orphans: 0;}
 
   /* styling we want CHANGED for the printed page */
 	.content	{font-size: 16px; display: inline-block;}
