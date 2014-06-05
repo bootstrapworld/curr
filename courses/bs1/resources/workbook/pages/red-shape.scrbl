@@ -7,7 +7,7 @@
                          #:num-examples 4
                          #:example-list '(("circle" (circle 50 "solid" "red"))
                                           ("triangle" (triangle 50 "solid" "red"))
-                                          ("rectangle" (rectangle 50 40 "solid" "red"))
+                                          ("rectangle" (rectangle 5 9 "solid" "red"))
                                           ("star" (triangle 50 "solid" "red")))
                          #:show-examples'((#t #t #t) #f)
                          #:param-list (list "shape")
