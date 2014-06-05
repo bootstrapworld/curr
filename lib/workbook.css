@@ -92,7 +92,7 @@ html, body{background: white; width: 7.5in; position: absolute;}
   white-space:    pre;
   margin-right:   5pt;
   text-align:     center;
-  word-spacing:   5pt;
+  word-spacing:   4pt;
 }
 
 /* Left-align purposes, bodies and cond statements */
@@ -134,7 +134,7 @@ html, body{background: white; width: 7.5in; position: absolute;}
 */
 .cond .studentAnswer{margin-bottom: 20pt;}
 .cond .clause .questions{text-align: left;}
-.designRecipeLayout .questions{border-right: solid 10pt white; z-index: 2; min-width: 50%;}
+.designRecipeLayout .questions{border-right: solid 10pt white; z-index: 2; min-width: 45%;}
 
 #recipe_examples .wrapper::after {content: ")";}
 .clause::after { content: "]"; }
