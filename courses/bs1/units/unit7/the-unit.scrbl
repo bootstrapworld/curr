@@ -108,9 +108,7 @@
                        for a clause, write the precise question instead of @code{else}.  For example, if you have a function that does different things 
                        depending on whether some variable @code{x} is larger than @code{5}, it is better for beginners to write the two questions 
                        @code{(> x 5)} and @code{(<= x 5)} rather than have the second question be @code{else}.  Explicit questions make it easier to 
-                       read and maintain programs.  When you use @code{else}, someone has to read all the previous questions to know what condition
-                       @code{else} corresponds to: they can't just skim all the questions to find the one that matches their situation.  This might 
-                       be counterintuitive to those with prior programming experience, but it does help make code more readable and understandable.}
+                       read and maintain programs.}
            }
      @point{@student{Functions that use conditions are called @vocab{piecewise functions}, because each condition defines a 
                      separate @italic{piece} of the function. Why are piecewise functions useful?  Think about the player in your game: you'd like the
