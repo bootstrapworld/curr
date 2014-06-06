@@ -27,8 +27,8 @@
         @points[
              @point{@student{Welcome to Bootstrap! In this course, you'll be learning a new @vocab{programming language} - a way to tell computers exactly what you want them to do. Just like English, Spanish or French, a programming language has its own vocabulary and grammar that you'll have to learn. Fortunately, the language you'll be using here has a lot in common with simple math that you already know!}
                      @teacher{@management{Set expectations and rules for the class.}
-                               Connect the material that's to come with things students already know:
-                              @itemlist[@item{Talk to them about what makes a language - especially if you have students who speak a second or third language}
+                               Connect the material to come with things students already know:
+                              @itemlist[@item{What makes a language? Do some students already speak more than one language?}
                                          @item{Programming is very much a language, with its own syntax, semantics, etc}
                                          @item{Ask students about their favorite videogames. Be open about the scale of a modern game: they cost millions of dollars, are built by huge teams of programmers and artists, and are developed over years.}
                                          @item{Set expectations about what can be accomplished in a single, introductory programming class.}]}
