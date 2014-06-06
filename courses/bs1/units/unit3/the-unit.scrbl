@@ -347,10 +347,10 @@
                                     For example, in our two @code{gt} examples, we have circled the @italic{size} of the triangle.  Your circled and
                                     labeled expressions should look like the following diagram: 
                                     @bannerline{@bitmap{images/circled-examples.png}}}
-                            @teacher{Pay close attention to what students circle: they should circle something in each part of the Example 
-                                     (the function use on the left and the expression on the right); they should also use the same name for 
-                                     the same concept across the expressions.  Their circles will correspond to the variables in their functions, 
-                                     so the variables should appear in both the left and the right sides of the Example.}
+                                    @teacher{Pay close attention to what students circle: they should circle something in each part of the Example 
+                                             (the function use on the left and the expression on the right); they should also use the same name for 
+                                             the same concept across the expressions.  Their circles will correspond to the variables in their functions, 
+                                             so the variables should appear in both the left and the right sides of the Example.}
                                     }
                             @point{@student{@bannerline{Step 3: Define the function}
                                              After writing the Contract, two Examples, and the labeled circles, defining the function itself is 
