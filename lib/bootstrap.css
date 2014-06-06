@@ -108,9 +108,11 @@ div.exercise-header{
 }
 div.exercise-instr{margin: 10px; font-style: italic;}
 ul.twoColumnLayout {
+  width:            7.5in;
   list-style-type:  none;
   padding:          0px; 
   margin:           0px;
+  font-size:        0px; /* set parent font to 0, to prevent spaces between LIs */
   counter-reset:    item; /* initialize the "item" counter */
 
 }
@@ -121,14 +123,15 @@ ul.twoColumnLayout li {
   min-height:         80px;
   position:           relative;
   page-break-inside:  avoid;
-  page-break-inside:  auto;
+  display:            inline-block;
+  font-size:          11pt;
 }
 
 }
 ul.matching li          {border-top: none;}
 
 div.rightColumn, div.leftColumn {
-  width:          49.5%;
+  width:          3.75in;
   display:        inline-block;
   vertical-align: top;
   padding-bottom: 100%;
@@ -208,10 +211,7 @@ div.codesexp       .studentAnswer+.studentAnswer { margin-left: 10px;}
  Print adjustments
  *********************************************************************/
 @media print{
-  .twoColumnLayout{width: 100%;}
   a{color: black;}
-
-  div.rightColumn, div.leftColumn {width: 50%;}
 
   span.rightColumnLabel,
   div.leftColumn:before,
