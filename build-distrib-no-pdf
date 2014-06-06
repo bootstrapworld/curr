@@ -4,16 +4,15 @@
 # Second argument (if any) should be the distribution target (bootstrap codeorg)
 # Args default to teacher and codeorg
 
-# build the workbook (for students)
-echo "BUILDING STUDENT WORKBOOK"
-racket -l errortrace -t build-workbook.rkt
-echo "DONE BUILDING STUDENT WORKBOOK"
-
 # and the workbook solutions manual
 echo "BUILDING TEACHER WORKBOOK"
 racket -l errortrace -t build-workbook.rkt -- --solutions
-echo "DONE BUILDING TEACHER WORKBOOK"
 
+# build the workbook (for students)
+echo "BUILDING STUDENT WORKBOOK"
+racket -l errortrace -t build-workbook.rkt
+
+echo "BUILDING NOTES AND RESOURCES"
 ./build-notes "$@"
 
  

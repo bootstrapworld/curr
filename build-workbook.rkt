@@ -159,7 +159,8 @@
   (parameterize ([current-directory (kf-get-workbook-dir)])
     (for-each (lambda (pspec)
                 (when (and (list? pspec)
-                           (or (not (file-exists? (build-path "pages" (string-append (second pspec) ".pdf"))))
+                           (or #t
+                               (not (file-exists? (build-path "pages" (string-append (second pspec) ".pdf"))))
                                (not wkbk-mod-sec)
                                (< wkbk-mod-sec (file-or-directory-modify-seconds (first pspec)))
                                (and (solutions-mode?) 
