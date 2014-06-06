@@ -108,7 +108,7 @@ div.exercise-header{
 }
 div.exercise-instr{margin: 10px; font-style: italic;}
 ul.twoColumnLayout {
-  width:            7.5in;
+  width:            100%;
   list-style-type:  none;
   padding:          0px; 
   margin:           0px;
@@ -118,7 +118,9 @@ ul.twoColumnLayout {
 }
 
 ul.twoColumnLayout li {
-  border-top:         solid 1px black; overflow: hidden;
+  width:              100%;
+  border-top:         solid 1px black;
+  overflow:           hidden;
   counter-increment:  item; /* increment the counter for each row */
   min-height:         80px;
   position:           relative;
@@ -131,7 +133,7 @@ ul.twoColumnLayout li {
 ul.matching li          {border-top: none;}
 
 div.rightColumn, div.leftColumn {
-  width:          3.75in;
+  width:          49%;
   display:        inline-block;
   vertical-align: top;
   padding-bottom: 100%;
