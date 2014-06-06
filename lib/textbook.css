@@ -1,6 +1,6 @@
-.maincolumn { margin-left: 5px;}
-.main{width: 800px;}
-div.content{	background:		rgba(255, 255, 255, .3); }
+.maincolumn { margin-left: .1in;}
+.main{width: 8in;}
+div.content{	background:		rgba(255, 255, 255, .3); display: block;}
 
 /************************************************************************************
  * LESSON TOOLBAR
@@ -17,7 +17,7 @@ div#lessonToolbar * {margin: 10px; display: inline-block;}
 
 div#lessonToolbar.fixed{
   position:     fixed;
-  left:         804px;
+  left:         8.1in;
   top:          0px;
   background:   black;
   border-bottom-right-radius: 10px;
@@ -211,7 +211,7 @@ span.challenge>div:before{content: 'Moving ahead...'}
   margin:         0px;
   padding-left:   0px;
   list-style-type:none;
-  max-width:      790px;
+  max-width:      8.0in;
 }
 
 
@@ -223,36 +223,36 @@ span.challenge>div:before{content: 'Moving ahead...'}
 */
 
 li.lessonItem{
-  width:          1270px;
+  width:          10.5in;
   vertical-align: top;
   overflow:       hidden;
   position:       relative;
-  padding:        0px 10px;
+  padding:        0px;
   padding-bottom: 30px;
   clear:          both;
   margin:         0px;
 }
-.segment ul.teacherNotes li+li .teacher{box-shadow: inset 3px -3px 3px black; border-top: none;}
 
 div.teacher{
-  width:          250px;
+  width:          2in;
   display:        inline-block;
   height:         auto;
   vertical-align: top;
-  padding-left:   10px;
-  padding-right:  10px;
-  margin-left:    20px;
-  box-shadow:     inset 3px 0px 3px black;
+  padding-left:   .1in;
+  padding-right:  .1in;
+  margin-left:    .1in;
+  border-left:    1pt solid black;
   background:     lightgray;
   padding-bottom: 32767px;
   margin-bottom: -32767px;
 }
 div.student{
-  width: 780px; 
-  display: inline-block; 
+  width:          7.8in;
+  display:        inline-block;
+  padding:        .1in;
 }
-ul.teacherNotes li div.student{width: 500px;}
-ul.teacherNotes .embedded-wescheme{width: 500px;}
+ul.teacherNotes li div.student{width: 5.5in;}
+ul.teacherNotes .embedded-wescheme{width: 5in;}
 
 /* show lists normally inside a lessonItem */
 li.lessonItem li{
@@ -378,36 +378,30 @@ iframe#forum_embed.shown{
     size: 8.5in 11in;
 
     /* this affects the margin in the printer settings */ 
-    margin: .5in;
+    margin: .25in;
 }
 
-@media print {
+@media print{
   /* turn off backgrounds, borders, shadows and elements we don't want to print */
 	body                                                                          {background: none;}
-  div.segment, div.teacher, li.lessonItem, table.bordered td, 
+  div.segment, li.lessonItem, table.bordered td,
   div.ExtraExercises, div.content                                               {border: none;}
-  div.teacher, .segment ul.teacherNotes li+li .teacher                          {box-shadow: none;}
   div#lessonToolbar, iframe#forum_embed, input, div.callout, .embedded-wescheme {display: none;}
 
   /* turn off overflow: hidden, which messes with page breaks
       (see http://www.appnovation.com/blog/how-avoid-your-web-printing-page-being-cut)
     */
   *{overflow: visible; float: none;}
-  div.ExtraExercises, div.segment, li.lessonItem, .OverviewBoundary, .LessonBoundary{width: 100%; padding: 0px;}
-  .segment ul div.teacher{display: none;}
-  .segment ul div.student{width: 100%;}
-  .segment ul.teacherNotes div.student{width: 60%;}
-  .segment ul.teacherNotes div.teacher{width: 30%; display: inline-block;}
 
   /* page breaks */
   .LessonBoundary                                                             {page-break-before: always;}
-  #LearningObjectives, #Glossary, #Materials, #LanguageTable, img,
-     .student li, .teacher li, .banner                               {page-break-inside: avoid; orphans: 0;}
+  #LearningObjectives, #Glossary, #Materials, #LanguageTable,
+     .activity li, .banner, img                                               {page-break-inside: avoid;}
 
   /* styling we want CHANGED for the printed page */
-	.content	{font-size: 16px; display: inline-block;}
+	.content	{font-size: 16px; display: block;}
   span.vocab {color: black;}
-  .BootstrapLessonTitle{color: black; border-top: solid 3px black; font-size: 30px; margin-bottom: 50px;}
+  .BootstrapLessonTitle{color: black; border-top: solid 3px black; font-size: 30px; margin-bottom: 30px;}
   table.bordered td {padding: 0px;}
   li.lessonItem>*:first-child {padding-bottom: 10px;}
   div.teacher{border-left: solid 1px gray; font-style: italic;}
