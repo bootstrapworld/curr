@@ -546,15 +546,14 @@
                                            @item{@code{* 5 6)}  [forgets the open parenthesis]}
                                            @item{@code{(* 5 6}  [forgets the close parenthesis]}
                                           ]}}
-                       @teacher{At this point, the goal is simply to have students see error messages, so they know that they mean 
-                                "something went wrong".  Students are not expected to be experts at reading error messages this early 
-                                (you will drill this later).  When a close parenthesis is missing, hitting return will do nothing, 
-                                because the computer is waiting for the parenthesis.  When an open parenthesis is missing, the 
-                                computer either reports an error (DrRacket) or does nothing (WeScheme), waiting for the programmer 
+                       @teacher{At this point, the goal is simply to have students @italic{see} error messages.  Students are not 
+                                expected to be experts at reading error messages this early 
+                                (you will drill this later).  NOTE: When a close parenthesis is missing, hitting return will do nothing, 
+                                because the computer is waiting for the parenthesis.  When an open parenthesis is missing, WeScheme
+                                does nothing and waits for the programmer 
                                 to add the parens.  If students hit enter and "nothing happens", they should check their parentheses. 
                                 Also note that if you do this sequence of exercises with @code{+} instead of @code{*}, the error 
-                                appears different because @code{+5} is actually a number (just like @code{-5}).  You don't need to 
-                                show this to students now, just be aware of it for yourself in case it comes up in class.}
+                                appears different because @code{+5} is actually a number (just like @code{-5}).}
                       }
                 ]}
 
