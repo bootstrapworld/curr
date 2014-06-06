@@ -22,6 +22,8 @@ body{
   font-family:  Times;
 }
 
+.CodeMirror{font-size: 10pt;}
+
 /************************************************************************************
  * OVERVIEW PAGE
  * Lesson overviews contain logo, various lists, Language Table, title and duration
