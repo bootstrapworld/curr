@@ -470,7 +470,7 @@
                                  surprising to students at first, so you may want to take a moment to explain what's going on, and 
                                  show them that these decimals can be converted back to fractions just by clicking on them.  The 
                                  environment uses standard annotations for repeating, non-terminating decimal expressions and 
-                                 properly handles expressions like @math{(sqrt(-1))}.  If you want to work with those kinds of 
+                                 properly handles expressions like @math{(\sqrt -1)}.  If you want to work with those kinds of 
                                  numbers in your class, enter them to get familiar with how they appear in the Interactions window.}
                         }
            
@@ -553,7 +553,7 @@
                                 does nothing and waits for the programmer 
                                 to add the parens.  If students hit enter and "nothing happens", they should check their parentheses. 
                                 Also note that if you do this sequence of exercises with @code{+} instead of @code{*}, the error 
-                                appears different because @code{+5} is actually a number (just like @code{-5}).}
+                                appears differently, because @code{+5} is a perfectly valid number (just like @code{-5}).}
                       }
                 ]}
 
