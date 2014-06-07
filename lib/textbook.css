@@ -1,5 +1,5 @@
 .maincolumn { margin-left: .1in;}
-.main{width: 7.5in;}
+.main{width: 7.5in; font-family: Times, Times New Roman, Roboto;}
 div.content{	background:		rgba(255, 255, 255, .3); display: block;}
 
 /************************************************************************************
@@ -281,6 +281,7 @@ div.activity{
   border-bottom:  dashed 1px black;
   vertical-align: middle;
   clear:          both;
+  -webkit-print-color-adjust: exact;
 }
 
 img{float: right; padding: 5px;}
@@ -383,17 +384,16 @@ iframe#forum_embed.shown{
  * which are styled a little differently
 */
 @page  {
-    size: 8.5in 11in;
-
-    /* this affects the margin in the printer settings */ 
-    margin: .5in;
+    size: 8.5in 11in;         /* normal letter size paper */
+    margin: .5in;             /* this affects the margin in the printer settings */
+    orphans: 4; widows: 4;    /* break a paragraph when you can have 4+ lines on each page */
 }
 
 @media print{
   /* turn off backgrounds, borders, shadows and elements we don't want to print */
-	body                                                                          {background: none;}
+	body                                                                        {background: white;}
   div.segment, li.lessonItem, table.bordered td,
-  div.ExtraExercises, div.content                                               {border: none;}
+  div.ExtraExercises, div.content                                             {border: none;}
   div#lessonToolbar.fixed, iframe#forum_embed, input, div.callout, .embedded-wescheme {display: none;}
 
   /* turn off overflow: hidden, which messes with page breaks
@@ -404,7 +404,12 @@ iframe#forum_embed.shown{
   /* page breaks */
   .LessonBoundary                                                             {page-break-before: always;}
   #LearningObjectives, #Glossary, #Materials, #LanguageTable,
-     .activity li, .banner, img                                               {page-break-inside: avoid;}
+     .activity li, .banner, img{
+      page-break-after:avoid;
+      page-break-before:avoid;
+      page-break-inside: avoid;
+     
+     }
 
   /* styling we want CHANGED for the printed page */
 	.content	{font-size: 16px; display: block;}
