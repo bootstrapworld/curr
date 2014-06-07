@@ -156,8 +156,7 @@
                                                            @item{What has changed and by how much?}
                                                            @item{What happens when we press the "down" arrow key?}
                                                            @item{What should the new coordinates be then?}
-                                                           @item{What should happen if a user presses a key @italic{other} than the up or down arrows? }]}]}
-                      }
+                                                           @item{What should happen if a user presses a key @italic{other} than the up or down arrows? }]}]}}
               @teacher{Draw a screen on the board, and label the coordinates for a player, target and danger. Circle all the data associated with the Player.}
               }
        @point{@student{The following table summarizes what should happen to the player for each key:
@@ -171,8 +170,7 @@
                                     On @worksheet-link[#:name "update-player"] in your workbook, 
                                     you'll find the word problem for @code{update-player}.}
                            (If you don't like using the arrow keys to make the player move up and down, 
-                           you can just as easily change them to work with "w" and "x"!)
-                           }
+                           you can just as easily change them to work with "w" and "x"!)}
                @teacher{Be sure to check students' Contracts and EXAMPLEs during this exercise, especially when it's time for them
                         to circle and label what changes between examples. This is the crucial step in the Design Recipe where they 
                         should discover the need for @code{cond}.}
