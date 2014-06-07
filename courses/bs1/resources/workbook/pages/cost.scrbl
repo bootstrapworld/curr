@@ -13,7 +13,7 @@
                                        [(string=? "cheese" topping) "$$9.00"]
                                        [(string=? "chicken" topping) "$$11.25"]
                                        [(string=? "broccoli" topping) "$$10.25"]
-                                       [else "That's not on the menu!"])
+                                       [else "1000000"])
                          #:show-body? '(cond (#f #f) #f #f #f #f)
                          #:grid-lines? #t
                          )
