@@ -252,10 +252,11 @@ div.student{
 ul.teacherNotes li div.student{width: 4.5in;}
 ul.teacherNotes .embedded-wescheme{width: 4.4in;}
 
-/* show lists normally inside a lessonItem */
+/* show lists normally inside a lessonItem, verticall-center their contents */
 li.lessonItem li{
-  width:      100%;
-  padding:    0px;
+  width:          100%;
+  padding:        0px;
+  vertical-align: middle;
   list-style-position: inside;
 }
 
@@ -307,7 +308,7 @@ div.banner{
   border-bottom:  solid 1px black;
 }
 /* Banner images are centered */
-div.banner img{float: none; margin-left: auto; margin-right: auto; display: block; max-width: 100%;}
+div.banner img{float: none; margin-left: auto; margin-right: auto; display: block; max-width: 100%; height: auto;}
 div.banner span.MathJax{display: block; clear: both;}
 
 div.embedded-wescheme-alt{
@@ -420,6 +421,9 @@ iframe#forum_embed.shown{
   li.lessonItem>*:first-child {padding-bottom: 10px;}
   div.teacher{border-left: solid 1px gray; font-style: italic;}
   .CodeMirror{font-size: 12px;}
+  
+  /* For the printed page, make it clear that this is an actual link, not underlined text */
+  a[href^="http://www.wescheme.org"]:after { content: " [WeScheme Link]"; }
   
     /* Fix for Firefox printing, which is terribly broken. See:
    *  http://www.bennadel.com/blog/851-Fixing-DIVs-That-Cause-Content-Truncation-When-Printing.htm

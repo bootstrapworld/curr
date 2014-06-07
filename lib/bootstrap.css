@@ -220,5 +220,6 @@ div.codesexp       .studentAnswer+.studentAnswer { margin-left: 10px;}
   div.rightColumn:before{
     border: solid 1px black;
     color: black;
+    background: white;
   }
 }
