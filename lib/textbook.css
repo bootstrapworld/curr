@@ -307,7 +307,7 @@ div.banner{
   border-bottom:  solid 1px black;
 }
 /* Banner images are centered */
-div.banner img{float: none; margin-left: auto; margin-right: auto; display: block;}
+div.banner img{float: none; margin-left: auto; margin-right: auto; display: block; max-width: 100%;}
 div.banner span.MathJax{display: block; clear: both;}
 
 div.embedded-wescheme-alt{
@@ -386,7 +386,7 @@ iframe#forum_embed.shown{
 @page  {
     size: 8.5in 11in;         /* normal letter size paper */
     margin: .5in;             /* this affects the margin in the printer settings */
-    orphans: 4; widows: 4;    /* break a paragraph when you can have 4+ lines on each page */
+    orphans: 0; widows: 0;    /* break a paragraph when you can have 3+ lines on each page */
 }
 
 @media print{
@@ -401,20 +401,21 @@ iframe#forum_embed.shown{
     */
   *{overflow: visible; float: none;}
 
-  /* page breaks */
+  /* Always start a lesson on a new page, and try to avoid  */
   .LessonBoundary                                                             {page-break-before: always;}
   #LearningObjectives, #Glossary, #Materials, #LanguageTable,
-     .activity li, .banner, img{
-      page-break-after:avoid;
-      page-break-before:avoid;
-      page-break-inside: avoid;
-     
-     }
+     li.lessonItem, .activity li, .banner, img                                {page-break-inside: avoid;}
 
   /* styling we want CHANGED for the printed page */
 	.content	{font-size: 16px; display: block;}
   span.vocab {color: black;}
-  .BootstrapLessonTitle{color: black; border-top: solid 3px black; font-size: 30px; margin-bottom: 30px;}
+  .BootstrapLessonTitle{
+      color:          black;
+      border-top:     solid 3px black;
+      font-size:      30px;
+      background:     none;
+      margin-bottom:  30px;
+  }
   table.bordered td {padding: 0px;}
   li.lessonItem>*:first-child {padding-bottom: 10px;}
   div.teacher{border-left: solid 1px gray; font-style: italic;}
