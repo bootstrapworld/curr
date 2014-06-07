@@ -330,7 +330,9 @@
               [sourcezip (build-path output-resources-dir "source-files.zip")])
           (when (file-exists? sourcezip)
             (delete-file sourcezip))
-          (zip sourcezip sourcefiles))
+          (parameterize ([current-directory sourcefiles])
+            (let ([allfiles (directory-list sourcefiles)])
+              (apply zip (cons sourcezip allfiles)))))
         )))
 
   ;; copy auxiliary files into units within distribution
