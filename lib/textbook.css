@@ -1,26 +1,24 @@
 .maincolumn { margin-left: .1in;}
-.main{width: 8in;}
+.main{width: 7.5in;}
 div.content{	background:		rgba(255, 255, 255, .3); display: block;}
 
 /************************************************************************************
  * LESSON TOOLBAR
- * Sits on the bottom of the page at all times
+ * Sits on the top-right corner of the page at all times
  * Displays buttons for teachers
 */
-div#lessonToolbar{
-  display:      block;
-  z-index:      999;
-  text-align:   center;
-}
-
 div#lessonToolbar * {margin: 10px; display: inline-block;}
 
 div#lessonToolbar.fixed{
+  display:      block;
+  z-index:      999;
+  text-align:   center;
   position:     fixed;
-  left:         8.1in;
+  right:        0px;
   top:          0px;
   background:   black;
-  border-bottom-right-radius: 10px;
+  box-shadow:   -1px 3px 9px #4B4B4B;
+  border-bottom-left-radius: 10px;
 }
 /************************************************************************************
  * OVERVIEW PAGE
@@ -49,7 +47,7 @@ div#lessonToolbar.fixed{
     border-bottom:  none;
     font-style:     italic;
     padding:        5px;
-    padding-bottom:  10px;
+    padding-bottom: 10px;
 }
 #overviewDescr .BootstrapHeader{display: none;}
 .summary {
@@ -75,7 +73,7 @@ div#lessonToolbar.fixed{
   padding:        0px;
 }
 
-table {  margin:         20px auto; }
+table {  margin:  20px auto; }
 
 #BootstrapAgenda{
 	border:         1px solid black;
@@ -121,9 +119,9 @@ li.LearningObjectivesListItem:hover ul.EvidenceStatementsList,
    ****************************************************************************/
 
 div.overview{
-  display:      none;
-	background:		lightgray; 
-	margin:       5px;
+  display:        none;
+	background:     lightgray;
+	margin:         5px;
 	padding-bottom: 20px;
 }
 .overview h2 {float: none; clear: none;}
@@ -172,27 +170,27 @@ div.ExtraExercises, div.segment{
 }
 
 .remediation, .misconception, .challenge{
-  width:      12px;
-  height:     12px;
-  display:    inline-block;
-  float:      right;
-  margin:     5px;
-  border-radius: 6px; 
+  width:          12px;
+  height:         12px;
+  display:        inline-block;
+  float:          right;
+  margin:         5px;
+  border-radius:  6px;
 }
 
 .callout{
-  width:      400px;
-  border:     solid 3px black;
-  font-size:  12px;
-  font-weight:normal;
-  color:      black;
-  background: white; 
-  position:   relative;
-  display:    none;
-  top:        12px;
-  left:       -380px;
-  box-shadow: 5px 5px 5px #888888;
-  padding:    10px;
+  width:        400px;
+  border:       solid 3px black;
+  font-size:    12px;
+  font-weight:  normal;
+  color:        black;
+  background:   white;
+  position:     relative;
+  display:      none;
+  top:          12px;
+  left:         -380px;
+  box-shadow:   5px 5px 5px #888888;
+  padding:      10px;
 }
 
 span.remediation    {background: red;}
@@ -211,7 +209,7 @@ span.challenge>div:before{content: 'Moving ahead...'}
   margin:         0px;
   padding-left:   0px;
   list-style-type:none;
-  max-width:      8.0in;
+  max-width:      7.5in;
 }
 
 
@@ -223,7 +221,7 @@ span.challenge>div:before{content: 'Moving ahead...'}
 */
 
 li.lessonItem{
-  width:          10.5in;
+  width:          10.4in;
   vertical-align: top;
   overflow:       hidden;
   position:       relative;
@@ -234,12 +232,12 @@ li.lessonItem{
 }
 
 div.teacher{
-  width:          2in;
+  width:          2.6in;
   display:        inline-block;
   height:         auto;
   vertical-align: top;
-  padding-left:   .1in;
-  padding-right:  .1in;
+  padding-left:   .05in;
+  padding-right:  .05in;
   margin-left:    .1in;
   border-left:    1pt solid black;
   background:     lightgray;
@@ -247,12 +245,12 @@ div.teacher{
   margin-bottom: -32767px;
 }
 div.student{
-  width:          7.8in;
+  width:          7.3in;
   display:        inline-block;
   padding:        .1in;
 }
-ul.teacherNotes li div.student{width: 5.5in;}
-ul.teacherNotes .embedded-wescheme{width: 5in;}
+ul.teacherNotes li div.student{width: 4.5in;}
+ul.teacherNotes .embedded-wescheme{width: 4.4in;}
 
 /* show lists normally inside a lessonItem */
 li.lessonItem li{
@@ -260,6 +258,8 @@ li.lessonItem li{
   padding:    0px;
   list-style-position: inside;
 }
+
+.teacher ul{padding-left: 5px;}
 
 
 /* embedded WeSchemes should be full-width, and transform during animation */
@@ -276,13 +276,21 @@ div.activity{
   padding:        10px 0px;
   background:     rgba(200,200,255,0.5);
   margin:         10px 0px;
-  display:        inline-block;
+  display:        block;
   border-top:     dashed 1px black;
   border-bottom:  dashed 1px black;
   vertical-align: middle;
+  clear:          both;
 }
 
 img{float: right; padding: 5px;}
+div.activity::after{
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
 img.video{width: 20px; height: 20px; padding: 0px; margin: 0px;}
 div.activity li img{float: none;}
 
@@ -378,7 +386,7 @@ iframe#forum_embed.shown{
     size: 8.5in 11in;
 
     /* this affects the margin in the printer settings */ 
-    margin: .25in;
+    margin: .5in;
 }
 
 @media print{
@@ -386,7 +394,7 @@ iframe#forum_embed.shown{
 	body                                                                          {background: none;}
   div.segment, li.lessonItem, table.bordered td,
   div.ExtraExercises, div.content                                               {border: none;}
-  div#lessonToolbar, iframe#forum_embed, input, div.callout, .embedded-wescheme {display: none;}
+  div#lessonToolbar.fixed, iframe#forum_embed, input, div.callout, .embedded-wescheme {display: none;}
 
   /* turn off overflow: hidden, which messes with page breaks
       (see http://www.appnovation.com/blog/how-avoid-your-web-printing-page-being-cut)
@@ -405,6 +413,7 @@ iframe#forum_embed.shown{
   table.bordered td {padding: 0px;}
   li.lessonItem>*:first-child {padding-bottom: 10px;}
   div.teacher{border-left: solid 1px gray; font-style: italic;}
+  .CodeMirror{font-size: 12px;}
   
     /* Fix for Firefox printing, which is terribly broken. See:
    *  http://www.bennadel.com/blog/851-Fixing-DIVs-That-Cause-Content-Truncation-When-Printing.htm
