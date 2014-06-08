@@ -16,7 +16,7 @@
                                        [(string=? "triangle" shape) (triangle 50 "solid" "red")]
                                        [(string=? "rectangle" shape) (rectangle 50 9 "solid" "red")]
                                        [(string=? "star" shape) (star 50 "solid" "red")]
-                                       [else "Try another shape!"])
+                                       [else (text 20 "Unknown shape" "red")])
                          #:show-body? '(cond (#f #t) #f #f #f #f)
                          #:grid-lines? #t
                          )
