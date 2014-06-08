@@ -145,7 +145,7 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
     ]{
-      @points{
+      @points[
        @point{@student{Now that we know @code{cond}, we can write @code{update-player}.
                        @activity[#:forevidence (list "BS-M&1&1" "BS-M&1&2" "BS-DR.2&1&1" "BS-DR.3&1&1" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2")]{
                                  @bitmap{images/update-player.png} Look at the following picture, which describes what happens when the "up" arrow key is pressed. 
@@ -156,7 +156,8 @@
                                                            @item{What has changed and by how much?}
                                                            @item{What happens when we press the "down" arrow key?}
                                                            @item{What should the new coordinates be then?}
-                                                           @item{What should happen if a user presses a key @italic{other} than the up or down arrows? }]}]}}
+                                                           @item{What should happen if a user presses a key @italic{other} than the up or down arrows? }]}]}
+                       }
               @teacher{Draw a screen on the board, and label the coordinates for a player, target and danger. Circle all the data associated with the Player.}
               }
        @point{@student{The following table summarizes what should happen to the player for each key:
@@ -195,7 +196,7 @@
                                   @item{@bold{Challenge:} Have the player hide when the "h" key is pressed, 
                                         only to re-appear when it is pressed again!}]}
                @teacher{Hint on the challenge: multiply by -1.}}
-       }}
+       ]}
      
 @lesson/studteach[
      #:title "Closing"
