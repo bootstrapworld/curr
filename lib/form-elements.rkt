@@ -897,7 +897,7 @@
 ;; Given that the lesson names are unique, we can create an <a name="..."> anchor
 ;; for each included lesson.  We put a "lesson_" prefix in front of each name.
 (define (lesson-name->anchor-name a-name)
-  (uri-encode (string-append "lesson_" a-name)))
+  (uri-encode (rem-spaces (string-append "lesson_" a-name))))
 
 ;;;;;;;; EXERCISE HANDOUTS ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Tried factoring into own module, but too much sharing of styles
