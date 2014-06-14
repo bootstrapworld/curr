@@ -214,8 +214,8 @@ include other datatypes, including Strings and Images.}
                              }
                      @teacher{If you want to have students practice using @code{bitmap/url}, it is recommended that you use an image search-engine, such as @(hyperlink "https://images.google.com" "Google Images") or @(hyperlink "http://www.bing.com/images" "Bing Images"). Make sure that students know how to get the URL for the image itself, @italic{not the URL of the web page that contains the image.}}
                      }
-               @point{@student{Contracts help programmers write code, so it's always a good idea to write down contracts for each function you see. 
-                               @activity[#:forevidence (list "BS-PL.2&1&2" "F-IF.1-3&1&1")]{
+             @point{@student{Contracts help programmers write code, so it's always a good idea to write down contracts for each function you see. 
+                             @activity[#:forevidence (list "BS-PL.2&1&2" "F-IF.1-3&1&1")]{
                                   Can you figure out the contract for a function, just by looking at 
                                   some sample code? @editor-link[#:interactions-text "(text \"Bootstrap\" 30 \"purple\")"
                                                                                      "Look at the function being used here"], 
@@ -244,7 +244,35 @@ include other datatypes, including Strings and Images.}
                                            @item{@code{(star (* 4 10) "blue")}}
                                            @item{@code{(cirle 25 "outline" "blue")}}
                                           ]}}
-                       @teacher{Controlled practice with error messages helps students gain confidence in dealing with them later on.  It is fine if students don't spot the errors for themselves at first, though having students explain the problems in their own words should reinforce correct use of these functions later in the course.}}
+                       @teacher{Controlled practice with error messages helps students gain confidence in dealing with them later on.  It is fine if students don't spot the errors
+                                for themselves at first, though having students explain the problems in their own words should reinforce correct use of these functions later 
+                                in the course.}
+                       }
+                @point{@student{There are also a number of functions that take in Images as their @italic{input}. For example, suppose you want to flip an image
+                                from left-to-right, so that it points in the opposite direction. You can use the function @code{flip-horizontal}, which has an
+                                Image as both its Domain and Range. See the Contract (and an example of the function) below:
+                                @code[#:multi-line ""]{; flip-horizontal : Image -> Image
+(flip-horizontal (text "backwards" 50 "red"))
+}
+                                }
+                       @teacher{Functions that take Images as their inputs are often very difficult for students at first, because they absolutely require
+                                that students really understand function composition. If a student is struggling with this concept, have them draw out
+                                the Circle of Evaluation for the example here, and @italic{then} convert it to code.}
+                        }
+                 @point{@student{@activity{For each of the following functions, write the Contract in your workbook and experiment with the sample code.
+                                           Can you figure out what each function does to it's Image?
+                                           @code[#:multi-line ""]{; flip-vertical : Image -> Image
+(flip-vertical (text "upside-down" 50 "red"))
+
+; scale : Number Image -> Image
+(scale 2 (text "resize" 10 "purple"))
+
+; rotate : Number Image -> Image
+(rotate 45 (text "spin" 30 "green"))
+}
+                                           }}
+                         @teacher{As before, urge struggling students to draw out the Circle of Evaluation for each of these.}
+                         }
              ]}
        
 @lesson/studteach[
