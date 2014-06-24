@@ -47,6 +47,7 @@
      #:materials @itemlist[@item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}]
      #:preparation @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket}
                              @item{If using DrRacket, make sure the Ninja.rkt file is loaded}
+                             @item{"NinjaCat" [NinjaCat.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=LyMwExWayT" "WeScheme")] preloaded on students' machines}
                              @item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders with names on covers, and something to write with}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -56,9 +57,11 @@
       ]{
         @points[
           @point{@student{Let's begin by exploring a simple videogame, and then figuring out how it works. Open @run-link[#:public-id "LyMwExWayT" "this link"] 
-                         to play the game, and spend a minute or two exploring it. @italic{You can use the arrow keys to move the cat left, right and jump - try to catch 
-                         the ruby and avoid the dog!}}
-                 @teacher{@management{Show the kids Ninjacat. Be sure to end on a frozen frame of the game, so the whole class can see the same image.}}
+                         to play the game, and spend a minute or two exploring it. @italic{You can use the arrow keys to move 
+                         the cat left, right and jump - try to catch  the ruby and avoid the dog!}}
+                 @teacher{Show the kids NinjaCat, either letting them play or by demoing it in front of the class. You can move the cat up, down, left and right by using the arrow keys. 
+                          Play until the students see all the characters (the clouds, the ruby, the dog and the cat), and be 
+                          sure to point out the title and score as well.}
                  }
           
           @point{@student{This game is made up of @italic{characters}, each of which has its own behavior. The Ruby moves from the right to the left, as does the Dog. NinjaCat only moves when you hit the arrow keys, and she can move left, right, up and down. We can figure out how the game works by first understanding how each character works.}
