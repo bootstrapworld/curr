@@ -1,9 +1,9 @@
 #lang curr/lib
 
-@(design-recipe-exercise "onscreen?" "Use the Design Recipe to write a function 'onscreen?', which takes in the target's x-coordinate and checks to see if Sam is protected on the left AND protected on the right." 
+@(design-recipe-exercise "onscreen?" "Use the Design Recipe to write a function 'onscreen?', which takes in the x-coordinate and checks to see if Sam is safe on the left AND safe on the right." 
 			 #:domain-list (list "number")
 			 #:range "boolean"
-			 #:purpose "Determine whether given x-coordinate is on the screen"
+			 #:purpose "Sam is on the screen if his x-coordinate is safe on the left and safe on the right."
                          #:num-examples 2
 			 #:example-list '((10 (and (safe-left? 10) (safe-right? 10))) (-15 (and (safe-left? -15) (safe-right? -15))))
                          #:param-list (list "x")
