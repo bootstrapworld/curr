@@ -147,6 +147,6 @@ span.BootstrapLessonTitle{
 }
 .OverviewBoundary p{margin-left: 0px;}
 .segment ul.teacherNotes li+li .teacher{box-shadow: none; border-top: none;}
-div#lessonToolbar, #lessonToolbar.fixed{display: none;}
+div#lessonToolbar, div#lessonToolbar.fixed{display: none;}
 
 */
