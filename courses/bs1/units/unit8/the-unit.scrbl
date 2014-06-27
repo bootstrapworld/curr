@@ -3,7 +3,7 @@
 
 @declare-tags[management]
 
-@unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sq sqrt expt})
+@unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sqr sqrt expt})
                                        (list "String" @code{string-append string-length})
                                        (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image})
                                        (list "Boolean" @code{= > < string=? and or}))]{
