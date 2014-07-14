@@ -62,7 +62,7 @@
                                          @item{@code{(/ 4 2)}}
                                          @item{@code{(circle 10 "solid" "blue")}}
                                          @item{@code{(< 3 4)}}]}}
-                        @teacher{}
+                        @teacher{[@(hyperlink "https://www.youtube.com/watch?v=OMQO66wWqjk" "Video")]}
                         }
                  @point{@student{The last expression, @code{(< 3 4)},
 uses a new function that @italic{compares Numbers}, returning

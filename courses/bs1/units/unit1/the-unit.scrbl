@@ -59,7 +59,7 @@
           @point{@student{Let's begin by exploring a simple videogame, and then figuring out how it works. Open @run-link[#:public-id "LyMwExWayT" "this link"] 
                          to play the game, and spend a minute or two exploring it. @italic{You can use the arrow keys to move 
                          the cat left, right and jump - try to catch  the ruby and avoid the dog!}}
-                 @teacher{Show the kids NinjaCat, either letting them play or by demoing it in front of the class. You can move the cat up, down, left and right by using the arrow keys. 
+                 @teacher{[@(hyperlink "https://www.youtube.com/watch?v=KSt_3ovWfjk" "Video")] Show the kids NinjaCat, either letting them play or by demoing it in front of the class. You can move the cat up, down, left and right by using the arrow keys. 
                           Play until the students see all the characters (the clouds, the ruby, the dog and the cat), and be 
                           sure to point out the title and score as well.}
                  }
@@ -321,7 +321,7 @@
                        @bannerline{Circle Rule 2: The numbers are written below, in order from left to right.}
                        @activity[#:forevidence "BS-CE&1&1"]{@bitmap{images/CircleBug.png}Which rule does this Circle of Evaluation break?}
                        }
-                @teacher{This section benefits enormously from visual aids, diagrams, etc. Make sure you have plenty of board space to 
+                @teacher{[@(hyperlink "https://www.youtube.com/watch?v=AMFaPKHp3Mg" "Video")] This section benefits enormously from visual aids, diagrams, etc. Make sure you have plenty of board space to 
                          draw examples!}
                 }
                 @point{@student{@activity[#:forevidence (list "BS-CE&1&1" "5.OA.1-2&1&1")]{Try drawing the Circle of Evaluation for each of the following 

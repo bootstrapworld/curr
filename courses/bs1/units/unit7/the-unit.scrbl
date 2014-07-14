@@ -63,7 +63,7 @@
                                                 [(string=? topping "chicken")   11.25]
                                                 [(string=? topping "broccoli")  10.25]
                                                 [else 00.00]))}}
-             @teacher{}
+             @teacher{[@(hyperlink "https://www.youtube.com/watch?v=joF6lOgCN14" "Video")]}
              }
      @point{@student{Up to now, all of the functions you've seen have done the @italic{same thing} to their inputs:
                      @itemlist[@item{@code{green-triangle} always made green triangles, no matter what the size was.} 

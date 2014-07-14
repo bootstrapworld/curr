@@ -170,7 +170,7 @@ include other datatypes, including Strings and Images.}
                  The contract for @code{star} is:
                  @code[#:multi-line ""]{; star: Number String String -> Image}
                  This means that the @vocab{Name} of the function is @code{star}, that it takes in a Number and two Strings as its Domain, and produces an Image as the Range. We use types instead of values when we write a Contract, because we want to be more general: a star could be of any size, so the Domain for @code{star} specifies that the first argument could be @italic{any Number}. If we think of a language as a collection of lego pieces, the Contracts are like the tabs and slots that tell us how each piece can connect.}
-                     @teacher{}
+                     @teacher{[@(hyperlink "https://www.youtube.com/watch?v=88WhYoMxrGw" "Video")]}
                      }
              @point{@student{Contracts are sufficiently important and useful that we should keep a list of them somewhere.  The back pages of your workbook contain a sheet labeled "Contracts".  Write the contract for @code{star} in the first row of your contracts table.}
                     @teacher{Common mistakes when students first write down contracts include: writing values (such as @code{"red"}) instead of types (such as "String") and forgetting arguments.  Read your students' contracts carefully, as they often indicate misconceptions that will persist and affect them later on.}}

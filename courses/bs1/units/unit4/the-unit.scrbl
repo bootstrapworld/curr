@@ -175,7 +175,7 @@
                                              @item{To find the average of two numbers, they should be added together and divided by two. Define a function 'average', which takes in two numbers and produces their average}
                                              @item{A company logo is a word drawn in big, red letters, rotated some number of degrees. Define a function 'logo', that takes in a company name and a rotation, and produces a logo for that company}]
                                   Be sure to include a good @vocab{Name} for each function, and remember that the @vocab{Domain} and @vocab{Range} can only include @vocab{types} like Numbers, Images, Strings, etc.}}
-                        @teacher{If students come up with different Domains or Ranges for their functions, have them explain their thinking for each one. These conversations are an important part of this step!}
+                        @teacher{[@(hyperlink "https://www.youtube.com/watch?v=SL2zLs2P-mU" "Video")] If students come up with different Domains or Ranges for their functions, have them explain their thinking for each one. These conversations are an important part of this step!}
                         }
                  @point{@student{A Contract is the foundation for a function, which gives programmers just enough information to use them: the name of the function, the types of data it expects and the type of data it returns.
                                  @activity[#:forevidence (list "BS-DR.2&1&1" "8.F.1-3&1&3" "F-IF.1-3&1&4")]{

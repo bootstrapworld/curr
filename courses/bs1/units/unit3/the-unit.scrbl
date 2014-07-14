@@ -170,7 +170,7 @@
                      }
             @point{@student{@activity{Turn to @worksheet-link[#:name "Translating-to-Algebra"] in your workbooks. 
                                       You will see a bunch of value definitions written in code - take 2 minutes to convert this into math. GO!}}
-                    @teacher{}
+                    @teacher{[@(hyperlink "https://www.youtube.com/watch?v=xRUoQO1AdVs" "Video")]}
                     }]
          }
      
@@ -271,7 +271,7 @@
                 )
                  ]{
                    @points[@point{@student{Defining a @vocab{value} is helpful when a program has lots of identical expressions. Sometimes, however, a program has expressions that aren't identical, but are just @italic{very similar}. A program that has fifty solid, green triangles can be simplified by defining a single value, @italic{as long as they are all the same size}. But what if a program has fifty green triangles of different sizes?}
-                                   @teacher{}
+                                   @teacher{[@(hyperlink "https://www.youtube.com/watch?v=ZWdLNtPu6PQ" "Video")]}
                                    }
                             @point{@student{Think about the Image functions you have already used, 
 				           like @code{star} and @code{circle}.  They take inputs and produce 
