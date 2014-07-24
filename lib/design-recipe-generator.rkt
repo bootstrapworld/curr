@@ -50,6 +50,10 @@
 ;;    - if show-examples is shorter than example-list, remaining elts in example-list get configuration #f
 ;; if num-examples is larger than length of example-list, additional blank exercises are added after the
 ;;   contents of example-list
+;; buggy-funname-defn and buggy-examples-list enable creating design-recipe worksheets with
+;;   errors in them (for use as assessments).  By default, the funname argument is copied into the 
+;;   header and into each example.  These params override that behavior.  At most one of the 
+;;   example-list and the buggy-example-list should be provided.
 (define (design-recipe-exercise funname directions
                                 #:show-funname-contract? (show-funname-contract? #f)
                                 #:domain-list (domain-list '()) ; list of string
@@ -60,7 +64,9 @@
                                 #:show-purpose? (show-purpose? #f)
                                 #:num-examples (num-examples 1) ; number of total example spaces to generate
                                 #:example-list (example-list '()) ;concrete examples -- see doc above func for details
+                                #:buggy-example-list (buggy-example-list '()) ; full concrete examples with error
                                 #:show-examples (show-examples '()) ; see doc above func for details
+                                #:buggy-funname-defn (buggy-funname-defn #f)
                                 #:show-funname-defn? (show-funname-defn? #f)
                                 #:param-list (param-list '()) ; list of string
                                 #:show-params? (show-params? #f) 
@@ -68,6 +74,8 @@
                                 #:show-body? (show-body? #f)
                                 #:grid-lines? (grid-lines? #f)
                                 )
+  (when (and (cons? example-list) (cons? buggy-example-list))
+    (error 'design-recipe-exercise "At most one of example-list and buggy-example-list should be provided"))
   ; INSERT check that show-examples is no longer than example-list
   ; ALSO handle num-examples less than length of example-list
   (nested #:style (bootstrap-div-style/extra-id "segment" "exercises")
@@ -106,27 +114,35 @@
                         "recipe_examples"
                         "Examples"
                         "Write some examples of your function in action..."
-                        (let ([example-elts 
-                               (let ([num-blank-examples (- num-examples (length example-list))])
-                                 (append 
-                                  ; generate contents of example-list according to show-examples
-                                  (map (lambda (e s) 
-                                         ; e is either empty or a two-element list of input and output
-                                         ; s is either a boolean or a three-element list of booleans
-                                         ;   indicating whether to show the funname/input/output
-                                         (dr-example funname e
-                                                     #:show-funname? (show-example-component? s 'funname)
-                                                     #:show-input? (show-example-component? s 'input)
-                                                     #:show-output? (show-example-component? s 'output))) 
-                                       example-list
-                                       ; pad show-examples to match length of example-list
-                                       ; padding value of #f means default is to not show example
-                                       (append show-examples
-                                               (build-list (- (length example-list) (length show-examples))
-                                                           (lambda (i) #f))))
-                                  ; pad example list with empty examples to get to specified num-examples
-                                  (build-list num-blank-examples (lambda (i) (dr-example funname '()))))
-                                 )])
+                        (let ([example-elts
+                               (if (cons? buggy-example-list)
+                                   (map (lambda (e)
+                                          (dr-example (first e) (rest e)
+                                                      #:show-funname? #t
+                                                      #:show-input? #t
+                                                      #:show-output? #t))
+                                        buggy-example-list)
+                                   ;; otherwise generate good examples
+                                   (let ([num-blank-examples (- num-examples (length example-list))])
+                                     (append 
+                                      ; generate contents of example-list according to show-examples
+                                      (map (lambda (e s) 
+                                             ; e is either empty or a two-element list of input and output
+                                             ; s is either a boolean or a three-element list of booleans
+                                             ;   indicating whether to show the funname/input/output
+                                             (dr-example funname e
+                                                         #:show-funname? (show-example-component? s 'funname)
+                                                         #:show-input? (show-example-component? s 'input)
+                                                         #:show-output? (show-example-component? s 'output))) 
+                                           example-list
+                                           ; pad show-examples to match length of example-list
+                                           ; padding value of #f means default is to not show example
+                                           (append show-examples
+                                                   (build-list (- (length example-list) (length show-examples))
+                                                               (lambda (i) #f))))
+                                      ; pad example list with empty examples to get to specified num-examples
+                                      (build-list num-blank-examples (lambda (i) (dr-example funname '()))))
+                                     ))])
                           ; insert clear-breaks between examples and merge the example content lists
                           (foldr (lambda (e res-rest) (append (cons (make-clear) e) res-rest))
                                  '() example-elts))
@@ -138,7 +154,7 @@
                        (make-spacer "(define ")
                        (make-spacer "(")
                        (make-wrapper
-                        (dr-student-answer #:id? #f "recipe_name" #:show? show-funname-defn? funname)
+                        (dr-student-answer #:id? #f "recipe_name" #:show? show-funname-defn? (or buggy-funname-defn funname))
                         (dr-student-answer "recipe_variables" #:show? show-params? (string-join param-list " "))
                         (make-spacer ")")
                         (make-clear)  
