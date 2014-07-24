@@ -16,6 +16,7 @@
          )
 
 (provide design-recipe-exercise
+         assess-design-recipe
          )
 
 ;;;;;;;;; API for Design Receipe Exercises ;;;;;;;;;;;;;;;;;;;;;
@@ -32,6 +33,48 @@
                [(output) third]))]
     (or (and (boolean? spec) spec) 
         (and (cons? spec) (pos spec)))))
+
+;; a wrapper for design-recipe-exercise that shows all fields and allows some
+;; components to have errors (rather than be generated from good data such as the
+;; function name.  See design-recipe-exercise docs for parameter documentation
+(define (assess-design-recipe funname directions
+                              #:domain-list (domain-list '()) ; list of string
+                              #:range (range #f)
+                              #:purpose (purpose #f)
+                              #:example-list (example-list '()) ;concrete examples -- see doc above func for details
+                              #:buggy-example-list (buggy-example-list '()) ; full concrete examples with error
+                              #:buggy-funname-defn (buggy-funname-defn #f)
+                              #:param-list (param-list '()) ; list of string
+                              #:body (body #f) ; a string
+                              #:grid-lines? (grid-lines? #f)
+                              )
+  ;; checks that all components have been provided actual values
+  (unless range (error 'assess-design-recipe "range required"))
+  (unless purpose (error 'assess-design-recipe "purpose required"))
+  (unless body (error 'assess-design-recipe "body required"))
+  (let ([use-examples (if (cons? buggy-example-list) buggy-example-list example-list)])
+    (design-recipe-exercise funname directions
+                            #:show-funname-contract? #t
+                            #:domain-list domain-list
+                            #:show-domains? #t 
+                            #:range range
+                            #:show-range? #t
+                            #:purpose purpose
+                            #:show-purpose? #t
+                            #:num-examples (length use-examples)
+                            #:example-list example-list 
+                            #:buggy-example-list buggy-example-list 
+                            #:show-examples (build-list (length use-examples) (lambda (i) #t)) 
+                            #:buggy-funname-defn buggy-funname-defn
+                            #:show-funname-defn? #t
+                            #:param-list param-list
+                            #:show-params? #t 
+                            #:body body
+                            #:show-body? #t
+                            #:grid-lines? grid-lines?
+                            )))
+
+                            
 
 ;; Create a design-recipe exercise
 ;;   funname: string naming the function

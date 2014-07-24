@@ -43,6 +43,7 @@
          language-table
          build-table/cols
          design-recipe-exercise
+         assess-design-recipe
          unit-summary/links
          summary-item/links
          summary-item/custom
