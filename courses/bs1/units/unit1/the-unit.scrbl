@@ -305,7 +305,7 @@
                                     @math{19 \div 2 * 11 - 7 + 8}
                                     @itemlist[#:style 'ordered
                                               @item{@math{+ \div * - }}
-                                              @item{@math{* \div - +}}
+                                              @item{@math{\div * - +}}
                                               @item{@math{\div * + -}}
                                               @item{@math{* \div + -}}]
 }}
