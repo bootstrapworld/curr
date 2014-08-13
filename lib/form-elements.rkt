@@ -1,7 +1,7 @@
 #lang racket/base
 
 (require racket/runtime-path
-         racket/contract
+         ;(except-in racket/contract contract-exercise)
          racket/string
          scribble/base
          scribble/core
@@ -61,6 +61,7 @@
 	 sexp->coe
 	 sexp->code
          make-exercise-locator
+         make-exercise-locator/dr-assess
          exercise-handout
          exercise-answers
          exercise-evid-tags
@@ -908,7 +909,12 @@
 
 ;; info required to locate an exercise within the filesystem
 ;;   will be used to generate links
+;; the first form (our original notion) uses exercise-handout which
+;;   contains metadata about evidence statements.  The no-meta
+;;   version supports exercises that won't carry this metadata
+;;   (at least for now)
 (define-struct exercise-locator (lesson filename))
+(define-struct (exercise-locator/dr-assess exercise-locator) (descr))
 
 ;; breaks a string into a list of content, in which substrings in
 ;;  the given list have been italicized
@@ -990,6 +996,9 @@
       ;(printf "extract-data got ~a ~n" data)
       (values (first data) (second data)))))
                                      
+;; generates the DOM for the additional exercises component of the unit page
+;; the exercise-list.rkt file built up in this function gets used in the build
+;;   process to identify which exercise files to copy over into the distribution
 (define (gen-exercises)
   (traverse-block
    (lambda (get set)
@@ -1004,31 +1013,34 @@
                              (para #:style bs-lesson-title-style "Additional Exercises:")
                              (apply itemlist/splicing 
                                     (map (lambda (exloc)
-                                           (let-values ([(extitle exforevid) (extract-exercise-data exloc)])
+                                           (let-values ([(extitle exforevid) 
+                                                         (if (exercise-locator/dr-assess? exloc)
+                                                             (values (string-append "Design Recipe Challenge: "
+                                                                                    (exercise-locator/dr-assess-descr exloc))
+                                                                     #f)
+                                                             (extract-exercise-data exloc)
+                                                             )])
                                              (let ([descr (if extitle extitle (exercise-locator-filename exloc))]
                                                    [support (if exforevid
                                                                 (let ([evidstmt (get-evid-summary exforevid)])
                                                                   (if evidstmt (format " [supports ~a]" evidstmt)
                                                                       ""))
-                                                                "")])
+                                                                "")]
+                                                   [extension (if (exercise-locator/dr-assess? exloc) ".pdf" ".html")]
+                                                   )
                                                (let ([exdirpath (if (current-deployment-dir)
                                                                     (build-path (current-deployment-dir) "lessons") 
                                                                     (build-path lessons-dir))]
                                                      [expathname 
                                                       (build-path "lessons" (exercise-locator-lesson exloc) 
-                                                                  "exercises" (string-append (exercise-locator-filename exloc) ".html"))])
+                                                                  "exercises" (string-append (exercise-locator-filename exloc) 
+                                                                                             extension))])
                                                  (with-output-to-file "exercise-list.rkt" 
                                                    (lambda () (write (path->string expathname)) (printf " ")) 
                                                    #:exists 'append)
                                                  (elem (list (hyperlink (string-append "exercises/" (exercise-locator-lesson exloc) "/"
-                                                                                       (exercise-locator-filename exloc) ".html")
-                                                              ;(build-path "exercises"
-                                                              ;                      (string-append (exercise-locator-filename exloc) ".html"))
+                                                                                       (exercise-locator-filename exloc) extension)
                                                                         descr)
-                                                             ;(hyperlink (build-path exdirpath
-                                                             ;                       (exercise-locator-lesson exloc) "exercises"
-                                                             ;                       (string-append (exercise-locator-filename exloc) ".html"))
-                                                             ;           descr)
                                                              ; uncomment next line when ready to bring evidence back in
                                                              ;(elem #:style (bootstrap-span-style "supports-evid") support)
                                                              ))))))

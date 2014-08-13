@@ -20,3 +20,11 @@
 (define (build-for-codeorg?) (string=? (getenv "BUILD-FOR") "codeorg"))
 
 (define (build-for-bootstrap?) (string=? (getenv "BUILD-FOR") "bootstrap"))
+
+;;;;;;;;;; Workbook or Textbook styling ;;;;;;;;
+
+(define (workbook-styling-on)
+  (putenv "BOOTSTRAP-TARGET" "workbook"))
+
+(define (textbook-styling-on)
+  (putenv "BOOTSTRAP-TARGET" "textbook"))

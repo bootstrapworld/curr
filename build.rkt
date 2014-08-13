@@ -7,10 +7,12 @@
          racket/path
          racket/file
          racket/list
-         (lib "curr/lib/system-parameters.rkt")
+         "lib/system-parameters.rkt"
          "lib/translate-pdfs.rkt"
          "lib/paths.rkt"
          "lib/build-modes.rkt"
+         "lib/scribble-pdf-helpers.rkt"
+         "lib/pdf-lesson-exercises.rkt"
          scribble/render
          file/zip)
 
@@ -279,7 +281,27 @@
         (printf "build.rkt: building worksheet ~a: ~a\n" subdir worksheet)
         (run-scribble (build-path lessons-dir subdir "worksheets" worksheet))))))
 
-
+;; build extra PDF worksheet-style pages
+;;
+;; ideally, this function will generate the .pdf files directly into the lessons
+;; distribution directory.  Trying to do that is running into problems with the
+;; path specifications.  For now, generate PDF in non-distrib dir,
+;; then copy it over to the distrib dir
+(define (build-extra-pdf-exercises)
+  (for-each (lambda (lesson-spec)
+              (let* ([lesson-name (first lesson-spec)]
+                     [exer-files (second lesson-spec)]
+                     [exer-dir (build-path lessons-dir lesson-name "exercises")]
+		     [exer-deploy-dir (build-path (root-deployment-dir) "lessons" lesson-name "exercises")])
+                (parameterize [(current-deployment-dir exer-dir)]
+                  (scribble-to-pdf exer-files exer-dir))
+                (for ([exerfile exer-files])
+                  (let* ([exerfile-pdf (regexp-replace #px"\\.scrbl$" exerfile ".pdf")]
+                         [exerfile-path (build-path exer-dir exerfile-pdf)])
+                    (copy-file exerfile-path
+                               (build-path exer-deploy-dir exerfile-pdf))))
+                ))
+            pdf-lesson-exercises))
 
 (define (build-drills)
   ;; and the drills
@@ -338,10 +360,12 @@
   ;; copy auxiliary files into units within distribution
   (when (current-deployment-dir)
     (for ([subdir (directory-list (get-units-dir))])
-      (copy-file (build-path "lib" "box.gif")
-                 (build-path (current-deployment-dir) "courses"
-                             (current-course) "units" subdir "box.gif")
-                 #t)))
+      ;; ignore contents starting with .
+      (unless (string=? "." (substring (path->string subdir) 0 1))
+        (copy-file (build-path "lib" "box.gif")
+                   (build-path (current-deployment-dir) "courses"
+                               (current-course) "units" subdir "box.gif")
+                   #t))))
 
 
   ;; Process the teacher materials: for any deployment other than our default,
@@ -414,14 +438,15 @@
 (putenv "WORKSHEET-LINKS-TO-PDF" "true")
 (solutions-mode-off)
 (build-exercise-handouts)
+(workbook-styling-on)
+(build-extra-pdf-exercises)
+(textbook-styling-on)
 (for ([course (in-list bootstrap-courses)])
   (parameterize ([current-course course])
     (update-resource-paths)
     (build-course-units)
     (build-resources)))  
-;(build-exercise-handouts)
 (create-distribution-lib)
-;(build-exercise-handout-solutions)
 ;(build-lessons)
 ;(build-worksheets)
 ;(build-drills)

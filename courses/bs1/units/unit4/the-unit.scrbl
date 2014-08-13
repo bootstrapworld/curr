@@ -146,7 +146,9 @@
                                       @item{Given two examples for a simple function, students will be able to write the definition}]
      #:product-outcomes @itemlist[@item{Students will write functions to solve simple problems by using the Design Recipe}]
      #:exercises (list (make-exercise-locator "Practicing-the-Design-Recipe" "examples-same-contracts1")
-                       (make-exercise-locator "Practicing-the-Design-Recipe" "match-contracts-examples1"))
+                       (make-exercise-locator "Practicing-the-Design-Recipe" "match-contracts-examples1")
+		       (make-exercise-locator/dr-assess "Practicing-the-Design-Recipe" "calc-pencils-assess-recipe" "calc-pencils")
+		       )
      #:standards (list "A-SSE.1-2" "F-IF.1-3" "F-IF.4-6" "BS-DR.1" "BS-DR.2" "BS-DR.3")
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, language table, course calendar)}
