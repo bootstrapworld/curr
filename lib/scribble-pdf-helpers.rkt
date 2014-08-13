@@ -50,11 +50,8 @@
                 ))
             pages))
 
-; this combines the local run-scribble in this file with scribbling files
-; to PDF.  Needed to avoid naming conflicts with the more general run-scribble
+; Avoiding naming conflicts with the more general run-scribble
 ; function in the build script (shouldn't need two functions, but have never
 ; worked on merging them properly)
-(define (scribble-to-pdf pages pagesdir)
-  (for ([file pages])
-    (run-scribble (build-path pagesdir file)))    	
+(define (scribble-to-pdf pages pagesdir)   	
   (scribble-files pages pagesdir #f))

@@ -45,6 +45,9 @@
                                      @item{Students learn how to use arithmetic operators (like @code{<} and @code{>}) that produce Booleans}
                                     ]
      #:product-outcomes @itemlist[]
+     #:exercises (list (make-exercise-locator/dr-assess "Booleans" "enough-cash-design-recipe-assess" "Do You Have Enough Cash?")
+                       (make-exercise-locator/dr-assess "Booleans" "long-name-design-recipe-assess" "Is This Name Long?")
+		       )
      #:standards (list "7.EE.3-4" "BS-IDE" "BS-PL.1" "BS-PL.2")
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, language table, course calendar)}

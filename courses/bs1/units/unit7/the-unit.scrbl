@@ -23,6 +23,9 @@
                                      @item{Students will understand that @code{cond} statements capture pairs of questions and answers when coding a piecewise function}
                                     ]
      #:product-outcomes @itemlist[]
+     #:exercises (list (make-exercise-locator/dr-assess "Luigis-Pizza" "scale-shape-design-recipe-assess" "Scaling Shapes")
+                       (make-exercise-locator/dr-assess "Luigis-Pizza" "state-tax-design-recipe-assess" "Compute Tax")
+		       )
      #:standards (list "BS-DR.1" "BS-DR.2" "BS-DR.3" "BS-PL.4")
      #:materials @itemlist[@item{Computers w/ DrRacket or WeScheme}
                            @item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}

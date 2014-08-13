@@ -49,6 +49,8 @@
                                      @item{Students will learn how to control speed of movement through functions}]
      #:product-outcomes @itemlist[@item{Students will add danger movement to their games}
                                   @item{Students will add target movement to their games}]
+     #:exercises (list (make-exercise-locator/dr-assess "Danger-and-Target-Movement" "target-leap-design-recipe-assess" "Making Players Leap")
+		       )
      #:standards (list "F-IF.1-3" "F-LE.5" "BS-DR.2" "BS-DR.3")
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
