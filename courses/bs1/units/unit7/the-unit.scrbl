@@ -25,6 +25,8 @@
      #:product-outcomes @itemlist[]
      #:exercises (list (make-exercise-locator/dr-assess "Luigis-Pizza" "scale-shape-design-recipe-assess" "Scaling Shapes")
                        (make-exercise-locator/dr-assess "Luigis-Pizza" "state-tax-design-recipe-assess" "Compute Tax")
+                       (make-exercise-locator/dr-assess "Luigis-Pizza" "flower-name-design-recipe-assess" "Name That Flower")
+                       (make-exercise-locator/dr-assess "Luigis-Pizza" "turkey-price-design-recipe-assess" "How Much is That Turkey?")
 		       )
      #:standards (list "BS-DR.1" "BS-DR.2" "BS-DR.3" "BS-PL.4")
      #:materials @itemlist[@item{Computers w/ DrRacket or WeScheme}

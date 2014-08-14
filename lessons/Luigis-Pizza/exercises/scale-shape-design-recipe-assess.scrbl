@@ -8,9 +8,9 @@
                        #:buggy-example-list '(((scale-image (circle 5 "solid" "red") "bigger") (circle 10 "solid" "red"))
                                               ((scale-triangle (triangle 20 "solid" "blue") "smaller") (triangle 10 "solid" "blue")))
                        #:param-list (list "original-image" "scale-factor")
-                       #:body '((cond 
+                       #:body '(cond 
                                   [(string=? scale-factor "bigger") (scale 2 original-image)]
                                   [(string=? scale-factor "smaller") (scale .5 original-image)]
-                                  [else original-image=]))
+                                  [else original-image=])
                        )
                                 

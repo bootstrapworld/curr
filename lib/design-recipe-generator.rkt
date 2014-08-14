@@ -232,12 +232,13 @@
                                                         )))
                                        (rest body-contents) 
                                        ; show is either a single boolean or a list of specs with same length as number of clauses
-                                       (if (not show) (build-list (length (rest body-contents)) (lambda (i) #f))
-                                           (rest show)))])
+                                       (if (list? show) (rest show)
+                                           (build-list (length (rest body-contents)) (lambda (i) show)))
+                                       )])
                  (interleave-parbreaks/all
                   (list (make-spacer "(")
                         (apply make-wrapper
-                        (append (list (dr-student-answer "cond" #:show? #f (first body-contents)))
+                        (append (list (dr-student-answer "cond" #:show? show (first body-contents)))
                                 (apply append clauselines))
                         #:extra-class "cond"))))]
               [else ;; assume single-line expression for now

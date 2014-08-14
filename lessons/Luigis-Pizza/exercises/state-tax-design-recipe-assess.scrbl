@@ -8,10 +8,10 @@
                        #:buggy-example-list '(((tax "Delaware") (+ 0.00 price))
                                               ((tax "Georgia") (+ 0.05 price)))
                        #:param-list (list "state" "price")
-                       #:body '((cond 
+                       #:body '(cond 
                                   [(string=? state "Pennsylvania") (* 0.03 price)]
                                   [(string=? state "New York") (* 0.08 price)]
                                   [(string=? state "Delaware") (* 0.00 price)]
-                                  [else (* 0.05 price)]))
+                                  [else (* 0.05 price)])
                        )
                                 
