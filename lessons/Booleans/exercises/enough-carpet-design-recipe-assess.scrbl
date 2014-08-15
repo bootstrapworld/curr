@@ -5,7 +5,7 @@
 and returns true if you have enough carpet and false if you don't."
                        #:domain-list (list "number" "number")
                        #:range "number"
-                       #:purpose "Takes the length and width of the room and returns true if the area is less than 100 and false if it is greater than 100."                  
+                       #:purpose "Given length and width of a room, is the area less than 100 sq feet?"                  
                        #:example-list '(((10 15) (< (* 10 15) 100))
                                         ((9 10)  (< (* 9 10)  100)))                                              
                        #:param-list (list "length" "width")
