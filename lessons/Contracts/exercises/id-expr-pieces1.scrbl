@@ -3,7 +3,7 @@
 @(define q1 (elem "How many " @vocab{arguments} " does the circle function take in" @code{(circle (* 3 10) "outline" "black")} "?"))
 @(define a1 "3")
 
-@(define q8 (elem "How many " @vocab{arguments} " arguments does the string-append function take in" @code{(string-append "Happy" "Halloween")} "?"))
+@(define q8 (elem "How many " @vocab{arguments} " does the string-append function take in" @code{(string-append "Happy" "Halloween")} "?"))
 @(define a8 "2")
 
 @(define q2 (elem "What is the " @vocab{name} " of the function being used in" @code{(* 4 5)} "?"))
