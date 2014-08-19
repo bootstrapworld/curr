@@ -54,6 +54,7 @@
   (unless body (error 'assess-design-recipe "body required"))
   (let ([use-examples (if (cons? buggy-example-list) buggy-example-list example-list)])
     (design-recipe-exercise funname directions
+                            #:page-header "Check for Mistakes in this Word Problem:"
                             #:show-funname-contract? #t
                             #:domain-list domain-list
                             #:show-domains? #t 
@@ -98,6 +99,7 @@
 ;;   header and into each example.  These params override that behavior.  At most one of the 
 ;;   example-list and the buggy-example-list should be provided.
 (define (design-recipe-exercise funname directions
+                                #:page-header (page-header "Word Problem:")
                                 #:show-funname-contract? (show-funname-contract? #f)
                                 #:domain-list (domain-list '()) ; list of string
                                 #:show-domains? (show-domains? #f) 
@@ -125,7 +127,7 @@
           (interleave-parbreaks/all
            (list
             (para #:style (bootstrap-div-style "exercise-header")
-                  (bold "Word Problem:") (string-append " " funname))
+                  (bold page-header) (string-append " " funname))
             (if (string? directions)
                 (para #:style (bootstrap-div-style "exercise-instr")
                       (bold "Directions: ") directions)
