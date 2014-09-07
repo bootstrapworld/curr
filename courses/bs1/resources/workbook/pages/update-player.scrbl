@@ -5,7 +5,7 @@
 			 #:range "number"
 			 #:purpose "Produce new y-coordinate depending on key press"
                          #:num-examples 4
-                         #:example-list '((128 "up" (+ 128 20)) (128 "down" (- 128 20)) (451 "up" (+ 451 20)) (451 "down" (- 451 20)))
+                         #:example-list '((320 "up" (+ 320 20)) (100 "up" (+ 100 20)) (320 "down" (- 320 20)) (100 "down" (- 100 20)))
                          #:show-examples '((#t #t #f) (#t #t #f))
                          #:param-list (list "y" "key")
                          #:show-params? #f
