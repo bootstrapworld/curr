@@ -220,7 +220,7 @@
                         }
                  @point{@student{If you don't like the definitions provided here, you can change them! You can modify the @code{TITLE} and @code{TITLE-COLOR} 
                                     to change what is displayed at the top of your screen, and you can change the definitions for your game images as well. 
-                                    You can upload new image files by clicking the "Images" button in the toolbar, then selecting "upload" from the resulting popup)).}
+                                    (You can upload new image files by clicking the "Images" button in the toolbar, then selecting "upload" from the resulting popup).}
                          @teacher{Images should be in PNG or GIF format. Background images should be 640x480, and character images should generally be 
                                    no larger than 200px in either dimension. Make sure that the character images have transparent backgrounds! 
                                    TIP: use animated GIFs for the characters - not only does the animation make the game look a lot better, but these 
