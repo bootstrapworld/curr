@@ -68,7 +68,7 @@
                    @teacher{}}
            @point{@student{@activity{Try to define as many of the following flags as possible:
                                      @itemlist[@item{Indonesia @bitmap{images/indonesia.jpg}}
-                                                @item{Peru @bitmap{images/peru.jpg}}
+                                                @item{Nigeria @bitmap{images/nigeria.png}}
                                                 @item{France @bitmap{images/france.jpg}}
                                                 @item{Switzerland @bitmap{images/switzerland.jpg}}
                                                 @item{United Arab Emirates @bitmap{images/UAE.jpg}}
