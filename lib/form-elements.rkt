@@ -1,7 +1,7 @@
 #lang racket/base
 
 (require racket/runtime-path
-         racket/contract
+         (except-in racket/contract contract-exercise)
          racket/string
          scribble/base
          scribble/core
