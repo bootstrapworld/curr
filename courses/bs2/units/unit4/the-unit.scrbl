@@ -109,7 +109,7 @@ Students brainstorm their videogames, and derive the structure for their game wo
 @bitmap{images/NWorld2.png}
 }                                                   
                          @teacher{Since this is their first time using @code{put-image} themselves, write the code with the kids. They'll have 
-                                  time to practice on their own later. Point uot the "staircase" pattern that develops when you put images on
+                                  time to practice on their own later. Point out the "staircase" pattern that develops when you put images on
                                   top of one another. Once they've put the image onto the background, have them click "Run" and 
                                   take a look at that cloud!}}
                  
