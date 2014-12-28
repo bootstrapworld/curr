@@ -127,8 +127,9 @@ Write down the Contracts for @code{*}, @code{-}, @code{/} and @code{sqrt}}}
                     @item{@code{(ellipse 85 100 "solid" "pink")}}
                     @item{@code{(text "Hello world!" 50 "blue")}}]}}
                            @teacher{For even more practice, have students write contracts for various word problems. This is a great time to remind them about connections to algebra and applying skills learned in Bootstrap to their math classes.}}
-                   ]
+]
            }
+
           
 @lesson/studteach[
         #:title "The Design Recipe"
