@@ -6,7 +6,7 @@
 @unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sq sqrt expt})
                                        (list "String" @code{string-append string-length})
                                        (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image})
-                                       (list "Auto" @code{make-auto auto-model auto-hp auto-rims auto-color auto-value}))]{
+                                       (list "Auto" @code{auto .model .hp .rims .color .value}))]{
 
 @unit-descr{Students, having made pre-built data structures in the last lesson (autos), will generalize their understanding by defining various data structures of their own and accessing their fields. Students are introduced to Racket's purely-functional microworld implementation. This requires an understanding of functions, data structures, and an introduction to events-based programming. To accomplish this, students first work with a simple world (a number, representing a dog's x-coordinate). This world is consumed and produced by the update-world function, and drawn by draw-world. To understand events, they act out the World model, actually becoming event handlers and timers, to simulate a running program.}
 }
@@ -20,7 +20,7 @@
         #:standards (list)
         #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, design recipe, course calendar)}
-                            @item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}
+                            @item{Editing environment (Pyret)}
                             @item{Language Table}]
      #:preparation @itemlist[@item{Seating arrangements: ideally clusters of desks/tables}]
      #:pacings (list 
@@ -36,12 +36,14 @@
      Last time all of these were used to make an autobody shop, where you had functions that would increase the auto's @code{hp}, or paint it a new @code{color}. This next problem 
      will be even harder, so remember to refer back to the last two functions you wrote in your workbook, in case you need some hints.}
                         @teacher{Take a few minutes to review structs and autos with your students.}}
-            @point{@student{You may have heard of the show "Pimp My Ride", where the hosts get an old, beat-up car and make it WAY cooler. Let's implement something like this in Racket...
+            @point{@student{You may have heard of the show "Pimp My Ride", where the hosts get an old, beat-up car and make it WAY cooler. Let's implement something like this in Pyret...
             @activity{Turn to @worksheet-link[#:page 12 #:name "pimp"] in your workbooks. Write a function called @code{pimp}, which takes in an Auto and returns a new Auto which has an 
                               extra 100 horsepower, has 30 inch rims, is painted red, and has increased in value by $10,000.
                               @itemlist[@item{What is the @vocab{contract} for this function?}
-                                         @item{For the first EXAMPLE, let's upgrade @code{car3}. How will you start the example?}
-                                         @item{@code{(EXAMPLE (pimp car3) ...)}}
+                                         @item{For the first test case, let's upgrade @code{car3}. How will you start the example?}
+                                         @item{@code[#:multi-line #t]{check:
+                                                                          pimp(car3) is...
+                                                                      end}}
                                          @item{According to the contract, we know that the Range of the @code{pimp} function is an auto. How do you make an auto?}
                                          @item{What's the first part of an auto? The @code{model}. Does the model change, according to the function's @vocab{purpose statement}? 
                                                How do you get the @code{model} out of @code{car3}?}
@@ -51,16 +53,14 @@
                                          @item{Likewise, every car will be painted red. Do we need to reference the original color at all?}
                                          @item{Finally, how do you get the @code{value} out of @code{car3}? Will the @code{value} increase or decrease after the auto is upgraded?}
                                        ]}}
-                    @teacher{This is an opportunity for students to practice nested expressions. Not only will they use accessor functions to access the fields of the original auto, 
+                    @teacher{This is an opportunity for students to practice nested expressions. Not only will they use dot-accessors to access the fields of the original auto, 
                              they will need to modify them according to the problem statement. If they get stuck, have them draw the circle of evaluation for adding 100 to the auto's 
                              horsepower, 10,000 to the auto's value, etc.}}
             @point{@student{Putting it all together, the first example should look like:
 
-@code[#:multi-line #t]{(EXAMPLE (pimp car3) (make-auto (auto-model car3)
-                                                    (+ (auto-hp car3) 100)
-                                                        30
-                                                        red
-                                                    (+ (auto-value car3) 10000)))}
+@code[#:multi-line #t]{check:
+                           pimp(car3) is auto(car3.model, car3.hp + 100, 30, red, car3.value + 10000)
+                       end}
 @activity{Write one more example, circle what changes, and then define the @code{pimp} function. If you're stuck, look back at the contract and your first example.}}                             
                     @teacher{}}
             ]
@@ -73,7 +73,7 @@
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[]
         #:standards (list)
-        #:materials @itemlist[@item{The Autos file [Autos.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "P7qS37u1ZH" "WeScheme"] preloaded on students' machines}]
+        #:materials @itemlist[@item{The Autos file [Autos.arr from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "P7qS37u1ZH" "WeScheme"] preloaded on students' machines}]
         #:preparation @itemlist[]
         #:prerequisites (list)
         #:pacings (list 
@@ -81,27 +81,29 @@
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
-      ]{@points[@point{@student{@activity{Open the @editor-link[#:public-id "P7qS37u1ZH" "Autobody Shop"] file, and look at the first two lines at the top. 
-                                                   They start with @code{;an auto is...} and @code{define-struct}.}
-                                @code[#:multi-line #t]{; an auto is a (make-auto String Number Number String Number)
-(define-struct auto (model hp rims color value))}
+      ]{@points[@point{@student{@activity{Open the @editor-link[#:public-id "P7qS37u1ZH" "Autobody Shop"] file, and look at the first few lines at the top. 
+                                                   They start with @code{data Auto:}.}
+                                @code[#:multi-line #t]{data Auto:
+                                                         # an auto is a (make-auto String Number Number String Number)
+                                                         | auto(model :: String, hp :: Number, rims :: Number, color :: String, value :: Number)
+                                                       end}
 In the last unit we skipped over the part of the code that defines the auto struct, or tells the computer what an auto is and what goes into it. Just like we would expect from having
-worked with autos, the @code{define-struct} line says that an auto has five things....a model, hp, rim, color, and value. But how do we know which number is which? Remember that order
-matters! Look at the order of the fields in the @code{define-struct} line. The first string is the model, the first number is the horsepower, the second number is the rim size, and so on.}
+worked with autos, the @code{auto(...)} line says that an auto has five things....a model, hp, rim, color, and value. But how do we know which number is which? Remember that order
+matters! Look at the order of the fields in the @code{auto(...)} line. The first string is the model, the first number is the horsepower, the second number is the rim size, and so on.}
                         @teacher{You can use the given Autos file, or your students' own files from the previous lesson. Stress the importance of being able to define your own datatypes
-                                 to students: no longer are they bound by the single values of numbers, strings, or booleans! Racket allows you to define brand new structures, containing 
-                                 any combination of values. But these structures won't be usable without the @code{(define-struct ...)} line!}}
+                                 to students: no longer are they bound by the single values of numbers, strings, or booleans! Pyret allows you to define brand new structures, containing 
+                                 any combination of values.}}
                  
-            @point{@student{A struct is defined using the @code{define-struct} function, which tells the computer what things make up that struct, and what order and type each 
-                                                          thing is. In return, we get new functions to use. Until we write this @code{define-struct} line, we don't have 
-                                                          @code{make-auto} (to make an auto), @code{auto-model} (to get the model out of the auto), @code{auto-hp}, or any of 
-                                                          the other accessor functions, because Racket doesn't know what an Auto is- @italic{we haven't defined it}.
-            @activity{To check this, type a semi-colon before the line which begins with @code{define-struct}. This comments it out, so that the computer ignores it. Hit run, and see what 
+            @point{@student{Our struct is defined using @code{data Auto} and the auto(...) line, which tells the computer what things make up that struct, and what order and type each 
+                                                          thing is. In return, we get new functions to use. Until we write these two lines, we don't have 
+                                                          @code{auto(...)} (to make an auto), @code{.model} (to get the model out of the auto), @code{.hp}, or any of 
+                                                          the other dot-accessor functions, because Racket doesn't know what an Auto is- @italic{we haven't defined it}.
+            @activity{To check this, type a pound sign (#) before the line which begins with @code{auto(...)}. This comments it out, so that the computer ignores it. Hit run, and see what 
                                                                                          happens. Then turn to @worksheet-link[#:page 13 #:name "define-struct"] in your workbook, and copy 
-                                                                                         down the define-struct line.}}
-                    @teacher{When the @code{define-struct} line is commented out, Racket returns an error, saying you're trying to use an identifier before its definition. That means that 
-                                      it doesn't know what @code{make-auto} is or does, because we never defined an auto struct. Make sure students understand that @code{define-struct} 
-                                      is needed in order to create and work with any struct.}}
+                                                                                         down the auto(...) line.}}
+                    @teacher{When the @code{auto(...)} line is commented out, Pyret returns an error, saying you're trying to use an identifier before its definition. That means that 
+                                      it doesn't know what @code{auto} is or does, because we never defined an auto struct. Make sure students understand that the line beginning with
+                                      @code{data} and a line similar to @code{auto(...)} are needed in order to create and work with any struct.}}
             ]
          }
            
@@ -114,7 +116,7 @@ matters! Look at the order of the fields in the @code{define-struct} line. The f
         #:product-outcomes @itemlist[@item{Students define two new complex data structures: party and world}
           @item{Students will write functions that access fields of an auto, party, or world, and produce new autos, parties, and worlds.}]
         #:standards (list)
-        #:materials @itemlist[@item{The Party Planner file [Party.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "zLYLPQ5d6K" "WeScheme"] preloaded on students' machines}]
+        #:materials @itemlist[@item{The Party Planner file [Party.arr from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "zLYLPQ5d6K" "WeScheme"] preloaded on students' machines}]
         #:preparation @itemlist[]
         #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -129,8 +131,10 @@ matters! Look at the order of the fields in the @code{define-struct} line. The f
                                                      @item{What about the party's theme? (This could be something like @code{"50s"}, or @code{"laser tag"})}
                                                      @item{How about the number of guests?}]
                                            Fill out the second struct definition on @worksheet-link[#:page 13 #:name "Party Planner"] in your workbook.}
-@code[#:multi-line #t]{; a party is a (make-party String String Number)
-                       (define-struct party (location theme guests))}}
+@code[#:multi-line #t]{data Party:
+                         ; a party is a (make-party String String Number)
+                         | party(location :: String, theme :: String, guests :: Number)
+                       end}}
                         @teacher{}}
                  
                  @point{@student{@activity{Open the @editor-link[#:public-id "zLYLPQ5d6K" "Party Planner"] file. Take a look at the first two 
@@ -155,8 +159,10 @@ matters! Look at the order of the fields in the @code{define-struct} line. The f
                         guests.
                         @itemlist[@item{What's the name of the function? Domain? Range?}
                                    @item{Write the @vocab{contract} and @vocab{purpose statement} on your page.}
-                                   @item{Write your first EXAMPLE for the party @code{Halloween}. How do you start?}
-                                   @item{@code[#:multi-line #t]{(EXAMPLE (RSVP Halloween)....)}}
+                                   @item{Write your first test case for the party @code{Halloween}. How do you start?}
+                                   @item{@code[#:multi-line #t]{check:
+                                                                  RSVP(Halloween) is ...
+                                                                end}}
                                    @item{What does this function produce? (If you're stuck, look back at your contract.)}
                                    @item{Which function do we use to make a party?}
                                    @item{According to the @code{RSVP} function, will the location of this party change? Of course not. So how do you get the @code{location}
@@ -165,14 +171,14 @@ matters! Look at the order of the fields in the @code{define-struct} line. The f
 		                               .....))}}
                                @item{What about the theme? If someone new RSVPs, do we suddenly have to make this a Christmas party? What function gets the @code{theme} 
                                      out of a party?}
-                               @item{@code[#:multi-line #t]{(EXAMPLE (RSVP Halloween (make-party (party-location Halloween)
-        (party-theme Halloween)
-		.....))}}
+                               @item{@code[#:multi-line #t]{check:
+                                                              RSVP(Halloween) is party(Halloween.location, Halloween.theme, ...)
+                                                            end}}
                                @item{Lastly, what happens to the number of guests, when someone new RSVPs to the party?}]}
       The first @code{RSVP} example should be written as: 
-@code[#:multi-line #t]{(EXAMPLE (RSVP Halloween) (make-party (party-location Halloween)
-                                                             (party-theme Halloween)
-                                                          (+ (party-guests Halloween) 1)))}}
+@code[#:multi-line #t]{check:
+                         RSVP(Halloween) is party(Halloween.location, Halloween.theme, Halloween.guests + 1)
+                       end}}
                          @teacher{Every structure will have its own unique accessor functions for each field. Have students practice accessing each part of the Party Struct and altering them (or not!) based on the word problem.}}
                  @point{@student{@activity{On @worksheet-link[#:page 15 #:name "relocate"], write a function called @code{relocate}, which takes in a party AND the location that
                                               it's moving to, and makes a new party at that location. Go through each part of the design recipe: contract, examples, and definition.}}
@@ -184,7 +190,7 @@ matters! Look at the order of the fields in the @code{define-struct} line. The f
 @lesson/studteach[#:title "Acting Out Ninja World"
         #:duration "30 minutes"
         #:overview ""
-        #:learning-objectives @itemlist[@item{Discover the event-based microworld implementation of Racket, which uses events to modify the world.}]
+        #:learning-objectives @itemlist[@item{Discover the event-based microworld implementation of Pyret, which uses events to modify the world.}]
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[]
         #:standards (list)
@@ -219,7 +225,7 @@ matters! Look at the order of the fields in the @code{define-struct} line. The f
                         @teacher{These activities encourage students to read others' code and think about how it works, looking at the contracts and definitions and 
                                  piecing together what they already know. Ask a LOT of questions when going through the file: How do we know we need to make a new 
                                  world in @code{update-world}? (Because the range is a world). Why is @code{dogX} a good variable name for our world? Ask them to
-                                 guess what they think expressions like @activity{(on-tick update-world)} will do in the game.}}
+                                 guess what they think expressions like @activity{on-tick(update-world)} will do in the game.}}
                  
                  @point{@student{@activity{Now skip down to the last function defined in our code: @code{big-bang}. This is a special function that will begin an animation, 
                                           but it needs help from other functions to update and draw the world. 
@@ -227,10 +233,10 @@ matters! Look at the order of the fields in the @code{define-struct} line. The f
                                                      @item{In the code, @code{big-bang} is calling on a few different functions. What new functions can you see used in 
                                                                         @code{big-bang}?}]}
                                   The function @code{on-tick} acts kind of like a timer, and on each "tick", it updates the world. Right now the world struct is 
-                                  just one number, representing the x-coordinate of the dog. @code{(on-tick update-world)} tells the computer to update 
+                                  just one number, representing the x-coordinate of the dog. @code{on-tick(update-world)} tells the computer to update 
                                   the world on every tick.
-                                 @activity{@itemlist[@item{How does it do that? think back to what @code{update-world} does to the @code{dogX} of the world.}
-                                                      @item{Try evaluating @code{(big-bang START (on-tick update-world))} in to the interactions window and see what happens.}]}
+                                 @activity{@itemlist[@item{How does it do that? Think back to what @code{update-world} does to the @code{dogX} of the world.}
+                                                      @item{Try evaluating @code{big-bang(START, [list: on-tick(update-world)])} in to the interactions window and see what happens.}]}
                                  The world structure is updating, but this isn't much of a game without images! We need to know how to @italic{draw} the world.}
                          @teacher{}}
                  @point{@student{@activity{Scroll up to where you see @code{;; GRAPHICS FUNCTIONS}. 
@@ -243,7 +249,7 @@ matters! Look at the order of the fields in the @code{define-struct} line. The f
                          @teacher{Once students understand the purpose of these three functions, they need to understand how they work together. Have volunteers act out 
                                   @code{update-world} and @code{big-bang}, giving them nametags with the function names on them and having them come to the board.
                                   Have them explain to the class what their contracts are and what they do. Write: "World" on the board, with the number @code{0} beneath it. 
-                                  When you yell "@code{(big bang 0)}", have the class start counting time, yelling "tick!" ever five seconds. On every tick, @code{big-bang} 
+                                  When you yell "@code{big bang(0)}", have the class start counting time, yelling "tick!" every five seconds. On every tick, @code{big-bang} 
                                   must call on @code{update-world} to update the world written on the board. This results in the number changing over time, starting with 0.
                                   
                                   Then have another volunteer be @code{draw-world}, giving them the "draw-world" nametag and the dog cutout. Draw a large 

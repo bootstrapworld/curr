@@ -37,9 +37,9 @@
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[]
         #:standards (list)
-        #:materials @itemlist[@item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}]
-        #:preparation @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket}
-                                @item{If using DrRacket, make sure the Review.rkt file is loaded}
+        #:materials @itemlist[@item{Editing environment (Pyret Editor)}]
+        #:preparation @itemlist[@item{Computer for each student (or pair), running the Pyret Editor}
+                                @item{Make sure the Review.arr file is loaded}
                                 @item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders with names on covers, and something to write with}]
         #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -57,7 +57,7 @@
                                                      @item{What color will it be?}]
                                           Try evaluating @code{OUTLINE} in the Interactions window. Was the fill what you expected it to be?}
 The problem is that we used a very confusing variable name: the name was "outline," but the value was "solid". Remember: always choose your variable names carefully!}
-                   @teacher{Review UI of the DrScheme or WeScheme IDE.
+                   @teacher{Review UI of the Pyret IDE.
                             Remind students about the importance of good variable names: they make code more readable, and a descriptive variable name makes it very clear what is being defined.}
                    }
            @point{@student{@activity{In your review file, define:
@@ -79,12 +79,12 @@ Now we have values, and we know how to define shortcuts for them. However, there
                                                @item{Where inside the circle do the inputs go? in which order should the numbers appear?}]}
 The expression 10 - 6 can be drawn as a Circle of Evaluation like so: 
 @bitmap{images/CE1.png}
-@activity{How would you convert this circle of evaluation into Racket code? 
+@activity{How would you convert this circle of evaluation into Pyret code? 
           @itemlist[@item{What is the first character you type when converting a Circle of Evaluation? (Hint: If you break a circle in half, you're left with two things that look like which keys on a keyboard?)}
-                    @item{What comes next in a Racket expression, right inside the parentheses?}
+                    @item{What comes next in a Pyret expression, right inside the parentheses?}
                     @item{Where do you look next? How do you know which input comes first in the Racket code?}
-                    @item{How do you end, or close a Racket expression?}]}
-The above Circle of Evaluation converts to this Racket expression: @code{(- 10 6)} Why would it be incorrect to write @code{(- 6 10)}?
+                    @item{How do you end, or close a Pyret expression?}]}
+The above Circle of Evaluation converts to this Pyret expression: @code{10 - 6} Why would it be incorrect to write @code{10 - 6}?
 @activity{Turn to @worksheet-link[#:page 3 #:name "circles-competition"] in your workbooks. Each row has a math expression. You'll have to convert that math expression into Circles of Evaluation, and then convert the Circle into Racket code.}}
                    @teacher{Review circles of evaluation and nested circles with numbers, as well as how to convert them to Racket code.
                            Remind students that inputs are read from left to right, and that order matters. Be sure to challenge students with 
@@ -123,9 +123,9 @@ Write down the Contracts for @code{*}, @code{-}, @code{/} and @code{sqrt}}}
        @teacher{Emphasize to students that a function's contract can tell you a LOT about that function. It may also be useful to ask them to articulate reasons why Contracts are a good thing, so they are able to say it in their own voice. @management{Make sure they write every contract down in their workbooks.} 
                 Review contracts for functions that produce images, such as @code{circle}, @code{triangle}, @code{rectangle}, @code{ellipse}, etc.}}
                    @point{@student{@activity{Below are some expressions using functions you used in bootstrap 1. For each one, identify which function is being used and write its Contract in your Contracts page. If you need help, try typing the expressions into your computer. @itemlist[@item{@code{(circle 75 "solid" "red")}}
-                    @item{@code{(rectangle 20 30 "outline" "green")}}
-                    @item{@code{(ellipse 85 100 "solid" "pink")}}
-                    @item{@code{(text "Hello world!" 50 "blue")}}]}}
+                    @item{@code{rectangle(20, 30, "outline", "green")}}
+                    @item{@code{ellipse(85, 100, "solid", "pink")}}
+                    @item{@code{text("Hello world!", 50, "blue")}}]}}
                            @teacher{For even more practice, have students write contracts for various word problems. This is a great time to remind them about connections to algebra and applying skills learned in Bootstrap to their math classes.}}
 ]
            }
@@ -149,13 +149,20 @@ Write down the Contracts for @code{*}, @code{-}, @code{/} and @code{sqrt}}}
       ]{
           @points[@point{@student{You remember how to define values, and you know how to use contracts for pre-built functions. Do you remember how to define a function of your own? In Bootstrap 1, you used a tool called the @vocab{Design Recipe} to define functions from word problems. Let's review the steps of the Design Recipe: 
                                   @activity{Turn to @worksheet-link[#:page 4 #:name "Fast-Functions"] in your workbook.}
-                                  Here we have a function definition: @code[#:multi-line #t]{;double : Number -> Number
-                                                                                             ;takes a number and multiplies it by two
+                                  Here we have a function definition: @code[#:multi-line #t]{fun double(n :: Number) -> Number:
+                                                                                                 doc: "Takes a number, and multiplies it by two."
+                                                                                                 nothing
+                                                                                             end
                                                                                              
-                                                                                             (EXAMPLE (double 5) (* 2 5))
-                                                                                             (EXAMPLE (double 7) (* 2 7))
+                                                                                             check:
+                                                                                                 double(5) is 2 * 5
+                                                                                                 double(7) is 2 * 7
+                                                                                             end
 
-                                                                                             (define (double n)  (* 2 n))}
+                                                                                             fun double(n :: Number) -> Number:
+                                                                                                 doc: "Takes a number, and multiplies it by two."
+                                                                                                 2 * n
+                                                                                             end}
                                   @bannerline{Step 1: Write the Contract and Purpose Statement}
                                   @activity{@itemlist[@item{What is the @vocab{Name} of this function?  How do you know?}
                                                        @item{How many inputs does it have in its @vocab{Domain}?}
@@ -170,18 +177,18 @@ Write down the Contracts for @code{*}, @code{-}, @code{/} and @code{sqrt}}}
                    
                   @point{@student{@bannerline{Step 2: Give Examples}
                                   What happens to the function's input? 
-                                  @activity{Look at the two EXAMPLEs, written above. @itemlist[@item{What will happen if you type @code{(double 5)} into the interactions window? What about @code{(double 7)}?}
+                                  @activity{Look at the two test cases, written above. @itemlist[@item{What will happen if you type @code{double(5)} into the interactions window? What about @code{double(7)}?}
                  @item{What would happen if you changed the name of the input @code{n} to something else, such as @code{x}? What else would have to change?}]}
-Once we know a function's contract, it becomes easy to write examples: we start by using the function with some input(s) (@code{(double 5)}), then writing in Racket code what we expect the computer to do with those inputs. (In this case, @code{double} will multiply the example input by 2.)}
-                           @teacher{Writing EXAMPLEs is akin to "showing your work" in math class: You want to see @italic{how} students arrived at their answers, not just that they have an answer. It is also much easier to debug a function using the design recipe, because you can check each section individually for errors. Writing EXAMPLEs for code is also called "unit testing," something professional programmers do all the time.}}
+Once we know a function's contract, it becomes easy to write examples: we start by using the function with some input(s) (@code{double(5)}), then writing in Pyret code what we expect the computer to do with those inputs. (In this case, @code{double} will multiply the example input by 2.)}
+                           @teacher{Writing examples is akin to "showing your work" in math class: You want to see @italic{how} students arrived at their answers, not just that they have an answer. It is also much easier to debug a function using the design recipe, because you can check each section individually for errors. Writing EXAMPLEs for code is also called "unit testing," something professional programmers do all the time.}}
                            
-                    @point{@student{@activity{In your workbook, write the contract and two EXAMPLEs for a function called @code{triple}, which takes in a number as its input and multiplies it by 3.}
-                                    Now look at your two EXAMPLEs. What is the only thing that changes from one to the other? @activity{In your workbook, circle what is changeable, or @vocab{variable}, between your two EXAMPLEs.} 
+                    @point{@student{@activity{In your workbook, write the contract and two test cases for a function called @code{triple}, which takes in a number as its input and multiplies it by 3.}
+                                    Now look at your two test cases. What is the only thing that changes from one to the other? @activity{In your workbook, circle what is changeable, or @vocab{variable}, between your two EXAMPLEs.} 
                The only thing that changes is the Number being given to @code{triple} and multiplied by 3. Remember from Bootstrap 1 that once you've circled and labeled what changes in each example, it becomes incredibly easy to define the function! All you need to do is replace the thing that changes with its label! 
                @bannerline{Step 3: Define the function}
                @activity{Now write the function header and body for @code{triple}. Don't forget to replace the changing thing with a variable!}}
-            @teacher{Just as writing a Contract helps us write Examples, writing the Examples makes it easier to write the definition of a function: circling what changes between the examples makes it obvious that the @italic{changeable} thing is where we need to use a @italic{variable} in our function. You will want to explicitly connect each step in the Design Recipe to every other step. Ask students to justify each part of their Contract by referring back to the Word Problem, to justify each step of their Examples by referring back to the Word Problem and Contract, and finally to justify each step of the definition by referring to the Word Problem, Contract and Examples. The same variable name can be used in multiple functions, just as in math (where many functions use x as the variable name, for example)
-                     @management{This activity can be done as a team competition: teams have one minute to write the contract and two examples for @code{triple}, and another minute for the function header and body. Assign points to the teams that complete each function.} Make sure students fill out the ENTIRE contract, with two examples, before they circle what changes and move on to the function body. Build these good habits early in the course!}}                                         
+            @teacher{Just as writing a Contract helps us write test cases, writing the test cases makes it easier to write the definition of a function: circling what changes between the examples makes it obvious that the @italic{changeable} thing is where we need to use a @italic{variable} in our function. You will want to explicitly connect each step in the Design Recipe to every other step. Ask students to justify each part of their Contract by referring back to the Word Problem, to justify each step of their Examples by referring back to the Word Problem and Contract, and finally to justify each step of the definition by referring to the Word Problem, Contract and Examples. The same variable name can be used in multiple functions, just as in math (where many functions use x as the variable name, for example)
+                     @management{This activity can be done as a team competition: teams have one minute to write the contract and two test cases for @code{triple}, and another minute for the function header and body. Assign points to the teams that complete each function.} Make sure students fill out the ENTIRE contract, with two test cases, before they circle what changes and move on to the function body. Build these good habits early in the course!}}                                         
           @point{@student{Try using the Design Recipe to solve the following word problems:
                           @activity{@itemlist/splicing[
                                @item{Write a function @code{plus1}, that takes in a number and adds one to it}
