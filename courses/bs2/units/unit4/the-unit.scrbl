@@ -6,8 +6,8 @@
 @unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sq sqrt expt})
                                        (list "String" @code{string-append string-length})
                                        (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image})
-                                       (list "Auto" @code{make-auto auto-model auto-hp auto-rims auto-color auto-value})
-                                       (list "Party" @code{make-party party-theme party-location party-guests}))]{
+                                       (list "Auto" @code{auto .model .hp .rims .color .value})
+                                       (list "Party" @code{party .theme .location .guests}))]{
 @unit-descr{Students return to the Ninja World game, and codewalk through the 'update-world' and 'draw-world' functions. Making minimal changes to these functions, they are 
             able to modify the dog's speed, add static clouds, etc. They then modify the world to include the ruby's x-coordinate, and systematically update each function in
             the source code to accommodate this new world. If time allows, additional iterations are possible by adding more sets of coordinates to the World.
@@ -23,7 +23,7 @@ Students brainstorm their videogames, and derive the structure for their game wo
         #:standards (list)
         #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, design recipe, course calendar)}
-                            @item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}
+                            @item{Editing environment (Pyret Editor)}
                             @item{Language Table}]
      #:preparation @itemlist[@item{Seating arrangements: ideally clusters of desks/tables}]
      #:pacings (list 
@@ -47,7 +47,7 @@ Students brainstorm their videogames, and derive the structure for their game wo
         #:product-outcomes @itemlist[]
         #:standards (list)
         #:materials @itemlist[]
-        #:preparation @itemlist[@item{The Ninja World 2 file [NW2.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "nQq3AAg5nn" "WeScheme"] preloaded on students' machines}]
+        #:preparation @itemlist[@item{The Ninja World 2 file [NW2.arr from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "nQq3AAg5nn" "WeScheme"] preloaded on students' machines}]
         #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -57,11 +57,11 @@ Students brainstorm their videogames, and derive the structure for their game wo
         @points[@point{@student{@activity{Open up @editor-link[#:public-id "nQq3AAg5nn" "Ninja World 2"] and click "Run". 
                                           What happens? Does it do the same thing as in the simulation last unit?}
                                 
-                                 Let's walk through it and figure out what's wrong. At the top of the screen, you see the @code{;; DATA} section. 
+                                 Let's walk through it and figure out what's wrong. At the top of the screen, you see the @code{# DATA} section. 
                                  This is where we define everything we need to keep track of during the animation. As you can see, 
-                                 @code{define-struct} is used to define the World structure here.
+                                 @code{data World:} and @code{world(...)} are used to define the World structure here.
                                  @activity{@itemlist[@item{What is in the world structure?}
-                                                      @item{Take a look at the section labelled @code{;; STARTING WORLD}. What is the name of the 
+                                                      @item{Take a look at the section labelled @code{# STARTING WORLD}. What is the name of the 
                                                             first variable defined here?}
                                                       @item{What kind of thing is it?}
                                                       @item{How would you get the @code{dogX} out of the @code{START} world?}
@@ -77,7 +77,7 @@ Students brainstorm their videogames, and derive the structure for their game wo
                                  game contains only one changing thing, the dog's x-coordinate.}}
                  
                  @point{@student{Now that we have a world structure, we need to know how to draw it.
-                                 @activity{Scroll down until you see @code{;; GRAPHICS FUNCTIONS}. What is the name of this function? What 
+                                 @activity{Scroll down until you see @code{# GRAPHICS FUNCTIONS}. What is the name of this function? What 
                                           is the Domain? The Range?}
                                  As in the last lesson, the @code{draw-world} function is using @code{put-image} to place the @code{DOG} onto the
                                  @code{BACKGROUND} at some coordinates. @activity{What is it using for the dog's x-coordinate? The dog's 
@@ -89,8 +89,8 @@ Students brainstorm their videogames, and derive the structure for their game wo
                                  looking at the world it's taking in, so it has no way to change the position of the dog.
                                  @activity{@itemlist[@item{How would you get the @code{dogX} out of the world?}
                                                       @item{Which world is going to be used? (Which world is @code{update-world} taking in?)}
-                                                      @item{@code{(world-dogX w)}}
-                                                      @item{Now where do you need to put this @code{(world-dogX w)}? Which number here represents
+                                                      @item{@code{w.dogX}}
+                                                      @item{Now where do you need to put this @code{w.dogX}? Which number here represents
                                                             the x-coordinate of the @code{DANGER} on the @code{BACKGROUND}?}]}}
                          @teacher{This @code{draw-world} function will always draw the dog at (0, 400) on the screen. Even through the world is 
                                   being updated and passed to @code{draw-world}, students should understand that unless the image of the dog is 
@@ -98,14 +98,11 @@ Students brainstorm their videogames, and derive the structure for their game wo
                  
                  @point{@student{Suppose you want to add the @code{CLOUD} image to the game at the position (500, 400). How could you use
                                  @code{put-image} to stick them on the @code{BACKGROUND}?
-@code[#:multi-line #t]{;; draw-world: world -> Image
-;; place DANGER onto BACKGROUND at the right coordinates
-(define (draw-world w)
-  (put-image CLOUD 
-               500 400
-               (put-image DANGER
-                            (world-dogX w) 200
-                             BACKGROUND)))}
+@code[#:multi-line #t]{fun draw-world(w :: World) -> Image:
+    doc: "Place DANGER and CLOUD onto BACKGROUND at the right coordinates."
+    put-image(CLOUD, 500, 400,
+        put-image(DANGER, w.dogX, 200, BACKGROUND))
+end}
 @bitmap{images/NWorld2.png}
 }                                                   
                          @teacher{Since this is their first time using @code{put-image} themselves, write the code with the kids. They'll have 
@@ -113,7 +110,7 @@ Students brainstorm their videogames, and derive the structure for their game wo
                                   top of one another. Once they've put the image onto the background, have them click "Run" and 
                                   take a look at that cloud!}}
                  
-                 @point{@student{Now scroll down until you see @code{;; UPDATING FUNCTIONS}. This code is responsible for changing the World.
+                 @point{@student{Now scroll down until you see @code{# UPDATING FUNCTIONS}. This code is responsible for changing the World.
                                   @activity{@itemlist[@item{What does @code{update-world} DO to the world?}
                                                        @item{@code{update-world} will make a new world and add 10 to the @code{dogX} of that world.
                                                               How will this make the dog move? Does it go to the right, left, up, down?}
@@ -121,7 +118,7 @@ Students brainstorm their videogames, and derive the structure for their game wo
                                                        @item{How could you make the dog move faster? Slower? Backwards?}
                                                        @item{Write two @vocab{examples} for @code{update-world}, using the @code{START} world and the 
                                                                        @code{NEXT} world you already defined.}]}}
-                         @teacher{Each of these three functions work together to create the game that students see. @code{define-struct world} tells the 
+                         @teacher{Each of these three functions work together to create the game that students see. @code{data World:} and @code{world(...)} tells the 
                                   computer what a world contains, @code{draw-world} draws the images onto the screen, and @code{update-world} changes the 
                                   world, according to the rules of the game. Point out to students that without all of these functions, the game would not be 
                                   playable.}
@@ -152,16 +149,12 @@ Students brainstorm their videogames, and derive the structure for their game wo
                                 the @code{TARGET} to show up in the game.
                                 @activity{Using @code{put-image}, place the @code{TARGET} image on top of everything you have already, 
                                           so that it shows up when you click "Run".}
-@code[#:multi-line #t]{;; draw-world: world -> Image
-;; place DANGER onto BACKGROUND at the right coordinates
-(define (draw-world w)
-  (put-image TARGET
-             500 300
-             (put-image CLOUD 
-                        500 400
-                       (put-image DANGER
-                                 (world-dogX w) 200
-                                   BACKGROUND)))}}
+@code[#:multi-line #t]{fun draw-world(w :: World) -> Image:
+    doc: "Place DANGER, CLOUD and TARGET onto BACKGROUND at the right coordinates."
+    put-image(TARGET, 500, 300,
+        put-image(CLOUD, 500, 400,
+            put-image(DANGER, w.dogX, 200, BACKGROUND)))
+end}}
                         @teacher{This section requires that you walk through and model each one of the changes to the code, with students
                                  following along on their own computers. You can write the code on the board or use a projector to show the
                                  code, and use cutouts of the dog and ruby to model their behavior.}}
@@ -176,7 +169,7 @@ Students brainstorm their videogames, and derive the structure for their game wo
                                                                                      contracts sheet}
                                                       @item{Now that the world structure includes a @code{rubyX}, What new function 
                                                             do you now have access to? Write it in your contracts page.}]}
-                                 @code{; world-rubyX :  world -> Number}}
+                                 @code{.rubyX}}
                          @teacher{}}
                  
                  @point{@student{Because the world structure is different, we need to go through the code, line-by-line, and change every
@@ -194,10 +187,11 @@ Students brainstorm their videogames, and derive the structure for their game wo
                                                             drawn at the coordinates (500, 300) every time, but we want the position (namely, its 
                                                             x-coordinate) to change. How do you get the @code{rubyX} out of the world? Place the
                                                             image of the TARGET at that x-coordinate.}]}
-@code[#:multi-line #t]{(define (draw-world w)
-                               (put-image TARGET
-                                          (world-rubyX w) 300
-                                          (put-image CLOUD ....)))}}
+@code[#:multi-line #t]{fun draw-world(w :: World) -> Image:
+    doc: "Place TARGET, CLOUD, and DANGER onto BACKGROUND at the right coordinates."
+    put-image(TARGET, w.rubyX, 300,
+        put-image(CLOUD, ...))
+end}}
                          @teacher{}}
                  
                  @point{@student{What about @code{update-world}? Does the contract change, now that the world structure is different? Why or why 
@@ -223,9 +217,9 @@ Students brainstorm their videogames, and derive the structure for their game wo
                                                             If it goes left by 5 pixels, where should it end up in the first example?}
                                                       @item{Fix the second example in the same way, adding the ruby's x-coordinate.}]}
                                  }          
-                         @teacher{Every time the world (or @italic{any} structure) changes, every single instance of @code{make-world} (or @code{make-auto},
-                                  @code{make-party}, etc.) will need to change to reflect that. Have students find instance of @code{make-world} and 
-                                  incorporating the @code{rubyX} into the new world. Any time they add something new to their game they will need to do 
+                         @teacher{Every time the world (or @italic{any} structure) changes, every single instance of @code{world} (or @code{auto},
+                                  @code{party}, etc.) will need to change to reflect that. Have students find instances of @code{world} and 
+                                  incorporate @code{rubyX} into the new world. Any time they add something new to their game they will need to do 
                                   the same thing, so make sure they understand that every change to the world structure requires careful reading 
                                   and editing of their world functions.}}
                          ]
@@ -317,7 +311,7 @@ Students brainstorm their videogames, and derive the structure for their game wo
                               @itemlist[@item{Define an example world called START, which is how your world should look a split-second after the
                                               game begins. Write it in on the bottom of @worksheet-link[#:page 21 #:name "Game Design 2"].}]}}
                         @teacher{Review each team's structure and make sure it accurately models their world. Also be sure to check their 
-                                 contracts, which should include @code{make-world}, and functions to access every part of their world structure.}}
+                                 contracts, which should include @code{world}, and functions to access every part of their world structure.}}
                  ]
          }
 @lesson/studteach[#:title "Closing"
@@ -336,7 +330,7 @@ Students brainstorm their videogames, and derive the structure for their game wo
                 )
       ]{
         @points[@point{@student{Now you have the basic building blocks of your game and an understanding of how @code{draw-world}, 
-                               @code{update-world}, and @code{big-bang} work together to create an animation in Racket. In the next unit you'll
+                               @code{update-world}, and @code{big-bang} work together to create an animation in Pyret. In the next unit you'll
                                use your world structure to write the @code{draw-world} and @code{update-world} functions for your own game.}
                        @teacher{Have the class take turns telling their peers about their games: Who the player is, what their danger, target, etc. 
                                 will be. Most importantly, have them tell the class what they have in their World structure.

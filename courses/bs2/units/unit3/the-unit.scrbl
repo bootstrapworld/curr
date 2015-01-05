@@ -20,7 +20,7 @@
         #:standards (list)
         #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, design recipe, course calendar)}
-                            @item{Editing environment (Pyret)}
+                            @item{Editing environment (Pyret Editor)}
                             @item{Language Table}]
      #:preparation @itemlist[@item{Seating arrangements: ideally clusters of desks/tables}]
      #:pacings (list 
@@ -40,7 +40,7 @@
             @activity{Turn to @worksheet-link[#:page 12 #:name "pimp"] in your workbooks. Write a function called @code{pimp}, which takes in an Auto and returns a new Auto which has an 
                               extra 100 horsepower, has 30 inch rims, is painted red, and has increased in value by $10,000.
                               @itemlist[@item{What is the @vocab{contract} for this function?}
-                                         @item{For the first test case, let's upgrade @code{car3}. How will you start the example?}
+                                         @item{For the first test case, let's upgrade @code{car3}. How will you start the test case?}
                                          @item{@code[#:multi-line #t]{check:
                                                                           pimp(car3) is...
                                                                       end}}
@@ -56,7 +56,7 @@
                     @teacher{This is an opportunity for students to practice nested expressions. Not only will they use dot-accessors to access the fields of the original auto, 
                              they will need to modify them according to the problem statement. If they get stuck, have them draw the circle of evaluation for adding 100 to the auto's 
                              horsepower, 10,000 to the auto's value, etc.}}
-            @point{@student{Putting it all together, the first example should look like:
+            @point{@student{Putting it all together, the first test case should look like:
 
 @code[#:multi-line #t]{check:
                            pimp(car3) is auto(car3.model, car3.hp + 100, 30, red, car3.value + 10000)
@@ -66,7 +66,7 @@
             ]
          }
                                                                  
-@lesson/studteach[#:title "define-struct"
+@lesson/studteach[#:title "Creating Structs"
         #:duration "5 minutes"
         #:overview ""
         #:learning-objectives @itemlist[@item{Students will generalize their understanding of function constructors and accessors}]
@@ -94,13 +94,13 @@ matters! Look at the order of the fields in the @code{auto(...)} line. The first
                                  to students: no longer are they bound by the single values of numbers, strings, or booleans! Pyret allows you to define brand new structures, containing 
                                  any combination of values.}}
                  
-            @point{@student{Our struct is defined using @code{data Auto} and the auto(...) line, which tells the computer what things make up that struct, and what order and type each 
+            @point{@student{Our struct is defined using @code{data Auto} and the @code{auto(...)} line, which tells the computer what things make up that struct, and what order and type each 
                                                           thing is. In return, we get new functions to use. Until we write these two lines, we don't have 
                                                           @code{auto(...)} (to make an auto), @code{.model} (to get the model out of the auto), @code{.hp}, or any of 
-                                                          the other dot-accessor functions, because Racket doesn't know what an Auto is- @italic{we haven't defined it}.
+                                                          the other dot-accessor functions, because Pyret doesn't know what an Auto is- @italic{we haven't defined it}.
             @activity{To check this, type a pound sign (#) before the line which begins with @code{auto(...)}. This comments it out, so that the computer ignores it. Hit run, and see what 
                                                                                          happens. Then turn to @worksheet-link[#:page 13 #:name "define-struct"] in your workbook, and copy 
-                                                                                         down the auto(...) line.}}
+                                                                                         down the @code{auto(...)} line.}}
                     @teacher{When the @code{auto(...)} line is commented out, Pyret returns an error, saying you're trying to use an identifier before its definition. That means that 
                                       it doesn't know what @code{auto} is or does, because we never defined an auto struct. Make sure students understand that the line beginning with
                                       @code{data} and a line similar to @code{auto(...)} are needed in order to create and work with any struct.}}
@@ -132,7 +132,7 @@ matters! Look at the order of the fields in the @code{auto(...)} line. The first
                                                      @item{How about the number of guests?}]
                                            Fill out the second struct definition on @worksheet-link[#:page 13 #:name "Party Planner"] in your workbook.}
 @code[#:multi-line #t]{data Party:
-                         ; a party is a (make-party String String Number)
+                         # a party is a (make-party String String Number)
                          | party(location :: String, theme :: String, guests :: Number)
                        end}}
                         @teacher{}}
@@ -167,21 +167,22 @@ matters! Look at the order of the fields in the @code{auto(...)} line. The first
                                    @item{Which function do we use to make a party?}
                                    @item{According to the @code{RSVP} function, will the location of this party change? Of course not. So how do you get the @code{location}
                                          out of a party?}
-                                   @item{@code[#:multi-line #t]{(EXAMPLE (RSVP Halloween) (make-party (party-location Halloween)
-		                               .....))}}
+                                   @item{@code[#:multi-line #t]{check:
+                                                                    RSVP(Halloween) is party(Halloween.location, ...)
+                                                                end}}
                                @item{What about the theme? If someone new RSVPs, do we suddenly have to make this a Christmas party? What function gets the @code{theme} 
                                      out of a party?}
                                @item{@code[#:multi-line #t]{check:
                                                               RSVP(Halloween) is party(Halloween.location, Halloween.theme, ...)
                                                             end}}
                                @item{Lastly, what happens to the number of guests, when someone new RSVPs to the party?}]}
-      The first @code{RSVP} example should be written as: 
+      The first @code{RSVP} test case should be written as: 
 @code[#:multi-line #t]{check:
                          RSVP(Halloween) is party(Halloween.location, Halloween.theme, Halloween.guests + 1)
                        end}}
                          @teacher{Every structure will have its own unique accessor functions for each field. Have students practice accessing each part of the Party Struct and altering them (or not!) based on the word problem.}}
                  @point{@student{@activity{On @worksheet-link[#:page 15 #:name "relocate"], write a function called @code{relocate}, which takes in a party AND the location that
-                                              it's moving to, and makes a new party at that location. Go through each part of the design recipe: contract, examples, and definition.}}
+                                              it's moving to, and makes a new party at that location. Go through each part of the design recipe: contract, test cases, and definition.}}
                          @teacher{}}
                  ]
          }
@@ -213,10 +214,10 @@ matters! Look at the order of the fields in the @code{auto(...)} line. The first
                                                               @item{What is the name of the structure defined in this file?}
                                                               @item{The @code{world} is made up of just one thing: @code{dogX}. What does @code{dogX} represent in the game?
                                                                     What kind of thing is that?}
-                                                              @item{Take a look at the section labelled @code{;; STARTING WORLD}. There is a variable defined here, called 
+                                                              @item{Take a look at the section labelled @code{# STARTING WORLD}. There is a variable defined here, called 
                                                                     @code{START}. What kind of a thing is @code{START}? A number? String? Image? Boolean?}
                                                               @item{what function makes a @code{world}?}
-                                                              @item{Skip a bit farther down to where it says @code{;; UPDATING FUNCTIONS}. What is the name of the function 
+                                                              @item{Skip a bit farther down to where it says @code{# UPDATING FUNCTIONS}. What is the name of the function 
                                                                     defined here? What's its domain and range?}
                                                               @item{Think about what the @code{update-world} function is doing. How does it get the @code{dogX} out of the
                                                                     world? What is it doing to the dog's x-coordinate?}]}
@@ -239,7 +240,7 @@ matters! Look at the order of the fields in the @code{auto(...)} line. The first
                                                       @item{Try evaluating @code{big-bang(START, [list: on-tick(update-world)])} in to the interactions window and see what happens.}]}
                                  The world structure is updating, but this isn't much of a game without images! We need to know how to @italic{draw} the world.}
                          @teacher{}}
-                 @point{@student{@activity{Scroll up to where you see @code{;; GRAPHICS FUNCTIONS}. 
+                 @point{@student{@activity{Scroll up to where you see @code{# GRAPHICS FUNCTIONS}. 
                                                                       @itemlist[@item{What is the name of the function defined here?}
                                                                                  @item{What is the Domain of this function? The Range?}
                                                                                  @item{According to the purpose statement, what does this function do?}]}

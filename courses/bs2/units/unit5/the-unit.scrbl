@@ -19,13 +19,13 @@
         #:standards (list)
         #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, design recipe, course calendar)}
-                            @item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}
+                            @item{Editing environment (Pyret Editor)}
                             @item{Student workbooks}
                             @item{Language Table}]
      #:preparation @itemlist[@item{Seating arrangements: ideally clusters of desks/tables}
                              @item{Clear plastic sheet protectors: put pages 20 & 21 at the front of the workbook for ease of reference}
-                             @item{The Ninja World 3 file [NW3.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "t77yPXKDWs" "WeScheme"] preloaded on students' machines}
-                             @item{BS:2 Blank Game Template [GameTemplate.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "ZcK2dqANbT" "WeScheme"] preloaded on students' machines with student images included.}]
+                             @item{The Ninja World 3 file [NW3.arr from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "t77yPXKDWs" "WeScheme"] preloaded on students' machines}
+                             @item{BS:2 Blank Game Template [GameTemplate.arr from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "ZcK2dqANbT" "WeScheme"] preloaded on students' machines with student images included.}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -50,26 +50,26 @@
                                  you started with the shell of a game, with some sample images and functions defined. In this class the game template is just
                                  a collection of comments, telling you how to organize your functions and variables. You'll be writing @italic{every line} of 
                                  code yourself. Let's begin: 
-                                 @activity{At the top of the file, where it says @code{;; The World is a:}, define the world struct for your game. 
+                                 @activity{At the top of the file, where it says @code{# The World is a:}, define the world struct for your game. 
                                           (Check @worksheet-link[#:page 21 #:name "Game Design"] to jog your memory.) Once you have the world struct, scroll 
-                                          down to where it says @code{;; STARTING WORLD} and define your first example world: name it @code{START}.}}
+                                          down to where it says @code{# STARTING WORLD} and define your first example world: name it @code{START}.}}
                          @teacher{}}
                  
                  @point{@student{So now you have your world, and you know what's in it: but what do those things look like? You'll have to add some images.
-                                 Do you remember the @code{bitmap/url} function from Bootstrap one? It takes in the URL of any image online (given as a 
-                                 string) and returns that image. @code{; bitmap/url : String -> Image}
+                                 We'll use the @code{image-url} function. It takes in the URL of any image online(given as a string), and returns that
+                                 image. @code{fun image-url(url :: String) -> Image}
                                  @activity{@itemlist[@item{Look back at @worksheet-link[#:page 20 #:name "Game Design"] in your workbook. How many things 
                                                            in your game will need their own image?}
                                                       @item{Using Google Image Search or a similar tool, find images for the background and for each of 
                                                             the characters in your game.}
-                                                      @item{Define a new variables for your images, (i.e. @code{PLAYER}, @code{DANGER}, etc. and use
-                                                            the @code{bitmap/url} function to put them into your game file.}]}
+                                                      @item{Define a new variables for your images, (i.e. @code{PLAYER}, @code{DANGER}, etc.) and use
+                                                            the @code{image-url} function to put them into your game file.}]}
                                  Some hints for finding images: Your images should be in PNG or GIF format, and the url should contain the file type
                                  (i.e. .png or .gif) at the end. Background images should be 640x480, and character images should generally be no 
                                  larger than 200px in either dimension. Make sure that the character images have transparent backgrounds! TIP: use 
                                  animated GIFs for the characters - not only does the animation make the game look a lot better, but these images 
                                  usually have transparent backgrounds to begin with.} 
-                        @teacher{Find students' images ahead of before class to save time, and use the @code{bitmap/url} function to put them into a 
+                        @teacher{Find students' images ahead of before class to save time, and use the @code{image-url} function to put them into a 
                                   blank game file for each pair of students.}}
                  ]
          }
@@ -119,8 +119,8 @@
                         @point{@student{Below the function header, there is a sort of 'staircase' pattern using @code{put-image}, just like in 
                                          Ninja World. Do you remember the contract for @code{put-image}? It takes in an image, the coordinates for 
                                          where to put the image, and another image, on top of which the first image is placed.
-@code[#:multi-line #t]{; put-image : Image Number Number Image -> Image
-                       ; places the first image at the given x and y-coordinates on top of the second image}
+@code[#:multi-line #t]{fun put-image(img1 :: Image, x :: Number, y :: Number, img2 :: Image) -> Image:
+                           doc: "Places the first image at the given x and y-coordinates on top of the second image."}
                                         @activity{@itemlist[@item{Start out on the bottom of this 'staircase' by putting one of your
                                                                   images onto the background.}
                                                              @item{If you wanted the image to be centered on the scene, what are the x- and 
@@ -129,15 +129,13 @@
                                                                    Look back at your @code{START} world picture. You made a note of which
                                                                    coordinates where you wanted that image to be, laid on top of the background.}]}
                                         Start with something that looks like this, substituting YOUR image and coordinates:
-@code[#:multi-line #t]{(put-image IMAGE
-                                  320 240
-                                  BACKGROUND)}
+@code[#:multi-line #t]{put-image(IMAGE, 320, 240, BACKGROUND)}
                                          @activity{@itemlist[@item{Place another one of your images on top of the one that this 
                                                                    staircase-shaped expression has created.}
                                                               @item{Keep adding to it, until you have a stack of all of the images in your game.}]}
 }
                                 @teacher{Work with small groups to complete this section. When students finish writing draw-world, have them type their 
-                                         NEXT world and draw-world into their games, in the @code{;; GRAPHICS} section. If they type @code{(draw-world START)}
+                                         NEXT world and draw-world into their games, in the @code{# GRAPHICS} section. If they type @code{draw-world(START)}
                                          into the interactions window, they can see a screenshot of their games.}}
                         ]
          }
@@ -157,14 +155,14 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Scroll down until you see @code{;; UPDATING FUNCTIONS}. This code is responsible for changing the World. 
+        @points[@point{@student{Scroll down until you see @code{# UPDATING FUNCTIONS}. This code is responsible for changing the World. 
                                 @activity{What function do you see here? What's in its Domain? Its Range?}
                                 @code{update-world} takes a world, and then returns a new one that's been updated. Think of this function 
                                 as the one that generates the next page of a flipbook.
             @activity{@itemlist[@item{Look back at the difference between your @code{START} and @code{NEXT} worlds. What has changed?}
                                 @item{On @worksheet-link[#:page 26 #:name "update-world"], make a list of what changed and how it changed
                                          as a problem statement for writing @code{update-world}, using the design recipe. Be sure to fill
-                                         out the @vocab{Contract} and two EXAMPLEs before defining the function.}]}}
+                                         out the @vocab{Contract} and two test cases before defining the function.}]}}
                         @teacher{@code{update-world} is the function that will handle the logic of the student' games. It determines what changes
                                  from one second to the next, and updates the world accordingly. Make sure students are making a new world with
                                  @code{make-world}, and using their accessor functions to change the values of each world fields according to 

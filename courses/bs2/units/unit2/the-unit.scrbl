@@ -85,7 +85,8 @@ fun double-radius(radius :: Number, color :: String) -> Image:
            @code[#:multi-line #t]{
 fun double-radius(radius :: Number, color :: String) -> Image:
     doc: "Makes an outlined circle that's twice the radius."
-    circle(radius * 2, "solid", color)}}
+    circle(radius * 2, "solid", color)
+end}}
                 @teacher{Check students understanding: Why do we use variables in place of specific values? Why is it important to have descriptive variable
                          names, as opposed to @code{n} or @code{x}?}}
                 
@@ -110,7 +111,7 @@ fun double-radius(radius :: Number, color :: String) -> Image:
          }
        
 @lesson/studteach[
-        #:title "Introducing Data Structures"
+        #:title "Introducing Structures"
         #:duration "10 minutes"
         #:overview ""
         #:learning-objectives @itemlist[@item{Students will understand the limitations of atomic datatypes}]
@@ -153,7 +154,7 @@ fun double-radius(radius :: Number, color :: String) -> Image:
                                     inside the plastic bag, and then hold it up. "How many @italic{things} am I holding? One!"}}
                    
                     @point{@student{Now imagine that you've put the two numbers that you're using to describe the x and y into a box. If you were to hold up the box, you'd 
-                                    only be holding one thing! In the same way, complex structs can be defined in {Pyret to hold multiple things. Look at some more examples, 
+                                    only be holding one thing! In the same way, complex structs can be defined in Pyret to hold multiple things. Look at some more examples, 
                                     but remember that you might need a "struct" to group things together. 
                                     @activity{Which of the following things can represented using one piece of data (and which @italic{type} is it?), and which ones need a 
                                               struct to contain multiple pieces of data? 
@@ -279,7 +280,7 @@ fun double-radius(radius :: Number, color :: String) -> Image:
                  
            
 
-@lesson/studteach[#:title "Accessor Functions"
+@lesson/studteach[#:title "Dot-Accessors"
                   #:duration "10 minutes"
                   #:overview ""
                   #:learning-objectives @itemlist[]
@@ -315,7 +316,7 @@ fun double-radius(radius :: Number, color :: String) -> Image:
                           Throughout the course you can set up a call and response system with students, where the question "How do you get the X out of a Y?" 
                           will prompt the name of the accessor function.}}
                  
-                 @point{@student{The previous functions are known as @vocab{Accessor Functions}. They allow you to specify what part of a struct you want, without 
+                 @point{@student{The previous functions are known as @vocab{Dot-Accessors}. They allow you to specify what part of a struct you want, without 
                                  getting back the whole thing. If we want to know if we can afford a certain auto, we probably only care whether the value is less than
                                  a certain amount. Likewise, if we want to know whether or not a character has died, we only need to know if his health is less than 0: 
                                  we might not care what his location is, or the color of his armor. Programmers use accessor functions a lot, in order to make large 
@@ -354,7 +355,8 @@ fun double-radius(radius :: Number, color :: String) -> Image:
                                                                    AND what color we're making it.}
                                                               @item{What do you think our autobody shop is going to give back? What would be the range of 
                                                                     @code{paint-job}?}]}
-               @code[#:multi-line #t]{fun paint-job(car :: Auto, color :: String) -> Auto:
+               @code[#:multi-line #t]{
+fun paint-job(car :: Auto, color :: String) -> Auto:
     doc: "Changes the color of an auto."}
                In your first example, use the original @code{car1} and turn it purple. We know our customer will expect to get an auto back: you wouldn't bring your car
                into the shop and be OK with only getting a pair of rims back! But we won't be returning the same auto- it will be almost identical, with only the color changed.}
@@ -406,7 +408,7 @@ After replacing the changing things with variables, your definition should look 
                          @teacher{Give students plenty of time to practice using accessor functions, extracting pieces of the Auto structs and modifying them.}}]
          }
 
-                                                                                                                                                                                @lesson/studteach[#:title "Closing"
+@lesson/studteach[#:title "Closing"
         #:duration "5 minutes"
         #:overview ""
         #:learning-objectives @itemlist[]
@@ -431,8 +433,8 @@ After replacing the changing things with variables, your definition should look 
                                           @item{Pass out exit slips, dismiss, clean up.}]}}
   
            }
- ]}
-       }
+ ]}}
+       
        
 
 
