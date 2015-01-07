@@ -6,7 +6,7 @@
 @unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sq sqrt expt}) 
                                        (list "String" @code{string-append string-length})                          
                                        (list "Image" @code{rectangle circle triangle ellipse radial-star scale rotate put-image}))]{
-@unit-descr{Students continue to combine their use of Cond and Data Structures, this time identifying ways in which the World structure might change without any user input.}
+@unit-descr{Students continue to combine their use of Ask and Data Structures, this time identifying ways in which the World structure might change without any user input.}
 }     
 @unit-lessons{
 @lesson/studteach[#:title "Introduction"
@@ -18,12 +18,12 @@
         #:standards (list)
         #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, design recipe, course calendar)}
-                            @item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}
+                            @item{Editing environment (Pyret Editor)}
                             @item{Student workbooks}
                             @item{Language Table}
-                            @item{The Ninja World 4 file [NW4.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "gbz2w2pCTu" "WeScheme"] preloaded on students' machines}]
+                            @item{The Ninja World 4 file [NW4.arr from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "gbz2w2pCTu" "WeScheme"] preloaded on students' machines}]
         #:preparation @itemlist[@item{Seating arrangements: ideally clusters of desks/tables}
-                                @item{Write the Ninja World version of update-world towards the bottom of the board, with room to transform it into a cond branch under the function header.}]
+                                @item{Write the Ninja World version of update-world towards the bottom of the board, with room to transform it into an ask branch under the function header.}]
         #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -46,7 +46,7 @@
 @lesson/studteach[#:title "Protecting the Boundaries"
         #:duration "20 minutes"
         #:overview ""
-        #:learning-objectives @itemlist[@item{Add detail to their undertsanding of the update-world function}
+        #:learning-objectives @itemlist[@item{Add detail to their understanding of the update-world function}
                                          @item{Identify possible sub-domains which require different behavior of the function}]
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[]
@@ -75,34 +75,34 @@
                  
                  @point{@student{@activity{@itemlist[@item{Turn to @worksheet-link[#:page 33 #:name "Boundary Checks"] in your workbook.}
                                                       @item{What is the name of the first function on this page?}
-                                                      @item{@code{off-right?} will return @code{true} if a character goes off the right side 
+                                                      @item{@code{off-right} will return @code{true} if a character goes off the right side 
                                                              of the screen. How large can the x-coordinate be before a character goes off 
                                                              the screen? (Hint: How large is the screen?)}
                                                       @item{Write the @vocab{Contract} for this function.}]}
-@code[#:multi-line #true]{; off-right? : Number -> Boolean
-                     ; returns true if the given number is greater than 640}
-                                 Now let's pick a few examples of coordinates to write our EXAMPLEs: 
+@code[#:multi-line #true]{fun off-right(x :: Number) -> Boolean:
+                              doc: "Returns true if the given number is greater than 640."}
+                                 Now let's pick a few examples of coordinates to write our test cases: 
                                  @activity{@itemlist[@item{What x-coordinate would put a character at the center of the screen?}
                                                       @item{How do you check whether it's off the right hand side?}
                                                       @item{Any x-coordinate greater than 640 is off the right side of the screen, so how 
                                                             would you determine whether or not the example number is @italic{greater than} 640?}]}
-                                 @code{(EXAMPLE (off-right? 320) (> 320 640))}
-                                 @activity{Write another EXAMPLE for a coordinate that is off the screen on the right side, circle what 
+                                 @code[#:multi-line #true]{check:
+                                           off-right(320) is 320 > 640
+                                       end}
+                                 @activity{Write another test case for a coordinate that is off the screen on the right side, circle what 
                                            changes, and write your function definition.}}
                          @teacher{Remind students about Sam the butterfly from Bootstrap 1. This function does the same thing as @code{safe-right},
                                   to determine whether the character has gone off the screen based on its x-coordinate.@management{Ensure that students
-                                  are using the full name of @code{off-right?}, including the question mark. Question marks are often used in functions
-                                  that return booleans as a convention: The function asks a question (Is the character off the right side of the screen?)
-                                  and receives either @code{true} or @code{false} as an answer.}}}
+                                  are using the full name of @code{off-right}.}}}
                  
                  @point{@student{You now have a function to check whether an object has run off the right side of the screen. But think
                                  about Ninja World: if the Ruby is moving to the left, do you care whether the ruby goes off the right side? 
-                                 @activity{@itemlist[@item{Complete the design recipe for @code{off-left?} on
+                                 @activity{@itemlist[@item{Complete the design recipe for @code{off-left} on
                                                            @worksheet-link[#:page 33 #:name "Boundary Checks"]. Instead of checking if 
                                                            a number is greater than 640, what will you need to check?}
                                                       @item{When finished, copy your functions into your 
                                                             @editor-link[#:public-id "gbz2w2pCTu" "Ninja World 4"] 
-                                                            file, where it says @code{;; TESTS FOR COND}.}]}}
+                                                            file, where it says @code{# TESTS FOR ASK}.}]}}
                          @teacher{}}
                  @point{@student{Now we have a way to check whether something has gone off the right OR the left of the screen, but we still
                                  haven't told the game what to do when it does. In Ninja World, after the dog goes off the right side of the
@@ -114,56 +114,50 @@
                                            different inputs?}
                                  For now there are two different @italic{conditions}: when @code{dogX} is greater than 640 and then 
                                  the rest of the time. Let's work on the code for this:
- @code[#:multi-line #t]{(define (update-world w)
-	(cond
-		[...test...  ...result...]
-		[else  (make-world  (+ (world-dogX w) 10) 
-				    (- (world-rubyX w) 5)
-				       (world-catY w))]))}}
-                         @teacher{Remind students that each @code{cond} branch will contain a test and a result, which is evaluated if its test returns @code{true}.}}
-                 @point{@student{We still want our original code to be there. It's now going to be used in the @code{else} clause, 
+ @code[#:multi-line #t]{fun update-world(w :: World) -> World:
+	ask:
+	  |...test... then: ...result...
+	  | otherwise:  world(w.dogX + 10, w.rubyX - 5, w.catY)
+        end
+    end}}
+                         @teacher{Remind students that each @code{ask} branch will contain a test and a result, which is evaluated if its test returns @code{true}.}}
+                 @point{@student{We still want our original code to be there. It's now going to be used in the @code{otherwise} clause, 
                                   because when @code{dogX} is not off the right side of the screen, we want the world to update normally.
                                   @activity{Think about the first condition. What is the test that tells you if a number is greater than 640?}
                                   You could use the greater than function(@code{>}) and compare two numbers, but you've already written a
                                   function that takes in only one number and tells you whether or not it is greater than 640. 
-                                  @code{off-right?} @italic{does the work for you}. But how would you determine whether or not the dog is off 
+                                  @code{off-right} @italic{does the work for you}. But how would you determine whether or not the dog is off 
                                   the right? You'll need to pull the dog's x-coordinate out of the world... 
                                   @activity{@itemlist[@item{What function do we use for that?}
-                                                       @item{So what will the input to @code{off-right?} be?}
+                                                       @item{So what will the input to @code{off-right} be?}
                                                        @item{Add this to your @code{update-world} function:}]}
- @code[#:multi-line #t]{(define (update-world w)
-	(cond
-		[(off-right? (world-dogX w)) ...result...]
-		[else  (make-world  (+ (world-dogX w) 10) 
-				    (- (world-rubyX w) 5)
-				       (world-catY w))]))}}
+ @code[#:multi-line #t]{fun update-world(w :: World) -> World:
+	ask:
+	  | off-right(w.dogX) then: ...result...
+	  | otherwise:  world(w.dogX + 10, w.rubyX - 5, w.catY)
+        end
+    end}}
                          @teacher{}}
                  @point{@student{The first clause tests whether the dog's x-coordinate is off the right side of the screen. If the test 
                                    returns @code{true}, what should the result be? We know that we need to return a World, since the Range
-                                   of @code{update-world} is a World. That means we can immediately write @code{(make-world...)}: 
- @code[#:multi-line #t]{(define (update-world w)
-	(cond
-		[(off-right? (world-dogX w)) 
-			(make-world ...dogX...
-				    ...rubyX...
-				    ...catY...)]
-		[else  (make-world  (+ (world-dogX w) 10) 
-				    (- (world-rubyX w) 5)
-				       (world-catY w))]))}
+                                   of @code{update-world} is a World. That means we can immediately write @code{world(...)}: 
+ @code[#:multi-line #t]{fun update-world(w :: World) -> World:
+	ask:
+	  | off-right(w.dogX) then: world(...dogX..., ...rubyX..., ...catY...)
+	  | otherwise:  world(w.dogX + 10, w.rubyX - 5, w.catY)
+        end
+    end}
                                   How should @code{dogX} change in this condition? We said we want to move the dog back to the left side 
                                   of the screen.
                                   @activity{@itemlist[@item{What will the new value of @code{dogX} be, if it, moves back to the 
                                                             left side of the screen?}
                                                        @item{Does @code{rubyX} change if the dog goes off the screen? How about @code{catY}?}]}
- @code[#:multi-line #t]{(define (update-world w)
-	(cond
-		[(off-right? (world-dogX w)) 
-			(make-world 0
-				    (world-rubyX w)
-				    (world-catY w))]
-		[else  (make-world  (+ (world-dogX w) 10) 
-				    (- (world-rubyX w) 5)
-				    (world-catY w))]))}}
+ @code[#:multi-line #t]{fun update-world(w :: World) -> World:
+	ask:
+	  | off-right(w.dogX) then: world(0, w.rubyX, w.catY)
+	  | otherwise:  world(w.dogX + 10, w.rubyX - 5, w.catY)
+        end
+    end}}
                          @teacher{}}
                  @point{@student{Now it's time to think about the ruby...
                                   @activity{@itemlist[@item{Instead of checking if @code{rubyX} was off the @bold{right} side of the screen,
@@ -173,22 +167,16 @@
                                                              branch look like?}
                                                        @item{Finish the code for @code{update-world} so that it also checks whether the 
                                                              ruby has gone off the left-hand side of the screen.}]}
-@code[#:multi-line #t]{(define (update-world w)
-	(cond
-		[(off-right? (world-dogX w)) 
-			(make-world 0
-				    (world-rubyX w)
-				    (world-catY w))]
-		[(off-left? (world-rubyX w)) 
-			(make-world (world-dogX w)
-				    640
-				    (world-catY w))]
-		[else  (make-world  (+ (world-dogX w) 10) 
-				    (- (world-rubyX w) 5)
-				    (world-catY w))]))}}
+@code[#:multi-line #t]{fun update-world(w :: World) -> World:
+	ask:
+	  | off-right(w.dogX) then: world(0, w.rubyX, w.catY)
+          | off-left(w.rubyX) then: world(w.dogX, 640, w.catY)
+	  | otherwise:  world(w.dogX + 10, w.rubyX - 5, w.catY)
+        end
+    end}}
                          @teacher{This can be an opportunity to discuss abstraction and the usefullness of reusing code with your
-                                  students. The @code{cond} tests in @code{update-world} could be written as: 
-                                  @code{(> (world-dogX w) 640)}, or @code{(< (world-rubyX w) 0)}, but this is more work than 
+                                  students. The @code{ask} tests in @code{update-world} could be written as: 
+                                  @code{w.dogX > 640}, or @code{w.rubyX < 0}, but this is more work than 
                                   neccessary if the @code{off-right} and @code{off-left} functions have been written, and could 
                                   be confusing for someone else looking at the code, who doesn't know why @code{dogX} is being 
                                   compared to 640. Additionally, from a programming point of view, it makes sense to use the 
@@ -196,7 +184,7 @@
                                   game to be playable on a larger screen (such as a tablet), they will have to go through their
                                   code and change every function that tests boundaries based on the old screen size, 640x480. If 
                                   only the @code{off-right} and @code{off-left} functions use the screen size, the programmer can 
-                                  make a few quick changes to the numbers, instead of searching through @code{cond} branches such 
+                                  make a few quick changes to the numbers, instead of searching through @code{ask} branches such 
                                   as in the second example.}}
                  ]
          }
@@ -206,9 +194,9 @@
         #:overview ""
         #:learning-objectives @itemlist[]
         #:evidence-statements @itemlist[]
-        #:product-outcomes @itemlist[@item{Students will use Cond in their update-world functions}
+        #:product-outcomes @itemlist[@item{Students will use Ask in their update-world functions}
                                      @item{Students will identify circumstances in which the functions in their game should behave differently}
-          @item{Students will define these circumstances - and the desired behavior - in code, as different Cond branches}]
+          @item{Students will define these circumstances - and the desired behavior - in code, as different Ask branches}]
         #:standards (list)
         #:materials @itemlist[]
         #:preparation @itemlist[@item{}]
@@ -221,16 +209,16 @@
         @points[@point{@student{Now to use what you know about boundary detection and apply it to your own game. 
                                 @activity{@itemlist[@item{Open your game file.}
                                                      @item{Reformat your @code{update-world} function so that it uses 
-                                                           @code{cond}, with your current code inside the @code{else} clause.}
-                                                     @item{Next, copy and paste your @code{off-left?} and @code{off-right?} 
+                                                           @code{ask}, with your current code inside the @code{otherwise} clause.}
+                                                     @item{Next, copy and paste your @code{off-left} and @code{off-right} 
                                                            functions from Ninja World into your game.}
                                                      @item{Think about the things in your game that fly offscreen. Do they 
                                                            fly off the left? The right? The top or bottom? Do you need to 
-                                                           write an @code{off-top?} function or @code{off-bottom?}}
+                                                           write an @code{off-top} function or @code{off-bottom}}
                                                      @item{In the lefthand column of @worksheet-link[#:page 34 #:name "Test and Result"],
                                                            make a list of the tests that you need to do to decide whether each
                                                            thing flies offscreen. For example, with the dog we said
-                                                           @code{(off-right? (world-dogX w))}. On the right, figure out 
+                                                           @code{off-right(w.dogX)}. On the right, figure out 
                                                            which world you need to make, so that the thing
                                                            you're testing re-appears on screen once it has flown off.}]}}
                         @teacher{Work in small groups to complete the workbook page.}}
@@ -252,7 +240,7 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Look at the @code{cond} branches for Ninja World's @code{update-world} function. Notice 
+        @points[@point{@student{Look at the @code{ask} branches for Ninja World's @code{update-world} function. Notice 
                                             that for each branch, we need a test and a result. This is exactly what 
                                             you've written in your workbook for your game. All you need to do now is 
                                             surround each row of your table with square brackets and type it into 

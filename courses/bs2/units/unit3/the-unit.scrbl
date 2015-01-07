@@ -84,7 +84,7 @@
       ]{@points[@point{@student{@activity{Open the @editor-link[#:public-id "P7qS37u1ZH" "Autobody Shop"] file, and look at the first few lines at the top. 
                                                    They start with @code{data Auto:}.}
                                 @code[#:multi-line #t]{data Auto:
-                                                         # an auto is a (make-auto String Number Number String Number)
+                                                         # an auto is a model, hp, rims, color and value.
                                                          | auto(model :: String, hp :: Number, rims :: Number, color :: String, value :: Number)
                                                        end}
 In the last unit we skipped over the part of the code that defines the auto struct, or tells the computer what an auto is and what goes into it. Just like we would expect from having
@@ -132,7 +132,7 @@ matters! Look at the order of the fields in the @code{auto(...)} line. The first
                                                      @item{How about the number of guests?}]
                                            Fill out the second struct definition on @worksheet-link[#:page 13 #:name "Party Planner"] in your workbook.}
 @code[#:multi-line #t]{data Party:
-                         # a party is a (make-party String String Number)
+                         # a party is a location, theme, and number of guests.
                          | party(location :: String, theme :: String, guests :: Number)
                        end}}
                         @teacher{}}

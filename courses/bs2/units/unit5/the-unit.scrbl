@@ -165,7 +165,7 @@
                                          out the @vocab{Contract} and two test cases before defining the function.}]}}
                         @teacher{@code{update-world} is the function that will handle the logic of the student' games. It determines what changes
                                  from one second to the next, and updates the world accordingly. Make sure students are making a new world with
-                                 @code{make-world}, and using their accessor functions to change the values of each world fields according to 
+                                 @code{world}, and using their accessor functions to change the values of each world fields according to 
                                  their game's behavior. @management{Work with small groups to complete this section as needed. When they are
                                  finished, have the students type @code{update-world} into their games.}}}
                  ]

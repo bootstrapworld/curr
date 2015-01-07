@@ -165,7 +165,7 @@ end}}
                                                       @item{How does the world struct need to change?}
                                                       @item{What is a good variable name to represent the ruby's x-coordinate? How about 
                                                             @code{rubyX}?}
-                                                      @item{How has the contract for @code{make-world} changed? Update it on your 
+                                                      @item{How has the contract for @code{world} changed? Update it on your 
                                                                                      contracts sheet}
                                                       @item{Now that the world structure includes a @code{rubyX}, What new function 
                                                             do you now have access to? Write it in your contracts page.}]}
@@ -173,7 +173,7 @@ end}}
                          @teacher{}}
                  
                  @point{@student{Because the world structure is different, we need to go through the code, line-by-line, and change every
-                                 @code{world} we find. Look at the @code{START} variable - It uses @code{make-world}, which now requires 
+                                 @code{world} we find. Look at the @code{START} variable - It uses @code{world}, which now requires 
                                  two inputs in its Domain. 
                                  @activity{@itemlist[@item{What should the ruby's x-coordinate be when the simulation starts? Include 
                                                            this number in the @code{START} world.}
@@ -200,7 +200,7 @@ end}}
                                  Once again, the contract tells you a LOT about how to write the function. Here's a quick tip: if the range is 
                                  a World, you know that you'll have to make a world at some point. @activity{How do you make a world?}}
                          @teacher{}}
-                 @point{@student{The moment you write @code{make-world}, your instincts should kick in right away: Every world contains a @code{dogX}
+                 @point{@student{The moment you write @code{world}, your instincts should kick in right away: Every world contains a @code{dogX}
                                  and a @code{rubyX}, so you can write them down automatically.
                                  Now you can ask yourself: What happens to @code{dogX} be? In the game, the dog will still be moving to the right by 
                                  10 pixels. 
@@ -211,7 +211,7 @@ end}}
                                                       @item{If it's moving to the left, will you add or subtract from the position?}
                                                       @item{Which world are you pulling the @code{dogX} and @code{rubyX} out of?}
                                                       @item{Do the examples for @code{update-world} need to change?}
-                                                      @item{Look at the first example: how many things are being passed into @code{make-world}? How 
+                                                      @item{Look at the first example: how many things are being passed into @code{world}? How 
                                                             many should there be? Hint: look at its domain.}
                                                       @item{The ruby's x-coordinate needs to be added. Where does it begin, in the @code{START} world? 
                                                             If it goes left by 5 pixels, where should it end up in the first example?}

@@ -6,7 +6,7 @@
 @unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sq sqrt expt}) 
                                        (list "String" @code{string-append string-length})                          
                                        (list "Image" @code{rectangle circle triangle ellipse radial-star scale rotate put-image})
-                                       (list "Boolean" @code{= > < string=? and or}))]{   
+                                       (list "Boolean" @code{= > < strings-equal and or}))]{   
 @unit-descr{Students return to the Pythagorean Theorem and distance formula they used in Bootstrap 1, this time with data structures and the full update-world function.}
 }
 @unit-lessons{
@@ -19,12 +19,12 @@
         #:standards (list)
         #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, design recipe, course calendar)}
-                            @item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}
+                            @item{Editing environment (Pyret Editor)}
                             @item{Student workbooks}
                             @item{Language Table}
                             @item{Cutouts of Cat and Dog images}
                             @item{Cutouts of Pythagorean Theorem packets [@(resource-link #:path "images/pythag1.png" #:label "1"), @(resource-link #:path "images/pythag2.png" #:label "2")] - 1 per cluster}
-                            @item{The Ninja World 5 file [NW5.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "hTE94bR2V5" "WeScheme"] preloaded on students' machines}]
+                            @item{The Ninja World 5 file [NW5.arr from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "hTE94bR2V5" "WeScheme"] preloaded on students' machines}]
         #:preparation @itemlist[@item{Seating arrangements: ideally clusters of desks/tables}]
         #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -34,7 +34,7 @@
       ]{
         @points[@point{@student{Right now, in both Ninja World and your games, nothing happens when the player collides with another 
                                 game character. We need to write a function change that. This is going to require a 
-                                little math, but luckily it's exactly the same as it was in Bootstrap:1.
+                                little math, but luckily it's exactly the same as it was in Bootstrap: 1.
                                 @bitmap{images/numberline.png}                               
                                 @activity{@itemlist[@item{In the image above, how far apart are the cat and dog?}
                                                      @item{If the cat was moved one space to the right, how far apart would they be?}
@@ -81,31 +81,35 @@
                                                            smaller number from the bigger one. Start with an example using 
                                                            the numbers 23 and 5, then do a second example with 5 and 23 in 
                                                            the @italic{other order}.}]}
-@code[#:multi-line #t]{(EXAMPLE (line-length 23 5) (- 23 5))
-                       (EXAMPLE (line-length 5 23) (- 23 5))}}
+@code[#:multi-line #t]{check:
+                           line-length(23, 5) is 23 - 5
+                           line-length(5, 23) is 23 - 5
+                       end}}
                         @teacher{}}
-                 @point{@student{Now we have an idea of the results for the @code{cond} statement, but a @code{cond} function also 
-                                needs Tests. We want to @italic{test} to see whether the first 
+                 @point{@student{Now we have an idea of the results for the @code{ask} statement, but a @code{ask} function also 
+                                needs tests. We want to @italic{test} to see whether the first 
                                 number given to @code{line-length} is greater than the second number. 
-                                @activity{@itemlist[@item{How would you write that test in Racket code?}
+                                @activity{@itemlist[@item{How would you write that test in Pyret code?}
                                                      @item{And what would the result for that test be? If @code{a} is
                                                            greater than @code{b}, which number would we subtract from 
                                                            which?}
                                                      @item{How could you include a test for wheather the two numbers are equal,
-                                                           @italic{without} adding a third @code{cond} branch?}
+                                                           @italic{without} adding a third @code{ask} branch?}
                                                      @item{Write down the definition for @code{line-length}.}]}     
-@code[#:multi-line #t]{(define (line-length a b)
-                       (cond
-                       [(> a b) (- a b)]
-                       [(>= b a) (- b a)]))}}
-                        @teacher{It is possible to replace the second test with @code{else}, because there will only be two options:
+@code[#:multi-line #t]{fun line-length(a :: Number, b :: Number) -> Number:
+                           ask:
+                             | a > b then: a - b
+                             | b >= a then: b - a
+                           end
+                       end}}
+                        @teacher{It is possible to replace the second test with @code{otherwise}, because there will only be two options:
                                  @code{line-length} will either subtract @code{b} from @code{a}, or @code{a} from @code{b}. (If the 
                                  numbers are equal, it doesn't matter which is subtracted.) However, having students write out the full 
                                  test and result gets them thinking about what exactly is being tested in each branch of the function.
                                  
                                  It is possible to avoid using a conditional entirely by taking the absolute value of the difference 
-                                 (the function @code{abs} does this); if you are working with older students who already know about
-                                 absolute value you could show it. Using @code{cond}, however, emphasizes how code structure arises 
+                                 (the function @code{num-abs} does this); if you are working with older students who already know about
+                                 absolute value you could show it. Using @code{ask}, however, emphasizes how code structure arises 
                                  from examples.}}
                  ]
          }
@@ -131,16 +135,16 @@
                                 @activity{@itemlist[@item{How could you find the distance between the two points shown
                                                           in this image?}
                                                      @item{How could you find the length of the dotted line, also 
-                                                           called the @vocab{Hypoteneuse}?}]}
+                                                           called the @vocab{Hypotenuse}?}]}
                                 Let's start with what we do know: the dotted line sort of makes a triangle, and we can
                                 find out the length of the other two sides, labeled "A," "B" and "C." 
                                 @activity{What is the line-length of A?}
                                 To make your life easier, you can use the function you already wrote: @code{line-length}.
-                                In this example, (line-length A) is 4 and (line-length B) is 3, but we still don't know C.}
+                                In this example, line-length(A) is 4 and line-length(B) is 3, but we still don't know C.}
                         @teacher{@management{Draw this image on the board, with the lines labeled "A", "B", and "C".}}}
                  @point{@student{Ancient civilizations had the same problem: they also struggled to find the distance
                                  between points in two dimensions. Let’s work through a way to think about this problem:
-                                 what expression computes the length of the hypoteneuse of a right triangle?}
+                                 what expression computes the length of the hypotenuse of a right triangle?}
                        @teacher{@management{This exercise is best done in small groups of students (2-3 per group).} 
                                  Pass out Pythagorean Proof materials [@(resource-link #:path "images/pythag1.png" #:label "1"), 
                                  @(resource-link #:path "images/pythag2.png" #:label "2")] to each group, and have them
@@ -148,7 +152,7 @@
                                                                           @item{Four gray triangles, all the same size}]
                                  Everyone will have a packet with the same materials, but each group's triangles are
                                  a little different. The activity workes with triangles of all sizes, so each pair will
-                                 get to test it out on their own triangles. @management{draw the diagram on the board.}}
+                                 get to test it out on their own triangles. @management{Draw the diagram on the board.}}
                         }
                 @point{@student{@bitmap{images/csquared.png}For any right triangle, it is possible to draw a picture 
                                  where the hypoteneuse is used for all four sides of a square. In the diagram shown 
@@ -192,8 +196,10 @@
                                                      @item{Draw out the circle of evaluation, starting with the 
                                                            simplest expression you can see first.}
                                                      @item{Once you have the circle of evaluation, translate it 
-                                                           into racket code at the bottom of the page, starting 
-                                                           with @code{(EXAMPLE (distance 4 2 0 5) ...)}}]}
+                                                           into Pyret code at the bottom of the page, starting 
+                                                           with @code[#:multi-line #true]{check: 
+                                                                          distance(4, 2, 0, 5) is...
+                                                                      end}}]}
                                  Now you've got code that tells you the distance between the points (4, 2) and (0, 5).
                                  But we want to have it work for @italic{any} two points. It would be great if we had a 
                                  function that would just take the x's and y's as input, and do the math for us.}
@@ -212,7 +218,7 @@
                                  @code{distance} function. The player's x-coordinate (@code{px}) must be given first,
                                  followed by the player's y (@code{py}), character's x (@code{cx}), and character's y 
                                  (@code{cy}). Inside the body of the function, @code{line-length} can only calculate 
-                                 lengths on the same axis (@code{(line-length px cx)} and @code{(line-length cx cy)}).
+                                 lengths on the same axis (@code{line-length(px, cx)} and @code{line-length(cx, cy)}).
                                  Just like with making data structures, order matters, and the distance function will 
                                  not work otherwise. Also be sure to check that students are using @code{sq} and 
                                  @code{sqrt} in the correct places. }
@@ -220,12 +226,12 @@
                 ]
          }
        
-@lesson/studteach[#:title "Collide?"
+@lesson/studteach[#:title "Collide"
         #:duration "10 minutes"
         #:overview ""
         #:learning-objectives @itemlist[]
         #:evidence-statements @itemlist[]
-        #:product-outcomes @itemlist[@item{Students will write the collide? function}]
+        #:product-outcomes @itemlist[@item{Students will write the collide function}]
         #:standards (list)
         #:materials @itemlist[]
         #:preparation @itemlist[@item{}]
@@ -239,12 +245,12 @@
                                 @activity{How close should your danger and your player be, before they hit 
                                           each other?}
                                 At the top of @worksheet-link[#:page 39 #:name "collide"] you'll find the 
-                                Word Problem for @code{collide?}. 
-                                @activity{@itemlist[@item{Fill in the Contract, two EXAMPLES, and then write the
+                                Word Problem for @code{collide}. 
+                                @activity{@itemlist[@item{Fill in the Contract, two test cases, and then write the
                                                           code. Remember: you WILL need to make use of the 
                                                           @code{distance} function you just wrote!}
                                                      @item{When you're done, type it into your game, under
-                                                           @code{collide?}.}]}}
+                                                           @code{collide}.}]}}
                         @teacher{Using visual examples, ask students to guess the distance between a danger
                                  and a player at different positions. How far apart do they need to be before
                                  one has hit the other? 
@@ -260,7 +266,7 @@
         #:overview ""
         #:learning-objectives @itemlist[@item{Identify collision as yet another sub-domain which requires different behavior of the update-world function}]
         #:evidence-statements @itemlist[]
-        #:product-outcomes @itemlist[@item{Students will use different Cond branches to identify collisions in their games}]
+        #:product-outcomes @itemlist[@item{Students will use different Ask branches to identify collisions in their games}]
         #:standards (list)
         #:materials @itemlist[]
         #:preparation @itemlist[@item{}]
@@ -275,7 +281,7 @@
                                 @activity{Out of the four major functions in the game (@code{update-world}, 
                                           @code{draw-world}, @code{keypress}, and @code{big-bang}), which 
                                           do you think you'll need to edit to handle collisions?}
-                                We'll need to make some more branches for @code{cond} in @code{update-world}. 
+                                We'll need to make some more branches for @code{ask} in @code{update-world}. 
                                 What should happen when the cat collides with the dog? We want to put the dog 
                                 offscreen, so that he can come back to attack again.}
                         @teacher{}}
@@ -292,21 +298,15 @@
                                                            game can you look to get that number? (Hint: in which
                                                            function do you @italic{draw} the images on the game 
                                                            screen?)}]}
-@code[#:multi-line #t]{[(collide? 360 (world-catY w) (world-dogX w) 400) ...result...]}
+@code[#:multi-line #t]{| collide(360, w.catY, w.dogX, 400) then: ...result...}
 Remember that @code{update-world} gives back a world, so what function should come first in our result?
-@code[#:multi-line #t]{[(collide? 360 (world-catY w) (world-dogX w) 400) (make-world ...dogX...
-                                                                                     ...rubyX...
-			                                                             ...catY...)]}
+@code[#:multi-line #t]{| collide(360, w.catY, w.dogX, 400) then: world(...dogX..., ...rubyX..., ...catY...)}
                                 @activity{And what should happen when the cat and dog collide? Can you think of a 
                                           number that puts the dog off the screen on the left side?}
-             @code[#:multi-line #t]{[(collide? 360 (world-catY w) (world-dogX w) 400) (make-world -100
-					                                                          ...rubyX...
-					                                                          ...catY...)]}
+             @code[#:multi-line #t]{| collide(360, w.catY, w.dogX, 400) then: world(-100, ...rubyX..., ...catY...)}
                                 @activity{Does the @code{rubyX} change when the dog and cat collide? How about 
                                           @code{catY}? How do you get each of those things out of the world?}
-             @code[#:multi-line #t]{[(collide? 360 (world-catY w) (world-dogX w) 400) (make-world -100
-					                                                          (world-rubyX w)
-					                                                          (world-catY w))]}}
+             @code[#:multi-line #t]{| collide(360, w.catY, w.dogX, 400) then: world(-100, w.rubyX, w.catY)}}
                         @teacher{Collision detection must be part of the @code{update-world} function because the
                                  game should be checking for a collision @italic{every time} the world is updated. Students may
                                  assume that @code{draw-world} should handle collision detection, but point out that the
