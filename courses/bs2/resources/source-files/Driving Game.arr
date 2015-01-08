@@ -56,7 +56,7 @@ START = world(CAR-REAR, 2, 0, 0, thing1, thing2)
 fun draw-world(w :: World) -> I.Image:
   doc: "Place DANGER, TARGET, and PLAYER onto BACKGROUND at the right coordinates."
   ask:
-    | gameover(w) then:
+    | is-gameover(w) then:
       I.put-image(I.text(string-append("OH NO! YOU LOST! You drove for ",
             string-append(num-tostring(w.timePassed), " seconds.")), 30,
           "green"),
@@ -87,11 +87,11 @@ end
 fun update-world(w :: World) -> World:
   doc: ""
   ask:
-    | gameover(w) then: w
-    | off-bottom(w.item1.y) then:
+    | is-gameover(w) then: w
+    | is-off-bottom(w.item1.y) then:
       world(w.img, w.lane, w.timePassed + 1, w.timer + 1,
         reset-item(w, w.item1), w.item2)
-    | off-bottom(w.item2.y) then:
+    | is-off-bottom(w.item2.y) then:
       world(w.img, w.lane, w.timePassed + 1, w.timer + 1,
         w.item1, reset-item(w, w.item2))
     | otherwise:
@@ -143,7 +143,7 @@ end
 
 fun keypress(w :: World, s :: String) -> World:
   doc: "Left and right control the movement of your car between lanes."
-  if gameover(w):
+  if is-gameover(w):
     world(CAR-LEFT, w.lane, w.timePassed, 0, w.item1, w.item2)
   else:
     ask:
@@ -169,12 +169,12 @@ fun img-time(timer :: Number, w :: World) -> I.Image:
   end
 end
 
-fun off-bottom(y :: Number) -> Boolean:
+fun is-off-bottom(y :: Number) -> Boolean:
   doc: "Checks whether an item has gone off the right side of the screen."
   y < 5
 end
 
-fun lane-collide(w :: World, o :: Item) -> Boolean:
+fun is-lane-collide(w :: World, o :: Item) -> Boolean:
   doc: "Checks whether o.dist is zero and o.lane = car lane."
   (o.dist <= 200) and (o.lane == w.lane)
 end
@@ -183,9 +183,9 @@ end
 # RESULTS FOR ASK
 #################
 
-fun gameover(w :: World) -> Boolean:
+fun is-gameover(w :: World) -> Boolean:
   doc: "Should the program end?"
-  lane-collide(w, w.item1) or lane-collide(w, w.item2)
+  is-lane-collide(w, w.item1) or is-lane-collide(w, w.item2)
 end
 
 ###################################

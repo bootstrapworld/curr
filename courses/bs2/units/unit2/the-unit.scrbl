@@ -41,8 +41,8 @@
                                 Bootstrap 2.}
                         @teacher{Ask a few introductory review questions to test students' understanding, such as: 
                                  @itemlist[@item{What are the three parts of a Contract?}        
-                                            @item{What is the racket code to draw a solid, green triangle of size 22?}
-                                            @item{Why is it important to write at least 2 examples before defining a function?}]}} 
+                                            @item{What is the Pyret code to draw a solid, green triangle of size 22?}
+                                            @item{Why is it important to write at least 2 test cases before defining a function?}]}} 
                  
                  @point{@student{To make sure the material from last unit is fresh in your mind, tackle the following activity: @activity{Turn to @worksheet-link[#:page 7 #:name "double-radius"] in your workbook. Write a function called @code{double-radius}, 
                                                    which takes in a radius and a color. It produces an outlined circle of whatever color was passed in, whose radius 
@@ -246,8 +246,8 @@ end}}
                                                         @item{How many things are in the domain?}]} The five things in the domain of @code{auto} are, in fact, the five 
                                                               things that we have already listed! So in our workbook, on the Contracts page, we know to write:
 @code[#:multi-line #t]{
-; auto : String Number Number String Number -> ___________________
-; Model, hp, rims, color, value}}
+# auto : String Number Number String Number -> ___________________
+# Model, hp, rims, color, value}}
                             @teacher{Remember to have students copy the contract into their workbooks, and write the contracts yourself on the board.}}
                     
                     @point{@student{With data structures, the order is very important: we always want the first string in @code{auto} to be the auto's model, the first number 
@@ -340,7 +340,7 @@ end}}
       
       ]{
         @points[
-                @point{@student{Now you know all about how to work with automobiles in Racket!
+                @point{@student{Now you know all about how to work with automobiles in Pyret!
                                 @activity{@itemlist[@item{What function makes an auto?}
                                                      @item{Which function draws that auto?}
                                                      @item{How do you get the value out of an auto?}

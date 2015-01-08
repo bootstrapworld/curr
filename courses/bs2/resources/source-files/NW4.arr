@@ -58,12 +58,12 @@ end
 # TESTS FOR COND:
 #################
 
-fun off-left(x :: Number) -> Boolean:
+fun is-off-left(x :: Number) -> Boolean:
   doc: "Checks whether an object has gone off the left side of the screen."
   false
 end
 
-fun off-right(x :: Number) -> Boolean:
+fun is-off-right(x :: Number) -> Boolean:
   doc: "Checks whether an object has gone off the right side of the screen."
   false
 end

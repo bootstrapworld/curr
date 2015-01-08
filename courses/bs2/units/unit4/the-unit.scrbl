@@ -42,7 +42,7 @@ Students brainstorm their videogames, and derive the structure for their game wo
         #:duration "20 minutes"
         #:overview ""
         #:learning-objectives @itemlist[@item{Deepen their understanding of structures, constructors and accessors by being introduced to a third data structure.}
-                                        @item{Discover the event-based microworld implementation of Racket, which uses events to modify the world.}]
+                                        @item{Discover the event-based microworld implementation of Pyret, which uses events to modify the world.}]
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[]
         #:standards (list)
@@ -116,7 +116,7 @@ end}
                                                               How will this make the dog move? Does it go to the right, left, up, down?}
                                                        @item{If the dog is at 100, where will it be next? After that?}
                                                        @item{How could you make the dog move faster? Slower? Backwards?}
-                                                       @item{Write two @vocab{examples} for @code{update-world}, using the @code{START} world and the 
+                                                       @item{Write two @vocab{test cases} for @code{update-world}, using the @code{START} world and the 
                                                                        @code{NEXT} world you already defined.}]}}
                          @teacher{Each of these three functions work together to create the game that students see. @code{data World:} and @code{world(...)} tells the 
                                   computer what a world contains, @code{draw-world} draws the images onto the screen, and @code{update-world} changes the 

@@ -39,8 +39,8 @@ end
 fun update-world(w :: World) -> World:
   doc: "Increase dogX by ten, decrease rubyX by five."
   ask:
-    | off-left(w.rubyX) then: world(w.dogX, 650, w.catY)
-    | off-right(w.dogX) then: world(-50, w.rubyX, w.catY)
+    | is-off-left(w.rubyX) then: world(w.dogX, 650, w.catY)
+    | is-off-right(w.dogX) then: world(-50, w.rubyX, w.catY)
     | otherwise: world(w.dogX + 10, w.rubyX - 5, w.catY)
   end
 end
@@ -62,12 +62,12 @@ end
 # TESTS FOR COND:
 #################
 
-fun off-left(x :: Number) -> Boolean:
+fun is-off-left(x :: Number) -> Boolean:
   doc: "Checks whether an object has gone off the left side of the screen."
   x < 0
 end
 
-fun off-right(x :: Number) -> Boolean:
+fun is-off-right(x :: Number) -> Boolean:
   doc: "Checks whether an object has gone off the right side of the screen."
   x > 640
 end
@@ -83,7 +83,7 @@ fun distance(x1 :: Number, y1 :: Number, x2 :: Number,
   nothing
 end
 
-fun collide(x1 :: Number, y1 :: Number, x2 :: Number,
+fun is-collide(x1 :: Number, y1 :: Number, x2 :: Number,
     y2 :: Number) -> Boolean:
   doc: "Determines whether two objects are within 50 pixels of each other."
   nothing

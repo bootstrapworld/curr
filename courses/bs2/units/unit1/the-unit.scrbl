@@ -118,7 +118,7 @@ Contracts summarize three pieces of essential information about a function:
 @bannerline{Every contract has three parts: Name, Domain and Range!}
 A contract is a note we write to ourselves about how to use the function. Just as in Bootstrap 1, it will be helpful to keep track of the contracts for each function you learn about. The first page in your workbook has a table labeled "Contracts," where you can (and should!) copy down each contract as you learn it.
 @activity{The Contract for @code{+} is shown below.
-          @code[#:multi-line ""]{; +: Number Number -> Number}                
+          @code[#:multi-line ""]{# +: Number Number -> Number}                
 Write down the Contracts for @code{*}, @code{-}, @code{/} and @code{sqrt}}}                             
        @teacher{Emphasize to students that a function's contract can tell you a LOT about that function. It may also be useful to ask them to articulate reasons why Contracts are a good thing, so they are able to say it in their own voice. @management{Make sure they write every contract down in their workbooks.} 
                 Review contracts for functions that produce images, such as @code{circle}, @code{triangle}, @code{rectangle}, @code{ellipse}, etc.}}

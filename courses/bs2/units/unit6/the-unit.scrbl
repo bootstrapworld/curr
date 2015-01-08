@@ -187,7 +187,7 @@ end)}
                                              | strings-equal(key, "up") then: ...result...
                                            end
                                        end}}
-                         @teacher{Square brackets enclose the question (a statement returning a boolean) and answer for each clause. There can only be one
+                         @teacher{A bar (|) precedes the question, followed by "then:" and then the result. There can only be one
                                   expression in each answer.}}
                  @point{@student{What is the result if the key is @code{"up"}? (HINT: Look back at your test cases for help.) You can copy in the example 
                                  for @code{"up"}, and change all instances of @code{START} to the @vocab{variable}, @code{w}:

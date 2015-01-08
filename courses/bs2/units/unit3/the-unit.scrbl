@@ -278,7 +278,7 @@ matters! Look at the order of the fields in the @code{auto(...)} line. The first
       ]{
         @points[@point{@student{If you were to act out these functions, relying on @code{big-bang} to update the world, then using the result of @code{update-world} to 
                                 draw the world, and putting them all together to create an animation, it could get tricky, and the animation wouldn't be as fast as 
-                                what you see on the computer. Fortunately, Racket has the capability to run all these functions and more in a fraction of the time, 
+                                what you see on the computer. Fortunately, Pyret has the capability to run all these functions and more in a fraction of the time, 
                                 to create and draw a smooth, complete game. In the next few lessons, you'll be using structs to extend this world into an actual, 
                                 complex game, and writing functions for Ninja World AND your own games to make them playable and unique.
                                 }

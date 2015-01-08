@@ -51,13 +51,13 @@ end
 fun update-world(w :: World) -> World:
   doc: "Increase dogX by ten, decrease rubyX by five."
   ask:
-    | collide(320, w.catY, w.dogX, w.dogY) then:
+    | is-collide(320, w.catY, w.dogX, w.dogY) then:
       world(-50, num-random(480), w.rubyX, w.catY, w.score - 20)
-    | collide(320, w.catY, w.rubyX, 300) then:
+    | is-collide(320, w.catY, w.rubyX, 300) then:
       world(w.dogX, w.dogY, 650, w.catY, w.score + 30)
-    | off-left(w.rubyX) then:
+    | is-off-left(w.rubyX) then:
       world(w.dogX, w.dogY, 700, w.catY, w.score)
-    | off-right(w.dogX) then:
+    | is-off-right(w.dogX) then:
       world(-100, num-random(480), w.rubyX, w.catY, w.score)
     | otherwise:
       world(w.dogX + 10, w.dogY, w.rubyX - 5, w.catY, w.score)
@@ -83,12 +83,12 @@ end
 # TESTS FOR COND:
 #################
 
-fun off-left(x :: Number) -> Boolean:
+fun is-off-left(x :: Number) -> Boolean:
   doc: "Checks whether an object has gone off the left side of the screen."
   x < 0
 end
 
-fun off-right(x :: Number) -> Boolean:
+fun is-off-right(x :: Number) -> Boolean:
   doc: "Checks whether an object has gone off the right side of the screen."
   x > 640
 end
@@ -108,7 +108,7 @@ fun distance(x1 :: Number, y1 :: Number, x2 :: Number,
   num-sqrt(num-sqr(line-length(x1, x2)) + num-sqr(line-length(y1, y2)))
 end
 
-fun collide(x1 :: Number, y1 :: Number, x2 :: Number,
+fun is-collide(x1 :: Number, y1 :: Number, x2 :: Number,
     y2 :: Number) -> Boolean:
   doc: "Determines whether two objects are within 50 pixels of each other."
   distance(x1, y1, x2, y2) < 50

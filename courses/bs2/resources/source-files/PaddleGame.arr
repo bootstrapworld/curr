@@ -56,12 +56,12 @@ end
 fun update-world(w :: World) -> World:
   doc: "What does your update-world function do?"
   ask:
-    | off-left(w.ballX) then: score2(w)
-    | off-right(w.ballX) then: score1(w)
-    | hit-top(w) then: Tcollide(w)
-    | hit-bottom(w) then: Bcollide(w)
-    | Lpaddle-collide(w) then: Lcollide(w)
-    | Rpaddle-collide(w) then: Rcollide(w)
+    | is-off-left(w.ballX) then: score2(w)
+    | is-off-right(w.ballX) then: score1(w)
+    | is-hit-top(w) then: Tcollide(w)
+    | is-hit-bottom(w) then: Bcollide(w)
+    | is-Lpaddle-collide(w) then: Lcollide(w)
+    | is-Rpaddle-collide(w) then: Rcollide(w)
     | otherwise: world(w.p1y, w.p2y, w.p1score, w.p2score,
         update-ballx(w), update-bally(w), w.ballAngle, w.timer + 1)
   end
@@ -105,22 +105,22 @@ end
 # TESTS FOR ASK
 ###############
 
-fun off-left(x :: Number) -> Boolean:
+fun is-off-left(x :: Number) -> Boolean:
   doc: "Checks whether an object has gone off the left side of the screen."
   x < 10
 end
 
-fun off-right(x :: Number) -> Boolean:
+fun is-off-right(x :: Number) -> Boolean:
   doc: "Checks whether an object has gone off the right side of the screen."
   x > 630
 end
 
-fun hit-top(w :: World) -> Boolean:
+fun is-hit-top(w :: World) -> Boolean:
   doc: "Has the ball hit the top? Is it residual from the last check?"
   (w.ballY > 476) and (w.timer > 2)
 end
 
-fun hit-bottom(w :: World) -> Boolean:
+fun is-hit-bottom(w :: World) -> Boolean:
   doc: "Has the ball hit the bottom? Is it residual from the last check?"
   (w.ballY < 4) and (w.timer > 2)
 end
@@ -134,14 +134,14 @@ fun line-length(a :: Number, b :: Number) -> Number:
   end
 end
 
-fun Lpaddle-collide(w :: World) -> Boolean:
+fun is-Lpaddle-collide(w :: World) -> Boolean:
   doc: "Has the ball hit the left paddle? Is it residual from the last check?"
   (line-length(w.ballX, 100) < 5) and
   (line-length(w.ballY, w.p1y) < 20) and
   (w.timer > 3)
 end
 
-fun Rpaddle-collide(w :: World) -> Boolean:
+fun is-Rpaddle-collide(w :: World) -> Boolean:
   doc: "Has the ball hit the right paddle? Is it residual from the last check?"
   (line-length(w.ballX,  540) < 5) and
   (line-length(w.ballY, w.p2y) < 20) and

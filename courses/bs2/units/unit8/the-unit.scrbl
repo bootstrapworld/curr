@@ -231,7 +231,7 @@
         #:overview ""
         #:learning-objectives @itemlist[]
         #:evidence-statements @itemlist[]
-        #:product-outcomes @itemlist[@item{Students will write the collide function}]
+        #:product-outcomes @itemlist[@item{Students will write the is-collide function}]
         #:standards (list)
         #:materials @itemlist[]
         #:preparation @itemlist[@item{}]
@@ -245,12 +245,12 @@
                                 @activity{How close should your danger and your player be, before they hit 
                                           each other?}
                                 At the top of @worksheet-link[#:page 39 #:name "collide"] you'll find the 
-                                Word Problem for @code{collide}. 
+                                Word Problem for @code{is-collide}. 
                                 @activity{@itemlist[@item{Fill in the Contract, two test cases, and then write the
                                                           code. Remember: you WILL need to make use of the 
                                                           @code{distance} function you just wrote!}
                                                      @item{When you're done, type it into your game, under
-                                                           @code{collide}.}]}}
+                                                           @code{is-collide}.}]}}
                         @teacher{Using visual examples, ask students to guess the distance between a danger
                                  and a player at different positions. How far apart do they need to be before
                                  one has hit the other? 
@@ -298,15 +298,15 @@
                                                            game can you look to get that number? (Hint: in which
                                                            function do you @italic{draw} the images on the game 
                                                            screen?)}]}
-@code[#:multi-line #t]{| collide(360, w.catY, w.dogX, 400) then: ...result...}
+@code[#:multi-line #t]{| is-collide(360, w.catY, w.dogX, 400) then: ...result...}
 Remember that @code{update-world} gives back a world, so what function should come first in our result?
-@code[#:multi-line #t]{| collide(360, w.catY, w.dogX, 400) then: world(...dogX..., ...rubyX..., ...catY...)}
+@code[#:multi-line #t]{| is-collide(360, w.catY, w.dogX, 400) then: world(...dogX..., ...rubyX..., ...catY...)}
                                 @activity{And what should happen when the cat and dog collide? Can you think of a 
                                           number that puts the dog off the screen on the left side?}
-             @code[#:multi-line #t]{| collide(360, w.catY, w.dogX, 400) then: world(-100, ...rubyX..., ...catY...)}
+             @code[#:multi-line #t]{| is-collide(360, w.catY, w.dogX, 400) then: world(-100, ...rubyX..., ...catY...)}
                                 @activity{Does the @code{rubyX} change when the dog and cat collide? How about 
                                           @code{catY}? How do you get each of those things out of the world?}
-             @code[#:multi-line #t]{| collide(360, w.catY, w.dogX, 400) then: world(-100, w.rubyX, w.catY)}}
+             @code[#:multi-line #t]{| is-collide(360, w.catY, w.dogX, 400) then: world(-100, w.rubyX, w.catY)}}
                         @teacher{Collision detection must be part of the @code{update-world} function because the
                                  game should be checking for a collision @italic{every time} the world is updated. Students may
                                  assume that @code{draw-world} should handle collision detection, but point out that the

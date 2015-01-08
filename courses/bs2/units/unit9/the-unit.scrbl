@@ -102,7 +102,7 @@
                                                       @item{Change the first @code{ask} branch in @code{update-world}
                                                             so that if the cat collides with the dog, the dog's 
                                                             y-coordinate is resent to a random number between 0 and 480.}]}
-          @code[#:multi-line #t]{| collide(320, w.catY, w.dogX, w.dogY) then: world(-50, num-random(480), w.rubyX, w.catY)}}
+          @code[#:multi-line #t]{| is-collide(320, w.catY, w.dogX, w.dogY) then: world(-50, num-random(480), w.rubyX, w.catY)}}
                          @teacher{}}
                  @point{@student{Further down in @code{update-world}, you check to see if the dog has gone 
                                  off the right side of the screen.
@@ -118,7 +118,7 @@
                                  the dog. Once the dog is reappearing randomly when it leaves the screen, you can 
                                  make the same changes to the ruby's y-coordinate to make it appear randomly, or
                                  add this concept to your own game.}
-                         @teacher{Pay particular attention to the use of @code{distance} and @code{collide} in the
+                         @teacher{Pay particular attention to the use of @code{distance} and @code{is-collide} in the
                                   @code{update-world} function: They take in the dog's y-coordinate, but it is 
                                   currently hard-coded to always be @code{400}. Make sure students realize that every
                                   function that uses the dog's y-coordinate must now get that value from the world 
@@ -182,7 +182,7 @@
 
 @code[#:multi-line #t]{fun update-world(w :: World) -> World:
                            ask:
-                             | collide(320, w.catY, w.dogX, w.dogY) then: world(-50, num-random(480), w.rubyX, w.catY, w.score - 20)
+                             | is-collide(320, w.catY, w.dogX, w.dogY) then: world(-50, num-random(480), w.rubyX, w.catY, w.score - 20)
                            end
                        end}
 
