@@ -135,7 +135,7 @@ ul.twoColumnLayout li {
 ul.matching li          {border-top: none;}
 
 div.rightColumn, div.leftColumn {
-  width:          49%;
+  width:          50%;
   display:        inline-block;
   vertical-align: top;
   padding-bottom: 100%;
@@ -215,7 +215,19 @@ div.codesexp       .studentAnswer+.studentAnswer { margin-left: 10px;}
  Print adjustments
  *********************************************************************/
 @media print{
+  
+  @page{
+    size: auto;   /* auto is the initial value */
+    margin: 0mm;  /* this affects the margin in the printer settings */
+  }
+    
   a{color: black;}
+  
+  div.circleevalsexp .studentAnswer,
+  div.codesexp       .studentAnswer{
+    background-color: #eee !important;
+    -webkit-print-color-adjust: exact;
+  }
 
   span.rightColumnLabel,
   div.leftColumn:before,
