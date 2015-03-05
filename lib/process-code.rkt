@@ -194,7 +194,8 @@
 (define (code #:multi-line (multi-line #f)
               #:contract (contract #f)
               #:purpose (purpose #f)
-              #:pyret-alt (pyret-alt #f)
+              #:lang (lang (getenv "TARGET-LANG"))
+              ;#:pyret-alt (pyret-alt #f)
               . body)
   ;; first an error check to make sure we understand original API usage
   (when (and (not multi-line) (or (and contract purpose) 
@@ -203,9 +204,10 @@
     (printf "WARNING: Use of code that supplied more than one of contract/purpose/body~n"))
   (let ([allcode (string-append (if contract (string-append (curr-comment-char) " " contract "\n") "")
                                 (if purpose (string-append (curr-comment-char) " " purpose "\n") "")
-                                (cond [(gen-racket?) (apply string-append body)]
-                                      [(gen-pyret?) (apply string-append (map bs1-string->pyret-string body))]
-                                      [else (error 'code "Unknown target language")])
+                                (apply string-append body)
+                                ;(cond [(gen-racket?) (apply string-append body)]
+                                ;      [(gen-pyret?) (apply string-append (map bs1-string->pyret-string body))]
+                                ;      [else (error 'code "Unknown target language")])
                                 )])
     ;; we do not use the built-in Racket code formatting in order
     ;; to let codemirror can handle it instead
@@ -213,7 +215,7 @@
     ;; an activity is immediately followed by code
     (cond-element 
      [html (if multi-line 
-               (elem (list (sxml->element 'nbsp) (sxml->element `(textarea ,(string-append "\n" allcode "\n")))))
+               (elem (list (sxml->element 'nbsp) (sxml->element `(textarea (@ (class ,lang)) ,(string-append "\n" allcode "\n")))))
                (sxml->element `(tt ,allcode)))]               
      [else allcode])))
 
