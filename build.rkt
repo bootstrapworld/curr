@@ -104,7 +104,7 @@
 ;; variable
 (putenv "AUDIENCE" "teacher")
 (putenv "CURRENT-SOLUTIONS-MODE" "off")
-(putenv "TARGET-LANG" "racket")
+(putenv "TARGET-LANG" "pyret")
 (putenv "BUILD-FOR" "bootstrap")
 (define current-contextual-tags
   (command-line
