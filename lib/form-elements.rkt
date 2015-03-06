@@ -197,8 +197,8 @@
 ;auto generates copyright section
 (define (copyright . body)
   (para #:style (bootstrap-div-style/id "copyright")
-   (hyperlink "http://creativecommons.org/licenses/by-nc-nd/4.0/" creativeCommonsLogo) "Bootstrap by " (hyperlink "mailto:schanzer@bootstrapworld.org" "Emmanuel Schanzer") " is licensed under a "
-   (hyperlink "http://creativecommons.org/licenses/by-nc-nd/4.0/" "Creative Commons 4.0 Unported License")
+   (hyperlink #:style bootstrap-hyperlink-style "http://creativecommons.org/licenses/by-nc-nd/4.0/" creativeCommonsLogo) "Bootstrap by " (hyperlink "mailto:schanzer@bootstrapworld.org" "Emmanuel Schanzer") " is licensed under a "
+   (hyperlink #:style bootstrap-hyperlink-style "http://creativecommons.org/licenses/by-nc-nd/4.0/" "Creative Commons 4.0 Unported License")
    ". Based on a work at " (hyperlink "http://www.bootstrapworld.org/" "www.BootstrapWorld.org")
    ". Permissions beyond the scope of this license may be available at "
    (hyperlink "mailto:schanzer@BootstrapWorld.org" "schanzer@BootstrapWorld.org") "."))
@@ -1039,7 +1039,8 @@
                                                  (with-output-to-file "exercise-list.rkt" 
                                                    (lambda () (write (path->string expathname)) (printf " ")) 
                                                    #:exists 'append)
-                                                 (elem (list (hyperlink (string-append "exercises/" (exercise-locator-lesson exloc) "/"
+                                                 (elem (list (hyperlink #:style bootstrap-hyperlink-style
+                                                                        (string-append "exercises/" (exercise-locator-lesson exloc) "/"
                                                                                        (exercise-locator-filename exloc) extension)
                                                                         descr)
                                                              ; uncomment next line when ready to bring evidence back in
@@ -1115,12 +1116,14 @@
 (define (resource-link #:path resource-path
                        #:label [label #f])
   (let ([the-relative-path (build-path (unit-to-resources-path) resource-path)])
-    (hyperlink (path->string the-relative-path)
+    (hyperlink #:style bootstrap-hyperlink-style
+               (path->string the-relative-path)
                (if label label resource-path))))
 
 ;; produces a link to the standards documents
 (define (standards-link descr)
-  (hyperlink "http://www.bootstrapworld.org/materials/Standards.shtml"
+  (hyperlink #:style bootstrap-hyperlink-style
+             "http://www.bootstrapworld.org/materials/Standards.shtml"
              descr))
 
 ;; wraps a hyperlink in the bootstrap styling tag
@@ -1158,7 +1161,8 @@
     ;                                                         'up
     ;                                                         "worksheets"
     ;                                                         (format "~a.html" name)))])))
-  (list (hyperlink (path->string the-relative-path)
+  (list (hyperlink #:style bootstrap-hyperlink-style
+                   (path->string the-relative-path)
                    "Page " (number->string 
                             (cond [page page] 
                                   [name (let ([num (get-workbook-page/name name)])
@@ -1185,7 +1189,8 @@
         (define the-relative-path
           (find-relative-path (simple-form-path (path-only (current-document-output-path)))
                               (simple-form-path unit-path)))
-        (hyperlink (string-append (path->string the-relative-path) "#" anchor)
+        (hyperlink #:style bootstrap-hyperlink-style
+                   (string-append (path->string the-relative-path) "#" anchor)
                    (if label label lesson-name))]
        
        ;; If not, fail for now by producing a hyperlink that doesn't quite go to the right place.
@@ -1194,7 +1199,8 @@
         (define the-relative-path
           (find-relative-path (simple-form-path (current-directory))
                               (simple-form-path (build-path worksheet-lesson-root lesson-name "lesson" "lesson.html"))))
-        (hyperlink (path->string the-relative-path)
+        (hyperlink #:style bootstrap-hyperlink-style
+                   (path->string the-relative-path)
                    (if label label lesson-name))]))))
 
 ;;;;;;;;;;;; Page titles ;;;;;;;;;;;;;;;;;;;;;

@@ -20,6 +20,7 @@
 	 bootstrap-span-style
 	 bootstrap-span-style/id
 	 bootstrap-agenda-style
+         bootstrap-hyperlink-style
 	 bootstrap-style
 	 bs-head-additions
 	 make-bs-latex-style 
@@ -120,6 +121,10 @@
                        (cons (make-alt-tag "div")
                              (cons (make-attributes (list (cons 'id "BootstrapAgenda")))
                                    css-js-additions)))))
+
+(define bootstrap-hyperlink-style
+  (make-style #f (cons (make-attributes (list (cons 'target "_blank")))
+                       css-js-additions)))
 
 ;; bootstrap-style : string -> style
 ;; defines a style for both latex and css with the given name
