@@ -526,7 +526,8 @@
                                              in charge of typing, using the mouse, etc. The Navigator should be telling the Driver what to
                                              type, and pointing out mistakes or suggesting things. It's important to clarify what these 
                                              roles are (perhaps reinforcing them with a visual), to ensure that both partners are active 
-                                             and talking to one another about the task at hand.}}
+                                             and talking to one another about the task at hand.
+                                             You can find a great video that discusses these roles at @hyperlink("https://www.youtube.com/watch?v=vgkahOzFH2Q" "Generation Code.")}}
                         }
                
                 @point{@student{@bannerline{All of the expressions that follow the function name are called @vocab{arguments} to the 
