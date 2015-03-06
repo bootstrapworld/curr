@@ -762,7 +762,7 @@
 ;; previously used summary-item/links (for both html/pdf links)
 (define (unit-summary/links num)
   (summary-item/unit-link (format "Unit ~a" num)
-                          (format "units/unit~a/the-unit" num)
+                          (format "units/unit~a/index" num)  ; index used to be "the-unit"
                           (get-unit-descr (format "unit~a" num))))
 
 ;;;;;;;;;; Unit summary generation ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

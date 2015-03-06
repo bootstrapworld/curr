@@ -65,7 +65,8 @@
 
 ;; run-scribble: path -> void
 ;; Runs scribble on the given file.
-(define (run-scribble scribble-file #:never-generate-pdf? [never-generate-pdf? #f]
+(define (run-scribble scribble-file #:outfile (outfile #f)
+                                    #:never-generate-pdf? [never-generate-pdf? #f]
                                     #:include-base-path? [include-base-path? #t])
   (define output-dir (cond [(current-deployment-dir)
                             ;; Rendering to a particular deployment directory.
@@ -88,7 +89,7 @@
                  [current-namespace document-namespace]
                  [current-document-output-path output-path])
     (render (list (dynamic-require `(file ,(path->string name)) 'doc))
-            (list name)
+            (if outfile (list outfile) (list name))
 	    #:dest-dir output-dir)
     (when (and (not never-generate-pdf?) (current-generate-pdf?))
       (translate-html-to-pdf
@@ -180,7 +181,7 @@
              (copy-file (build-path "lib" "box.gif") 
                         (build-path (get-units-dir) subdir "box.gif")
                         #t)
-             (run-scribble scribble-file #:never-generate-pdf? (= phase 0))]
+             (run-scribble scribble-file #:outfile "index" #:never-generate-pdf? (= phase 0))]
             [else
              (printf "Could not find a \"the-unit.scrbl\" in directory ~a\n"
                      (build-path (get-units-dir) subdir))])))
@@ -224,7 +225,7 @@
               )))))
 
   (printf "build.rkt: building ~a main\n" (current-course))
-  (run-scribble (get-course-main)))
+  (run-scribble (get-course-main) #:outfile "index"))
 
 
 ;; Building the lessons
