@@ -940,6 +940,7 @@
   (let ([full-title (if title (string-append "Exercise: " title) "Exercise")])
     (interleave-parbreaks/all
      (list (head-title-no-content full-title)
+           (elem #:style (bootstrap-div-style/id "homeworkInfo") "")
            (elem #:style bs-title-style full-title)
            (nested #:style bs-content-style
                    (nested #:style bs-handout-style
