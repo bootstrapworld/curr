@@ -154,6 +154,9 @@ button:active{	-webkit-transform: translateY(3px); transform: translateY(3px);bo
         Bootstrap uses <a href="http://www.wescheme.org">WeScheme</a>, a cloud-based IDE that requires <b>no downloading or installation</b>. Anyone with a Gmail account can start developing with WeScheme, storing and retrieving files from the cloud and doing all of their editing in a modern browser. Additionally, WeScheme programs can be shared simply by sending out a link, or posting it to sites such as Facebook, Reddit, Twitter, etc.
         <p/>
         Want to run everything locally? Bootstrap also supports <a href="http://www.drracket.org/">DrRacket</a>, a multi-platform graphical environment.  DrRacket runs on all major platforms (Windows, OS X, Unix/Linux) and programs written for one platform run seamlessly on the others, supporting a wide variety of classroom and home computing scenarios.  Its emphasis on beginner-friendly features and support for images makes it ideal for Bootstrap.
+        <p/>
+        <h2>Accessibility</h2>
+        A tool designed for learning should be accessible to <i>all</i> students. We work hard to ensure that our software environments are compatible with screen-readers on popular operating systems.
         </div>
 <!--    
 		<div class="item">
