@@ -1,4 +1,39 @@
 #lang racket/base
+
+;; at some point, we stopped maintaining the tagging infrastructure (allowing for
+;; different versions of the files to get generated based on a set of declared tags.
+;; Kathi can no longer remember what the issue was that we chose not to fix, but
+;; she also couldn't get the tags working again.  The commented out part at the
+;; bottom was the last known tags interface.  The part up top is an attempt to
+;; provide a poor-man's tagging infrastructure until we figure out what went wrong
+;; with the old one or remove the old infrastructure entirely.
+
+;; next step on this is to remove tags.rkt entirely and move the functions defined
+;; here into form-elements.  Waiting to confirm with rest of team that we don't want
+;; to ressurect the tagging infrastructure before doing that.
+
+(require scribble/base
+         scribble/core
+         scribble/decode
+         "scribble-helpers.rkt"
+         )
+
+(provide declare-tags
+         management
+         group
+         selftaught)
+
+(define (declare-tags . args) "")
+
+(define (group . body) "")
+(define (selftaught . body) "")
+
+(define (management . body)
+  (nested #:style "management" 
+          (interleave-parbreaks/select body)))
+
+#|
+
 ;; Implementation for the conditional content generation.  We do the
 ;; decision for the conditional generation at compile-time.
 ;;
@@ -55,6 +90,7 @@
        #'(scribble:splice (list body ...))]
       [else
        #'(scribble:splice (list))]))))
+     
  
 
 
@@ -89,3 +125,5 @@
      ;; FIXME: must make sure it's a unique list of identifiers.
      (andmap identifier? (syntax->list #'(tag ...)))
      (generate-tagged-for-code stx (syntax->list #'(tag ...)) #'(body ...))]))
+
+|#

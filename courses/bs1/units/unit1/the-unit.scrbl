@@ -521,13 +521,12 @@
                                                                                         window. What should the program evaluate to 
                                                                                         when you hit Return?}
                                                      @item{Practice converting other Circles of Evaluation you've drawn into code.}]}}
-                        @teacher{@management{Scaffolding for Pair Programming: Talk to students about the roles of @italic{Driver} 
+                        @teacher{[@(hyperlink "https://www.youtube.com/watch?v=vgkahOzFH2Q" "Video on Roles in Pair Programming.")]@management{Scaffolding for Pair Programming: Talk to students about the roles of @italic{Driver} 
                                              and @italic{Navigator}. The Driver is the student with their hands on the keyboard - they're 
                                              in charge of typing, using the mouse, etc. The Navigator should be telling the Driver what to
                                              type, and pointing out mistakes or suggesting things. It's important to clarify what these 
                                              roles are (perhaps reinforcing them with a visual), to ensure that both partners are active 
-                                             and talking to one another about the task at hand.
-                                             You can find a great video that discusses these roles at @hyperlink("https://www.youtube.com/watch?v=vgkahOzFH2Q" "Generation Code.")}}
+                                             and talking to one another about the task at hand.  The linked video does a great job discussing these roles.}}
                         }
                
                 @point{@student{@bannerline{All of the expressions that follow the function name are called @vocab{arguments} to the 
