@@ -234,10 +234,6 @@ div.codesexp       .studentAnswer+.studentAnswer { margin-left: 10px;}
  *********************************************************************/
 @media print{
   
-  @page{
-    size: auto;   /* auto is the initial value */
-    margin: 0mm;  /* this affects the margin in the printer settings */
-  }
   #homeworkInfo {display: block; }
     
   a{color: black;}
@@ -251,8 +247,9 @@ div.codesexp       .studentAnswer+.studentAnswer { margin-left: 10px;}
   span.rightColumnLabel,
   div.leftColumn:before,
   div.rightColumn:before{
-    border: solid 1px black;
-    color: black;
-    background: white;
+    border-right: solid 1px black;
+    border-bottom: solid 1px black;
+    color: gray;
+    background: none;
   }
 }
