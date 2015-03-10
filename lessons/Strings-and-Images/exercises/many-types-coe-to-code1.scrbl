@@ -7,6 +7,10 @@
                  (+ 15 (image-height (circle 16 "outline" "teal")))
                  (ellipse 30 (+ 20 30) "outline" "red")
                  (image-width (rectangle 65 16 "outline" "blue"))
+                 (circle (sqrt (* 25 5)) "solid" "green")
+                 (flip-horizontal (scale (string-length "flowers") (bitmap-url "www.images.com/flower_image")))
+                 (text "Spring time!" (* 4 5) "pink")
+                 (scale (* 1 .5) (star (/ 100 5) "solid" "gold"))
                  ))
 
 @(define sexps-as-coe (map sexp->coe exprs))

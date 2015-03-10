@@ -5,6 +5,11 @@
                  (+ 20 (* -4 6))
                  (/ 15 (+ 10 (* 4 -2)))
                  (+ (/ 20 (+ 2 3)) (- 6 3))
+                 (* 4 (- 8 (+ 2 3)))
+                 (- (+ 4 2) (/ 10 5))
+                 (+ (- 4 5) (* 5 8))
+                 (/ -15 (+ 5 -8))
+                 (* (+ 4 (- 9 8)) 5)
                  ))
 
 @(define exprs-with-holes '((- (* BSLeaveAHoleHere 9) (+ 2 BSLeaveAHoleHere))
@@ -12,6 +17,11 @@
                             (+ BSLeaveAHoleHere (* BSLeaveAHoleHere 6))
                             (/ 15 (BSLeaveAHoleHere 10 BSLeaveAHoleHere2))
                             (+ (BSLeaveAHoleHere 20 (+ BSLeaveAHoleHere 3)) (BSLeaveAHoleHere BSLeaveAHoleHere 3))
+                            (* BSLeaveAHoleHere (- BSLeaveAHoleHere (BSLeaveAHoleHere 2 3)))
+                            (BSLeaveAHoleHere (BSLeaveAHoleHere 4 2) (/ BSLeaveAHoleHere 5))
+                            (+ (BSLeaveAHoleHere 4 5) (* BSLeaveAHoleHere BSLeaveAHoleHere))
+                            (/ BSLeaveAHoleHere (+ 5 BSLeaveAHoleHere))
+                            (* (BSLeaveAHoleHere 4 (BSLeaveAHoleHere 9 8)) BSLeaveAHoleHere)
                             ))
 
 @(define exprs-as-code (map sexp->code exprs))
