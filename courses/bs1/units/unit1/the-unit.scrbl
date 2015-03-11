@@ -237,10 +237,16 @@
 ]
      #:product-outcomes @itemlist[@item{Students convert several arithmetic expressions between multiple representations}]
      #:standards (list "A-SSE.1-2" "BS-CE" "5.OA.1-2")
-     #:exercises (list (make-exercise-locator "Order-of-Operations" "complete-coe-from-arith")
+     #:exercises (list (make-exercise-locator "Order-of-Operations" "complete-coe-from-arith1")
+                       (make-exercise-locator "Order-of-Operations" "complete-coe-from-arith2")
                        (make-exercise-locator "Order-of-Operations" "arith-to-coe1")
+                       (make-exercise-locator "Order-of-Operations" "arith-to-coe2")
+                       (make-exercise-locator "Order-of-Operations" "arith-to-coe3")
                        (make-exercise-locator "Order-of-Operations" "coe-to-arith1")
-                       (make-exercise-locator "Order-of-Operations" "match-arith-coe1"))
+                       (make-exercise-locator "Order-of-Operations" "coe-to-arith2")
+                       (make-exercise-locator "Order-of-Operations" "match-arith-coe1")
+                       (make-exercise-locator "Order-of-Operations" "coe-to-math-answer1")
+                       (make-exercise-locator "Order-of-Operations" "coe-to-math-answer2"))
      #:materials @itemlist[@item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}]
      #:preparation @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket}
                              @item{If using DrRacket, make sure the Ninja.rkt file is loaded}
@@ -417,6 +423,7 @@
      #:prerequisites (list "Order of Operations")
      #:exercises (list (make-exercise-locator "Intro-to-Programming" "complete-code-from-coe1")
                        (make-exercise-locator "Intro-to-Programming" "coe-to-code1")
+                       (make-exercise-locator "Intro-to-Programming" "coe-to-code2")
                        (make-exercise-locator "Intro-to-Programming" "coe-code-matching1")
                        )
      #:pacings (list 
