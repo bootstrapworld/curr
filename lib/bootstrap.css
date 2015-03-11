@@ -175,7 +175,7 @@ div.rightColumn{border-left: solid 1px black; margin-right: -2px; }
 .twoColumnLayout div.codesexp>.expression{margin-left: 30px; position: relative;}
 
 /* Define minimum heights for various answer types */
-div.circeval {min-height: 250px;}
+div.circeval {min-height: 220px;}
 div.code, div.math, div.text,  {min-height: 50px;}
 
 .exercises h2{ text-align: center; page-break-before:always;}
