@@ -21,17 +21,16 @@
 @(define q7 (elem "How many " @vocab{arguments} " does " @code{rotate} " expect in" @code{(rotate 45 (star 15 "solid" "orange"))} "?"))
 @(define a7 "2")
 
-@(define q4 (elem "What is the first " @vocab{argument} " to the " @code{rotate} " function in" @code{(rotate 45 (star 15 "solid" "orange"))} "?"))
-@(define a4 "45")
-
-@(define q5 (elem "What is the first " @vocab{argument} " to the " @code{star} " function in" @code{(rotate 45 (star 15 "solid" "orange"))} "?"))
-@(define a5 "15")
+@(define q5 (elem "What is the first " @vocab{argument} " to the " @code{rotate} " function in" @code{(rotate 45 (star 15 "solid" "orange"))} "?"))
+@(define a5 "45")
 
 @(define q6 (elem "What is the third " @vocab{argument} " to the " @code{star} " function in" @code{(rotate 45 (star 15 "solid" "orange"))} "?"))
 @(define a6 "\"orange\"")
 
-@(define ques (list q1 q8 q2 q9 q3 q10 q7 q4 q5 q6))
-@(define ans  (list a1 a8 a2 a9 a3 a10 a7 a4 a5 a6))
+
+
+@(define ques (list q1 q8 q2 q9 q3 q10 q7 q5 q6))
+@(define ans  (list a1 a8 a2 a9 a3 a10 a7 a5 a6))
 
 @(exercise-handout 
   #:title "Identifying Parts of Expressions"
