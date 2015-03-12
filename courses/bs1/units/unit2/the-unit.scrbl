@@ -54,7 +54,8 @@ include other datatypes, including Strings and Images.}
                                      @item{Given an expression, students will be able to identify the datatype it will evaluate to}
                                      @item{Students will be able to distinguish between types and values}]
      #:product-outcomes @itemlist[@item{Students will enter (evaluate) expressions for generating Strings and Images}]
-     #:exercises (list (make-exercise-locator "Strings-and-Images" "many-types-coe-to-code1"))
+     #:exercises (list (make-exercise-locator "Strings-and-Images" "many-types-coe-to-code1")
+                       (make-exercise-locator "Strings-and-Images" "many-types-coe-to-code2"))
      #:standards (list "N-Q" "BS-PL.1" "BS-PL.2")
      #:materials @itemlist[@item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}]
      #:preparation @itemlist[@item{Student Workbooks, and something to write with.}]
@@ -145,7 +146,8 @@ include other datatypes, including Strings and Images.}
                                       @item{Given an example of a function being applied, students will be able to write a contract for that function}]
      #:product-outcomes @itemlist[@item{Students will write down Contracts for arithmetic expressions, as well as several image-producing expressions}]
      #:exercises (list (make-exercise-locator "Contracts" "id-expr-pieces1")
-		       (make-exercise-locator "Contracts" "match-contracts-exprs1"))
+                       (make-exercise-locator "Contracts" "id-expr-pieces2")
+                       (make-exercise-locator "Contracts" "match-contracts-exprs1"))
      #:standards (list "BS-PL.2" "BS-IDE" "N-Q" "F-IF.1-3")
      #:materials @itemlist[@item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}]
      #:preparation @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket}
