@@ -406,9 +406,9 @@ iframe#forum_embed.shown{
   *{overflow: visible; float: none;}
   
   /* Always start a lesson on a new page, and try to avoid  */
-  .LessonBoundary                                                             {page-break-before: always;}
+  .LessonBoundary{page-break-before: always;}
   #LearningObjectives, #Glossary, #Materials, #LanguageTable,
-  li.lessonItem, .activity li, .banner, img                                {page-break-inside: avoid;}
+  li.lessonItem, .activity li, .banner, img{page-break-inside: avoid;}
   
   /* styling we want CHANGED for the printed page */
   .content	{font-size: 16px; display: block;}
@@ -424,6 +424,8 @@ iframe#forum_embed.shown{
   li.lessonItem>*:first-child {padding-bottom: 10px;}
   div.teacher{border-left: solid 1px gray; font-style: italic;}
   .CodeMirror{font-size: 12px;}
+  
+  div#copyright{padding: 5px; font-size: 11px;}
   
   /* For the printed page, make it clear that this is an actual link, not underlined text */
   a[href^="http://www.wescheme.org"]:after { content: " [WeScheme Link]"; }
