@@ -225,7 +225,7 @@ end}}
                                  @code[#:multi-line #t]{test:
                                                         update-world(START) is world(START.dogX + 10, START.rubyX + 5)
                                                         end
-                                 }          
+                                 }}          
                          @teacher{Every time the world (or @italic{any} structure) changes, every single instance of @code{world} (or @code{auto},
                                   @code{party}, etc.) will need to change to reflect that. Have students find instances of @code{world} and 
                                   incorporate @code{rubyX} into the new world. Any time they add something new to their game they will need to do 
