@@ -38,7 +38,7 @@
                         @teacher{Take a few minutes to review structs and autos with your students.}}
             @point{@student{You may have heard of the show "Pimp My Ride", where the hosts get an old, beat-up car and make it WAY cooler. Let's implement something like this in Racket...
             @activity{Turn to @worksheet-link[#:page 12 #:name "pimp"] in your workbooks. Write a function called @code{pimp}, which takes in an Auto and returns a new Auto which has an 
-                              extra 100 horsepower, has 30 inch rims, is painted red, and has increased in value by $10,000.
+                              double the horsepower, has 30 inch rims, is painted red, and has increased in value by $10,000.
                               @itemlist[@item{What is the @vocab{contract} for this function?}
                                          @item{For the first EXAMPLE, let's upgrade @code{car3}. How will you start the example?}
                                          @item{@code{(EXAMPLE (pimp car3) ...)}}
@@ -46,18 +46,18 @@
                                          @item{What's the first part of an auto? The @code{model}. Does the model change, according to the function's @vocab{purpose statement}? 
                                                How do you get the @code{model} out of @code{car3}?}
                                          @item{How do you get the @code{hp} out of @code{car3}?}
-                                         @item{Does the horsepower change when we "pimp" our auto? You'll need to get the @code{hp} out of @code{car3}, @italic{and add 100 to it.}}
+                                         @item{Does the horsepower change when we "pimp" our auto? You'll need to get the @code{hp} out of @code{car3}, @italic{and double it.}}
                                          @item{According to the @vocab{purpose statement}, every auto that gets pimped will have 30 inch rims. Does it matter what the original rim size was?}
                                          @item{Likewise, every car will be painted red. Do we need to reference the original color at all?}
                                          @item{Finally, how do you get the @code{value} out of @code{car3}? Will the @code{value} increase or decrease after the auto is upgraded?}
                                        ]}}
                     @teacher{This is an opportunity for students to practice nested expressions. Not only will they use accessor functions to access the fields of the original auto, 
-                             they will need to modify them according to the problem statement. If they get stuck, have them draw the circle of evaluation for adding 100 to the auto's 
-                             horsepower, 10,000 to the auto's value, etc.}}
+                             they will need to modify them according to the problem statement. If they get stuck, have them draw the circle of evaluation for doubling the auto's 
+                             horsepower, adding 10,000 to the auto's value, etc.}}
             @point{@student{Putting it all together, the first example should look like:
 
 @code[#:multi-line #t]{(EXAMPLE (pimp car3) (make-auto (auto-model car3)
-                                                    (+ (auto-hp car3) 100)
+                                                    (* (auto-hp car3) 2)
                                                         30
                                                         red
                                                     (+ (auto-value car3) 10000)))}
