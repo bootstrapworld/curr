@@ -37,7 +37,7 @@
      will be even harder, so remember to refer back to the last two functions you wrote in your workbook, in case you need some hints.}
                         @teacher{Take a few minutes to review structs and autos with your students.}}
             @point{@student{You may have heard of the show "Pimp My Ride", where the hosts get an old, beat-up car and make it WAY cooler. Let's implement something like this in Racket...
-            @activity{Turn to @worksheet-link[#:page 12 #:name "pimp"] in your workbooks. Write a function called @code{pimp}, which takes in an Auto and returns a new Auto which has an 
+            @activity{Turn to @worksheet-link[#:page 12 #:name "pimp"] in your workbooks. Write a function called @code{pimp}, which takes in an Auto and returns a new Auto which has 
                               double the horsepower, has 30 inch rims, is painted red, and has increased in value by $10,000.
                               @itemlist[@item{What is the @vocab{contract} for this function?}
                                          @item{For the first EXAMPLE, let's upgrade @code{car3}. How will you start the example?}
