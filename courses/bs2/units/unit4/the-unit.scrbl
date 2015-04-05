@@ -60,7 +60,7 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Do you remember the Ninja Cat game from Bootstrap 1? In this course, you're going to completely deconstruct the game, and recreate it using a world structure to make it more complex. This version of Ninja Cat might look a bit different than you remember...
+        @points[@point{@student{Do you remember the Ninja Cat game from Bootstrap:1? In this course, you're going to completely deconstruct the game, and recreate it using a world structure to make it more complex. This version of Ninja Cat might look a bit different than you remember...
                                 @activity{Open the @editor-link[#:public-id "fW705a0idU" "NINJA WORLD 1"] file and press "Run". 
                                                    @itemlist[@item{What do you see in this game?}
                                                               @item{Go back to the code and look at the line where the @code{world} data structure is defined.}

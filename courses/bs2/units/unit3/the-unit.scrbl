@@ -21,7 +21,7 @@
         #:product-outcomes @itemlist[@item{Students define a new data structure: a party }
           @item{Students will write functions that access fields of an auto, and produce new autos}]
         #:standards (list)
-        #:materials @itemlist[@item{The Party Planner file [Party.arr from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "zLYLPQ5d6K" "WeScheme"] preloaded on students' machines}
+        #:materials @itemlist[@item{The PARTY PLANNER FILE [Party.arr from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "zLYLPQ5d6K" "WeScheme"] preloaded on students' machines}
                               @item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, design recipe, course calendar)}
                             @item{Editing environment (Pyret Editor)}
@@ -38,7 +38,7 @@
                                                     @item{What about the party's theme? (This could be something like "50s" or "laser tag".)}
                                                     @item{How about the number of guests?}]
                                            Fill out the second struct definition on @worksheet-link[#:page 13 #:name "Party Planner"] in your workbook.}
-@code[#:multi-line #t]{# a party is a location, theme, and number of guests
+@code[#:multi-line #t]{# a Party is a location, theme, and number of guests
                        data Party:
                          | party(location :: String, theme :: String, guests :: Number)
                        end}}
@@ -48,7 +48,7 @@
                                                     lines in the definitions area. Do they match what you have written?} 
                                  Now that the party struct is defined, you have access to new pieces of code: a function to make a party, and three @vocab{dot-accessors}
                                  to get the location, theme, and number of guests out of the party. 
-@activity{Turn to your contracts sheet. @itemlist[@item{What is the @vocab{Name} of the function that @italic{makes a party?}}
+@activity{Turn to your contracts sheet. @itemlist[@item{What is the @vocab{Name} of the function that creates a party?}
                                                   @item{What is the function's @vocab{Domain}? (What kinds of things are part of a party?)}
                                                   @item{What is the @vocab{Range} of this function?}
                                                   @item{How would you get the location out of a party? (Think about how you got the model or color out of an auto.)}
@@ -67,7 +67,7 @@
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[@item{Students define functions that produce an auto}]
         #:standards (list)
-        #:materials @itemlist[]
+        #:materials @itemlist[@item{The Autos file [Autos.arr from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] |  @editor-link[#:public-id "P7qS37u1ZH" "PYRET EDITOR LINK"] used in the previous unit}]
         #:preparation @itemlist[]
         #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -95,15 +95,15 @@
 # Changes the color of an auto}
                In your first example, use the original @code{car1} and turn it purple. We know our customer will expect to get an auto back: you wouldn't bring your car
                into the shop and be OK with only getting a pair of rims back! But we won't be returning the same auto- it will be almost identical, with only the color changed.}
-                         @teacher{It might not be immediately obvious to students that when a function returns an auto, they must use the @code{auto} function to 
+                         @teacher{It might not be immediately obvious to students that when a function returns an Auto, they must use the @code{auto} constructor function to 
                                   produce it. By starting with a "fresh" auto, students are forced to think about every single field in order. Thinking about what exactly
-                                  makes up an auto and going back to the contract for @code{auto} gives them lots of practice with the auto struct and dot-accessors.}}
+                                  makes up an Auto and going back to the contract for @code{auto} gives them lots of practice with the auto struct and dot-accessors.}}
                  
                  @point{@student{The moment you write @code{auto}, you know that you'll need to give it five things: the model, hp, rims, color, and value of that auto. 
                                  We already know what model this car should be: the same as the given auto! But what if you didn't know exactly what string to use. 
                                  How could you access JUST the model of @code{car1} and use it in your @code{auto} function?
                        
-    @code[#:multi-line #t]{check:
+    @code[#:multi-line #t]{example:
                                paint-job(car1, "purple") is auto(car1.model, ...)
                            end}
                                 @activity{@itemlist[@item{The horsepower also doesn't change with a paint job. So how do you get the hp out of @code{car1}?}
@@ -113,17 +113,17 @@
                                 Don't forget the last part of the auto struct- the value! The purpose statement for @code{paint-job} doesn't say anything about the value
                                 changing, so how do you get the original value out of car1?
                                 
-@code[#:multi-line #t]{check:
+@code[#:multi-line #t]{example:
                            paint-job(car1, "purple") is auto(car1.model, car1.hp, car1.rims, "purple", car1.value)
                        end}}
-                         @teacher{}}
+                         @teacher{Remind students that the arguments to each function in Pyret @italic{must} be separated by commas. This wasn't necessary in Racket, but they will receive error messages if they don't use them in Pyret code.}}
                  
-                 @point{@student{@activity{Write one more test case for the function @code{paint-job}, this time using it to paint @code{car2} green. 
-                                          @itemlist[@item{Circle and label what changes between the two tests. How many variables will this function need?}
-                                                     @item{Write the definition, using the test cases to help you.}]}
+                 @point{@student{@activity{Write one more example for the function @code{paint-job}, this time using it to paint @code{car2} green. 
+                                          @itemlist[@item{Circle and label what changes between the two examples. How many variables will this function need?}
+                                                     @item{Write the definition, using your examples to help you.}]}
                         
 After replacing the changing things with variables, your definition should look similar to: 
-@code[#:multi-line #t]{fun paint-job(car :: Auto, color :: String) -> Auto:
+@code[#:multi-line #t]{fun paint-job(car, color):
                            auto(car.model, car.hp, car.rims, color, car.value)
                        end}}
                          @teacher{Students may be tempted to put @code{color} in quotes, because the color of the car must be a string. However, the domain of 
@@ -132,10 +132,10 @@ After replacing the changing things with variables, your definition should look 
                                   If we want color to be a variable, or shortcut for "purple", "green", "blue", etc. it must be written WITHOUT quotation marks.}}
                  
                  @point{@student{@activity{Turn to @worksheet-link[#:page 10 #:name "turbocharge"] in your workbooks. When you turbocharge an engine, you get
-                                           more power out of it. Your bodyshop offers a turbocharging job that adds 20 horsepower to any engine, but keeps everything
+                                           more power out of it. Your bodyshop offers a turbocharging service that adds 20 horsepower to any engine, but keeps everything
                                            else the same. 
                     @itemlist[@item{Fill out the @vocab{Contract} and @vocab{Purpose Statement} for the function.}
-                              @item{Write two @vocab{Test Cases} for how one would use @code{turbocharge}.}
+                              @item{Write two examples for how one would use @code{turbocharge}.}
                               @item{Circle and label what varies between those examples and label it with a @vocab{variable} name.}
                               @item{Define the function.}]}}
                          @teacher{Give students plenty of time to practice using dot-accessors, extracting pieces of the Auto structs and modifying them.}}]
