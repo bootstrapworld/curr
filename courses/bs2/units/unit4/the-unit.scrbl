@@ -36,7 +36,7 @@
                                 @activity{@itemlist[@item{What new arguments does the auto function need to take in? What kinds of things are these?}
                                                      @item{How would you change the data definition to include this new information about autos?}
                                                      @item{Change your auto definition on LINE 2 of the AUTOBODY SHOP file so it includes this new information.}]}
-                                Important! When you change any data structure, all instances of that structure will need to change as well. Right now our definitions for @code{car1}, @code{car2}, and @code{car3} are creating autos with only five inputs- we need to add the three new arguments.
+                                Important! When you change @italic{any} data structure, @bold{all} instances of that structure will need to change as well. Right now our definitions for @code{car1}, @code{car2}, and @code{car3} are creating autos with only five inputs- we need to add the three new arguments.
 
 @activity{Change the definitions of car1, car2, car3 and the other autos you defined so they reflect the new auto struct. }}
                         @teacher{}}
@@ -212,7 +212,7 @@ end}}
                                  and a @code{rubyX}, so you can write them down automatically.
                                  Now you can ask yourself: What happens to @code{dogX} be? In the game, the dog will still be moving to the right by 
                                  10 pixels. 
-                                 @activity{@itemlist[@item{Start by writing two test cases for @code{update-world}. For the first, what will happen if you call @code{update-world} on START?}
+                                 @activity{@itemlist[@item{Start by writing two examples for @code{update-world}. For the first, what will happen if you call @code{update-world} on START?}
                                                       @item{How will you update the x-position of the dog? How do you get the @code{dogX} out of the world?}
                                                       @item{How would you add ten to that?}
                                                       @item{We said we wanted the ruby to move to the left by 5 pixels. How do you get the @code{rubyX} 
@@ -220,9 +220,9 @@ end}}
                                                       @item{If it's moving to the left, will you add or subtract from the position?}
                                                       @item{Which world are you pulling the @code{dogX} and @code{rubyX} out of?}
                                                       @item{The ruby's x-coordinate needs to be added. Where does it begin, in the @code{START} world? 
-                                                            If it goes left by 5 pixels, where should it end up in the first test?}]}
+                                                            If it goes left by 5 pixels, where should it end up in the first example?}]}
                                  
-                                 @code[#:multi-line #t]{test:
+                                 @code[#:multi-line #t]{example:
                                                         update-world(START) is world(START.dogX + 10, START.rubyX + 5)
                                                         end
                                  }}          
