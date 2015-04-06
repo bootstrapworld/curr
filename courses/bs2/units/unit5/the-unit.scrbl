@@ -36,7 +36,7 @@
                                           at the @code{world} defined at the top.
             @itemlist[@item{How many things are in this world? What are they?}
                       @item{What does @code{dogX} represent? @code{rubyX}? @bitmap{images/gameimage.png}}
-                      @item{What function makes a world?}
+                      @item{What function creates a world?}
                       @item{Scroll down a bit in the code. What function updates the world?}
                       @item{What function draws the world?}
                       @item{How fast is the dog moving from left to right? How fast is the ruby moving right to left across the screen?}
@@ -46,7 +46,7 @@
                                  the world?"}}
                  
                  @point{@student{Now it's time to start programming YOUR videogame. 
-                                 @activity{Open the @editor-link[#:public-id "ZcK2dqANbT" "BS:2 blank game file"].} In Bootstrap 1,
+                                 @activity{Open the @editor-link[#:public-id "ZcK2dqANbT" "BS:2 blank game file"].} In Bootstrap:1,
                                  you started with the shell of a game, with some sample images and functions defined. In this class the game template is just
                                  a collection of comments, telling you how to organize your functions and variables. You'll be writing @italic{every line} of 
                                  code yourself. Let's begin: 
@@ -57,12 +57,12 @@
                  
                  @point{@student{So now you have your world, and you know what's in it: but what do those things look like? You'll have to add some images.
                                  We'll use the @code{image-url} function. It takes in the URL of any image online(given as a string), and returns that
-                                 image. @code{# image-url(url :: String) -> Image}
+                                 image. @code{# image-url : String -> Image}
                                  @activity{@itemlist[@item{Look back at @worksheet-link[#:page 20 #:name "Game Design"] in your workbook. How many things 
                                                            in your game will need their own image?}
                                                       @item{Using Google Image Search or a similar tool, find images for the background and for each of 
                                                             the characters in your game.}
-                                                      @item{Define new variables for your images, (i.e. @code{var PLAYER}, @code{var DANGER}, etc.) and use
+                                                      @item{Define new variables for your images, (i.e. @code{PLAYER}, @code{DANGER}, etc.) and use
                                                             the @code{image-url} function to put them into your game file.}]}
                                  Some hints for finding images: Your images should be in PNG or GIF format, and the url should contain the file type
                                  (i.e. .png or .gif) at the end. Background images should be 640x480, and character images should generally be no 
@@ -97,9 +97,8 @@
                                 @activity{Using the chart on @worksheet-link[#:page 23 #:name "Drawing START"], figure out which image goes on top,
                                                           which goes second, and so on. Make a list from top to bottom in the column on the left. 
                                                           Then write each image's coordinates in the right column.}}
-                        @teacher{}}
-                 @point{@student{Let's set up one more example. This will help when you begin writing your function that draws the world, you're ready to 
-                                go. On @worksheet-link[#:page 24 #:name "Drawing NEXT"] there's a page nearly identical to page 23. You've already written a 
+                        @teacher{These world sketches can be optional, or assigned for homework. Each students' world sketches can be displayed on a bulletin board, and matched with screenshots from their videogame to show off their progress as the course progresses.}}
+                 @point{@student{Let's set up one more example. This will help when you begin writing your function that draws the world. On @worksheet-link[#:page 24 #:name "Drawing NEXT"] there's a page nearly identical to page 23. You've already written a 
                                 @code{START} world, which has everything where it will be when the game starts. Now do the same for a world called
                                 @code{NEXT}. This world represents the game in the NEXT FRAME after @code{START}.
                                 @activity{@itemlist[@item{Fill in the world struct, and sketch the @code{NEXT} world.}
@@ -124,11 +123,11 @@
                                         @activity{@itemlist[@item{Start out on the bottom of this 'staircase' by putting one of your
                                                                   images onto the background.}
                                                              @item{If you wanted the image to be centered on the scene, what are the x- and 
-                                                                   y-coordinates you'll need?}
+                                                                   y-coordinates you'll need? Hint: how big is your background image?}
                                                              @item{But you probably don't want your image to be at the center of the background.
                                                                    Look back at your @code{START} world picture. You made a note of which coordinates you wanted that image to be, placed on top of the background.}]}
                                         Start with something that looks like this, substituting YOUR image and coordinates:
-@code[#:multi-line #t]{fun draw-world(w :: World):
+@code[#:multi-line #t]{fun draw-world(w):
                           put-image(IMAGE, 320, 240, BACKGROUND)
                        end}
 Remember, if the position of these images will be changing (like the dog and ruby moving across the screen in Ninja World), they won't always be placed at the same coordinates. Instead of using specific numbers in @code{put-image}, you can (and should!) use dot-accessors to access the coordinates of the characters in the world. Your own world struct will determine which dot-accessors you have available. 
