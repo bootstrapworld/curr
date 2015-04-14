@@ -58,9 +58,8 @@
                   (string-append "Speed: " (number->string speed) (if (= 1 speed) " meter/second" " meters/second")
                                  (if (> (abs speed) 299792458) 
                                      "  That's faster than light!!!" 
-                                     ""))))
-         (tcredit (text "Thanks to Randall Munroe for the picture of the universe!  https://xkcd.com/482/" 14 "gray")))
-    (above/align "left" ttime theight tspeed tcredit)))
+                                     "")))))
+    (above/align "left" ttime theight tspeed)))
 
 
 
@@ -175,7 +174,8 @@
                 (plain-draw (car w) (cdr w))
                 (rocket-draw-world w)
                 (graph-draw-world w))
-               (legend w)))
+               (legend w)
+               (text "Thanks to Randall Munroe for the picture of the universe!  https://xkcd.com/482/" 14 "gray")))
 
 ;; Just the left panel
 (define (start fn)
@@ -187,7 +187,9 @@
 (define (space fn)
   (big-bang (cons 0 fn)
             (on-key tock)
-            (to-draw (lambda (w) (above (rocket-draw-world w) (legend w))))))
+            (to-draw (lambda (w) (above (rocket-draw-world w) 
+                                        (legend w) 
+                                        (text "Thanks to Randall Munroe for the picture of the universe!  https://xkcd.com/482/" 14 "gray"))))))
 
 ;; Just the right panel
 (define (graph fn)
