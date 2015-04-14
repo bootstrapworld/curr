@@ -88,11 +88,11 @@
 ;;    We need to know what "close enough" means, and we need to
 ;;    know how far apart things are.
 
-;; If *distances-color* is set to "yellow", then the game will draw
-;; a yellow triangle between the player and each character. 
+;; If *show-distances* is set to true, then the game will draw
+;; a triangle between the player and each character using the TITLE-COLOR. 
 ;; That triangle will be labelled with line-length on the legs,
-;; and with distance on the hypotenuse. (This works for any valid color)
-(define *distances-color* "")
+;; and with distance on the hypotenuse.
+(define *show-distances* false)
 
 ; line-length : Number Number -> Number
 ; the distance between two points on a number line
@@ -146,7 +146,7 @@
                      TARGET update-target
                      PLAYER update-player
                      mystery update-mystery
-                     *distances-color* line-length distance
+                     *show-distances* line-length distance
                      collide? onscreen?))
 
 ;; starts the game, using the level "g"

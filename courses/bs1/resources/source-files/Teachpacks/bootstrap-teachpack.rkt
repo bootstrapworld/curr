@@ -19,7 +19,7 @@
          targetImgs update-target
          playerImg  update-player
          projectileImg update-projectile
-         distances-color line-length distance
+         show-distances line-length distance
          collide? onscreen?))
 
 ;; SETTINGS 
@@ -41,7 +41,7 @@
 ;; Student debugging:
 (define *line-length* (box (lambda(a b) 0)))
 (define *distance* (box (lambda(px cx py cy) 0)))
-(define *distances-color* (box ""))
+(define *show-distances* (box false))
 
 ;fit-image-to: number number image -> image
 ;ensures the image is of size first number by second number, may crop the given image
@@ -122,10 +122,11 @@
   (let* ((screen-point (posn->point (being-posn being)))
          (cx (posn-x screen-point))
          (cy (posn-y screen-point))
-         (dbg-bkgnd (if (string=? (unbox *distances-color*) "")
-                        background
-                        (add-informative-triangle cx cy (unbox *distances-color*)
-                                                  background))))
+         (dbg-bkgnd (if (unbox *show-distances*)
+                        (add-informative-triangle cx cy (unbox TITLE-COLOR)
+                                                  background)
+                        
+                        background)))
     (place-image (being-costume being) cx cy dbg-bkgnd)))
 
 ; draw-world : World -> Image
@@ -180,14 +181,14 @@
                         targetImgs update-target 
                         playerImg update-player 
                         projectileImgs update-projectile 
-                        distances-color line-length distance 
+                        show-distances line-length distance 
                         collide onscreen)
   (list title title-color background 
         dangerImgs update-danger 
         targetImgs update-target 
         playerImg update-player
         projectileImgs update-projectile 
-        distances-color line-length distance 
+        show-distances line-length distance 
         collide onscreen))
 
 (define (play game) (apply animate/proc game))
@@ -202,13 +203,13 @@
                       targetImgs    update-target*
                       playerImg     update-player*
                       projectileImg update-projectile*
-                      distances-color line-length distance
+                      show-distances line-length distance
                       collide*? onscreen*?)
   (begin
     ;; error-checking
     (unless (string? title)               (display "ERROR: TITLE must be defined as a string.\n"))
     (unless (string? title-color)         (display "ERROR: TITLE-COLOR must be defined as a string.\n"))
-    (unless (string? distances-color)     (display "ERROR: The *distances-color* must be defined as a string.\n"))
+    (unless (boolean? show-distances)     (display "ERROR: *show-distances* must be defined as a boolean.\n"))
     (unless (string? title-color)         (display "ERROR: TITLE-COLOR must be defined as a string.\n"))
     (unless (image? background)           (display "ERROR: BACKGROUND must be defined as an image\n."))
     (unless (image? playerImg)            (display "ERROR: PLAYER must be defined as an image\n."))
@@ -233,7 +234,7 @@
     (set-box! BACKGROUND (fit-image-to WIDTH HEIGHT background))
     (set-box! *line-length* line-length)
     (set-box! *distance* distance)
-    (set-box! *distances-color* distances-color)
+    (set-box! *show-distances* show-distances)
     
     (let* ((player (make-being (make-posn (/ WIDTH 2) (/ HEIGHT 2)) playerImg))
            
