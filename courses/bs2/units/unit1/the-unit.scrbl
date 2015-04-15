@@ -49,7 +49,7 @@
                                      @item{one more Boolean}
                                      @item{one more Image}]
                    and practice using them in the interactions window.}
-                      IMAGES!!!!      }
+                           }
                        @teacher{}}
                
                @point{@student{Now we have values, and we know how to define shortcuts for them. However, there are also plenty of built-in functions, which let us play around with these values. 

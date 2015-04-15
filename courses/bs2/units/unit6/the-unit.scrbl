@@ -6,7 +6,7 @@
 @unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sq sqrt expt})
                                        (list "String" @code{string-append string-length})
                                        (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image}))]{
-                                                                  @unit-descr{Students return to the subject of partial functions, this time defining a key-event handler that modifies their world when certain keys are pressed.}
+                                                                  @unit-descr{Students return to the subject of piecewise functions, this time defining a key-event handler that modifies their world when certain keys are pressed.}
 }
 @unit-lessons{
 @lesson/studteach[#:title "Introduction"
@@ -20,11 +20,9 @@
                             @item{Class poster (List of rules, design recipe, course calendar)}
                             @item{Editing environment (Pyret Editor)}
                             @item{Student workbooks}
-                            @item{Language Table}
-                            @item{Signs for kids, entitled "update-world", "draw-world" and "big-bang"}
-                            @item{Cutout images of the dog and ruby}]
+                            @item{Language Table}]
      #:preparation @itemlist[@item{Seating arrangements: ideally clusters of desks/tables}
-                             @item{The Ninja World 3 file [NW3.arr from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "t77yPXKDWs " "WeScheme"] projected onto the board}]
+                             @item{The NINJA WORLD 4 file [NW4.arr from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "t77yPXKDWs " "WeScheme"] projected onto the board}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -33,71 +31,30 @@
       ]{
         @points[@point{@student{So far, we've been working with three main functions to make our game and animate our world: @code{update-world}, 
                                 @code{draw-world}, and @code{big-bang}. At this point, your game might use a few more functions than these, but 
-                                Ninja World is still as basic as you remember it. 
-                                @activity{@itemlist[@item{Open the @editor-link[#:public-id "t77yPXKDWs" "Ninja World 3"]
-                                                         file and press "Run", to watch the dog and the ruby fly across the screen.}
+                                Ninja World has been pretty basic so far, and it's not interactive. Time to change that!
+                                @activity{@itemlist[@item{Open the @editor-link[#:public-id "t77yPXKDWs" "NINJA WORLD 4"]
+                                                         file and press "Run".}
+                                                     @item{Our world structure has been extended- what's new in this world? What do you think they represent?}
+                                                     @item{What new dot-accessors do we have, to access the new elements of our world struct?}
                                                      @item{What is the contract for each of the functions in this game? What do they do?}
                                                      @item{Each time @code{update-world} is called, What changes about the dog? How does it change?
-                                                                     What about the ruby?}
-                                                     @item{Where on the screen does @code{draw-world} put the image of the dog? the ruby? The clouds?}
-                                                     @item{If you were to call @code{update-world} on @code{world(0, 640)}, What would you get back? 
-                                                                               What is the world that is produced? Where are the dog and ruby after that 
-                                                                               world is evaluated?}]}
+                                                                     What about the ruby? The cat?}
+                                                     @item{Where on the screen does @code{draw-world} put the image of the dog? the ruby? The cat?}]}
                                 In this version of Ninja World, both the dog and the ruby are moving as they should. But that's old news: you've already 
                                 made the characters in your game move on their own. Let's add more.}
                         
-                        @teacher{This lesson is another opportunity to have students"act out the three main functions in Ninja World. Draw a box on the 
-                                 board with @code{world(0, 640)} in it, labelled "world". Ask for a volunteer, and given them the @code{update-world}
-                                 nametag to wear. Ask for @code{update-world}'s Contract and Purpose Statement. Go through a few iterations of having 
-                                 @code{update-world} evaluate the world on the board, and each subsequent world that they update. 
-                                 @management{Make sure to call them by name, i.e. "@code{update-world(world(0, 640))}"} (In the first example, 
-                                 the student should erase the 0 and write a 10, and erase the 640 and write a 635. If they are stuck, refer them back 
-                                 to the code.) Take another student, and give them the @code{big-bang} sign. They'll start the whole 
-                                 animation, and will have a timer. Instruct the class to yell "tick!" every five seconds, and when they do, 
-                                 @code{big-bang} will give the current world to @code{update-world}, who will then update it and replace it with the new 
-                                 world. Let this go on for a few iterations, so the rest of the class can see the world structure being changed while 
-                                 they count down. Finally, give the @code{draw-world} sign to another volunteer, along with the cutouts 
-                                 of the dog and ruby. As before, ask for their name, domain, range. 
-                                 When they are called, they will be given a @code{world} structure and will place the image of the dog and the ruby at the 
-                                 appropriate spots on the board. Change the value of the world back to @code{world(0, 640)}. Call on @code{draw-world}
-                                 a few times with different worlds, so the class can see the dog and ruby moving accross the screen. When each 
-                                 volunteer has practiced, put all the functions together: On each "tick" the class makes, @code{big-bang} will call on 
-                                 @code{update-world} to update the current world, and then @code{draw-world} to draw that updated world. Again, go 
-                                 through a few iterations, so the class can see the world structure changing and characters moving in as a result.}}
+                        @teacher{}}
                  
-                 @point{@student{The time is nigh: we need to get that ninja cat onto the screen so that our game is playable. She'll be able to move up and down. 
-                                 @activity{@itemlist[@item{Do we need to change anything in the code to make this work?}
-                                        @item{What part of the game will we need to keep track of if Ninja Cat is moving up and down? What would be a 
-                                              good @vocab{variable} name for this?}]}
-                                 We need to keep track of the cat's y-coordinate, so let's add a @code{catY} to the world.  
-                                 @activity{@itemlist[@item{Where in the code is the world struct defined?}
-                                                      @item{If the cat is in the center of the screen, what should the value of @code{catY} be?}
-                                                      @item{Add another number to the world struct, representing the cat's y-coordinate.}]}}
-                         @teacher{}}
-                 @point{@student{Right now, even though the cat's y-coordinate has been added to the world struct, there's no function to take in keypresses and
-                                 make it move. This is what we're going to write next. But before we figure out how to write the function to move the cat,
-                                 we need to actually add her into the game. 
-                                 @activity{Which functions will need to change, now that the world structure is different?}
-                                 Since the world now contains three things, you'll need to change every single @code{world} in the code.
-                                 @activity{@itemlist[@item{Starting from the first line, go through the code and look for every instance of 
-                                                           @code{world}, changing it to reflect the new world struct.}
-                                                      @item{How do you get the @code{catY} out of the world?}                                       
-                                                      @item{We said that we'll be writing another function to handle keypresses and moving the cat, so just 
-                                                            add the @code{catY} to @code{update-world}. Don't worry about changing its value.}
-                                            @item{Inside  @code{draw-world}, use the @code{put-image} function to place the image of Ninja Cat on top of 
-                                                          the other images in the game. If she starts in the center of the screen, on what x-coordinate 
-                                                          will she be placed? What about her y-coordinate?}]}}
-                         @teacher{After the @code{catY} is added to the world struct, but before any of the functions have changed, try running the 
-                                  simulation again, giving the ninja cat cutout to the @code{draw-world} volunteer. The world now has three things in it
-                                  (@code{dogX}, @code{rubyX}, and @code{catY}), but the updating and drawing functions will change only the dog and ruby's 
-                                  positions. When @code{big-bang} starts the animation, only the @code{dogX} and @code{rubyX} will be updated. After a few 
-                                  iterations, tell the volunteers that you've pressed the "up" key. If @code{draw-world} begins moving the ninja cat cutout,
-                                  refer them back to the code. You haven't programmed anything to change @code{catY} yet.}}
-                 ]
-         }
-                                         
-@lesson/studteach[#:title "Keypress"
-        #:duration "35 minutes"
+                 @point{@student{In this version of the game, we see something new on the screen: Ninja Cat! If you press the up arrow key, she'll move up... but nothing happens when you press the down arrow key! Let's fix that.
+                                 @activity{@itemlist[@item{Scroll down to where it says @code{# KEY EVENTS} in your code.}
+                                                      @item{What is the name of the function defined here? What is its Domain? Its Range?}
+                                                      @item{How does @code{keypress} change the world it takes in? What happens on screen as a result of pressing certain keys?}
+                                                      @item{Right now this function only checks whether the key pressed by the player is the 'up' arrow key. But how can we get it to check if the 'down'arrow key was pressed, and move the cat accordingly? Take a few minutes with your partner to write one more line of code inside the @code{keypress} function to make the player move down.}]}}
+                         @teacher{Some students may struggle with this, as they're seeing brand new syntax for the first time. Remind them that this is similar to the @code{keypress} function they wrote in Bootstrap:1, give them a few minutes to work on it, and move on to debrief.}}]}
+      
+       
+@lesson/studteach[#:title "Keypress in Ninja World"
+        #:duration "20 minutes"
         #:overview ""
         #:learning-objectives @itemlist[@item{Students will extend their understanding of events to cover key-events}
             @item{Students will deepen their knowledge of conditionals, by combining them with struct accessor and constructor functions.}]
@@ -112,114 +69,19 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Now that the world structure is consistant across all the functions in Ninja World, we're ready to make the cat move.
-                                @activity{Open your workbook to @worksheet-link[#:page 28 #:name "Keypress"]. Using the Design Recipe, write the
-                                                                function @code{keypress} for the Ninja World game.} 
-                                @bannerline{Step 1 - Contract and Purpose Statement}
-                                The word problem tells us that the function's name will be @code{keypress}. What about the Domain? Think about what
-                                the function needs to know in order to handle a keypress: it needs the World, otherwise it wouldn't know what to 
-                                update. But it also needs to know what key was pressed (either @code{"up"} or @code{"down"}).
-                                @activity{@itemlist[@item{What datatypes are @code{"up"} and @code{"down"}?}
-                                                     @item{What is the Domain of @code{keypress}? The Range?}
-                                                     @item{What is a good Purpose Statement for this function?}]}   
-          @code[#:multi-line #t]{fun keypress(w :: World, key :: String) -> World:
-                                     doc: "Given a world and key pressed, updates the world's catY"}}
+        @points[@point{@student{The @code{keypress} function behaves similarly to the same function you remember from Bootstrap:1. It takes in a world and a string (representing the name of a key pressed), and moves the player. In Pyret, instead of using cond branches, we use a keyword called @code{ask}, which lets the computer know whe're going to have different situations and behavior in our code. Just  like you learned in Bootstrap:1, this is known as a @vocab{Piecewise function}. Each ask statement starts with the '|' key, (known as 'pipe') followed by a test, or an expression that produces a @vocab{Boolean} (either true or false). The other keyword to know here is @code{then:}. This tells the computer that whatever follows is what will be returned if the preceding expression is @bold{true}. In the case of this function, if the string representing the key pressed (@code{key}) is equal to the string "up" (@code{strings-equal(key, "up")}), @italic{then} the function will return a world which is the same as the input world, but with the cat's y-coordinate (@code{w.catY}) increased by 10 pixels.}
                         @teacher{}}
-                 @point{@student{@bannerline{Step 2 - Examples}
-                               @activity{Write an example using the @code{START} world, when the user presses @code{"up"}.
-                                                                    @itemlist[@item{@code[#:multi-line #t]{check:
-                                                                                              keypress(START, "up") is...
-                                                                                          end}}
-                           @item{What should you get back? (HINT: Look at the Range)}
-                           @item{What function makes a world? What things are part of this world?}
-                           @item{@code[#:multi-line #t]{check:
-                                                            keypress(START, "up") is world(dogX...rubyX...catY)
-                                                        end}}
-                           @item{Does the @code{dogX} change when the user presses @code{"up"}? How do you get the old @code{dogX} out of the @code{START} world?}
-                           @item{@code[#:multi-line #t]{check:
-                                                            keypress(START, "up") is world(START.dogX, rubyX...catY)
-                                                        end}}
-                           @item{Does the @code{rubyX} change when the user presses @code{"up"}? How do you get the old @code{rubyX} out of the @code{START} world?}
-@item{@code[#:multi-line #t]{
-check:
-    keypress(START, "up") is world(START.dogX, START.rubyX, ...catY)
-end}}
-                           @item{What about the @code{catY}? How much should it change if the user presses @code{"up"}? Let's say 10 pixels.}
-                           @item{Should you add or subtract from the @code{catY} if the @code{"up"} key is pressed? Why?}]}
-                
-Your first example should look like: 
-@code[#:multi-line #t]{
-check:
-    keypress(START, "up") is world(START.dogX, START.rubyX, catY + 10)
-end}}
-                         @teacher{}}
-                 @point{@student{@activity{Write one more example for @code{keypress} using the @code{START} world and the @code{"down"} key. Think about how the @code{catY} will change this time}
-@code[#:multi-line #t]{check:
-    keypress(START, "down") is world(START.dogX, START.rubyX, catY - 10)
-end)}
-@activity{Next, carefully go through your examples and circle @italic{everything} that changes. Does this function behave like the functions you've been working with?}}
-                         @teacher{}}
-                 @point{@student{@bannerline{Step 3 - Definition}
-                @activity{What goes into the function header? What are some good variable names for the world and string (representing the key pressed) in the Domain?}
-                 @code[#:multi-line #t]{fun keypress(w :: World, key :: String) -> World:}
-                 What now? This is a test of your programming intuition: you have two different examples, where you add 10 to @code{catY} in one case
-                 but subtract 10 in another. How can a function behave so differently? It has multiple conditions, with a different response to each.
-                 You've already seen this before, back in Bootstrap:1 - @code{ask}.
-                 @code{ask} is a special function, which signals to the computer that the function will have multiple conditions: it behaves differently 
-                 depending on what input(s) it gets. This is also known as a @vocab{piecewise function}.}
-                        @teacher{Be sure to check students’ Contracts and test cases during this exercise, especially when it’s time for them to circle and
-                                 label what changes between examples. This is the crucial step in the Design Recipe where they should discover the need 
-                                 for @code{ask}.}}
-                 @point{@student{Each @vocab{piecewise function} has at least one @vocab{clause}. Each clause has a Boolean question and a result. In 
-                                      your @code{keypress} function, there is a clause for the @code{"up"} key, and another for the @code{"down"} key.
-                                      If the question evaluates to true, the expression gets evaluated and returned. If the question is false, the computer 
-                                      will skip to the next @vocab{clause}. To write a function with multiple conditions, start with @code{ask} and use
-                                      a bar (|) to add a branch. We know that every branch has a test and a result, making a @vocab{clause}. 
-                                      @code[#:multi-line #t]{fun keypress(w :: World, key :: String) -> World:
-	                                   ask:
-                                             | ...test... then: ...result...
-                                           end
-                                       end}}
-                         @teacher{}}
-                 @point{@student{Let's start the first branch. It will test if the @code{key} pressed is equal to @code{"up"}. @activity{What function can we use to test if two strings are equal?}
-@code[#:multi-line #t]{fun keypress(w :: World, key :: String) -> World:
-	                                   ask:
-                                             | strings-equal(key, "up") then: ...result...
-                                           end
-                                       end}}
-                         @teacher{A bar (|) precedes the question, followed by "then:" and then the result. There can only be one
-                                  expression in each answer.}}
-                 @point{@student{What is the result if the key is @code{"up"}? (HINT: Look back at your test cases for help.) You can copy in the example 
-                                 for @code{"up"}, and change all instances of @code{START} to the @vocab{variable}, @code{w}:
-@code[#:multi-line #t]{fun keypress(w :: World, key :: String) -> World:
-	                   ask:
-                             | strings-equal(key, "up") then: world(w.dogX, w.rubyX, w.catY + 10)
-                           end
-                       end}
-@activity{What is the second condition that needs to be considered? What expression will test that condition? Write the second branch of the @code{keypress} function.}}
-                         @teacher{}}
-                 @point{@student{We also need to test whether the user pressed the @code{"down"} key:
-                 @code[#:multi-line #t]{fun keypress(w :: World, key :: String) -> World:
-	                                    ask:
-                                              | strings-equal(key, "up") then: world(w.dogX, w.rubyX, w.catY + 10)
-                                              | strings-equal(key, "down") then: world(w.dogX, w.rubyX, w.catY - 10)
-                                            end
-                                        end}
-                               Now the computer knows what to do when either @code{"up"} or @code{"down"} is pressed, but there are lots of other keys on your keyboard.}
-                         @teacher{}}
-                 @point{@student{Pyret doesn't know what to do if any other key is pressed, because we haven't told it what to do. 
-                               @activity{@itemlist[@item{Should the world change if the user hits the spacebar, or the @code{"r"} key?}
-                                                    @item{Which world should be returned if any other key is pressed?}]}
-Instead of enumerating all the values of the original world, we can use the variable, @code{w}: 
-@code[#:multi-line #t]{fun keypress(w :: World, key :: String) -> World:
-	                   ask:
-                             | strings-equal(key, "up") then: world(w.dogX, w.rubyX, w.catY + 10)
-                             | strings-equal(key, "down") then: world(w.dogX, w.rubyX, w.catY - 10)
-                             | otherwise: w
-                           end
-                        end}
-                 
-The last clause in a conditional can be an @code{otherwise} clause, which gets evaluated if all the previous clauses were @code{false}.}
+                 @point{@student{After adding a line to make Ninja Cat move down, your @code{keypress} function should look something like this:
+@code[#:multi-line #t]{# keypress : World, String -> World
+# Make cat respond to key events
+fun keypress(w, key):
+  ask:
+    | strings-equal(key, "up") then: world(w.dogX, w.rubyX, w.catX, w.catY + 10)
+    | strings-equal(key, "down") then: world(w.dogX, w.rubyX, w.catX, w.catY - 10)
+    | otherwise: w
+  end
+end}
+In Racket we had an 'else' clause, that would return true when all other tests had failed. In Pyret, we have the @code{otherwise:} keyword, which behaves the same way. If we didn't have this line of code our game would crash if someone pressed any key but 'up' or 'down'. This way, if you accidentally press another key, the function returns w: the @italic{same world} we gave the function originally.}
                          @teacher{@code{otherwise} clauses are best used as a catch-all for cases that you can’t otherwise enumerate. If you can state a precise 
                                    question for a clause, write the precise question instead of otherwise. For example, if you have a function that does
                                    different things depending on whether some variable @code{x} is larger than @code{5}, it is better for beginners to
@@ -227,8 +89,45 @@ The last clause in a conditional can be an @code{otherwise} clause, which gets e
                                    Explicit questions make it easier to read and maintain programs. When you use @code{otherwise}, someone has to read
                                    all the previous questions to know what condition else corresponds to: they can’t just skim all the questions 
                                    to find the one that matches their situation. This makes code more readable and understandable.}}
-                 ]
-         }     
+                 @point{@student{At the end of the file, there's one more bit of code that makes the game respond to key presses. Inside of @code{big-bang}, the very last line reads @code{on-key(keypress)}. @code{on-key} is a special function that detects when the user has pressed any key, and its argument tells it which function will handle the user input (in this case, @code{keypress}!). Now @code{big-bang} has all the information it needs to manage the state of this game: @code{on-tick}, which tells the computer which function updates the game on every "tick" of a timer, @code{to-draw}, which tells it what function to use to draw the world, and finally, @code{on-key}, which handles user input.}
+                         @teacher{}}]}
+                                 
+
+@lesson/studteach[#:title "Extending Keypress"
+        #:duration "15 minutes"
+        #:overview ""
+        #:learning-objectives @itemlist[@item{}]
+        #:evidence-statements @itemlist[]
+        #:product-outcomes @itemlist[]
+        #:standards (list)
+        #:materials @itemlist[]
+        #:preparation @itemlist[@item{}]
+        #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[@point{@student{We've made Ninja Cat move up and down, but in the original version of the game she moved left and right as well. Now that you're familiar with data structures, this is easy! 
+                                @activity{@itemlist[@item{What changes about the cat if she moves to the left? To the right? What part of the world is that?}
+                                                     @item{How would you change your @code{keypress} function so it also asks whether the player has pressed the "left" or "right" arrow keys?}
+                                                     @item{What would you change about the world if the player presses the left arrow key? The right?}
+                                                     @item{Change your @code{keypress} function so that the cat moves left and right based on the arrow keys.}]}
+When finished, your code should look like: 
+@code[#:multi-line #t]{# keypress : World, String -> World
+# Make cat respond to key events
+fun keypress(w, key):
+  ask:
+    | strings-equal(key, "up") then: world(w.dogX, w.rubyX, w.catX, w.catY + 10)
+    | strings-equal(key, "down") then: world(w.dogX, w.rubyX, w.catX, w.catY - 10)
+    | strings-equal(key, "left") then: world(w.dogX, w.rubyX, w.catX - 10, w.catY)
+    | strings-equal(key, "right") then: world(w.dogX, w.rubyX, w.catX + 10, w.catY)
+    | otherwise: w
+  end
+end}
+}
+                        @teacher{}}]}           
+     
 @lesson/studteach[#:title "Keypresses in Your Game"
         #:duration "35 minutes"
         #:overview ""
@@ -244,16 +143,11 @@ The last clause in a conditional can be an @code{otherwise} clause, which gets e
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{In Ninja World, the player can only press two keys: @code{"up"} or @code{"down"}. 
-                                @activity{@itemlist[@item{What field in the World changes when the player presses @code{"up"}? 
-                                                         How does it change?}
-                                                     @item{Think about the person playing your game. How will they control the game? What
-                                                           key will make YOUR player move up? Down? What else can they do? Move side-to-side? 
-                                                           Jump? Teleport? Shoot a projectile?}
-                                                     @item{Turn to @worksheet-link[#:page 27 #:name "Lesson 6"] in your workbooks.
+        @points[@point{@student{Think about the person playing YOUR game. How will they control the game? What key will make YOUR player move up? Down? What else can they do? Move side-to-side? Jump? Teleport? Shoot a projectile?
+                                                     @activity{Turn to @worksheet-link[#:page 27 #:name "Lesson 6"] in your workbooks.
                                                                    Write down the various keys that the user can hit to control the game. 
                                                                    For each one, write down the field in your world struct that changes, 
-                                                                   and how it changes.}]}}
+                                                                   and how it changes.}}
                         @teacher{Review students' workbook pages, and check for understanding: could they change multiple things in their game
                                  with one keypress?}}
                  @point{@student{@activity{Turn to @worksheet-link[#:page 30 #:name "Keypress-in-Game"] in your workbooks. Choose 3 
@@ -293,10 +187,10 @@ The last clause in a conditional can be an @code{otherwise} clause, which gets e
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{With @vocab{conditionals} and @vocab{piecewise functions}, you can make a lot of things happen in your 
+        @points[@point{@student{With @vocab{piecewise functions}, you can make a lot of things happen in your 
                                      game with just a few lines of code, like controlling the movement of characters. Speaking of 
                                      controlling characters, what happens in Ninja World when the dog and ruby go off the screen? 
-                                     They keep going, but don't come back - the same problem we had in Bootstrap:1, and if you 
+                                     They keep going, but don't come back - the same problem we had in Bootstrap:1! If you 
                                      need a refresher on how to fix it, that's what we'll be covering in the next unit.}
                        @teacher{Have students show each other their (controllable games).}}
                  ]
