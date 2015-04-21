@@ -34,7 +34,7 @@
       ]{
         @points[@point{@student{Right now, in both Ninja World and your games, nothing happens when the player collides with another 
                                 game character. We need to write a function change that. This is going to require a 
-                                little math, but luckily it's exactly the same as it was in Bootstrap: 1.
+                                little math, but luckily it's exactly the same as it was in Bootstrap:1.
                                 @bitmap{images/numberline.png}                               
                                 @activity{@itemlist[@item{In the image above, how far apart are the cat and dog?}
                                                      @item{If the cat was moved one space to the right, how far apart would they be?}
@@ -74,14 +74,14 @@
                                 number from the bigger one. If the characters are on the same plane, there are two conditions:
                                 if the first number is bigger, and the other is if the second is bigger.
                                 @activity{@itemlist[@item{What kind of function do we need, when we have multiple 
-                                                          @italic{conditions}?}
+                                                          conditions?}
                                                      @item{Turn to @worksheet-link[#:page 36 #:name "Design Recipe Line Length"].}
                                                      @item{What is the Name of this function? Domain? Range?}
                                                      @item{Write two examples for @code{line-length} so that it subtracts the 
                                                            smaller number from the bigger one. Start with an example using 
                                                            the numbers 23 and 5, then do a second example with 5 and 23 in 
                                                            the @italic{other order}.}]}
-@code[#:multi-line #t]{check:
+@code[#:multi-line #t]{example:
                            line-length(23, 5) is 23 - 5
                            line-length(5, 23) is 23 - 5
                        end}}
@@ -96,7 +96,7 @@
                                                      @item{How could you include a test for wheather the two numbers are equal,
                                                            @italic{without} adding a third @code{ask} branch?}
                                                      @item{Write down the definition for @code{line-length}.}]}     
-@code[#:multi-line #t]{fun line-length(a :: Number, b :: Number) -> Number:
+@code[#:multi-line #t]{fun line-length(a, b):
                            ask:
                              | a > b then: a - b
                              | b >= a then: b - a
@@ -220,18 +220,18 @@
                                  (@code{cy}). Inside the body of the function, @code{line-length} can only calculate 
                                  lengths on the same axis (@code{line-length(px, cx)} and @code{line-length(cx, cy)}).
                                  Just like with making data structures, order matters, and the distance function will 
-                                 not work otherwise. Also be sure to check that students are using @code{sq} and 
-                                 @code{sqrt} in the correct places. }
+                                 not work otherwise. Also be sure to check that students are using @code{num-sqr} and 
+                                 @code{num-sqrt} in the correct places. }
                         }
                 ]
          }
        
-@lesson/studteach[#:title "Collide"
+@lesson/studteach[#:title "Collision"
         #:duration "10 minutes"
         #:overview ""
         #:learning-objectives @itemlist[]
         #:evidence-statements @itemlist[]
-        #:product-outcomes @itemlist[@item{Students will write the is-collide function}]
+        #:product-outcomes @itemlist[@item{Students will write the is-collision function}]
         #:standards (list)
         #:materials @itemlist[]
         #:preparation @itemlist[@item{}]
@@ -245,12 +245,12 @@
                                 @activity{How close should your danger and your player be, before they hit 
                                           each other?}
                                 At the top of @worksheet-link[#:page 39 #:name "collide"] you'll find the 
-                                Word Problem for @code{is-collide}. 
-                                @activity{@itemlist[@item{Fill in the Contract, two test cases, and then write the
+                                Word Problem for @code{is-collision}. 
+                                @activity{@itemlist[@item{Fill in the Contract, two examples, and then write the
                                                           code. Remember: you WILL need to make use of the 
                                                           @code{distance} function you just wrote!}
                                                      @item{When you're done, type it into your game, under
-                                                           @code{is-collide}.}]}}
+                                                           @code{is-collision}.}]}}
                         @teacher{Using visual examples, ask students to guess the distance between a danger
                                  and a player at different positions. How far apart do they need to be before
                                  one has hit the other? 
@@ -289,35 +289,33 @@
                                                           cat and dog are colliding? Have you written a function 
                                                           to check that?}
                                                      @item{What do the inputs need to be?}
-                                                     @item{How do you get the @code{catY} out of the world?}
-                                                     @item{What about the Cat's x-coordinate? She's always in the
-                                                           center of the screen, so what will her x-coordinate 
-                                                           always be?}
+                                                     @item{How do you get the @code{catY} out of the world? @code{catX}?}
                                                      @item{How do you get the @code{dogX} out of the world?} 
                                                      @item{Is there a @code{dogY} in the world? Where in the 
                                                            game can you look to get that number? (Hint: in which
                                                            function do you @italic{draw} the images on the game 
                                                            screen?)}]}
-@code[#:multi-line #t]{| is-collide(360, w.catY, w.dogX, 400) then: ...result...}
+@code[#:multi-line #t]{| is-collision(w.catX, w.catY, w.dogX, 400) then: ...result...}
 Remember that @code{update-world} gives back a world, so what function should come first in our result?
-@code[#:multi-line #t]{| is-collide(360, w.catY, w.dogX, 400) then: world(...dogX..., ...rubyX..., ...catY...)}
+@code[#:multi-line #t]{| is-collision(w.catX, w.catY, w.dogX, 400) then: world(...dogX..., ...rubyX..., ...catX..., ...catY...)}
                                 @activity{And what should happen when the cat and dog collide? Can you think of a 
                                           number that puts the dog off the screen on the left side?}
-             @code[#:multi-line #t]{| is-collide(360, w.catY, w.dogX, 400) then: world(-100, ...rubyX..., ...catY...)}
+             @code[#:multi-line #t]{| is-collision(w.catX, w.catY, w.dogX, 400) then: world(-100, ...rubyX..., ...catX..., ...catY...)}
                                 @activity{Does the @code{rubyX} change when the dog and cat collide? How about 
                                           @code{catY}? How do you get each of those things out of the world?}
-             @code[#:multi-line #t]{| is-collide(360, w.catY, w.dogX, 400) then: world(-100, w.rubyX, w.catY)}}
+             @code[#:multi-line #t]{| is-collision(w.catX, w.catY, w.dogX, 400) then: world(-100, w.rubyX, w.catX, w.catY)}}
                         @teacher{Collision detection must be part of the @code{update-world} function because the
                                  game should be checking for a collision @italic{every time} the world is updated. Students may
                                  assume that @code{draw-world} should handle collision detection, but point out that the
                                  Range of @code{draw-world} is an Image, and their function must return a new world in order to
                                  set the locations of the characters after a collision.}}
                  
-                 @point{@student{Now it's time to handle collisions in your game...
-                                 @activity{Turn to @worksheet-link[#:page 40 #:name "Collide-Examples"] and write 
+                 @point{@student{Now it's time to handle collisions in your game!
+                                 @activity{@itemlist[@item{Turn to @worksheet-link[#:page 40 #:name "Collide-Examples"] and write 
                                            some more tests and results. What characters in your game could collide 
                                            with each other? What should happen as a result? When you have written 
-                                           each test and result down, type it into your game.}}
+                                           each test and result down, type it into your game.}
+                                                      @item{If you finish, turn back to @worksheet-link[#:page 34 #:name "Test and Result"] in your workbook and keep working on your list of questions to ask the world. Have you added each @code{ask} statement to your @code{update-world} function to handle changes in your world?}] }}
                          @teacher{Work in small groups to complete collision branches.}}
                 ]
          }
@@ -337,8 +335,8 @@ Remember that @code{update-world} gives back a world, so what function should co
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Congratulations! You've finished every lesson, and now it's up to you to make your 
-                                game even better. Take some time to brainstorm...what else do you want your game to 
+        @points[@point{@student{Congratulations! You've finished almost every lesson, and now it's up to you to make your 
+                                games even better. Take some time to brainstorm...what else do you want your game to 
                                 do? Next unit you can add even more things, so that your games are even cooler.}
                         @teacher{@management{Have students show each other their finished games, and start thinking about what 
                                  features they want to add next!}}}
