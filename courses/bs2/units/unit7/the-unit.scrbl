@@ -29,8 +29,8 @@
                 )
       ]{
         @points[@point{@student{In the last lesson you reviewed the concept of @vocab{piecewise functions} from Bootstrap:1, and learned about ask blocks, the Pyret syntax for writing piecewise functions. To review, let's go through the Design Recipe for a pieewise function. 
-@activity{@itemlist[@item{Turn to @worksheet-link[#:page 33 #:name "Boundary Checks"] in your workbooks.}
-                    @item{With your partner, fill out the Design Recipe for the ______ function.}]}}
+@activity{@itemlist[@item{Turn to @worksheet-link[#:page 31 #:name "Red-Shape"] in your workbooks.}
+                    @item{With your partner, fill out the Design Recipe for the @code{red-shape} function.}]}}
                         @teacher{Remind students that each @code{ask} statement must have a test and a result, and each function must contain an @code{otherwise:} statement, which will execute if every other test returns false.}}
                  ]
          }                               
