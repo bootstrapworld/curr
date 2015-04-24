@@ -117,7 +117,7 @@ One notable difference between Racket and Pyret is that Pyret requires commas be
                 )
       ]{
           @points[@point{@student{Now you know how to define values in Pyret, and you know how to use Contracts for pre-built functions. But what about defining functions of your own? In Bootstrap:1, you used a tool called the @vocab{Design Recipe} to define functions from word problems. Let’s review the steps of the Design Recipe in Pyret. 
-                                  @activity{Turn to @worksheet-link[#:page 4 #:name "Fast-Functions"] in your workbook.}
+                                  @activity{Turn to @worksheet-link[#:page 3 #:name "Fast-Functions"] in your workbook.}
                                   Here we have a function definition: @code[#:multi-line #t]{# double: Number -> Number
                                                                                              # Takes a number, and multiplies it by two."
                                                                                              
@@ -188,7 +188,7 @@ Once you’ve defined the function itself, Pyret will automatically check your e
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{@points[@point{@student{You just reviewed the first half of the entire Bootstrap:1 course in one unit, AND learned a lot of syntax for a whole new language! Throughout Bootstrap:2 you’ll use all the concepts that you learned in Bootstrap:1, as well as brand new data types, functions, and programming concepts. Of course, you’ll do it all with the help of our old friend the Design Recipe, which will help you write your own functions for your own videogame! Since this is Bootstrap:2, the games you will be able to create will be even more interactive and advanced than in Bootstrap:1. There’s a lot to learn... onward to Unit 2!}
-                       @teacher{}}
+                       @teacher{If time permits, have students practice solving other algebra word problems using the Fast Functions sections on pages 4 and 5 in their workbook.}}
                                   ]
          }
        }
