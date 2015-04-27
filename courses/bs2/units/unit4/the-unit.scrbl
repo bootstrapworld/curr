@@ -203,10 +203,8 @@ end}}
                          @teacher{}}
                  
                  @point{@student{What about @code{update-world}? Does the contract change, now that the world structure is different? Why or why 
-                                 not? @activity{Get rid of the function body of @code{update-world} completely, because a lot needs to change 
-                                                here. Don't delete the Contract - we're not going to change the Domain or Range of the function!}
-                                 Once again, the contract tells you a LOT about how to write the function. Here's a quick tip: if the range is 
-                                 a World, you know that you'll have to create a world at some point. @activity{How do you make a world?}}
+                                 not? @activity{Open your workbook to @worksheet-link[#:page 15 #:name "Update-world"], and copy down the contract.}
+                                 Once again, the contract tells you a LOT about how to write the function. Here's a quick tip: if the range is a World, you know that you'll have to create a world at some point. @activity{How do you make a world?}}
                          @teacher{}}
                  @point{@student{The moment you write @code{world}, your instincts should kick in right away: Every world contains a @code{dogX}
                                  and a @code{rubyX}, so you can write them down automatically.
@@ -225,7 +223,8 @@ end}}
                                  @code[#:multi-line #t]{example:
                                                         update-world(START) is world(START.dogX + 10, START.rubyX + 5)
                                                         end
-                                 }}          
+                                 }
+                                 @activity{Complete the Design Recipe for @code{update-world}, and type it into Ninja World!}}          
                          @teacher{Every time the world (or @italic{any} structure) changes, every single instance of @code{world} (or @code{auto},
                                   @code{party}, etc.) will need to change to reflect that. Have students find instances of @code{world} and 
                                   incorporate @code{rubyX} into the new world. Any time they add something new to their game they will need to do 
@@ -269,7 +268,7 @@ end}}
                            you force them to think about their world structures, and start simple: Limit their world structure to no more than five
                            things, initially.}}
                  
-                 @point{@student{@activity{Turn to @worksheet-link[#:page 20 #:name "Game Design 1"] in your workbooks. First, you're going to draw a rough sketch of what your
+                 @point{@student{@activity{Turn to @worksheet-link[#:page 16 #:name "Game Design 1"] in your workbooks. First, you're going to draw a rough sketch of what your
                              game should look like when the user clicks "Run".
            @itemlist[@item{Keep your @code{world} structure limited to five or fewer things to begin with - you can add more things to make it more complex later on.}
                      @item{Make a list of all the images you'll need in your game.}
@@ -280,10 +279,10 @@ end}}
                                  Check their work: Does each pair's world structure correspond to the things that are changing in their game?}}
 
                  @point{@student{Now that you've gotten a list of everything that changes, it's time to turn them into a World structure.
-            @activity{Turn to @worksheet-link[#:page 21 #:name "Game Design 2"] in your workbooks, and define your world structure. When you're done, 
+            @activity{Turn to @worksheet-link[#:page 17 #:name "Game Design 2"] in your workbooks, and define your world structure. When you're done, 
                               write down the contract for @code{world}, and all of the dot-accessors that you need to work with your structures. 
                               @itemlist[@item{Define an example world called START, which is how your world should look a split-second after the
-                                              game begins. Write it in on the bottom of @worksheet-link[#:page 21 #:name "Game Design 2"].}]}}
+                                              game begins. Write it in on the bottom of @worksheet-link[#:page 17 #:name "Game Design 2"].}]}}
                         @teacher{Review each team's structure and make sure it accurately models their world. Also be sure to check their 
                                  @code{world} contract and dot-accessors.}}
                  ]
