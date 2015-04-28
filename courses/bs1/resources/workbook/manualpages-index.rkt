@@ -30,7 +30,7 @@
  ("Unit-4" 12)
  ("rocket-height.scrbl" 13)
  ("red-square.scrbl" 14)
- ("yard-area.scrbl" 15)
+ ("lawn-area.scrbl" 15)
  ;;;;; UNIT 5 ;;;;;;;;;
  ("Unit-5" 16)
  ("update-danger.scrbl" 17)

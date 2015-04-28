@@ -242,7 +242,7 @@
                         }
                  @point{@student{The Design Recipe can be used for functions that take any number of inputs. As a simple example, take the following word problem:
                                  @activity[#:forevidence (list "8.F.1-3&1&3" "F-IF.1-3&1&4" "BS-DR.3&1&1" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2" "7.EE.3-4&1&4")]{
-                                           Turn to @worksheet-link[#:name "yard-area"] in the workbook, and read the word problem carefully.
+                                           Turn to @worksheet-link[#:name "lawn-area"] in the workbook, and read the word problem carefully.
                                                    @itemlist[@item{Circle the @vocab{Name} of the function, and underline what it takes in and what it produces.}
                                                               @item{How many things does this function take as input? Are they Numbers? Strings? Images?}
                                                               @item{Write the @vocab{Contract} for this function, using what you underlined to help you find the @vocab{Domain} and @vocab{Range}.}
