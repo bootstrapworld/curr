@@ -6,7 +6,7 @@
 @unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sq sqrt expt})
                                        (list "String" @code{string-append string-length})
                                        (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image})
-                                       (list "Auto" @code{auto .model .hp .rims .color .value})
+                                       (list "Car" @code{car .model .hp .rims .color .value})
                                        (list "Party" @code{party .theme .location .guests}))]{
 @unit-descr{Students return to the Ninja World game, and codewalk through the ’update-world’ and ’draw-world’ functions. Making minimal changes to these functions, they are able to modify the dog’s speed and add static clouds. They then modify the world to include the ruby’s x-coordinate, and systematically update each function in the source code to accommodate this new world. If time allows, additional iterations are possible by adding more sets of coordinates to the World. Students brainstorm their videogames, and derive the structure for their game world.}
 }
@@ -22,7 +22,7 @@
                             @item{Class poster (List of rules, design recipe, course calendar)}
                             @item{Editing environment (Pyret Editor)}
                             @item{Language Table}]
-        #:preparation @itemlist[@item{The Autos file [Autos.arr from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] |  @editor-link[#:public-id "P7qS37u1ZH" "PYRET EDITOR LINK"] preloaded on students' machines}
+        #:preparation @itemlist[@item{The Cars file [Cars.arr from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] |  @editor-link[#:public-id "P7qS37u1ZH" "PYRET EDITOR LINK"] preloaded on students' machines}
                                  @item{Seating arrangements: ideally clusters of desks/tables}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -30,15 +30,15 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{In our autobody shop we’ve been working with pretty basic autos. They have a model, horsepower, a rim size, color, and value.
+        @points[@point{@student{In our autobody shop we’ve been working with pretty basic cars. They have a model, horsepower, a rim size, color, and value.
                                 @activity{What datatype do we use for each of these things?}
-                                What if we realize later, after defining our auto struct, that it would be helpful to include more information about each auto, like the number of years that it’s covered under warranty, the interior color, or whether or not it has antilock brakes? Thankfully, working in Pyret it’s easy to change our data definition so an auto can include these things as well. 
-                                @activity{@itemlist[@item{What new arguments does the auto function need to take in? What kinds of things are these?}
-                                                     @item{How would you change the data definition to include this new information about autos?}
-                                                     @item{Change your auto definition on LINE 2 of the AUTOBODY SHOP file so it includes this new information.}]}
-                                Important! When you change @italic{any} data structure, @bold{all} instances of that structure will need to change as well. Right now our definitions for @code{car1}, @code{car2}, and @code{car3} are creating autos with only five inputs- we need to add the three new arguments.
+                                What if we realize later, after defining our Car struct, that it would be helpful to include more information about each car, like the number of years that it’s covered under warranty, the interior color, or whether or not it has antilock brakes? Thankfully, working in Pyret it’s easy to change our data definition so a car can include these things as well. 
+                                @activity{@itemlist[@item{What new arguments does the @code{car} function need to take in? What kinds of things are these?}
+                                                     @item{How would you change the data definition to include this new information about cars?}
+                                                     @item{Change your Car definition on LINE 2 of the AUTOBODY SHOP file so it includes this new information.}]}
+                                Important! When you change @italic{any} data structure, @bold{all} instances of that structure will need to change as well. Right now our definitions for @code{car1}, @code{car2}, and @code{car3} are creating cars with only five inputs- we need to add the three new arguments.
 
-@activity{Change the definitions of car1, car2, car3 and the other autos you defined so they reflect the new auto struct. }}
+@activity{Change the definitions of car1, car2, car3 and the other cars you defined so they reflect the new Car struct. }}
                         @teacher{}}
                  ]
          }
@@ -225,7 +225,7 @@ end}}
                                                         end
                                  }
                                  @activity{Complete the Design Recipe for @code{update-world}, and type it into Ninja World!}}          
-                         @teacher{Every time the world (or @italic{any} structure) changes, every single instance of @code{world} (or @code{auto},
+                         @teacher{Every time the world (or @italic{any} structure) changes, every single instance of @code{world} (or @code{car},
                                   @code{party}, etc.) will need to change to reflect that. Have students find instances of @code{world} and 
                                   incorporate @code{rubyX} into the new world. Any time they add something new to their game they will need to do 
                                   the same thing, so make sure they understand that every change to the world structure requires careful reading 
