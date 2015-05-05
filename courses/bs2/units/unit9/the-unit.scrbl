@@ -41,7 +41,7 @@
                        @teacher{At this point in the course, students will have very different games, and will probably 
                                 need individual help adding the finishing touches or extra elements. This unit includes 
                                 ideas and instructions for frequently requested game elements (Using Ninja World as a 
-                                template), but feel free to have your students get creative with their additions.}}
+                                template), but feel free to have your students get creative with their additions!}}
            ]
          }
                                
@@ -63,9 +63,9 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{If you open up the @editor-link[#:public-id "LPpLz5AKHd" "Ninja World"]
+        @points[@point{@student{If you open up the @editor-link[#:public-id "LPpLz5AKHd" "Ninja World 6"]
                                 file, you'll see the (almost) completed game. However, right now the ruby and
-                                dog appear at the same part of the screen every time, making this a pretty 
+                                dog appear at the same part of the screen every time, making this a really 
                                 easy game. 
                                 @activity{What will the y-coordinate of the dog always be? What about the ruby?}
                                 Instead of appearing at the top of the screen every time, what if you could
@@ -74,7 +74,8 @@
                                 a character's y-coordinate: @code{num-random}. @code{num-random} takes 
                                 in one number as its domain, and returns a random number between 0 and that number. 
                                 So if a game contains @code{num-random(480)} in the code, it will return any number 
-                                between 1 and 480.}
+                                between 1 and 480.
+                                @ativity{Copy the contract for @code{num-random} onto your contracts page. @code{num-random: Number -> Number}}}
                         @teacher{}}
                  @point{@student{If you want the y-coordinate of the dog to change, you'll have to add it to the
                                  world structure.
@@ -82,8 +83,8 @@
                                            a @code{dogY}. Don't forget to redefine your START and NEXT worlds, 
                                            to account for the extra item in the world struct.}
            @code[#:multi-line #t]{data World:
-                                    # The World is the x and y positions of the dog, x position of the ruby, and y position of the cat
-                                    | world(dogX :: Number, dogY :: Number, rubyX :: Number, catY :: Number)
+                                    # The World is the x and y positions of the dog, x position of the ruby, and the x and y position of the cat
+                                    | world(dogX :: Number, dogY :: Number, rubyX :: Number, catX :: Number, catY :: Number)
                                   end}
                                  Right now the @code{draw-world} function draws the dog at its current 
                                  x-coordinate, and a pre-set y-coordinate. 
@@ -102,7 +103,7 @@
                                                       @item{Change the first @code{ask} branch in @code{update-world}
                                                             so that if the cat collides with the dog, the dog's 
                                                             y-coordinate is resent to a random number between 0 and 480.}]}
-          @code[#:multi-line #t]{| is-collide(320, w.catY, w.dogX, w.dogY) then: world(-50, num-random(480), w.rubyX, w.catY)}}
+          @code[#:multi-line #t]{| is-collision(w.catX, w.catY, w.dogX, w.dogY) then: world(-50, num-random(480), w.rubyX, w.catX, w.catY)}}
                          @teacher{}}
                  @point{@student{Further down in @code{update-world}, you check to see if the dog has gone 
                                  off the right side of the screen.
@@ -114,11 +115,11 @@
 
                                  Be sure to go through your code carefully- since you changed the world structure to 
                                  include a @code{dogY}, you'll need to make sure it's included every time you call 
-                                 @code{make-world}, @bold{and} every time a function takes in the y-coordinate of 
+                                 @code{world}, @bold{and} every time a function takes in the y-coordinate of 
                                  the dog. Once the dog is reappearing randomly when it leaves the screen, you can 
                                  make the same changes to the ruby's y-coordinate to make it appear randomly, or
                                  add this concept to your own game.}
-                         @teacher{Pay particular attention to the use of @code{distance} and @code{is-collide} in the
+                         @teacher{Pay particular attention to the use of @code{distance} and @code{is-collision} in the
                                   @code{update-world} function: They take in the dog's y-coordinate, but it is 
                                   currently hard-coded to always be @code{400}. Make sure students realize that every
                                   function that uses the dog's y-coordinate must now get that value from the world 
@@ -150,8 +151,8 @@
                                 a certain number of rubies, destroyed a certain number of zombies, or reached
                                 a certain score. Let's start by adding a scoring system to the Ninja World game.}
                         @teacher{Both the scoring system and randomizing the y-coordinates of the target and danger
-                                 were part of the included teachpack in Bootstrap 1, code which ran "under the hood"
-                                 in students' first Bootstrap game. Let them know that in Bootstrap 2, they no longer 
+                                 were part of the included teachpack in Bootstrap:1, code which ran "under the hood"
+                                 in students' first Bootstrap game. Let them know that in Bootstrap:2, they no longer 
                                  @italic{need} this hidden code, because they've learned enough to program the entire 
                                  game (and more!) themselves.}}
                  
@@ -164,29 +165,29 @@
                                                             @code{score}.}]}
 @code[#:multi-line #t]{data World:
                          # The World is the x and y positions of the dog, x position of the ruby,
-                         # y position of the cat, and the player's score
-                         | world(dogX :: Number, dogY :: Number, rubyX :: Number, catY :: Number, score :: Number)
+                         # x and y position of the cat, and the player's score
+                         | world(dogX :: Number, dogY :: Number, rubyX :: Number, catX :: Number, catY :: Number, score :: Number)
                        end}
                                  Remember: Since the world structure is changing, you now have to go through 
-                                 your game code- every time you make a world, the score must be included in 
+                                 your game code- @italic{every time} you make a world, the score must be included in 
                                  that world. @activity{How do you get the @code{score} out of the world?}}
                          @teacher{}}
                  
                  @point{@student{Now that the game has a score, it needs to be able to increase or decrease. 
-                                 In Ninja World, the score should go up by 30 points when Ninja Cat collides 
+                                 In Ninja World, we'll say that the score should go up by 30 points when Ninja Cat collides 
                                  with the target, and down by 20 points when colliding with the danger.
                                  @activity{@itemlist[@item{Which of the @code{ask} branches in 
                                                                         @code{update-world} checks these conditions?}
                                                       @item{How would you decrease the @code{score} by 20 if
                                                             the player collides with the danger?}]}
 
-@code[#:multi-line #t]{fun update-world(w :: World) -> World:
+@code[#:multi-line #t]{fun update-world(w):
                            ask:
-                             | is-collide(320, w.catY, w.dogX, w.dogY) then: world(-50, num-random(480), w.rubyX, w.catY, w.score - 20)
+                             | is-collision(w.catX, w.catY, w.dogX, w.dogY) then: world(-50, num-random(480), w.rubyX, w.catX, w.catY, w.score - 20)
                            end
                        end}
 
-                                 @activity{On the next cond branch, make the score increase by 30 points 
+                                 @activity{On the next ask branch, make the score increase by 30 points 
                                            when the cat collides with the ruby.}}
                          @teacher{}}
                  
@@ -196,19 +197,19 @@
                                  In @code{draw-world}, images are placed onto the background using @code{put-image} to draw the
                                  game. But the score is represented by a Number: we need a way to represent it as an Image.
                                  Thankfully, Pyret has some built-in functions that can help with this: the function 
-                                 @code{num-tostring} takes in a Number for its domain and returns a String representation 
+                                 @code{num-to-string} takes in a Number for its domain and returns a String representation 
                                  of that number. This string can then be passed to the @code{text} function to return an 
                                  Image that can then be used in @code{draw-world}. 
                                  @activity{Copy the following contracts into your workbook:
-                                           @itemlist[@item{@code{fun num-tostring(n :: Number) -> String}}
-                                                     @item{@code{fun text(t :: String, s :: Number, c :: String) -> Image}}
-                                                     @item{How would you use the @code{num-tostring} and @code{text}
+                                           @itemlist[@item{@code{num-to-string : Number -> String}}
+                                                     @item{@code{text : String, Number, String -> Image}}
+                                                     @item{How would you use the @code{num-to-string} and @code{text}
                                                            functions together to draw the score into the world?}
                                                      @item{How do you get the @code{score} out of the world?}
                                                      @item{How large should the text of the score be? Where should it be
                                                            placed on your game scene?}]}
                                  The expression:
-                                 @code[#:multi-line #t]{put-image(text(num-tostring(w-score), 30, "purple"), 320, 240, BACKGROUND)}
+                                 @code[#:multi-line #t]{put-image(text(num-to-string(w.score), 30, "purple"), 320, 240, BACKGROUND)}
                                   will place the score (drawn in size 30 purple text) onto the center of the BACKGROUND.}
                          @teacher{}}
                  
@@ -230,15 +231,15 @@
                                  specifically, the background image. Because the background only changes when 
                                  a certain condition is met, you'll need to change the @code{draw-world} 
                                  function so that it uses @code{ask}. Leave the current code alone for now
-                                 and start right under @code{fun draw-world(w :: World) -> Image:}. 
+                                 and start right under @code{fun draw-world(w):}. 
                                  @activity{@itemlist[@item{What is the first thing to write, to let the computer 
                                                            know that this will be a function with different 
                                                            conditions?}
                                                       @item{What is the first condition to check? (Hint: is 
                                                             the score large enough to progress to level 2?)}]}
-@code[#:multi-line #t]{fun draw-world(w :: World) -> Image:
+@code[#:multi-line #t]{fun draw-world(w):
                            ask:
-                             | w.score > 500 then:
+                             | w.score > 500 then: ......
                            end
                        end}
 
@@ -247,9 +248,9 @@
                                  @activity{What is the one thing that needs to change?}
                                  Instead of putting all your images on top of @code{BACKGROUND}, you'll put 
                                  them over @code{BACKGROUND2}, your new background image:
-@code[#:multi-line #t]{fun draw-world(w :: World) -> World:
+@code[#:multi-line #t]{fun draw-world(w):
                            ask:
-                             | w.score > 500 then: put-image(PLAYER, 320, w.catY,
+                             | w.score > 500 then: put-image(PLAYER, w.catX, w.catY,
                                                        put-image(TARGET, w.rubyX, 300,
                                                            put-image(CLOUD, 500, 400,
                                                                put-image(DANGER, w.dogX, w.dogY, BACKGROUND2))))
@@ -259,7 +260,7 @@
                                            right underneath what you just wrote. If the score is @bold{not} 
                                            greater than 500, the world will be drawn with the images on the 
                                            original background.}
-                      @code[#:multi-line #t]{| otherwise: put-image(PLAYER, 320, w.catY,
+                      @code[#:multi-line #t]{| otherwise: put-image(PLAYER, w.catX, w.catY,
                                                               put-image(TARGET, w.rubyX, 300,
                                                                   put-image(CLOUD, 500, 400,
                                                                       put-image(DANGER, w.dogX, w.dogY, BACKGROUND))))}
@@ -360,7 +361,7 @@
                 )
       ]{
         @points[@point{@student{Congratulations! You started from scratch, and now have a working videogame!
-                                We hope you’ll continue worlding on these games, keep hacking, and keep learning!}
+                                We hope you’ll continue working on these games yourself, keep hacking, and keep learning!}
                         @teacher{Have students show each other their completed games!}}
                  ]
          }
