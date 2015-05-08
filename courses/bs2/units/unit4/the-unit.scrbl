@@ -8,7 +8,7 @@
                                        (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image})
                                        (list "Car" @code{car .model .hp .rims .color .value})
                                        (list "Party" @code{party .theme .location .guests}))]{
-@unit-descr{Students return to the Ninja World game, and codewalk through the ’update-world’ and ’draw-world’ functions. Making minimal changes to these functions, they are able to modify the dog’s speed and add static clouds. They then modify the world to include the ruby’s x-coordinate, and systematically update each function in the source code to accommodate this new world. If time allows, additional iterations are possible by adding more sets of coordinates to the World. Students brainstorm their videogames, and derive the structure for their game world.}
+@unit-descr{Students return to the Ninja World game, and codewalk through the ’update-world’ and ’draw-world’ functions. Making minimal changes to these functions, they are able to modify the dog’s speed and add static clouds. They then modify the world to include the target’s x-coordinate, and systematically update each function in the source code to accommodate this new world. If time allows, additional iterations are possible by adding more sets of coordinates to the World. Students brainstorm their videogames, and derive the structure for their game world.}
 }
 @unit-lessons{
 @lesson/studteach[#:title "Review: Autobody Shop"
@@ -136,7 +136,7 @@ end}
 @lesson/studteach[#:title "Extending the World"
         #:duration "15 minutes"
         #:overview ""
-        #:learning-objectives @itemlist[@item{Students will modify draw-world to add clouds and a ruby}
+        #:learning-objectives @itemlist[@item{Students will modify draw-world to add clouds and a coin}
                                          @item{Students will iteratively expand the World structure, and trace these changes throughout their program}]
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[]
@@ -166,37 +166,37 @@ end}
 end}}
                         @teacher{This section requires that you walk through and model each one of the changes to the code, with students
                                  following along on their own computers. You can write the code on the board or use a projector to show the
-                                 code, and use cutouts of the dog and ruby to model their behavior.}}
+                                 code, and use cutouts of the dog and coin to model their behavior.}}
                  
                  @point{@student{Now suppose the @code{TARGET} is flying across the screen, moving left slowly at 5 pixels each frame. 
-                                 The ruby's position will be changing, so this time the world @italic{does} need to be modified.
-                                 @activity{@itemlist[@item{What specifically will be changing about the ruby?}
+                                 The coin's position will be changing, so this time the world @italic{does} need to be modified.
+                                 @activity{@itemlist[@item{What specifically will be changing about the coin?}
                                                       @item{How does the world struct need to change?}
-                                                      @item{What is a good variable name to represent the ruby's x-coordinate? How about 
-                                                            @code{rubyX}?}
+                                                      @item{What is a good variable name to represent the coin's x-coordinate? How about 
+                                                            @code{coinX}?}
                                                       @item{How has the contract for @code{world} changed? Update it on your 
                                                                                      contracts sheet!}
-                                                      @item{Now that the world structure includes a @code{rubyX}, What new dot-accessor do you have access to?}]}
-                                 @code{.rubyX}!}
+                                                      @item{Now that the world structure includes a @code{coinX}, What new dot-accessor do you have access to?}]}
+                                 @code{.coinX}!}
                          @teacher{}}
                  
                  @point{@student{Because the world structure is different now, we need to go through the code, line-by-line, and change every
                                  @code{world} we find. Look at the @code{START} variable - It uses @code{world}, which now requires 
                                  two inputs in its Domain. 
-                                 @activity{@itemlist[@item{What should the ruby's x-coordinate be when the simulation starts? Include 
+                                 @activity{@itemlist[@item{What should the coin's x-coordinate be when the simulation starts? Include 
                                                            this number in the @code{START} world.}
                                                       @item{Do the definitions of the image variables need to change? Why not?}
                                                       @item{What about @code{draw-world}? Does its contract change? The contract says it 
                                                             takes a World as its Domain, and it still does. The only thing that has changed 
                                                             is @italic{what a world contains}. Does @code{draw-world} still produce an Image?}
-                                                      @item{What needs to change about the body of @code{draw-world}? Right now the ruby is being 
+                                                      @item{What needs to change about the body of @code{draw-world}? Right now the coin is being 
                                                             drawn at the coordinates (500, 300) every time, but we want the position (namely, its 
-                                                            x-coordinate) to change. How do you get the @code{rubyX} out of the world? Place the
+                                                            x-coordinate) to change. How do you get the @code{coinX} out of the world? Place the
                                                             image of the TARGET at that x-coordinate.}]}
 @code[#:multi-line #t]{# draw-world : World -> Image
     #Place DANGER, CLOUD and TARGET onto BACKGROUND at the right coordinates
  fun draw-world(w :: World):
-    put-image(TARGET, w.rubyX, 300,
+    put-image(TARGET, w.coinX, 300,
         put-image(CLOUD, 500, 400,
             put-image(DANGER, w.dogX, 200, BACKGROUND)))
 end}}
@@ -207,27 +207,27 @@ end}}
                                  Once again, the contract tells you a LOT about how to write the function. Here's a quick tip: if the range is a World, you know that you'll have to create a world at some point. @activity{How do you make a world?}}
                          @teacher{}}
                  @point{@student{The moment you write @code{world}, your instincts should kick in right away: Every world contains a @code{dogX}
-                                 and a @code{rubyX}, so you can write them down automatically.
+                                 and a @code{coinX}, so you can write them down automatically.
                                  Now you can ask yourself: What happens to @code{dogX} be? In the game, the dog will still be moving to the right by 
                                  10 pixels. 
                                  @activity{@itemlist[@item{Start by writing two examples for @code{update-world}. For the first, what will happen if you call @code{update-world} on START?}
                                                       @item{How will you update the x-position of the dog? How do you get the @code{dogX} out of the world?}
                                                       @item{How would you add ten to that?}
-                                                      @item{We said we wanted the ruby to move to the left by 5 pixels. How do you get the @code{rubyX} 
+                                                      @item{We said we wanted the coin to move to the left by 5 pixels. How do you get the @code{coinX} 
                                                             out of the world?}
                                                       @item{If it's moving to the left, will you add or subtract from the position?}
-                                                      @item{Which world are you pulling the @code{dogX} and @code{rubyX} out of?}
-                                                      @item{The ruby's x-coordinate needs to be added. Where does it begin, in the @code{START} world? 
+                                                      @item{Which world are you pulling the @code{dogX} and @code{coinX} out of?}
+                                                      @item{The coin's x-coordinate needs to be added. Where does it begin, in the @code{START} world? 
                                                             If it goes left by 5 pixels, where should it end up in the first example?}]}
                                  
                                  @code[#:multi-line #t]{example:
-                                                        update-world(START) is world(START.dogX + 10, START.rubyX + 5)
+                                                        update-world(START) is world(START.dogX + 10, START.coinX + 5)
                                                         end
                                  }
                                  @activity{Complete the Design Recipe for @code{update-world}, and type it into Ninja World!}}          
                          @teacher{Every time the world (or @italic{any} structure) changes, every single instance of @code{world} (or @code{car},
                                   @code{party}, etc.) will need to change to reflect that. Have students find instances of @code{world} and 
-                                  incorporate @code{rubyX} into the new world. Any time they add something new to their game they will need to do 
+                                  incorporate @code{coinX} into the new world. Any time they add something new to their game they will need to do 
                                   the same thing, so make sure they understand that every change to the world structure requires careful reading 
                                   and editing of their world functions.}}
                          ]

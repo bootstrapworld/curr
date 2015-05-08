@@ -38,9 +38,9 @@
                                                      @item{What new dot-accessors do we have, to access the new elements of our world struct?}
                                                      @item{What is the contract for each of the functions in this game? What do they do?}
                                                      @item{Each time @code{update-world} is called, What changes about the dog? How does it change?
-                                                                     What about the ruby? The cat?}
-                                                     @item{Where on the screen does @code{draw-world} put the image of the dog? the ruby? The cat?}]}
-                                In this version of Ninja World, both the dog and the ruby are moving as they should. But that's old news: you've already 
+                                                                     What about the coin? The cat?}
+                                                     @item{Where on the screen does @code{draw-world} put the image of the dog? the coin? The cat?}]}
+                                In this version of Ninja World, both the dog and the coin are moving as they should. But that's old news: you've already 
                                 made the characters in your game move on their own. Let's add more.}
                         
                         @teacher{}}
@@ -76,8 +76,8 @@
 # Make cat respond to key events
 fun keypress(w, key):
   ask:
-    | strings-equal(key, "up") then: world(w.dogX, w.rubyX, w.catX, w.catY + 10)
-    | strings-equal(key, "down") then: world(w.dogX, w.rubyX, w.catX, w.catY - 10)
+    | strings-equal(key, "up") then: world(w.dogX, w.coinX, w.catX, w.catY + 10)
+    | strings-equal(key, "down") then: world(w.dogX, w.coinX, w.catX, w.catY - 10)
     | otherwise: w
   end
 end}
@@ -118,10 +118,10 @@ When finished, your code should look like:
 # Make cat respond to key events
 fun keypress(w, key):
   ask:
-    | strings-equal(key, "up") then: world(w.dogX, w.rubyX, w.catX, w.catY + 10)
-    | strings-equal(key, "down") then: world(w.dogX, w.rubyX, w.catX, w.catY - 10)
-    | strings-equal(key, "left") then: world(w.dogX, w.rubyX, w.catX - 10, w.catY)
-    | strings-equal(key, "right") then: world(w.dogX, w.rubyX, w.catX + 10, w.catY)
+    | strings-equal(key, "up") then: world(w.dogX, w.coinX, w.catX, w.catY + 10)
+    | strings-equal(key, "down") then: world(w.dogX, w.coinX, w.catX, w.catY - 10)
+    | strings-equal(key, "left") then: world(w.dogX, w.coinX, w.catX - 10, w.catY)
+    | strings-equal(key, "right") then: world(w.dogX, w.coinX, w.catX + 10, w.catY)
     | otherwise: w
   end
 end}
@@ -189,7 +189,7 @@ end}
       ]{
         @points[@point{@student{With @vocab{piecewise functions}, you can make a lot of things happen in your 
                                      game with just a few lines of code, like controlling the movement of characters. Speaking of 
-                                     controlling characters, what happens in Ninja World when the dog and ruby go off the screen? 
+                                     controlling characters, what happens in Ninja World when the dog and coin go off the screen? 
                                      They keep going, but don't come back - the same problem we had in Bootstrap:1! If you 
                                      need a refresher on how to fix it, that's what we'll be covering in the next unit.}
                        @teacher{Have students show each other their (controllable games).}}

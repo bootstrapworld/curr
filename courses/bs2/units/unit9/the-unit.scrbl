@@ -64,10 +64,10 @@
                 )
       ]{
         @points[@point{@student{If you open up the @editor-link[#:public-id "LPpLz5AKHd" "Ninja World 6"]
-                                file, you'll see the (almost) completed game. However, right now the ruby and
+                                file, you'll see the (almost) completed game. However, right now the coin and
                                 dog appear at the same part of the screen every time, making this a really 
                                 easy game. 
-                                @activity{What will the y-coordinate of the dog always be? What about the ruby?}
+                                @activity{What will the y-coordinate of the dog always be? What about the coin?}
                                 Instead of appearing at the top of the screen every time, what if you could
                                 make the dog show up at a random y-coordinate whenever it goes off the screen?
                                 Pyret already has a function to give you a random number, which could represent 
@@ -83,8 +83,8 @@
                                            a @code{dogY}. Don't forget to redefine your START and NEXT worlds, 
                                            to account for the extra item in the world struct.}
            @code[#:multi-line #t]{data World:
-                                    # The World is the x and y positions of the dog, x position of the ruby, and the x and y position of the cat
-                                    | world(dogX :: Number, dogY :: Number, rubyX :: Number, catX :: Number, catY :: Number)
+                                    # The World is the x and y positions of the dog, x position of the coin, and the x and y position of the cat
+                                    | world(dogX :: Number, dogY :: Number, coinX :: Number, catX :: Number, catY :: Number)
                                   end}
                                  Right now the @code{draw-world} function draws the dog at its current 
                                  x-coordinate, and a pre-set y-coordinate. 
@@ -103,7 +103,7 @@
                                                       @item{Change the first @code{ask} branch in @code{update-world}
                                                             so that if the cat collides with the dog, the dog's 
                                                             y-coordinate is resent to a random number between 0 and 480.}]}
-          @code[#:multi-line #t]{| is-collision(w.catX, w.catY, w.dogX, w.dogY) then: world(-50, num-random(480), w.rubyX, w.catX, w.catY)}}
+          @code[#:multi-line #t]{| is-collision(w.catX, w.catY, w.dogX, w.dogY) then: world(-50, num-random(480), w.coinX, w.catX, w.catY)}}
                          @teacher{}}
                  @point{@student{Further down in @code{update-world}, you check to see if the dog has gone 
                                  off the right side of the screen.
@@ -117,7 +117,7 @@
                                  include a @code{dogY}, you'll need to make sure it's included every time you call 
                                  @code{world}, @bold{and} every time a function takes in the y-coordinate of 
                                  the dog. Once the dog is reappearing randomly when it leaves the screen, you can 
-                                 make the same changes to the ruby's y-coordinate to make it appear randomly, or
+                                 make the same changes to the coin's y-coordinate to make it appear randomly, or
                                  add this concept to your own game.}
                          @teacher{Pay particular attention to the use of @code{distance} and @code{is-collision} in the
                                   @code{update-world} function: They take in the dog's y-coordinate, but it is 
@@ -145,7 +145,7 @@
                 )
       ]{
         @points[@point{@student{Ninja World is looking good, but right now there's not a lot of variety.
-                                The player avoids the dog and gets the ruby over and over again. We should
+                                The player avoids the dog and gets the coin over and over again. We should
                                 mix things up a bit: how about adding new levels? Typically a game would 
                                 progress to a new level if the player has reached a certain goal: Collected
                                 a certain number of rubies, destroyed a certain number of zombies, or reached
@@ -164,9 +164,9 @@
                                                       @item{Change the world structure so it includes a 
                                                             @code{score}.}]}
 @code[#:multi-line #t]{data World:
-                         # The World is the x and y positions of the dog, x position of the ruby,
+                         # The World is the x and y positions of the dog, x position of the coin,
                          # x and y position of the cat, and the player's score
-                         | world(dogX :: Number, dogY :: Number, rubyX :: Number, catX :: Number, catY :: Number, score :: Number)
+                         | world(dogX :: Number, dogY :: Number, coinX :: Number, catX :: Number, catY :: Number, score :: Number)
                        end}
                                  Remember: Since the world structure is changing, you now have to go through 
                                  your game code- @italic{every time} you make a world, the score must be included in 
@@ -183,12 +183,12 @@
 
 @code[#:multi-line #t]{fun update-world(w):
                            ask:
-                             | is-collision(w.catX, w.catY, w.dogX, w.dogY) then: world(-50, num-random(480), w.rubyX, w.catX, w.catY, w.score - 20)
+                             | is-collision(w.catX, w.catY, w.dogX, w.dogY) then: world(-50, num-random(480), w.coinX, w.catX, w.catY, w.score - 20)
                            end
                        end}
 
                                  @activity{On the next ask branch, make the score increase by 30 points 
-                                           when the cat collides with the ruby.}}
+                                           when the cat collides with the coin.}}
                          @teacher{}}
                  
                  @point{@student{The scoring system is in place, but how will the player know what their score is? You'll need
@@ -251,7 +251,7 @@
 @code[#:multi-line #t]{fun draw-world(w):
                            ask:
                              | w.score > 500 then: put-image(PLAYER, w.catX, w.catY,
-                                                       put-image(TARGET, w.rubyX, 300,
+                                                       put-image(TARGET, w.coinX, 300,
                                                            put-image(CLOUD, 500, 400,
                                                                put-image(DANGER, w.dogX, w.dogY, BACKGROUND2))))
                            end}}
@@ -261,7 +261,7 @@
                                            greater than 500, the world will be drawn with the images on the 
                                            original background.}
                       @code[#:multi-line #t]{| otherwise: put-image(PLAYER, w.catX, w.catY,
-                                                              put-image(TARGET, w.rubyX, 300,
+                                                              put-image(TARGET, w.coinX, 300,
                                                                   put-image(CLOUD, 500, 400,
                                                                       put-image(DANGER, w.dogX, w.dogY, BACKGROUND))))}
                 
@@ -311,7 +311,7 @@
                                        
                                        DOG = character(DANGER, 10, -50, 400)
                                        CAT = character(PLAYER, 20, 320, 240)
-                                       RUBY = character(TARGET, 10, 690, 300)}
+                                       COIN = character(TARGET, 10, 690, 300)}
                                 @activity{Define a character struct and some example characters for your own game. 
                                           They don't have to follow the same pattern- your characters can have a 
                                           health property instead of a speed, for example. Just be sure your newly 
@@ -320,17 +320,17 @@
                         @teacher{}}
                  @point{@student{If each character is now its own structure, what will the world look like? Something like:
           @code[#:multi-line #t]{data World:
-                                   # The World is three characters: (dog, cat, ruby) and a score
+                                   # The World is three characters: (dog, cat, coin) and a score
                                    | world(c1 :: Character, c2 :: Character, c3 :: Character, score :: Number)
                                  end}
                                 @activity{Why is it important to use variable names (@code{c1}, @code{c2}, 
                                           and @code{c3}) instead of just defining the world struct to include 
-                                          specific characters (@code{DOG}, @code{CAT}, @code{RUBY})?}
+                                          specific characters (@code{DOG}, @code{CAT}, @code{COIN})?}
                                 Variables are used in structs for the same reason variables are used in functions: 
                                 we want to be able to change the value of those characters later. When 
                                 you define the first world, you can then make your predefined character structs 
                                 part of that world:
-                                @code{START = world(DOG, CAT, RUBY)}
+                                @code{START = world(DOG, CAT, COIN)}
                                 Of course, you need some way to access parts of each character struct, even if 
                                 it's inside another struct. This is just like accessing any part of a struct. 
                                 @activity{@itemlist[@item{How do you get the first character out of the starting world?}

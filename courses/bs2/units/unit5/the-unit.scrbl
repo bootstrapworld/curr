@@ -35,11 +35,11 @@
         @points[@point{@student{@activity{Open the @editor-link[#:public-id "t77yPXKDWs" "NINJA WORLD"] file, and look 
                                           at the @code{world} defined at the top.
             @itemlist[@item{How many things are in this world? What are they?}
-                      @item{What does @code{dogX} represent? @code{rubyX}? @bitmap{images/gameimage.png}}
+                      @item{What does @code{dogX} represent? @code{coinX}? @bitmap{images/gameimage.png}}
                       @item{What function creates a world?}
                       @item{Scroll down a bit in the code. What function updates the world?}
                       @item{What function draws the world?}
-                      @item{How fast is the dog moving from left to right? How fast is the ruby moving right to left across the screen?}
+                      @item{How fast is the dog moving from left to right? How fast is the coin moving right to left across the screen?}
                       @item{Now turn to @worksheet-link[#:page 21 #:name "Game Design"] in your workbook. What are the things in your world? What datatypes are they?}]}}
                         @teacher{Make sure that all students can list the names and types of everything in their @code{world} struct. In addition,
                                  make sure they can answer some questions about accessor functions, such as "how do you get the alien's speed out of
@@ -105,7 +105,7 @@
                                                      @item{Now put the images in the same order as in the @code{START} world. (We don't want them to 
                                                            be switching around in the middle of the game!) Then write the NEW coordinates beside them.}]}}
                         @teacher{These workbook pages help students organize their thinking before writing their own @code{draw-world} function. The order of
-                                 images determines which game images appear above the others. (Does it make more sense to have the ruby appear to be flying 
+                                 images determines which game images appear above the others. (Does it make more sense to have the coin appear to be flying 
                                  @italic{behind} the cloud, or in front of it?) Writing out the @code{NEXT} world is optional, but it encourages students to think about how the game is changing from one frame to another, and how the game will look after the @code{update-world} function runs once. (It also gives them a handy pre-defined world to use in their test cases, along with @code{START}!}}
                  
                         @point{@student{@activity{Which function is used to draw the world?} Just like @code{draw-auto}, and the @code{draw-world} 
@@ -130,7 +130,7 @@
 @code[#:multi-line #t]{fun draw-world(w):
                           put-image(IMAGE, 320, 240, BACKGROUND)
                        end}
-Remember, if the position of these images will be changing (like the dog and ruby moving across the screen in Ninja World), they won't always be placed at the same coordinates. Instead of using specific numbers in @code{put-image}, you can (and should!) use dot-accessors to access the coordinates of the characters in the world. Your own world struct will determine which dot-accessors you have available. 
+Remember, if the position of these images will be changing (like the dog and coin moving across the screen in Ninja World), they won't always be placed at the same coordinates. Instead of using specific numbers in @code{put-image}, you can (and should!) use dot-accessors to access the coordinates of the characters in the world. Your own world struct will determine which dot-accessors you have available. 
                                          @activity{@itemlist[@item{Place another one of your images on top of the one that this 
                                                                    staircase-shaped expression has created.}
                                                               @item{Keep adding to it, until you have a stack of all of the images in your game.}]}

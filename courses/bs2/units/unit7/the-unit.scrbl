@@ -100,7 +100,7 @@
                                   are using the full name of @code{is-off-right}.}}}
                  
                  @point{@student{You now have a function to check whether an object has run off the right side of the screen. But think
-                                 about Ninja World: if the Ruby is moving to the left, do you care whether the ruby goes off the right side? 
+                                 about Ninja World: if the coin is moving to the left, do you care whether the coin goes off the right side? 
                                  @activity{@itemlist[@item{Complete the design recipe for @code{is-off-left} on
                                                            @worksheet-link[#:page 33 #:name "Boundary Checks"]. Instead of checking if 
                                                            a number is greater than 640, what will you need to check?}
@@ -121,7 +121,7 @@
  @code[#:multi-line #t]{fun update-world(w):
 	ask:
 	  |...test... then: ...result...
-	  | otherwise:  world(w.dogX + 10, w.rubyX - 5, w.catX, w.catY)
+	  | otherwise:  world(w.dogX + 10, w.coinX - 5, w.catX, w.catY)
         end
     end}}
                          @teacher{Remind students that each @code{ask} branch will contain a test and a result, which is evaluated if its test returns @code{true}.}}
@@ -138,7 +138,7 @@
  @code[#:multi-line #t]{fun update-world(w):
 	ask:
 	  | is-off-right(w.dogX) then: ...result...
-	  | otherwise:  world(w.dogX + 10, w.rubyX - 5, w.catY)
+	  | otherwise:  world(w.dogX + 10, w.coinX - 5, w.catY)
         end
     end}}
                          @teacher{}}
@@ -147,40 +147,40 @@
                                    of @code{update-world} is a World. That means we can immediately write @code{world(...)}: 
  @code[#:multi-line #t]{fun update-world(w):
 	ask:
-	  | is-off-right(w.dogX) then: world(...dogX..., ...rubyX..., ...w.catX..., ...catY...)
-	  | otherwise:  world(w.dogX + 10, w.rubyX - 5, w.catX, w.catY)
+	  | is-off-right(w.dogX) then: world(...dogX..., ...coinX..., ...w.catX..., ...catY...)
+	  | otherwise:  world(w.dogX + 10, w.coinX - 5, w.catX, w.catY)
         end
     end}
                                   How should @code{dogX} change in this condition? We said we want to move the dog back to the left side 
                                   of the screen.
                                   @activity{@itemlist[@item{What will the new value of @code{dogX} be, if it, moves back to the 
                                                             left side of the screen?}
-                                                       @item{Does @code{rubyX} change if the dog goes off the screen? How about @code{catX}? @code{catY?}}]}
+                                                       @item{Does @code{coinX} change if the dog goes off the screen? How about @code{catX}? @code{catY?}}]}
  @code[#:multi-line #t]{fun update-world(w):
 	ask:
-	  | is-off-right(w.dogX) then: world(0, w.rubyX, w.catX, w.catY)
-	  | otherwise:  world(w.dogX + 10, w.rubyX - 5, w.catX, w.catY)
+	  | is-off-right(w.dogX) then: world(0, w.coinX, w.catX, w.catY)
+	  | otherwise:  world(w.dogX + 10, w.coinX - 5, w.catX, w.catY)
         end
     end}}
                          @teacher{}}
-                 @point{@student{Now it's time to think about the ruby...
-                                  @activity{@itemlist[@item{Instead of checking if @code{rubyX} was off the @bold{right} side of the screen,
+                 @point{@student{Now it's time to think about the coin...
+                                  @activity{@itemlist[@item{Instead of checking if @code{coinX} was off the @bold{right} side of the screen,
                                                             what do we need to check?}
                                                        @item{What function have you already written that checks if a number is less than 0?}
                                                        @item{How does @code{update-world} need to change? What will the second @code{ask} 
                                                              branch look like?}
                                                        @item{Finish the code for @code{update-world} so that it also checks whether the 
-                                                             ruby has gone off the left-hand side of the screen.}]}
+                                                             coin has gone off the left-hand side of the screen.}]}
 @code[#:multi-line #t]{fun update-world(w):
 	ask:
-	  | is-off-right(w.dogX) then: world(0, w.rubyX, w.catX, w.catY)
-     | is-off-left(w.rubyX) then: world(w.dogX, 640, w.catX, w.catY)
-	  | otherwise:  world(w.dogX + 10, w.rubyX - 5, w.catX, w.catY)
+	  | is-off-right(w.dogX) then: world(0, w.coinX, w.catX, w.catY)
+     | is-off-left(w.coinX) then: world(w.dogX, 640, w.catX, w.catY)
+	  | otherwise:  world(w.dogX + 10, w.coinX - 5, w.catX, w.catY)
         end
     end}}
                          @teacher{This can be an opportunity to discuss abstraction and the usefullness of reusing code with your
                                   students. The @code{ask} tests in @code{update-world} could be written as: 
-                                  @code{w.dogX > 640}, or @code{w.rubyX < 0}, but this is more work than 
+                                  @code{w.dogX > 640}, or @code{w.coinX < 0}, but this is more work than 
                                   neccessary if the @code{is-off-right} and @code{is-off-left} functions have been written, and could 
                                   be confusing for someone else looking at the code, who doesn't know why @code{dogX} is being 
                                   compared to 640. Additionally, from a programming point of view, it makes sense to use the 
@@ -268,7 +268,7 @@
                                 game during this course, and it's coming together nicely with complex data structures
                                 and advanced movement. It's already much more sophisticated than your Bootstrap:1 game! 
                                 But something is still missing: in the Ninja Cat game, nothing happens when the cat 
-                                collides with the dog, or ruby. In the next unit we'll change that: you'll be able
+                                collides with the dog, or coin. In the next unit we'll change that: you'll be able
                                 to handle collisions with the characters in your game! Start thinking about what should 
                                 happen when your player reaches some treasure, shoots a zombie, or some other condition 
                                 in your game.}
