@@ -75,7 +75,7 @@
                                 in one number as its domain, and returns a random number between 0 and that number. 
                                 So if a game contains @code{num-random(480)} in the code, it will return any number 
                                 between 1 and 480.
-                                @ativity{Copy the contract for @code{num-random} onto your contracts page. @code{num-random: Number -> Number}}}
+                                @activity{Copy the contract for @code{num-random} onto your contracts page. @code{num-random: Number -> Number}}}
                         @teacher{}}
                  @point{@student{If you want the y-coordinate of the dog to change, you'll have to add it to the
                                  world structure.
