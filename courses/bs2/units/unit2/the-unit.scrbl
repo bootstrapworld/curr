@@ -114,15 +114,39 @@ end}}
       ]{
           @points[
                    @point{@student{@activity{Open this link [PARACHUTE JUMPER] on your computer and press 'Run'. What happens?}
-                                    The parachute jumper jumps out of the airplane and falls straight down, into the water! It's much safer to land on the shore. Let's take a look at the code to see why he falls into the water instead. 
-                                             
-                                          [ACTIVITY]
-                                          }
+                                    The parachute jumper jumps out of the airplane and falls straight down, into the water! It's much safer to land on the shore. Let's take a look at the code to see why he falls into the water instead.
+                                    @activity{Look at the function defined here called @code{fall}. @itemlist[@item{What is this function's Domain? Its Range?}
+          @item{What does @code{fall} do with its inputs? What does it return now?}]}
+                                    This function takes in two numbers, representing the x and y coordinate of the jumper, but it only changes and returns the y-coordinate, by subtracting 5 from it. But if only the parachute jumper's y-coordinate is changing, he'll always fall straight down, landing in the water every time. To reach the land, he'll have to fall diagonally. How could we make that happen?
+                                    @activity{How should the jumper's x-coordinate change if he moves diagonally to the right (toward the land)? How should his y-coordinate change?}}
                            @teacher{}}
-                                          
-                                          
-                     
-                    @point{@student{In Bootstrap:1, you could only have a function return one thing: either a number, string, image, or boolean. In Bootstrap:2, our functions will still return one thing, but that thing can be a @vocab{Data Structure}, ("struct" for short) containing any number of things within it. This way we could return both the x and y-coordinate of a player using a struct with just two numbers, representing coordinates, or return even more detail about a player, like their health, position, amount of armor, or inventory.}
+                    
+                    @point{@student{Functions can only return one thing at a time, but we need to return both an x @bold{and} a y-coordinate in order to make the jumper move diagonally. Thankfully, Pyret (and many other languages) has a way to return multiple things withon one container, called a @vocab{Data Structure}.
+                           @activity{Scroll up to where you see the line of code that says @code{data Coord:}.}
+                           This is a special block of code that defines the data structure we'll be using, called coord. It contains just two numbers: an x and a y-coordinate. We'll go into more detail about how this line of code works later in the lesson. For now, the important thing this code tells you is how to @italic{make} a Coord, using a function called @code{coord}. @code{# coord : Number Number -> Coord}}
+                            @teacher{Point out the difference in capitalization: @code{Coord} (capital C) is the name of the data structure, while @code{coord} (lowercase c) is the name of the function that creates a Coord. Make sure students understand the difference.}}
+                    
+                    @point{@student{Now it's up to us to protect the parachute jumper, and make sure he lands safely on the shore. @activity{Turn to @worksheet-link[#:page 10 #:name "fall"] in your workbook, read the word problem, and fill in the Contract and Purpose Statement for the function @code{fall}.}
+    @code{# fall : Number Number -> Coord}
+    Now for our two examples. Using @code{fall} with two numbers is easy, but what happens to those numbers? We can't return both at the same time... unless we use a data structure! @activity{@itemlist[@item{Accodring to the definition for @code{Coord}, what function makes a Coord?}
+                    @item{@code{coord(.....)}}
+                    @item{What two things are part of a Coord? Do we have values for those things as part of our first example?}
+                    @item{We don't want our Coord to contain the same x and y values we gave the @code{fall} function. How will the values change? (Remember to show your work!)}
+                    @item{Your first example should look something like: 
+                          @code[#:multi-line #t]{example:
+                                                    fall(30, 250) is coord(30 + 5, 250 - 5)
+                                                 end}}
+                    @item{Once your first example is complete, write one more example with different inputs for the x and y coordinates.}]}}
+                            @teacher{Remind students to show every step of their work in the example step of the design recipe: if the x-coordinate increases by 5 while the y-coordinate decreases by 5, they should show the addition and subtraction within the Coord data structure, instead of just returning the new numbers.}}
+                    
+                    @point{@student{@activity{Now that you have two examples, it's time to define the function. You know the drill: circle and lable everything that changes between your two examples, copy everything that stays the same, and replace the changing things with the variables you chose.}
+                                     When you finish, your function definition should look like: @code[#:multi-line #t]{fun fall(x, y):
+                          coord(x + 5, y - 5)
+                       end}
+                                     Now, instead of just changing and returning one number (a y-coordinate), we can return @bold{both} the x and y-coordinates of the parachute jumper within a @vocab{Data Structure}. @activity{Open the [PARACHUTE JUMPER] code again and replace the buggy @code{fall} function with the one in your workbook to make the jumper land safely on the shore!}}
+                           @teacher{}}
+                    
+                    @point{@student{In Bootstrap:1, you could only have a function return one thing: either a number, string, image, or boolean. In Bootstrap:2, our functions will still return one thing, but that thing can be a @vocab{Data Structure}, (or "struct" for short) containing any number of things within it. This way we could return both the x and y-coordinate of a player using a Coord, or create new structs and return even more detail about a player, like their health, position, amount of armor, or inventory.}
                             @teacher{In Bootstrap:1, students' games were made by keeping track of only a few numbers: the x-positions of the danger and target, and y-position 
                                      of the payer. In Bootstrap:2, students' games will be much more complex, and will require many more values to move characters, test conditions, 
                                      keep track of the score, etc. Data structures simplify code by organizing many different values: You couldn't represent every part of a player 
