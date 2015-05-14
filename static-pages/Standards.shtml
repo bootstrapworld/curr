@@ -2,23 +2,29 @@
 	<head>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<title>Bootstrap: Common Core Standards</title>
-		<link rel="stylesheet" type="text/css" href="/styles.css"/>
+		<link rel="stylesheet" type="text/css" href="../../styles.css"/>
     <style>
       .BSUnitTitle{font-weight: bold;}
       .BSUnitSummary{margin: 5px;}
-      td{padding: 5px; vertical-align: top; border: solid 1px black;}
+      td{padding: 5px; vertical-align: top;}
       .bs1 {background: rgba(90, 50, 50, 0.2)}
       .bs2 {background: rgba(90, 50, 50, 0.3)}
-      table{display: none; border-collapse:collapse;}
+      table{display: none; border-collapse:collapse;background: #F0EFEE;padding: 10px;}
       table#practice{display: block;}
-      thead  {font-weight: bold;text-align: center; background: black; color: white;}
-      tbody tr td:first-child{background: rgba(0,0,0,.1); color: black; width: 50%;}
+      table tr {border-bottom: 1px solid #B6D990; margin: 20px 10px;}
+      table tr:last-child {border-bottom: none;}
+      thead  {font-weight: bold;color: #75328A;}
+      tbody tr td:first-child{color: #75328A; width: 50%;}
       tbody tr td:first-child>span{font-weight: bold;}
+      td:nth-child(odd) {padding-right: 40px;padding-left: 0;}
 /*
 .A-REI, .A-SSE, .A-CED, .F-IF, .F-BF, F-TF.{background: white; }
 .EE, .NS, .G {background: rgba(90, 50, 50, 0.3);}
 */
-      input{margin: 20px;}
+      input{margin-top: 20px; color: #75328A; background: #F0EFEE; border: none; padding: 15px; border-top-left-radius: 16px; border-top-right-radius: 16px; font-size: 16px; font-weight: 700; outline: none;}
+      input:hover {background: #75328A; color: #fff;}
+      @media only screen and (max-width: 960px), only screen and (max-device-width: 960px){input {font-size: 12px;}}
+      @media only screen and (max-width: 800px), only screen and (max-device-width: 800px){input {display: block; border-radius: 20px; margin: 10px 0; font-size: 16px; padding: 10px 15px;}}
     </style>
     
     <script>
@@ -31,15 +37,14 @@
     </script>
 	</head>
 	<body>
-	<!--#include virtual="/menubar.ssi" -->
+	<!--#include virtual="../../menubar.ssi" -->
 	
-	<div id="body">
+	<div id="body" class="standards">
 		<div class="item">
-		<img src="/images/kids.jpg" class="item_img">
 		<h1>Standards Alignment</h1>
       <p>Extra lessons are nice, but Math teachers don't <i>have</i> 25 hours of spare classtime to spend on new materials, no matter how good it might be.
 
-      <p>That's why Bootstrap is aligned to State and Common Core Standards for Mathematics, covering most Functional and Algebraic standards across the standards from Grade 7 through Algebra 2. This alignment makes it possible to integrate Bootstrap into the classroom smoothly, using time you've already planned into your pacing guidelines or scope and sequence plans.
+      <p>That's why Bootstrap is aligned to Common Core Standards for Mathematics, covering most Functional and Algebraic standards across the Common Core from Grade 7 through Algebra 2. This alignment makes it possible to integrate Bootstrap into the classroom smoothly, using time you've already planned into your pacing guidelines or scope and sequence plans.
       
       <p>Bootstrap is also a model implementation of Common Core Standards for Mathematical Practice, offering explicit pedgagogical recommendation across all eight practice standards.
 
@@ -49,15 +54,14 @@
     
     <div class="item">
       <h1>What's Covered in 25 Hours?</h1>
-      <input type="button" onclick="showTable('practice')"  value="Mathematical Practice"/>
-      <input type="button" onclick="showTable('content')"   value="Common Core"/>
-      <input type="button" onclick="showTable('TEKS')"      value="TEKS"/>
+      <input type="button" onclick="showTable('practice')"  value="Mathematical Practice Standards"/>
+      <input type="button" onclick="showTable('content')"   value="Mathematical Content Standards"/>
       <input type="button" onclick="showTable('csta')"      value="CSTA"/>
 
       <table width="100%" id="practice">
         <thead>
-          <tr><td>Practice Standard</td>
-            <td>Alignment</td></tr>
+          <tr><td><h2>Practice Standard</h2></td>
+            <td><h2>Alignment</h2></td></tr>
         </thead>
         <tr>
           <td><span>MP.1:</span> Make sense of problems and persevere in solving them</td>
@@ -111,8 +115,8 @@
       
       <table width="100%" id="content">
         <thead>
-          <tr><td>Algebra Standard</td>
-            <td>Bootstrap Units</td>
+          <tr><td><h2>Algebra Standard</h2></td>
+            <td><h2>Bootstrap Units</h2></td>
           </tr>
         </thead>
         </tr>
@@ -216,103 +220,10 @@
         </tr>
       </table>
       
-      
-      <table width="100%" id="TEKS">
-        <thead>
-          <tr><td>TEKS Standard</td>
-              <td>Alignment</td></tr>
-        </thead>
-        <tr>
-          <td><span>1 (B) :</span> use a problem-solving model that incorporates analyzing given information, formulating a plan or strategy, determining a solution, justifying the solution, and evaluating the problem-solving process and the reasonableness of the solution
-          </td>
-          <td>Units 3-8</td>
-        </tr>
-        <tr>
-          <td><span>1 (D) :</span> communicate mathematical ideas, reasoning, and their implications using multiple representations, including symbols, diagrams, graphs, and language as appropriate
-          </td>
-          <td>Units 3-8</td>
-        </tr>
-        <tr>
-          <td><span>1 (F) :</span> analyze mathematical relationships to connect and communicate mathematical ideas
-          </td>
-          <td>Units 3-8</td>
-        </tr>
-        <tr>
-          <td><span>1 (G) :</span> display, explain, and justify mathematical ideas and arguments using precise mathematical language in written or oral communication
-          </td>
-          <td>Units 3-8</td>
-        </tr>
-        <tr>
-          <td><span>4 (B) :</span> apply qualitative and quantitative reasoning to solve prediction and comparison of real-world problems involving ratios and rates
-          </td>
-          <td>Unit 4</td>
-        </tr>
-        <tr>
-          <td><span>6 (B) :</span> write an equation that represents the relationship between independent and dependent quantities from a table
-          </td>
-          <td>Unit 4</td>
-        </tr>
-        <tr>
-          <td><span>9 (A) :</span> write one-variable, one-step equations and inequalities to represent constraints or conditions within problems
-          </td>
-          <td>Unit 6</td>
-        </tr>
-        <tr>
-          <td><span>10 (A) :</span> model and solve one-variable, one-step equations and inequalities that represent problems, including geometric concepts
-          </td>
-          <td>Unit 6</td>
-        </tr>
-        <tr>
-          <td><span>10 (B) :</span> determine if the given value(s) make(s) one-variable, one-step equations or inequalities true
-          </td>
-          <td>Unit 6</td>
-        </tr>
-        <tr>
-          <td><span>11 :</span> Measurement and data. The student applies mathematical process standards to use coordinate geometry to identify locations on a plane. The student is expected to graph points in all four quadrants using ordered pairs of rational numbers
-          </td>
-          <td>Unit 2</td>
-        </tr>
-        <tr>
-          <td><span>7 :</span> Expressions, equations, and relationships. The student applies mathematical process standards to represent linear relationships using multiple representations. The student is expected to represent linear relationships using verbal descriptions, tables, graphs, and equations that simplify to the form <i>y = mx + b</i>
-          </td>
-          <td>Units 4-5</td>
-        </tr>
-        <tr>
-          <td><span>10 (A) :</span> write one-variable, two-step equations and inequalities to represent constraints or conditions within problems
-          </td>
-          <td>Unit 6</td>
-        </tr>
-        <tr>
-          <td><span>11 (B):</span> determine if the given value(s) make(s) one-variable, two-step equations and inequalities true
-          </td>
-          <td>Unit 2</td>
-        </tr>
-        <tr>
-          <td><span>5 (I):</span> write an equation in the form y = mx + b to model a linear relationship between two quantities using verbal, numerical, tabular, and graphical representations
-          </td>
-          <td>Units 4-5</td>
-        </tr>
-        <tr>
-          <td><span>6 (C):</span> use models and diagrams to explain the Pythagorean theorem
-          </td>
-          <td>Unit 8</td>
-        </tr>
-        <tr>
-          <td><span>7 (C):</span> use the Pythagorean Theorem and its converse to solve problems
-          </td>
-          <td>Unit 8</td>
-        </tr>
-        <tr>
-          <td><span>7 (D):</span> determine the distance between two points on a coordinate plane using the Pythagorean Theorem
-          </td>
-          <td>Unit 8</td>
-        </tr>
-      </table>
-      
       <table width="100%" id="csta">
         <thead>
-          <tr><td>CSTA Standard</td>
-            <td>Alignment</td></tr>
+          <tr><td><h2>CSTA Standard</h2></td>
+            <td><h2>Alignment</h2></td></tr>
         </thead>
         <tr>
           <td><span>L1:6:CT.1:</span> Understand and use the basic steps in algorithmic problem-solving (e.g., problem statement and exploration, examination of sample instances, design, implementation, and testing).
