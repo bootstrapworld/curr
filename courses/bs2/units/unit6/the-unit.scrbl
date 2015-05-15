@@ -144,13 +144,13 @@ end}
                 )
       ]{
         @points[@point{@student{Think about the person playing YOUR game. How will they control the game? What key will make YOUR player move up? Down? What else can they do? Move side-to-side? Jump? Teleport? Shoot a projectile?
-                                                     @activity{Turn to @worksheet-link[#:page 27 #:name "Lesson 6"] in your workbooks.
+                                                     @activity{Turn to @worksheet-link[#:page 24 #:name "Lesson 6"] in your workbooks.
                                                                    Write down the various keys that the user can hit to control the game. 
                                                                    For each one, write down the field in your world struct that changes, 
                                                                    and how it changes.}}
                         @teacher{Review students' workbook pages, and check for understanding: could they change multiple things in their game
                                  with one keypress?}}
-                 @point{@student{@activity{Turn to @worksheet-link[#:page 30 #:name "Keypress-in-Game"] in your workbooks. Choose 3 
+                 @point{@student{@activity{Turn to @worksheet-link[#:page 27 #:name "Keypress-in-Game"] in your workbooks. Choose 3 
                                            keys that control the game, and go through the design recipe: Write test cases for what should 
                                            happen to your START world depending on which key was pressed. Then define your function. Once
                                            you've completed the Design Recipe, type your @code{keypress} function into your games.}

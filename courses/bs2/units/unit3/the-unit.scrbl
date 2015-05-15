@@ -37,7 +37,7 @@
                                 @activity{@itemlist[@item{What datatype could be used to represent the location of a party?}
                                                     @item{What about the party's theme? (This could be something like "50s" or "laser tag".)}
                                                     @item{How about the number of guests?}]
-                                           Fill out the second struct definition on @worksheet-link[#:page 13 #:name "Data Structures"] in your workbook.}
+                                           Fill out the second struct definition on @worksheet-link[#:page 14 #:name "Data Structures"] in your workbook.}
 @code[#:multi-line #t]{# a Party is a location, theme, and number of guests
                        data Party:
                          | party(location :: String, theme :: String, guests :: Number)
@@ -84,7 +84,7 @@
                                 them, making them better in some way, and then return them to the customer. Let's figure out how to do that.}
                         @teacher{}}
                  
-                 @point{@student{@activity{Turn to @worksheet-link[#:page 11 #:name "paint-job"] in your workbooks. Write a function called @code{paint-job},
+                 @point{@student{@activity{Turn to @worksheet-link[#:page 12 #:name "paint-job"] in your workbooks. Write a function called @code{paint-job},
                                            which changes the color of a car.
                                                    @itemlist[@item{What is the domain for this function? We'll need to get instructions about which car we're changing, 
                                                                    AND what color we're making it.}
@@ -103,7 +103,7 @@
                                  We already know what model this car should be: the same as the given car! But what if you didn't know exactly what string to use. 
                                  How could you access JUST the model of @code{car1} and use it in your @code{car} function?
                        
-    @code[#:multi-line #t]{example:
+    @code[#:multi-line #t]{examples:
                                paint-job(car1, "purple") is car(car1.model, ...)
                            end}
                                 @activity{@itemlist[@item{The horsepower also doesn't change with a paint job. So how do you get the hp out of @code{car1}?}
@@ -113,7 +113,7 @@
                                 Don't forget the last part of the Car struct- the value! The purpose statement for @code{paint-job} doesn't say anything about the value
                                 changing, so how do you get the original value out of car1?
                                 
-@code[#:multi-line #t]{example:
+@code[#:multi-line #t]{examples:
                            paint-job(car1, "purple") is car(car1.model, car1.hp, car1.rims, "purple", car1.value)
                        end}}
                          @teacher{Remind students that the arguments to each function in Pyret @italic{must} be separated by commas. This wasn't necessary in Racket, but they will receive error messages if they don't use them in Pyret code.}}
@@ -131,7 +131,7 @@ After replacing the changing things with variables, your definition should look 
                                   have quotes around it. Values evaluate to themselves, so the string "color" cannot evaluate to anything other than "color".
                                   If we want color to be a variable, or shortcut for "purple", "green", "blue", etc. it must be written WITHOUT quotation marks.}}
                  
-                 @point{@student{@activity{Turn to @worksheet-link[#:page 10 #:name "turbocharge"] in your workbooks. When you turbocharge an engine, you get
+                 @point{@student{@activity{Turn to @worksheet-link[#:page 13 #:name "turbocharge"] in your workbooks. When you turbocharge an engine, you get
                                            more power out of it. Your bodyshop offers a turbocharging service that adds 20 horsepower to any engine, but keeps everything
                                            else the same. 
                     @itemlist[@item{Fill out the @vocab{Contract} and @vocab{Purpose Statement} for the function.}

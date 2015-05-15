@@ -75,13 +75,13 @@
                                 if the first number is bigger, and the other is if the second is bigger.
                                 @activity{@itemlist[@item{What kind of function do we need, when we have multiple 
                                                           conditions?}
-                                                     @item{Turn to @worksheet-link[#:page 36 #:name "Design Recipe Line Length"].}
+                                                     @item{Turn to @worksheet-link[#:page 39 #:name "Design Recipe Line Length"].}
                                                      @item{What is the Name of this function? Domain? Range?}
                                                      @item{Write two examples for @code{line-length} so that it subtracts the 
                                                            smaller number from the bigger one. Start with an example using 
                                                            the numbers 23 and 5, then do a second example with 5 and 23 in 
                                                            the @italic{other order}.}]}
-@code[#:multi-line #t]{example:
+@code[#:multi-line #t]{examples:
                            line-length(23, 5) is 23 - 5
                            line-length(5, 23) is 23 - 5
                        end}}
@@ -191,7 +191,7 @@
                        @teacher{Remind students that A and B are the horizontal and vertical lengths, which are
                                 calculated by @code{line-length}.}
                        }
-                @point{@student{@activity{@itemlist[@item{Turn to @worksheet-link[#:page 37 #:name "Distance-Formula-With-Numbers"] 
+                @point{@student{@activity{@itemlist[@item{Turn to @worksheet-link[#:page 40 #:name "Distance-Formula-With-Numbers"] 
                                                           of your workbook - you'll see the formula written out.} 
                                                      @item{Draw out the circle of evaluation, starting with the 
                                                            simplest expression you can see first.}
@@ -204,7 +204,7 @@
                                  But we want to have it work for @italic{any} two points. It would be great if we had a 
                                  function that would just take the x's and y's as input, and do the math for us.}
                         @teacher{}}
-                @point{@student{@activity{@itemlist[@item{Turn to @worksheet-link[#:page 38 #:name "Distance"], 
+                @point{@student{@activity{@itemlist[@item{Turn to @worksheet-link[#:page 41 #:name "Distance"], 
                                                            and read the problem statement and function header 
                                                            carefully.}
                                                       @item{Use the Design Recipe to write your distance function. 
@@ -244,7 +244,7 @@
         @points[@point{@student{So what do we want to do with this distance? 
                                 @activity{How close should your danger and your player be, before they hit 
                                           each other?}
-                                At the top of @worksheet-link[#:page 39 #:name "collide"] you'll find the 
+                                At the top of @worksheet-link[#:page 42 #:name "is-collision"] you'll find the 
                                 Word Problem for @code{is-collision}. 
                                 @activity{@itemlist[@item{Fill in the Contract, two examples, and then write the
                                                           code. Remember: you WILL need to make use of the 
@@ -311,7 +311,7 @@ Remember that @code{update-world} gives back a world, so what function should co
                                  set the locations of the characters after a collision.}}
                  
                  @point{@student{Now it's time to handle collisions in your game!
-                                 @activity{@itemlist[@item{Turn to @worksheet-link[#:page 40 #:name "Collide-Examples"] and write 
+                                 @activity{@itemlist[@item{Turn to @worksheet-link[#:page 43 #:name "Collide-Examples"] and write 
                                            some more tests and results. What characters in your game could collide 
                                            with each other? What should happen as a result? When you have written 
                                            each test and result down, type it into your game.}

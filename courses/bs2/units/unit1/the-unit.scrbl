@@ -56,7 +56,7 @@
 @activity{What are some functions you know that work on numbers? How many can you list?}}
                    @teacher{Remind students that arithmatical operations, such as +, -, *, and / are functions.}}
                
-               @point{@student{One of the big changes from Racket to Pyret is using arithmetic functions. In Pyret, you can write these expressions with math notation, like so: @code{(2 + 9)} or @code{(10 * 8)}. Of course, there are lots of other functions that work on strings, images, booleans, and more. Page ____ contains examples of some of these function definitions in Racket and Pyret.}
+               @point{@student{One of the big changes from Racket to Pyret is using arithmetic functions. In Pyret, you can write these expressions with math notation, like so: @code{(2 + 9)} or @code{(10 * 8)}. Of course, there are lots of other functions that work on strings, images, booleans, and more. @worksheet-link[#:page 1 #:name "Intro to Pyret"] contains examples of some of these function definitions in Racket and Pyret.}
                        @teacher{}}
               
                                   ]}
@@ -121,7 +121,7 @@ One notable difference between Racket and Pyret is that Pyret requires commas be
                                   Here we have a function definition: @code[#:multi-line #t]{# double: Number -> Number
                                                                                              # Takes a number, and multiplies it by two."
                                                                                              
-                                                                                             example:
+                                                                                             examples:
                                                                                                  double(5) is 2 * 5
                                                                                                  double(7) is 2 * 7
                                                                                              end
@@ -143,11 +143,11 @@ One notable difference between Racket and Pyret is that Pyret requires commas be
                    
                   @point{@student{@bannerline{Step 2: Give Examples/Write Test Cases}
                                    In Bootstrap:1 you wrote EXAMPLES for every function, to show how the function could be used with some inputs. Those examples also worked to test your function, and would give you error messages if the expected result didn’t match the result produced by the function body. Pyret has the same thing, but written differently. Instead of using the word EXAMPLE, we’ll write example @italic{blocks}, which behave the same way as you're used to, showing us what we expect to get back when we use the function with certain inputs. Here are our examples for the function @code{double}:
-@code[#:multi-line #t]{example:
+@code[#:multi-line #t]{examples:
                              double(5) is 2 * 5
                              double(7) is 2 * 7
                        end}
-The key words here are @italic{example} and @italic{is}. Pyret knows that anything within the example: and end lines are your examples, and just like in Racket, we start with the name of the function and some input(s), followed by the code we expect to get back. This time, we have the word is between them, to say:
+The key words here are @italic{examples} and @italic{is}. Pyret knows that anything within the examples: and end lines are your examples, and just like in Racket, we start with the name of the function and some input(s), followed by the code we expect to get back. This time, we have the word is between them, to say:
 ...test... is equivalent to ...result...
 Once you’ve defined the function itself, Pyret will automatically check your examples to make sure your results match the function body. If they don’t, you’ll get an error message, just like in Bootstrap:1.}
                           @teacher{Make sure students are writing Pyret code for the results of their tests. @code{double(5) is 10}, while technically correct, doesn’t show us the work and thought process behind the code, and makes it much harder to write the function in the next step. Writing examples is akin to "showing your work" in math class: You want to see @italic{how} students arrived at their answers, not just that they have an answer. It is also much easier to debug a function using the design recipe, because you can check each section individually for errors. Writing test cases for code is also called "unit testing," something professional programmers do all the time.}}
@@ -161,7 +161,7 @@ Once you’ve defined the function itself, Pyret will automatically check your e
                                           2 * n
                                       end}
                @activity{Now write the function header and body for @code{triple}. Don't forget to replace the changing thing with a variable!}}
-            @teacher{Just as writing a Contract helps us write examples, writing examples makes it easier to write the function definition: circling what changes between the examples makes it obvious that the @italic{changeable} thing is where we need to use a @italic{variable} in our function. You will want to explicitly connect each step in the Design Recipe to every other step. Ask students to justify each part of their Contract by referring back to the Word Problem, to justify each step of their examples by referring back to the Word Problem and Contract, and finally to justify each step of the definition by referring to the Contract and Examples. The same variable name can be used in multiple functions, just as in math (where many functions use x as the variable name, for example)
+            @teacher{Just as writing a Contract helps us write examples, writing examples makes it easier to write the function definition: circling what changes between the examples makes it obvious that the @italic{changeable} thing is where we need to use a @italic{variable} in our function. You will want to explicitly connect each step in the Design Recipe to every other step. Ask students to justify each part of their Contract by referring back to the Word Problem, to justify each step of their examples by referring back to the Word Problem and Contract, and finally to justify each step of the definition by referring to the Contract and Examples. The same variable name can be used in multiple functions, just as in math (where many functions use x as the variable name, for example).
                      @management{This activity can be done as a team competition: teams have one minute to write the contract and two examples for @code{triple}, and another minute for the function header and body. Assign points to the teams that complete each function.} Make sure students fill out the ENTIRE contract, with two examples, before they circle what changes and move on to the function body. Build these good habits early in the course!}}                                         
           @point{@student{Try using the Design Recipe to solve the following word problems:
                           @activity{@itemlist/splicing[

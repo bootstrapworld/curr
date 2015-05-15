@@ -66,9 +66,9 @@
                                                              could you look to find out what this function does?}
                                                        @item{Write two examples on your paper, then circle and label what is changing between them. When labeling,
                                                              think about what the changing things represent.}
-                                                       @item{Don't forget to include the lines @code{example:} and @code{end}!}]}
+                                                       @item{Don't forget to include the lines @code{examples:} and @code{end}!}]}
                                   Your examples should look similar to:
-                                  @code[#:multi-line #t]{example:
+                                  @code[#:multi-line #t]{examples:
                                                              double-radius(50, "pink") is circle(50 * 2, "outline", "pink")
                                                              double-radius(918, "orange") is circle(918 * 2, "outline", "orange")
                                                          end}}
@@ -133,7 +133,7 @@ end}}
                     @item{What two things are part of a Coord? Do we have values for those things as part of our first example?}
                     @item{We don't want our Coord to contain the same x and y values we gave the @code{fall} function. How will the values change? (Remember to show your work!)}
                     @item{Your first example should look something like: 
-                          @code[#:multi-line #t]{example:
+                          @code[#:multi-line #t]{examples:
                                                     fall(30, 250) is coord(30 + 5, 250 - 5)
                                                  end}}
                     @item{Once your first example is complete, write one more example with different inputs for the x and y coordinates.}]}}
@@ -329,7 +329,7 @@ worked with cars, the @code{data Car:} code block says that we're defining a new
                                                           @code{car(...)} (to make a car), @code{.model} (to get the model out of the car), @code{.hp}, or any of 
                                                           the other dot-accessors, because Pyret doesn't know what a Car is- @italic{we haven't defined it}.
             @activity{To check this, type a pound sign (#) before the line which begins with @code{car(...)}. This comments it out, so that the computer ignores it. Hit run, and see what 
-                                                                                         happens. Then turn to @worksheet-link[#:page 13 #:name "data structures"] in your workbook, and copy 
+                                                                                         happens. Then turn to @worksheet-link[#:page 14 #:name "data structures"] in your workbook, and copy 
                                                                                          down the @code{car(...)} line.}}
                     @teacher{When the @code{car(...)} line is commented out, Pyret returns some errors, saying you're trying to use @italic{car} before its definition. It doesn't know what @code{car} is or does, because we never defined a Car struct. Make sure students understand that the line beginning with
                                       @code{data} and a line similar to @code{car(...)} are needed in order to create and work with any struct.}}

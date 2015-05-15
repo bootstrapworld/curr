@@ -29,7 +29,7 @@
                 )
       ]{
         @points[@point{@student{In the last lesson you reviewed the concept of @vocab{piecewise functions} from Bootstrap:1, and learned about ask blocks, the Pyret syntax for writing piecewise functions. To review, let's go through the Design Recipe for a pieewise function. 
-@activity{@itemlist[@item{Turn to @worksheet-link[#:page 31 #:name "Red-Shape"] in your workbooks.}
+@activity{@itemlist[@item{Turn to @worksheet-link[#:page 30 #:name "Red-Shape"] in your workbooks.}
                     @item{With your partner, fill out the Design Recipe for the @code{red-shape} function.}]}}
                         @teacher{Remind students that each @code{ask} statement must have a test and a result, and each function must contain an @code{otherwise:} statement, which will execute if every other test returns false.}}
                  ]
@@ -77,7 +77,7 @@
                                              @code{or}. Make sure students copy the contracts into their workbook.}}}
                  
                  @point{@student{To make testing and writing code much easier, programmers will often write seperate functions to test various game possibilities. In our Ninja World game, we're going to write a function @code{is-off-right} to test whether the dog has gone off the right side of the screen.
-@activity{@itemlist[@item{Turn to @worksheet-link[#:page 33 #:name "Boundary Checks"] in your workbook.}
+@activity{@itemlist[@item{Turn to @worksheet-link[#:page 32 #:name "Boundary Checks"] in your workbook.}
                                                       @item{What is the name of the first function on this page?}
                                                       @item{@code{is-off-right} will return @code{true} if our danger goes off the right side 
                                                              of the screen. How large can the x-coordinate be before a character goes off 
@@ -90,7 +90,7 @@
                                                       @item{How do you check whether it's off the right hand side?}
                                                       @item{Any x-coordinate greater than 640 is off the right side of the screen, so how 
                                                             would you determine whether or not the example number is @italic{greater than} 640?}]}
-                                 @code[#:multi-line #true]{example:
+                                 @code[#:multi-line #true]{examples:
                                            is-off-right(320) is 320 > 640
                                        end}
                                  @activity{Write another example for a coordinate that is off the screen on the right side, circle what 
@@ -102,7 +102,7 @@
                  @point{@student{You now have a function to check whether an object has run off the right side of the screen. But think
                                  about Ninja World: if the coin is moving to the left, do you care whether the coin goes off the right side? 
                                  @activity{@itemlist[@item{Complete the design recipe for @code{is-off-left} on
-                                                           @worksheet-link[#:page 33 #:name "Boundary Checks"]. Instead of checking if 
+                                                           @worksheet-link[#:page 32 #:name "Boundary Checks"]. Instead of checking if 
                                                            a number is greater than 640, what will you need to check?}
                                                       @item{When finished, copy your functions into your 
                                                             @editor-link[#:public-id "gbz2w2pCTu" "Ninja World 4"] 

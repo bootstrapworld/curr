@@ -23,7 +23,7 @@
                             @item{Student workbooks}
                             @item{Language Table}]
      #:preparation @itemlist[@item{Seating arrangements: ideally clusters of desks/tables}
-                             @item{Clear plastic sheet protectors: put pages 20 & 21 at the front of the workbook for ease of reference}
+                             @item{Clear plastic sheet protectors: put pages 17 & 18 at the front of the workbook for ease of reference}
                              @item{The Ninja World 3 file [NW3.arr from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "t77yPXKDWs" "WeScheme"] preloaded on students' machines}
                              @item{BS:2 Blank Game Template [GameTemplate.arr from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "ZcK2dqANbT" "WeScheme"] preloaded on students' machines with student images included.}]
      #:pacings (list 
@@ -40,7 +40,7 @@
                       @item{Scroll down a bit in the code. What function updates the world?}
                       @item{What function draws the world?}
                       @item{How fast is the dog moving from left to right? How fast is the coin moving right to left across the screen?}
-                      @item{Now turn to @worksheet-link[#:page 21 #:name "Game Design"] in your workbook. What are the things in your world? What datatypes are they?}]}}
+                      @item{Now turn to @worksheet-link[#:page 17 #:name "Game Design"] in your workbook. What are the things in your world? What datatypes are they?}]}}
                         @teacher{Make sure that all students can list the names and types of everything in their @code{world} struct. In addition,
                                  make sure they can answer some questions about accessor functions, such as "how do you get the alien's speed out of
                                  the world?"}}
@@ -51,14 +51,14 @@
                                  a collection of comments, telling you how to organize your functions and variables. You'll be writing @italic{every line} of 
                                  code yourself. Let's begin: 
                                  @activity{At the top of the file, where it says @code{# The World is a:}, define the world struct for your game. 
-                                          (Check @worksheet-link[#:page 21 #:name "Game Design"] to jog your memory.) Once you have the world struct, scroll 
+                                          (Check @worksheet-link[#:page 18 #:name "Game Design"] to jog your memory.) Once you have the world struct, scroll 
                                           down to where it says @code{# STARTING WORLD} and define your first example world: name it @code{START}.}}
                          @teacher{}}
                  
                  @point{@student{So now you have your world, and you know what's in it: but what do those things look like? You'll have to add some images.
                                  We'll use the @code{image-url} function. It takes in the URL of any image online(given as a string), and returns that
                                  image. @code{# image-url : String -> Image}
-                                 @activity{@itemlist[@item{Look back at @worksheet-link[#:page 20 #:name "Game Design"] in your workbook. How many things 
+                                 @activity{@itemlist[@item{Look back at @worksheet-link[#:page 17 #:name "Game Design"] in your workbook. How many things 
                                                            in your game will need their own image?}
                                                       @item{Using Google Image Search or a similar tool, find images for the background and for each of 
                                                             the characters in your game.}
@@ -90,15 +90,15 @@
                 )
       ]{
         @points[@point{@student{Now that we have our world structure, we need to know how to draw it. 
-                                @activity{Turn to  @worksheet-link[#:page 23 #:name "Drawing START"], and fill in your @code{START} world at the bottom.
+                                @activity{Turn to  @worksheet-link[#:page 20 #:name "Drawing START"], and fill in your @code{START} world at the bottom.
                                                    @itemlist[@item{According to your world struct, where should everything be when the game starts?}
                                                               @item{Draw a simple sketch of your @code{START} world in the space provided.}]}
                                 Next, put your images in order. We know we have to stack images, so you're going to have to use @code{put-image}. 
-                                @activity{Using the chart on @worksheet-link[#:page 23 #:name "Drawing START"], figure out which image goes on top,
+                                @activity{Using the chart on @worksheet-link[#:page 20 #:name "Drawing START"], figure out which image goes on top,
                                                           which goes second, and so on. Make a list from top to bottom in the column on the left. 
                                                           Then write each image's coordinates in the right column.}}
                         @teacher{These world sketches can be optional, or assigned for homework. Each students' world sketches can be displayed on a bulletin board, and matched with screenshots from their videogame to show off their progress as the course progresses.}}
-                 @point{@student{Let's set up one more example. This will help when you begin writing your function that draws the world. On @worksheet-link[#:page 24 #:name "Drawing NEXT"] there's a page nearly identical to page 23. You've already written a 
+                 @point{@student{Let's set up one more example. This will help when you begin writing your function that draws the world. On @worksheet-link[#:page 21 #:name "Drawing NEXT"] there's a page nearly identical to page 20. You've already written a 
                                 @code{START} world, which has everything where it will be when the game starts. Now do the same for a world called
                                 @code{NEXT}. This world represents the game in the NEXT FRAME after @code{START}.
                                 @activity{@itemlist[@item{Fill in the world struct, and sketch the @code{NEXT} world.}
@@ -111,7 +111,7 @@
                         @point{@student{@activity{Which function is used to draw the world?} Just like @code{draw-auto}, and the @code{draw-world} 
                                          function in Ninja World, @code{draw-world} takes in a struct and produces an Image. 
                                          @activity{@itemlist[@item{What is the Domain of this function? The Range?}
-                                                              @item{At the top of @worksheet-link[#:page 25 #:name "draw-world"], write the
+                                                              @item{At the top of @worksheet-link[#:page 22 #:name "draw-world"], write the
                                                                     contract for @code{draw-world}.}
                                                               @item{Fill in the function header for @code{draw-world}.}]}}
                                 @teacher{}}
@@ -161,7 +161,7 @@ Remember, if the position of these images will be changing (like the dog and coi
                                 @code{update-world} takes a world, and then returns a new one that's been updated. Think of this function 
                                 as the one that generates the next page of a flipbook.
             @activity{@itemlist[@item{Look back at the difference between your @code{START} and @code{NEXT} worlds. What has changed?}
-                                @item{On @worksheet-link[#:page 26 #:name "update-world"], make a list of what changed and how it changed
+                                @item{On @worksheet-link[#:page 23 #:name "update-world"], make a list of what changed and how it changed
                                          as a problem statement for writing @code{update-world}, using the design recipe. Be sure to fill
                                          out the @vocab{Contract} and two test cases before defining the function.}]}}
                         @teacher{@code{update-world} is the function that will handle the logic of the student' games. It determines what changes
