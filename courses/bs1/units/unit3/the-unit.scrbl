@@ -1,5 +1,5 @@
 #lang curr/lib
-@declare-tags[management]
+@declare-tags[]
 
 @title{Unit 3: Introduction to Definitions}
 
@@ -36,8 +36,8 @@
                                      What are the coordinates for the bottom left-hand corner of the screen? What about the top-right?
                                      }
                                 }
-                        @teacher{@management{Review Circles of Evaluation, paying special attention to @vocab{types} and @vocab{contracts}. 
-                                            Make sure that students are comfortable hearing - and using - the proper terminology to describe code.}}
+                        @teacher{Review Circles of Evaluation, paying special attention to @vocab{types} and @vocab{contracts}. 
+                                            Make sure that students are comfortable hearing - and using - the proper terminology to describe code.}
                         }
                  ]}
 
@@ -213,8 +213,8 @@
                                            @item{What are their types?}
                                            @item{Try evaluating each of these values in the Interactions window, starting with @code{BACKGROUND}}]}
                                 }
-                        @teacher{@management{By now, you should have students' graphics already created, and 
-                                            @resource-link[#:path "teachers/teachers-guide/teachers-guide.html#addingimages" #:label "added to the file"].}
+                         @teacher{(By now, you should have students' graphics already created, and 
+                                  @resource-link[#:path "teachers/teachers-guide/teachers-guide.html#addingimages" #:label "added to the file"].)
                                   The purpose of this activity is to increase students' confidence in @italic{reading} and @italic{talking about} code. 
                                   Make sure students get a lot of practice speaking aloud, both to each other and to the instructor.}
                         }
@@ -485,9 +485,9 @@
                 )
       ]{
         @points[@point{@student{In this unit, you learned how to name values and define functions.  You will use named values to provide images for your game elements.  You will use functions to make your game elements move.  As you will see soon, functions are critical to making games.  You'll do a bit more practice with them in the next unit, including writing your first function that makes something move across the screen.}
-                        @teacher{@management{@itemlist[@item{Have students volunteer what they learned in this lesson}
-                                                        @item{Reward behaviors that you value: teamwork, note-taking, engagement, etc}
-                                                        @item{Pass out exit slips, dismiss, clean up.}]}}
+                        @teacher{@itemlist[@item{Have students volunteer what they learned in this lesson}
+                                            @item{Reward behaviors that you value: teamwork, note-taking, engagement, etc}
+                                            @item{Pass out exit slips, dismiss, clean up.}]}
                         }
                         ]}
 }

@@ -1,6 +1,6 @@
 #lang curr/lib
 
-@declare-tags[management]
+@declare-tags[]
 
 @lesson/studteach[
      #:title "2D Movement using Structs" 

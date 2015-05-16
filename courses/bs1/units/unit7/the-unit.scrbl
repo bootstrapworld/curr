@@ -1,6 +1,6 @@
 #lang curr/lib
 
-@declare-tags[group selftaught management]
+@declare-tags[group selftaught]
 @title{Unit 7: Conditional Branching}
 
 @unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sqr sqrt expt}) 
@@ -222,9 +222,9 @@
                                 What's still missing? Nothing happens when the player collides with the object or target!
                                 We're going to fix these over the next few lessons, and also work on the artwork and story 
                                 for our games, so stay tuned!}
-                        @teacher{@management{@itemlist[@item{Have students volunteer what they learned in this lesson}
-                                                       @item{Reward behaviors that you value: teamwork, note-taking, engagement, etc}
-                                                       @item{Pass out exit slips, dismiss, clean up.}]}}
+                        @teacher{@itemlist[@item{Have students volunteer what they learned in this lesson}
+                                            @item{Reward behaviors that you value: teamwork, note-taking, engagement, etc}
+                                            @item{Pass out exit slips, dismiss, clean up.}]}
                         }
                         ]}
 }

@@ -1,7 +1,7 @@
 #lang curr/lib
 @title{Unit 8: Collision Detection}
 
-@declare-tags[management]
+@declare-tags[]
 
 @unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sqr sqrt expt})
                                        (list "String" @code{string-append string-length})
@@ -204,9 +204,9 @@
                                                      @item{When you click "Run", do all of your EXAMPLEs pass?}
                                                      ]}
                                 }
-                        @teacher{@management{@itemlist[@item{Have students volunteer what they learned in this lesson}
-                                                       @item{Reward behaviors that you value: teamwork, note-taking, engagement, etc}
-                                                       @item{Pass out exit slips, dismiss, clean up.}]}}
+                        @teacher{@itemlist[@item{Have students volunteer what they learned in this lesson}
+                                            @item{Reward behaviors that you value: teamwork, note-taking, engagement, etc}
+                                            @item{Pass out exit slips, dismiss, clean up.}]}
                         }
                         ]}
 }

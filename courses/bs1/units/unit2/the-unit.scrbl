@@ -1,6 +1,6 @@
 #lang curr/lib
 
-@declare-tags[management]
+@declare-tags[]
 
 @title{Unit 2: Contracts, Strings and Images}
 @unit-overview/auto[#:lang-table (list "Number" @code{+ - * / sqr sqrt expt})]{
@@ -34,7 +34,8 @@ include other datatypes, including Strings and Images.}
 	                         @item{In each row, there is a mathematical expression written on the left-hand column.}
                                  @item{Go through each of these expressions, and draw the Circle of Evaluation for each one in the second column.}
                                  @item{Once you've converted each of them, go to the third column and convert each one into a program that can be entered on the computer. Don't forget to check your parentheses, and to be careful about leaving a space between each input.}]}}
-                        @teacher{Make sure students have the opportunity to practice drawing Circles from the outside-in (beginning with a large Circle and filling it in), and from the inside-out (starting with the innermost expression, and building out). @management{This can be done as a team competition, with each round requiring teams of students to fill in each square of the activity sheet. Make sure you review after @bold{every} round, to catch mistakes in understanding early.}}
+                        @teacher{Make sure students have the opportunity to practice drawing Circles from the outside-in (beginning with a large Circle and filling it in), and from the inside-out (starting with the innermost expression, and building out).
+                                 This can be done as a team competition, with each round requiring teams of students to fill in each square of the activity sheet. Make sure you review after @bold{every} round, to catch mistakes in understanding early.}
                         }
                  ]
          }
@@ -205,7 +206,8 @@ include other datatypes, including Strings and Images.}
                                                                                          @editor-link[#:interactions-text "(ellipse 150 40 \"outline\" \"black\")"
                                                                                                                           "Here's an example to get you started"]}
                              }
-                     @teacher{You should start pushing students to write more sophisticated expressions, replacing Number values with entire expressions (e.g. @code{(star (* 10 5) "solid" "purple")}). Students should be comfortable looking at an entire subexpression as a single argument to the surrounding function. @management{You may wish to force students to write these Contracts into their notebooks BEFORE allowing them to play with them. Be careful about letting students rush to the keys without first taking notes!}}
+                     @teacher{You should start pushing students to write more sophisticated expressions, replacing Number values with entire expressions (e.g. @code{(star (* 10 5) "solid" "purple")}). Students should be comfortable looking at an entire subexpression as a single argument to the surrounding function. 
+                              You may want to insist that students to write these Contracts into their notebooks BEFORE allowing them to play with them. Be careful about letting students rush to the keys without first taking notes!}
                      }
              @point{@student{Here is an expression that uses a very interesting function: @code{(bitmap/url "http://bootstrapworld.org/images/icon.gif")}.  This function takes in the URL of any image you can find online, and will produce that image so that you can use it in your program.
                              @activity[#:forevidence (list "BS-PL.2&1&1")]{@itemlist[@item{What are the three parts of a Contract?}
@@ -297,9 +299,9 @@ include other datatypes, including Strings and Images.}
                                 You learned that everything you knew about functions on Numbers also works on Strings and Images (which will make your
                                 programs more interesting).  You also learned how to use the Image functions to create your own images, and how to 
                                 use existing Images in your programs (through @code{bitmap/url}).}
-                        @teacher{@management{@itemlist[@item{Have students volunteer what they learned in this lesson}
-                                                        @item{Reward behaviors that you value: teamwork, note-taking, engagement, etc}
-                                                        @item{Pass out exit slips, dismiss, clean up.}]}}
+                        @teacher{@itemlist[@item{Have students volunteer what they learned in this lesson}
+                                            @item{Reward behaviors that you value: teamwork, note-taking, engagement, etc}
+                                            @item{Pass out exit slips, dismiss, clean up.}]}
                         }
                 @point{@student{In the next unit, you'll learn how to create your own functions to save work in writing expressions (this will turn 
                                 out to be an essential part of writing a game).  You'll also start customizing your game with images for the elements

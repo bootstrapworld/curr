@@ -1,5 +1,5 @@
 #lang curr/lib
-@declare-tags[management]
+@declare-tags[]
 
 @title{Unit 5: Game Animation}
 
@@ -75,7 +75,8 @@
                                                       @item{Write two @vocab{Examples} for the function.}
                                                       @item{Circle and label what varies between those examples, and label it with a @vocab{variable} name.}
                                                       @item{Define the function.}]}}
-                         @teacher{If students are working on their own, check their work to make sure every last step is being executed correctly. If the class is working through it together, be sure to ask students to justify each step in terms of a prior step. @management{Tip: tell students that they must get your permission before typing in their code, then use that expectation to check each student's paper carefully.}}
+                         @teacher{If students are working on their own, check their work to make sure every last step is being executed correctly. If the class is working through it together, be sure to ask students to justify each step in terms of a prior step. 
+                                  Tip: tell students that they must get your permission before typing in their code, then use that expectation to check each student's paper carefully.}
                          }
                  @point{@student{Putting all of these together, @code{update-danger} is defined by:
                                  @code[#:multi-line]{; update-danger : Number -> Number
@@ -148,9 +149,9 @@
                                            @item{When the Target and Danger move offscreen, they never come back}
                                            @item{Nothing happens when the Player collides with the Danger or Target}]
                                 The next few lessons will extend what you know about functions, so that you can define functions to implement each of these features.}
-                        @teacher{@management{@itemlist[@item{Have students volunteer what they learned in this lesson}
-                                                        @item{Reward behaviors that you value: teamwork, note-taking, engagement, etc}
-                                                        @item{Pass out exit slips, dismiss, clean up.}]}}
+                        @teacher{@itemlist[@item{Have students volunteer what they learned in this lesson}
+                                            @item{Reward behaviors that you value: teamwork, note-taking, engagement, etc}
+                                            @item{Pass out exit slips, dismiss, clean up.}]}
                         }]
          }
 }

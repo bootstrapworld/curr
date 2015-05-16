@@ -1,5 +1,5 @@
 #lang curr/lib
-@declare-tags[management]
+@declare-tags[]
 
 @title{Unit 6: Teaching Functions to Compare}
 
@@ -153,9 +153,9 @@ uses a new function that @italic{compares Numbers}, returning
                                                          (onscreen? -100)}
                                   }
                          @teacher{Remind students that they've already written the check for this on page 19! 
-                                 @management{It may be helpful to have students complete this activity in parts, by giving them a short time
-                                             to do the Contract and Purpose Statement, then a short time to write their first example, their second, etc. 
-                                             By debriefing and reviewing after each step, you are likely to uncover misunderstandings earlier in the process.}
+                                  It may be helpful to have students complete this activity in parts, by giving them a short time
+                                  to do the Contract and Purpose Statement, then a short time to write their first example, their second, etc. 
+                                  By debriefing and reviewing after each step, you are likely to uncover misunderstandings earlier in the process.
                                  Have the three volunteers from earlier stand again, and act out the code now that @code{safe-left?} is written properly. As before, make sure students practice calling each function individually: now @code{safe-left?} will be able to return true and false (as will @code{onscreen?}), while @code{safe-right?} still returns only @code{true}.}
                          }
                  @point{@student{@activity[#:forevidence (list "7.EE.3-4&1&1" "7.EE.3-4&1&3" "7.EE.3-4&1&4" "7.EE.3-4&1&5" "7.EE.3-4&1&10" "F-IF.4-6&1&1")]{

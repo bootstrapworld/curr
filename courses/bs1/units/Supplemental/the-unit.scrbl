@@ -2,7 +2,7 @@
 
 @title{Supplemental Lessons}
 
-@declare-tags[management]
+@declare-tags[]
 
 
 @unit-overview/auto[#:lang-table (list (list "" @code{}))]{

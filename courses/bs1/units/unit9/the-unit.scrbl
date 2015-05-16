@@ -1,6 +1,6 @@
 #lang curr/lib
 
-@declare-tags[management]
+@declare-tags[]
 
 @title{Unit 9: Prepping for Launch}
 
@@ -52,7 +52,7 @@
                        @teacher{Make sure that each group of students gets a different function to talk about, so that a classwide presentation will review the entire game. You may also want to have groups assigned to explain the Circles of Evaluation, Contracts, the purpose behind the Design Recipe, Piecewise Functions, and the Pythagorean Theorem.}
                        }
                 @point{@student{After you've made the poster, think about how you will use it during your presentation. What will you say to the audience? How can you use what you've written on the poster or in your code to help with the presentation?}
-                       @teacher{@management{Demo a terrible presentation, modeling bad posture, low volume, and mumbling. When it's time for the code-walk, stop. Ask kids to critique, pointing out what they liked and didn't like. What did they think of the speed of the presentation? Could they hear you? Then model a much better presentation! Demonstrate positive energy, clear speech, etc.} }
+                       @teacher{Demonstrate a terrible presentation, modeling bad posture, low volume, and mumbling. When it's time for the code-walk, stop. Ask kids to critique, pointing out what they liked and didn't like. What did they think of the speed of the presentation? Could they hear you? Then model a much better presentation! Demonstrate positive energy, clear speech, etc. }
                        }
                 @point{@student{@activity{Write or practice a 5 minute presentation, in which you introduce yourself and explain your game, then walk the audience through an explanation of the function or concept you were assigned.}}
                        @teacher{Have students walk through their presentations, and get feedback from their peers. You may also want to model the explanation of a few lines of code, so they see what you're looking for. Don't allow students to just recite the code! They should be able to explain each line in plain english - don't be afraid to push students to really explain what's going on.}
@@ -90,7 +90,7 @@
                 )
      ]{
        @points[@point{@student{Congratulations: you've done something really incredible! You've learned a new programming language, learned about the Circles of Evaluation, Numbers, Strings, Booleans, Images, Functions, Values, Conditional Branching, the Design Recipe, Contracts, and more. You made a rocket fly, you learned how to generate computer graphics, and you put all of that together to build a videogame!}  
-                       @teacher{@management{Have the class give each other a round of applause. Give out awards, talk about student achievement, etc}}
+                       @teacher{Have the class give each other a round of applause. Give out awards, talk about student achievement, etc.}
                        }]
         }
 

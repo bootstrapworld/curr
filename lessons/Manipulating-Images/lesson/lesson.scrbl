@@ -1,6 +1,6 @@
 #lang curr/lib
 
-@declare-tags[management]
+@declare-tags[]
 
 @lesson/studteach[
      #:title "Manipulating Images"
@@ -33,7 +33,7 @@
       ]{
         @points[
           @point{@student{Earlier, you learned how to create simple images using operators such as @code{circle}, @code{rectangle}, and @code{triangle}.  We can combine or manipulate these basic shapes to make more interesting ones, the same way we can combine and manipulate numbers.  In this lesson, you'll learn Racket functions for manipulating and combining images.}
-                 @teacher{@management{Use of the board is critical in this activity - you'll want to have lots of room to write, and lots of visuals for students to see.} Have students review some of the Image-producing functions they already know (@code{triangle}, @code{circle}, etc.). Quiz them on the contracts for these functions.}
+                 @teacher{Use of the board is critical in this activity - you'll want to have lots of room to write, and lots of visuals for students to see. Have students review some of the Image-producing functions they already know (@code{triangle}, @code{circle}, etc.). Quiz them on the contracts for these functions.}
                  }
            @point{@student{@bitmap{images/simple-spaceship.png}Imagine that we wanted to make an image of a simple satellite that looks like the one shown here. This image contains a blue circle and a red rectangle, with the circle on top of the rectangle.  Racket has a function called @code{overlay}, which lets you put one image on top of another. Here is its contract, and a purpose statement that explains what it does:
                             @code[#:multi-line ""]{; overlay : Image Image -> Image
@@ -69,7 +69,7 @@
            @point{@student{Here are the contract and purpose for rotate:
                            @code[#:multi-line ""]{; rotate : Number Image -> Image
                                                   ; Rotates the image by the given number of degrees}}
-                   @teacher{@management{When it's time to introduce the new functions, start out by showing them the contract and then an example, as it does in the student guide. Make sure to ask lots of "how do you know?" questions during the code, to remind them that the contract has all the necessary information.}}}
+                   @teacher{When it's time to introduce the new functions, start out by showing them the contract and then an example, as it does in the student guide. Make sure to ask lots of "how do you know?" questions during the code, to remind them that the contract has all the necessary information.}}
                               
            @point{@student{Suppose you wanted to make the satellite bigger, by scaling it up to 2x or 3x it's original size. Racket has a function that will do just that, called @code{scale}. Here is the contract and purpose statement for scale:
                            @code[#:multi-line ""]{; scale : Number Image -> Image

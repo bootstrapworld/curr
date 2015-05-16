@@ -1,5 +1,5 @@
 #lang curr/lib
-@declare-tags[management]
+@declare-tags[]
 
 @title{Unit 4: The Design Recipe}
 
@@ -46,10 +46,10 @@
                                 are displayed quickly, the images appear to change smoothly.
                                  @bannerline{@bitmap{images/flipbookSlides.png}}
                                  }
-                        @teacher{@management{Review the importance of definitions for students (defining values helps cut down on redundancy 
+                        @teacher{Review the importance of definitions for students (defining values helps cut down on redundancy 
                                              and makes future changes easier, defining functions allows for simplicity and testability. 
                                              Be sure to use vocabulary regularly and carefully, pushing students to use the proper terms 
-                                             throughout.)}
+                                             throughout.)
                                   }
                         }
                  @point{@student{@animated-gif{images/flipbook.gif}Putting these images together, we arrive at an animation of the rocket moving up the screen. 
@@ -292,8 +292,8 @@
                                      Write two additional Examples for this function, using Algebraic notation.}
                                  }
                          @teacher{Point out that the Contract hasn't changed @italic{at all} between Racket and Algebra. 
-                                  @management{If students are struggling with the change in syntax, let them first write the Examples in Racket, and 
-                                              then convert them to Algebra by following the model shown here.}}
+                                  If students are struggling with the change in syntax, let them first write the Examples in Racket, and 
+                                  then convert them to Algebra by following the model shown here.}
                          }
                  @point{@student{As before, a function's variables can be identified by writing two Examples, and looking at what changes between them.
                                  @activity[#:forevidence (list "A-SSE.1-2&1&1" "A-SSE.1-2&1&2" "7.EE.3-4&1&4" "BS-DR.2&1&3" "BS-DR.3&1&1")]{
@@ -383,9 +383,9 @@
                 )
       ]{
         @points[@point{@student{In this unit, you started to see how functions are useful in writing animations: functions help produce information (such as the height of a rocket) that are used to create scenes in a game.  With the extra practice writing functions and using the Design Recipe, you are now ready to start writing functions that will move the elements within your own game.}
-                        @teacher{@management{@itemlist[@item{Have students volunteer what they learned in this lesson}
-                                                        @item{Reward behaviors that you value: teamwork, note-taking, engagement, etc}
-                                                        @item{Pass out exit slips, dismiss, clean up.}]}}
+                        @teacher{@itemlist[@item{Have students volunteer what they learned in this lesson}
+                                            @item{Reward behaviors that you value: teamwork, note-taking, engagement, etc}
+                                            @item{Pass out exit slips, dismiss, clean up.}]}
                         }
                         ]}
 }

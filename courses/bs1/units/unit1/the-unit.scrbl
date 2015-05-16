@@ -2,7 +2,7 @@
 
 @title{Unit 1: Videogames and Coordinate Planes}
 
-@declare-tags[management]
+@declare-tags[]
 
 @unit-overview/auto[#:lang-table (list (list "" @code{}))]{
   @unit-descr{Students discuss the components of their favorite videogames, and discover that they can be reduced to a series of coordinates. They then explore coordinates in Cartesian space, and identify the coordinates for the characters in a game at various points in time. Once they are comfortable with coordinates, they brainstorm their own games and create sample coordinate lists for different points in time in their own game.}
@@ -26,8 +26,8 @@
       ]{
         @points[
              @point{@student{Welcome to Bootstrap! In this course, you'll be learning a new @vocab{programming language} - a way to tell computers exactly what you want them to do. Just like English, Spanish or French, a programming language has its own vocabulary and grammar that you'll have to learn. Fortunately, the language you'll be using here has a lot in common with simple math that you already know!}
-                     @teacher{@management{Set expectations and rules for the class.}
-                               Connect the material to come with things students already know:
+                     @teacher{Set expectations and rules for the class.
+                              Connect the material to come with things students already know:
                               @itemlist[@item{What makes a language? Do some students already speak more than one language?}
                                          @item{Programming is very much a language, with its own syntax, semantics, etc}
                                          @item{Ask students about their favorite videogames. Be open about the scale of a modern game: they cost millions of dollars, are built by huge teams of programmers and artists, and are developed over years.}
@@ -70,11 +70,12 @@
           
           @point{@student{@activity[#:forevidence (list "BS-M&1&1")]{@bitmap{images/game-table1.png} Turn to @worksheet-link[#:name "NinjaCat-Dissection"] in your workbook. Here we have a table, which we'll use to reverse-engineer NinjaCat and see how it works. Fill out the first column with a complete list of all things in the game.}
                            }
-                 @teacher{This can be a team activity. Solicit a few examples from students, to make sure they understand what's being listed here: nouns like "the cat", not verbs like "jumping". @management{During this activity, walk around and see how groups are doing. This is the time to encourage expectations of community and respect - call out good teamwork when you see it! When time is up, give them a countdown: "30...10... 5... 4... 3... 2... 1... PENCILS DOWN, EYES UP HERE!" Wait for total silence and complete attention. }}
+                 @teacher{This can be a team activity. Solicit a few examples from students, to make sure they understand what's being listed here: nouns like "the cat", not verbs like "jumping". During this activity, walk around and see how groups are doing. 
+                          This is the time to encourage expectations of community and respect - call out good teamwork when you see it! When time is up, give them a countdown: "30...10... 5... 4... 3... 2... 1... PENCILS DOWN, EYES UP HERE!" Wait for total silence and complete attention. }
                  }
           
           @point{@student{Did you list all four moving characters? What else is in the game? Is the background a part of the game? The score?}
-                 @teacher{@management{Have students come up to the board, and fill in the table with what they've found. If time is short, call on students and have them tell you what to write.}}
+                 @teacher{Have students come up to the board, and fill in the table with what they've found. If time is short, call on students and have them tell you what to write.}
                  }
           
           @point{@student{@activity{@bitmap{images/game-table2.png}We also need to think about what is @italic{changing} when we play the game. What about the Ruby? Does it get bigger? Does it change color? Does it spin around? The only thing that changes about the Ruby is its @italic{position}! Everything else about it is the same. What about the Dog? The Cat? Fill in the rest of the second column, listing everything that changes about each character.}}
@@ -82,7 +83,7 @@
                  }
                             
           @point{@student{Did you notice that the Dog, Ruby, Cloud and Cat only change position, and nothing else? What about the Background - it doesn't change at all, so we can @italic{leave that cell in table blank!} Did you notice the Score changes value? You'll want to add that to your table, too!}
-                 @teacher{@management{Quickly fill in the second column on the board. Assign scores.}}
+                 @teacher{Quickly fill in the second column on the board. Assign scores.}
                  }
           ]}
 
@@ -119,11 +120,11 @@
               @teacher{The key point for students here is @italic{precision} and @italic{objectivity}. There are many possible correct answers, but students
                        should understand why any solution should be accurate and unambiguous. This requires students to propose solutions that share a common
                        "zero" (the starting point of their number line) and direction (literally, the direction from which a character's position is measured).
-                       @management{Have students discuss this. If time allows, have a student leave the room and let other students come up with ways to write
-                                   down where the dog is on the board. Then remove the dog, call in the other student, and have the class direct them using 
-                                   only what they've written down.Try positioning the characters at different places on the line, and have students tell you 
-                                   what their coordinates are. Try giving them verbal descriptions (e.g. "The center of the screen", "Off the righthand 
-                                   side of the screen", etc.) and have them translate those into coordinates.}}
+                       Have students discuss this. If time allows, have a student leave the room and let other students come up with ways to write
+                       down where the dog is on the board. Then remove the dog, call in the other student, and have the class direct them using 
+                       only what they've written down.Try positioning the characters at different places on the line, and have students tell you 
+                       what their coordinates are. Try giving them verbal descriptions (e.g. "The center of the screen", "Off the righthand 
+                       side of the screen", etc.) and have them translate those into coordinates.}
               }
 
       @point{@student{@bitmap{images/cat-coordinates.png}By adding a second number line, we can locate a character anywhere on the screen in either 
@@ -134,10 +135,10 @@
               @teacher{A coordinate represents a single point, and an image is (by definition) many points. Some students will ask whether a
                        character's coordinate refers to the center of the image, or one of the corners. In this particular program, the center 
                        serves as the coordinate - but other programs may use another location. The important point in discussion with students
-                       is that there is flexibility here, @italic{as long as the convention is used consistently}. @management{If time allows, 
+                       is that there is flexibility here, @italic{as long as the convention is used consistently}. (If time allows, 
                        invite volunteers up to the board to try placing NinjaCat and the Ruby at different locations. Have students identify the
                        coordinates at the corners of the screen. For additional practice, have students bisect each side of the screen and label
-                       the midpoints.}}
+                       the midpoints.)}
               }
       @point{@student{When we write down these coordinates, we always put the x before the y (just like in the alphabet!). Most of the time, 
                       you'll see coordinates written like this: (200, 50) meaning that the x-coordinate is 200 and the y-coordinate is 50.}
@@ -188,7 +189,7 @@
 @points[
         @point{@student{On @worksheet-link[#:name "Game-Design"], you'll find a planning template for you to make your own game. 
                            Just like we made a list of everything in the NinjaCat game, we're going to start with a list of everything in your game.}
-                @teacher{@management{Put your names at the top of this page.}}
+                @teacher{Have students put their names at the top of this page.}
                 }
          
         @point{@student{To start, your game will have with four things in it: 
@@ -204,11 +205,11 @@
         
         @point{@student{@activity{Now it's time to get creative! Fill out @worksheet-link[#:name "Game-Design"] in your 
                                   workbook for @italic{your} game, using your own player, target and danger.}}
-                @teacher{@management{Be sure to consult with every team. A lot of students will have trouble fitting their ideas into this 
-                                     format, or they'll struggle with coordinates. Be clear about what can and cannot be done! (e.g. - no 
-                                     3d games, joysticks, multiplayer games, etc. Hint: students who have a well-worded description of their
-                                     images will be happier with any images you could find them. Try searching for "Person" versus "Jogger",
-                                     for example.}}
+                @teacher{Be sure to consult with every team. A lot of students will have trouble fitting their ideas into this 
+                         format, or they'll struggle with coordinates. Be clear about what can and cannot be done! (e.g. - no 
+                         3d games, joysticks, multiplayer games, etc. Hint: students who have a well-worded description of their
+                         images will be happier with any images you could find them. Try searching for "Person" versus "Jogger",
+                         for example.}
                 }
         ]}
 
@@ -436,8 +437,8 @@
                 @point{@student{Open the programming tool of your choice: If you've installed, DrRacket, double-click the 
                                 application to launch it. If you are using the online-tool, @login-link["click here to log in"]
                                 enter your username and password to log in, then click "Start a New Program".}
-                        @teacher{@management{Have the students look at the editor on their computers. Refer to overhead 
-                                             projector as necessary.}}
+                        @teacher{Have the students look at the editor on their computers. Refer to overhead 
+                                 projector as necessary.}
                         }
                  
                 @point{@student{@bitmap{images/wireframeIDE.png}This screen is called the @vocab{editor}, and it looks something
@@ -457,9 +458,9 @@
                                                to add! Just as in English, there are rules that determine whether a sentence
                                                makes sense. Programs have rules too!  A program can be very complicated, but
                                                it doesn't have to be: the simplest programs of all are just Numbers.}
-                        @teacher{@management{Draw students' attention to the Language Table (see Lesson Overview for Unit 1),
-                                             which currently sits empty. Add "Numbers" to the Types section of the language 
-                                             table.}}
+                        @teacher{Draw students' attention to the Language Table (see Lesson Overview for Unit 1),
+                                 which currently sits empty. Add "Numbers" to the Types section of the language 
+                                 table.}
                         }
                 @point{@student{@bannerline{Code Rule 1: All values are legal expressions.}
                                  @activity[#:forevidence "BS-IDE&1&1"]{What do you think @code{4} will evaluate to? 
@@ -528,12 +529,13 @@
                                                                                         window. What should the program evaluate to 
                                                                                         when you hit Return?}
                                                      @item{Practice converting other Circles of Evaluation you've drawn into code.}]}}
-                        @teacher{[@(hyperlink "https://www.youtube.com/watch?v=vgkahOzFH2Q" "Video on Roles in Pair Programming.")]@management{Scaffolding for Pair Programming: Talk to students about the roles of @italic{Driver} 
-                                             and @italic{Navigator}. The Driver is the student with their hands on the keyboard - they're 
-                                             in charge of typing, using the mouse, etc. The Navigator should be telling the Driver what to
-                                             type, and pointing out mistakes or suggesting things. It's important to clarify what these 
-                                             roles are (perhaps reinforcing them with a visual), to ensure that both partners are active 
-                                             and talking to one another about the task at hand.  The linked video does a great job discussing these roles.}}
+                        @teacher{[@(hyperlink "https://www.youtube.com/watch?v=vgkahOzFH2Q" "Video on Roles in Pair Programming.")]
+                                  Scaffolding for Pair Programming: Talk to students about the roles of @italic{Driver} 
+                                  and @italic{Navigator}. The Driver is the student with their hands on the keyboard - they're 
+                                  in charge of typing, using the mouse, etc. The Navigator should be telling the Driver what to
+                                  type, and pointing out mistakes or suggesting things. It's important to clarify what these 
+                                  roles are (perhaps reinforcing them with a visual), to ensure that both partners are active 
+                                  and talking to one another about the task at hand.  The linked video does a great job discussing these roles.}
                         }
                
                 @point{@student{@bannerline{All of the expressions that follow the function name are called @vocab{arguments} to the 
@@ -591,7 +593,7 @@
                                           @item{You learned about order of operations, Circles of Evaluation, how to turn Circles of
                                                 Evaluation into programs, and how to run those programs to get answers.}]
                         In the next unit, we'll begin writing programs for more interesting things than just arithmetic.}
-                        @teacher{@management{Make sure student names are on page 3. Take page 3 itself, or take photos of page 3, to prep game images for a later Unit. }}}
+                        @teacher{Make sure student names are on the Game Design page. Take this page, or take photos of it, to prep game images for a later Unit. }}
                ]
          }
 }
