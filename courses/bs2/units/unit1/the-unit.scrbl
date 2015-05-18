@@ -18,21 +18,26 @@
       #:standards (list)
       #:materials @itemlist[@item{Editing environment (Pyret Editor)}]
       #:preparation @itemlist[@item{Computer for each student (or pair), running the Pyret Editor}
-                              @item{Make sure the Review.arr file is loaded}
+                              @item{The @editor-link[#:public-id "0B9rKDmABYlJVdHZESmZ6ZnRmdXc" "Review file"] preloaded on students' machines.}
                               @item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders with names on covers, and something to write with}]
       #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
-      
       ]{
         @points[@point{@student{Welcome back to Bootstrap! In Bootstrap:1, you used a @vocab{programming language} called Racket to make your video games. We chose this language because it behaves like algebra, but there are many different languages you could use to make video games. In Bootstrap:2, you’re going to learn a new language, called Pyret. Pyret is similar to Python, a programming language you may have heard of, but this language contains many of the features you remember from Racket. The syntax is a little different, but with a bit of practice you’ll pick it up in no time!}
                        @teacher{Introduce teaching staff. Give some background: age, where you're from, something surprising about yourself, favorite food, etc. Anything to allow kids to connect. Have students introduce themselves. Set expectations and rules for the class.}}
-               @point{@student{Open this link [REVIEW LINK] in a new window. The first thing you’ll notice is that we’re no longer using WeScheme to edit our programs, although the Pyret editor behaves very similarly. The definitions area (where you write code you want to save for later) is on the left side of the screen, and the interactions area (where you write code you just want to test out once, like scratch paper) is on the right. The top of the editor has space to write a name for your program, and the “Run” button at the top right behaves just as it did in WeScheme.}
+                 @point{@student{Open your workbook to @worksheet-link[#:page 1 #:name "Review"]. Here we have a table, with various values in different @vocab{Data Types} defined. On the left-hand column, we've defined values in Racket, and on the right we have the same values defined in Pyret. For instance, the first line on the left-hand side says @code{(define NUM 4)}. Directly to the right, we have the Pyret syntax: @code{NUM = 4}, which does the same thing: creates a variable called NUM, which has a value of 4.
+                         @activity{Take a look at the other values defined here for Numbers, Strings, Images, and Booleans. The last row of the table on @worksheet-link[#:page 2 #:name "Review"] shows you the same function definition in Racket and Pyret. We'll go into more detail on functions soon. In the meantime, on the right-hand side of the table, practice defining (in Pyret!):
+                           @itemlist[@item{two additional Numbers}
+                                     @item{two additional Strings}
+                                     @item{one more Boolean}
+                                     @item{one more Image}]}}
+                         @teacher{}}  
+               @point{@student{Open the @editor-link[#:public-id "0B9rKDmABYlJVdHZESmZ6ZnRmdXc" "Review file"] in a new window. The first thing you’ll notice is that we’re no longer using WeScheme to edit our programs, although the Pyret editor behaves very similarly. The definitions area (where you write code you want to save for later) is on the left side of the screen, and the interactions area (where you write code you just want to test out once, like scratch paper) is on the right. The top of the editor has space to write a name for your program, and the “Run” button at the top right behaves just as it did in WeScheme.}
                        @teacher{}}
-               @point{@student{At the top of the definitions area, there are some @vocab{variables} defined. In Racket, we would write @code{(define NUM 4)}. However, in Pyret we have @code{NUM = 4}, which does the same thing: creates a variable called NUM, which has a value of 4.
-                                      @activity{@itemlist[@item{What are the names of the other variables defined here? What are their values?}
+               @point{@student{@activity{@itemlist[@item{What are the names of the other variables defined here? What are their values?}
                                                           @item{What would you get back if you were to evaluate each of those variables in the Interactions area? Take a guess first, then click "Run" and type the name of each variable into the interactions area. Were your guesses correct?}]
                                                  Look at the variable @code{OUTLINE} on line ______.
                                                  @itemlist[@item{What shape will this draw?}
@@ -43,13 +48,7 @@
        The problem is that we used a very confuing variable name: the name was “OUTLINE," but the value was a solid green star. Remember: always choose your variable names carefully!}
                        @teacher{Remind students about the importance of good variable names: they make code more readable, and a descriptive variable name makes it very clear what is being defined.}}
                
-               @point{@student{As you can see, Pyret uses the same data types that we used in Racket: Numbers, Strings, Images, and Booleans are used in Pyret, and look and behave in the same way. @activity{In your review file, define:
-                           @itemlist[@item{two additional Numbers}
-                                     @item{two additional Strings}
-                                     @item{one more Boolean}
-                                     @item{one more Image}]
-                   and practice using them in the interactions window.}
-                           }
+               @point{@student{As you can see, Pyret uses the same data types that we used in Racket: Numbers, Strings, Images, and Booleans are used in Pyret, and look and behave in the same way. @activity{In your review file, define the new Numbers, Strings, Images, and Boolean you wrote in your workbook on @worksheet-link[#:page 1 #:name "Review"].}
                        @teacher{}}
                
                @point{@student{Now we have values, and we know how to define shortcuts for them. However, there are also plenty of built-in functions, which let us play around with these values. 
@@ -58,6 +57,7 @@
                
                @point{@student{One of the big changes from Racket to Pyret is using arithmetic functions. In Pyret, you can write these expressions with math notation, like so: @code{(2 + 9)} or @code{(10 * 8)}. Of course, there are lots of other functions that work on strings, images, booleans, and more. @worksheet-link[#:page 1 #:name "Intro to Pyret"] contains examples of some of these function definitions in Racket and Pyret.}
                        @teacher{}}
+               }
               
                                   ]}
    
@@ -192,3 +192,4 @@ Once you’ve defined the function itself, Pyret will automatically check your e
                                   ]
          }
        }
+       
