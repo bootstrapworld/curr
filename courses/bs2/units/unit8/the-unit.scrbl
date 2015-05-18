@@ -1,7 +1,7 @@
 #lang curr/lib
 
 @title{Unit 8: Collision Detection}
-@declare-tags[management]
+@declare-tags[]
 
 @unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sq sqrt expt}) 
                                        (list "String" @code{string-append string-length})                          
@@ -141,18 +141,17 @@
                                 @activity{What is the line-length of A?}
                                 To make your life easier, you can use the function you already wrote: @code{line-length}.
                                 In this example, line-length(A) is 4 and line-length(B) is 3, but we still don't know C.}
-                        @teacher{@management{Draw this image on the board, with the lines labeled "A", "B", and "C".}}}
+                        @teacher{Draw this image on the board, with the lines labeled "A", "B", and "C".}}
                  @point{@student{Ancient civilizations had the same problem: they also struggled to find the distance
                                  between points in two dimensions. Let’s work through a way to think about this problem:
                                  what expression computes the length of the hypotenuse of a right triangle?}
-                       @teacher{@management{This exercise is best done in small groups of students (2-3 per group).} 
-                                 Pass out Pythagorean Proof materials [@(resource-link #:path "images/pythag1.png" #:label "1"), 
+                       @teacher{This exercise is best done in small groups of students (2-3 per group). Pass out Pythagorean Proof materials [@(resource-link #:path "images/pythag1.png" #:label "1"), 
                                  @(resource-link #:path "images/pythag2.png" #:label "2")] to each group, and have them
                                  review all of their materials:@itemlist[@item{A large, white square with a smaller one drawn inside}
                                                                           @item{Four gray triangles, all the same size}]
                                  Everyone will have a packet with the same materials, but each group's triangles are
                                  a little different. The activity workes with triangles of all sizes, so each pair will
-                                 get to test it out on their own triangles. @management{Draw the diagram on the board.}}
+                                 get to test it out on their own triangles. Draw the diagram on the board.}
                         }
                 @point{@student{@bitmap{images/csquared.png}For any right triangle, it is possible to draw a picture 
                                  where the hypoteneuse is used for all four sides of a square. In the diagram shown 
@@ -254,9 +253,9 @@
                         @teacher{Using visual examples, ask students to guess the distance between a danger
                                  and a player at different positions. How far apart do they need to be before
                                  one has hit the other? 
-                                 @management{Make sure students understand what is going on by asking questions:
+                                 Make sure students understand what is going on by asking questions:
                                              If the collision distance is small, does that mean the game is hard 
-                                             or easy? What would make it easier?}}
+                                             or easy? What would make it easier?}
                         }
                  ]
          }
@@ -338,8 +337,8 @@ Remember that @code{update-world} gives back a world, so what function should co
         @points[@point{@student{Congratulations! You've finished almost every lesson, and now it's up to you to make your 
                                 games even better. Take some time to brainstorm...what else do you want your game to 
                                 do? Next unit you can add even more things, so that your games are even cooler.}
-                        @teacher{@management{Have students show each other their finished games, and start thinking about what 
-                                 features they want to add next!}}}
+                        @teacher{Have students show each other their finished games, and start thinking about any 
+                                 features they still want to add!}}
                  ]
          }
        }

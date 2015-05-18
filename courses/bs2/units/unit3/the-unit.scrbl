@@ -1,5 +1,5 @@
 #lang curr/lib
-@declare-tags[management]
+@declare-tags[]
 
 @title{Unit 3: Structures and Worlds}
 
@@ -157,10 +157,10 @@ After replacing the changing things with variables, your definition should look 
                 )
       ]{
         @points[@point{@student{So far you've worked with three data structures: Coords, Parties, and Cars. In the next lesson, you'll look at a new struct as you dissect a video game, and start thinking about the struct(s) you'll need to create for your own game!}
-                        @teacher{@management{@itemlist[@item{Have students volunteer what they learned in this lesson}
+                        @teacher{@itemlist[@item{Have students volunteer what they learned in this lesson}
                                                         @item{Reward behaviors that you value: teamwork, note-taking, engagement, etc}
                                                         @item{Pass out exit slips, dismiss, clean up.}]}}
-                        }
+                        
                         ]}
        }
 

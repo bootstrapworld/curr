@@ -2,7 +2,7 @@
 
 @title{Unit 2: Introduction to Data Structures}
 
-@declare-tags[management]
+@declare-tags[]
 
 
 @unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sq sqrt})
@@ -46,7 +46,7 @@
                  @point{@student{To make sure the material from last unit is fresh in your mind, tackle the following activity: @activity{Turn to @worksheet-link[#:page 8 #:name "double-radius"] in your workbook. Write a function called @code{double-radius}, 
                                                    which takes in a radius and a color. It produces an outlined circle of whatever color was passed in, whose radius 
                                                    is twice as big as the input.}}
-                        @teacher{@management{If walking through this example as a class, use a projector so kids can see the function being written on the computer: }}}
+                        @teacher{If walking through this example as a class, use a projector so kids can see the function being written on the computer: }}
                  @point{@student{Remember how to use the design recipe to work through word problems? @bannerline{Step 1: Contract and Purpose Statement}
                                  @activity{ @itemlist[@item{What is the @vocab{Name} of this function?}
                                                        @item{What is the @vocab{Domain} of this function?}
@@ -191,7 +191,7 @@ end}}
                                               @item{@code{color}: @bold{String}}
                                               @item{@code{value}: @bold{Number}}]
                                    These are the only things that you're going to keep track of in a car, but you can imagine how you might extend it to include other things.}
-                           @teacher{@management{Copy the fields of a Car struct and its types onto the board.}}}
+                           @teacher{Copy the fields of a Car struct and its types onto the board.}}
                     
                     @point{@student{Now that you know everything that is part of a car, you can use a struct to represent the car itself. Let's take a look at how this works.
                             @activity{Open the @editor-link[#:public-id "P7qS37u1ZH" "AUTOBODY SHOP"] file and read the line that starts with 
@@ -356,12 +356,13 @@ worked with cars, the @code{data Car:} code block says that we're defining a new
                                 different enemies, each with their own position and health, or multiple levels with their own background image, the game can get 
                                 very complicated very fast, and structs are a great way to manage and make sense of all the data. Programmers can do a LOT with data
                                 structures, and in the upcoming lessons you will create your own structs to make a customized videogame.}
-           @teacher{@management{@itemlist[@item{Have students volunteer what they learned in this lesson}
+           @teacher{@itemlist[@item{Have students volunteer what they learned in this lesson}
                                           @item{Reward behaviors that you value: teamwork, note-taking, engagement, etc}
                                           @item{Pass out exit slips, dismiss, clean up.}]}}
   
-           }
- ]}}
+           
+ ]}
+       }
        
        
 

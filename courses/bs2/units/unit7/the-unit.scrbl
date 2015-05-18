@@ -1,7 +1,7 @@
 #lang curr/lib
 
 @title{Unit 7: Asking the World}
-@declare-tags[management]
+@declare-tags[]
 
 @unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sq sqrt expt}) 
                                        (list "String" @code{string-append string-length})                          
@@ -59,8 +59,8 @@
                                                  the next? And the next?}
                                           @item{What happens when the dog reaches the edge of the screen? What SHOULD happen?}]}
                                  Right now the dog disappears off the side of the screen and never comes back. It's time to fix that. }
-                        @teacher{@management{Be sure to give students lots of positive reinforcement at this point - the game is
-                                             really taking shape!}}
+                        @teacher{Be sure to give students lots of positive reinforcement at this point - the game is
+                                             really taking shape!}
                         }
                  @point{@student{Just as in Bootstrap:1, we need to write a function that checks whether the danger has gone off the right side 
                                 of the screen. First, let's review a few things:
@@ -73,8 +73,8 @@
 @code[#:multi-line #t]{# > : Number Number -> Boolean
                      # Checks whether the first number is greater than the second}
                                @activity{Copy this into your Contracts page and write down the contracts for the other two Boolean functions.}}
-                        @teacher{@management{Review Booleans and Boolean functions, including @code{>}, @code{<}, @code{=}, @code{and}, and 
-                                             @code{or}. Make sure students copy the contracts into their workbook.}}}
+                        @teacher{Review Booleans and Boolean functions, including @code{>}, @code{<}, @code{=}, @code{and}, and 
+                                             @code{or}. Make sure students copy the contracts into their workbook.}}
                  
                  @point{@student{To make testing and writing code much easier, programmers will often write seperate functions to test various game possibilities. In our Ninja World game, we're going to write a function @code{is-off-right} to test whether the dog has gone off the right side of the screen.
 @activity{@itemlist[@item{Turn to @worksheet-link[#:page 32 #:name "Boundary Checks"] in your workbook.}
@@ -96,8 +96,8 @@
                                  @activity{Write another example for a coordinate that is off the screen on the right side, circle what 
                                            changes, and write your function definition.}}
                          @teacher{Remind students about Sam the butterfly from Bootstrap:1. This function does the same thing as @code{safe-right?},
-                                  to determine whether the character has gone off the screen based on its x-coordinate.@management{Ensure that students
-                                  are using the full name of @code{is-off-right}.}}}
+                                  to determine whether the character has gone off the screen based on its x-coordinate. Ensure that students
+                                  are using the full name of @code{is-off-right}.}}
                  
                  @point{@student{You now have a function to check whether an object has run off the right side of the screen. But think
                                  about Ninja World: if the coin is moving to the left, do you care whether the coin goes off the right side? 
@@ -272,10 +272,10 @@
                                 to handle collisions with the characters in your game! Start thinking about what should 
                                 happen when your player reaches some treasure, shoots a zombie, or some other condition 
                                 in your game.}
-                        @teacher{@management{Remind students how far they have come since Bootstrap:1 and the beginning
+                        @teacher{Remind students how far they have come since Bootstrap:1 and the beginning
                                              of Bootstrap:2. They've expanded their knowledge of Pyret and programming, 
-                                             learned about a brand new data type and created their own advanced videogame!}
-                                  Have the students show off their games to one another.}}
+                                             learned about a brand new data type and created their own advanced videogame! Have the students show off their games to one another.}
+                        }
                  ]
          }
        }

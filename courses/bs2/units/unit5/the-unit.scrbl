@@ -2,7 +2,7 @@
 
 @title{Unit 5: Building your World}
 
-@declare-tags[management]
+@declare-tags[]
 
 @unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sq sqrt expt})
                                        (list "String" @code{string-append string-length})
@@ -167,8 +167,8 @@ Remember, if the position of these images will be changing (like the dog and coi
                         @teacher{@code{update-world} is the function that will handle the logic of the student' games. It determines what changes
                                  from one second to the next, and updates the world accordingly. Make sure students are making a new world with
                                  @code{world}, and using their dot- accessors to change the value of each world field according to 
-                                 their game's behavior. This function will likely change drastically as the class progresses, and students start adding new functionality to their games. @management{Work with small groups to complete this section as needed. When they are
-                                 finished, have the students type @code{update-world} into their games.}}}
+                                 their game's behavior. This function will likely change drastically as the class progresses, and students start adding new functionality to their games. Work with small groups to complete this section as needed. When they are
+                                 finished, have the students type @code{update-world} into their games.}}
                  ]
          }
 
@@ -191,10 +191,10 @@ Remember, if the position of these images will be changing (like the dog and coi
                                 and moving! However, we still haven't written any functions to take input from the user. If you want the 
                                 player to move, you'll need to learn about how to make the game respond to keypresses, 
                                 which is what you'll learn in the next unit.}         
-                       @teacher{Have students show each other their their animated games! @management{At this point in the course 
+                       @teacher{Have students show each other their their animated games! At this point in the course 
                                 students will have very different games and world structures. The Ninja World examples serve as templates
                                 and guides for what students should be adding to their games at each step, but most will require a 
-                                lot of individual attention to make their unique games behave the way they want.}}
+                                lot of individual attention to make their unique games behave the way they want.}
                        }
                  ]
          }

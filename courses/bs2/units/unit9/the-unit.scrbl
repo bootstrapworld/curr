@@ -1,7 +1,7 @@
 #lang curr/lib
 
 @title{Unit 9: Completing Games}
-@declare-tags[management]
+@declare-tags[]
 
 @unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sq sqrt expt}) 
                                        (list "String" @code{string-append string-length})                          
@@ -269,8 +269,8 @@
                                    when the score gets even higher. Maybe instead of the background changing, you 
                                    can have the player transform, or make the game more difficult by making the 
                                    danger move faster.}
-                         @teacher{@management{You can use the provided background image for level 2 of Ninja World, 
-                                              or walk students through finding and adding their own image to the game.}
+                         @teacher{You can use the provided background image for level 2 of Ninja World, 
+                                              or walk students through finding and adding their own image to the game.
                                    
                                    These modifications can be seen in action in the 
                                    @editor-link[#:public-id "ZTt2BzE0UX" "Completed Ninja World file"], 

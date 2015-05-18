@@ -1,7 +1,7 @@
 #lang curr/lib
 
 @title{Unit 4: Welcome to the World}
-@declare-tags[management]
+@declare-tags[]
 
 @unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sq sqrt expt})
                                        (list "String" @code{string-append string-length})
