@@ -163,7 +163,7 @@ end}}
                                      @item{Students define variables bound to cars}]
         #:standards (list )
         #:materials @itemlist[@item{}]
-        #:preparation @itemlist[@item{The Cars file: Cars.arr from @editor-link[#:public-id "P7qS37u1ZH" "PYRET EDITOR LINK"] preloaded on students' machines}]
+        #:preparation @itemlist[@item{The @editor-link[#:public-id "0B9rKDmABYlJVSlI4VEZLLUI4UkU" "Autobody shop"] filepreloaded on students' machines}]
         #:prerequisites (list)
         #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -194,7 +194,7 @@ end}}
                            @teacher{Copy the fields of a Car struct and its types onto the board.}}
                     
                     @point{@student{Now that you know everything that is part of a car, you can use a struct to represent the car itself. Let's take a look at how this works.
-                            @activity{Open the @editor-link[#:public-id "P7qS37u1ZH" "AUTOBODY SHOP"] file and read the line that starts with 
+                            @activity{Open the @editor-link[#:public-id "0B9rKDmABYlJVSlI4VEZLLUI4UkU" "Autobody shop"] file and read the line that starts with 
                                                @code{car1 = ...}
                                                @code{car1 = car("M5", 480, 28, "black", 50000)}
                                                @itemlist[@item{What is the name of this car?}
@@ -313,7 +313,7 @@ end}}
                 )
       
       ]{
-        @points[@point{@student{@activity{Look at the first few lines of the @editor-link[#:public-id "P7qS37u1ZH" "AUTOBODY SHOP"] file. They start with @code{data Car:}}
+        @points[@point{@student{@activity{Look at the first few lines of the @editor-link[#:public-id "0B9rKDmABYlJVSlI4VEZLLUI4UkU" "Autobody shop"] file. They start with @code{data Car:}}
                                 @code[#:multi-line #t]{data Car:
                                                          # a car is a model, hp, rims, color and value.
                                                          | car(model :: String, hp :: Number, rims :: Number, color :: String, value :: Number)

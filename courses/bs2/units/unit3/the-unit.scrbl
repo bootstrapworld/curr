@@ -21,7 +21,7 @@
         #:product-outcomes @itemlist[@item{Students define a new data structure: a party }
           @item{Students will write functions that access fields of a car, and produce new cars}]
         #:standards (list)
-        #:materials @itemlist[@item{The PARTY PLANNER FILE [Party.arr from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "zLYLPQ5d6K" "WeScheme"] preloaded on students' machines}
+        #:materials @itemlist[@item{The @editor-link[#:public-id "0B9rKDmABYlJVUUt1SUc5UnVsdm8" "Party Planner"] file preloaded on students' machines}
                               @item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, design recipe, course calendar)}
                             @item{Editing environment (Pyret Editor)}
@@ -44,7 +44,7 @@
                        end}}
                         @teacher{}}
                  
-                 @point{@student{@activity{Open the @editor-link[#:public-id "zLYLPQ5d6K" "PARTY PLANNER"] file. Take a look at the first two 
+                 @point{@student{@activity{Open the @editor-link[#:public-id "0B9rKDmABYlJVUUt1SUc5UnVsdm8" "Party Planner"] file. Take a look at the first four 
                                                     lines in the definitions area. Do they match what you have written?} 
                                  Now that the party struct is defined, you have access to new pieces of code: a function to make a party, and three @vocab{dot-accessors}
                                  to get the location, theme, and number of guests out of the party. 
@@ -67,7 +67,7 @@
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[@item{Students define functions that produce a Car}]
         #:standards (list)
-        #:materials @itemlist[@item{The Cars file [Cars.arr from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] |  @editor-link[#:public-id "P7qS37u1ZH" "PYRET EDITOR LINK"] used in the previous unit}]
+        #:materials @itemlist[@item{The  @editor-link[#:public-id "0B9rKDmABYlJVSlI4VEZLLUI4UkU" "Autobody Shop"] used in the previous unit}]
         #:preparation @itemlist[]
         #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
