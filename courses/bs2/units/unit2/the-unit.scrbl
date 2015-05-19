@@ -163,7 +163,7 @@ end}}
                                      @item{Students define variables bound to cars}]
         #:standards (list )
         #:materials @itemlist[@item{}]
-        #:preparation @itemlist[@item{The Cars file [Cars.arr from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] |  @editor-link[#:public-id "P7qS37u1ZH" "PYRET EDITOR LINK"] preloaded on students' machines}]
+        #:preparation @itemlist[@item{The Cars file: Cars.arr from @editor-link[#:public-id "P7qS37u1ZH" "PYRET EDITOR LINK"] preloaded on students' machines}]
         #:prerequisites (list)
         #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -319,7 +319,7 @@ end}}
                                                          | car(model :: String, hp :: Number, rims :: Number, color :: String, value :: Number)
                                                        end}
 This is the code that defines the Car data structure, or tells the computer what a car is and what goes into it. Just like we would expect from having
-worked with cars, the @code{data Car:} code block says that we're defining a new data structure called a Car, and declaring its @vocab{constructor functionan}, called @code{car}. To make a ar, you must call the constructor function with five things: a model, which is a String, hp, a number, rims, another number color, a String, and value, which is a Number. Remember that order matters!}
+worked with cars, the @code{data Car:} code block says that we're defining a new data structure called a Car, and declaring its @vocab{constructor function}, called @code{car}. To make a ar, you must call the constructor function with five things: a model, which is a String, hp, a number, rims, another number color, a String, and value, which is a Number. Remember that order matters!}
                         @teacher{Stress the importance of being able to define your own datatypes
                                  to students: no longer are they bound by the single values of numbers, strings, or booleans! Pyret allows you to define brand new structures, containing 
                                  any combination of values.}}
