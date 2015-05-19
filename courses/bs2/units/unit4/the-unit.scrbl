@@ -22,7 +22,7 @@
                             @item{Class poster (List of rules, design recipe, course calendar)}
                             @item{Editing environment (Pyret Editor)}
                             @item{Language Table}]
-        #:preparation @itemlist[@item{The Cars file [Cars.arr from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] |  @editor-link[#:public-id "P7qS37u1ZH" "PYRET EDITOR LINK"] preloaded on students' machines}
+        #:preparation @itemlist[@item{The @editor-link[#:public-id "0B9rKDmABYlJVSlI4VEZLLUI4UkU" "Autobody Shop"] file used in the previous unit, preloaded on students' machines}
                                  @item{Seating arrangements: ideally clusters of desks/tables}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -35,7 +35,7 @@
                                 What if we realize later, after defining our Car struct, that it would be helpful to include more information about each car, like the number of years that it’s covered under warranty, the interior color, or whether or not it has antilock brakes? Thankfully, working in Pyret it’s easy to change our data definition so a car can include these things as well. 
                                 @activity{@itemlist[@item{What new arguments does the @code{car} function need to take in? What kinds of things are these?}
                                                      @item{How would you change the data definition to include this new information about cars?}
-                                                     @item{Change your Car definition on LINE 2 of the AUTOBODY SHOP file so it includes this new information.}]}
+                                                     @item{Change your Car definition on line 4 of the @editor-link[#:public-id "0B9rKDmABYlJVSlI4VEZLLUI4UkU" "Autobody Shop"] file so it includes this new information.}]}
                                 Important! When you change @italic{any} data structure, @bold{all} instances of that structure will need to change as well. Right now our definitions for @code{car1}, @code{car2}, and @code{car3} are creating cars with only five inputs- we need to add the three new arguments.
 
 @activity{Change the definitions of car1, car2, car3 and the other cars you defined so they reflect the new Car struct. }}
@@ -51,7 +51,7 @@
         #:product-outcomes @itemlist[]
         #:standards (list)
         #:materials @itemlist[]
-        #:preparation @itemlist[@item{The NINJA WORLD 1 FILE [NW1.arr from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "nQq3AAg5nn" "WeScheme"] preloaded on students' machines}
+        #:preparation @itemlist[@item{The @editor-link[#:public-id "0B9rKDmABYlJVNk9oT0dvVWdTMGs" "Ninja World 1"] file preloaded on students' machines}
                                  @item{update-world, big-bang, and draw-world nametags}
                                 @item{cutout image of dog}]
         #:pacings (list 
@@ -61,7 +61,7 @@
                 )
       ]{
         @points[@point{@student{Do you remember the Ninja Cat game from Bootstrap:1? In this course, you're going to completely deconstruct the game, and recreate it using a world structure to make it more complex. This version of Ninja Cat might look a bit different than you remember...
-                                @activity{Open the @editor-link[#:public-id "fW705a0idU" "NINJA WORLD 1"] file and press "Run". 
+                                @activity{Open the @editor-link[#:public-id "0B9rKDmABYlJVNk9oT0dvVWdTMGs" "Ninja World 1"] file and press "Run". 
                                                    @itemlist[@item{What do you see in this game?}
                                                               @item{Go back to the code and look at the line where the @code{world} data structure is defined.}
                                                               @item{What is the name of this data structure?}

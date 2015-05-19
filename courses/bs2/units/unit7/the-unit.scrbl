@@ -42,7 +42,7 @@
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[]
         #:standards (list)
-        #:materials @itemlist[@item{The NINJA WORLD 4 file [NW4.arr from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "gbz2w2pCTu" "WeScheme"] preloaded on students' machines}]
+        #:materials @itemlist[@item{The @editor-link[#:public-id "0B9rKDmABYlJVTG1BMXNrd3RscTA" "Ninja World 4"] file preloaded on students' machines}]
         #:preparation @itemlist[@item{Write the Ninja World version of update-world towards the bottom of the board, with room to transform it into an ask branch under the function header.}]
         #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -50,7 +50,7 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{@activity{@itemlist[@item{Open the @editor-link[#:public-id "gbz2w2pCTu" "NINJA WORLD 4"] file.}
+        @points[@point{@student{@activity{@itemlist[@item{Open the @editor-link[#:public-id "0B9rKDmABYlJVTG1BMXNrd3RscTA" "Ninja World 4"] file.}
                                           @item{What is in the world structure?}
                                           @item{What does the @code{update-world} function do?}
                                           @item{What is @code{dogX} when the dog is in the center of the screen? According to the code, what will the 
@@ -105,7 +105,7 @@
                                                            @worksheet-link[#:page 32 #:name "Boundary Checks"]. Instead of checking if 
                                                            a number is greater than 640, what will you need to check?}
                                                       @item{When finished, copy your functions into your 
-                                                            @editor-link[#:public-id "gbz2w2pCTu" "Ninja World 4"] 
+                                                            @editor-link[#:public-id "0B9rKDmABYlJVTG1BMXNrd3RscTA" "Ninja World 4"] 
                                                             file, where it says @code{# TESTS FOR ASK}.}]}}
                          @teacher{}}
                  @point{@student{Now we have a way to check whether something has gone off the right OR the left of the screen, but we still

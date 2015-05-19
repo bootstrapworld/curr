@@ -24,15 +24,15 @@
                             @item{Language Table}]
      #:preparation @itemlist[@item{Seating arrangements: ideally clusters of desks/tables}
                              @item{Clear plastic sheet protectors: put pages 17 & 18 at the front of the workbook for ease of reference}
-                             @item{The Ninja World 3 file [NW3.arr from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "t77yPXKDWs" "WeScheme"] preloaded on students' machines}
-                             @item{BS:2 Blank Game Template [GameTemplate.arr from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "ZcK2dqANbT" "WeScheme"] preloaded on students' machines with student images included.}]
+                             @item{The @editor-link[#:public-id "0B9rKDmABYlJVM29HRHVCUlNoUTQ" "Ninja World 2"] file preloaded on students' machines}
+                             @item{The @editor-link[#:public-id "0B9rKDmABYlJVcDUyZkJmd3VlS00" "Bootstrap:2 Blank Game Template"] preloaded on students' machines with student images included.}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{@activity{Open the @editor-link[#:public-id "t77yPXKDWs" "NINJA WORLD"] file, and look 
+        @points[@point{@student{@activity{Open the @editor-link[#:public-id "0B9rKDmABYlJVM29HRHVCUlNoUTQ" "Ninja World 2"] file, and look 
                                           at the @code{world} defined at the top.
             @itemlist[@item{How many things are in this world? What are they?}
                       @item{What does @code{dogX} represent? @code{coinX}? @bitmap{images/gameimage.png}}
@@ -46,7 +46,7 @@
                                  the world?"}}
                  
                  @point{@student{Now it's time to start programming YOUR videogame. 
-                                 @activity{Open the @editor-link[#:public-id "ZcK2dqANbT" "BS:2 blank game file"].} In Bootstrap:1,
+                                 @activity{Open the @editor-link[#:public-id "0B9rKDmABYlJVcDUyZkJmd3VlS00" "BS:2 blank game template"].} In Bootstrap:1,
                                  you started with the shell of a game, with some sample images and functions defined. In this class the game template is just
                                  a collection of comments, telling you how to organize your functions and variables. You'll be writing @italic{every line} of 
                                  code yourself. Let's begin: 

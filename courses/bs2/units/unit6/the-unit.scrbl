@@ -22,7 +22,7 @@
                             @item{Student workbooks}
                             @item{Language Table}]
      #:preparation @itemlist[@item{Seating arrangements: ideally clusters of desks/tables}
-                             @item{The NINJA WORLD 4 file [NW4.arr from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "t77yPXKDWs " "WeScheme"] projected onto the board}]
+                             @item{The @editor-link[#:public-id "0B9rKDmABYlJVOVN6dmdMSGdJU1E" "Ninja World 3"] file projected onto the board}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -32,7 +32,7 @@
         @points[@point{@student{So far, we've been working with three main functions to make our game and animate our world: @code{update-world}, 
                                 @code{draw-world}, and @code{big-bang}. At this point, your game might use a few more functions than these, but 
                                 Ninja World has been pretty basic so far, and it's not interactive. Time to change that!
-                                @activity{@itemlist[@item{Open the @editor-link[#:public-id "t77yPXKDWs" "NINJA WORLD 4"]
+                                @activity{@itemlist[@item{Open the @editor-link[#:public-id "0B9rKDmABYlJVOVN6dmdMSGdJU1E" "Ninja World 3"]
                                                          file and press "Run".}
                                                      @item{Our world structure has been extended- what's new in this world? What do you think they represent?}
                                                      @item{What new dot-accessors do we have, to access the new elements of our world struct?}
