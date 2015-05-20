@@ -1058,21 +1058,32 @@
 (define (editor-link #:public-id (pid #f)
                      #:interactions-text (interactions-text #f)
                      #:definitions-text (definitions-text #f)
-                     link-text)                      
-  (if (and definitions-text pid)
-      (printf "WARNING: creating wescheme link with both defns text and public id~n")
-      (let ([optionstext (if (audience-in? (list "student"))
-                             "hideHeader=true&warnOnExit=false&"
-                             "")]
-            [argstext (string-append (if pid (format "publicId=~a&" pid) "")
-                                     (if interactions-text (format "interactionsText=~a&" interactions-text) "")
-                                     (if definitions-text (format "definitionsText=~a" (escape-webstring-newlines definitions-text)) ""))])
-        (cond-element
-         [html
-          (sxml->element `(a (@ (href ,(format "http://www.wescheme.org/openEditor?~a~a" optionstext argstext))
-                                (target "embedded"))
-                             ,link-text))]
-         [else (elem)]))))
+                     #:lang (lang (getenv "TARGET-LANG"))
+                     link-text)  
+  (cond [(string=? lang "pyret") 
+         (cond-element
+          [html
+           (sxml->element `(a (@ (href ,(format "https://code.pyret.org/editor#share=~a&v=v0.5r852" pid))
+                                 (target "embedded"))
+                              ,link-text))]
+          [else (elem)])]
+        [(string=? lang "racket") 
+         (if (and definitions-text pid)
+             (printf "WARNING: creating wescheme link with both defns text and public id~n")
+             (let ([optionstext (if (audience-in? (list "student"))
+                                    "hideHeader=true&warnOnExit=false&"
+                                    "")]
+                   [argstext (string-append (if pid (format "publicId=~a&" pid) "")
+                                            (if interactions-text (format "interactionsText=~a&" interactions-text) "")
+                                            (if definitions-text (format "definitionsText=~a" (escape-webstring-newlines definitions-text)) ""))])
+               (cond-element
+                [html
+                 (sxml->element `(a (@ (href ,(format "http://www.wescheme.org/openEditor?~a~a" optionstext argstext))
+                                       (target "embedded"))
+                                    ,link-text))]
+                [else (elem)])))]
+        [else
+         (printf "WARNING: editor-link has unknown lang ~a~n" lang)]))
 
 ;; create a link to a particular program at wescheme.org, with the embedded target
 (define (run-link #:public-id (pid #f) link-text)

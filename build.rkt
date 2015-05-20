@@ -125,7 +125,7 @@
    [("--deploy") -deploy-dir "Deploy into the given directory, and create a .zip.  Default: deploy" 
     (current-deployment-dir (simple-form-path -deploy-dir))]
    [("--lang") -lang "Indicate which language (Racket or Pyret) to generate"
-    (putenv "TARGETLANG" -lang)]
+    (putenv "TARGET-LANG" -lang)]
    [("--pdf") "Generate PDF documentation"
     (current-generate-pdf? #t)]
    [("--buildfor") -buildfor "Indicate bootstrap or codeorg"
