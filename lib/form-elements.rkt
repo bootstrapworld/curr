@@ -1059,12 +1059,13 @@
                      #:interactions-text (interactions-text #f)
                      #:definitions-text (definitions-text #f)
                      #:lang (lang (getenv "TARGET-LANG"))
+                     #:cpo-version (cpo-version "v0.5r852")
                      link-text)  
   (cond [(string=? lang "pyret") 
          (cond-element
           [html
-           (sxml->element `(a (@ (href ,(format "https://code.pyret.org/editor#share=~a&v=v0.5r852" pid))
-                                 (target "embedded"))
+           (sxml->element `(a (@ (href ,(format "https://code.pyret.org/editor#share=~a&v=~a" pid cpo-version))
+                                 (target "_blank"))
                               ,link-text))]
           [else (elem)])]
         [(string=? lang "racket") 
