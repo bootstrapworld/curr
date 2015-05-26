@@ -39,7 +39,7 @@
                        @teacher{}}
                @point{@student{@activity{@itemlist[@item{What are the names of the other variables defined here? What are their values?}
                                                           @item{What would you get back if you were to evaluate each of those variables in the Interactions area? Take a guess first, then click "Run" and type the name of each variable into the interactions area. Were your guesses correct?}]
-                                                 Look at the variable @code{OUTLINE} on line ______.
+                                                 Look at the variable @code{OUTLINE} on line 18.
                                                  @itemlist[@item{What shape will this draw?}
                                                            @item{How big do you think it will be?}
                                                            @item{Will it be solid or outline?}
