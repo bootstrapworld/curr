@@ -104,7 +104,7 @@ end}}
         #:product-outcomes @itemlist[@item{Students identify real-world behaviors that require data structures}]
         #:standards (list )
         #:materials @itemlist[@item{}]
-        #:preparation @itemlist[@item{PARACHUTE JUMPER FILE}]
+        #:preparation @itemlist[@item{The @editor-link[#:public-id "0B9rKDmABYlJVbFpIZktoQ1pwWm8" "Parachute Jumper"] file preloaded on student machines}]
         #:prerequisites (list)
         #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -113,7 +113,7 @@ end}}
                 )
       ]{
           @points[
-                   @point{@student{@activity{Open this link [PARACHUTE JUMPER] on your computer and press 'Run'. What happens?}
+                   @point{@student{@activity{Open @editor-link[#:public-id "0B9rKDmABYlJVbFpIZktoQ1pwWm8" "this link"] on your computer and press 'Run'. What happens?}
                                     The parachute jumper jumps out of the airplane and falls straight down, into the water! It's much safer to land on the shore. Let's take a look at the code to see why he falls into the water instead.
                                     @activity{Look at the function defined here called @code{fall}. @itemlist[@item{What is this function's Domain? Its Range?}
           @item{What does @code{fall} do with its inputs? What does it return now?}]}
@@ -143,7 +143,7 @@ end}}
                                      When you finish, your function definition should look like: @code[#:multi-line #t]{fun fall(x, y):
                           coord(x + 5, y - 5)
                        end}
-                                     Now, instead of just changing and returning one number (a y-coordinate), we can return @bold{both} the x and y-coordinates of the parachute jumper within a @vocab{Data Structure}. @activity{Open the [PARACHUTE JUMPER] code again and replace the buggy @code{fall} function with the one in your workbook to make the jumper land safely on the shore!}}
+                                     Now, instead of just changing and returning one number (a y-coordinate), we can return @bold{both} the x and y-coordinates of the parachute jumper within a @vocab{Data Structure}. @activity{Open the @editor-link[#:public-id "0B9rKDmABYlJVbFpIZktoQ1pwWm8" "Parachute Jumper"] code again and replace the buggy @code{fall} function with the one in your workbook to make the jumper land safely on the shore!}}
                            @teacher{}}
                     
                     @point{@student{In Bootstrap:1, you could only have a function return one thing: either a number, string, image, or boolean. In Bootstrap:2, our functions will still return one thing, but that thing can be a @vocab{Data Structure}, (or "struct" for short) containing any number of things within it. This way we could return both the x and y-coordinate of a player using a Coord, or create new structs and return even more detail about a player, like their health, position, amount of armor, or inventory.}
@@ -163,7 +163,7 @@ end}}
                                      @item{Students define variables bound to cars}]
         #:standards (list )
         #:materials @itemlist[@item{}]
-        #:preparation @itemlist[@item{The @editor-link[#:public-id "0B9rKDmABYlJVSlI4VEZLLUI4UkU" "Autobody shop"] filepreloaded on students' machines}]
+        #:preparation @itemlist[@item{The @editor-link[#:public-id "0B9rKDmABYlJVSlI4VEZLLUI4UkU" "Autobody shop"] file preloaded on students' machines}]
         #:prerequisites (list)
         #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
