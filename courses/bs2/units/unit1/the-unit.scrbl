@@ -48,8 +48,8 @@
        The problem is that we used a very confuing variable name: the name was “OUTLINE," but the value was a solid green star. Remember: always choose your variable names carefully!}
                        @teacher{Remind students about the importance of good variable names: they make code more readable, and a descriptive variable name makes it very clear what is being defined.}}
                
-               @point{@student{As you can see, Pyret uses the same data types that we used in Racket: Numbers, Strings, Images, and Booleans are used in Pyret, and look and behave in the same way. @activity{In your review file, define the new Numbers, Strings, Images, and Boolean you wrote in your workbook on @worksheet-link[#:page 1 #:name "Review"].}
-                       @teacher{}}}
+               @point{@student{As you can see, Pyret uses the same data types that we used in Racket: Numbers, Strings, Images, and Booleans are used in Pyret, and look and behave in the same way. @activity{In your review file, define the new Numbers, Strings, Images, and Boolean you wrote in your workbook on @worksheet-link[#:page 1 #:name "Review"].}}
+                       @teacher{}}
                
                @point{@student{Now we have values, and we know how to define shortcuts for them. However, there are also plenty of built-in functions, which let us play around with these values. 
 @activity{What are some functions you know that work on numbers? How many can you list?}}
