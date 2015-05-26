@@ -1,6 +1,6 @@
 #lang curr/lib
 
-@title{Unit 1: Everything you learned in Bootstrap 1...}
+@title{Unit 1: Everything you learned in Bootstrap:1}
 
 @declare-tags[]
 
@@ -138,8 +138,7 @@ One notable difference between Racket and Pyret is that Pyret requires commas be
                                                        @item{In your own words, what does this function do?}
                                                        ]}
                                   The @vocab{Contract} is a way of thinking about the function in a general way, without having to worry about exactly how it will work or how it will be used. Starting with simple questions such as these will make later steps @bold{much} easier to think about.}
-                          @teacher{Review the importance of definitions for students (Defining values helps cut down on redundancy and makes future changes easier, defining functions allows for simplicity and testability. Be sure to use vocabulary regularly and carefully, pushing students to use the proper terms throughout.)}
-                                   The Design Recipe is a useful tool for having students think about word problems and break them down into smaller parts (Contract, purpose statement, examples, and code). Instead of jumping into writing a function, students should first note what data types the fuction will take in and produce, and practice using their own words to describe what the function does. After this step, the Contract and Purpose Statement can be relied on to write examples for the function.}
+                          @teacher{Review the importance of definitions for students (Defining values helps cut down on redundancy and makes future changes easier, defining functions allows for simplicity and testability. Be sure to use vocabulary regularly and carefully, pushing students to use the proper terms throughout.) The Design Recipe is a useful tool for having students think about word problems and break them down into smaller parts (Contract, purpose statement, examples, and code). Instead of jumping into writing a function, students should first note what data types the fuction will take in and produce, and practice using their own words to describe what the function does. After this step, the Contract and Purpose Statement can be relied on to write examples for the function.}}
                    
                   @point{@student{@bannerline{Step 2: Give Examples/Write Test Cases}
                                    In Bootstrap:1 you wrote EXAMPLES for every function, to show how the function could be used with some inputs. Those examples also worked to test your function, and would give you error messages if the expected result didn’t match the result produced by the function body. Pyret has the same thing, but written differently. Instead of using the word EXAMPLE, we’ll write example @italic{blocks}, which behave the same way as you're used to, showing us what we expect to get back when we use the function with certain inputs. Here are our examples for the function @code{double}:
@@ -162,7 +161,8 @@ Once you’ve defined the function itself, Pyret will automatically check your e
                                       end}
                @activity{Now write the function header and body for @code{triple}. Don't forget to replace the changing thing with a variable!}}
             @teacher{Just as writing a Contract helps us write examples, writing examples makes it easier to write the function definition: circling what changes between the examples makes it obvious that the @italic{changeable} thing is where we need to use a @italic{variable} in our function. You will want to explicitly connect each step in the Design Recipe to every other step. Ask students to justify each part of their Contract by referring back to the Word Problem, to justify each step of their examples by referring back to the Word Problem and Contract, and finally to justify each step of the definition by referring to the Contract and Examples. The same variable name can be used in multiple functions, just as in math (where many functions use x as the variable name, for example).
-                     This activity can be done as a team competition: teams have one minute to write the contract and two examples for @code{triple}, and another minute for the function header and body. Assign points to the teams that complete each function.} Make sure students fill out the ENTIRE contract, with two examples, before they circle what changes and move on to the function body. Build these good habits early in the course!}                                        
+                     This activity can be done as a team competition: teams have one minute to write the contract and two examples for @code{triple}, and another minute for the function header and body. Assign points to the teams that complete each function. Make sure students fill out the ENTIRE contract, with two examples, before they circle what changes and move on to the function body. Build these good habits early in the course!}}
+                  
           @point{@student{Try using the Design Recipe to solve the following word problems:
                           @activity{@itemlist/splicing[
                                @item{Write a function @code{plus1}, that takes in a number and adds one to it}
