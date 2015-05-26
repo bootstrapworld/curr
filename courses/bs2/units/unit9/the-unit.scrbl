@@ -53,7 +53,7 @@
         #:product-outcomes @itemlist[@item{Students will use the random function to make their game characters 
                                            appear at different loations on the screen}]
         #:standards (list)
-        #:materials @itemlist[@item{The @editor-link[#:public-id "0B9rKDmABYlJVRjJhMUQ2RVVQYTg" "Ninja World 6"] file preloaded on students' machines}]
+        #:materials @itemlist[@item{The @editor-link[#:public-id "0B9rKDmABYlJVSkZ4dHVhbWROLW8" "Ninja World 6"] file preloaded on students' machines}]
         #:preparation @itemlist[@item{}]
         #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -61,7 +61,7 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{If you open up the @editor-link[#:public-id "0B9rKDmABYlJVRjJhMUQ2RVVQYTg" "Ninja World 6"]
+        @points[@point{@student{If you open up the @editor-link[#:public-id "0B9rKDmABYlJVSkZ4dHVhbWROLW8" "Ninja World 6"]
                                 file, you'll see the (almost) completed game. However, right now the coin and
                                 dog appear at the same part of the screen every time, making this a really 
                                 easy game. 
@@ -271,7 +271,7 @@
                                               or walk students through finding and adding their own image to the game.
                                    
                                    These modifications can be seen in action in the 
-                                   @editor-link[#:public-id "ZTt2BzE0UX" "Completed Ninja World file"].
+                                   @editor-link[#:public-id "0B9rKDmABYlJVbnRQUGF4ZjMwSGs" "Completed Ninja World file"].
                                     
                                    Some more options for students who finish early: 
                                    @itemlist/splicing[@item{Change the update-world function so that the danger and
