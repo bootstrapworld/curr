@@ -49,7 +49,7 @@
                        @teacher{Remind students about the importance of good variable names: they make code more readable, and a descriptive variable name makes it very clear what is being defined.}}
                
                @point{@student{As you can see, Pyret uses the same data types that we used in Racket: Numbers, Strings, Images, and Booleans are used in Pyret, and look and behave in the same way. @activity{In your review file, define the new Numbers, Strings, Images, and Boolean you wrote in your workbook on @worksheet-link[#:page 1 #:name "Review"].}
-                       @teacher{}}
+                       @teacher{}}}
                
                @point{@student{Now we have values, and we know how to define shortcuts for them. However, there are also plenty of built-in functions, which let us play around with these values. 
 @activity{What are some functions you know that work on numbers? How many can you list?}}
@@ -57,7 +57,7 @@
                
                @point{@student{One of the big changes from Racket to Pyret is using arithmetic functions. In Pyret, you can write these expressions with math notation, like so: @code{(2 + 9)} or @code{(10 * 8)}. Of course, there are lots of other functions that work on strings, images, booleans, and more. @worksheet-link[#:page 1 #:name "Intro to Pyret"] contains examples of some of these function definitions in Racket and Pyret.}
                        @teacher{}}
-               }
+               
               
                                   ]}
    
