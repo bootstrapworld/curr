@@ -22,7 +22,7 @@
                             @item{Student workbooks}
                             @item{Language Table}]
      #:preparation @itemlist[@item{Seating arrangements: ideally clusters of desks/tables}
-                             @item{The @editor-link[#:public-id "0B9rKDmABYlJVOVN6dmdMSGdJU1E" "Ninja World 3"] file projected onto the board}]
+                             @item{The @editor-link[#:public-id "0B9rKDmABYlJVUkpSOS1yVEJpaWc" "Ninja World 3"] file projected onto the board}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -32,7 +32,7 @@
         @points[@point{@student{So far, we've been working with three main functions to make our game and animate our world: @code{update-world}, 
                                 @code{draw-world}, and @code{big-bang}. At this point, your game might use a few more functions than these, but 
                                 Ninja World has been pretty basic so far, and it's not interactive. Time to change that!
-                                @activity{@itemlist[@item{Open the @editor-link[#:public-id "0B9rKDmABYlJVOVN6dmdMSGdJU1E" "Ninja World 3"]
+                                @activity{@itemlist[@item{Open the @editor-link[#:public-id "0B9rKDmABYlJVUkpSOS1yVEJpaWc" "Ninja World 3"]
                                                          file and press "Run".}
                                                      @item{Our world structure has been extended- what's new in this world? What do you think they represent?}
                                                      @item{What new dot-accessors do we have, to access the new elements of our world struct?}
@@ -69,15 +69,15 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{The @code{keypress} function behaves similarly to the same function you remember from Bootstrap:1. It takes in a world and a string (representing the name of a key pressed), and moves the player. In Pyret, instead of using cond branches, we use a keyword called @code{ask}, which lets the computer know whe're going to have different situations and behavior in our code. Just  like you learned in Bootstrap:1, this is known as a @vocab{Piecewise function}. Each ask statement starts with the '|' key, (known as 'pipe') followed by a test, or an expression that produces a @vocab{Boolean} (either true or false). The other keyword to know here is @code{then:}. This tells the computer that whatever follows is what will be returned if the preceding expression is @bold{true}. In the case of this function, if the string representing the key pressed (@code{key}) is equal to the string "up" (@code{strings-equal(key, "up")}), @italic{then} the function will return a world which is the same as the input world, but with the cat's y-coordinate (@code{w.catY}) increased by 10 pixels.}
+        @points[@point{@student{The @code{keypress} function behaves similarly to the same function you remember from Bootstrap:1. It takes in a world and a string (representing the name of a key pressed), and moves the player. In Pyret, instead of using cond branches, we use a keyword called @code{ask}, which lets the computer know whe're going to have different situations and behavior in our code. Just  like you learned in Bootstrap:1, this is known as a @vocab{Piecewise function}. Each ask statement starts with the '|' key, (known as 'pipe') followed by a test, or an expression that produces a @vocab{Boolean} (either true or false). The other keyword to know here is @code{then:}. This tells the computer that whatever follows is what will be returned if the preceding expression is @bold{true}. In the case of this function, if the string representing the key pressed (@code{key}) is equal to the string "up" (@code{string-equal(key, "up")}), @italic{then} the function will return a world which is the same as the input world, but with the cat's y-coordinate (@code{w.catY}) increased by 10 pixels.}
                         @teacher{}}
                  @point{@student{After adding a line to make Ninja Cat move down, your @code{keypress} function should look something like this:
 @code[#:multi-line #t]{# keypress : World, String -> World
 # Make cat respond to key events
 fun keypress(w, key):
   ask:
-    | strings-equal(key, "up") then: world(w.dogX, w.coinX, w.catX, w.catY + 10)
-    | strings-equal(key, "down") then: world(w.dogX, w.coinX, w.catX, w.catY - 10)
+    | string-equal(key, "up") then: world(w.dogX, w.coinX, w.catX, w.catY + 10)
+    | string-equal(key, "down") then: world(w.dogX, w.coinX, w.catX, w.catY - 10)
     | otherwise: w
   end
 end}
@@ -118,10 +118,10 @@ When finished, your code should look like:
 # Make cat respond to key events
 fun keypress(w, key):
   ask:
-    | strings-equal(key, "up") then: world(w.dogX, w.coinX, w.catX, w.catY + 10)
-    | strings-equal(key, "down") then: world(w.dogX, w.coinX, w.catX, w.catY - 10)
-    | strings-equal(key, "left") then: world(w.dogX, w.coinX, w.catX - 10, w.catY)
-    | strings-equal(key, "right") then: world(w.dogX, w.coinX, w.catX + 10, w.catY)
+    | string-equal(key, "up") then: world(w.dogX, w.coinX, w.catX, w.catY + 10)
+    | string-equal(key, "down") then: world(w.dogX, w.coinX, w.catX, w.catY - 10)
+    | string-equal(key, "left") then: world(w.dogX, w.coinX, w.catX - 10, w.catY)
+    | string-equal(key, "right") then: world(w.dogX, w.coinX, w.catX + 10, w.catY)
     | otherwise: w
   end
 end}

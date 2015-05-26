@@ -6,7 +6,7 @@
 @unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sq sqrt expt}) 
                                        (list "String" @code{string-append string-length})                          
                                        (list "Image" @code{rectangle circle triangle ellipse radial-star scale rotate put-image})
-                                       (list "Boolean" @code{= > < strings-equal and or}))]{   
+                                       (list "Boolean" @code{= > < string-equal and or}))]{   
 @unit-descr{Students return to the Pythagorean Theorem and distance formula they used in Bootstrap 1, this time with data structures and the full update-world function.}
 }
 @unit-lessons{
@@ -24,7 +24,7 @@
                             @item{Language Table}
                             @item{Cutouts of Cat and Dog images}
                             @item{Cutouts of Pythagorean Theorem packets [@(resource-link #:path "images/pythag1.png" #:label "1"), @(resource-link #:path "images/pythag2.png" #:label "2")] - 1 per cluster}
-                            @item{The @editor-link[#:public-id "0B9rKDmABYlJVLUc2QkJCUEJJMEE" "Ninja World 5"] file preloaded on students' machines}]
+                            @item{The @editor-link[#:public-id "0B9rKDmABYlJVaVFpVGRkN0NjMGc" "Ninja World 5"] file preloaded on students' machines}]
         #:preparation @itemlist[@item{Seating arrangements: ideally clusters of desks/tables}]
         #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
