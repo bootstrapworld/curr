@@ -3,7 +3,7 @@
 @title{Unit 4: Welcome to the World}
 @declare-tags[]
 
-@unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sq sqrt expt})
+@unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / num-sqr num-sqrt num-expt})
                                        (list "String" @code{string-append string-length})
                                        (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image})
                                        (list "Car" @code{car .model .hp .rims .color .value})

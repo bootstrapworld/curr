@@ -5,7 +5,7 @@
 @declare-tags[]
 
 
-@unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sq sqrt})
+@unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / num-sqr num-sqrt})
                                        (list "String" @code{string-append string-length})
                                        (list "Image"  @code{rectangle circle triangle ellipse star text}))
                                                                                                           ]{

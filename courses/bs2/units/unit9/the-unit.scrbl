@@ -3,10 +3,10 @@
 @title{Unit 9: Completing Games}
 @declare-tags[]
 
-@unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sq sqrt expt}) 
+@unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / num-sqr num-sqrt num-expt}) 
                                        (list "String" @code{string-append string-length})                          
                                        (list "Image" @code{rectangle circle triangle ellipse radial-star scale rotate put-image})
-                                       (list "Boolean" @code{= > < strings-equal and or}))]{  
+                                       (list "Boolean" @code{= > < string-equal and or}))]{  
 @unit-descr{This unit includes instructions for adding frequently-requested elements to students' games, such as extra levels 
             and a scoring system. Students comfortable with structures are encouraged to use nested structures in their games
             for more complexity.}

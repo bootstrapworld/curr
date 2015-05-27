@@ -3,7 +3,7 @@
 @title{Unit 7: Asking the World}
 @declare-tags[]
 
-@unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sq sqrt expt}) 
+@unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / num-sqr num-sqrt num-expt}) 
                                        (list "String" @code{string-append string-length})                          
                                        (list "Image" @code{rectangle circle triangle ellipse radial-star scale rotate put-image}))]{
 @unit-descr{Students continue to combine their use of Ask and Data Structures, this time identifying ways in which the World structure might change without any user input.}

@@ -3,7 +3,7 @@
 @title{Unit 6: Key Events}
 @declare-tags[]
 
-@unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sq sqrt expt})
+@unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / num-sqr num-sqrt num-expt})
                                        (list "String" @code{string-append string-length})
                                        (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image}))]{
                                                                   @unit-descr{Students return to the subject of piecewise functions, this time defining a key-event handler that modifies their world when certain keys are pressed.}
