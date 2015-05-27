@@ -81,7 +81,7 @@
                         @teacher{These activities encourage students to read others' code and think about how it works, looking at the contracts and definitions and 
                                  piecing together what they already know. Ask a LOT of questions when going through the file: How do we know we need to make a new 
                                  world in @code{update-world}? (Because the range is a world). Why is @code{dogX} a good variable name? Ask them to
-                                 guess what they think expressions like @activity{update-world(START)} will do in the game.}}
+                                 guess what they think expressions like @code{update-world(START)} will do in the game.}}
                  
                  @point{@student{@activity{Now skip down to the last function defined in our code: @code{big-bang}. This is a special function that will begin an animation, 
                                           but it needs help from other functions to update and draw the world. 
@@ -259,7 +259,7 @@ end}}
                                                      @item{@code{Car2Y} (if I want another car) - a number}
                                                      @item{@code{Score} - a number}
                                                      @item{How would I define this world?}
-                                                     @item{How do I get the playerX out of my word? My CarY? My Car2Y? The score?}
+                                                     @item{How do I get the @code{playerX} out of my word? My @code{CarY}? My @code{Car2Y}? The score?}
                                                      @item{What if I wanted the player's car to change color as the score goes up? How would my world 
                                                            structure need to change?}
                                                      @item{Now think about YOUR game - what will be @italic{changing} in your world?}]}} 
