@@ -475,7 +475,7 @@
                                                                numbers, like @code{-2}. Is there a limit to how big a number can be?
                                                                What happens if you write a decimal? What happens when you click on
                                                                a decimal, like @code{1.5}? You get a new type of number, a 
-                                                               fraction, like @code{3/4}.}]
+                                                               fraction, like @code{3/2}.}]
                                 }
                         @teacher{The editing environment evaluates all fractions and returns them as decimals by default. This can be
                                  surprising to students at first, so you may want to take a moment to explain what's going on, and 
