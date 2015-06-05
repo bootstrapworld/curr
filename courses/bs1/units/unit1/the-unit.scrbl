@@ -26,9 +26,9 @@
       ]{
         @points[
              @point{@student{Welcome to Bootstrap! In this course, you'll be learning a new @vocab{programming language} - a way to tell computers exactly what you want them to do. Just like English, Spanish or French, a programming language has its own vocabulary and grammar that you'll have to learn. Fortunately, the language you'll be using here has a lot in common with simple math that you already know!}
-                     @teacher{@management{Introduce the teaching staff. Give some background: age, where you're from, something surprising about yourself, favorite food, etc. Anything to allow kids to connect. Ask kids for their names! Set expectations and rules for the class.}
-                               Connect the material that's to come with things students already know:
-                              @itemlist[@item{Talk to them about what makes a language - especially if you have students who speak a second or third language}
+                     @teacher{@management{Set expectations and rules for the class.}
+                               Connect the material to come with things students already know:
+                              @itemlist[@item{What makes a language? Do some students already speak more than one language?}
                                          @item{Programming is very much a language, with its own syntax, semantics, etc}
                                          @item{Ask students about their favorite videogames. Be open about the scale of a modern game: they cost millions of dollars, are built by huge teams of programmers and artists, and are developed over years.}
                                          @item{Set expectations about what can be accomplished in a single, introductory programming class.}]}
@@ -47,6 +47,7 @@
      #:materials @itemlist[@item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}]
      #:preparation @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket}
                              @item{If using DrRacket, make sure the Ninja.rkt file is loaded}
+                             @item{"NinjaCat" [NinjaCat.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=LyMwExWayT" "WeScheme")] preloaded on students' machines}
                              @item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders with names on covers, and something to write with}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -56,16 +57,18 @@
       ]{
         @points[
           @point{@student{Let's begin by exploring a simple videogame, and then figuring out how it works. Open @run-link[#:public-id "LyMwExWayT" "this link"] 
-                         to play the game, and spend a minute or two exploring it. @italic{You can use the arrow keys to move the cat left, right and jump - try to catch 
-                         the ruby and avoid the dog!}}
-                 @teacher{@management{Show the kids Ninjacat. Be sure to end on a frozen frame of the game, so the whole class can see the same image.}}
+                         to play the game, and spend a minute or two exploring it. @italic{You can use the arrow keys to move 
+                         the cat left, right and jump - try to catch  the ruby and avoid the dog!}}
+                 @teacher{[@(hyperlink "https://www.youtube.com/watch?v=KSt_3ovWfjk" "Video")] Show the kids NinjaCat, either letting them play or by demoing it in front of the class. You can move the cat up, down, left and right by using the arrow keys. 
+                          Play until the students see all the characters (the clouds, the ruby, the dog and the cat), and be 
+                          sure to point out the title and score as well.}
                  }
           
           @point{@student{This game is made up of @italic{characters}, each of which has its own behavior. The Ruby moves from the right to the left, as does the Dog. NinjaCat only moves when you hit the arrow keys, and she can move left, right, up and down. We can figure out how the game works by first understanding how each character works.}
                  @teacher{}
                  }
           
-          @point{@student{@activity[#:forevidence (list "BS-M&1&1")]{@bitmap{images/game-table1.png} Turn to @worksheet-link[#:name "How-Does-Ninja-Cat-Work" #:page 1] in your workbook. Here we have a table, which we'll use to reverse-engineer NinjaCat and see how it works. Fill out the first column with a complete list of all things in the game.}
+          @point{@student{@activity[#:forevidence (list "BS-M&1&1")]{@bitmap{images/game-table1.png} Turn to @worksheet-link[#:name "NinjaCat-Dissection"] in your workbook. Here we have a table, which we'll use to reverse-engineer NinjaCat and see how it works. Fill out the first column with a complete list of all things in the game.}
                            }
                  @teacher{This can be a team activity. Solicit a few examples from students, to make sure they understand what's being listed here: nouns like "the cat", not verbs like "jumping". @management{During this activity, walk around and see how groups are doing. This is the time to encourage expectations of community and respect - call out good teamwork when you see it! When time is up, give them a countdown: "30...10... 5... 4... 3... 2... 1... PENCILS DOWN, EYES UP HERE!" Wait for total silence and complete attention. }}
                  }
@@ -142,7 +145,7 @@
               }
 
       @point{@student{Depending on how a character moves, their position might change only along the x-axis, only along the y-axis, or both. Look
-                      back to the table you wrote in the workbook (@worksheet-link[#:page 1 #:lesson "Ninja-Cat-Demo" #:name "How-Does-Ninja-Cat-Work"]).
+                      back to the table you wrote in the workbook (@worksheet-link[#:name "NinjaCat-Dissection"]).
                       Can NinjaCat move up and down in the game? Can she move left and right? So what's changing: her x-coordinate, her y-coordinate, 
                       or both? What about the clouds? Do they move up and down? Left and right? Both?}
               @teacher{}
@@ -154,7 +157,7 @@
               @teacher{}
               }
       
-      @point{@student{@activity[#:forevidence (list "6.NS.5-8&1&2")]{Turn to @worksheet-link[#:page 2 #:name "Ninja-Cat-Coordinates"] in your game-planning workbook, and look at the
+      @point{@student{@activity[#:forevidence (list "6.NS.5-8&1&2")]{Turn to @worksheet-link[#:name "NinjaCat-Coordinates"] in your game-planning workbook, and look at the
                                         project sheet that has a picture of the NinjaCat game. What are the coordinates at the bottom-left corner 
                                         of the screen? Top-right? Center? For practice, label the coordinates at the midpoint of @italic{each side}
                                         of the screen, then label the coordinates of each of the characters.}}
@@ -183,7 +186,7 @@
         
         
 @points[
-        @point{@student{On @worksheet-link[#:page 3 #:name "Elements-of-a-Videogame"], you'll find a planning template for you to make your own game. 
+        @point{@student{On @worksheet-link[#:name "Game-Design"], you'll find a planning template for you to make your own game. 
                            Just like we made a list of everything in the NinjaCat game, we're going to start with a list of everything in your game.}
                 @teacher{@management{Put your names at the top of this page.}}
                 }
@@ -199,7 +202,7 @@
                          might have a monkey as the player, a snake as the danger, and bananas as the target.}
                 }
         
-        @point{@student{@activity{Now it's time to get creative! Fill out @worksheet-link[#:page 3 #:name "Elements-of-a-Videogame"] in your 
+        @point{@student{@activity{Now it's time to get creative! Fill out @worksheet-link[#:name "Game-Design"] in your 
                                   workbook for @italic{your} game, using your own player, target and danger.}}
                 @teacher{@management{Be sure to consult with every team. A lot of students will have trouble fitting their ideas into this 
                                      format, or they'll struggle with coordinates. Be clear about what can and cannot be done! (e.g. - no 
@@ -302,7 +305,7 @@
                                     @math{19 \div 2 * 11 - 7 + 8}
                                     @itemlist[#:style 'ordered
                                               @item{@math{+ \div * - }}
-                                              @item{@math{* \div - +}}
+                                              @item{@math{\div * - +}}
                                               @item{@math{\div * + -}}
                                               @item{@math{* \div + -}}]
 }}
@@ -318,7 +321,7 @@
                        @bannerline{Circle Rule 2: The numbers are written below, in order from left to right.}
                        @activity[#:forevidence "BS-CE&1&1"]{@bitmap{images/CircleBug.png}Which rule does this Circle of Evaluation break?}
                        }
-                @teacher{This section benefits enormously from visual aids, diagrams, etc. Make sure you have plenty of board space to 
+                @teacher{[@(hyperlink "https://www.youtube.com/watch?v=AMFaPKHp3Mg" "Video")] This section benefits enormously from visual aids, diagrams, etc. Make sure you have plenty of board space to 
                          draw examples!}
                 }
                 @point{@student{@activity[#:forevidence (list "BS-CE&1&1" "5.OA.1-2&1&1")]{Try drawing the Circle of Evaluation for each of the following 
@@ -464,13 +467,13 @@
                                                                numbers, like @code{-2}. Is there a limit to how big a number can be?
                                                                What happens if you write a decimal? What happens when you click on
                                                                a decimal, like @code{1.5}? You get a new type of number, a 
-                                                               fraction, like @code{3/4}.}]
+                                                               fraction, like @code{3/2}.}]
                                 }
                         @teacher{The editing environment evaluates all fractions and returns them as decimals by default. This can be
                                  surprising to students at first, so you may want to take a moment to explain what's going on, and 
                                  show them that these decimals can be converted back to fractions just by clicking on them.  The 
                                  environment uses standard annotations for repeating, non-terminating decimal expressions and 
-                                 properly handles expressions like @math{(sqrt(-1))}.  If you want to work with those kinds of 
+                                 properly handles expressions like @math{(\sqrt -1)}.  If you want to work with those kinds of 
                                  numbers in your class, enter them to get familiar with how they appear in the Interactions window.}
                         }
            
@@ -530,7 +533,7 @@
                                             function. The following diagram summarizes the shape of an expression that uses a function. 
                                             @bitmap{images/ExpressionDiagram.png}}
                                 @activity[#:forevidence (list "BS-CE&1&2" "BS-CE&1&4")]{
-                                        For practice, turn to @worksheet-link[#:page 4 #:name "Circle-of-Evaluation-Practice"]
+                                        For practice, turn to @worksheet-link[#:name "Circle-of-Evaluation-Practice"]
                                         in your workbook. For each mathematical expression, draw the Circle of Evaluation, then convert
                                         that Circle into Racket code.}}
                         @teacher{}
@@ -546,15 +549,14 @@
                                            @item{@code{* 5 6)}  [forgets the open parenthesis]}
                                            @item{@code{(* 5 6}  [forgets the close parenthesis]}
                                           ]}}
-                       @teacher{At this point, the goal is simply to have students see error messages, so they know that they mean 
-                                "something went wrong".  Students are not expected to be experts at reading error messages this early 
-                                (you will drill this later).  When a close parenthesis is missing, hitting return will do nothing, 
-                                because the computer is waiting for the parenthesis.  When an open parenthesis is missing, the 
-                                computer either reports an error (DrRacket) or does nothing (WeScheme), waiting for the programmer 
+                       @teacher{At this point, the goal is simply to have students @italic{see} error messages.  Students are not 
+                                expected to be experts at reading error messages this early 
+                                (you will drill this later).  NOTE: When a close parenthesis is missing, hitting return will do nothing, 
+                                because the computer is waiting for the parenthesis.  When an open parenthesis is missing, WeScheme
+                                does nothing and waits for the programmer 
                                 to add the parens.  If students hit enter and "nothing happens", they should check their parentheses. 
                                 Also note that if you do this sequence of exercises with @code{+} instead of @code{*}, the error 
-                                appears different because @code{+5} is actually a number (just like @code{-5}).  You don't need to 
-                                show this to students now, just be aware of it for yourself in case it comes up in class.}
+                                appears differently, because @code{+5} is a perfectly valid number (just like @code{-5}).}
                       }
                 ]}
 
