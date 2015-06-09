@@ -40,7 +40,9 @@
                                            Fill out the second struct definition on @worksheet-link[#:page 14 #:name "Data Structures"] in your workbook.}
 @code[#:multi-line #t]{# a Party is a location, theme, and number of guests
                        data Party:
-                         | party(location :: String, theme :: String, guests :: Number)
+                         | party(location :: String, 
+                                 theme    :: String, 
+                                 guests   :: Number)
                        end}}
                         @teacher{}}
                  
@@ -77,7 +79,7 @@
       
       ]{
         @points[@point{@student{In the last lesson you learned about a new data structure, called a Car. 
-                                @activity{@itemlist[@item{What is a Car? What things are described in a Car struct?}
+                                @activity{@itemlist[@item{What is a Car? What things are described in a Car structure?}
                                                      @item{What function creates a Car?}
                                                      @item{How do you get the model out of a Car? The value? The color?}]}
                                 But we don't just want to take a car and give it right back. We're running an autobody shop! We'll take people's cars and change 
@@ -104,7 +106,9 @@
                                  How could you access JUST the model of @code{car1} and use it in your @code{car} function?
                        
     @code[#:multi-line #t]{examples:
-                               paint-job(car1, "purple") is car(car1.model, ...)
+                               paint-job(car1, "purple") is car(car1.model,
+                                                                car1.hp,
+                                                                ...)
                            end}
                                 @activity{@itemlist[@item{The horsepower also doesn't change with a paint job. So how do you get the hp out of @code{car1}?}
                                                      @item{The rim size shouldn't change with a paint job. How do you get the rims out of car1?}
@@ -114,9 +118,14 @@
                                 changing, so how do you get the original value out of car1?
                                 
 @code[#:multi-line #t]{examples:
-                           paint-job(car1, "purple") is car(car1.model, car1.hp, car1.rims, "purple", car1.value)
+                           paint-job(car1, "purple") is car(car1.model,
+                                                            car1.hp, 
+                                                            car1.rims, 
+                                                            "purple", 
+                                                            car1.value)
                        end}}
-                         @teacher{Remind students that the arguments to each function in Pyret @italic{must} be separated by commas. This wasn't necessary in Racket, but they will receive error messages if they don't use them in Pyret code.}}
+                         @teacher{Remind students that the arguments to each function in Pyret @italic{must} be separated by commas. This wasn't necessary in Racket, but they 
+                                                                                               will receive error messages if they don't use them in Pyret code.}}
                  
                  @point{@student{@activity{Write one more example for the function @code{paint-job}, this time using it to paint @code{car2} green. 
                                           @itemlist[@item{Circle and label what changes between the two examples. How many variables will this function need?}
@@ -124,7 +133,11 @@
                         
 After replacing the changing things with variables, your definition should look similar to: 
 @code[#:multi-line #t]{fun paint-job(car, color):
-                           car(car.model, car.hp, car.rims, color, car.value)
+                           car(car.model, 
+                               car.hp, 
+                               car.rims, 
+                               color, 
+                               car.value)
                        end}}
                          @teacher{Students may be tempted to put @code{color} in quotes, because the color of the car must be a string. However, the domain of 
                                   @code{paint-job} tells us that the function will take in a car and a string, so whatever color is input will already 

@@ -209,13 +209,13 @@ end}}
                                      Below there are three cars defined and assigned to the variables @code{car1}, @code{car2}, and @code{car3}. Ask students 
                                      questions about these cars to get them thinking about how they would define their own.}}
 
-                    @point{@student{@activity{Define another car, called @code{new-car}. To start,
+                    @point{@student{@activity{Define another car, called @code{car4}. To start,
                                                                          @itemlist[@item{how would you define this variable?}
                                                                                     @item{What function is used to make an car?}
                                                                                     @item{Which thing comes first in an Car struct?}] 
-                                              Now what do you expect to happen when you type @code{new-car} into the interactions area? Click 'Run' and try it out.}             
-                                              @code{new-car = car("Taurus", 300, 20, "white", 5000)}}
-                 @teacher{Have students walk you through the process of defining a variable called @code{new-car} and making a car with whatever model, hp, rims, etc. they like.}}
+                                              Now what do you expect to happen when you type @code{car4} into the interactions area? Click 'Run' and try it out.}             
+                                              @code{car4 = car("Taurus", 300, 20, "white", 5000)}}
+                 @teacher{Have students walk you through the process of defining a variable called @code{car4} and making a car with whatever model, hp, rims, etc. they like.}}
                  
                  @point{@student{@activity{Define two new variables for each of your favorite cars. Call one [yourname]-car (@code{nathan-car}, @code{sam-car}, @code{jill-car}, etc),
                                            or whatever name you prefer. You can make any kind of cars that you want, as long as your struct has the right types in the right orders!}}
@@ -278,9 +278,9 @@ end}}
                 )
       
       ]{@points[
-                @point{@student{Suppose you want to get the model OUT of @code{new-car}. You don't care about the rim size, or horsepower, or anything else- you just want to 
+                @point{@student{Suppose you want to get the model OUT of @code{car4}. You don't care about the rim size, or horsepower, or anything else- you just want to 
                                 know the model. Pyret has syntax for that, called @code{.model}.
-                                @activity{If you type @code{new-car.model} into the interactions window, what should it evaluate to? Try it out! 
+                                @activity{If you type @code{car4.model} into the interactions window, what should it evaluate to? Try it out! 
                                                       @itemlist[@item{What kind of thing did it return: A number, string, image, or struct?}
                                                                  @item{Practice taking the model out of EVERY Car you have defined, using @code{.model}}]}
                     
@@ -328,7 +328,7 @@ worked with cars, the @code{data Car:} code block says that we're defining a new
                                                           thing is. In return, we get new functions to use. Until we write these two lines, we don't have 
                                                           @code{car(...)} (to make a car), @code{.model} (to get the model out of the car), @code{.hp}, or any of 
                                                           the other dot-accessors, because Pyret doesn't know what a Car is- @italic{we haven't defined it}.
-            @activity{To check this, type a pound sign (#) before the line which begins with @code{car(...)}. This comments it out, so that the computer ignores it. Hit run, and see what 
+            @activity{To see this for yourself, type a pound sign (#) before the line which begins with @code{car(...)}. This comments it out, so that the computer ignores it. Hit run, and see what 
                                                                                          happens. Then turn to @worksheet-link[#:page 14 #:name "data structures"] in your workbook, and copy 
                                                                                          down the @code{car(...)} line.}}
                     @teacher{When the @code{car(...)} line is commented out, Pyret returns some errors, saying you're trying to use @italic{car} before its definition. It doesn't know what @code{car} is or does, because we never defined a Car struct. Make sure students understand that the line beginning with
