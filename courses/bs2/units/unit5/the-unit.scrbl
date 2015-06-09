@@ -33,24 +33,24 @@
                 )
       ]{
         @points[@point{@student{@activity{Open the @editor-link[#:public-id "0B9rKDmABYlJVM29HRHVCUlNoUTQ" "Ninja World 2"] file, and look 
-                                          at the @code{world} defined at the top.
+                                          at the @code{world} defined at the top. @bitmap{images/gameimage.png}
             @itemlist[@item{How many things are in this world? What are they?}
-                      @item{What does @code{dogX} represent? @code{coinX}? @bitmap{images/gameimage.png}}
+                      @item{What does @code{dogX} represent? @code{coinX}?}
                       @item{What function creates a world?}
                       @item{Scroll down a bit in the code. What function updates the world?}
                       @item{What function draws the world?}
-                      @item{How fast is the dog moving from left to right? How fast is the coin moving right to left across the screen?}
-                      @item{Now turn to @worksheet-link[#:page 17 #:name "Game Design"] in your workbook. What are the things in your world? What datatypes are they?}]}}
-                        @teacher{Make sure that all students can list the names and types of everything in their @code{world} struct. In addition,
+                      @item{How fast is the dog moving from left to right? How fast is the coin moving right to left across the screen?}]}}
+                        @teacher{Make sure that all students can list the names and types of everything in their @code{world} structures. In addition,
                                  make sure they can answer some questions about accessor functions, such as "how do you get the alien's speed out of
                                  the world?"}}
                  
-                 @point{@student{Now it's time to start programming YOUR videogame. 
-                                 @activity{Open the @editor-link[#:public-id "0B9rKDmABYlJVcDUyZkJmd3VlS00" "BS:2 blank game template"].} In Bootstrap:1,
-                                 you started with the shell of a game, with some sample images and functions defined. In this class the game template is just
+                 @point{@student{Now let's look at the World for @italic{your} game!
+                                 @activity{@itemlist[@item{Turn to @worksheet-link[#:page 17 #:name "Game Design"] in your workbook. What are the things in your world? What datatypes are they?}
+                                                      @item{Open the @editor-link[#:public-id "0B9rKDmABYlJVcDUyZkJmd3VlS00" "BS:2 blank game template"].}]}
+                                 In Bootstrap:1, you started with the shell of a game, with some sample images and functions defined. In this class the game template is just
                                  a collection of comments, telling you how to organize your functions and variables. You'll be writing @italic{every line} of 
                                  code yourself. Let's begin: 
-                                 @activity{At the top of the file, where it says @code{# The World is a:}, define the world struct for your game. 
+                                 @activity{At the top of the file, where it says @code{# The World is a:}, define the world structure for your game. 
                                           (Check @worksheet-link[#:page 18 #:name "Game Design"] to jog your memory.) Once you have the world struct, scroll 
                                           down to where it says @code{# STARTING WORLD} and define your first example world: name it @code{START}.}}
                          @teacher{}}
@@ -109,7 +109,7 @@
                                  @italic{behind} the cloud, or in front of it?) Writing out the @code{NEXT} world is optional, but it encourages students to think about how the game is changing from one frame to another, and how the game will look after the @code{update-world} function runs once. (It also gives them a handy pre-defined world to use in their test cases, along with @code{START}!}}
                  
                         @point{@student{@activity{Which function is used to draw the world?} Just like @code{draw-auto}, and the @code{draw-world} 
-                                         function in Ninja World, @code{draw-world} takes in a struct and produces an Image. 
+                                         function in Ninja World, @code{draw-world} takes in a structure and produces an Image. 
                                          @activity{@itemlist[@item{What is the Domain of this function? The Range?}
                                                               @item{At the top of @worksheet-link[#:page 22 #:name "draw-world"], write the
                                                                     contract for @code{draw-world}.}
