@@ -212,9 +212,9 @@ end}
                                                                          @itemlist[@item{how would you define this variable?}
                                                                                     @item{What function is used to make an car?}
                                                                                     @item{Which thing comes first in an Car struct?}] 
-                                              Now what do you expect to happen when you type @code{car4} into the interactions area? Click 'Run' and try it out.}             
+                                              Now what do you expect to happen when you type @code{car4} into the interactions area? Click 'Run' and try it out.}
                                               @code{car4 = car("Taurus", 300, 20, "white", 5000)}}
-                            @teacher{Have students walk you through the process of defining a variable called @code{car4} and making a car with whatever model, hp, rims, etc. they like.}}                 
+                            @teacher{Have students walk you through the process of defining a variable called @code{car4} and making a car with whatever model, hp, rims, etc. they like.}}
                  @point{@student{@activity{Define two new variables for each of your favorite cars. Call one [yourname]-car (@code{nathan-car}, @code{sam-car}, @code{jill-car}, etc),
                                            or whatever name you prefer. You can make any kind of cars that you want, as long as your structure has the right types in the right orders!}}
                          @teacher{Repetition is key in this lesson. Have students identify each part of the Car struct for every car they've defined.
@@ -279,13 +279,8 @@ end}
       ]{@points[
                 @point{@student{Suppose you want to get the model OUT of @code{car4}. You don't care about the rim size, or horsepower, or anything else- you just want to 
                                 know the model. Pyret has syntax for that, called @code{.model}.
-<<<<<<< HEAD
                                 @activity{If you type @code{car4.model} into the interactions window, what should it evaluate to? Try it out! 
                                                       @itemlist[@item{What kind of thing did it return: A number, string, image, or struct?}
-=======
-                                @activity{If you type @code{new-car.model} into the interactions window, what should it evaluate to? Try it out! 
-                                                      @itemlist[@item{What kind of thing did it return: A Number, String, Image, or structure?}
->>>>>>> 4f43f2ee14baf699e52e11a16e4f41112545e29f
                                                                  @item{Practice taking the model out of EVERY Car you have defined, using @code{.model}}]}
                     
                                 Of course, there are ways to access any part of a car, not just the model! What do you think you would get if you typed @code{car1.hp} in the interactions area? 
