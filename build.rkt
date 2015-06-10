@@ -90,7 +90,9 @@
                  [current-document-output-path output-path])
     (render (list (dynamic-require `(file ,(path->string name)) 'doc))
             (if outfile (list outfile) (list name))
-	    #:dest-dir output-dir)
+	    #:dest-dir output-dir
+            ;#:style-file (build-path root-path "lib" "scribble-cust.css")
+            )
     (when (and (not never-generate-pdf?) (current-generate-pdf?))
       (translate-html-to-pdf
        (build-path output-dir
@@ -181,7 +183,17 @@
              (copy-file (build-path "lib" "box.gif") 
                         (build-path (get-units-dir) subdir "box.gif")
                         #t)
-             (run-scribble scribble-file #:outfile "index" #:never-generate-pdf? (= phase 0))]
+             (run-scribble scribble-file #:outfile "index" #:never-generate-pdf? (= phase 0))
+             ;; KATHI inserted next line to use Ellen's custom scribble.css file for units.
+             ;; Having our own scribble.css is fragile, as the default file comes from Racket and
+             ;;   may change with future releases.  
+             ;; Note: copying to distribution dir as that is the target of the scribble
+             ;;   command in the previous line
+             (copy-file (build-path "lib" "css-files-units" "scribble.css")
+                        (build-path (current-deployment-dir) "courses" (current-course)
+                                    "units" subdir "scribble.css")
+                        #t)
+             ]
             [else
              (printf "Could not find a \"the-unit.scrbl\" in directory ~a\n"
                      (build-path (get-units-dir) subdir))])))
@@ -225,7 +237,15 @@
               )))))
 
   (printf "build.rkt: building ~a main\n" (current-course))
-  (run-scribble (get-course-main) #:outfile "index"))
+  (run-scribble (get-course-main) #:outfile "index")
+  ;; copy overview-specific CSS files into main directory
+  ;; edit this if ever merge the different css files between units and overview
+  (for ([cssfile (directory-list (build-path "lib" "css-files-overview"))])
+    (copy-file cssfile
+               (build-path (current-deployment-dir) "courses" (current-course)
+                           (last (explode-path cssfile)))
+               #t))
+  )
 
 
 ;; Building the lessons

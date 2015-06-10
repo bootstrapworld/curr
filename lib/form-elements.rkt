@@ -113,6 +113,9 @@
          length-of-lesson
          bootstrap-title
          augment-head
+         
+         ;; styles directly referenced in files
+         bs-coursename-style
                   
          )        
 
@@ -129,7 +132,8 @@
     (and env (string=? env "on")))) 
 
 ;;;;;;;;;;;;;;;; Site Images ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(define bootstrap.gif (bitmap "bootstrap.gif"))
+;(define bootstrap.gif (bitmap "bootstrap.gif"))
+(define bootstrap.logo (bitmap "logo-icon.png"))
 (define creativeCommonsLogo (bitmap "creativeCommonsLogo.png"))
 
 ;;;;;;;;;;;;;;;; Styles ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -1210,7 +1214,7 @@
   (define the-title (apply string-append body))
   (define unit+title (if single-line #f (regexp-match #px"^([^:]+):\\s*(.+)$" the-title))) 
   (define bootstrap-image (cond-element 
-                           [html bootstrap.gif]
+                           [html bootstrap.logo]
                            [(or latex pdf) (elem)]))
   (interleave-parbreaks/all
    (cond 
