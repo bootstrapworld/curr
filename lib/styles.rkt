@@ -50,7 +50,7 @@
 (define-runtime-path bootstraplesson.js "bootstraplesson.js")
 (define-runtime-path extra_curriculum.css "extra_curriculum.css")
 (define-runtime-path workbook.css "workbook.css")
-(define-runtime-path overview-styles.css "overview-styles.css")
+(define-runtime-path overview-styles.css "styles.css")
 
 (define css-js-additions
   (list (make-tex-addition bootstrap-pdf.tex)

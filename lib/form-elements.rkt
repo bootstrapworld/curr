@@ -48,6 +48,7 @@
          summary-item/links
          summary-item/custom
          summary-item/unit-link
+         summary-item/no-link
          matching-exercise
          matching-exercise-answers
          completion-exercise
@@ -714,13 +715,19 @@
         (printf "WARNING: no unit-descr for ~a~n" unit-name)
         "")))
 
+;; summary-item/no-link : string -> block
+;; produces an item for the unit summary with a title but no links
+(define (summary-item/no-link name . descr)
+  (para #:style "BSUnitSummary"
+        (elem #:style "BSUnitTitle" name)
+        descr))
+
 ;; summary-item/unit-link string string content -> block
 ;; generates summary entry in which unit name links to html version of lesson
 ;;   (contrast to summary-item/links, which links to both html and pdf versions)
 (define (summary-item/unit-link name basefilename . descr)
   (para #:style "BSUnitSummary"
         (elem #:style "BSUnitTitle" (elem (hyperlink (format "~a.html" basefilename) name)))
-        ": "
         descr))
 
 ;; summary-item/links : string string content -> block
