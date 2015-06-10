@@ -415,6 +415,11 @@
                           (delete-file oldsols))
                         (printf "Copying teachers workbook solutions into distribution~n")
                         (copy-file workbooksols oldsols))))
+                  ;; copy in the unit-oriented CSS files
+                  (for ([cssfile (directory-list (build-path "lib" "css-files-units"))])
+                    (copy-file cssfile
+                               (build-path deploy-teachers-dir (last (explode-path cssfile)))
+                               #t))
                   )
                 ]
                [else
