@@ -54,6 +54,7 @@
 
 (define css-js-additions
   (list (make-tex-addition bootstrap-pdf.tex)
+        (make-css-addition bootstrap.css)
         (make-css-addition pretty-printing.css)
         (make-css-addition codemirror.css)
         (make-js-addition codemirror.js)
