@@ -97,16 +97,20 @@
                                 @activity{Using the chart on @worksheet-link[#:page 20 #:name "Drawing START"], figure out which image goes on top,
                                                           which goes second, and so on. Make a list from top to bottom in the column on the left. 
                                                           Then write each image's coordinates in the right column.}}
-                        @teacher{These world sketches can be optional, or assigned for homework. Each students' world sketches can be displayed on a bulletin board, and matched with screenshots from their videogame to show off their progress as the course progresses.}}
-                 @point{@student{Let's set up one more example. This will help when you begin writing your function that draws the world. On @worksheet-link[#:page 21 #:name "Drawing NEXT"] there's a page nearly identical to page 20. You've already written a 
+                        @teacher{These world sketches can be optional, or assigned for homework. Each students' world sketches can be displayed on a 
+                                 bulletin board, and matched with screenshots from their videogame to show off their progress as the course progresses.}}
+                 @point{@student{Let's set up one more example. This will help when you begin writing your function that draws the world. 
+                                 On @worksheet-link[#:page 21 #:name "Drawing NEXT"] there's a page nearly identical to page 20. You've already written a 
                                 @code{START} world, which has everything where it will be when the game starts. Now do the same for a world called
                                 @code{NEXT}. This world represents the game in the NEXT FRAME after @code{START}.
                                 @activity{@itemlist[@item{Fill in the world struct, and sketch the @code{NEXT} world.}
                                                      @item{Now put the images in the same order as in the @code{START} world. (We don't want them to 
                                                            be switching around in the middle of the game!) Then write the NEW coordinates beside them.}]}}
                         @teacher{These workbook pages help students organize their thinking before writing their own @code{draw-world} function. The order of
-                                 images determines which game images appear above the others. (Does it make more sense to have the coin appear to be flying 
-                                 @italic{behind} the cloud, or in front of it?) Writing out the @code{NEXT} world is optional, but it encourages students to think about how the game is changing from one frame to another, and how the game will look after the @code{update-world} function runs once. (It also gives them a handy pre-defined world to use in their test cases, along with @code{START}!}}
+                                 images determines which game images appear above the others. (e.g. - "Does it make more sense to have the coin appear to be flying 
+                                 @italic{behind} the cloud, or in front of it?") Writing out the @code{NEXT} world is optional, but it encourages students to 
+                                 think about how the game is changing from one frame to another, and how the game will look after the @code{update-world} 
+                                 function runs once. (It also gives them a handy pre-defined world to use in their test cases, along with @code{START}!}}
                  
                         @point{@student{@activity{Which function is used to draw the world?} Just like @code{draw-auto}, and the @code{draw-world} 
                                          function in Ninja World, @code{draw-world} takes in a structure and produces an Image. 
@@ -123,7 +127,7 @@
                                         @activity{@itemlist[@item{Start out on the bottom of this 'staircase' by putting one of your
                                                                   images onto the background.}
                                                              @item{If you wanted the image to be centered on the scene, what are the x- and 
-                                                                   y-coordinates you'll need? Hint: how big is your background image?}
+                                                                   y-coordinates you'll need? (Hint: how big is your background image?)}
                                                              @item{But you probably don't want your image to be at the center of the background.
                                                                    Look back at your @code{START} world picture. You made a note of which coordinates you wanted that image to be, placed on top of the background.}]}
                                         Start with something that looks like this, substituting YOUR image and coordinates:
