@@ -20,6 +20,7 @@ div#lessonToolbar * {
 	font-weight: 700;
 	font-size: 14px;
 	outline: none;
+  
 }
 
 div#lessonToolbar *:hover {
@@ -41,6 +42,8 @@ div#lessonToolbar.fixed{
   background: #F0EFEE;
   border-bottom-left-radius: 10px;
   padding: 0 0 20px 20px;
+  box-shadow:   -5px 5px 10px #888888;
+
 }
 /************************************************************************************
  * OVERVIEW PAGE
@@ -103,6 +106,7 @@ table {  margin:  20px auto; }
   padding:        5px;
   margin:         0px 0px 10px 10px;
   width:          225px;
+  border:         solid 1px black;
 }
   
 ul.BootstrapAgendaList{
@@ -125,7 +129,8 @@ ul.BootstrapAgendaList .BSLessonName{float: left;}
 ul.EvidenceStatementsList{ opacity: 0; height: 0px; overflow: hidden;}
 li.LearningObjectivesListItem:hover ul.EvidenceStatementsList,
   ul.EvidenceStatementsList:hover{opacity: 1; height: auto;}
-
+/* Scribble overrides */
+.segment p, #BootstrapAgenda p, .LearningObjectivesListItemContents p{margin: 0;}
 
 
 /************************************************************************************
@@ -185,6 +190,7 @@ input#toggle{display:none;}
 div.ExtraExercises, div.segment{
   background: #F0EFEE;
   overflow:   hidden;
+  border-right: solid 1px gray;
 }
 
 .remediation, .misconception, .challenge{
@@ -293,11 +299,13 @@ li.lessonItem li{
 .management{margin-bottom: 10px; color: darkblue;}
 div.activity{
   padding:        10px;
-  background:     #D3D3D3;
+  background:     #F0EFEE;
   margin:         10px 0px;
   display:        block;
   vertical-align: middle;
   clear:          both;
+  border-top:     dashed 1px black;
+  border-bottom:  dashed 1px black;
   -webkit-print-color-adjust: exact;
 }
 
@@ -348,7 +356,7 @@ td.vertical {
 }
 
 span.wp { font-weight:   bold; }
-span.vocab{font-style:  italic; font-weight: 900;}
+span.vocab{font-style:  italic; font-weight: 900; color: #75328A;}
 
 div#copyright{
   display: inline-block;
