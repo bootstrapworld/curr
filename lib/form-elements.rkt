@@ -980,10 +980,13 @@
                                      (printf "WARNING: extract-exercise-data reached end of file without finding exercise-handout~n")
                                      (raise 'local-break))]
                                   [(eq? next '@)
-                                   (let ([next-sexp (read)])
-                                     (if (and (cons? next-sexp) (equal? (first next-sexp) 'exercise-handout))
-                                         next-sexp
-                                         (loop)))]
+                                   (let ([next-char-str (peek-string 1 0)])
+                                     (if (string=? next-char-str ";")
+                                         (loop) ;; found a comment, read on next loop pass will skip over
+                                         (let ([next-sexp (read)])
+                                           (if (and (cons? next-sexp) (equal? (first next-sexp) 'exercise-handout))
+                                               next-sexp
+                                               (loop)))))]
                                   [else
                                    (begin
                                      (printf (format "WARNING: extract-exercise-data: got non-@ term ~a~n" next))
