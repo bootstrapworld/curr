@@ -23,6 +23,7 @@ We provide all of the our materials @italic{free of charge}, to anyone who is in
           )
          (list 
           @summary-item/no-link["Student Workbook"]{
+           @lulu-button[]
            You can purchase beautiful, bound copies of the workbook from @hyperlink["http://www.lulu.com/commerce/index.php?fBuyContent=14790241" "Lulu.com"], 
                or @hyperlink["resources/workbook/StudentWorkbook.pdf" "print your own"].  The lesson 
                plans are tightly integrated with the Student Workbook, 
