@@ -28,10 +28,14 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{In the last lesson you reviewed the concept of @vocab{piecewise functions} from Bootstrap:1, and learned about ask blocks, the Pyret syntax for writing piecewise functions. To review, let's go through the Design Recipe for a pieewise function. 
+        @points[@point{@student{In the last lesson you saw how @vocab{piecewise functions} work in Bootstrap:2, 
+                                and learned about @code{ask} blocks, the Pyret syntax for writing them. 
+                                To review, let's go through the Design Recipe for a pieewise function. 
 @activity{@itemlist[@item{Turn to @worksheet-link[#:page 30 #:name "Red-Shape"] in your workbooks.}
                     @item{With your partner, fill out the Design Recipe for the @code{red-shape} function.}]}}
-                        @teacher{Remind students that each @code{ask} statement must have a test and a result, and each function must contain an @code{otherwise:} statement, which will execute if every other test returns false.}}
+                        @teacher{Remind students that each @code{ask} statement must have a test and a result, 
+                                 and each function must contain an @code{otherwise:} statement, which will 
+                                 execute if every other test returns false.}}
                  ]
          }                               
 @lesson/studteach[#:title "Protecting the Boundaries"
@@ -43,7 +47,8 @@
         #:product-outcomes @itemlist[]
         #:standards (list)
         #:materials @itemlist[@item{The @editor-link[#:public-id "0B9rKDmABYlJVeFBBU2tHc0hDTlk" "Ninja World 4"] file preloaded on students' machines}]
-        #:preparation @itemlist[@item{Write the Ninja World version of update-world towards the bottom of the board, with room to transform it into an ask branch under the function header.}]
+        #:preparation @itemlist[@item{Write the Ninja World version of update-world towards the bottom of the board, with room to transform 
+                                      it into an @code{ask} branch under the function header.}]
         #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -64,7 +69,7 @@
                         }
                  @point{@student{Just as in Bootstrap:1, we need to write a function that checks whether the danger has gone off the right side 
                                 of the screen. First, let's review a few things:
-                                @activity{@itemlist[@item{@code{true} and @code{false} are examples of what datatype?}
+                                @activity{@itemlist[@item{@code{true} and @code{false} are examples of what @vocab{datatype}?}
                                                      @item{What function takes two numbers and checks if the first number is 
                                                            @italic{greater than} the second?}
                                                      @item{What function checks if a number is @italic{less than} another?}
@@ -72,7 +77,7 @@
                                 Here is the contract for the greater than function:
 @code[#:multi-line #t]{# > : Number Number -> Boolean
                      # Checks whether the first number is greater than the second}
-                               @activity{Copy this into your Contracts page and write down the contracts for the other two Boolean functions.}}
+                               @activity{Copy this into your Contracts page and write down the contracts for @code{<} and @code{=}}.}
                         @teacher{Review Booleans and Boolean functions, including @code{>}, @code{<}, @code{=}, @code{and}, and 
                                              @code{or}. Make sure students copy the contracts into their workbook.}}
                  
@@ -119,11 +124,13 @@
                                  For now there are two different conditions: when @code{dogX} is greater than 640 and then 
                                  the rest of the time. Let's work on the code for this:                     
  @code[#:multi-line #t]{fun update-world(w):
-	ask:
-	  |...test... then: ...result...
-	  | otherwise:  world(w.dogX + 10, w.coinX - 5, w.catX, w.catY)
-        end
-    end}}
+  ask:
+    |...test... then: 
+      ...result...
+    | otherwise:  
+      world(w.dogX + 10, w.coinX - 5, w.catX, w.catY)
+  end
+ end}}
                          @teacher{Remind students that each @code{ask} branch will contain a test and a result, which is evaluated if its test returns @code{true}.}}
                  @point{@student{We still want our original code to be there. It's now going to be used in the @code{otherwise} clause, 
                                   because when @code{dogX} is not off the right side of the screen, we want the world to update normally.
@@ -136,32 +143,38 @@
                                                        @item{So what will the input to @code{is-off-right} be?}
                                                        @item{Add this to your @code{update-world} function:}]}
  @code[#:multi-line #t]{fun update-world(w):
-	ask:
-	  | is-off-right(w.dogX) then: ...result...
-	  | otherwise:  world(w.dogX + 10, w.coinX - 5, w.catY)
-        end
-    end}}
+  ask:
+    | is-off-right(w.dogX) then: 
+      ...result...
+    | otherwise:  
+      world(w.dogX + 10, w.coinX - 5, w.catY)
+  end
+ end}}
                          @teacher{}}
                  @point{@student{The first clause tests whether the dog's x-coordinate is off the right side of the screen. If the test 
                                    returns @code{true}, what should the result be? We know that we need to return a World, since the Range
                                    of @code{update-world} is a World. That means we can immediately write @code{world(...)}: 
  @code[#:multi-line #t]{fun update-world(w):
-	ask:
-	  | is-off-right(w.dogX) then: world(...dogX..., ...coinX..., ...w.catX..., ...catY...)
-	  | otherwise:  world(w.dogX + 10, w.coinX - 5, w.catX, w.catY)
-        end
-    end}
+  ask:
+    | is-off-right(w.dogX) then: 
+      world(...dogX..., ...coinX..., ...w.catX..., ...catY...)
+    | otherwise:  
+      world(w.dogX + 10, w.coinX - 5, w.catX, w.catY)
+  end
+end}
                                   How should @code{dogX} change in this condition? We said we want to move the dog back to the left side 
                                   of the screen.
                                   @activity{@itemlist[@item{What will the new value of @code{dogX} be, if it, moves back to the 
                                                             left side of the screen?}
                                                        @item{Does @code{coinX} change if the dog goes off the screen? How about @code{catX}? @code{catY?}}]}
  @code[#:multi-line #t]{fun update-world(w):
-	ask:
-	  | is-off-right(w.dogX) then: world(0, w.coinX, w.catX, w.catY)
-	  | otherwise:  world(w.dogX + 10, w.coinX - 5, w.catX, w.catY)
-        end
-    end}}
+  ask:
+    | is-off-right(w.dogX) then: 
+      world(0, w.coinX, w.catX, w.catY)
+    | otherwise: 
+      world(w.dogX + 10, w.coinX - 5, w.catX, w.catY)
+  end
+end}}
                          @teacher{}}
                  @point{@student{Now it's time to think about the coin...
                                   @activity{@itemlist[@item{Instead of checking if @code{coinX} was off the @bold{right} side of the screen,
@@ -172,13 +185,16 @@
                                                        @item{Finish the code for @code{update-world} so that it also checks whether the 
                                                              coin has gone off the left-hand side of the screen.}]}
 @code[#:multi-line #t]{fun update-world(w):
-	ask:
-	  | is-off-right(w.dogX) then: world(0, w.coinX, w.catX, w.catY)
-     | is-off-left(w.coinX) then: world(w.dogX, 640, w.catX, w.catY)
-	  | otherwise:  world(w.dogX + 10, w.coinX - 5, w.catX, w.catY)
-        end
-    end}}
-                         @teacher{This can be an opportunity to discuss abstraction and the usefullness of reusing code with your
+  ask:
+    | is-off-right(w.dogX) then: 
+      world(0, w.coinX, w.catX, w.catY)
+    | is-off-left(w.coinX) then: 
+      world(w.dogX, 640, w.catX, w.catY)
+    | otherwise:  
+      world(w.dogX + 10, w.coinX - 5, w.catX, w.catY)
+  end
+end}}
+                         @teacher{This can be an opportunity to discuss abstraction and the usefulness of reusing code with your
                                   students. The @code{ask} tests in @code{update-world} could be written as: 
                                   @code{w.dogX > 640}, or @code{w.coinX < 0}, but this is more work than 
                                   neccessary if the @code{is-off-right} and @code{is-off-left} functions have been written, and could 
@@ -198,9 +214,9 @@
         #:overview ""
         #:learning-objectives @itemlist[]
         #:evidence-statements @itemlist[]
-        #:product-outcomes @itemlist[@item{Students will use Ask in their update-world functions}
+        #:product-outcomes @itemlist[@item{Students will use @code{ask} in their update-world functions}
                                      @item{Students will identify circumstances in which the functions in their game should behave differently}
-          @item{Students will define these circumstances - and the desired behavior - in code, as different Ask branches}]
+          @item{Students will define these circumstances - and the desired behavior - in code, as different @code{ask} branches}]
         #:standards (list)
         #:materials @itemlist[]
         #:preparation @itemlist[@item{}]
@@ -214,14 +230,20 @@
                                 @activity{@itemlist[@item{Open your workbook to @worksheet-link[#:page 34 #:name "Test and Result"].}
                                                     @item{Think about the things in your game that make the world change. Do characters 
                                                            fly off the left side of the screen? The right? The top or bottom? Do you need to 
-                                                           write an @code{off-top} function or @code{off-bottom}? Maybe something happens when the player achieves a high score, or the player's health reaches 0.}
+                                                           write an @code{off-top} function or @code{off-bottom}? Maybe something happens when the player 
+                                                           achieves a high score, or the player's health reaches 0.}
                                                      @item{In the lefthand column of @worksheet-link[#:page 34 #:name "Test and Result"],
                                                            make a list of the questions (in Pyret!) you will need to @code{ask} the world. For example, with the dog we said
                                                            @code{is-off-right(w.dogX)} to ask if the dog was off the right side of the screen. On the right, figure out 
                                                            which world you need to make, if your question returns @code{true}.}]}}
-                        @teacher{Some examples of game states students may want to test for: @itemlist[@item{Gravity: the payer constantly moves down, until her y-coordinate is 50, placing her at the bottom of the screen. (This coordinate will probably be adjusted based on the size of the @code{PLAYER} image.)}
-          @item{The player shoots a projectile and destroys the alien/shark/bad guy: An element of the world cannot be taken @italic{out} of the world struct, but its locaton can be changed so that it no longer appears on the screen. If the @code{DANGER} has been set to a certain coordinate and has been "destroyed", should it continue to move normally?}
-          @item{After reaching a certain score, the background image changes, and the player reaches "Level 2". (Note: changing the background image is handled by the @code{draw-world} function. This can be a piecewise function just like @code{update-world}!}
+                        @teacher{Some examples of game states students may want to test for: 
+                                 @itemlist[@item{Gravity: the payer constantly moves down, until her y-coordinate is 50, placing her at the bottom of 
+                                                 the screen. (This coordinate will probably be adjusted based on the size of the @code{PLAYER} image.)}
+          @item{The player shoots a projectile and destroys the alien/shark/bad guy: An element of the world cannot be taken @italic{out} of the world 
+                struct, but its locaton can be changed so that it no longer appears on the screen. If the @code{DANGER} has been set to a certain 
+                coordinate and has been "destroyed", should it continue to move normally?}
+          @item{After reaching a certain score, the background image changes, and the player reaches "Level 2". (Note: changing the background image 
+                is handled by the @code{draw-world} function. This can be a piecewise function just like @code{update-world}!}
                                                                                                         ]
                                                                                                         }}
                  ]
@@ -242,7 +264,9 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Look at the @code{ask} branches for Ninja World's @code{update-world} function. Notice that for each branch, we need a test and a result. This is exactly what you've written in your workbook for your game. All you need to do now is reformat @italic{your} @code{update-world} function so that it uses @code{ask}, with your current code inside the @code{otherwise} clause.
+        @points[@point{@student{Look at the @code{ask} branches for Ninja World's @code{update-world} function. Notice that for each branch, we need a test and a result. 
+                               This is exactly what you've written in your workbook for your game. All you need to do now is reformat @italic{your} @code{update-world} 
+                               function so that it uses @code{ask}, with your current code inside the @code{otherwise} clause.
                                             @activity{Adapt @code{update-world} so it becomes a @vocab{piecewise function}, and complete at least one thing on your list.}}
                         @teacher{Work in pairs or small groups to assist students with their own @code{update-world} 
                                  functions.}}
