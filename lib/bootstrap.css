@@ -192,7 +192,6 @@ ol.question li:first-of-type{border: none;}
 /* student answers should be at least 15px tall */
 .studentAnswer, .operator:empty{
   display:      inline-block;
-  background:   #eee;
   min-height:   15px;
   min-width:    60px;
   border-bottom: solid 1px black;

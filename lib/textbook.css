@@ -188,7 +188,6 @@ input#toggle{display:none;}
 
 
 div.ExtraExercises, div.segment{
-  background: #F0EFEE;
   overflow:   hidden;
   border-right: solid 1px gray;
 }
