@@ -215,11 +215,29 @@ div.codesexp       .studentAnswer                { margin-bottom: 2px; margin-le
 div.codesexp       .studentAnswer .studentAnswer { margin-bottom: 2px; margin-left: 60px; border-bottom: none;}
 div.codesexp       .studentAnswer+.studentAnswer { margin-left: 10px;}
 
+/* For exercises, we should have the studentInfo structure added mostly via CSS */
+#homeworkInfo{
+  display: none;
+  width: 100%;
+  height: 18px;
+  color: black;
+  border-bottom: solid 1px black;
+}
+#homeworkInfo::before{
+  content: "Name:";
+  float: left;
+}
+#homeworkInfo::after{
+  content: "Date:";
+  float: right;
+  padding-right: 150px;
+}
 
 /********************************************************************
  Print adjustments
  *********************************************************************/
 @media print{
+  #homeworkInfo {display: block; }
   a{color: black;}
 
   span.rightColumnLabel,
