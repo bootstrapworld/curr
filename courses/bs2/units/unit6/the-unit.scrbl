@@ -29,7 +29,14 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{So far, we've been working with three main functions to make our game and animate our world: @code{update-world}, 
+        @points[@point{@student{Think about the person playing your videogame. How will they control the game? What key will make your player move up? Down? What else can they do? Move side-to-side? Jump? Teleport? Shoot a projectile?
+                                                     @activity{Turn to @worksheet-link[#:page 24 #:name "Lesson 6"] in your workbooks.
+                                                                   Write down the various keys that the user can hit to control the game. 
+                                                                   For each one, write down the field in your world struct that changes, 
+                                                                   and how it changes.}}
+                        @teacher{Review students' workbook pages, and check for understanding: could they change multiple things in their game
+                                 with one keypress?}}
+                 @point{@student{So far, we've been working with three main functions to make our game and animate our world: @code{update-world}, 
                                 @code{draw-world}, and @code{big-bang}. At this point, your game might use a few more functions than these, but 
                                 Ninja World has been pretty basic so far, and it's not interactive. Time to change that!
                                 @activity{@itemlist[@item{Open the @editor-link[#:public-id "0B9rKDmABYlJVUkpSOS1yVEJpaWc" "Ninja World 3"]
@@ -159,6 +166,7 @@ fun keypress(w, key):
     | otherwise: w
   end
 end}
+For reference and to check your work, you can see the completed Design Recipe for @code{keypress} in Ninja World on @worksheet-link[#:page 26 #:name "Keypress-in-Ninja-World"].
 }
                         @teacher{}}]}           
      
@@ -177,15 +185,8 @@ end}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Think about the person playing YOUR game. How will they control the game? What key will make YOUR player move up? 
-                                Down? What else can they do? Move side-to-side? Jump? Teleport? Shoot a projectile?
-                                                     @activity{Turn to @worksheet-link[#:page 24 #:name "Lesson 6"] in your workbooks.
-                                                                   Write down the various keys that the user can hit to control the game. 
-                                                                   For each one, write down the field in your world struct that changes, 
-                                                                   and how it changes.}}
-                        @teacher{Review students' workbook pages, and check for understanding: could they change multiple things in their game
-                                 with one keypress?}}
-                 @point{@student{@activity{Turn to @worksheet-link[#:page 27 #:name "Keypress-in-Game"] in your workbooks. Choose 3 
+        @points[@point{@student{Now it's time to program YOUR game to respond to keypresses. 
+                                @activity{Turn to @worksheet-link[#:page 27 #:name "Keypress-in-Game"] in your workbook. Choose 3 
                                            keys that control the game, and go through the design recipe: Write test cases for what should 
                                            happen to your START world depending on which key was pressed. Then define your function. Once
                                            you've completed the Design Recipe, type your @code{keypress} function into your games.}
