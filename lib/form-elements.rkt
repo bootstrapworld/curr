@@ -1019,7 +1019,7 @@
                                     (map (lambda (exloc)
                                            (let-values ([(extitle exforevid) 
                                                          (if (exercise-locator/dr-assess? exloc)
-                                                             (values (string-append "Design Recipe Challenge: "
+                                                             (values (string-append "Check This Design Recipe: "
                                                                                     (exercise-locator/dr-assess-descr exloc))
                                                                      #f)
                                                              (extract-exercise-data exloc)
