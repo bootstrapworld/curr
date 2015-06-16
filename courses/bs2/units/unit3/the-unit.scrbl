@@ -33,32 +33,31 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{In the last lesson you learned about a new kind of data struct, called a Car. However, a car isn't the only kind of struct- we can create any kind of struct we want! Let's define another one. In this exercise, you’ll be a party planner. Data structures will be a useful way to represent each party that you’re planning, keeping track of its location, theme, and number of guests.
+        @points[@point{@student{In the last lesson you learned about a new kind of data structure, called a Car. However, a car isn't the only kind of structure- we can create any kind we want! Let's define another one. In this exercise, you’ll be a party planner. Data structures will be a useful way to represent each party that you’re planning, keeping track of its location, theme, and number of guests.
                                 @activity{@itemlist[@item{What datatype could be used to represent the location of a party?}
                                                     @item{What about the party's theme? (This could be something like "50s" or "laser tag".)}
                                                     @item{How about the number of guests?}]
-                                           Fill out the second struct definition on @worksheet-link[#:page 12 #:name "Data Structures"] in your workbook.}
+                                           Fill out the second structure definition on @worksheet-link[#:page 12 #:name "Data Structures"] in your workbook.}
 @code[#:multi-line #t]{# a Party is a location, theme, and number of guests
                        data Party:
                          | party(location :: String, 
                                  theme    :: String, 
                                  guests   :: Number)
-                       end}}
-                        @teacher{}}
-                 
-                 @point{@student{@activity{Open the @editor-link[#:public-id "0B9rKDmABYlJVUUt1SUc5UnVsdm8" "Party Planner"] file. Take a look at the first four 
-                                                    lines in the definitions area. Do they match what you have written?} 
-                                 Now that the party struct is defined, you have access to new pieces of code: a function to make a party, and three @vocab{dot-accessors}
-                                 to get the location, theme, and number of guests out of the party. 
-@activity{Turn to your contracts sheet. @itemlist[@item{What is the @vocab{Name} of the function that creates a party?}
+                       end}
+Once the party structure is defined, you have access to new pieces of code:a function to make a party, and three @vocab{dot-accessors} to get the location, theme, and number of guests out of the party. 
+@activity{@itemlist[@item{What is the @vocab{Name} of the function that creates a party?}
                                                   @item{What is the function's @vocab{Domain}? (What kinds of things are part of a party?)}
                                                   @item{What is the @vocab{Range} of this function?}
-                                                  @item{How would you get the location out of a party? (Think about how you got the model or color out of a car.)}
-                                                  @item{Now define two new party structures of your own. No matter what party you're planning, make sure that it has the right 
-                                           types of things in the right order.}]}
+                                                  @item{On @worksheet-link[#:page 12 #:name "Data Structures"], use the constructor function to define a new Party of your own, called @code{party1}.}
+                                                  @item{Right below your definition for @code{party1}, list how you would access the fields of that party. How would you get the location out of @code{party1}? (Think about how you got the model or color out of a car.)}]}}
+                        @teacher{}}
+                 
+                 @point{@student{@activity{@itemlist[@item{Open the @editor-link[#:public-id "0B9rKDmABYlJVUUt1SUc5UnVsdm8" "Party Planner"] file. Take a look at the first four lines in the definitions area. Do they match what you have written in your workbook for the data definition of @code{Party}?} 
+                                                      @item{Now define two new party structures of your own. No matter what party you're planning, make sure that it has the right types of things in the right order.}]}
+                                  }
 }
-                         @teacher{As with the Car struct, repetition is key: have students identify the fields of each of their parties, and ask them lots of 
-                                  questions: How would you get the @code{theme} out of @code{Halloween}? How would you get the number of guests out of @code{JulyFourth}?}}
+                         @teacher{As with the Car structure, repetition is key: have students identify the fields of each of their parties, and ask them lots of 
+                                  questions: How would you get the @code{theme} out of @code{Halloween}? How would you get the number of guests out of @code{JulyFourth}?}
                  ]
          }
 
