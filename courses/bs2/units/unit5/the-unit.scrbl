@@ -134,7 +134,13 @@
 @code[#:multi-line #t]{fun draw-world(w):
                           put-image(IMAGE, 320, 240, BACKGROUND)
                        end}
-Remember, if the position of these images will be changing (like the dog and coin moving across the screen in Ninja World), they won't always be placed at the same coordinates. Instead of using specific numbers in @code{put-image}, you can (and should!) use dot-accessors to access the coordinates of the characters in the world. Your own world struct will determine which dot-accessors you have available. 
+Remember, if the position of these images will be changing (like the dog and coin moving across the screen in Ninja World), they won't always be placed at the same coordinates. Instead of using specific numbers in @code{put-image}, you can (and should!) use dot-accessors to access the coordinates of the characters in the world. Your own world struct will determine which dot-accessors you have available.
+
+Here is an example of using @code{draw-world} in our Ninja World game, using the @code{START} world:
+@code[#:multi-line #t]{draw-world(START) is put-image(PLAYER, START.catX, START.catY,
+                                                put-image(TARGET, START.coinX, 300,
+                                                    put-image(DANGER, START.dogX, 400,
+                                                        put-image(CLOUD, 500, 400, BACKGROUND))))}
                                          @activity{@itemlist[@item{Place another one of your images on top of the one that this 
                                                                    staircase-shaped expression has created.}
                                                               @item{Keep adding to it, until you have a stack of all of the images in your game.}]}
