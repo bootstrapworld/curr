@@ -13,6 +13,7 @@
     ("constructor function" "The function that creates a particular data structure")
     ("contract" "a statement of the name, domain, and range of a function")
     ("data structure" "A group of values that can be returned as a single datatype")
+    ("data type" "A way of classifying values, such as: Number, String, Image, or Boolean")
     ("data types" "A way of classifying values, such as: Number, String, Image, or Boolean")
     ("define" "associate a descriptive name with a value")
     ("definitions window" "the text box at the top of the Editor (DrRacket or WeScheme), where definitions for values and functions are written")
