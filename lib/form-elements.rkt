@@ -79,7 +79,8 @@
          login-link
          resource-link
          video-link
-         [rename-out [worksheet-link/src-path worksheet-link]]         
+         [rename-out [worksheet-link/src-path worksheet-link]] 
+         lulu-button
                 
          ;; lesson formatting 
          lesson
@@ -1213,6 +1214,18 @@
         (hyperlink #:style bootstrap-hyperlink-style
                    (path->string the-relative-path)
                    (if label label lesson-name))]))))
+
+; generates HTML for a link to the Lulu direct-buy button, using Lulu image icon
+(define (lulu-button) 
+  (cond-element
+   [html
+    (sxml->element
+     `(div (@ (style "float: right"))
+           (a (@ (href "http://www.lulu.com/commerce/index.php?fBuyContent=14790241"))
+              (img (@ (border "0") 
+                      (alt "Support independent publishing: Buy this book on Lulu.")
+                      (src "http://static.lulu.com/images/services/buy_now_buttons/en/book.gif?20140805085029"))))))]
+   [(or latex pdf) (elem)]))
 
 ;;;;;;;;;;;; Page titles ;;;;;;;;;;;;;;;;;;;;;
 
