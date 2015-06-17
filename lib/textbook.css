@@ -45,6 +45,12 @@ div#lessonToolbar.fixed{
   box-shadow:   -5px 5px 10px #888888;
 
 }
+
+/***********************************************************************************
+ * COURSE OVERVIEW
+*/
+.BSResourceList, .BSUnitList{list-style-type: none; margin-left: 0px;}
+
 /************************************************************************************
  * OVERVIEW PAGE
  * Lesson overviews contain logo, various lists, Language Table, title and duration
