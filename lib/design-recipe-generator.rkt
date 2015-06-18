@@ -158,7 +158,7 @@
                       (design-recipe-section 
                         "recipe_examples"
                         "Examples"
-                        "Write some examples of your function in action..."
+                        "Write some examples, then circle and label what changes ..."
                         (let ([example-elts
                                (if (cons? buggy-example-list)
                                    (map (lambda (e)
@@ -195,7 +195,7 @@
                       (design-recipe-section 
                        "recipe_definition"
                        "Definition"
-                       "Write the definition, giving variable names to all your input values..."
+                       "Write the definition, giving variable names to all your input values ..."
                        (make-spacer "(define ")
                        (make-spacer "(")
                        (make-wrapper
