@@ -156,7 +156,11 @@ div.overview{
 .overview h2 {float: none; clear: none;}
 .overview img {float: left; position: relative; top: -50px; margin-bottom: -50px;}
 
-.OverviewBoundary, .LessonBoundary{margin: 0px; display: block;}
+.OverviewBoundary, .LessonBoundary, .ExtraExercises, div#copyright{
+  margin: 0px;
+  display: block;
+  font-size: 14px;
+}
 
 .BootstrapLessonTitle{
 	padding: 5px;
