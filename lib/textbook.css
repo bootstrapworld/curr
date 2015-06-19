@@ -197,6 +197,7 @@ input#toggle{display:none;}
 div.ExtraExercises, div.segment{
   overflow:   hidden;
   border-right: solid 1px gray;
+  font-size: 14px;
 }
 
 .remediation, .misconception, .challenge{
