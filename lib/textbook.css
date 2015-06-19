@@ -50,6 +50,7 @@ div#lessonToolbar.fixed{
  * COURSE OVERVIEW
 */
 .BSResourceList, .BSUnitList{list-style-type: none; margin-left: 0px;}
+.BSResourceListItem, .BSUnitListItem{margin-top: 15px;}
 
 /************************************************************************************
  * OVERVIEW PAGE
