@@ -170,10 +170,24 @@ Here is an example of using @code{draw-world} in our Ninja World game, using the
                                 @activity{What function should go here? What's in its Domain? Its Range?}
                                 @code{update-world} takes a world, and then returns a new one that's been updated. Think of this function 
                                 as the one that generates the next page of a flipbook.
+                                @code{update-world : World -> World}
+                                
             @activity{@itemlist[@item{Look back at the difference between your @code{START} and @code{NEXT} worlds. What has changed?}
                                 @item{On @worksheet-link[#:page 23 #:name "update-world"], make a list of what changed and how it changed
-                                         as a problem statement for writing @code{update-world}, using the design recipe. Be sure to fill
-                                         out the @vocab{Contract} and two test cases before defining the function.}]}}
+                                         as a purpose statement for writing @code{update-world}.}]}
+            If you defined a @code{START} and @code{NEXT} world in your code, your first example for @code{update-world} is easy! We know that @code{NEXT} will be the state of the world after the @code{update-world} function has been called once after the start of the game. In other words, we can write: @code{update-world(START) is NEXT} for our first example. This ensures that our @code{START} and @code{NEXT} worlds are correct, and the @code{update-world} function is working as expected. 
+           
+            @activity{In your workbook, write one more example for @code{update-world} where you create a new world structure. What will your updated @code{NEXT} world look like?}
+            Here are two examples for the Ninja World version of @code{update-world}:
+            @code[#:multi-line #t]{examples:
+                                         update-world(NEXT) is world(NEXT.dogX + 10, NEXT.coinX - 5)
+                                         update-world(world(150, 400)) is world(150 + 10, 400 - 5)
+                                   end}
+            In the first example, we want to show that @code{update-world} will create a new World (using the @code{world} constructor function) by adding 10 to the @code{dogX} of the @code{NEXT} world, and subtracting 5 from its @code{coinX}.    
+                  
+            @activity{What changes between your two examples? Circle and label, then write the definition for your @code{update-world} function. Look back at its contract: what does the range tell you this function must return? A World!}
+            }
+            
                         @teacher{@code{update-world} is the function that will handle the logic of the student' games. It determines what changes
                                  from one second to the next, and updates the world accordingly. Make sure students are making a new world with
                                  @code{world}, and using their dot- accessors to change the value of each world field according to 
