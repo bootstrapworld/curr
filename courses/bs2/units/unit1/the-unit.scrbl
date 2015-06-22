@@ -5,7 +5,7 @@
 @declare-tags[]
 
 @unit-overview/auto[#:lang-table (list (list "" @code{}))]{
-   @unit-descr{While learning a new programming language, students review the major concepts and material from Bootstrap:1, including Contracts, Expressions dealing with strings and images, Variable definitions, Function definitions, and the Design Recipe.}
+   @unit-descr{While learning a new programming language, students review the major concepts and material from Bootstrap:1, including Contracts, Expressions dealing with numbers, strings and images, Variable definitions, Function definitions, and the Design Recipe.}
 }
 @unit-lessons{
 @lesson/studteach[
@@ -26,9 +26,9 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Welcome back to Bootstrap! In Bootstrap:1, you used a @vocab{programming language} called Racket to make your video games. We chose this language because it behaves like algebra, but there are many different languages you could use to make video games. In Bootstrap:2, you’re going to learn a new language, called Pyret. Pyret is similar to Python, a programming language you may have heard of, but this language contains many of the features you remember from Racket. The syntax is a little different, but with a bit of practice you’ll pick it up in no time!}
+        @points[@point{@student{Welcome back to Bootstrap! In Bootstrap:1, you used a @vocab{programming language} called Racket to make your video games. We chose this language because it behaves like algebra, but there are many different languages you could use to make video games. In Bootstrap:2, you’re going to learn a new language, called Pyret. Pyret is similar to Python, a programming language you may have heard of, but this language contains many of the features you remember from Racket. The @vocab{syntax} is a little different, but with a bit of practice you’ll pick it up in no time!}
                        @teacher{Introduce teaching staff. Give some background: age, where you're from, something surprising about yourself, favorite food, etc. Anything to allow kids to connect. Have students introduce themselves. Set expectations and rules for the class.}}
-                 @point{@student{Open your workbook to @worksheet-link[#:page 1 #:name "Review"]. Here we have a table, with examples of value definitions in Racket and Pyret. On the left-hand column, we've defined values in Racket, and on the right we have the same values defined in Pyret. For instance, the first line on the left-hand side says @code{(define NUM 4)}. Directly to the right, we have the Pyret syntax: @code{NUM = 4}, which does the same thing: defines a variable called NUM, which has a value of 4.
+                 @point{@student{Open your workbook to @worksheet-link[#:page 1 #:name "Review"]. Here we have a table, with examples of value definitions in Racket and Pyret. On the left-hand column, we've defined values in Racket, and on the right we have the same values defined in Pyret. For instance, the first line on the left-hand side says @code{(define NUM 4)}. Directly to the right, we have the Pyret @vocab{syntax}: @code{NUM = 4}, which does the same thing: defines a variable called NUM, which has a value of 4.
                          @activity{Take a look at the other values defined here for Numbers, Strings, Images, and Booleans. On the right-hand side of the table, practice defining values in Pyret:
                            @itemlist[@item{two additional Numbers}
                                      @item{two additional Strings}
@@ -38,7 +38,7 @@
                          @teacher{}}  
                @point{@student{Open the @editor-link[#:public-id "0B9rKDmABYlJVdHZESmZ6ZnRmdXc" "Review file"] in a new window. The first thing you’ll notice is that we’re no longer using WeScheme to edit our programs, although the Pyret editor behaves very similarly. The definitions area (where you write code you want to save for later) is on the left side of the screen, and the interactions area (where you write code you just want to test out once, like scratch paper) is on the right. The top of the editor has space to write a name for your program, and the “Run” button at the top right will clear the interactions area and run whatever program is written in the definitions area.}
                        @teacher{}}
-               @point{@student{@activity{@itemlist[@item{What are the names of the other variables defined here? What are their values?}
+               @point{@student{@activity{@itemlist[@item{What are the names of the variables defined here? What are their values?}
                                                           @item{What would you get back if you were to evaluate each of those variables in the Interactions area? Take a guess first, then click "Run" and type the name of each variable into the interactions area. Were your guesses correct?}]
                                                  Look at the variable @code{OUTLINE} on line 18.
                                                  @itemlist[@item{What shape will this draw?}
@@ -53,9 +53,9 @@
                @point{@student{As you can see, Pyret uses the same data types that we used in Racket: Numbers, Strings, Images, and Booleans are used in Pyret, and look and behave in the same way. @activity{In your review file, define the new Numbers, Strings, Images, and Boolean you wrote in your workbook on @worksheet-link[#:page 1 #:name "Review"].}}
                        @teacher{}}
                
-               @point{@student{Now we have values, and we know how to define shortcuts for them. However, there are also plenty of built-in functions, which let us play around with these values. 
+               @point{@student{Now we have values, and we know how to define shortcuts for them. There are also plenty of built-in functions, which let us play around with these values. 
 @activity{What are some functions you know that work on numbers? How many can you list?}}
-                   @teacher{Remind students that arithmatical operations, such as +, -, *, and / are functions.}}
+                   @teacher{Remind students that arithmetic operations, such as +, -, *, and / are functions.}}
                
                @point{@student{One of the big changes from Racket to Pyret is the way arithmetic functions are used. In Pyret, you can write these expressions with math notation, like so: @code{(2 + 9)} or @code{(10 * 8)}. @bold{But don't forget to leave a space before and after the function!}}
                        @teacher{}}
@@ -80,7 +80,7 @@
                 )
       ]{
           @points[
-                  @point{@student{It's important to keep track of how these functions work, and Bootstrap:1 introduced the idea of @vocab{Contracts}. The contract for the @code{star} function is shown below. @code[#:multi-line ""]{; star: Number String String -> Image}
+                  @point{@student{It's important to keep track of how functions work, and Bootstrap:1 introduced the idea of @vocab{Contracts}. The contract for the @code{star} function is shown below. @code[#:multi-line ""]{; star: Number String String -> Image}
 Contracts summarize three pieces of essential information about a function: 
 @itemlist[@item{The @vocab{Name} of the function: in this case, @code{star}.}
                     @item{The @vocab{Domain} of a function, which is the type(s) of data that the function expects. In this case, a Number and two Strings.}    
@@ -133,14 +133,13 @@ One notable difference between Racket and Pyret is that Pyret requires commas be
                                   @activity{@itemlist[@item{What is the @vocab{Name} of this function?  How do you know?}
                                                        @item{How many inputs does it have in its @vocab{Domain}?}
                                                        @item{What type of data is the @vocab{Domain}?}
-                                                       @item{What is the name given to this input?}
                                                        @item{What's the @vocab{Range} of this function?}
                                                        @item{What do you think this function does?}
                                                        ]}
-                                  The @vocab{Contract} is a way of thinking about the function in a general way, without having to worry about exactly how it will work or how it will be used. By starting with simple questions such as these , later steps will be @bold{much} easier to think about.}
-                          @teacher{Review the importance of definitions for students (Defining values helps cut down on redundancy and makes future changes easier, defining functions allows for simplicity and testability. Be sure to use vocabulary regularly and carefully, pushing students to use the proper terms throughout.) The Design Recipe is a useful tool for having students think about word problems and break them down into smaller parts (Contract, purpose statement, examples, and code). Instead of jumping into writing a function, students should first note what data types the fuction will take in and produce, and practice using their own words to describe what the function does. After this step, the Contract and Purpose Statement can be relied on to write examples for the function.}}
+                                  The @vocab{Contract} is a way of thinking about the function in a general way, without having to worry about exactly how it will work or how it will be used. By starting with simple questions such as these, later steps will be @bold{much} easier to think about.}
+                          @teacher{Review the importance of definitions for students (Defining values helps cut down on redundancy and makes future changes easier, defining functions allows for simplicity and testability. Be sure to use vocabulary - Contract, Domain, Range, Example, etc. - regularly and carefully, pushing students to use the proper terms throughout.) The Design Recipe is a useful tool for having students think about word problems and break them down into smaller parts (Contract, purpose statement, examples, and code). Instead of jumping into writing a function, students should first note what data types the fuction will take in and produce, and practice using their own words to describe what the function does. After this step, the Contract and Purpose Statement can be relied on to write examples for the function.}}
                    
-                  @point{@student{@bannerline{Step 2: Give Examples/Write Test Cases}
+                  @point{@student{@bannerline{Step 2: Give Examples}
                                    In Bootstrap:1 you wrote EXAMPLES for every function, to show how the function could be used with some inputs. Those examples also worked to test your function, and would give you error messages if the expected result didn’t match the result produced by the function body. Pyret has the same thing, but written differently. Here are our examples for the function @code{double}:
 @code[#:multi-line #t]{examples:
                              double(5) is 2 * 5
@@ -149,7 +148,7 @@ One notable difference between Racket and Pyret is that Pyret requires commas be
 The key words here are @italic{examples} and @italic{is}. Pyret knows that anything within the @code{examples:} and @code{end} lines are your examples, and just like in Racket, we start with the name of the function and some input(s), followed by the code we expect to get back. This time, we have the word @code{is} between them, to say:
 ...@italic{test}... is equivalent to ...@italic{result}...
 Once you’ve defined the function itself, Pyret will automatically check your examples to make sure your results match the function body. If they don’t, you’ll get an error message, just like in Bootstrap:1.}
-                          @teacher{Make sure students are writing Pyret code for the results of their tests. @code{double(5) is 10}, while technically correct, doesn’t show us the work and thought process behind the code, and makes it much harder to define the function in the next step. Writing examples is akin to "showing your work" in math class: You want to see @italic{how} students arrived at their answers, not just that they have an answer. It is also much easier to debug a function using the design recipe, because you can check each section individually for errors. Writing test cases for code is also called "unit testing," something professional programmers do all the time.}}
+                          @teacher{Make sure students are writing Pyret code for the results of their examples. @code{double(5) is 10}, while technically correct, doesn’t show us the work and thought process behind the code, and makes it much harder to define the function in the next step. Writing examples is akin to "showing your work" in math class: You want to see @italic{how} students arrived at their answers, not just that they have an answer. It is also much easier to debug a function using the design recipe, because you can check each section individually for errors. Writing examples for code is also called "unit testing," something professional programmers do all the time.}}
                   
                   @point{@student{@activity{In your workbook, write the contract and two examples for a function called @code{triple}, which takes in a number as its input and multiplies it by 3.}
                                     Now look at your two examples. What is the only thing that changes from one to the other? @activity{In your workbook, circle what is changeable, or @vocab{variable}, between your two examples.} 
@@ -187,7 +186,7 @@ Once you’ve defined the function itself, Pyret will automatically check your e
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
-      ]{@points[@point{@student{You just reviewed the first half of the entire Bootstrap:1 course in one unit, AND learned a lot of syntax for a whole new language! Throughout Bootstrap:2 you’ll use all the concepts that you learned in Bootstrap:1, as well as brand new data types, functions, and programming concepts. Of course, you’ll do it all with the help of our old friend the Design Recipe, which will help you write your own functions for your own videogame! Since this is Bootstrap:2, the games you will be able to create will be even more interactive and advanced than in Bootstrap:1. There’s a lot to learn... onward to Unit 2!}
+      ]{@points[@point{@student{You just reviewed the first half of the entire Bootstrap:1 course in one unit, and learned how to write material from Bootstrap:1 in the @vocab{syntax} of a new language! Throughout Bootstrap:2 you’ll use all the concepts that you learned in Bootstrap:1, as well as brand new data types, functions, and programming concepts. Of course, you’ll do it all with the help of our old friend the Design Recipe, which will help you write your own functions for your own videogame! Since this is Bootstrap:2, the games you will be able to create will be even more interactive and advanced than in Bootstrap:1. There’s a lot to learn... onward to Unit 2!}
                        @teacher{If time permits, have students practice solving other algebra word problems using the Fast Functions sections on pages 4 and 5 in their workbook.}}
                                   ]
          }

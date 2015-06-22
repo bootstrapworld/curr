@@ -8,7 +8,7 @@
                                        (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image})
                                        (list "Car" @code{car .model .hp .rims .color .value}))]{
 
-@unit-descr{Students, having made pre-built data structures in the last lesson (cars), will generalize their understanding by defining more data structures of their own, accessing their fields, and writing functions that produce them. 
+@unit-descr{Students, having worked with pre-made data structures in the last lesson (Cars), generalize their understanding by defining more data structures of their own, accessing their fields, and writing functions that produce them. 
 }
 }
 @unit-lessons{
