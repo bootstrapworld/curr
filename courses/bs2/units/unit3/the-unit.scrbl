@@ -44,7 +44,7 @@
                                  theme    :: String, 
                                  guests   :: Number)
                        end}
-Once the party structure is defined, you have access to new pieces of code:a function to make a party, and three @vocab{dot-accessors} to get the location, theme, and number of guests out of the party. 
+Once the party structure is defined, you have access to new pieces of code: a function to make a party, and three @vocab{dot-accessors} to get the location, theme, and number of guests out of the party. 
 @activity{@itemlist[@item{What is the @vocab{Name} of the function that creates a party?}
                                                   @item{What is the function's @vocab{Domain}? (What kinds of things are part of a party?)}
                                                   @item{What is the @vocab{Range} of this function?}
@@ -53,11 +53,11 @@ Once the party structure is defined, you have access to new pieces of code:a fun
                         @teacher{}}
                  
                  @point{@student{@activity{@itemlist[@item{Open the @editor-link[#:public-id "0B9rKDmABYlJVUUt1SUc5UnVsdm8" "Party Planner"] file. Take a look at the first four lines in the definitions area. Do they match what you have written in your workbook for the data definition of @code{Party}?} 
-                                                      @item{Now define two new party structures of your own. No matter what party you're planning, make sure that it has the right types of things in the right order.}]}
+                                                      @item{Now define two new party structures of your own. No matter what party you're planning, make sure that your party has the right inputs in the right order.}]
+                                            }
                                   }
-}
                          @teacher{As with the Car structure, repetition is key: have students identify the fields of each of their parties, and ask them lots of 
-                                  questions: How would you get the @code{theme} out of @code{Halloween}? How would you get the number of guests out of @code{JulyFourth}?}
+                                  questions: How would you get the @code{theme} out of @code{Halloween}? How would you get the number of guests out of @code{JulyFourth}?}}
                  ]
          }
 
@@ -78,11 +78,11 @@ Once the party structure is defined, you have access to new pieces of code:a fun
       
       ]{
         @points[@point{@student{In the last lesson you learned about a new data structure, called a Car. 
-                                @activity{@itemlist[@item{What is a Car? What things are described in a Car structure?}
+                                @activity{@itemlist[@item{What is a Car? What information is part of a Car structure?}
                                                      @item{What function creates a Car?}
                                                      @item{How do you get the model out of a Car? The value? The color?}]}
-                                But we don't just want to take a car and give it right back. We're running an autobody shop! We'll take people's cars and change 
-                                them, making them better in some way, and then return them to the customer. Let's figure out how to do that.}
+                                As part of running an autobody shop, we'll take people's cars and change 
+                                them, making them better in some way, then return them to the customer. Let's figure out how to write functions to help us do that.}
                         @teacher{}}
                  
                  @point{@student{@activity{Turn to @worksheet-link[#:page 13 #:name "paint-job"] in your workbooks. Write a function called @code{paint-job},
@@ -100,9 +100,8 @@ Once the party structure is defined, you have access to new pieces of code:a fun
                                   produce it. By starting with a "fresh" car, students are forced to think about every single field in order. Thinking about what exactly
                                   makes up a car and going back to the contract for @code{car} gives them lots of practice with the car struct and dot-accessors.}}
                  
-                 @point{@student{The moment you write @code{car}, you know that you'll need to give it five things: the model, hp, rims, color, and value of that car. 
-                                 We already know what model this car should be: the same as the given car! But what if you didn't know exactly what string to use. 
-                                 How could you access JUST the model of @code{car1} and use it in your @code{car} function?
+                 @point{@student{The moment you write @code{Car} in the function's Range, you know that you'll need to call the @code{car} constructor and give it five things: the model, hp, rims, color, and value of that car. 
+                                 We already know what model this car should be: the same as the given car! So how could you access JUST the model of @code{car1} and use it in your @code{car} function?
                        
     @code[#:multi-line #t]{examples:
                                paint-job(car1, "purple") is car(car1.model,
@@ -124,11 +123,10 @@ Once the party structure is defined, you have access to new pieces of code:a fun
                                                             car1.value)
                        end}}
                          @teacher{Remind students that the arguments to each function in Pyret @italic{must} be separated by commas. This wasn't necessary in Racket, but they 
-                                                                                               will receive error messages if they don't use them in Pyret code.}}
+                                                                                               will receive error messages if they don't use commas correctly in Pyret code.}}
                  
-                 @point{@student{@activity{Write one more example for the function @code{paint-job}, this time using it to paint @code{car2} green. 
-                                          @itemlist[@item{Circle and label what changes between the two examples. How many variables will this function need?}
-                                                     @item{Write the definition, using your examples to help you.}]}
+                 @point{@student{@activity{@itemlist[@item{Write one more example for the function @code{paint-job}, this time using it to paint @code{car2} green.}] 
+                      Next, circle and label what changes between the two examples. How many variables will this function need? Then write the definition, using your examples to help you.}
                         
 After replacing the changing things with variables, your definition should look similar to: 
 @code[#:multi-line #t]{fun paint-job(car, color):
