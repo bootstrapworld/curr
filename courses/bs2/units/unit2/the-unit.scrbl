@@ -53,7 +53,7 @@
                                                        @item{What is the @vocab{Range} of this function?}
                                                        @item{What does it do? Write a @vocab{Purpose Statement} describing what the function does in plain English.}]}
                                  @code[#:multi-line #t]{
-# double-radius : Number, String -> Image
+# double-radius : Number String -> Image
 # Makes an outlined circle that has twice the given radius.}}
                          @teacher{Review the purpose of Contracts: once we know the Name, Domain, and Range of a function, it's easy to write examples using those datatypes.}}
            
@@ -66,8 +66,8 @@
                                                              could you look to find out what this function does?}
                                                        @item{Write two examples on your paper, then circle and label what is changing between them. When labeling,
                                                              think about what the changing things represent.}
-                                                       @item{Don't forget to include the lines @code{examples:} and @code{end}!}]}
-                                  Your examples should look similar to:
+                                                       ]}
+Don't forget to include the lines @code{examples:} and @code{end}! Your examples should look similar to:
                                   @code[#:multi-line #t]{examples:
                                                              double-radius(50, "pink") is circle(50 * 2, "outline", "pink")
                                                              double-radius(918, "orange") is circle(918 * 2, "outline", "orange")
@@ -80,7 +80,7 @@
                                 Once you know what is changing between our two examples, you can define the function easily. The things that were circled and labeled in
                                 the examples will be replaced with @vocab{variables} in the function definition. 
                                 @activity{Underneath your examples, copy everything that @bold{doesn't} change, and replace the changing things with the variable 
-                                          names you used. (Don't forget to add the @code{fun} and @code{end} keywords!)}  
+                                          names you used. (Don't forget to add the @code{fun} and @code{end} keywords, as well as the colon (:) after the function header!)}  
            @code[#:multi-line #t]{
 # double-radius: Number, String -> Image
 # Makes an outlined circle that's twice the radius.
