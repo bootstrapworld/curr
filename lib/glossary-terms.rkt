@@ -40,6 +40,7 @@
     ("purpose statement" "a brief description of what a function does")
     ("range" "the type of data that a function produces")
     ("string" "any sequence of characters between quotation marks (examples: \"hello\", \"42\", \"this is a string!\")")
+    ("syntax" "The set of rules that defines a language, whether it be spoken, written, or programmed.")
     ("type" "refers to a general kind of data, like Number, String, Image, or Boolean")
     ("unit test" "an example showing the use of a function with a specific value or values, and the answer it should produce")
     ("value" "a specific piece of data, like 5 or \"hello\"")
