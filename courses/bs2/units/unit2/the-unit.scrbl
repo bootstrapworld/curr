@@ -123,14 +123,15 @@ end}
                     
                     @point{@student{Functions can only return one thing at a time, but we need to return both an x @bold{and} a y-coordinate in order to make the jumper move diagonally. Thankfully, Pyret has a way to combine multiple things within one container, called a @vocab{Data Structure}.
                            @activity{Scroll up to where you see the line of code that says @code{data Coord:}.}
-                           This is a special block of code that defines the data structure we'll be using, called coord. It contains just two numbers: an x and a y-coordinate. We'll go into more detail about how this line of code works later in the lesson. For now, the important thing this code tells you is how to @italic{make} a Coord, using a function called @code{coord}. @code{# coord : Number Number -> Coord}}
-                            @teacher{Point out the difference in capitalization: @code{Coord} (capital C) is the name of the data structure, while @code{coord} (lowercase c) is the name of the function that creates a Coord. Make sure students understand the difference.}}
+                           This is a special block of code that defines the data structure we'll be using, called coord. It contains just two numbers: an x and a y-coordinate. We'll go into more detail about how this line of code works later in the lesson. For now, the important thing this code tells you is how to @italic{make} a Coord, using a function called @code{coord}. 
+@code[#:multi-line #t]{# coord : Number Number -> Coord}}
+                            @teacher{Point out the difference in capitalization: @code{Coord} (capital C) is the name of the data structure, while @code{coord} (lowercase c) is the name of the function that creates a Coord. Make sure students understand the difference, because this is a required distinction between the structure name (capitalized) and constructor function (always lowercase).}}
                     
                     @point{@student{Now it's up to us to protect the parachute jumper, and make sure he lands safely on the shore. @activity{Turn to @worksheet-link[#:page 10 #:name "fall"] in your workbook, read the word problem, and fill in the Contract and Purpose Statement for the function @code{fall}.}
     @code[#:multi-line #t]{# fall : Number Number -> Coord
                            # Given 2 numbers, make a Coord by adding 5 to x and subtracting 5 from y}
     
-    Now for our two examples. Using @code{fall} with two numbers is easy, but what happens to those numbers? We can't return both at the same time... unless we use a data structure! @activity{@itemlist[@item{According to the definition for @code{Coord}, what function makes a Coord?}
+    Now for our two examples. Using @code{fall} with two numbers is easy, but what happens to those numbers? We can't return both at the same time... unless we use a data structure! To do so we'll need to use the constructor function to make a structure from data we already have. @activity{@itemlist[@item{According to the definition for @code{Coord}, what function makes a Coord?}
                     @item{@code{coord(.....)}}
                     @item{What two things are part of a Coord? Do we have values for those things as part of our first example?}
                     @item{We don't want our Coord to contain the same x and y values we gave the @code{fall} function. How will the values change? (Remember to show your work!)}
@@ -150,9 +151,9 @@ end}
                     
                     @point{@student{In Bootstrap:1, you could only have a function return one thing: either a number, string, image, or boolean. In Bootstrap:2, our functions will still return one thing, but that thing can be a @vocab{Data Structure}, (or "struct" for short) containing any number of things within it. This way we could return both the x and y-coordinate of a player using a Coord, or create new structs and return even more detail about a player, like their health, position, amount of armor, or inventory.}
                             @teacher{In Bootstrap:1, students' games were made by keeping track of only a few numbers: the x-positions of the danger and target, and y-position 
-                                     of the payer. In Bootstrap:2, students' games will be much more complex, and will require many more values to move characters, test conditions, 
-                                     keep track of the score, etc. Data structures simplify code by organizing many different values: You couldn't represent every part of a player 
-                                     (position, health, inventory, etc.) with one number or string, but you can represent all these things with a @vocab{data structure}.}}
+                                     of the player. In Bootstrap:2, students' games will be much more complex, and will require many more values to move characters, test conditions, 
+                                     keep track of the score, etc. Data structures simplify code by organizing multiple values: You couldn't represent every part of a player 
+                                     (position, health, inventory, etc.) with one number or string, but you can refer to all these things collectively with a @vocab{data structure}. This way, we can have one value (a data structure) containing multiple other values for easy access.}}
                     ]
            }
 
@@ -176,15 +177,14 @@ end}
           @points[
                    @point{@student{Suppose you want to open up an autobody shop. You take people's cars and trick them out, giving them paint jobs, turbo-charging their engines, etc. 
                                    What type of thing is a car? Is it a number? String? Image? Boolean? You couldn't describe all of the important things 
-                                   about a car with any one of those data types. However, we could say that we care about a couple of things in our shop that can be
-                                   described with these types.
+                                   about a car with any one of those data types. However, we could say that we care about a couple of details about each car, each of which can be described with the types we already know.
                                    @activity{For each of the following aspects of a car, think about what datatype you might use to represent it:
                                              @itemlist[@item{The model of the car. That could be "Prius", "Mustang", "XTerra", or something else.}
-                                                        @item{How much horsepower the car has.}
-                                                        @item{How large the rims are.}
-                                                        @item{What color the car is.}
-                                                        @item{The value, or price of the car.}
-                                                        @item{What datatype could we use to represent the entire car?}]}
+                                                        @item{The amount of horsepower in the car}
+                                                        @item{The size of the rims}
+                                                        @item{The color of the car}
+                                                        @item{The value, or price of the car.}]
+                                              What datatype could we use to represent the entire car?}
                                    @bitmap{images/car3.png}                                                   
                                    Let's represent the different parts of a car like so:
                                    @itemlist[@item{@code{model}: @bold{String}}
@@ -192,10 +192,10 @@ end}
                                               @item{@code{rims}: @bold{Number}} 
                                               @item{@code{color}: @bold{String}}
                                               @item{@code{value}: @bold{Number}}]
-                                   These are the only things that you're going to keep track of in a car, but you can imagine how you might extend it to include other things.}
+                                   These are the only things that you're going to keep track of in a car, but you can imagine how you might extend it to include other information.}
                            @teacher{Copy the fields of a Car structure and its types onto the board.}}
                     
-                    @point{@student{Now that you know everything that is part of a car, you can use a structure to represent the car itself. Let's take a look at how this works.
+                    @point{@student{Now that you know everything that is part of a car, you can use a data structure (or just 'structure' for short) to represent the car itself. Let's take a look at how this works. In the following activity, you'll see various examples of Cars, and practice working with them. We'll discuss how to actually define the Car structure (and your own structures) later on.
                             @activity{Open the @editor-link[#:public-id "0B9rKDmABYlJVSlI4VEZLLUI4UkU" "Autobody shop"] file and read the line @code{car1 = car("M5", 480, 28, "black", 50000)}
                                                @itemlist[@item{What is the name of this variable?}
                                                           @item{What is the model of @code{car1}?}
@@ -210,8 +210,8 @@ end}
 
                     @point{@student{@activity{Define another car, called @code{car4}. To start,
                                                                          @itemlist[@item{how would you define this variable?}
-                                                                                    @item{What function is used to make an car?}
-                                                                                    @item{Which thing comes first in an Car struct?}] 
+                                                                                    @item{What function is used to make a car?}
+                                                                                    @item{Which thing comes first in a Car struct?}] 
                                               Now what do you expect to happen when you type @code{car4} into the interactions area? Click 'Run' and try it out.}
                                               @code{car4 = car("Taurus", 300, 20, "white", 5000)}}
                             @teacher{Have students walk you through the process of defining a variable called @code{car4} and making a car with whatever model, hp, rims, etc. they like.}}
@@ -291,8 +291,7 @@ end}
                  
                  @point{@student{The previous syntax is known as @vocab{Dot-Accessors}. They allow you to specify what part of a structure you want. If we want to know if we can afford a certain car, we probably only care whether the value is less than
                                  a certain amount. Likewise, if we want to know whether or not a character in our game has died, we only need to know if his health is less than 0: 
-                                 we might not care what his location is, or the color of his armor. Programmers use accessors a lot, in order to make large 
-                                 pieces of data (like structures) more manageable.}
+                                 we might not care what his location is, or the color of his armor. Programmers use accessors a lot, because they often need to know only one piece of information from a complex data structure.}
                          @teacher{}}]
          }
 @lesson/studteach[#:title "Defining Data"
@@ -314,7 +313,11 @@ end}
         @points[@point{@student{@activity{Look at lines 3 - 5 of the @editor-link[#:public-id "0B9rKDmABYlJVSlI4VEZLLUI4UkU" "Autobody shop"] file.
                                 @code[#:multi-line #t]{data Car:
                                                          # a car is a model, hp, rims, color and value.
-                                                         | car(model :: String, hp :: Number, rims :: Number, color :: String, value :: Number)
+                                                         | car(model :: String, 
+                                                                  hp :: Number, 
+                                                                  rims :: Number, 
+                                                                  color :: String, 
+                                                                  value :: Number)
                                                        end}}
 This is the code that defines the Car data structure. It tells the computer what a car is and what goes into it. It also defines its constructor function, called @code{car}. To make a Car, you must call the constructor function with five things: a @code{model}, which is a String, @code{hp}, a Number, @code{rims}, another Number, @code{color}, a String, and @code{value}, which is a Number. Remember that order matters!}
                         @teacher{Stress the importance of being able to define your own datatypes
@@ -353,9 +356,7 @@ This is the code that defines the Car data structure. It tells the computer what
                                 different enemies, each with their own position and health, or multiple levels with their own background image, the game can get 
                                 very complicated very fast, and structures are a great way to manage and make sense of all the data. Programmers can do a LOT with data
                                 structures, and in the upcoming lessons you will create your own structures to make a customized videogame.}
-           @teacher{@itemlist[@item{Have students volunteer what they learned in this lesson}
-                                          @item{Reward behaviors that you value: teamwork, note-taking, engagement, etc}
-                                          @item{Pass out exit slips, dismiss, clean up.}]}}
+           @teacher{Have students volunteer what they learned in this lesson!}}
   
            
  ]}
