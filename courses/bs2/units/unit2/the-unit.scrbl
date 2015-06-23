@@ -48,10 +48,11 @@
                                                    is twice as big as the input.}}
                         @teacher{If walking through this example as a class, use a projector so kids can see the function being written on the computer: }}
                  @point{@student{Remember how to use the design recipe to work through word problems? @bannerline{Step 1: Contract and Purpose Statement}
-                                 @activity{ @itemlist[@item{What is the @vocab{Name} of this function?}
-                                                       @item{What is the @vocab{Domain} of this function?}
+                                 @activity{ @itemlist[@item{What is the @vocab{Name} of this function? How do you know?}
+                                                       @item{How many inputs does it have in its @vocab{Domain}?}
+                                                       @item{What kind of data is the @vocab{Domain}?}
                                                        @item{What is the @vocab{Range} of this function?}
-                                                       @item{What does it do? Write a @vocab{Purpose Statement} describing what the function does in plain English.}]}
+                                                       @item{What does this function do? Write a @vocab{Purpose Statement} describing what the function does in plain English.}]}
                                  @code[#:multi-line #t]{
 # double-radius : Number String -> Image
 # Makes an outlined circle that has twice the given radius.}}
@@ -121,17 +122,16 @@ end}
                                     @activity{How should the jumper's x-coordinate change if he moves diagonally to the right (toward the land)? How should his y-coordinate change?}}
                            @teacher{}}
                     
-                    @point{@student{Functions can only return one thing at a time, but we need to return both an x @bold{and} a y-coordinate in order to make the jumper move diagonally. Thankfully, Pyret has a way to combine multiple things within one container, called a @vocab{Data Structure}.
-                           @activity{Scroll up to where you see the line of code that says @code{data Coord:}.}
-                           This is a special block of code that defines the data structure we'll be using, called coord. It contains just two numbers: an x and a y-coordinate. We'll go into more detail about how this line of code works later in the lesson. For now, the important thing this code tells you is how to @italic{make} a Coord, using a function called @code{coord}. 
+                    @point{@student{Functions can only return one thing at a time, but we need to return both an x @bold{and} a y-coordinate in order to make the jumper move diagonally. Thankfully, we have a way to combine multiple things within one container, called a @vocab{Data Structure}.
+                           @activity{For this activity we'll be working with a data structure called a Coord, which contains just two Numbers, representing an x and a y-coordinate. You make Coords using a function called @code{coord}.} 
 @code[#:multi-line #t]{# coord : Number Number -> Coord}}
-                            @teacher{Point out the difference in capitalization: @code{Coord} (capital C) is the name of the data structure, while @code{coord} (lowercase c) is the name of the function that creates a Coord. Make sure students understand the difference, because this is a required distinction between the structure name (capitalized) and constructor function (always lowercase).}}
+                            @teacher{Point out the difference in capitalization: Coord (capital C) is the name of the data structure, while @code{coord} (lowercase c) is the name of the function that creates a Coord. Make sure students understand the difference, because this is a required distinction between the structure name (capitalized) and constructor function (always lowercase).}}
                     
                     @point{@student{Now it's up to us to protect the parachute jumper, and make sure he lands safely on the shore. @activity{Turn to @worksheet-link[#:page 10 #:name "fall"] in your workbook, read the word problem, and fill in the Contract and Purpose Statement for the function @code{fall}.}
     @code[#:multi-line #t]{# fall : Number Number -> Coord
                            # Given 2 numbers, make a Coord by adding 5 to x and subtracting 5 from y}
     
-    Now for our two examples. Using @code{fall} with two numbers is easy, but what happens to those numbers? We can't return both at the same time... unless we use a data structure! To do so we'll need to use the constructor function to make a structure from data we already have. @activity{@itemlist[@item{According to the definition for @code{Coord}, what function makes a Coord?}
+    Now for our two examples. Using, or @vocab{calling} @code{fall} with two numbers is easy, but what happens to those numbers? We can't return both at the same time... unless we use a data structure! To do so we'll need to use the constructor function to make a structure from data we already have. @activity{@itemlist[@item{According to the definition for @code{Coord}, what function makes a Coord?}
                     @item{@code{coord(.....)}}
                     @item{What two things are part of a Coord? Do we have values for those things as part of our first example?}
                     @item{We don't want our Coord to contain the same x and y values we gave the @code{fall} function. How will the values change? (Remember to show your work!)}
@@ -163,7 +163,7 @@ end}
         #:learning-objectives @itemlist[@item{}]
         #:evidence-statements @itemlist[@item{}]
         #:product-outcomes @itemlist[@item{Students make use of a complex data structure: @code{Car}}
-                                     @item{Students define variables bound to cars}]
+                                     @item{Students define variables bound to Cars}]
         #:standards (list )
         #:materials @itemlist[@item{}]
         #:preparation @itemlist[@item{The @editor-link[#:public-id "0B9rKDmABYlJVSlI4VEZLLUI4UkU" "Autobody shop"] file preloaded on students' machines}]
@@ -175,7 +175,7 @@ end}
                 )
       ]{
           @points[
-                   @point{@student{Suppose you want to open up an autobody shop. You take people's cars and trick them out, giving them paint jobs, turbo-charging their engines, etc. 
+                   @point{@student{Suppose you want to open up an autobody shop. You take people's cars and upgrade them, giving them paint jobs, turbo-charging their engines, etc. 
                                    What type of thing is a car? Is it a number? String? Image? Boolean? You couldn't describe all of the important things 
                                    about a car with any one of those data types. However, we could say that we care about a couple of details about each car, each of which can be described with the types we already know.
                                    @activity{For each of the following aspects of a car, think about what datatype you might use to represent it:
@@ -183,7 +183,7 @@ end}
                                                         @item{The amount of horsepower in the car}
                                                         @item{The size of the rims}
                                                         @item{The color of the car}
-                                                        @item{The value, or price of the car.}]
+                                                        @item{The price of the car.}]
                                               What datatype could we use to represent the entire car?}
                                    @bitmap{images/car3.png}                                                   
                                    Let's represent the different parts of a car like so:
@@ -191,54 +191,54 @@ end}
                                               @item{@code{horsepower}: @bold{Number}}
                                               @item{@code{rims}: @bold{Number}} 
                                               @item{@code{color}: @bold{String}}
-                                              @item{@code{value}: @bold{Number}}]
+                                              @item{@code{price}: @bold{Number}}]
                                    These are the only things that you're going to keep track of in a car, but you can imagine how you might extend it to include other information.}
                            @teacher{Copy the fields of a Car structure and its types onto the board.}}
                     
-                    @point{@student{Now that you know everything that is part of a car, you can use a data structure (or just 'structure' for short) to represent the car itself. Let's take a look at how this works. In the following activity, you'll see various examples of Cars, and practice working with them. We'll discuss how to actually define the Car structure (and your own structures) later on.
+                    @point{@student{Now that you know everything that is part of a car, you can use a data structure (or just 'structure' for short) to represent the Car itself. Let's take a look at how this works. In the following activity, you'll see various examples of Cars, and practice working with them. We'll discuss how to actually define the Car structure (and your own structures) later on.
                             @activity{Open the @editor-link[#:public-id "0B9rKDmABYlJVSlI4VEZLLUI4UkU" "Autobody shop"] file and read the line @code{car1 = car("M5", 480, 28, "black", 50000)}
                                                @itemlist[@item{What is the name of this variable?}
                                                           @item{What is the model of @code{car1}?}
                                                           @item{What is the horsepower of @code{car1}?}
                                                           @item{What is the rim size of @code{car1}?}
                                                           @item{What is the color of @code{car1}?}
-                                                          @item{Finally, what is the value of @code{car1}?}]}
-                            As you can see here, it's really easy to make this Car struct! We have a bit of code at the top of the file which tells the computer the order of its fields, and we'll talk about that shortly. For now, let's practice defining some new cars.}
-                            @teacher{The first code block in this file tells the computer that a @code{Car} is a new data structure, and the names of its fields. 
-                                     Below there are three cars defined and assigned to the variables @code{car1}, @code{car2}, and @code{car3}. Ask students 
-                                     questions about these cars to get them thinking about how they would define their own.}}
+                                                          @item{Finally, what is the price of @code{car1}?}]}
+                            Later in this lesson, we'll talk about the bit of code which defines the Car data structure and the order of its fields, but for now let's practice defining some new Cars!}
+                            @teacher{The first code block in this file tells the computer that a Car is a new data structure, and the names of its fields. 
+                                     Below there are three Cars defined and assigned to the variables @code{car1}, @code{car2}, and @code{car3}. Ask students 
+                                     questions about these Cars to get them thinking about how they would define their own.}}
 
-                    @point{@student{@activity{Define another car, called @code{car4}. To start,
+                    @point{@student{@activity{Define another Car, called @code{car4}. To start,
                                                                          @itemlist[@item{how would you define this variable?}
-                                                                                    @item{What function is used to make a car?}
+                                                                                    @item{What function is used to make a Car?}
                                                                                     @item{Which thing comes first in a Car struct?}] 
                                               Now what do you expect to happen when you type @code{car4} into the interactions area? Click 'Run' and try it out.}
                                               @code{car4 = car("Taurus", 300, 20, "white", 5000)}}
-                            @teacher{Have students walk you through the process of defining a variable called @code{car4} and making a car with whatever model, hp, rims, etc. they like.}}
-                 @point{@student{@activity{Define two new variables for each of your favorite cars. Call one [yourname]-car (@code{nathan-car}, @code{sam-car}, @code{jill-car}, etc),
-                                           or whatever name you prefer. You can make any kind of cars that you want, as long as your structure has the right types in the right orders!}}
-                         @teacher{Repetition is key in this lesson. Have students identify each part of the Car struct for every car they've defined.
-                                  What is the model of their first car? Its value? Ensure that students are using their inputs in the right order!}}
+                            @teacher{Have students walk you through the process of defining a variable called @code{car4} and making a Car with whatever model, hp, rims, etc. they like.}}
+                 @point{@student{@activity{Define two new variables for each of your favorite Cars. Call one [yourname]-car (@code{nathan-car}, @code{sam-car}, @code{jill-car}, etc),
+                                           or whatever name you prefer. You can make any kind of Cars that you want, as long as your structure has the right types in the right orders!}}
+                         @teacher{Repetition is key in this lesson. Have students identify each part of the Car struct for every Car they've defined.
+                                  What is the model of their first Car? Its price? Ensure that students are using their inputs in the right order!}}
                     
-                    @point{@student{When you defined these new cars, you used a new function: @code{car}!
-                                    @activity{@itemlist[@item{What is the name of this function?}
-                                                        @item{How about the domain?}
+                    @point{@student{Based on these examples of Cars you just wrote:
+                                    @activity{@itemlist[@item{What is the name of the function that creates a Car?}
+                                                        @item{What is the Domain of this function?}
                                                         @item{How many things are in the domain?}]} The five things in the domain of @code{car} are, in fact, the five 
                                                               things that we have already listed! So in our workbook, we know to write:
 @code[#:multi-line #t]{
 # car : String Number Number String Number -> ___________________}}
                             @teacher{Remember to have students copy the contract into their workbooks, and write the contracts yourself on the board.}}
                     
-                    @point{@student{With data structures, the order is very important: we always want the first string in @code{car} to be the car's model, the first number 
+                    @point{@student{With data structures, the order is very important: we always want the first string in @code{car} to be the Car's model, the first number 
                                     to be its horsepower, etc. 
                                     @code[#:multi-line #t]{
 # car : String Number Number String Number -> ___________________
-# Model, hp, rims, color, value}
+# Model, hp, rims, color, price}
                                     @activity{Underneath the contract, write what each part of @code{car}'s domain represents.}}
                             @teacher{}}
                     
                     @point{@student{We know the name and domain, but what's the range? If I give @code{car} a String representing the model of a Car, a number for the hp, 
-                                    another number for the rim size, a string for the color, AND a number for the value, what should I get back? A Car! But Pyret doesn't have a 
+                                    another number for the rim size, a string for the color, AND a number for the price, what should I get back? A Car! But Pyret doesn't have a 
                                     datatype for a Car. We'll have to use a structure.}
                          @teacher{Cars are the first example of defining a new datatype that students will see, but Pyret allows you to define any number of new data structures to hold
                                   any combination of values. The important points to remember about structures is that whenever the constructor function is called (in this case, @code{car}), it must take in the same 
@@ -247,14 +247,14 @@ end}
               
                  @point{@student{@activity{After clicking the "Run" button, in Pyret, type @code{car1} into the interactions area and hit enter. What do you get back?}
                                   Does this make sense? What happens when you type just a number into the interactions area? We get that same number back! What about Strings? Images? 
-                                  Booleans? If we don't do anything to our input, or use any function on it, we get back exactly what we put in! Here, you put in a car, and got back that car!}
+                                  Booleans? If we don't do anything to our input, or use any function on it, we get back exactly what we put in! Here, you put in a Car, and got back that Car!}
                          @teacher{Remind students that values will always evaluate to themselves. 4 evaluates to 4, the string @code{"pizza"} evaluates to @code{"pizza"}, and @code{car1} evaluates
                                   to @code{car("M5", 480, 28, "black", 50000)}}}
                 
-                  @point{@student{You can see what your cars look like by using the function provided at the bottom of the screen. It's called @code{draw-car}, and it takes a car as input and 
-                                  gives you back an Image with your car in it.
-                                  @activity{In the interactions window, type @code{draw-car(car1)} and see what happens. Use the function with the cars YOU defined!} @bitmap{images/car1.png}}
-                         @teacher{Students will spend lots of time "drawing" their cars. Encourage them to define some new cars, and to alter the color, rim size, value, etc. to see their changes 
+                  @point{@student{You can see what your Cars look like by calling the function provided at the bottom of the screen. It's called @code{draw-car}, and it takes a Car as input and 
+                                  gives you back an Image with your Car in it.
+                                  @activity{In the interactions window, type @code{draw-car(car1)} and see what happens. Use the function with the Cars YOU defined!} @bitmap{images/car1.png}}
+                         @teacher{Students will spend lots of time "drawing" their Cars. Encourage them to define some new Cars, and to alter the color, rim size, price, etc. to see their changes 
                                   reflected in the images. Don't forget to remind them to click "Run" after making any changes!}}
                   ]
            }
@@ -266,7 +266,7 @@ end}
                   #:overview ""
                   #:learning-objectives @itemlist[]
                   #:evidence-statements @itemlist[]
-                  #:product-outcomes @itemlist[@item{Students write code that extracts each field from those cars}]
+                  #:product-outcomes @itemlist[@item{Students write code that extracts each field from those Cars}]
                   #:standards (list)
                   #:materials @itemlist[]
                   #:preparation @itemlist[]
@@ -283,13 +283,13 @@ end}
                                                       @itemlist[@item{What kind of thing did it return: A number, string, image, or struct?}
                                                                  @item{Practice taking the model out of EVERY Car you have defined, using @code{.model}}]}
                     
-                                Of course, there are ways to access any part of a car, not just the model! What do you think you would get if you typed @code{car1.hp} in the interactions area? 
-                                @activity{Try using the dot-accessors @code{.hp}, @code{.rims}, @code{.color} and @code{.value} on your cars! Do they do what you expect?}}
-                 @teacher{A way to prompt students to use these accessors is to ask: "How do you get the horsepower out of a car?" or "How do you get the color out of a car?"
+                                Of course, there are ways to access any part of a Car, not just the model! What do you think you would get if you typed @code{car1.hp} in the interactions area? 
+                                @activity{Try using the dot-accessors @code{.hp}, @code{.rims}, @code{.color} and @code{.price} on your Cars! Do they do what you expect?}}
+                 @teacher{A way to prompt students to use these accessors is to ask: "How do you get the horsepower out of a Car?" or "How do you get the color out of a Car?"
                           Throughout the course you can set up a call and response system with students, where the question "How do you get the X out of a Y?" 
                           will prompt the name of the accessor.}}
                  
-                 @point{@student{The previous syntax is known as @vocab{Dot-Accessors}. They allow you to specify what part of a structure you want. If we want to know if we can afford a certain car, we probably only care whether the value is less than
+                 @point{@student{The previous syntax is known as @vocab{Dot-Accessors}. They allow you to specify what part of a structure you want. If we want to know if we can afford a certain Car, we probably only care whether the price is less than
                                  a certain amount. Likewise, if we want to know whether or not a character in our game has died, we only need to know if his health is less than 0: 
                                  we might not care what his location is, or the color of his armor. Programmers use accessors a lot, because they often need to know only one piece of information from a complex data structure.}
                          @teacher{}}]
@@ -312,27 +312,30 @@ end}
       ]{
         @points[@point{@student{@activity{Look at lines 3 - 5 of the @editor-link[#:public-id "0B9rKDmABYlJVSlI4VEZLLUI4UkU" "Autobody shop"] file.
                                 @code[#:multi-line #t]{data Car:
-                                                         # a car is a model, hp, rims, color and value.
+                                                         # a car is a model, hp, rims, color and price.
                                                          | car(model :: String, 
                                                                   hp :: Number, 
                                                                   rims :: Number, 
                                                                   color :: String, 
-                                                                  value :: Number)
+                                                                  price :: Number)
                                                        end}}
-This is the code that defines the Car data structure. It tells the computer what a car is and what goes into it. It also defines its constructor function, called @code{car}. To make a Car, you must call the constructor function with five things: a @code{model}, which is a String, @code{hp}, a Number, @code{rims}, another Number, @code{color}, a String, and @code{value}, which is a Number. Remember that order matters!}
+This is the code that defines the Car data structure. It tells the computer what a Car is and what goes into it. It also defines its constructor function, called @code{car}. To make a Car, you must call the constructor function with five things: a @code{model}, which is a String, @code{hp}, a Number, @code{rims}, another Number, @code{color}, a String, and @code{price}, which is a Number. Remember that order matters!}
                         @teacher{Stress the importance of being able to define your own datatypes
-                                 to students: no longer are they bound by the single values of numbers, strings, or booleans! Pyret allows you to define brand new structures, containing 
+                                 to students: no longer are they bound by the single values of numbers, strings, or booleans! Pyret allows you to define brand new @vocab{Data Structures}, containing 
                                  any combination of values.}}
                  
             @point{@student{Our structure is defined using @code{data Car} and the @code{car(...)} line, which tells the computer what things make up that structure, and what order and type each 
                                                           thing is. In return, we get new functions to use. Until we write these two lines, we don't have 
-                                                          @code{car(...)} (to make a car), @code{.model} (to get the model out of the car), @code{.hp}, or any of 
+                                                          @code{car(...)} (to make a Car), @code{.model} (to get the model out of the Car), @code{.hp}, or any of 
                                                           the other dot-accessors, because Pyret doesn't know what a Car is- @italic{we haven't defined it}.
             @activity{To see this for yourself, type a pound sign (#) before the line which begins with @code{car(...)}. This comments it out, so that the computer ignores it. Hit run, and see what 
                                                                                          happens. Then turn to @worksheet-link[#:page 14 #:name "data structures"] in your workbook, and copy 
                                                                                          down the @code{car(...)} line.}}
-                    @teacher{When the @code{car(...)} line is commented out, Pyret returns some errors, saying you're trying to use @italic{car} before its definition. It doesn't know what @code{car} is or does, because we defined a Car structure with no constructor. Make sure students understand that the line beginning with
+                    @teacher{When the @code{car(...)} line is commented out, Pyret returns some errors, saying you're trying to use @code{car} before its definition. It doesn't know what @code{car} is or does, because we defined a Car structure with no constructor. Make sure students understand that the line beginning with
                                       @code{data} and a line similar to @code{car(...)} are needed in order to create and work with any structure.}}
+                    
+                    @point{@student{At this point, you've worked with two different @vocab{Data Structures}: Coords and Cars, and you've created many examples, or @vocab{instances}, of these structures. Throughout this course you'll create many more instances of structures than you will define whole new structures. For now, the important point is to recognize the difference between a structure @italic{definition} (the @code{data....} piece of code) and specific @vocab{instances} of a data structure (like @code{car1}, or @code{coord(44, 75)}.}
+                            @teacher{}}
             ]
          }
 
@@ -351,7 +354,7 @@ This is the code that defines the Car data structure. It tells the computer what
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Structures are a powerful tool for representing complex data in a computer program. Simple videogames, like Pong, might only need to
+        @points[@point{@student{@vocab{Data Structures} are a powerful tool for representing complex data in a computer program. Simple videogames, like Pong, might only need to
                                 keep track of a few numbers at once, like the position of the ball, position of each paddle and the score. But if a game has many 
                                 different enemies, each with their own position and health, or multiple levels with their own background image, the game can get 
                                 very complicated very fast, and structures are a great way to manage and make sense of all the data. Programmers can do a LOT with data

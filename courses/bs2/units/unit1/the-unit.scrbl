@@ -168,7 +168,7 @@ Once you’ve defined the function itself, Pyret will automatically check your e
                                @item{Write a function @code{mystery}, that takes in a number and subtracts 4}
                                @item{Write a function @code{red-spot}, that takes in a number and draws a solid red circle, using the number as the radius}]}
             }
-          @teacher{}
+          @teacher{Have a student act out one of the functions they've defined. They will take on the name and behavior of that function (@code{plus1}, @code{red-spot}, etc.) and can be used by the class. Remind the class that in order to use the function they must @vocab{call} it by name with some input(s).}
           }]}
                                                
 @lesson/studteach[
