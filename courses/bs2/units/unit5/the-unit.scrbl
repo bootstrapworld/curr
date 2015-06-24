@@ -56,7 +56,7 @@
                          @teacher{}}
                  
                  @point{@student{So now you have your world, and you know what's in it: but what do those things look like? You'll have to add some images.
-                                 We'll use the @code{image-url} function. It takes in the URL of any image online(given as a string), and returns that
+                                 We'll use the @code{image-url} function. It takes in the URL of any image online (given as a string), and returns that
                                  image. @code{# image-url : String -> Image}
                                  @activity{@itemlist[@item{Look back at @worksheet-link[#:page 17 #:name "Game Design"] in your workbook. How many things 
                                                            in your game will need their own image?}

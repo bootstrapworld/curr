@@ -31,8 +31,8 @@
         @points[@point{@student{In the last lesson you saw how @vocab{piecewise functions} work in Bootstrap:2, 
                                 and learned about @code{ask} blocks, the Pyret syntax for writing them. 
                                 To review, let's go through the Design Recipe for a pieewise function. 
-@activity{@itemlist[@item{Turn to @worksheet-link[#:page 30 #:name "Red-Shape"] in your workbooks.}
-                    @item{With your partner, fill out the Design Recipe for the @code{red-shape} function.}]}}
+@activity{@itemlist[@item{Turn to @worksheet-link[#:page 32 #:name "Strong-Password"] in your workbooks.}
+                    @item{With your partner, fill out the Design Recipe for the @code{strong-password} function.}]}}
                         @teacher{Remind students that each @code{ask} statement must have a test and a result, 
                                  and each function must contain an @code{otherwise:} statement, which will 
                                  execute if every other test returns false.}}
@@ -69,7 +69,7 @@
                         }
                  @point{@student{Just as in Bootstrap:1, we need to write a function that checks whether the danger has gone off the right side 
                                 of the screen. First, let's review a few things:
-                                @activity{@itemlist[@item{@code{true} and @code{false} are examples of what @vocab{datatype}?}
+                                @activity{@itemlist[@item{@code{true} and @code{false} are examples of what @vocab{Data Type}?}
                                                      @item{What function takes two numbers and checks if the first number is 
                                                            @italic{greater than} the second?}
                                                      @item{What function checks if a number is @italic{less than} another?}
@@ -237,7 +237,7 @@ end}}
                                                            @code{is-off-right(w.dogX)} to ask if the dog was off the right side of the screen. On the right, figure out 
                                                            which world you need to make, if your question returns @code{true}.}]}}
                         @teacher{Some examples of game states students may want to test for: 
-                                 @itemlist[@item{Gravity: the payer constantly moves down, until her y-coordinate is 50, placing her at the bottom of 
+                                 @itemlist[@item{Gravity: the player constantly moves down, until her y-coordinate is 50, placing her at the bottom of 
                                                  the screen. (This coordinate will probably be adjusted based on the size of the @code{PLAYER} image.)}
           @item{The player shoots a projectile and destroys the alien/shark/bad guy: An element of the world cannot be taken @italic{out} of the world 
                 struct, but its locaton can be changed so that it no longer appears on the screen. If the @code{DANGER} has been set to a certain 

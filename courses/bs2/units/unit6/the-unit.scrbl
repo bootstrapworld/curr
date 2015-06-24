@@ -29,7 +29,8 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Think about the person playing your videogame. How will they control the game? What key will make your player move up? Down? What else can they do? Move side-to-side? Jump? Teleport? Shoot a projectile?
+        @points[@point{@student{Think about the person playing your videogame. How will they control the game? What key will make your player move up? Down? What else can they do? Move side-to-side? Jump? Teleport? In Bootstrap:1, your target and danger could only move left and right, and without structures your player could only move up and down. Now that @italic{you} write and control your own game World structure, you can make any game element update in nearly any way in response to any key. Structures have opened up whole new worlds (pun intended!) in Bootstrap:2!
+                                
                                                      @activity{Turn to @worksheet-link[#:page 24 #:name "Lesson 6"] in your workbooks.
                                                                    Write down the various keys that the user can hit to control the game. 
                                                                    For each one, write down the field in your world struct that changes, 
@@ -205,7 +206,8 @@ For reference and to check your work, you can see the completed Design Recipe fo
                  warps back up to the top of the screen if it moves below the bottom.}
           @item{@bold{Challenge:} Have a character hide when the @code{"h"} key is pressed, only to re-appear when it is pressed again.}]
 }
-                         @teacher{Hint for the challenge: multiply by -1!}}
+                         @teacher{Hint for the challenge: multiply by -1!
+                                  For optional practice with piecewise functions, have students complete the Design Recipe for @code{red-shape} on @worksheet-link[#:page 30 #:name "Red-shape"].}}
                  ]
          }       
 @lesson/studteach[#:title "Closing"
