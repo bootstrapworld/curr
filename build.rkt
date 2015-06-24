@@ -185,19 +185,6 @@
                         (build-path (get-units-dir) subdir "box.gif")
                         #t)
              (run-scribble scribble-file #:outfile "index" #:never-generate-pdf? (= phase 0))
-             #|
-             REMOVE ONCE ES FINISHES CSS MERGE
- 
-             ;; KATHI inserted next line to use Ellen's custom scribble.css file for units.
-             ;; Having our own scribble.css is fragile, as the default file comes from Racket and
-             ;;   may change with future releases.  
-             ;; Note: copying to distribution dir as that is the target of the scribble
-             ;;   command in the previous line
-             (copy-file (build-path "lib" "css-files-units" "scribble.css")
-                        (build-path (current-deployment-dir) "courses" (current-course)
-                                    "units" subdir "scribble.css")
-                        #t)
-|#
              ]
             [else
              (printf "Could not find a \"the-unit.scrbl\" in directory ~a\n"
@@ -243,17 +230,6 @@
 
   (printf "build.rkt: building ~a main\n" (current-course))
   (run-scribble (get-course-main) #:outfile "index")
-  #|
-  REMOVE ONCE ES MERGES CSS FILES
-  
-  ;; copy overview-specific CSS files into main directory
-  ;; edit this if ever merge the different css files between units and overview
-  (for ([cssfile (directory-list (build-path "lib" "css-files-overview"))])
-    (copy-file cssfile
-               (build-path (current-deployment-dir) "courses" (current-course)
-                           (last (explode-path cssfile)))
-               #t))
-|#
   )
 
 
@@ -395,6 +371,10 @@
         (copy-file (build-path "lib" "box.gif")
                    (build-path (current-deployment-dir) "courses"
                                (current-course) "units" subdir "box.gif")
+                   #t)
+        (copy-file (build-path "lib" "backlogo.png")
+                   (build-path (current-deployment-dir) "courses"
+                               (current-course) "units" subdir "backlogo.png")
                    #t))))
 
 
@@ -424,15 +404,6 @@
                           (delete-file oldsols))
                         (printf "Copying teachers workbook solutions into distribution~n")
                         (copy-file workbooksols oldsols))))
-                  #|
-                  REMOVE ONCE ES MERGES CSS FILES
-
-                  ;; copy in the unit-oriented CSS files
-                  (for ([cssfile (directory-list (build-path "lib" "css-files-units"))])
-                    (copy-file cssfile
-                               (build-path deploy-teachers-dir (last (explode-path cssfile)))
-                               #t))
-|#
                   )
                 ]
                [else
