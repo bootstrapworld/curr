@@ -203,6 +203,7 @@ div.ExtraExercises, div.segment{
   border-right: solid 1px gray;
   font-size: 14px;
 }
+div#exercises{background: url('../../backlogo.png')no-repeat center center;}
 
 .remediation, .misconception, .challenge{
   width:          12px;
