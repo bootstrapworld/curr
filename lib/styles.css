@@ -35,14 +35,15 @@ div#top {
     top: 0px;
     text-align: left;
     z-index: 10;
-    height: 175px;
+    height: 150px;
     background: #fff;
 }
 
 div#top img#logo {
     height: 150px;
     margin: 0px 35px 0px 0px;
-    padding: 20px 0;
+    padding: 10px 0;
+    float: left;
 }
 
 .facebook-icon,
@@ -59,27 +60,29 @@ div#top img#logo {
     margin-left: 10px;
     padding: 5px;
     background-repeat: no-repeat;
+    background-color: #B6D990;
+
 }
 
 .facebook-icon {
-    background-image: url('images/facebook.png');
+    background-image: url('/images/facebook.png');
 }
 
 .twitter-icon {
-    background-image: url('images/twitter.png');
+    background-image: url('/images/twitter.png');
 }
 
 .google-icon {
-    background-image: url('images/google.png');
+    background-image: url('/images/google.png');
 }
 
 .email-icon {
-    background-image: url('images/email.png');
+    background-image: url('/images/email.png');
     margin-right: 20px;
 }
 
 .plus-sign {
-    background-image: url('images/plus-sign.png');
+    background-image: url('/images/plus-sign.png');
     background-repeat: no-repeat;
     height: 60px;
     width: 60px;
