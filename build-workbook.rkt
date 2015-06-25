@@ -187,7 +187,7 @@
 
 
 ; for now, only bs1 is set up for auto-building
-(define bootstrap-courses '("bs1")) ; "bs2"))
+(define bootstrap-courses '("bs1" "bs2"))
 
 ; use this to tell scribble to use the workbook.css file
 (putenv "BOOTSTRAP-TARGET" "workbook")
@@ -201,7 +201,21 @@
               [("--solutions") "Generate workbook with solutions"
                                (solutions-mode-on)])
 
+; is there a workbook to build?
+(define (workbook-to-build?)
+  (let ([contentlistfile (build-path (kf-get-workbook-dir) "contentlist.rkt")]) 
+    (printf "checking ~a~n" contentlistfile)
+    (and (file-exists? contentlistfile)
+         (cons? (with-input-from-file contentlistfile read)))))
+
 (printf "Building workbook (solutions-mode is ~a) ~n" (solutions-mode?))
 (for ([course (in-list bootstrap-courses)])
   (parameterize ([current-course course])
-    (build-workbook)))
+    (if (workbook-to-build?)
+        (build-workbook)
+        ; else need to setup file named workbook.pdf in order for distribution build to work
+        ; assuming that master file is called StudentWorkbook.pdf
+        (unless (file-exists? (build-path (kf-get-workbook-dir) "workbook.pdf"))
+          (copy-file (build-path (kf-get-workbook-dir) "StudentWorkbook.pdf")
+                     (build-path (kf-get-workbook-dir) "workbook.pdf")
+                     #t)))))
