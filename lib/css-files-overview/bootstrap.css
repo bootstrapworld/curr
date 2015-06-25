@@ -1,0 +1,55 @@
+/******************************************************************************
+  These CSS definitions both override and extend the ones provided by
+   Scribble. 
+   ****************************************************************************/
+
+pre, p, .SIntrapara {padding: 0; margin: 0;}
+blockquote {margin: 5px;}
+
+/* First, let us hide the table of contents from the default Scribble output: */
+.tocset {
+    display: none;
+}
+
+/* And have the main column take up a wider section of the page: */
+.maincolumn {
+    width: 100%;
+    margin-left: 5px;
+}
+
+.SIntrapara ul {
+	list-style: none;
+	margin-left: -40px;
+}
+
+.SIntrapara, li>p{ margin: 10px 0;}
+
+/******************************************************************************
+  Bootstrap Units have titles, overviews, agendas and to-do items, and 
+  are made up of Lesson slices
+   ****************************************************************************/
+
+table td{
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.BSCourseName {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    font-family: sans-serif;
+	margin-bottom: 10px;
+	display: inline-block;
+}
+
+
+/******************************************************************************
+  Copyright at the end of the file
+   ****************************************************************************/
+.BootstrapCopyright{
+
+}
+.BootstrapCopyright img{
+	 float:right;
+}

@@ -48,6 +48,7 @@
          summary-item/links
          summary-item/custom
          summary-item/unit-link
+         summary-item/no-link
          matching-exercise
          matching-exercise-answers
          completion-exercise
@@ -78,7 +79,8 @@
          login-link
          resource-link
          video-link
-         [rename-out [worksheet-link/src-path worksheet-link]]         
+         [rename-out [worksheet-link/src-path worksheet-link]] 
+         lulu-button
                 
          ;; lesson formatting 
          lesson
@@ -113,6 +115,9 @@
          length-of-lesson
          bootstrap-title
          augment-head
+         
+         ;; styles directly referenced in files
+         bs-coursename-style
                   
          )        
 
@@ -129,7 +134,8 @@
     (and env (string=? env "on")))) 
 
 ;;;;;;;;;;;;;;;; Site Images ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(define bootstrap.gif (bitmap "bootstrap.gif"))
+;(define bootstrap.gif (bitmap "bootstrap.gif"))
+(define bootstrap.logo (bitmap "logo-icon.png"))
 (define creativeCommonsLogo (bitmap "creativeCommonsLogo.png"))
 
 ;;;;;;;;;;;;;;;; Styles ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -710,13 +716,19 @@
         (printf "WARNING: no unit-descr for ~a~n" unit-name)
         "")))
 
+;; summary-item/no-link : string -> block
+;; produces an item for the unit summary with a title but no links
+(define (summary-item/no-link name . descr)
+  (para #:style "BSUnitSummary"
+        (elem #:style "BSUnitTitle" name)
+        descr))
+
 ;; summary-item/unit-link string string content -> block
 ;; generates summary entry in which unit name links to html version of lesson
 ;;   (contrast to summary-item/links, which links to both html and pdf versions)
 (define (summary-item/unit-link name basefilename . descr)
   (para #:style "BSUnitSummary"
         (elem #:style "BSUnitTitle" (elem (hyperlink (format "~a.html" basefilename) name)))
-        ": "
         descr))
 
 ;; summary-item/links : string string content -> block
@@ -1206,6 +1218,18 @@
                    (path->string the-relative-path)
                    (if label label lesson-name))]))))
 
+; generates HTML for a link to the Lulu direct-buy button, using Lulu image icon
+(define (lulu-button) 
+  (cond-element
+   [html
+    (sxml->element
+     `(div (@ (style "float: right"))
+           (a (@ (href "http://www.lulu.com/commerce/index.php?fBuyContent=14790241"))
+              (img (@ (border "0") 
+                      (alt "Support independent publishing: Buy this book on Lulu.")
+                      (src "http://static.lulu.com/images/services/buy_now_buttons/en/book.gif?20140805085029"))))))]
+   [(or latex pdf) (elem)]))
+
 ;;;;;;;;;;;; Page titles ;;;;;;;;;;;;;;;;;;;;;
 
 ;; generates the title, which includes the bootstrap logo in html but not in latex/pdf
@@ -1213,7 +1237,7 @@
   (define the-title (apply string-append body))
   (define unit+title (if single-line #f (regexp-match #px"^([^:]+):\\s*(.+)$" the-title))) 
   (define bootstrap-image (cond-element 
-                           [html bootstrap.gif]
+                           [html bootstrap.logo]
                            [(or latex pdf) (elem)]))
   (interleave-parbreaks/all
    (cond 

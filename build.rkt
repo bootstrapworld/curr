@@ -90,7 +90,10 @@
                  [current-document-output-path output-path])
     (render (list (dynamic-require `(file ,(path->string name)) 'doc))
             (if outfile (list outfile) (list name))
-	    #:dest-dir output-dir)
+	    #:dest-dir output-dir
+            ;; Comment out next line to use default scribble.css file
+            #:style-file (build-path root-path "lib" "css-files-units" "scribble.css")
+            )
     (when (and (not never-generate-pdf?) (current-generate-pdf?))
       (translate-html-to-pdf
        (build-path output-dir
@@ -181,7 +184,8 @@
              (copy-file (build-path "lib" "box.gif") 
                         (build-path (get-units-dir) subdir "box.gif")
                         #t)
-             (run-scribble scribble-file #:outfile "index" #:never-generate-pdf? (= phase 0))]
+             (run-scribble scribble-file #:outfile "index" #:never-generate-pdf? (= phase 0))
+             ]
             [else
              (printf "Could not find a \"the-unit.scrbl\" in directory ~a\n"
                      (build-path (get-units-dir) subdir))])))
@@ -225,7 +229,11 @@
               )))))
 
   (printf "build.rkt: building ~a main\n" (current-course))
-  (run-scribble (get-course-main) #:outfile "index"))
+  (run-scribble (get-course-main) #:outfile "index")
+  (rename-file-or-directory (build-path (current-deployment-dir) "courses" (current-course) "index.html")
+                            (build-path (current-deployment-dir) "courses" (current-course) "index.shtml")
+                            #t)
+  )
 
 
 ;; Building the lessons
@@ -366,6 +374,10 @@
         (copy-file (build-path "lib" "box.gif")
                    (build-path (current-deployment-dir) "courses"
                                (current-course) "units" subdir "box.gif")
+                   #t)
+        (copy-file (build-path "lib" "backlogo.png")
+                   (build-path (current-deployment-dir) "courses"
+                               (current-course) "units" subdir "backlogo.png")
                    #t))))
 
 

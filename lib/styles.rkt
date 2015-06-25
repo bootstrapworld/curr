@@ -27,6 +27,7 @@
 	 bs-title-style
 	 bs-content-style
 	 audience-in?
+         bs-coursename-style
 )
 
 ;;;;;;;;;;;;;;;;; Runtime Params ;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -49,9 +50,11 @@
 (define-runtime-path bootstraplesson.js "bootstraplesson.js")
 (define-runtime-path extra_curriculum.css "extra_curriculum.css")
 (define-runtime-path workbook.css "workbook.css")
+(define-runtime-path overview-styles.css "styles.css")
 
 (define css-js-additions
   (list (make-tex-addition bootstrap-pdf.tex)
+        (make-css-addition bootstrap.css)
         (make-css-addition pretty-printing.css)
         (make-css-addition codemirror.css)
         (make-js-addition codemirror.js)
@@ -64,6 +67,10 @@
               [else (make-css-style-addition textbook.css)])
         (make-css-style-addition extra_curriculum.css)
         )) 
+
+(define overview-pages-css-js-additions
+  (list (make-css-style-addition overview-styles.css)
+        ))
 
 ;;;;;;;;;;;;;;;; Defining Styles ;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -147,5 +154,7 @@
 
 (define bs-title-style (bootstrap-style "BootstrapTitle"))
 (define bs-content-style (bootstrap-div-style "content"))
+
+(define bs-coursename-style (make-style "BSCourseName" overview-pages-css-js-additions))
 
 
