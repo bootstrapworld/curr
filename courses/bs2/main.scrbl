@@ -25,7 +25,7 @@ Of course, there's more to a curriculum than software and lesson plans! We also 
 
 
 @itemlist[
-  @item{@(hyperlink "resources/teachers/" "Teacher-Only Resources" ) -
+  @item{@(hyperlink "resources/teachers/index.shtml" "Teacher-Only Resources" ) -
 We also offer several teachers-only materials, including an answer key
 to the student workbook, a quick-start guide to making the final
 project, and pre- and post-tests for teachers who are paticipating in
@@ -35,7 +35,7 @@ request form"). We’ll get back to you soon with the necessary login
 information.}
 
 
-  @item{@(hyperlink "www.bootstrapworld.org/materials/Standards.shtml" "Standards
+  @item{@(hyperlink "http://www.bootstrapworld.org/materials/Standards.shtml" "Standards
 Alignment") - Find out how Bootstrap aligns with Common Core Standards
 for Mathematics, as well as the standards for Mathematical Practice. }
 
