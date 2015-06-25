@@ -230,6 +230,9 @@
 
   (printf "build.rkt: building ~a main\n" (current-course))
   (run-scribble (get-course-main) #:outfile "index")
+  (rename-file-or-directory (build-path (current-deployment-dir) "courses" (current-course) "index.html")
+                            (build-path (current-deployment-dir) "courses" (current-course) "index.shtml")
+                            #t)
   )
 
 
