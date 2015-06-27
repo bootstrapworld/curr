@@ -216,7 +216,7 @@
     (cond-element 
      [html (if multi-line 
                (elem (list (sxml->element 'nbsp) (sxml->element `(textarea (@ (class ,lang)) ,(string-append "\n" allcode "\n")))))
-               (sxml->element `(tt ,allcode)))]               
+               (sxml->element `(tt (@ (class ,lang)) ,allcode)))]               
      [else allcode])))
 
 ;;; tailoring to pyret vs racket
