@@ -268,8 +268,12 @@ li.lessonItem li{
 .embedded-wescheme .editbox{display: none;}
 .embedded-wescheme .refreshButton {background: black; color: white; font-size: 16px; border: outset;}
 
-/* make sure inline code is never broken across lines */
-.editbox{white-space: nowrap;}
+/* make sure inline code is never broken across lines,
+   and overwrite the pretty printing rule that adds a 
+   horizontal margin, since this will be used inline with
+   text in our textbook.
+ */
+.editbox{white-space: nowrap; margin: 0px;}
 
 .management{margin-bottom: 10px; color: darkblue;}
 div.activity{
