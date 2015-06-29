@@ -96,7 +96,7 @@
                                     is @bold{true}. In the case of this function, if the string representing the key pressed (@code{key}) is equal 
                                     to the string "up" (@code{string-equal(key, "up")}), @italic{then} the function will return a world which is the 
                                     same as the input world, but with the cat's y-coordinate (@code{w.catY}) increased by 10 pixels.}
-                        @teacher{@code{strings-equal} is exactly the same as @code{string=?} in Racket. Have students copy the contract for this function
+                        @teacher{@code{string-equal} is exactly the same as @code{string=?} in Racket. Have students copy the contract for this function
                                   into their contracts page.}}
                  @point{@student{After adding a line to make Ninja Cat move down, your @code{keypress} function should look something like this:
 @code[#:multi-line #t]{# keypress : World, String -> World
