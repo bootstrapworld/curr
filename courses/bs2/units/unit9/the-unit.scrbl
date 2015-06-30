@@ -53,7 +53,7 @@
         #:product-outcomes @itemlist[@item{Students will use the random function to make their game characters 
                                            appear at different loations on the screen}]
         #:standards (list)
-        #:materials @itemlist[@item{The @editor-link[#:public-id "0B9rKDmABYlJVSkZ4dHVhbWROLW8" "Ninja World 6"] file preloaded on students' machines}]
+        #:materials @itemlist[@item{The @editor-link[#:public-id "0B9rKDmABYlJVUzBXcUFPUFhUOHM" "Ninja World 6"] file preloaded on students' machines}]
         #:preparation @itemlist[@item{}]
         #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -61,7 +61,7 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{If you open up the @editor-link[#:public-id "0B9rKDmABYlJVSkZ4dHVhbWROLW8" "Ninja World 6"]
+        @points[@point{@student{If you open up the @editor-link[#:public-id "0B9rKDmABYlJVUzBXcUFPUFhUOHM" "Ninja World 6"]
                                 file, you'll see the (almost) completed game. However, right now the coin and
                                 dog appear at the same part of the screen every time, making this a really 
                                 easy game. 
@@ -76,10 +76,10 @@
                                 @activity{Copy the contract for @code{num-random} onto your contracts page. @code{num-random: Number -> Number}}}
                         @teacher{}}
                  @point{@student{If you want the y-coordinate of the dog to change, you'll have to add it to the
-                                 world structure.
+                                 World structure.
                                  @activity{Go back to the top of the page where the World is defined and add in 
                                            a @code{dogY}. Don't forget to redefine your START and NEXT worlds, 
-                                           to account for the extra item in the world struct.}
+                                           to account for the extra item in the World struct.}
            @code[#:multi-line #t]{data World:
                                     # The World is the x and y positions of the dog, x position of the coin, and the x and y position of the cat
                                     | world(dogX :: Number, dogY :: Number, coinX :: Number, catX :: Number, catY :: Number)
@@ -111,7 +111,7 @@
                                                             y-coordinate is added to the world, as a random number 
                                                             between 0 and 480.}]}
 
-                                 Be sure to go through your code carefully- since you changed the world structure to 
+                                 Be sure to go through your code carefully- since you changed the World structure to 
                                  include a @code{dogY}, you'll need to make sure it's included every time you call 
                                  @code{world}, @bold{and} every time a function takes in the y-coordinate of 
                                  the dog. Once the dog is reappearing randomly when it leaves the screen, you can 
@@ -155,18 +155,18 @@
                                  game (and more!) themselves.}}
                  
                  @point{@student{The score is something that will be changing in the game, so you can be 
-                                 sure that it has to be added to the world structure.
+                                 sure that it has to be added to the World structure.
                                  @activity{@itemlist[@item{What data type is the score? Number, String, 
                                                            Image, or Boolean?}
                                                       @item{What will be the score in the @code{START} world?}
-                                                      @item{Change the world structure so it includes a 
+                                                      @item{Change the World structure so it includes a 
                                                             @code{score}.}]}
 @code[#:multi-line #t]{data World:
                          # The World is the x and y positions of the dog, x position of the coin,
                          # x and y position of the cat, and the player's score
                          | world(dogX :: Number, dogY :: Number, coinX :: Number, catX :: Number, catY :: Number, score :: Number)
                        end}
-                                 Remember: Since the world structure is changing, you now have to go through 
+                                 Remember: Since the World structure is changing, you now have to go through 
                                  your game code- @italic{every time} you make a world, the score must be included in 
                                  that world. @activity{How do you get the @code{score} out of the world?}}
                          @teacher{}}
@@ -321,7 +321,7 @@
                                    | world(c1 :: Character, c2 :: Character, c3 :: Character, score :: Number)
                                  end}
                                 @activity{Why is it important to use variable names (@code{c1}, @code{c2}, 
-                                          and @code{c3}) instead of just defining the world struct to include 
+                                          and @code{c3}) instead of just defining the World struct to include 
                                           specific characters (@code{DOG}, @code{CAT}, @code{COIN})?}
                                 Variables are used in structs for the same reason variables are used in functions: 
                                 we want to be able to change the value of those characters later. When 
