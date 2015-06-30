@@ -247,7 +247,8 @@
            (run-scribble scribble-file #:never-generate-pdf? #t)]
           [else
            (printf "Could not find a \"lesson.scrbl\" in directory ~a\n"
-                   (build-path lessons-dir subdir))]))
+                   (build-path lessons-dir subdir))])
+    )
   )
 
 ;; Building exercise handouts
@@ -258,7 +259,11 @@
       (for ([worksheet (directory-list (build-path lessons-dir subdir "exercises"))]
             #:when (regexp-match #px".scrbl$" worksheet))
         (printf "build.rkt: building exercise handout ~a: ~a\n" subdir worksheet)
-        (run-scribble (build-path lessons-dir subdir "exercises" worksheet))))))
+        (run-scribble (build-path lessons-dir subdir "exercises" worksheet))
+        (copy-file (build-path "lib" "backlogo.png")
+                   (build-path (current-deployment-dir) "lessons" subdir "exercises" "backlogo.png")
+                   #t)
+        ))))
 
 ;; Building exercise handout solutions
 ;;  need putenv rather than parameter to communicate with form-elements.rkt -- not sure why
