@@ -4,6 +4,14 @@
 		<link rel="stylesheet" type="text/css" href="/styles.css"/>
     <style>
       .links{float: right;}
+      div#teacherVideos div{
+        float:left;
+        padding:20px;
+        text-align: center;
+        width: 220px;
+        height: 220px;
+      }
+    div#teacherVideos b{height: 44px; display: block;}
     </style>
 	</head>
 	<body>
@@ -35,11 +43,11 @@
               </ul>
  	    </div>
               
-            <div class="item">
+            <div class="item" id="teacherVideos">
               <h1>Videos for Teachers</h1>
               <h2>Developed in partnership with <a href="http://www.Code.org">Code.org</a></h2>
-              <div style="float:left; padding:20px; text-align: center; width: 220px;">
-                  Modeling and Coordinates
+              <div>
+                  <b>Modeling and Coordinates</b>
                   <iframe allowfullscreen="" frameborder="0" style="height: 98px; width: 175px; display: inline-block;" src="https://www.youtubeeducation.com/embed/KSt_3ovWfjk?iv_load_policy=3&amp;rel=0&amp;autohide=1&amp;showinfo=0"></iframe>
                   <p>
                   <a href="https://www.dropbox.com/s/wl4fb15ihjwkr2d/Math-1-Modeling_Coordinates_06162014.mp4">
@@ -48,8 +56,8 @@
                   </p>
                 </div>
                 
-                <div style="float:left; padding:20px; text-align: center; width: 220px;">
-                  Order of Operations
+                <div>
+                  <b>Order of Operations</b>
                   <iframe allowfullscreen="" frameborder="0" style="height: 98px; width: 175px; display: inline-block;" src="https://www.youtubeeducation.com/embed/AMFaPKHp3Mg?iv_load_policy=3&amp;rel=0&amp;autohide=1&amp;showinfo=0"></iframe>
                   <p>
                   <a href="https://www.dropbox.com/s/2ux7oadsyekjl6v/Math-2-Order_Of_Operation_06232014_1.mp4">
@@ -58,8 +66,8 @@
                   </p>
                 </div>
                 
-                <div style="float:left; padding:20px; text-align: center; width: 220px;">
-                  Domain and Range
+                <div>
+                  <b>Domain and Range</b>
                   <iframe allowfullscreen="" frameborder="0" style="height: 98px; width: 175px; display: inline-block;" src="https://www.youtubeeducation.com/embed/88WhYoMxrGw?iv_load_policy=3&amp;rel=0&amp;autohide=1&amp;showinfo=0"></iframe>
                   <p>
                   <a href="https://www.dropbox.com/s/zf4d2emzaf4cb9k/Math-3_Domain%20and%20Range_06112014.mp4">
@@ -68,8 +76,8 @@
                   </p>
                 </div>
                 
-                <div style="float:left; padding:20px; text-align: center; width: 220px;">
-                  Defining Values
+                <div>
+                  <b>Defining Values</b>
                   <iframe allowfullscreen="" frameborder="0" style="height: 98px; width: 175px; display: inline-block;" src="https://www.youtubeeducation.com/embed/xRUoQO1AdVs?iv_load_policy=3&amp;rel=0&amp;autohide=1&amp;showinfo=0"></iframe>
                   <p>
                   <a href="https://www.dropbox.com/s/a5wnu2m2tp7rsw5/Math-4_DefiningValues_06232014.mp4">
@@ -78,8 +86,8 @@
                   </p>
                 </div>
                 
-                <div style="float:left; padding:20px; text-align: center; width: 220px;">
-                  Introducing the Design Recipe
+                <div>
+                  <b>Introducing the Design Recipe</b>
                   <iframe allowfullscreen="" frameborder="0" style="height: 98px; width: 175px; display: inline-block;" src="https://www.youtubeeducation.com/embed/ZWdLNtPu6PQ?iv_load_policy=3&amp;rel=0&amp;autohide=1&amp;showinfo=0"></iframe>
                   <p>
                   <a href="https://www.dropbox.com/s/sknc8yn75wg7cep/Math-5_WordProblems_1_06232014_1.mp4">
@@ -88,8 +96,8 @@
                   </p>
                 </div>
                 
-                <div style="float:left; padding:20px; text-align: center; width: 220px;">
-                  Using the Design Recipe
+                <div>
+                 <b>Using the Design Recipe</b>
                   <iframe allowfullscreen="" frameborder="0" style="height: 98px; width: 175px; display: inline-block;" src="https://www.youtubeeducation.com/embed/SL2zLs2P-mU?iv_load_policy=3&amp;rel=0&amp;autohide=1&amp;showinfo=0"></iframe>
                   <p>
                   <a href="https://www.dropbox.com/s/sknc8yn75wg7cep/Math-5_WordProblems_1_06232014_1.mp4">
@@ -98,8 +106,8 @@
                   </p>
                 </div>
                 
-                <div style="float:left; padding:20px; text-align: center; width: 220px;">
-                  Boolean Logic &amp; Inequalities
+                <div>
+                  <b>Boolean Logic &amp; Inequalities</b>
                   <iframe allowfullscreen="" frameborder="0" style="height: 98px; width: 175px; display: inline-block;" src="https://www.youtubeeducation.com/embed/OMQO66wWqjk?iv_load_policy=3&amp;rel=0&amp;autohide=1&amp;showinfo=0"></iframe>
                   <p>
                   <a href="https://www.dropbox.com/s/2wpc4qc7tidj4dj/Math-7-BooleanLogic-june9.mp4">
@@ -108,8 +116,8 @@
                   </p>
                 </div>
                 
-                <div style="float:left; padding:20px; text-align: center; width: 220px;">
-                  Piecewise Functions
+                <div>
+                  <b>Piecewise Functions</b>
                   <iframe allowfullscreen="" frameborder="0" style="height: 98px; width: 175px; display: inline-block;" src="https://www.youtubeeducation.com/embed/joF6lOgCN14?iv_load_policy=3&amp;rel=0&amp;autohide=1&amp;showinfo=0"></iframe>
                   <p>
                   <a href="https://www.dropbox.com/s/6z9k1aoiclrn2y1/Math-8-Piecewise_Functions-06232014_1.mp4">
@@ -118,8 +126,8 @@
                   </p>
                 </div>
                 
-                <div style="float:left; padding:20px; text-align: center; width: 220px;">
-                  The Pythagorean Theorem
+                <div>
+                  <b>The Pythagorean Theorem</b>
                   <iframe allowfullscreen="" frameborder="0" style="height: 98px; width: 175px; display: inline-block;" src="https://www.youtubeeducation.com/embed/Bbq0oCmvSmA?iv_load_policy=3&amp;rel=0&amp;autohide=1&amp;showinfo=0"></iframe>
                   <p>
                   <a href="https://www.dropbox.com/s/wdzc8wtn9sxotm5/Math-9-Pythagorean%20Theorem_06112013.mp4">
@@ -128,8 +136,8 @@
                   </p>
                 </div>
                 
-                <div style="float:left; padding:20px; text-align: center; width: 220px;">
-                  Why is Algebra so Hard?
+                <div>
+                  <b>Why is Algebra so Hard?</b>
                   <iframe allowfullscreen="" frameborder="0" style="height: 98px; width: 175px; display: inline-block;" src="https://www.youtubeeducation.com/embed/5MbL4jxHTvY?iv_load_policy=3&amp;rel=0&amp;autohide=1&amp;showinfo=0"></iframe>
                   <p>
                   <a href="https://www.dropbox.com/s/2sh8tvt4vorkr1s/Math-10-Why%20Is_algerbra_So_Hard-06162014.mp4">
@@ -139,7 +147,7 @@
                 </div>
             </div>
             
-            <div class="item">
+            <div class="item clearfix bottom-border">
               <h1>Exercises and Solutions</h1>
               <h2>Unit 1</h2>
               <ul>
@@ -151,43 +159,85 @@
                 </li>
                 <li>Completing Circles of Evaluation from Math Expressions
                   <span class="links">
-                    [<a href="../../../../lessons/Order-of-Operations/exercises/complete-coe-from-arith.html">original</a>
-                    | <a href="solutions/complete-coe-from-arith.html">answers</a>]
+                    [<a href="../../units/unit1/exercises/Order-of-Operations/complete-coe-from-arith1.html">original</a>
+                    | <a href="solutions/complete-coe-from-arith1.html">answers</a>]
+                  <span>
+                </li>
+                <li>Completing Circles of Evaluation from Math Expressions
+                  <span class="links">
+                    [<a href="../../units/unit1/exercises/Order-of-Operations/complete-coe-from-arith2.html">original</a>
+                    | <a href="solutions/complete-coe-from-arith2.html">answers</a>]
                   <span>
                 </li>
                 <li>Creating Circles of Evaluation from Math Expressions
                   <span class="links">
-                    [<a href="../../../../lessons/Order-of-Operations/exercises/arith-to-coe1.html">original</a>
+                    [<a href="../../units/unit1/exercises/Order-of-Operations/arith-to-coe1.html">original</a>
                     | <a href="solutions/arith-to-coe1.html">answers</a>]
+                  </span>
+                </li>
+                <li>Creating Circles of Evaluation from Math Expressions
+                  <span class="links">
+                    [<a href="../../units/unit1/exercises/Order-of-Operations/arith-to-coe2.html">original</a>
+                    | <a href="solutions/arith-to-coe2.html">answers</a>]
+                  </span>
+                </li>
+                <li>Creating Circles of Evaluation from Math Expressions
+                  <span class="links">
+                    [<a href="../../units/unit1/exercises/Order-of-Operations/arith-to-coe3.html">original</a>
+                    | <a href="solutions/arith-to-coe3.html">answers</a>]
                   </span>
                 </li>
                 <li>Converting Circles of Evaluation to Math Expressions
                   <span class="links">
-                    [<a href="../../../../lessons/Order-of-Operations/exercises/coe-to-arith1.html">original</a>
+                    [<a href="../../units/unit1/exercises/Order-of-Operations/coe-to-arith1.html">original</a>
                     | <a href="solutions/coe-to-arith1.html">answers</a>]
+                  </span>
+                </li>
+                <li>Converting Circles of Evaluation to Math Expressions
+                  <span class="links">
+                    [<a href="../../units/unit1/exercises/Order-of-Operations/coe-to-arith2.html">original</a>
+                    | <a href="solutions/coe-to-arith2.html">answers</a>]
                   </span>
                 </li>
                 <li>Matching Circles of Evaluation and Math Expressions
                   <span class="links">
-                    [<a href="../../../../lessons/Order-of-Operations/exercises/match-arith-coe1.html">original</a>
+                    [<a href="../../units/unit1/exercises/Order-of-Operations/match-arith-coe1.html">original</a>
                     | <a href="solutions/match-arith-coe1.html">answers</a>]
+                  </span>
+                </li>
+                <li>Evaluating Circles of Evaluation
+                  <span class="links">
+                    [<a href="../../units/unit1/exercises/Order-of-Operations/coe-math-answer1.html">original</a>
+                    | <a href="solutions/coe-math-answer1.html">answers</a>]
+                  </span>
+                </li>
+                <li>Evaluating Circles of Evaluation
+                  <span class="links">
+                    [<a href="../../units/unit1/exercises/Order-of-Operations/coe-math-answer2.html">original</a>
+                    | <a href="solutions/coe-math-answer2.html">answers</a>]
                   </span>
                 </li>
                 <li>Completing Code from Circles of Evaluation
                   <span class="links">
-                    [<a href="../../../../lessons/Intro-to-Programming/exercises/complete-code-from-coe1.html">original</a>
+                    [<a href="../../units/unit1/exercises/Intro-to-Programming/complete-code-from-coe1.html">original</a>
                     | <a href="solutions/complete-code-from-coe1.html">answers</a>]
                   </span>
                 </li>
                 <li>Converting Circles of Evaluation to Code
                   <span class="links">
-                    [<a href="../../../../lessons/Intro-to-Programming/exercises/coe-to-code1.html">original</a>
+                    [<a href="../../units/unit1/exercises/Intro-to-Programming/coe-to-code1.html">original</a>
                     | <a href="solutions/coe-to-code1.html">answers</a>]
+                  </span>
+                </li>
+                <li>Converting Circles of Evaluation to Code
+                  <span class="links">
+                    [<a href="../../units/unit1/exercises/Intro-to-Programming/coe-to-code2.html">original</a>
+                    | <a href="solutions/coe-to-code2.html">answers</a>]
                   </span>
                 </li>
                 <li>Matching Circles of Evaluation and Code
                   <span class="links">
-                    [<a href="../../../../lessons/Intro-to-Programming/exercises/coe-code-matching1.html">original</a>
+                    [<a href="../../units/unit1/exercises/Intro-to-Programming/coe-code-matching1.html">original</a>
                     | <a href="solutions/coe-code-matching1.html">answers</a>]
                   </span>
                 </li>
@@ -202,19 +252,31 @@
                 </li>
                 <li>Converting Circles of Evaluation to Code
                   <span class="links">
-                    [<a href="../../../../lessons/Strings-and-Images/exercises/many-types-coe-to-code1.html">original</a>
+                    [<a href="../../units/unit2/exercises/Strings-and-Images/many-types-coe-to-code1.html">original</a>
                     | <a href="solutions/many-types-coe-to-code1.html">answers</a>]
+                  <span>
+                </li>
+                <li>Converting Circles of Evaluation to Code
+                  <span class="links">
+                    [<a href="../../units/unit2/exercises/Strings-and-Images/many-types-coe-to-code2.html">original</a>
+                    | <a href="solutions/many-types-coe-to-code2.html">answers</a>]
                   <span>
                 </li>
                 <li>Identifying Parts of Expressions
                   <span class="links">
-                    [<a href="../../../../lessons/Contracts/exercises/id-expr-pieces1.html">original</a>
+                    [<a href="../../units/unit2/exercises/Contracts/id-expr-pieces1.html">original</a>
                     | <a href="solutions/id-expr-pieces1.html">answers</a>]
+                  </span>
+                </li>
+                <li>Identifying Parts of Expressions
+                  <span class="links">
+                    [<a href="../../units/unit2/exercises/Contracts/id-expr-pieces2.html">original</a>
+                    | <a href="solutions/id-expr-pieces2.html">answers</a>]
                   </span>
                 </li>
                 <li>Matching Expressions and Contracts
                   <span class="links">
-                    [<a href="../../../../lessons/Contracts/exercises/match-contracts-exprs1.html">original</a>
+                    [<a href="../../units/unit2/exercises/Contracts/match-contracts-exprs1.html">original</a>
                     | <a href="solutions/match-contracts-exprs1.html">answers</a>]
                   </span>
                 </li>
@@ -229,14 +291,20 @@
                 </li>
                 <li>Matching Examples and Function Definitions
                   <span class="links">
-                    [<a href="../../../../lessons/Defining-Functions/exercises/match-examples-functions1.html">original</a>
+                    [<a href="../../units/unit3/exercises/Defining-Functions/match-examples-functions1.html">original</a>
                     | <a href="solutions/match-examples-functions1.html">answers</a>]
                   <span>
                 </li>
                 <li>Creating Contracts From Examples
                   <span class="links">
-                    [<a href="../../../../lessons/Defining-Functions/exercises/create-contracts-examples1.html">original</a>
+                    [<a href="../../units/unit3/exercises/Defining-Functions/create-contracts-examples1.html">original</a>
                     | <a href="solutions/create-contracts-examples1.html">answers</a>]
+                  </span>
+                </li>
+                <li>Creating Contracts From Examples
+                  <span class="links">
+                    [<a href="../../units/unit3/exercises/Defining-Functions/create-contracts-examples2.html">original</a>
+                    | <a href="solutions/create-contracts-examples2.html">answers</a>]
                   </span>
                 </li>
               </ul>
@@ -250,14 +318,26 @@
                 </li>
                 <li>Do Examples Have the Same Contracts?
                   <span class="links">
-                    [<a href="../../../../lessons/Practicing-the-Design-Recipe/exercises/examples-same-contracts1.html">original</a>
+                    [<a href="../../units/unit4/exercises/Practicing-the-Design-Recipe/examples-same-contracts1.html">original</a>
                     | <a href="solutions/match-examples-functions1.html">answers</a>]
+                  <span>
+                </li>
+                <li>Do Examples Have the Same Contracts?
+                  <span class="links">
+                    [<a href="../../units/unit4/exercises/Practicing-the-Design-Recipe/examples-same-contracts2.html">original</a>
+                    | <a href="solutions/match-examples-functions2.html">answers</a>]
                   <span>
                 </li>
                 <li>Matching Contracts and Examples
                   <span class="links">
-                    [<a href="../../../../lessons/Practicing-the-Design-Recipe/exercises/match-contracts-examples1.html">original</a>
+                    [<a href="../../units/unit4/exercises/Practicing-the-Design-Recipe/match-contracts-examples1.html">original</a>
                     | <a href="solutions/match-contracts-examples1.html">answers</a>]
+                  </span>
+                </li>
+                <li>Matching Contracts and Examples
+                  <span class="links">
+                    [<a href="../../units/unit4/exercises/Practicing-the-Design-Recipe/match-contracts-examples2.html">original</a>
+                    | <a href="solutions/match-contracts-examples2.html">answers</a>]
                   </span>
                 </li>
               </ul>
@@ -285,8 +365,14 @@
                   </span>
                 <li>Converting Circles of Evaluation with Booleans to Code
                   <span class="links">
-                    [<a href="../../../../lessons/AndOr/exercises/boolean-coe-to-code1.html">original</a>
-                    | <a href="solutions/match-examples-functions1.html">answers</a>]
+                    [<a href="../../units/unit6/exercises/AndOr/boolean-coe-to-code1.html">original</a>
+                    | <a href="solutions/boolean-coe-to-code1.html">answers</a>]
+                  </span>
+                </li>
+                <li>Converting Circles of Evaluation with Booleans to Code
+                  <span class="links">
+                    [<a href="../../units/unit6/exercises/AndOr/boolean-coe-to-code2.html">original</a>
+                    | <a href="solutions/boolean-coe-to-code2.html">answers</a>]
                   </span>
                 </li>
               </ul>
@@ -324,7 +410,7 @@
               <h2>Unit 9</h2>
               n/a
             </div>
-            <div class="item">
+            <div class="item clearfix">
               <h1>Source Files</h1>
               <ul>
                 <li><a target="_blank" href="http://www.wescheme.org/view?publicId=LyMwExWayT">NinjaCat</a></li>
