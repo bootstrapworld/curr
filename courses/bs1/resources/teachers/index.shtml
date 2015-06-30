@@ -147,7 +147,7 @@
                 </div>
             </div>
             
-            <div class="item clearfix bottom-border">
+            <div class="item clearfix bottom-border" style="width: 100%;">
               <h1>Exercises and Solutions</h1>
               <h2>Unit 1</h2>
               <ul>
@@ -157,43 +157,43 @@
                     | <a href="https://docs.google.com/document/d/1nVUf8se8OzQownIorbh6KJ9fU36GFF6L1Bi3ekwp9L4/edit">answers</a>]
                   </span>
                 </li>
-                <li>Completing Circles of Evaluation from Math Expressions
+                <li>Completing Circles of Evaluation from Math Expressions (1)
                   <span class="links">
                     [<a href="../../units/unit1/exercises/Order-of-Operations/complete-coe-from-arith1.html">original</a>
                     | <a href="solutions/complete-coe-from-arith1.html">answers</a>]
                   <span>
                 </li>
-                <li>Completing Circles of Evaluation from Math Expressions
+                <li>Completing Circles of Evaluation from Math Expressions (2)
                   <span class="links">
                     [<a href="../../units/unit1/exercises/Order-of-Operations/complete-coe-from-arith2.html">original</a>
                     | <a href="solutions/complete-coe-from-arith2.html">answers</a>]
                   <span>
                 </li>
-                <li>Creating Circles of Evaluation from Math Expressions
+                <li>Creating Circles of Evaluation from Math Expressions (1)
                   <span class="links">
                     [<a href="../../units/unit1/exercises/Order-of-Operations/arith-to-coe1.html">original</a>
                     | <a href="solutions/arith-to-coe1.html">answers</a>]
                   </span>
                 </li>
-                <li>Creating Circles of Evaluation from Math Expressions
+                <li>Creating Circles of Evaluation from Math Expressions (2)
                   <span class="links">
                     [<a href="../../units/unit1/exercises/Order-of-Operations/arith-to-coe2.html">original</a>
                     | <a href="solutions/arith-to-coe2.html">answers</a>]
                   </span>
                 </li>
-                <li>Creating Circles of Evaluation from Math Expressions
+                <li>Creating Circles of Evaluation from Math Expressions (3)
                   <span class="links">
                     [<a href="../../units/unit1/exercises/Order-of-Operations/arith-to-coe3.html">original</a>
                     | <a href="solutions/arith-to-coe3.html">answers</a>]
                   </span>
                 </li>
-                <li>Converting Circles of Evaluation to Math Expressions
+                <li>Converting Circles of Evaluation to Math Expressions (1)
                   <span class="links">
                     [<a href="../../units/unit1/exercises/Order-of-Operations/coe-to-arith1.html">original</a>
                     | <a href="solutions/coe-to-arith1.html">answers</a>]
                   </span>
                 </li>
-                <li>Converting Circles of Evaluation to Math Expressions
+                <li>Converting Circles of Evaluation to Math Expressions (2)
                   <span class="links">
                     [<a href="../../units/unit1/exercises/Order-of-Operations/coe-to-arith2.html">original</a>
                     | <a href="solutions/coe-to-arith2.html">answers</a>]
@@ -205,13 +205,13 @@
                     | <a href="solutions/match-arith-coe1.html">answers</a>]
                   </span>
                 </li>
-                <li>Evaluating Circles of Evaluation
+                <li>Evaluating Circles of Evaluation (1)
                   <span class="links">
                     [<a href="../../units/unit1/exercises/Order-of-Operations/coe-math-answer1.html">original</a>
                     | <a href="solutions/coe-math-answer1.html">answers</a>]
                   </span>
                 </li>
-                <li>Evaluating Circles of Evaluation
+                <li>Evaluating Circles of Evaluation (2)
                   <span class="links">
                     [<a href="../../units/unit1/exercises/Order-of-Operations/coe-math-answer2.html">original</a>
                     | <a href="solutions/coe-math-answer2.html">answers</a>]
@@ -223,13 +223,13 @@
                     | <a href="solutions/complete-code-from-coe1.html">answers</a>]
                   </span>
                 </li>
-                <li>Converting Circles of Evaluation to Code
+                <li>Converting Circles of Evaluation to Code (1)
                   <span class="links">
                     [<a href="../../units/unit1/exercises/Intro-to-Programming/coe-to-code1.html">original</a>
                     | <a href="solutions/coe-to-code1.html">answers</a>]
                   </span>
                 </li>
-                <li>Converting Circles of Evaluation to Code
+                <li>Converting Circles of Evaluation to Code (2)
                   <span class="links">
                     [<a href="../../units/unit1/exercises/Intro-to-Programming/coe-to-code2.html">original</a>
                     | <a href="solutions/coe-to-code2.html">answers</a>]
@@ -250,25 +250,25 @@
                           | <a href="https://docs.google.com/document/d/1CB7S_-w3YyWTe15yt5kHtlIZrLW-lUicPTM6oz2ge0I/edit">answers</a>]
                   </span>
                 </li>
-                <li>Converting Circles of Evaluation to Code
+                <li>Converting Circles of Evaluation to Code (1)
                   <span class="links">
                     [<a href="../../units/unit2/exercises/Strings-and-Images/many-types-coe-to-code1.html">original</a>
                     | <a href="solutions/many-types-coe-to-code1.html">answers</a>]
                   <span>
                 </li>
-                <li>Converting Circles of Evaluation to Code
+                <li>Converting Circles of Evaluation to Code (2)
                   <span class="links">
                     [<a href="../../units/unit2/exercises/Strings-and-Images/many-types-coe-to-code2.html">original</a>
                     | <a href="solutions/many-types-coe-to-code2.html">answers</a>]
                   <span>
                 </li>
-                <li>Identifying Parts of Expressions
+                <li>Identifying Parts of Expressions (1)
                   <span class="links">
                     [<a href="../../units/unit2/exercises/Contracts/id-expr-pieces1.html">original</a>
                     | <a href="solutions/id-expr-pieces1.html">answers</a>]
                   </span>
                 </li>
-                <li>Identifying Parts of Expressions
+                <li>Identifying Parts of Expressions (2)
                   <span class="links">
                     [<a href="../../units/unit2/exercises/Contracts/id-expr-pieces2.html">original</a>
                     | <a href="solutions/id-expr-pieces2.html">answers</a>]
@@ -295,13 +295,13 @@
                     | <a href="solutions/match-examples-functions1.html">answers</a>]
                   <span>
                 </li>
-                <li>Creating Contracts From Examples
+                <li>Creating Contracts From Examples (1)
                   <span class="links">
                     [<a href="../../units/unit3/exercises/Defining-Functions/create-contracts-examples1.html">original</a>
                     | <a href="solutions/create-contracts-examples1.html">answers</a>]
                   </span>
                 </li>
-                <li>Creating Contracts From Examples
+                <li>Creating Contracts From Examples (2)
                   <span class="links">
                     [<a href="../../units/unit3/exercises/Defining-Functions/create-contracts-examples2.html">original</a>
                     | <a href="solutions/create-contracts-examples2.html">answers</a>]
@@ -316,25 +316,25 @@
                           | <a href="https://docs.google.com/document/d/1LOwntowvbi6jfvMwAdrRtMJijkgqyT85NZS4BGp-z74/edit">answers</a>]
                   </span>
                 </li>
-                <li>Do Examples Have the Same Contracts?
+                <li>Do Examples Have the Same Contracts? (1)
                   <span class="links">
                     [<a href="../../units/unit4/exercises/Practicing-the-Design-Recipe/examples-same-contracts1.html">original</a>
                     | <a href="solutions/match-examples-functions1.html">answers</a>]
                   <span>
                 </li>
-                <li>Do Examples Have the Same Contracts?
+                <li>Do Examples Have the Same Contracts? (2)
                   <span class="links">
                     [<a href="../../units/unit4/exercises/Practicing-the-Design-Recipe/examples-same-contracts2.html">original</a>
                     | <a href="solutions/match-examples-functions2.html">answers</a>]
                   <span>
                 </li>
-                <li>Matching Contracts and Examples
+                <li>Matching Contracts and Examples (1)
                   <span class="links">
                     [<a href="../../units/unit4/exercises/Practicing-the-Design-Recipe/match-contracts-examples1.html">original</a>
                     | <a href="solutions/match-contracts-examples1.html">answers</a>]
                   </span>
                 </li>
-                <li>Matching Contracts and Examples
+                <li>Matching Contracts and Examples (2)
                   <span class="links">
                     [<a href="../../units/unit4/exercises/Practicing-the-Design-Recipe/match-contracts-examples2.html">original</a>
                     | <a href="solutions/match-contracts-examples2.html">answers</a>]
