@@ -369,6 +369,12 @@
           (parameterize ([current-directory sourcefiles])
             (let ([allfiles (directory-list sourcefiles)])
               (apply zip (cons sourcezip allfiles)))))
+        
+        ;; copy the background logo to the resources directory
+        (copy-file (build-path "lib" "backlogo.png")
+                   (build-path (current-deployment-dir) "courses" (current-course) "resources" "backlogo.png")
+                   #t)
+        
         )))
 
   ;; copy auxiliary files into units within distribution
