@@ -5,9 +5,9 @@
 			 #:range "image"
 			 #:purpose "Produce rectangle with given number as width and height"
                          #:num-examples 2
-			 #:example-list '((4 (rectangle 40 40 "solid" "red"))	
+			 #:example-list '((4 (rectangle 4 4 "solid" "red"))	
 					  (12 (rectangle 12 12 "solid" "red")))
-                         #:param-list (list "n")
+                         #:param-list (list "size")
                          #:show-params? #f
                          #:body '(rectangle size size "solid" "red")
                          #:show-body? #f
