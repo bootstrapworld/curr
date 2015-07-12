@@ -31,6 +31,7 @@
       function showTable(id){
         document.getElementById('practice').style.display = 'none';
         document.getElementById('content').style.display  = 'none';
+        document.getElementById('TEKS').style.display = 'none';
         document.getElementById('csta').style.display = 'none';
         document.getElementById(id).style.display = 'block';
       }
@@ -56,6 +57,7 @@
       <h1>What's Covered in 25 Hours?</h1>
       <input type="button" onclick="showTable('practice')"  value="Mathematical Practice Standards"/>
       <input type="button" onclick="showTable('content')"   value="Mathematical Content Standards"/>
+      <input type="button" onclick="showTable('TEKS')"      value="TEKS"/>
       <input type="button" onclick="showTable('csta')"      value="CSTA"/>
 
       <table width="100%" id="practice">
@@ -217,6 +219,98 @@
         <tr class="F-TF">
           <td><span>F-TF.5:</span> Model periodic phenomena with trigonometric functions</td>
           <td>Supplemental Lessons</td>
+        </tr>
+      </table>
+      
+      <table width="100%" id="TEKS">
+        <thead>
+          <tr><td>TEKS Standard</td>
+              <td>Alignment</td></tr>
+        </thead>
+        <tr>
+          <td><span>1 (B) :</span> use a problem-solving model that incorporates analyzing given information, formulating a plan or strategy, determining a solution, justifying the solution, and evaluating the problem-solving process and the reasonableness of the solution
+          </td>
+          <td>Units 3-8</td>
+        </tr>
+        <tr>
+          <td><span>1 (D) :</span> communicate mathematical ideas, reasoning, and their implications using multiple representations, including symbols, diagrams, graphs, and language as appropriate
+          </td>
+          <td>Units 3-8</td>
+        </tr>
+        <tr>
+          <td><span>1 (F) :</span> analyze mathematical relationships to connect and communicate mathematical ideas
+          </td>
+          <td>Units 3-8</td>
+        </tr>
+        <tr>
+          <td><span>1 (G) :</span> display, explain, and justify mathematical ideas and arguments using precise mathematical language in written or oral communication
+          </td>
+          <td>Units 3-8</td>
+        </tr>
+        <tr>
+          <td><span>4 (B) :</span> apply qualitative and quantitative reasoning to solve prediction and comparison of real-world problems involving ratios and rates
+          </td>
+          <td>Unit 4</td>
+        </tr>
+        <tr>
+          <td><span>6 (B) :</span> write an equation that represents the relationship between independent and dependent quantities from a table
+          </td>
+          <td>Unit 4</td>
+        </tr>
+        <tr>
+          <td><span>9 (A) :</span> write one-variable, one-step equations and inequalities to represent constraints or conditions within problems
+          </td>
+          <td>Unit 6</td>
+        </tr>
+        <tr>
+          <td><span>10 (A) :</span> model and solve one-variable, one-step equations and inequalities that represent problems, including geometric concepts
+          </td>
+          <td>Unit 6</td>
+        </tr>
+        <tr>
+          <td><span>10 (B) :</span> determine if the given value(s) make(s) one-variable, one-step equations or inequalities true
+          </td>
+          <td>Unit 6</td>
+        </tr>
+        <tr>
+          <td><span>11 :</span> Measurement and data. The student applies mathematical process standards to use coordinate geometry to identify locations on a plane. The student is expected to graph points in all four quadrants using ordered pairs of rational numbers
+          </td>
+          <td>Unit 2</td>
+        </tr>
+        <tr>
+          <td><span>7 :</span> Expressions, equations, and relationships. The student applies mathematical process standards to represent linear relationships using multiple representations. The student is expected to represent linear relationships using verbal descriptions, tables, graphs, and equations that simplify to the form <i>y = mx + b</i>
+          </td>
+          <td>Units 4-5</td>
+        </tr>
+        <tr>
+          <td><span>10 (A) :</span> write one-variable, two-step equations and inequalities to represent constraints or conditions within problems
+          </td>
+          <td>Unit 6</td>
+        </tr>
+        <tr>
+          <td><span>11 (B):</span> determine if the given value(s) make(s) one-variable, two-step equations and inequalities true
+          </td>
+          <td>Unit 2</td>
+        </tr>
+        <tr>
+          <td><span>5 (I):</span> write an equation in the form y = mx + b to model a linear relationship between two quantities using verbal, numerical, tabular, and graphical representations
+          </td>
+          <td>Units 4-5</td>
+        </tr>
+        <tr>
+          <td><span>6 (C):</span> use models and diagrams to explain the Pythagorean theorem
+          </td>
+          <td>Unit 8</td>
+        </tr>
+        <tr>
+          <td><span>7 (C):</span> use the Pythagorean Theorem and its converse to solve problems
+          </td>
+          <td>Unit 8</td>
+        </tr>
+        <tr>
+          <td><span>7 (D):</span> determine the distance between two points on a coordinate plane using the Pythagorean Theorem
+          </td>
+          <td>Unit 8</td>
         </tr>
       </table>
       
