@@ -193,7 +193,9 @@ end}}
     | otherwise:  
       world(w.dogX + 10, w.coinX - 5, w.catX, w.catY)
   end
-end}}
+end}
+
+}
                          @teacher{This can be an opportunity to discuss abstraction and the usefulness of reusing code with your
                                   students. The @code{ask} tests in @code{update-world} could be written as: 
                                   @code{w.dogX > 640}, or @code{w.coinX < 0}, but this is more work than 
@@ -232,7 +234,7 @@ end}}
                                                            fly off the left side of the screen? The right? The top or bottom? Do you need to 
                                                            write an @code{off-top} function or @code{off-bottom}? Maybe something happens when the player 
                                                            achieves a high score, or the player's health reaches 0.}
-                                                     @item{In the lefthand column of @worksheet-link[#:page 34 #:name "Test and Result"],
+                                                     @item{In the lefthand column of @worksheet-link[#:page 35 #:name "Test and Result"],
                                                            make a list of the questions (in Pyret!) you will need to @code{ask} the world. For example, with the dog we said
                                                            @code{is-off-right(w.dogX)} to ask if the dog was off the right side of the screen. On the right, figure out 
                                                            which world you need to make, if your question returns @code{true}.}]}}
@@ -267,7 +269,7 @@ end}}
         @points[@point{@student{Look at the @code{ask} branches for Ninja World's @code{update-world} function. Notice that for each branch, we need a test and a result. 
                                This is exactly what you've written in your workbook for your game. All you need to do now is reformat @italic{your} @code{update-world} 
                                function so that it uses @code{ask}, with your current code inside the @code{otherwise} clause.
-                                            @activity{Adapt @code{update-world} so it becomes a @vocab{piecewise function}, and complete at least one thing on your list.}}
+                                            @activity{Adapt @code{update-world} so it becomes a @vocab{piecewise function}, and complete at least one thing on your list from @worksheet-link[#:page 35 #:name "Test and Result"].}}
                         @teacher{Work in pairs or small groups to assist students with their own @code{update-world} 
                                  functions.}}
                  ]

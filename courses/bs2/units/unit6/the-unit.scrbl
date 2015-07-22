@@ -22,7 +22,7 @@
                             @item{Student workbooks}
                             @item{Language Table}]
      #:preparation @itemlist[@item{Seating arrangements: ideally clusters of desks/tables}
-                             @item{The @editor-link[#:public-id "0B9rKDmABYlJVUkpSOS1yVEJpaWc" "Ninja World 3"] file projected onto the board}]
+                             @item{The @editor-link[#:public-id "0B9rKDmABYlJVaV9FRlpZcER0WDg" "Ninja World 3"] file projected onto the board}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -40,7 +40,7 @@
                  @point{@student{So far, we've been working with three main functions to make our game and animate our world: @code{update-world}, 
                                 @code{draw-world}, and @code{big-bang}. At this point, your game might use a few more functions than these, but 
                                 Ninja World has been pretty basic so far, and it's not interactive. Time to change that!
-                                @activity{@itemlist[@item{Open the @editor-link[#:public-id "0B9rKDmABYlJVUkpSOS1yVEJpaWc" "Ninja World 3"]
+                                @activity{@itemlist[@item{Open the @editor-link[#:public-id "0B9rKDmABYlJVaV9FRlpZcER0WDg" "Ninja World 3"]
                                                          file and press "Run".}
                                                      @item{With your mouse, highlight the data definition for our world structure.} 
                                                      @item{What's new in this definition, compared to what we saw before? What do you think they represent?}
