@@ -330,12 +330,12 @@
         <tr>
             <td><span>7.10A:</span> Expressions, equations, and relationships. The student applies mathematical process standards to use one-variable equations and inequalities to represent situations. The student is expected to write one-variable, two-step equations and inequalities to represent constraints or conditions within problems.
             </td>
-            <td>Units 6,8</td>
+            <td>Units 6, 8</td>
         </tr>
         <tr>
             <td><span>7.11B:</span> Expressions, equations, and relationships. The student applies mathematical process standards to solve one-variable equations and inequalities. The student is expected to determine if the given value(s) make(s) one-variable, two-step equations and inequalities true.
             </td>
-            <td>Units 6,8</td>
+            <td>Units 6, 8</td>
         </tr>
         <tr>
             <td><span>8.3A:</span> Proportionality. The student applies mathematical process standards to use proportional relationships to describe dilations. The student is expected to generalize that the ratio of corresponding sides of similar shapes are proportional, including a shape and its dilation.
@@ -367,8 +367,47 @@
             </td>
             <td>Unit 8</td>
         </tr>
-        
-      </table>
+        <tr>
+            <td><span>A.2A:</span> Linear functions, equations, and inequalities. The student applies the mathematical process standards when using properties of linear functions to write and represent in multiple ways, with and without technology, linear equations, inequalities, and systems of equations. The student is expected to determine the domain and range of a linear function in mathematical problems; determine reasonable domain and range values for real-world situations, both continuous and discrete; and represent domain and range using inequalities.
+            </td>
+            <td>Units 4-8</td>
+        </tr>
+        <tr>
+            <td><span>A.6A:</span> Quadratic functions and equations. The student applies the mathematical process standards when using properties of quadratic functions to write and represent in multiple ways, with and without technology, quadratic equations. The student is expected to determine the domain and range of quadratic functions and represent the domain and range using inequalities.
+            </td>
+            <td>Units 4, Supplemental Units</td>
+        </tr>
+        <tr>
+            <td><span>A.7A:</span> Quadratic functions and equations. The student applies the mathematical process standards when using graphs of quadratic functions and their related transformations to represent in multiple ways and determine, with and without technology, the solutions to equations. The student is expected to graph quadratic functions on the coordinate plane and use the graph to identify key attributes, if possible, including x-intercept, y-intercept, zeros, maximum value, minimum values, vertex, and the equation of the axis of symmetry.
+            </td>
+            <td>Units 4, Supplemental Units</td>
+        </tr>
+        <tr>
+            <td><span>G.2A:</span> Coordinate and transformational geometry. The student uses the process skills to understand the connections between algebra and geometry and uses the one- and two-dimensional coordinate systems to verify geometric conjectures. The student is expected to understand the connections between algebra and geometry and uses the one- and two-dimensional coordinate systems to verify geometric conjectures.
+            </td>
+            <td>Unit 8</td>
+        </tr>
+        <tr>
+            <td><span>G.2B:</span> Coordinate and transformational geometry. The student uses the process skills to understand the connections between algebra and geometry and uses the one- and two-dimensional coordinate systems to verify geometric conjectures. The student is expected to derive and use the distance, slope, and midpoint formulas to verify geometric relationships, including congruence of segments and parallelism or perpendicularity of pairs of lines.
+            </td>
+            <td>Unit 8</td>
+        </tr>
+        <tr>
+            <td><span>G.3A:</span> Coordinate and transformational geometry. The student uses the process skills to generate and describe rigid transformations (translation, reflection, and rotation) and non-rigid transformations (dilations that preserve similarity and reductions and enlargements that do not preserve similarity). The student is expected to describe and perform transformations of figures in a plane using coordinate notation.
+            </td>
+            <td>Unit 2, Supplemental Units</td>
+        </tr>
+        <tr>
+            <td><span>G.4B:</span> Logical argument and constructions. The student uses the process skills with deductive reasoning to understand geometric relationships. The student is expected to identify and determine the validity of the converse, inverse, and contrapositive of a conditional statement and recognize the connection between a biconditional statement and a true conditional statement with a true converse
+            </td>
+            <td>Unit 7</td>
+        </tr>
+        <tr>
+            <td><span>G.4C:</span> Logical argument and constructions. The student uses the process skills with deductive reasoning to understand geometric relationships. The student is expected to verify that a conjecture is false using a counterexample.
+            </td>
+            <td>Unit 7</td>
+        </tr>
+       </table>
       <table width="100%" id="csta">
         <thead>
           <tr><td><h2>CSTA Standard</h2></td>
