@@ -90,7 +90,7 @@
                 )
       ]{
         @points[@point{@student{Now that we have our world structure, we need to know how to draw it. 
-                                @activity{Turn to  @worksheet-link[#:page 20 #:name "Drawing START"], and fill in your @code{START} world at the bottom.
+                                @activity{Turn to  @worksheet-link[#:page 20 #:name "Drawing START"], and fill in your @code{START} world at the bottom. (This is the same world you just defined in your game file.)
                                                    @itemlist[@item{According to your world struct, where should everything be when the game starts?}
                                                               @item{Draw a simple sketch of your @code{START} world in the space provided.}]}
                                 Next, put your images in order. We know we have to stack images, so you're going to have to use @code{put-image}. 
@@ -104,7 +104,7 @@
                                 @code{START} world, which has everything where it will be when the game starts. Now do the same for a world called
                                 @code{NEXT}. This world represents the game in the NEXT FRAME after @code{START}.
                                 @activity{@itemlist[@item{Fill in the world struct, and sketch the @code{NEXT} world.}
-                                                     @item{Now put the images in the same order as in the @code{START} world. (We don't want them to 
+                                                     @item{Now list the images in the same order as you did for the @code{START} world. (We don't want them to 
                                                            be switching around in the middle of the game!) Then write the NEW coordinates beside them.}]}}
                         @teacher{These workbook pages help students organize their thinking before writing their own @code{draw-world} function. The order of
                                  images determines which game images appear above the others. (e.g. - "Does it make more sense to have the coin appear to be flying 
@@ -143,11 +143,11 @@ Here is an example of using @code{draw-world} in our Ninja World game, using the
                                                         put-image(CLOUD, 500, 400, BACKGROUND))))}
                                          @activity{@itemlist[@item{Place another one of your images on top of the one that this 
                                                                    staircase-shaped expression has created.}
-                                                              @item{Keep adding to it, until you have a stack of all of the images in your game.}]}
+                                                              @item{Keep adding to it, until you have a stack of all of the images in your game.}
+                                                              @item{When you finish, test out your function by typing @code{draw-world(START)} into the interactions area to see a screenshot of your game at the very beginning!}]}
 }
                                 @teacher{Work with small groups to complete this section. When students finish writing @code{draw-world}, have them type their 
-                                         @code{NEXT} world and @code{draw-world} into their games, in the @code{# GRAPHICS} section. If they type @code{draw-world(START)}
-                                         into the interactions window, they can see a screenshot of their games.}}
+                                         @code{NEXT} world and @code{draw-world} into their games, in the @code{# GRAPHICS} section.}}
                         ]
          }
 
