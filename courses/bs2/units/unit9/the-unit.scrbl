@@ -267,10 +267,7 @@
                                    when the score gets even higher. Maybe instead of the background changing, you 
                                    can have the player transform, or make the game more difficult by making the 
                                    danger move faster.}
-                         @teacher{You can use the provided background image for level 2 of Ninja World, 
-                                              or walk students through finding and adding their own image to the game.
-                                   
-                                   These modifications can be seen in action in the 
+                         @teacher{These modifications can be seen in action in the 
                                    @editor-link[#:public-id "0B9rKDmABYlJVbnRQUGF4ZjMwSGs" "Completed Ninja World file"].
                                     
                                    Some more options for students who finish early: 
@@ -279,7 +276,8 @@
                                                        @item{Use the text function to display a game over message 
                                                              on the screen when the score drops below 0.}
                                                        @item{Change the images of all the game characters when the 
-                                                             player progresses to the next level.}]}}
+                                                             player progresses to the next level.}
+                                                        @item{@bold{Challenge:} Instead of writing similar code in @code{draw-world} over and over for each level, use abstraction: write a function that takes in the background image, and returns the game images placed on top of the given background. This function can then be called within @code{draw-world} with the appropriate background image when the player reaches each level.}]}}
                  ]
          }
        
