@@ -77,7 +77,15 @@
                                                                     @code{START}. What kind of a thing is @code{START}? A Number? String? Image? Boolean?}
                                                               @item{What function creates a World?}
                                                               @item{There are several image variables defined below. What are they images of? Type their names into the interactions area to find out.}]}
-                                @activity{@itemlist[@item{Skip a bit farther down to where it says @code{# UPDATING FUNCTIONS}. What is the name of the function 
+                                {@activity{Scroll a little farther down to where you see @code{# GRAPHICS FUNCTIONS}. 
+                                                                      @itemlist[@item{What is the name of the function defined here?}
+                                                                                 @item{What is the Domain of this function? The Range?}
+                                                                                 @item{According to the purpose statement, what does this function do?}]}
+                                 Now look at the body of @code{draw-world}. It's using a function you might remember from Bootstrap 1, called @code{put-image}, which takes
+                                 in an image, and then places it on top of another image, using the x- and y-coordinates to determine where to put it. In this example, it 
+                                 is placing the @code{DOG} onto the @code{BACKGROUND}. @activity{What is it using for the dog's x-coordinate? The dog's y-coordinate?}}
+                                
+                                @activity{@itemlist[@item{Scroll a bit farther down to where it says @code{# UPDATING FUNCTIONS}. What is the name of the function 
                                                                     defined here? What's its domain and range?}
                                                               @item{Think about what the @code{update-world} function is doing. How does it get the @code{dogX} out of the
                                                                     World? What is it doing to the dog's x-coordinate? How will this make the dog move? Does it go to the right, left, up, or down?}
@@ -100,14 +108,6 @@
                                   the World on every tick.
                                  @activity{@itemlist[@item{How does it do that? Think back to what @code{update-world} does to the @code{dogX} of the World.}]}
                                  @code{on-tick(update-world)} tells the computer how to update the World structure, but this wouldn't be much of a game without images! We need to know how to @italic{draw} the World, too.}
-                         @teacher{}}
-                 @point{@student{@activity{Scroll up to where you see @code{# GRAPHICS FUNCTIONS}. 
-                                                                      @itemlist[@item{What is the name of the function defined here?}
-                                                                                 @item{What is the Domain of this function? The Range?}
-                                                                                 @item{According to the purpose statement, what does this function do?}]}
-                                 Now look at the body of @code{draw-world}. It's using a function you might remember from Bootstrap 1, called @code{put-image}, which takes
-                                 in an image, and then places it on top of another image, using the x- and y-coordinates to determine where to put it. In this example, it 
-                                 is placing the @code{DOG} onto the @code{BACKGROUND}. @activity{What is it using for the dog's x-coordinate? The dog's y-coordinate?}}
                          @teacher{Each of these three functions work together to create the game that students see. @code{data World:} and @code{world(...)} tells the 
                                   computer what a World contains, @code{draw-world} draws the images onto the screen, and @code{update-world} changes the 
                                   World, according to the rules of the game. Point out to students that without all of these functions, the game would not be 
@@ -123,25 +123,6 @@
                                   causing the number on the board to increase and the dog to move across the screen a little each time. Have the class go through a few 
                                   iterations of this. By acting out these steps, students are demonstrating exactly how the three functions work together in the code to 
                                   complete the computer animation.}}
-                
-                 @point{@student{Suppose you want to add the @code{CLOUD} image to the game at the position (500, 400). How could you use
-                                 @code{put-image} to stick it onto the @code{BACKGROUND}?
-@code[#:multi-line #t]{
-# draw-world:  World -> Image
-# Place DANGER and CLOUD onto BACKGROUND at the right coordinates
-fun draw-world(w :: World): 
-  put-image(CLOUD, 
-    500, 400,
-    put-image(DOG, 
-      w.dogX, 400, 
-      BACKGROUND))
-end}
-@bitmap{images/NWorld2.png}
-}                                                   
-                         @teacher{Since this is their first time using @code{put-image} themselves, write the code with the kids. They'll have 
-                                  time to practice on their own later. Point out the "staircase" pattern that develops when you put images on
-                                  top of one another. Once they've put the image onto the background, have them click "Run" and 
-                                  take a look at that cloud!}}
                  ]
          }
 @lesson/studteach[#:title "Extending the World"
@@ -160,53 +141,51 @@ end}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Let's make this game more exciting: 
-                                @activity{If you wanted to draw the @code{TARGET} into the World, at the coordinates (500, 300), what will 
-                                                                    you need to modify?}
-                                If the @code{TARGET} isn't moving, then nothing new will be changing in the game, so we don't need to 
-                                change the World structure. The @code{draw-world} function will need to change, however, if we want 
-                                the @code{TARGET} to show up in the game.
-                                @activity{Using @code{put-image}, place the @code{TARGET} image on top of everything you have already, 
-                                          so that it shows up when you click "Run".}
-@code[#:multi-line #t]{# draw-world : World -> Image
-    #Place DANGER, CLOUD and TARGET onto BACKGROUND at the right coordinates
- fun draw-world(w :: World):
-    put-image(TARGET, 
-      500, 300,
-      put-image(CLOUD, 
-        500, 400,
-        put-image(DANGER, 
-          w.dogX, 200, 
-          BACKGROUND)))
-end}}
-                        @teacher{This section requires that you walk through and model each one of the changes to the code, with students
-                                 following along on their own computers. You can write the code on the board or use a projector to show the
-                                 code, and use cutouts of the dog and coin to model their behavior.}}
+        @points[@point{@student{Suppose you want to add the image of the @code{CLOUD} to the game at the position (500, 400). If the cloud stays at the same poition and doesn't move, which function should we change? @code{draw-world}, @code{update-world}, or both? If nothing changes about the cloud or its position, we just need to add the image to the @code{draw-world} function. We don't even need to add anything to the World structure, because the World should contain only what is @italic{changing}. We don't need to update or animate something that isn't changing, but in this case we just want to see a static picture of it in the world!
+                                                                         
+                                 @activity{How could you use @code{put-image} to place the image of the CLOUD onto the @code{BACKGROUND} at position (500, 400)?}
+                                 
+@code[#:multi-line #t]{
+# draw-world:  World -> Image
+# Place DANGER and CLOUD onto BACKGROUND at the right coordinates
+fun draw-world(w :: World): 
+  put-image(CLOUD, 
+    500, 400,
+    put-image(DOG, 
+      w.dogX, 400, 
+      BACKGROUND))
+end}
+@bitmap{images/NWorld2.png}
+}                                                   
+                         @teacher{Since this is their first time using @code{put-image} themselves, write the code with the kids. They'll have 
+                                  time to practice on their own later. Point out the "staircase" pattern that develops when you put images on
+                                  top of one another. Once they've put the image onto the background, have them click "Run" and 
+                                  take a look at that cloud!}}
                  
-                 @point{@student{Now suppose the @code{TARGET} is flying across the screen, moving left slowly at 5 pixels each frame. 
-                                 The coin's position will be changing, so this time the World @italic{does} need to be modified.
+                 @point{@student{Now let's make Ninja World a little more exciting: 
+                                @activity{If you wanted to add the @code{TARGET} into the World, making it move across the screen slowly at 5 pixels each frame, what will you need to modify?}
+                                Since the coin is moving, and its position changing, we'll need to keep track of its position in the World structure. 
                                  @activity{@itemlist[@item{What specifically will be changing about the coin?}
+                                                      @item{If the coin @italic{only} moves to the left, will we need to add its x-coordinate, y-coordinate, or both to the World structure?}
                                                       @item{How does the World struct need to change?}
-                                                      @item{What is a good variable name to represent the coin's x-coordinate? How about 
-                                                            @code{coinX}?}
-                                                      @item{How has the contract for @code{world} changed? Update it on your 
-                                                                                     contracts sheet!}
+                                                      @item{What is a good variable name to represent the coin's x-coordinate? How about @code{coinX}?}
+                                                      @item{How has the contract for @code{world} changed? Update it in the comment for the World structure!}
                                                       @item{Now that the World structure includes a @code{coinX}, What new dot-accessor do you have access to?}]}
                                  The new dot-accessor is @code{.coinX}, so you can write @code{w.coinX} to pull the coin's x-coordinate out of a World @code{w}.}
                          @teacher{}}
                  
                  @point{@student{Because we have changed the World structure, we need to go through the code, line-by-line, and change every
-                                 World we find. Look at the @code{START} variable - It uses @code{world}, which now requires 
-                                 two inputs in its Domain. 
-                                 @activity{@itemlist[@item{What should the coin's x-coordinate be when the simulation starts? Include 
-                                                           this number in the @code{START} World.}
+                                 World we find. Look at the @code{START} variable - It uses the @code{world} function, which now requires 
+                                 @italic{two} inputs in its Domain. 
+                                 @activity{@itemlist[@item{What should the coin's x-coordinate be when the game starts? Include this number in the @code{START} World.}
                                                       @item{Do the definitions of the image variables need to change? Why not?}
                                                       @item{What about @code{draw-world}? Does its contract change? The contract says it 
                                                             takes a World as its Domain, and it still does. The only thing that has changed 
                                                             is @italic{what a World contains}. Does @code{draw-world} still produce an Image?}
-                                                      @item{What needs to change about the body of @code{draw-world}? Right now the coin is being 
-                                                            drawn at the coordinates (500, 300) every time, but we want the position (namely, its 
-                                                            x-coordinate) to change. How do you get the @code{coinX} out of the World? Place the
+                                                      @item{What needs to change about the body of @code{draw-world}?}
+                                                      @item{How could you use @code{put-image} to add the image of the TARGET to the World? At which coordinates should it be placed?}
+                                                      @item{For now, let's say that the y-coordinate of the coin will always be 300. But what about the x-coordinate? It's always changing, so we'll need to access it from the World structure.}
+                                                      @item{How do you get the @code{coinX} out of the World? Place the
                                                             image of the TARGET at that x-coordinate.}]}
 @code[#:multi-line #t]{
 # draw-world : World -> Image
@@ -216,30 +195,39 @@ end}}
         put-image(CLOUD, 500, 400,
             put-image(DANGER, w.dogX, 200, BACKGROUND)))
 end}}
-                         @teacher{}}
+                         @teacher{For this section, you can write the code on the board or use a projector to show the
+                                 code, and use cutouts of the dog and coin to model their behavior, while students follow along on their computers.}}
                  
-                 @point{@student{What about @code{update-world}? Does the contract change, now that the World structure is different? Why or why 
+                 @point{@student{What about the @code{update-world} function? Does its contract change, now that the World structure is different? Why or why 
                                  not? @activity{Open your workbook to @worksheet-link[#:page 16 #:name "Update-world"], and copy down the contract.}
                                  Once again, the contract tells you a LOT about how to write the function. Here's a quick tip: if the range is a World, you know that you'll have to create a World at some point. @activity{How do you make a World?}}
                          @teacher{}}
                  @point{@student{The moment you write @code{world}, your instincts should kick in right away: Every World contains a @code{dogX}
-                                 and a @code{coinX}, so you can write them down automatically.
+                                 and a @code{coinX}, so you can write them down automatically, then think about @italic{how} they change:
+                                 @code{world(....dogX..., ...coinX...)}
+                                 
                                  Now you can ask yourself: What happens to @code{dogX}? In the game, the dog will still be moving to the right by 
-                                 10 pixels. 
+                                 10 pixels, but the coin will be moving to the left by 5 pixels. 
                                  @activity{@itemlist[@item{Start by writing two examples for @code{update-world}. For the first, what will happen if you call @code{update-world} on START?}
                                                       @item{How will you update the x-position of the dog? How do you get the @code{dogX} out of the World?}
                                                       @item{How would you add ten to that?}
                                                       @item{We said we wanted the coin to move to the left by 5 pixels. How do you get the @code{coinX} 
                                                             out of the World?}
                                                       @item{If it's moving to the left, will you add or subtract from the position?}
-                                                      @item{Which World are you pulling the @code{dogX} and @code{coinX} out of?}
-                                                      @item{The coin's x-coordinate needs to be added. Where does it begin, in the @code{START} World? 
-                                                            If it goes left by 5 pixels, where should it end up in the first example?}]}
+                                                      @item{Which World are you pulling the @code{dogX} and @code{coinX} out of?}]}
                                  
-                                 @code[#:multi-line #t]{examples:
-                                                          update-world(START) is world(START.dogX + 10, START.coinX + 5)
-                                                        end
+                     @code[#:multi-line #t]{examples:
+                                               update-world(START) is world(START.dogX + 10, START.coinX + 5)
+                                            end
                                  }
+                                 @activity{In the second example, start with a world that isn't pre-defined. For instance, what will happen if you call @code{update-world} on @code{world(100, 545)}?}
+                                 
+                 @code[#:multi-line #t]{examples:
+                                           update-world(START) is world(START.dogX + 10, START.coinX + 5)
+                                           update-world(world(100, 545)) is world(100 + 10, 545 - 5)
+                                        end
+                                 }
+                                            
                                  @activity{Complete the Design Recipe for @code{update-world}, and type it into Ninja World!}}          
                          @teacher{Every time the World (or @italic{any} structure) changes, every single instance of @code{world} (or @code{car},
                                   @code{party}, etc.) will need to change to reflect that. Have students find instances of @code{world} and 
