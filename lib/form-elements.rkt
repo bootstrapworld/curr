@@ -38,6 +38,7 @@
          code
          math
          bannerline
+         boxed-text
          new-paragraph
          animated-gif
          language-table
@@ -155,6 +156,7 @@
 (define bs-logo-style (bootstrap-span-style "BootstrapLogo"))
 (define bs-vocab-style (bootstrap-span-style "vocab"))
 (define bs-banner-style (bootstrap-div-style "banner"))
+(define bs-boxtext-style (bootstrap-div-style "boxedtext"))
 
 (define bs-head-style (make-style #f (list bs-head-additions)))
 (define bs-handout-style (bootstrap-div-style/extra-id "segment" "exercises"))
@@ -172,6 +174,10 @@
 ;; generate content to be styled as its own line in a block
 (define (bannerline  . body)
   (elem #:style bs-banner-style body))
+
+;; generate content to be styled in a framed box
+(define (boxed-text  . body)
+  (elem #:style bs-boxtext-style body))
 
 ;; add a paragraph break by inserting two linebreaks
 (define (new-paragraph)
