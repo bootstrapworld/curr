@@ -3,8 +3,9 @@
 @main-contents{
 @(elem #:style bs-coursename-style "Bootstrap:1")
 
-Would you like to attend a Bootstrap Workshop? Check our
-@(hyperlink "http://www.BootstrapWorld.org/workshops" "workshops page") to stay up-to-date on our workshop schedule. Don't see a workshop in your area? Let us know, and we'll work with you to bring one to your school or district.
+@boxed-text{We work hard to provide a "curriculum-in-a-box" experience, but a curriculum based on 20 years’ research has a lot of 
+            moving parts! Spend some time with our master trainers, and take your game to the next level by 
+            @bold{@(hyperlink "http://www.BootstrapWorld.org/workshops" "attending a Bootstrap workshop!")}}
 
 @; workbook link names and targets
 
@@ -27,9 +28,11 @@ We provide all of the our materials @italic{free of charge}, to anyone who is in
            You can purchase beautiful, bound copies of the workbook from @hyperlink["http://www.lulu.com/commerce/index.php?fBuyContent=14790241" "Lulu.com"], 
                or @hyperlink["resources/workbook/StudentWorkbook.pdf" "print your own"].  The lesson 
                plans are tightly integrated with the Student Workbook, 
-           which should be used with the curriculum. A @bold{Teacher's Edition} is also available upon request. 
-           Please fill out a request using our @hyperlink["https://docs.google.com/a/bootstrapworld.org/spreadsheet/viewform?formkey=dHpQc0VHV2dBU2tSN1ptMktBUmtoZWc6MQ#gid=0"]{online form}, 
-           and we'll get back to you right away.})
+           which should be used with the curriculum. A @bold{Teacher's Edition} is also available upon request. }
+           
+          @item{@italic{Significant discounts on printed books are available to teachers who attend our professional development workshops.} 
+           @hyperlink["mailto:contact@bootstrapworld.org" "Contact us"] to find out more.}
+          )
          )
          #:style "BSUnitList"
 )
