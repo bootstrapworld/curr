@@ -58,7 +58,7 @@
                 @point{@student{@bitmap{images/3004ABCgraph.png}Drawing a line from the center of one object to the other creates a right-triangle, with sides A, B and C. A and B are the vertical and horizontal distances, with C being the distance between the two coordinates. @code{line-length} can be used to calculate A and B, but how can we calculate C?}
                        @teacher{Students' gamefiles all have a value called @code{*distances-color*}, which is set to the empty string @code{""}. By changing this to a color such as "yellow" or "red", the game will draw right triangles between each game character, and fill in the lengths for each side. You may want to demonstrate this using your own game file, and have the students follow along. Hint: to make it as easy as possible to see these triangles, set your background to be a simple, black rectangle and slow down the animation functions.}
                        }
-                @point{@student{In a right triangle, the side opposite the 90-degree angle is called the @vocab{hypoteneuse}. Thinking back to our collision detection, we know that the objects will collide if the hypoteneuse is @italic{less than the sum of their radii}. Knowing the length of the hypoteneuse will be essential to determine when a collision occurs.}
+                @point{@student{In a right triangle, the side opposite the 90-degree angle is called the @vocab{hypotenuse}. Thinking back to our collision detection, we know that the objects will collide if the hypotenuse is @italic{less than the sum of their radii}. Knowing the length of the hypotenuse will be essential to determine when a collision occurs.}
                        @teacher{}
                        }
                 ]}
@@ -67,7 +67,7 @@
      #:title "2D Distance" 
      #:duration "35 min"
      #:overview "Students explore the Pythagorean Theorem using shapes on paper, then reason about the mathematical behavior of collision detection"
-     #:learning-objectives @itemlist[@item{Students learn that two-dimensional distance corresponds to the hypoteneuse of a right triangle}
+     #:learning-objectives @itemlist[@item{Students learn that two-dimensional distance corresponds to the hypotenuse of a right triangle}
                                      @item{Students learn how to compute the distance between objects in two dimensions}]
      #:evidence-statements @itemlist[@item{Students understand that two-dimensional distance needs a different computation than one-dimensional distance}
                                      @item{Students can draw out the right triangles that compute the distance between two coordinates}
@@ -94,10 +94,10 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
      ]{
-       @points[@point{@student{Ancient civilizations had the same problem: they also struggled to find the distance between points in two dimensions!  Let's work through a way to think about this problem: what expression computes the length of the hypoteneuse of a right triangle?}
+       @points[@point{@student{Ancient civilizations had the same problem: they also struggled to find the distance between points in two dimensions!  Let's work through a way to think about this problem: what expression computes the length of the hypotenuse of a right triangle?}
                        @teacher{This exercise is best done in small groups of students (2-3 per group).  Pass out Pythagorean Proof materials [@(resource-link #:path "images/pythag1.png" #:label "1"), @(resource-link #:path "images/pythag2.png" #:label "2")] to each group, and have them review all of their materials:@itemlist[@item{A large, white square with a smaller one drawn inside}@item{Four gray triangles, all the same size}]}
                        }
-                @point{@student{@bitmap{images/csquared.png}For any right triangle, it is possible to draw a picture where the hypoteneuse is used for all four sides of a square. In the diagram shown here, the white square is surrounded by four gray, identical right-triangles, each with sides A and B. The square itself has four identical sides of length C, which are the hypoteneuses for the triangles. If the area of a square is expressed by @math{side * side}, then the area of the white space is @math{C^{2}}.}
+                @point{@student{@bitmap{images/csquared.png}For any right triangle, it is possible to draw a picture where the hypotenuse is used for all four sides of a square. In the diagram shown here, the white square is surrounded by four gray, identical right-triangles, each with sides A and B. The square itself has four identical sides of length C, which are the hypotenuses for the triangles. If the area of a square is expressed by @math{side * side}, then the area of the white space is @math{C^{2}}.}
                        @teacher{Have students place their gray triangles onto the paper, to match the diagram.}
                        }
                 @point{@student{@animated-gif{images\Pythag_anim.gif} By moving the gray triangles, it is possible to create two rectangles that fit inside the original square. While the space taken up by the triangles has shifted, it hasn't gotten any bigger or smaller. Likewise, the white space has been broken into two smaller squares, but in total it remains the same size. By using the side-lengths A and B, one can calculate the area of the two squares.

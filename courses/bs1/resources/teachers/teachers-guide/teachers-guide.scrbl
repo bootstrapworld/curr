@@ -97,7 +97,7 @@
                                            ; the distance between two points on a number line
                                            (define (line-length a b)
                                              (abs (- a b)))}}
-                   @item{The hypoteneuse length is calculated by the @code{distance} function. Students will code the distance formula here, using the @code{line-length} function:
+                   @item{The hypotenuse length is calculated by the @code{distance} function. Students will code the distance formula here, using the @code{line-length} function:
                                                                      
                     @code[#:multi-line #t]{ ; distance : Number Number Number Number -> Number
                                             ; the distance between two points on a screen

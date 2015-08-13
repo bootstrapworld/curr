@@ -24,7 +24,7 @@
     ("expression" "a computation written in the rules of some language (such as arithmetic, code, or a Circle of Evaluation)")
     ("function definition" "code that names a function, lists its variables, and states the expression to compute when the function is used")
     ("function" "a mathematical object that takes in some inputs and produces an output")
-    ("hypoteneuse" "the side opposite the 90-degree angle in a right triangle")
+    ("hypotenuse" "the side opposite the 90-degree angle in a right triangle")
     ("image" "a type of data for pictures")
     ("interactions window" "the text box in the Editor (DrRacket or WeScheme), where we enter expressions to evaluate")
     ("legal expression" "code that follows the Code Rules for a language")
