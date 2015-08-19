@@ -148,7 +148,7 @@
 @code[#:multi-line #t]{
 # draw-world:  World -> Image
 # Place DANGER and CLOUD onto BACKGROUND at the right coordinates
-fun draw-world(w :: World): 
+fun draw-world(w): 
   put-image(CLOUD, 
     500, 400,
     put-image(DOG, 
@@ -267,25 +267,22 @@ end}}
 For the last three lessons you have been working with structures, and have gotten really good at defining, making and accessing them. Now, it's time to think about YOUR game--- what will be changing in @italic{your} World structure?}
                                                                                 
                   @teacher{Make sure students collaborate with their partner(s) to brainstorm a game that they will both be happy with. Make sure 
-                           you force them to think about their World structures, and start simple: Limit their World structure to no more than five
-                           things, initially.}}
+                           you force them to think about their World structures, and start simple: Limit their World structure to no more than five things, initially.}}
                  
-                 @point{@student{@activity{Turn to @worksheet-link[#:page 17 #:name "Game Design 1"] in your workbooks. First, you're going to draw a rough sketch of what your
-                             game should look like when the user clicks "Run".
-           @itemlist[@item{Keep your World structure limited to five or fewer things to begin with - you can add more things to make it more complex later on.}
-                     @item{Make a list of all the images you'll need in your game.}
-                     @item{Make a list of everything that changes in your game - if something moves, will you need to keep track of it's
-                           x-coordinate? y? both?}]}}
-                        @teacher{Many students will want to create ambitious games at first, with many values in their World structure. Make sure they start
-                                 simple at first: Once they have a simple game working, they can add more elements and features to make it more advanced.
-                                 Check their work: Does each pair's World structure correspond to the things that are changing in their game?}}
+                 @point{@student{@activity{@itemlist[@item{Turn to @worksheet-link[#:page 17 #:name "Game Design 1"] in your workbooks. First, you're going to draw two rough sketches: In the box on the left side of the page, draw a sketch of what your game should look like at the @italic{very start}, when the user clicks "Run". In the box on the right, draw a sketch of the game at the very next moment- what has changed?}
+                                                     @item{Keep your game simple at first! You can always add more things to make it more complex later on, but start with just @bold{five or fewer} game elements to begin with.}
+                                                     @item{On the left side of the table directly underneath your sketches, list all the images you'll need for your game. We've gotten you started by listing the background. On the right side, describe the image- what does the background look like? What does your player look like?}
+                                                     @item{Now, in the last table on @worksheet-link[#:page 17 #:name "Game Design 1"], make a list of everything that changes in your game @italic{from the very first second to the next}. What changed in the second sketch you drew?}
+                                                     @item{After listing what changed on the left side of the table, write what data type you would use to describe that thing on the right side: if something moves, will you need to keep track of it's x-coordinate? y? both?}]}}
+                        @teacher{}}
 
                  @point{@student{Now that you've gotten a list of everything that changes, it's time to turn them into a World structure.
-            @activity{Turn to @worksheet-link[#:page 18 #:name "Game Design 2"] in your workbooks, and define your World structure. When you're done, 
-                              write down the contract for @code{world}, and all of the dot-accessors that you need to work with your structures. 
-                              @itemlist[@item{Define an example World called START, which is how your World should look a split-second after the
-                                              game begins. Write it in on the bottom of @worksheet-link[#:page 18 #:name "Game Design 2"].}]}}
-                        @teacher{Review each team's structure and make sure it accurately models their World. Also be sure to check their 
+            @activity{@itemlist[@item{Turn to @worksheet-link[#:page 18 #:name "Game Design 2"] in your workbooks, and define your World structure, using your list from the previous page about what changes in your game.}
+                                 @item{When you have your World structure, write down the contract for the @code{world} constructor, and two example Worlds called START and NEXT: START should be the state of your game world right when the game begins, and NEXT should show the game world a split-second @italic{after} the start of the game. Lok at your sketches on the previous page for help!}
+                                 @item{Finally, make a list of all the dot-accessors you'll have access to once you've defined the World structure.}]}}
+                        @teacher{Many students will want to create ambitious games at first, with many values in their World structure. Make sure they start
+                                 simple at first: Once they have a simple game working, they can add more elements and features to make it more advanced.
+                                 Check their work: Does each pair's World structure correspond to the things that are changing in their game? Review each team's structure and make sure it accurately models their World. Also be sure to check their 
                                  @code{world} contract and dot-accessors.}}
                  ]
          }

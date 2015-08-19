@@ -85,7 +85,7 @@ Once the Party structure is defined, you have access to new pieces of code: a fu
                                 them, making them better in some way, then return them to the customer. Let's figure out how to write functions to help us do that.}
                         @teacher{}}
                  
-                 @point{@student{@activity{Turn to @worksheet-link[#:page 14 #:name "paint-job"] in your workbooks. Write a function called @code{paint-job}, which consumes a Car and returns a Car that is the same as the original, but painted the given color.
+                 @point{@student{@activity{Turn to @worksheet-link[#:page 14 #:name "paint-job"] in your workbooks. Write a function called @code{paint-job}, which takes in a Car and a color, and returns a new Car that is mostly the same as the original, but painted the given color.
                                                    @itemlist[@item{What is the domain for this function? We'll need to know which Car we're taking in, 
                                                                    AND what color we're painting it.}
                                                               @item{What do you think our autobody shop is going to give back? What would be the range of 
