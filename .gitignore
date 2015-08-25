@@ -4,6 +4,7 @@ pict*.png
 *.html
 *.dep
 *.zo
+.DS_Store
 json2.min.js
 scribble.css
 easyXDM.min.js
