@@ -116,8 +116,8 @@ end}
           @points[
                    @point{@student{@activity{Open @editor-link[#:public-id "0B9rKDmABYlJVbFpIZktoQ1pwWm8" "this link"] on your computer and press 'Run'. What happens?}
                                     The parachute jumper jumps out of the airplane and falls straight down, into the water! It's much safer to land on the shore. Let's take a look at the code to see why he falls into the water instead.
-                                    @activity{Look at the function defined here called @code{fall}. @itemlist[@item{What is this function's Domain? Its Range?}
-          @item{What does @code{fall} do with its inputs?}]}
+                                    @activity{Look at the function defined here called @code{next-position}. @itemlist[@item{What is this function's Domain? Its Range?}
+          @item{What does @code{next-position} do with its inputs?}]}
                                     This function takes in two numbers, representing the x and y coordinate of the jumper, but it only changes and returns the y-coordinate, by subtracting 5 from it. But if only the y-coordinate is changing, he'll always fall straight down, landing in the water every time. To reach the land, he'll have to fall diagonally. How could we make that happen?
                                     @activity{How should the jumper's x-coordinate change if he moves diagonally to the right (toward the land)? How should his y-coordinate change?}}
                            @teacher{}}
@@ -127,23 +127,23 @@ end}
 @code[#:multi-line #t]{# coord : Number Number -> Coord}}
                             @teacher{Point out the difference in capitalization: Coord (capital C) is the name of the data structure, while @code{coord} (lowercase c) is the name of the function that creates a Coord. Make sure students understand the difference, because this is a required distinction between the structure name (capitalized) and constructor function (always lowercase).}}
                     
-                    @point{@student{Now it's up to us to protect the parachute jumper, and make sure he lands safely on the shore. @activity{Turn to @worksheet-link[#:page 9 #:name "fall"] in your workbook, read the word problem, and fill in the Contract and Purpose Statement for the function @code{fall}.}
-    @code[#:multi-line #t]{# fall : Number Number -> Coord
+                    @point{@student{Now it's up to us to protect the parachute jumper, and make sure he lands safely on the shore. @activity{Turn to @worksheet-link[#:page 9 #:name "next-position"] in your workbook, read the word problem, and fill in the Contract and Purpose Statement for the function @code{fall}.}
+    @code[#:multi-line #t]{# next-position : Number Number -> Coord
                            # Given 2 numbers, make a Coord by adding 5 to x and subtracting 5 from y}
     
-    Now for our two examples. Using, or @vocab{calling} @code{fall} with two numbers is easy, but what happens to those numbers? We can't return both at the same time... unless we use a data structure! To do so we'll need to use the constructor function to make a structure from data we already have. @activity{@itemlist[@item{According to the definition for @code{Coord}, what function makes a Coord?}
+    Now for our two examples. Using, or @vocab{calling} @code{next-position} with two numbers is easy, but what happens to those numbers? We can't return both at the same time... unless we use a data structure! To do so we'll need to use the constructor function to make a structure from data we already have. @activity{@itemlist[@item{According to the definition for @code{Coord}, what function makes a Coord?}
                     @item{@code{coord(.....)}}
                     @item{What two things are part of a Coord? Do we have values for those things as part of our first example?}
-                    @item{We don't want our Coord to contain the same x and y values we gave the @code{fall} function. How will the values change? (Remember to show your work!)}
+                    @item{We don't want our Coord to contain the same x and y values we gave the @code{next-position} function. How will the values change? (Remember to show your work!)}
                     @item{Your first example should look something like: 
                           @code[#:multi-line #t]{examples:
-                                                    fall(30, 250) is coord(30 + 5, 250 - 5)
+                                                    next-position(30, 250) is coord(30 + 5, 250 - 5)
                                                  end}}
                     @item{Once your first example is complete, write one more example with different inputs for the x and y coordinates.}]}}
                             @teacher{Remind students to show every step of their work in the example step of the design recipe: if the x-coordinate increases by 5 while the y-coordinate decreases by 5, they should show the addition and subtraction within the Coord data structure, instead of just returning the new numbers.}}
                     
                     @point{@student{@activity{Now that you have two examples, it's time to define the function. You know the drill: circle and label everything that changes between your two examples, copy everything that stays the same, and replace the changing things with the variables you chose.}
-                                     When you finish, your function definition should look like: @code[#:multi-line #t]{fun fall(x, y):
+                                     When you finish, your function definition should look like: @code[#:multi-line #t]{fun next-position(x, y):
                           coord(x + 5, y - 5)
                        end}
                                      Now, instead of just changing and returning one number (a y-coordinate), we can return @bold{both} the x and y-coordinates of the parachute jumper within a @vocab{Data Structure}. @activity{Open the @editor-link[#:public-id "0B9rKDmABYlJVbFpIZktoQ1pwWm8" "Parachute Jumper"] code again and replace the original @code{fall} function with the one in your workbook to make the jumper land safely on the shore!}}
