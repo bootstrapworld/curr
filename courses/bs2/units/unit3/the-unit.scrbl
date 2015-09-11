@@ -49,7 +49,7 @@ Once the Party structure is defined, you have access to new pieces of code: a fu
                                                   @item{What is the function's @vocab{Domain}? (What kinds of things are part of a Party?)}
                                                   @item{What is the @vocab{Range} of this function?}
                                                   @item{On @worksheet-link[#:page 13 #:name "Data Structures"], use the constructor function to define two new Parties of your own.}
-                                                  @item{Right below your new Parties, list how you would access the fields of @code{party1}. How would you get the location out of @code{party1}? (Think about how you got the model or color out of a Car.)}]}}
+                                                  @item{Right below your new Parties, list how you would access the fields of @code{party2}. How would you get the location out of @code{party2}? (Think about how you got the model or color out of a Car.)}]}}
                         @teacher{}}
                  
                  @point{@student{@activity{@itemlist[@item{Open the @editor-link[#:public-id "0B9rKDmABYlJVUUt1SUc5UnVsdm8" "Party Planner"] file. Take a look at the first four lines in the definitions area. Do they match what you have written in your workbook for the data definition of @code{Party}?} 

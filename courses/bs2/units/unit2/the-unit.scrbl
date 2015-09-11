@@ -210,13 +210,13 @@ end}
                                  any combination of values.}}
                    
                     @point{@student{@activity{Open the @editor-link[#:public-id "0B9rKDmABYlJVSlI4VEZLLUI4UkU" "Autobody shop"] file and look at lines 3 - 10. Do they match what you have on your paper?} 
-                                      Now take a look farther down, at line 12: @code{car1 = car("M5", 480, 28, "black", 50000)}
+                                      Now take a look farther down, at line 12: @code{car2 = car("Prius", 160, 18, "blue", 20000)}
                                                @itemlist[@item{What is the name of this variable?}
-                                                          @item{What is the model of @code{car1}?}
-                                                          @item{What is the horsepower of @code{car1}?}
-                                                          @item{What is the rim size of @code{car1}?}
-                                                          @item{What is the color of @code{car1}?}
-                                                          @item{Finally, what is the price of @code{car1}?}]}
+                                                          @item{What is the model of @code{car2}?}
+                                                          @item{What is the horsepower of @code{car2}?}
+                                                          @item{What is the rim size of @code{car2}?}
+                                                          @item{What is the color of @code{car2}?}
+                                                          @item{Finally, what is the price of @code{car2}?}]}
                             
                             @teacher{Below the data definition for Car there are three Cars defined and assigned to the variables @code{car1}, @code{car2}, and @code{car3}. Ask students 
                                      questions about these Cars to get them thinking about how they would define their own.}}
