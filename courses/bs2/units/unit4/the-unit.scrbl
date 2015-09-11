@@ -143,17 +143,17 @@
       ]{
         @points[@point{@student{Suppose you want to add the image of the @code{CLOUD} to the game at the position (500, 400). If the cloud stays at the same poition and doesn't move, which function should we change? @code{draw-world}, @code{update-world}, or both? If nothing changes about the cloud or its position, we just need to add the image to the @code{draw-world} function. We don't even need to add anything to the World structure, because the World should contain only what is @italic{changing}. We don't need to update or animate something that isn't changing, but in this case we just want to see a static picture of it in the world!
                                                                          
-                                 @activity{How could you use @code{put-image} to place the image of the CLOUD onto the @code{BACKGROUND} at position (500, 400)?}
+                                 @activity{How could you use @code{put-image} to place the image of the CLOUD onto the @code{BACKGROUND-IMG} at position (500, 400)?}
                                  
 @code[#:multi-line #t]{
 # draw-world:  World -> Image
-# Place DANGER and CLOUD onto BACKGROUND at the right coordinates
+# Place DOG-IMG and CLOUD-IMG onto BACKGROUND-IMG at the right coordinates
 fun draw-world(w): 
-  put-image(CLOUD, 
+  put-image(CLOUD-IMG, 
     500, 400,
-    put-image(DOG, 
+    put-image(DOG-IMG, 
       w.dogX, 400, 
-      BACKGROUND))
+      BACKGROUND-IMG))
 end}
 @bitmap{images/NWorld2.png}
 }                                                   
@@ -163,7 +163,7 @@ end}
                                   take a look at that cloud!}}
                  
                  @point{@student{Now let's make Ninja World a little more exciting: 
-                                @activity{If you wanted to add the @code{TARGET} into the World, making it move across the screen slowly at 5 pixels each frame, what will you need to modify?}
+                                @activity{If you wanted to add the @code{COIN-IMG} into the World, making it move across the screen slowly at 5 pixels each frame, what will you need to modify?}
                                 Since the coin is moving, and its position changing, we'll need to keep track of its position in the World structure. 
                                  @activity{@itemlist[@item{What specifically will be changing about the coin?}
                                                       @item{If the coin @italic{only} moves to the left, will we need to add its x-coordinate, y-coordinate, or both to the World structure?}
@@ -183,17 +183,17 @@ end}
                                                             takes a World as its Domain, and it still does. The only thing that has changed 
                                                             is @italic{what a World contains}. Does @code{draw-world} still produce an Image?}
                                                       @item{What needs to change about the body of @code{draw-world}?}
-                                                      @item{How could you use @code{put-image} to add the image of the TARGET to the World? At which coordinates should it be placed?}
+                                                      @item{How could you use @code{put-image} to add the image of the COIN-IMG to the World? At which coordinates should it be placed?}
                                                       @item{For now, let's say that the y-coordinate of the coin will always be 300. But what about the x-coordinate? It's always changing, so we'll need to access it from the World structure.}
                                                       @item{How do you get the @code{coinX} out of the World? Place the
-                                                            image of the TARGET at that x-coordinate.}]}
+                                                            COIN-IMG at that x-coordinate.}]}
 @code[#:multi-line #t]{
 # draw-world : World -> Image
-# Place DANGER, CLOUD and TARGET onto BACKGROUND at the right coordinates
+# Place DOG-IMG, CLOUD-IMG and COIN-IMG onto BACKGROUND-IMG at the right coordinates
  fun draw-world(w):
-    put-image(TARGET, w.coinX, 300,
-        put-image(CLOUD, 500, 400,
-            put-image(DANGER, w.dogX, 200, BACKGROUND)))
+    put-image(COIN-IMG, w.coinX, 300,
+        put-image(CLOUD-IMG, 500, 400,
+            put-image(DOG-IMG, w.dogX, 200, BACKGROUND-IMG)))
 end}}
                          @teacher{For this section, you can write the code on the board or use a projector to show the
                                  code, and use cutouts of the dog and coin to model their behavior, while students follow along on their computers.}}

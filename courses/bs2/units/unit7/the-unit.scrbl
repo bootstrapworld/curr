@@ -67,7 +67,7 @@
                         @teacher{Be sure to give students lots of positive reinforcement at this point - the game is
                                              really taking shape!}
                         }
-                 @point{@student{Just as in Bootstrap:1, we need to write a function that checks whether the danger has gone off the right side 
+                 @point{@student{Just as in Bootstrap:1, we need to write a function that checks whether the danger, the dog, has gone off the right side 
                                 of the screen. First, let's review a few things:
                                 @activity{@itemlist[@item{@code{true} and @code{false} are examples of what @vocab{Data Type}?}
                                                      @item{What function takes two numbers and checks if the first number is 
@@ -84,7 +84,7 @@
                  @point{@student{To make testing and writing code much easier, programmers will often write seperate functions to test various game possibilities. In our Ninja World game, we're going to write a function @code{is-off-right} to test whether the dog has gone off the right side of the screen.
 @activity{@itemlist[@item{Turn to @worksheet-link[#:page 32 #:name "Boundary Checks"] in your workbook.}
                                                       @item{What is the name of the first function on this page?}
-                                                      @item{@code{is-off-right} will return @code{true} if our danger goes off the right side 
+                                                      @item{@code{is-off-right} will return @code{true} if our dog goes off the right side 
                                                              of the screen. How large can the x-coordinate be before a character goes off 
                                                              the screen?}
                                                       @item{Write the @vocab{Contract} for this function.}]}
@@ -242,7 +242,7 @@ end}
                                  @itemlist[@item{Gravity: the player constantly moves down, until her y-coordinate is 50, placing her at the bottom of 
                                                  the screen. (This coordinate will probably be adjusted based on the size of the @code{PLAYER} image.)}
           @item{The player shoots a projectile and destroys the alien/shark/bad guy: An element of the world cannot be taken @italic{out} of the world 
-                struct, but its locaton can be changed so that it no longer appears on the screen. If the @code{DANGER} has been set to a certain 
+                struct, but its locaton can be changed so that it no longer appears on the screen. If the @code{DOG-IMG} has been set to a certain 
                 coordinate and has been "destroyed", should it continue to move normally?}
           @item{After reaching a certain score, the background image changes, and the player reaches "Level 2". (Note: changing the background image 
                 is handled by the @code{draw-world} function. This can be a piecewise function just like @code{update-world}!}

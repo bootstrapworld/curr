@@ -173,11 +173,11 @@
                  
                  @point{@student{Now that the game has a score, it needs to be able to increase or decrease. 
                                  In Ninja World, we'll say that the score should go up by 30 points when Ninja Cat collides 
-                                 with the target, and down by 20 points when colliding with the danger.
+                                 with the coin, and down by 20 points when colliding with the dog.
                                  @activity{@itemlist[@item{Which of the @code{ask} branches in 
                                                                         @code{update-world} checks these conditions?}
                                                       @item{How would you decrease the @code{score} by 20 if
-                                                            the player collides with the danger?}]}
+                                                            the player collides with the dog?}]}
 
 @code[#:multi-line #t]{fun update-world(w):
                            ask:
@@ -207,17 +207,17 @@
                                                      @item{How large should the text of the score be? Where should it be
                                                            placed on your game scene?}]}
                                  The expression:
-                                 @code[#:multi-line #t]{put-image(text(num-to-string(w.score), 30, "purple"), 320, 240, BACKGROUND)}
-                                  will place the score (drawn in size 30 purple text) onto the center of the BACKGROUND.}
+                                 @code[#:multi-line #t]{put-image(text(num-to-string(w.score), 30, "purple"), 320, 240, BACKGROUND-IMG)}
+                                  will place the score (drawn in size 30 purple text) onto the center of the BACKGROUND-IMG.}
                          @teacher{}}
                  
                  @point{@student{Ninja World has a visible scoring system: Now it's time to add some levels. For 
                                  this example, you'll make the game have a different background image when
                                  the player progresses to the next level. The player will reach level two 
                                  when his or her score is greater than 500.
-                                 @activity{Where do you define the @code{BACKGROUND} image? Keep the original 
+                                 @activity{Where do you define the @code{BACKGROUND-IMG} image? Keep the original 
                                            background for the first level, but define a new variable, 
-                                           @code{BACKGROUND2}, that will be used for level 2.} 
+                                           @code{BACKGROUND2-IMG}, that will be used for level 2.} 
                                  Now that you have another background image, it needs to be drawn into the 
                                  game- but @bold{only} when a certain condition is met. 
                                  @activity{@itemlist[@item{What must be true for the player to progress to
@@ -244,35 +244,35 @@
                                  If this test evaluates to @code{true}, the result will look similar to the 
                                  code you already have for draw-world, starting with @code{put-image}. 
                                  @activity{What is the one thing that needs to change?}
-                                 Instead of putting all your images on top of @code{BACKGROUND}, you'll put 
-                                 them over @code{BACKGROUND2}, your new background image:
+                                 Instead of putting all your images on top of @code{BACKGROUND-IMG}, you'll put 
+                                 them over @code{BACKGROUND2-IMG}, your new background image:
 @code[#:multi-line #t]{fun draw-world(w):
                            ask:
-                             | w.score > 500 then: put-image(PLAYER, w.catX, w.catY,
-                                                       put-image(TARGET, w.coinX, 300,
-                                                           put-image(CLOUD, 500, 400,
-                                                               put-image(DANGER, w.dogX, w.dogY, BACKGROUND2))))
+                             | w.score > 500 then: put-image(NINJAIMG, w.catX, w.catY,
+                                                       put-image(COIN-IMG, w.coinX, 300,
+                                                           put-image(CLOUD-IMG, 500, 400,
+                                                               put-image(DOG-IMG, w.dogX, w.dogY, BACKGROUND2-IMG))))
                            end}}
                          @teacher{}}
                  @point{@student{@activity{Don't forget to add an @code{otherwise} clause before your original code, 
                                            right underneath what you just wrote. If the score is @bold{not} 
                                            greater than 500, the world will be drawn with the images on the 
                                            original background.}
-                      @code[#:multi-line #t]{| otherwise: put-image(PLAYER, w.catX, w.catY,
-                                                              put-image(TARGET, w.coinX, 300,
-                                                                  put-image(CLOUD, 500, 400,
-                                                                      put-image(DANGER, w.dogX, w.dogY, BACKGROUND))))}
+                      @code[#:multi-line #t]{| otherwise: put-image(NINJA-IMG, w.catX, w.catY,
+                                                              put-image(COIN-IMG, w.coinX, 300,
+                                                                  put-image(CLOUD-IMG, 500, 400,
+                                                                      put-image(DOG-IMG, w.dogX, w.dogY, BACKGROUND-IMG))))}
                 
                                    Now Ninja World has a level 2! You can use the same process to add more levels 
                                    when the score gets even higher. Maybe instead of the background changing, you 
                                    can have the player transform, or make the game more difficult by making the 
-                                   danger move faster.}
+                                   dog move faster.}
                          @teacher{These modifications can be seen in action in the 
                                    @editor-link[#:public-id "0B9rKDmABYlJVbnRQUGF4ZjMwSGs" "Completed Ninja World file"].
                                     
                                    Some more options for students who finish early: 
-                                   @itemlist/splicing[@item{Change the update-world function so that the danger and
-                                                            target move faster if the score is greater than 500.}
+                                   @itemlist/splicing[@item{Change the update-world function so that the dog and
+                                                            coin move faster if the score is greater than 500.}
                                                        @item{Use the text function to display a game over message 
                                                              on the screen when the score drops below 0.}
                                                        @item{Change the images of all the game characters when the 
@@ -304,9 +304,9 @@
                                          | character(image :: Image, speed :: Number, x :: Number, y :: Number)
                                        end
                                        
-                                       DOG = character(DANGER, 10, -50, 400)
-                                       CAT = character(PLAYER, 20, 320, 240)
-                                       COIN = character(TARGET, 10, 690, 300)}
+                                       DOG = character(DOG-IMG, 10, -50, 400)
+                                       CAT = character(NINJA-IMG, 20, 320, 240)
+                                       COIN = character(COIN-IMG, 10, 690, 300)}
                                 @activity{Define a character struct and some example characters for your own game. 
                                           They don't have to follow the same pattern- your characters can have a 
                                           health property instead of a speed, for example. Just be sure your newly 
