@@ -169,6 +169,9 @@ Once you’ve defined the function itself, Pyret will automatically check your e
                                @item{Write a function @code{red-spot}, that takes in a number and draws a solid red circle, using the number as the radius}]}
             }
           @teacher{Have a student act out one of the functions they've defined. They will take on the name and behavior of that function (@code{plus1}, @code{red-spot}, etc.) and can be used by the class. Remind the class that in order to use the function they must practice @vocab{calling} it by name with some input(s).}
+          
+          @point{@student{For some extra practice with Pyret syntax, turn to @worksheet-link[#:page 6 #:name "Bug Hunting"] in your workbook and see if you can spot the bugs in the Pyret code in the left column. Circle each error (some sections might have more than one!), and then write the correct code in the right column.}
+                 @teacher{Students will make syntax errors when learning any new language. This workbook page is intended to give them practice finding syntax bugs on paper first, to help identify the same bugs while typing later on.}}
           }]}
                                                
 @lesson/studteach[
@@ -187,7 +190,7 @@ Once you’ve defined the function itself, Pyret will automatically check your e
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{@points[@point{@student{You just reviewed the first half of the entire Bootstrap:1 course in one unit, and learned how to write material from Bootstrap:1 in the @vocab{syntax} of a new language! Throughout Bootstrap:2 you’ll use all the concepts that you learned in Bootstrap:1, as well as brand new data types, functions, and programming concepts. Of course, you’ll do it all with the help of our old friend the Design Recipe, which will help you write your own functions for your own videogame! Since this is Bootstrap:2, the games you will be able to create will be even more interactive and advanced than in Bootstrap:1. There’s a lot to learn... onward to Unit 2!}
-                       @teacher{If time permits, have students practice solving other algebra word problems using the Fast Functions sections on pages 4 and 5 in their workbook.}}
+                       @teacher{If time permits, have students practice solving other algebra word problems using the Fast Functions sections on @worksheet-link[#:page 4 #:name "Fast Functions"] and @worksheet-link[#:page 5 #:name "Fast Functions"] in their workbook.}}
                                   ]
          }
        }
