@@ -250,7 +250,7 @@
                                  them over @code{BACKGROUND2-IMG}, your new background image:
 @code[#:multi-line #t]{fun draw-world(current-world):
                            ask:
-                             | current-world.score > 500 then: put-image(NINJAIMG, current-world.catX, current-world.catY,
+                             | current-world.score > 500 then: put-image(NINJA-IMG, current-world.catX, current-world.catY,
                                                        put-image(COIN-IMG, current-world.coinX, 300,
                                                            put-image(CLOUD-IMG, 500, 400,
                                                                put-image(DOG-IMG, current-world.dogX, current-world.dogY, BACKGROUND2-IMG))))

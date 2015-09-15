@@ -171,7 +171,7 @@ end}
                                                       @item{What is a good variable name to represent the coin's x-coordinate? How about @code{coinX}?}
                                                       @item{How has the contract for @code{world} changed? Update it in the comment for the World structure!}
                                                       @item{Now that the World structure includes a @code{coinX}, What new dot-accessor do you have access to?}]}
-                                 The new dot-accessor is @code{.coinX}, so you can write @code{current-world.coinX} to pull the coin's x-coordinate out of a World @code{w}.}
+                                 The new dot-accessor is @code{.coinX}, so you can write @code{current-world.coinX} to pull the coin's x-coordinate out of a World @code{current-world}.}
                          @teacher{}}
                  
                  @point{@student{Because we have changed the World structure, we need to go through the code, line-by-line, and change every

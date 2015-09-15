@@ -77,7 +77,7 @@
                                 Here is the contract for the greater than function:
 @code[#:multi-line #t]{# > : Number Number -> Boolean
                      # Checks whether the first number is greater than the second}
-                               @activity{Copy this into your Contracts page and write down the contracts for @code{<} and @code{=}}.}
+                               @activity{Copy this into your Contracts page and write down the contracts for @code{<} and @code{=}}}
                         @teacher{Review Booleans and Boolean functions, including @code{>}, @code{<}, @code{=}, @code{and}, and 
                                              @code{or}. Make sure students copy the contracts into their workbook.}}
                  

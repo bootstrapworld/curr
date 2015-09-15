@@ -138,7 +138,7 @@ Remember, if the position of these images will be changing (like the dog and coi
 
 Here is an example of using @code{draw-world} in our Ninja World game, using the @code{START} world:
 @code[#:multi-line #t]{draw-world(START) is put-image(NINJA-IMG, START.catX, START.catY,
-                                                put-image(COIN.IMG, START.coinX, 300,
+                                                put-image(COIN-IMG, START.coinX, 300,
                                                     put-image(DOG-IMG, START.dogX, 400,
                                                         put-image(CLOUD-IMG, 500, 400, BACKGROUND-IMG))))}
                                          @activity{@itemlist[@item{Place another one of your images on top of the one that this 
