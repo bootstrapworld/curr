@@ -123,12 +123,12 @@
                                            different inputs?}
                                  For now there are two different conditions: when @code{dogX} is greater than 640 and then 
                                  the rest of the time. Let's work on the code for this:                     
- @code[#:multi-line #t]{fun update-world(w):
+ @code[#:multi-line #t]{fun update-world(current-world):
   ask:
     |...test... then: 
       ...result...
     | otherwise:  
-      world(w.dogX + 10, w.coinX - 5, w.catX, w.catY)
+      world(current-world.dogX + 10, current-world.coinX - 5, current-world.catX, current-world.catY)
   end
  end}}
                          @teacher{Remind students that each @code{ask} branch will contain a test and a result, which is evaluated if its test returns @code{true}.}}
@@ -142,24 +142,24 @@
                                   @activity{@itemlist[@item{What accessor do we use for that?}
                                                        @item{So what will the input to @code{is-off-right} be?}
                                                        @item{Add this to your @code{update-world} function:}]}
- @code[#:multi-line #t]{fun update-world(w):
+ @code[#:multi-line #t]{fun update-world(current-world):
   ask:
-    | is-off-right(w.dogX) then: 
+    | is-off-right(current-world.dogX) then: 
       ...result...
     | otherwise:  
-      world(w.dogX + 10, w.coinX - 5, w.catY)
+      world(current-world.dogX + 10, current-world.coinX - 5, current-world.catY)
   end
  end}}
                          @teacher{}}
                  @point{@student{The first clause tests whether the dog's x-coordinate is off the right side of the screen. If the test 
                                    returns @code{true}, what should the result be? We know that we need to return a World, since the Range
                                    of @code{update-world} is a World. That means we can immediately write @code{world(...)}: 
- @code[#:multi-line #t]{fun update-world(w):
+ @code[#:multi-line #t]{fun update-world(current-world):
   ask:
-    | is-off-right(w.dogX) then: 
-      world(...dogX..., ...coinX..., ...w.catX..., ...catY...)
+    | is-off-right(current-world.dogX) then: 
+      world(...dogX..., ...coinX..., ...current-world.catX..., ...catY...)
     | otherwise:  
-      world(w.dogX + 10, w.coinX - 5, w.catX, w.catY)
+      world(current-world.dogX + 10, current-world.coinX - 5, current-world.catX, current-world.catY)
   end
 end}
                                   How should @code{dogX} change in this condition? We said we want to move the dog back to the left side 
@@ -167,12 +167,12 @@ end}
                                   @activity{@itemlist[@item{What will the new value of @code{dogX} be, if it, moves back to the 
                                                             left side of the screen?}
                                                        @item{Does @code{coinX} change if the dog goes off the screen? How about @code{catX}? @code{catY?}}]}
- @code[#:multi-line #t]{fun update-world(w):
+ @code[#:multi-line #t]{fun update-world(current-world):
   ask:
-    | is-off-right(w.dogX) then: 
-      world(0, w.coinX, w.catX, w.catY)
+    | is-off-right(current-world.dogX) then: 
+      world(0, current-world.coinX, current-world.catX, current-world.catY)
     | otherwise: 
-      world(w.dogX + 10, w.coinX - 5, w.catX, w.catY)
+      world(current-world.dogX + 10, current-world.coinX - 5, current-world.catX, current-world.catY)
   end
 end}}
                          @teacher{}}
@@ -184,21 +184,21 @@ end}}
                                                              branch look like?}
                                                        @item{Finish the code for @code{update-world} so that it also checks whether the 
                                                              coin has gone off the left-hand side of the screen.}]}
-@code[#:multi-line #t]{fun update-world(w):
+@code[#:multi-line #t]{fun update-world(current-world):
   ask:
-    | is-off-right(w.dogX) then: 
-      world(0, w.coinX, w.catX, w.catY)
-    | is-off-left(w.coinX) then: 
-      world(w.dogX, 640, w.catX, w.catY)
+    | is-off-right(current-world.dogX) then: 
+      world(0, current-world.coinX, current-world.catX, current-world.catY)
+    | is-off-left(current-world.coinX) then: 
+      world(current-world.dogX, 640, current-world.catX, current-world.catY)
     | otherwise:  
-      world(w.dogX + 10, w.coinX - 5, w.catX, w.catY)
+      world(current-world.dogX + 10, current-world.coinX - 5, current-world.catX, current-world.catY)
   end
 end}
 
 }
                          @teacher{This can be an opportunity to discuss abstraction and the usefulness of reusing code with your
                                   students. The @code{ask} tests in @code{update-world} could be written as: 
-                                  @code{w.dogX > 640}, or @code{w.coinX < 0}, but this is more work than 
+                                  @code{current-world.dogX > 640}, or @code{current-world.coinX < 0}, but this is more work than 
                                   neccessary if the @code{is-off-right} and @code{is-off-left} functions have been written, and could 
                                   be confusing for someone else looking at the code, who doesn't know why @code{dogX} is being 
                                   compared to 640. Additionally, from a programming point of view, it makes sense to use the 
@@ -236,7 +236,7 @@ end}
                                                            achieves a high score, or the player's health reaches 0.}
                                                      @item{In the lefthand column of @worksheet-link[#:page 35 #:name "Test and Result"],
                                                            make a list of the questions (in Pyret!) you will need to @code{ask} the world. For example, with the dog we said
-                                                           @code{is-off-right(w.dogX)} to ask if the dog was off the right side of the screen. On the right, figure out 
+                                                           @code{is-off-right(current-world.dogX)} to ask if the dog was off the right side of the screen. On the right, figure out 
                                                            which world you need to make, if your question returns @code{true}.}]}}
                         @teacher{Some examples of game states students may want to test for: 
                                  @itemlist[@item{Gravity: the player constantly moves down, until her y-coordinate is 50, placing her at the bottom of 

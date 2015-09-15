@@ -148,11 +148,11 @@
 @code[#:multi-line #t]{
 # draw-world:  World -> Image
 # Place DOG-IMG and CLOUD-IMG onto BACKGROUND-IMG at the right coordinates
-fun draw-world(w): 
+fun draw-world(current-world): 
   put-image(CLOUD-IMG, 
     500, 400,
     put-image(DOG-IMG, 
-      w.dogX, 400, 
+      current-world.dogX, 400, 
       BACKGROUND-IMG))
 end}
 @bitmap{images/NWorld2.png}
@@ -171,7 +171,7 @@ end}
                                                       @item{What is a good variable name to represent the coin's x-coordinate? How about @code{coinX}?}
                                                       @item{How has the contract for @code{world} changed? Update it in the comment for the World structure!}
                                                       @item{Now that the World structure includes a @code{coinX}, What new dot-accessor do you have access to?}]}
-                                 The new dot-accessor is @code{.coinX}, so you can write @code{w.coinX} to pull the coin's x-coordinate out of a World @code{w}.}
+                                 The new dot-accessor is @code{.coinX}, so you can write @code{current-world.coinX} to pull the coin's x-coordinate out of a World @code{w}.}
                          @teacher{}}
                  
                  @point{@student{Because we have changed the World structure, we need to go through the code, line-by-line, and change every
@@ -190,10 +190,10 @@ end}
 @code[#:multi-line #t]{
 # draw-world : World -> Image
 # Place DOG-IMG, CLOUD-IMG and COIN-IMG onto BACKGROUND-IMG at the right coordinates
- fun draw-world(w):
-    put-image(COIN-IMG, w.coinX, 300,
+ fun draw-world(current-world):
+    put-image(COIN-IMG, current-world.coinX, 300,
         put-image(CLOUD-IMG, 500, 400,
-            put-image(DOG-IMG, w.dogX, 200, BACKGROUND-IMG)))
+            put-image(DOG-IMG, current-world.dogX, 200, BACKGROUND-IMG)))
 end}}
                          @teacher{For this section, you can write the code on the board or use a projector to show the
                                  code, and use cutouts of the dog and coin to model their behavior, while students follow along on their computers.}}

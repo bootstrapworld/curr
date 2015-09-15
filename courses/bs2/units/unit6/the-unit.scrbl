@@ -95,19 +95,19 @@
                                     @code{then:}. This tells the computer that whatever follows is what will be returned if the preceding expression 
                                     is @bold{true}. In the case of this function, if the string representing the key pressed (@code{key}) is equal 
                                     to the string "up" (@code{string-equal(key, "up")}), @italic{then} the function will return a world which is the 
-                                    same as the input world, but with the cat's y-coordinate (@code{w.catY}) increased by 10 pixels.}
+                                    same as the input world, but with the cat's y-coordinate (@code{current-world.catY}) increased by 10 pixels.}
                         @teacher{@code{string-equal} is exactly the same as @code{string=?} in Racket. Have students copy the contract for this function
                                   into their contracts page.}}
                  @point{@student{After adding a line to make Ninja Cat move down, your @code{keypress} function should look something like this:
 @code[#:multi-line #t]{# keypress : World, String -> World
 # Make cat respond to key events
-fun keypress(w, key):
+fun keypress(current-world, key):
   ask:
     | string-equal(key, "up") then: 
-      world(w.dogX, w.coinX, w.catX, w.catY + 10)
+      world(current-world.dogX, current-world.coinX, current-world.catX, current-world.catY + 10)
     | string-equal(key, "down") then: 
-      world(w.dogX, w.coinX, w.catX, w.catY - 10)
-    | otherwise: w
+      world(current-world.dogX, current-world.coinX, current-world.catX, current-world.catY - 10)
+    | otherwise: current-world
   end
 end}
 In Racket we had an @code{else} clause, that would return true when all other tests had failed. In Pyret, we have the @code{otherwise:} 
@@ -154,17 +154,17 @@ This way, if you accidentally press another key, the function returns w: the @it
 When finished, your code should look like: 
 @code[#:multi-line #t]{# keypress : World, String -> World
 # Make cat respond to key events
-fun keypress(w, key):
+fun keypress(current-world, key):
   ask:
     | string-equal(key, "up") then: 
-      world(w.dogX, w.coinX, w.catX, w.catY + 10)
+      world(current-world.dogX, current-world.coinX, current-world.catX, current-world.catY + 10)
     | string-equal(key, "down") then: 
-      world(w.dogX, w.coinX, w.catX, w.catY - 10)
+      world(current-world.dogX, current-world.coinX, current-world.catX, current-world.catY - 10)
     | string-equal(key, "left") then: 
-      world(w.dogX, w.coinX, w.catX - 10, w.catY)
+      world(current-world.dogX, current-world.coinX, current-world.catX - 10, current-world.catY)
     | string-equal(key, "right") then: 
-      world(w.dogX, w.coinX, w.catX + 10, w.catY)
-    | otherwise: w
+      world(current-world.dogX, current-world.coinX, current-world.catX + 10, current-world.catY)
+    | otherwise: current-world
   end
 end}
 For reference and to check your work, you can see the completed Design Recipe for @code{keypress} in Ninja World on @worksheet-link[#:page 26 #:name "Keypress-in-Ninja-World"].

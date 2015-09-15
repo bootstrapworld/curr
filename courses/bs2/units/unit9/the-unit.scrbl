@@ -101,7 +101,8 @@
                                                       @item{Change the first @code{ask} branch in @code{update-world}
                                                             so that if the cat collides with the dog, the dog's 
                                                             y-coordinate is resent to a random number between 0 and 480.}]}
-          @code[#:multi-line #t]{| is-collision(w.catX, w.catY, w.dogX, w.dogY) then: world(-50, num-random(480), w.coinX, w.catX, w.catY)}}
+          @code[#:multi-line #t]{| is-collision(current-world.catX, current-world.catY, current-world.dogX, current-world.dogY) then: 
+                                    world(-50, num-random(480), current-world.coinX, current-world.catX, current-world.catY)}}
                          @teacher{}}
                  @point{@student{Further down in @code{update-world}, you check to see if the dog has gone 
                                  off the right side of the screen.
@@ -121,7 +122,7 @@
                                   @code{update-world} function: They take in the dog's y-coordinate, but it is 
                                   currently hard-coded to always be @code{400}. Make sure students realize that every
                                   function that uses the dog's y-coordinate must now get that value from the world 
-                                  structure, using @code{w.dogY}.}
+                                  structure, using @code{current-world.dogY}.}
                          }
                           ]
          }
@@ -179,9 +180,10 @@
                                                       @item{How would you decrease the @code{score} by 20 if
                                                             the player collides with the dog?}]}
 
-@code[#:multi-line #t]{fun update-world(w):
+@code[#:multi-line #t]{fun update-world(current-world):
                            ask:
-                             | is-collision(w.catX, w.catY, w.dogX, w.dogY) then: world(-50, num-random(480), w.coinX, w.catX, w.catY, w.score - 20)
+                             | is-collision(current-world.catX, current-world.catY, current-world.dogX, current-world.dogY) then: 
+                               world(-50, num-random(480), current-world.coinX, current-world.catX, current-world.catY, current-world.score - 20)
                            end
                        end}
 
@@ -207,7 +209,7 @@
                                                      @item{How large should the text of the score be? Where should it be
                                                            placed on your game scene?}]}
                                  The expression:
-                                 @code[#:multi-line #t]{put-image(text(num-to-string(w.score), 30, "purple"), 320, 240, BACKGROUND-IMG)}
+                                 @code[#:multi-line #t]{put-image(text(num-to-string(current-world.score), 30, "purple"), 320, 240, BACKGROUND-IMG)}
                                   will place the score (drawn in size 30 purple text) onto the center of the BACKGROUND-IMG.}
                          @teacher{}}
                  
@@ -229,15 +231,15 @@
                                  specifically, the background image. Because the background only changes when 
                                  a certain condition is met, you'll need to change the @code{draw-world} 
                                  function so that it uses @code{ask}. Leave the current code alone for now
-                                 and start right under @code{fun draw-world(w):}. 
+                                 and start right under @code{fun draw-world(current-world):}. 
                                  @activity{@itemlist[@item{What is the first thing to write, to let the computer 
                                                            know that this will be a function with different 
                                                            conditions?}
                                                       @item{What is the first condition to check? (Hint: is 
                                                             the score large enough to progress to level 2?)}]}
-@code[#:multi-line #t]{fun draw-world(w):
+@code[#:multi-line #t]{fun draw-world(current-world):
                            ask:
-                             | w.score > 500 then: ......
+                             | current-world.score > 500 then: ......
                            end
                        end}
 
@@ -246,22 +248,22 @@
                                  @activity{What is the one thing that needs to change?}
                                  Instead of putting all your images on top of @code{BACKGROUND-IMG}, you'll put 
                                  them over @code{BACKGROUND2-IMG}, your new background image:
-@code[#:multi-line #t]{fun draw-world(w):
+@code[#:multi-line #t]{fun draw-world(current-world):
                            ask:
-                             | w.score > 500 then: put-image(NINJAIMG, w.catX, w.catY,
-                                                       put-image(COIN-IMG, w.coinX, 300,
+                             | current-world.score > 500 then: put-image(NINJAIMG, current-world.catX, current-world.catY,
+                                                       put-image(COIN-IMG, current-world.coinX, 300,
                                                            put-image(CLOUD-IMG, 500, 400,
-                                                               put-image(DOG-IMG, w.dogX, w.dogY, BACKGROUND2-IMG))))
+                                                               put-image(DOG-IMG, current-world.dogX, current-world.dogY, BACKGROUND2-IMG))))
                            end}}
                          @teacher{}}
                  @point{@student{@activity{Don't forget to add an @code{otherwise} clause before your original code, 
                                            right underneath what you just wrote. If the score is @bold{not} 
                                            greater than 500, the world will be drawn with the images on the 
                                            original background.}
-                      @code[#:multi-line #t]{| otherwise: put-image(NINJA-IMG, w.catX, w.catY,
-                                                              put-image(COIN-IMG, w.coinX, 300,
+                      @code[#:multi-line #t]{| otherwise: put-image(NINJA-IMG, current-world.catX, current-world.catY,
+                                                              put-image(COIN-IMG, current-world.coinX, 300,
                                                                   put-image(CLOUD-IMG, 500, 400,
-                                                                      put-image(DOG-IMG, w.dogX, w.dogY, BACKGROUND-IMG))))}
+                                                                      put-image(DOG-IMG, current-world.dogX, current-world.dogY, BACKGROUND-IMG))))}
                 
                                    Now Ninja World has a level 2! You can use the same process to add more levels 
                                    when the score gets even higher. Maybe instead of the background changing, you 

@@ -294,15 +294,18 @@
                                                            game can you look to get that number? (Hint: in which
                                                            function do you @italic{draw} the images on the game 
                                                            screen?)}]}
-@code[#:multi-line #t]{| is-collision(w.catX, w.catY, w.dogX, 400) then: ...result...}
+@code[#:multi-line #t]{| is-collision(current-world.catX, current-world.catY, current-world.dogX, 400) then: ...result...}
 Remember that @code{update-world} gives back a world, so what function should come first in our result?
-@code[#:multi-line #t]{| is-collision(w.catX, w.catY, w.dogX, 400) then: world(...dogX..., ...coinX..., ...catX..., ...catY...)}
+@code[#:multi-line #t]{| is-collision(current-world.catX, current-world.catY, current-world.dogX, 400) then: 
+                       world(...dogX..., ...coinX..., ...catX..., ...catY...)}
                                 @activity{And what should happen when the cat and dog collide? Can you think of a 
                                           number that puts the dog off the screen on the left side?}
-             @code[#:multi-line #t]{| is-collision(w.catX, w.catY, w.dogX, 400) then: world(-100, ...coinX..., ...catX..., ...catY...)}
+             @code[#:multi-line #t]{| is-collision(current-world.catX, current-world.catY, current-world.dogX, 400) then: 
+                                    world(-100, ...coinX..., ...catX..., ...catY...)}
                                 @activity{Does the @code{coinX} change when the dog and cat collide? How about 
                                           @code{catY}? How do you get each of those things out of the world?}
-             @code[#:multi-line #t]{| is-collision(w.catX, w.catY, w.dogX, 400) then: world(-100, w.coinX, w.catX, w.catY)}}
+             @code[#:multi-line #t]{| is-collision(current-world.catX, current-world.catY, current-world.dogX, 400) then: 
+                                    world(-100, current-world.coinX, current-world.catX, current-world.catY)}}
                         @teacher{Collision detection must be part of the @code{update-world} function because the
                                  game should be checking for a collision @italic{every time} the world is updated. Students may
                                  assume that @code{draw-world} should handle collision detection, but point out that the

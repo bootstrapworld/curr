@@ -131,7 +131,7 @@
                                                              @item{But you probably don't want your image to be at the center of the background.
                                                                    Look back at your @code{START} world picture. You made a note of which coordinates you wanted that image to be, placed on top of the background.}]}
                                         Start with something that looks like this, substituting YOUR image and coordinates:
-@code[#:multi-line #t]{fun draw-world(w):
+@code[#:multi-line #t]{fun draw-world(current-world):
                           put-image(IMAGE, 320, 240, BACKGROUND)
                        end}
 Remember, if the position of these images will be changing (like the dog and coin moving across the screen in Ninja World), they won't always be placed at the same coordinates. Instead of using specific numbers in @code{put-image}, you can (and should!) use dot-accessors to access the coordinates of the characters in the world. Your own world struct will determine which dot-accessors you have available.
