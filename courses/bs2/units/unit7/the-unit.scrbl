@@ -41,13 +41,13 @@
 @lesson/studteach[#:title "Protecting the Boundaries"
         #:duration "30 minutes"
         #:overview ""
-        #:learning-objectives @itemlist[@item{Add detail to their understanding of the update-world function}
+        #:learning-objectives @itemlist[@item{Add detail to their understanding of the next-world function}
                                          @item{Identify possible sub-domains which require different behavior of the function}]
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[]
         #:standards (list)
         #:materials @itemlist[@item{The @editor-link[#:public-id "0B9rKDmABYlJVeFBBU2tHc0hDTlk" "Ninja World 4"] file preloaded on students' machines}]
-        #:preparation @itemlist[@item{Write the Ninja World version of update-world towards the bottom of the board, with room to transform 
+        #:preparation @itemlist[@item{Write the Ninja World version of next-world towards the bottom of the board, with room to transform 
                                       it into an @code{ask} branch under the function header.}]
         #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -57,7 +57,7 @@
       ]{
         @points[@point{@student{@activity{@itemlist[@item{Open the @editor-link[#:public-id "0B9rKDmABYlJVeFBBU2tHc0hDTlk" "Ninja World 4"] file.}
                                           @item{What is in the world structure?}
-                                          @item{What does the @code{update-world} function do?}
+                                          @item{What does the @code{next-world} function do?}
                                           @item{What is @code{dogX} when the dog is in the center of the screen? According to the code, what will the 
                                                 next @code{dogX} be?}
                                           @item{What is @code{dogX} when the dog is on the right-hand edge? What will the next @code{dogX} be? And 
@@ -117,13 +117,13 @@
                                  haven't told the game what to do when it does. In Ninja World, after the dog goes off the right side of the
                                  screen, he should reappear on the left-hand side. 
                                  @activity{In this situation, what would the next @code{dogX} be after 640?}
-                                 We want to change @code{update-world} so that it behaves the old way most of the time, but it sets
+                                 We want to change @code{next-world} so that it behaves the old way most of the time, but it sets
                                  @code{dogX} to zero when @code{dogX} is greater than 640. 
                                  @activity{What can we use that makes a function behave one way for some inputs but another way for 
                                            different inputs?}
                                  For now there are two different conditions: when @code{dogX} is greater than 640 and then 
                                  the rest of the time. Let's work on the code for this:                     
- @code[#:multi-line #t]{fun update-world(current-world):
+ @code[#:multi-line #t]{fun next-world(current-world):
   ask:
     |...test... then: 
       ...result...
@@ -141,8 +141,8 @@
                                   the right? You'll need to pull the dog's x-coordinate out of the world... 
                                   @activity{@itemlist[@item{What accessor do we use for that?}
                                                        @item{So what will the input to @code{is-off-right} be?}
-                                                       @item{Add this to your @code{update-world} function:}]}
- @code[#:multi-line #t]{fun update-world(current-world):
+                                                       @item{Add this to your @code{next-world} function:}]}
+ @code[#:multi-line #t]{fun next-world(current-world):
   ask:
     | is-off-right(current-world.dogX) then: 
       ...result...
@@ -153,8 +153,8 @@
                          @teacher{}}
                  @point{@student{The first clause tests whether the dog's x-coordinate is off the right side of the screen. If the test 
                                    returns @code{true}, what should the result be? We know that we need to return a World, since the Range
-                                   of @code{update-world} is a World. That means we can immediately write @code{world(...)}: 
- @code[#:multi-line #t]{fun update-world(current-world):
+                                   of @code{next-world} is a World. That means we can immediately write @code{world(...)}: 
+ @code[#:multi-line #t]{fun next-world(current-world):
   ask:
     | is-off-right(current-world.dogX) then: 
       world(...dogX..., ...coinX..., ...current-world.catX..., ...catY...)
@@ -167,7 +167,7 @@ end}
                                   @activity{@itemlist[@item{What will the new value of @code{dogX} be, if it, moves back to the 
                                                             left side of the screen?}
                                                        @item{Does @code{coinX} change if the dog goes off the screen? How about @code{catX}? @code{catY?}}]}
- @code[#:multi-line #t]{fun update-world(current-world):
+ @code[#:multi-line #t]{fun next-world(current-world):
   ask:
     | is-off-right(current-world.dogX) then: 
       world(0, current-world.coinX, current-world.catX, current-world.catY)
@@ -180,11 +180,11 @@ end}}
                                   @activity{@itemlist[@item{Instead of checking if @code{coinX} was off the @bold{right} side of the screen,
                                                             what do we need to check?}
                                                        @item{What function have you already written that checks if a number is less than 0?}
-                                                       @item{How does @code{update-world} need to change? What will the second @code{ask} 
+                                                       @item{How does @code{next-world} need to change? What will the second @code{ask} 
                                                              branch look like?}
-                                                       @item{Finish the code for @code{update-world} so that it also checks whether the 
+                                                       @item{Finish the code for @code{next-world} so that it also checks whether the 
                                                              coin has gone off the left-hand side of the screen.}]}
-@code[#:multi-line #t]{fun update-world(current-world):
+@code[#:multi-line #t]{fun next-world(current-world):
   ask:
     | is-off-right(current-world.dogX) then: 
       world(0, current-world.coinX, current-world.catX, current-world.catY)
@@ -197,7 +197,7 @@ end}
 
 }
                          @teacher{This can be an opportunity to discuss abstraction and the usefulness of reusing code with your
-                                  students. The @code{ask} tests in @code{update-world} could be written as: 
+                                  students. The @code{ask} tests in @code{next-world} could be written as: 
                                   @code{current-world.dogX > 640}, or @code{current-world.coinX < 0}, but this is more work than 
                                   neccessary if the @code{is-off-right} and @code{is-off-left} functions have been written, and could 
                                   be confusing for someone else looking at the code, who doesn't know why @code{dogX} is being 
@@ -216,7 +216,7 @@ end}
         #:overview ""
         #:learning-objectives @itemlist[]
         #:evidence-statements @itemlist[]
-        #:product-outcomes @itemlist[@item{Students will use @code{ask} in their update-world functions}
+        #:product-outcomes @itemlist[@item{Students will use @code{ask} in their next-world functions}
                                      @item{Students will identify circumstances in which the functions in their game should behave differently}
           @item{Students will define these circumstances - and the desired behavior - in code, as different @code{ask} branches}]
         #:standards (list)
@@ -245,13 +245,13 @@ end}
                 struct, but its locaton can be changed so that it no longer appears on the screen. If the @code{DOG-IMG} has been set to a certain 
                 coordinate and has been "destroyed", should it continue to move normally?}
           @item{After reaching a certain score, the background image changes, and the player reaches "Level 2". (Note: changing the background image 
-                is handled by the @code{draw-world} function. This can be a piecewise function just like @code{update-world}!}
+                is handled by the @code{draw-world} function. This can be a piecewise function just like @code{next-world}!}
                                                                                                         ]
                                                                                                         }}
                  ]
          }
 
-@lesson/studteach[#:title "Branches in update-world"
+@lesson/studteach[#:title "Branches in next-world"
         #:duration "30 minutes"
         #:overview ""
         #:learning-objectives @itemlist[]
@@ -266,11 +266,11 @@ end}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Look at the @code{ask} branches for Ninja World's @code{update-world} function. Notice that for each branch, we need a test and a result. 
-                               This is exactly what you've written in your workbook for your game. All you need to do now is reformat @italic{your} @code{update-world} 
+        @points[@point{@student{Look at the @code{ask} branches for Ninja World's @code{next-world} function. Notice that for each branch, we need a test and a result. 
+                               This is exactly what you've written in your workbook for your game. All you need to do now is reformat @italic{your} @code{next-world} 
                                function so that it uses @code{ask}, with your current code inside the @code{otherwise} clause.
-                                            @activity{Adapt @code{update-world} so it becomes a @vocab{piecewise function}, and complete at least one thing on your list from @worksheet-link[#:page 35 #:name "Test and Result"].}}
-                        @teacher{Work in pairs or small groups to assist students with their own @code{update-world} 
+                                            @activity{Adapt @code{next-world} so it becomes a @vocab{piecewise function}, and complete at least one thing on your list from @worksheet-link[#:page 35 #:name "Test and Result"].}}
+                        @teacher{Work in pairs or small groups to assist students with their own @code{next-world} 
                                  functions.}}
                  ]
        }

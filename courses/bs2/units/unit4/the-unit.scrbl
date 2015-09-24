@@ -8,7 +8,7 @@
                                        (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image})
                                        (list "Car" @code{car .model .hp .rims .color .price})
                                        (list "Party" @code{party .theme .location .guests}))]{
-@unit-descr{Students are introduced to the Ninja World game, and codewalk through the ’update-world’ and ’draw-world’ functions. 
+@unit-descr{Students are introduced to the Ninja World game, and codewalk through the ’next-world’ and ’draw-world’ functions. 
             Making minimal changes to these functions, they are able to modify the dog’s speed and add static clouds. They then 
             modify the World to include the target’s x-coordinate, and systematically update each function in the source code to 
             accommodate this new World. If time allows, additional iterations are possible by adding more sets of coordinates to 
@@ -59,7 +59,7 @@
         #:standards (list)
         #:materials @itemlist[]
         #:preparation @itemlist[@item{The @editor-link[#:public-id "0B9rKDmABYlJVNk9oT0dvVWdTMGs" "Ninja World 1"] file preloaded on students' machines}
-                                 @item{update-world, big-bang, and draw-world nametags}
+                                 @item{next-world, big-bang, and draw-world nametags}
                                 @item{cutout image of dog}]
         #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -87,16 +87,16 @@
                                 
                                 @activity{@itemlist[@item{Scroll a bit farther down to where it says @code{# UPDATING FUNCTIONS}. What is the name of the function 
                                                                     defined here? What's its domain and range?}
-                                                              @item{Think about what the @code{update-world} function is doing. How does it get the @code{dogX} out of the
+                                                              @item{Think about what the @code{next-world} function is doing. How does it get the @code{dogX} out of the
                                                                     World? What is it doing to the dog's x-coordinate? How will this make the dog move? Does it go to the right, left, up, or down?}
                                                               @item{If the dog is at 100, where will it be next? After that?}
                                                               @item{How could you make the dog move faster? Slower? Backwards?}]}
-                                Every time @code{update-world} runs, it creates a World where the @code{dogX} of the original World increases by 10.}
+                                Every time @code{next-world} runs, it creates a World where the @code{dogX} of the original World increases by 10.}
                                 
                         @teacher{These activities encourage students to read others' code and think about how it works, looking at the contracts and definitions and 
                                  piecing together what they already know. Ask a LOT of questions when going through the file: How do we know we need to make a new 
-                                 World in @code{update-world}? (Because the range is a World). Why is @code{dogX} a good variable name? Ask them to
-                                 guess what they think expressions like @code{update-world(START)} will do in the game.}}
+                                 World in @code{next-world}? (Because the range is a World). Why is @code{dogX} a good variable name? Ask them to
+                                 guess what they think expressions like @code{next-world(START)} will do in the game.}}
                  
                  @point{@student{@activity{Now skip down to the last function defined in our code: @code{big-bang}. This is a special function that will begin an animation, 
                                           but it needs help from other functions to update and draw the World. 
@@ -104,22 +104,22 @@
                                                      @item{In the code, @code{big-bang} is calling on a few different functions. What new functions can you see used in 
                                                                         @code{big-bang}?}]}
                                   The function @code{on-tick} acts kind of like a timer, and on each "tick", it updates the World. Right now the World struct is 
-                                  just one number, representing the x-coordinate of the dog. @code{on-tick(update-world)} tells the computer to update 
+                                  just one number, representing the x-coordinate of the dog. @code{on-tick(next-world)} tells the computer to update 
                                   the World on every tick.
-                                 @activity{@itemlist[@item{How does it do that? Think back to what @code{update-world} does to the @code{dogX} of the World.}]}
-                                 @code{on-tick(update-world)} tells the computer how to update the World structure, but this wouldn't be much of a game without images! We need to know how to @italic{draw} the World, too.}
+                                 @activity{@itemlist[@item{How does it do that? Think back to what @code{next-world} does to the @code{dogX} of the World.}]}
+                                 @code{on-tick(next-world)} tells the computer how to update the World structure, but this wouldn't be much of a game without images! We need to know how to @italic{draw} the World, too.}
                          @teacher{Each of these three functions work together to create the game that students see. @code{data World:} and @code{world(...)} tells the 
-                                  computer what a World contains, @code{draw-world} draws the images onto the screen, and @code{update-world} changes the 
+                                  computer what a World contains, @code{draw-world} draws the images onto the screen, and @code{next-world} changes the 
                                   World, according to the rules of the game. Point out to students that without all of these functions, the game would not be 
                                   playable.
                                   Once students understand the purpose of these functions, they need to understand how they work together. Have volunteers act out 
-                                  @code{update-world} and @code{big-bang}, giving them nametags with the function names on them and having them come to the board.
+                                  @code{next-world} and @code{big-bang}, giving them nametags with the function names on them and having them come to the board.
                                   Have them explain to the class what their contracts are and what they do. Write: "World" on the board, with the number @code{0} beneath it. 
                                   When you yell "@code{big bang(0)}", have the class start counting time, yelling "tick!" every five seconds. On every tick, @code{big-bang} 
-                                  must call on @code{update-world} to update the World written on the board. This results in the number changing over time, starting with 0.
+                                  must call on @code{next-world} to update the World written on the board. This results in the number changing over time, starting with 0.
                                   
                                   Then have another volunteer be @code{draw-world}, giving them the "draw-world" nametag and the dog cutout. Draw a large 
-                                  rectangle on the board, representing the screen. Now have big-bang call both @code{update-world} and @code{draw-world} on each "tick", 
+                                  rectangle on the board, representing the screen. Now have big-bang call both @code{next-world} and @code{draw-world} on each "tick", 
                                   causing the number on the board to increase and the dog to move across the screen a little each time. Have the class go through a few 
                                   iterations of this. By acting out these steps, students are demonstrating exactly how the three functions work together in the code to 
                                   complete the computer animation.}}
@@ -141,7 +141,7 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Suppose you want to add the image of the @code{CLOUD} to the game at the position (500, 400). If the cloud stays at the same poition and doesn't move, which function should we change? @code{draw-world}, @code{update-world}, or both? If nothing changes about the cloud or its position, we just need to add the image to the @code{draw-world} function. We don't even need to add anything to the World structure, because the World should contain only what is @italic{changing}. We don't need to update or animate something that isn't changing, but in this case we just want to see a static picture of it in the world!
+        @points[@point{@student{Suppose you want to add the image of the @code{CLOUD} to the game at the position (500, 400). If the cloud stays at the same poition and doesn't move, which function should we change? @code{draw-world}, @code{next-world}, or both? If nothing changes about the cloud or its position, we just need to add the image to the @code{draw-world} function. We don't even need to add anything to the World structure, because the World should contain only what is @italic{changing}. We don't need to update or animate something that isn't changing, but in this case we just want to see a static picture of it in the world!
                                                                          
                                  @activity{How could you use @code{put-image} to place the image of the CLOUD onto the @code{BACKGROUND-IMG} at position (500, 400)?}
                                  
@@ -198,8 +198,8 @@ end}}
                          @teacher{For this section, you can write the code on the board or use a projector to show the
                                  code, and use cutouts of the dog and coin to model their behavior, while students follow along on their computers.}}
                  
-                 @point{@student{What about the @code{update-world} function? Does its contract change, now that the World structure is different? Why or why 
-                                 not? @activity{Open your workbook to @worksheet-link[#:page 16 #:name "Update-world"], and copy down the contract.}
+                 @point{@student{What about the @code{next-world} function? Does its contract change, now that the World structure is different? Why or why 
+                                 not? @activity{Open your workbook to @worksheet-link[#:page 16 #:name "next-world"], and copy down the contract.}
                                  Once again, the contract tells you a LOT about how to write the function. Here's a quick tip: if the range is a World, you know that you'll have to create a World at some point. @activity{How do you make a World?}}
                          @teacher{}}
                  @point{@student{The moment you write @code{world}, your instincts should kick in right away: Every World contains a @code{dogX}
@@ -208,7 +208,7 @@ end}}
                                  
                                  Now you can ask yourself: What happens to @code{dogX}? In the game, the dog will still be moving to the right by 
                                  10 pixels, but the coin will be moving to the left by 5 pixels. 
-                                 @activity{@itemlist[@item{Start by writing two examples for @code{update-world}. For the first, what will happen if you call @code{update-world} on START?}
+                                 @activity{@itemlist[@item{Start by writing two examples for @code{next-world}. For the first, what will happen if you call @code{next-world} on START?}
                                                       @item{How will you update the x-position of the dog? How do you get the @code{dogX} out of the World?}
                                                       @item{How would you add ten to that?}
                                                       @item{We said we wanted the coin to move to the left by 5 pixels. How do you get the @code{coinX} 
@@ -217,18 +217,18 @@ end}}
                                                       @item{Which World are you pulling the @code{dogX} and @code{coinX} out of?}]}
                                  
                      @code[#:multi-line #t]{examples:
-                                               update-world(START) is world(START.dogX + 10, START.coinX + 5)
+                                               next-world(START) is world(START.dogX + 10, START.coinX + 5)
                                             end
                                  }
-                                 @activity{In the second example, start with a world that isn't pre-defined. For instance, what will happen if you call @code{update-world} on @code{world(100, 545)}?}
+                                 @activity{In the second example, start with a world that isn't pre-defined. For instance, what will happen if you call @code{next-world} on @code{world(100, 545)}?}
                                  
                  @code[#:multi-line #t]{examples:
-                                           update-world(START) is world(START.dogX + 10, START.coinX + 5)
-                                           update-world(world(100, 545)) is world(100 + 10, 545 - 5)
+                                           next-world(START) is world(START.dogX + 10, START.coinX + 5)
+                                           next-world(world(100, 545)) is world(100 + 10, 545 - 5)
                                         end
                                  }
                                             
-                                 @activity{Complete the Design Recipe for @code{update-world}, and type it into Ninja World!}}          
+                                 @activity{Complete the Design Recipe for @code{next-world}, and type it into Ninja World!}}          
                          @teacher{Every time the World (or @italic{any} structure) changes, every single instance of @code{world} (or @code{car},
                                   @code{party}, etc.) will need to change to reflect that. Have students find instances of @code{world} and 
                                   incorporate @code{coinX} into the new World. Any time they add something new to their game they will need to do 
@@ -302,8 +302,8 @@ For the last three lessons you have been working with structures, and have gotte
                 )
       ]{
         @points[@point{@student{Now you have the basic building blocks of your game and an understanding of how @code{draw-world}, 
-                               @code{update-world}, and @code{big-bang} work together to create an animation in Pyret. In the next unit you'll
-                               use your World structure to write the @code{draw-world} and @code{update-world} functions for your own game.}
+                               @code{next-world}, and @code{big-bang} work together to create an animation in Pyret. In the next unit you'll
+                               use your World structure to write the @code{draw-world} and @code{next-world} functions for your own game.}
                        @teacher{Have the class take turns telling their peers about their games: Who the player is, what their danger, target, etc. 
                                 will be. Most importantly, have them tell the class what they have in their World structure.
 @itemlist[@item{Make sure student names are on page 17}

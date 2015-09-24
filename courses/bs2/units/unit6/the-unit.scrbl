@@ -37,7 +37,7 @@
                                                                    and how it changes.}}
                         @teacher{Review students' workbook pages, and check for understanding: could they change multiple things in their game
                                  with one keypress?}}
-                 @point{@student{So far, we've been working with three main functions to make our game and animate our world: @code{update-world}, 
+                 @point{@student{So far, we've been working with three main functions to make our game and animate our world: @code{next-world}, 
                                 @code{draw-world}, and @code{big-bang}. At this point, your game might use a few more functions than these, but 
                                 Ninja World has been pretty basic so far, and it's not interactive. Time to change that!
                                 @activity{@itemlist[@item{Open the @editor-link[#:public-id "0B9rKDmABYlJVaV9FRlpZcER0WDg" "Ninja World 3"]
@@ -46,7 +46,7 @@
                                                      @item{What's new in this definition, compared to what we saw before? What do you think they represent?}
                                                      @item{What new dot-accessors do we have, to access the new elements of our world struct?}
                                                      @item{What is the contract for each of the functions in this game? What do they do?}
-                                                     @item{Scroll down to the definition of @code{update-world}. Each time the function is called, 
+                                                     @item{Scroll down to the definition of @code{next-world}. Each time the function is called, 
                                                            what changes about the dog? @italic{How} does it change? What about the coin? The cat?}
                                                      @item{Scroll down to the definition of @code{draw-world}. Where does this function put the 
                                                            image of the dog? the coin? The cat?}]}

@@ -7,7 +7,7 @@
                                        (list "String" @code{string-append string-length})                          
                                        (list "Image" @code{rectangle circle triangle ellipse radial-star scale rotate put-image})
                                        (list "Boolean" @code{= > < string-equal and or}))]{   
-@unit-descr{Students return to the Pythagorean Theorem and distance formula they used in Bootstrap 1, this time with data structures and the full update-world function.}
+@unit-descr{Students return to the Pythagorean Theorem and distance formula they used in Bootstrap 1, this time with data structures and the full next-world function.}
 }
 @unit-lessons{
 @lesson/studteach[#:title "Introduction"
@@ -260,10 +260,10 @@
                  ]
          }
             
-@lesson/studteach[#:title "update-world"
+@lesson/studteach[#:title "next-world"
         #:duration "40 minutes"
         #:overview ""
-        #:learning-objectives @itemlist[@item{Identify collision as yet another sub-domain which requires different behavior of the update-world function}]
+        #:learning-objectives @itemlist[@item{Identify collision as yet another sub-domain which requires different behavior of the next-world function}]
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[@item{Students will use different Ask branches to identify collisions in their games}]
         #:standards (list)
@@ -277,10 +277,10 @@
       ]{
         @points[@point{@student{Now that you have a function which will check whether something is colliding, 
                                 you can go back to modifying Ninja World.
-                                @activity{Out of the four major functions in the game (@code{update-world}, 
+                                @activity{Out of the four major functions in the game (@code{next-world}, 
                                           @code{draw-world}, @code{keypress}, and @code{big-bang}), which 
                                           do you think you'll need to edit to handle collisions?}
-                                We'll need to make some more branches for @code{ask} in @code{update-world}. 
+                                We'll need to make some more branches for @code{ask} in @code{next-world}. 
                                 What should happen when the cat collides with the dog? We want to put the dog 
                                 offscreen, so that he can come back to attack again.}
                         @teacher{}}
@@ -295,7 +295,7 @@
                                                            function do you @italic{draw} the images on the game 
                                                            screen?)}]}
 @code[#:multi-line #t]{| is-collision(current-world.catX, current-world.catY, current-world.dogX, 400) then: ...result...}
-Remember that @code{update-world} gives back a world, so what function should come first in our result?
+Remember that @code{next-world} gives back a world, so what function should come first in our result?
 @code[#:multi-line #t]{| is-collision(current-world.catX, current-world.catY, current-world.dogX, 400) then: 
                        world(...dogX..., ...coinX..., ...catX..., ...catY...)}
                                 @activity{And what should happen when the cat and dog collide? Can you think of a 
@@ -306,7 +306,7 @@ Remember that @code{update-world} gives back a world, so what function should co
                                           @code{catY}? How do you get each of those things out of the world?}
              @code[#:multi-line #t]{| is-collision(current-world.catX, current-world.catY, current-world.dogX, 400) then: 
                                     world(-100, current-world.coinX, current-world.catX, current-world.catY)}}
-                        @teacher{Collision detection must be part of the @code{update-world} function because the
+                        @teacher{Collision detection must be part of the @code{next-world} function because the
                                  game should be checking for a collision @italic{every time} the world is updated. Students may
                                  assume that @code{draw-world} should handle collision detection, but point out that the
                                  Range of @code{draw-world} is an Image, and their function must return a new world in order to
@@ -317,7 +317,7 @@ Remember that @code{update-world} gives back a world, so what function should co
                                            some more tests and results. What characters in your game could collide 
                                            with each other? What should happen as a result? When you have written 
                                            each test and result down, type it into your game.}
-                                                      @item{If you finish, turn back to @worksheet-link[#:page 34 #:name "Test and Result"] in your workbook and keep working on your list of questions to ask the world. Have you added each @code{ask} statement to your @code{update-world} function to handle changes in your world?}] }}
+                                                      @item{If you finish, turn back to @worksheet-link[#:page 34 #:name "Test and Result"] in your workbook and keep working on your list of questions to ask the world. Have you added each @code{ask} statement to your @code{next-world} function to handle changes in your world?}] }}
                          @teacher{Work in small groups to complete collision branches.}}
                 ]
          }

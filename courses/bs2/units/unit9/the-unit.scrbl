@@ -96,15 +96,15 @@
                                  @activity{@itemlist[@item{What function changes the game state depending on 
                                                            the game's conditions?}
                                                       @item{What does the first @code{ask} branch in 
-                                                            @code{update-world} test?}
+                                                            @code{next-world} test?}
                                                       @item{If this test returns @code{true}, what happens?}
-                                                      @item{Change the first @code{ask} branch in @code{update-world}
+                                                      @item{Change the first @code{ask} branch in @code{next-world}
                                                             so that if the cat collides with the dog, the dog's 
                                                             y-coordinate is resent to a random number between 0 and 480.}]}
           @code[#:multi-line #t]{| is-collision(current-world.catX, current-world.catY, current-world.dogX, current-world.dogY) then: 
                                     world(-50, num-random(480), current-world.coinX, current-world.catX, current-world.catY)}}
                          @teacher{}}
-                 @point{@student{Further down in @code{update-world}, you check to see if the dog has gone 
+                 @point{@student{Further down in @code{next-world}, you check to see if the dog has gone 
                                  off the right side of the screen.
                                  @activity{@itemlist[@item{If this test evaluates to @code{true}, to what x-coordinate 
                                                            does the dog return?}
@@ -119,7 +119,7 @@
                                  make the same changes to the coin's y-coordinate to make it appear randomly, or
                                  add this concept to your own game.}
                          @teacher{Pay particular attention to the use of @code{distance} and @code{is-collision} in the
-                                  @code{update-world} function: They take in the dog's y-coordinate, but it is 
+                                  @code{next-world} function: They take in the dog's y-coordinate, but it is 
                                   currently hard-coded to always be @code{400}. Make sure students realize that every
                                   function that uses the dog's y-coordinate must now get that value from the world 
                                   structure, using @code{current-world.dogY}.}
@@ -176,11 +176,11 @@
                                  In Ninja World, we'll say that the score should go up by 30 points when Ninja Cat collides 
                                  with the coin, and down by 20 points when colliding with the dog.
                                  @activity{@itemlist[@item{Which of the @code{ask} branches in 
-                                                                        @code{update-world} checks these conditions?}
+                                                                        @code{next-world} checks these conditions?}
                                                       @item{How would you decrease the @code{score} by 20 if
                                                             the player collides with the dog?}]}
 
-@code[#:multi-line #t]{fun update-world(current-world):
+@code[#:multi-line #t]{fun next-world(current-world):
                            ask:
                              | is-collision(current-world.catX, current-world.catY, current-world.dogX, current-world.dogY) then: 
                                world(-50, num-random(480), current-world.coinX, current-world.catX, current-world.catY, current-world.score - 20)
@@ -273,7 +273,7 @@
                                    @editor-link[#:public-id "0B9rKDmABYlJVbnRQUGF4ZjMwSGs" "Completed Ninja World file"].
                                     
                                    Some more options for students who finish early: 
-                                   @itemlist/splicing[@item{Change the update-world function so that the dog and
+                                   @itemlist/splicing[@item{Change the next-world function so that the dog and
                                                             coin move faster if the score is greater than 500.}
                                                        @item{Use the text function to display a game over message 
                                                              on the screen when the score drops below 0.}

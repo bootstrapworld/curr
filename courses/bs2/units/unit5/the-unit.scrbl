@@ -109,7 +109,7 @@
                         @teacher{These workbook pages help students organize their thinking before writing their own @code{draw-world} function. The order of
                                  images determines which game images appear above the others. (e.g. - "Does it make more sense to have the coin appear to be flying 
                                  @italic{behind} the cloud, or in front of it?") Writing out the @code{NEXT} world is optional, but it encourages students to 
-                                 think about how the game is changing from one frame to another, and how the game will look after the @code{update-world} 
+                                 think about how the game is changing from one frame to another, and how the game will look after the @code{next-world} 
                                  function runs once. (It also gives them a handy pre-defined world to use in their test cases, along with @code{START}!}}
                  
                         @point{@student{@activity{Which function is used to draw the world?} Just like @code{draw-auto}, and the @code{draw-world} 
@@ -154,9 +154,9 @@ Here is an example of using @code{draw-world} in our Ninja World game, using the
 @lesson/studteach[#:title "Updating the World"
         #:duration "35 minutes"
         #:overview ""
-        #:learning-objectives @itemlist[@item{Students will define a simple update-world function, and hook it up to on-tick}]
+        #:learning-objectives @itemlist[@item{Students will define a simple next-world function, and hook it up to on-tick}]
         #:evidence-statements @itemlist[]
-        #:product-outcomes @itemlist[@item{Students write the @code{update-world} function for their games}]
+        #:product-outcomes @itemlist[@item{Students write the @code{next-world} function for their games}]
         #:standards (list)
         #:materials @itemlist[]
         #:preparation @itemlist[@item{}]
@@ -168,31 +168,31 @@ Here is an example of using @code{draw-world} in our Ninja World game, using the
       ]{
         @points[@point{@student{Scroll down until you see @code{# UPDATING FUNCTIONS}. This code is responsible for changing the World. 
                                 @activity{What function should go here? What's in its Domain? Its Range?}
-                                @code{update-world} takes a world, and then returns a new one that's been updated. Think of this function 
+                                @code{next-world} takes a world, and then returns a new one that's been updated. Think of this function 
                                 as the one that generates the next page of a flipbook.
-                                @code{update-world : World -> World}
+                                @code{next-world : World -> World}
                                 
             @activity{@itemlist[@item{Look back at the difference between your @code{START} and @code{NEXT} worlds. What has changed?}
-                                @item{On @worksheet-link[#:page 23 #:name "update-world"], make a list of what changed and how it changed
-                                         as a purpose statement for writing @code{update-world}.}]}
-            If you defined a @code{START} and @code{NEXT} world in your code, your first example for @code{update-world} is easy! We know that @code{NEXT} will be the state of the world after the @code{update-world} function has been called once after the start of the game. In other words, we can write: @code{update-world(START) is NEXT} for our first example. This ensures that our @code{START} and @code{NEXT} worlds are correct, and the @code{update-world} function is working as expected. 
+                                @item{On @worksheet-link[#:page 23 #:name "next-world"], make a list of what changed and how it changed
+                                         as a purpose statement for writing @code{next-world}.}]}
+            If you defined a @code{START} and @code{NEXT} world in your code, your first example for @code{next-world} is easy! We know that @code{NEXT} will be the state of the world after the @code{next-world} function has been called once after the start of the game. In other words, we can write: @code{next-world(START) is NEXT} for our first example. This ensures that our @code{START} and @code{NEXT} worlds are correct, and the @code{next-world} function is working as expected. 
            
-            @activity{In your workbook, write one more example for @code{update-world} where you create a new world structure. What will your updated @code{NEXT} world look like?}
-            Here are two examples for the Ninja World version of @code{update-world}:
+            @activity{In your workbook, write one more example for @code{next-world} where you create a new world structure. What will your updated @code{NEXT} world look like?}
+            Here are two examples for the Ninja World version of @code{next-world}:
             @code[#:multi-line #t]{examples:
-                                         update-world(NEXT) is world(NEXT.dogX + 10, NEXT.coinX - 5)
-                                         update-world(world(150, 400)) is world(150 + 10, 400 - 5)
+                                         next-world(NEXT) is world(NEXT.dogX + 10, NEXT.coinX - 5)
+                                         next-world(world(150, 400)) is world(150 + 10, 400 - 5)
                                    end}
-            In the first example, we want to show that @code{update-world} will create a new World (using the @code{world} constructor function) by adding 10 to the @code{dogX} of the @code{NEXT} world, and subtracting 5 from its @code{coinX}.    
+            In the first example, we want to show that @code{next-world} will create a new World (using the @code{world} constructor function) by adding 10 to the @code{dogX} of the @code{NEXT} world, and subtracting 5 from its @code{coinX}.    
                   
-            @activity{What changes between your two examples? Circle and label, then write the definition for your @code{update-world} function. Look back at its contract: what does the range tell you this function must return? A World!}
+            @activity{What changes between your two examples? Circle and label, then write the definition for your @code{next-world} function. Look back at its contract: what does the range tell you this function must return? A World!}
             }
             
-                        @teacher{@code{update-world} is the function that will handle the logic of the student' games. It determines what changes
+                        @teacher{@code{next-world} is the function that will handle the logic of the student' games. It determines what changes
                                  from one second to the next, and updates the world accordingly. Make sure students are making a new world with
                                  @code{world}, and using their dot- accessors to change the value of each world field according to 
                                  their game's behavior. This function will likely change drastically as the class progresses, and students start adding new functionality to their games. Work with small groups to complete this section as needed. When they are
-                                 finished, have the students type @code{update-world} into their games.}}
+                                 finished, have the students type @code{next-world} into their games.}}
                  ]
          }
 
