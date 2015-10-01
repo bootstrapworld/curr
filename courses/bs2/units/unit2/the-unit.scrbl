@@ -157,13 +157,13 @@ end}
                     ]
            }
 
-@lesson/studteach[#:title "Cars"
+@lesson/studteach[#:title "Cakes"
         #:duration "30 minutes"
         #:overview ""
         #:learning-objectives @itemlist[@item{}]
         #:evidence-statements @itemlist[@item{}]
-        #:product-outcomes @itemlist[@item{Students make use of a complex data structure: @code{Car}}
-                                     @item{Students define variables bound to Cars}
+        #:product-outcomes @itemlist[@item{Students make use of a complex data structure: @code{Cake}}
+                                     @item{Students define variables bound to Cakes}
                                      @item{Students will generalize their understanding of function constructors and accessors}]
         #:standards (list )
         #:materials @itemlist[@item{}]
@@ -176,84 +176,84 @@ end}
                 )
       ]{
           @points[
-                   @point{@student{Suppose you want to open up an autobody shop. You take people's cars and upgrade them, giving them paint jobs, turbo-charging their engines, etc. 
-                                   What type of thing is a car? Is it a number? String? Image? Boolean? You couldn't describe all of the important things 
-                                   about a car with any one of those data types. However, we could say that we care about a couple of details about each car, each of which can be described with the types we already know.
-                                   @activity{For each of the following aspects of a car, think about what datatype you might use to represent it:
-                                             @itemlist[@item{The model of the car. That could be "Prius", "Mustang", "XTerra", or something else.}
-                                                        @item{The amount of horsepower in the car}
-                                                        @item{The size of the rims}
-                                                        @item{The color of the car}
-                                                        @item{The price of the car.}]
-                                              What datatype could we use to represent the entire car?}
-                                   @bitmap{images/car3.png}                                                   
-                                   Now that we know everything that is part of a Car, we can use a data structure (or just 'structure' for short) to represent the Car itself. Let's take a look at how this works.
-                                   @activity{Open your workbook to @worksheet-link[#:page 10 #:name "Car"].}
-                                   At the top of this page we see a comment, stating what things are part of a car. Below that is a line that says @code{data Car:}, which begins the definition of a new data structure, called Car. On the next line, we define the function that makes a Car (@code{car}), and how @italic{exactly} to make a Car - the names of each thing in a Car structure, and their data types. 
-                                   @activity{What is the first part of a Car structure? What data type can we use to represent it?}
-                                   There is a little bit of new syntax involved in defining structures. On the first line on @worksheet-link[#:page 10 #:name "Car"], we want to write @code{model :: String,}, which tells Pyret that the first element of @italic{any} Car will be its model, represented by a String. 
-                                   @activity{What is the second part of a Car structure? What data type can we use to represent it?}
-                                   On the next line, write @code{hp :: Number}, which tells Pyret that the second element of any Car will be its hp, represented by a Number.
-                                   @activity{List each of the other fields of a car (rims, color, and price), and note what data types will represent them. Don't forget commas to separate each field!}
+                   @point{@student{Suppose you own a famous bakery. You bake things like cookies, pastries, and tarts, but you're especially known for your world-famous cakes.
+                                   What type of thing is a cake? Is it a number? String? Image? Boolean? You couldn't describe all of the important things 
+                                   about a cake with any one of those data types. However, we could say that we care about a couple of details about each cake, each of which can be described with the types we already know.
+                                   @activity{For each of the following aspects of a cake, think about what datatype you might use to represent it:
+                                             @itemlist[@item{The flavor of the cake. That could be "Chocolate", "Strawberry", "Red Velvet", or something else.}
+                                                        @item{The color of the cake}
+                                                        @item{The message on top of the cake}
+                                                        @item{The number of layers}
+                                                        @item{Whether or not the cake is an ice cream cake.}]
+                                              What datatype could we use to represent the entire cake?}
+                                   @bitmap{images/cake2.png}                                                   
+                                   Now that we know everything that is part of a Cake, we can use a data structure (or just 'structure' for short) to represent the Cake itself. Let's take a look at how this works.
+                                   @activity{Open your workbook to @worksheet-link[#:page 11 #:name "Cake"].}
+                                   At the top of this page we see a comment, stating what things are part of a Cake. Below that is a line that says @code{data Cake:}, which begins the definition of a new data structure, called Cake. On the next line, we define the function that makes a Cake (@code{cake}), and how @italic{exactly} to make a Cake - the names of each thing in a Cake structure, and their data types. 
+                                   @activity{What is the first part of a Cake structure? What data type can we use to represent it?}
+                                   There is a little bit of new syntax involved in defining structures. On the first line on @worksheet-link[#:page 10 #:name "Cake"], we want to write @code{flavor :: String,}, which tells Pyret that the first element of @italic{any} Cake will be its flavor, represented by a String. 
+                                   @activity{What is the second part of a Cake structure? What data type can we use to represent it?}
+                                   On the next line, write @code{color :: String}, which tells Pyret that the second element of any Cake will be its hp, represented by a Number.
+                                   @activity{List each of the other fields of a cake (message, layers, and is-ice-cream), and note what data types will represent them. Don't forget commas to separate each field!}
                                    On your paper, you should have: 
-                                   @code[#:multi-line #t]{ # a car is a model, hp, rims, color and price.
-                                                       data Car:
-                                                         | car(model :: String, 
-                                                                  hp :: Number, 
-                                                                  rims :: Number, 
-                                                                  color :: String, 
-                                                                  price :: Number)
+                                   @code[#:multi-line #t]{ # a Cake is a flavor, color, message, number of layers, and whether or not it is an ice cream cake.
+                                                       data Cake:
+                                                         | cake(flavor :: String, 
+                                                                 color :: String, 
+                                                               message :: String, 
+                                                                layers :: Number, 
+                                                          is-iceCream :: Boolean)
                                                        end}
-                             This is the code that defines the Car data structure. It tells the computer what a Car is and what goes into it. It also defines its constructor function, called @code{car}. To make a Car, you @italic{must} call the constructor function with five things: a @code{model}, which is a String, @code{hp}, a Number, @code{rims}, another Number, @code{color}, a String, and @code{price}, which is a Number. Remember that order matters! For now, these are the only things that we're going to keep track of in a car, but you can imagine how you might extend it to include other information.}
+                             This is the code that defines the Cake data structure. It tells the computer what a Cake is and what goes into it. It also defines its constructor function, called @code{cake}. To make a Cake, you @italic{must} call the constructor function with five things: a @code{flavor}, which is a String, @code{color}, a String, @code{messgae}, another String, @code{layers}, a Number, and @code{is-iceCream}, which is a Boolean. Remember that order matters! For now, these are the only things that we're going to keep track of in a cake, but you can imagine how you might extend it to include other information.}
                         @teacher{Stress the importance of being able to define your own datatypes
                                  to students: no longer are they bound by the single values of numbers, strings, or booleans! Pyret allows you to define brand new @vocab{Data Structures}, containing 
                                  any combination of values.}}
                    
-                    @point{@student{@activity{Open the @editor-link[#:public-id "0B9rKDmABYlJVSlI4VEZLLUI4UkU" "Autobody shop"] file and look at lines 3 - 10. Do they match what you have on your paper?} 
-                                      Now take a look farther down, at line 12: @code{car2 = car("Prius", 160, 18, "blue", 20000)}
+                    @point{@student{@activity{Open the @editor-link[#:public-id "0B9rKDmABYlJVSlI4VEZLLUI4UkU" "Bakery"] file and look at lines 3 - 10. Do they match what you have on your paper?} 
+                                      Now take a look farther down, at line 12: @code{cake2 = cake("Chocolate", "brown", "Happy birthday!", 8, false)}
                                                @itemlist[@item{What is the name of this variable?}
-                                                          @item{What is the model of @code{car2}?}
-                                                          @item{What is the horsepower of @code{car2}?}
-                                                          @item{What is the rim size of @code{car2}?}
-                                                          @item{What is the color of @code{car2}?}
-                                                          @item{Finally, what is the price of @code{car2}?}]}
+                                                          @item{What is the flavor of @code{cake2}?}
+                                                          @item{What is the color of @code{cake2}?}
+                                                          @item{What is the message on @code{cake2}?}
+                                                          @item{How many layers does @code{cake2} have?}
+                                                          @item{Finally, is @code{cake2} an ice cream cake, or not?}]}
                             
-                            @teacher{Below the data definition for Car there are three Cars defined and assigned to the variables @code{car1}, @code{car2}, and @code{car3}. Ask students 
-                                     questions about these Cars to get them thinking about how they would define their own.}}
-                    @point{@student{@activity{Define another Car, called @code{car4}. To start,
+                            @teacher{Below the data definition for Cake there are four Cakes defined and assigned to the variables @code{cake1}, @code{cake2}, @code{cake3}, and @code{cake4}. Ask students 
+                                     questions about these Cakes to get them thinking about how they would define their own.}}
+                    @point{@student{@activity{Define another Cake, called @code{cake5}. To start,
                                                                          @itemlist[@item{how would you define this variable?}
-                                                                                    @item{What function is used to make a Car?}
-                                                                                    @item{Which thing comes first in a Car struct?}] 
-                                              Now what do you expect to happen when you type @code{car4} into the interactions area? Click 'Run' and try it out.}
-                                              @code{car4 = car("Taurus", 300, 20, "white", 5000)}}
-                            @teacher{Have students walk you through the process of defining a variable called @code{car4} and making a Car with whatever model, hp, rims, etc. they like.}}
-                 @point{@student{@activity{Define two new variables for each of your favorite Cars. You can call them @code{car5} and @code{car6}, or whatever names you prefer. You can make any kind of Cars that you want, as long as your structure has the right types in the right orders!}}
-                         @teacher{Repetition is key in this lesson. Have students identify each part of the Car struct for every Car they've defined.
-                                  What is the model of their first Car? Its price? Ensure that students are using their inputs in the right order!}}
+                                                                                    @item{What function is used to make a Cake?}
+                                                                                    @item{Which thing comes first in a Cake structure?}] 
+                                              Now what do you expect to happen when you type @code{cake5} into the interactions area? Click 'Run' and try it out.}
+                                              @code{cake5 = cake("Peanut Butter", "brown", "Congratulations!", 2, true)}}
+                            @teacher{Have students walk you through the process of defining a variable called @code{cake5} and making a Cake with whatever flavor, color, message, etc. they like.}}
+                 @point{@student{@activity{Define two new variables for some of your favorite Cakes. You can call them @code{cake6} and @code{cake7}, or whatever names you prefer. You can make any kind of Cakes that you want, as long as your structure has the right types in the right orders!}}
+                         @teacher{Repetition is key in this lesson. Have students identify each part of the Cake struct for every Cake they've defined.
+                                  What is the flavor of their first Cake? Its messagee? Ensure that students are using their inputs in the right order!}}
                  
-                 @point{@student{At this point, you've worked with two different @vocab{Data Structures}: Coords and Cars, and you've created different examples, or @vocab{instances}, of these structures. Throughout this course you'll create many more instances of structures than you will define whole new structures. For now, the important point is to recognize the difference between a structure @italic{definition} (the @code{data....} piece of code) and specific @vocab{instances} of a data structure (like @code{car1}, or @code{coord(44, 75)}.}
+                 @point{@student{At this point, you've worked with two different @vocab{Data Structures}: Coords and Cakes, and you've created different examples, or @vocab{instances}, of these structures. Throughout this course you'll create many more instances of structures than you will define whole new structures. For now, the important point is to recognize the difference between a structure @italic{definition} (the @code{data....} piece of code) and specific @vocab{instances} of a data structure (like @code{cake1}, or @code{coord(44, 75)}.}
                             @teacher{}}
                     
-                    @point{@student{Based on these instances of Cars you just wrote:
-                                    @activity{@itemlist[@item{What is the name of the function that creates a Car?}
+                    @point{@student{Based on these instances of Cakes you just wrote:
+                                    @activity{@itemlist[@item{What is the name of the function that creates a Cake?}
                                                         @item{What is the Domain of this function?}
-                                                        @item{How many things are in the domain?}]} The five things in the domain of @code{car} are, in fact, the five things that we have already listed on @worksheet-link[#:page 10 #:name "Car"]! With data structures, the order is very important: we always want the first string in @code{car} to be the Car's model, the first number to be its horsepower, etc.}
+                                                        @item{How many things are in the domain?}]} The five things in the domain of @code{cake} are, in fact, the five things that we have already listed on @worksheet-link[#:page 11 #:name "Cake"]! With data structures, the order is very important: we always want the first string in @code{cake} to be the Cake's flavor, the first number to be its number of layers, etc.}
                                    
-                         @teacher{Cars are the first example of defining a new datatype that students will see, but Pyret allows you to define any number of new data structures to hold
-                                  any combination of values. The important points to remember about structures is that whenever the constructor function is called (in this case, @code{car}), it must take in the same 
+                         @teacher{Cakes are the first example of defining a new datatype that students will see, but Pyret allows you to define any number of new data structures to hold
+                                  any combination of values. The important points to remember about structures is that whenever the constructor function is called (in this case, @code{cake}), it must take in the same 
                                   number and type of values as in the structure's definition, and its inputs must be in the @italic{same order} as the definition. Unit Three introduces 
                                   students to even more data structures, and in Unit Four they begin defining their own.}}
               
-                 @point{@student{@activity{After clicking the "Run" button, in Pyret, type @code{car1} into the interactions area and hit enter. What do you get back?}
+                 @point{@student{@activity{After clicking the "Run" button, in Pyret, type @code{cake1} into the interactions area and hit enter. What do you get back?}
                                   Does this make sense? What happens when you type just a number into the interactions area? We get that same number back! What about Strings? Images? 
-                                  Booleans? If we don't do anything to our input, or use any function on it, we get back exactly what we put in! Here, you put in a Car, and got back that Car!}
-                         @teacher{Remind students that values will always evaluate to themselves. 4 evaluates to 4, the string @code{"pizza"} evaluates to @code{"pizza"}, and @code{car1} evaluates
-                                  to @code{car("M5", 480, 28, "black", 50000)}}}
+                                  Booleans? If we don't do anything to our input, or use any function on it, we get back exactly what we put in! Here, you put in a Cake, and got back that Cake!}
+                         @teacher{Remind students that values will always evaluate to themselves. 4 evaluates to 4, the string @code{"pizza"} evaluates to @code{"pizza"}, and @code{cake1} evaluates
+                                  to @code{cake("Vanilla", "white", "Happy wedding!", 4, false)}}}
                 
-                  @point{@student{You can see what your Cars look like by calling the function provided at the bottom of the screen. It's called @code{draw-car}, and it takes a Car as input and 
-                                  gives you back an Image with your Car in it.
-                                  @activity{In the interactions window, type @code{draw-car(car1)} and see what happens. Use the function with the Cars YOU defined!} @bitmap{images/car1.png}}
-                         @teacher{Students will spend lots of time "drawing" their Cars. Encourage them to define some new Cars, and to alter the color, rim size, price, etc. to see their changes 
+                  @point{@student{You can see what your Cakes look like by calling the function provided at the bottom of the file. It's called @code{draw-cake}, and it takes a Cake as input and 
+                                  gives you back an Image of your Cake.
+                                  @activity{In the interactions window, type @code{draw-cake(cake1)} and see what happens. Use the function with the Cakes YOU defined!} @bitmap{images/cake3.png}}
+                         @teacher{Students will spend lots of time "drawing" their Cakes. Encourage them to define some new Cakes, and to alter the color, message, layers, etc. to see their changes 
                                   reflected in the images. Don't forget to remind them to click "Run" after making any changes!}}
                   ]
            }
@@ -264,7 +264,7 @@ end}
                   #:overview ""
                   #:learning-objectives @itemlist[]
                   #:evidence-statements @itemlist[]
-                  #:product-outcomes @itemlist[@item{Students write code that extracts each field from those Cars}]
+                  #:product-outcomes @itemlist[@item{Students write code that extracts each field from those Cakes}]
                   #:standards (list)
                   #:materials @itemlist[]
                   #:preparation @itemlist[]
@@ -275,30 +275,29 @@ end}
                 )
       
       ]{@points[
-                @point{@student{Suppose you want to get the model OUT of @code{car4}. You don't care about the rim size, or horsepower, or anything else- you just want to 
-                                know the model. Pyret has syntax for that, called @code{.model}.
-                                @activity{If you type @code{car4.model} into the interactions window, what should it evaluate to? Try it out! 
+                @point{@student{Suppose you want to get the flavor OUT of @code{cake4}. You don't care about the message, color, or anything else- you just want to 
+                                know the flavor. Pyret has syntax for that, called @code{.flavor}.
+                                @activity{If you type @code{cake4.flavor} into the interactions window, what should it evaluate to? Try it out! 
                                                       @itemlist[@item{What kind of thing did it return: A number, string, image, or struct?}
-                                                                 @item{Practice taking the model out of EVERY Car you have defined, using @code{.model}}]}
+                                                                 @item{Practice taking the flavor out of EVERY Cake you have defined, using @code{.flavor}}]}
                     
-                                Of course, there are ways to access any part of a Car, not just the model! What do you think you would get if you typed @code{car1.hp} in the interactions area? 
-                                @activity{Try using the dot-accessors @code{.hp}, @code{.rims}, @code{.color} and @code{.price} on your Cars! Do they do what you expect?}}
-                 @teacher{A way to prompt students to use these accessors is to ask: "How do you get the horsepower out of a Car?" or "How do you get the color out of a Car?"
+                                Of course, there are ways to access any part of a Cake, not just the flavor! What do you think you would get if you typed @code{cake4.color} in the interactions area? 
+                                @activity{Try using the dot-accessors @code{.color}, @code{.message}, @code{.layers} and @code{.is-iceCream} on your Cakes! Do they do what you expect?}}
+                 @teacher{A way to prompt students to use these accessors is to ask: "How do you get the message out of a Cake?" or "How do you get the layers out of a Cake?"
                           Throughout the course you can set up a call and response system with students, where the question "How do you get the X out of a Y?" 
                           will prompt the name of the accessor.}}
                  
-                 @point{@student{The previous syntax is known as @vocab{Dot-Accessors}. They allow you to specify what part of a structure you want. If we want to know if we can afford a certain Car, we probably only care whether the price is less than
-                                 a certain amount. Likewise, if we want to know whether or not a character in our game has died, we only need to know if his health is less than 0: 
+                 @point{@student{The previous syntax is known as @vocab{Dot-Accessors}. They allow you to specify what part of a structure you want. If we want to know if we can fit a certain Cake through a doorway, we probably only care whether the number of layers is less than a certain amount. Likewise, if we want to know whether or not a character in our game has died, we only need to know if his health is less than 0: 
                                  we might not care what his location is, or the color of his armor. Programmers use accessors a lot, because they often need to know only one piece of information from a complex data structure.}
                          @teacher{}}
                                     
                                     
-                  @point{@student{Our Car structure is defined using @code{data Car} and the @code{car(...)} line, which tells the computer what things make up that structure, and what order and type each 
+                  @point{@student{Our Cake structure is defined using @code{data Cake} and the @code{cake(...)} line, which tells the computer what things make up that structure, and what order and type each 
                                                           thing is. In return, we get new functions to use. Until we write these two lines, we don't have 
-                                                          @code{car(...)} (to make a Car), @code{.model} (to get the model out of the Car), @code{.hp}, or any of the other dot-accessors, because Pyret doesn't know what a Car is- @italic{we haven't defined it}.
-            @activity{To see this for yourself, type a pound sign (#) before the line which begins with @code{car(...)}. This comments it out, so that the computer ignores it. Hit run, and see what happens. }}
-                    @teacher{When the @code{car(...)} line is commented out, Pyret returns some errors, saying you're trying to use @code{car} before its definition. It doesn't know what @code{car} is or does, because we defined a Car structure with no constructor. Make sure students understand that the line beginning with
-                                      @code{data} and a line similar to @code{car(...)} are needed in order to create and work with any structure.}}         
+                                                          @code{cake(...)} (to make a Cake), @code{.flavor} (to get the flavor out of the Cake), @code{.color}, or any of the other dot-accessors, because Pyret doesn't know what a Cake is- @italic{we haven't defined it}.
+            @activity{To see this for yourself, type a pound sign (#) before the line which begins with @code{cake(...)}. This comments it out, so that the computer ignores it. Hit run, and see what happens. }}
+                    @teacher{When the @code{cake(...)} line is commented out, Pyret returns some errors, saying you're trying to use @code{cake} before its definition. It doesn't know what @code{cake} is or does, because we defined a Cake structure with no constructor. Make sure students understand that the line beginning with
+                                      @code{data} and a line similar to @code{cake(...)} are needed in order to create and work with @italic{any} structure.}}         
                                     ]
          }
 
