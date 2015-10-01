@@ -127,7 +127,7 @@ end}
 @code[#:multi-line #t]{# coord : Number Number -> Coord}}
                             @teacher{Point out the difference in capitalization: Coord (capital C) is the name of the data structure, while @code{coord} (lowercase c) is the name of the function that creates a Coord. Make sure students understand the difference, because this is a required distinction between the structure name (capitalized) and constructor function (always lowercase).}}
                     
-                    @point{@student{Now it's up to us to protect the parachute jumper, and make sure he lands safely on the shore. @activity{Turn to @worksheet-link[#:page 9 #:name "next-position"] in your workbook, read the word problem, and fill in the Contract and Purpose Statement for the function @code{next-position}.}
+                    @point{@student{Now it's up to us to protect the parachute jumper, and make sure he lands safely on the shore. @activity{Turn to @worksheet-link[#:page 10 #:name "next-position"] in your workbook, read the word problem, and fill in the Contract and Purpose Statement for the function @code{next-position}.}
     @code[#:multi-line #t]{# next-position : Number Number -> Coord
                            # Given 2 numbers, make a Coord by adding 5 to x and subtracting 5 from y}
     
@@ -167,7 +167,7 @@ end}
                                      @item{Students will generalize their understanding of function constructors and accessors}]
         #:standards (list )
         #:materials @itemlist[@item{}]
-        #:preparation @itemlist[@item{The @editor-link[#:public-id "0B9rKDmABYlJVSlI4VEZLLUI4UkU" "Autobody shop"] file preloaded on students' machines}]
+        #:preparation @itemlist[@item{The @editor-link[#:public-id "0B9rKDmABYlJVU2lINzk1X0x2ODg" "Bakery"] file preloaded on students' machines}]
         #:prerequisites (list)
         #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -191,7 +191,7 @@ end}
                                    @activity{Open your workbook to @worksheet-link[#:page 11 #:name "Cake"].}
                                    At the top of this page we see a comment, stating what things are part of a Cake. Below that is a line that says @code{data Cake:}, which begins the definition of a new data structure, called Cake. On the next line, we define the function that makes a Cake (@code{cake}), and how @italic{exactly} to make a Cake - the names of each thing in a Cake structure, and their data types. 
                                    @activity{What is the first part of a Cake structure? What data type can we use to represent it?}
-                                   There is a little bit of new syntax involved in defining structures. On the first line on @worksheet-link[#:page 10 #:name "Cake"], we want to write @code{flavor :: String,}, which tells Pyret that the first element of @italic{any} Cake will be its flavor, represented by a String. 
+                                   There is a little bit of new syntax involved in defining structures. On the first line on @worksheet-link[#:page 11 #:name "Cake"], we want to write @code{flavor :: String,}, which tells Pyret that the first element of @italic{any} Cake will be its flavor, represented by a String. 
                                    @activity{What is the second part of a Cake structure? What data type can we use to represent it?}
                                    On the next line, write @code{color :: String}, which tells Pyret that the second element of any Cake will be its hp, represented by a Number.
                                    @activity{List each of the other fields of a cake (message, layers, and is-ice-cream), and note what data types will represent them. Don't forget commas to separate each field!}
@@ -209,7 +209,7 @@ end}
                                  to students: no longer are they bound by the single values of numbers, strings, or booleans! Pyret allows you to define brand new @vocab{Data Structures}, containing 
                                  any combination of values.}}
                    
-                    @point{@student{@activity{Open the @editor-link[#:public-id "0B9rKDmABYlJVSlI4VEZLLUI4UkU" "Bakery"] file and look at lines 3 - 10. Do they match what you have on your paper?} 
+                    @point{@student{@activity{Open the @editor-link[#:public-id "0B9rKDmABYlJVU2lINzk1X0x2ODg" "Bakery"] file and look at lines 3 - 10. Do they match what you have on your paper?} 
                                       Now take a look farther down, at line 12: @code{cake2 = cake("Chocolate", "brown", "Happy birthday!", 8, false)}
                                                @itemlist[@item{What is the name of this variable?}
                                                           @item{What is the flavor of @code{cake2}?}
