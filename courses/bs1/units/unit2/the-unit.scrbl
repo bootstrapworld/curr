@@ -160,23 +160,47 @@ include other datatypes, including Strings and Images.}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{You've already seen several functions that take in two Numbers, such as @code{+}, and @code{-}. Meanwhile, @code{star} takes in a Number and two Strings.  Different functions take in different inputs, and we need a way to keep track of the requirements for each function.
+        @points[@point{@student{You've already seen several functions that take in two Numbers, such as @code{+}, and @code{-}.
+                                Meanwhile, @code{star} takes in a Number and two Strings.  Different functions take in different 
+                                inputs, and we need a way to keep track of the requirements for each function.
                         @bannerline{The Domain of a function is the data that the function expects.}
                         @activity[#:forevidence (list "F-IF.1-3&1&1")]{Why is it helpful to know the @vocab{Domain} of a function?}
-                        By keeping a list of all the functions in a language, and their Domains, programmers can easily look up how each function is used. However, it's also important to keep track of what each function produces! For example, a program wouldn't use @code{star} if they were trying to produce a Number, because @code{star} only produces Images.
+                        By keeping a list of all the functions in a language, and their Domains, programmers can easily look up 
+                        how each function is used. However, it's also important to keep track of what each function produces! 
+                        For example, a program wouldn't use @code{star} if they were trying to produce a Number, because 
+                        @code{star} only produces Images.
                         @bannerline{The Range of a function is the data that the function produces.}
-                        Domains and Ranges help programmers write better code, by preventing silly mistakes and giving themselves hints about what to do next. A programmer who wants to use @code{star} can look up the Domain and immediately know that the first input has to be a Number (like @code{100}), without having to remember it each time. Instead of writing a single value there, a programmer could write a whole expression, like @code{(* 25 4)}. We know this code will return an appropriate value (Number) by looking at the Range for @code{*}; therefore, the result of @code{*} can be used in place of any Number value.}
-                        @teacher{Domain and Range are critical concepts. They can be reinforced by modifying a simple expression (such as @code{(+ 1 2)}), asking questions at every step. For example, we know that @code{+} takes two Numbers, which is why 1 and 2 are used in the example. However, each of those values could be replaced by @italic{another expression} -- as long as that expression evaluates to a Number. Have students systematically replace each value with an expression, asking them to justify their replacement using the Domain and Range of each function.}
+                        Domains and Ranges help programmers write better code, by preventing silly mistakes and giving themselves 
+                        hints about what to do next. A programmer who wants to use @code{star} can look up the Domain and
+                        immediately know that the first input has to be a Number (like @code{100}), without having to remember 
+                        it each time. Instead of writing a single value there, a programmer could write a whole expression, 
+                        like @code{(* 25 4)}. We know this code will return an appropriate value (Number) by looking at the Range 
+                        for @code{*}; therefore, the result of @code{*} can be used in place of any Number value.}
+                        @teacher{Domain and Range are critical concepts. They can be reinforced by modifying a simple expression 
+                                 (such as @code{(+ 1 2)}), asking questions at every step. For example, we know that @code{+} 
+                                 takes two Numbers, which is why 1 and 2 are used in the example. However, each of those values 
+                                 could be replaced by @italic{another expression} -- as long as that expression evaluates to a 
+                                 Number. Have students systematically replace each value with an expression, asking them to 
+                                 justify their replacement using the Domain and Range of each function.}
                         }
-                 @point{@student{When programmers write down the Domains and Ranges of each function, they write what are called @vocab{contracts}, to keep track of what each function needs.
+                 @point{@student{When programmers write down the Domains and Ranges of each function, they write what are 
+                                 called @vocab{contracts}, to keep track of what each function needs.
                  @bannerline{A Contract has three parts: the Name, Domain and Range of a function.}
                  The contract for @code{star} is:
                  @code[#:multi-line ""]{; star: Number String String -> Image}
-                 This means that the @vocab{Name} of the function is @code{star}, that it takes in a Number and two Strings as its Domain, and produces an Image as the Range. We use types instead of values when we write a Contract, because we want to be more general: a star could be of any size, so the Domain for @code{star} specifies that the first argument could be @italic{any Number}. If we think of a language as a collection of lego pieces, the Contracts are like the tabs and slots that tell us how each piece can connect.}
+                 This means that the @vocab{Name} of the function is @code{star}, that it takes in a Number and two Strings as its 
+                 Domain, and produces an Image as the Range. We use types instead of values when we write a Contract, because we 
+                 want to be more general: a star could be of any size, so the Domain for @code{star} specifies that the first 
+                 argument could be @italic{any Number}. If we think of a language as a collection of lego pieces, the Contracts 
+                 are like the tabs and slots that tell us how each piece can connect.}
                      @teacher{[@(hyperlink "https://www.youtube.com/watch?v=88WhYoMxrGw" "Video")]}
                      }
-             @point{@student{Contracts are sufficiently important and useful that we should keep a list of them somewhere.  The back pages of your workbook contain a sheet labeled "Contracts".  Write the contract for @code{star} in the first row of your contracts table.}
-                    @teacher{Common mistakes when students first write down contracts include: writing values (such as @code{"red"}) instead of types (such as "String") and forgetting arguments.  Read your students' contracts carefully, as they often indicate misconceptions that will persist and affect them later on.}}
+             @point{@student{Contracts are sufficiently important and useful that we should keep a list of them somewhere.  
+                             The back pages of your workbook contain a sheet labeled "Contracts".  Write the contract for 
+                             @code{star} in the first row of your contracts table.}
+                    @teacher{Common mistakes when students first write down contracts include: writing values (such as @code{"red"}) 
+                             instead of types (such as "String") and forgetting arguments.  Read your students' contracts carefully, 
+                             as they often indicate misconceptions that will persist and affect them later on.}}
              @point{@student{Here is the contract for a new function:
                  @code[#:multi-line ""]{; rectangle: Number Number String String -> Image}
                  @activity[#:forevidence (list "BS-PL.2&1&1")]{@itemlist[@item{What is the @vocab{Name} of this function?}
@@ -184,8 +208,8 @@ include other datatypes, including Strings and Images.}
                                       @item{What is the type of each thing in the Domain?}
                                       @item{What is the @vocab{Range} of this function?}
                                       ]}
-                 A Contract tells you exactly how to use the function, by writing its Name and then using @vocab{values} for each of the arguments in 
-                 the @vocab{Domain}. Here is an example of an expression, written to use @code{rectangle}: 
+                 A Contract tells you exactly how to use the function, by writing its Name and then using @vocab{values} for 
+                 each of the arguments in the @vocab{Domain}. Here is an example of an expression, written to use @code{rectangle}: 
                  @code[#:multi-line ""]{(rectangle 100 50 "solid" "blue")}
                  @editor-link[#:interactions-text "(rectangle 100 50 \"solid\" \"blue\")"
                                                   "What do you think this code will produce?"]}
@@ -206,17 +230,25 @@ include other datatypes, including Strings and Images.}
                                                                                          @editor-link[#:interactions-text "(ellipse 150 40 \"outline\" \"black\")"
                                                                                                                           "Here's an example to get you started"]}
                              }
-                     @teacher{You should start pushing students to write more sophisticated expressions, replacing Number values with entire expressions (e.g. @code{(star (* 10 5) "solid" "purple")}). Students should be comfortable looking at an entire subexpression as a single argument to the surrounding function. 
-                              You may want to insist that students to write these Contracts into their notebooks BEFORE allowing them to play with them. Be careful about letting students rush to the keys without first taking notes!}
+                     @teacher{You should start pushing students to write more sophisticated expressions, 
+                              replacing Number values with entire expressions (e.g. @code{(star (* 10 5) "solid" "purple")}). 
+                              Students should be comfortable looking at an entire subexpression as a single
+                              argument to the surrounding function. 
+                              You may want to insist that students to write these Contracts into their notebooks 
+                              BEFORE allowing them to play with them. Be careful about letting students rush to 
+                              the keys without first taking notes!}
                      }
-             @point{@student{Here is an expression that uses a very interesting function: @code{(bitmap/url "http://bootstrapworld.org/images/icon.gif")}.  This function takes in the URL of any image you can find online, and will produce that image so that you can use it in your program.
+             @point{@student{Here is an expression that uses a very interesting function: @code{(bitmap/url "http://bootstrapworld.org/images/icon.gif")}.  
+                             This function takes in the URL of any image you can find online, and will produce that image so that you can use it in your program.
                              @activity[#:forevidence (list "BS-PL.2&1&1")]{@itemlist[@item{What are the three parts of a Contract?}
                                                   @item{What is the Name of this new function?}
                                                   @item{How many things are in its Domain?}
                                                   @item{What is the Domain of this function?}
                                                   @item{What will this expression evaluate to?}]}                             
                              }
-                     @teacher{If you want to have students practice using @code{bitmap/url}, it is recommended that you use an image search-engine, such as @(hyperlink "https://images.google.com" "Google Images") or @(hyperlink "http://www.bing.com/images" "Bing Images"). Make sure that students know how to get the URL for the image itself, @italic{not the URL of the web page that contains the image.}}
+                     @teacher{If you want to have students practice using @code{bitmap/url}, it is recommended that you use an image search-engine, 
+                              such as @(hyperlink "https://images.google.com" "Google Images") or @(hyperlink "http://www.bing.com/images" "Bing Images"). 
+                              Make sure that students know how to get the URL for the image itself, @italic{not the URL of the web page that contains the image.}}
                      }
              @point{@student{Contracts help programmers write code, so it's always a good idea to write down contracts for each function you see. 
                              @activity[#:forevidence (list "BS-PL.2&1&2" "F-IF.1-3&1&1")]{
@@ -225,7 +257,8 @@ include other datatypes, including Strings and Images.}
                                                                                      "Look at the function being used here"], 
                                   and see if you can write the @vocab{Name}, @vocab{Domain} and @vocab{Range} for that function.
                                          
-                                         Make sure you don't confuse the @vocab{Contract} for a function with code! Some of the items listed below are Contracts, but others are just examples of those functions being used. Can you tell which is which?
+                                  Make sure you don't confuse the @vocab{Contract} for a function with code! Some of the items listed below are 
+                                  Contracts, but others are just examples of those functions being used. Can you tell which is which?
                                          @itemlist[@item{@code{; triangle : Number String String -> Image}}
                                                     @item{@code{(triangle 100 "outline" "blue")}}
                                                     @item{@code{(square (+ 200 5) "solid" "red")}}
@@ -233,7 +266,9 @@ include other datatypes, including Strings and Images.}
                                          }
                        @teacher{}
                        }
-                @point{@student{Sometimes, we make mistakes when we write code, and we use a value that violates the contract.  Fortunately, the computer identifies such cases and provides @vocab{error messages} to help us find and correct the problem.  An error message highlights the code containing the error and explains where the computer found a problem.  
+                @point{@student{Sometimes, we make mistakes when we write code, and we use a value that violates the contract.  Fortunately,
+                                the computer identifies such cases and provides @vocab{error messages} to help us find and correct the problem.  
+                                An error message highlights the code containing the error and explains where the computer found a problem.  
                        @activity[#:forevidence (list "BS-IDE&1&2")]{For each of the following incorrect expressions, look at the code 
 				 and see if you can figure out what is wrong about it.  Then, type the 
 				 code into the Interactions Window and see what error message you get.  
@@ -248,12 +283,14 @@ include other datatypes, including Strings and Images.}
                                            @item{@code{(star (* 4 10) "blue")}}
                                            @item{@code{(cirle 25 "outline" "blue")}}
                                           ]}}
-                       @teacher{Controlled practice with error messages helps students gain confidence in dealing with them later on.  It is fine if students don't spot the errors
-                                for themselves at first, though having students explain the problems in their own words should reinforce correct use of these functions later 
+                       @teacher{Controlled practice with error messages helps students gain confidence in dealing with them later on.  
+                                It is fine if students don't spot the errors for themselves at first, though having students explain 
+                                the problems in their own words should reinforce correct use of these functions later 
                                 in the course.}
                        }
-                @point{@student{There are also a number of functions that take in Images as their @italic{input}. For example, suppose you want to flip an image
-                                from left-to-right, so that it points in the opposite direction. You can use the function @code{flip-horizontal}, which has an
+                @point{@student{There are also a number of functions that take in Images as their @italic{input}. For example, 
+                                suppose you want to flip an image from left-to-right, so that it points in the opposite 
+                                direction. You can use the function @code{flip-horizontal}, which has an
                                 Image as both its Domain and Range. See the Contract (and an example of the function) below:
                                 @code[#:multi-line ""]{; flip-horizontal : Image -> Image
 (flip-horizontal (text "backwards" 50 "red"))
