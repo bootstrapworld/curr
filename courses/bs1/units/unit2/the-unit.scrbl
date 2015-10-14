@@ -288,6 +288,20 @@ include other datatypes, including Strings and Images.}
                                 the problems in their own words should reinforce correct use of these functions later 
                                 in the course.}
                        }
+                @point{@student{Being an expert at reading error messages is an important part of being a good programmer! Reading 
+                                error mesages is like having a teacher or a friend help you with something you are working on, rather
+                                than just saying "wrong!" every time you make a mistake. If you get really good at reading these
+                                messages, you can even use them to discover functions you never knew existed!
+                                @activity{Here are the names of some other image-producing functions, but how do they work? Try to
+                                          figure out how they are used on the computer, by experimenting and reading the error 
+                                          messages. Can you discover their Domain and Range?
+                                @itemlist[@item{@code{rhombus}}
+                                          @item{@code{right-triangle}}
+                                          @item{@code{radial-star}}
+                                          @item{@code{star-polygon}}]
+                                }}
+                        @teacher{}
+                        }
                 @point{@student{There are also a number of functions that take in Images as their @italic{input}. For example, 
                                 suppose you want to flip an image from left-to-right, so that it points in the opposite 
                                 direction. You can use the function @code{flip-horizontal}, which has an
