@@ -5,6 +5,7 @@
 
 ;; this supports javascript evaluation for Scribble.
 (require scribble/html-properties
+         scribble/base
          scribble/core
          scriblib/render-cond
          racket/match
@@ -68,6 +69,12 @@
   (make-element (make-style #f (list tag-attr attrs-attr))
                 content))
 
+#|
+Kathi commented this out on Oct 15 2015.  This file hadn't been loaded
+in over a year, but got pulled in again to restore embedded-weschemes.
+Don't think we use/need this function, so commented it out to avoid
+checksyntax error on constraint->js not being defined.
+
 ;; generates a button that checks given constraint when clicked
 ;; NEED TO document the language of the constraint input
 (define (check constraint #:id (id (gensym 'check)))
@@ -88,3 +95,4 @@
                    });"
                  (format "~a" id)
                  (constraint->js constraint)))))
+|#

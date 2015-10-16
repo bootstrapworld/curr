@@ -31,6 +31,7 @@
          "design-recipe-generator.rkt"
          "exercise-generator.rkt"
 	 "math-rendering.rkt"
+         "wescheme.rkt"
          )
  
 ;; FIXME: must add contracts!
@@ -82,6 +83,7 @@
          video-link
          [rename-out [worksheet-link/src-path worksheet-link]] 
          lulu-button
+         embedded-wescheme
                 
          ;; lesson formatting 
          lesson
