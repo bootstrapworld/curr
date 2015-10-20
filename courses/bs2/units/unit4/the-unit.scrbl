@@ -69,6 +69,7 @@
                                 using Data Structures.
                                 @activity{Open the @editor-link[#:public-id "0BzzMl1BJlJDkRnFIVVZwUWdUN2c" "Intro to Big-Bang"] program and read the code with
                                           your partner. Can you answer the questions below? 
+                                          @bitmap{images/draw-world.png}
                                                    @itemlist[@item{Lines 7-19 define several values. What are their names?}
                                                               @item{Are these values Numbers, Strings or Images?}
                                                               @item{There are two functions defined farther down in the file. What are their names?}
@@ -83,7 +84,8 @@
                                  and the variable @code{current-world} as dog's x-coordinate. As the value of @code{current-world} changes, the dog will appear
                                  to move across the screen. The dog will appear to move to the right if this value gets larger, or to the left if it gets smaller.
                                 
-                                @activity{@itemlist[@item{Scroll down to where the code says @code{"UPDATING FUNCTIONS"} (line 32).}
+                                @activity{@bitmap{images/next-world.png}
+                                          @itemlist[@item{Scroll down to where the code says @code{"UPDATING FUNCTIONS"} (line 32).}
                                                      @item{What is the name of the function defined in this section?} 
                                                      @item{What is the Domain of this function? The Range?}
                                                      @item{According to the purpose statement, what does this function do?}
@@ -153,7 +155,8 @@
                                  Just as in our role-play, @code{big-bang} will happily display the current world forever, even as time passes. Try
                                  passing in different values besides @code{numberA} and see what happens. What we need to do is tell @code{big-bang} 
                                  which @vocab{events} to listen to, and which functions to call when those events occur. 
-                                 @activity{Uncomment line 49, by remove the @code{#} mark from the beginning of the line. Now @code{big-bang} will
+                                 @activity{@bitmap{images/big-bang.png}
+                                   Uncomment line 49, by remove the @code{#} mark from the beginning of the line. Now @code{big-bang} will
                                            call @code{next-world} with the current world every time there is a "tick" event.
                                            @itemlist[@item{What do you think will happen when you click "Run"?}
                                                       @item{Try it out - did you see what you expected?}
