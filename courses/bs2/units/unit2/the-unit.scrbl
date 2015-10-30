@@ -202,7 +202,7 @@ end}
                                                                  color :: String, 
                                                                message :: String, 
                                                                 layers :: Number, 
-                                                          is-iceCream :: Boolean)
+                                                           is-iceCream :: Boolean)
                                                        end}
                              This is the code that defines the Cake data structure. It tells the computer what a Cake is and what goes into it. It also defines its constructor function, called @code{cake}. To make a Cake, you @italic{must} call the constructor function with five things: a @code{flavor}, which is a String, @code{color}, a String, @code{messgae}, another String, @code{layers}, a Number, and @code{is-iceCream}, which is a Boolean. Remember that order matters! For now, these are the only things that we're going to keep track of in a cake, but you can imagine how you might extend it to include other information.}
                         @teacher{Stress the importance of being able to define your own datatypes

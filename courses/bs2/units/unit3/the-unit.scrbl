@@ -110,7 +110,7 @@ Once the Party structure is defined, you have access to new pieces of code: a fu
                                 @activity{@itemlist[@item{We also know what color this Cake should be: the same as the given Cake! So how could you access JUST the color of @code{cake1} and use it in the @code{cake} function? Use the dot-accessor!
                                                          The message of the cake doesn't change, either. So how do you get the message out of @code{cake1}?}
                                                      @item{The number of layers shouldn't change if you change the flavor. How do you get the layers out of @code{cake1?}}]}
-                                Don't forget the last part of the Cake struct- is-iceCream! The purpose statement for @code{change-flavor} doesn't say anything about the inside make-up of the Cake
+                                Don't forget the last field in the Cake struct: @code{is-iceCream}! The purpose statement for @code{change-flavor} doesn't say anything about the inside make-up of the Cake
                                 changing, so how do you get the original is-iceCream out of @code{cake1}?
                                 
 @code[#:multi-line #t]{examples:

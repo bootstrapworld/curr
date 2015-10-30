@@ -191,7 +191,7 @@
                  ]
          }
 @lesson/studteach[#:title "Extending the World"
-        #:duration "30 minutes"
+        #:duration "45 minutes"
         #:overview ""
         #:learning-objectives @itemlist[@item{Students will create a data structure for their animation}
                                         @item{Students will modify @code{draw-world} to add clouds and a cloud}
@@ -333,59 +333,18 @@ Now try adding the @code{COIN-IMG}, this time at (250, 300).}
                                  think about the @italic{simplest possible version of your game}. Once you have that working, you
                                  can add advanced features later on.}
                          @teacher{}
-                         }]
+                         }
+                 @point{@student{@activity{Modify the @code{World} structure to include the cat's x- and y-coordinate, then change
+                                           @code{draw-world} to place the cat into the image. (Note: since the cat does not move
+                                           on it's own, it will just sit still for now.}
+                                  @code{next-world} is responsible for everything in our game that @italic{chances on it's own},
+                                  in response to time just naturally passing by. We want the cat to move in response to a key being
+                                  pressed, which is just another kind of @vocab{event}. In the next lesson, you'll learn how to add
+                                  a new function that will build Worlds in response to keypresses!}
+                         @teacher{}}]
 }
                  
-                 
-@lesson/studteach[#:title "Game Brainstorming"
-        #:duration "20 minutes"
-        #:overview ""
-        #:learning-objectives @itemlist[]
-        #:evidence-statements @itemlist[]
-        #:product-outcomes @itemlist[@item{Students will define their World structures}]
-        #:standards (list)
-        #:materials @itemlist[]
-        #:preparation @itemlist[]
-        #:pacings (list 
-                @pacing[#:type "remediation"]{@itemlist[@item{}]}
-                @pacing[#:type "misconception"]{@itemlist[@item{}]}
-                @pacing[#:type "challenge"]{@itemlist[@item{}]}
-                )
-      ]{
-        @points[@point{@student{@activity{Suppose I have a racing game, where my player is at the bottom of the screen, sitting in their car. In front 
-                                          of them, I have two lanes, with cars coming at me as I catch up to them. To move out of the way, I need to 
-                                          change into the left or right lane of the road. 
-                                          @itemlist[@item{What are all the things I need to keep track of in my game?}
-                                                     @item{@code{PlayerX} - a number}
-                                                     @item{@code{CarY} - a number}
-                                                     @item{@code{Car2Y} (if I want another car) - a number}
-                                                     @item{@code{Score} - a number}
-                                                     @item{How would I define this World structure?}
-                                                     @item{How do I get the @code{playerX} out of my word? My @code{CarY}? My @code{Car2Y}? The score?}
-                                                     @item{What if I wanted the player's car to change color as the score goes up? How would my World 
-                                                           structure need to change?}]}
-For the last three lessons you have been working with structures, and have gotten really good at defining, making and accessing them. Now, it's time to think about YOUR game--- what will be changing in @italic{your} World structure?}
-                                                                                
-                  @teacher{Make sure students collaborate with their partner(s) to brainstorm a game that they will both be happy with. Make sure 
-                           you force them to think about their World structures, and start simple: Limit their World structure to no more than five things, initially.}}
-                 
-                 @point{@student{@activity{@itemlist[@item{Turn to @worksheet-link[#:page 17 #:name "Game Design 1"] in your workbooks. First, you're going to draw two rough sketches: In the box on the left side of the page, draw a sketch of what your game should look like at the @italic{very start}, when the user clicks "Run". In the box on the right, draw a sketch of the game at the very next moment- what has changed?}
-                                                     @item{Keep your game simple at first! You can always add more things to make it more complex later on, but start with just @bold{five or fewer} game elements to begin with.}
-                                                     @item{On the left side of the table directly underneath your sketches, list all the images you'll need for your game. We've gotten you started by listing the background. On the right side, describe the image- what does the background look like? What does your player look like?}
-                                                     @item{Now, in the last table on @worksheet-link[#:page 17 #:name "Game Design 1"], make a list of everything that changes in your game @italic{from the very first second to the next}. What changed in the second sketch you drew?}
-                                                     @item{After listing what changed on the left side of the table, write what data type you would use to describe that thing on the right side: if something moves, will you need to keep track of it's x-coordinate? y? both?}]}}
-                        @teacher{}}
-
-                 @point{@student{Now that you've gotten a list of everything that changes, it's time to turn them into a World structure.
-            @activity{@itemlist[@item{Turn to @worksheet-link[#:page 18 #:name "Game Design 2"] in your workbooks, and define your World structure, using your list from the previous page about what changes in your game.}
-                                 @item{When you have your World structure, write down the contract for the @code{world} constructor, and two example Worlds called START and NEXT: START should be the state of your game world right when the game begins, and NEXT should show the game world a split-second @italic{after} the start of the game. Lok at your sketches on the previous page for help!}
-                                 @item{Finally, make a list of all the dot-accessors you'll have access to once you've defined the World structure.}]}}
-                        @teacher{Many students will want to create ambitious games at first, with many values in their World structure. Make sure they start
-                                 simple at first: Once they have a simple game working, they can add more elements and features to make it more advanced.
-                                 Check their work: Does each pair's World structure correspond to the things that are changing in their game? Review each team's structure and make sure it accurately models their World. Also be sure to check their 
-                                 @code{world} contract and dot-accessors.}}
-                 ]
-         }
+              
 @lesson/studteach[#:title "Closing"
         #:duration "5 minutes"
         #:overview ""
