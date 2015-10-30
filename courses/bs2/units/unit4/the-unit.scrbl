@@ -179,12 +179,12 @@
                                   functions.}
                          }
                   @point{@student{@code{big-bang} and The Hollywood Principle are all part of a programming paradigm used all over the world, called 
-                                  @vocab{Event Based Programming}. In Event Based Programming, your program is just a chunk of data - called a "World"
+                                  @vocab{Event-Based Programming}. In Event-Based Programming, your program is just a chunk of data - called a "World"
                                   - which is changed whenever certain events fire. So far, the only events you know about are things like tick-events
                                   and draw-events, but you can imagine building other functions to handle key-events or mouse-events in your game.
                                   However, the world that we're using here is just a single Number. What if we wanted to have both the Dog and the Coin
                                   in our animation, moving at different speeds? We'd need a way for the world to be @italic{two numbers}. To pull this 
-                                  off, we'll need to combine Event Based Programming with another concept we've learned...}
+                                  off, we'll need to combine Event-Based Programming with another concept we've learned...}
                           @teacher{Solicit student guesses for how to do this, reminding them of the last time they were confronted with this problem
                                    - during the Parachute Jumper exercise. The solution here is the same as it was there: Data Structures to the rescue!}
                           }
