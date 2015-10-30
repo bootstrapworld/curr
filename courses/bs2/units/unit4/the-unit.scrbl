@@ -6,7 +6,7 @@
 @unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / num-sqr num-sqrt num-expt})
                                        (list "String" @code{string-append string-length})
                                        (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image})
-                                       (list "Car" @code{car .model .hp .rims .color .price})
+                                       (list "Cake" @code{cake .flavor .color .message .layers .is-iceCream})
                                        (list "Party" @code{party .theme .location .guests}))]{
 @unit-descr{Students are introduced to event-based programming using big-bang, and codewalk through the ’next-world’ and ’draw-world’ functions.
             They they modify these functions and experiment with the results, eventually leading to a point where they discover the
@@ -32,18 +32,19 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{In our autobody shop we’ve been working with pretty basic cars. They have a model, horsepower, a rim size, color, and price.
+        @points[@point{@student{In our previous lesson, we worked on the @code{cake} structure. Cakes have a flavor, a color, 
+                                a message, number of layers, and an indicator of whether or not it's an ice cream cake.
                                 @activity{What datatype do we use for each of these fields?}
-                                What if we realize later, after defining our Car struct, that it would be helpful to include more information about each car, like whether or not it 
-                                has a sunroof? Thankfully, working in Pyret it’s easy to change our data definition so a car can include this as well.
-                                @activity{@itemlist[@item{How would you change the data definition to include this new information about cars?}
-                                                     @item{What new argument does the @code{car} function need to take in? What kind of data is this?}
-                                                     @item{Change your Car definition that begins on line 4 of the @editor-link[#:public-id "0B9rKDmABYlJVSlI4VEZLLUI4UkU" "Autobody Shop"] file so it includes this new information.}]}
+                                What if we realize later, after defining our Cake struct, that it would be helpful to include more information about each cake, like 
+                                a frosting color? Thankfully, working in Pyret it’s easy to change our data definition so a cake can include this as well.
+                                @activity{@itemlist[@item{How would you change the data definition to include this new information about cakes?}
+                                                     @item{What new argument does the @code{cake} constructor need to take in? What kind of data is this?}
+                                                     @item{Change your Cake definition so it includes this new information.}]}
                                 Important! When you change @italic{any} data structure, @bold{all} @vocab{instances} of that structure will need to change as well. 
-                                Right now our definitions for @code{car1}, @code{car2}, and @code{car3} are creating cars with only five inputs--- we need to 
+                                Right now our definitions for @code{cakeA}, @code{cakeB}, and @code{cakeC} are creating cakes with only four inputs--- we need to 
                                 add the information about the sunroof!
 
-@activity{Change the definitions of @code{car1}, @code{car2}, @code{car3} and the other cars you defined so they reflect the new Car struct. }}
+@activity{Change the definitions of @code{cakeA}, @code{cakeB}, @code{cakeC} and the other caked you defined so they reflect the new Cake struct. }}
                         @teacher{}}
                  ]
          }
@@ -226,7 +227,7 @@ worldB = world(200, 1000)
 }
                                 @activity{Type this into your programs, and answer the following questions:
                                           @itemlist[@item{What is the name of the @vocab{type} that is created by this data block?}
-                                                     @item{What is the constructor function that makes a @code{World}?}
+                                                     @item{What is the @vocab{constructor function} that makes a @code{World}?}
                                                      @item{How many inputs does the constructor take, and what are their types?}
                                                      @item{What type of data is @code{worldA}?}
                                                      @item{How would you get the @code{dogX} out of @code{worldA}?}
@@ -265,7 +266,7 @@ end}
 }
                                  }
                          @teacher{This is a great opportunity to have students practice their vocabulary for working with structures.
-                                  The revised @code{next-world} functions uses a @vocab{constructor} and two @vocab{accessors}.}
+                                  The revised @code{next-world} functions uses a @vocab{constructor function} and two @vocab{dot-accessors}.}
                          }
                  @point{@student{Finally, we need to change @code{big-bang} to use our new world structure.
                                  @activity{@itemlist[@item{Does the initial value given to @code{big-bang} need to change? If so, why?}
