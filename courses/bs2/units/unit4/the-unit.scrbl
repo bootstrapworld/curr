@@ -32,19 +32,19 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{In our previous lesson, we worked on the @code{cake} structure. Cakes have a flavor, a color, 
+        @points[@point{@student{In our previous lesson, we worked on the @code{Cake} structure. Cakes have a flavor, a color, 
                                 a message, number of layers, and an indicator of whether or not it's an ice cream cake.
                                 @activity{What datatype do we use for each of these fields?}
                                 What if we realize later, after defining our Cake struct, that it would be helpful to include more information about each cake, like 
-                                a frosting color? Thankfully, working in Pyret it’s easy to change our data definition so a cake can include this as well.
+                                a frosting color? Thankfully, working in Pyret it’s easy to change our data definition so a Cake can include this as well.
                                 @activity{@itemlist[@item{How would you change the data definition to include this new information about cakes?}
                                                      @item{What new argument does the @code{cake} constructor need to take in? What kind of data is this?}
                                                      @item{Change your Cake definition so it includes this new information.}]}
                                 Important! When you change @italic{any} data structure, @bold{all} @vocab{instances} of that structure will need to change as well. 
-                                Right now our definitions for @code{cakeA}, @code{cakeB}, and @code{cakeC} are creating cakes with only four inputs--- we need to 
-                                add the information about the sunroof!
+                                Right now our definitions for @code{cake1}, @code{cake2}, and @code{cake3} are creating cakes with only four inputs--- we need to 
+                                add the information about the frosting color!
 
-@activity{Change the definitions of @code{cakeA}, @code{cakeB}, @code{cakeC} and the other caked you defined so they reflect the new Cake struct. }}
+@activity{Change the definitions of @code{cake1}, @code{cake2}, @code{cake3} and the other cakes you defined so they reflect the new Cake struct. }}
                         @teacher{}}
                  ]
          }
@@ -339,7 +339,7 @@ Now try adding the @code{COIN-IMG}, this time at (250, 300).}
                                            on it's own, it will just sit still for now.}
                                   @code{next-world} is responsible for everything in our game that @italic{chances on it's own},
                                   in response to time just naturally passing by. We want the cat to move in response to a key being
-                                  pressed, which is just another kind of @vocab{event}. In the next lesson, you'll learn how to add
+                                  pressed, which is just another kind of event. In the next lesson, you'll learn how to add
                                   a new function that will build Worlds in response to keypresses!}
                          @teacher{}}]
 }
