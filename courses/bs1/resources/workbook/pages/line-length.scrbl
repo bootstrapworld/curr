@@ -1,6 +1,7 @@
 #lang curr/lib
 
-@(design-recipe-exercise "line-length" "Write a function called 'line-length', which takes in two numbers and returns the difference between them. It should always subtract the smaller number from the bigger one."
+@(design-recipe-exercise "line-length" "Write a function called 'line-length', which takes in two numbers and returns the *positive difference* between them. 
+It should always subtract the smaller number from the bigger one, and if they are equal it should return zero."
                          #:domain-list '("number" "number")
                          #:range "number"
 			 #:purpose "Produce positive difference between two given numbers"
