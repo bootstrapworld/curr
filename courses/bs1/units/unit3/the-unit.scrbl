@@ -6,7 +6,7 @@
 @unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sqr sqrt expt})
                                        (list "String" @code{string-append string-length})
                                        (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image}))]{
-  @unit-descr{Students are introduced to the Definitions window, and learn the syntax for defining values of various types.  They are also introduced to the syntax of defining functions and creating examples.}
+  @unit-descr{Students are introduced to the Definitions area, and learn the syntax for defining values of various types.  They are also introduced to the syntax of defining functions and creating examples.}
 }
 @unit-lessons{
 @lesson/studteach[
@@ -75,7 +75,7 @@
                                                                #:interactions-text ""
                                                                "an example of a definition"]
                                , that defines @code{shape1} to be a solid red triangle. When you click "Run", you can evaluate @code{shape1}
-                               in the Interactions window and the computer will show you the triangle. What do you think would happen if you
+                               in the Interactions area and the computer will show you the triangle. What do you think would happen if you
                                evaluated @code{shape1} @italic{without} clicking "Run"?
                                }
                         @teacher{Make sure students see what happens when @code{shape1} is evaluated without first clicking "Run", so they
@@ -84,13 +84,12 @@
                                  causes the computer to @italic{read the definitions}, and that any change requires it to re-read them.
                                  }
                         }
-                @point{@student{Definitions go in the upper window in your editor (the one above the 
-                               Interactions Window); this upper window is called the @vocab{Definitions Window}.        
+                @point{@student{Definitions go in the left area in your editor. This is called the @vocab{Definitions area}.        
                                @activity[#:forevidence (list "BS-PL.3&1&1")]{
-                                     @itemlist[@item{Enter the @code{shape1} definition into the @vocab{Definitions Window}.}
+                                     @itemlist[@item{Enter the @code{shape1} definition into the @vocab{Definitions area}.}
                                                 @item{Click "Run" to have the computer read that definition.}
-                                                @item{What do you think will happen when you evaluate @code{shape1} in the Interactions window?}
-                                                @item{Add a new line to the definitions window, just below the definition of @code{shape1}. Add a new 
+                                                @item{What do you think will happen when you evaluate @code{shape1} in the Interactions area?}
+                                                @item{Add a new line to the definitions area, just below the definition of @code{shape1}. Add a new 
                                                       definition called @code{shape2}, and define it to be a solid, blue circle of radius 20.}
                                                 @item{Click "Run", and try evaluating @code{shape2.}}
                                                 @item{On the next line, define a new value called @code{age} to be the number of years old that you are.}
@@ -103,26 +102,26 @@
                         @teacher{}
                         }
                 @point{@student{@activity[#:forevidence (list "BS-PL.3&1&1" "BS-IDE&1&2")]{
-                                    One a new line in the Definitions Window, define a value called @code{eye-color} to be the color of your eyes.  
+                                    One a new line in the Definitions area, define a value called @code{eye-color} to be the color of your eyes.  
                                     Don't hit "Run" yet!  
-                                    @itemlist[@item{Go into the Interactions Window and try evaluating @code{eye-color}.  You should get an error 
+                                    @itemlist[@item{Go into the Interactions area and try evaluating @code{eye-color}.  You should get an error 
                                                     message that the computer doesn't know about @code{eye-color}, because you didn't click "Run" 
                                                     after adding the definition.}
                                               @item{Click "Run".}
-                                              @item{Try asking for @code{eye-color} in the Interactions Window again.  This time, you should not get the error.}]}
+                                              @item{Try asking for @code{eye-color} in the Interactions area again.  This time, you should not get the error.}]}
                                  Definitions are useful because we can reuse them in other expressions.  For example, we could use @code{eye-color} 
                                  inside another expression, such as @code{(circle 10 "solid" eye-color)}.  Let's practice using definitions inside other expressions.
                                  }
                         @teacher{}
                         }
                 @point{@student{@activity[#:forevidence (list "BS-PL.3&1&1" "BS-IDE&1&1")]{
-                                    Create the following definitions in the Definitions Window, and check them out in the Interactions Window:
+                                    Create the following definitions in the Definitions area, and check them out in the Interactions area:
                                     @itemlist[@item{Define a value called @code{prize} to be a solid yellow star (you pick the size).}
                                               @item{Define a value called @code{big} that uses @code{scale} to make your @code{prize} three times larger.}
                                               @item{Define a value called @code{tilt} that uses @code{rotate} to turn your big yellow star by @code{45} degrees.}
-                                              @item{Type @code{tilt} in the Interactions Window, and make sure you get a large, tilted, yellow star.}
+                                              @item{Type @code{tilt} in the Interactions area, and make sure you get a large, tilted, yellow star.}
                                               @item{It turns out that green stars are more popular as prizes than yellow stars.  Change the expression in your @code{prize} definition to make the star green instead of yellow.  Click "Run" so the computer will read your new definition.}
-                                              @item{Now type @code{tilt} in the Interactions Window again.  What color star did you get?  If you defined each of @code{big} and @code{tilt} to use your definitions, you should get a tilted green star!  If you didn't get a green star, try to fix your definitions to make that happen.}
+                                              @item{Now type @code{tilt} in the Interactions area again.  What color star did you get?  If you defined each of @code{big} and @code{tilt} to use your definitions, you should get a tilted green star!  If you didn't get a green star, try to fix your definitions to make that happen.}
                                              ]
                                    }
                           }
@@ -195,7 +194,7 @@
       ]{
         @points[@point{@student{@activity{Open the videogame file (Game.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"]
                                           or @editor-link[#:public-id "RHBJYscAWj" "the online template"] so that you can see the code,
-                                          and click "Run". (You may need to wait a few seconds for the images to load!) The window that
+                                          and click "Run". (You may need to wait a few seconds for the images to load!) The area that
                                           appears is a running videogame, but you probably notice that nothing is moving - even if you 
                                           hit the "up" or "down" arrows! For now, click the "close" button to return to the code.}
                                  This file contains a list of definitions, where you will get to define how your game characters look, move, and interact. As you scroll down to the bottom, you'll see a bunch of 
@@ -206,12 +205,12 @@
                                  inserts your definitions inside a giant function that is called every tenth of a second, and uses your definitions to decide what is happening at that moment.}
                         @teacher{You can remind students that Bootstrap:2 will show them how to write this function, and customize it to create more advanced games (multiplayer, maze, etc).}
                         }
-                 @point{@student{In the Definitions window, you will see that this program defines several values: @code{TITLE}, for example, is defined to the be the String @code{"My Game"}.
-                                @activity[#:forevidence (list "BS-PL.3&1&1")]{@itemlist[@item{If you type @code{TITLE} into the Interactions window, what do you think it would evaluate to?}
+                 @point{@student{In the Definitions area, you will see that this program defines several values: @code{TITLE}, for example, is defined to the be the String @code{"My Game"}.
+                                @activity[#:forevidence (list "BS-PL.3&1&1")]{@itemlist[@item{If you type @code{TITLE} into the Interactions area, what do you think it would evaluate to?}
                                            @item{What other definitions do you see?}
                                            @item{What are their values?}
                                            @item{What are their types?}
-                                           @item{Try evaluating each of these values in the Interactions window, starting with @code{BACKGROUND}}]}
+                                           @item{Try evaluating each of these values in the Interactions area, starting with @code{BACKGROUND}}]}
                                 }
                          @teacher{(By now, you should have students' graphics already created, and 
                                   @resource-link[#:path "teachers/teachers-guide/teachers-guide.html#addingimages" #:label "added to the file"].)
@@ -328,7 +327,7 @@
                                              use the name 'gt', and must all produce solid, green triangles.
                                              @activity[#:forevidence (list "BS-PL.3&1&2" "BS-DR.2&1&1" "F-BF.1-2&1&1" "F-IF.1-3&1&2" "F-IF.1-3&1&4")]{
                                                        In your workbook, write two examples of your own for this function.}}
-                                    @teacher{@bold{Be sure to point out that EXAMPLE is capitalized, and that all examples are written in the definitions window.} Many students will follow along here without really understanding, simply by pattern-matching. Be sure to ask them lots of questions, to have them justify each step:
+                                    @teacher{@bold{Be sure to point out that EXAMPLE is capitalized, and that all examples are written in the definitions area.} Many students will follow along here without really understanding, simply by pattern-matching. Be sure to ask them lots of questions, to have them justify each step:
                                              @itemlist[@item{Why does the example have to start with gt? (Because it's the Name of the function, specified in the contract)}
                                                         @item{How do we know @code{gt} requires only one number? (Because it's the Domain of the function, specified in the contract)}
                                                         @item{How do we know to use @code{triangle}? (Because the word problem tells us what shape it has to produce)}
@@ -369,9 +368,9 @@
                                     }
                             @point{@student{@activity[#:forevidence (list "BS-PL.3&1&3" "BS-DR.3&1&1" "F-IF.1-3&1&2")]{
                                                @itemlist[@item{On your paper, define the @code{gt} function, then type the @vocab{Contract}, @vocab{Examples} 
-                                                               and @code{Definition} into the Definitions window.}
+                                                               and @code{Definition} into the Definitions area.}
                                                          @item{Click "Run", to have the computer read this definition.}
-                                                         @item{Use the function you've defined, by typing @code{(gt 100)} in the Interactions window.}
+                                                         @item{Use the function you've defined, by typing @code{(gt 100)} in the Interactions area.}
                                                          @item{Try using the function with different Numbers}]}
                                     @editor-link[#:definitions-text "; gt : Number -> Image
 (EXAMPLE (gt 50) (triangle 50 \"solid\" \"green\"))

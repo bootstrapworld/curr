@@ -408,8 +408,8 @@
      #:learning-objectives @itemlist[@item{Convert Circles of Evaluation into code}
                                      @item{Enter and evaluate code expressions for arithmetic on the computer}
                                      @item{Understand the goal of error messages from the computer}]
-     #:evidence-statements @itemlist[@item{Students will be able to identify the Interactions and Definitions windows}
-                                     @item{Students will be able to enter and evaluate simple arithmetic expressions in the Interactions window}
+     #:evidence-statements @itemlist[@item{Students will be able to identify the Interactions and Definitions areas}
+                                     @item{Students will be able to enter and evaluate simple arithmetic expressions in the Interactions area}
                                      @item{Students will be able to convert Circles of Evaluation into correctly-formed programs}
                                      @item{Students will be able to explain an 'unbounded identifier' error message}
                                      @item{Students will be able to explain the purpose of error messages}
@@ -443,14 +443,14 @@
                  
                 @point{@student{@bitmap{images/wireframeIDE.png}This screen is called the @vocab{editor}, and it looks something
                                  like the diagram you see here. There are a few buttons at the top, but most of the screen is 
-                                 taken up by two large boxes: the @vocab{Definitions window} at the top and the 
-                                 @vocab{Interactions window} at the bottom.}
-                        @teacher{The Definitions window is where programmers define values and functions in their program, 
-                                 while the Interactions window allows them to experiment with those values and functions. 
+                                 taken up by two large boxes: the @vocab{Definitions area} on the left and the 
+                                 @vocab{Interactions area} on the right.}
+                        @teacher{The Definitions area is where programmers define values and functions in their program, 
+                                 while the Interactions area allows them to experiment with those values and functions. 
                                  This is analogous to writing a series of function definitions on a blackboard, and having 
                                  student evaluate expressions using those function on scrap paper. As students are not yet 
                                  defining values of their own, it is not important that students understand this distinction 
-                                 right now.  For now, we will work only with the Interactions window.}
+                                 right now.  For now, we will work only with the Interactions area.}
                         }
                 
                 @point{@student{A program is a @vocab{legal expression} that, when evaluated, produces a value. You've been
@@ -466,11 +466,11 @@
                                  @activity[#:forevidence "BS-IDE&1&1"]{What do you think @code{4} will evaluate to? 
                                                                        @editor-link[#:interactions-text "4"
                                                                                     "Click here to test it out."]}
-                                              @itemlist[@item{Enter 4 in the Interactions window and hit "Return". You
+                                              @itemlist[@item{Enter 4 in the Interactions area and hit "Return". You
                                                               will see the value @code{4} appear on the next line in 
-                                                              the Interactions window.}
-                                                        @item{Type 10 in the Interactions window and hit "Return".  Now the 
-                                                              value @code{10} appears in the Interactions window.}
+                                                              the Interactions area.}
+                                                        @item{Type 10 in the Interactions area and hit "Return".  Now the 
+                                                              value @code{10} appears in the Interactions area.}
                                                          @item{Try evaluating numbers, like @code{10345017}, or negative 
                                                                numbers, like @code{-2}. Is there a limit to how big a number can be?
                                                                What happens if you write a decimal? What happens when you click on
@@ -482,7 +482,7 @@
                                  show them that these decimals can be converted back to fractions just by clicking on them.  The 
                                  environment uses standard annotations for repeating, non-terminating decimal expressions and 
                                  properly handles expressions like @math{(\sqrt -1)}.  If you want to work with those kinds of 
-                                 numbers in your class, enter them to get familiar with how they appear in the Interactions window.}
+                                 numbers in your class, enter them to get familiar with how they appear in the Interactions area.}
                         }
            
                 
@@ -490,7 +490,7 @@
                                                                       if you type in something that it @italic{doesn't} know about?
                                                                       Will it complain? Crash? Guess?
                                                                       @editor-link[#:interactions-text "dog" "Try asking the computer"] 
-                                                                      to evaluate @code{dog} in the Interactions window.}
+                                                                      to evaluate @code{dog} in the Interactions area.}
                                  These error messages are really useful for programmers. Rather than saying "this program doesn't 
                                 work", the computer does the best it can to tell you what went wrong, and to give you as much 
                                 information as possible to help you fix the problem. Make sure you always read these messages carefully!
@@ -508,7 +508,7 @@
                                             expressions, and finally by a closing parenthesis.}
                                  @bitmap{images/FixedCircle.png}Here is the code for this Circle of Evaluation: @code{(- 4 5)}
                                  @activity[#:forevidence "BS-PL.1&1&2"]{ @editor-link[#:interactions-text "(- 4 5)" "See what happens"]
-                                                                         when this code is entered into the Interactions window.
+                                                                         when this code is entered into the Interactions area.
                                                                          Press the Return key to evaluate the program. You should 
                                                                          see @math{-1} as an answer.
                                                                         }
@@ -526,7 +526,7 @@
                                  translation still follows the same rules: each Circle requires a new set of parentheses:
                                  @code{(* 6 (+ 4 5))}
                                  @activity[#:forevidence "BS-PL.1&1&2"]{@itemlist[@item{Try entering this code into the Interactions 
-                                                                                        window. What should the program evaluate to 
+                                                                                        area. What should the program evaluate to 
                                                                                         when you hit Return?}
                                                      @item{Practice converting other Circles of Evaluation you've drawn into code.}]}}
                         @teacher{[@(hyperlink "https://www.youtube.com/watch?v=vgkahOzFH2Q" "Video on Roles in Pair Programming.")]
@@ -551,7 +551,7 @@
                                 computer also gives you information to help you fix the problem. This information is called an 
                                 @vocab{error message}. We'll talk more about error messages later.  For now, we just want you to see 
                                 a couple of error messages so that you'll know what they are if you run into one while programming.
-                       @activity[#:forevidence "BS-IDE&1&2"]{Enter each of the following illegal expressions in the Interactions Window 
+                       @activity[#:forevidence "BS-IDE&1&2"]{Enter each of the following illegal expressions in the Interactions area 
                                                              and look at the error message or behavior that the computer gives you. 
                                  @itemlist[@item{@code{(5 * 6)} [puts the function in the middle, instead of at the front]}
                                            @item{@code{(*5 6)}  [missing a space after the function]}
