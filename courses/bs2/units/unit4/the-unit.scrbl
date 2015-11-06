@@ -57,7 +57,7 @@
         #:product-outcomes @itemlist[]
         #:standards (list)
         #:materials @itemlist[]
-        #:preparation @itemlist[@item{The @editor-link[#:public-id "0BzzMl1BJlJDkRnFIVVZwUWdUN2c" "Intro to Big-Bang"] file preloaded on students' machines}
+        #:preparation @itemlist[@item{The @editor-link[#:public-id "0B9rKDmABYlJVQTg2b2ZRQ2E0ZWc" "Intro to Big-Bang"] file preloaded on students' machines}
                                  @item{next-world, big-bang, and draw-world nametags}
                                 @item{cutout image of dog}]
         #:pacings (list 
@@ -68,7 +68,7 @@
       ]{
         @points[@point{@student{Now let's talk about animation. We'll start off with a really simple example that only uses Numbers, and gradually build up to 
                                 using Data Structures.
-                                @activity{Open the @editor-link[#:public-id "0BzzMl1BJlJDkRnFIVVZwUWdUN2c" "Intro to Big-Bang"] program and read the code with
+                                @activity{Open the @editor-link[#:public-id "0B9rKDmABYlJVQTg2b2ZRQ2E0ZWc" "Intro to Big-Bang"] program and read the code with
                                           your partner. Can you answer the questions below? 
                                           @bitmap{images/draw-world.png}
                                                    @itemlist[@item{Lines 7-19 define several values. What are their names?}
