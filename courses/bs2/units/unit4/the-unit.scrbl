@@ -13,7 +13,7 @@
             need for structures.}
 }
 @unit-lessons{
-@lesson/studteach[#:title "Review: Autobody Shop"
+@lesson/studteach[#:title "Review: Your Bakery"
         #:duration "10 minutes"
         #:overview ""
         #:learning-objectives @itemlist[]
@@ -24,7 +24,7 @@
                             @item{Class poster (List of rules, design recipe, course calendar)}
                             @item{Editing environment (Pyret Editor)}
                             @item{Language Table}]
-        #:preparation @itemlist[@item{The @editor-link[#:public-id "0B9rKDmABYlJVSlI4VEZLLUI4UkU" "Autobody Shop"] file used in the previous unit, preloaded on students' machines}
+        #:preparation @itemlist[@item{The @editor-link[#:public-id "0B9rKDmABYlJVU2lINzk1X0x2ODg" "Bakery"] file used in the previous unit, preloaded on students' machines}
                                  @item{Seating arrangements: ideally clusters of desks/tables}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -194,7 +194,7 @@
         #:duration "45 minutes"
         #:overview ""
         #:learning-objectives @itemlist[@item{Students will create a data structure for their animation}
-                                        @item{Students will modify @code{draw-world} to add clouds and a cloud}
+                                        @item{Students will modify @code{draw-world} to add the coin, clouds and Ninja Cat.}
                                          @item{Students will iteratively expand the World structure, and trace these changes throughout their program}]
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[]
@@ -323,19 +323,11 @@ Now try adding the @code{COIN-IMG}, this time at (250, 300).}
                  @point{@student{Suppose you wanted to add the Cat's x-coordinate to this animation, so it could move to the right.
                                  What would you have to change about the @code{World} structure? What about the @code{draw-world}
                                  and @code{next-world} functions? Suppose you also wanted to have the Cat move up and down - what
-                                 would you change then?
-                                 @bannerline{The World should contain every single @italic{changeable} thing in your program.}
-                                 Now it's time to start thinking about your own game. How many characters will you have, and what
-                                 will you need to have in your World? You can use Numbers to keep track of the score, or the 
-                                 characters' x- and y-coordinates. You can also store an Image in the world, so that your character
-                                 can change the way they look or to swap out the background once the score reaches a certain level.
-                                 Once you have a simple game, it's easy to add more pieces to the World. For the next exercise, 
-                                 think about the @italic{simplest possible version of your game}. Once you have that working, you
-                                 can add advanced features later on.}
+                                 would you change then?}
                          @teacher{}
                          }
                  @point{@student{@activity{Modify the @code{World} structure to include the cat's x- and y-coordinate, then change
-                                           @code{draw-world} to place the cat into the image. (Note: since the cat does not move
+                                           @code{draw-world} to place the cat into the image. (Note: since the cat will eventually respond to keypresses, and not move
                                            on it's own, it will just sit still for now.}
                                   @code{next-world} is responsible for everything in our game that @italic{chances on it's own},
                                   in response to time just naturally passing by. We want the cat to move in response to a key being
@@ -360,18 +352,9 @@ Now try adding the @code{COIN-IMG}, this time at (250, 300).}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Now you have the basic building blocks of your game and an understanding of how @code{draw-world}, 
-                               @code{next-world}, and @code{big-bang} work together to create an animation in Pyret. In the next unit you'll
-                               use your World structure to write the @code{draw-world} and @code{next-world} functions for your own game.}
-                       @teacher{Have the class take turns telling their peers about their games: Who the player is, what their danger, target, etc. 
-                                will be. Most importantly, have them tell the class what they have in their World structure.
-@itemlist[@item{Make sure student names are on page 17}
-                   @item{Take page 17 itself, or take photos of page 17, to prep game images for the next unit.}
-                   @item{Images should be in PNG or GIF format. Background images should be 640x480, and character images should generally be 
-                         no larger than 200px in either dimension. Make sure that the character images have transparent backgrounds!}
-                   @item{TIP: use animated GIFs for the characters - not only does the animation make the game look a lot better, but these 
-                         images usually have transparent backgrounds to begin with.}]}
-                       }
+        @points[@point{@student{Now you have the basic building blocks of a simple Ninja Cat game and an understanding of how @code{draw-world}, 
+                               @code{next-world}, and @code{big-bang} work together to create an animation in Pyret. In the next unit you'll include another event-handler to make the cat respond to key presses.}
+                       @teacher{}}
                  ]
          }
        }
