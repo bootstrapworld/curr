@@ -216,7 +216,7 @@
 # The World is the x-coordinate of the dog and coin.
 data World:
   | world(
-      dogX  :: Number
+      dogX  :: Number,
       coinX :: Number
       )
 end
@@ -254,14 +254,14 @@ worldB = world(200, 1000)
                                                       @item{How will the purpose statement have to change?}
                                                       @item{The Range says we need to produce a new World. What function makes Worlds?}
                                                       @item{Use the @code{world} constructor to produce a new World, where the dog's
-                                                            x-coordinate is 10 pixels to the right and the cloud's x-coordinate is 5 pixels
+                                                            x-coordinate is 10 pixels to the right and the coin's x-coordinate is 5 pixels
                                                             to the left:}]
 @code[#:multi-line #t]{
-# next-world:  World -> Image
-# Add 10 to the dog's x-coordinate, subtract 5 from the cloud's x
+# next-world:  World -> World
+# Add 10 to the dog's x-coordinate, subtract 5 from the coin's x
 fun next-world(current-world): 
-  next-world(current-world.dogX + 10,
-             current-world.cloudX - 5)
+  world(current-world.dogX + 10,
+        current-world.coinX - 5)
 end}
 }
                                  }
@@ -329,7 +329,7 @@ Now try adding the @code{COIN-IMG}, this time at (250, 300).}
                  @point{@student{@activity{Modify the @code{World} structure to include the cat's x- and y-coordinate, then change
                                            @code{draw-world} to place the cat into the image. (Note: since the cat will eventually respond to keypresses, and not move
                                            on it's own, it will just sit still for now.}
-                                  @code{next-world} is responsible for everything in our game that @italic{chances on it's own},
+                                  @code{next-world} is responsible for everything in our game that @italic{changes on it's own},
                                   in response to time just naturally passing by. We want the cat to move in response to a key being
                                   pressed, which is just another kind of event. In the next lesson, you'll learn how to add
                                   a new function that will build Worlds in response to keypresses!}
