@@ -66,7 +66,7 @@
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[]
         #:standards (list)
-        #:materials @itemlist[@item{The @editor-link[#:public-id "__________" "Ninja World"] file preloaded on students' machines}]
+        #:materials @itemlist[@item{The @editor-link[#:public-id "0B9rKDmABYlJVM2tUSFNTc21xOFU" "Ninja World"] file preloaded on students' machines}]
         #:preparation @itemlist[@item{}]
         #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -75,7 +75,7 @@
                 )
       ]{
         @points[@point{@student{In the last unit, your Ninja Cat game was starting to take shape: You extended the world to include the dog's x-coordinate, the coin's x-coordinate, and the cat's x and y-coordinates. You also learned about event-handlers, and used the @code{draw-world} and @code{update-world} functions to create a simple animation. 
-                     @activity{Open the @editor-link[#:public-id "__________" "Ninja World"] file. It should look similar to the simple game you had last time.
+                     @activity{Open the @editor-link[#:public-id "0B9rKDmABYlJVM2tUSFNTc21xOFU" "Ninja World"] file. It should look similar to the simple game you had last time.
                                @itemlist[@item{Scroll down to where it says @code{# KEY EVENTS} in the code.}
                                          @item{What is the name of the function defined here? What is its Domain? Its Range?}
                                          @item{How does @code{keypress} change the world it takes in? What happens on screen as a result of pressing certain keys?}
@@ -175,7 +175,7 @@ For reference and to check your work, you can see the completed Design Recipe fo
                         end}
 Circle and label what changes. Did more things change than you entered in the Domain? Sometimes we subtract 5 from the cat's y-coordinate, but sometimes her position stays the same. @activity{@itemlist[@item{What question should we ask to tell us if the cat is above 75 pixels? What dot-accessor will we need to use?}
                      @item{Our first condition must ask if the cat's x-coordinate is greater than 75. What changes about the world if this is true?}
-                     @item{Complete the design recipe for @code{next-world} and put the code into the @editor-link["________" "Ninja World"] file.}]}}
+                     @item{Complete the design recipe for @code{next-world} and put the code into the @editor-link["0B9rKDmABYlJVM2tUSFNTc21xOFU" "Ninja World"] file.}]}}
                          @teacher{}}
                                   
 @point{@student{The complete code for @code{next-world} should look like: 
