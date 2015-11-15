@@ -1,16 +1,16 @@
 #lang curr/lib
 
-@title{Unit 6: Key Events}
+@title{Unit 6: Asking the World}
 @declare-tags[]
 
 @unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / num-sqr num-sqrt num-expt})
                                        (list "String" @code{string-append string-length})
                                        (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image}))]{
-                                                                  @unit-descr{Students return to the subject of piecewise functions, this time defining a key-event handler that modifies their world when certain keys are pressed.}
+                                                                  @unit-descr{Students continue to combine their use of Ask and Data Structures, this time identifying ways in which the World structure might change without any user input.}
 }
 @unit-lessons{
-@lesson/studteach[#:title "Introduction"
-        #:duration "15 minutes"
+@lesson/studteach[#:title "Review"
+        #:duration "10 minutes"
         #:overview ""
         #:learning-objectives @itemlist[]
         #:evidence-statements @itemlist[]
@@ -21,120 +21,153 @@
                             @item{Editing environment (Pyret Editor)}
                             @item{Student workbooks}
                             @item{Language Table}]
-     #:preparation @itemlist[@item{Seating arrangements: ideally clusters of desks/tables}
-                             @item{The @editor-link[#:public-id "0B9rKDmABYlJVaV9FRlpZcER0WDg" "Ninja World 3"] file projected onto the board}]
+     #:preparation @itemlist[@item{Seating arrangements: ideally clusters of desks/tables}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Think about the person playing your videogame. How will they control the game? What key will make your player move up? Down? What else can they do? Move side-to-side? Jump? Teleport? In Bootstrap:1, your target and danger could only move left and right, and without structures your player could only move up and down. Now that @italic{you} write and control your own game World structure, you can make any game element update in nearly any way in response to any key. Structures have opened up whole new worlds (pun intended!) in Bootstrap:2!
-                                
-                                                     @activity{Turn to @worksheet-link[#:page 24 #:name "Lesson 6"] in your workbooks.
-                                                                   Write down the various keys that the user can hit to control the game. 
-                                                                   For each one, write down the field in your world struct that changes, 
-                                                                   and how it changes.}}
-                        @teacher{Review students' workbook pages, and check for understanding: could they change multiple things in their game
-                                 with one keypress?}}
-                 @point{@student{So far, we've been working with three main functions to make our game and animate our world: @code{next-world}, 
-                                @code{draw-world}, and @code{big-bang}. At this point, your game might use a few more functions than these, but 
-                                Ninja World has been pretty basic so far, and it's not interactive. Time to change that!
-                                @activity{@itemlist[@item{Open the @editor-link[#:public-id "0B9rKDmABYlJVaV9FRlpZcER0WDg" "Ninja World 3"]
-                                                         file and press "Run".}
-                                                     @item{With your mouse, highlight the data definition for our world structure.} 
-                                                     @item{What's new in this definition, compared to what we saw before? What do you think they represent?}
-                                                     @item{What new dot-accessors do we have, to access the new elements of our world struct?}
-                                                     @item{What is the contract for each of the functions in this game? What do they do?}
-                                                     @item{Scroll down to the definition of @code{next-world}. Each time the function is called, 
-                                                           what changes about the dog? @italic{How} does it change? What about the coin? The cat?}
-                                                     @item{Scroll down to the definition of @code{draw-world}. Where does this function put the 
-                                                           image of the dog? the coin? The cat?}]}
-                                In this version of Ninja World, both the dog and the coin are moving as they should. But that's old news: you've already 
-                                made the characters in your game move on their own. Let's add more!}
-                        
-                        @teacher{}}
-                 
-                 @point{@student{In this version of the game, we see something new on the screen: Ninja Cat! If you press the up arrow key, she'll 
-                                 move up... but nothing happens when you press the down arrow key! Let's fix that.
-                                 @activity{@itemlist[@item{Scroll down to where it says @code{# KEY EVENTS} in your code.}
-                                                      @item{What is the name of the function defined here? What is its Domain? Its Range?}
-                                                      @item{How does @code{keypress} change the world it takes in? What happens on screen as a
-                                                            result of pressing certain keys?}
-                                                      @item{Right now this function only checks whether the key pressed by the player is the 'up'
-                                                            arrow key. But how can we get it to check if the 'down'arrow key was pressed, and
-                                                            move the cat accordingly? Take a few minutes with your partner to write one more 
-                                                            line of code inside the @code{keypress} function to make the player move down.}]}}
-                         @teacher{Some students may struggle with this, as they're seeing brand new syntax for the first time. Remind them that
-                                  this is similar to the @code{keypress} function they wrote in Bootstrap:1, give them a few minutes to work on
-                                  it, and move on to debrief.}}]}
+        @points[@point{@student{In the last lesson you saw how @vocab{piecewise functions} work in Bootstrap:2, and learned about @code{ask} blocks, the Pyret syntax for writing them. To review, let's go through the Design Recipe for a piecewise function. 
+@activity{@itemlist[@item{Turn to @worksheet-link[#:page 32 #:name "Red-shape"] in your workbooks.}
+                    @item{With your partner, fill out the Design Recipe for the function @code{red-shape}.}]}
+@bold{Optional:} If you finish early, turn the page to @worksheet-link[#:page 32 #:name "Strong-Password"] and fill out the Design Recipe for the @code{strong-password} function.}
+                        @teacher{Remind students that each @code{ask} statement must have a test and a result, and each function must contain an @code{otherwise:} statement, which will execute if every other test returns false.}}
+                 ]
+         }                               
       
        
-@lesson/studteach[#:title "Keypress in Ninja World"
-        #:duration "20 minutes"
+@lesson/studteach[#:title "Protecting the Boundaries"
+        #:duration "40 minutes"
         #:overview ""
-        #:learning-objectives @itemlist[@item{Students will extend their understanding of events to cover key-events}
-            @item{Students will deepen their knowledge of conditionals, by combining them with struct accessor and constructor functions.}]
+        #:learning-objectives @itemlist[@item{Add detail to their understanding of the next-world function}
+                                         @item{Identify possible sub-domains which require different behavior of the function}]
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[]
         #:standards (list)
-        #:materials @itemlist[]
-        #:preparation @itemlist[@item{}]
+        #:materials @itemlist[@item{The @editor-link[#:public-id "0B9rKDmABYlJVM2tUSFNTc21xOFU" "Ninja World"] file from the previous unit preloaded on students' machines}]
+        #:preparation @itemlist[]
         #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{The @code{keypress} function behaves similarly to the @code{update-player} function you remember from Bootstrap:1. 
-                                    It takes in a world and a string (representing the name of a key pressed), and moves the player depending on that string.
-                                    In Pyret, instead of using @code{cond} branches, we use a keyword called @code{ask}, which lets the computer know whe're going 
-                                    to have different situations and behavior in our code. Just  like you learned in Bootstrap:1, this is known 
-                                    as a @vocab{Piecewise function}. Each ask statement starts with the '|' key, (known as 'pipe') followed by a test, 
-                                    or an expression that produces a @vocab{Boolean} (either true or false). The other keyword to know here is 
-                                    @code{then:}. This tells the computer that whatever follows is what will be returned if the preceding expression 
-                                    is @bold{true}. In the case of this function, if the string representing the key pressed (@code{key}) is equal 
-                                    to the string "up" (@code{string-equal(key, "up")}), @italic{then} the function will return a world which is the 
-                                    same as the input world, but with the cat's y-coordinate (@code{current-world.catY}) increased by 10 pixels.}
-                        @teacher{@code{string-equal} is exactly the same as @code{string=?} in Racket. Have students copy the contract for this function
-                                  into their contracts page.}}
-                 @point{@student{After adding a line to make Ninja Cat move down, your @code{keypress} function should look something like this:
-@code[#:multi-line #t]{# keypress : World, String -> World
-# Make cat respond to key events
-fun keypress(current-world, key):
+        @points[@point{@student{@activity{@itemlist[@item{Open your @editor-link[#:public-id "0B9rKDmABYlJVM2tUSFNTc21xOFU" "Ninja World "] file from the last lesson.}
+                                          @item{What is in the world structure?}
+                                          @item{What does the @code{next-world} function do?}
+                                          @item{What is @code{dogX} when the dog is in the center of the screen? According to the code, what will the next @code{dogX} be?}
+                                          @item{What is @code{dogX} when the dog is on the right-hand edge? What will the next @code{dogX} be? And the next? And the next?}
+                                          @item{What happens when the dog reaches the edge of the screen? What SHOULD happen?}]}
+                                 Right now the dog disappears off the side of the screen and never comes back. It's time to fix that.}
+                        @teacher{Be sure to give students lots of positive reinforcement at this point - the game is really taking shape!}
+                        }
+                 @point{@student{Just as in Bootstrap:1, we need to write a function that checks whether the danger, the dog, has gone off the right side of the screen. First, let's review a few things: @activity{@itemlist[@item{@code{true} and @code{false} are examples of what @vocab{Data Type}?}
+                            @item{What function takes two numbers and checks if the first number is @italic{greater than} the second?}
+                            @item{What function checks if a number is @italic{less than} another?}
+                            @item{What function checks if two numbers are @italic{equal}?}]}
+Here is the contract for the greater than function:
+@code[#:multi-line #t]{# > : Number Number -> Boolean
+                       # Checks whether the first number is greater than the second}
+                               @activity{Copy this into your Contracts page and write down the contracts for @code{<} and @code{=}}}
+                        @teacher{Review Booleans and Boolean functions, including @code{>}, @code{<}, @code{=}, @code{and}, and @code{or}. Make sure students copy the contracts into their workbook.}}
+                 
+                 @point{@student{To make testing and writing code much easier, programmers will often write seperate functions to test various game possibilities. In our Ninja World game, we're going to write a function @code{is-off-right} to test whether the dog has gone off the right side of the screen.
+@activity{@itemlist[@item{Turn to @worksheet-link[#:page 32 #:name "Boundary Checks"] in your workbook.}
+                    @item{What is the name of the first function on this page?}
+                    @item{@code{is-off-right} will return @code{true} if our dog goes off the right side of the screen. How large can the x-coordinate be before a character goes off the screen? (Remember that a character's coordinates are measured from the center of the image, so it's best to give a buffer so that the character dissappears completely before it is considered "off the screen".}
+                    @item{Write the @vocab{Contract} for this function.}]}
+@code[#:multi-line #true]{# is-off-right : Number -> Boolean
+                          # Returns true if the given number is greater than 690}
+                                 Now let's pick a few examples of coordinates to write our test cases: 
+                                 @activity{@itemlist[@item{What x-coordinate would put a character at the center of the screen?}
+                                                      @item{How do you check whether it's off the right hand side?}
+                                                      @item{Any x-coordinate greater than 640 is off the right side of the screen, but we want to consider a slightly higher x-coordinate "off the screen", to account for the width of the character image. So how would you determine whether or not the example number is @italic{greater than} 690?}]}
+                                 @code[#:multi-line #true]{examples:
+                                           is-off-right(320) is 320 > 690
+                                       end}
+                                 @activity{Write another example for a coordinate that is off the screen on the right side, circle what changes, and write your function definition.}}
+                         @teacher{Remind students about Sam the butterfly from Bootstrap:1. This function does the same thing as @code{safe-right?}, to determine whether the character has gone off the screen based on its x-coordinate. Ensure that students are using the full name of @code{is-off-right}.}}
+                 
+                 @point{@student{You now have a function to check whether an object has run off the right side of the screen. But think about Ninja World: if the coin is moving to the left, do you care whether the coin goes off the right side? 
+                                 @activity{@itemlist[@item{Complete the design recipe for @code{is-off-left} on @worksheet-link[#:page 32 #:name "Boundary Checks"]. Instead of checking if a number is greater than 640, what will you need to check?}
+                                                     @item{When finished, copy your functions into your @editor-link[#:public-id "0B9rKDmABYlJVeFBBU2tHc0hDTlk" "Ninja World"] file, underneath your @code{keypress} function.}]}}
+                         @teacher{}}
+                 @point{@student{Now we have a way to check whether something has gone off the right OR the left of the screen, but we still haven't told the game what to do when it does. In Ninja World, after the dog goes off the right side of the screen, he should reappear on the left-hand side. 
+                                 @activity{In this situation, what would the next @code{dogX} be after 690?}
+                                 We want to change @code{next-world} so that it sets @code{dogX} to zero when @code{dogX} is greater than 690. Thankfully, @code{next-world} is already a piecewise function, so we just need to add some more conditions!}
+                         @teacher{Remind students that each @code{ask} branch will contain a test and a result, which is evaluated if its test returns @code{true}.}}
+                 
+                 @point{@student{@activity{Think about the first condition. What is the test that tells you if a number is greater than 690?}
+                                  You could use the greater than function(@code{>}) and compare two numbers like you did to figure out if the cat was standing on the ground, but you've already written a function that takes in only one number and tells you whether or not it is greater than 690! @code{is-off-right} @italic{does the work for you}. But how would you determine whether or not the dog is off the right? You'll need to pull the dog's x-coordinate out of the world... 
+                                  @activity{@itemlist[@item{What accessor do we use for that?}
+                                                       @item{So what will the input to @code{is-off-right} be?}
+                                                       @item{Add this to your @code{next-world} function:}]}
+@code[#:multi-line #t]{fun next-world(current-world):
   ask:
-    | string-equal(key, "up") then: 
-      world(current-world.dogX, current-world.coinX, current-world.catX, current-world.catY + 10)
-    | string-equal(key, "down") then: 
-      world(current-world.dogX, current-world.coinX, current-world.catX, current-world.catY - 10)
-    | otherwise: current-world
+    | is-off-right(current-world.dogX) then:
+        ...result...
+    | current-world.catY > 75 then:
+      world(current-world.dogX + 10, current-world.coinX - 5, current-world.catX, current-world.catY - 5)
+    | otherwise:
+      world(current-world.dogX + 10, current-world.coinX - 5, current-world.catX, current-world.catY)
+  end
+end}}
+                         @teacher{}}
+                 @point{@student{The first clause tests whether the dog's x-coordinate is off the right side of the screen. If the test returns @code{true}, what should the result be? We know that we need to return a World, since the Range of @code{next-world} is a World. That means we can immediately write @code{world(...)}: 
+ @code[#:multi-line #t]{fun next-world(current-world):
+  ask:
+    | is-off-right(current-world.dogX) then:
+      world(...dogX..., ...coinX..., ...current-world.catX..., ...catY...)
+    | current-world.catY > 75 then:
+      world(current-world.dogX + 10, current-world.coinX - 5, current-world.catX, current-world.catY - 5)
+    | otherwise:
+      world(current-world.dogX + 10, current-world.coinX - 5, current-world.catX, current-world.catY)
   end
 end}
-In Racket we had an @code{else} clause, that would return true when all other tests had failed. In Pyret, we have the @code{otherwise:} 
-keyword, which behaves the same way. If we didn't have this line of code our game would crash if someone pressed any key but 'up' or 'down'. 
-This way, if you accidentally press another key, the function returns w: the @italic{same world} we gave the function originally.}
-                         @teacher{@code{otherwise} clauses are best used as a catch-all for cases that you can’t otherwise enumerate. If you can state a precise 
-                                   question for a clause, write the precise question instead of otherwise. For example, if you have a function that does
-                                   different things depending on whether some variable @code{x} is larger than @code{5}, it is better for beginners to
-                                   write the two questions @code{(> x 5)} and @code{(<= x 5)} rather than have the second question be @code{otherwise}. 
-                                   Explicit questions make it easier to read and maintain programs. When you use @code{otherwise}, someone has to read
-                                   all the previous questions to know what condition else corresponds to: they can’t just skim all the questions 
-                                   to find the one that matches their situation. This makes code more readable and understandable.}}
-                 @point{@student{At the end of the file, there's one more bit of code that makes the game respond to key presses. Inside of @code{big-bang}, 
-                                 the very last line reads @code{on-key(keypress)}. @code{on-key} is a special function that detects when the user has pressed
-                                 any key, and its argument tells it which function will handle the user input (in this case, @code{keypress}!). Now 
-                                 @code{big-bang} has all the information it needs to manage the state of this game: @code{on-tick}, which tells the computer 
-                                 which function updates the game on every "tick" of a timer, @code{to-draw}, which tells it what function to use to draw the 
-                                 world, and finally, @code{on-key}, which handles user input.}
-                         @teacher{}}]}
-                                 
-
-@lesson/studteach[#:title "Extending Keypress"
+How should @code{dogX} change in this condition? We said we want to move the dog back to the left side of the screen. @activity{@itemlist[@item{What will the new value of @code{dogX} be, if it, moves back to the left side of the screen?}
+                                        @item{Does @code{coinX} change if the dog goes off the screen? How about @code{catX}? @code{catY?}}]}
+ @code[#:multi-line #t]{fun next-world(current-world):
+  ask:
+    | is-off-right(current-world.dogX) then:
+      world(0, current-world.coinX, current-world.catX, current-world.catY)
+    | current-world.catY > 75 then:
+      world(current-world.dogX + 10, current-world.coinX - 5, current-world.catX, current-world.catY - 5)
+    | otherwise:
+      world(current-world.dogX + 10, current-world.coinX - 5, current-world.catX, current-world.catY)
+  end
+end}}
+                         @teacher{}}
+                 @point{@student{Now it's time to think about the coin...
+                                  @activity{@itemlist[@item{Instead of checking if @code{coinX} was off the @bold{right} side of the screen, what do we need to check?}
+                                                      @item{What function have you already written that checks if a number is less than 0?}
+                                                      @item{How does @code{next-world} need to change? What will the second @code{ask} branch look like?}
+                                                      @item{Finish the code for @code{next-world} so that it also checks whether the coin has gone off the left-hand side of the screen.}]}
+@code[#:multi-line #t]{fun next-world(current-world):
+  ask:
+    | is-off-right(current-world.dogX) then:
+      world(0, current-world.coinX, current-world.catX, current-world.catY)
+    | is-off-left(current-world.coinX) then: 
+      world(current-world.dogX, 640, current-world.catX, current-world.catY)
+    | current-world.catY > 75 then:
+      world(current-world.dogX + 10, current-world.coinX - 5, current-world.catX, current-world.catY - 5)
+    | otherwise:
+      world(current-world.dogX + 10, current-world.coinX - 5, current-world.catX, current-world.catY)
+  end
+end}
+}
+                         @teacher{This can be an opportunity to discuss abstraction and the usefulness of reusing code with your students. The @code{ask} tests in @code{next-world} could be written as: @code{current-world.dogX > 690}, or @code{current-world.coinX < 0}, but this is more work than neccessary if the @code{is-off-right} and @code{is-off-left} functions have been written, and could be confusing for someone else looking at the code, who doesn't know why @code{dogX} is being compared to 690. Additionally, from a programming point of view, it makes sense to use the specific screen boundaries in as few functions as possible: If a programmer wants his or her game to be playable on a larger screen (such as a tablet), they will have to go through their code and change every function that tests boundaries based on the old screen size, 640x480. If only the @code{is-off-right} and @code{is-off-left} functions use the screen size, the programmer can make a few quick changes to the numbers, instead of searching through @code{ask} branches such as in the second example.}}
+                                                                                    @point{@student{@bold{Optional:} Armed with the knowledge of abstraction, write a new function @code{is-in-air} to determine whether a given number is greater than 75. Then, re-write your third condition in @code{next-world} to use this function to determine if the cat is off the ground. This will make your code more readable, and you can easily edit the boundaries if the image of the cat changes to a smaller os larger image.}
+       @teacher{}}
+                 ]
+         }
+       
+       @lesson/studteach[#:title "Randomizing Ninja World" 
         #:duration "15 minutes"
         #:overview ""
-        #:learning-objectives @itemlist[@item{}]
+        #:learning-objectives @itemlist[]
         #:evidence-statements @itemlist[]
-        #:product-outcomes @itemlist[]
+        #:product-outcomes @itemlist[@item{Students will use the random function to make game characters appear at different loations on the screen}]
         #:standards (list)
         #:materials @itemlist[]
         #:preparation @itemlist[@item{}]
@@ -144,72 +177,31 @@ This way, if you accidentally press another key, the function returns w: the @it
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{We've made Ninja Cat move up and down, but in the original version of the game she moved left and right as well. Now
-                                that you're familiar with data structures, this is easy! 
-                                @activity{@itemlist[@item{What changes about the cat if she moves to the left? To the right? What part of the world is that?}
-                                                     @item{How would you change your @code{keypress} function so it also asks whether the player has
-                                                           pressed the "left" or "right" arrow keys?}
-                                                     @item{What would you change about the world if the player presses the left arrow key? The right?}
-                                                     @item{Change your @code{keypress} function so that the cat moves left and right based on the arrow keys.}]}
-When finished, your code should look like: 
-@code[#:multi-line #t]{# keypress : World, String -> World
-# Make cat respond to key events
-fun keypress(current-world, key):
-  ask:
-    | string-equal(key, "up") then: 
-      world(current-world.dogX, current-world.coinX, current-world.catX, current-world.catY + 10)
-    | string-equal(key, "down") then: 
-      world(current-world.dogX, current-world.coinX, current-world.catX, current-world.catY - 10)
-    | string-equal(key, "left") then: 
-      world(current-world.dogX, current-world.coinX, current-world.catX - 10, current-world.catY)
-    | string-equal(key, "right") then: 
-      world(current-world.dogX, current-world.coinX, current-world.catX + 10, current-world.catY)
-    | otherwise: current-world
-  end
-end}
-For reference and to check your work, you can see the completed Design Recipe for @code{keypress} in Ninja World on @worksheet-link[#:page 26 #:name "Keypress-in-Ninja-World"].
-}
-                        @teacher{}}]}           
-     
-@lesson/studteach[#:title "Keypresses in Your Game"
-        #:duration "35 minutes"
-        #:overview ""
-        #:learning-objectives @itemlist[@item{Using conditionals, students will write a function to handle different keypresses in their game.}]
-        #:evidence-statements @itemlist[]
-        #:product-outcomes @itemlist[]
-        #:standards (list)
-        #:materials @itemlist[]
-        #:preparation @itemlist[@item{}]
-        #:pacings (list 
-                @pacing[#:type "remediation"]{@itemlist[@item{}]}
-                @pacing[#:type "misconception"]{@itemlist[@item{}]}
-                @pacing[#:type "challenge"]{@itemlist[@item{}]}
-                )
-      ]{
-        @points[@point{@student{Now it's time to program YOUR game to respond to keypresses. 
-                                @activity{Turn to @worksheet-link[#:page 27 #:name "Keypress-in-Game"] in your workbook. Choose 3 
-                                           keys that control the game, and go through the design recipe: Write test cases for what should 
-                                           happen to your START world depending on which key was pressed. Then define your function. Once
-                                           you've completed the Design Recipe, type your @code{keypress} function into your games.}
-
-                                  Of course, keypresses can do a lot more in a videogame than just move a character up and down. By using what
-                                  your learned about Boolean functions, you can add more advanced movement. Here are some ideas:
-@itemlist[
-          @item{@bold{Warping:} instead of having the player’s y-coordinate change by adding or subtracting, replace it with a Number to 
-                 have the player suddenly appear at that location. (For example, hitting the @code{"c"} key causes your player to warp back
-                 to the center of the screen, at y=240.)}
-          @item{@bold{Boundary-detection:} Change the condition for moving up so that the player only moves up if @code{key} = @code{"up"} 
-                 AND the player's y-coordinate is less than @code{480}. Likewise, change the condition for @code{"down"} to also check 
-                 that the player's y-coordinate is greater than 0.}
-          @item{@bold{Wrapping:} Add a condition (before any of the keys) that checks to see if the player’s y-coordinate is above 
-                 the screen @code{(> y 480)}. If it is, have the player warp to the bottom. Add another condition so that the player 
-                 warps back up to the top of the screen if it moves below the bottom.}
-          @item{@bold{Challenge:} Have a character hide when the @code{"h"} key is pressed, only to re-appear when it is pressed again.}]
-}
-                         @teacher{Hint for the challenge: multiply by -1!
-                                  For optional practice with piecewise functions, have students complete the Design Recipe for @code{red-shape} on @worksheet-link[#:page 30 #:name "Red-shape"].}}
-                 ]
-         }       
+        @points[@point{@student{Right now the coin and dog appear at the same part of the screen every time, making this a really easy game. @activity{What will the y-coordinate of the dog always be? What about the coin?} Instead of appearing at the top of the screen every time, what if you could make the dog show up at a random y-coordinate whenever it goes off the screen? Pyret already has a function to give you a random number, which could represent a character's y-coordinate: @code{num-random}. @code{num-random} takes in one number as its domain, and returns a random number between 0 and that number. So if a game contains @code{num-random(480)} in the code, it will return any number between 1 and 480. @activity{Copy the contract for @code{num-random} onto your contracts page. @code{num-random: Number -> Number}}}
+                        @teacher{}}
+                 @point{@student{If you want the y-coordinate of the dog to change, you'll have to add it to the World structure. @activity{Go back to the top of the page where the World is defined and add in a @code{dogY}. Don't forget to redefine your @code{worldA} and @code{worldB} worlds, to account for the extra item in the World struct.}
+           @code[#:multi-line #t]{data World:
+                                    # The World is the x and y positions of the dog, x position of the coin, and the x and y position of the cat
+                                    | world(dogX :: Number, dogY :: Number, coinX :: Number, catX :: Number, catY :: Number)
+                                  end}
+                                 Right now the @code{draw-world} function draws the dog at its current x-coordinate, and a pre-set y-coordinate. @activity{@itemlist[@item{At what y-coordinate is the dog drawn right now?}
+                                                      @item{Now that @code{dogY} has been added to the world structure, how do you get the @code{dogY} out of the world?}
+                                                      @item{Change the @code{draw-world} function so that it draws the dog at the current y-coordinate instead of 400.}]}}
+                         @teacher{}}
+                 @point{@student{The dog's y-coordinate should change when it leaves the screen. 
+                                 @activity{@itemlist[@item{What function changes the game state depending on the game's conditions?}
+                                                      @item{What does the first @code{ask} branch in @code{next-world} test?}
+                                                      @item{If this test returns @code{true}, what happens?}
+                                                      @item{Change the first @code{ask} branch in @code{next-world} so that if the dog goes off the right side of the screen, his y-coordinate is resent to a random number between 0 and 480.}]}
+          @code[#:multi-line #t]{| is-off-right(current-world.dogX) then: 
+                                    world(0, num-random(480), current-world.coinX, current-world.catX, current-world.catY)}}
+                         @teacher{}}
+                 @point{@student{Be sure to go through your code carefully- since you changed the World structure to include a @code{dogY}, you'll need to make sure it's included every time you call @code{world}, @bold{and} every time a function takes in the y-coordinate of the dog. Once the dog is reappearing randomly when it leaves the screen, you can make the same changes to the coin's y-coordinate to make it appear randomly as well.}
+                         @teacher{}}
+                         
+                          ]
+         }
+   
 @lesson/studteach[#:title "Closing"
         #:duration "5 minutes"
         #:overview ""
@@ -225,12 +217,8 @@ For reference and to check your work, you can see the completed Design Recipe fo
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{With @vocab{piecewise functions}, you can make a lot of things happen in your 
-                                     game with just a few lines of code, like controlling the movement of characters. Speaking of 
-                                     controlling characters, what happens in Ninja World when the dog and coin go off the screen? 
-                                     They keep going, but don't come back - the same problem we had in Bootstrap:1! If you 
-                                     need a refresher on how to fix it, that's what we'll be covering in the next unit.}
-                       @teacher{Have students show each other their (controllable games).}}
+        @points[@point{@student{Take a minute and admire your handiwork: You've put a lot of time and effort into this game during this course, and it's coming together nicely with complex data structures and advanced movement. It's already much more sophisticated than your Bootstrap:1 game! By creating a Ninja Cat game from scratch, you'll have a lot of experience to build on when you start brainstorming your own game... in the very next unit! But something is still missing: in this Ninja Cat game, nothing happens when the cat collides with the dog, or coin. In the next unit we'll change that: you'll be able to handle collisions, similar to what you learned in Bootstrap:1.}
+                        @teacher{Remind students how far they have come since Bootstrap:1 and the beginning of Bootstrap:2. They've expanded their knowledge of Pyret and programming, learned about a brand new data type and created their own version of Ninja Cat!}}
                  ]
          }
        }
