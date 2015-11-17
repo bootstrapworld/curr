@@ -1,16 +1,17 @@
 #lang curr/lib
 
-@title{Unit 7: Asking the World}
+@title{Unit 7: Collision Detection}
 @declare-tags[]
 
 @unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / num-sqr num-sqrt num-expt}) 
                                        (list "String" @code{string-append string-length})                          
-                                       (list "Image" @code{rectangle circle triangle ellipse radial-star scale rotate put-image}))]{
-@unit-descr{Students continue to combine their use of Ask and Data Structures, this time identifying ways in which the World structure might change without any user input.}
+                                       (list "Image" @code{rectangle circle triangle ellipse radial-star scale rotate put-image})
+                                       (list "Boolean" @code{= > < string-equal and or}))]{
+@unit-descr{Students return to the Pythagorean Theorem and distance formula they used in Bootstrap 1, this time with data structures and the full next-world function.}
 }     
 @unit-lessons{
-@lesson/studteach[#:title "Review"
-        #:duration "10 minutes"
+@lesson/studteach[#:title "Introduction"
+        #:duration "5 minutes"
         #:overview ""
         #:learning-objectives @itemlist[]
         #:evidence-statements @itemlist[]
@@ -20,7 +21,9 @@
                             @item{Class poster (List of rules, design recipe, course calendar)}
                             @item{Editing environment (Pyret Editor)}
                             @item{Student workbooks}
-                            @item{Language Table}]
+                            @item{Language Table}
+                            @item{Cutouts of Cat and Dog images}
+                            @item{Cutouts of Pythagorean Theorem packets [@(resource-link #:path "images/pythag1.png" #:label "1"), @(resource-link #:path "images/pythag2.png" #:label "2")] - 1 per cluster} ]
         #:preparation @itemlist[@item{Seating arrangements: ideally clusters of desks/tables}]
         #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -28,234 +31,189 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{In the last lesson you saw how @vocab{piecewise functions} work in Bootstrap:2, 
-                                and learned about @code{ask} blocks, the Pyret syntax for writing them. 
-                                To review, let's go through the Design Recipe for a pieewise function. 
-@activity{@itemlist[@item{Turn to @worksheet-link[#:page 32 #:name "Strong-Password"] in your workbooks.}
-                    @item{With your partner, fill out the Design Recipe for the @code{strong-password} function.}]}}
-                        @teacher{Remind students that each @code{ask} statement must have a test and a result, 
-                                 and each function must contain an @code{otherwise:} statement, which will 
-                                 execute if every other test returns false.}}
+        @points[@point{@student{Right now in the Ninja Cat game, nothing happens when the player collides with another game character. We need to write a function change that. This is going to require a little math, but luckily it's exactly the same as it was in Bootstrap:1.
+                                @bitmap{images/numberline.png}                               
+                                @activity{@itemlist[@item{In the image above, how far apart are the cat and dog?}
+                                                     @item{If the cat was moved one space to the right, how far apart would they be?}
+                                                     @item{What if the cat and dog switched positions?}]}
+
+In one dimension, such as on a number line, finding the distance is pretty easy. If the characters are on the same line, you just subtract one coordinate from another, and you have your distance. However, if all we did was subtract the second number from the first, the function would only work half the time!
+@activity{When the cat and dog were switched, did you still subtract the dog's position from the cat's, or subtract the cat's position from the dog's? Why?}}
+                        @teacher{Draw the number line on the board, with the cutouts of the cat and dog at the given positions. Ask students to tell you the distance between them, and move the images accordingly. Having students act this out can also work well: draw a number line, have two students stand at different points on the line, using their arms or cutouts to give objects of different sizes. Move students along the number line until they touch, then compute the distance on the number line.}}
                  ]
-         }                               
-@lesson/studteach[#:title "Protecting the Boundaries"
-        #:duration "30 minutes"
+         }
+
+@lesson/studteach[#:title "1D Distance"
+        #:duration "10 minutes"
         #:overview ""
-        #:learning-objectives @itemlist[@item{Add detail to their understanding of the next-world function}
-                                         @item{Identify possible sub-domains which require different behavior of the function}]
+        #:learning-objectives @itemlist[]
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[]
         #:standards (list)
-        #:materials @itemlist[@item{The @editor-link[#:public-id "0B9rKDmABYlJVeFBBU2tHc0hDTlk" "Ninja World 4"] file preloaded on students' machines}]
-        #:preparation @itemlist[@item{Write the Ninja World version of next-world towards the bottom of the board, with room to transform 
-                                      it into an @code{ask} branch under the function header.}]
+        #:materials @itemlist[]
+        #:preparation @itemlist[@item{}]
         #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{@activity{@itemlist[@item{Open the @editor-link[#:public-id "0B9rKDmABYlJVeFBBU2tHc0hDTlk" "Ninja World 4"] file.}
-                                          @item{What is in the world structure?}
-                                          @item{What does the @code{next-world} function do?}
-                                          @item{What is @code{dogX} when the dog is in the center of the screen? According to the code, what will the 
-                                                next @code{dogX} be?}
-                                          @item{What is @code{dogX} when the dog is on the right-hand edge? What will the next @code{dogX} be? And 
-                                                 the next? And the next?}
-                                          @item{What happens when the dog reaches the edge of the screen? What SHOULD happen?}]}
-                                 Right now the dog disappears off the side of the screen and never comes back. It's time to fix that. }
-                        @teacher{Be sure to give students lots of positive reinforcement at this point - the game is
-                                             really taking shape!}
-                        }
-                 @point{@student{Just as in Bootstrap:1, we need to write a function that checks whether the danger, the dog, has gone off the right side 
-                                of the screen. First, let's review a few things:
-                                @activity{@itemlist[@item{@code{true} and @code{false} are examples of what @vocab{Data Type}?}
-                                                     @item{What function takes two numbers and checks if the first number is 
-                                                           @italic{greater than} the second?}
-                                                     @item{What function checks if a number is @italic{less than} another?}
-                                                     @item{What function checks if two numbers are @italic{equal}?}]}
-                                Here is the contract for the greater than function:
-@code[#:multi-line #t]{# > : Number Number -> Boolean
-                     # Checks whether the first number is greater than the second}
-                               @activity{Copy this into your Contracts page and write down the contracts for @code{<} and @code{=}}}
-                        @teacher{Review Booleans and Boolean functions, including @code{>}, @code{<}, @code{=}, @code{and}, and 
-                                             @code{or}. Make sure students copy the contracts into their workbook.}}
-                 
-                 @point{@student{To make testing and writing code much easier, programmers will often write seperate functions to test various game possibilities. In our Ninja World game, we're going to write a function @code{is-off-right} to test whether the dog has gone off the right side of the screen.
-@activity{@itemlist[@item{Turn to @worksheet-link[#:page 32 #:name "Boundary Checks"] in your workbook.}
-                                                      @item{What is the name of the first function on this page?}
-                                                      @item{@code{is-off-right} will return @code{true} if our dog goes off the right side 
-                                                             of the screen. How large can the x-coordinate be before a character goes off 
-                                                             the screen?}
-                                                      @item{Write the @vocab{Contract} for this function.}]}
-@code[#:multi-line #true]{# is-off-right : Number -> Boolean
-                          # Returns true if the given number is greater than 640}
-                                 Now let's pick a few examples of coordinates to write our test cases: 
-                                 @activity{@itemlist[@item{What x-coordinate would put a character at the center of the screen?}
-                                                      @item{How do you check whether it's off the right hand side?}
-                                                      @item{Any x-coordinate greater than 640 is off the right side of the screen, so how 
-                                                            would you determine whether or not the example number is @italic{greater than} 640?}]}
-                                 @code[#:multi-line #true]{examples:
-                                           is-off-right(320) is 320 > 640
-                                       end}
-                                 @activity{Write another example for a coordinate that is off the screen on the right side, circle what 
-                                           changes, and write your function definition.}}
-                         @teacher{Remind students about Sam the butterfly from Bootstrap:1. This function does the same thing as @code{safe-right?},
-                                  to determine whether the character has gone off the screen based on its x-coordinate. Ensure that students
-                                  are using the full name of @code{is-off-right}.}}
-                 
-                 @point{@student{You now have a function to check whether an object has run off the right side of the screen. But think
-                                 about Ninja World: if the coin is moving to the left, do you care whether the coin goes off the right side? 
-                                 @activity{@itemlist[@item{Complete the design recipe for @code{is-off-left} on
-                                                           @worksheet-link[#:page 32 #:name "Boundary Checks"]. Instead of checking if 
-                                                           a number is greater than 640, what will you need to check?}
-                                                      @item{When finished, copy your functions into your 
-                                                            @editor-link[#:public-id "0B9rKDmABYlJVeFBBU2tHc0hDTlk" "Ninja World 4"] 
-                                                            file, where it says @code{# TESTS FOR ASK}.}]}}
-                         @teacher{}}
-                 @point{@student{Now we have a way to check whether something has gone off the right OR the left of the screen, but we still
-                                 haven't told the game what to do when it does. In Ninja World, after the dog goes off the right side of the
-                                 screen, he should reappear on the left-hand side. 
-                                 @activity{In this situation, what would the next @code{dogX} be after 640?}
-                                 We want to change @code{next-world} so that it behaves the old way most of the time, but it sets
-                                 @code{dogX} to zero when @code{dogX} is greater than 640. 
-                                 @activity{What can we use that makes a function behave one way for some inputs but another way for 
-                                           different inputs?}
-                                 For now there are two different conditions: when @code{dogX} is greater than 640 and then 
-                                 the rest of the time. Let's work on the code for this:                     
- @code[#:multi-line #t]{fun next-world(current-world):
-  ask:
-    |...test... then: 
-      ...result...
-    | otherwise:  
-      world(current-world.dogX + 10, current-world.coinX - 5, current-world.catX, current-world.catY)
-  end
- end}}
-                         @teacher{Remind students that each @code{ask} branch will contain a test and a result, which is evaluated if its test returns @code{true}.}}
-                 @point{@student{We still want our original code to be there. It's now going to be used in the @code{otherwise} clause, 
-                                  because when @code{dogX} is not off the right side of the screen, we want the world to update normally.
-                                  @activity{Think about the first condition. What is the test that tells you if a number is greater than 640?}
-                                  You could use the greater than function(@code{>}) and compare two numbers, but you've already written a
-                                  function that takes in only one number and tells you whether or not it is greater than 640. 
-                                  @code{is-off-right} @italic{does the work for you}. But how would you determine whether or not the dog is off 
-                                  the right? You'll need to pull the dog's x-coordinate out of the world... 
-                                  @activity{@itemlist[@item{What accessor do we use for that?}
-                                                       @item{So what will the input to @code{is-off-right} be?}
-                                                       @item{Add this to your @code{next-world} function:}]}
- @code[#:multi-line #t]{fun next-world(current-world):
-  ask:
-    | is-off-right(current-world.dogX) then: 
-      ...result...
-    | otherwise:  
-      world(current-world.dogX + 10, current-world.coinX - 5, current-world.catY)
-  end
- end}}
-                         @teacher{}}
-                 @point{@student{The first clause tests whether the dog's x-coordinate is off the right side of the screen. If the test 
-                                   returns @code{true}, what should the result be? We know that we need to return a World, since the Range
-                                   of @code{next-world} is a World. That means we can immediately write @code{world(...)}: 
- @code[#:multi-line #t]{fun next-world(current-world):
-  ask:
-    | is-off-right(current-world.dogX) then: 
-      world(...dogX..., ...coinX..., ...current-world.catX..., ...catY...)
-    | otherwise:  
-      world(current-world.dogX + 10, current-world.coinX - 5, current-world.catX, current-world.catY)
-  end
-end}
-                                  How should @code{dogX} change in this condition? We said we want to move the dog back to the left side 
-                                  of the screen.
-                                  @activity{@itemlist[@item{What will the new value of @code{dogX} be, if it, moves back to the 
-                                                            left side of the screen?}
-                                                       @item{Does @code{coinX} change if the dog goes off the screen? How about @code{catX}? @code{catY?}}]}
- @code[#:multi-line #t]{fun next-world(current-world):
-  ask:
-    | is-off-right(current-world.dogX) then: 
-      world(0, current-world.coinX, current-world.catX, current-world.catY)
-    | otherwise: 
-      world(current-world.dogX + 10, current-world.coinX - 5, current-world.catX, current-world.catY)
-  end
-end}}
-                         @teacher{}}
-                 @point{@student{Now it's time to think about the coin...
-                                  @activity{@itemlist[@item{Instead of checking if @code{coinX} was off the @bold{right} side of the screen,
-                                                            what do we need to check?}
-                                                       @item{What function have you already written that checks if a number is less than 0?}
-                                                       @item{How does @code{next-world} need to change? What will the second @code{ask} 
-                                                             branch look like?}
-                                                       @item{Finish the code for @code{next-world} so that it also checks whether the 
-                                                             coin has gone off the left-hand side of the screen.}]}
-@code[#:multi-line #t]{fun next-world(current-world):
-  ask:
-    | is-off-right(current-world.dogX) then: 
-      world(0, current-world.coinX, current-world.catX, current-world.catY)
-    | is-off-left(current-world.coinX) then: 
-      world(current-world.dogX, 640, current-world.catX, current-world.catY)
-    | otherwise:  
-      world(current-world.dogX + 10, current-world.coinX - 5, current-world.catX, current-world.catY)
-  end
-end}
-
-}
-                         @teacher{This can be an opportunity to discuss abstraction and the usefulness of reusing code with your
-                                  students. The @code{ask} tests in @code{next-world} could be written as: 
-                                  @code{current-world.dogX > 640}, or @code{current-world.coinX < 0}, but this is more work than 
-                                  neccessary if the @code{is-off-right} and @code{is-off-left} functions have been written, and could 
-                                  be confusing for someone else looking at the code, who doesn't know why @code{dogX} is being 
-                                  compared to 640. Additionally, from a programming point of view, it makes sense to use the 
-                                  specific screen boundaries in as few functions as possible: If a programmer wants his or her
-                                  game to be playable on a larger screen (such as a tablet), they will have to go through their
-                                  code and change every function that tests boundaries based on the old screen size, 640x480. If 
-                                  only the @code{is-off-right} and @code{is-off-left} functions use the screen size, the programmer can 
-                                  make a few quick changes to the numbers, instead of searching through @code{ask} branches such 
-                                  as in the second example.}}
+        @points[@point{@student{Distances cannot be negative, so we have to make sure we are always subtracting the smaller number from the bigger one. If the characters are on the same plane, there are two conditions: if the first number is bigger, and the other is if the second is bigger.
+                                @activity{@itemlist[@item{What kind of function do we need, when we have multiple conditions?}
+                                                     @item{Turn to @worksheet-link[#:page 39 #:name "Design Recipe Line Length"].}
+                                                     @item{What is the Name of this function? Domain? Range?}
+                                                     @item{Write two examples for @code{line-length} so that it subtracts the smaller number from the bigger one. Start with an example using the numbers 23 and 5, then do a second example with 5 and 23 in the @italic{other order}.}]}
+@code[#:multi-line #t]{examples:
+                           line-length(23, 5) is 23 - 5
+                           line-length(5, 23) is 23 - 5
+                       end}}
+                        @teacher{}}
+                 @point{@student{Now we have an idea of the results for the @code{ask} statement, but a @code{ask} function also needs tests. We want to @italic{test} to see whether the first number given to @code{line-length} is greater than the second number. 
+                                @activity{@itemlist[@item{How would you write that test in Pyret code?}
+                                                     @item{And what would the result for that test be? If @code{a} is greater than @code{b}, which number would we subtract from which?}
+                                                     @item{How could you include a test for wheather the two numbers are equal, @italic{without} adding a third @code{ask} branch?}
+                                                     @item{Write down the definition for @code{line-length}.}]}     
+@code[#:multi-line #t]{fun line-length(a, b):
+                           ask:
+                             | a > b then: a - b
+                             | b >= a then: b - a
+                           end
+                       end}}
+                        @teacher{It is possible to replace the second test with @code{otherwise}, because there will only be two options: @code{line-length} will either subtract @code{b} from @code{a}, or @code{a} from @code{b}. (If the numbers are equal, it doesn't matter which is subtracted.) However, having students write out the full test and result gets them thinking about what exactly is being tested in each branch of the function. It is possible to avoid using a conditional entirely by taking the absolute value of the difference (the function @code{num-abs} does this); if you are working with older students who already know about absolute value you could show it. Using @code{ask}, however, emphasizes how code structure arises from examples.}}
                  ]
          }
+
+@lesson/studteach[#:title "The Distance Formula"
+        #:duration "20 minutes"
+        #:overview ""
+        #:learning-objectives @itemlist[@item{Reinforce their understanding of the distance formula}]
+        #:evidence-statements @itemlist[]
+        #:product-outcomes @itemlist[ @item{Students will write the distance function}]
+        #:standards (list)
+        #:materials @itemlist[]
+        #:preparation @itemlist[@item{}]
+        #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[@point{@student{Unfortunately you don't have any code to calculate the distance in two dimensions. All you have so far is something that tells you the length in only the x- or y-dimension.                   
+                                @bitmap{images/ABCgraph.png}
+                                @activity{@itemlist[@item{How could you find the distance between the two points shown in this image?}
+                                                     @item{How could you find the length of the dotted line, also called the @vocab{Hypotenuse}?}]}
+                                Let's start with what we do know: the dotted line sort of makes a triangle, and we can find out the length of the other two sides, labeled "A," "B" and "C." 
+                                @activity{What is the line-length of A?}
+                                To make your life easier, you can use the function you already wrote: @code{line-length}. In this example, line-length(A) is 4 and line-length(B) is 3, but we still don't know C.}
+                        @teacher{Draw this image on the board, with the lines labeled "A", "B", and "C".}}
+                 @point{@student{Ancient civilizations had the same problem: they also struggled to find the distance between points in two dimensions. Let’s work through a way to think about this problem: what expression computes the length of the hypotenuse of a right triangle?}
+                       @teacher{This exercise is best done in small groups of students (2-3 per group). Pass out Pythagorean Proof materials [@(resource-link #:path "images/pythag1.png" #:label "1"), @(resource-link #:path "images/pythag2.png" #:label "2")] to each group, and have them review all of their materials:@itemlist[@item{A large, white square with a smaller one drawn inside}
+                                 @item{Four gray triangles, all the same size}]
+                                 Everyone will have a packet with the same materials, but each group's triangles are a little different. The activity workes with triangles of all sizes, so each pair will get to test it out on their own triangles. Draw the diagram on the board.}
+                        }
+                @point{@student{@bitmap{images/csquared.png}For any right triangle, it is possible to draw a picture where the hypoteneuse is used for all four sides of a square. In the diagram shown here, the white square is surrounded by four gray, identical right-triangles, each with sides A and B. The square itself has four identical sides of length C, which are the hypoteneuses for the triangles. If the area of a square is expressed by @math{side * side}, then the area of the white space is @math{C^{2}}.}
+                        @teacher{Have students place their gray triangles onto the paper, to match the diagram.}}
+                @point{@student{@animated-gif{images/Pythag_anim.gif} By moving the gray triangles, it is possible to create two rectangles that fit inside the original square. While the space taken up by the triangles has shifted, it hasn't gotten any bigger or smaller. Likewise, the white space has been broken into two smaller squares, but in total it remains the same size. By using the side-lengths A and B, one can calculate the area of the two squares.
+                                 @activity[#:forevidence (list "8.G.6-8&1&1" "8.G.6-8&1&1" "8.G.6-8&1&3")]{What is the area of the smaller square? The larger square?}}
+                       @teacher{You may need to explicitly point out that the side-lengths of the triangles can be used as the side-lengths of the squares.}
+                       }
+                @point{@student{@bitmap{images/absquare.png}The smaller square has an area of @math{A^{2}}, and the larger square has an area of @math{B^{2}}. Since these squares are just the original square broken up into two pieces, we know that the sum of these areas must be equal to the area of the original square:
+                                 @bannerline{@math{A^{2} + B^{2} = C^{2}}}
+                                 @activity[#:forevidence (list "8.G.6-8&1&1" "8.G.6-8&1&2" "8.G.6-8&1&3")]{Does the same equation work for any values of A and B?}}
+                       @teacher{}
+                       }
+                @point{@student{To get C by itself, we take the square-root of the sum of the areas:
+                                @bannerline{@math{\sqrt{A^{2} + B^{2}} = C}}
+                                Pythagoras proved that you can get the square of the hypotenuse by adding the squares of the other two sides. In your games, you're going to use the horizontal and vertical distance between two characters as the two sides of your triangle, and use the Pythagorean theorem to find the length of that third side.}
+                       @teacher{Remind students that A and B are the horizontal and vertical lengths, which are calculated by @code{line-length}.}
+                       }
+                @point{@student{@activity{@itemlist[@item{Turn to @worksheet-link[#:page 40 #:name "Distance-Formula-With-Numbers"] of your workbook - you'll see the formula written out.} 
+                                                    @item{Draw out the circle of evaluation, starting with the simplest expression you can see first.}
+                                                     @item{Once you have the circle of evaluation, translate it into Pyret code at the bottom of the page, starting with @code[#:multi-line #true]{check: 
+           distance(4, 2, 0, 5) is...
+       end}}]}
+Now you've got code that tells you the distance between the points (4, 2) and (0, 5). But we want to have it work for @italic{any} two points. It would be great if we had a function that would just take the x's and y's as input, and do the math for us.}
+                        @teacher{}}
+                @point{@student{@activity{@itemlist[@item{Turn to @worksheet-link[#:page 41 #:name "Distance"], and read the problem statement and function header carefully.}
+                                                      @item{Use the Design Recipe to write your distance function. Feel free to use the work from the previous page as your first example, and then come up with a new one of your own.}
+                                                      @item{When finished, type your @code{line-length} and @code{distance} functions into your game, and see what happens.}
+                                                      @item{Does anything happen when things run into each other?}]}
+You still need a function to check whether or not two things are colliding.}
+                        @teacher{Pay careful attention to the order in which the coordinates are given to the @code{distance} function. The player's x-coordinate (@code{px}) must be given first, followed by the player's y (@code{py}), character's x (@code{cx}), and character's y (@code{cy}). Inside the body of the function, @code{line-length} can only calculate lengths on the same axis (@code{line-length(px, cx)} and @code{line-length(cx, cy)}). Just like with making data structures, order matters, and the distance function will not work otherwise. Also be sure to check that students are using @code{num-sqr} and @code{num-sqrt} in the correct places. }
+                        }
+                ]
+         }
        
-@lesson/studteach[#:title "Tests and Results"
+@lesson/studteach[#:title "Collision"
+        #:duration "10 minutes"
+        #:overview ""
+        #:learning-objectives @itemlist[]
+        #:evidence-statements @itemlist[]
+        #:product-outcomes @itemlist[@item{Students will write the is-collision function}]
+        #:standards (list)
+        #:materials @itemlist[]
+        #:preparation @itemlist[@item{}]
+        #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[@point{@student{So what do we want to do with this distance? 
+                                @activity{How close should your danger and your player be, before they hit each other?}
+                                At the top of @worksheet-link[#:page 42 #:name "is-collision"] you'll find the Word Problem for @code{is-collision}. 
+                                @activity{@itemlist[@item{Fill in the Contract, two examples, and then write the code. Remember: you WILL need to make use of the @code{distance} function you just wrote!}
+                                                    @item{When you're done, type it into your Ninja Cat game, underneath @code{distance}.}]}}
+                        @teacher{Using visual examples, ask students to guess the distance between a danger and a player at different positions. How far apart do they need to be before one has hit the other? Make sure students understand what is going on by asking questions: If the collision distance is small, does that mean the game is hard or easy? What would make it easier?}
+                        }
+                 ]
+         }
+            
+@lesson/studteach[#:title "next-world"
+        #:duration "30 minutes"
+        #:overview ""
+        #:learning-objectives @itemlist[@item{Identify collision as yet another sub-domain which requires different behavior of the next-world function}]
+        #:evidence-statements @itemlist[]
+        #:product-outcomes @itemlist[@item{Students will use different Ask branches to identify collisions in the Ninja Cat games}]
+        #:standards (list)
+        #:materials @itemlist[]
+        #:preparation @itemlist[@item{}]
+        #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[@point{@student{Now that you have a function which will check whether something is colliding, you can go back to modifying Ninja World.
+                                @activity{Out of the four major functions in the game (@code{next-world}, @code{draw-world}, @code{keypress}, and @code{big-bang}), which do you think you'll need to edit to handle collisions?}
+                                We'll need to make some more branches for @code{ask} in @code{next-world}. What should happen when the cat collides with the dog? We want to put the dog offscreen, so that he can come back to attack again.}
+                        @teacher{}}
+                 @point{@student{@activity{@itemlist[@item{Start with the test: how could you check whether the cat and dog are colliding? Have you written a function to check that?}
+                                                     @item{What do the inputs need to be?}
+                                                     @item{How do you get the @code{catY} out of the world? @code{catX}?}
+                                                     @item{How do you get the @code{dogX} out of the world? @code{dogY}?} ]}
+@code[#:multi-line #t]{| is-collision(current-world.catX, current-world.catY, current-world.dogX, current-world.dogY) then: ...result...}
+Remember that @code{next-world} gives back a world, so what function should come first in our result?
+@code[#:multi-line #t]{| is-collision(current-world.catX, current-world.catY, current-world.dogX, current-world.dogY) then: 
+                       world(...dogX..., ...dogY..., ...coinX..., ...catX..., ...catY...)}
+                                @activity{And what should happen when the cat and dog collide? Can you think of a number that puts the dog off the screen on the left side? What about the dog's y-coordinate? We could choose a number and always place it at the same y-coordinate each time, but we know a function that can place him at a @italic{random} y-coordinate...}
+             @code[#:multi-line #t]{| is-collision(current-world.catX, current-world.catY, current-world.dogX, current-world.dogY) then: 
+                                    world(-100, num-random(480), ...coinX..., ...catX..., ...catY...)}
+                                @activity{Does the @code{coinX} change when the dog and cat collide? How about @code{catY}? How do you get each of those things out of the world?}
+             @code[#:multi-line #t]{| is-collision(current-world.catX, current-world.catY, current-world.dogX, 400) then: 
+                                    world(-100, num-random(480), current-world.coinX, current-world.catX, current-world.catY)}}
+                        @teacher{Collision detection must be part of the @code{next-world} function because the game should be checking for a collision @italic{every time} the world is updated. Students may assume that @code{draw-world} should handle collision detection, but point out that the Range of @code{draw-world} is an Image, and their function must return a new world in order to set the locations of the characters after a collision.}}
+                                                                                  @point{@student{Take a minute and admire your handiwork: You've created your own version of Ninja Cat using Pyret, data structures, and complex functions. This game is already more advanced than your Bootstrap:1 game, and you've created it from scratch! Armed with the knowledge of how to create this simple game in Pyret, now it's time to start thinking about a video game of your own!}
+       @teacher{}}
+                
+                ]
+         }
+
+@lesson/studteach[#:title "Game Brainstorming"
         #:duration "15 minutes"
         #:overview ""
         #:learning-objectives @itemlist[]
         #:evidence-statements @itemlist[]
-        #:product-outcomes @itemlist[@item{Students will use @code{ask} in their next-world functions}
-                                     @item{Students will identify circumstances in which the functions in their game should behave differently}
-          @item{Students will define these circumstances - and the desired behavior - in code, as different @code{ask} branches}]
-        #:standards (list)
-        #:materials @itemlist[]
-        #:preparation @itemlist[@item{}]
-        #:pacings (list 
-                @pacing[#:type "remediation"]{@itemlist[@item{}]}
-                @pacing[#:type "misconception"]{@itemlist[@item{}]}
-                @pacing[#:type "challenge"]{@itemlist[@item{}]}
-                )
-      ]{
-        @points[@point{@student{Now to use what you know about boundary detection and apply it to your own game! 
-                                @activity{@itemlist[@item{Open your workbook to @worksheet-link[#:page 34 #:name "Test and Result"].}
-                                                    @item{Think about the things in your game that make the world change. Do characters 
-                                                           fly off the left side of the screen? The right? The top or bottom? Do you need to 
-                                                           write an @code{off-top} function or @code{off-bottom}? Maybe something happens when the player 
-                                                           achieves a high score, or the player's health reaches 0.}
-                                                     @item{In the lefthand column of @worksheet-link[#:page 35 #:name "Test and Result"],
-                                                           make a list of the questions (in Pyret!) you will need to @code{ask} the world. For example, with the dog we said
-                                                           @code{is-off-right(current-world.dogX)} to ask if the dog was off the right side of the screen. On the right, figure out 
-                                                           which world you need to make, if your question returns @code{true}.}]}}
-                        @teacher{Some examples of game states students may want to test for: 
-                                 @itemlist[@item{Gravity: the player constantly moves down, until her y-coordinate is 50, placing her at the bottom of 
-                                                 the screen. (This coordinate will probably be adjusted based on the size of the @code{PLAYER} image.)}
-          @item{The player shoots a projectile and destroys the alien/shark/bad guy: An element of the world cannot be taken @italic{out} of the world 
-                struct, but its locaton can be changed so that it no longer appears on the screen. If the @code{DOG-IMG} has been set to a certain 
-                coordinate and has been "destroyed", should it continue to move normally?}
-          @item{After reaching a certain score, the background image changes, and the player reaches "Level 2". (Note: changing the background image 
-                is handled by the @code{draw-world} function. This can be a piecewise function just like @code{next-world}!}
-                                                                                                        ]
-                                                                                                        }}
-                 ]
-         }
-
-@lesson/studteach[#:title "Branches in next-world"
-        #:duration "30 minutes"
-        #:overview ""
-        #:learning-objectives @itemlist[]
-        #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[]
         #:standards (list)
         #:materials @itemlist[]
@@ -266,42 +224,26 @@ end}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Look at the @code{ask} branches for Ninja World's @code{next-world} function. Notice that for each branch, we need a test and a result. 
-                               This is exactly what you've written in your workbook for your game. All you need to do now is reformat @italic{your} @code{next-world} 
-                               function so that it uses @code{ask}, with your current code inside the @code{otherwise} clause.
-                                            @activity{Adapt @code{next-world} so it becomes a @vocab{piecewise function}, and complete at least one thing on your list from @worksheet-link[#:page 35 #:name "Test and Result"].}}
-                        @teacher{Work in pairs or small groups to assist students with their own @code{next-world} 
-                                 functions.}}
-                 ]
-       }
-
-@lesson/studteach[#:title "Closing"
-        #:duration "5 minutes"
-        #:overview ""
-        #:learning-objectives @itemlist[]
-        #:evidence-statements @itemlist[]
-        #:product-outcomes @itemlist[]
-        #:standards (list)
-        #:materials @itemlist[]
-        #:preparation @itemlist[@item{}]
-        #:pacings (list 
-                @pacing[#:type "remediation"]{@itemlist[@item{}]}
-                @pacing[#:type "misconception"]{@itemlist[@item{}]}
-                @pacing[#:type "challenge"]{@itemlist[@item{}]}
-                )
-      ]{
-        @points[@point{@student{Take a minute and admire your handiwork: You've put a lot of time and effort into your 
-                                game during this course, and it's coming together nicely with complex data structures
-                                and advanced movement. It's already much more sophisticated than your Bootstrap:1 game! 
-                                But something is still missing: in the Ninja Cat game, nothing happens when the cat 
-                                collides with the dog, or coin. In the next unit we'll change that: you'll be able
-                                to handle collisions with the characters in your game! Start thinking about what should 
-                                happen when your player reaches some treasure, shoots a zombie, or some other condition 
-                                in your game.}
-                        @teacher{Remind students how far they have come since Bootstrap:1 and the beginning
-                                             of Bootstrap:2. They've expanded their knowledge of Pyret and programming, 
-                                             learned about a brand new data type and created their own advanced videogame! Have the students show off their games to one another.}
-                        }
+        @points[@point{@student{Now that you've seen the work it takes to create Ninja Cat, you have a good idea about what is needed to create a complex game. For the next exercise, think about the @italic{simplest possible version of your game}. Once you have that working, you can add advanced features later on. How many characters will you have, and what will you need to have in your World? You can use Numbers to keep track of the score, or the characters' x- and y-coordinates. You can also store an Image in the world, so that your character can change the way they look or to swap out the background once the score reaches a certain level. Once you have a simple game, it's easy to add more pieces to the World. 
+@activity{@itemlist[@item{Turn to @worksheet-link[#:page 18 #:name "Game Brainstorming"] in your workbook.}
+                    @item{Start by drawing a sketch of what your game will look like at the very start, and another sketch of what it will look like @italic{one second} later, without user input. What elements move on their own?}
+                    @item{In the table below, list all the images you will need for your game.}
+                    @item{At the bottom of the page, list all the things that will have @italic{changed} from one moment to the next. What will you need to keep track of in your world structure? If something moves, will you need to keep track of its x-coordinate, y-coordinate, or both? Will you have a score that changes?}]}}
+                        @teacher{Remind students that for every single thing that changes in their game, they must have a field in their world structure for it.}}
+                 @point{@student{Now that you have a list of everything that changes, it’s time to turn them into a World structure.
+                                @activity{@itemlist[@item{Turn to @worksheet-link[#:page 19 #:name "Your World"] in your workbooks, and define your world structure, using the changeable things you wrote on the previous page.}
+                                                    @item{Underneath your world structure, define two example worlds called @code{worldA} and @code{worldB}.} 
+                                                    @item{Finally, write down the @vocab{dot-accessors} you will need to access the fields of @code{worldA}.}]}}
+                       @teacher{Have the class take turns telling their peers about their games: Who the player is, what their danger, target, etc. will be. Most importantly, have them tell the class what they have in their World structure.
+@itemlist[@item{Make sure student names are on page 18}
+                   @item{Take page 18 itself, or take photos of page 18, to prep game images for the next unit.}
+                   @item{Images should be in PNG or GIF format. Background images should be 640x480, and character images should generally be 
+                         no larger than 200px in either dimension. Make sure that the character images have transparent backgrounds!}
+                   @item{TIP: use animated GIFs for the characters - not only does the animation make the game look a lot better, but these 
+                         images usually have transparent backgrounds to begin with.}]}
+                       }             
                  ]
          }
        }
+
+       
