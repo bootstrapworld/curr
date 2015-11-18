@@ -210,7 +210,7 @@ Ninja Cat is falling slowly in response to gravity, but it's now pretty tough fo
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{With @vocab{piecewise functions}, you can make a lot of things happen in a game with just a few lines of code, like controlling the movement of characters. Speaking of controlling characters, what happens in Ninja World when the dog and coin go off the screen? They keep going, but don't come back - the same problem we had in Bootstrap:1! If you need a refresher on how to fix it, that's what we'll be covering in the next unit.}}         
+        @points[@point{@student{With @vocab{piecewise functions}, you can make a lot of things happen in a game with just a few lines of code, like controlling the movement of characters. Speaking of controlling characters, what happens in Ninja World when the dog and coin go off the screen? They keep going, but don't come back - the same problem we had in Bootstrap:1! If you need a refresher on how to fix it, that's what we'll be covering in the next unit.}         
                        @teacher{}
                        }
                  ]
