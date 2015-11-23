@@ -55,7 +55,10 @@
                  @point{@student{@animated-gif{images/flipbook.gif}Putting these images together, we arrive at an animation of the rocket moving up the screen. 
                                   Let's see an example of this kind of animation, using a function to make a rocket-blast off! Turn to 
                                   @worksheet-link[#:name "rocket-height"] in your workbook, and read the word problem carefully. 
-                         @bannerline{A rocket blasts off, traveling at 7 meters per second. Write a function called @code{rocket-height} that takes in the
+                         }
+                         @teacher{Check student understanding carefully, to make sure students read the problem carefully. It may be helpful to draw a diagram or table showing the change of rocket position on the board, and to have students verbally walk through a few examples.}
+                         }
+                 @point{@student{@bannerline{A rocket blasts off, traveling at 7 meters per second. Write a function called @code{rocket-height} that takes in the
                                      number of seconds that have passed since the rocket took off, and which produces the height of the rocket at that time.}
                          @activity[#:forevidence (list "BS-M&1&1" "BS-DR.1&1&1" "F-IF.1-3&1&1" "F-IF.4-6&1&1")]{
                                     @itemlist[@item{What is the @code{rocket-height} function taking in as an input? What type of data is that?}
@@ -64,8 +67,8 @@
                                               @item{What is the @vocab{Name} of the function you are being asked to define?}
                                               @item{What is the @vocab{Domain} of the function?}
                                               @item{What is the @vocab{Range} of the function?}]}}
-                         @teacher{Check student understanding carefully, to make sure students read the problem carefully. It may be helpful to draw a diagram or table showing the change of rocket position on the board, and to have students verbally walk through a few examples.}
-                         }
+                         @teacher{}
+                        }
                  @point{@student{The Contract is a way of thinking about the function in a general way, without having to worry about exactly how it will work or how it will be used. Starting with simple questions like these will make later steps much easier to think about. However, the Contract doesn't always have enough information! The Domain for @code{star}, for example, specifies that the function needs a Number and two Strings, but doesn't mention the fact that the first String must be @code{"solid"} or @code{"outline"}. To add this information, programmers write @vocab{Purpose Statements}, which are simple sentences that explain what a function does.
                                  @activity[#:forevidence (list "BS-DR.1&1&2" "F-IF.1-3&1&5")]{Underneath the Contract, copy the following simple Purpose Statement for @code{rocket-height}.}
                                  @code[#:multi-line #t]{; rocket-height : Number -> Number
@@ -173,14 +176,17 @@
                                            @item{Writing Examples based on the contract}
                                            @item{Defining a function that matches the examples}]
                         Start out by practicing each of these steps, one at a time.
-                        @activity[#:forevidence (list "BS-DR.1&1&1" "F-IF.1-3&1&1" "F-IF.4-6&1&3" "A-SSE.1-2&1&1")]{
+                        }
+                        @teacher{}
+                        }
+                 @point{@student{@activity[#:forevidence (list "BS-DR.1&1&1" "F-IF.1-3&1&1" "F-IF.4-6&1&3" "A-SSE.1-2&1&1")]{
                                   For each of the following word problems, write down the Contract:
                                   @itemlist[@item{Define a function 'purple-star', that takes in the size of the star and produces an outlined, purple star of the given size.}
                                              @item{Define a function 'spot', that takes in a color and produces a solid circle of radius 50, filled in with that color}
                                              @item{To find the average of two numbers, they should be added together and divided by two. Define a function 'average', which takes in two numbers and produces their average}
                                              @item{A company logo is a word drawn in big, red letters, rotated some number of degrees. Define a function 'logo', that takes in a company name and a rotation, and produces a logo for that company}]
                                   Be sure to include a good @vocab{Name} for each function, and remember that the @vocab{Domain} and @vocab{Range} can only include @vocab{types} like Numbers, Images, Strings, etc.}}
-                        @teacher{[@(hyperlink "https://www.youtube.com/watch?v=SL2zLs2P-mU" "Video")] If students come up with different Domains or Ranges for their functions, have them explain their thinking for each one. These conversations are an important part of this step!}
+                         @teacher{[@(hyperlink "https://www.youtube.com/watch?v=SL2zLs2P-mU" "Video")] If students come up with different Domains or Ranges for their functions, have them explain their thinking for each one. These conversations are an important part of this step!}
                         }
                  @point{@student{A Contract is the foundation for a function, which gives programmers just enough information to use them: the name of the function, the types of data it expects and the type of data it returns.
                                  @activity[#:forevidence (list "BS-DR.2&1&1" "8.F.1-3&1&3" "F-IF.1-3&1&4")]{

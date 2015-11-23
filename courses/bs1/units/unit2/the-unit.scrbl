@@ -73,19 +73,20 @@ include other datatypes, including Strings and Images.}
                             @activity[#:forevidence "N-Q&1&2"]{@itemlist[@item{What is the name of the function being used?}
                                                  @item{How many arguments are being given to that function?}
                                                  @item{What do you think this function will do?}]}
-                             The same rules you used to convert a Circle of Evaluation into code still apply. Here is the code for that Circle: @sexp[#:form "code"]{(star 50 "solid" "red")}
+                             
                              }
                     @teacher{Students are not expected to know all the answers here - the goal is for them to apply what they know about Circles to a novel expression, and discuss for themselves what they think it might mean. Ask them to justify their answers, and to explain why they think they are correct. Linking this back to earlier examples of Circles of Evaluation may be useful.}
                     }
-             @point{@student{@activity[#:forevidence "BS-PL.1&1&2"]{Type this code into the Interactions window, and hit "Return". What did you get back?
-                                       @itemlist[@item{What does the @code{star} function do?}
-                                                  @item{Type the expression again, but this time use a much larger number in place of @code{50}. What does the first argument tell the computer?}
-                                                  @item{Type the expression again, this time using @code{"outline"} in place of @code{"solid"}, being careful to keep the quotation marks! What does the second argument tell the computer?}
-                                                  @item{Now replace @code{"red"} with something else (again, keep the quotation marks!). What does the third argument tell the computer?}]
-                                       @editor-link[#:interactions-text "(star 50 \"solid\" \"red\")" "Click here to try it out!"]
-                                       } 
-                             }
-               
+             @point{@student{The same rules you used to convert a Circle of Evaluation into code still apply. 
+                             Here is the code for that Circle: @sexp[#:form "code"]{(star 50 "solid" "red")}
+                             @activity[#:forevidence "BS-PL.1&1&2"]{Type this code into the Interactions window, and hit "Return". What did you get back?
+                                                                    @itemlist[@item{What does the @code{star} function do?}
+                                                                               @item{Type the expression again, but this time use a much larger number in place of @code{50}. What does the first argument tell the computer?}
+                                                                               @item{Type the expression again, this time using @code{"outline"} in place of @code{"solid"}, being careful to keep the quotation marks! What does the second argument tell the computer?}
+                                                                               @item{Now replace @code{"red"} with something else (again, keep the quotation marks!). What does the third argument tell the computer?}]
+                                                                    @editor-link[#:interactions-text "(star 50 \"solid\" \"red\")" "Click here to try it out!"]
+                                                                    } 
+                                                                     }
                      @teacher{This activity is designed to get students @italic{playing} with new terms and concepts, so they develop their own model for what's going on. At this point, it is NOT essential that students understand every last component of the code. If you need to give away lots of code snippets, that's ok - just get them playing!}
                      }
              @point{@student{There's an entirely new @vocab{type} of value being used in these expressions: @code{"solid"} and @code{"red"} are examples of a completely new datatype, called a @vocab{String}.  
@@ -164,37 +165,41 @@ include other datatypes, including Strings and Images.}
                                 Meanwhile, @code{star} takes in a Number and two Strings.  Different functions take in different 
                                 inputs, and we need a way to keep track of the requirements for each function.
                         @bannerline{The Domain of a function is the data that the function expects.}
-                        @activity[#:forevidence (list "F-IF.1-3&1&1")]{Why is it helpful to know the @vocab{Domain} of a function?}
-                        By keeping a list of all the functions in a language, and their Domains, programmers can easily look up 
+                        @activity[#:forevidence (list "F-IF.1-3&1&1")]{Why is it helpful to know the @vocab{Domain} of a function?}}
+                        @teacher{}
+                        }
+                 @point{@student{By keeping a list of all the functions in a language, and their Domains, programmers can easily look up 
                         how each function is used. However, it's also important to keep track of what each function produces! 
                         For example, a program wouldn't use @code{star} if they were trying to produce a Number, because 
                         @code{star} only produces Images.
-                        @bannerline{The Range of a function is the data that the function produces.}
-                        Domains and Ranges help programmers write better code, by preventing silly mistakes and giving themselves 
-                        hints about what to do next. A programmer who wants to use @code{star} can look up the Domain and
-                        immediately know that the first input has to be a Number (like @code{100}), without having to remember 
-                        it each time. Instead of writing a single value there, a programmer could write a whole expression, 
-                        like @code{(* 25 4)}. We know this code will return an appropriate value (Number) by looking at the Range 
-                        for @code{*}; therefore, the result of @code{*} can be used in place of any Number value.}
-                        @teacher{Domain and Range are critical concepts. They can be reinforced by modifying a simple expression 
-                                 (such as @code{(+ 1 2)}), asking questions at every step. For example, we know that @code{+} 
-                                 takes two Numbers, which is why 1 and 2 are used in the example. However, each of those values 
-                                 could be replaced by @italic{another expression} -- as long as that expression evaluates to a 
-                                 Number. Have students systematically replace each value with an expression, asking them to 
-                                 justify their replacement using the Domain and Range of each function.}
-                        }
+                        @bannerline{The Range of a function is the data that the function produces.}}
+                         @teacher{Domain and Range are critical concepts. They can be reinforced by modifying a simple expression 
+                                  (such as @code{(+ 1 2)}), asking questions at every step. For example, we know that @code{+} 
+                                  takes two Numbers, which is why 1 and 2 are used in the example. However, each of those values 
+                                  could be replaced by @italic{another expression} -- as long as that expression evaluates to a 
+                                  Number. Have students systematically replace each value with an expression, asking them to 
+                                  justify their replacement using the Domain and Range of each function.}
+                         }
+                 @point{@student{Domains and Ranges help programmers write better code, by preventing silly mistakes and giving themselves 
+                                 hints about what to do next. A programmer who wants to use @code{star} can look up the Domain and
+                                 immediately know that the first input has to be a Number (like @code{100}), without having to remember 
+                                 it each time. Instead of writing a single value there, a programmer could write a whole expression, 
+                                 like @code{(* 25 4)}. We know this code will return an appropriate value (Number) by looking at the Range 
+                                 for @code{*}; therefore, the result of @code{*} can be used in place of any Number value.}
+                         @teacher{}
+                         }
                  @point{@student{When programmers write down the Domains and Ranges of each function, they write what are 
                                  called @vocab{contracts}, to keep track of what each function needs.
-                 @bannerline{A Contract has three parts: the Name, Domain and Range of a function.}
-                 The contract for @code{star} is:
-                 @code[#:multi-line ""]{; star: Number String String -> Image}
-                 This means that the @vocab{Name} of the function is @code{star}, that it takes in a Number and two Strings as its 
-                 Domain, and produces an Image as the Range. We use types instead of values when we write a Contract, because we 
-                 want to be more general: a star could be of any size, so the Domain for @code{star} specifies that the first 
-                 argument could be @italic{any Number}. If we think of a language as a collection of lego pieces, the Contracts 
-                 are like the tabs and slots that tell us how each piece can connect.}
-                     @teacher{[@(hyperlink "https://www.youtube.com/watch?v=88WhYoMxrGw" "Video")]}
-                     }
+                                 @bannerline{A Contract has three parts: the Name, Domain and Range of a function.}
+                                 The contract for @code{star} is:
+                                 @code[#:multi-line ""]{; star: Number String String -> Image}
+                                 This means that the @vocab{Name} of the function is @code{star}, that it takes in a Number and two Strings as its 
+                                 Domain, and produces an Image as the Range. We use types instead of values when we write a Contract, because we 
+                                 want to be more general: a star could be of any size, so the Domain for @code{star} specifies that the first 
+                                 argument could be @italic{any Number}. If we think of a language as a collection of lego pieces, the Contracts 
+                                 are like the tabs and slots that tell us how each piece can connect.}
+                         @teacher{[@(hyperlink "https://www.youtube.com/watch?v=88WhYoMxrGw" "Video")]}
+                         }
              @point{@student{Contracts are sufficiently important and useful that we should keep a list of them somewhere.  
                              The back pages of your workbook contain a sheet labeled "Contracts".  Write the contract for 
                              @code{star} in the first row of your contracts table.}

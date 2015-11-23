@@ -113,10 +113,7 @@
   @points[
       @point{@student{@bitmap{images/number-line.png}Computers use numbers to represent a character's position onscreen, using number lines as rulers to measure 
                        the distance from the bottom-left corner of the screen. For our videogame, we will place the numberline so that the screen runs from 0 
-                       (on the left) to 640 (on the right). We can take the image of the Dog, stick it anywhere on the line, and measure the distance back to 
-                       the lefthand edge. Anyone else who knows about our number line will be able to duplicate the exact position of the Dog, knowing only 
-                       the number. What is the coordinate of the Dog on the righthand side of the screen? The center? What coordinate would place the Dog beyond 
-                       the lefthand edge of the screen?}
+                       (on the left) to 640 (on the right). }
               @teacher{The key point for students here is @italic{precision} and @italic{objectivity}. There are many possible correct answers, but students
                        should understand why any solution should be accurate and unambiguous. This requires students to propose solutions that share a common
                        "zero" (the starting point of their number line) and direction (literally, the direction from which a character's position is measured).
@@ -126,20 +123,26 @@
                        what their coordinates are. Try giving them verbal descriptions (e.g. "The center of the screen", "Off the righthand 
                        side of the screen", etc.) and have them translate those into coordinates.}
               }
-
+       @point{@student{We can take the image of the Dog, stick it anywhere on the line, and measure the distance back to 
+                       the lefthand edge. Anyone else who knows about our number line will be able to duplicate the exact position of the Dog, knowing only 
+                       the number. What is the coordinate of the Dog on the righthand side of the screen? The center? What coordinate would place the Dog beyond 
+                       the lefthand edge of the screen?}
+               @teacher{}
+               }
       @point{@student{@bitmap{images/cat-coordinates.png}By adding a second number line, we can locate a character anywhere on the screen in either 
                        dimension. The first line is called the x-axis, which runs from left to right. The second line, which runs up and down, is 
-                       called the y-axis. A 2-dimensional @italic{coordinate} consists of both the x- and y-locations on the axes. Suppose we wanted
-                       to locate NinjaCat's position on the screen. We can find the x-coordinate by dropping a line down from NinjaCat and read 
-                       the position on the number line. The y-coordinate is found by running a line to the y-axis.}
+                       called the y-axis. A 2-dimensional @italic{coordinate} consists of both the x- and y-locations on the axes. }
               @teacher{A coordinate represents a single point, and an image is (by definition) many points. Some students will ask whether a
                        character's coordinate refers to the center of the image, or one of the corners. In this particular program, the center 
                        serves as the coordinate - but other programs may use another location. The important point in discussion with students
-                       is that there is flexibility here, @italic{as long as the convention is used consistently}. (If time allows, 
-                       invite volunteers up to the board to try placing NinjaCat and the Ruby at different locations. Have students identify the
+                       is that there is flexibility here, @italic{as long as the convention is used consistently}.}
+              }
+      @point{@student{Suppose we wanted to locate NinjaCat's position on the screen. We can find the x-coordinate by dropping a line down from NinjaCat and read 
+                       the position on the number line. The y-coordinate is found by running a line to the y-axis.}
+              @teacher{(If time allows, invite volunteers up to the board to try placing NinjaCat and the Ruby at different locations. Have students identify the
                        coordinates at the corners of the screen. For additional practice, have students bisect each side of the screen and label
                        the midpoints.)}
-              }
+             }
       @point{@student{When we write down these coordinates, we always put the x before the y (just like in the alphabet!). Most of the time, 
                       you'll see coordinates written like this: (200, 50) meaning that the x-coordinate is 200 and the y-coordinate is 50.}
               @teacher{}
@@ -269,19 +272,25 @@
         @points[
                 @point{@student{Math is a language, just like English, Spanish, or any other language. We use nouns, like "bread", "tomato", 
                                 "mustard" and "cheese" to describe physical objects. Math has @vocab{values}, like the numbers @math{1}, 
-                                @math{2} or @math{3}, to describe quantities. Humans also use verbs like "toast", "slice", "spread" and "melt" 
-                                to describe operations on these nouns. Mathematics has @vocab{functions} like addition and subtraction, which
-                                are operations performed on numbers. Just as you can "slice piece of bread", a person can also "add four and five".}
+                                @math{2} or @math{3}, to describe quantities.}
 
                         @teacher{Students should begin to look at math as a @italic{language}.  To help them with this, you can discuss syntax 
                                  and grammar of math, and its potential for ambiguity in the absence of a fixed order of operations.  Help 
                                  students see that math is a way to communicate calculations among people.}
                         }
+                 @point{@student{Humans also use verbs like "toast", "slice", "spread" and "melt"to describe operations on these nouns. Mathematics has 
+                                 @vocab{functions} like addition and subtraction, which are operations performed on numbers. Just as you can "slice piece 
+                                 of bread", a person can also "add four and five".}
+                         @teacher{}
+                        }
                  @point{@student{A @vocab{mathematical expression} is like a sentence: it's an instruction for doing something.  The 
                                  expression @math{4+5} tells us to add 4 and 5.  To @vocab{evaluate} an expression, we follow the instructions 
-                                 in the expression.  The expression @math{4+5} @vocab{evaluates to} @math{9}.                         
-                        @activity{What does @math{8*4} evaluate to?  What does @math{20-16} evaluate to?  What does @math{16-20} evaluate to?}}
-                       @teacher{}}
+                                 in the expression.  The expression @math{4+5} @vocab{evaluates to} @math{9}.}
+                       @teacher{}
+                       }
+                 @point{@student{@activity{What does @math{8*4} evaluate to?  What does @math{20-16} evaluate to?  What does @math{16-20} evaluate to?}}
+                         @teacher{}
+                        }
                  @point{@student{Sometimes, we need multiple expressions to accomplish a task.  If you were to write instructions for making 
                                  a sandwich, it would matter very much which came first: melting the cheese, slicing the bread, spreading the 
                                  mustard, etc. The order of functions matters in mathematics, too. If someone says "four plus two minus one", 
@@ -295,42 +304,46 @@
                  @point{@student{Depending on which way you read the expression, you might have very different results!  This is a problem, 
                                  because we often use math to share calculations between people.  For example, you and your cell phone company 
                                  should agree upfront on how much you will pay for sending text messages and making calls.  Different results
-                                 might mean that your bill looks wrong.  We avoid problems by agreeing on the order in which to use the 
+                                 might mean that your bill looks wrong.}
+                         @teacher{}}
+                 @point{@student{We avoid problems by agreeing on the order in which to use the 
                                  different operations in an expression.  There are two ways to do this:
                                @itemlist[#:style 'ordered
                                          @item{We can all agree on an order to use}
                                          @item{We can add detail to expressions that indicate the order}]
                           @activity{Write down one reason why it is important to have rules about the order of operations.}}
-                         @teacher{}}
+                         @teacher{}
+                        }
                   @point{@student{@bitmap{images/PEMDASTriangle.png} Mathematicians didn't always agree on the order of operations, but now
                                    we have a common set of rules for how to evaluate expressions.  The pyramid on the right summarizes the 
                                    order.  When evaluating an expression, we begin by applying the operations written at the top of the 
                                    pyramid (multiplication and division). Only after we have completed all of those operations can we 
                                    move down to the lower level. If both operations are present (as in @math{4+2-1}), we read the expression
-                                   from left to right, @vocab{apply}ing the operations in the order in which they appear.
-                          @activity[#:forevidence (list "A-SSE.1-2&1&3" "5.OA.1-2&1&2")]{In what order should we apply the functions in the following example? 
+                                   from left to right, @vocab{apply}ing the operations in the order in which they appear.}}
+                         @teacher{This item covers PEMDAS (order of operations in ambiguous expressions).  You can skip this item if you
+                                  do not need to cover PEMDAS.}
+                         }
+                  @point{@student{ @activity[#:forevidence (list "A-SSE.1-2&1&3" "5.OA.1-2&1&2")]{In what order should we apply the functions in the following example? 
                                     @math{19 \div 2 * 11 - 7 + 8}
                                     @itemlist[#:style 'ordered
                                               @item{@math{+ \div * - }}
                                               @item{@math{\div * - +}}
                                               @item{@math{\div * + -}}
-                                              @item{@math{* \div + -}}]
-}}
-                         @teacher{This item covers PEMDAS (order of operations in ambiguous expressions).  You can skip this item if you
-                                  do not need to cover PEMDAS.}
+                                              @item{@math{* \div + -}}]}
+                          @teacher{}
                          }
-
                 @point{@student{@bitmap{images/FixedCircle.png} One way to indicate the order of operations in an expression is to first 
                                  draw the expression as a diagram.  This diagram is called a @vocab{Circle of Evaluation}.  Here you can
-                                 see an example of a Circle of Evaluation, for the math expression @math{4-5}. Circles of Evaluation 
-                                 show the structure that's going on inside an expression.  All Circles of Evaluation have two rules:
-                       @bannerline{Circle Rule 1: Each circle must have one function, which goes at the top of the circle.}
-                       @bannerline{Circle Rule 2: The numbers are written below, in order from left to right.}
-                       @activity[#:forevidence "BS-CE&1&1"]{@bitmap{images/CircleBug.png}Which rule does this Circle of Evaluation break?}
-                       }
-                @teacher{[@(hyperlink "https://www.youtube.com/watch?v=AMFaPKHp3Mg" "Video")] This section benefits enormously from visual aids, diagrams, etc. Make sure you have plenty of board space to 
+                                 see an example of a Circle of Evaluation, for the math expression @math{4-5}.}
+                        @teacher{[@(hyperlink "https://www.youtube.com/watch?v=AMFaPKHp3Mg" "Video")] This section benefits enormously from visual aids, diagrams, etc. Make sure you have plenty of board space to 
                          draw examples!}
-                }
+                        }
+                @point{@student{Circles of Evaluation show the structure that's going on inside an expression.  All Circles of Evaluation have two rules:
+                                @bannerline{Circle Rule 1: Each circle must have one function, which goes at the top of the circle.}
+                                @bannerline{Circle Rule 2: The numbers are written below, in order from left to right.}
+                       @activity[#:forevidence "BS-CE&1&1"]{@bitmap{images/CircleBug.png}Which rule does this Circle of Evaluation break?}}
+                        @teacher{}
+                        }
                 @point{@student{@activity[#:forevidence (list "BS-CE&1&1" "5.OA.1-2&1&1")]{Try drawing the Circle of Evaluation for each of the following 
                                                                      expressions:
                                           @itemlist[#:style 'ordered
