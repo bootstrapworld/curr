@@ -28,10 +28,6 @@ div#lessonToolbar *:hover {
 	cursor: pointer;
 }
 
-div#lessonToolbar input:last-child {
-	margin-top: 10px;
-}
-
 div#lessonToolbar.fixed{
   display:      block;
   z-index:      99;
@@ -411,6 +407,31 @@ iframe#forum_embed{
 
 iframe#forum_embed.shown{
   opacity: 1; visibility: visible;  z-index:  100;
+}
+
+/************************************************************************************
+ * SLIDE ELEMENT
+ * Positioned absolutely, taking up the whole window
+ * Use font-size 30 by default, but scale dynamically in modern browsers
+ */
+
+.lessonItem .slide{
+  position: fixed;
+  top:      0px;
+  left:     0px;
+  width:    90%;
+  height:   100%;
+  background: white;
+  padding:   5%;
+  visibility: visible;
+  overflow:  hidden;
+}
+
+.lessonItem .slide,
+.lessonItem .slide .editbox,
+.lessonItem .slide .CodeMirror,
+.lessonItem .slide div.codesexp{
+  font-size: 30px; font-size: 2vw;
 }
 
 /************************************************************************************
