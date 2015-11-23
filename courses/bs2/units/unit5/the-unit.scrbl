@@ -155,7 +155,7 @@ For reference and to check your work, you can see the completed Design Recipe fo
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points{@point{@student{Now Ninja Cat can move up and down, but we can add some more interesting elements to this game as well- what about gravity?
+        @points[@point{@student{Now Ninja Cat can move up and down, but we can add some more interesting elements to this game as well- what about gravity?
                                 If we want to make it seem like gravity is acting on Ninja Cat, she'll need to appear to "fall" at any point when she is not on the ground. @activity{@itemlist[@item{What part of the world structure will change if the cat is moving down?}
                     @item{Since this "falling" will happen automatically, not as a result of user input, which function should control the gravity? @code{draw-world, next-world}, or @code{keypress}?}]}
                    Right now, @code{next-world} takes in a world, and returns the next world by changing the dog's x-coordinate and the coin's x-coordinate. We want the cat's y-coordinate to change as well, every time @code{next-world} runs. But we don't want the cat to fall all the way below the screen and keep falling. Gravity should cause her to fall, but @italic{only} when she is above the ground (if her y-coordinate is above 75 pixels). Sometimes we want our function to move the dog, coin @italic{and} the cat, but if Ninja Cat is already on the ground only the dog and coin should move. We need @code{next-world} to become a @vocab{piecewise function}!}
@@ -191,7 +191,7 @@ Ninja Cat is falling slowly in response to gravity, but it's now pretty tough fo
                 @item{Scroll back down to the @code{keypress} function. Add one more condition that makes Ninja Cat's y-coordinate increase if the player presses a key of your choice. @bold{Hint:} The spacebar can be written as an empty string, like so: @code{" "}}]}}
         @teacher{}
         }
-}}
+]}
                                                                        
 @lesson/studteach[#:title "Closing"
         #:duration "5 minutes"
