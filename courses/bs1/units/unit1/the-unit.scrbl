@@ -319,7 +319,7 @@
                                    order.  When evaluating an expression, we begin by applying the operations written at the top of the 
                                    pyramid (multiplication and division). Only after we have completed all of those operations can we 
                                    move down to the lower level. If both operations are present (as in @math{4+2-1}), we read the expression
-                                   from left to right, @vocab{apply}ing the operations in the order in which they appear.}}
+                                   from left to right, @vocab{apply}ing the operations in the order in which they appear.}
                          @teacher{This item covers PEMDAS (order of operations in ambiguous expressions).  You can skip this item if you
                                   do not need to cover PEMDAS.}
                          }
@@ -329,7 +329,7 @@
                                               @item{@math{+ \div * - }}
                                               @item{@math{\div * - +}}
                                               @item{@math{\div * + -}}
-                                              @item{@math{* \div + -}}]}
+                                              @item{@math{* \div + -}}]}}
                           @teacher{}
                          }
                 @point{@student{@bitmap{images/FixedCircle.png} One way to indicate the order of operations in an expression is to first 
