@@ -29,9 +29,9 @@
                 )
       ]{
         @points[@point{@student{In the last lesson you saw how @vocab{piecewise functions} work in Bootstrap:2, and learned about @code{ask} blocks, the Pyret syntax for writing them. To review, let's go through the Design Recipe for a piecewise function. 
-@activity{@itemlist[@item{Turn to @worksheet-link[#:page 32 #:name "Red-shape"] in your workbooks.}
+@activity{@itemlist[@item{Turn to @worksheet-link[#:page 22 #:name "Red-shape"] in your workbooks.}
                     @item{With your partner, fill out the Design Recipe for the function @code{red-shape}.}]}
-@bold{Optional:} If you finish early, turn the page to @worksheet-link[#:page 32 #:name "Strong-Password"] and fill out the Design Recipe for the @code{strong-password} function.}
+@bold{Optional:} If you finish early, turn the page to @worksheet-link[#:page 23 #:name "Strong-Password"] and fill out the Design Recipe for the @code{strong-password} function.}
                         @teacher{Remind students that each @code{ask} statement must have a test and a result, and each function must contain an @code{otherwise:} statement, which will execute if every other test returns false.}}
                  ]
          }                               
@@ -73,7 +73,7 @@ Here is the contract for the greater than function:
                         @teacher{Review Booleans and Boolean functions, including @code{>}, @code{<}, @code{=}, @code{and}, and @code{or}. Make sure students copy the contracts into their workbook.}}
                  
                  @point{@student{To make testing and writing code much easier, programmers will often write seperate functions to test various game possibilities. In our Ninja World game, we're going to write a function @code{is-off-right} to test whether the dog has gone off the right side of the screen.
-@activity{@itemlist[@item{Turn to @worksheet-link[#:page 32 #:name "Boundary Checks"] in your workbook.}
+@activity{@itemlist[@item{Turn to @worksheet-link[#:page 24 #:name "Boundary Checks"] in your workbook.}
                     @item{What is the name of the first function on this page?}
                     @item{@code{is-off-right} will return @code{true} if our dog goes off the right side of the screen. How large can the x-coordinate be before a character goes off the screen? (Remember that a character's coordinates are measured from the center of the image, so it's best to give a buffer so that the character dissappears completely before it is considered "off the screen".}
                     @item{Write the @vocab{Contract} for this function.}]}
@@ -90,7 +90,7 @@ Here is the contract for the greater than function:
                          @teacher{Remind students about Sam the butterfly from Bootstrap:1. This function does the same thing as @code{safe-right?}, to determine whether the character has gone off the screen based on its x-coordinate. Ensure that students are using the full name of @code{is-off-right}.}}
                  
                  @point{@student{You now have a function to check whether an object has run off the right side of the screen. But think about Ninja World: if the coin is moving to the left, do you care whether the coin goes off the right side? 
-                                 @activity{@itemlist[@item{Complete the design recipe for @code{is-off-left} on @worksheet-link[#:page 32 #:name "Boundary Checks"]. Instead of checking if a number is greater than 640, what will you need to check?}
+                                 @activity{@itemlist[@item{Complete the design recipe for @code{is-off-left} on @worksheet-link[#:page 24 #:name "Boundary Checks"]. Instead of checking if a number is greater than 640, what will you need to check?}
                                                      @item{When finished, copy your functions into your @editor-link[#:public-id "0B9rKDmABYlJVeFBBU2tHc0hDTlk" "Ninja World"] file, underneath your @code{keypress} function.}]}}
                          @teacher{}}
                  @point{@student{Now we have a way to check whether something has gone off the right OR the left of the screen, but we still haven't told the game what to do when it does. In Ninja World, after the dog goes off the right side of the screen, he should reappear on the left-hand side. 

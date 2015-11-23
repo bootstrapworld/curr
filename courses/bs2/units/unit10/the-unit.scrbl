@@ -7,10 +7,7 @@
                                        (list "String" @code{string-append string-length})                          
                                        (list "Image" @code{rectangle circle triangle ellipse radial-star scale rotate put-image})
                                        (list "Boolean" @code{= > < string-equal and or}))]{  
-@unit-descr{
-            
-            
-            }
+@unit-descr{Using the @code{distance} and @code{is-collision} functions they wrote for their Ninja Cat games, students complete collision detection in their own games, and return to the lists of questions to ask their world from the previous unit to complete their video games.}
  }
 
 @unit-lessons{
@@ -34,18 +31,17 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Your games are really coming together! At this point you have the basic shell of your video game, along with basic animation. The next steps are things you've already programmed in your Ninja Cat game: keypresses, and a more complex version of @code{next-world}, like identifying the boundaries of your game screen, or adding randomization.
-@activity{Turn to @worksheet-link[#:page 36 #:name "Unit 9"] in your workbook. Choose which keys will control your game, and list them on the left-hand column of the table. Fill in the rest of the table by stating which part of the world will change in response to that key (be sure to use the dot-accessor!), and @italic{how} that part of th world will change. Will the player move by 10, or 20 pixels? Will the direction of the dange change?}} 
-                       @teacher{Make sure students are specific in this activity: Have them identify the dot-accessor they'll need to use to change the world structure, and exactly how their world will change. This will make the next step much easier.}}
+        @points[@point{@student{Welcome to the home stretch! You've learned a LOT over the last 9 units, like data structures, a brand new programming language, event-driven programming, and even extended your knowledge of piecewise functions. In the last unit, you'll finish implementing the tests you listed in the last unit, and collision detection for your game. Let's get started.}
+                       @teacher{ }}
            ]
          }
                                
-          @lesson/studteach[#:title "Keypresses in Your Game"
+          @lesson/studteach[#:title "Collision Detection in Your Game"
         #:duration "35 minutes"
         #:overview ""
-        #:learning-objectives @itemlist[@item{Using conditionals, students will write a function to handle different keypresses in their game.}]
+        #:learning-objectives @itemlist[@item{Students will write their own @code{distance} and @code{is-collision} function to detect collisions of characters in their games.}]
         #:evidence-statements @itemlist[]
-        #:product-outcomes @itemlist[]
+        #:product-outcomes @itemlist[@item{Students will use different Ask branches to identify collisions in their games}]
         #:standards (list)
         #:materials @itemlist[]
         #:preparation @itemlist[@item{}]
@@ -55,53 +51,21 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Now it's time to program YOUR game to respond to keypresses. 
-                                @activity{Turn to @worksheet-link[#:page 37 #:name "Keypress-in-Game"] in your workbook. Choose 3 keys will control your game, and go through the design recipe: Write test cases for what should happen to @code{worldA} depending on which key was pressed. Then define your function. Once you've completed the Design Recipe, type your @code{keypress} function into your games.}
-
-Of course, keypresses can do a lot more in a videogame than just move a character up and down. By using what your learned about Boolean functions, you can add more advanced movement. Here are some ideas:
-@itemlist[
-          @item{@bold{Warping:} instead of having the player’s y-coordinate change by adding or subtracting, replace it with a Number to have the player suddenly appear at that location. (For example, hitting the @code{"c"} key causes your player to warp back to the center of the screen, at y=240.)}
-          @item{@bold{Boundary-detection:} Change the condition for moving up so that the player only moves up if @code{key} = @code{"up"} AND the player's y-coordinate is less than the top of the screen. Likewise, change the condition for @code{"down"} to also check that the player's y-coordinate is greater than 0. @bold{Hint:} In Bootstrap:1, everyone's game screen was 640x480. In Bootstrap:2, the size of your game screen is determined by the size of your background image. To find out exactly how large your image is, you can use the following functions: @code{# image-height : Image -> Number} and @code{# image-width : Image -> Number}, which will give you the pixel width or height of your background image.}
-          @item{@bold{Wrapping:} Add a condition (before any of the keys) that checks to see if the player’s y-coordinate is above the screen. If it is, have the player warp to the bottom. Add another condition so that the player warps back up to the top of the screen if it moves below the bottom.}
-          @item{@bold{Challenge:} Have a character hide when the @code{"h"} key is pressed, only to re-appear when it is pressed again.}]
-}
-                         @teacher{Hint for the challenge: multiply by -1!}}
-                 ]
-         }   
-
-
-@lesson/studteach[#:title "Tests and Results"
-        #:duration "15 minutes"
-        #:overview ""
-        #:learning-objectives @itemlist[]
-        #:evidence-statements @itemlist[]
-        #:product-outcomes @itemlist[@item{Students will use @code{ask} in their next-world functions}
-                                     @item{Students will identify circumstances in which the functions in their game should behave differently}
-          @item{Students will define these circumstances - and the desired behavior - in code, as different @code{ask} branches}]
-        #:standards (list)
-        #:materials @itemlist[]
-        #:preparation @itemlist[@item{}]
-        #:pacings (list 
-                @pacing[#:type "remediation"]{@itemlist[@item{}]}
-                @pacing[#:type "misconception"]{@itemlist[@item{}]}
-                @pacing[#:type "challenge"]{@itemlist[@item{}]}
-                )
-      ]{
-        @points[@point{@student{Now to use what you know about boundary detection and apply it to your own game! 
-                                @activity{@itemlist[@item{Open your workbook to @worksheet-link[#:page 41 #:name "Test and Result"].}
-                                                    @item{Think about the things in your game that make the world change. Do characters fly off the left side of the screen? The right? The top or bottom? Do you need to  write an @code{off-top} function or @code{off-bottom}? Maybe something happens when the player achieves a high score, or the player's health reaches 0.}
-                                                     @item{In the lefthand column of @worksheet-link[#:page 41 #:name "Test and Result"], make a list of the questions (in Pyret!) you will need to @code{ask} the world. For example, with the dog we said @code{is-off-right(current-world.dogX)} to ask if the dog was off the right side of the screen. On the right, figure out which world you need to make, if your question returns @code{true}.}]}}
-                        @teacher{Some examples of game states students may want to test for: 
-                                 @itemlist[@item{Gravity: the player constantly moves down, until her y-coordinate is 50, placing her at the bottom of the screen. (This coordinate will probably be adjusted based on the size of the @code{PLAYER-IMG} image.)}
-          @item{The player shoots a projectile and destroys the alien/shark/bad guy: An element of the world cannot be taken @italic{out} of the world struct, but its locaton can be changed so that it no longer appears on the screen. If the @code{DOG-IMG} has been set to a certain coordinate and has been "destroyed", should it continue to move normally?}
-          @item{After reaching a certain score, the background image changes, and the player reaches "Level 2". (Note: changing the background image is handled by the @code{draw-world} function. This can be a piecewise function just like @code{next-world}! Students who want to change the apprearance of their game should turn to @worksheet-link[#:page 43 #:name "Test and Result in draw-world"] and make a list of the questions to ask inside @code{draw-world} to change the image(s) in their game.} ]
-         }
-                        }
+        @points[@point{@student{The final addition that everyone will need in their games is collision detection! What should happen when your player collides with your danger, or target? Do you have a score as part of your world structure? Thankfully, you've already completed the Design Recipe for the functions you'll need to add to your game. @activity{Turn to @worksheet-link[#:page 27 #:name "line-length"] in your workbook. Starting with @code{line-length}, add your @code{line-length}, @code{distance}, and @code{is-collision} functions into your game file.}}
+                       @teacher{Pay careful attention to the order in which the coordinates are given to the @code{distance} function. The player's x-coordinate (@code{px}) must be given first, followed by the player's y (@code{py}), character's x (@code{cx}), and character's y (@code{cy}). Inside the body of the function, @code{line-length} can only calculate lengths on the same axis (@code{line-length(px, cx)} and @code{line-length(cx, cy)}). Just like with making data structures, order matters, and the distance function will not work otherwise. Also be sure to check that students are using @code{num-sqr} and @code{num-sqrt} in the correct places.}
+                       }
+                 @point{@student{Now that you have all the necessary functions which will check whether characters are colliding, you can add to your @code{next-world} function to modify the world when this happens. Remember what you wrote for the Ninja Cat game: first, you checked whether the cat and dog were colliding. Your game might not have a cat and dog, of course. Maybe you want to check if the player has reached a goal at certain coordinates, or if @italic{your} player and danger have collided. @activity{@itemlist[@item{What function checks if two thing are colliding?}
+                                          @item{What do the inputs need to be?}
+                                          @item{What dot-accessots will you need to use?}
+                                          @item{What should happen when these two things collide? What will your new world structure look like after this collision?}
+                                          @item{add your new @code{ask} branchest to @code{next-world} so that the world changes when characters collide.}]}
+                                                                         }
+                      @teacher{Work with students in pairs or small groups to complete these activities.}}  
                  ]
          }
                                  
 @lesson/studteach[#:title "Branches in next-world"
-        #:duration "30 minutes"
+        #:duration "45 minutes"
         #:overview ""
         #:learning-objectives @itemlist[]
         #:evidence-statements @itemlist[]
@@ -115,9 +79,8 @@ Of course, keypresses can do a lot more in a videogame than just move a characte
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Think about the @code{ask} branches in Ninja World's @code{next-world} function. Remember that for each @code{ask}, we needed a test and a result. This is exactly what you've written in your workbook for your game. All you need to do now is reformat @italic{your} @code{next-world} function so that it uses @code{ask}, with your current code inside the @code{otherwise} clause.
-@activity{Adapt @code{next-world} so it becomes a @vocab{piecewise function}, and complete at least one thing on your list from @worksheet-link[#:page 41 #:name "Test and Result"].}}
-                        @teacher{Work in pairs or small groups to assist students with their own @code{next-world} functions.}}
+        @points[@point{@student{Now you've programmed your games to respond when different characters collide, and your games are almost finished! Think about what else you want to add: a scoring system? More dangers, targets, or players? Levels? Remember that for everything that @italic{changes} in your game, you'll need to add to your world structure, and this is your chance: @activity{Turn to @worksheet-link[#:page 41 #:name "Test and Result"] in your workbook and finish adding the things on your list to your game file.} Remember, if you want to change the @italic{appearance} of your games, you'll need to change your @code{draw-world} function to a piecewise function. You can write the tests and results you'll need for this function on @worksheet-link[#:page 43 #:name "Test and Result in draw-world"].}
+                       @teacher{Work in pairs or small groups to assist students with completing their games.}}
                  ]
        }
        
@@ -136,8 +99,8 @@ Of course, keypresses can do a lot more in a videogame than just move a characte
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{You started from scratch, and now have a working videogame! You probably have at least a few more things to add, which we'll work on in the next unit!}
-                        @teacher{Have students show each other their nearly completed games!}}
+       @points[@point{@student{Congratulations! You started from scratch, and now have a complete, working videogame! We hope you’ll continue working on these games yourself, keep hacking, and keep learning!}
+                        @teacher{Have students show off their completed games!}}
                  ]
          }
        }

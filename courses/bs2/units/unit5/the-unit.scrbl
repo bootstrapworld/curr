@@ -136,7 +136,7 @@ fun keypress(current-world, key):
     | otherwise: current-world
   end
 end}
-For reference and to check your work, you can see the completed Design Recipe for @code{keypress} in Ninja World on @worksheet-link[#:page 26 #:name "Keypress-in-Ninja-World"].
+For reference and to check your work, you can see the completed Design Recipe for @code{keypress} in Ninja World on @worksheet-link[#:page 18 #:name "Keypress-in-Ninja-World"].
 }
                         @teacher{}}]}      
                                                                        
@@ -160,7 +160,7 @@ For reference and to check your work, you can see the completed Design Recipe fo
                     @item{Since this "falling" will happen automatically, not as a result of user input, which function should control the gravity? @code{draw-world, next-world}, or @code{keypress}?}]}
                    Right now, @code{next-world} takes in a world, and returns the next world by changing the dog's x-coordinate and the coin's x-coordinate. We want the cat's y-coordinate to change as well, every time @code{next-world} runs. But we don't want the cat to fall all the way below the screen and keep falling. Gravity should cause her to fall, but @italic{only} when she is above the ground (if her y-coordinate is above 75 pixels). Sometimes we want our function to move the dog, coin @italic{and} the cat, but if Ninja Cat is already on the ground only the dog and coin should move. We need @code{next-world} to become a @vocab{piecewise function}!}
                        @teacher{}}
-                 @point{@student{@activity{@itemlist[@item{turn to @worksheet-link[#:page 17 #:name "Complex next-world"] in your workbook.}
+                 @point{@student{@activity{@itemlist[@item{turn to @worksheet-link[#:page 20 #:name "Complex next-world"] in your workbook.}
                                                      @item{Write the Contract and Purpose statement for this updated version of @code{next-world}.}]}
                                   Now it's time to think about examples. @activity{Write one example using a World where Ninja Cat is above the ground, and one where she is on the ground. What should change about the world in each example? Does the dog's c-coordinate change in both instances, or just one? Why?}}
                          @teacher{Remind students that at this point, @code{next-world} will always change the x-coordinates of the dog and coin, because they move independantly. The @italic{only} time the cat's y-coordinate should change without user input is when it gets above 75 pixels.}}

@@ -62,9 +62,9 @@
                 )
       ]{
         @points[@point{@student{Now that we have our world structure, we need to know how to draw it. @activity{Which function is used to draw the world?} Just like the @code{draw-world} function in Ninja World, @code{draw-world} takes in a structure and produces an Image. 
-    @activity{@itemlist[@item{Turn to @worksheet-link[#:page 33 #:name "draw-world"] in your workbooks.}
+    @activity{@itemlist[@item{Turn to @worksheet-link[#:page 34 #:name "draw-world"] in your workbooks.}
                         @item{What is the Domain of this function? The Range?}
-                        @item{At the top of @worksheet-link[#:page 33 #:name "draw-world"], write the contract, and fill in the function header for @code{draw-world}.}]}}
+                        @item{At the top of @worksheet-link[#:page 34 #:name "draw-world"], write the contract, and fill in the function header for @code{draw-world}.}]}}
                         @teacher{}}
 
                 @point{@student{Below the function header, we've gotten you started by using @code{put-image}, just like in Ninja World. Do you remember the contract for @code{put-image}? It takes in an image, the coordinates for where to put the image, and another image, on top of which the first image is placed.
@@ -116,7 +116,7 @@ Here is an example of using @code{draw-world} in our Ninja World game, using @co
                                 @code{next-world : World -> World}
 
             @activity{@itemlist[@item{Look back at your world structure. What changes? Which of those things change @italic{on their own}, and not in response to any user actions (like keypresses)?}
-                                @item{On @worksheet-link[#:page 23 #:name "next-world"], make a list of what changed and how it changed as a purpose statement for writing @code{next-world}.}
+                                @item{On @worksheet-link[#:page 35 #:name "next-world"], make a list of what changed and how it changed as a purpose statement for writing @code{next-world}.}
                                 @item{Write an example for @code{next-world} using the @code{worldA} you defined. Since the Range of @code{next-world} is a World, we know that we'll need to create a world using the @code{world} function. Use dot-accessors to show how the world changes.}
                                 @item{Next, write one more example for @code{next-world} where you create a new world structure. What will your updated world look like?}]}
             Here are two examples for the early Ninja World version of @code{next-world}:
