@@ -160,7 +160,7 @@ For reference and to check your work, you can see the completed Design Recipe fo
                                 If we want to make it seem like gravity is acting on Ninja Cat, she'll need to appear to "fall" at any point when she is not on the ground. @activity{@itemlist[@item{What part of the world structure will change if the cat is moving down?}
                     @item{Since this "falling" will happen automatically, not as a result of user input, which function should control the gravity? @code{draw-world, next-world}, or @code{keypress}?}]}
                    Right now, @code{next-world} takes in a world, and returns the next world by changing the dog's x-coordinate and the coin's x-coordinate. We want the cat's y-coordinate to change as well, every time @code{next-world} runs. But we don't want the cat to fall all the way below the screen and keep falling. Gravity should cause her to fall, but @italic{only} when she is above the ground (if her y-coordinate is above 75 pixels). Sometimes we want our function to move the dog, coin @italic{and} the cat, but if Ninja Cat is already on the ground only the dog and coin should move. We need @code{next-world} to become a @vocab{piecewise function}!}
-                       @teacher{ }}
+                       @teacher{}}
                  @point{@student{@activity{@itemlist[@item{turn to @worksheet-link[#:page 17 #:name "Complex next-world"] in your workbook.}
                                                      @item{Write the Contract and Purpose statement for this updated version of @code{next-world}.}]}
                                   Now it's time to think about examples. @activity{Write one example using a World where Ninja Cat is above the ground, and one where she is on the ground. What should change about the world in each example? Does the dog's c-coordinate change in both instances, or just one? Why?}}
@@ -177,8 +177,7 @@ Circle and label what changes. Did more things change than you entered in the Do
                      @item{Our first condition must ask if the cat's x-coordinate is greater than 75. What changes about the world if this is true?}
                      @item{Complete the design recipe for @code{next-world} and put the code into the @editor-link[#:public-id "0B9rKDmABYlJVM2tUSFNTc21xOFU" "Ninja World"] file.}]}}
                          @teacher{}}
-                                  
-@point{@student{The complete code for @code{next-world} should look like: 
+                 @point{@student{The complete code for @code{next-world} should look like: 
 @code[#:multi-line #t]{# next-world: World -> World
                        fun next-world(current-world):
                           ask:
