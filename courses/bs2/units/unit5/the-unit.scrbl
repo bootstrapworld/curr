@@ -51,10 +51,9 @@
                                    write the two questions @code{(> x 5)} and @code{(<= x 5)} rather than have the second question be @code{otherwise}. 
                                    Explicit questions make it easier to read and maintain programs. When you use @code{otherwise}, someone has to read
                                    all the previous questions to know what condition else corresponds to: they can’t just skim all the questions 
-                                   to find the one that matches their situation. This makes code more readable and understandable.}
+                                   to find the one that matches their situation. This makes code more readable and understandable.}}
                  @point{@student{One final syntax note: notice that there are two @code{end} statements at the bottom of this function. One to close the @code{ask:} branches, and one to close the function itself. Whenever you write a @vocab{piecewise function} in Pyret, you will need to remember to add two @code{end} statements in order to finish the function.}
                          @teacher{}}
-                                 }
                  ]
          }
                       

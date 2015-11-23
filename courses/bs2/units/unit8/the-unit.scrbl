@@ -30,7 +30,7 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points{@point{@student{It's time to look at the World for @italic{your} game!
+        @points[@point{@student{It's time to look at the World for @italic{your} game!
                                  @activity{@itemlist[@item{Turn to @worksheet-link[#:page 31 #:name "Game Design"] in your workbook. What are the things in your world? What datatypes are they?}
                                                      @item{Open the @editor-link[#:public-id "0B9rKDmABYlJVcDUyZkJmd3VlS00" "BS:2 blank game template"].}]}
                                  In Bootstrap:1, you started with the shell of a game, with some sample images and functions defined. In this class the game template is just a collection of comments, telling you how to organize your functions and variables. You'll be writing @italic{every line} of code yourself. Let's begin: 
@@ -43,7 +43,7 @@
                                                      @item{Define new variables for your images, (i.e. @code{PLAYER-IMG}, @code{DANGER-IMG}, etc.) and use the @code{image-url} function to put them into your game file.}]}
                                  Some hints for finding images: Your images should be in PNG or GIF format, and the url should contain the file type (i.e. .png or .gif) at the end. Background images should be 640x480, and character images should generally be no larger than 200px in either dimension. Make sure that the character images have transparent backgrounds! TIP: use animated GIFs for the characters - not only does the animation make the game look a lot better, but these images usually have transparent backgrounds to begin with.} 
                         @teacher{You can find students' images ahead of before class to save time, and use the @code{image-url} function to put them into a blank game file for each pair of students.}}
-                 }
+                 ]
          }
 
 @lesson/studteach[#:title "Drawing the World"
