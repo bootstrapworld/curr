@@ -152,14 +152,15 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
      ]{
-       @points[@point{@student{By now, you have defined a function called @code{distance}: it has four Number inputs (representing playerX, playerY, dangerX and dangerY) and produces a Number representing the distance between those coordinates. If the player is standing at (320, 240) and the danger is at (400, 159), the distance can be calculated by evaluating @code{(distance 320 240 400 159)}.
-                              @activity[#:forevidence (list "F-IF.1-3&1&1" "F-IF.4-6&1&3" "A-SSE.1-2&1&4")]{For each of the following player and danger coordinates, write the expression that uses the @code{distance} function to compute the distance between the points.  You may write in code or in a Circle of Evaluation:
+       @points[@point{@student{By now, you have defined a function called @code{distance}: it has four Number inputs (representing playerX, playerY, dangerX and dangerY) and produces a Number representing the distance between those coordinates. If the player is standing at (320, 240) and the danger is at (400, 159), the distance can be calculated by evaluating @code{(distance 320 240 400 159)}.}
+                       @teacher{}
+                       }
+                @point{@student{@activity[#:forevidence (list "F-IF.1-3&1&1" "F-IF.4-6&1&3" "A-SSE.1-2&1&4")]{For each of the following player and danger coordinates, write the expression that uses the @code{distance} function to compute the distance between the points.  You may write in code or in a Circle of Evaluation:
                                         @itemlist[@item{The player is at (100, 225) and the danger is at (174, 300)}
                                                   @item{The player is at (48, 20) and the danger is at (210, 160)}
                                                   @item{The player is at (300, 60) and the danger is at (130, 240)}
-                                                 ]}
-                              }
-                       @teacher{}
+                                                 ]}}
+                        @teacher{}
                        }
                 @point{@student{Now that you know how to compute the distance between two objects, you need to decide when two objects have collided.  We discussed this earlier in the unit using circles: two circles collide when the distance between them is less than the sum of their radii.  If your objects have more interesting outlines than circles, this computation can be hard to do precisely.  Fortunately, most games don't have to be precise (they move too fast for people to see the exact moment of impact).  We just need to figure out when items are close enough, and use that to detect collision.}
                        @teacher{You can spend additional time on this point by having students think about collision distances between different shapes.  The rest of Bootstrap doesn't require this, but this may be a good point to integrate additional geometry if you are teaching math.}}
@@ -195,18 +196,19 @@
                                 new programming language, and even more importantly you've learned the Design Recipe, which lets you solve word problems
                                 and programming challenges by focusing on just one step at a time, making sure that each step is checked against the
                                 one that came before it.
-                                @activity{Once programmers get something working, they always go back over their code and make sure that it's readable, 
+                                }
+                        @teacher{}
+                        }
+                 @point{@student{@activity{Once programmers get something working, they always go back over their code and make sure that it's readable, 
                                           clear, and easy for other people to understand. A car that runs well might be nice, but if it's not worth much
                                           if it's impossible for a mechanic to repair or upgrade! Make sure your code is beautiful, inside and out.
                                           @itemlist[@item{Does every function have its contract written out correctly?}
                                                      @item{Does every function have a purpose statement that accurately describes what it does?}
                                                      @item{Does every single function have at least two EXAMPLEs?}
                                                      @item{When you click "Run", do all of your EXAMPLEs pass?}
-                                                     ]}
-                                }
-                        @teacher{@itemlist[@item{Have students volunteer what they learned in this lesson}
+                                                     ]}}
+                         @teacher{@itemlist[@item{Have students volunteer what they learned in this lesson}
                                             @item{Reward behaviors that you value: teamwork, note-taking, engagement, etc}
-                                            @item{Pass out exit slips, dismiss, clean up.}]}
-                        }
+                                            @item{Pass out exit slips, dismiss, clean up.}]}}
                         ]}
 }
