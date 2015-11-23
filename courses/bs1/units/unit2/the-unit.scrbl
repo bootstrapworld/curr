@@ -351,7 +351,7 @@ include other datatypes, including Strings and Images.}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{This lesson expanded Circles of Evaluations, expressions, and code to include Strings and Images (as well as Numbers).  
+        @points[@point{@student{This lesson expanded what you know about Circles of Evaluation, expressions, and code to include Strings and Images.  
                                 You learned that everything you knew about functions on Numbers also works on Strings and Images (which will make your
                                 programs more interesting).  You also learned how to use the Image functions to create your own images, and how to 
                                 use existing Images in your programs (through @code{bitmap/url}).}
