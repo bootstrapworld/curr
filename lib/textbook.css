@@ -378,7 +378,12 @@ div#copyright{
  * consolidate all vendor prefixes into one place
 */
 
-ul.EvidenceStatementsList, ul.teacherNotes li div.teacher, div.student, .embedded-wescheme, iframe#forum_embed{
+ul.EvidenceStatementsList,
+ul.teacherNotes li div.teacher,
+div.student,
+.embedded-wescheme,
+iframe#forum_embed,
+#progressBar{
   transition: all 0.5s ease-in-out;
   -webkit-transition: all 0.5s ease-in-out;
   -moz-transition: all 0.5s ease-in-out;
@@ -433,6 +438,8 @@ iframe#forum_embed.shown{
 .lessonItem .slide div.codesexp{
   font-size: 30px; font-size: 2vw;
 }
+
+#progressBar{position: fixed; top: 0px; left: 0px; height: 3px; background: black; visibility: visible; }
 
 /************************************************************************************
  * PRINT MEDIA
