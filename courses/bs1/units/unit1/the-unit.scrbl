@@ -361,11 +361,7 @@
                 @point{@student{@bitmap{images/Nesting.png}To use multiple functions in the same expression, we can combine Circles
                                  of Evaluation.  Look at the Circle of Evaluation you've written for @math{351 / -1}. We already 
                                  know that the Circle for @math{4 - 5} will evaluate to @math{-1}, so we can @italic{replace the 
-                                 number with the expression.} Does this change what the expression evaluates to?
-                                @activity[#:forevidence (list "BS-CE&1&2" "5.OA.1-2&1&1")]{
-                                      @bitmap{images/fill-in-circle.png}Finish writing the Circle of 
-                                       Evaluation shown here, so that it represents @math{(23 + 7) * (13 - 5)}}
-                      }
+                                 number with the expression.} Does this change what the expression evaluates to?}
                         @teacher{From this point forward, the Circles of Evaluation are your assessment tool for Order of Operations. 
                                  Quizzing students by asking them to correctly evaluate an expression is fraught with false negatives,
                                  as many student might get the order right but may still have problems with basic calculations. This 
@@ -374,6 +370,11 @@
                                  as they put the emphasis where it should be: exercising a student's ability to see the structure 
                                  inside the arithemetic.}
                         }
+                @point{@student{@activity[#:forevidence (list "BS-CE&1&2" "5.OA.1-2&1&1")]{
+                                      @bitmap{images/fill-in-circle.png}Finish writing the Circle of 
+                                       Evaluation shown here, so that it represents @math{(23 + 7) * (13 - 5)}}}
+                        @teacher{}
+                       }
                 @point{@student{@bitmap{images/NestedCircle.png}What does this Circle of Evaluation evaluate to?  Let's review how
                                  we evaluate a Circle:
                                  @itemlist[@item{We know we are multiplying because that's the function at the top of the Circle.} 

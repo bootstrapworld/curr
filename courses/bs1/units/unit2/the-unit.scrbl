@@ -91,7 +91,10 @@ include other datatypes, including Strings and Images.}
                      }
              @point{@student{There's an entirely new @vocab{type} of value being used in these expressions: @code{"solid"} and @code{"red"} are examples of a completely new datatype, called a @vocab{String}.  
                              @bannerline{A String is anything between quotation marks.} 
-                             When you first learned about values, you saw that a program can be nothing more than a value, such as a number.  
+                             }
+                     @teacher{Students should see Strings as an analog to Numbers: a different type of value, but one that is still a simple program that evaluates to itself and can be passed as an argument to a function.  Note that the Number 42 and the String "42" are different values!  You could add the Number 42 to another number, but you cannot add the String "42" to another number.}
+                     }
+             @point{@student{When you first learned about values, you saw that a program can be nothing more than a value, such as a number.  
                              If you type a number into the interactions window, for example, it evaluates to itself.  To remind yourself of this,
                              try evaluating @code{716} in the Interactions window.
                                           @editor-link[#:interactions-text "716"
@@ -99,8 +102,8 @@ include other datatypes, including Strings and Images.}
                                           Since Strings are values too, the value @code{"red"} is also a perfectly valid program! Just like number values, strings will evaluate to themselves.
                                           @activity[#:forevidence "BS-PL.1&1&1"]{Try entering different Strings into the Interactions window. What happens if you put quotes around multiple words? Around Numbers?}
                                        }
-                     @teacher{Students should see Strings as an analog to Numbers: a different type of value, but one that is still a simple program that evaluates to itself and can be passed as an argument to a function.  Note that the Number 42 and the String "42" are different values!  You could add the Number 42 to another number, but you cannot add the String "42" to another number.}
-                     }
+                     @teacher{}
+                    }
              @point{@student{This expression also included a new @vocab{function} called @code{star}. Just as the addition function @code{+} takes in two Numbers, @code{star} takes in @italic{a Number and two Strings}, and produces a new type of data, called an @vocab{Image}.
                             @activity[#:forevidence "BS-PL.1&1&1"]{What is the datatype of each of the values listed below -- Number, String or Image? 
                                       @itemlist[@item{@code{42}}
@@ -119,8 +122,10 @@ include other datatypes, including Strings and Images.}
                                                  @item{@code{(star 500 "solid" "purple")}}
                                                  @item{@code{(star (+ 1 3) "outline" "blue")}}
                                                  @item{@code{(- (* 4 2) (+ 1 0))}}
-                                                 ]}
-                             @activity[#:forevidence "BS-M&1&3"]{Some of the items listed below are @vocab{types}, while others are @vocab{values}. Can you tell the difference?
+                                                 ]}}
+                     @teacher{For added practice, have students identify the type of each argument in each of those expressions. Going Further - If time allows, you can go further into @lesson-link[#:name "Manipulating-Images" #:label "Manipulating Images"] or @lesson-link[#:name "Making-Flags" #:label "Making Flags"].}
+                     }
+             @point{@student{@activity[#:forevidence "BS-M&1&3"]{Some of the items listed below are @vocab{types}, while others are @vocab{values}. Can you tell the difference?
                                        @itemlist[@item{792.24}
                                                  @item{String}
                                                  @item{"hi, mom!"}
@@ -128,10 +133,9 @@ include other datatypes, including Strings and Images.}
                                                  @item{Number}
                                                  @item{Image}
                                                  @item{102}
-                                                 ]}
-                             }
-                     @teacher{For added practice, have students identify the type of each argument in each of those expressions. Going Further - If time allows, you can go further into @lesson-link[#:name "Manipulating-Images" #:label "Manipulating Images"] or @lesson-link[#:name "Making-Flags" #:label "Making Flags"].}
-                     }
+                                                 ]}}
+                     @teacher{}
+                    }
              ]}
 @lesson/studteach[
      #:title "Contracts"

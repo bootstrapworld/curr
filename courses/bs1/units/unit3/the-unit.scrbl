@@ -159,12 +159,15 @@
                              @bannerline{@math{x = 4}
                                           @math{y = 4+9}
                                           @math{z = x \times 2}}
-                             @activity[#:forevidence (list "7.EE.3-4&1&4" "A-SSE.1-2&1&1")]{Convert the following three Algebra definitions into Racket definitions:
+                             }
+                     @teacher{}
+                     }
+              @point{@student{@activity[#:forevidence (list "7.EE.3-4&1&4" "A-SSE.1-2&1&1")]{Convert the following three Algebra definitions into Racket definitions:
                                        @itemlist[@item{@math{dollars = 16.50}}
                                                  @item{@math{feet = 2 \times 3}}
                                                   @item{@math{inches = feet \times 12}}]
                                        }}
-                     @teacher{For this activity write all Racket expressions on one side of the board, and all algebra expressions on the other.
+                      @teacher{For this activity write all Racket expressions on one side of the board, and all algebra expressions on the other.
                               You'll want to line them up as closely as possible, to reinforce the connection between the two languages.}
                      }
             @point{@student{@activity{Turn to @worksheet-link[#:name "Translating-to-Algebra"] in your workbooks. 
@@ -231,16 +234,18 @@
                  @point{@student{If you want to change one of your definitions so that the image is smaller or larger, you can use the @code{scale} function:
                                   @code[#:multi-line #t]{; scale : Number Image -> Image}
                                   This function resizes the @code{Image} based on the @code{Number}. For example, @code{(scale 10 (triangle 5 "solid" "green"))} will make the that tiny triangle ten times as large, while @code{(scale 0.5 (rectangle 200 100 "outline" "purple"))} will shrink the rectangle by half.
-                                  @activity{Practice using @code{scale} to grow and shrink different images. If you would like to experiment with more functions, try using the contracts below:
+                                  }
+                         @teacher{If a student struggles here, you should fall back to the Circles of Evaluation and Contracts. For example: have the student first draw a circle for @code{rotate}, and have them use the Contract to figure out what the inputs are. When they get to the second input (the @code{image}), ask them what kind of shape they want to rotate. Whatever their answer is, have them look it up in their contracts page, and draw a Circle of Evaluation @italic{inside} the one they drew for @code{rotate}. Once the Circle of Evaluation is correct, have them convert it to code. Once they are confident, you can challenge them to apply another operation to the whole expression, perhaps flipping the rotated shape vertically.}
+                         }
+                 @point{@student{@activity{Practice using @code{scale} to grow and shrink different images. If you would like to experiment with more functions, try using the contracts below:
                                                            @code[#:multi-line #t]{; flip-vertical : Image -> Image
                                                                                   ; flip-horizontal : Image -> Image
                                                                                   ; rotate : Number Image -> Image}
                                                               @editor-link[#:interactions-text "(scale 3 (star 50 \"solid\" \"red\"))"
                                                                            "Try playing with this example"]
-                                                           }
-                                  }
-                         @teacher{If a student struggles here, you should fall back to the Circles of Evaluation and Contracts. For example: have the student first draw a circle for @code{rotate}, and have them use the Contract to figure out what the inputs are. When they get to the second input (the @code{image}), ask them what kind of shape they want to rotate. Whatever their answer is, have them look it up in their contracts page, and draw a Circle of Evaluation @italic{inside} the one they drew for @code{rotate}. Once the Circle of Evaluation is correct, have them convert it to code. Once they are confident, you can challenge them to apply another operation to the whole expression, perhaps flipping the rotated shape vertically.}
-                         }
+                                                           }}
+                         @teacher{}
+                        }
                  @point{@student{Another definition in this program is @code{SCREENSHOT}. This expression uses the @code{put-image} function to layer one image on top of another, using coordinates to decide where to place each image. 
                          @activity{Advertisements for videogames often have static pictures (called @italic{screenshots}) of the game in action, so people will know what it looks like to play. Change the coordinates used in the definition of @code{SCREENSHOT} so that you have a picture of your game. (Remember: the screen is 640 pixels wide, by 480 pixels tall!)}}
                          @teacher{This can be a useful opportunity to review coordinates, especially for students who need the practice.}
@@ -433,8 +438,8 @@
                                             }
                                     @teacher{}
                                     }
-                             @point{Thinking through the word problem step-by-step, we arrive at:
-                                    @student{@code[#:multi-line ""]{; dot : String -> Image
+                             @point{
+                                    @student{Thinking through the word problem step-by-step, we arrive at: @code[#:multi-line ""]{; dot : String -> Image
                                                                     (EXAMPLE (dot  "red") (circle 15 "solid"  "red"))
                                                                     (EXAMPLE (dot "blue") (circle 15 "solid" "blue"))
                                                                     (define  (dot  color) (circle 15 "solid"  color))}}

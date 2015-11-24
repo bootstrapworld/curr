@@ -126,12 +126,16 @@
                         @teacher{This may be a good opportunity to review coordinates, for students who need the practice.}
                         }
                  @point{@student{@bitmap{images/buffer.png}Sam's mother tells him that it's okay for him to step outside of the yard, but only by a short distance! Specifically, she wants to make sure that she can always see at least a little piece of him. Sam is safe @italic{as long as some piece of him is onscreen}. That means he can go a little past zero on the lefthand size, or a little past 640 on the right - but how far @italic{can} he go?
-                                @activity[#:forevidence (list "7.EE.3-4&1&5" "A-CED.1-4&1&1")]{Turn to @worksheet-link[#:name "Protecting-Sam"] in your workbook, and read through the top half of the page. Using the arrow keys, see how far Sam can go to the left @italic{while still staying onscreen}. You'll find that Sam is onscreen as long as his x-coordinate is @italic{greater than} -50, which is exactly the code that's filled in for the first problem on the page.
-                                                  @itemlist[@item{Find out how far Sam can go to the right while still being onscreen.}
-                                                             @item{Fill in the code for the second problem.}
-                                                             @item{Convert both of those expressions into Circles of Evaluation, using the empty Circles at the bottom of the page.}]}}
+                        }
                          @teacher{Pay close attention to the corner-cases: is Sam on the screen at 690? What about 680?}
                          }
+                 @point{@student{@activity[#:forevidence (list "7.EE.3-4&1&5" "A-CED.1-4&1&1")]{Turn to @worksheet-link[#:name "Protecting-Sam"] in your workbook, and read through the top half of the page. Using the arrow keys, see how far Sam can go to the left @italic{while still staying onscreen}. You'll find that Sam is onscreen as long as his x-coordinate is @italic{greater than} -50, which is exactly the code that's filled in for the first problem on the page.
+                                                                                                        @itemlist[@item{Find out how far Sam can go to the right while still being onscreen.}
+                                                                                                                   @item{Fill in the code for the second problem.}
+                                                                                                                   @item{Convert both of those expressions into Circles of Evaluation, using the empty Circles at the bottom of the page.}]}
+                                  }
+                         @teacher{}
+                        }
                  @point{@student{Unfortunately, right now there is nothing to keep Sam from leaving his yard! Looking at the code for this program, we find three function definitions:
                                   @itemlist[@item{@code{safe-left?}, which takes in Sam's x-coordinate and checks to see if Sam is safe on the lefthand side of the screen. Right now, this function always returns @code{true}.}
                                              @item{@code{safe-right?}, which takes in Sam's x-coordinate and checks to see if Sam is safe on the righthand side of the screen. Right now, this function always returns @code{true}.}

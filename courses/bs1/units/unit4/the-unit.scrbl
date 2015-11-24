@@ -83,24 +83,30 @@
                                                        (EXAMPLE (rocket-height 72) 
                                                                 (* 72 7))}
                                 @bold{Note:} The example shown above is broken into two lines! As functions and examples become more complex, it will become difficult to squeeze them into a single line. In your workbooks, every example and definition from this point onwards will use the two-line format.
-                                @activity[#:forevidence (list "BS-DR.2&1&1" "8.F.1-3&1&3" "F-IF.1-3&1&4")]{In your workbook, write two new examples of @code{rocket-height} using different values for the number of seconds. Both examples will have a lot in common (they all use @code{rocket-height} as the function name, they all multiply their input by 7, etc). Once you are done writing them, circle only the parts of the examples that are @italic{changeable}.}}
-                         @teacher{The main idea for students in this activity is to realize that the Contract and Purpose Statement can be relied upon to write examples. Ask students to justify  every part of each example, using only the Contract and Purpose Statement.  Students are often tripped up by the switch from one-line examples to two-line ones. Be @italic{very} careful to point this out to students, and to check their workbooks to see where they are writing their examples. At the end of the activity, make sure that students circle ONLY what has changed.}
+                                }
+                         @teacher{The main idea for students in this activity is to realize that the Contract and Purpose Statement can be relied upon to write examples. Ask students to justify  every part of each example, using only the Contract and Purpose Statement.  Students are often tripped up by the switch from one-line examples to two-line ones. Be @italic{very} careful to point this out to students, and to check their workbooks to see where they are writing their examples. At the end of the activity, make sure that students circle ONLY what has changed.})
                  }
+                 @point{@student{@activity[#:forevidence (list "BS-DR.2&1&1" "8.F.1-3&1&3" "F-IF.1-3&1&4")]{In your workbook, write two new examples of @code{rocket-height} using different values for the number of seconds. Both examples will have a lot in common (they all use @code{rocket-height} as the function name, they all multiply their input by 7, etc). Once you are done writing them, circle only the parts of the examples that are @italic{changeable}.}}
+                         @teacher{}
+                        }
                  @point{@student{By comparing two different examples, it is easy to tell what changes. According to the Purpose Statement, it is the number of seconds that the rocket has been flying.
                                  @activity[#:forevidence (list "BS-DR.2&1&3" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2" "7.EE.3-4&1&4")]{On your paper, label the items you circled with "seconds".}}
                          @teacher{Have a discussion with students about why "seconds" is a better name than "time". Talk about specificity, relevance, and readability.}}
                  @point{@student{Labeling what is @italic{changeable} gives programmers a sense for the names of a function's @vocab{variables}.  Variables are like placeholders for values that can be different at different times.  A function that computed how much you pay for text messages each month, for example, might have a variable for the number of messages that you sent in that month.  The number of messages you sent might change from month to month, but each one could still cost 20 cents.  
                                                   @activity[#:forevidence (list "BS-DR.3&1&1" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2")]{How many variables does @code{rocket-height} have? What is the name of each variable? Define the function, using all the information from your Examples, Contract and Purpose Statement.}
-                                  @code[#:multi-line #t]{; rocket-height : Number -> Number
+                                  
+                                  }
+                         @teacher{As with the Examples, ask students to justify each part of the definition. In this case, the function name can be derived from the Contract, and the variable name and function body from the Examples.}}
+                 @point{@student{@code[#:multi-line #t]{; rocket-height : Number -> Number
                                                        ; multiply the number of seconds by 7 to find the height
                                                        (EXAMPLE (rocket-height 11) 
                                                                 (* 11 7))
                                                        (EXAMPLE (rocket-height 72) 
                                                                 (* 72 7))
                                                        (define (rocket-height seconds)
-                                                                (* seconds 7))}
-                                  }
-                         @teacher{As with the Examples, ask students to justify each part of the definition. In this case, the function name can be derived from the Contract, and the variable name and function body from the Examples.}}
+                                                                (* seconds 7))}}
+                         @teacher{}
+                        }
                  @point{@student{The Design Recipe allows a programmer to focus on one step of the problem at a time, and to use previous steps to help complete the next one.
                                  @activity{@itemlist[@item{What does the @vocab{Contract} tell a programmer about a function?}
                                                       @item{What does the @vocab{Purpose Statement} tell a programmer about a function?}
