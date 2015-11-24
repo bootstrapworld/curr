@@ -75,14 +75,14 @@ Here is the contract for the greater than function:
                  @point{@student{To make testing and writing code much easier, programmers will often write seperate functions to test various game possibilities. In our Ninja World game, we're going to write a function @code{is-off-right} to test whether the dog has gone off the right side of the screen.
 @activity{@itemlist[@item{Turn to @worksheet-link[#:page 24 #:name "Boundary Checks"] in your workbook.}
                     @item{What is the name of the first function on this page?}
-                    @item{@code{is-off-right} will return @code{true} if our dog goes off the right side of the screen. How large can the x-coordinate be before a character goes off the screen? (Remember that a character's coordinates are measured from the center of the image, so it's best to give a buffer so that the character dissappears completely before it is considered "off the screen".}
+                    @item{@code{is-off-right} will return @code{true} if our dog goes off the right side of the screen. How large can the x-coordinate be before a character goes off the screen? (Remember that a character's coordinates are measured from the center of the image, so it's best to give a buffer so that the character dissappears completely before it is considered "off the screen".)}
                     @item{Write the @vocab{Contract} for this function.}]}
 @code[#:multi-line #true]{# is-off-right : Number -> Boolean
                           # Returns true if the given number is greater than 690}
                                  Now let's pick a few examples of coordinates to write our test cases: 
                                  @activity{@itemlist[@item{What x-coordinate would put a character at the center of the screen?}
                                                       @item{How do you check whether it's off the right hand side?}
-                                                      @item{Any x-coordinate greater than 640 is off the right side of the screen, but we want to consider a slightly higher x-coordinate "off the screen", to account for the width of the character image. So how would you determine whether or not the example number is @italic{greater than} 690?}]}
+                                                      @item{Any x-coordinate greater than 640 is off the right side of the screen, but we want to consider a slightly higher x-coordinate "off the screen," to account for the width of the character image. So how would you determine whether or not the example number is @italic{greater than} 690?}]}
                                  @code[#:multi-line #true]{examples:
                                            is-off-right(320) is 320 > 690
                                        end}
@@ -157,7 +157,7 @@ end}}
 end}
 }
                          @teacher{This can be an opportunity to discuss abstraction and the usefulness of reusing code with your students. The @code{ask} tests in @code{next-world} could be written as: @code{current-world.dogX > 690}, or @code{current-world.coinX < 0}, but this is more work than neccessary if the @code{is-off-right} and @code{is-off-left} functions have been written, and could be confusing for someone else looking at the code, who doesn't know why @code{dogX} is being compared to 690. Additionally, from a programming point of view, it makes sense to use the specific screen boundaries in as few functions as possible: If a programmer wants his or her game to be playable on a larger screen (such as a tablet), they will have to go through their code and change every function that tests boundaries based on the old screen size, 640x480. If only the @code{is-off-right} and @code{is-off-left} functions use the screen size, the programmer can make a few quick changes to the numbers, instead of searching through @code{ask} branches such as in the second example.}}
-                                                                                    @point{@student{@bold{Optional:} Armed with the knowledge of abstraction, write a new function @code{is-in-air} to determine whether a given number is greater than 75. Then, re-write your third condition in @code{next-world} to use this function to determine if the cat is off the ground. This will make your code more readable, and you can easily edit the boundaries if the image of the cat changes to a smaller os larger image.}
+                                                                                    @point{@student{@bold{Optional:} Armed with the knowledge of abstraction, write a new function @code{is-in-air} to determine whether a given number is greater than 75. Then, re-write your third condition in @code{next-world} to use this function to determine if the cat is off the ground. This will make your code more readable, and you can easily edit the boundaries if the image of the cat changes to a smaller or larger image.}
        @teacher{}}
                  ]
          }

@@ -36,12 +36,12 @@
                                 a message, number of layers, and an indicator of whether or not it's an ice cream cake.
                                 @activity{What datatype do we use for each of these fields?}
                                 What if we realize later, after defining our Cake struct, that it would be helpful to include more information about each cake, like 
-                                a frosting color? Thankfully, working in Pyret it’s easy to change our data definition so a Cake can include this as well.
+                                a frosting color? Thankfully, working in Pyret, it’s easy to change our data definition so a Cake can include this as well.
                                 @activity{@itemlist[@item{How would you change the data definition to include this new information about cakes?}
                                                      @item{What new argument does the @code{cake} constructor need to take in? What kind of data is this?}
                                                      @item{Change your Cake definition so it includes this new information.}]}
                                 Important! When you change @italic{any} data structure, @bold{all} @vocab{instances} of that structure will need to change as well. 
-                                Right now our definitions for @code{cake1}, @code{cake2}, and @code{cake3} are creating cakes with only four inputs--- we need to 
+                                Right now our definitions for @code{cake1}, @code{cake2}, and @code{cake3} are creating cakes with only four inputs --- we need to 
                                 add the information about the frosting color!
 
 @activity{Change the definitions of @code{cake1}, @code{cake2}, @code{cake3} and the other cakes you defined so they reflect the new Cake struct. }}
@@ -90,13 +90,13 @@
                                                      @item{What is the name of the function defined in this section?} 
                                                      @item{What is the Domain of this function? The Range?}
                                                      @item{According to the purpose statement, what does this function do?}
-                                                     @item{Will this function's output be larger than it's input, or smaller?}]}
+                                                     @item{Will this function's output be larger than its input, or smaller?}]}
                                 Every time @code{next-world} runs, it gives back a new number that is 10 larger than the number it was given.
                                 }
                                 
                         @teacher{These activities encourage students to read others' code and think about how it works, looking at the contracts and definitions and 
                                  piecing together what they already know. Ask a LOT of questions when going through the file: Why is @code{dogX} a good variable name? 
-                                 What will @code{draw-world(10)} produce? @code{draw-world(START)}? What about @code{update-world(1000)}? @code{update-world(START)}?
+                                 What will @code{draw-world(10)} produce? @code{draw-world(NumberA)}? What about @code{update-world(1000)}? @code{update-world(NumberB)}?
                                  }
                         }
                  
@@ -129,9 +129,9 @@
                          @teacher{OPTIONAL: Can your students brainstorm a pattern for each function to be called over time, in order to make the dog move across the wall?}
                          }
                  @point{@student{@bannerline{The Hollywood Principle: "Don't call us, we'll call you!"}
-                                 In film-making, there's a saying: "Don't call us, we'll call you". Having @code{next-world} and @code{draw-world}
+                                 In film-making, there's a saying: "Don't call us, we'll call you." Having @code{next-world} and @code{draw-world}
                                  fighting with one other is just going to cause chaos - we need a director, who will let each one know when it's time to do
-                                 their job. In programming, this is called the "Hollywood Principle", and it is exactly how we're going to make the animation 
+                                 their job. In programming, this is called the "Hollywood Principle," and it is exactly how we're going to make the animation 
                                  work in our programs. The director is called @code{big-bang}, and its job is to call
                                  each function when it's time for something to happen. @code{big-bang} needs a world to begin, so the very first thing we
                                  do is pass a @italic{starting world} to @code{big-bang}. If that's all we do, then the world will never change over time.}
@@ -157,7 +157,7 @@
                                  passing in different values besides @code{numberA} and see what happens. What we need to do is tell @code{big-bang} 
                                  which @vocab{events} to listen to, and which functions to call when those events occur. 
                                  @activity{@bitmap{images/big-bang.png}
-                                   Uncomment line 49, by remove the @code{#} mark from the beginning of the line. Now @code{big-bang} will
+                                   Uncomment line 49 by remove the @code{#} mark from the beginning of the line. Now @code{big-bang} will
                                            call @code{next-world} with the current world every time there is a "tick" event.
                                            @itemlist[@item{What do you think will happen when you click "Run"?}
                                                       @item{Try it out - did you see what you expected?}
@@ -168,7 +168,7 @@
                                            world.
                                            @itemlist[@item{What do you think will happen when you click "Run"?}
                                                       @item{Try it out - did you see what you expected?}
-                                                      @item{What will happen if you use a different statying value for the world?}
+                                                      @item{What will happen if you use a different starting value for the world?}
                                                       @item{What will happen if you change @code{draw-world} so that it draws the @code{COIN-IMG}
                                                             instead of the @code{DOG-IMG}?}
                                                       @item{What will happen if you change @code{draw-world} so that uses the @code{current-world}
@@ -328,8 +328,8 @@ Now try adding the @code{COIN-IMG}, this time at (250, 300).}
                          }
                  @point{@student{@activity{Modify the @code{World} structure to include the cat's x- and y-coordinate, then change
                                            @code{draw-world} to place the cat into the image. (Note: since the cat will eventually respond to keypresses, and not move
-                                           on it's own, it will just sit still for now.}
-                                  @code{next-world} is responsible for everything in our game that @italic{changes on it's own},
+                                           on it's own, it will just sit still for now.)}
+                                  @code{next-world} is responsible for everything in our game that @italic{changes on its own},
                                   in response to time just naturally passing by. We want the cat to move in response to a key being
                                   pressed, which is just another kind of event. In the next lesson, you'll learn how to add
                                   a new function that will build Worlds in response to keypresses!}

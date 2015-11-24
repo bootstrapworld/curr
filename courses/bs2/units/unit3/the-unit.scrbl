@@ -32,7 +32,7 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{In the last lesson you learned about a new kind of data structure, called a Cake. However, a Cake isn't the only kind of structure- we can create any kind we want! Let's define another one. In this exercise, you’ll be a party planner. Data structures will be a useful way to represent each Party that you’re planning, keeping track of its location, theme, and number of guests.
+        @points[@point{@student{In the last lesson you learned about a new kind of data structure, called a Cake. However, a Cake isn't the only kind of structure - we can create any kind we want! Let's define another one. In this exercise, you’ll be a party planner. Data structures will be a useful way to represent each Party that you’re planning, keeping track of its location, theme, and number of guests.
                                 @activity{@itemlist[@item{What datatype could be used to represent the location of a Party?}
                                                     @item{What about the Party's theme? (This could be something like "50s" or "laser tag".)}
                                                     @item{How about the number of guests?}]
@@ -84,14 +84,14 @@ Once the Party structure is defined, you have access to new pieces of code: a fu
                         @teacher{}}
                  
                  @point{@student{@activity{Turn to @worksheet-link[#:page 14 #:name "change-flavor"] in your workbooks. Write a function called @code{change-flavor}, which takes in a Cake and a flavor, and returns a new Cake that is mostly the same as the original, but is now the given flavor.
-                                                   @itemlist[@item{What is the domain for this function? We'll need to know which Cake we're taking in, 
+                                                   @itemlist[@item{What is the domain for this function? We'll need to know which Cake we're taking in 
                                                                    AND what flavor it should be.}
                                                               @item{What do you think our bakery is going to give back? What would be the range of 
                                                                     @code{change-flavor}?}]}
                @code[#:multi-line #t]{
 # change-flavor: Cake String -> Cake:
 # consumes a Cake and produces a Cake that is the same as the original, but has the given flavor.}
-               In your first example, use the original @code{cake1} and make it strawberry. We know our customer will expect to get a Cake back: you wouldn't return a Cake made incorrectly to a bakery and be OK with only getting a frosting message back! But we won't be returning the same Cake with our function- we're making a @italic{new} Cake, which must have the same message, color, layers, etc. as the given Cake, but one thing needs to be different: the flavor!}
+               In your first example, use the original @code{cake1} and make it strawberry. We know our customer will expect to get a Cake back: you wouldn't return a Cake made incorrectly to a bakery and be OK with only getting a frosting message back! But we won't be returning the same Cake with our function - we're making a @italic{new} Cake, which must have the same message, color, layers, etc. as the given Cake, but one thing needs to be different: the flavor!}
                          @teacher{It might not be immediately obvious to students that when a function returns a Cake, they must use the @code{cake} constructor function to 
                                   produce it. This way the function does not return the same value it was given, but instead creates a Cake with the same specs as the given Cake, where only the flavor is different. By starting with a "fresh" Cake, students are forced to think about every single field in order. Thinking about what exactly
                                   makes up a Cake and going back to the contract for @code{cake} gives them lots of practice with the Cake struct and dot-accessors.}}
@@ -123,27 +123,27 @@ Once the Party structure is defined, you have access to new pieces of code: a fu
                          @teacher{Remind students that the arguments to each function in Pyret @italic{must} be separated by commas. This wasn't necessary in Racket, but they 
                                                                                                will receive error messages if they don't use commas correctly in Pyret code.}}
                  
-                 @point{@student{@activity{@itemlist[@item{Write one more example for the function @code{change-flavor}, this time using it to make @code{cake2} a vanilla cake.}] 
-                      Next, circle and label what changes between the two examples. How many variables will this function need? Then write the definition, using your examples to help you.}
+                 @point{@student{@activity{@itemlist[@item{Write one more example for the function @code{change-flavor}, this time using it to make @code{cake2} a vanilla cake.} 
+                                                      @item{ Next, circle and label what changes between the two examples. How many variables will this function need? Then write the definition, using your examples to help you.}]}
                         
-After replacing the changing things with variables, your definition should look similar to: 
-@code[#:multi-line #t]{fun change-flavor(a-cake, new-flavor):
-                           cake(new-flavor, 
-                               a-cake.color, 
-                               a-cake.message, 
-                               a-cake.layers, 
-                               a-cake.is-iceCream)
-                       end}}
+                                  After replacing the changing things with variables, your definition should look similar to: 
+                                  @code[#:multi-line #t]{fun change-flavor(a-cake, new-flavor):
+                                                         cake(new-flavor, 
+                                                         a-cake.color, 
+                                                         a-cake.message, 
+                                                         a-cake.layers, 
+                                                         a-cake.is-iceCream)
+                                                                   end}}
                          @teacher{Students may be tempted to put @code{new-flavor} in quotes, because the flavor of the Cake must be a string. However, the domain of 
-                                  @code{change-flavor} tells us that the function will take in a Cake and a String, so whatever flavor is input will already 
-                                  have quotes around it. Values evaluate to themselves, so the string "new-flavor" cannot evaluate to anything other than "new-flavor".
-                                  If we want new-flavor to be a variable, or shortcut for "strawberry", "vanilla", "chocolate", etc. it must be written WITHOUT quotation marks.}}
+                                                                 @code{change-flavor} tells us that the function will take in a Cake and a String, so whatever flavor is input will already 
+                                                                 have quotes around it. Values evaluate to themselves, so the string "new-flavor" cannot evaluate to anything other than "new-flavor".
+                                                                 If we want new-flavor to be a variable, or shortcut for "strawberry", "vanilla", "chocolate", etc. it must be written WITHOUT quotation marks.}}
                  
-                 @point{@student{@activity{Turn to @worksheet-link[#:page 15 #:name "will-melt"] in your workbooks. Your bakery needs to know if certain Cakes need to be refrigerated. If the temperature is greater than 32 degrees, AND the given cake is an ice cream cake, the function should return true. 
-                    @itemlist[@item{Fill out the @vocab{Contract} and @vocab{Purpose Statement} for the function.}
-                              @item{Write two examples for how one would use @code{will-melt}.}
-                              @item{Circle and label what varies between those examples and label it with a @vocab{variable} name.}
-                              @item{Define the function.}]}}
+                 @point{@student{@activity{Turn to @worksheet-link[#:page 15 #:name "will-melt"] in your workbooks. Your bakery needs to know if certain Cakes need to be refrigerated. If the temperature is greater than 32 degrees AND the given cake is an ice cream cake, the function should return true. 
+                                                   @itemlist[@item{Fill out the @vocab{Contract} and @vocab{Purpose Statement} for the function.}
+                                                              @item{Write two examples for how one would use @code{will-melt}.}
+                                                              @item{Circle and label what varies between those examples and label it with a @vocab{variable} name.}
+                                                              @item{Define the function.}]}}
                          @teacher{Give students plenty of time to practice using dot-accessors, extracting pieces of the Cake structures and modifying them.}}]
          }
 
