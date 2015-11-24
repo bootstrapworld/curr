@@ -34,10 +34,11 @@
                                  @activity{@itemlist[@item{Turn to @worksheet-link[#:page 31 #:name "Game Design"] in your workbook. What are the things in your world? What datatypes are they?}
                                                      @item{Open the @editor-link[#:public-id "0B9rKDmABYlJVcDUyZkJmd3VlS00" "BS:2 blank game template"].}]}
                                  In Bootstrap:1, you started with the shell of a game, with some sample images and functions defined. In this class the game template is just a collection of comments, telling you how to organize your functions and variables. You'll be writing @italic{every line} of code yourself. Let's begin: 
-                                 @activity{At the top of the file, where it says @code{# The World is a:}, define the world structure for your game. (Check @worksheet-link[#:page 32 #:name "Game Design"] to jog your memory.) Once you have the world struct, scroll down to where it says @code{# STARTING WORLD} and define your first example world: name it @code{worldA}.}}
+                                 @activity{At the top of the file, where it says @code{# The World is a}, define the world structure for your game. (Check @worksheet-link[#:page 32 #:name "Game Design"] to jog your memory.) Once you have the world struct, scroll down to where it says @code{# STARTING WORLD} and define your first example world: name it @code{worldA}. On the next line, add @code{worldB}.}}
                          @teacher{}}
 
-                 @point{@student{So now you have your world, and you know what's in it: but what do those things look like? You'll have to add some images. We'll use the @code{image-url} function. It takes in the URL of any image online (given as a string), and returns that image. @code{# image-url : String -> Image}
+                 @point{@student{So now you have your world, and you know what's in it: but what do those things look like? You'll have to add some images. We'll use the @code{image-url} function. It takes in the URL of any image online (given as a string), and returns that image. 
+                                 @code[#:multi-line #t]{# image-url : String -> Image}
                                  @activity{@itemlist[@item{Look back at @worksheet-link[#:page 31 #:name "Game Design"] in your workbook. How many things in your game will need their own image?}
                                                      @item{Using Google Image Search or a similar tool, find images for the background and for each of the characters in your game.}
                                                      @item{Define new variables for your images, (i.e. @code{PLAYER-IMG}, @code{DANGER-IMG}, etc.) and use the @code{image-url} function to put them into your game file.}]}
@@ -112,21 +113,22 @@ Here is an example of using @code{draw-world} in our Ninja World game, using @co
       ]{
         @points[@point{@student{Scroll down until you see @code{# UPDATING FUNCTIONS}. This code is responsible for changing the World automatically. 
                                 @activity{What function should go here? What's in its Domain? Its Range?}
-                                @code{next-world} takes a world, and then returns a new one that's been updated. Think of this function as the one that generates the next page of a flipbook.
-                                @code{next-world : World -> World}
+                                As you know, @code{next-world} takes a world, and then returns a new one that's been updated:
+                                @code[#:multi-line #t]{next-world : World -> World}
 
-            @activity{@itemlist[@item{Look back at your world structure. What changes? Which of those things change @italic{on their own}, and not in response to any user actions (like keypresses)?}
+            @activity{@itemlist[@item{Look back at your world structure. What changes? Which of those fields change @italic{on their own}, and not in response to any user actions (like keypresses)?}
                                 @item{On @worksheet-link[#:page 35 #:name "next-world"], make a list of what changed and how it changed as a purpose statement for writing @code{next-world}.}
                                 @item{Write an example for @code{next-world} using the @code{worldA} you defined. Since the Range of @code{next-world} is a World, we know that we'll need to create a world using the @code{world} function. Use dot-accessors to show how the world changes.}
                                 @item{Next, write one more example for @code{next-world} where you create a new world structure. What will your updated world look like?}]}
-            Here are two examples for the early Ninja World version of @code{next-world}:
+            Here are some examples for @code{next-world}, from the simple version of Ninja World:
             @code[#:multi-line #t]{examples:
                                          next-world(worldA) is world(worldA.dogX + 10, worldA.coinX - 5)
-                                         next-world(world(150, 400)) is world(150 + 10, 400 - 5)
+                                         next-world(worldB) is world(worldB.dogX + 10, worldB.coinX - 5)
                                    end}
-            In the first example, we want to show that @code{next-world} will create a new World (using the @code{world} constructor function) by adding 10 to the @code{dogX} of @code{worldA}, and subtracting 5 from its @code{coinX}.    
+            In the first example, we create a new World (using the @code{world} constructor function) by adding 10 to the @code{dogX} of @code{worldA}, and subtracting 5 from its @code{coinX}. 
+            In the second example, we do the same thing, only with @code{worldB}. 
 
-            @activity{What changes between your two examples? Circle and label, then write the definition for your @code{next-world} function. Look back at its contract: what does the range tell you this function must return? A World!}
+            @activity{What changes between the two examples that @italic{you} wrote? Circle and label, then write the definition for your @code{next-world} function. Look back at its contract: what does the range tell you this function must return? A World!}
             }
 
                         @teacher{@code{next-world} is the function that will handle the logic of the student' games. It determines what changes from one second to the next, and updates the world accordingly. Make sure students are making a new world with @code{world}, and using their dot- accessors to change the value of each world field according to their game's behavior. This function will likely change drastically in the next few units (just like in Ninja World), and students start adding new functionality to their games. Work with small groups to complete this section as needed. When they are finished, have the students type @code{next-world} into their game files.}}

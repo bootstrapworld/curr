@@ -7,7 +7,7 @@
                                        (list "String" @code{string-append string-length})                          
                                        (list "Image" @code{rectangle circle triangle ellipse radial-star scale rotate put-image})
                                        (list "Boolean" @code{= > < string-equal and or}))]{
-@unit-descr{Students return to the Pythagorean Theorem and distance formula they used in Bootstrap 1, this time with data structures and the full next-world function.}
+@unit-descr{Students return to the Pythagorean Theorem and distance formula they used in Bootstrap:1, this time with data structures and the full next-world function.}
 }     
 @unit-lessons{
 @lesson/studteach[#:title "Introduction"
@@ -58,7 +58,7 @@ In one dimension, such as on a number line, finding the distance is pretty easy.
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Distances cannot be negative, so we have to make sure we are always subtracting the smaller number from the bigger one. If the characters are on the same plane, there are two conditions: if the first number is bigger, and the other is if the second is bigger.
+        @points[@point{@student{Distances cannot be negative, so we have to make sure we are always subtracting the smaller number from the bigger one. That means we have two conditions: (1) the first number is bigger, and (2) the second is bigger.
                                 @activity{@itemlist[@item{What kind of function do we need, when we have multiple conditions?}
                                                      @item{Turn to @worksheet-link[#:page 27 #:name "Design Recipe Line Length"].}
                                                      @item{What is the Name of this function? Domain? Range?}
@@ -68,7 +68,7 @@ In one dimension, such as on a number line, finding the distance is pretty easy.
                            line-length(5, 23) is 23 - 5
                        end}}
                         @teacher{}}
-                 @point{@student{Now we have an idea of the results for the @code{ask} statement, but a @code{ask} function also needs tests. We want to @italic{test} to see whether the first number given to @code{line-length} is greater than the second number. 
+                 @point{@student{Now we have an idea of the results for the @code{ask} statement, but an @code{ask} expression also needs tests. We want to @italic{test} to see whether the first number given to @code{line-length} is greater than the second number. 
                                 @activity{@itemlist[@item{How would you write that test in Pyret code?}
                                                      @item{And what would the result for that test be? If @code{a} is greater than @code{b}, which number would we subtract from which?}
                                                      @item{How could you include a test for wheather the two numbers are equal, @italic{without} adding a third @code{ask} branch?}
@@ -101,9 +101,9 @@ In one dimension, such as on a number line, finding the distance is pretty easy.
         @points[@point{@student{Unfortunately you don't have any code to calculate the distance in two dimensions. All you have so far is something that tells you the length in only the x- or y-dimension.                   
                                 @bitmap{images/ABCgraph.png}
                                 @activity{@itemlist[@item{How could you find the distance between the two points shown in this image?}
-                                                     @item{How could you find the length of the dotted line, also called the @vocab{Hypotenuse}?}]}
-                                Let's start with what we do know: the dotted line sort of makes a triangle, and we can find out the length of the other two sides, labeled "A," "B" and "C." 
-                                @activity{What is the line-length of A?}
+                                                     @item{How could you find the length of the C, also called the @vocab{Hypotenuse}?}]}
+                                Let's start with what we do know: if we treat the x- and y-intercepts of C as lines A and B, we have a right triangle.
+                                @activity{What is the line-length of A? Would it be different if the triangle pointed downward, and intercepted the point (0, -4)? }
                                 To make your life easier, you can use the function you already wrote: @code{line-length}. In this example, line-length(A) is 4 and line-length(B) is 3, but we still don't know C.}
                         @teacher{Draw this image on the board, with the lines labeled "A", "B", and "C".}}
                  @point{@student{Ancient civilizations had the same problem: they also struggled to find the distance between points in two dimensions. Let’s work through a way to think about this problem: what expression computes the length of the hypotenuse of a right triangle?}
@@ -184,26 +184,61 @@ You still need a function to check whether or not two things are colliding.}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Now that you have a function which will check whether something is colliding, you can go back to modifying Ninja World.
+        @points[@point{@student{Now that you have a function which will check whether something is colliding, you can use it in Ninja World.
                                 @activity{Out of the four major functions in the game (@code{next-world}, @code{draw-world}, @code{keypress}, and @code{big-bang}), which do you think you'll need to edit to handle collisions?}
-                                We'll need to make some more branches for @code{ask} in @code{next-world}. What should happen when the cat collides with the dog? We want to put the dog offscreen, so that he can come back to attack again.}
+                                We'll need to make some more branches for @code{ask} in @code{next-world}. When the cat collides with the dog, we want to put the dog offscreen so that he can come back to attack again.}
                         @teacher{}}
                  @point{@student{@activity{@itemlist[@item{Start with the test: how could you check whether the cat and dog are colliding? Have you written a function to check that?}
                                                      @item{What do the inputs need to be?}
                                                      @item{How do you get the @code{catY} out of the world? @code{catX}?}
                                                      @item{How do you get the @code{dogX} out of the world? @code{dogY}?} ]}
-@code[#:multi-line #t]{| is-collision(current-world.catX, current-world.catY, current-world.dogX, current-world.dogY) then: ...result...}
-Remember that @code{next-world} gives back a world, so what function should come first in our result?
-@code[#:multi-line #t]{| is-collision(current-world.catX, current-world.catY, current-world.dogX, current-world.dogY) then: 
-                       world(...dogX..., ...dogY..., ...coinX..., ...catX..., ...catY...)}
+@code[#:multi-line #t]{| is-collision(
+                           current-world.catX, 
+                           current-world.catY, 
+                           current-world.dogX, 
+                           current-world.dogY) 
+                         then: ...result...}
+Remember that @code{next-world} produces a world, so what function should come first in our result?
+@code[#:multi-line #t]{| is-collision(
+                           current-world.catX, 
+                           current-world.catY, 
+                           current-world.dogX, 
+                           current-world.dogY) 
+                         then: 
+                         world(
+                           ...dogX..., 
+                           ...dogY..., 
+                           ...coinX..., 
+                           ...catX..., 
+                           ...catY...)}
                                 @activity{And what should happen when the cat and dog collide? Can you think of a number that puts the dog off the screen on the left side? What about the dog's y-coordinate? We could choose a number and always place it at the same y-coordinate each time, but we know a function that can place him at a @italic{random} y-coordinate...}
-             @code[#:multi-line #t]{| is-collision(current-world.catX, current-world.catY, current-world.dogX, current-world.dogY) then: 
-                                    world(-100, num-random(480), ...coinX..., ...catX..., ...catY...)}
+             @code[#:multi-line #t]{| is-collision(
+                                        current-world.catX, 
+                                        current-world.catY, 
+                                        current-world.dogX, 
+                                        current-world.dogY) 
+                                      then: 
+                                      world(
+                                        -100, 
+                                        num-random(480), 
+                                        ...coinX...,
+                                        ...catX..., 
+                                        ...catY...)}
                                 @activity{Does the @code{coinX} change when the dog and cat collide? How about @code{catY}? How do you get each of those things out of the world?}
-             @code[#:multi-line #t]{| is-collision(current-world.catX, current-world.catY, current-world.dogX, 400) then: 
-                                    world(-100, num-random(480), current-world.coinX, current-world.catX, current-world.catY)}}
+             @code[#:multi-line #t]{| is-collision(
+                                        current-world.catX, 
+                                        current-world.catY, 
+                                        current-world.dogX, 
+                                        400) 
+                                      then: 
+                                      world(
+                                        -100, 
+                                        num-random(480), 
+                                        current-world.coinX, 
+                                        current-world.catX, 
+                                        current-world.catY)}}
                         @teacher{Collision detection must be part of the @code{next-world} function because the game should be checking for a collision @italic{every time} the world is updated. Students may assume that @code{draw-world} should handle collision detection, but point out that the Range of @code{draw-world} is an Image, and their function must return a new world in order to set the locations of the characters after a collision.}}
-                                                                                  @point{@student{Take a minute and admire your handiwork: You've created your own version of Ninja Cat using Pyret, data structures, and complex functions. This game is already more advanced than your Bootstrap:1 game, and you've created it from scratch! Armed with the knowledge of how to create this simple game in Pyret, now it's time to start thinking about a video game of your own!}
+                 @point{@student{Take a minute and admire your handiwork: You've created your own version of Ninja Cat using Pyret, data structures, and complex functions. This game is already more advanced than your Bootstrap:1 game, and you've created it from scratch! Armed with the knowledge of how to create this simple game in Pyret, now it's time to start thinking about a video game of your own!}
        @teacher{}}
                 
                 ]
@@ -231,10 +266,10 @@ Remember that @code{next-world} gives back a world, so what function should come
                     @item{At the bottom of the page, list all the things that will have @italic{changed} from one moment to the next. What will you need to keep track of in your world structure? If something moves, will you need to keep track of its x-coordinate, y-coordinate, or both? Will you have a score that changes?}]}}
                         @teacher{Remind students that for every single thing that changes in their game, they must have a field in their world structure for it.}}
                  @point{@student{Now that you have a list of everything that changes, it’s time to turn them into a World structure.
-                                @activity{@itemlist[@item{Turn to @worksheet-link[#:page 32 #:name "Your World"] in your workbooks, and define your world structure, using the changeable things you wrote on the previous page.}
+                                @activity{@itemlist[@item{Turn to @worksheet-link[#:page 32 #:name "Your World"] in your workbooks, and define your world structure, using the changeable things you wrote in the second table of your Game Design page.}
                                                     @item{Underneath your world structure, define two example worlds called @code{worldA} and @code{worldB}.} 
                                                     @item{Finally, write down the @vocab{dot-accessors} you will need to access the fields of @code{worldA}.}]}}
-                       @teacher{Have the class take turns telling their peers about their games: Who the player is, what their danger, target, etc. will be. Most importantly, have them tell the class what they have in their World structure.
+                       @teacher{Have the class take turns telling their peers about their games. Most importantly, have them tell the class what they have in their World structure.
 @itemlist[@item{Make sure student names are on page 18}
                    @item{Take page 18 itself, or take photos of page 18, to prep game images for the next unit.}
                    @item{Images should be in PNG or GIF format. Background images should be 640x480, and character images should generally be 

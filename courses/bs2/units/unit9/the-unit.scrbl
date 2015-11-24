@@ -53,16 +53,20 @@
                 )
       ]{
         @points[@point{@student{Now it's time to program YOUR game to respond to keypresses. 
-                                @activity{Turn to @worksheet-link[#:page 37 #:name "Keypress-in-Game"] in your workbook. Choose 3 keys will control your game, and go through the design recipe: Write test cases for what should happen to @code{worldA} depending on which key was pressed. Then define your function. Once you've completed the Design Recipe, type your @code{keypress} function into your games.}
+                                @activity{Turn to @worksheet-link[#:page 37 #:name "Keypress-in-Game"] in your workbook. Choose 3 keys will control your game, and go through the Design Recipe: Write test cases for what should happen to @code{worldA} depending on which key was pressed. Then define your function. Once you've completed the Design Recipe, type everything into your games.}
 
 Of course, keypresses can do a lot more in a videogame than just move a character up and down. By using what your learned about Boolean functions, you can add more advanced movement. Here are some ideas:
 @itemlist[
-          @item{@bold{Warping:} instead of having the player’s y-coordinate change by adding or subtracting, replace it with a Number to have the player suddenly appear at that location. (For example, hitting the @code{"c"} key causes your player to warp back to the center of the screen, at y=240.)}
-          @item{@bold{Boundary-detection:} Change the condition for moving up so that the player only moves up if @code{key} = @code{"up"} AND the player's y-coordinate is less than the top of the screen. Likewise, change the condition for @code{"down"} to also check that the player's y-coordinate is greater than 0. @bold{Hint:} In Bootstrap:1, everyone's game screen was 640x480. In Bootstrap:2, the size of your game screen is determined by the size of your background image. To find out exactly how large your image is, you can use the following functions: @code{# image-height : Image -> Number} and @code{# image-width : Image -> Number}, which will give you the pixel width or height of your background image.}
+          @item{@bold{Warping:} instead of having the player’s y-coordinate change by adding or subtracting, replace it with a Number to have the player suddenly appear at that location. (For example, hitting the @code{"c"} key causes your player to warp back to the center of the screen, at 240.)}
+          @item{@bold{Boundary-detection:} Change the condition for moving up so that the player only moves up if @code{key} = @code{"up"} AND the player's y-coordinate is less than the top of the screen. Likewise, change the condition for @code{"down"} to also check that the player's y-coordinate is greater than 0. @bold{Hint:} In Bootstrap:1, everyone's game screen was 640x480.
+                 In Bootstrap:2, the size of your game screen is determined by the size of your background image. To find out exactly how large your image is, you can use the following functions to get the dimensions of your background: 
+                 @code[#:multi-line #t]{# image-height : Image -> Number
+                                        # image-width : Image -> Number}
+                 }
           @item{@bold{Wrapping:} Add a condition (before any of the keys) that checks to see if the player’s y-coordinate is above the screen. If it is, have the player warp to the bottom. Add another condition so that the player warps back up to the top of the screen if it moves below the bottom.}
-          @item{@bold{Challenge:} Have a character hide when the @code{"h"} key is pressed, only to re-appear when it is pressed again.}]
+          @item{@bold{Challenge:} Have a character hide when the @code{"h"} key is pressed, only to re-appear @italic{at the same location} when it is pressed again.}]
 }
-                         @teacher{Hint for the challenge: multiply by -1!}}
+                         @teacher{Hint for the challenge: What operation reverses itself when done twice?}}
                  ]
          }   
 
@@ -113,7 +117,7 @@ Of course, keypresses can do a lot more in a videogame than just move a characte
                 )
       ]{
         @points[@point{@student{Think about the @code{ask} branches in Ninja World's @code{next-world} function. Remember that for each @code{ask}, we needed a test and a result. This is exactly what you've written in your workbook for your game. All you need to do now is reformat @italic{your} @code{next-world} function so that it uses @code{ask}, with your current code inside the @code{otherwise} clause.
-@activity{Adapt @code{next-world} so it becomes a @vocab{piecewise function}, and complete at least one thing on your list from @worksheet-link[#:page 41 #:name "Test and Result"].}}
+@activity{Adapt @code{next-world} so it becomes a @vocab{piecewise function}, and use at least one helper function on your list from @worksheet-link[#:page 41 #:name "Test and Result"].}}
                         @teacher{Work in pairs or small groups to assist students with their own @code{next-world} functions.}}
                  ]
        }
