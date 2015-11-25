@@ -2,6 +2,17 @@
 .main{width: 7.5in; font-family: Times, Times New Roman, Roboto;}
 div.content{	background:		rgba(255, 255, 255, .3); display: block;}
 
+body::after{
+  content: 'BETA';
+  display: block;
+  position: fixed;
+  font-size: 200px;
+  top: 200px;
+  left: 80px;
+  color: rgba(0,0,0,0.3);
+  transform: rotate(45deg);
+}
+
 /************************************************************************************
  * LESSON TOOLBAR
  * Sits on the top-right corner of the page at all times
