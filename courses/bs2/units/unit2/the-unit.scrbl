@@ -43,10 +43,10 @@
                                             @item{What is the Pyret code to draw a solid, green triangle of size 22?}
                                             @item{Why is it important to write at least 2 examples before defining a function?}]}} 
                  
-                 @point{@student{To make sure the material from last unit is fresh in your mind, tackle the following activity: @activity{Turn to @worksheet-link[#:page 8 #:name "double-radius"] in your workbook. Write a function called @code{double-radius}, 
+                 @point{@student{To make sure the material from the previous unit is fresh in your mind, tackle the following activity: @activity{Turn to @worksheet-link[#:page 8 #:name "double-radius"] in your workbook. Write a function called @code{double-radius}, 
                                                    which takes in a radius and a color. It produces an outlined circle of whatever color was passed in, whose radius 
                                                    is twice as big as the input.}}
-                        @teacher{If walking through this example as a class, use a projector so kids can see the function being written on the computer: }}
+                        @teacher{If walking through this example as a class, use a projector so kids can see the function being written on the computer.}}
                  @point{@student{Remember how to use the design recipe to work through word problems? @bannerline{Step 1: Contract and Purpose Statement}
                                  @activity{ @itemlist[@item{What is the @vocab{Name} of this function? How do you know?}
                                                        @item{How many inputs does it have in its @vocab{Domain}?}
@@ -149,7 +149,7 @@ end}
                                      Now, instead of just changing and returning one number (a y-coordinate), we can return @bold{both} the x and y-coordinates of the parachute jumper within a @vocab{Data Structure}. @activity{Open the @editor-link[#:public-id "0B9rKDmABYlJVbFpIZktoQ1pwWm8" "Parachute Jumper"] code again and replace the original @code{next-position} function with the one in your workbook to make the jumper land safely on the shore!}}
                            @teacher{}}
                     
-                    @point{@student{In Bootstrap:1, you could only have a function return one thing: either a number, string, image, or boolean. In Bootstrap:2, our functions will still return one thing, but that thing can be a @vocab{Data Structure}, (or "struct" for short) containing any number of things within it. This way we could return both the x and y-coordinate of a player using a Coord, or create new structs and return even more detail about a player, like their health, position, amount of armor, or inventory.}
+                    @point{@student{In Bootstrap:1, you could only have a function return one thing: either a Number, String, Image, or Boolean. In Bootstrap:2, our functions will still return one thing, but that thing can be a @vocab{Data Structure}, (or just "structure" for short) containing any number of things within it. This way we could return both the x and y-coordinate of a player using a Coord, or create new structures and return even more detail about a player, like their health, position, amount of armor, or inventory.}
                             @teacher{In Bootstrap:1, students' games were made by keeping track of only a few numbers: the x-positions of the danger and target, and y-position 
                                      of the player. In Bootstrap:2, students' games will be much more complex, and will require many more values to move characters, test conditions, 
                                      keep track of the score, etc. Data structures simplify code by organizing multiple values: You couldn't represent every part of a player 
@@ -187,13 +187,13 @@ end}
                                                         @item{Whether or not the cake is an ice cream cake.}]
                                               What datatype could we use to represent the entire cake?}
                                    @bitmap{images/cake2.png}                                                   
-                                   Now that we know everything that is part of a Cake, we can use a data structure (or just 'structure' for short) to represent the Cake itself. Let's take a look at how this works.
+                                   Now that we know everything that is part of a Cake, we can use a data structure to represent the Cake itself. Let's take a look at how this works.
                                    @activity{Open your workbook to @worksheet-link[#:page 11 #:name "Cake"].}
                                    At the top of this page we see a comment, stating what things are part of a Cake. Below that is a line that says @code{data Cake:}, which begins the definition of a new data structure, called Cake. On the next line, we define the function that makes a Cake (@code{cake}), and how @italic{exactly} to make a Cake - the names of each thing in a Cake structure, and their data types. 
                                    @activity{What is the first part of a Cake structure? What data type can we use to represent it?}
                                    There is a little bit of new syntax involved in defining structures. On the first line on @worksheet-link[#:page 11 #:name "Cake"], we want to write @code{flavor :: String,}, which tells Pyret that the first element of @italic{any} Cake will be its flavor, represented by a String. 
                                    @activity{What is the second part of a Cake structure? What data type can we use to represent it?}
-                                   On the next line, write @code{color :: String}, which tells Pyret that the second element of any Cake will be its hp, represented by a Number.
+                                   On the next line, write @code{color :: String}, which tells Pyret that the second element of any Cake will be its color, represented by a String.
                                    @activity{List each of the other fields of a cake (message, layers, and is-ice-cream), and note what data types will represent them. Don't forget commas to separate each field!}
                                    On your paper, you should have: 
                                    @code[#:multi-line #t]{ # a Cake is a flavor, color, message, number of layers, and whether or not it is an ice cream cake.
@@ -275,10 +275,10 @@ end}
                 )
       
       ]{@points[
-                @point{@student{Suppose you want to get the flavor OUT of @code{cake4}. You don't care about the message, color, or anything else- you just want to 
+                @point{@student{Suppose you want to get the flavor OUT of @code{cake4}. You don't care about the message, color, or anything else - you just want to 
                                 know the flavor. Pyret has syntax for that, called @code{.flavor}.
                                 @activity{If you type @code{cake4.flavor} into the interactions window, what should it evaluate to? Try it out! 
-                                                      @itemlist[@item{What kind of thing did it return: A number, string, image, or struct?}
+                                                      @itemlist[@item{What kind of thing did it return: A Number, String, Image, Boolean, or structure?}
                                                                  @item{Practice taking the flavor out of EVERY Cake you have defined, using @code{.flavor}}]}
                     
                                 Of course, there are ways to access any part of a Cake, not just the flavor! What do you think you would get if you typed @code{cake4.color} in the interactions area? 
@@ -287,7 +287,7 @@ end}
                           Throughout the course you can set up a call and response system with students, where the question "How do you get the X out of a Y?" 
                           will prompt the name of the accessor.}}
                  
-                 @point{@student{The previous syntax is known as @vocab{Dot-Accessors}. They allow you to specify what part of a structure you want. If we want to know if we can fit a certain Cake through a doorway, we probably only care whether the number of layers is less than a certain amount. Likewise, if we want to know whether or not a character in our game has died, we only need to know if his health is less than 0: 
+                 @point{@student{The previous syntax is known as @vocab{Dot-Accessors}. They allow you to specify exactly what part of a structure you want. If we want to know if we can fit a certain Cake through a doorway, we probably only care whether the number of layers is less than a certain amount. Likewise, if we want to know whether or not a character in our game has died, we only need to know if his health is less than 0: 
                                  we might not care what his location is, or the color of his armor. Programmers use accessors a lot, because they often need to know only one piece of information from a complex data structure.}
                          @teacher{}}
                                     
