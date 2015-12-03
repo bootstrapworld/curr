@@ -9,7 +9,7 @@
                                        (list "String" @code{string-append string-length})
                                        (list "Image"  @code{rectangle circle triangle ellipse star text}))
                                                                                                           ]{
-@unit-descr{Students discover the need for data structures and they practice defining them.}
+@unit-descr{Students discover the need for data structures, and practice defining them.}
 }
 @unit-lessons{
               
@@ -122,7 +122,7 @@ end}
                                     @activity{How should the jumper's x-coordinate change if he moves diagonally to the right (toward the land)? How should his y-coordinate change?}}
                            @teacher{}}
                     
-                    @point{@student{Functions can only return one thing at a time, but we need to return both an x @bold{and} a y-coordinate in order to make the jumper move diagonally. Thankfully, we have a way to combine multiple things within one container, called a @vocab{Data Structure}.
+                    @point{@student{Functions can return only one thing at a time, but we need to return both an x @bold{and} a y-coordinate in order to make the jumper move diagonally. Thankfully, we have a way to combine multiple things within one container, called a @vocab{Data Structure}.
                            @activity{For this activity we'll be working with a data structure called a Coord, which contains just two Numbers, representing an x and a y-coordinate. You make Coords using a function called @code{coord}.} 
 @code[#:multi-line #t]{# coord : Number Number -> Coord}}
                             @teacher{Point out the difference in capitalization: Coord (capital C) is the name of the data structure, while @code{coord} (lowercase c) is the name of the function that creates a Coord. Make sure students understand the difference, because this is a required distinction between the structure name (capitalized) and constructor function (always lowercase).}}
@@ -149,8 +149,8 @@ end}
                                      Now, instead of just changing and returning one number (a y-coordinate), we can return @bold{both} the x and y-coordinates of the parachute jumper within a @vocab{Data Structure}. @activity{Open the @editor-link[#:public-id "0B9rKDmABYlJVbFpIZktoQ1pwWm8" "Parachute Jumper"] code again and replace the original @code{next-position} function with the one in your workbook to make the jumper land safely on the shore!}}
                            @teacher{}}
                     
-                    @point{@student{In Bootstrap:1, you could only have a function return one thing: either a Number, String, Image, or Boolean. In Bootstrap:2, our functions will still return one thing, but that thing can be a @vocab{Data Structure}, (or just "structure" for short) containing any number of things within it. This way we could return both the x and y-coordinate of a player using a Coord, or create new structures and return even more detail about a player, like their health, position, amount of armor, or inventory.}
-                            @teacher{In Bootstrap:1, students' games were made by keeping track of only a few numbers: the x-positions of the danger and target, and y-position 
+                    @point{@student{In Bootstrap:1, you could have a function return only one thing: either a Number, String, Image, or Boolean. In Bootstrap:2, our functions will still return one thing, but that thing can be a @vocab{Data Structure}, (or just "structure" for short) containing any number of things within it. This way we could return both the x and y-coordinate of a player using a Coord, or create new structures and return even more detail about a player, like their health, position, amount of armor, or inventory.}
+                            @teacher{In Bootstrap:1, students' games were made by keeping track of just a few numbers: the x-positions of the danger and target, and y-position 
                                      of the player. In Bootstrap:2, students' games will be much more complex, and will require many more values to move characters, test conditions, 
                                      keep track of the score, etc. Data structures simplify code by organizing multiple values: You couldn't represent every part of a player 
                                      (position, health, inventory, etc.) with one number or string, but you can refer to all these things collectively with a @vocab{data structure}. This way, we can have one value (a data structure) containing multiple other values for easy access.}}
@@ -287,7 +287,7 @@ end}
                           Throughout the course you can set up a call and response system with students, where the question "How do you get the X out of a Y?" 
                           will prompt the name of the accessor.}}
                  
-                 @point{@student{The previous syntax is known as @vocab{Dot-Accessors}. They allow you to specify exactly what part of a structure you want. If we want to know if we can fit a certain Cake through a doorway, we probably only care whether the number of layers is less than a certain amount. Likewise, if we want to know whether or not a character in our game has died, we only need to know if his health is less than 0: 
+                 @point{@student{The previous syntax is known as @vocab{Dot-Accessors}. They allow you to specify exactly what part of a structure you want. If we want to know if we can fit a certain Cake through a doorway, we probably care only whether the number of layers is less than a certain amount. Likewise, if we want to know whether or not a character in our game has died, we need to know only if his health is less than 0: 
                                  we might not care what his location is, or the color of his armor. Programmers use accessors a lot, because they often need to know only one piece of information from a complex data structure.}
                          @teacher{}}
                                     
@@ -316,9 +316,9 @@ end}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{@vocab{Data Structures} are a powerful tool for representing complex data in a computer program. Simple videogames, like Pong, might only need to
-                                keep track of a few numbers at once, like the position of the ball, position of each paddle and the score. But if a game has many 
-                                different enemies, each with their own position and health, or multiple levels with their own background image, the game can get 
+        @points[@point{@student{@vocab{Data Structures} are a powerful tool for representing complex data in a computer program. Simple videogames, like Pong, might need to
+                                keep track of only a few numbers at once, such as the position of the ball, position of each paddle, and the score. But if a game has many 
+                                different enemies, each with its own position and health, or multiple levels with their own background images, the game can get 
                                 very complicated very fast, and structures are a great way to manage and make sense of all the data. Programmers can do a LOT with data
                                 structures, and in the upcoming lessons you will create your own structures to make a customized videogame.}
            @teacher{Have students volunteer what they learned in this lesson!}}
