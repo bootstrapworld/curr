@@ -18,7 +18,7 @@
     ("data types" "A way of classifying values, such as: Number, String, Image, or Boolean")
     ("define" "associate a descriptive name with a value")
     ("definitions window" "the text box at the top of the Editor (DrRacket or WeScheme), where definitions for values and functions are written")
-    ("design recipe" "a sequence of steps that help people document, test, and write functions")
+    ("design recipe" "a sequence of steps that helps people document, test, and write functions")
     ("domain" "the type of data that a function expects")
     ("dot-accessors" "A way to extract values from a data structure")
     ("editor" "software in which you can write and evaluate code")
