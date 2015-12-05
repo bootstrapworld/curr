@@ -9,7 +9,7 @@
                                        (list "Cake" @code{cake .flavor .color .message .layers .is-iceCream})
                                        (list "Party" @code{party .theme .location .guests}))]{
 @unit-descr{Students are introduced to event-based programming using big-bang, and codewalk through the @code{next-world} and @code{draw-world} functions.
-            They they modify these functions and experiment with the results, eventually leading to a point where they discover the
+            They then modify these functions and experiment with the results, eventually leading to a point where they discover the
             need for structures.}
 }
 @unit-lessons{
