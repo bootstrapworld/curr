@@ -45,9 +45,9 @@
 		<h1>Standards Alignment</h1>
       <p>Extra lessons are nice, but Math teachers don't <i>have</i> 25 hours of spare classtime to spend on new materials, no matter how good it might be.
 
-      <p>That's why Bootstrap is aligned to Common Core Standards for Mathematics, covering most Functional and Algebraic standards across the Common Core from Grade 7 through Algebra 2. This alignment makes it possible to integrate Bootstrap into the classroom smoothly, using time you've already planned into your pacing guidelines or scope and sequence plans.
+      <p>That's why Bootstrap is aligned to National and State Standards for Mathematics, covering most Functional and Algebraic standards from Grade 7 through Algebra 2. This alignment makes it possible to integrate Bootstrap into the classroom smoothly, using time you've already planned into your pacing guidelines or scope and sequence plans.
       
-      <p>Bootstrap is also a model implementation of Common Core Standards for Mathematical Practice, offering explicit pedgagogical recommendation across all eight practice standards.
+      <p>For states using the Common Core, Bootstrap is also a model implementation of Common Core Standards for Mathematical Practice, offering explicit pedgagogical recommendation across all eight practice standards.
 
       <p>Bootstrap also satisfies several of the CSTA (Computer Science Teacher's Association) standards across levels 1 (grades K-6), 2 (grades 6-9), and 3 (grades 9-12); Bootstrap1 (the algebra-oriented first course) covers standards in levels 1 and 2, while Bootstrap2 goes deeper into computer science and covers more standards in levels 2 and 3.
     </div>
