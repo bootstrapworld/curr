@@ -86,13 +86,13 @@ Don't forget to include the lines @code{examples:} and @code{end}! Your examples
 # double-radius: Number, String -> Image
 # Makes an outlined circle that's twice the radius.
 fun double-radius(radius, color):
-    circle(radius * 2, "solid", color)
+    circle(radius * 2, "outline", color)
 end}
            @activity{For more practice, turn to @worksheet-link[#:page 9 #:name "double-width"] in your workbook and complete the Design Recipe for the @code{double-width} function.}}
                 @teacher{Check students understanding: Why do we use variables in place of specific values? Why is it important to have descriptive variable
                          names, as opposed to @code{n} or @code{x}?
                           Remind students about nested functions: A function whose range is a number can be used inside of a function requiring a number in its domain, as in 
-                                 @code{circle(2 * 25, "solid", "red")}.}}
+                                 @code{circle(2 * 25, "outline", "red")}.}}
                 ]}
                 
                 
