@@ -417,13 +417,18 @@
           <td><span>L1:6:CT.1:</span> Understand and use the basic steps in algorithmic problem-solving (e.g., problem statement and exploration, examination of sample instances, design, implementation, and testing).
           </td>
           <td>
-            Bootstrap teaches students to develop programs and solve problems through a concrete sequence of steps called the <i>Design Recipe</i>.  Summarizing problem statements, writing test cases, designing functions around data, coding, and testing are all explicit steps in this recipe.  Bootstrap1 begins introducing these steps in unit 2, building on them throughout the curriculum.  Bootstrap2 extends these steps into richer structured data.
+<strong>Bootstrap:1 - Units 2-8
+<br/>Bootstrap:2 - Units 1-10</strong>
+<br/>
+            Bootstrap teaches students to develop programs and solve problems through a concrete sequence of steps called the <i>Design Recipe</i>.  Summarizing problem statements, writing test cases, designing functions around data, coding, and testing are all explicit steps in this recipe.  Bootstrap1 begins introducing these steps in unit 2, building on them throughout the curriculum.  Bootstrap2 extends these steps into richer structured data. 
           </td>
         </tr>
         <tr>
           <td><span>L1:6:CPP.6:</span> Implement problem solutions using a block-based visual programming language.
           </td>
           <td>
+<strong>N/A</strong>
+<br/>
           Bootstrap currently has students implement programs in a simple textual language.  
           </td>
         </tr>
@@ -431,13 +436,19 @@
           <td><span>L2:CT:1:</span> Use the basic steps in algorithmic problem-solving to design solutions (e.g., problem statement and exploration, examination of sample instances, design, implementing a solution, testing, evaluation).
           </td>
           <td>
-            Bootstrap teaches students to develop programs and solve problems through a concrete sequence of steps called the <i>Design Recipe</i>.  Summarizing problem statements, writing test cases, designing functions around data, coding, and testing are all explicit steps in this recipe. Bootstrap1 begins introducing these steps in unit 2, building on them throughout the curriculum.  Bootstrap2 extends these steps into richer structured data. 
+<strong>Bootstrap:1 - Units 2-8
+<br/>Bootstrap:2 - Units 1-10</strong>
+<br/>
+            Bootstrap teaches students to develop programs and solve problems through a concrete sequence of steps called the <i>Design Recipe</i>.  Summarizing problem statements, writing test cases, designing functions around data, coding, and testing are all explicit steps in this recipe. Bootstrap:1 begins introducing these steps in unit 2, building on them throughout the curriculum.  Bootstrap:2 extends these steps into richer structured data. 
           </td>
         </tr>
         <tr>
           <td><span>L2:CT:6:</span> Describe and analyze a sequence of instructions being followed (e.g., describe a character's behavior in a video game as driven by rules and algorithms).
           </td>
           <td>
+<strong>Bootstrap:1 - Units 5 and 7
+<br/>Bootstrap:2 - Units 3-6, 8-10</strong>
+<br/>
           In Bootstrap, students write algebraic functions that are used repeatedly to move characters across a screen and respond to key presses.   Bootstrap emphasizes sequences of instructions less than other early programming efforts, but in doing so gains close adherence to algebra.  
           </td>
         </tr>
@@ -445,98 +456,142 @@
           <td><span>L2:CT:7:</span> Represent data in a variety of ways including text, sounds, pictures, and numbers.
           </td>
           <td>
+<strong>Bootstrap:1 - Units 2-8
+<br/>Bootstrap:2 - Units 1-10</strong>
+<br/>
           Students write functions that consume and produce each of text, images, and numbers in the Bootstrap curriculum.  Functions over each datatype are used in students' games, as well in as the in-class exercises.
           </td>
         </tr>
         <tr>
           <td><span>L2:CT:14:</span> Examine connections between elements of mathematics and computer science including binary numbers, logic, sets and functions.</td>
           <td>
+<strong>Bootstrap:1 - Units 1-9
+<br/>Bootstrap:2 - Units 1-10</strong>
+<br/>
           Bootstrap relies heavily on algebraic functions.  Students learn how different representations of functions from mathematics (domain/range, input/output tables, and symbolic representations) correspond to important artifacts in writing programs.  Within their games, students use Boolean logic to determine how characters move, to report collisions, and to determine when characters have moved off the screen.
           </td>
         </tr>
         <tr>
           <td><span>L2:CPP:4:</span> Demonstrate an understanding of algorithms and their practical application.</td>
           <td>
+<strong>Bootstrap:1 - Units 3-8
+<br/>Bootstrap:2 - Units 2-10</strong>
+<br/>
           Bootstrap emphasizes computation, particularly the idea that computations are reusable with different inputs.  Through their games and in-class exercises, students see various applications for reusable computations in practical settings.
           </td>
         </tr>
         <tr>
           <td><span>L2:CPP:5:</span> Implement problem solutions using a programming language, including: looping behavior, conditional statements, logic, expressions, variables, and functions.</td>
           <td>
-          Bootstrap1 covers functions, variables, logic, and conditionals (this is all one needs to create a rich game in our software infrastructure!).  Bootstrap2 introduces looping in the context of handling multiple similar game elements with similar behavior.
+<strong>Bootstrap:1 - Units 1-9
+<br/>Bootstrap:2 - Units 1-10</strong>
+<br/>
+          Bootstrap:1 covers functions, variables, logic, and conditionals (this is all one needs to create a rich game in our software infrastructure!).  Bootstrap:2 introduces looping in the context of handling multiple similar game elements with similar behavior.
           </td>
         </tr>
         <tr>
           <td><span>L2:CPP:9:</span> Collect and analyze data that is output from multiple runs of a computer program.</td>
           <td>
-          Design and execution of test cases is emphasized throughout Bootstrap1 and Bootstrap2.  Students are required to write multiple test cases (including expected answers for each) for each function; our software helps them track which tests are passing and which are failing.
+<strong>Bootstrap:1 - Units 3-8
+<br/>Bootstrap:2 - Units 2-10</strong>
+<br/>
+          Design and execution of test cases is emphasized throughout Bootstrap:1 and Bootstrap:2.  Students are required to write multiple test cases (including expected answers for each) for each function; our software helps them track which tests are passing and which are failing.
           </td>
         </tr>
         <tr>
           <td><span>L3:CT:A2:</span> Describe a software development process used to solve software problems (e.g. design, coding, testing, verification).</td>
           <td>
-          Bootstrap's Design Recipe emphasizes design, coding, and testing from early in Bootstrap1.  The process is explicit in Bootstrap's worksheets and exercises.  Bootstrap2 continues to emphasize this process.
+<strong>Bootstrap:1 - Units 3-8
+<br/>Bootstrap:2 - Units 1-10</strong>
+<br/>
+          Bootstrap's Design Recipe emphasizes design, coding, and testing from early in Bootstrap:1.  The process is explicit in Bootstrap's worksheets and exercises.  Bootstrap:2 continues to emphasize this process.
           </td>
         </tr>
         <!-- BOOTSTRAP 2 -->
         <tr>
           <td><span>L3:CPP:A2:</span> Use mobile devices/emulators to design, develop, and implement mobile computing applications.</td>
           <td>
-          Bootstrap2 has optional material on writing games that respond to common mobile-phone stimuli (such as shaking, tilting, and GPS), and a library for exporting these games to mobile phones.
+<strong>Bootstrap:2 - Unit 10</strong>
+<br/>
+          Bootstrap:2 has optional material on writing games that respond to common mobile-phone stimuli (such as shaking, tilting, and GPS), and a library for exporting these games to mobile phones.
           </td>
         </tr>
         <tr>
           <td><span>L3:CPP:A3:</span> Use various debugging and testing methods to ensure program correctness (e.g., test cases, unit testing, white box, black box, integration testing).</td>
           <td>
-          Testing is emphasized throughout Bootstrap.  Bootstrap1 drills black-box test cases (with tests written before corresponding code).  As problems get more challenging in Bootstrap2, students begin to confront elements of white-box testing as well.  Bootstrap does not introduce modular programming, as would be required to cover unit or integration testing.
+<strong>Bootstrap:1 - Units 3-8
+<br/>Bootstrap:2 - Units 1-10</strong>
+<br/>
+          Testing is emphasized throughout Bootstrap.  Bootstrap:1 drills black-box test cases (with tests written before corresponding code).  As problems get more challenging in Bootstrap:2, students begin to confront elements of white-box testing as well. Note: Bootstrap does not introduce modular programming, as would be required to cover integration testing.
           </td>
         </tr>
         <tr>
           <td><span>L3:CPP:A4:</span> Apply analysis, design, and implementation techniques to solve problems (e.g., use one or more software lifecycle models).</td>
           <td>
-            Bootstrap's Design Recipe is a step-by-step software development technique that emphasixes test-first and data-driven design.  Bootstrap strongly recommends (and has exercises written for) pair programming, a common software development practice.
+<strong>Bootstrap:1 - Units 2-8
+<br/>Bootstrap:2 - Units 1-10</strong>
+<br/>
+            Bootstrap's Design Recipe is a step-by-step software development technique that emphasizes test-first and data-driven design.  Bootstrap strongly recommends (and has exercises written for) pair programming, a common software development practice.
           </td>
         </tr>
         <tr>
           <td><span>L3:CPP:A8:</span> Explain the program execution process</td>
           <td>
-          Bootstrap1 introduces this process at a general level; students dig deeper into how programs evaluate when they reach loops in Bootstrap2.
+<strong>Bootstrap:1 - Units 1-8
+<br/>Bootstrap:2 - Units 1-10</strong>
+<br/>
+          Bootstrap1 introduces this process at a general level; students dig deeper into how programs evaluate when they reach loops in Bootstrap:2.
           </td>
         </tr>
         <tr>
           <td><span>L3:CPP:A12:</span> Describe how mathematical and statistical functions, sets, and logic are used in computation.</td>
           <td>
-          Bootstrap1 puts mathematical and logical functions in the context of programming videogames.  Bootstrap2 introduces sets and their implementation via lists.  
+<strong>Bootstrap:1 - Units 3-8
+<br/>Bootstrap:2 - Units 1-10</strong>
+<br/>
+          Bootstrap puts mathematical and logical functions in the context of programming videogames.
           </td>
         </tr>
         <tr>
           <td><span>L3:CT:B5:</span> Use data analysis to enhance understanding of complex natural and human systems.</td>
           <td>
-          Bootstrap2 begins to emphasize data modeling: the Design Recipe includes an explicit step in which students determine how to model data for a problem and develop illustrative examples of the problem relative to their data model. 
+<strong>Bootstrap:2 - Units 3-10</strong>
+<br/>
+          Bootstrap:2 begins to emphasize data modeling: the Design Recipe includes an explicit step in which students determine how to model data for a problem and develop illustrative examples of the problem relative to their data model. 
           </td>
         </tr>
         <tr>
           <td><span>L3:CT:B6:</span> Compare and contrast simple data structures and their uses (e.g., arrays and lists).</td>
           <td>
-          Bootstrap2 emphasizes the differences between structs (compound data with fixed numbers of fields) and lists (compound data with arbitrary numbers of elements).  Students practice recognizing each of these basic data patterns in various problems, and learn how to nest these concepts to build richer data structures (advanced students can easily get to trees with this approach).  Bootstrap does not cover different linear data structures (lists versus arrays), preferring to emphasize how to design richer data structures from simple building blocks of structs and lists.
+<strong>Bootstrap:2 - Units 2-10</strong>
+<br/>
+          Bootstrap:2 emphasizes the differences between structs (compound data with fixed numbers of fields) and lists (compound data with arbitrary numbers of elements).  Students practice recognizing each of these basic data patterns in various problems, and learn how to nest these concepts to build richer data structures (advanced students can easily get to trees with this approach). Note: Bootstrap does not cover different linear data structures (lists versus arrays), preferring to emphasize how to design richer data structures from simple building blocks of structs and lists.
           </td>
         </tr>
         <tr>
           <td><span>L3:CT:B10:</span> Decompose a problem by defining new functions and classes.</td>
           <td>
-          Bootstrap2 introduces students to programming problems that benefit from decomposition into multiple functions and data structures.  The Design Recipe provides some structured guidance on when to introduce new functions when decomposing problems.
+<strong>Bootstrap:1 - Units 6 and 8
+<br/>Bootstrap:2 - Units 4-10</strong>
+<br/>
+          Bootstrap introduces students to programming problems that benefit from decomposition into multiple functions and data structures.  The Design Recipe provides some structured guidance on when to introduce new functions when decomposing problems.
           </td>
         </tr>
         <tr>
           <td><span>L3:CPP:B2:</span> Use tools of abstraction to decompose a large-scale computational problem (e.g., procedural abstraction, object-oriented design, functional design).</td>
           <td>
-          Bootstrap1 introduces the core idea of functions as abstractions over repeated computations.  Bootstrap2 moves into larger programs that get decomposed into subproblems, which are designed, implemented, and tested independently.
+<strong>Bootstrap:1 - Units 6 and 8
+<br/>Bootstrap:2 - Units 4-10</strong>
+<br/>
+          Bootstrap:1 introduces the core idea of functions as abstractions over repeated computations.  Bootstrap:2 moves into larger programs that get decomposed into subproblems, which are designed, implemented, and tested independently.
           </td>
         </tr>
         <tr>
           <td><span>L3:CPP:B7:</span> Use data analysis to enhance understanding of complex natural and human systems.</td>
           <td>
-          Bootstrap2 begins to emphasize data modeling: the Design Recipe includes an explicit step in which students determine how to model data for a problem and develop illustrative examples of the problem relative to their data model. 
+<strong>Bootstrap:2 - Units 4-10</strong>
+<br/>
+          Bootstrap:2 begins to emphasize data modeling: the Design Recipe includes an explicit step in which students determine how to model data for a problem and develop illustrative examples of the problem relative to their data model. 
           </td>
         </tr>
 
