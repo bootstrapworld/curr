@@ -653,19 +653,21 @@
          ;(printf "Have activity tags ~a~n" (get 'activity-evid '()))
          ;(for-each (lambda (std) (printf "Std ~a uses nums ~a ~n" std (get-used-evidnums/std std evid-used))) stdtaglist)
          ;(printf "~n")
-         (nested #:style (bootstrap-div-style/id/nested "LearningObjectives")
-                 (interleave-parbreaks/all
-                  (list
-                   (para #:style bs-header-style/span "Standards and Evidence Statements:")
-                   (list "Standards with"
-                         " prefix BS are specific to Bootstrap; others are from the Common Core."
-                         " Mouse over each standard to see its corresponding evidence statements."
-                         " Our " 
-                         (standards-link "Standards Document") 
-                         " shows which units cover each standard. "
-                         )
-                   (list->itemization tag-formatted-LOtree 
-                                      (list "LearningObjectivesList" "EvidenceStatementsList"))))))))))
+         (if (empty? tag-formatted-LOtree)
+             (nested)
+             (nested #:style (bootstrap-div-style/id/nested "LearningObjectives")
+                     (interleave-parbreaks/all
+                      (list
+                       (para #:style bs-header-style/span "Standards and Evidence Statements:")
+                       (list "Standards with"
+                             " prefix BS are specific to Bootstrap; others are from the Common Core."
+                             " Mouse over each standard to see its corresponding evidence statements."
+                             " Our " 
+                             (standards-link "Standards Document") 
+                             " shows which units cover each standard. "
+                             )
+                       (list->itemization tag-formatted-LOtree 
+                                          (list "LearningObjectivesList" "EvidenceStatementsList")))))))))))
 
 ;;;;; HTML elements for unit pages ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
