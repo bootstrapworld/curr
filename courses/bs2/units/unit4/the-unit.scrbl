@@ -18,7 +18,7 @@
         #:overview ""
         #:learning-objectives @itemlist[]
         #:evidence-statements @itemlist[]
-        #:product-outcomes @itemlist[]
+        #:product-outcomes @itemlist[@item{Students practice altering and adding fields to the @code{Cake} data structure}]
         #:standards (list)
         #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, design recipe, course calendar)}
@@ -54,7 +54,7 @@
         #:learning-objectives @itemlist[@item{Deepen their understanding of structures, constructors and accessors by being introduced to a third data structure.}
                                         @item{Discover the event-based microworld implementation of Pyret, which uses events to modify the World.}]
         #:evidence-statements @itemlist[]
-        #:product-outcomes @itemlist[]
+        #:product-outcomes @itemlist[@item{Students will act out the event-based programming model, beginning with a simple world containing just one number}]
         #:standards (list)
         #:materials @itemlist[]
         #:preparation @itemlist[@item{The @editor-link[#:public-id "0B9rKDmABYlJVQTg2b2ZRQ2E0ZWc" "Intro to Big-Bang"] file preloaded on students' machines}
@@ -197,7 +197,7 @@
                                         @item{Students will modify @code{draw-world} to add the coin, clouds and Ninja Cat.}
                                          @item{Students will iteratively expand the World structure, and trace these changes throughout their program}]
         #:evidence-statements @itemlist[]
-        #:product-outcomes @itemlist[]
+        #:product-outcomes @itemlist[@itemlist{Students codewalk through a simple version of the Ninja Cat game, creating a new @code{World} data structure and adding animation}]
         #:standards (list)
         #:materials @itemlist[]
         #:preparation @itemlist[]
