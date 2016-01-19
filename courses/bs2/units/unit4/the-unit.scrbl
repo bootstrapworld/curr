@@ -197,7 +197,7 @@
                                         @item{Students will modify @code{draw-world} to add the coin, clouds and Ninja Cat.}
                                          @item{Students will iteratively expand the World structure, and trace these changes throughout their program}]
         #:evidence-statements @itemlist[]
-        #:product-outcomes @itemlist[@itemlist{Students codewalk through a simple version of the Ninja Cat game, creating a new @code{World} data structure and adding animation}]
+        #:product-outcomes @itemlist[@item{Students codewalk through a simple version of the Ninja Cat game, creating a new @code{World} data structure and adding animation}]
         #:standards (list)
         #:materials @itemlist[]
         #:preparation @itemlist[]
