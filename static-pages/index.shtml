@@ -72,12 +72,18 @@
                 <!-- <img src="/images/teacher.jpg" class="side"> -->
                 <h1>Materials</h1>
                 <h2 class="yellow"><a href="#curriculum">Curriculum</a> and <a href="#software">Software</a></h2>
-                <p><b><a href="courses/bs1/index.shtml">Bootstrap:1</a></b> applies mathematical concepts and rigorous programming principles to creating a simple videogame, and is <a href="Standards.shtml">aligned</a> to National and State Standards for Mathematics -- including the new standards for Mathematical Practice! <b><a href="courses/bs2/index.shtml">Bootstrap:2</a></b> goes deeper into programming, building events and data structures on top of the foundation laid by Bootstrap:1 and allowing students to build far more sophisticated programs. We've listed the breakdown of concepts in the table below, so you can find the best fit for your class.
+                <p>
+                Our <b><a href="tutorial/">Hour of Code</a></b> lesson is a great, self-paced activity to introduce students to Bootstrap.
+                <p>
+                <b><a href="courses/bs1/index.shtml">Bootstrap:1</a></b> applies mathematical concepts and rigorous programming principles to creating a simple videogame, and is <a href="Standards.shtml">aligned</a> to National and State Standards for Mathematics -- including the new standards for Mathematical Practice! 
+                <p/>
+                <b><a href="courses/bs2/index.shtml">Bootstrap:2</a></b> goes deeper into programming, building events and data structures on top of the foundation laid by Bootstrap:1 and allowing students to build far more sophisticated programs. We've listed the breakdown of concepts in the table below, so you can find the best fit for your class.
             </div>
             <div class="item one-half">
                 <h2>Current Bootstrap Teachers</h2>
                 <button onclick="showGroup()" class="button-white">Discussion Forum</button>
-                As an in-school curriculum, delivering Bootstrap afterschool can be tricky. These programs often have lower requirements for attendance and rigor, and you will need to address parent and student expectations explictly. You should plan on <u>at least 90min/wk (coupled with strong attendance requirements)</u> for a successful implementation. Most importantly, delivering a formal curriculum in an informal setting places even more pressure on the training of the instructor. <i>We strongly recommend that any afterschool educator attend a Bootstrap training before starting their class.</i>
+                <h2 class="yellow">What about afterschool?</h2>
+                Delivering Bootstrap afterschool can be tricky. These programs often have lower requirements for attendance and rigor, and you will need to address parent and student expectations explictly. You should plan on <u>at least 90min/wk (coupled with strong attendance requirements)</u> for a successful implementation. Most importantly, delivering a formal curriculum in an informal setting places even more pressure on the training of the instructor. <i>We strongly recommend that any afterschool educator attend a Bootstrap training before starting their class.</i>
             </div>
         </div>
         <div class="clearfix bottom-border">
