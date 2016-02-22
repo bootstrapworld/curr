@@ -347,7 +347,7 @@
                                              @activity{If the rocket is going 80 miles/second, and the asteroid is going 70 miles/second, @italic{how fast are they approaching each other?}}}
                                      @teacher{}
                                      }
-                             @point{@student{@math{60 + 70 = 150}, so we know that they are getting closer and closer together at a rate of 150 miles per second. This isn't that different from our @code{time} function: we have some speed, and we want to know how much time it will take to go a given distance. So what do we write for our example?
+                             @point{@student{@math{80 + 70 = 150}, so we know that they are getting closer and closer together at a rate of 150 miles per second. This isn't that different from our @code{time} function: we have some speed, and we want to know how much time it will take to go a given distance. So what do we write for our example?
                                               @bannerline{@math{collide(0) = 0/150}}
                                               @activity{Write two Examples of your own using different distances, then define the function so it works with any distance.}}
                                      @teacher{}
