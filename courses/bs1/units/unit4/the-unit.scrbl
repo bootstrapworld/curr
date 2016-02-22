@@ -118,7 +118,7 @@
                  @point{@student{The Contract for this function is correct: the function's Name, Domain and Range are all accurately written here. However, the next step definitely has some problems:
                                   @itemlist[#:style 'ordered
                                                     @item{There is only one Example. This makes it difficult to notice what is changing, which could lead to mistakes when identifying variables}
-                                                    @item{The Example doesn't show how the height is calcluated - instead, this programmer just wrote the "answer", without showing their work.}]
+                                                    @item{The Example doesn't show how the height is calculated - instead, this programmer just wrote the "answer", without showing their work.}]
                                   }
                          @teacher{}
                          }
