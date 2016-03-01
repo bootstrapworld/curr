@@ -278,8 +278,8 @@
                                  and grammar of math, and its potential for ambiguity in the absence of a fixed order of operations.  Help 
                                  students see that math is a way to communicate calculations among people.}
                         }
-                 @point{@student{Humans also use verbs like "toast", "slice", "spread" and "melt"to describe operations on these nouns. Mathematics has 
-                                 @vocab{functions} like addition and subtraction, which are operations performed on numbers. Just as you can "slice piece 
+                 @point{@student{Humans also use verbs like "throw", "run", "build" and "jump" to describe operations on these nouns. Mathematics has 
+                                 @vocab{functions} like addition and subtraction, which are operations performed on numbers. Just as you can "slice a piece 
                                  of bread", a person can also "add four and five".}
                          @teacher{}
                         }
