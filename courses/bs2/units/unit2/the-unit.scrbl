@@ -20,7 +20,7 @@
      #:learning-objectives @itemlist[@item{Students will deepen their understanding of function definitions and the Design Recipe}]
      #:evidence-statements @itemlist[@item{}]
      #:product-outcomes @itemlist[@item{}]
-     #:standards (list)
+     #:standards (list "N-Q" "8.F.1-3" "F-IF.1-3" "F-LE.5" "A-SSE.1-2" "BS-M" "BS-PL.3" "BS-DR.1" "BS-DR.1" "BS-DR.2" "BS-DR.2" "BS-DR.3")
      #:materials @itemlist[@item{Pens/pencils for students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, language table, course calendar)}
                             @item{Language Table (see below)}
@@ -48,7 +48,7 @@
                                                    is twice as big as the input.}}
                         @teacher{If walking through this example as a class, use a projector so kids can see the function being written on the computer.}}
                  @point{@student{Remember how to use the design recipe to work through word problems? @bannerline{Step 1: Contract and Purpose Statement}
-                                 @activity{ @itemlist[@item{What is the @vocab{Name} of this function? How do you know?}
+                                 @activity[#:forevidence (list "N-Q&1&1" "F-IF.1-3&1&1" "F-LE.5&1&1" "BS-M&1&2" "BS-DR.1&1&1" "BS-DR.1&1&2")]{ @itemlist[@item{What is the @vocab{Name} of this function? How do you know?}
                                                        @item{How many inputs does it have in its @vocab{Domain}?}
                                                        @item{What kind of data is the @vocab{Domain}?}
                                                        @item{What is the @vocab{Range} of this function?}
@@ -59,7 +59,7 @@
                          @teacher{Review the purpose of Contracts: once we know the Name, Domain, and Range of a function, it's easy to write examples using those datatypes.}}
            
                  @point{@student{@bannerline{Step 2: Examples} 
-                                  @activity{Using only the Contract and Purpose Statement, see if you can answer the following questions:
+                                  @activity[#:forevidence (list "BS-DR.2&1&1")]{Using only the Contract and Purpose Statement, see if you can answer the following questions:
                                             @itemlist[@item{Every example begins with the name of the function. Where could you find the name of the function?}
                                                        @item{Every example has to include sample inputs. Where could you find out how many inputs this function needs, 
                                                              and what type(s) they are?}
@@ -80,7 +80,7 @@ Don't forget to include the lines @code{examples:} and @code{end}! Your examples
                 @point{@student{@bannerline{Step 3: Definition}
                                 Once you know what is changing between our two examples, you can define the function easily. The things that were circled and labeled in
                                 the examples will be replaced with @vocab{variables} in the function definition. 
-                                @activity{Underneath your examples, copy everything that @bold{doesn't} change, and replace the changing things with the variable 
+                                @activity[#:forevidence (list "BS-DR.3&1&1")]{Underneath your examples, copy everything that @bold{doesn't} change, and replace the changing things with the variable 
                                           names you used. (Don't forget to add the @code{fun} and @code{end} keywords, as well as the colon (:) after the function header!)}  
            @code[#:multi-line #t]{
 # double-radius: Number, String -> Image
@@ -88,7 +88,7 @@ Don't forget to include the lines @code{examples:} and @code{end}! Your examples
 fun double-radius(radius, color):
     circle(radius * 2, "outline", color)
 end}
-           @activity{For more practice, turn to @worksheet-link[#:page 9 #:name "double-width"] in your workbook and complete the Design Recipe for the @code{double-width} function.}}
+           @activity[#:forevidence (list "N-Q&1&1" "8.F.1-3&1&1" "F-IF.1-3&1&1" "A-SSE.1-2&1&1" "BS-M&1&1" "BS-PL.3&1&3" "BS-DR.1&1&1" "BS-DR.1&1&2" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1")]{For more practice, turn to @worksheet-link[#:page 9 #:name "double-width"] in your workbook and complete the Design Recipe for the @code{double-width} function.}}
                 @teacher{Check students understanding: Why do we use variables in place of specific values? Why is it important to have descriptive variable
                          names, as opposed to @code{n} or @code{x}?
                           Remind students about nested functions: A function whose range is a number can be used inside of a function requiring a number in its domain, as in 
@@ -116,7 +116,7 @@ end}
           @points[
                    @point{@student{@activity{Open @editor-link[#:public-id "0B9rKDmABYlJVbFpIZktoQ1pwWm8" "this link"] on your computer and press 'Run'. What happens?}
                                     The parachute jumper jumps out of the airplane and falls straight down, into the water! It's much safer to land on the shore. Let's take a look at the code to see why he falls into the water instead.
-                                    @activity{Look at the function defined here called @code{next-position}. @itemlist[@item{What is this function's Domain? Its Range?}
+                                    @activity[#:forevidence (list "")]{Look at the function defined here called @code{next-position}. @itemlist[@item{What is this function's Domain? Its Range?}
           @item{What does @code{next-position} do with its inputs?}]}
                                     This function takes in two numbers, representing the x and y coordinate of the jumper, but it changes and returns only the y-coordinate, by subtracting 5 from it. But if only the y-coordinate is changing, he'll always fall straight down, landing in the water every time. To reach the land, he'll have to fall diagonally. How could we make that happen?
                                     @activity{How should the jumper's x-coordinate change if he moves diagonally to the right (toward the land)? How should his y-coordinate change?}}
