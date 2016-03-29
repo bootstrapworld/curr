@@ -103,7 +103,7 @@ end}
         #:learning-objectives @itemlist[@item{Students will understand the limitations of atomic datatypes}]
         #:evidence-statements @itemlist[@item{}]
         #:product-outcomes @itemlist[@item{Students identify real-world behaviors that require data structures}]
-        #:standards (list )
+        #:standards (list "5.OA.1-2" "7.EE.3-4" "8.F.1-3" "8.F.4" "8.F.5" "F-IF.1-3" "A-SSE.1-2" "F-LE.1-4" "F-LE.5" "BS-M" "BS-DR.1" "BS-DR.2" "BS-DR.3" "BS-DR.4" "BS-IDE")
         #:materials @itemlist[@item{}]
         #:preparation @itemlist[@item{The @editor-link[#:public-id "0B9rKDmABYlJVbFpIZktoQ1pwWm8" "Parachute Jumper"] file preloaded on student machines}]
         #:prerequisites (list)
@@ -116,10 +116,10 @@ end}
           @points[
                    @point{@student{@activity{Open @editor-link[#:public-id "0B9rKDmABYlJVbFpIZktoQ1pwWm8" "this link"] on your computer and press 'Run'. What happens?}
                                     The parachute jumper jumps out of the airplane and falls straight down, into the water! It's much safer to land on the shore. Let's take a look at the code to see why he falls into the water instead.
-                                    @activity[#:forevidence (list "")]{Look at the function defined here called @code{next-position}. @itemlist[@item{What is this function's Domain? Its Range?}
+                                    @activity[#:forevidence (list "8.F.1-3&1&1" "8.F.5&1&1" "F-IF.1-3&1&1" "A-SSE.1-2&1&1" "A-SSE.1-2&1&3")]{Look at the function defined here called @code{next-position}. @itemlist[@item{What is this function's Domain? Its Range?}
           @item{What does @code{next-position} do with its inputs?}]}
                                     This function takes in two numbers, representing the x and y coordinate of the jumper, but it changes and returns only the y-coordinate, by subtracting 5 from it. But if only the y-coordinate is changing, he'll always fall straight down, landing in the water every time. To reach the land, he'll have to fall diagonally. How could we make that happen?
-                                    @activity{How should the jumper's x-coordinate change if he moves diagonally to the right (toward the land)? How should his y-coordinate change?}}
+                                    @activity[#:forevidence (list "F-LE.5&1&1")]{How should the jumper's x-coordinate change if he moves diagonally to the right (toward the land)? How should his y-coordinate change?}}
                            @teacher{}}
                     
                     @point{@student{Functions can return only one thing at a time, but we need to return both an x @bold{and} a y-coordinate in order to make the jumper move diagonally. Thankfully, we have a way to combine multiple things within one container, called a @vocab{Data Structure}.
@@ -127,11 +127,11 @@ end}
 @code[#:multi-line #t]{# coord : Number Number -> Coord}}
                             @teacher{Point out the difference in capitalization: Coord (capital C) is the name of the data structure, while @code{coord} (lowercase c) is the name of the function that creates a Coord. Make sure students understand the difference, because this is a required distinction between the structure name (capitalized) and constructor function (always lowercase).}}
                     
-                    @point{@student{Now it's up to us to protect the parachute jumper, and make sure he lands safely on the shore. @activity{Turn to @worksheet-link[#:page 10 #:name "next-position"] in your workbook, read the word problem, and fill in the Contract and Purpose Statement for the function @code{next-position}.}
+                    @point{@student{Now it's up to us to protect the parachute jumper, and make sure he lands safely on the shore. @activity[#:forevidence (list "F-IF.1-3&1&1" "F-LE.5&1&1" "BS-M&1&2" "BS-DR.1&1&1" "BS-DR.1&1&2")]{Turn to @worksheet-link[#:page 10 #:name "next-position"] in your workbook, read the word problem, and fill in the Contract and Purpose Statement for the function @code{next-position}.}
     @code[#:multi-line #t]{# next-position : Number Number -> Coord
                            # Given 2 numbers, make a Coord by adding 5 to x and subtracting 5 from y}
     
-    Now for our two examples. Using, or @vocab{calling} @code{next-position} with two numbers is easy, but what happens to those numbers? We can't return both at the same time... unless we use a data structure! To do so we'll need to use the constructor function to make a structure from data we already have. @activity{@itemlist[@item{According to the definition for @code{Coord}, what function makes a Coord?}
+    Now for our two examples. Using, or @vocab{calling} @code{next-position} with two numbers is easy, but what happens to those numbers? We can't return both at the same time... unless we use a data structure! To do so we'll need to use the constructor function to make a structure from data we already have. @activity[#:forevidence (list "5.OA.1-2&1&1" "5.OA.1-2&1&1" "7.EE.3-4&1&1" "A-SSE.1-2&1&1" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.4&1&1")]{@itemlist[@item{According to the definition for @code{Coord}, what function makes a Coord?}
                     @item{@code{coord(.....)}}
                     @item{What two things are part of a Coord? Do we have values for those things as part of our first example?}
                     @item{We don't want our Coord to contain the same x and y values we gave the @code{next-position} function. How will the values change? (Remember to show your work!)}
@@ -142,11 +142,11 @@ end}
                     @item{Once your first example is complete, write one more example with different inputs for the x and y coordinates.}]}}
                             @teacher{Remind students to show every step of their work in the example step of the design recipe: if the x-coordinate increases by 5 while the y-coordinate decreases by 5, they should show the addition and subtraction within the Coord data structure, instead of just returning the new numbers.}}
                     
-                    @point{@student{@activity{Now that you have two examples, it's time to define the function. You know the drill: circle and label everything that changes between your two examples, copy everything that stays the same, and replace the changing things with the variables you chose.}
+                    @point{@student{@activity[#:forevidence (list "8.F.4&1&1" "F-LE.1-4&1&5" "BS-DR.3&1&1" "BS-DR.4&1&2")]{Now that you have two examples, it's time to define the function. You know the drill: circle and label everything that changes between your two examples, copy everything that stays the same, and replace the changing things with the variables you chose.}
                                      When you finish, your function definition should look like: @code[#:multi-line #t]{fun next-position(x, y):
                           coord(x + 5, y - 5)
                        end}
-                                     Now, instead of just changing and returning one number (a y-coordinate), we can return @bold{both} the x and y-coordinates of the parachute jumper within a @vocab{Data Structure}. @activity{Open the @editor-link[#:public-id "0B9rKDmABYlJVbFpIZktoQ1pwWm8" "Parachute Jumper"] code again and replace the original @code{next-position} function with the one in your workbook to make the jumper land safely on the shore!}}
+                                     Now, instead of just changing and returning one number (a y-coordinate), we can return @bold{both} the x and y-coordinates of the parachute jumper within a @vocab{Data Structure}. @activity[#:forevidence (list "BS-IDE&1&1")]{Open the @editor-link[#:public-id "0B9rKDmABYlJVbFpIZktoQ1pwWm8" "Parachute Jumper"] code again and replace the original @code{next-position} function with the one in your workbook to make the jumper land safely on the shore!}}
                            @teacher{}}
                     
                     @point{@student{In Bootstrap:1, a function could return only one thing: either a Number, String, Image, or Boolean. In Bootstrap:2, our functions will still return one thing, but that thing can be a @vocab{Data Structure}, (or just "structure" for short) containing any number of things within it. This way we could return both the x and y-coordinate of a player using a Coord, or create new structures and return even more detail about a player, like their health, position, amount of armor, or inventory.}
@@ -165,7 +165,7 @@ end}
         #:product-outcomes @itemlist[@item{Students make use of a complex data structure: @code{Cake}}
                                      @item{Students define variables bound to Cakes}
                                      @item{Students will generalize their understanding of function constructors and accessors}]
-        #:standards (list )
+        #:standards (list "N-Q" "F-IF.1-3" "BS-PL.1" "BS-DS.1" "BS-DS.2" "BS-IDE")
         #:materials @itemlist[@item{}]
         #:preparation @itemlist[@item{The @editor-link[#:public-id "0B9rKDmABYlJVU2lINzk1X0x2ODg" "Bakery"] file preloaded on students' machines}]
         #:prerequisites (list)
@@ -179,7 +179,7 @@ end}
                    @point{@student{Suppose you own a famous bakery. You bake things like cookies, pastries, and tarts, but you're especially known for your world-famous cakes.
                                    What type of thing is a cake? Is it a number? String? Image? Boolean? You couldn't describe all of the important things 
                                    about a cake with any one of those data types. However, we could say that we care about a couple of details about each cake, each of which can be described with the types we already know.
-                                   @activity{For each of the following aspects of a cake, think about what datatype you might use to represent it:
+                                   @activity[#:forevidence (list "N-Q&1&1" "BS-DS.2&1&1")]{For each of the following aspects of a cake, think about what datatype you might use to represent it:
                                              @itemlist[@item{The flavor of the cake. That could be "Chocolate", "Strawberry", "Red Velvet", or something else.}
                                                         @item{The color of the cake}
                                                         @item{The message on top of the cake}
@@ -194,7 +194,7 @@ end}
                                    There is a little bit of new syntax involved in defining structures. On the first line on @worksheet-link[#:page 11 #:name "Cake"], we want to write @code{flavor :: String,}, which tells Pyret that the first element of @italic{any} Cake will be its flavor, represented by a String. 
                                    @activity{What is the second part of a Cake structure? What data type can we use to represent it?}
                                    On the next line, write @code{color :: String}, which tells Pyret that the second element of any Cake will be its color, represented by a String.
-                                   @activity{List each of the other fields of a cake (message, layers, and is-ice-cream), and note what data types will represent them. Don't forget commas to separate each field!}
+                                   @activity[#:forevidence (list "N-Q&1&1")]{List each of the other fields of a cake (message, layers, and is-ice-cream), and note what data types will represent them. Don't forget commas to separate each field!}
                                    On your paper, you should have: 
                                    @code[#:multi-line #t]{ # a Cake is a flavor, color, message, number of layers, and whether or not it is an ice cream cake.
                                                        data Cake:
@@ -220,14 +220,14 @@ end}
                             
                             @teacher{Below the data definition for Cake there are four Cakes defined and assigned to the variables @code{cake1}, @code{cake2}, @code{cake3}, and @code{cake4}. Ask students 
                                      questions about these Cakes to get them thinking about how they would define their own.}}
-                    @point{@student{@activity{Define another Cake, called @code{cake5}. To start,
+                    @point{@student{@activity[#:forevidence (list "BS-IDE&1&1" "BS-PL.1&1&1" "BS-DS.1&1&4")]{Define another Cake, called @code{cake5}. To start,
                                                                          @itemlist[@item{how would you define this variable?}
                                                                                     @item{What function is used to make a Cake?}
                                                                                     @item{Which thing comes first in a Cake structure?}] 
                                               Now what do you expect to happen when you type @code{cake5} into the interactions area? Click 'Run' and try it out.}
                                               @code{cake5 = cake("Peanut Butter", "brown", "Congratulations!", 2, true)}}
                             @teacher{Have students walk you through the process of defining a variable called @code{cake5} and making a Cake with whatever flavor, color, message, etc. they like.}}
-                 @point{@student{@activity{Define two new variables for some of your favorite Cakes. You can call them @code{cake6} and @code{cake7}, or whatever names you prefer. You can make any kind of Cakes that you want, as long as your structure has the right types in the right orders!}}
+                 @point{@student{@activity[#:forevidence (list "BS-IDE&1&1" "BS-PL.1&1&1" "BS-DS.1&1&4")]{Define two new variables for some of your favorite Cakes. You can call them @code{cake6} and @code{cake7}, or whatever names you prefer. You can make any kind of Cakes that you want, as long as your structure has the right types in the right orders!}}
                          @teacher{Repetition is key in this lesson. Have students identify each part of the Cake struct for every Cake they've defined.
                                   What is the flavor of their first Cake? Its messagee? Ensure that students are using their inputs in the right order!}}
                  
@@ -235,7 +235,7 @@ end}
                             @teacher{}}
                     
                     @point{@student{Based on these instances of Cakes you just wrote:
-                                    @activity{@itemlist[@item{What is the name of the function that creates a Cake?}
+                                    @activity[#:forevidence (list "F-IF.1-3&1&1")]{@itemlist[@item{What is the name of the function that creates a Cake?}
                                                         @item{What is the Domain of this function?}
                                                         @item{How many things are in the domain?}]} The five things in the domain of @code{cake} are, in fact, the five things that we have already listed on @worksheet-link[#:page 11 #:name "Cake"]! With data structures, the order is very important: we always want the first string in @code{cake} to be the Cake's flavor, the first number to be its number of layers, etc.}
                                    
@@ -244,7 +244,7 @@ end}
                                   number and type of values as in the structure's definition, and its inputs must be in the @italic{same order} as the definition. Unit Three introduces 
                                   students to even more data structures, and in Unit Four they begin defining their own.}}
               
-                 @point{@student{@activity{After clicking the "Run" button, in Pyret, type @code{cake1} into the interactions area and hit enter. What do you get back?}
+                 @point{@student{@activity[#:forevidence (list "BS-IDE&1&1")]{After clicking the "Run" button, in Pyret, type @code{cake1} into the interactions area and hit enter. What do you get back?}
                                   Does this make sense? What happens when you type just a number into the interactions area? We get that same number back! What about Strings? Images? 
                                   Booleans? If we don't do anything to our input, or use any function on it, we get back exactly what we put in! Here, you put in a Cake, and got back that Cake!}
                          @teacher{Remind students that values will always evaluate to themselves. 4 evaluates to 4, the string @code{"pizza"} evaluates to @code{"pizza"}, and @code{cake1} evaluates
@@ -252,7 +252,7 @@ end}
                 
                   @point{@student{You can see what your Cakes look like by calling the function provided at the bottom of the file. It's called @code{draw-cake}, and it takes a Cake as input and 
                                   gives you back an Image of your Cake.
-                                  @activity{In the interactions window, type @code{draw-cake(cake1)} and see what happens. Use the function with the Cakes YOU defined!} @bitmap{images/cake3.png}}
+                                  @activity[#:forevidence (list "BS-IDE&1&1")]{In the interactions window, type @code{draw-cake(cake1)} and see what happens. Use the function with the Cakes YOU defined!} @bitmap{images/cake3.png}}
                          @teacher{Students will spend lots of time "drawing" their Cakes. Encourage them to define some new Cakes, and to alter the color, message, layers, etc. to see their changes 
                                   reflected in the images. Don't forget to remind them to click "Run" after making any changes!}}
                   ]
@@ -265,7 +265,7 @@ end}
                   #:learning-objectives @itemlist[]
                   #:evidence-statements @itemlist[]
                   #:product-outcomes @itemlist[@item{Students write code that extracts each field from those Cakes}]
-                  #:standards (list)
+                  #:standards (list "BS-IDE")
                   #:materials @itemlist[]
                   #:preparation @itemlist[]
                   #:pacings (list 
@@ -277,12 +277,12 @@ end}
       ]{@points[
                 @point{@student{Suppose you want to get the flavor OUT of @code{cake4}. You don't care about the message, color, or anything else - you just want to 
                                 know the flavor. Pyret has syntax for that, called @code{.flavor}.
-                                @activity{If you type @code{cake4.flavor} into the interactions window, what should it evaluate to? Try it out! 
+                                @activity[#:forevidence (list "BS-IDE&1&1")]{If you type @code{cake4.flavor} into the interactions window, what should it evaluate to? Try it out! 
                                                       @itemlist[@item{What kind of thing did it return: A Number, String, Image, Boolean, or structure?}
                                                                  @item{Practice taking the flavor out of EVERY Cake you have defined, using @code{.flavor}}]}
                     
                                 Of course, there are ways to access any part of a Cake, not just the flavor! What do you think you would get if you typed @code{cake4.color} in the interactions area? 
-                                @activity{Try using the dot-accessors @code{.color}, @code{.message}, @code{.layers} and @code{.is-iceCream} on your Cakes! Do they do what you expect?}}
+                                @activity[#:forevidence (list "BS-IDE&1&1")]{Try using the dot-accessors @code{.color}, @code{.message}, @code{.layers} and @code{.is-iceCream} on your Cakes! Do they do what you expect?}}
                  @teacher{A way to prompt students to use these accessors is to ask: "How do you get the message out of a Cake?" or "How do you get the layers out of a Cake?"
                           Throughout the course you can set up a call and response system with students, where the question "How do you get the X out of a Y?" 
                           will prompt the name of the accessor.}}
@@ -295,7 +295,7 @@ end}
                   @point{@student{Our Cake structure is defined using @code{data Cake} and the @code{cake(...)} line, which tells the computer what things make up that structure, and what order and type each 
                                                           thing is. In return, we get new functions to use. Until we write these two lines, we don't have 
                                                           @code{cake(...)} (to make a Cake), @code{.flavor} (to get the flavor out of the Cake), @code{.color}, or any of the other dot-accessors, because Pyret doesn't know what a Cake is- @italic{we haven't defined it}.
-            @activity{To see this for yourself, type a pound sign (#) before the line which begins with @code{cake(...)}. This comments it out, so that the computer ignores it. Hit run, and see what happens. }}
+            @activity[#:forevidence (list "BS-IDE&1&1")]{To see this for yourself, type a pound sign (#) before the line which begins with @code{cake(...)}. This comments it out, so that the computer ignores it. Hit run, and see what happens. }}
                     @teacher{When the @code{cake(...)} line is commented out, Pyret returns some errors, saying you're trying to use @code{cake} before its definition. It doesn't know what @code{cake} is or does, because we defined a Cake structure with no constructor. Make sure students understand that the line beginning with
                                       @code{data} and a line similar to @code{cake(...)} are needed in order to create and work with @italic{any} structure.}}         
                                     ]
