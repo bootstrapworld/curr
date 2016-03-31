@@ -19,7 +19,7 @@
         #:learning-objectives @itemlist[]
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[@item{Students practice altering and adding fields to the @code{Cake} data structure}]
-        #:standards (list)
+        #:standards (list "N-Q" "BS-IDE" "BS-DS.2")
         #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, design recipe, course calendar)}
                             @item{Editing environment (Pyret Editor)}
@@ -34,17 +34,17 @@
       ]{
         @points[@point{@student{In our previous lesson, we worked on the @code{Cake} structure. Cakes have a flavor, a color, 
                                 a message, number of layers, and an indicator of whether or not it's an ice cream cake.
-                                @activity{What datatype do we use for each of these fields?}
+                                @activity[#:forevidence (list "N-Q&1&1")]{What datatype do we use for each of these fields?}
                                 What if we realize later, after defining our Cake struct, that it would be helpful to include more information about each cake, like 
                                 a frosting color? Thankfully, working in Pyret, it’s easy to change our data definition so a Cake can include this as well.
-                                @activity{@itemlist[@item{How would you change the data definition to include this new information about cakes?}
+                                @activity[#:forevidence (list "N-Q&1&1" "BS-DS.2&1&3")]{@itemlist[@item{How would you change the data definition to include this new information about cakes?}
                                                      @item{What new argument does the @code{cake} constructor need to take in? What kind of data is this?}
                                                      @item{Change your Cake definition so it includes this new information.}]}
                                 Important! When you change @italic{any} data structure, @bold{all} @vocab{instances} of that structure will need to change as well. 
                                 Right now our definitions for @code{cake1}, @code{cake2}, and @code{cake3} are creating cakes with only four inputs --- we need to 
                                 add the information about the frosting color!
 
-@activity{Change the definitions of @code{cake1}, @code{cake2}, @code{cake3} and the other cakes you defined so they reflect the new Cake struct. }}
+@activity[#:forevidence (list "BS-IDE&1&1" "BS-DS.2&1&3")]{Change the definitions of @code{cake1}, @code{cake2}, @code{cake3} and the other cakes you defined so they reflect the new Cake struct. }}
                         @teacher{}}
                  ]
          }
@@ -55,7 +55,7 @@
                                         @item{Discover the event-based microworld implementation of Pyret, which uses events to modify the World.}]
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[@item{Students will act out the event-based programming model, beginning with a simple world containing just one number}]
-        #:standards (list)
+        #:standards (list "N-Q" "F-IF.1-3" "F-IF.4" "F-LE.5" "BS-IDE" "BS-W")
         #:materials @itemlist[]
         #:preparation @itemlist[@item{The @editor-link[#:public-id "0B9rKDmABYlJVQTg2b2ZRQ2E0ZWc" "Intro to Big-Bang"] file preloaded on students' machines}
                                  @item{next-world, big-bang, and draw-world nametags}
@@ -68,7 +68,7 @@
       ]{
         @points[@point{@student{Now let's talk about animation. We'll start off with a really simple example that only uses Numbers, and gradually build up to 
                                 using Data Structures.
-                                @activity{Open the @editor-link[#:public-id "0B9rKDmABYlJVQTg2b2ZRQ2E0ZWc" "Intro to Big-Bang"] program and read the code with
+                                @activity[#:forevidence (list "N-Q&1&1" "F-IF.1-3&1&1" "F-LE.5&1&1")]{Open the @editor-link[#:public-id "0B9rKDmABYlJVQTg2b2ZRQ2E0ZWc" "Intro to Big-Bang"] program and read the code with
                                           your partner. Can you answer the questions below? 
                                           @bitmap{images/draw-world.png}
                                                    @itemlist[@item{Lines 7-19 define several values. What are their names?}
@@ -85,7 +85,7 @@
                                  and the variable @code{current-world} as dog's x-coordinate. As the value of @code{current-world} changes, the dog will appear
                                  to move across the screen. The dog will appear to move to the right if this value gets larger, or to the left if it gets smaller.
                                 
-                                @activity{@bitmap{images/next-world.png}
+                                @activity[#:forevidence (list "N-Q&1&1" "F-IF.1-3&1&1" "F-LE.5&1&1" "F-IF.4-6&1&1" "F-IF.4-6&1&3")]{@bitmap{images/next-world.png}
                                           @itemlist[@item{Scroll down to where the code says @code{"UPDATING FUNCTIONS"} (line 32).}
                                                      @item{What is the name of the function defined in this section?} 
                                                      @item{What is the Domain of this function? The Range?}
@@ -103,7 +103,7 @@
                  @point{@student{@code{draw-world} doesn't know what the next world should be, and @code{next-world} has no idea how a world should be drawn. 
                                  They'll have to work together - in just the right way - to make sure the animation is smooth. Let's act this out in the real world
                                  to see what's going on.
-                                 @activity{This activity will need two volunteers, a print-out of the dog and some pieces of paper. The wall will represent
+                                 @activity[#:forevidence (list "BS-W&1&1" "BS-W&1&2")]{This activity will need two volunteers, a print-out of the dog and some pieces of paper. The wall will represent
                                            our game screen, with (0,0) being at the bottom left-hand corner of the wall. One volunteer
                                            will be @code{draw-world}. Their job is to put images onto the wall, at the appropriate location.
                                            When handed a @code{current-world} (a number, written on a piece of paper), they will stick the dog
@@ -156,7 +156,7 @@
                                  Just as in our role-play, @code{big-bang} will happily display the current world forever, even as time passes. Try
                                  passing in different values besides @code{numberA} and see what happens. What we need to do is tell @code{big-bang} 
                                  which @vocab{events} to listen to, and which functions to call when those events occur. 
-                                 @activity{@bitmap{images/big-bang.png}
+                                 @activity[#:forevidence (list "BS-IDE&1&1" "BS-W&1&1" "BS-W&1&2" "BS-W&1&3" "BS-W&1&4" "BS-W&1&5")]{@bitmap{images/big-bang.png}
                                    Uncomment line 49 by remove the @code{#} mark from the beginning of the line. Now @code{big-bang} will
                                            call @code{next-world} with the current world every time there is a "tick" event.
                                            @itemlist[@item{What do you think will happen when you click "Run"?}
@@ -198,7 +198,7 @@
                                          @item{Students will iteratively expand the World structure, and trace these changes throughout their program}]
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[@item{Students codewalk through a simple version of the Ninja Cat game, creating a new @code{World} data structure and adding animation}]
-        #:standards (list)
+        #:standards (list "N-Q" "7.EE.3-4&1&1" "A-SSE.1-2&1&1" "BS-IDE" "BS-PL.1" "BS-PL.3" "BS-DS.1" "BS-DS.2" "BS-W")
         #:materials @itemlist[]
         #:preparation @itemlist[]
         #:pacings (list 
@@ -225,7 +225,7 @@ end
 worldA = world(0, 400)
 worldB = world(200, 1000)
 }
-                                @activity{Type this into your programs, and answer the following questions:
+                                @activity[#:forevidence (list "N-Q&1&1" "BS-PL.1&1&2" "BS-PL.3&1&1" "BS-DS.1&1&1" "BS-DS.1&1&2" "BS-DS.1&1&3" "BS-DS.1&1&4")]{Type this into your programs, and answer the following questions:
                                           @itemlist[@item{What is the name of the @vocab{type} that is created by this data block?}
                                                      @item{What is the @vocab{constructor function} that makes a @code{World}?}
                                                      @item{How many inputs does the constructor take, and what are their types?}
@@ -239,7 +239,7 @@ worldB = world(200, 1000)
                  @point{@student{Now we need to modify the rest of our code so that is uses @italic{World}s instead of @code{Numbers}. Let's
                                  start with @code{draw-world}. Before adding the coin, let's first make sure the dog still moves now that
                                  we're using a structure for our World.
-                                 @activity{@itemlist[@item{Will the name of this function have to change? What about the Domain? The Range?}
+                                 @activity[#:forevidence (list "BS-DS.1&1&5" "BS-W&1&5")]{@itemlist[@item{Will the name of this function have to change? What about the Domain? The Range?}
                                                       @item{How will the purpose statement have to change?}
                                                       @item{Before, the body of function used @code{current-world} as the Dog's x-coordinate.
                                                             Now @code{current-world} is a World. How do we get the @code{dogX} out of that 
@@ -250,7 +250,7 @@ worldB = world(200, 1000)
                          }
                  @point{@student{Now let's look at @code{next-world}. It's written to consume Numbers and produce Numbers, but now
                                  we need to change it to use Worlds instead.
-                                 @activity{@itemlist[@item{Will the name of this function have to change? What about the Domain? The Range?}
+                                 @activity[#:forevidence (list "BS-DS.1&1&4" "BS-DS.1&1&5" "BS-W&1&5")]{@itemlist[@item{Will the name of this function have to change? What about the Domain? The Range?}
                                                       @item{How will the purpose statement have to change?}
                                                       @item{The Range says we need to produce a new World. What function makes Worlds?}
                                                       @item{Use the @code{world} constructor to produce a new World, where the dog's
@@ -269,7 +269,7 @@ end}
                                   The revised @code{next-world} functions uses a @vocab{constructor function} and two @vocab{dot-accessors}.}
                          }
                  @point{@student{Finally, we need to change @code{big-bang} to use our new world structure.
-                                 @activity{@itemlist[@item{Does the initial value given to @code{big-bang} need to change? If so, why?}
+                                 @activity[#:forevidence (list "BS-IDE&1&1" "BS-W&1&3" "BS-W&1&5")]{@itemlist[@item{Does the initial value given to @code{big-bang} need to change? If so, why?}
                                                       @item{Are we still calling @code{next-world} on tick-events?}
                                                       @item{Are we still calling @code{draw-world} on draw-events?}
                                                       @item{Make the changes you think are necessary, and click "Run". If everything
@@ -284,7 +284,7 @@ end}
                  @point{@student{@bitmap{images/NWorld2.png}
 Now it's time to add other images to our animation. Putting the Coin aside for a moment, let's try adding the 
                         Cloud for practice.
-                        @activity{How could you use @code{put-image} to place @code{CLOUD-IMG} onto the @code{BACKGROUND-IMG} 
+                        @activity[#:forevidence (list "7.EE.3-4&1&1" "A-SSE.1-2&1&1" "BS-IDE&1&1")]{How could you use @code{put-image} to place @code{CLOUD-IMG} onto the @code{BACKGROUND-IMG} 
                                   at position (500, 400)?
                                  
 @code[#:multi-line #t]{
@@ -311,7 +311,7 @@ Now try adding the @code{COIN-IMG}, this time at (250, 300).}
                                  want to see that Coin moving as well, so our work isn't finished! Remember, the @code{current-world}
                                  now includes both a @code{dogX} and a @code{coinX} - we just need to use the @code{coinX} to figure 
                                  out where to put that image!
-                                 @activity{Modify the code for @code{draw-world} so that the @code{COIN-IMG} is placed using the
+                                 @activity[#:forevidence (list "7.EE.3-4&1&1" "A-SSE.1-2&1&1" "BS-IDE&1&1" "BS-DS.1&1&5" "BS-W&1&5")]{Modify the code for @code{draw-world} so that the @code{COIN-IMG} is placed using the
                                            @code{coinX} from @code{current-world}. When you click "Run", you should see the dog
                                            move to the right and the coin move to the left! What will happen if you change the initial
                                            World that is given to @code{big-bang}?}
@@ -326,7 +326,7 @@ Now try adding the @code{COIN-IMG}, this time at (250, 300).}
                                  would you change then?}
                          @teacher{}
                          }
-                 @point{@student{@activity{Modify the @code{World} structure to include the cat's x- and y-coordinate, then change
+                 @point{@student{@activity[#:forevidence (list "BS-IDE&1&1" "BS-DS.1&1&5" "BS-DS.2&1&3")]{Modify the @code{World} structure to include the cat's x- and y-coordinate, then change
                                            @code{draw-world} to place the cat into the image. (Note: since the cat will eventually respond to keypresses, and not move
                                            on it's own, it will just sit still for now.)}
                                   @code{next-world} is responsible for everything in our game that @italic{changes on its own},
