@@ -18,7 +18,7 @@
         #:learning-objectives @itemlist[]
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[@item{Students codewalk through a piecewise function they used in Bootstrap:1, identifying the differences in Pyret syntax.}]
-        #:standards (list)
+        #:standards (list "7.EE.3-4" "F-IF.1-3" "A-SSE.1-2" "BS-M" "BS-IDE")
         #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, design recipe, course calendar)}
                             @item{Editing environment (Pyret Editor)}
@@ -33,7 +33,7 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{@activity{Open the @editor-link[#:public-id "0B9rKDmABYlJVY3lNVU8tVVdvbXc" "Luigi's Pizza"] file. Does it look familiar?
+        @points[@point{@student{@activity[#:forevidence (list "7.EE.3-4&1&3" "F-IF.1-3&1&1" "A-SSE.1-2&1&1" "BS-M&1&2")]{Open the @editor-link[#:public-id "0B9rKDmABYlJVY3lNVU8tVVdvbXc" "Luigi's Pizza"] file. Does it look familiar?
                                  
             @itemlist[@item{What is the name of this function?}
                       @item{What is the contract for the @code{cost} function?}
@@ -41,7 +41,7 @@
                       @item{What should @code{cost("cheese")} evaluate to? @code{cost("chicken")}?}
                       @item{What do you think would happen if someone asked for a pizza not on the menu, like "sausage"?}]}
                       This function is the same as the @code{cost} function you worked with in Bootstrap:1, except this one is written in Pyret! @code{cost} will still take in a String, representing a pizza topping, in its domain, and give back a number for its range, representing the price of that pizza. In Pyret, instead of using @code{cond} branches, we use a keyword called @code{ask}, which lets the computer know we're going to have different situations and behavior in our code. Just like you learned in Bootstrap:1, this is known as a @vocab{Piecewise function}. Each ask statement starts with the '|' key, (known as 'pipe') followed by a test, or an expression that produces a @vocab{Boolean} (either true or false). The other keyword to know here is @code{then:}. This tells the computer that whatever follows is what will be returned if the preceding expression is @bold{true}. In the case of this function, if the string representing the topping (@code{topping}) is equal to the string "pepperoni" (@code{string-equal(topping, "pepperoni")}), @italic{then} the function will return 10.50.
-                       @activity{Have students practice adding their own pizza toppings to the menu, and asking the @code{cost} function for the price of those toppings.}}
+                       @activity[#:forevidence (list "BS-IDE&1&1")]{Have students practice adding their own pizza toppings to the menu, and asking the @code{cost} function for the price of those toppings.}}
                       @teacher{@code{string-equal} is exactly the same as @code{string=?} in Racket. It takes two Strings in its domain and returns a Boolean, telling you whether or not the given strings are equal. Have students copy the contract for this function
                                   into their contracts page.}}
                  @point{@student{In Racket we had an @code{else} clause, that would return true when all other tests had failed. In Pyret, we have the @code{otherwise:} keyword, which behaves the same way. If we didn't have this line of code our program would crash if someone tried to order a pizza that was not on the menu, like "anchovies", or "mushroom". This way, if you order off the menu, the function returns 0. A free pizza!}
@@ -64,7 +64,7 @@
             @item{Students will deepen their knowledge of conditionals, by combining them with dot-accessor and constructor functions.}]
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[]
-        #:standards (list)
+        #:standards (list "F-IF.1-3" "BS-PL.1" "BS-PL.4")
         #:materials @itemlist[@item{The @editor-link[#:public-id "0B9rKDmABYlJVM2tUSFNTc21xOFU" "Ninja World"] file preloaded on students' machines}]
         #:preparation @itemlist[@item{}]
         #:pacings (list 
@@ -74,7 +74,7 @@
                 )
       ]{
         @points[@point{@student{In the last unit, your Ninja Cat game was starting to take shape: You extended the world to include the dog's x-coordinate, the coin's x-coordinate, and the cat's x and y-coordinates. You also learned about event-handlers, and used the @code{draw-world} and @code{update-world} functions to create a simple animation. 
-                     @activity{Open the @editor-link[#:public-id "0B9rKDmABYlJVM2tUSFNTc21xOFU" "Ninja World"] file. It should look similar to the simple game you had last time.
+                     @activity[#:forevidence (list "F-IF.1-3&1&1" "BS-PL.1&1&2" "BS-PL.4&1&1")]{Open the @editor-link[#:public-id "0B9rKDmABYlJVM2tUSFNTc21xOFU" "Ninja World"] file. It should look similar to the simple game you had last time.
                                @itemlist[@item{Scroll down to where it says @code{# KEY EVENTS} in the code.}
                                          @item{What is the name of the function defined here? What is its Domain? Its Range?}
                                          @item{How does @code{keypress} change the world it takes in? What happens on screen as a result of pressing certain keys?}
@@ -106,7 +106,7 @@ end}}
         #:learning-objectives @itemlist[@item{}]
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[]
-        #:standards (list)
+        #:standards (list "BS-PL.1" "BS-PL.4" "BS-DR.4")
         #:materials @itemlist[]
         #:preparation @itemlist[@item{}]
         #:pacings (list 
@@ -116,7 +116,7 @@ end}}
                 )
       ]{
         @points[@point{@student{We've made Ninja Cat move up and down, but in the original version of the game she moved left and right as well. Now that you're familiar with data structures, this is easy! 
-                                @activity{@itemlist[@item{What changes about the cat if she moves to the left? To the right? What part of the world is that?}
+                                @activity[#:forevidence (list "BS-PL.1&1&2" "BS-PL.4&1&1" "BS-DR.4&1&3")]{@itemlist[@item{What changes about the cat if she moves to the left? To the right? What part of the world is that?}
                                                      @item{How would you change the @code{keypress} function so it also asks whether the player has pressed the "left" or "right" arrow keys?}
                                                      @item{What would you change about the world if the player presses the left arrow key? The right?}
                                                      @item{Change the @code{keypress} function so that the cat moves left and right based on the arrow keys.}]}
@@ -146,7 +146,7 @@ For reference and to check your work, you can see the completed Design Recipe fo
         #:learning-objectives @itemlist[@item{Students will turn update-world into a piecewise function in order to add jumping, falling, and gravity to their Ninja World game.}]
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[@item{Students will use @code{ask} in their next-world function}]
-        #:standards (list)
+        #:standards (list "7.EE.3-4" "F-IF.1-3" "F-IF.4-6" "BS-PL.4" "BS-DR.1" "BS-DR.2" "BS-DR.4" "BS-DS.1" "BS-W")
         #:materials @itemlist[]
         #:preparation @itemlist[@item{}]
         #:pacings (list 
@@ -156,13 +156,13 @@ For reference and to check your work, you can see the completed Design Recipe fo
                 )
       ]{
         @points[@point{@student{Now Ninja Cat can move up and down, but we can add some more interesting elements to this game as well- what about gravity?
-                                If we want to make it seem like gravity is acting on Ninja Cat, she'll need to appear to "fall" at any point when she is not on the ground. @activity{@itemlist[@item{What part of the world structure will change if the cat is moving down?}
+                                If we want to make it seem like gravity is acting on Ninja Cat, she'll need to appear to "fall" at any point when she is not on the ground. @activity[#:forevidence (list "F-IF.4-6&1&1" "BS-W&1&4")]{@itemlist[@item{What part of the world structure will change if the cat is moving down?}
                     @item{Since this "falling" will happen automatically, not as a result of user input, which function should control the gravity? @code{draw-world, next-world}, or @code{keypress}?}]}
                    Right now, @code{next-world} takes in a world, and returns the next world by changing the dog's x-coordinate and the coin's x-coordinate. We want the cat's y-coordinate to change as well, every time @code{next-world} runs. But we don't want the cat to fall all the way below the screen and keep falling. Gravity should cause her to fall, but @italic{only} when she is above the ground (if her y-coordinate is above 75 pixels). Sometimes we want our function to move the dog, coin @italic{and} the cat, but if Ninja Cat is already on the ground only the dog and coin should move. We need @code{next-world} to become a @vocab{piecewise function}!}
                        @teacher{}}
-                 @point{@student{@activity{@itemlist[@item{turn to @worksheet-link[#:page 20 #:name "Complex next-world"] in your workbook.}
+                 @point{@student{@activity[#:forevidence (list "F-IF.1-3&1&1" "BS-DR.1&1&1" "BS-DR.1&1&2")]{@itemlist[@item{turn to @worksheet-link[#:page 20 #:name "Complex next-world"] in your workbook.}
                                                      @item{Write the Contract and Purpose statement for this updated version of @code{next-world}.}]}
-                                  Now it's time to think about examples. @activity{Write one example using a World where Ninja Cat is above the ground, and one where she is on the ground. What should change about the world in each example? Does the dog's x-coordinate change in both instances, or just one? Why?}}
+                                  Now it's time to think about examples. @activity[#:forevidence (list "BS-DR.2&1&1" "BS-DR.4&1&1")]{Write one example using a World where Ninja Cat is above the ground, and one where she is on the ground. What should change about the world in each example? Does the dog's x-coordinate change in both instances, or just one? Why?}}
                          @teacher{Remind students that at this point, @code{next-world} will always change the x-coordinates of the dog and coin, because they move independantly. The @italic{only} time the cat's y-coordinate should change without user input is when it gets above 75 pixels.}}
                  
                  @point{@student{Your exampes should look similar to:
@@ -172,7 +172,7 @@ For reference and to check your work, you can see the completed Design Recipe fo
                            next-world(worldB) is 
                            world(worldB.dogX + 10, worldB.coinX - 5, worldB.catX, worldB.catY)
                         end}
-Circle and label what changes. Did more things change than you entered in the Domain? Sometimes we subtract 5 from the cat's y-coordinate, but sometimes her position stays the same. @activity{@itemlist[@item{What question should we ask to tell us if the cat is above 75 pixels? What dot-accessor will we need to use?}
+Circle and label what changes. Did more things change than you entered in the Domain? Sometimes we subtract 5 from the cat's y-coordinate, but sometimes her position stays the same. @activity[#:forevidence (list "F-LE.5&1&1" "A-CED.1-4&1&1" "BS-PL.3&1&3" "BS-DR.4&1&3" "BS-DS.1&1&5")]{@itemlist[@item{What question should we ask to tell us if the cat is above 75 pixels? What dot-accessor will we need to use?}
                      @item{Our first condition must ask if the cat's x-coordinate is greater than 75. What changes about the world if this is true?}
                      @item{Complete the design recipe for @code{next-world} and put the code into the @editor-link[#:public-id "0B9rKDmABYlJVM2tUSFNTc21xOFU" "Ninja World"] file.}]}}
                          @teacher{}}
@@ -184,7 +184,7 @@ Circle and label what changes. Did more things change than you entered in the Do
                             |otherwise: world(current-world.dogX + 10, current-world.coinX - 5, current-world.catX, current-world.catY)
                           end
                         end }
-Ninja Cat is falling slowly in response to gravity, but it's now pretty tough for her to move up quickly. She needs some way to jump! @activity{Think about how you could implement jumping in this game. @itemlist[@item{How would the player make a character jump?}
+Ninja Cat is falling slowly in response to gravity, but it's now pretty tough for her to move up quickly. She needs some way to jump! @activity[#:forevidence (list "7.EE.3-4&1&1" "BS-PL.4&1&1" "BS-DR.4&1&3" "BS-DS.1&1&5")]{Think about how you could implement jumping in this game. @itemlist[@item{How would the player make a character jump?}
                 @item{What part of the world needs to change if Ninja Cat jumps up?}
                 @item{How many pixels should Ninja Cat move up if she's jumping?}
                 @item{What function controls the world in responce to key presses?}
