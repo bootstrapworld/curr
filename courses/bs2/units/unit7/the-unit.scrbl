@@ -16,7 +16,7 @@
         #:learning-objectives @itemlist[]
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[]
-        #:standards (list)
+        #:standards (list "N-Q" "6.NS.5-8" "7.EE.3-4")
         #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, design recipe, course calendar)}
                             @item{Editing environment (Pyret Editor)}
@@ -33,12 +33,12 @@
       ]{
         @points[@point{@student{Right now in the Ninja Cat game, nothing happens when the player collides with another game character. We need to write a function change that. This is going to require a little math, but luckily it's exactly the same as it was in Bootstrap:1.
                                 @bitmap{images/numberline.png}                               
-                                @activity{@itemlist[@item{In the image above, how far apart are the cat and dog?}
+                                @activity[#:forevidence (list "N-Q&1&1" "6.NS.5-8&1&6" "7.EE.3-4&1&3")]{@itemlist[@item{In the image above, how far apart are the cat and dog?}
                                                      @item{If the cat was moved one space to the right, how far apart would they be?}
                                                      @item{What if the cat and dog switched positions?}]}
 
 In one dimension, such as on a number line, finding the distance is pretty easy. If the characters are on the same line, you just subtract one coordinate from another, and you have your distance. However, if all we did was subtract the second number from the first, the function would only work half the time!
-@activity{When the cat and dog were switched, did you still subtract the dog's position from the cat's, or subtract the cat's position from the dog's? Why?}}
+@activity[#:forevidence (list "6.NS.5-8&1&4")]{When the cat and dog were switched, did you still subtract the dog's position from the cat's, or subtract the cat's position from the dog's? Why?}}
                         @teacher{Draw the number line on the board, with the cutouts of the cat and dog at the given positions. Ask students to tell you the distance between them, and move the images accordingly. Having students act this out can also work well: draw a number line, have two students stand at different points on the line, using their arms or cutouts to give objects of different sizes. Move students along the number line until they touch, then compute the distance on the number line.}}
                  ]
          }
@@ -49,7 +49,7 @@ In one dimension, such as on a number line, finding the distance is pretty easy.
         #:learning-objectives @itemlist[]
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[]
-        #:standards (list)
+        #:standards (list "N-Q" "8.F.1-3" "F-IF.1-3" "A-CED.1-4" "BS-M" "BS-PL.4" "BS-DR.1" "BS-DR.2" "BS-DR.3")
         #:materials @itemlist[]
         #:preparation @itemlist[@item{}]
         #:pacings (list 
@@ -59,7 +59,7 @@ In one dimension, such as on a number line, finding the distance is pretty easy.
                 )
       ]{
         @points[@point{@student{Distances cannot be negative, so we have to make sure we are always subtracting the smaller number from the bigger one. That means we have two conditions: (1) the first number is bigger, and (2) the second is bigger.
-                                @activity{@itemlist[@item{What kind of function do we need, when we have multiple conditions?}
+                                @activity[#:forevidence (list "N-Q&1&1" "8.F.1-3&1&1" "F-IF.1-3&1&1" "A-CED.1-4&1&1" "BS-M&1&1" "BS-PL.4&1&1" "BS-DR.1&1&1" "BS-DR.1&1&2" "BS-DR.2&1&1")]{@itemlist[@item{What kind of function do we need, when we have multiple conditions?}
                                                      @item{Turn to @worksheet-link[#:page 27 #:name "Design Recipe Line Length"].}
                                                      @item{What is the Name of this function? Domain? Range?}
                                                      @item{Write two examples for @code{line-length} so that it subtracts the smaller number from the bigger one. Start with an example using the numbers 23 and 5, then do a second example with 5 and 23 in the @italic{other order}.}]}
@@ -69,7 +69,7 @@ In one dimension, such as on a number line, finding the distance is pretty easy.
                        end}}
                         @teacher{}}
                  @point{@student{Now we have an idea of the results for the @code{ask} statement, but an @code{ask} expression also needs tests. We want to @italic{test} to see whether the first number given to @code{line-length} is greater than the second number. 
-                                @activity{@itemlist[@item{How would you write that test in Pyret code?}
+                                @activity[#:forevidence (list "BS-PL.4&1&1" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1")]{@itemlist[@item{How would you write that test in Pyret code?}
                                                      @item{And what would the result for that test be? If @code{a} is greater than @code{b}, which number would we subtract from which?}
                                                      @item{How could you include a test for wheather the two numbers are equal, @italic{without} adding a third @code{ask} branch?}
                                                      @item{Write down the definition for @code{line-length}.}]}     
@@ -89,7 +89,7 @@ In one dimension, such as on a number line, finding the distance is pretty easy.
         #:learning-objectives @itemlist[@item{Reinforce their understanding of the distance formula}]
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[ @item{Students will write the distance function}]
-        #:standards (list)
+        #:standards (list "N-Q" "6.NS.508" "8.F.1-3" "F-IF.1-3" "8.G.6-8" "BS-CE" "BS-PL.3" "BS-DR.1" "BS-DR.2" "BS.DR.3")
         #:materials @itemlist[]
         #:preparation @itemlist[@item{}]
         #:pacings (list 
@@ -103,7 +103,7 @@ In one dimension, such as on a number line, finding the distance is pretty easy.
                                 @activity{@itemlist[@item{How could you find the distance between the two points shown in this image?}
                                                      @item{How could you find the length of the C, also called the @vocab{Hypotenuse}?}]}
                                 Let's start with what we do know: if we treat the x- and y-intercepts of C as lines A and B, we have a right triangle.
-                                @activity{What is the line-length of A? Would it be different if the triangle pointed downward, and intercepted the point (0, -4)? }
+                                @activity[#:forevidence (list "6.NS.5-8&1&6")]{What is the line-length of A? Would it be different if the triangle pointed downward, and intercepted the point (0, -4)? }
                                 To make your life easier, you can use the function you already wrote: @code{line-length}. In this example, line-length(A) is 4 and line-length(B) is 3, but we still don't know C.}
                         @teacher{Draw this image on the board, with the lines labeled "A", "B", and "C".}}
                  @point{@student{Ancient civilizations had the same problem: they also struggled to find the distance between points in two dimensions. Let’s work through a way to think about this problem: what expression computes the length of the hypotenuse of a right triangle?}
@@ -114,7 +114,7 @@ In one dimension, such as on a number line, finding the distance is pretty easy.
                 @point{@student{@bitmap{images/csquared.png}For any right triangle, it is possible to draw a picture where the hypoteneuse is used for all four sides of a square. In the diagram shown here, the white square is surrounded by four gray, identical right-triangles, each with sides A and B. The square itself has four identical sides of length C, which are the hypoteneuses for the triangles. If the area of a square is expressed by @math{side * side}, then the area of the white space is @math{C^{2}}.}
                         @teacher{Have students place their gray triangles onto the paper, to match the diagram.}}
                 @point{@student{@animated-gif{images/Pythag_anim.gif} By moving the gray triangles, it is possible to create two rectangles that fit inside the original square. While the space taken up by the triangles has shifted, it hasn't gotten any bigger or smaller. Likewise, the white space has been broken into two smaller squares, but in total it remains the same size. By using the side-lengths A and B, one can calculate the area of the two squares.
-                                 @activity[#:forevidence (list "8.G.6-8&1&1" "8.G.6-8&1&1" "8.G.6-8&1&3")]{What is the area of the smaller square? The larger square?}}
+                                 @activity[#:forevidence (list "8.G.6-8&1&1" "8.G.6-8&1&2" "8.G.6-8&1&3")]{What is the area of the smaller square? The larger square?}}
                        @teacher{You may need to explicitly point out that the side-lengths of the triangles can be used as the side-lengths of the squares.}
                        }
                 @point{@student{@bitmap{images/absquare.png}The smaller square has an area of @math{A^{2}}, and the larger square has an area of @math{B^{2}}. Since these squares are just the original square broken up into two pieces, we know that the sum of these areas must be equal to the area of the original square:
@@ -127,14 +127,14 @@ In one dimension, such as on a number line, finding the distance is pretty easy.
                                 Pythagoras proved that you can get the square of the hypotenuse by adding the squares of the other two sides. In your games, you're going to use the horizontal and vertical distance between two characters as the two sides of your triangle, and use the Pythagorean theorem to find the length of that third side.}
                        @teacher{Remind students that A and B are the horizontal and vertical lengths, which are calculated by @code{line-length}.}
                        }
-                @point{@student{@activity{@itemlist[@item{Turn to @worksheet-link[#:page 28 #:name "Distance-Formula-With-Numbers"] of your workbook - you'll see the formula written out.} 
+                @point{@student{@activity[#:forevidence (list "BS-CE&1&4" "BS-PL.3&1&3")]{@itemlist[@item{Turn to @worksheet-link[#:page 28 #:name "Distance-Formula-With-Numbers"] of your workbook - you'll see the formula written out.} 
                                                     @item{Draw out the circle of evaluation, starting with the simplest expression you can see first.}
                                                      @item{Once you have the circle of evaluation, translate it into Pyret code at the bottom of the page, starting with @code[#:multi-line #true]{check: 
            distance(4, 2, 0, 5) is...
        end}}]}
 Now you've got code that tells you the distance between the points (4, 2) and (0, 5). But we want to have it work for @italic{any} two points. It would be great if we had a function that would just take the x's and y's as input, and do the math for us.}
                         @teacher{}}
-                @point{@student{@activity{@itemlist[@item{Turn to @worksheet-link[#:page 29 #:name "Distance"], and read the problem statement and function header carefully.}
+                @point{@student{@activity[#:forevidence (list "N-Q&1&1" "8.G.6-8&1&3" "8.F.1-3&1&1" "F-IF.1-3&1&1" "BS-M&1&1" "BS-PL.3&1&2" "BS-PL.3&1&3" "BS-DR.1&1&1" "BS-DR.1&1&2" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1")]{@itemlist[@item{Turn to @worksheet-link[#:page 29 #:name "Distance"], and read the problem statement and function header carefully.}
                                                       @item{Use the Design Recipe to write your distance function. Feel free to use the work from the previous page as your first example, and then come up with a new one of your own.}
                                                       @item{When finished, type your @code{line-length} and @code{distance} functions into your game, and see what happens.}
                                                       @item{Does anything happen when things run into each other?}]}
@@ -150,7 +150,7 @@ You still need a function to check whether or not two things are colliding.}
         #:learning-objectives @itemlist[]
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[@item{Students will write the is-collision function}]
-        #:standards (list)
+        #:standards (list "N-Q" "7.EE.3-4" "8.G.6-8" "8.F.1-3" "F-IF.1-3" "A-CED.1-4" "BS-M" "BS-DR.1" "BS-DR.2" "BS-DR.3")
         #:materials @itemlist[]
         #:preparation @itemlist[@item{}]
         #:pacings (list 
@@ -162,7 +162,7 @@ You still need a function to check whether or not two things are colliding.}
         @points[@point{@student{So what do we want to do with this distance? 
                                 @activity{How close should your danger and your player be, before they hit each other?}
                                 At the top of @worksheet-link[#:page 30 #:name "is-collision"] you'll find the Word Problem for @code{is-collision}. 
-                                @activity{@itemlist[@item{Fill in the Contract, two examples, and then write the code. Remember: you WILL need to make use of the @code{distance} function you just wrote!}
+                                @activity[#:forevidence (list "N-Q&1&1" "7.EE.3-4&1&1" "8.G.6-8&1&3" "8.F.1-3&1&1" "F-IF.1-3&1&1" "A-CED.1-4&1&1" "BS-M&1&1" "BS-DR.1&1&1" "BS-DR.1&1&2" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1")]{@itemlist[@item{Fill in the Contract, two examples, and then write the code. Remember: you WILL need to make use of the @code{distance} function you just wrote!}
                                                     @item{When you're done, type it into your Ninja Cat game, underneath @code{distance}.}]}}
                         @teacher{Using visual examples, ask students to guess the distance between a danger and a player at different positions. How far apart do they need to be before one has hit the other? Make sure students understand what is going on by asking questions: If the collision distance is small, does that mean the game is hard or easy? What would make it easier?}
                         }
@@ -175,7 +175,7 @@ You still need a function to check whether or not two things are colliding.}
         #:learning-objectives @itemlist[@item{Identify collision as yet another sub-domain which requires different behavior of the next-world function}]
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[@item{Students will use different Ask branches to identify collisions in the Ninja Cat games}]
-        #:standards (list)
+        #:standards (list "N-Q" "8.G.6-8" "F-LE.5" "A-SSE.1-2" "BS-PL.4" "BS-DR.4" "BS-W")
         #:materials @itemlist[]
         #:preparation @itemlist[@item{}]
         #:pacings (list 
@@ -185,10 +185,10 @@ You still need a function to check whether or not two things are colliding.}
                 )
       ]{
         @points[@point{@student{Now that you have a function which will check whether something is colliding, you can use it in Ninja World.
-                                @activity{Out of the four major functions in the game (@code{next-world}, @code{draw-world}, @code{keypress}, and @code{big-bang}), which do you think you'll need to edit to handle collisions?}
+                                @activity[#:forevidence (list "BS-W&1&4")]{Out of the four major functions in the game (@code{next-world}, @code{draw-world}, @code{keypress}, and @code{big-bang}), which do you think you'll need to edit to handle collisions?}
                                 We'll need to make some more branches for @code{ask} in @code{next-world}. When the cat collides with the dog, we want to put the dog offscreen so that he can come back to attack again.}
                         @teacher{}}
-                 @point{@student{@activity{@itemlist[@item{Start with the test: how could you check whether the cat and dog are colliding? Have you written a function to check that?}
+                 @point{@student{@activity[#:forevidence (list "N-Q&1&1" "8.G.6-8&1&3" "F-LE.5&1&1" "A-SSE.1-2&1&1" "BS-PL.4&1&1" "BS-DR.4&1&3" "BS-DS.1&1&5")]{@itemlist[@item{Start with the test: how could you check whether the cat and dog are colliding? Have you written a function to check that?}
                                                      @item{What do the inputs need to be?}
                                                      @item{How do you get the @code{catY} out of the world? @code{catX}?}
                                                      @item{How do you get the @code{dogX} out of the world? @code{dogY}?} ]}
@@ -211,7 +211,7 @@ Remember that @code{next-world} produces a world, so what function should come f
                            ...coinX..., 
                            ...catX..., 
                            ...catY...)}
-                                @activity{And what should happen when the cat and dog collide? Can you think of a number that puts the dog off the screen on the left side? What about the dog's y-coordinate? We could choose a number and always place it at the same y-coordinate each time, but we know a function that can place him at a @italic{random} y-coordinate...}
+                                @activity[#:forevidence (list "BS-PL.4&1&1")]{And what should happen when the cat and dog collide? Can you think of a number that puts the dog off the screen on the left side? What about the dog's y-coordinate? We could choose a number and always place it at the same y-coordinate each time, but we know a function that can place him at a @italic{random} y-coordinate...}
              @code[#:multi-line #t]{| is-collision(
                                         current-world.catX, 
                                         current-world.catY, 
@@ -224,7 +224,7 @@ Remember that @code{next-world} produces a world, so what function should come f
                                         ...coinX...,
                                         ...catX..., 
                                         ...catY...)}
-                                @activity{Does the @code{coinX} change when the dog and cat collide? How about @code{catY}? How do you get each of those things out of the world?}
+                                @activity[#:forevidence (list "BS-PL.4&1&1" "BS-DR.4&1&3" "BS-DS.1&1&5")]{Does the @code{coinX} change when the dog and cat collide? How about @code{catY}? How do you get each of those things out of the world?}
              @code[#:multi-line #t]{| is-collision(
                                         current-world.catX, 
                                         current-world.catY, 
@@ -250,7 +250,7 @@ Remember that @code{next-world} produces a world, so what function should come f
         #:learning-objectives @itemlist[]
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[]
-        #:standards (list)
+        #:standards (list "N-Q" "BS-M" "BS-DS.1" "BS-DS.2")
         #:materials @itemlist[]
         #:preparation @itemlist[@item{}]
         #:pacings (list 
@@ -260,13 +260,13 @@ Remember that @code{next-world} produces a world, so what function should come f
                 )
       ]{
         @points[@point{@student{Now that you've seen the work it takes to create Ninja Cat, you have a good idea about what is needed to create a complex game. For the next exercise, think about the @italic{simplest possible version of your game}. Once you have that working, you can add advanced features later on. How many characters will you have, and what will you need to have in your World? You can use Numbers to keep track of the score, or the characters' x- and y-coordinates. You can also store an Image in the world, so that your character can change the way they look or to swap out the background once the score reaches a certain level. Once you have a simple game, it's easy to add more pieces to the World. 
-@activity{@itemlist[@item{Turn to @worksheet-link[#:page 31 #:name "Game Brainstorming"] in your workbook.}
+@activity[#:forevidence (list "N-Q" "BS-M&1&1" "BS-M&1&2" "BS-M&1&3")]{@itemlist[@item{Turn to @worksheet-link[#:page 31 #:name "Game Brainstorming"] in your workbook.}
                     @item{Start by drawing a sketch of what your game will look like at the very start, and another sketch of what it will look like @italic{one second} later, without user input. What elements move on their own?}
                     @item{In the table below, list all the images you will need for your game.}
                     @item{At the bottom of the page, list all the things that will have @italic{changed} from one moment to the next. What will you need to keep track of in your world structure? If something moves, will you need to keep track of its x-coordinate, y-coordinate, or both? Will you have a score that changes?}]}}
                         @teacher{Remind students that for every single thing that changes in their game, they must have a field in their world structure for it.}}
                  @point{@student{Now that you have a list of everything that changes, it’s time to turn them into a World structure.
-                                @activity{@itemlist[@item{Turn to @worksheet-link[#:page 32 #:name "Your World"] in your workbooks, and define your world structure, using the changeable things you wrote in the second table of your Game Design page.}
+                                @activity[#:forevidence (list "N-Q" "BS-M&1&1" "BS-M&1&2" "BS-M&1&3" "BS-DS.1&1&4" "BS-DS.1&1&5"  "BS-DS.2&1&2")]{@itemlist[@item{Turn to @worksheet-link[#:page 32 #:name "Your World"] in your workbooks, and define your world structure, using the changeable things you wrote in the second table of your Game Design page.}
                                                     @item{Underneath your world structure, define two example worlds called @code{worldA} and @code{worldB}.} 
                                                     @item{Finally, write down the @vocab{dot-accessors} you will need to access the fields of @code{worldA}.}]}}
                        @teacher{Have the class take turns telling their peers about their games. Most importantly, have them tell the class what they have in their World structure.
