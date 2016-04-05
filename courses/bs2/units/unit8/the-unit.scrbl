@@ -16,7 +16,7 @@
         #:learning-objectives @itemlist[]
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[]
-        #:standards (list)
+        #:standards (list "N-Q" "BS-M" "BS-IDE" "BS-PL.1" "BS-PL.3" "BS-DS.1" "BS-DS.2")
         #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, design recipe, course calendar)}
                             @item{Editing environment (Pyret Editor)}
@@ -34,12 +34,12 @@
                                  @activity{@itemlist[@item{Turn to @worksheet-link[#:page 31 #:name "Game Design"] in your workbook. What are the things in your world? What datatypes are they?}
                                                      @item{Open the @editor-link[#:public-id "0B9rKDmABYlJVcDUyZkJmd3VlS00" "BS:2 blank game template"].}]}
                                  In Bootstrap:1, you started with the shell of a game, with some sample images and functions defined. In this class the game template is just a collection of comments, telling you how to organize your functions and variables. You'll be writing @italic{every line} of code yourself. Let's begin: 
-                                 @activity{At the top of the file, where it says @code{# The World is a}, define the world structure for your game. (Check @worksheet-link[#:page 32 #:name "Game Design"] to jog your memory.) Once you have the world struct, scroll down to where it says @code{# STARTING WORLD} and define your first example world: name it @code{worldA}. On the next line, add @code{worldB}.}}
+                                 @activity[#:forevidence (list "N-Q&1&1" "BS-M&1&1" "BS-M&1&2" "BS-M&1&3" "BS-DS.1&1&4" "BS-DS.1&1&5"  "BS-DS.2&1&2")]{At the top of the file, where it says @code{# The World is a}, define the world structure for your game. (Check @worksheet-link[#:page 32 #:name "Game Design"] to jog your memory.) Once you have the world struct, scroll down to where it says @code{# STARTING WORLD} and define your first example world: name it @code{worldA}. On the next line, add @code{worldB}.}}
                          @teacher{}}
 
                  @point{@student{So now you have your world, and you know what's in it: but what do those things look like? You'll have to add some images. We'll use the @code{image-url} function. It takes in the URL of any image online (given as a string), and returns that image. 
                                  @code[#:multi-line #t]{# image-url : String -> Image}
-                                 @activity{@itemlist[@item{Look back at @worksheet-link[#:page 31 #:name "Game Design"] in your workbook. How many things in your game will need their own image?}
+                                 @activity[#:forevidence (list "BS-M&1&1" "BS-M&1&3" "BS-IDE&1&1" "BS-PL.1&1&1" "BS-Pl.3&1&3")]{@itemlist[@item{Look back at @worksheet-link[#:page 31 #:name "Game Design"] in your workbook. How many things in your game will need their own image?}
                                                      @item{Using Google Image Search or a similar tool, find images for the background and for each of the characters in your game.}
                                                      @item{Define new variables for your images, (i.e. @code{PLAYER-IMG}, @code{DANGER-IMG}, etc.) and use the @code{image-url} function to put them into your game file.}]}
                                  Some hints for finding images: Your images should be in PNG or GIF format, and the url should contain the file type (i.e. .png or .gif) at the end. Background images should be 640x480, and character images should generally be no larger than 200px in either dimension. Make sure that the character images have transparent backgrounds! TIP: use animated GIFs for the characters - not only does the animation make the game look a lot better, but these images usually have transparent backgrounds to begin with.} 
@@ -53,7 +53,7 @@
         #:learning-objectives @itemlist[@item{Students will define draw-world, and hook it up to an event handler}]
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[@item{Students write the @code{draw-world} function for their games}]
-        #:standards (list)
+        #:standards (list "N-Q" "8.F.1-3" "F-IF.1-3" "BS-M" "BS-IDE" "BS-PL.3" "BS-DR.1" "BS-DS.1" "BS-W")
         #:materials @itemlist[]
         #:preparation @itemlist[@item{}]
         #:pacings (list 
@@ -62,8 +62,8 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Now that we have our world structure, we need to know how to draw it. @activity{Which function is used to draw the world?} Just like the @code{draw-world} function in Ninja World, @code{draw-world} takes in a structure and produces an Image. 
-    @activity{@itemlist[@item{Turn to @worksheet-link[#:page 34 #:name "draw-world"] in your workbooks.}
+        @points[@point{@student{Now that we have our world structure, we need to know how to draw it. @activity[#:forevidence (list "BS-W&1&2")]{Which function is used to draw the world?} Just like the @code{draw-world} function in Ninja World, @code{draw-world} takes in a structure and produces an Image. 
+    @activity[#:forevidence (list "N-Q&1&1" "8.F.1-3&1&1" "F-IF.1-3&1&1" "BS-M&1&1" "BS-DR.1&1&1" "BS-DR.1&1&2")]{@itemlist[@item{Turn to @worksheet-link[#:page 34 #:name "draw-world"] in your workbooks.}
                         @item{What is the Domain of this function? The Range?}
                         @item{At the top of @worksheet-link[#:page 34 #:name "draw-world"], write the contract, and fill in the function header for @code{draw-world}.}]}}
                         @teacher{}}
@@ -71,7 +71,7 @@
                 @point{@student{Below the function header, we've gotten you started by using @code{put-image}, just like in Ninja World. Do you remember the contract for @code{put-image}? It takes in an image, the coordinates for where to put the image, and another image, on top of which the first image is placed.
 @code[#:multi-line #t]{# put-image(Image, Number, Number, Image) -> Image
                        # Places the first image at the given x and y-coordinates on top of the second image}
-                                        @activity{@itemlist[@item{Start out on the bottom of the page by putting one of your images onto the @code{BACKGROUND}.}
+                                        @activity[#:forevidence (list "BS-M&1&1" "BS-Pl.3&1&1" "BS-DS.1&1&5" "BS-W&1&2")]{@itemlist[@item{Start out on the bottom of the page by putting one of your images onto the @code{BACKGROUND}.}
                                                             @item{If you wanted the image to be centered on the scene, what are the x- and y-coordinates you'll need? (Hint: how big is your background image?)}
                                                              @item{But you probably don't want your image to be at the center of the background. Look back at the sketches you made on @worksheet-link[#:page 31 #:name "Game Design"]. You made a note of which coordinates you wanted that image to be, placed on top of the background.}]}
                                         Start with something that looks like this, substituting YOUR image and coordinates (or dot-accessors):
@@ -88,7 +88,7 @@ Here is an example of using @code{draw-world} in our Ninja World game, using @co
                                                 put-image(COIN-IMG, worldA.coinX, 300,
                                                     put-image(DOG-IMG, worldA.dogX, worldA.dogY,
                                                         put-image(CLOUD-IMG, 500, 400, BACKGROUND-IMG))))}
-                                         @activity{@itemlist[@item{Place another one of your images on top of the one that your first @code{put-image} expression has created. (Remember: the range of @code{put-image} is an image, so you can use this expression as the image onto which you place your next character image.}
+                                         @activity[#:forevidence (list "BS-M&1&1" " BS-IDE&1&1" "BS-IDE&1&2" "BS-Pl.3&1&1" "BS-DS.1&1&5" "BS-W&1&2")]{@itemlist[@item{Place another one of your images on top of the one that your first @code{put-image} expression has created. (Remember: the range of @code{put-image} is an image, so you can use this expression as the image onto which you place your next character image.}
                                                               @item{Keep adding to it, until you have a stack of all of the images in your game.}
                                                               @item{When you finish, test out your function by typing @code{draw-world(worldA)} into the interactions area to see a screenshot of your game at the very beginning!}]}}
 
@@ -102,7 +102,7 @@ Here is an example of using @code{draw-world} in our Ninja World game, using @co
         #:learning-objectives @itemlist[@item{Students will define a simple next-world function, and hook it up to on-tick}]
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[@item{Students write the @code{next-world} function for their games}]
-        #:standards (list)
+        #:standards (list "N-Q" "7.EE.3-4" "F-LE.5" "8.F.1-3" "A-SSE.1-2" "BS-M" "BS-PL.3" "BS-DR.1" "BS-DR.2" "BS-DR.3" "BS-DR.4" "BS-DS.1" "BS-W")
         #:materials @itemlist[]
         #:preparation @itemlist[@item{}]
         #:pacings (list 
@@ -112,11 +112,11 @@ Here is an example of using @code{draw-world} in our Ninja World game, using @co
                 )
       ]{
         @points[@point{@student{Scroll down until you see @code{# UPDATING FUNCTIONS}. This code is responsible for changing the World automatically. 
-                                @activity{What function should go here? What's in its Domain? Its Range?}
+                                @activity[#:forevidence (list "N-Q&1&1" "8.F.1-3&1&1" "BS-DR.1&1&1" "BS-W&1&1")]{What function should go here? What's in its Domain? Its Range?}
                                 As you know, @code{next-world} takes a world, and then returns a new one that's been updated:
                                 @code[#:multi-line #t]{next-world : World -> World}
 
-            @activity{@itemlist[@item{Look back at your world structure. What changes? Which of those fields change @italic{on their own}, and not in response to any user actions (like keypresses)?}
+            @activity[#:forevidence (list "7.EE.3-4&1&1" "F-LE.5&1&1" "A-SSE.1-2&1&1" "BS-M&1&1" "BS-PL.3&1&2" "BS-DR.2&1&1" "BS-DR.4&1&1" "BS-DS.1&1&5" "BS-W&1&1")]{@itemlist[@item{Look back at your world structure. What changes? Which of those fields change @italic{on their own}, and not in response to any user actions (like keypresses)?}
                                 @item{On @worksheet-link[#:page 35 #:name "next-world"], make a list of what changed and how it changed as a purpose statement for writing @code{next-world}.}
                                 @item{Write an example for @code{next-world} using the @code{worldA} you defined. Since the Range of @code{next-world} is a World, we know that we'll need to create a world using the @code{world} function. Use dot-accessors to show how the world changes.}
                                 @item{Next, write one more example for @code{next-world} where you create a new world structure. What will your updated world look like?}]}
@@ -128,7 +128,7 @@ Here is an example of using @code{draw-world} in our Ninja World game, using @co
             In the first example, we create a new World (using the @code{world} constructor function) by adding 10 to the @code{dogX} of @code{worldA}, and subtracting 5 from its @code{coinX}. 
             In the second example, we do the same thing, only with @code{worldB}. 
 
-            @activity{What changes between the two examples that @italic{you} wrote? Circle and label, then write the definition for your @code{next-world} function. Look back at its contract: what does the range tell you this function must return? A World!}
+            @activity[#:forevidence (list "BS-DR.2&1&3" "BS-DR.3&1&1" "BS-DS.1&1&5" "BS-W&1&5")]{What changes between the two examples that @italic{you} wrote? Circle and label, then write the definition for your @code{next-world} function. Look back at its contract: what does the range tell you this function must return? A World!}
             }
 
                         @teacher{@code{next-world} is the function that will handle the logic of the student' games. It determines what changes from one second to the next, and updates the world accordingly. Make sure students are making a new world with @code{world}, and using their dot- accessors to change the value of each world field according to their game's behavior. This function will likely change drastically in the next few units (just like in Ninja World), and students start adding new functionality to their games. Work with small groups to complete this section as needed. When they are finished, have the students type @code{next-world} into their game files.}}
