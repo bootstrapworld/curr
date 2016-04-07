@@ -53,7 +53,7 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{@activity[#:forevidence (list "F-LE.5&1&1" "A-SSE.1-2&1&1" "A-SSE.1-2&1&3" "B-W&1&1")]{@itemlist[@item{Open your @editor-link[#:public-id "0B9rKDmABYlJVM2tUSFNTc21xOFU" "Ninja World "] file from the last lesson.}
+        @points[@point{@student{@activity[#:forevidence (list "F-LE.5&1&1" "A-SSE.1-2&1&1" "A-SSE.1-2&1&3" "BS-W&1&1")]{@itemlist[@item{Open your @editor-link[#:public-id "0B9rKDmABYlJVM2tUSFNTc21xOFU" "Ninja World "] file from the last lesson.}
                                           @item{What is in the world structure?}
                                           @item{What does the @code{next-world} function do?}
                                           @item{What is @code{dogX} when the dog is in the center of the screen? According to the code, what will the next @code{dogX} be?}

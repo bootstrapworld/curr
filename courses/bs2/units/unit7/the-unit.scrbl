@@ -89,7 +89,7 @@ In one dimension, such as on a number line, finding the distance is pretty easy.
         #:learning-objectives @itemlist[@item{Reinforce their understanding of the distance formula}]
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[ @item{Students will write the distance function}]
-        #:standards (list "N-Q" "6.NS.508" "8.F.1-3" "F-IF.1-3" "8.G.6-8" "BS-CE" "BS-PL.3" "BS-DR.1" "BS-DR.2" "BS.DR.3")
+        #:standards (list "N-Q" "6.NS.5-8" "8.F.1-3" "F-IF.1-3" "8.G.6-8" "BS-CE" "BS-PL.3" "BS-DR.1" "BS-DR.2" "BS-DR.3")
         #:materials @itemlist[]
         #:preparation @itemlist[@item{}]
         #:pacings (list 

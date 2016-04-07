@@ -39,7 +39,7 @@
 
                  @point{@student{So now you have your world, and you know what's in it: but what do those things look like? You'll have to add some images. We'll use the @code{image-url} function. It takes in the URL of any image online (given as a string), and returns that image. 
                                  @code[#:multi-line #t]{# image-url : String -> Image}
-                                 @activity[#:forevidence (list "BS-M&1&1" "BS-M&1&3" "BS-IDE&1&1" "BS-PL.1&1&1" "BS-Pl.3&1&3")]{@itemlist[@item{Look back at @worksheet-link[#:page 31 #:name "Game Design"] in your workbook. How many things in your game will need their own image?}
+                                 @activity[#:forevidence (list "BS-M&1&1" "BS-M&1&3" "BS-IDE&1&1" "BS-PL.1&1&1" "BS-PL.3&1&3")]{@itemlist[@item{Look back at @worksheet-link[#:page 31 #:name "Game Design"] in your workbook. How many things in your game will need their own image?}
                                                      @item{Using Google Image Search or a similar tool, find images for the background and for each of the characters in your game.}
                                                      @item{Define new variables for your images, (i.e. @code{PLAYER-IMG}, @code{DANGER-IMG}, etc.) and use the @code{image-url} function to put them into your game file.}]}
                                  Some hints for finding images: Your images should be in PNG or GIF format, and the url should contain the file type (i.e. .png or .gif) at the end. Background images should be 640x480, and character images should generally be no larger than 200px in either dimension. Make sure that the character images have transparent backgrounds! TIP: use animated GIFs for the characters - not only does the animation make the game look a lot better, but these images usually have transparent backgrounds to begin with.} 
@@ -71,7 +71,7 @@
                 @point{@student{Below the function header, we've gotten you started by using @code{put-image}, just like in Ninja World. Do you remember the contract for @code{put-image}? It takes in an image, the coordinates for where to put the image, and another image, on top of which the first image is placed.
 @code[#:multi-line #t]{# put-image(Image, Number, Number, Image) -> Image
                        # Places the first image at the given x and y-coordinates on top of the second image}
-                                        @activity[#:forevidence (list "BS-M&1&1" "BS-Pl.3&1&1" "BS-DS.1&1&5" "BS-W&1&2")]{@itemlist[@item{Start out on the bottom of the page by putting one of your images onto the @code{BACKGROUND}.}
+                                        @activity[#:forevidence (list "BS-M&1&1" "BS-PL.3&1&1" "BS-DS.1&1&5" "BS-W&1&2")]{@itemlist[@item{Start out on the bottom of the page by putting one of your images onto the @code{BACKGROUND}.}
                                                             @item{If you wanted the image to be centered on the scene, what are the x- and y-coordinates you'll need? (Hint: how big is your background image?)}
                                                              @item{But you probably don't want your image to be at the center of the background. Look back at the sketches you made on @worksheet-link[#:page 31 #:name "Game Design"]. You made a note of which coordinates you wanted that image to be, placed on top of the background.}]}
                                         Start with something that looks like this, substituting YOUR image and coordinates (or dot-accessors):
@@ -88,7 +88,7 @@ Here is an example of using @code{draw-world} in our Ninja World game, using @co
                                                 put-image(COIN-IMG, worldA.coinX, 300,
                                                     put-image(DOG-IMG, worldA.dogX, worldA.dogY,
                                                         put-image(CLOUD-IMG, 500, 400, BACKGROUND-IMG))))}
-                                         @activity[#:forevidence (list "BS-M&1&1" " BS-IDE&1&1" "BS-IDE&1&2" "BS-Pl.3&1&1" "BS-DS.1&1&5" "BS-W&1&2")]{@itemlist[@item{Place another one of your images on top of the one that your first @code{put-image} expression has created. (Remember: the range of @code{put-image} is an image, so you can use this expression as the image onto which you place your next character image.}
+                                         @activity[#:forevidence (list "BS-M&1&1" "BS-IDE&1&1" "BS-IDE&1&2" "BS-PL.3&1&1" "BS-DS.1&1&5" "BS-W&1&2")]{@itemlist[@item{Place another one of your images on top of the one that your first @code{put-image} expression has created. (Remember: the range of @code{put-image} is an image, so you can use this expression as the image onto which you place your next character image.}
                                                               @item{Keep adding to it, until you have a stack of all of the images in your game.}
                                                               @item{When you finish, test out your function by typing @code{draw-world(worldA)} into the interactions area to see a screenshot of your game at the very beginning!}]}}
 
