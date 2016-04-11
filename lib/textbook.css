@@ -420,6 +420,7 @@ iframe#forum_embed.shown{
  * Use font-size 30 by default, but scale dynamically in modern browsers
  */
 
+ul.teacherNotes li div.student.slide{ width: 90%; }
 .lessonItem .slide{
   position: fixed;
   top:      0px;
