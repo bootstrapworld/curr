@@ -19,7 +19,7 @@
             @item{Deepen their understanding of structures, constructors and accessors by being introduced to a new data structure.}]
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[@item{Students define a new data structure: a party }]
-        #:standards (list)
+        #:standards (list "N-Q" "F-IF.1-3" "BS-M" "BS-IDE" "BS-PL.1" "BS-DS.1" "BS-DS.2")
         #:materials @itemlist[@item{The @editor-link[#:public-id "0B9rKDmABYlJVUUt1SUc5UnVsdm8" "Party Planner"] file preloaded on students' machines}
                               @item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, design recipe, course calendar)}
@@ -33,7 +33,7 @@
                 )
       ]{
         @points[@point{@student{In the last lesson you learned about a new kind of data structure, called a Cake. However, a Cake isn't the only kind of structure - we can create any kind we want! Let's define another one. In this exercise, you’ll be a party planner. Data structures will be a useful way to represent each Party that you’re planning, keeping track of its location, theme, and number of guests.
-                                @activity{@itemlist[@item{What datatype could be used to represent the location of a Party?}
+                                @activity[#:forevidence (list "N-Q&1&1" "BS-M&1&2" "BS-DS.2&1&2")]{@itemlist[@item{What datatype could be used to represent the location of a Party?}
                                                     @item{What about the Party's theme? (This could be something like "50s" or "laser tag".)}
                                                     @item{How about the number of guests?}]
                                            Fill out the Party structure definition on @worksheet-link[#:page 13 #:name "Parties"] in your workbook.}
@@ -44,14 +44,14 @@
                                  guests   :: Number)
                        end}
 Once the Party structure is defined, you have access to new pieces of code: a function to make a Party, and three @vocab{dot-accessors} to get the location, theme, and number of guests out of the Party. 
-@activity{@itemlist[@item{What is the @vocab{Name} of the function that creates a Party?}
+@activity[#:forevidence (list "F-IF.1-3&1&1" "BS-DS.1&1&1" "BS-DS.1&1&2" "BS-DS.1&1&3" "BS-DS.1&1&4" "BS-DS.1&1&5")]{@itemlist[@item{What is the @vocab{Name} of the function that creates a Party?}
                                                   @item{What is the function's @vocab{Domain}? (What kinds of things are part of a Party?)}
                                                   @item{What is the @vocab{Range} of this function?}
                                                   @item{On @worksheet-link[#:page 13 #:name "Data Structures"], use the constructor function to define two new Parties of your own.}
                                                   @item{Right below your new Parties, list how you would access the fields of @code{party2}. How would you get the location out of @code{party2}? (Think about how you got the model or color out of a Car.)}]}}
                         @teacher{}}
                  
-                 @point{@student{@activity{@itemlist[@item{Open the @editor-link[#:public-id "0B9rKDmABYlJVUUt1SUc5UnVsdm8" "Party Planner"] file. Take a look at the first four lines in the definitions area. Do they match what you have written in your workbook for the data definition of @code{Party}?} 
+                 @point{@student{@activity[#:forevidence (list "BS-IDE&1&1" "BS-PL.1&1&1" "BS-DS.1&1&4")]{@itemlist[@item{Open the @editor-link[#:public-id "0B9rKDmABYlJVUUt1SUc5UnVsdm8" "Party Planner"] file. Take a look at the first four lines in the definitions area. Do they match what you have written in your workbook for the data definition of @code{Party}?} 
                                                       @item{Now define two new Party structures of your own. No matter what party you're planning, make sure that your party has the right inputs in the right order.}]
                                             }
                                   }
@@ -66,7 +66,7 @@ Once the Party structure is defined, you have access to new pieces of code: a fu
         #:learning-objectives @itemlist[@item{Students will write complex functions that consume, modify and produce structures}]
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[@item{Students will write functions that access fields of a Cake, and produce new Cakes}]
-        #:standards (list)
+        #:standards (list "7.EE.1-2" "F-IF.1-3" "A-CED.1-4" "BS-DR.1" "BS-DR.2" "BS-DR.3" "BS-DR.4" "BS-DS.1")
         #:materials @itemlist[@item{The  @editor-link[#:public-id "0B9rKDmABYlJVU2lINzk1X0x2ODg" "Bakery"] file used in the previous unit}]
         #:preparation @itemlist[]
         #:pacings (list 
@@ -77,17 +77,15 @@ Once the Party structure is defined, you have access to new pieces of code: a fu
       
       ]{
         @points[@point{@student{In the last lesson you learned about a new data structure, called a Cake. 
-                                @activity{@itemlist[@item{What is a Cake? What information is part of a Cake structure?}
+                                @activity[#:forevidence (list "BS-DS.1&1&1" "BS-DS.1&1&2" "BS-DS.1&1&3")]{@itemlist[@item{What is a Cake? What information is part of a Cake structure?}
                                                      @item{What function creates a Cake?}
                                                      @item{How do you get the flavor out of a Cake? The message? The color?}]}
                                 As part of running a bakery, we'll take orders for Cakes and bake them to the customers specifications. Let's figure out how to write functions to help us do that.}
                         @teacher{}}
                  
-                 @point{@student{@activity{Turn to @worksheet-link[#:page 14 #:name "change-flavor"] in your workbooks. Write a function called @code{change-flavor}, which takes in a Cake and a flavor, and returns a new Cake that is mostly the same as the original, but is now the given flavor.
-                                                   @itemlist[@item{What is the domain for this function? We'll need to know which Cake we're taking in 
-                                                                   AND what flavor it should be.}
-                                                              @item{What do you think our bakery is going to give back? What would be the range of 
-                                                                    @code{change-flavor}?}]}
+                 @point{@student{@activity[#:forevidence (list "F-IF.1-3&1&1" "BS-DR.1&1&1" "BS-DS.2&1&1")]{Turn to @worksheet-link[#:page 14 #:name "change-flavor"] in your workbooks. Write a function called @code{change-flavor}, which takes in a Cake and a flavor, and returns a new Cake that is mostly the same as the original, but is now the given flavor.
+                                                   @itemlist[@item{What is the domain for this function? We'll need to know which Cake we're taking in AND what flavor it should be.}
+                                                             @item{What do you think our bakery is going to give back? What would be the range of @code{change-flavor}?}]}
                @code[#:multi-line #t]{
 # change-flavor: Cake String -> Cake:
 # consumes a Cake and produces a Cake that is the same as the original, but has the given flavor.}
@@ -107,7 +105,7 @@ Once the Party structure is defined, you have access to new pieces of code: a fu
                                change-flavor(cake1, "strawberry") is cake("strawberry",
                                                                              ...)
                            end}
-                                @activity{@itemlist[@item{We also know what color this Cake should be: the same as the given Cake! So how could you access JUST the color of @code{cake1} and use it in the @code{cake} function? Use the dot-accessor!
+                                @activity[#:forevidence (list "BS-DS.1&1&5")]{@itemlist[@item{We also know what color this Cake should be: the same as the given Cake! So how could you access JUST the color of @code{cake1} and use it in the @code{cake} function? Use the dot-accessor!
                                                          The message of the cake doesn't change, either. So how do you get the message out of @code{cake1}?}
                                                      @item{The number of layers shouldn't change if you change the flavor. How do you get the layers out of @code{cake1?}}]}
                                 Don't forget the last field in the Cake struct: @code{is-iceCream}! The purpose statement for @code{change-flavor} doesn't say anything about the inside make-up of the Cake
@@ -123,8 +121,8 @@ Once the Party structure is defined, you have access to new pieces of code: a fu
                          @teacher{Remind students that the arguments to each function in Pyret @italic{must} be separated by commas. This wasn't necessary in Racket, but they 
                                                                                                will receive error messages if they don't use commas correctly in Pyret code.}}
                  
-                 @point{@student{@activity{@itemlist[@item{Write one more example for the function @code{change-flavor}, this time using it to make @code{cake2} a vanilla cake.} 
-                                                      @item{ Next, circle and label what changes between the two examples. How many variables will this function need? Then write the definition, using your examples to help you.}]}
+                 @point{@student{@activity[#:forevidence (list "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.4&1&1" "BS-DR.4&1&2")]{@itemlist[@item{Write one more example for the function @code{change-flavor}, this time using it to make @code{cake2} a vanilla cake.} 
+                                                      @item{Next, circle and label what changes between the two examples. How many variables will this function need? Then write the definition, using your examples to help you.}]}
                         
                                   After replacing the changing things with variables, your definition should look similar to: 
                                   @code[#:multi-line #t]{fun change-flavor(a-cake, new-flavor):
@@ -139,7 +137,7 @@ Once the Party structure is defined, you have access to new pieces of code: a fu
                                                                  have quotes around it. Values evaluate to themselves, so the string "new-flavor" cannot evaluate to anything other than "new-flavor".
                                                                  If we want new-flavor to be a variable, or shortcut for "strawberry", "vanilla", "chocolate", etc. it must be written WITHOUT quotation marks.}}
                  
-                 @point{@student{@activity{Turn to @worksheet-link[#:page 15 #:name "will-melt"] in your workbooks. Your bakery needs to know if certain Cakes need to be refrigerated. If the temperature is greater than 32 degrees AND the given cake is an ice cream cake, the function should return true. 
+                 @point{@student{@activity[#:forevidence (list "7.EE.1-2&1&1" "A-CED.1-4&1&1" "BS-DR.1&1&1" "BS-DR.1&1&2" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1" "BS-DS.1&1&5")]{Turn to @worksheet-link[#:page 15 #:name "will-melt"] in your workbooks. Your bakery needs to know if certain Cakes need to be refrigerated. If the temperature is greater than 32 degrees AND the given cake is an ice cream cake, the function should return true. 
                                                    @itemlist[@item{Fill out the @vocab{Contract} and @vocab{Purpose Statement} for the function.}
                                                               @item{Write two examples for how one would use @code{will-melt}.}
                                                               @item{Circle and label what varies between those examples and label it with a @vocab{variable} name.}

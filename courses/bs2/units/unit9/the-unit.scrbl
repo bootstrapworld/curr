@@ -17,7 +17,7 @@
         #:learning-objectives @itemlist[]
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[]
-        #:standards (list)
+        #:standards (list "N-Q" "8.F.5" "A-SSE.1-2" "BS-M" "BS-DS.1")
         #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, design recipe, course calendar)}
                             @item{Editing environment (Pyret Editor)}
@@ -32,18 +32,19 @@
                 )
       ]{
         @points[@point{@student{Your games are really coming together! At this point you have the basic shell of your video game, along with basic animation. The next steps are things you've already programmed in your Ninja Cat game: keypresses, and a more complex version of @code{next-world}, like identifying the boundaries of your game screen, or adding randomization.
-@activity{Turn to @worksheet-link[#:page 36 #:name "Unit 9"] in your workbook. Choose which keys will control your game, and list them on the left-hand column of the table. Fill in the rest of the table by stating which part of the world will change in response to that key (be sure to use the dot-accessor!), and @italic{how} that part of th world will change. Will the player move by 10, or 20 pixels? Will the direction of the dange change?}} 
+@activity[#:forevidence (list "N-Q&1&1" "8.F.5&1&1" "A-SSE.1-2&1&1" "BS-M&1&1" "BS-DS.1&1&5")]{Turn to @worksheet-link[#:page 36 #:name "Unit 9"] in your workbook. Choose which keys will control your game, and list them on the left-hand column of the table. Fill in the rest of the table by stating which part of the world will change in response to that key (be sure to use the dot-accessor!), and @italic{how} that part of th world will change. Will the player move by 10, or 20 pixels? Will the direction of the dange change?}} 
                        @teacher{Make sure students are specific in this activity: Have them identify the dot-accessor they'll need to use to change the world structure, and exactly how their world will change. This will make the next step much easier.}}
            ]
          }
-                               
-          @lesson/studteach[#:title "Keypresses in Your Game"
+       
+       
+@lesson/studteach[#:title "Keypresses in Your Game"
         #:duration "35 minutes"
         #:overview ""
         #:learning-objectives @itemlist[@item{Using conditionals, students will write a function to handle different keypresses in their game.}]
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[]
-        #:standards (list)
+        #:standards (list "N-Q" "8.F.1-3" "F-IF.1-3" "F-LE.5" "A-SSE.1-2" "BS-M" "BS-IDE" "BS-PL.2" "BS-PL.3" "BS-PL.4" "BS-DR.1" "BS-DR.2" "BS-DR.3" "BS-DR.4" "BS-DS.1" "BS-W")
         #:materials @itemlist[]
         #:preparation @itemlist[@item{}]
         #:pacings (list 
@@ -53,7 +54,7 @@
                 )
       ]{
         @points[@point{@student{Now it's time to program YOUR game to respond to keypresses. 
-                                @activity{Turn to @worksheet-link[#:page 37 #:name "Keypress-in-Game"] in your workbook. Choose 3 keys will control your game, and go through the Design Recipe: Write test cases for what should happen to @code{worldA} depending on which key was pressed. Then define your function. Once you've completed the Design Recipe, type everything into your games.}
+                                @activity[#:forevidence (list "N-Q&1&1" "8.F.1-3&1&1" "F-IF.1-3&1&1" "F-LE.5&1&1" "A-SSE.1-2&1&1" "BS-M&1&1" "BS-IDE&1&1" "BS-PL.2&1&1" "BS-PL.3&1&2" "BS-PL.3&1&3" "BS-PL.4&1&1" "BS-DR.1&1&1" "BS-DR.1&1&2" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1" "BS-DR.4&1&1" "BS-DR.4&1&2" "BS-DR.4&1&3" "BS-DS.1&1&5" "BS-W&1&5")]{Turn to @worksheet-link[#:page 37 #:name "Keypress-in-Game"] in your workbook. Choose 3 keys will control your game, and go through the Design Recipe: Write test cases for what should happen to @code{worldA} depending on which key was pressed. Then define your function. Once you've completed the Design Recipe, type everything into your games.}
 
 Of course, keypresses can do a lot more in a videogame than just move a character up and down. By using what your learned about Boolean functions, you can add more advanced movement. Here are some ideas:
 @itemlist[
@@ -79,7 +80,7 @@ Of course, keypresses can do a lot more in a videogame than just move a characte
         #:product-outcomes @itemlist[@item{Students will use @code{ask} in their next-world functions}
                                      @item{Students will identify circumstances in which the functions in their game should behave differently}
           @item{Students will define these circumstances - and the desired behavior - in code, as different @code{ask} branches}]
-        #:standards (list)
+        #:standards (list "N-Q" "7.EE.3-4" "F-IF.1-3" "F-LE.5" "A-SSE.1-2" "A-CED.1-4" "BS-M" "BS-PL.3" "BS-PL.4" "BS-DS.1")
         #:materials @itemlist[]
         #:preparation @itemlist[@item{}]
         #:pacings (list 
@@ -89,7 +90,7 @@ Of course, keypresses can do a lot more in a videogame than just move a characte
                 )
       ]{
         @points[@point{@student{Now to use what you know about boundary detection and apply it to your own game! 
-                                @activity{@itemlist[@item{Open your workbook to @worksheet-link[#:page 41 #:name "Test and Result"].}
+                                @activity[#:forevidence (list "N-Q&1&1" "7.EE.3-4&1&1" "F-IF.1-3&1&1" "F-LE.5&1&1" "A-SSE.1-2&1&1" "A-CED.1-4&1&1" "BS-M&1&1" "BS-PL.3&1&1" "BS-PL.3&1&3" "BS-PL.4&1&1" "BS-DS.1&1&5")]{@itemlist[@item{Open your workbook to @worksheet-link[#:page 41 #:name "Test and Result"].}
                                                     @item{Think about the things in your game that make the world change. Do characters fly off the left side of the screen? The right? The top or bottom? Do you need to  write an @code{off-top} function or @code{off-bottom}? Maybe something happens when the player achieves a high score, or the player's health reaches 0.}
                                                      @item{In the lefthand column of @worksheet-link[#:page 41 #:name "Test and Result"], make a list of the questions (in Pyret!) you will need to @code{ask} the world. For example, with the dog we said @code{is-off-right(current-world.dogX)} to ask if the dog was off the right side of the screen. On the right, figure out which world you need to make, if your question returns @code{true}.}]}}
                         @teacher{Some examples of game states students may want to test for: 
@@ -107,7 +108,7 @@ Of course, keypresses can do a lot more in a videogame than just move a characte
         #:learning-objectives @itemlist[]
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[]
-        #:standards (list)
+        #:standards (list "N-Q" "7.EE.3-4" "8.F.1-3" "F-IF.1-3" "F-LE.5" "A-SSE.1-2" "A-CED.1-4" "BS-M" "BS-PL.4" "BS-DR.2" "BS-DR.4" "BS-DS.1" "BS-W")
         #:materials @itemlist[]
         #:preparation @itemlist[@item{}]
         #:pacings (list 
@@ -117,7 +118,7 @@ Of course, keypresses can do a lot more in a videogame than just move a characte
                 )
       ]{
         @points[@point{@student{Think about the @code{ask} branches in Ninja World's @code{next-world} function. Remember that for each @code{ask}, we needed a test and a result. This is exactly what you've written in your workbook for your game. All you need to do now is reformat @italic{your} @code{next-world} function so that it uses @code{ask}, with your current code inside the @code{otherwise} clause.
-@activity{Adapt @code{next-world} so it becomes a @vocab{piecewise function}, and use at least one helper function on your list from @worksheet-link[#:page 41 #:name "Test and Result"].}}
+@activity[#:forevidence (list "N-Q&1&1" "7.EE.3-4&1&1" "8.F.1-3&1&1" "F-IF.1-3&1&1" "F-LE.5&1&1" "A-SSE.1-2&1&1" "A-CED.1-4&1&1" "BS-M&1&1" "BS-PL.4&1&1" "BS-DR.2&1&1" "BS-DR.4&1&1" "BS-DR.4&1&2" "BS-DR.4&1&3" "BS-DS.1&1&5" "BS-W&1&1" "BS-W&1&5")]{Adapt @code{next-world} so it becomes a @vocab{piecewise function}, and use at least one helper function on your list from @worksheet-link[#:page 41 #:name "Test and Result"].}}
                         @teacher{Work in pairs or small groups to assist students with their own @code{next-world} functions.}}
                  ]
        }

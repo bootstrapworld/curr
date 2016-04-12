@@ -15,7 +15,7 @@
         #:learning-objectives @itemlist[]
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[]
-        #:standards (list)
+        #:standards (list "N-Q" "8.F.1-3" "F-IF.1-3" "BS-M" "BS-PL.3" "BS-PL.4" "BS-DR.1" "BS-DR.2" "BS-DR.3")
         #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, design recipe, course calendar)}
                             @item{Editing environment (Pyret Editor)}
@@ -29,7 +29,7 @@
                 )
       ]{
         @points[@point{@student{In the last lesson you saw how @vocab{piecewise functions} work in Bootstrap:2, and learned about @code{ask} blocks, the Pyret syntax for writing them. To review, let's go through the Design Recipe for a piecewise function. 
-@activity{@itemlist[@item{Turn to @worksheet-link[#:page 22 #:name "Red-shape"] in your workbooks.}
+@activity[#:forevidence (list "N-Q&1&1" "N-Q&1&2" "8.F.1-3&1&1" "F-IF.1-3&1&1" "BS-M&1&1" "BS-PL.3&1&2" "BS-PL.3&1&3" "BS-PL.4&1&1" "BS-DR.1&1&1" "BS-DR.1&1&2" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1")]{@itemlist[@item{Turn to @worksheet-link[#:page 22 #:name "Red-shape"] in your workbooks.}
                     @item{With your partner, fill out the Design Recipe for the function @code{red-shape}.}]}
 @bold{Optional:} If you finish early, turn the page to @worksheet-link[#:page 23 #:name "Strong-Password"] and fill out the Design Recipe for the @code{strong-password} function.}
                         @teacher{Remind students that each @code{ask} statement must have a test and a result, and each function must contain an @code{otherwise:} statement, which will execute if every other test returns false.}}
@@ -44,7 +44,7 @@
                                          @item{Identify possible sub-domains which require different behavior of the function}]
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[]
-        #:standards (list)
+        #:standards (list "N-Q" "5.OA.1-2" "7.EE.3-4" "8.F.1-3" "F-IF.1-3" "F-LE.5" "A-SSE.1-2" "A-CED.1-4" "BS-PL.2" "BS-PL.3" "BS-PL.4" "BS-DR.1" "BS-DR.2" "BS-DR.3" "BS-DR.4" "BS-W")
         #:materials @itemlist[@item{The @editor-link[#:public-id "0B9rKDmABYlJVM2tUSFNTc21xOFU" "Ninja World"] file from the previous unit preloaded on students' machines}]
         #:preparation @itemlist[]
         #:pacings (list 
@@ -53,7 +53,7 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{@activity{@itemlist[@item{Open your @editor-link[#:public-id "0B9rKDmABYlJVM2tUSFNTc21xOFU" "Ninja World "] file from the last lesson.}
+        @points[@point{@student{@activity[#:forevidence (list "F-LE.5&1&1" "A-SSE.1-2&1&1" "A-SSE.1-2&1&3" "BS-W&1&1")]{@itemlist[@item{Open your @editor-link[#:public-id "0B9rKDmABYlJVM2tUSFNTc21xOFU" "Ninja World "] file from the last lesson.}
                                           @item{What is in the world structure?}
                                           @item{What does the @code{next-world} function do?}
                                           @item{What is @code{dogX} when the dog is in the center of the screen? According to the code, what will the next @code{dogX} be?}
@@ -62,7 +62,7 @@
                                  Right now the dog disappears off the side of the screen and never comes back. It's time to fix that.}
                         @teacher{Be sure to give students lots of positive reinforcement at this point - the game is really taking shape!}
                         }
-                 @point{@student{Just as in Bootstrap:1, we need to write a function that checks whether the danger, the dog, has gone off the right side of the screen. First, let's review a few things: @activity{@itemlist[@item{@code{true} and @code{false} are examples of what @vocab{Data Type}?}
+                 @point{@student{Just as in Bootstrap:1, we need to write a function that checks whether the danger, the dog, has gone off the right side of the screen. First, let's review a few things: @activity[#:forevidence (list "8.F.1-3&1&1" "BS-PL.2&1&1")]{@itemlist[@item{@code{true} and @code{false} are examples of what @vocab{Data Type}?}
                             @item{What function takes two numbers and checks if the first number is @italic{greater than} the second?}
                             @item{What function checks if a number is @italic{less than} another?}
                             @item{What function checks if two numbers are @italic{equal}?}]}
@@ -73,7 +73,7 @@ Here is the contract for the greater than function:
                         @teacher{Review Booleans and Boolean functions, including @code{>}, @code{<}, @code{=}, @code{and}, and @code{or}. Make sure students copy the contracts into their workbook.}}
                  
                  @point{@student{To make testing and writing code much easier, programmers will often write seperate functions to test various game possibilities. In our Ninja World game, we're going to write a function @code{is-off-right} to test whether the dog has gone off the right side of the screen.
-@activity{@itemlist[@item{Turn to @worksheet-link[#:page 24 #:name "Boundary Checks"] in your workbook.}
+@activity[#:forevidence (list "N-Q&1&1" "8.F.1-3&1&1" "F-IF.1-3&1&1" "BS-DR.1&1&1" "BS-DR.1&1&2")]{@itemlist[@item{Turn to @worksheet-link[#:page 24 #:name "Boundary Checks"] in your workbook.}
                     @item{What is the name of the first function on this page?}
                     @item{@code{is-off-right} will return @code{true} if our dog goes off the right side of the screen. How large can the x-coordinate be before a character goes off the screen? (Remember that a character's coordinates are measured from the center of the image, so it's best to give a buffer so that the character dissappears completely before it is considered "off the screen".)}
                     @item{Write the @vocab{Contract} for this function.}]}
@@ -86,11 +86,11 @@ Here is the contract for the greater than function:
                                  @code[#:multi-line #true]{examples:
                                            is-off-right(320) is 320 > 690
                                        end}
-                                 @activity{Write another example for a coordinate that is off the screen on the right side, circle what changes, and write your function definition.}}
+                                 @activity[#:forevidence (list "5.OA.1-2&1&1" "7.EE.3-4&1&1" "A-CED.1-4&1&1" "BS-PL.3&1&2" "BS-PL.3&1&3" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1")]{Write another example for a coordinate that is off the screen on the right side, circle what changes, and write your function definition.}}
                          @teacher{Remind students about Sam the butterfly from Bootstrap:1. This function does the same thing as @code{safe-right?}, to determine whether the character has gone off the screen based on its x-coordinate. Ensure that students are using the full name of @code{is-off-right}.}}
                  
                  @point{@student{You now have a function to check whether an object has run off the right side of the screen. But think about Ninja World: if the coin is moving to the left, do you care whether the coin goes off the right side? 
-                                 @activity{@itemlist[@item{Complete the design recipe for @code{is-off-left} on @worksheet-link[#:page 24 #:name "Boundary Checks"]. Instead of checking if a number is greater than 640, what will you need to check?}
+                                 @activity[#:forevidence (list "N-Q&1&1" "5.OA.1-2&1&1" "7.EE.3-4&1&1" "A-CED.1-4&1&1" "BS-PL.3&1&2" "BS-PL.3&1&3" "BS-DR.1&1&1" "BS-DR.1&1&2" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1")]{@itemlist[@item{Complete the design recipe for @code{is-off-left} on @worksheet-link[#:page 24 #:name "Boundary Checks"]. Instead of checking if a number is greater than 640, what will you need to check?}
                                                      @item{When finished, copy your functions into your @editor-link[#:public-id "0B9rKDmABYlJVeFBBU2tHc0hDTlk" "Ninja World"] file, underneath your @code{keypress} function.}]}}
                          @teacher{}}
                  @point{@student{Now we have a way to check whether something has gone off the right OR the left of the screen, but we still haven't told the game what to do when it does. In Ninja World, after the dog goes off the right side of the screen, he should reappear on the left-hand side. 
@@ -100,7 +100,7 @@ Here is the contract for the greater than function:
                  
                  @point{@student{@activity{Think about the first condition. What is the test that tells you if a number is greater than 690?}
                                   You could use the greater than function(@code{>}) and compare two numbers like you did to figure out if the cat was standing on the ground, but you've already written a function that takes in only one number and tells you whether or not it is greater than 690! @code{is-off-right} @italic{does the work for you}. But how would you determine whether or not the dog is off the right? You'll need to pull the dog's x-coordinate out of the world... 
-                                  @activity{@itemlist[@item{What accessor do we use for that?}
+                                  @activity[#:forevidence (list "F-LE.5&1&1" "A-SSE.1-2&1&1" "BS-PL.4&1&1" "BS-DS.1&1&5")]{@itemlist[@item{What accessor do we use for that?}
                                                        @item{So what will the input to @code{is-off-right} be?}
                                                        @item{Add this to your @code{next-world} function:}]}
 @code[#:multi-line #t]{fun next-world(current-world):
@@ -125,7 +125,7 @@ end}}
       world(current-world.dogX + 10, current-world.coinX - 5, current-world.catX, current-world.catY)
   end
 end}
-How should @code{dogX} change in this condition? We said we want to move the dog back to the left side of the screen. @activity{@itemlist[@item{What will the new value of @code{dogX} be, if it, moves back to the left side of the screen?}
+How should @code{dogX} change in this condition? We said we want to move the dog back to the left side of the screen. @activity[#:forevidence (list "F-LE.5&1&1" "A-SSE.1-2&1&1" "BS-PL.4&1&1" "BS-DS.1&1&5")]{@itemlist[@item{What will the new value of @code{dogX} be, if it, moves back to the left side of the screen?}
                                         @item{Does @code{coinX} change if the dog goes off the screen? How about @code{catX}? @code{catY?}}]}
  @code[#:multi-line #t]{fun next-world(current-world):
   ask:
@@ -139,7 +139,7 @@ How should @code{dogX} change in this condition? We said we want to move the dog
 end}}
                          @teacher{}}
                  @point{@student{Now it's time to think about the coin...
-                                  @activity{@itemlist[@item{Instead of checking if @code{coinX} was off the @bold{right} side of the screen, what do we need to check?}
+                                  @activity[#:forevidence (list "F-LE.5&1&1" "A-SSE.1-2&1&1" "BS-PL.4&1&1" "BS-DS.1&1&5")]{@itemlist[@item{Instead of checking if @code{coinX} was off the @bold{right} side of the screen, what do we need to check?}
                                                       @item{What function have you already written that checks if a number is less than 0?}
                                                       @item{How does @code{next-world} need to change? What will the second @code{ask} branch look like?}
                                                       @item{Finish the code for @code{next-world} so that it also checks whether the coin has gone off the left-hand side of the screen.}]}
@@ -168,7 +168,7 @@ end}
         #:learning-objectives @itemlist[]
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[@item{Students will use the random function to make game characters appear at different loations on the screen}]
-        #:standards (list)
+        #:standards (list "F-IF.1-3" "7.EE.3-4" "A-CED.1-4" "BS-M" "BS-IDE" "BS-PL.2" "BS-PL.4" "BS-DR.4" "BS-DS.1" "BS-DS.2" "BS-W")
         #:materials @itemlist[]
         #:preparation @itemlist[@item{}]
         #:pacings (list 
@@ -177,19 +177,19 @@ end}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Right now the coin and dog appear at the same part of the screen every time, making this a really easy game. @activity{What will the y-coordinate of the dog always be? What about the coin?} Instead of appearing at the top of the screen every time, what if you could make the dog show up at a random y-coordinate whenever it goes off the screen? Pyret already has a function to give you a random number, which could represent a character's y-coordinate: @code{num-random}. @code{num-random} takes in one number as its domain, and returns a random number between 0 and that number. So if a game contains @code{num-random(480)} in the code, it will return any number between 1 and 480. @activity{Copy the contract for @code{num-random} onto your contracts page. @code{num-random: Number -> Number}}}
+        @points[@point{@student{Right now the coin and dog appear at the same part of the screen every time, making this a really easy game. @activity{What will the y-coordinate of the dog always be? What about the coin?} Instead of appearing at the top of the screen every time, what if you could make the dog show up at a random y-coordinate whenever it goes off the screen? Pyret already has a function to give you a random number, which could represent a character's y-coordinate: @code{num-random}. @code{num-random} takes in one number as its domain, and returns a random number between 0 and that number. So if a game contains @code{num-random(480)} in the code, it will return any number between 1 and 480. @activity[#:forevidence (list "F-IF.1-3&1&1" "BS-PL.2&1&1")]{Copy the contract for @code{num-random} onto your contracts page. @code{num-random: Number -> Number}}}
                         @teacher{}}
-                 @point{@student{If you want the y-coordinate of the dog to change, you'll have to add it to the World structure. @activity{Go back to the top of the page where the World is defined and add in a @code{dogY}. Don't forget to redefine your @code{worldA} and @code{worldB} worlds, to account for the extra item in the World struct.}
+                 @point{@student{If you want the y-coordinate of the dog to change, you'll have to add it to the World structure. @activity[#:forevidence (list "BS-DS.2&1&3")]{Go back to the top of the page where the World is defined and add in a @code{dogY}. Don't forget to redefine your @code{worldA} and @code{worldB} worlds, to account for the extra item in the World struct.}
            @code[#:multi-line #t]{data World:
                                     # The World is the x and y positions of the dog, x position of the coin, and the x and y position of the cat
                                     | world(dogX :: Number, dogY :: Number, coinX :: Number, catX :: Number, catY :: Number)
                                   end}
-                                 Right now the @code{draw-world} function draws the dog at its current x-coordinate, and a pre-set y-coordinate. @activity{@itemlist[@item{At what y-coordinate is the dog drawn right now?}
+                                 Right now the @code{draw-world} function draws the dog at its current x-coordinate, and a pre-set y-coordinate. @activity[#:forevidence (list "BS-M&1&1" "BS-IDE&1&1" "BS-DS.1&1&5" "BS-W&1&2")]{@itemlist[@item{At what y-coordinate is the dog drawn right now?}
                                                       @item{Now that @code{dogY} has been added to the world structure, how do you get the @code{dogY} out of the world?}
                                                       @item{Change the @code{draw-world} function so that it draws the dog at the current y-coordinate instead of 400.}]}}
                          @teacher{}}
                  @point{@student{The dog's y-coordinate should change when it leaves the screen. 
-                                 @activity{@itemlist[@item{What function changes the game state depending on the game's conditions?}
+                                 @activity[#:forevidence (list "7.EE.3-4&1&1" "A-CED.1-4&1&1" "BS-M&1&1" "BS-PL.4&1&1" "BS-DR.4&1&1" "BS-W&1&1")]{@itemlist[@item{What function changes the game state depending on the game's conditions?}
                                                       @item{What does the first @code{ask} branch in @code{next-world} test?}
                                                       @item{If this test returns @code{true}, what happens?}
                                                       @item{Change the first @code{ask} branch in @code{next-world} so that if the dog goes off the right side of the screen, his y-coordinate is resent to a random number between 0 and 480.}]}
