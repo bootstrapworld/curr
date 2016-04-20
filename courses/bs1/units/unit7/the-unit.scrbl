@@ -67,7 +67,7 @@
                                                 [(string=? topping "pepperoni") 10.50]
                                                 [(string=? topping "chicken")   11.25]
                                                 [(string=? topping "broccoli")  10.25]
-                                                [else 00.00]))}}
+                                                [else "That's not on the menu!"]))}}
              @teacher{[@(hyperlink "https://www.youtube.com/watch?v=joF6lOgCN14" "Video")]}
              }
      @point{@student{Up to now, all of the functions you've seen have done the @italic{same thing} to their inputs:
@@ -84,7 +84,8 @@
      @point{@student{The @code{cost} function is special, because different toppings can result in totally different expressions being evaluated. 
                      If you were to circle everything that changes in the example, you would have the toppings circles @italic{and the price}. 
                      That's two changeable things, but the Domain of the function only has one thing in it - therefore, we can't have two variables.}
-            @teacher{}
+            @teacher{Have students refer back to prior Design Recipe pages - it is @bold{essential} that they realize
+                     that this is a fundamentally new situation, which will require a new technique in the Design Recipe!}
            }
      @point{@student{Of course, @code{price} isn't really an independent variable, since the price depends entirely on the @code{topping}. 
                      For example: if the topping is @code{"cheese"} the function will simply produce @code{9.00}, if the topping is 
@@ -109,7 +110,7 @@
                               topping, and see what happens.
                               }
                     }
-             @teacher{@code{Else} clauses are best used as a catch-all for cases that you can't otherwise enumerate.  If you can state a precise question
+             @teacher{@code{else} clauses are best used as a catch-all for cases that you can't otherwise enumerate.  If you can state a precise question
                        for a clause, write the precise question instead of @code{else}.  For example, if you have a function that does different things 
                        depending on whether some variable @code{x} is larger than @code{5}, it is better for beginners to write the two questions 
                        @code{(> x 5)} and @code{(<= x 5)} rather than have the second question be @code{else}.  Explicit questions make it easier to 
@@ -120,6 +121,16 @@
                      player to move one way if you hit the "up" key, and another way if you hit the "down" key. Moving up and moving down need two
                      different expressions!  Without @code{cond}, you could only write a function that always moves the player up, or always moves it
                      down, but not both.}
+            @teacher{}
+           }
+     @point{@student{Right now the @code{else} clause produces a String, even though the Range of the function is Number. Do you think this is a problem? 
+                     Why or why not? As human beings, having output that breaks that contract might not be a problem: we know that the functions will
+                     produce the cost of a pizza or an error message. But what if the output of this code didn't go to humans at all? What if we want to use
+                     this function from within some other code? Is it possible that @italic{that} code might get confused? To find out, uncomment the last 
+                     line of the program @code{(start cost} by removing the semicolon. When you click "Run", the simulator will use @code{cost} function
+                     to run the cash register. See what happens if you order off the menu!
+                     @activity{To fix this, let's change the @code{else} clause to return a really high price. After all, if the customer is willing to pay
+                      a million bucks, Luigi will make whatever pizza they want!}}
             @teacher{}
            }
    ]}
