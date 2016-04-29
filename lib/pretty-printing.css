@@ -9,6 +9,7 @@ div.codesexp, div.circleevalsexp, .editbox, .cm-s-scheme {
   clear:      both;
 }
 
+div.codesexp .expression {position: relative;}
 
 /*******************************************
   PrettyPrint Structured Output
@@ -26,8 +27,20 @@ div.codesexp *, .replOutput > * {float: left; padding-left: 10px;}
 div.codesexp .lParen,   .replOutput .lParen,
 div.codesexp .rParen,   .replOutput .rParen,
 div.codesexp .lParen+*, .replOutput .lParen+*{
-padding-left: 0px; clear: none;
+  padding-left: 0px; clear: none;
 }
+
+
+/* The rParen after a wrapped expression should be aligned to the bottom-right
+   of that expression, pushed over by 1em */
+.wrapped{padding-right: 1em;}
+.wrapped .rParen{
+ position: absolute;
+ bottom: 0px;
+ right: 0px;
+ vertical-align: bottom;
+}
+
 
 /* for IE, in which Canvases actually have children */
 canvas.replOutput * {padding-left: 0px; clear: none;}
