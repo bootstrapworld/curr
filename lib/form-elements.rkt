@@ -95,6 +95,7 @@
          teacher
          itemlist/splicing ;; need because bs1 teachers-guide.scrbl using it (still in old lesson format)
          activity
+         csp-activity
          unit-descr
          main-contents
          
@@ -218,10 +219,12 @@
    (hyperlink "mailto:schanzer@BootstrapWorld.org" "schanzer@BootstrapWorld.org") "."))
 
 ;; activities that are interspersed into the notes
-(define (activity #:forevidence (evidence #f) 
-                  #:answer (answer #f)
-                  #:show-answer? (show-answer? #f)
-                  . body)
+;; the style-tag argument is the html tag (string) for the div
+(define (styled-activity #:forevidence (evidence #f) 
+                         #:answer (answer #f)
+                         #:show-answer? (show-answer? #f)
+                         style-tag
+                         . body)
   (traverse-block
    (lambda (get set!)
      ;; first, check that evidence tags on activity are valid
@@ -233,8 +236,30 @@
                                                   result-rest)))
                                      '() evidlist)])
          (when evidence (set! 'activity-evid (append checked-evidlist (get 'activity-evid '()))))
-         (nested #:style (bootstrap-div-style "activity")
+         (nested #:style (bootstrap-div-style style-tag)
                  (interleave-parbreaks/select body))))))
+
+;; activities that are interspersed into the notes, tagged as a generic activity
+(define (activity #:forevidence (evidence #f) 
+                  #:answer (answer #f)
+                  #:show-answer? (show-answer? #f)
+                  . body)
+  (apply styled-activity #:forevidence evidence
+                         #:answer answer
+                         #:show-answer? show-answer?
+                         "activity"
+                         body))
+
+;; activities that are interspersed into the notes, tagged as part of CS principles
+(define (csp-activity #:forevidence (evidence #f) 
+                      #:answer (answer #f)
+                      #:show-answer? (show-answer? #f)
+                      . body)
+  (apply styled-activity #:forevidence evidence
+                         #:answer answer
+                         #:show-answer? show-answer?
+                         "csp-activity"
+                         body))
   
 ;; language-table : list[list[elements]] -> table
 ;; produces table with the particular formatting for the Bootstrap language table
