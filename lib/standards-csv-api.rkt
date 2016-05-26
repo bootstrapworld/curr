@@ -135,11 +135,25 @@
                  std-tag))
          lobjs)))
 
-;; returns evidence statement for given std string and numeric labels for 
+;; takes a string and converts to a 1-based index ("A" -> 1, "B" -> 2, etc)
+;; Prints warning if string is other than a single capital letter 
+(define (cap-string->index-num str)
+  (if (= (string-length str) 1)
+      (let ([str-int (char->integer (string-ref str 0))])
+        (if (<= 65 str-int 90)
+            (- (char->integer (string-ref str 0)) 64)
+            (printf "WARNING: string for evidence index not a capital letter: ~a~n" str)))
+      (printf "WARNING: string for evidence index longer than 1 characeter: ~a~n" str)))
+
+;; returns evidence statement (string) for given std string and numeric labels for 
 ;;   learning objective and evidence statement
-(define (get-evid-statement std learnindex evidindex)
+;; NOTE: CSP uses capital letters to number evidence statements.  This code
+;;    therefore accepts a capital letter as the evidence index. 
+(define (get-evid-statement std learnindex evidindexorig)
   (let ([report-problem (lambda (msg) (printf "WARNING: get-evid-stmt: ~a~n" msg) #f)]
-        [lotree (get-learnobj-tree std)])
+        [lotree (get-learnobj-tree std)]
+        [evidindex (if (string? evidindexorig) (cap-string->index-num evidindexorig) evidindexorig)]
+        )
     (cond [(empty? lotree) #f] ;; if this happens, find-std/tag already reported unknown standard error
           [(not lotree) (report-problem (format "no learning objectives for standard ~a" std))]
           [(or (< learnindex 1) (> learnindex (length lotree))) 
@@ -147,6 +161,7 @@
           [(or (< evidindex 1) (> evidindex (length (second (list-ref lotree (sub1 learnindex)))))) 
            (report-problem (format "no evidence statement with index ~a for standard ~a and objective ~a" 
                                    evidindex std learnindex))]
+          ; if want to print the letter that goes with the statement, augment the following line
           [else (list-ref (second (list-ref lotree (sub1 learnindex))) (sub1 evidindex))])))
 
 (define (get-evid-statement/tag evidtag)
@@ -163,13 +178,13 @@
       (get-evid-statement/tag evidtag)))
 
 ;; an evidence tag has the form std&learnobj&evid, where learnobj and evid are numbers
-(define evidtag-regexp #rx"(.+)&([0-9]+)&([0-9]+)")
+(define evidtag-regexp #rx"(.+)&([0-9]+)&([0-9A-Z]+)")
 
 ;; returns values for the standard, learning objective number, and evidence number from a tag
 ;;   if the given string has the wrong format, returns #f
 (define (evidtag-data evidtagstr)
   (let ([data (regexp-match evidtag-regexp evidtagstr)])
-    (if data 
+    (if data
         (values (second data) (string->number (third data)) (string->number (fourth data)))
         (begin
           (printf "WARNING: malformed evidence tag ~a~n" evidtagstr)
