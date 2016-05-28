@@ -924,6 +924,7 @@
 ;; extract-lesson: module-path -> (listof block)
 ;; Extracts the lesson from the documentation portion, and also
 ;; registers the use in the current document.
+;; NOTE: currently assumes lesson placed within a file named index.html
 (define (extract-lesson mp)
   (define lesson-name (lesson-module-path->lesson-name mp))
   (define a-doc (parameterize ([current-lesson-name lesson-name])
@@ -931,7 +932,14 @@
   
   (unless (part? a-doc)
     (error 'include-lesson "doc binding is not a part: ~e" a-doc))
-  (hash-set! (current-lesson-xref) lesson-name (list lesson-name (current-document-output-path)))
+  ;; the document-output-path uses the basename of the scrbl source file.
+  ;; Edited here to use index.html as the generated page name.  Will need a
+  ;;  new way to indicate when to use index.html vs the actual base name if
+  ;;  our infrastructures moves from the current "all lessons linked to directory
+  ;;  pages" organization.
+  (hash-set! (current-lesson-xref)
+             lesson-name
+             (list lesson-name (build-path (path-only (current-document-output-path)) "index.html")))
   
   ;; using rest in next line to eliminate an otherwise empty <p> block 
   ;;   that was getting inserted into each lesson
@@ -1243,8 +1251,7 @@
                               (simple-form-path unit-path)))
         (hyperlink #:style bootstrap-hyperlink-style
                    (string-append (path->string the-relative-path) "#" anchor)
-                   (if label label lesson-name))]
-       
+                   (if label label lesson-name))]       
        ;; If not, fail for now by producing a hyperlink that doesn't quite go to the right place.
        [else
         (fprintf (current-output-port) "Warning: could not find cross reference to ~a\n" lesson-name)
