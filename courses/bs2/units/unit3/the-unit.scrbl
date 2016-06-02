@@ -138,7 +138,7 @@ matters! Look at the order of the fields in the @code{define-struct} line. The f
                         @teacher{}}
                  
                  @point{@student{@activity{Open the @editor-link[#:public-id "zLYLPQ5d6K" "Party Planner"] file. Take a look at the first two 
-                                                    lines in the definitions window. Do they match what you have written?} 
+                                                    lines in the definitions area. Do they match what you have written?} 
                                  Now that the party struct is defined, you have access to four new functions: One to make a new party, and three @vocab{accessor functions}
                                  to get the location, theme, and number of guests out of the party. 
 @activity{Turn to your contracts sheet. @itemlist[@item{What is the @vocab{Name} of the function that @italic{makes a party?}}

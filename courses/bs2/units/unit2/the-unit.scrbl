@@ -252,7 +252,7 @@ end}
                 
                   @point{@student{You can see what your Cakes look like by calling the function provided at the bottom of the file. It's called @code{draw-cake}, and it takes a Cake as input and 
                                   gives you back an Image of your Cake.
-                                  @activity[#:forevidence (list "BS-IDE&1&1")]{In the interactions window, type @code{draw-cake(cake1)} and see what happens. Use the function with the Cakes YOU defined!} @bitmap{images/cake3.png}}
+                                  @activity[#:forevidence (list "BS-IDE&1&1")]{In the interactions area, type @code{draw-cake(cake1)} and see what happens. Use the function with the Cakes YOU defined!} @bitmap{images/cake3.png}}
                          @teacher{Students will spend lots of time "drawing" their Cakes. Encourage them to define some new Cakes, and to alter the color, message, layers, etc. to see their changes 
                                   reflected in the images. Don't forget to remind them to click "Run" after making any changes!}}
                   ]
@@ -277,7 +277,7 @@ end}
       ]{@points[
                 @point{@student{Suppose you want to get the flavor OUT of @code{cake4}. You don't care about the message, color, or anything else - you just want to 
                                 know the flavor. Pyret has syntax for that, called @code{.flavor}.
-                                @activity[#:forevidence (list "BS-IDE&1&1")]{If you type @code{cake4.flavor} into the interactions window, what should it evaluate to? Try it out! 
+                                @activity[#:forevidence (list "BS-IDE&1&1")]{If you type @code{cake4.flavor} into the interactions area, what should it evaluate to? Try it out! 
                                                       @itemlist[@item{What kind of thing did it return: A Number, String, Image, Boolean, or structure?}
                                                                  @item{Practice taking the flavor out of EVERY Cake you have defined, using @code{.flavor}}]}
                     
