@@ -108,7 +108,7 @@
 ;; variable
 (putenv "AUDIENCE" "teacher")
 (putenv "CURRENT-SOLUTIONS-MODE" "off")
-(putenv "TARGET-LANG" "racket")
+(putenv "TARGET-LANG" "pyret")
 (putenv "BUILD-FOR" "bootstrap")
 (define current-contextual-tags
   (command-line
@@ -129,7 +129,7 @@
    [("--deploy") -deploy-dir "Deploy into the given directory, and create a .zip.  Default: deploy" 
     (current-deployment-dir (simple-form-path -deploy-dir))]
    [("--lang") -lang "Indicate which language (Racket or Pyret) to generate"
-    (putenv "TARGETLANG" -lang)]
+    (putenv "TARGET-LANG" -lang)]
    [("--pdf") "Generate PDF documentation"
     (current-generate-pdf? #t)]
    [("--buildfor") -buildfor "Indicate bootstrap or codeorg"
@@ -457,20 +457,21 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Main entry point:
 (make-fresh-deployment-and-copy-static-pages)
-(define bootstrap-courses '("bs1" "bs2"))
+(define bootstrap-courses '("bs2"))  ; omitted bs1 for pyret-bs2 branch
 ;; remove next line if ever want to generate links to web docs instead of PDF
 (putenv "WORKSHEET-LINKS-TO-PDF" "true")
 (solutions-mode-off)
-(build-exercise-handouts)
-(workbook-styling-on)
-(build-extra-pdf-exercises)
+;(build-exercise-handouts) ; not needed for bs2
+;(workbook-styling-on)
+;(build-extra-pdf-exercises) ; not needed for bs2
 (textbook-styling-on)
 (for ([course (in-list bootstrap-courses)])
   (parameterize ([current-course course])
     (update-resource-paths)
     (build-course-units)
-    (build-resources)))  
-(create-distribution-lib)
+    ;(build-resources)
+    ))  
+(create-distribution-lib) ; turned off for bs2 for now -- was generating an error
 ;(build-lessons)
 ;(build-worksheets)
 ;(build-drills)

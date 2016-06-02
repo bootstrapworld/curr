@@ -47,6 +47,7 @@
 (define-runtime-path codemirror.css "codemirror.css")
 (define-runtime-path runmode.js "runmode.js")
 (define-runtime-path scheme2.js "scheme2.js")
+(define-runtime-path pyret-mode.js "pyret-mode.js")
 (define-runtime-path bootstraplesson.js "bootstraplesson.js")
 (define-runtime-path extra_curriculum.css "extra_curriculum.css")
 (define-runtime-path workbook.css "workbook.css")
@@ -60,6 +61,7 @@
         (make-js-addition codemirror.js)
         (make-js-addition runmode.js)
         (make-js-addition scheme2.js)
+        (make-js-addition pyret-mode.js)
         (make-js-addition bootstraplesson.js)
         (make-js-addition mathjax-url)
         (cond [(audience-in? (list "student")) (make-css-style-addition cards.css)]

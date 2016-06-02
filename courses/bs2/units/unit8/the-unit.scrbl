@@ -1,67 +1,59 @@
 #lang curr/lib
 
-@title{Unit 8: Collision Detection}
-@declare-tags[management]
+@title{Unit 8: Building Your World}
+@declare-tags[]
 
-@unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sq sqrt expt}) 
+@unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / num-sqr num-sqrt num-expt}) 
                                        (list "String" @code{string-append string-length})                          
                                        (list "Image" @code{rectangle circle triangle ellipse radial-star scale rotate put-image})
-                                       (list "Boolean" @code{= > < string=? and or}))]{   
-@unit-descr{Students return to the Pythagorean Theorem and distance formula they used in Bootstrap 1, this time with data structures and the full update-world function.}
+                                       (list "Boolean" @code{= > < string-equal and or}))]{   
+@unit-descr{After thinking about their own game World, students practice building, drawing, and animating it.}
 }
 @unit-lessons{
 @lesson/studteach[#:title "Introduction"
-        #:duration "5 minutes"
+        #:duration "15 minutes"
         #:overview ""
         #:learning-objectives @itemlist[]
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[]
-        #:standards (list)
+        #:standards (list "N-Q" "BS-M" "BS-IDE" "BS-PL.1" "BS-PL.3" "BS-DS.1" "BS-DS.2")
         #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, design recipe, course calendar)}
-                            @item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}
+                            @item{Editing environment (Pyret Editor)}
                             @item{Student workbooks}
-                            @item{Language Table}
-                            @item{Cutouts of Cat and Dog images}
-                            @item{Cutouts of Pythagorean Theorem packets [@(resource-link #:path "images/pythag1.png" #:label "1"), @(resource-link #:path "images/pythag2.png" #:label "2")] - 1 per cluster}
-                            @item{The Ninja World 5 file [NW5.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "hTE94bR2V5" "WeScheme"] preloaded on students' machines}]
-        #:preparation @itemlist[@item{Seating arrangements: ideally clusters of desks/tables}]
+                            @item{Language Table}]
+        #:preparation @itemlist[@item{Seating arrangements: ideally clusters of desks/tables}
+                                @item{The @editor-link[#:public-id "0B9rKDmABYlJVcDUyZkJmd3VlS00" "BS:2 blank game template"] preloaded on students' machines.}]
         #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Right now, in both Ninja World and your games, nothing happens when the player collides with another 
-                                game character. We need to write a function change that. This is going to require a 
-                                little math, but luckily it's exactly the same as it was in Bootstrap:1.
-                                @bitmap{images/numberline.png}                               
-                                @activity{@itemlist[@item{In the image above, how far apart are the cat and dog?}
-                                                     @item{If the cat was moved one space to the right, how far apart would they be?}
-                                                     @item{What if the cat and dog switched positions?}]}
-                                
-                                In one dimension, such as on a number line, finding the distance is pretty easy. If the characters 
-                                are on the same line, you just subtract one coordinate from another, and you have your distance. 
-                                However, if all we did was subtract the second number from the first, the function would only 
-                                work half the time!
+        @points[@point{@student{It's time to look at the World for @italic{your} game!
+                                 @activity{@itemlist[@item{Turn to @worksheet-link[#:page 31 #:name "Game Design"] in your workbook. What are the things in your world? What datatypes are they?}
+                                                     @item{Open the @editor-link[#:public-id "0B9rKDmABYlJVcDUyZkJmd3VlS00" "BS:2 blank game template"].}]}
+                                 In Bootstrap:1, you started with the shell of a game, with some sample images and functions defined. In this class the game template is just a collection of comments, telling you how to organize your functions and variables. You'll be writing @italic{every line} of code yourself. Let's begin: 
+                                 @activity[#:forevidence (list "N-Q&1&1" "BS-M&1&1" "BS-M&1&2" "BS-M&1&3" "BS-DS.1&1&4" "BS-DS.1&1&5"  "BS-DS.2&1&2")]{At the top of the file, where it says @code{# The World is a}, define the world structure for your game. (Check @worksheet-link[#:page 32 #:name "Game Design"] to jog your memory.) Once you have the world struct, scroll down to where it says @code{# STARTING WORLD} and define your first example world: name it @code{worldA}. On the next line, add @code{worldB}.}}
+                         @teacher{}}
 
-                                @activity{When the cat and dog were switched, did you still subtract the dog's position from the 
-                                          cat's, or subtract the cat's position from the dog's? Why?}}
-                        @teacher{Draw the number line on the board, with the cutouts of the cat and dog at the given positions.
-                                 Ask students to tell you the distance between them, and move the images accordingly. 
-                                 Having students act this out can also work well: draw a number line, have two students stand at different 
-                                 points on the line, using their arms or cutouts to give objects of different sizes. Move students along 
-                                 the number line until they touch, then compute the distance on the number line.}}
+                 @point{@student{So now you have your world, and you know what's in it: but what do those things look like? You'll have to add some images. We'll use the @code{image-url} function. It takes in the URL of any image online (given as a string), and returns that image. 
+                                 @code[#:multi-line #t]{# image-url : String -> Image}
+                                 @activity[#:forevidence (list "BS-M&1&1" "BS-M&1&3" "BS-IDE&1&1" "BS-PL.1&1&1" "BS-PL.3&1&3")]{@itemlist[@item{Look back at @worksheet-link[#:page 31 #:name "Game Design"] in your workbook. How many things in your game will need their own image?}
+                                                     @item{Using Google Image Search or a similar tool, find images for the background and for each of the characters in your game.}
+                                                     @item{Define new variables for your images, (i.e. @code{PLAYER-IMG}, @code{DANGER-IMG}, etc.) and use the @code{image-url} function to put them into your game file.}]}
+                                 Some hints for finding images: Your images should be in PNG or GIF format, and the url should contain the file type (i.e. .png or .gif) at the end. Background images should be 640x480, and character images should generally be no larger than 200px in either dimension. Make sure that the character images have transparent backgrounds! TIP: use animated GIFs for the characters - not only does the animation make the game look a lot better, but these images usually have transparent backgrounds to begin with.} 
+                        @teacher{You can find students' images ahead of before class to save time, and use the @code{image-url} function to put them into a blank game file for each pair of students.}}
                  ]
          }
 
-@lesson/studteach[#:title "1D Distance"
-        #:duration "10 minutes"
+@lesson/studteach[#:title "Drawing the World"
+        #:duration "35 minutes"
         #:overview ""
-        #:learning-objectives @itemlist[]
+        #:learning-objectives @itemlist[@item{Students will define draw-world, and hook it up to an event handler}]
         #:evidence-statements @itemlist[]
-        #:product-outcomes @itemlist[]
-        #:standards (list)
+        #:product-outcomes @itemlist[@item{Students write the @code{draw-world} function for their games}]
+        #:standards (list "N-Q" "8.F.1-3" "F-IF.1-3" "BS-M" "BS-IDE" "BS-PL.3" "BS-DR.1" "BS-DS.1" "BS-W")
         #:materials @itemlist[]
         #:preparation @itemlist[@item{}]
         #:pacings (list 
@@ -70,46 +62,13 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Distances cannot be negative, so we have to make sure we are always subtracting the smaller 
-                                number from the bigger one. If the characters are on the same plane, there are two conditions:
-                                if the first number is bigger, and the other is if the second is bigger.
-                                @activity{@itemlist[@item{What kind of function do we need, when we have multiple 
-                                                          @italic{conditions}?}
-                                                     @item{Turn to @worksheet-link[#:page 36 #:name "Design Recipe Line Length"].}
-                                                     @item{What is the Name of this function? Domain? Range?}
-                                                     @item{Write two examples for @code{line-length} so that it subtracts the 
-                                                           smaller number from the bigger one. Start with an example using 
-                                                           the numbers 23 and 5, then do a second example with 5 and 23 in 
-                                                           the @italic{other order}.}]}
-@code[#:multi-line #t]{(EXAMPLE (line-length 23 5) (- 23 5))
-                       (EXAMPLE (line-length 5 23) (- 23 5))}}
+        @points[@point{@student{Now that we have our world structure, we need to know how to draw it. @activity[#:forevidence (list "BS-W&1&2")]{Which function is used to draw the world?} Just like the @code{draw-world} function in Ninja World, @code{draw-world} takes in a structure and produces an Image. 
+    @activity[#:forevidence (list "N-Q&1&1" "8.F.1-3&1&1" "F-IF.1-3&1&1" "BS-M&1&1" "BS-DR.1&1&1" "BS-DR.1&1&2")]{@itemlist[@item{Turn to @worksheet-link[#:page 34 #:name "draw-world"] in your workbooks.}
+                        @item{What is the Domain of this function? The Range?}
+                        @item{At the top of @worksheet-link[#:page 34 #:name "draw-world"], write the contract, and fill in the function header for @code{draw-world}.}]}}
                         @teacher{}}
-                 @point{@student{Now we have an idea of the results for the @code{cond} statement, but a @code{cond} function also 
-                                needs Tests. We want to @italic{test} to see whether the first 
-                                number given to @code{line-length} is greater than the second number. 
-                                @activity{@itemlist[@item{How would you write that test in Racket code?}
-                                                     @item{And what would the result for that test be? If @code{a} is
-                                                           greater than @code{b}, which number would we subtract from 
-                                                           which?}
-                                                     @item{How could you include a test for wheather the two numbers are equal,
-                                                           @italic{without} adding a third @code{cond} branch?}
-                                                     @item{Write down the definition for @code{line-length}.}]}     
-@code[#:multi-line #t]{(define (line-length a b)
-                       (cond
-                       [(> a b) (- a b)]
-                       [(>= b a) (- b a)]))}}
-                        @teacher{It is possible to replace the second test with @code{else}, because there will only be two options:
-                                 @code{line-length} will either subtract @code{b} from @code{a}, or @code{a} from @code{b}. (If the 
-                                 numbers are equal, it doesn't matter which is subtracted.) However, having students write out the full 
-                                 test and result gets them thinking about what exactly is being tested in each branch of the function.
-                                 
-                                 It is possible to avoid using a conditional entirely by taking the absolute value of the difference 
-                                 (the function @code{abs} does this); if you are working with older students who already know about
-                                 absolute value you could show it. Using @code{cond}, however, emphasizes how code structure arises 
-                                 from examples.}}
-                 ]
-         }
 
+<<<<<<< HEAD
 @lesson/studteach[#:title "The Distance Formula"
         #:duration "20 minutes"
         #:overview ""
@@ -218,15 +177,43 @@
                                  @code{sqrt} in the correct places. }
                         }
                 ]
+=======
+                @point{@student{Below the function header, we've gotten you started by using @code{put-image}, just like in Ninja World. Do you remember the contract for @code{put-image}? It takes in an image, the coordinates for where to put the image, and another image, on top of which the first image is placed.
+@code[#:multi-line #t]{# put-image(Image, Number, Number, Image) -> Image
+                       # Places the first image at the given x and y-coordinates on top of the second image}
+                                        @activity[#:forevidence (list "BS-M&1&1" "BS-PL.3&1&1" "BS-DS.1&1&5" "BS-W&1&2")]{@itemlist[@item{Start out on the bottom of the page by putting one of your images onto the @code{BACKGROUND}.}
+                                                            @item{If you wanted the image to be centered on the scene, what are the x- and y-coordinates you'll need? (Hint: how big is your background image?)}
+                                                             @item{But you probably don't want your image to be at the center of the background. Look back at the sketches you made on @worksheet-link[#:page 31 #:name "Game Design"]. You made a note of which coordinates you wanted that image to be, placed on top of the background.}]}
+                                        Start with something that looks like this, substituting YOUR image and coordinates (or dot-accessors):
+@code[#:multi-line #t]{fun draw-world(current-world):
+                          ...
+                          ...
+                          ...
+                          put-image(IMAGE, 320, 240, BACKGROUND)
+                       end}
+Remember, if the position of these images will be changing (like the dog and coin moving across the screen in Ninja World), they won't always be placed at the same coordinates. Instead of using specific numbers in @code{put-image}, you can (and should!) use @vocab{dot-accessors} to access the coordinates of the characters in the world. Your own world struct will determine which dot-accessors you have available.
+
+Here is an example of using @code{draw-world} in our Ninja World game, using @code{worldA}:
+@code[#:multi-line #t]{draw-world(worldA) is put-image(NINJA-IMG, worldA.catX, worldA.catY,
+                                                put-image(COIN-IMG, worldA.coinX, 300,
+                                                    put-image(DOG-IMG, worldA.dogX, worldA.dogY,
+                                                        put-image(CLOUD-IMG, 500, 400, BACKGROUND-IMG))))}
+                                         @activity[#:forevidence (list "BS-M&1&1" "BS-IDE&1&1" "BS-IDE&1&2" "BS-PL.3&1&1" "BS-DS.1&1&5" "BS-W&1&2")]{@itemlist[@item{Place another one of your images on top of the one that your first @code{put-image} expression has created. (Remember: the range of @code{put-image} is an image, so you can use this expression as the image onto which you place your next character image.}
+                                                              @item{Keep adding to it, until you have a stack of all of the images in your game.}
+                                                              @item{When you finish, test out your function by typing @code{draw-world(worldA)} into the interactions area to see a screenshot of your game at the very beginning!}]}}
+
+                                @teacher{Work with small groups to complete this section. Remind students that the order of images determines which game images appear above the others. (e.g. - "Does it make more sense to have the coin appear to be flying @italic{behind} the cloud, or in front of it?") When students finish writing @code{draw-world}, have them type it into their games, in the @code{# GRAPHICS} section.}}
+                        ]
+>>>>>>> pyret-bs2
          }
-       
-@lesson/studteach[#:title "Collide?"
-        #:duration "10 minutes"
+
+@lesson/studteach[#:title "Updating the World"
+        #:duration "35 minutes"
         #:overview ""
-        #:learning-objectives @itemlist[]
+        #:learning-objectives @itemlist[@item{Students will define a simple next-world function, and hook it up to on-tick}]
         #:evidence-statements @itemlist[]
-        #:product-outcomes @itemlist[@item{Students will write the collide? function}]
-        #:standards (list)
+        #:product-outcomes @itemlist[@item{Students write the @code{next-world} function for their games}]
+        #:standards (list "N-Q" "7.EE.3-4" "F-LE.5" "8.F.1-3" "A-SSE.1-2" "BS-M" "BS-PL.3" "BS-DR.1" "BS-DR.2" "BS-DR.3" "BS-DR.4" "BS-DS.1" "BS-W")
         #:materials @itemlist[]
         #:preparation @itemlist[@item{}]
         #:pacings (list 
@@ -235,91 +222,28 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{So what do we want to do with this distance? 
-                                @activity{How close should your danger and your player be, before they hit 
-                                          each other?}
-                                At the top of @worksheet-link[#:page 39 #:name "collide"] you'll find the 
-                                Word Problem for @code{collide?}. 
-                                @activity{@itemlist[@item{Fill in the Contract, two EXAMPLES, and then write the
-                                                          code. Remember: you WILL need to make use of the 
-                                                          @code{distance} function you just wrote!}
-                                                     @item{When you're done, type it into your game, under
-                                                           @code{collide?}.}]}}
-                        @teacher{Using visual examples, ask students to guess the distance between a danger
-                                 and a player at different positions. How far apart do they need to be before
-                                 one has hit the other? 
-                                 @management{Make sure students understand what is going on by asking questions:
-                                             If the collision distance is small, does that mean the game is hard 
-                                             or easy? What would make it easier?}}
-                        }
+        @points[@point{@student{Scroll down until you see @code{# UPDATING FUNCTIONS}. This code is responsible for changing the World automatically. 
+                                @activity[#:forevidence (list "N-Q&1&1" "8.F.1-3&1&1" "BS-DR.1&1&1" "BS-W&1&1")]{What function should go here? What's in its Domain? Its Range?}
+                                As you know, @code{next-world} takes a world, and then returns a new one that's been updated:
+                                @code[#:multi-line #t]{next-world : World -> World}
+
+            @activity[#:forevidence (list "7.EE.3-4&1&1" "F-LE.5&1&1" "A-SSE.1-2&1&1" "BS-M&1&1" "BS-PL.3&1&2" "BS-DR.2&1&1" "BS-DR.4&1&1" "BS-DS.1&1&5" "BS-W&1&1")]{@itemlist[@item{Look back at your world structure. What changes? Which of those fields change @italic{on their own}, and not in response to any user actions (like keypresses)?}
+                                @item{On @worksheet-link[#:page 35 #:name "next-world"], make a list of what changed and how it changed as a purpose statement for writing @code{next-world}.}
+                                @item{Write an example for @code{next-world} using the @code{worldA} you defined. Since the Range of @code{next-world} is a World, we know that we'll need to create a world using the @code{world} function. Use dot-accessors to show how the world changes.}
+                                @item{Next, write one more example for @code{next-world} where you create a new world structure. What will your updated world look like?}]}
+            Here are some examples for @code{next-world}, from the simple version of Ninja World:
+            @code[#:multi-line #t]{examples:
+                                         next-world(worldA) is world(worldA.dogX + 10, worldA.coinX - 5)
+                                         next-world(worldB) is world(worldB.dogX + 10, worldB.coinX - 5)
+                                   end}
+            In the first example, we create a new World (using the @code{world} constructor function) by adding 10 to the @code{dogX} of @code{worldA}, and subtracting 5 from its @code{coinX}. 
+            In the second example, we do the same thing, only with @code{worldB}. 
+
+            @activity[#:forevidence (list "BS-DR.2&1&3" "BS-DR.3&1&1" "BS-DS.1&1&5" "BS-W&1&5")]{What changes between the two examples that @italic{you} wrote? Circle and label, then write the definition for your @code{next-world} function. Look back at its contract: what does the range tell you this function must return? A World!}
+            }
+
+                        @teacher{@code{next-world} is the function that will handle the logic of the student' games. It determines what changes from one second to the next, and updates the world accordingly. Make sure students are making a new world with @code{world}, and using their dot- accessors to change the value of each world field according to their game's behavior. This function will likely change drastically in the next few units (just like in Ninja World), and students start adding new functionality to their games. Work with small groups to complete this section as needed. When they are finished, have the students type @code{next-world} into their game files.}}
                  ]
-         }
-            
-@lesson/studteach[#:title "update-world"
-        #:duration "40 minutes"
-        #:overview ""
-        #:learning-objectives @itemlist[@item{Identify collision as yet another sub-domain which requires different behavior of the update-world function}]
-        #:evidence-statements @itemlist[]
-        #:product-outcomes @itemlist[@item{Students will use different Cond branches to identify collisions in their games}]
-        #:standards (list)
-        #:materials @itemlist[]
-        #:preparation @itemlist[@item{}]
-        #:pacings (list 
-                @pacing[#:type "remediation"]{@itemlist[@item{}]}
-                @pacing[#:type "misconception"]{@itemlist[@item{}]}
-                @pacing[#:type "challenge"]{@itemlist[@item{}]}
-                )
-      ]{
-        @points[@point{@student{Now that you have a function which will check whether something is colliding, 
-                                you can go back to modifying Ninja World.
-                                @activity{Out of the four major functions in the game (@code{update-world}, 
-                                          @code{draw-world}, @code{keypress}, and @code{big-bang}), which 
-                                          do you think you'll need to edit to handle collisions?}
-                                We'll need to make some more branches for @code{cond} in @code{update-world}. 
-                                What should happen when the cat collides with the dog? We want to put the dog 
-                                offscreen, so that he can come back to attack again.}
-                        @teacher{}}
-                 @point{@student{@activity{@itemlist[@item{Start with the test: how could you check whether the
-                                                          cat and dog are colliding? Have you written a function 
-                                                          to check that?}
-                                                     @item{What do the inputs need to be?}
-                                                     @item{How do you get the @code{catY} out of the world?}
-                                                     @item{What about the Cat's x-coordinate? She's always in the
-                                                           center of the screen, so what will her x-coordinate 
-                                                           always be?}
-                                                     @item{How do you get the @code{dogX} out of the world?} 
-                                                     @item{Is there a @code{dogY} in the world? Where in the 
-                                                           game can you look to get that number? (Hint: in which
-                                                           function do you @italic{draw} the images on the game 
-                                                           screen?)}]}
-@code[#:multi-line #t]{[(collide? 360 (world-catY w) (world-dogX w) 400) ...result...]}
-Remember that @code{update-world} gives back a world, so what function should come first in our result?
-@code[#:multi-line #t]{[(collide? 360 (world-catY w) (world-dogX w) 400) (make-world ...dogX...
-                                                                                     ...rubyX...
-			                                                             ...catY...)]}
-                                @activity{And what should happen when the cat and dog collide? Can you think of a 
-                                          number that puts the dog off the screen on the left side?}
-             @code[#:multi-line #t]{[(collide? 360 (world-catY w) (world-dogX w) 400) (make-world -100
-					                                                          ...rubyX...
-					                                                          ...catY...)]}
-                                @activity{Does the @code{rubyX} change when the dog and cat collide? How about 
-                                          @code{catY}? How do you get each of those things out of the world?}
-             @code[#:multi-line #t]{[(collide? 360 (world-catY w) (world-dogX w) 400) (make-world -100
-					                                                          (world-rubyX w)
-					                                                          (world-catY w))]}}
-                        @teacher{Collision detection must be part of the @code{update-world} function because the
-                                 game should be checking for a collision @italic{every time} the world is updated. Students may
-                                 assume that @code{draw-world} should handle collision detection, but point out that the
-                                 Range of @code{draw-world} is an Image, and their function must return a new world in order to
-                                 set the locations of the characters after a collision.}}
-                 
-                 @point{@student{Now it's time to handle collisions in your game...
-                                 @activity{Turn to @worksheet-link[#:page 40 #:name "Collide-Examples"] and write 
-                                           some more tests and results. What characters in your game could collide 
-                                           with each other? What should happen as a result? When you have written 
-                                           each test and result down, type it into your game.}}
-                         @teacher{Work in small groups to complete collision branches.}}
-                ]
          }
 
 @lesson/studteach[#:title "Closing"
@@ -337,14 +261,10 @@ Remember that @code{update-world} gives back a world, so what function should co
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Congratulations! You've finished every lesson, and now it's up to you to make your 
-                                game even better. Take some time to brainstorm...what else do you want your game to 
-                                do? Next unit you can add even more things, so that your games are even cooler.}
-                        @teacher{@management{Have students show each other their finished games, and start thinking about what 
-                                 features they want to add next!}}}
+        @points[@point{@student{Now you have the basic shell of your videogame, with your character images placed onto the background and moving! However, we still haven't written any functions to take input from the user. If you want the  player to move, you'll need to write a @code{keypress} function, and if you want something to happen when the players collide, you'll need to write @code{distance} and @code{is-collision} functions. The next few units are all about working on your own games, using everything you learned from writing Ninja Cat!}
+                               
+                       @teacher{Have students show each other their their animated games! At this point in the course students will have very different games and world structures. The Ninja World games serve as templates and guides for what students should be adding to their games at each step, but most will require more individual attention to make their unique games behave the way they want.}
+                       }
                  ]
          }
        }
-
-       
-   
