@@ -216,11 +216,11 @@
     (cond-element 
      [html (if multi-line 
                (elem (list (sxml->element 'nbsp) (sxml->element `(textarea (@ (class ,lang)) ,(string-append "\n" allcode "\n")))))
-<<<<<<< HEAD
-               (sxml->element `(tt ,allcode)))]               
-=======
+               ; next line is what was in the racket branch when we merged files.
+	       ; keeping it as a comment for now (6/3/16) in case we need to
+	       ; refer back to it to fix errors that pop up during build testing
+               ;(sxml->element `(tt ,allcode)))]               
                (sxml->element `(tt (@ (class ,lang)) ,allcode)))]               
->>>>>>> pyret-bs2
      [else allcode])))
 
 ;;; tailoring to pyret vs racket
