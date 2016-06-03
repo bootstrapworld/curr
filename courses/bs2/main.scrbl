@@ -11,18 +11,8 @@ Would you like to attend a Bootstrap Workshop? Check our
 
 We provide all of our materials @italic{free of charge}, to anyone who is interested in using our lesson plans or student workbooks.
 @(apply itemlist
-<<<<<<< HEAD
-        (append
-         (list 
-          @summary-item/links["Student Workbook" "resources/workbook/StudentWorkbook" #:label1 "PDF" #:ext1 "pdf" #:only-one-label? #t]{
-           The lesson plans linked below are tightly integrated into the Student Workbook, 
-           which should be used with the curriculum. A @bold{Teacher's Edition} is also available upon request. 
-           Please fill out a request using our @hyperlink["https://docs.google.com/a/bootstrapworld.org/spreadsheet/viewform?formkey=dHpQc0VHV2dBU2tSN1ptMktBUmtoZWc6MQ#gid=0"]{online form}, and we'll get back to you right away.})
-         (for/list ([n (in-range 1 (add1 9))])
-=======
         (append         
          (for/list ([n (in-range 1 (add1 10))])
->>>>>>> pyret-bs2
            (unit-summary/links n))
          (list 
           @summary-item/unit-link["Supplemental Lessons" "units/Supplemental/index"]{

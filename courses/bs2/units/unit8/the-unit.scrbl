@@ -68,116 +68,6 @@
                         @item{At the top of @worksheet-link[#:page 34 #:name "draw-world"], write the contract, and fill in the function header for @code{draw-world}.}]}}
                         @teacher{}}
 
-<<<<<<< HEAD
-@lesson/studteach[#:title "The Distance Formula"
-        #:duration "20 minutes"
-        #:overview ""
-        #:learning-objectives @itemlist[@item{Reinforce their understanding of the distance formula}]
-        #:evidence-statements @itemlist[]
-        #:product-outcomes @itemlist[ @item{Students will write the distance function}]
-        #:standards (list)
-        #:materials @itemlist[]
-        #:preparation @itemlist[@item{}]
-        #:pacings (list 
-                @pacing[#:type "remediation"]{@itemlist[@item{}]}
-                @pacing[#:type "misconception"]{@itemlist[@item{}]}
-                @pacing[#:type "challenge"]{@itemlist[@item{}]}
-                )
-      ]{
-        @points[@point{@student{Unfortunately you don't have any code to calculate the distance in two dimensions.
-                                All you have so far is something that tells you the length in only the x- or y-dimension.                   
-                                @bitmap{images/ABCgraph.png}
-                                @activity{@itemlist[@item{How could you find the distance between the two points shown
-                                                          in this image?}
-                                                     @item{How could you find the length of the dotted line, also 
-                                                           called the @vocab{Hypotenuse}?}]}
-                                Let's start with what we do know: the dotted line sort of makes a triangle, and we can
-                                find out the length of the other two sides, labeled "A," "B" and "C." 
-                                @activity{What is the line-length of A?}
-                                To make your life easier, you can use the function you already wrote: @code{line-length}.
-                                In this example, (line-length A) is 4 and (line-length B) is 3, but we still don't know C.}
-                        @teacher{@management{Draw this image on the board, with the lines labeled "A", "B", and "C".}}}
-                 @point{@student{Ancient civilizations had the same problem: they also struggled to find the distance
-                                 between points in two dimensions. Let’s work through a way to think about this problem:
-                                 what expression computes the length of the hypotenuse of a right triangle?}
-                       @teacher{@management{This exercise is best done in small groups of students (2-3 per group).} 
-                                 Pass out Pythagorean Proof materials [@(resource-link #:path "images/pythag1.png" #:label "1"), 
-                                 @(resource-link #:path "images/pythag2.png" #:label "2")] to each group, and have them
-                                 review all of their materials:@itemlist[@item{A large, white square with a smaller one drawn inside}
-                                                                          @item{Four gray triangles, all the same size}]
-                                 Everyone will have a packet with the same materials, but each group's triangles are
-                                 a little different. The activity workes with triangles of all sizes, so each pair will
-                                 get to test it out on their own triangles. @management{draw the diagram on the board.}}
-                        }
-                @point{@student{@bitmap{images/csquared.png}For any right triangle, it is possible to draw a picture 
-                                 where the hypotenuse is used for all four sides of a square. In the diagram shown 
-                                 here, the white square is surrounded by four gray, identical right-triangles, each 
-                                 with sides A and B. The square itself has four identical sides of length C, which 
-                                 are the hypotenuses for the triangles. If the area of a square is expressed by 
-                                 @math{side * side}, then the area of the white space is @math{C^{2}}.}
-                        @teacher{Have students place their gray triangles onto the paper, to match the diagram.}
-                       }
-                @point{@student{@animated-gif{images/Pythag_anim.gif} By moving the gray triangles, it is possible 
-                                 to create two rectangles that fit inside the original square. While the space 
-                                 taken up by the triangles has shifted, it hasn't gotten any bigger or smaller.
-                                 Likewise, the white space has been broken into two smaller squares, but in total
-                                 it remains the same size. By using the side-lengths A and B, one can calculate
-                                 the area of the two squares.
-                                 @activity[#:forevidence (list "8.G.6-8&1&1" "8.G.6-8&1&1" "8.G.6-8&1&3")]{
-                                      What is the area of the smaller square? The larger square?}}
-                       @teacher{You may need to explicitly point out that the side-lengths of the triangles can be
-                                used as the side-lengths of the squares.}
-                       }
-                @point{@student{@bitmap{images/absquare.png}The smaller square has an area of @math{A^{2}}, and the
-                                 larger square has an area of @math{B^{2}}. Since these squares are just the original
-                                 square broken up into two pieces, we know that the sum of these areas must be equal 
-                                 to the area of the original square:
-                                 @bannerline{@math{A^{2} + B^{2} = C^{2}}}
-                                 @activity[#:forevidence (list "8.G.6-8&1&1" "8.G.6-8&1&2" "8.G.6-8&1&3")]{
-                                     Does the same equation work for any values of A and B?}}
-                       @teacher{}
-                       }
-                @point{@student{To get C by itself, we take the square-root of the sum of the areas:
-                                @bannerline{@math{\sqrt{A^{2} + B^{2}} = C}}
-                                Pythagoras proved that you can get the square of the hypotenuse by adding the squares 
-                                of the other two sides. In your game, you're going to use the horizontal and vertical
-                                distance between two characters as the two sides of your triangle, and use the 
-                                Pythagorean theorem to find the length of that third side.}
-                       @teacher{Remind students that A and B are the horizontal and vertical lengths, which are
-                                calculated by @code{line-length}.}
-                       }
-                @point{@student{@activity{@itemlist[@item{Turn to @worksheet-link[#:page 37 #:name "Distance-Formula-With-Numbers"] 
-                                                          of your workbook - you'll see the formula written out.} 
-                                                     @item{Draw out the circle of evaluation, starting with the 
-                                                           simplest expression you can see first.}
-                                                     @item{Once you have the circle of evaluation, translate it 
-                                                           into racket code at the bottom of the page, starting 
-                                                           with @code{(EXAMPLE (distance 4 2 0 5) ...)}}]}
-                                 Now you've got code that tells you the distance between the points (4, 2) and (0, 5).
-                                 But we want to have it work for @italic{any} two points. It would be great if we had a 
-                                 function that would just take the x's and y's as input, and do the math for us.}
-                        @teacher{}}
-                @point{@student{@activity{@itemlist[@item{Turn to @worksheet-link[#:page 38 #:name "Distance"], 
-                                                           and read the problem statement and function header 
-                                                           carefully.}
-                                                      @item{Use the Design Recipe to write your distance function. 
-                                                            Feel free to use the work from the previous page as your 
-                                                            first example, and then come up with a new one of your own.}
-                                                      @item{When finished, type your @code{line-length} and 
-                                                            @code{distance} functions into your game, and see what happens.}
-                                                      @item{Does anything happen when things run into each other?}]}
-                                 You still need a function to check whether or not two things are colliding.}
-                        @teacher{Pay careful attention to the order in which the coordinates are given to the 
-                                 @code{distance} function. The player's x-coordinate (@code{px}) must be given first,
-                                 followed by the player's y (@code{py}), character's x (@code{cx}), and character's y 
-                                 (@code{cy}). Inside the body of the function, @code{line-length} can only calculate 
-                                 lengths on the same axis (@code{(line-length px cx)} and @code{(line-length cx cy)}).
-                                 Just like with making data structures, order matters, and the distance function will 
-                                 not work otherwise. Also be sure to check that students are using @code{sq} and 
-                                 @code{sqrt} in the correct places. }
-                        }
-                ]
-=======
                 @point{@student{Below the function header, we've gotten you started by using @code{put-image}, just like in Ninja World. Do you remember the contract for @code{put-image}? It takes in an image, the coordinates for where to put the image, and another image, on top of which the first image is placed.
 @code[#:multi-line #t]{# put-image(Image, Number, Number, Image) -> Image
                        # Places the first image at the given x and y-coordinates on top of the second image}
@@ -204,7 +94,6 @@ Here is an example of using @code{draw-world} in our Ninja World game, using @co
 
                                 @teacher{Work with small groups to complete this section. Remind students that the order of images determines which game images appear above the others. (e.g. - "Does it make more sense to have the coin appear to be flying @italic{behind} the cloud, or in front of it?") When students finish writing @code{draw-world}, have them type it into their games, in the @code{# GRAPHICS} section.}}
                         ]
->>>>>>> pyret-bs2
          }
 
 @lesson/studteach[#:title "Updating the World"

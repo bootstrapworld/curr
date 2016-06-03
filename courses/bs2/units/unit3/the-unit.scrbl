@@ -32,118 +32,6 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-<<<<<<< HEAD
-        @points[@point{@student{In the last lesson you learned about a new kind of data struct, called an auto. 
-                                @activity{@itemlist[@item{What is an auto? What things are described in an auto struct?}
-                                                    @item{How do you make an auto?}
-                                                    @item{How do you get the model out of an auto? The value? The color?}]}
-     Last time all of these were used to make an autobody shop, where you had functions that would increase the auto's @code{hp}, or paint it a new @code{color}. This next problem 
-     will be even harder, so remember to refer back to the last two functions you wrote in your workbook, in case you need some hints.}
-                        @teacher{Take a few minutes to review structs and autos with your students.}}
-            @point{@student{You may have heard of the show "Pimp My Ride", where the hosts get an old, beat-up car and make it WAY cooler. Let's implement something like this in Racket...
-            @activity{Turn to @worksheet-link[#:page 12 #:name "pimp"] in your workbooks. Write a function called @code{pimp}, which takes in an Auto and returns a new Auto which has 
-                              double the horsepower, has 30 inch rims, is painted red, and has increased in value by $10,000.
-                              @itemlist[@item{What is the @vocab{contract} for this function?}
-                                         @item{For the first EXAMPLE, let's upgrade @code{car3}. How will you start the example?}
-                                         @item{@code{(EXAMPLE (pimp car3) ...)}}
-                                         @item{According to the contract, we know that the Range of the @code{pimp} function is an auto. How do you make an auto?}
-                                         @item{What's the first part of an auto? The @code{model}. Does the model change, according to the function's @vocab{purpose statement}? 
-                                               How do you get the @code{model} out of @code{car3}?}
-                                         @item{How do you get the @code{hp} out of @code{car3}?}
-                                         @item{Does the horsepower change when we "pimp" our auto? You'll need to get the @code{hp} out of @code{car3}, @italic{and double it.}}
-                                         @item{According to the @vocab{purpose statement}, every auto that gets pimped will have 30 inch rims. Does it matter what the original rim size was?}
-                                         @item{Likewise, every car will be painted red. Do we need to reference the original color at all?}
-                                         @item{Finally, how do you get the @code{value} out of @code{car3}? Will the @code{value} increase or decrease after the auto is upgraded?}
-                                       ]}}
-                    @teacher{This is an opportunity for students to practice nested expressions. Not only will they use accessor functions to access the fields of the original auto, 
-                             they will need to modify them according to the problem statement. If they get stuck, have them draw the circle of evaluation for doubling the auto's 
-                             horsepower, adding 10,000 to the auto's value, etc.}}
-            @point{@student{Putting it all together, the first example should look like:
-
-@code[#:multi-line #t]{(EXAMPLE (pimp car3) (make-auto (auto-model car3)
-                                                    (* (auto-hp car3) 2)
-                                                        30
-                                                        red
-                                                    (+ (auto-value car3) 10000)))}
-@activity{Write one more example, circle what changes, and then define the @code{pimp} function. If you're stuck, look back at the contract and your first example.}}                             
-                    @teacher{}}
-            ]
-         }
-                                                                 
-@lesson/studteach[#:title "define-struct"
-        #:duration "5 minutes"
-        #:overview ""
-        #:learning-objectives @itemlist[@item{Students will generalize their understanding of function constructors and accessors}]
-        #:evidence-statements @itemlist[]
-        #:product-outcomes @itemlist[]
-        #:standards (list)
-        #:materials @itemlist[@item{The Autos file [Autos.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "P7qS37u1ZH" "WeScheme"] preloaded on students' machines}]
-        #:preparation @itemlist[]
-        #:prerequisites (list)
-        #:pacings (list 
-                @pacing[#:type "remediation"]{@itemlist[@item{}]}
-                @pacing[#:type "misconception"]{@itemlist[@item{}]}
-                @pacing[#:type "challenge"]{@itemlist[@item{}]}
-                )
-      ]{@points[@point{@student{@activity{Open the @editor-link[#:public-id "P7qS37u1ZH" "Autobody Shop"] file, and look at the first two lines at the top. 
-                                                   They start with @code{;an auto is...} and @code{define-struct}.}
-                                @code[#:multi-line #t]{; an auto is a (make-auto String Number Number String Number)
-(define-struct auto (model hp rims color value))}
-In the last unit we skipped over the part of the code that defines the auto struct, or tells the computer what an auto is and what goes into it. Just like we would expect from having
-worked with autos, the @code{define-struct} line says that an auto has five things....a model, hp, rim, color, and value. But how do we know which number is which? Remember that order
-matters! Look at the order of the fields in the @code{define-struct} line. The first string is the model, the first number is the horsepower, the second number is the rim size, and so on.}
-                        @teacher{You can use the given Autos file, or your students' own files from the previous lesson. Stress the importance of being able to define your own datatypes
-                                 to students: no longer are they bound by the single values of numbers, strings, or booleans! Racket allows you to define brand new structures, containing 
-                                 any combination of values. But these structures won't be usable without the @code{(define-struct ...)} line!}}
-                 
-            @point{@student{A struct is defined using the @code{define-struct} function, which tells the computer what things make up that struct, and what order and type each 
-                                                          thing is. In return, we get new functions to use. Until we write this @code{define-struct} line, we don't have 
-                                                          @code{make-auto} (to make an auto), @code{auto-model} (to get the model out of the auto), @code{auto-hp}, or any of 
-                                                          the other accessor functions, because Racket doesn't know what an Auto is- @italic{we haven't defined it}.
-            @activity{To check this, type a semi-colon before the line which begins with @code{define-struct}. This comments it out, so that the computer ignores it. Hit run, and see what 
-                                                                                         happens. Then turn to @worksheet-link[#:page 13 #:name "define-struct"] in your workbook, and copy 
-                                                                                         down the define-struct line.}}
-                    @teacher{When the @code{define-struct} line is commented out, Racket returns an error, saying you're trying to use an identifier before its definition. That means that 
-                                      it doesn't know what @code{make-auto} is or does, because we never defined an auto struct. Make sure students understand that @code{define-struct} 
-                                      is needed in order to create and work with any struct.}}
-            ]
-         }
-           
-@lesson/studteach[#:title "The Party Struct"
-        #:duration "30 minutes"
-        #:overview ""
-        #:learning-objectives @itemlist[@item{Write complex functions that consume, modify and produce structures}
-            @item{Deepen their understanding of structures, constructors and accessors by being introduced to two new data structures.}]
-        #:evidence-statements @itemlist[]
-        #:product-outcomes @itemlist[@item{Students define two new complex data structures: party and world}
-          @item{Students will write functions that access fields of an auto, party, or world, and produce new autos, parties, and worlds.}]
-        #:standards (list)
-        #:materials @itemlist[@item{The Party Planner file [Party.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "zLYLPQ5d6K" "WeScheme"] preloaded on students' machines}]
-        #:preparation @itemlist[]
-        #:pacings (list 
-                @pacing[#:type "remediation"]{@itemlist[@item{}]}
-                @pacing[#:type "misconception"]{@itemlist[@item{}]}
-                @pacing[#:type "challenge"]{@itemlist[@item{}]}
-                )
-      ]{
-        @points[@point{@student{Now that you know how to define your own structs, let's define another one. Instead of working in an autobody shop, this time you'll be a 
-                                party planner. Data structures will be a useful way to represent each party that you're planning, keeping track of its location, theme, 
-                                and number of guests.
-                                @activity{@itemlist[@item{What datatype could be used to represent the location of the party?}
-                                                     @item{What about the party's theme? (This could be something like @code{"50s"}, or @code{"laser tag"})}
-                                                     @item{How about the number of guests?}]
-                                           Fill out the second struct definition on @worksheet-link[#:page 13 #:name "Party Planner"] in your workbook.}
-@code[#:multi-line #t]{; a party is a (make-party String String Number)
-                       (define-struct party (location theme guests))}}
-                        @teacher{}}
-                 
-                 @point{@student{@activity{Open the @editor-link[#:public-id "zLYLPQ5d6K" "Party Planner"] file. Take a look at the first two 
-                                                    lines in the definitions area. Do they match what you have written?} 
-                                 Now that the party struct is defined, you have access to four new functions: One to make a new party, and three @vocab{accessor functions}
-                                 to get the location, theme, and number of guests out of the party. 
-@activity{Turn to your contracts sheet. @itemlist[@item{What is the @vocab{Name} of the function that @italic{makes a party?}}
-                                                  @item{What is the function's @vocab{Domain}? (What kinds of things are part of a party?)}
-=======
         @points[@point{@student{In the last lesson you learned about a new kind of data structure, called a Cake. However, a Cake isn't the only kind of structure - we can create any kind we want! Let's define another one. In this exercise, you’ll be a party planner. Data structures will be a useful way to represent each Party that you’re planning, keeping track of its location, theme, and number of guests.
                                 @activity[#:forevidence (list "N-Q&1&1" "BS-M&1&2" "BS-DS.2&1&2")]{@itemlist[@item{What datatype could be used to represent the location of a Party?}
                                                     @item{What about the Party's theme? (This could be something like "50s" or "laser tag".)}
@@ -158,7 +46,6 @@ matters! Look at the order of the fields in the @code{define-struct} line. The f
 Once the Party structure is defined, you have access to new pieces of code: a function to make a Party, and three @vocab{dot-accessors} to get the location, theme, and number of guests out of the Party. 
 @activity[#:forevidence (list "F-IF.1-3&1&1" "BS-DS.1&1&1" "BS-DS.1&1&2" "BS-DS.1&1&3" "BS-DS.1&1&4" "BS-DS.1&1&5")]{@itemlist[@item{What is the @vocab{Name} of the function that creates a Party?}
                                                   @item{What is the function's @vocab{Domain}? (What kinds of things are part of a Party?)}
->>>>>>> pyret-bs2
                                                   @item{What is the @vocab{Range} of this function?}
                                                   @item{On @worksheet-link[#:page 13 #:name "Data Structures"], use the constructor function to define two new Parties of your own.}
                                                   @item{Right below your new Parties, list how you would access the fields of @code{party2}. How would you get the location out of @code{party2}? (Think about how you got the model or color out of a Car.)}]}}
