@@ -457,21 +457,27 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Main entry point:
 (make-fresh-deployment-and-copy-static-pages)
-(define bootstrap-courses '("bs2"))  ; omitted bs1 for pyret-bs2 branch
+(define bootstrap-courses '("bs1" "bs2"))  
 ;; remove next line if ever want to generate links to web docs instead of PDF
 (putenv "WORKSHEET-LINKS-TO-PDF" "true")
-(solutions-mode-off)
-;(build-exercise-handouts) ; not needed for bs2
-;(workbook-styling-on)
-;(build-extra-pdf-exercises) ; not needed for bs2
-(textbook-styling-on)
 (for ([course (in-list bootstrap-courses)])
   (parameterize ([current-course course])
+    (solutions-mode-off)
+    (when (equal? course "bs1")
+      (putenv "TARGET-LANG" "racket")
+      (build-exercise-handouts) ; not needed for bs2
+      (workbook-styling-on)
+      (build-extra-pdf-exercises) ; not needed for bs2
+      )
+    (when (equal? course "bs2")
+      (putenv "TARGET-LANG" "pyret")
+      )
+    (textbook-styling-on)
     (update-resource-paths)
     (build-course-units)
-    ;(build-resources)
+    (build-resources)
     ))  
-(create-distribution-lib) ; turned off for bs2 for now -- was generating an error
+(create-distribution-lib) 
 ;(build-lessons)
 ;(build-worksheets)
 ;(build-drills)
