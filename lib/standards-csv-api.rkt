@@ -12,6 +12,7 @@
          get-evid-statement/tag
          get-evid-summary
          get-used-evidnums/std
+         get-evidtag-std
          )
 
 ;; location of the standards csv file (must be a path)
@@ -182,13 +183,23 @@
 
 ;; returns values for the standard, learning objective number, and evidence number from a tag
 ;;   if the given string has the wrong format, returns #f
-(define (evidtag-data evidtagstr)
+;; The suppress-errors optional argument should be turned on/used only in situations
+;;   when we expect that the string might not be a valid evidtag (such as in get-evidtag-std,
+;;   which may be given just a std name or an entire tag)
+(define (evidtag-data evidtagstr #:suppress-errors (suppress-errors? #f))
   (let ([data (regexp-match evidtag-regexp evidtagstr)])
     (if data
         (values (second data) (string->number (third data)) (string->number (fourth data)))
         (begin
-          (printf "WARNING: malformed evidence tag ~a~n" evidtagstr)
+          (unless suppress-errors?
+            (printf "WARNING: malformed evidence tag ~a~n" evidtagstr))
           (values #f #f #f)))))
+
+;; extracts the std name from a string which may be a full evidence tag.
+;; This allows us to put either std names or entire std tags in lesson metadata
+(define (get-evidtag-std evidtag)
+  (let-values ([(std lonum esnum) (evidtag-data evidtag #:suppress-errors #t)])
+    (or std evidtag)))
 
 ;; given standard tag and a list of evidence tag, return list of indices of those in evid-used
 ;; ASSUMES only one learning objective per standard

@@ -537,8 +537,11 @@
    (lambda (get set!)
      (define anchor (lesson-name->anchor-name the-lesson-name))
      ;(set! 'vocab-used '()) ; reset vocabulary list for each lesson
-     ; next line for migration to new standards generation
-     (set! 'standard-names (remove-duplicates (append standards (get 'standard-names '()))))
+     ;; the map of get-evidtag-std allows either std names or full evidence tags to
+     ;;   be included in the list of standards. Our current code uses only the names
+     ;;   but we may want to have the full tags for more refined generation later
+     (set! 'standard-names (remove-duplicates (append (map get-evidtag-std standards)
+                                                      (get 'standard-names '()))))
      (set! 'exercise-locs (append (get 'exercise-locs '()) exercise-locs))
      (set! 'bootstrap-lessons (cons (lesson-struct title
                                                    duration
