@@ -55,7 +55,7 @@
                                         @item{Discover the event-based microworld implementation of Pyret, which uses events to modify the World.}]
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[@item{Students will act out the event-based programming model, beginning with a simple world containing just one number}]
-        #:standards (list "N-Q" "F-IF.1-3" "F-IF.4" "F-LE.5" "BS-IDE" "BS-W")
+        #:standards (list "N-Q" "F-IF.1-3" "F-IF.4-6" "F-LE.5" "BS-IDE" "BS-W")
         #:materials @itemlist[]
         #:preparation @itemlist[@item{The @editor-link[#:public-id "0B9rKDmABYlJVQTg2b2ZRQ2E0ZWc" "Intro to Big-Bang"] file preloaded on students' machines}
                                  @item{next-world, big-bang, and draw-world nametags}
