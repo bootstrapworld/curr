@@ -28,7 +28,8 @@ We provide all of the our materials @italic{free of charge}, to anyone who is in
            You can purchase beautiful, bound copies of the workbook from @hyperlink["http://www.lulu.com/commerce/index.php?fBuyContent=14790241" "Lulu.com"], 
                or @hyperlink["resources/workbook/StudentWorkbook.pdf" "print your own"].  The lesson 
                plans are tightly integrated with the Student Workbook, 
-           which should be used with the curriculum. A @bold{Teacher's Edition} is also available upon request. }
+           which should be used with the curriculum. A @bold{Teacher's Edition} is also available 
+           @hyperlink["https://docs.google.com/a/bootstrapworld.org/spreadsheet/viewform?formkey=dHpQc0VHV2dBU2tSN1ptMktBUmtoZWc6MQ#gid=0"]{upon request}. }
            
           @item{@italic{Significant discounts on printed books are available to teachers who attend our professional development workshops.} 
            @hyperlink["mailto:contact@bootstrapworld.org" "Contact us"] to find out more.}
