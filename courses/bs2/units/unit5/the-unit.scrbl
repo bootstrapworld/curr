@@ -25,7 +25,6 @@
                             @item{Student workbooks}
                             @item{Language Table}]
      #:preparation @itemlist[@item{Seating arrangements: ideally clusters of desks/tables}
-                             @item{Clear plastic sheet protectors: put pages 17 & 18 at the front of the workbook for ease of reference}
                              @item{The @editor-link[#:public-id "0B9rKDmABYlJVY3lNVU8tVVdvbXc" "Luigi's Pizza"] file preloaded on students' machines}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}

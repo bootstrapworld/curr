@@ -60,7 +60,7 @@ In one dimension, such as on a number line, finding the distance is pretty easy.
       ]{
         @points[@point{@student{Distances cannot be negative, so we have to make sure we are always subtracting the smaller number from the bigger one. That means we have two conditions: (1) the first number is bigger, and (2) the second is bigger.
                                 @activity[#:forevidence (list "N-Q&1&1" "8.F.1-3&1&1" "F-IF.1-3&1&1" "A-CED.1-4&1&1" "BS-M&1&1" "BS-PL.4&1&1" "BS-DR.1&1&1" "BS-DR.1&1&2" "BS-DR.2&1&1")]{@itemlist[@item{What kind of function do we need, when we have multiple conditions?}
-                                                     @item{Turn to @worksheet-link[#:page 27 #:name "Design Recipe Line Length"].}
+                                                     @item{Turn to @worksheet-link[#:page 28 #:name "Design Recipe Line Length"].}
                                                      @item{What is the Name of this function? Domain? Range?}
                                                      @item{Write two examples for @code{line-length} so that it subtracts the smaller number from the bigger one. Start with an example using the numbers 23 and 5, then do a second example with 5 and 23 in the @italic{other order}.}]}
 @code[#:multi-line #t]{examples:
@@ -127,14 +127,14 @@ In one dimension, such as on a number line, finding the distance is pretty easy.
                                 Pythagoras proved that you can get the square of the hypotenuse by adding the squares of the other two sides. In your games, you're going to use the horizontal and vertical distance between two characters as the two sides of your triangle, and use the Pythagorean theorem to find the length of that third side.}
                        @teacher{Remind students that A and B are the horizontal and vertical lengths, which are calculated by @code{line-length}.}
                        }
-                @point{@student{@activity[#:forevidence (list "BS-CE&1&4" "BS-PL.3&1&3")]{@itemlist[@item{Turn to @worksheet-link[#:page 28 #:name "Distance-Formula-With-Numbers"] of your workbook - you'll see the formula written out.} 
+                @point{@student{@activity[#:forevidence (list "BS-CE&1&4" "BS-PL.3&1&3")]{@itemlist[@item{Turn to @worksheet-link[#:page 29 #:name "Distance-Formula-With-Numbers"] of your workbook - you'll see the formula written out.} 
                                                     @item{Draw out the circle of evaluation, starting with the simplest expression you can see first.}
                                                      @item{Once you have the circle of evaluation, translate it into Pyret code at the bottom of the page, starting with @code[#:multi-line #true]{check: 
            distance(4, 2, 0, 5) is...
        end}}]}
 Now you've got code that tells you the distance between the points (4, 2) and (0, 5). But we want to have it work for @italic{any} two points. It would be great if we had a function that would just take the x's and y's as input, and do the math for us.}
                         @teacher{}}
-                @point{@student{@activity[#:forevidence (list "N-Q&1&1" "8.G.6-8&1&3" "8.F.1-3&1&1" "F-IF.1-3&1&1" "BS-M&1&1" "BS-PL.3&1&2" "BS-PL.3&1&3" "BS-DR.1&1&1" "BS-DR.1&1&2" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1")]{@itemlist[@item{Turn to @worksheet-link[#:page 29 #:name "Distance"], and read the problem statement and function header carefully.}
+                @point{@student{@activity[#:forevidence (list "N-Q&1&1" "8.G.6-8&1&3" "8.F.1-3&1&1" "F-IF.1-3&1&1" "BS-M&1&1" "BS-PL.3&1&2" "BS-PL.3&1&3" "BS-DR.1&1&1" "BS-DR.1&1&2" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1")]{@itemlist[@item{Turn to @worksheet-link[#:page 30 #:name "Distance"], and read the problem statement and function header carefully.}
                                                       @item{Use the Design Recipe to write your distance function. Feel free to use the work from the previous page as your first example, and then come up with a new one of your own.}
                                                       @item{When finished, type your @code{line-length} and @code{distance} functions into your game, and see what happens.}
                                                       @item{Does anything happen when things run into each other?}]}
@@ -161,7 +161,7 @@ You still need a function to check whether or not two things are colliding.}
       ]{
         @points[@point{@student{So what do we want to do with this distance? 
                                 @activity{How close should your danger and your player be, before they hit each other?}
-                                At the top of @worksheet-link[#:page 30 #:name "is-collision"] you'll find the Word Problem for @code{is-collision}. 
+                                At the top of @worksheet-link[#:page 31 #:name "is-collision"] you'll find the Word Problem for @code{is-collision}. 
                                 @activity[#:forevidence (list "N-Q&1&1" "7.EE.3-4&1&1" "8.G.6-8&1&3" "8.F.1-3&1&1" "F-IF.1-3&1&1" "A-CED.1-4&1&1" "BS-M&1&1" "BS-DR.1&1&1" "BS-DR.1&1&2" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1")]{@itemlist[@item{Fill in the Contract, two examples, and then write the code. Remember: you WILL need to make use of the @code{distance} function you just wrote!}
                                                     @item{When you're done, type it into your Ninja Cat game, underneath @code{distance}.}]}}
                         @teacher{Using visual examples, ask students to guess the distance between a danger and a player at different positions. How far apart do they need to be before one has hit the other? Make sure students understand what is going on by asking questions: If the collision distance is small, does that mean the game is hard or easy? What would make it easier?}
@@ -260,18 +260,18 @@ Remember that @code{next-world} produces a world, so what function should come f
                 )
       ]{
         @points[@point{@student{Now that you've seen the work it takes to create Ninja Cat, you have a good idea about what is needed to create a complex game. For the next exercise, think about the @italic{simplest possible version of your game}. Once you have that working, you can add advanced features later on. How many characters will you have, and what will you need to have in your World? You can use Numbers to keep track of the score, or the characters' x- and y-coordinates. You can also store an Image in the world, so that your character can change the way they look or to swap out the background once the score reaches a certain level. Once you have a simple game, it's easy to add more pieces to the World. 
-@activity[#:forevidence (list "N-Q&1&1" "BS-M&1&1" "BS-M&1&2" "BS-M&1&3")]{@itemlist[@item{Turn to @worksheet-link[#:page 31 #:name "Game Brainstorming"] in your workbook.}
+@activity[#:forevidence (list "N-Q&1&1" "BS-M&1&1" "BS-M&1&2" "BS-M&1&3")]{@itemlist[@item{Turn to @worksheet-link[#:page 32 #:name "Game Brainstorming"] in your workbook.}
                     @item{Start by drawing a sketch of what your game will look like at the very start, and another sketch of what it will look like @italic{one second} later, without user input. What elements move on their own?}
                     @item{In the table below, list all the images you will need for your game.}
                     @item{At the bottom of the page, list all the things that will have @italic{changed} from one moment to the next. What will you need to keep track of in your world structure? If something moves, will you need to keep track of its x-coordinate, y-coordinate, or both? Will you have a score that changes?}]}}
                         @teacher{Remind students that for every single thing that changes in their game, they must have a field in their world structure for it.}}
                  @point{@student{Now that you have a list of everything that changes, it’s time to turn them into a World structure.
-                                @activity[#:forevidence (list "N-Q&1&1" "BS-M&1&1" "BS-M&1&2" "BS-M&1&3" "BS-DS.1&1&4" "BS-DS.1&1&5"  "BS-DS.2&1&2")]{@itemlist[@item{Turn to @worksheet-link[#:page 32 #:name "Your World"] in your workbooks, and define your world structure, using the changeable things you wrote in the second table of your Game Design page.}
+                                @activity[#:forevidence (list "N-Q&1&1" "BS-M&1&1" "BS-M&1&2" "BS-M&1&3" "BS-DS.1&1&4" "BS-DS.1&1&5"  "BS-DS.2&1&2")]{@itemlist[@item{Turn to @worksheet-link[#:page 33 #:name "Your World"] in your workbooks, and define your world structure, using the changeable things you wrote in the second table of your Game Design page.}
                                                     @item{Underneath your world structure, define two example worlds called @code{worldA} and @code{worldB}.} 
                                                     @item{Finally, write down the @vocab{dot-accessors} you will need to access the fields of @code{worldA}.}]}}
                        @teacher{Have the class take turns telling their peers about their games. Most importantly, have them tell the class what they have in their World structure.
-@itemlist[@item{Make sure student names are on page 18}
-                   @item{Take page 18 itself, or take photos of page 18, to prep game images for the next unit.}
+@itemlist[@item{Make sure student names are on page 32}
+                   @item{Take page 32 itself, or take photos of page 32, to prep game images for the next unit.}
                    @item{Images should be in PNG or GIF format. Background images should be 640x480, and character images should generally be 
                          no larger than 200px in either dimension. Make sure that the character images have transparent backgrounds!}
                    @item{TIP: use animated GIFs for the characters - not only does the animation make the game look a lot better, but these 

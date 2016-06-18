@@ -67,7 +67,32 @@
                 )
       ]{
         @points[@point{@student{Now let's talk about animation. We'll start off with a really simple example that only uses Numbers, and gradually build up to 
-                                using Data Structures.
+                                using Data Structures. Suppose we want a simple animation of a fish, swimming across the screen from left-to-right. We can imagine
+                                a series of frames, where the fish is a little further to the right in each frame:
+                                @bitmap{images/frames.png}
+                                }
+                        @teacher{}
+                        }
+                 @point{@student{Behind-the-scenes, this animation is really just a single Number: the x-coordinate of the fish! For each x-coordinate, there's
+                                 a simple mapping between the number and what picture is drawn onscreen. In fact, we could write a function that takes in the
+                                 x-coordinate and puts the fish image at the right place. Let's call this function @code{draw}. 
+                                 @bitmap{images/frames-with-draw.png}
+                                 }
+                         @teacher{For practice, have students try writing @code{draw} using an image of their own.}
+                         }
+                 @point{@student{There's also a mapping from one frame to the next: each x-coordinate is just 20 more than the previous one! That means there's
+                                 also a mapping between the number for one frame and the next. We could express this with a function, too, which takes in
+                                 the x-coordinate and produces the @italic{next} x-coordinate.
+                                 @bitmap{images/frames-with-next.png}
+                                 }
+                         @teacher{For practice, have students try writing @code{draw} using an image of their own.}
+                         }
+                 @point{@student{If we put these functions together, we have all the ingredients in place to make an animation, using only a simple Number to
+                                 keep track of our data!
+                                 @bitmap{images/frames-everything.png}}
+                         @teacher{}
+                         }
+                 @point{@student{Let's take a look at a Pyret program that does exactly that...
                                 @activity[#:forevidence (list "N-Q&1&1" "F-IF.1-3&1&1" "F-LE.5&1&1")]{Open the @editor-link[#:public-id "0B9rKDmABYlJVQTg2b2ZRQ2E0ZWc" "Intro to Big-Bang"] program and read the code with
                                           your partner. Can you answer the questions below? 
                                           @bitmap{images/draw-world.png}

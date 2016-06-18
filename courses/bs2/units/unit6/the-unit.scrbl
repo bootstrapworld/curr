@@ -29,9 +29,9 @@
                 )
       ]{
         @points[@point{@student{In the last lesson you saw how @vocab{piecewise functions} work in Bootstrap:2, and learned about @code{ask} blocks, the Pyret syntax for writing them. To review, let's go through the Design Recipe for a piecewise function. 
-@activity[#:forevidence (list "N-Q&1&1" "N-Q&1&2" "8.F.1-3&1&1" "F-IF.1-3&1&1" "BS-M&1&1" "BS-PL.3&1&2" "BS-PL.3&1&3" "BS-PL.4&1&1" "BS-DR.1&1&1" "BS-DR.1&1&2" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1")]{@itemlist[@item{Turn to @worksheet-link[#:page 22 #:name "Red-shape"] in your workbooks.}
+@activity[#:forevidence (list "N-Q&1&1" "N-Q&1&2" "8.F.1-3&1&1" "F-IF.1-3&1&1" "BS-M&1&1" "BS-PL.3&1&2" "BS-PL.3&1&3" "BS-PL.4&1&1" "BS-DR.1&1&1" "BS-DR.1&1&2" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1")]{@itemlist[@item{Turn to @worksheet-link[#:page 23 #:name "Red-shape"] in your workbooks.}
                     @item{With your partner, fill out the Design Recipe for the function @code{red-shape}.}]}
-@bold{Optional:} If you finish early, turn the page to @worksheet-link[#:page 23 #:name "Strong-Password"] and fill out the Design Recipe for the @code{strong-password} function.}
+@bold{Optional:} If you finish early, turn the page to @worksheet-link[#:page 24 #:name "Strong-Password"] and fill out the Design Recipe for the @code{strong-password} function.}
                         @teacher{Remind students that each @code{ask} statement must have a test and a result, and each function must contain an @code{otherwise:} statement, which will execute if every other test returns false.}}
                  ]
          }                               
@@ -73,7 +73,7 @@ Here is the contract for the greater than function:
                         @teacher{Review Booleans and Boolean functions, including @code{>}, @code{<}, @code{=}, @code{and}, and @code{or}. Make sure students copy the contracts into their workbook.}}
                  
                  @point{@student{To make testing and writing code much easier, programmers will often write seperate functions to test various game possibilities. In our Ninja World game, we're going to write a function @code{is-off-right} to test whether the dog has gone off the right side of the screen.
-@activity[#:forevidence (list "N-Q&1&1" "8.F.1-3&1&1" "F-IF.1-3&1&1" "BS-DR.1&1&1" "BS-DR.1&1&2")]{@itemlist[@item{Turn to @worksheet-link[#:page 24 #:name "Boundary Checks"] in your workbook.}
+@activity[#:forevidence (list "N-Q&1&1" "8.F.1-3&1&1" "F-IF.1-3&1&1" "BS-DR.1&1&1" "BS-DR.1&1&2")]{@itemlist[@item{Turn to @worksheet-link[#:page 25 #:name "Boundary Checks"] in your workbook.}
                     @item{What is the name of the first function on this page?}
                     @item{@code{is-off-right} will return @code{true} if our dog goes off the right side of the screen. How large can the x-coordinate be before a character goes off the screen? (Remember that a character's coordinates are measured from the center of the image, so it's best to give a buffer so that the character dissappears completely before it is considered "off the screen".)}
                     @item{Write the @vocab{Contract} for this function.}]}
@@ -90,7 +90,7 @@ Here is the contract for the greater than function:
                          @teacher{Remind students about Sam the butterfly from Bootstrap:1. This function does the same thing as @code{safe-right?}, to determine whether the character has gone off the screen based on its x-coordinate. Ensure that students are using the full name of @code{is-off-right}.}}
                  
                  @point{@student{You now have a function to check whether an object has run off the right side of the screen. But think about Ninja World: if the coin is moving to the left, do you care whether the coin goes off the right side? 
-                                 @activity[#:forevidence (list "N-Q&1&1" "5.OA.1-2&1&1" "7.EE.3-4&1&1" "A-CED.1-4&1&1" "BS-PL.3&1&2" "BS-PL.3&1&3" "BS-DR.1&1&1" "BS-DR.1&1&2" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1")]{@itemlist[@item{Complete the design recipe for @code{is-off-left} on @worksheet-link[#:page 24 #:name "Boundary Checks"]. Instead of checking if a number is greater than 640, what will you need to check?}
+                                 @activity[#:forevidence (list "N-Q&1&1" "5.OA.1-2&1&1" "7.EE.3-4&1&1" "A-CED.1-4&1&1" "BS-PL.3&1&2" "BS-PL.3&1&3" "BS-DR.1&1&1" "BS-DR.1&1&2" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1")]{@itemlist[@item{Complete the design recipe for @code{is-off-left} on @worksheet-link[#:page 25 #:name "Boundary Checks"]. Instead of checking if a number is greater than 640, what will you need to check?}
                                                      @item{When finished, copy your functions into your @editor-link[#:public-id "0B9rKDmABYlJVeFBBU2tHc0hDTlk" "Ninja World"] file, underneath your @code{keypress} function.}]}}
                          @teacher{}}
                  @point{@student{Now we have a way to check whether something has gone off the right OR the left of the screen, but we still haven't told the game what to do when it does. In Ninja World, after the dog goes off the right side of the screen, he should reappear on the left-hand side. 
@@ -158,7 +158,9 @@ end}
 }
                          @teacher{This can be an opportunity to discuss abstraction and the usefulness of reusing code with your students. The @code{ask} tests in @code{next-world} could be written as: @code{current-world.dogX > 690}, or @code{current-world.coinX < 0}, but this is more work than neccessary if the @code{is-off-right} and @code{is-off-left} functions have been written, and could be confusing for someone else looking at the code, who doesn't know why @code{dogX} is being compared to 690. Additionally, from a programming point of view, it makes sense to use the specific screen boundaries in as few functions as possible: If a programmer wants his or her game to be playable on a larger screen (such as a tablet), they will have to go through their code and change every function that tests boundaries based on the old screen size, 640x480. If only the @code{is-off-right} and @code{is-off-left} functions use the screen size, the programmer can make a few quick changes to the numbers, instead of searching through @code{ask} branches such as in the second example.}}
                                                                                     @point{@student{@bold{Optional:} Armed with the knowledge of abstraction, write a new function @code{is-in-air} to determine whether a given number is greater than 75. Then, re-write your third condition in @code{next-world} to use this function to determine if the cat is off the ground. This will make your code more readable, and you can easily edit the boundaries if the image of the cat changes to a smaller or larger image.}
-       @teacher{}}
+       @teacher{What happens if the dog and coin reach the boundaries @italic{at the same time}? The computer reads @code{ask} branches in order, so it will evaluate the first true condition and change the World accordingly. If the first branch checks the dog’s x-coordinate, and the dog and coin reach the boundaries at the same time, the dog’s position will be updated one (mostly-imperceptible) frame before the coin’s.
+
+@bold{Optional challenge exercise:} write another condition to check if the dog AND the coin are off the screen at the same time.}}
                  ]
          }
        
