@@ -49,7 +49,6 @@
 (define-runtime-path scheme2.js "scheme2.js")
 (define-runtime-path pyret-mode.js "pyret-mode.js")
 (define-runtime-path bootstraplesson.js "bootstraplesson.js")
-(define-runtime-path extra_curriculum.css "extra_curriculum.css")
 (define-runtime-path workbook.css "workbook.css")
 (define-runtime-path overview-styles.css "styles.css")
 
@@ -67,7 +66,6 @@
         (cond [(audience-in? (list "student")) (make-css-style-addition cards.css)]
               [(member (getenv "BOOTSTRAP-TARGET") (list "workbook")) (make-css-style-addition workbook.css)]
               [else (make-css-style-addition textbook.css)])
-        (make-css-style-addition extra_curriculum.css)
         )) 
 
 (define overview-pages-css-js-additions
