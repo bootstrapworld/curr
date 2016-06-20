@@ -161,7 +161,6 @@
 (define bs-banner-style (bootstrap-div-style "banner"))
 (define bs-boxtext-style (bootstrap-div-style "boxedtext"))
 
-(define bs-head-style (make-style #f (list bs-head-additions)))
 (define bs-handout-style (bootstrap-div-style/extra-id "segment" "exercises"))
 (define bs-exercise-instr-style (bootstrap-div-style "exercise-instr"))
 
@@ -720,9 +719,9 @@
                                      
 ;;;;;;;;;;;;; Generating the Main Summary Page ;;;;;;;;;;;;;;;;;
 
-;; to add HEAD attributes, create an empty title element
+;; to add HEAD or BODY-ID attributes, create an empty title element
 (define (augment-head)
-  (title #:style bs-head-style))
+  (title #:style (make-style #f (list bs-head-additions (bs-body-id)))))
 
 ;; Used to generate the curriculum overview pages
 ;; Not sure why we have the dual nested here ...
@@ -1294,6 +1293,7 @@
 ;;;;;;;;;;;; Page titles ;;;;;;;;;;;;;;;;;;;;;
 
 ;; generates the title, which includes the bootstrap logo in html but not in latex/pdf
+;; the body-id for the page is set through head-title-no-content
 (define (bootstrap-title #:single-line [single-line #f] . body)
   (define the-title (apply string-append body))
   (define unit+title (if single-line #f (regexp-match #px"^([^:]+):\\s*(.+)$" the-title))) 

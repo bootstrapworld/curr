@@ -465,12 +465,14 @@
     (solutions-mode-off)
     (when (equal? course "bs1")
       (putenv "TARGET-LANG" "racket")
+      (putenv "RELEASE-STATUS" "mature")
       (build-exercise-handouts) ; not needed for bs2
       (workbook-styling-on)
       (build-extra-pdf-exercises) ; not needed for bs2
       )
     (when (equal? course "bs2")
       (putenv "TARGET-LANG" "pyret")
+      (putenv "RELEASE-STATUS" "beta")
       )
     (textbook-styling-on)
     (update-resource-paths)

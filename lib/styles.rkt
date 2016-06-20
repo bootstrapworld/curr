@@ -23,6 +23,7 @@
          bootstrap-hyperlink-style
 	 bootstrap-style
 	 bs-head-additions
+         bs-body-id
 	 make-bs-latex-style 
 	 bs-title-style
 	 bs-content-style
@@ -144,6 +145,15 @@
   (make-head-extra 
    '(meta ((name "viewport")
            (content "width=device-width, initial-scale=1, user-scalable=no")))))
+
+;; use the id tag on the body to capture maturity of curriculum
+;; - current values (6/2016) are "mature" and "beta"
+;; - will use this id to put "BETA" in the webpage background via CSS
+;; the tag is set in build.rkt, on a per-curriculum basis
+;; the tag is used in scribble-helpers.rkt (for units and exercises) and
+;;    form-elements.rkt (for main.scrbl/curriculum index pages)
+(define (bs-body-id)
+  (make-body-id (getenv "RELEASE-STATUS")))
 
 ;; make-bs-latex-style : string -> style
 ;; defines a style that will only be used in latex

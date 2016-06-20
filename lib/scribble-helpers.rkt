@@ -8,6 +8,7 @@
          scribble/basic
          scribble/html-properties
          ;"checker.rkt"
+         "styles.rkt"
          )
 
 (provide append/itemization
@@ -18,7 +19,6 @@
          interleave-parbreaks/all
          create-itemlist
          head-title-no-content
-         ;(all-defined-out)  ;--> clashes with provide/contract
          )
 
 (provide/contract [itemlist/splicing
@@ -32,7 +32,8 @@
 
 ;; used to generate title in head without scribble-generated title content
 (define (head-title-no-content text)
-  (title #:style 'hidden text))
+  (title #:style (make-style #f (list 'hidden (bs-body-id))) 
+         text))
 
 ;;;;; ITEMIZATIONS ;;;;;;;;;;;;
 
