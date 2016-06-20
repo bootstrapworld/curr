@@ -2,14 +2,14 @@
 .main{width: 7.5in;}
 div.content{	background:		rgba(255, 255, 255, .3); display: block;}
 
-body::after{
+body#beta::after{
   content: 'BETA';
   display: block;
   position: fixed;
   font-size: 200px;
   top: 200px;
   left: 80px;
-  color: rgba(0,0,0,0.3);
+  color: rgba(0,0,0,0.2);
   transform: rotate(45deg);
 }
 
