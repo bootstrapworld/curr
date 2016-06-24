@@ -157,23 +157,28 @@
                                  In film-making, there's a saying: "Don't call us, we'll call you." Having @code{next-world} and @code{draw-world}
                                  fighting with one other is just going to cause chaos - we need a director, who will let each one know when it's time to do
                                  their job. In programming, this is called the "Hollywood Principle," and it is exactly how we're going to make the animation 
-                                 work in our programs. The director is called @code{big-bang}, and its job is to call
+                                 work in our programs. Let's try to act this out in real life...}
+                         @teacher{}
+                         }
+                 @point{@student{The director is called @code{big-bang}, and its job is to call
                                  each function when it's time for something to happen. @code{big-bang} needs a world to begin, so the very first thing we
-                                 do is pass a @italic{starting world} to @code{big-bang}. If that's all we do, then the world will never change over time.}
-                         @teacher{Dramatically reveal the "big-bang" sign or nametag. Have a student volunteer to be @code{big-bang}, and start out
+                                 do is pass a @italic{starting world} to @code{big-bang}. For now, the director just holds the world while time passes. You
+                                 can imagine a click ticking by, second-by-second, with the director just standing there holding the world.}
+                         @teacher{Select a student volunteer to be @code{big-bang} (giving them a nametag or sign to wear), and start out
                                   by randomly-selecting a student to hand @code{big-bang} their "world". TIP: snap your fingers every 5 seconds,
                                   to demonstrate the passage of time. Students should see that the world doesn't change, no matter how much time has passed.
                                   Repeat for different students, so the class sees that the world can be @italic{any} starting value.}
                          }
-                 @point{@student{The first thing we need to do is have @code{big-bang} call @code{next-world} every few seconds, passing the current world
-                                 to that function and then holding whatever is returned. Now, every five seconds, @code{big-bang} will pass the world they are
-                                 are holding over to @code{next-world}. @code{next-world} will produce a new piece of paper with the new value, and hand it
-                                 back to @code{big-bang.} The process repeats on and on and on...}
-                         @teacher{Have your students model this for the class, and encourage the whole classroom to say "tick" every 5 seconds.}
+                 @point{@student{But now things get interesting! Every time the clock ticks, @code{big-bang} is going to call @code{next-world}, 
+                                 passing the current world and then holding whatever it returns. The process repeats on and on and on, with the @code{world}
+                                 changing bit by bit. Since the @code{world} refers to the Dog's x-coordinate, we'll see this number change over time to
+                                 represent the dog moving across the screen.}
+                         @teacher{Have your students model this for the class, and encourage the whole classroom to say "tick" every 5 seconds. On every tick, 
+                                  @code{big-bang} will pass the world they are are holding over to @code{next-world}. @code{next-world} will 
+                                 produce a new piece of paper with the new value, and hand it back to @code{big-bang.}}
                          }
-                 @point{@student{Now we can see the world changing, but we haven't used it to draw each frame yet. When should @code{big-bang} call
-                                 @code{draw-world}? Every time a new world is produced, @code{big-bang} will hand it over to @code{draw-world}, which
-                                 will use it to place the dog on the background.}
+                 @point{@student{Now our @code{world} is changing, but it's all just data - we can't actually @italic{see the dog move!} We want @code{big-bang} 
+                                 to call @code{draw-world} every time a new world is produced, so we can actually see the image of the dog on the background.}
                          @teacher{Have students act this out.}
                          }
                  @point{@student{On your computers, scroll down to line 42, which include some comments and an example of using @code{big-bang}. 
