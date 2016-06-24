@@ -149,7 +149,7 @@
             
             <div class="item clearfix bottom-border" style="width: 100%;">
               <h1>Exercises and Solutions</h1>
-              <h2>Unit 1</h2>
+              <h2><a href="../../units/unit1/">Unit 1</a></h2>
               <ul>
                 <li>Warmup
                   <span class="links">
@@ -242,7 +242,7 @@
                   </span>
                 </li>
               </ul>
-              <h2>Unit 2</h2>
+              <h2><a href="../../units/unit2/">Unit 2</a></h2>
               <ul>
                 <li>Warmup
                   <span class="links">
@@ -281,7 +281,7 @@
                   </span>
                 </li>
               </ul>
-              <h2>Unit 3</h2>
+              <h2><a href="../../units/unit3/">Unit 3</a></h2>
               <ul>
                 <li>Warmup
                   <span class="links">
@@ -308,7 +308,7 @@
                   </span>
                 </li>
               </ul>
-              <h2>Unit 4</h2>
+              <h2><a href="../../units/unit4/">Unit 4</a></h2>
               <ul>
                 <li>Warmup
                   <span class="links">
@@ -341,7 +341,7 @@
                   </span>
                 </li>
               </ul>
-              <h2>Unit 5</h2>
+              <h2><a href="../../units/unit5/">Unit 5</a></h2>
               <ul>
                 <li>Warmup
                   <span class="links">
@@ -356,7 +356,7 @@
                   </span>
                 </li>
               </ul>
-              <h2>Unit 6</h2>
+              <h2><a href="../../units/unit6/">Unit 6</a></h2>
               <ul>
                 <li>Warmup
                   <span class="links">
@@ -376,7 +376,7 @@
                   </span>
                 </li>
               </ul>
-              <h2>Unit 7</h2>
+              <h2><a href="../../units/unit7/">Unit 7</a></h2>
               <ul>
                 </li>
                 <li>Warmup
@@ -392,7 +392,7 @@
                   </span>
                 </li>
               </ul>
-              <h2>Unit 8</h2>
+              <h2><a href="../../units/unit8/">Unit 8</a></h2>
               <ul>
                 <li>Warmup
                   <span class="links">
@@ -407,7 +407,7 @@
                   </span>
                 </li>
               </ul>
-              <h2>Unit 9</h2>
+              <h2><a href="../../units/unit9/">Unit 9</a></h2>
               n/a
             </div>
             <div class="item clearfix">
