@@ -39,9 +39,11 @@
                                            Fill out the Party structure definition on @worksheet-link[#:page 13 #:name "Parties"] in your workbook.}
 @code[#:multi-line #t]{# a Party is a location, theme, and number of guests
                        data Party:
-                         | party(location :: String, 
-                                 theme    :: String, 
-                                 guests   :: Number)
+                         | party(
+                             location :: String, 
+                             theme    :: String, 
+                             guests   :: Number
+                           )
                        end}
 Once the Party structure is defined, you have access to new pieces of code: a function to make a Party, and three @vocab{dot-accessors} to get the location, theme, and number of guests out of the Party. 
 @activity[#:forevidence (list "F-IF.1-3&1&1" "BS-DS.1&1&1" "BS-DS.1&1&2" "BS-DS.1&1&3" "BS-DS.1&1&4" "BS-DS.1&1&5")]{@itemlist[@item{What is the @vocab{Name} of the function that creates a Party?}
@@ -96,19 +98,23 @@ Once the Party structure is defined, you have access to new pieces of code: a fu
                  
                  @point{@student{The moment you write @code{Cake} in the function's Range, you know that you'll need to call the @code{cake} constructor and give it five things: the flavor, color, message, layers, and is-iceCream of that cake. 
                   @code[#:multi-line #t]{examples:
-                                             change-flavor(cake1, "strawberry") is cake(...flavor...
-                                                                                        ...color...
-                                                                                        ...message...
-                                                                                        ...layers...
-                                                                                        ...is-iceCream...
-                                                                                        )
+                                             change-flavor(cake1, "strawberry") is 
+                                             cake(
+                                               ...flavor...
+                                               ...color...
+                                               ...message...
+                                               ...layers...
+                                               ...is-iceCream...
+                                             )
                                          end}
                                                                         
                                  We already know what flavor this cake should be: strawberry! So we can start by giving our @code{cake} function the given String as its first input (since the first input to the @code{cake} function @italic{must} be its flavor).
                                  
     @code[#:multi-line #t]{examples:
-                               change-flavor(cake1, "strawberry") is cake("strawberry",
-                                                                             ...)
+                               change-flavor(cake1, "strawberry") is 
+                               cake(
+                                 "strawberry",
+                                 ...)
                            end}
                                 @activity[#:forevidence (list "BS-DS.1&1&5")]{@itemlist[@item{We also know what color this Cake should be: the same as the given Cake! So how could you access JUST the color of @code{cake1} and use it in the @code{cake} function? Use the dot-accessor!
                                                          The message of the cake doesn't change, either. So how do you get the message out of @code{cake1}?}
@@ -117,11 +123,13 @@ Once the Party structure is defined, you have access to new pieces of code: a fu
                                 changing, so how do you get the original is-iceCream out of @code{cake1}?
                                 
 @code[#:multi-line #t]{examples:
-                           change-flavor(cake1, "strawberry") is cake("strawberry",
-                                                            cake1.color, 
-                                                            cake1.message, 
-                                                            cake1.layers, 
-                                                            cake1.is-iceCream)
+                           change-flavor(cake1, "strawberry") is 
+                           cake("strawberry",
+                             cake1.color, 
+                             cake1.message, 
+                             cake1.layers, 
+                             cake1.is-iceCream
+                           )
                        end}}
                          @teacher{Remind students that the arguments to each function in Pyret @italic{must} be separated by commas. This wasn't necessary in Racket, but they 
                                                                                                will receive error messages if they don't use commas correctly in Pyret code.}}
@@ -131,12 +139,14 @@ Once the Party structure is defined, you have access to new pieces of code: a fu
                         
                                   After replacing the changing things with variables, your definition should look similar to: 
                                   @code[#:multi-line #t]{fun change-flavor(a-cake, new-flavor):
-                                                         cake(new-flavor, 
-                                                         a-cake.color, 
-                                                         a-cake.message, 
-                                                         a-cake.layers, 
-                                                         a-cake.is-iceCream)
-                                                                   end}}
+                                                           cake(
+                                                             new-flavor, 
+                                                             a-cake.color, 
+                                                             a-cake.message, 
+                                                             a-cake.layers, 
+                                                             a-cake.is-iceCream
+                                                           )
+                                                         end}}
                          @teacher{Students may be tempted to put @code{new-flavor} in quotes, because the flavor of the Cake must be a string. However, the domain of 
                                                                  @code{change-flavor} tells us that the function will take in a Cake and a String, so whatever flavor is input will already 
                                                                  have quotes around it. Values evaluate to themselves, so the string "new-flavor" cannot evaluate to anything other than "new-flavor".

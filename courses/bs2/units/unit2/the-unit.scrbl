@@ -70,8 +70,8 @@
                                                        ]}
 Don't forget to include the lines @code{examples:} and @code{end}! Your examples should look similar to:
                                   @code[#:multi-line #t]{examples:
-                                                             double-radius(50, "pink") is circle(50 * 2, "outline", "pink")
-                                                             double-radius(918, "orange") is circle(918 * 2, "outline", "orange")
+                                                           double-radius(50, "pink") is circle(50 * 2, "outline", "pink")
+                                                           double-radius(918, "orange") is circle(918 * 2, "outline", "orange")
                                                          end}}
                          
                          @teacher{Each one of these answers can be found in the Contract or Purpose Statement. Suggestion: Write these steps on the board, and draw 
@@ -86,7 +86,7 @@ Don't forget to include the lines @code{examples:} and @code{end}! Your examples
 # double-radius: Number, String -> Image
 # Makes an outlined circle that's twice the radius.
 fun double-radius(radius, color):
-    circle(radius * 2, "outline", color)
+  circle(radius * 2, "outline", color)
 end}
            @activity[#:forevidence (list "N-Q&1&1" "8.F.1-3&1&1" "F-IF.1-3&1&1" "A-SSE.1-2&1&1" "BS-M&1&1" "BS-PL.3&1&3" "BS-DR.1&1&1" "BS-DR.1&1&2" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1")]{For more practice, turn to @worksheet-link[#:page 9 #:name "double-width"] in your workbook and complete the Design Recipe for the @code{double-width} function.}}
                 @teacher{Check students understanding: Why do we use variables in place of specific values? Why is it important to have descriptive variable
@@ -137,14 +137,14 @@ end}
                     @item{We don't want our Coord to contain the same x and y values we gave the @code{next-position} function. How will the values change? (Remember to show your work!)}
                     @item{Your first example should look something like: 
                           @code[#:multi-line #t]{examples:
-                                                    next-position(30, 250) is coord(30 + 5, 250 - 5)
+                                                   next-position(30, 250) is coord(30 + 5, 250 - 5)
                                                  end}}
                     @item{Once your first example is complete, write one more example with different inputs for the x and y coordinates.}]}}
                             @teacher{Remind students to show every step of their work in the example step of the design recipe: if the x-coordinate increases by 5 while the y-coordinate decreases by 5, they should show the addition and subtraction within the Coord data structure, instead of just returning the new numbers.}}
                     
                     @point{@student{@activity[#:forevidence (list "8.F.4&1&1" "F-LE.1-4&1&5" "BS-DR.3&1&1" "BS-DR.4&1&2")]{Now that you have two examples, it's time to define the function. You know the drill: circle and label everything that changes between your two examples, copy everything that stays the same, and replace the changing things with the variables you chose.}
                                      When you finish, your function definition should look like: @code[#:multi-line #t]{fun next-position(x, y):
-                          coord(x + 5, y - 5)
+                         coord(x + 5, y - 5)
                        end}
                                      Now, instead of just changing and returning one number (a y-coordinate), we can return @bold{both} the x and y-coordinates of the parachute jumper within a @vocab{Data Structure}. @activity[#:forevidence (list "BS-IDE&1&1")]{Open the @editor-link[#:public-id "0B9rKDmABYlJVbFpIZktoQ1pwWm8" "Parachute Jumper"] code again and replace the original @code{next-position} function with the one in your workbook to make the jumper land safely on the shore!}}
                            @teacher{}}
@@ -198,11 +198,12 @@ end}
                                    On your paper, you should have: 
                                    @code[#:multi-line #t]{ # a Cake is a flavor, color, message, number of layers, and whether or not it is an ice cream cake.
                                                        data Cake:
-                                                         | cake(flavor :: String, 
-                                                                 color :: String, 
-                                                               message :: String, 
-                                                                layers :: Number, 
-                                                           is-iceCream :: Boolean)
+                                                         | cake(
+                                                             flavor      :: String, 
+                                                             color       :: String, 
+                                                             message     :: String, 
+                                                             layers      :: Number, 
+                                                             is-iceCream :: Boolean)
                                                        end}
                              This is the code that defines the Cake data structure. It tells the computer what a Cake is and what goes into it. It also defines its constructor function, called @code{cake}. To make a Cake, you @italic{must} call the constructor function with five things: a @code{flavor}, which is a String, @code{color}, a String, @code{messgae}, another String, @code{layers}, a Number, and @code{is-iceCream}, which is a Boolean. Remember that order matters! For now, these are the only things that we're going to keep track of in a cake, but you can imagine how you might extend it to include other information.}
                         @teacher{Stress the importance of being able to define your own datatypes

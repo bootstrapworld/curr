@@ -76,18 +76,19 @@
                                                              @item{But you probably don't want your image to be at the center of the background. Look back at the sketches you made on @worksheet-link[#:page 32 #:name "Game Design"]. You made a note of which coordinates you wanted that image to be, placed on top of the background.}]}
                                         Start with something that looks like this, substituting YOUR image and coordinates (or dot-accessors):
 @code[#:multi-line #t]{fun draw-world(current-world):
-                          ...
-                          ...
-                          ...
-                          put-image(IMAGE, 320, 240, BACKGROUND)
+                         ...
+                         ...
+                         ...
+                         put-image(IMAGE, 320, 240, BACKGROUND)
                        end}
 Remember, if the position of these images will be changing (like the dog and coin moving across the screen in Ninja World), they won't always be placed at the same coordinates. Instead of using specific numbers in @code{put-image}, you can (and should!) use @vocab{dot-accessors} to access the coordinates of the characters in the world. Your own world struct will determine which dot-accessors you have available.
 
 Here is an example of using @code{draw-world} in our Ninja World game, using @code{worldA}:
-@code[#:multi-line #t]{draw-world(worldA) is put-image(NINJA-IMG, worldA.catX, worldA.catY,
-                                                put-image(COIN-IMG, worldA.coinX, 300,
-                                                    put-image(DOG-IMG, worldA.dogX, worldA.dogY,
-                                                        put-image(CLOUD-IMG, 500, 400, BACKGROUND-IMG))))}
+@code[#:multi-line #t]{draw-world(worldA) is 
+                       put-image(NINJA-IMG, worldA.catX, worldA.catY,
+                         put-image(COIN-IMG, worldA.coinX, 300,
+                           put-image(DOG-IMG, worldA.dogX, worldA.dogY,
+                             put-image(CLOUD-IMG, 500, 400, BACKGROUND-IMG))))}
                                          @activity[#:forevidence (list "BS-M&1&1" "BS-IDE&1&1" "BS-IDE&1&2" "BS-PL.3&1&1" "BS-DS.1&1&5" "BS-W&1&2")]{@itemlist[@item{Place another one of your images on top of the one that your first @code{put-image} expression has created. (Remember: the range of @code{put-image} is an image, so you can use this expression as the image onto which you place your next character image.}
                                                               @item{Keep adding to it, until you have a stack of all of the images in your game.}
                                                               @item{When you finish, test out your function by typing @code{draw-world(worldA)} into the interactions area to see a screenshot of your game at the very beginning!}]}}
@@ -122,8 +123,10 @@ Here is an example of using @code{draw-world} in our Ninja World game, using @co
                                 @item{Next, write one more example for @code{next-world} where you create a new world structure. What will your updated world look like?}]}
             Here are some examples for @code{next-world}, from the simple version of Ninja World:
             @code[#:multi-line #t]{examples:
-                                         next-world(worldA) is world(worldA.dogX + 10, worldA.coinX - 5)
-                                         next-world(worldB) is world(worldB.dogX + 10, worldB.coinX - 5)
+                                     next-world(worldA) is 
+                                     world(worldA.dogX + 10, worldA.coinX - 5)
+                                     next-world(worldB) is 
+                                     world(worldB.dogX + 10, worldB.coinX - 5)
                                    end}
             In the first example, we create a new World (using the @code{world} constructor function) by adding 10 to the @code{dogX} of @code{worldA}, and subtracting 5 from its @code{coinX}. 
             In the second example, we do the same thing, only with @code{worldB}. 

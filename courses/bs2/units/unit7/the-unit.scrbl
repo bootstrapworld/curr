@@ -75,7 +75,7 @@ In one dimension, such as on a number line, finding the distance is pretty easy.
                                                      @item{Write down the definition for @code{line-length}.}]}     
 @code[#:multi-line #t]{fun line-length(a, b):
                            ask:
-                             | a > b then: a - b
+                             | a > b  then: a - b
                              | b >= a then: b - a
                            end
                        end}}
@@ -129,8 +129,9 @@ In one dimension, such as on a number line, finding the distance is pretty easy.
                        }
                 @point{@student{@activity[#:forevidence (list "BS-CE&1&4" "BS-PL.3&1&3")]{@itemlist[@item{Turn to @worksheet-link[#:page 29 #:name "Distance-Formula-With-Numbers"] of your workbook - you'll see the formula written out.} 
                                                     @item{Draw out the circle of evaluation, starting with the simplest expression you can see first.}
-                                                     @item{Once you have the circle of evaluation, translate it into Pyret code at the bottom of the page, starting with @code[#:multi-line #true]{check: 
-           distance(4, 2, 0, 5) is...
+                                                     @item{Once you have the circle of evaluation, translate it into Pyret code at the bottom of the page, starting with 
+                                                           @code[#:multi-line #true]{check: 
+         distance(4, 2, 0, 5) is...
        end}}]}
 Now you've got code that tells you the distance between the points (4, 2) and (0, 5). But we want to have it work for @italic{any} two points. It would be great if we had a function that would just take the x's and y's as input, and do the math for us.}
                         @teacher{}}

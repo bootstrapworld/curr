@@ -75,14 +75,14 @@
                         }
                  @point{@student{Behind-the-scenes, this animation is really just a single Number: the x-coordinate of the fish! For each x-coordinate, there's
                                  a simple mapping between the number and what picture is drawn onscreen. In fact, we could write a function that takes in the
-                                 x-coordinate and puts the fish image at the right place. Let's call this function @code{draw}. 
+                                 x-coordinate and puts the fish image at the right place. Let's call this function @code{draw-world}. 
                                  @bitmap{images/frames-with-draw.png}
                                  }
-                         @teacher{For practice, have students try writing @code{draw} using an image of their own.}
+                         @teacher{For practice, have students try writing @code{draw-world} using an image of their own.}
                          }
                  @point{@student{There's also a mapping from one frame to the next: each x-coordinate is just 20 more than the previous one! That means there's
                                  also a mapping between the number for one frame and the next. We could express this with a function, too, which takes in
-                                 the x-coordinate and produces the @italic{next} x-coordinate.
+                                 the x-coordinate and produces the @italic{next-world} x-coordinate.
                                  @bitmap{images/frames-with-next.png}
                                  }
                          @teacher{For practice, have students try writing @code{draw} using an image of their own.}
@@ -121,7 +121,7 @@
                                 
                         @teacher{These activities encourage students to read others' code and think about how it works, looking at the contracts and definitions and 
                                  piecing together what they already know. Ask a LOT of questions when going through the file: Why is @code{dogX} a good variable name? 
-                                 What will @code{draw-world(10)} produce? @code{draw-world(NumberA)}? What about @code{update-world(1000)}? @code{update-world(NumberB)}?
+                                 What will @code{draw-world(10)} produce? @code{draw-world(NumberA)}? What about @code{next-world(1000)}? @code{next-world(NumberB)}?
                                  }
                         }
                  

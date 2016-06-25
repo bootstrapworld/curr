@@ -166,11 +166,11 @@ For reference and to check your work, you can see the completed Design Recipe fo
                  
                  @point{@student{Your exampes should look similar to:
 @code[#:multi-line #t]{examples:
-                           next-world(worldA) is
-                           world(worldA.dogX + 10, worldA.coinX - 5, worldA.catX, worldA.catY - 5)
-                           next-world(worldB) is 
-                           world(worldB.dogX + 10, worldB.coinX - 5, worldB.catX, worldB.catY)
-                        end}
+                         next-world(worldA) is
+                         world(worldA.dogX + 10, worldA.coinX - 5, worldA.catX, worldA.catY - 5)
+                         next-world(worldB) is 
+                         world(worldB.dogX + 10, worldB.coinX - 5, worldB.catX, worldB.catY)
+                       end}
 Circle and label what changes. Did more things change than you entered in the Domain? Sometimes we subtract 5 from the cat's y-coordinate, but sometimes her position stays the same. @activity[#:forevidence (list "F-LE.5&1&1" "A-CED.1-4&1&1" "BS-PL.3&1&3" "BS-DR.4&1&3" "BS-DS.1&1&5")]{@itemlist[@item{What question should we ask to tell us if the cat is above 75 pixels? What dot-accessor will we need to use?}
                      @item{Our first condition must ask if the cat's x-coordinate is greater than 75. What changes about the world if this is true?}
                      @item{Complete the design recipe for @code{next-world} and put the code into the @editor-link[#:public-id "0B9rKDmABYlJVM2tUSFNTc21xOFU" "Ninja World"] file.}]}}
@@ -179,8 +179,19 @@ Circle and label what changes. Did more things change than you entered in the Do
 @code[#:multi-line #t]{# next-world: World -> World
                        fun next-world(current-world):
                           ask:
-                            |current-world.catY > 75 then: world(current-world.dogX + 10, current-world.coinX - 5, current-world.catX, current-world.catY - 5)
-                            |otherwise: world(current-world.dogX + 10, current-world.coinX - 5, current-world.catX, current-world.catY)
+                            | current-world.catY > 75 then: 
+                              world(
+                                current-world.dogX + 10, 
+                                current-world.coinX - 5, 
+                                current-world.catX,
+                                current-world.catY - 5
+                                )
+                            | otherwise: 
+                              world(current-world.dogX + 10, 
+                              current-world.coinX - 5, 
+                              current-world.catX,
+                              current-world.catY
+                              )
                           end
                         end }
 Ninja Cat is falling slowly in response to gravity, but it's now pretty tough for her to move up quickly. She needs some way to jump! @activity[#:forevidence (list "7.EE.3-4&1&1" "BS-PL.4&1&1" "BS-DR.4&1&3" "BS-DS.1&1&5")]{Think about how you could implement jumping in this game. @itemlist[@item{How would the player make a character jump?}

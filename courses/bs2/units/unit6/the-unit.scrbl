@@ -84,7 +84,7 @@ Here is the contract for the greater than function:
                                                       @item{How do you check whether it's off the right hand side?}
                                                       @item{Any x-coordinate greater than 640 is off the right side of the screen, but we want to consider a slightly higher x-coordinate "off the screen," to account for the width of the character image. So how would you determine whether or not the example number is @italic{greater than} 690?}]}
                                  @code[#:multi-line #true]{examples:
-                                           is-off-right(320) is 320 > 690
+                                         is-off-right(320) is 320 > 690
                                        end}
                                  @activity[#:forevidence (list "5.OA.1-2&1&1" "7.EE.3-4&1&1" "A-CED.1-4&1&1" "BS-PL.3&1&2" "BS-PL.3&1&3" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1")]{Write another example for a coordinate that is off the screen on the right side, circle what changes, and write your function definition.}}
                          @teacher{Remind students about Sam the butterfly from Bootstrap:1. This function does the same thing as @code{safe-right?}, to determine whether the character has gone off the screen based on its x-coordinate. Ensure that students are using the full name of @code{is-off-right}.}}
@@ -108,9 +108,17 @@ Here is the contract for the greater than function:
     | is-off-right(current-world.dogX) then:
         ...result...
     | current-world.catY > 75 then:
-      world(current-world.dogX + 10, current-world.coinX - 5, current-world.catX, current-world.catY - 5)
+      world(
+        current-world.dogX  + 10, 
+        current-world.coinX - 5, 
+        current-world.catX, 
+        current-world.catY  - 5)
     | otherwise:
-      world(current-world.dogX + 10, current-world.coinX - 5, current-world.catX, current-world.catY)
+      world(
+        current-world.dogX  + 10, 
+        current-world.coinX - 5, 
+        current-world.catX, 
+        current-world.catY)
   end
 end}}
                          @teacher{}}
@@ -118,11 +126,23 @@ end}}
  @code[#:multi-line #t]{fun next-world(current-world):
   ask:
     | is-off-right(current-world.dogX) then:
-      world(...dogX..., ...coinX..., ...current-world.catX..., ...catY...)
+      world(
+        ...dogX..., 
+        ...coinX..., 
+        ...catX..., 
+        ...catY...)
     | current-world.catY > 75 then:
-      world(current-world.dogX + 10, current-world.coinX - 5, current-world.catX, current-world.catY - 5)
+      world(
+        current-world.dogX  + 10, 
+        current-world.coinX - 5, 
+        current-world.catX, 
+        current-world.catY  - 5)
     | otherwise:
-      world(current-world.dogX + 10, current-world.coinX - 5, current-world.catX, current-world.catY)
+      world(
+        current-world.dogX  + 10, 
+        current-world.coinX - 5, 
+        current-world.catX, 
+        current-world.catY)
   end
 end}
 How should @code{dogX} change in this condition? We said we want to move the dog back to the left side of the screen. @activity[#:forevidence (list "F-LE.5&1&1" "A-SSE.1-2&1&1" "BS-PL.4&1&1" "BS-DS.1&1&5")]{@itemlist[@item{What will the new value of @code{dogX} be, if it, moves back to the left side of the screen?}
@@ -130,11 +150,23 @@ How should @code{dogX} change in this condition? We said we want to move the dog
  @code[#:multi-line #t]{fun next-world(current-world):
   ask:
     | is-off-right(current-world.dogX) then:
-      world(0, current-world.coinX, current-world.catX, current-world.catY)
+      world(
+        0, 
+        current-world.coinX, 
+        current-world.catX, 
+        current-world.catY)
     | current-world.catY > 75 then:
-      world(current-world.dogX + 10, current-world.coinX - 5, current-world.catX, current-world.catY - 5)
+      world(
+        current-world.dogX  + 10, 
+        current-world.coinX - 5, 
+        current-world.catX, 
+        current-world.catY  - 5)
     | otherwise:
-      world(current-world.dogX + 10, current-world.coinX - 5, current-world.catX, current-world.catY)
+      world(
+        current-world.dogX  + 10, 
+        current-world.coinX - 5, 
+        current-world.catX, 
+        current-world.catY)
   end
 end}}
                          @teacher{}}
@@ -146,18 +178,34 @@ end}}
 @code[#:multi-line #t]{fun next-world(current-world):
   ask:
     | is-off-right(current-world.dogX) then:
-      world(0, current-world.coinX, current-world.catX, current-world.catY)
+      world(
+        0, 
+        current-world.coinX, 
+        current-world.catX, 
+        current-world.catY)
     | is-off-left(current-world.coinX) then: 
-      world(current-world.dogX, 640, current-world.catX, current-world.catY)
+      world(
+        current-world.dogX, 
+        640, 
+        current-world.catX, 
+        current-world.catY)
     | current-world.catY > 75 then:
-      world(current-world.dogX + 10, current-world.coinX - 5, current-world.catX, current-world.catY - 5)
+      world(
+        current-world.dogX  + 10, 
+        current-world.coinX - 5, 
+        current-world.catX, 
+        current-world.catY  - 5)
     | otherwise:
-      world(current-world.dogX + 10, current-world.coinX - 5, current-world.catX, current-world.catY)
+      world(
+        current-world.dogX  + 10, 
+        current-world.coinX - 5, 
+        current-world.catX, 
+        current-world.catY)
   end
 end}
 }
                          @teacher{This can be an opportunity to discuss abstraction and the usefulness of reusing code with your students. The @code{ask} tests in @code{next-world} could be written as: @code{current-world.dogX > 690}, or @code{current-world.coinX < 0}, but this is more work than neccessary if the @code{is-off-right} and @code{is-off-left} functions have been written, and could be confusing for someone else looking at the code, who doesn't know why @code{dogX} is being compared to 690. Additionally, from a programming point of view, it makes sense to use the specific screen boundaries in as few functions as possible: If a programmer wants his or her game to be playable on a larger screen (such as a tablet), they will have to go through their code and change every function that tests boundaries based on the old screen size, 640x480. If only the @code{is-off-right} and @code{is-off-left} functions use the screen size, the programmer can make a few quick changes to the numbers, instead of searching through @code{ask} branches such as in the second example.}}
-                                                                                    @point{@student{@bold{Optional:} Armed with the knowledge of abstraction, write a new function @code{is-in-air} to determine whether a given number is greater than 75. Then, re-write your third condition in @code{next-world} to use this function to determine if the cat is off the ground. This will make your code more readable, and you can easily edit the boundaries if the image of the cat changes to a smaller or larger image.}
+                                  @point{@student{@bold{Optional:} Armed with the knowledge of abstraction, write a new function @code{is-in-air} to determine whether a given number is greater than 75. Then, re-write your third condition in @code{next-world} to use this function to determine if the cat is off the ground. This will make your code more readable, and you can easily edit the boundaries if the image of the cat changes to a smaller or larger image.}
        @teacher{What happens if the dog and coin reach the boundaries @italic{at the same time}? The computer reads @code{ask} branches in order, so it will evaluate the first true condition and change the World accordingly. If the first branch checks the dog’s x-coordinate, and the dog and coin reach the boundaries at the same time, the dog’s position will be updated one (mostly-imperceptible) frame before the coin’s.
 
 @bold{Optional challenge exercise:} write another condition to check if the dog AND the coin are off the screen at the same time.}}
@@ -184,7 +232,12 @@ end}
                  @point{@student{If you want the y-coordinate of the dog to change, you'll have to add it to the World structure. @activity[#:forevidence (list "BS-DS.2&1&3")]{Go back to the top of the page where the World is defined and add in a @code{dogY}. Don't forget to redefine your @code{worldA} and @code{worldB} worlds, to account for the extra item in the World struct.}
            @code[#:multi-line #t]{data World:
                                     # The World is the x and y positions of the dog, x position of the coin, and the x and y position of the cat
-                                    | world(dogX :: Number, dogY :: Number, coinX :: Number, catX :: Number, catY :: Number)
+                                    | world(
+                                        dogX  :: Number, 
+                                        dogY  :: Number, 
+                                        coinX :: Number, 
+                                        catX  :: Number, 
+                                        catY  :: Number)
                                   end}
                                  Right now the @code{draw-world} function draws the dog at its current x-coordinate, and a pre-set y-coordinate. @activity[#:forevidence (list "BS-M&1&1" "BS-IDE&1&1" "BS-DS.1&1&5" "BS-W&1&2")]{@itemlist[@item{At what y-coordinate is the dog drawn right now?}
                                                       @item{Now that @code{dogY} has been added to the world structure, how do you get the @code{dogY} out of the world?}
