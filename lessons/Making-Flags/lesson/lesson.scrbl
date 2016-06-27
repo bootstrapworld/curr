@@ -31,7 +31,7 @@
                 )
       ]{
         @points[
-          @point{@student{@activity{Open this file and read through the code: [@resource-link[#:path "source-files/Flags.rkt" #:label "DrRacket"] | @(hyperlink "http://www.wescheme.org/view?publicId=M1BlnSmlbX" "WeScheme")] The code is also shown here:
+          @point{@student{@activity{Open this file and read through the code: [@resource-link[#:path "source-files/Flags.rkt" #:label "DrRacket"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=5eyoC2lS47" "WeScheme")] The code is also shown here:
                                      @code[#:multi-line ""]{; a blank flag is a 300x200 rectangle, which is outlined in black
                                                             ; 1) start with a red dot, of radius 50
                                                             (define dot (circle 50 "solid" "red"))
