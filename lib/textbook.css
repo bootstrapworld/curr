@@ -471,6 +471,7 @@ ul.teacherNotes li div.student.slide{ width: 90%; }
 @media print{
   /* turn off backgrounds, borders, shadows and elements we don't want to print */
 	body                                                                        {background: white;}
+  body#beta::after                                                            {display: none; }
   div.segment, li.lessonItem, table.bordered td,
   div.ExtraExercises, div.content                                             {border: none;}
   div#lessonToolbar.fixed, iframe#forum_embed, input, div.callout, .embedded-wescheme {display: none;}
