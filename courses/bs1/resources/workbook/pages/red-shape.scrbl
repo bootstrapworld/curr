@@ -1,7 +1,7 @@
  #lang curr/lib
 
-@(design-recipe-exercise "red-shape" "Write a function called red-shape, which takes in the name of a shape ('circle', 'triangle', 'star', or 'rectangle'), and produces a solid, red version of that shape. 
-Use 50 as the radius of the circle and star, and as the side-length of the triangle. Make the rectangle 99 long by 9 wide."
+@(design-recipe-exercise "red-shape" "Write a function called red-shape, which takes in the name of a shape and draws that shape (solid and red).
+ Add an else clause that produces a sensible output."
 			 #:domain-list (list "string")
 			 #:range "image"
 			 #:purpose "Create a solid red shape of the given kind"
