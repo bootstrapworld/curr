@@ -230,7 +230,7 @@ end}
                             @teacher{Have students walk you through the process of defining a variable called @code{cake5} and making a Cake with whatever flavor, color, message, etc. they like.}}
                  @point{@student{@activity[#:forevidence (list "BS-IDE&1&1" "BS-PL.1&1&1" "BS-DS.1&1&4")]{Define two new variables for some of your favorite Cakes. You can call them @code{cake6} and @code{cake7}, or whatever names you prefer. You can make any kind of Cakes that you want, as long as your structure has the right types in the right orders!}}
                          @teacher{Repetition is key in this lesson. Have students identify each part of the Cake struct for every Cake they've defined.
-                                  What is the flavor of their first Cake? Its messagee? Ensure that students are using their inputs in the right order!}}
+                                  What is the flavor of their first Cake? Its message? Ensure that students are using their inputs in the right order!}}
                  
                  @point{@student{At this point, you've worked with two different @vocab{Data Structures}: Coords and Cakes, and you've created different examples, or @vocab{instances}, of these structures. Throughout this course you'll create many more instances of structures than you will define whole new structures. For now, the important point is to recognize the difference between a structure @italic{definition} (the @code{data....} piece of code) and specific @vocab{instances} of a data structure (like @code{cake1}, or @code{coord(44, 75)}.}
                             @teacher{}}

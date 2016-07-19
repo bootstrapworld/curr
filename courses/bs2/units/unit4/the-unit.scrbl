@@ -238,7 +238,7 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{If we want the Dog and the Coin to be moving independently, we'll need a Word that is more than just one number. Specifically,
+        @points[@point{@student{If we want the Dog and the Coin to be moving independently, we'll need a World that is more than just one number. Specifically,
                                 we'd like to be able to track the Dog's x-coordinate and the Coin's x-coordinates seperately. We need to make a data structure
                                 that will contain both a dogX and a coinX. 
                                 Let's add a @code{data:} block to the top of the file, declaring a World to contain both a @code{dogX} and a @code{coinX}. We'll
