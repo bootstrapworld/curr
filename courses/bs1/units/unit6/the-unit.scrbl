@@ -93,6 +93,8 @@
                          @teacher{}
                          }
                  @point{@student{There are many other functions that produce Booleans. Here's one that can be used to compare two @vocab{Strings}: @code[#:multi-line #t]{(string=? "apples" "oranges")}
+                                 Comparing strings comes in handy if you want to make sure the password someone typed is the right password. It comes in handy if you want to know whether 
+                                 the user hit the @code{"up"} key or the @code{"down"} key. Where else might a programmer want to compare two strings?
                                  @activity[#:forevidence (list "BS-PL.2&1&1" "BS-PL.2&1&3")]{Make sure you've written down the complete @vocab{Contract} for all four Boolean functions.}}
                          @teacher{Make sure students are comfortable using Booleans to compare more complex subexpressions, rather than just comparing two Numbers.}
                          }
