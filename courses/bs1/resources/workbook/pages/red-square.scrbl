@@ -1,6 +1,6 @@
 #lang curr/lib
 
-@(design-recipe-exercise "red-square" "Use the Design Recipe to write a function 'red-square', which takes in a number (the side of the square) and outputs a solid red rectangle whose length and width are the same size."
+@(design-recipe-exercise "red-square" "Use the Design Recipe to write a function 'red-square', which takes in a number (the length of each side of the square) and outputs a solid red rectangle whose length and width are the same size."
 			 #:domain-list (list "number")
 			 #:range "image"
 			 #:purpose "Produce rectangle with given number as width and height"
