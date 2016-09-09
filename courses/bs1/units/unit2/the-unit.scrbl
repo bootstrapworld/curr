@@ -316,7 +316,7 @@ include other datatypes, including Strings and Images.}
                                 direction. You can use the function @code{flip-horizontal}, which has an
                                 Image as both its Domain and Range. See the Contract (and an example of the function) below:
                                 @code[#:multi-line ""]{; flip-horizontal : Image -> Image
-(flip-horizontal (text "backwards" 50 "red"))
+(flip-horizontal (right-triangle 50 20 "outline" "red"))
 }
                                 }
                        @teacher{Functions that take Images as their inputs are often very difficult for students at first, because they absolutely require
@@ -326,7 +326,7 @@ include other datatypes, including Strings and Images.}
                  @point{@student{@activity{For each of the following functions, write the Contract in your workbook and experiment with the sample code.
                                            Can you figure out what each function does to it's Image?
                                            @code[#:multi-line ""]{; flip-vertical : Image -> Image
-(flip-vertical (text "upside-down" 50 "red"))
+(flip-vertical (triangle 50 "outline" "orange"))
 
 ; scale : Number Image -> Image
 (scale 2 (text "resize" 10 "purple"))
