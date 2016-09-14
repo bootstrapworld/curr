@@ -10,7 +10,7 @@
 @unit-lessons{
 @lesson/studteach[
       #:title "Introduction to Pyret"
-      #:duration "50 minutes"
+      #:duration "30 minutes"
       #:overview ""
       #:learning-objectives @itemlist[]
       #:evidence-statements @itemlist[]
@@ -80,7 +80,7 @@
                 )
       ]{
           @points[
-                  @point{@student{It's important to keep track of how functions work, and Bootstrap:1 introduced the idea of @vocab{Contracts}. The contract for the @code{star} function is shown below. @code[#:multi-line ""]{; star: Number String String -> Image}
+                  @point{@student{It's important to keep track of how functions work, and Bootstrap:1 introduced the idea of @vocab{Contracts}. The contract for the @code{star} function is shown below. @code[#:multi-line ""]{# star: Number String String -> Image}
 Contracts summarize three pieces of essential information about a function: 
 @itemlist[@item{The @vocab{Name} of the function: in this case, @code{star}.}
                     @item{The @vocab{Domain} of a function, which is the type(s) of data that the function expects. In this case, a Number and two Strings.}    
@@ -173,7 +173,48 @@ Once you’ve defined the function itself, Pyret will automatically check your e
           @point{@student{For some extra practice with Pyret syntax, turn to @worksheet-link[#:page 6 #:name "Bug Hunting"] in your workbook and see if you can spot the bugs in the Pyret code in the left column. Circle each error (some sections might have more than one!), and then write the correct code in the right column.}
                  @teacher{Students will make syntax errors when learning any new language. This workbook page is intended to give them practice finding syntax bugs on paper first, to help identify the same bugs while typing later on.}}
           }]}
-                                               
+       
+@lesson/studteach[
+     #:title "Images in Pyret"
+     #:duration "20 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[]
+     #:standards (list)
+     #:materials @itemlist[]
+     #:preparation @itemlist[]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{@points[@point{@student{You'll be working with a lot of animations in Bootstrap:2. In Bootstrap:1, the way your game characters moved and where they were placed on the screen was mostly determined for you. In this course, you have all the control over your animation. To start, let's practice making static scenes: images with no animation. Do you remember the @code{put-image} function from Racket? Pyret has the same function, and its contract should look familiar: @code{# put-image : Image, Number, Number, Image -> Image}.
+                               @activity{@itemlist[@item{Open the @editor-link[#:public-id "______" "Take a hike!"] file.}
+                                                   @item{At the beginning of the file, we've provided you with a few image values. What are their names?}
+                                                   @item{Try typing @code{HIKER1} into the interactions area. What do you see?}
+                                                   @item{Look below the line that says @code{# Creating a scene}. What is the name of the value defined here?}
+                                                   @item{What data type is @code{SCENE}? How do you know?}]}
+                               This piece of code uses the @code{put-image} function to place the image of the boat onto the @code{BACKGROUND} at the coordinates 750, 200. To find out the best place to put the image of the boat, first we had to find out how large the background image was. Two functions help with this: @code{# image-width : Image -> Number}, which returns the width of the given image (in pixels), and  @code{# image-height : Image -> Number}, which returns the height of the given image.
+                               @activity{Try evaluating @code{image-width(BACKGROUND)} in the interactions area to find the total width of the background.}}
+                        @teacher{}}
+                 @point{@student{Since the range of @code{put-image} is an image, the expression @code{put-image(BOAT, 750, 200, BACKGROUND)} will evaluate to an image. If we then want to put the image of a hiker onto this image (like creating a collage), we can do that by nesting expressions using the @code{put-image} function. 
+                          @code[#:multi-line #t]{put-image(HIKER1, 700, 500, put-image(BOAT, 750, 200, BACKGROUND))}
+                          @activity{Now it's time to create your own scene. To start,
+                                    @itemlist{@item{Place both hikers onto the mountains.}
+                                              @item{get some perspective: scale the image of the hiker higher on the mountain, so they appear smaller than the other hiker.}
+                                              @item{Find your own images to add to the scene using the @code{image-url} function. (This works just like the @code{bitmap/url} function from Bootstrap:1. 
+                                    @code{# image-url : String -> Image}}}
+                                    }
+                                    @bold{Hint:} Recall the image manipulation functions you used in Bootstrap:1. These may come in handy! @itemlist{@item{# scale : Number Image -> Image}
+                                   @item{# rotate : Number Image -> Image}}
+                                    }
+                         @teacher{In the upcoming lessons, students will be creating their own scenes from scratch, and then animating them. This activity is meant to familiarize students with the @code{put-image} function, and have them practice placing, moving, and scaling images onto a background. Once students have copied the necessary contracts into their workbook, this activity could be assigned for homework, or completed as an in-class activity.}
+                         }
+                 ]
+         }
+                         
+                                
 @lesson/studteach[
      #:title "Closing"
      #:duration "5 minutes"
