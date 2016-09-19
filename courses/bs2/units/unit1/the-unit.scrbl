@@ -183,14 +183,14 @@ Once you’ve defined the function itself, Pyret will automatically check your e
      #:product-outcomes @itemlist[]
      #:standards (list)
      #:materials @itemlist[]
-     #:preparation @itemlist[]
+     #:preparation @itemlist[@item{The @editor-link[#:public-id "0B9rKDmABYlJVaVpta3FVc0wydG8" "Take a hike!"] Starter file preloaded on students' machines.}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{@points[@point{@student{You'll be working with a lot of animations in Bootstrap:2. In Bootstrap:1, the way your game characters moved and where they were placed on the screen was mostly determined for you. In this course, you have all the control over your animation. To start, let's practice making static scenes: images with no animation. Do you remember the @code{put-image} function from Racket? Pyret has the same function, and its contract should look familiar: @code{# put-image : Image, Number, Number, Image -> Image}.
-                               @activity{@itemlist[@item{Open the @editor-link[#:public-id "______" "Take a hike!"] file.}
+                               @activity{@itemlist[@item{Open the @editor-link[#:public-id "0B9rKDmABYlJVaVpta3FVc0wydG8" "Take a hike!"] starter file.}
                                                    @item{At the beginning of the file, we've provided you with a few image values. What are their names?}
                                                    @item{Try typing @code{HIKER1} into the interactions area. What do you see?}
                                                    @item{Look below the line that says @code{# Creating a scene}. What is the name of the value defined here?}
@@ -201,13 +201,13 @@ Once you’ve defined the function itself, Pyret will automatically check your e
                  @point{@student{Since the range of @code{put-image} is an image, the expression @code{put-image(BOAT, 750, 200, BACKGROUND)} will evaluate to an image. If we then want to put the image of a hiker onto this image (like creating a collage), we can do that by nesting expressions using the @code{put-image} function. 
                           @code[#:multi-line #t]{put-image(HIKER1, 700, 500, put-image(BOAT, 750, 200, BACKGROUND))}
                           @activity{Now it's time to create your own scene. To start,
-                                    @itemlist{@item{Place both hikers onto the mountains.}
+                                    @itemlist[@item{Place both hikers onto the mountains.}
                                               @item{get some perspective: scale the image of the hiker higher on the mountain, so they appear smaller than the other hiker.}
                                               @item{Find your own images to add to the scene using the @code{image-url} function. (This works just like the @code{bitmap/url} function from Bootstrap:1. 
-                                    @code{# image-url : String -> Image}}}
+                                    @code{# image-url : String -> Image}}]
                                     }
-                                    @bold{Hint:} Recall the image manipulation functions you used in Bootstrap:1. These may come in handy! @itemlist{@item{# scale : Number Image -> Image}
-                                   @item{# rotate : Number Image -> Image}}
+                                    @bold{Hint:} Recall the image manipulation functions you used in Bootstrap:1. These may come in handy! @itemlist[@item{# scale : Number Image -> Image}
+                                   @item{# rotate : Number Image -> Image}]
                                     }
                          @teacher{In the upcoming lessons, students will be creating their own scenes from scratch, and then animating them. This activity is meant to familiarize students with the @code{put-image} function, and have them practice placing, moving, and scaling images onto a background. Once students have copied the necessary contracts into their workbook, this activity could be assigned for homework, or completed as an in-class activity.}
                          }
