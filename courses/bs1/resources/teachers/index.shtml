@@ -32,16 +32,17 @@
                 <li><p class="BSUnitSummary"><span class="BSUnitTitle">[NEW!] Buggy Design Recipes</span> [<a href="BuggyRecipes.pdf">PDF</a>] - Real examples of common student mistakes. Get some practice grading them, or practice getting students over common misconceptions.</p></li>
                 </ul>
               
-              <h2>Evaluation</h2>
-              If you would like to participate in our evaluation, please <a href="mailto:schanzer@bootstrapworld.org">contact us</a>! We can provide you with additional support, and may even be able to provide a stipend for qualifying schools.
-              <p/>The evaluation consists of the following:
-              <ul>
-                <li><a href="Procedures.pdf">Procedures and teacher/parent consent forms</a>, for administering the pre- and post-tests.</a></li>
-                <li>Students should take the Algebra <a href="Pretest.pdf">Pre-</a> and <a href="Posttest.pdf">Post-tests</a>.</li>
-                <!--<li> You can also administer the <b>Math Affect</b> <a href="https://harvard.qualtrics.com/SE/?SID=SV_3JDsKkE1h2DV2Ac">pre-<a/> and <a href="https://harvard.qualtrics.com/SE/?SID=SV_eyROZNHKvZl30jP">post</a> surveys.</li> -->
-                <li><b>New: Solutions are available</b>  for the <a href="Pre-Key.pdf">Pre-</a> and <a href="Post-Key.pdf">Post-tests</a>.</li>
-              </ul>
- 	    </div>
+              	<h2>Evaluation</h2>
+              	As a member of the Bootstrap Community, we invite you and your class to join our research effort! You'll help us investigate new ways to merge mathematics and programming, and help us improve our existing materials and pedagogy. Your classroom data will help us make Bootstrap better, for teachers and students around the world. In exchange for participation, you'll receive a choice of <b>(a) a $50 gift card, (b) up to 50 FREE student workbooks for your students next year or (c) up to 50 FREE t-shirts for your students</b>.
+              	<p/>
+				Participation is easy: We will send you numbered pre- and post-tests, a pre-paid return envelope, and an easy way for you to make sure that each student fills out tests with the same number. You administer the (~30min) tests and return them to us. The paper tests are intended to gather student data *anonymously*. You can also request a digital (PDF) version of the assessment, if you'd rather print them yourself. <i>If you are teaching a similar class that is not doing Bootstrap, and are willing to help us gather data from a "control group" at your school, please fill out the form and let us know!</i>
+				<p/>
+				<b><a href="https://docs.google.com/a/bootstrapworld.org/forms/d/e/1FAIpQLSc1PUDXPdeLZRv22ImeGypkRU-na9X5QXrevrx-1KZkTtDcTw/viewform">This form</a></b> will ask some basic information about your class(es).  We need this information as part of our reporting to the National Science Foundation.
+			  
+			  	<p/>
+			  	You can also help us evaluate how students react to having built a game by having them fill out <b><a href="https://docs.google.com/a/bootstrapworld.org/forms/d/1OcZKapL-JQxuqywaveL29D15ArgGQp3q0f4bKqFD6cQ/edit?ts=57e181f5">this brief (10 minute) anonymous survey</a></b>.  We frequently get questions about whether our game project allows enough creativity (and whether it appeals to girls) -- this data helps us assess and answer such questions. (Note: there is no compensation for the online survey)
+ 	    	</div>
+
               
             <div class="item" id="teacherVideos">
               <h1>Videos for Teachers</h1>
