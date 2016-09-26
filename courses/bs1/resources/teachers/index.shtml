@@ -32,21 +32,22 @@
                 <li><p class="BSUnitSummary"><span class="BSUnitTitle">[NEW!] Buggy Design Recipes</span> [<a href="BuggyRecipes.pdf">PDF</a>] - Real examples of common student mistakes. Get some practice grading them, or practice getting students over common misconceptions.</p></li>
                 </ul>
               
+                <span class="anchor" id="evaluation"></span>
               	<h2>Evaluation</h2>
               	As a member of the Bootstrap Community, we invite you and your class to join our research effort! You'll help us investigate new ways to merge mathematics and programming, and help us improve our existing materials and pedagogy. Your classroom data will help us make Bootstrap better, for teachers and students around the world. In exchange for participation, you'll receive a choice of <b>(a) a $50 gift card, (b) up to 50 FREE student workbooks for your students next year or (c) up to 50 FREE t-shirts for your students</b>.
+                <p/>
+                <b>To sign up, <a href="https://docs.google.com/a/bootstrapworld.org/forms/d/e/1FAIpQLSc1PUDXPdeLZRv22ImeGypkRU-na9X5QXrevrx-1KZkTtDcTw/viewform">fill out this form</a></b>, which will ask some basic information about your class(es).  We need this information as part of our reporting to the National Science Foundation.
               	<p/>
-				Participation is easy: We will send you numbered pre- and post-tests, a pre-paid return envelope, and an easy way for you to make sure that each student fills out tests with the same number. You administer the (~30min) tests and return them to us. The paper tests are intended to gather student data *anonymously*. You can also request a digital (PDF) version of the assessment, if you'd rather print them yourself. <i>If you are teaching a similar class that is not doing Bootstrap, and are willing to help us gather data from a "control group" at your school, please fill out the form and let us know!</i>
-				<p/>
-				<b><a href="https://docs.google.com/a/bootstrapworld.org/forms/d/e/1FAIpQLSc1PUDXPdeLZRv22ImeGypkRU-na9X5QXrevrx-1KZkTtDcTw/viewform">This form</a></b> will ask some basic information about your class(es).  We need this information as part of our reporting to the National Science Foundation.
-			  
-			  	<p/>
-			  	You can also help us evaluate how students react to having built a game by having them fill out <b><a href="https://docs.google.com/a/bootstrapworld.org/forms/d/1OcZKapL-JQxuqywaveL29D15ArgGQp3q0f4bKqFD6cQ/edit?ts=57e181f5">this brief (10 minute) anonymous survey</a></b>.  We frequently get questions about whether our game project allows enough creativity (and whether it appeals to girls) -- this data helps us assess and answer such questions. (Note: there is no compensation for the online survey)
+				        Participation is easy: We will send you numbered pre- and post-tests, a pre-paid return envelope, and an easy way for you to make sure that each student fills out tests with the same number. You administer the (~30min) tests and return them to us. The paper tests are intended to gather student data *anonymously*. You can also request a digital (PDF) version of the assessment, if you'd rather print them yourself. <i>If you are teaching a similar class that is not doing Bootstrap, and are willing to help us gather data from a "control group" at your school, let us know!</i>
+			  	      <p/>
+			  	      You can also help us evaluate how students react to having built a game by having them fill out <b><a href="https://docs.google.com/a/bootstrapworld.org/forms/d/1OcZKapL-JQxuqywaveL29D15ArgGQp3q0f4bKqFD6cQ/edit?ts=57e181f5">this brief (10 minute) anonymous survey</a></b>.  We frequently get questions about whether our game project allows enough creativity (and whether it appeals to girls) -- this data helps us assess and answer such questions. (Note: there is no compensation for the online survey)
  	    	</div>
 
               
             <div class="item" id="teacherVideos">
-              <h1>Videos for Teachers</h1>
-              <h2>Developed in partnership with <a href="http://www.Code.org">Code.org</a></h2>
+              <span class="anchor" id="videos"></span>
+              <h2>Videos for Teachers</h2>
+              <h3>Developed in partnership with <a href="http://www.Code.org">Code.org</a></h3>
               <div>
                   <b>Modeling and Coordinates</b>
                   <iframe allowfullscreen="" frameborder="0" style="height: 98px; width: 175px; display: inline-block;" src="https://www.youtube.com/embed/KSt_3ovWfjk?iv_load_policy=3&amp;rel=0&amp;autohide=1&amp;showinfo=0"></iframe>
@@ -149,8 +150,9 @@
             </div>
             
             <div class="item clearfix bottom-border" style="width: 100%;">
-              <h1>Exercises and Solutions</h1>
-              <h2><a href="../../units/unit1/">Unit 1</a></h2>
+              <span class="anchor" id="exercises"></span>
+              <h2>Exercises and Solutions</h2>
+              <h3><a href="../../units/unit1/">Unit 1</a></h3>
               <ul>
                 <li>Warmup
                   <span class="links">
@@ -243,7 +245,7 @@
                   </span>
                 </li>
               </ul>
-              <h2><a href="../../units/unit2/">Unit 2</a></h2>
+              <h3><a href="../../units/unit2/">Unit 2</a></h3>
               <ul>
                 <li>Warmup
                   <span class="links">
@@ -282,7 +284,7 @@
                   </span>
                 </li>
               </ul>
-              <h2><a href="../../units/unit3/">Unit 3</a></h2>
+              <h3><a href="../../units/unit3/">Unit 3</a></h3>
               <ul>
                 <li>Warmup
                   <span class="links">
@@ -309,7 +311,7 @@
                   </span>
                 </li>
               </ul>
-              <h2><a href="../../units/unit4/">Unit 4</a></h2>
+              <h3><a href="../../units/unit4/">Unit 4</a></h3>
               <ul>
                 <li>Warmup
                   <span class="links">
@@ -342,7 +344,7 @@
                   </span>
                 </li>
               </ul>
-              <h2><a href="../../units/unit5/">Unit 5</a></h2>
+              <h3><a href="../../units/unit5/">Unit 5</a></h3>
               <ul>
                 <li>Warmup
                   <span class="links">
@@ -357,7 +359,7 @@
                   </span>
                 </li>
               </ul>
-              <h2><a href="../../units/unit6/">Unit 6</a></h2>
+              <h3><a href="../../units/unit6/">Unit 6</a></h3>
               <ul>
                 <li>Warmup
                   <span class="links">
@@ -377,7 +379,7 @@
                   </span>
                 </li>
               </ul>
-              <h2><a href="../../units/unit7/">Unit 7</a></h2>
+              <h3><a href="../../units/unit7/">Unit 7</a></h3>
               <ul>
                 </li>
                 <li>Warmup
@@ -408,11 +410,12 @@
                   </span>
                 </li>
               </ul>
-              <h2><a href="../../units/unit9/">Unit 9</a></h2>
+              <h3><a href="../../units/unit9/">Unit 9</a></h3>
               n/a
             </div>
             <div class="item clearfix">
-              <h1>Source Files</h1>
+              <span class="anchor" id="sourceFiles"></span>
+              <h2>Source Files</h2>
               <ul>
                 <li><a target="_blank" href="http://www.wescheme.org/view?publicId=sggzRzgU5T">NinjaCat (Unit 1)</a></li>
                 <li><a target="_blank" href="http://www.wescheme.org/view?publicId=v4LVoL7R9m">Defining Values (Unit 3)</a></li>
