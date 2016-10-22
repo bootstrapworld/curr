@@ -1,7 +1,7 @@
 #lang curr/lib
 @declare-tags[]
 
-@title{Unit 3: Structures and Worlds}
+@title{Unit 3: Structures, Worlds, and Animations}
 
 @unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / num-sqr num-sqrt num-expt})
                                        (list "String" @code{string-append string-length})
@@ -12,7 +12,7 @@
 }
 }
 @unit-lessons{
-@lesson/studteach[#:title "Review: The Party Struct"
+@lesson/studteach[#:title "Animations in Pyret (still need to fix lesson metadata)"
         #:duration "10 minutes"
         #:overview ""
          #:learning-objectives @itemlist[@item{Write complex functions that consume, modify and produce structures}
@@ -32,37 +32,86 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{In the last lesson you learned about a new kind of data structure, called a Cake. However, a Cake isn't the only kind of structure - we can create any kind we want! Let's define another one. In this exercise, you’ll be a party planner. Data structures will be a useful way to represent each Party that you’re planning, keeping track of its location, theme, and number of guests.
-                                @activity[#:forevidence (list "N-Q&1&1" "BS-M&1&2" "BS-DS.2&1&2")]{@itemlist[@item{What datatype could be used to represent the location of a Party?}
-                                                    @item{What about the Party's theme? (This could be something like "50s" or "laser tag".)}
-                                                    @item{How about the number of guests?}]
-                                           Fill out the Party structure definition on @worksheet-link[#:page 13 #:name "Parties"] in your workbook.}
-@code[#:multi-line #t]{# a Party is a location, theme, and number of guests
-                       data Party:
-                         | party(
-                             location :: String, 
-                             theme    :: String, 
-                             guests   :: Number
-                           )
-                       end}
-Once the Party structure is defined, you have access to new pieces of code: a function to make a Party, and three @vocab{dot-accessors} to get the location, theme, and number of guests out of the Party. 
-@activity[#:forevidence (list "F-IF.1-3&1&1" "BS-DS.1&1&1" "BS-DS.1&1&2" "BS-DS.1&1&3" "BS-DS.1&1&4" "BS-DS.1&1&5")]{@itemlist[@item{What is the @vocab{Name} of the function that creates a Party?}
-                                                  @item{What is the function's @vocab{Domain}? (What kinds of things are part of a Party?)}
-                                                  @item{What is the @vocab{Range} of this function?}
-                                                  @item{On @worksheet-link[#:page 13 #:name "Data Structures"], use the constructor function to define two new Parties of your own.}
-                                                  @item{Right below your new Parties, list how you would access the fields of @code{party2}. How would you get the location out of @code{party2}? (Think about how you got the model or color out of a Car.)}]}}
-                        @teacher{}}
-                 
-                 @point{@student{@activity[#:forevidence (list "BS-IDE&1&1" "BS-PL.1&1&1" "BS-DS.1&1&4")]{@itemlist[@item{Open the @editor-link[#:public-id "0B9rKDmABYlJVUUt1SUc5UnVsdm8" "Party Planner"] file. Take a look at the first four lines in the definitions area. Do they match what you have written in your workbook for the data definition of @code{Party}?} 
-                                                      @item{Now define two new Party structures of your own. No matter what party you're planning, make sure that your party has the right inputs in the right order.}]
-                                            }
-                                  }
-                         @teacher{As with the Cake structure, repetition is key: have students identify the fields of each of their parties, and ask them lots of 
-                                  questions: How would you get the @code{theme} out of @code{Halloween}? How would you get the number of guests out of @code{JulyFourth}?}}
-                 ]
-         }
-
-@lesson/studteach[#:title "Your Bakery"
+        @points[
+	
+	@point{@student{You've learned how to create data structures, and how to create images. Now it's time to put these together to create an animation in Pyret.  We'll even go a step further than what we did in Bootstrap:1, creating an animation with movement in two dimensions.}
+	       @teacher{}}
+	@point{@student{In Bootstrap:1, many decisions about your animation were made for you. We told you how many characters you had and which aspects of them could change during the animation.  The danger always moved in the x-axis, the player always moved in the y-axis.  In Bootstrap:2, we give you much more control of your game: you decide how many characters you will have, and what aspects of them can change (position, color, size, etc).  In order to have this flexibility, we need to do a little more work to set up the animation.  Let's break down an animation to see what we need.}
+	       @teacher{}}
+	@point{@student{Let's create an animation of a sunset.  The sun will start at the top-left corner of the screen and fall diagonally down and right across the sky. [ASSUME WE DEFER THE LAND UNTIL LATER, SINCE THAT'S ONLY A DRAW ISSUE]. In Bootstrap:1, we talked about how an animation is made of a sequence of images that we flip through quickly. We continue to think of an animation as a sequence of images in Bootstrap:2. In order to see a sunset, we need a sequence of images like the following [INSERT PICTURE].  Flipping through them would yield the following animation [CAN WE EMBED A VIDEO OF THIS RUNNING?].}
+	       @teacher{}
+	       }
+	@point{@student{Where will we get this sequence of images? We don't want to create them all by hand. Instead, we want to write functions that will create them for us. This is the power of computer programming.  It can automate tasks (like creating new images) that might otherwise be tedious for people to do.}
+	       @teacher{}
+	       }
+	@point{@student{In order to create these images, we first have to figure out what information changes between images.
+               @activity{What information is changing from frame to frame of this animation? What is fixed?  Fill in an animation design worksheet with this information. [MAY NEED TO SCAFFOLD THIS AS WE DO IN BS1]}
+	       There are two pieces of information changing across these images: the x-coordinate of the sun and the y-coordinate of the sun. Given these two pieces of information, we could draw an image that puts the sun at those coordinates. More interestingly, however, we could compute the coordinates of the sun in the next frame. By repeating these two steps--drawing an image of the sun at coordinates and computing the next set of coordinates, we can generate an entire animation.  The following picture shows the sequence [PUT IN IMAGE OF DRAW-WORLD/NEXT-WORLD].}
+	       @teacher{}}
+	@point{@student{The first step in writing functions to generate sunset images is to have a data structure for the sun's coordinates.
+	       @activity{Create a data structure that holds the x-coordinate of the sun and the y-coordinate of the sun.}
+               You should have come up with something like this [DECIDE TERMS -- WORLD, DATA, ETC]:
+                @code[#:multi-line #t]{# a SunsetData has the x-coordinate of the sun and the y-coordinate of the sun [PHRASE EACH COORD SEPARATEY LIKE THIS?]
+		      data SunsetWorld:
+		       | sunset-data(
+		           xpos :: Number,
+			   ypos :: Number
+			   )
+		       end}
+		  }
+		@teacher{}
+		}
+	 @point{@student{Here is a [GIVE DESCRIPTIVE NAME] worksheet showing three consecutive images in a sunset animation.  Under each image, we have written down the x-coordinate and y-coordinate of the sun in that image. 
+	     @activity{In the [FILL] section, write the instance [VOCAB CHECK] of @code{SunsetWorld} that captures the coodinates of each image.}
+		 }
+	       @teacher{}}
+	@point{@student{Now we want to develop a function @code{next-world} that generates the @code{SunsetWorld} for each frame from the @code{SunsetWorld} in the previous frame. Using the @code{SunsetWorld} instances [VOCAB] that you wrote under the frames above, write two examples of the @code{next-world} function.  [THIS NEEDS A BIT MORE SETUP TO FIT INTO THE FULL DESIGN RECIPE, BUT THIS IS THE IDEA].}
+	       @teacher{}}
+	@point{@student{Follow the design recipe and write @code{next-world}.}
+	       @teacher{}}
+	@point{@student{JOE -- would you introduce reactors and traces here, or should we just do @code{draw-world}.}
+	       @teacher{}}
+	@point{@student{Develop @code{draw-world}.}
+	       @teacher{}}
+	@point{@student{}
+	       @teacher{}}
+	@point{@student{Now we start to see how an animation gets built:
+	         @itemlist[@item{We define a data structure for the information that changes across frames.}
+		           @item{We write a @code{next-world} function that consumes the data for one frame and produces the data for the next.}
+			   @item{We write a @code{draw-world} function that consumes the data for one frame and produces an image for it.}
+			   ]
+	         An animation comes from combining @code{next-world} and @code{draw-world}.  We start with an initial world (here, the sun in the top-left corner).  @code{Draw-world} produces an image of the initial world. Calling @code{next-world} generates the world for the next frame. Using @code{draw-world} creates an image for that frame.  Then @code{next-world} generates the world for the third frame, and so on. If we know how to alternately call @code{draw-world} and @code{next-world} over and over, we would get a sequence of images that make up the animation.  But how do we call these functions?}
+	       @teacher{}}
+	@point{@student{You don't call these functions directly.  Instead, you tell Pyret that you want to build an animation using these two functions. You do this by creating something called a @vocab{reactor}, as follows:
+	           @code[#:multi-line #t]{
+		     r = reactor:
+                       init: sunset-data(10,15),
+                       on-tick: next-world,
+                       to-draw: draw-world
+                     end}
+		       [NEED TO TALK ABOUT INITIAL SUN POSITION]
+		       [NEED TO SHOW HOW TO RUN A REACTOR]
+		       When you start a reactor, Pyret starts an animation. It uses the function you labeled @code{to-draw} to draw the initial world, then calls the function you labeled @code{on-tick} to generate the next world.  Pyret repeatedly calls these two functions (the on-draw and on-tick functions) to draw a world, compute the next one, draw the new world, compute the next one, and so on.
+		       @activity{Write out the series of calls that Pyret makes to @code{draw-world} and @code{next-world}, starting from an initial world of FILL IN, until 4 images have been created.}
+	               @activity{Need an activity that gives students a file with multiple next-world and draw-world functions.  Give them combos and ask them to predict what the resulting animation will look like.}
+	               }
+	       @teacher{}}
+	@point{@student{You have just seen the incredible power of functions in programming! Functions let us @italic{generate content automatically}. In the early days of making cartoons, artists drew every frame by hand.  They had to decide at the beginning how many frames to create. Here, we let the computer generate as many frames as we want, by letting it call @code{next-world} over and over until we stop the animation.  If we want to slow down the sunset, we simply change the new coordinates within @code{next-world}.  If we start with a larger screen size, the computer will continue to generate as many images as we need to let the sun drop out of the window. The computer can give us this flexibility as long as @italic{we provide a function that tells the computer how to generate another frame}.
+	@activity{Is it worth having an activity that has students compute how many frames are needed to get the sun off the screen under different next-world and initial screen size computations?}
+	       }
+	       @teacher{}}
+	@point{@student{You have also seen the steps to creating an animation. They are broken out in the Animation Template [NEED NAME -- THIS IS THE THING WITH SPACES FOR THE DATA STRUCT, DRAW, NEXT, INIT, AND REACTOR PARTS -- IS THIS A WORKSHEET, A TEMPLATE FILE, SOMETHING ELSE?].  Whenever you want to create an animation, you will define these five pieces.}
+	       @teacher{}}
+	@point{@student{}
+	       @teacher{}}
+	@point{@student{}
+	       @teacher{}}
+	@point{@student{}
+	       @teacher{}}
+	       ]
+	       }
+	       
+@lesson/studteach[#:title "Designing Worlds for Animations (metadata needs to be fixed)"
         #:duration "80 minutes"
         #:overview ""
         #:learning-objectives @itemlist[@item{Students will write complex functions that consume, modify and produce structures}]
@@ -78,87 +127,35 @@ Once the Party structure is defined, you have access to new pieces of code: a fu
                 )
       
       ]{
-        @points[@point{@student{In the last lesson you learned about a new data structure, called a Cake. 
-                                @activity[#:forevidence (list "BS-DS.1&1&1" "BS-DS.1&1&2" "BS-DS.1&1&3")]{@itemlist[@item{What is a Cake? What information is part of a Cake structure?}
-                                                     @item{What function creates a Cake?}
-                                                     @item{How do you get the flavor out of a Cake? The message? The color?}]}
-                                As part of running a bakery, we'll take orders for Cakes and bake them to the customers specifications. Let's figure out how to write functions to help us do that.}
-                        @teacher{}}
-                 
-                 @point{@student{@activity[#:forevidence (list "F-IF.1-3&1&1" "BS-DR.1&1&1" "BS-DS.2&1&1")]{Turn to @worksheet-link[#:page 14 #:name "change-flavor"] in your workbooks. Write a function called @code{change-flavor}, which takes in a Cake and a flavor, and returns a new Cake that is mostly the same as the original, but is now the given flavor.
-                                                   @itemlist[@item{What is the domain for this function? We'll need to know which Cake we're taking in AND what flavor it should be.}
-                                                             @item{What do you think our bakery is going to give back? What would be the range of @code{change-flavor}?}]}
-               @code[#:multi-line #t]{
-# change-flavor: Cake String -> Cake:
-# consumes a Cake and produces a Cake that is the same as the original, but has the given flavor.}
-               In your first example, use the original @code{cake1} and make it strawberry. We know our customer will expect to get a Cake back: you wouldn't return a Cake made incorrectly to a bakery and be OK with only getting a frosting message back! But we won't be returning the same Cake with our function - we're making a @italic{new} Cake, which must have the same message, color, layers, etc. as the given Cake, but one thing needs to be different: the flavor!}
-                         @teacher{It might not be immediately obvious to students that when a function returns a Cake, they must use the @code{cake} constructor function to 
-                                  produce it. This way the function does not return the same value it was given, but instead creates a Cake with the same specs as the given Cake, where only the flavor is different. By starting with a "fresh" Cake, students are forced to think about every single field in order. Thinking about what exactly
-                                  makes up a Cake and going back to the contract for @code{cake} gives them lots of practice with the Cake struct and dot-accessors.}}
-                 
-                 @point{@student{The moment you write @code{Cake} in the function's Range, you know that you'll need to call the @code{cake} constructor and give it five things: the flavor, color, message, layers, and is-iceCream of that cake. 
-                  @code[#:multi-line #t]{examples:
-                                             change-flavor(cake1, "strawberry") is 
-                                             cake(
-                                               ...flavor...
-                                               ...color...
-                                               ...message...
-                                               ...layers...
-                                               ...is-iceCream...
-                                             )
-                                         end}
-                                                                        
-                                 We already know what flavor this cake should be: strawberry! So we can start by giving our @code{cake} function the given String as its first input (since the first input to the @code{cake} function @italic{must} be its flavor).
-                                 
-    @code[#:multi-line #t]{examples:
-                               change-flavor(cake1, "strawberry") is 
-                               cake(
-                                 "strawberry",
-                                 ...)
-                           end}
-                                @activity[#:forevidence (list "BS-DS.1&1&5")]{@itemlist[@item{We also know what color this Cake should be: the same as the given Cake! So how could you access JUST the color of @code{cake1} and use it in the @code{cake} function? Use the dot-accessor!
-                                                         The message of the cake doesn't change, either. So how do you get the message out of @code{cake1}?}
-                                                     @item{The number of layers shouldn't change if you change the flavor. How do you get the layers out of @code{cake1?}}]}
-                                Don't forget the last field in the Cake struct: @code{is-iceCream}! The purpose statement for @code{change-flavor} doesn't say anything about the inside make-up of the Cake
-                                changing, so how do you get the original is-iceCream out of @code{cake1}?
-                                
-@code[#:multi-line #t]{examples:
-                           change-flavor(cake1, "strawberry") is 
-                           cake("strawberry",
-                             cake1.color, 
-                             cake1.message, 
-                             cake1.layers, 
-                             cake1.is-iceCream
-                           )
-                       end}}
-                         @teacher{Remind students that the arguments to each function in Pyret @italic{must} be separated by commas. This wasn't necessary in Racket, but they 
-                                                                                               will receive error messages if they don't use commas correctly in Pyret code.}}
-                 
-                 @point{@student{@activity[#:forevidence (list "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.4&1&1" "BS-DR.4&1&2")]{@itemlist[@item{Write one more example for the function @code{change-flavor}, this time using it to make @code{cake2} a vanilla cake.} 
-                                                      @item{Next, circle and label what changes between the two examples. How many variables will this function need? Then write the definition, using your examples to help you.}]}
-                        
-                                  After replacing the changing things with variables, your definition should look similar to: 
-                                  @code[#:multi-line #t]{fun change-flavor(a-cake, new-flavor):
-                                                           cake(
-                                                             new-flavor, 
-                                                             a-cake.color, 
-                                                             a-cake.message, 
-                                                             a-cake.layers, 
-                                                             a-cake.is-iceCream
-                                                           )
-                                                         end}}
-                         @teacher{Students may be tempted to put @code{new-flavor} in quotes, because the flavor of the Cake must be a string. However, the domain of 
-                                                                 @code{change-flavor} tells us that the function will take in a Cake and a String, so whatever flavor is input will already 
-                                                                 have quotes around it. Values evaluate to themselves, so the string "new-flavor" cannot evaluate to anything other than "new-flavor".
-                                                                 If we want new-flavor to be a variable, or shortcut for "strawberry", "vanilla", "chocolate", etc. it must be written WITHOUT quotation marks.}}
-                 
-                 @point{@student{@activity[#:forevidence (list "7.EE.1-2&1&1" "A-CED.1-4&1&1" "BS-DR.1&1&1" "BS-DR.1&1&2" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1" "BS-DS.1&1&5")]{Turn to @worksheet-link[#:page 15 #:name "will-melt"] in your workbooks. Your bakery needs to know if certain Cakes need to be refrigerated. If the temperature is greater than 32 degrees AND the given cake is an ice cream cake, the function should return true. 
-                                                   @itemlist[@item{Fill out the @vocab{Contract} and @vocab{Purpose Statement} for the function.}
-                                                              @item{Write two examples for how one would use @code{will-melt}.}
-                                                              @item{Circle and label what varies between those examples and label it with a @vocab{variable} name.}
-                                                              @item{Define the function.}]}}
-                         @teacher{Give students plenty of time to practice using dot-accessors, extracting pieces of the Cake structures and modifying them.}}]
-         }
+      	@point{@student{You've learned the components of an animation in Pyret. The data structure for the world lies at the heart of the animation: each of the initial world, the @code{draw-world} function and the @code{next-world} function are based on the data structure you choose. Being able to figure out the data structure you need for an animation is therefore a critical skills in making your own animations.  In this lesson, we are going to practice identifying the data and creating the data structures for various animations. We will not write the entire animation.  We are just going to practice identifying the data.}
+	       @teacher{Figuring out the data structure is one of the most creative tasks in programming.  SAWY MORE ABOUT WHY THIS IS IMPORTANT AND INTERESTING.}}
+	@point{@student{Look at this animation of a cow jumping over the moon.
+	                @activity{Fill in the first part of an animation-design worksheet, drawing three individual frames.}
+			Which frames did you pick?  Is the cow at the same height in each one, or did you pick frames at at least two different heights?  Choosing images with some variation will help you think through the data in your animation.
+			@activity{What information is changing across the frames?}
+			In this case, the cow's x-coordinate and y-coordinate are both changing.
+			@activity{Write a data structure @code{Cow-World} to capture the data in this animation.}
+			}
+	       @teacher{}}
+	@point{@student{Do Falling from the revisions sheet.  Point out that need one coordinate per character.  Shows multiple characters, and that don't always need both x and y coordinates.}
+	       @teacher{}}
+	@point{@student{Look at this animation of a star that pulses as it moves across the sky.
+	                @activity{Fill in the first part of an animation-design worksheet, drawing three individual frames.}
+			Which frames did you pick?  Is the star always getting smaller or always getting larger across your frames, or did you have it get smaller between two frames and larger between two other frames?  Choosing images that illustrate the various behaviors of the animation will help you think through the data that you need.
+			@activity{What information is changing across the frames?}
+			As in previous animations, the star's x-coordinate and y-coordinate are both changing. However, the star's size is also changing.
+			@activity{Write a data structure @code{Star-World} to capture these three pieces of data.}
+			Even though we aren't going to write the entire animation, thinking about examples of @code{next-world} can help us check whether our data struture has all the information it needs.  Assume you had the following @code{Star-World} structure and were trying to write examples for the @code{next-world} function.  Can you fill in the right side of the example?
+			[INSERT Data block and an example next-world(star-data(100, 125, 25)) is _______________]
+			This example is interesting because we don't know whether the star is getting larger or smaller.  The size is enough information to @italic{draw} the frame, but it isn't enough to compute the @code{next} frame.  To compute the next world, our data structure also needs to know whether the star is growing or shrinking.
+			@activity{Edit your @code{Star-World} to capture information about the direction the star is growing.}
+			}
+	       @teacher{Different ways to capture growth -- boolean, number that use to multiply, string -- good chance for a design discussion [FILL AND FINISH]}}
+	@point{@student{Light Dimmer -- point here is that two visual effects might be due to the same variable.}
+	       @teacher{}}
+	@point{@student{For a real challenge, do single-paddle pong}
+	       @teacher{}}
+         ]}
 
 @lesson/studteach[#:title "Closing"
         #:duration "5 minutes"
@@ -175,7 +172,7 @@ Once the Party structure is defined, you have access to new pieces of code: a fu
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{So far you've worked with three data structures: Coords, Parties, and Cakes. In the next lesson, you'll look at a new struct as you dissect a video game, and start thinking about the struct(s) you'll need to create for your own game!}
+        @points[@point{@student{You've learned how to create an animation in Pyret. You saw how having control of drawing the world lets you create interesting effects like changing the color of the sun.  You've gotten a hint that you can make worlds with any information you want.  In upcoming lessons, we will make use of this to do even more interesting animations.}
                         @teacher{Have students volunteer what they learned in this lesson}}
                         
                         ]}
