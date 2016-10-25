@@ -1,0 +1,3 @@
+#!/bin/bash
+
+racket build.rkt --course bs2
