@@ -39,7 +39,7 @@
 	@point{@student{In Bootstrap:1, many decisions about your animation were made for you. We told you how many characters you had and which aspects of them could change during the animation.  The danger always moved in the x-axis, the player always moved in the y-axis.  In Bootstrap:2, we give you much more control of your game: you decide how many characters you will have, and what aspects of them can change (position, color, size, etc).  In order to have this flexibility, we need to do a little more work to set up the animation.  Let's break down an animation to see what we need.}
 	       @teacher{}}
 	@point{@student{Let's create an animation of a sunset.  The sun will start at the top-left corner of the screen and fall diagonally down and right across the sky. [ASSUME WE DEFER THE LAND UNTIL LATER, SINCE THAT'S ONLY A DRAW ISSUE]. In Bootstrap:1, we talked about how an animation is made of a sequence of images that we flip through quickly. We continue to think of an animation as a sequence of images in Bootstrap:2. In order to see a sunset, we need a sequence of images like the following [INSERT PICTURE].  Flipping through them would yield the following animation [CAN WE EMBED A VIDEO OF THIS RUNNING?].}
-	       @teacher{}
+	       @teacher{AGREE WITH DEFERRING THE LAND UNTIL DRAW-STATE. WOULD LOVE TO EMBEDD A GIF IF WE CAN DO IT.}
 	       }
 	@point{@student{Where will we get this sequence of images? We don't want to create them all by hand. Instead, we want to write functions that will create them for us. This is the power of computer programming.  It can automate tasks (like creating new images) that might otherwise be tedious for people to do.}
 	       @teacher{}
@@ -51,21 +51,21 @@
 	@point{@student{The first step in writing functions to generate sunset images is to have a data structure for the sun's coordinates.
 	       @activity{Create a data structure that holds the x-coordinate of the sun and the y-coordinate of the sun.}
                You should have come up with something like this [DECIDE TERMS -- WORLD, DATA, ETC]:
-                @code[#:multi-line #t]{# a SunsetData has the x-coordinate of the sun and the y-coordinate of the sun [PHRASE EACH COORD SEPARATEY LIKE THIS?]
+                @code[#:multi-line #t]{# a SunsetState has the x-coordinate of the sun and the y-coordinate of the sun
 		      data SunsetState:
-		       | sunset-data(
+		       | sunset(
 		           xpos :: Number,
 			   ypos :: Number
 			   )
 		       end}
 		  }
-		@teacher{}
+		@teacher{JOE AND I AGREE WITH GOING WITH 'STATE' FOR THE DATA STRUCTURE NAME, AND SIMPLIFYING THE CONSTRUCTOR NAME ( just sunset() )}
 		}
 	 @point{@student{Here is a [GIVE DESCRIPTIVE NAME] worksheet showing three consecutive images in a sunset animation.  Under each image, we have written down the x-coordinate and y-coordinate of the sun in that image. 
-	     @activity{In the [FILL] section, write the instance [VOCAB CHECK] of @code{SunsetState} that captures the coodinates of each image.}
+	     @activity{In the [FILL] section, write the @vocab{instance} of @code{SunsetState} that captures the coodinates of each image.}
 		 }
 	       @teacher{}}
-	@point{@student{Now we want to develop a function @code{next-state-tick} that generates the @code{SunsetState} for each frame from the @code{SunsetState} in the previous frame. Using the @code{SunsetState} instances [VOCAB] that you wrote under the frames above, write two examples of the @code{next-state-tick} function.  [THIS NEEDS A BIT MORE SETUP TO FIT INTO THE FULL DESIGN RECIPE, BUT THIS IS THE IDEA].}
+	@point{@student{Now we want to develop a function @code{next-state-tick} that generates the @code{SunsetState} for each frame from the @code{SunsetState} in the previous frame. Using the @code{SunsetState} instances that you wrote under the frames above, write two examples of the @code{next-state-tick} function.  [THIS NEEDS A BIT MORE SETUP TO FIT INTO THE FULL DESIGN RECIPE, BUT THIS IS THE IDEA].}
 	       @teacher{}}
 	@point{@student{Follow the design recipe and write @code{next-state-tick}.}
 	       @teacher{}}
@@ -85,14 +85,14 @@
 	@point{@student{You don't call these functions directly.  Instead, you tell Pyret that you want to build an animation using these two functions. You do this by creating something called a @vocab{reactor}, as follows:
 	           @code[#:multi-line #t]{
 		     r = reactor:
-                       init: sunset-data(10,15),
+                       init: sunset(10,15),
                        on-tick: next-state-tick,
                        to-draw: draw-state
                      end}
 		       [NEED TO TALK ABOUT INITIAL SUN POSITION]
 		       [NEED TO SHOW HOW TO RUN A REACTOR]
 		       When you start a reactor, Pyret starts an animation. It uses the function you labeled @code{to-draw} to draw the initial state, then calls the function you labeled @code{on-tick} to generate the next state.  Pyret repeatedly calls these two functions (the on-draw and on-tick functions) to draw a state, compute the next one, draw the new state, compute the next one, and so on.
-		       @activity{Write out the series of calls that Pyret makes to @code{draw-state} and @code{next-state-tick}, starting from an initial state of FILL IN, until 4 images have been created.}
+		       @activity{Write out the series of calls that Pyret makes to @code{draw-state} and @code{next-state-tick}, starting from an initial state of [FILL IN], until 4 images have been created.}
 	               @activity{Need an activity that gives students a file with multiple next-state-tick and draw-state functions.  Give them combos and ask them to predict what the resulting animation will look like.}
 	               }
 	       @teacher{}}
@@ -129,7 +129,7 @@
       ]{
         @points[
       	@point{@student{You've learned the components of an animation in Pyret. The data structure for the state lies at the heart of the animation: each of the initial state, the @code{draw-state} function and the @code{next-state-tick} function are based on the data structure you choose. Being able to figure out the data structure you need for an animation is therefore a critical skills in making your own animations.  In this lesson, we are going to practice identifying the data and creating the data structures for various animations. We will not write the entire animation.  We are just going to practice identifying the data.}
-	       @teacher{Figuring out the data structure is one of the most creative tasks in programming.  SAWY MORE ABOUT WHY THIS IS IMPORTANT AND INTERESTING.}}
+	       @teacher{Figuring out the data structure is one of the most creative tasks in programming.  SAY MORE ABOUT WHY THIS IS IMPORTANT AND INTERESTING.}}
 	@point{@student{Look at this animation of a cow jumping over the moon.
 	                @activity{Fill in the first part of an animation-design worksheet, drawing three individual frames.}
 			Which frames did you pick?  Is the cow at the same height in each one, or did you pick frames at at least two different heights?  Choosing images with some variation will help you think through the data in your animation.
@@ -138,7 +138,7 @@
 			@activity{Write a data structure @code{CowState} to capture the data in this animation.}
 			}
 	       @teacher{}}
-	@point{@student{Do Falling from the revisions sheet.  Point out that need one coordinate per character.  Shows multiple characters, and that don't always need both x and y coordinates.}
+	@point{@student{Do "Falling" from the revisions sheet.  Point out that need one coordinate per character.  Shows multiple characters, and that don't always need both x and y coordinates.}
 	       @teacher{}}
 	@point{@student{Look at this animation of a star that pulses as it moves across the sky.
 	                @activity{Fill in the first part of an animation-design worksheet, drawing three individual frames.}
