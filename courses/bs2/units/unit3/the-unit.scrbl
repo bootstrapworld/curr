@@ -127,6 +127,7 @@
                 )
       
       ]{
+        @points[
       	@point{@student{You've learned the components of an animation in Pyret. The data structure for the state lies at the heart of the animation: each of the initial state, the @code{draw-state} function and the @code{next-state-tick} function are based on the data structure you choose. Being able to figure out the data structure you need for an animation is therefore a critical skills in making your own animations.  In this lesson, we are going to practice identifying the data and creating the data structures for various animations. We will not write the entire animation.  We are just going to practice identifying the data.}
 	       @teacher{Figuring out the data structure is one of the most creative tasks in programming.  SAWY MORE ABOUT WHY THIS IS IMPORTANT AND INTERESTING.}}
 	@point{@student{Look at this animation of a cow jumping over the moon.
@@ -156,6 +157,7 @@
 	@point{@student{For a real challenge, do single-paddle pong}
 	       @teacher{}}
          ]}
+       
 
 @lesson/studteach[#:title "Closing"
         #:duration "5 minutes"
