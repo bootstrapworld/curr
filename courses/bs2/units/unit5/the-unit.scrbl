@@ -23,7 +23,7 @@
                             @item{Student workbooks}
                             @item{Language Table}]
      #:preparation @itemlist[@item{Seating arrangements: ideally clusters of desks/tables}
-                             @item{The @editor-link[#:public-id "" "Moving Character"] file preloaded on students' machines}]
+                             @item{The @editor-link[#:public-id "0B9rKDmABYlJVVWk4MGJidEtsRWc" "Moving Character"] file preloaded on students' machines}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -46,7 +46,7 @@
 
 @activity[]{
 
-Open up the @editor-link[#:public-id "" "Moving Character"] template file.  It
+Open up the @editor-link[#:public-id "0B9rKDmABYlJVVWk4MGJidEtsRWc" "Moving Character"] template file.  It
 contains a data block for representing a character's position
 (@code{CharState}) that has an x and y position.  We've filled in a picture of
 Sam the Butterfly from Bootstrap:1, but you can fill in another image if you
@@ -55,7 +55,7 @@ wish.
 There is a drawing function provided that simply draws the character image on a
 white background at the x and y coordinate in a @code{CharState}.
 
-There is also a contract for a function @code{next-state-tick}, which looks
+There is also a contract for a function @code{next-state-key}, which looks
 like:
 
   @code[#:multi-line #t]{
@@ -77,7 +77,7 @@ of @code{next-state-key}.
   @code{next-state-key} has an additional variable, @code{key}, which
   represents the key pressed by the user.
 }
-@teacher{}
+@teacher{Students will create something like @editor-link[#:public-id "0B9rKDmABYlJVTUtoekI2XzE3Znc" "this completed file"] by adding a next-state-key function}
 }
 
 @point{
@@ -116,15 +116,11 @@ end
 }
 
 }
-@teacher{}
+@teacher{@itemlist[@item{Act out a reactor with key presses}
+                   @item{Optional: boundaries to keep character onscreen, also num-to-string and display position}]
+}
 }
 
-
-@point{
-Act out a reactor with key presses
-}
-
-@point{Optional: boundaries to keep character onscreen, also num-to-string and display position}
 
 ]
 }
@@ -144,7 +140,7 @@ Act out a reactor with key presses
                             @item{Student workbooks}
                             @item{Language Table}]
      #:preparation @itemlist[@item{Seating arrangements: ideally clusters of desks/tables}
-                             @item{The @editor-link[#:public-id "" "Pusheen in the City"] file preloaded on students' machines}]
+                             @item{The @editor-link[#:public-id "0B9rKDmABYlJVXy00M1VteEZxaHM" "Virtual Pet Starter"] file preloaded on students' machines}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -165,18 +161,18 @@ already know to build a game.
 
 @activity[]{
 
-Open the @editor-link[#:public-id "" "Pusheen in the City"] file.  Run it, and
+Open the @editor-link[#:public-id "0B9rKDmABYlJVXy00M1VteEZxaHM" "Virtual Pet Starter"] file.  Run it, and
 use @code{interact(r)} to see the game as usual.  Notice that not much is
 happening!  It's going to be your job to write two functions, one to compute
 the next state for a tick, and one to compute the next state for a key press.
 
 On a tick, the hunger, sleep, and happiness should all decrease by one.  When
-they reach zero, the game is lost and Pusheen is sad.
+they reach zero, the game is lost and your pet is sad.
 
 On a key press, if the user pressed "f" (for "feed"), @code{hunger} should
-increase by 2. If the user pressed "p" (for "play"), @code{happy} should
-increase by 2.  If the user pressed "s" (for "sleep"), @code{sleep} should
-increase by 2.  If the user presses any other keys, nothing should change.
+increase by 5. If the user pressed "p" (for "play"), @code{happy} should
+increase by 5.  If the user pressed "s" (for "sleep"), @code{sleep} should
+increase by 5.  If the user presses any other keys, nothing should change.
 
 If the game is lost (one of the bars reaches 0), then key presses shouldn't
 change anything.
@@ -186,7 +182,7 @@ you can add them to the reactor at the bottom of the file with:
 
 @code[#:multi-line #t]{
 r = reactor:
-  init: START,
+  init: FULLPET,
   on-key: next-state-key,
   on-tick: next-state-tick,
   to-draw: draw-state
@@ -196,16 +192,17 @@ end
 and test out your game!
 }
 }
-@teacher{}
+@teacher{Some next steps/optional activities if students finish these two functions:
+         @itemlist[@item{Find your own images to create a different virtual pet}
+                   @item{Stop the bars from overflowing some maximum. (produce something like @editor-link[#:public-id "0B9rKDmABYlJVNTR6ajd4N1hPRm8" "this completed game"])}
+                   @item{Add an x-coordinate to the PetState so the pet moves around, either on key press or automatically.}
+                   @item{Add a costume to the PetState, then change the draw-pet function so that it changes the costume based on the pet's mood (if a-pet.hunger <= 50, show a pic of the pet looking hungry}]
+         These can be added to this unit as optional activities, or as their own BS:2 "track"
 
 }
+}
 
-@point{
-@student{
-Stop the bars from overflowing some maximum.  Add an x-coordinate so the cat
-moves around, either on key press or automatically.
-}
-}
+
 
 ]
 
