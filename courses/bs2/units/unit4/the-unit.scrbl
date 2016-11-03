@@ -23,7 +23,7 @@
                             @item{Class poster (List of rules, design recipe, course calendar)}
                             @item{Editing environment (Pyret Editor)}
                             @item{Language Table}]
-        #:preparation @itemlist[@item{The @editor-link[#:public-id "" "What to Wear"] file, preloaded on students' machines}
+        #:preparation @itemlist[@item{The @editor-link[#:public-id "0B9rKDmABYlJVaUw0VjdiOE5DVzQ" "What to Wear"] file, preloaded on students' machines}
                                  @item{Seating arrangements: ideally clusters of desks/tables}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -40,7 +40,7 @@
   expression.
 
   @activity{
-    Open the file at @editor-link[#:public-id "" "What to Wear"] and do the following:
+    Open the file at @editor-link[#:public-id "0B9rKDmABYlJVaUw0VjdiOE5DVzQ" "What to Wear"] and do the following:
 
     @itemlist[
 
@@ -140,7 +140,7 @@
         #:standards (list)
         #:materials @itemlist[]
         #:preparation @itemlist[
-          @item{The @editor-link[#:public-id "" "Where's the Jumper?"] file preloaded on students' machines}
+          @item{The @editor-link[#:public-id "0B9rKDmABYlJVX21wZ2lSMTRZbG8" "Where's the Jumper?"] file preloaded on students' machines}
           @item{The conditional function worksheet FILL LINK}]
         #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -159,7 +159,7 @@ detect where characters are, and make decisions based on that information.
 
 @activity[]{
 
-Open the @editor-link[#:public-id "" "Where's the Jumper?"] file.  There is a
+Open the @editor-link[#:public-id "0B9rKDmABYlJVX21wZ2lSMTRZbG8" "Where's the Jumper?"] file.  There is a
 contract and purpose for a funciton called @code{location} in the file:
 
 @code[#:multi-line #t]{
