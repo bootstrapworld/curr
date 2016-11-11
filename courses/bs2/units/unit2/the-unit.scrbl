@@ -299,6 +299,63 @@ tells us that we're defining a new data type called @code{JumperState}, whose co
                                       @code{data} and a line similar to @code{cake(...)} are needed in order to create and work with @italic{any} structure.}}         
                                     ]
          }
+       
+       
+@lesson/studteach[#:title "Your Bakery"
+        #:duration "30 minutes"
+        #:overview ""
+        #:learning-objectives @itemlist[@item{Students will write complex functions that consume, modify and produce structures}]
+        #:evidence-statements @itemlist[]
+        #:product-outcomes @itemlist[@item{Students will write functions that access fields of a CakeT}]
+        #:standards (list "7.EE.1-2" "F-IF.1-3" "A-CED.1-4" "BS-DR.1" "BS-DR.2" "BS-DR.3" "BS-DR.4" "BS-DS.1")
+        #:materials @itemlist[@item{The  @editor-link[#:public-id "0B9rKDmABYlJVU2lINzk1X0x2ODg" "Bakery"] file used in the previous lessons}]
+        #:preparation @itemlist[]
+        #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      
+      ]{
+        @points[@point{@student{Of course, when programmers work with data structures, they don't just define them and create instances- they also write functions that use and produce structures. Let's get started writing some functions for CakeTs.}
+                        @teacher{}}
+                 
+                 @point{@student{@activity[#:forevidence (list "F-IF.1-3&1&1" "BS-DR.1&1&1" "BS-DS.2&1&1")]{Turn to @worksheet-link[#:page 14 #:name "taller-than"] in your workbooks. Write the contract and purpose statement for a function called @code{taller-than}, which consumes two CakeTs, and produces true if the first CakeT is taller than the second.
+                                                   @itemlist[@item{What is the domain for this function?}
+                                                             @item{What is the range of @code{taller-than}?}
+                                                             @item{Which part(s) of the CakeTs will you need to check to determine if one is taller than the other?}]}
+               @code[#:multi-line #t]{
+# taller-than: CakeT, CakeT -> Boolean
+# consumes two CakeTs and produces true if the number of layers in the first CakeT is greater than the number of layers in the second}
+               For your first example, try comparing the original @code{cake1} and @code{cake2}. Do we care about what flavor either of these CakeTs are? What about whether or not one of them is an ice cream cake? All we need to figure out which one is taller is their number of layers. 
+               @activity{How do you get the number of layers out of @code{cake1}? What about @code{cake2}? Write your first example to figure out if @code{cake1} has a greater number of layers than @code{cake2}.}}
+                         @teacher{ }}
+                 
+                 @point{@student{
+                  @code[#:multi-line #t]{examples:
+                                             taller-than(cake1, cake2) is 
+                                             cake1.layers > cake2.layers
+                                             
+                                         end}
+                                                                        
+      @activity[#:forevidence (list "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.4&1&1" "BS-DR.4&1&2")]{@itemlist[@item{Write one more example for the function @code{taller-than}, this time using it to compare any two CakeTs you defined earlier.} 
+                                                      @item{Next, circle and label what changes between the two examples. How many variables will this function need? Then write the definition, using your examples to help you.}]}
+                        
+                                  After replacing the changing things with variables, your definition should look similar to: 
+                                  @code[#:multi-line #t]{taller-than(a-cake1, a-cake2):
+                                                           a-cake1.layers > a-cake2.layers
+                                                         end}}
+                         @teacher{ }}
+                 
+                 @point{@student{@activity[#:forevidence (list "7.EE.1-2&1&1" "A-CED.1-4&1&1" "BS-DR.1&1&1" "BS-DR.1&1&2" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1" "BS-DS.1&1&5")]{Turn to @worksheet-link[#:page 15 #:name "will-melt"] in your workbooks. Your bakery needs to know if certain CakeTs need to be refrigerated. If the temperature is greater than 32 degrees AND the given CakeT is an ice cream cake, the function should return true. 
+                                                   @itemlist[@item{Fill out the @vocab{Contract} and @vocab{Purpose Statement} for the function.}
+                                                              @item{Write two examples for how one would use @code{will-melt}.}
+                                                              @item{Circle and label what varies between those examples and label it with a @vocab{variable} name.}
+                                                              @item{Define the function.}]}}
+                         @teacher{Give students plenty of time to practice using dot-accessors, extracting pieces of the Cake structures and modifying them.}}
+                                                                                                          @point{@student{@bold{Optional:} In the @editor-link[#:public-id "0B9rKDmABYlJVU2lINzk1X0x2ODg" "Bakery"] file, extend the CakeT data structure to include one more field: a message, represented as a String. (Make sure you remember to change each CakeT instance below the data definition: if a CakeT now contains four fields, each instance will need to include all four fields!) Next, write a function called @code{birthday-cake}, which takes in a string representing someone's name, and produces a 2-layer, chocolate CakeT with "Happy birthday [Name]!" as the message. @bold{Hint:} You'll want to use the @code{string-append} function to combine two strings into one. Here is its contract: @code{string-append : String, String -> String}}
+                                                                                                @teacher{Since this function returns a CakeT, remind students that they'll need to use the @code{cake} constructor function to produce a CakeT. }}  ]
+         }
 
 @lesson/studteach[#:title "Closing"
         #:duration "5 minutes"
@@ -319,7 +376,7 @@ tells us that we're defining a new data type called @code{JumperState}, whose co
                                 keep track of only a few numbers at once, such as the position of the ball, position of each paddle, and the score. But if a game has many 
                                 different enemies, each with its own position and health, or multiple levels with their own background images, the game can get 
                                 very complicated very fast, and structures are a great way to manage and make sense of all the data. Programmers can do a LOT with data
-                                structures, and in the upcoming lessons you will create your own structures to make a customized videogame.}
+                                structures, and in the upcoming lessons you'll start creating your own structures to make a customized animation.}
            @teacher{Have students volunteer what they learned in this lesson!}}
   
            
