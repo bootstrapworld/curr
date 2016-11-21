@@ -15,7 +15,7 @@
     ("contract" "a statement of the name, domain, and range of a function")
     ("data block" "Code that lists the name, constructor(s), and field(s) of a data structure")
     ("data structure" "A datatype which packages several datatypes as fields")   
-    ("datatype" "A way of classifying values, such as: Number, String, Image, or Boolean")
+    ("data type" "A way of classifying values, such as: Number, String, Image, or Boolean")
     ("datatypes" "A way of classifying values, such as: Number, String, Image, or Boolean")
     ("define" "associate a descriptive name with a value")
     ("definitions area" "the text box in the Editor (DrRacket or WeScheme), where definitions for values and functions are written")
