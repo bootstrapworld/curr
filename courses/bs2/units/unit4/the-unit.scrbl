@@ -159,7 +159,7 @@ background image:
 
 @code[#:multi-line #t]{
 location :: JumperState -> String
-# Returns a string representing the location: either "cliff", "ground", "water", or "air"
+# Returns a string representing the location: either "cliff", "beach", "water", or "air"
 }
 Copy the work you have in your workbok to implement @code{location} on the computer.
 
@@ -177,7 +177,7 @@ cliff!
 
 @activity[]{Experiment with this function:  in the interactions pane, run @code{location(START)}:
 what does it return (hopefully @code{"air"})?  Run @code{draw(START)}: does it
-look like the jumper is in the air?  Do the same for an instance of a JumperState where the jumper is on the cliff, in the water, and on the ground.
+look like the jumper is in the air?  Do the same for an instance of a JumperState where the jumper is on the cliff, in the water, and on the beach.
 
 }
 
