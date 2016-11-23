@@ -1,285 +1,292 @@
 #lang curr/lib
-
-@title{Unit 7: Collision Detection}
 @declare-tags[]
 
-@unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / num-sqr num-sqrt num-expt}) 
-                                       (list "String" @code{string-append string-length})                          
-                                       (list "Image" @code{rectangle circle triangle ellipse radial-star scale rotate put-image})
-                                       (list "Boolean" @code{= > < string-equal and or}))]{
-@unit-descr{Students return to the Pythagorean Theorem and distance formula they used in Bootstrap:1, this time with data structures and the full next-world function.}
-}     
+@title{Track: Making Pong}
+
+@unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sqr sqrt expt})
+                                       (list "String" @code{string-append string-length})
+                                       (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image}))]{
+@unit-descr{Students use the Animation Design Worksheet to decompose a 2-player game of Pong, and implement it in Pyret.}
+}
+
 @unit-lessons{
-@lesson/studteach[#:title "Introduction"
-        #:duration "5 minutes"
-        #:overview ""
-        #:learning-objectives @itemlist[]
-        #:evidence-statements @itemlist[]
-        #:product-outcomes @itemlist[]
-        #:standards (list "N-Q" "6.NS.5-8" "7.EE.3-4")
-        #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
-                            @item{Class poster (List of rules, design recipe, course calendar)}
-                            @item{Editing environment (Pyret Editor)}
-                            @item{Student workbooks}
-                            @item{Language Table}
-                            @item{Cutouts of Cat and Dog images}
-                            @item{Cutouts of Pythagorean Theorem packets [@(resource-link #:path "images/pythag1.png" #:label "1"), @(resource-link #:path "images/pythag2.png" #:label "2")] - 1 per cluster} ]
-        #:preparation @itemlist[@item{Seating arrangements: ideally clusters of desks/tables}]
-        #:pacings (list 
+@lesson/studteach[
+     #:title "Setting up the paddles"
+     #:duration "45 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[]
+     #:standards (list)
+     #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
+                            @item{Class poster (List of rules, language table, course calendar)}
+                            @item{Language Table (see below)}
+                            @item{Animation Design Worksheet}]
+     #:preparation @itemlist[@item{}]
+     #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Right now in the Ninja Cat game, nothing happens when the player collides with another game character. We need to write a function change that. This is going to require a little math, but luckily it's exactly the same as it was in Bootstrap:1.
-                                @bitmap{images/numberline.png}                               
-                                @activity[#:forevidence (list "N-Q&1&1" "6.NS.5-8&1&6" "7.EE.3-4&1&3")]{@itemlist[@item{In the image above, how far apart are the cat and dog?}
-                                                     @item{If the cat was moved one space to the right, how far apart would they be?}
-                                                     @item{What if the cat and dog switched positions?}]}
-
-In one dimension, such as on a number line, finding the distance is pretty easy. If the characters are on the same line, you just subtract one coordinate from another, and you have your distance. However, if all we did was subtract the second number from the first, the function would only work half the time!
-@activity[#:forevidence (list "6.NS.5-8&1&4")]{When the cat and dog were switched, did you still subtract the dog's position from the cat's, or subtract the cat's position from the dog's? Why?}}
-                        @teacher{Draw the number line on the board, with the cutouts of the cat and dog at the given positions. Ask students to tell you the distance between them, and move the images accordingly. Having students act this out can also work well: draw a number line, have two students stand at different points on the line, using their arms or cutouts to give objects of different sizes. Move students along the number line until they touch, then compute the distance on the number line.}}
-                 ]
-         }
-
-@lesson/studteach[#:title "1D Distance"
-        #:duration "10 minutes"
-        #:overview ""
-        #:learning-objectives @itemlist[]
-        #:evidence-statements @itemlist[]
-        #:product-outcomes @itemlist[]
-        #:standards (list "N-Q" "8.F.1-3" "F-IF.1-3" "A-CED.1-4" "BS-M" "BS-PL.4" "BS-DR.1" "BS-DR.2" "BS-DR.3")
-        #:materials @itemlist[]
-        #:preparation @itemlist[@item{}]
-        #:pacings (list 
-                @pacing[#:type "remediation"]{@itemlist[@item{}]}
-                @pacing[#:type "misconception"]{@itemlist[@item{}]}
-                @pacing[#:type "challenge"]{@itemlist[@item{}]}
-                )
-      ]{
-        @points[@point{@student{Distances cannot be negative, so we have to make sure we are always subtracting the smaller number from the bigger one. That means we have two conditions: (1) the first number is bigger, and (2) the second is bigger.
-                                @activity[#:forevidence (list "N-Q&1&1" "8.F.1-3&1&1" "F-IF.1-3&1&1" "A-CED.1-4&1&1" "BS-M&1&1" "BS-PL.4&1&1" "BS-DR.1&1&1" "BS-DR.1&1&2" "BS-DR.2&1&1")]{@itemlist[@item{What kind of function do we need, when we have multiple conditions?}
-                                                     @item{Turn to @worksheet-link[#:page 28 #:name "Design Recipe Line Length"].}
-                                                     @item{What is the Name of this function? Domain? Range?}
-                                                     @item{Write two examples for @code{line-length} so that it subtracts the smaller number from the bigger one. Start with an example using the numbers 23 and 5, then do a second example with 5 and 23 in the @italic{other order}.}]}
-@code[#:multi-line #t]{examples:
-                           line-length(23, 5) is 23 - 5
-                           line-length(5, 23) is 23 - 5
-                       end}}
-                        @teacher{}}
-                 @point{@student{Now we have an idea of the results for the @code{ask} statement, but an @code{ask} expression also needs tests. We want to @italic{test} to see whether the first number given to @code{line-length} is greater than the second number. 
-                                @activity[#:forevidence (list "BS-PL.4&1&1" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1")]{@itemlist[@item{How would you write that test in Pyret code?}
-                                                     @item{And what would the result for that test be? If @code{a} is greater than @code{b}, which number would we subtract from which?}
-                                                     @item{How could you include a test for wheather the two numbers are equal, @italic{without} adding a third @code{ask} branch?}
-                                                     @item{Write down the definition for @code{line-length}.}]}     
-@code[#:multi-line #t]{fun line-length(a, b):
-                           ask:
-                             | a > b  then: a - b
-                             | b >= a then: b - a
-                           end
-                       end}}
-                        @teacher{It is possible to replace the second test with @code{otherwise}, because there will only be two options: @code{line-length} will either subtract @code{b} from @code{a}, or @code{a} from @code{b}. (If the numbers are equal, it doesn't matter which is subtracted.) However, having students write out the full test and result gets them thinking about what exactly is being tested in each branch of the function. It is possible to avoid using a conditional entirely by taking the absolute value of the difference (the function @code{num-abs} does this); if you are working with older students who already know about absolute value you could show it. Using @code{ask}, however, emphasizes how code structure arises from examples.}}
-                 ]
-         }
-
-@lesson/studteach[#:title "The Distance Formula"
-        #:duration "20 minutes"
-        #:overview ""
-        #:learning-objectives @itemlist[@item{Reinforce their understanding of the distance formula}]
-        #:evidence-statements @itemlist[]
-        #:product-outcomes @itemlist[ @item{Students will write the distance function}]
-        #:standards (list "N-Q" "6.NS.5-8" "8.F.1-3" "F-IF.1-3" "8.G.6-8" "BS-CE" "BS-PL.3" "BS-DR.1" "BS-DR.2" "BS-DR.3")
-        #:materials @itemlist[]
-        #:preparation @itemlist[@item{}]
-        #:pacings (list 
-                @pacing[#:type "remediation"]{@itemlist[@item{}]}
-                @pacing[#:type "misconception"]{@itemlist[@item{}]}
-                @pacing[#:type "challenge"]{@itemlist[@item{}]}
-                )
-      ]{
-        @points[@point{@student{Unfortunately you don't have any code to calculate the distance in two dimensions. All you have so far is something that tells you the length in only the x- or y-dimension.                   
-                                @bitmap{images/ABCgraph.png}
-                                @activity{@itemlist[@item{How could you find the distance between the two points shown in this image?}
-                                                     @item{How could you find the length of the C, also called the @vocab{Hypotenuse}?}]}
-                                Let's start with what we do know: if we treat the x- and y-intercepts of C as lines A and B, we have a right triangle.
-                                @activity[#:forevidence (list "6.NS.5-8&1&6")]{What is the line-length of A? Would it be different if the triangle pointed downward, and intercepted the point (0, -4)? }
-                                To make your life easier, you can use the function you already wrote: @code{line-length}. In this example, line-length(A) is 4 and line-length(B) is 3, but we still don't know C.}
-                        @teacher{Draw this image on the board, with the lines labeled "A", "B", and "C".}}
-                 @point{@student{Ancient civilizations had the same problem: they also struggled to find the distance between points in two dimensions. Let’s work through a way to think about this problem: what expression computes the length of the hypotenuse of a right triangle?}
-                       @teacher{This exercise is best done in small groups of students (2-3 per group). Pass out Pythagorean Proof materials [@(resource-link #:path "images/pythag1.png" #:label "1"), @(resource-link #:path "images/pythag2.png" #:label "2")] to each group, and have them review all of their materials:@itemlist[@item{A large, white square with a smaller one drawn inside}
-                                 @item{Four gray triangles, all the same size}]
-                                 Everyone will have a packet with the same materials, but each group's triangles are a little different. The activity workes with triangles of all sizes, so each pair will get to test it out on their own triangles. Draw the diagram on the board.}
-                        }
-                @point{@student{@bitmap{images/csquared.png}For any right triangle, it is possible to draw a picture where the hypoteneuse is used for all four sides of a square. In the diagram shown here, the white square is surrounded by four gray, identical right-triangles, each with sides A and B. The square itself has four identical sides of length C, which are the hypoteneuses for the triangles. If the area of a square is expressed by @math{side * side}, then the area of the white space is @math{C^{2}}.}
-                        @teacher{Have students place their gray triangles onto the paper, to match the diagram.}}
-                @point{@student{@animated-gif{images/Pythag_anim.gif} By moving the gray triangles, it is possible to create two rectangles that fit inside the original square. While the space taken up by the triangles has shifted, it hasn't gotten any bigger or smaller. Likewise, the white space has been broken into two smaller squares, but in total it remains the same size. By using the side-lengths A and B, one can calculate the area of the two squares.
-                                 @activity[#:forevidence (list "8.G.6-8&1&1" "8.G.6-8&1&2" "8.G.6-8&1&3")]{What is the area of the smaller square? The larger square?}}
-                       @teacher{You may need to explicitly point out that the side-lengths of the triangles can be used as the side-lengths of the squares.}
+        @points[@item{@student{@animated-gif{images/pong.gif}In Unit 3, you practiced decomposing simple animations into the data structures and functions. Let's consider how a 
+                               2-player game of Pong works: There are two "players", each represented by a paddle on either side of the screen. Each paddle
+                               can move up and down, as long as they remain on the screen. There is also a ping-pong ball, which moves at any angle and can 
+                               be on or off the screen. Let's start out by adding the paddles, making sure they can move up and down, and then we'll add the ball 
+                               later. @activity{Using a blank Animation Design Worksheet, figure out how the paddles behave throughout the game,
+                                                and decide what Data Structure you'll need to represent those behaviors.}
+                               }
+                       @teacher{Students should realize that each paddle is simply a y-coordinate, since neither paddle can ever move left or right.}
                        }
-                @point{@student{@bitmap{images/absquare.png}The smaller square has an area of @math{A^{2}}, and the larger square has an area of @math{B^{2}}. Since these squares are just the original square broken up into two pieces, we know that the sum of these areas must be equal to the area of the original square:
-                                 @bannerline{@math{A^{2} + B^{2} = C^{2}}}
-                                 @activity[#:forevidence (list "8.G.6-8&1&1" "8.G.6-8&1&2" "8.G.6-8&1&3")]{Does the same equation work for any values of A and B?}}
-                       @teacher{}
-                       }
-                @point{@student{To get C by itself, we take the square-root of the sum of the areas:
-                                @bannerline{@math{\sqrt{A^{2} + B^{2}} = C}}
-                                Pythagoras proved that you can get the square of the hypotenuse by adding the squares of the other two sides. In your games, you're going to use the horizontal and vertical distance between two characters as the two sides of your triangle, and use the Pythagorean theorem to find the length of that third side.}
-                       @teacher{Remind students that A and B are the horizontal and vertical lengths, which are calculated by @code{line-length}.}
-                       }
-                @point{@student{@activity[#:forevidence (list "BS-CE&1&4" "BS-PL.3&1&3")]{@itemlist[@item{Turn to @worksheet-link[#:page 29 #:name "Distance-Formula-With-Numbers"] of your workbook - you'll see the formula written out.} 
-                                                    @item{Draw out the circle of evaluation, starting with the simplest expression you can see first.}
-                                                     @item{Once you have the circle of evaluation, translate it into Pyret code at the bottom of the page, starting with 
-                                                           @code[#:multi-line #true]{check: 
-         distance(4, 2, 0, 5) is...
-       end}}]}
-Now you've got code that tells you the distance between the points (4, 2) and (0, 5). But we want to have it work for @italic{any} two points. It would be great if we had a function that would just take the x's and y's as input, and do the math for us.}
-                        @teacher{}}
-                @point{@student{@activity[#:forevidence (list "N-Q&1&1" "8.G.6-8&1&3" "8.F.1-3&1&1" "F-IF.1-3&1&1" "BS-M&1&1" "BS-PL.3&1&2" "BS-PL.3&1&3" "BS-DR.1&1&1" "BS-DR.1&1&2" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1")]{@itemlist[@item{Turn to @worksheet-link[#:page 30 #:name "Distance"], and read the problem statement and function header carefully.}
-                                                      @item{Use the Design Recipe to write your distance function. Feel free to use the work from the previous page as your first example, and then come up with a new one of your own.}
-                                                      @item{When finished, type your @code{line-length} and @code{distance} functions into your game, and see what happens.}
-                                                      @item{Does anything happen when things run into each other?}]}
-You still need a function to check whether or not two things are colliding.}
-                        @teacher{Pay careful attention to the order in which the coordinates are given to the @code{distance} function. The player's x-coordinate (@code{px}) must be given first, followed by the player's y (@code{py}), character's x (@code{cx}), and character's y (@code{cy}). Inside the body of the function, @code{line-length} can only calculate lengths on the same axis (@code{line-length(px, cx)} and @code{line-length(cx, cy)}). Just like with making data structures, order matters, and the distance function will not work otherwise. Also be sure to check that students are using @code{num-sqr} and @code{num-sqrt} in the correct places. }
+                 @item{@student{Here is one possible structure that we could use to model the two players:
+                                @code[#:multi-line #t]{
+# a PongState has the y-coordinate of paddle1 and paddle2
+data pongState:
+ | pong(
+     paddle1 :: Number,
+     paddle2 :: Number)
+end
+                                                       }
+                                We can imagine a few sample @code{pongState} instances, in which the paddles are at different locations on the screen. If you 
+                                haven't already, it would be a good idea to define a sample state for when the game starts, and maybe two other states
+                                where the paddles are at other locations.}
+                        @teacher{}
                         }
-                ]
-         }
-       
-@lesson/studteach[#:title "Collision"
-        #:duration "10 minutes"
-        #:overview ""
-        #:learning-objectives @itemlist[]
-        #:evidence-statements @itemlist[]
-        #:product-outcomes @itemlist[@item{Students will write the is-collision function}]
-        #:standards (list "N-Q" "7.EE.3-4" "8.G.6-8" "8.F.1-3" "F-IF.1-3" "A-CED.1-4" "BS-M" "BS-DR.1" "BS-DR.2" "BS-DR.3")
-        #:materials @itemlist[]
-        #:preparation @itemlist[@item{}]
-        #:pacings (list 
-                @pacing[#:type "remediation"]{@itemlist[@item{}]}
-                @pacing[#:type "misconception"]{@itemlist[@item{}]}
-                @pacing[#:type "challenge"]{@itemlist[@item{}]}
-                )
-      ]{
-        @points[@point{@student{So what do we want to do with this distance? 
-                                @activity{How close should your danger and your player be, before they hit each other?}
-                                At the top of @worksheet-link[#:page 31 #:name "is-collision"] you'll find the Word Problem for @code{is-collision}. 
-                                @activity[#:forevidence (list "N-Q&1&1" "7.EE.3-4&1&1" "8.G.6-8&1&3" "8.F.1-3&1&1" "F-IF.1-3&1&1" "A-CED.1-4&1&1" "BS-M&1&1" "BS-DR.1&1&1" "BS-DR.1&1&2" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1")]{@itemlist[@item{Fill in the Contract, two examples, and then write the code. Remember: you WILL need to make use of the @code{distance} function you just wrote!}
-                                                    @item{When you're done, type it into your Ninja Cat game, underneath @code{distance}.}]}}
-                        @teacher{Using visual examples, ask students to guess the distance between a danger and a player at different positions. How far apart do they need to be before one has hit the other? Make sure students understand what is going on by asking questions: If the collision distance is small, does that mean the game is hard or easy? What would make it easier?}
+                 @item{@student{We'll need to answer some questions, in order to write our @code{draw-state} function.
+                               @activity{@itemlist[@item{What will the paddles look like?}
+                                                    @item{What does the background look like?}
+                                                    @item{How wide is the background? How tall is it?}
+                                                     @item{Use the Design Recipe to write the code for @code{draw-state}, and make sure your sample draw the way you
+                                         expect them to.}]}}
+                        @teacher{}
                         }
-                 ]
-         }
-            
-@lesson/studteach[#:title "next-world"
-        #:duration "30 minutes"
-        #:overview ""
-        #:learning-objectives @itemlist[@item{Identify collision as yet another sub-domain which requires different behavior of the next-world function}]
-        #:evidence-statements @itemlist[]
-        #:product-outcomes @itemlist[@item{Students will use different Ask branches to identify collisions in the Ninja Cat games}]
-        #:standards (list "N-Q" "8.G.6-8" "F-LE.5" "A-SSE.1-2" "BS-PL.4" "BS-DR.4" "BS-W")
-        #:materials @itemlist[]
-        #:preparation @itemlist[@item{}]
-        #:pacings (list 
+                 @item{@student{The paddles don't move on their own, so right now there's no @code{next-state-tick} function. However, they DO move
+                                when a user hits a key! That means we'll need to define @code{next-state-key}, and answer a few questions in the process:
+                                @activity{@itemlist[@item{What key makes @code{paddle1} move up? Move down?}
+                                                     @item{What key makes @code{paddle2} move up? Move down?}
+                                                     @item{How much does each paddle move when it goes up or down?}
+                                                     @item{What happens if some @italic{other} key is pressed?}
+                                                     @item{Use the Design Recipe to write the code for @code{next-state-tick}}]}}
+                        @teacher{Have students discuss their answers to these questions, before moving on to @code{next-state-tick}.}
+                        }
+                 @item{@student{At this point, we know how to change the @code{pongState} in response to a keypress and how to draw that @code{pongState}
+                                as an image. Let's build a @code{reactor}, which uses a @code{pongState} instance as the starting state and hooks
+                                up these functions to the @code{on-tick} and @code{to-draw} event handlers.
+                                @code[#:multi-line #t]{
+r = reactor:
+  init: pongState(200, 200),
+  on-key: next-state-key,
+  to-draw: draw-state
+end
+}
+                                When you run this reactor (@code{interact(r)}), you should see your initial instance drawn on the screen,
+                                and the paddle positions should change based on the keys you press! Do all four keys do what you expect
+                                them to do? What happens if you hit some @italic{other} key?}
+                        @teacher{}
+                        }
+                 @item{@student{Right now, what happens if you keep moving one of the paddles up or down? Will it go off the edge of the 
+                                screen? We should make sure to prevent that! @activity{Take a few minutes and discuss with your partner: 
+                                what needs to change, in order to stop the paddles from going offscreen? You can use an Animation Design
+                                Worksheet if you want to be precise. Once you have a strategy that you feel confident about, take 15 
+                                minutes to try it out!}}
+                        @teacher{Give the class 2-3 minutes to discuss, and then have different teams share back @italic{before}
+                                 they start to implement.}
+                        }
+                 ]}
+
+@lesson/studteach[
+     #:title "Adding the ball"
+     #:duration "45 minutes"
+     #:overview "Students extend their program to add a bouncing ball"
+     #:learning-objectives @itemlist[@item{}]
+     #:evidence-statements @itemlist[@item{}
+                                    ]
+     #:product-outcomes @itemlist[]
+     #:exercises (list )
+     #:standards (list )
+     #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
+                            @item{Class poster (List of rules, language table, course calendar)}
+                            @item{Language Table (see below)}]
+     #:preparation @itemlist[]
+     #:prerequisites (list )
+     #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Now that you have a function which will check whether something is colliding, you can use it in Ninja World.
-                                @activity[#:forevidence (list "BS-W&1&4")]{Out of the four major functions in the game (@code{next-world}, @code{draw-world}, @code{keypress}, and @code{big-bang}), which do you think you'll need to edit to handle collisions?}
-                                We'll need to make some more branches for @code{ask} in @code{next-world}. When the cat collides with the dog, we want to put the dog offscreen so that he can come back to attack again.}
-                        @teacher{}}
-                 @point{@student{@activity[#:forevidence (list "N-Q&1&1" "8.G.6-8&1&3" "F-LE.5&1&1" "A-SSE.1-2&1&1" "BS-PL.4&1&1" "BS-DR.4&1&3" "BS-DS.1&1&5")]{@itemlist[@item{Start with the test: how could you check whether the cat and dog are colliding? Have you written a function to check that?}
-                                                     @item{What do the inputs need to be?}
-                                                     @item{How do you get the @code{catY} out of the world? @code{catX}?}
-                                                     @item{How do you get the @code{dogX} out of the world? @code{dogY}?} ]}
-@code[#:multi-line #t]{| is-collision(
-                           current-world.catX, 
-                           current-world.catY, 
-                           current-world.dogX, 
-                           current-world.dogY) 
-                         then: ...result...}
-Remember that @code{next-world} produces a world, so what function should come first in our result?
-@code[#:multi-line #t]{| is-collision(
-                           current-world.catX, 
-                           current-world.catY, 
-                           current-world.dogX, 
-                           current-world.dogY) 
-                         then: 
-                         world(
-                           ...dogX..., 
-                           ...dogY..., 
-                           ...coinX..., 
-                           ...catX..., 
-                           ...catY...)}
-                                @activity[#:forevidence (list "BS-PL.4&1&1")]{And what should happen when the cat and dog collide? Can you think of a number that puts the dog off the screen on the left side? What about the dog's y-coordinate? We could choose a number and always place it at the same y-coordinate each time, but we know a function that can place him at a @italic{random} y-coordinate...}
-             @code[#:multi-line #t]{| is-collision(
-                                        current-world.catX, 
-                                        current-world.catY, 
-                                        current-world.dogX, 
-                                        current-world.dogY) 
-                                      then: 
-                                      world(
-                                        -100, 
-                                        num-random(480), 
-                                        ...coinX...,
-                                        ...catX..., 
-                                        ...catY...)}
-                                @activity[#:forevidence (list "BS-PL.4&1&1" "BS-DR.4&1&3" "BS-DS.1&1&5")]{Does the @code{coinX} change when the dog and cat collide? How about @code{catY}? How do you get each of those things out of the world?}
-             @code[#:multi-line #t]{| is-collision(
-                                        current-world.catX, 
-                                        current-world.catY, 
-                                        current-world.dogX, 
-                                        400) 
-                                      then: 
-                                      world(
-                                        -100, 
-                                        num-random(480), 
-                                        current-world.coinX, 
-                                        current-world.catX, 
-                                        current-world.catY)}}
-                        @teacher{Collision detection must be part of the @code{next-world} function because the game should be checking for a collision @italic{every time} the world is updated. Students may assume that @code{draw-world} should handle collision detection, but point out that the Range of @code{draw-world} is an Image, and their function must return a new world in order to set the locations of the characters after a collision.}}
-                 @point{@student{Take a minute and admire your handiwork: You've created your own version of Ninja Cat using Pyret, data structures, and complex functions. This game is already more advanced than your Bootstrap:1 game, and you've created it from scratch! Armed with the knowledge of how to create this simple game in Pyret, now it's time to start thinking about a video game of your own!}
-       @teacher{}}
-                
-                ]
-         }
+        @points[@point{@student{Now that we've got our paddles set up, it's time to start thinking about the ball. What do you notice about the ball?
+                                @activity{@itemlist[@item{When does the ball move? On its own, or only when a key is pressed?}
+                                                     @item{Does the ball's position change? If so, by how much?}
+                                                     @item{What do we need, to keep track of the ball's position?}
+                                                     @item{Does the ball's direction change?}
+                                                     @item{What do we need, to keep track of the ball's direction?}
+                                                     @item{When does the ball's direction change?}
+                                                     ]}}
+                        @teacher{Suggestion: don't show the class these questions to start. First, have students volunteer lots of observations, 
+                                 and write them on the board. Only add the other questions to spark discussion if students run out of ideas.}
+                        }
+                 @point{@student{Fortunately, we don't need to think through everything all at once! What would be a good place to start? 
+                                 @activity{Use an Animation Design Worksheet to add one part of the ball's behavior to your game.}}
+                         @teacher{Students may want to start just by having the ball appear on the screen, moving in one direction. They don't
+                                  need to worry about bouncing, changing direction, or going off the screen right away!}
+                         }
+                 @point{@student{Did your @code{pongState} change as a result? Chances are, you needed to add @code{ballX :: Number} and 
+                                 @code{ballY :: Number} fields to your State, to make sure the ball could move in any direction. Did your
+                                 @code{draw-state} function need to change? What about @code{next-state-key}? Did you need to write
+                                 @code{next-state-tick}? If so, what did you do?}
+                         @teacher{Some students will hard-code numbers for moving the ball. That's okay! Once they start thinking about
+                                  changing direction, those numbers will have to become fields in @code{pongState}, which change in response
+                                  to paddle collisions.}
+                         }
+                 @point{@student{Now the game is starting to come together! We've got two paddles moving up and down, and we make sure they stay
+                                 on the screen. Meanwhile, we have a ball that can move in any direction...but so far the ball doesn't know how
+                                 to bounce! It's time to plan out what bouncing will look like, and wire it all together.
+                                 @activity{@itemlist[@item{How do you know when the ball has hit the top or bottom wall of the screen?}
+                                                      @item{Write @code{hit-wall}, using the Design Recipe to help you.}
+                                                      @item{Hook @code{hit-wall} up to the reactor's @code{stop-when} event-handler, so that
+                                                            the game will end as soon as the ball hits the top or bottom of the screen.
+                                                            You may need to change your initial instance, to make sure the ball hits that wall!}]}
+                                 }
+                         @teacher{The goal of this activity is to have students get their collision-detection working, in preparation for the
+                                  bouncing behavior. } 
 
-@lesson/studteach[#:title "Game Brainstorming"
-        #:duration "15 minutes"
-        #:overview ""
-        #:learning-objectives @itemlist[]
-        #:evidence-statements @itemlist[]
-        #:product-outcomes @itemlist[]
-        #:standards (list "N-Q" "BS-M" "BS-DS.1" "BS-DS.2")
-        #:materials @itemlist[]
-        #:preparation @itemlist[@item{}]
-        #:pacings (list 
+                         }
+                 @point{@student{Of course, we don't want the game to end when the ball hits a wall! Let's re-examine our observations...
+                                 @activity{@itemlist[@item{When a ball is moving up and to the right, what is happening to @code{ballX} and @code{ballY}?}
+                                                      @item{When that ball hits a wall, what should happen?}
+                                                      @item{How does the ball's @italic{direction} change after it hits a wall?}
+                                                      @item{After it's changed direction, how does the ball's @italic{position} change?}
+                                                      @item{Use the Animation Design Worksheet to plan out the bouncing behavior}
+                                                      ]}}
+                         @teacher{Warning: this activity is pretty sophisticated! You'll want to make sure there are plenty of visual scaffolds
+                                  for students, or (even better!) have them generate these diagrams themselves.}
+                         }
+                 @point{@student{By now, you may have noticed that the direction of the ball itself needs to change, which means it needs to be
+                                 added to our @code{pongState} structure. There are lots of different ways we could represent @italic{direction}:
+                                 it could be a String (e.g. "north", "southeast", "west", etc), or it could be a pair of Numbers that represent
+                                 how much the ball is moving in the x- and y-direction from frame to frame.
+                                 @activity{What other ways could you represent direction? What are the pros and cons of each representation?}}
+                         @teacher{Note: the pair-of-numbers representation is deeply aligned to physics, in which the pair represents a vector
+                                  that translates the ball's position over time.}
+                         }
+                 @point{@student{Here is one example of a way to represent this, during Numbers to keep track of direction:
+                                 @code[#:multi-line #t]{
+# a PongState has the y-coordinate of paddle1 and paddle2
+data pongState:
+ | pong(
+     paddle1 :: Number,
+     paddle2 :: Number,
+     ballX   :: Number,
+     ballY   :: Number,
+     moveX   :: Number,
+     moveY   :: Number)
+end
+                                                       }
+                                 When the game begins, we can start out with @code{moveX} and @code{moveY} being specific numbers that move
+                                 the ball up and to the right. We can change these later, or even make them randomized every time the game 
+                                 starts!
+                                 }
+                         @teacher{}
+                         }
+                 @point{Before we worry about the paddles, let's start by thinking about the top and bottom walls of the game screen.
+                        @student{@activity{@itemlist[@item{What should happen if the ball hits the top of bottom of the screen?}
+                                                      @item{How would you detect a collision with the top or bottom wall?}
+                                                      @item{Make the ball bounce off the top and bottom, using the Animation Design
+                                                            Worksheet and the Design Recipe to help you if you get stuck!}]}
+                                  }
+                         @teacher{}
+                         }
+                 @point{@student{Now let's make some sample instances for when the game begins, when the ball is about to hit a paddle, and
+                                 then immediately after:
+                                 @code[#:multi-line #t]{    
+# an instance where the paddles are at the starting position,
+# the ball is in the center (300, 200), and it's moving to the
+# right by 20 and up by 10 on each tick
+pongStateA = pong(200, 200, 300, 200, 20, 10)
+
+# an instance where the ball (x=150, y=280) is about to hit the top wall
+pongStateB = pong(200, 300, 150, 280, 20, 10)
+
+# an instance after the ball (x=550, y=280) hits the top wall
+# it's still moving right (20), but now it's moving down instead of up (-10)
+pongStateC = pong(200, 300, 550, 320, 20, -10)
+}
+                                 The ball starts out moving up and to the right, but once it hits a wall the direction needs to change.
+                                 Instead of moving up (adding 10 each tick), it's now moving down (adding -10 each tick) after
+                                 bouncing off the wall (it's still moving up the screen by 10 each time, so we leave that unchanged).
+                                 @bold{Note:} Once the ball hits the wall, it's y-position needs to change! If the ball stays where it is,
+                                 it will still be considered to have "hit" the wall on the next @code{tick}. This will cause the ball to jitter
+                                 back and forth, as it constantly hits the same wall over and over.
+                                 @activity{Change @code{next-state-tick} so that it generates the next @code{pongState} using the ball's
+                                           previous position and the @code{move} fields. Then, add conditionals to @code{next-state-tick}
+                                           so that it will @italic{change the direction} of the ball when it's hit a walll}
+                                 }
+                         @teacher{Some students may ask about having the ball change angle based on where the it hits the paddle. This is
+                                  a terrific question, and students should be encouraged to think about this behavior @italic{after} they've
+                                  implemented the simpler behavior.}
+                         }
+                 @point{@student{Let's walk through our new @code{next-state-tick function}, and make sure we understand it:
+                                 @code[#:multi-line #t]{
+# next-state-tick : pongState -> pongState
+# move the ball, based on direction fields
+fun next-state-tick(w):
+  if (hit-wall(w)):
+    pong(
+      w.paddle1,                # the paddles don't change position
+      w.paddle2,
+      w.ballX + w.moveX,        # the ball keeps moving in the same x-direction
+      w.ballY + (w.moveY * -1), # but it bounces off the wall...
+      w.moveX * -1,             # ...and the y-direction is reversed
+      w.moveY)
+  else:
+    pong(
+      w.paddle1,
+      w.paddle2,
+      w.ballX + w.moveX,
+      w.ballY + w.moveY,
+      w.moveX,
+      w.moveY)
+  end
+end
+}
+                                 If a collision occurs, we need to do two things. First, we need to move the ball to it's next position,
+                                 and make sure that new position is far enough away from the paddle so that it won't be considered another
+                                 collision. Second, we need to flip the y-direction so that the ball is moving in the opposite direction.
+                                 This is easy to do, by multiplying the @code{moveY} by -1.
+                                                            }
+                         @teacher{}
+                         }
+                 @point{@student{Now it's time to start thinking about a different kind of collision: what happens when the ball hits a
+                                 paddle?
+                                 @activity{@itemlist[@item{How do you know when the ball has hit @code{paddle1}? @code{paddle2}?}
+                                                      @item{Write @code{hit-paddle1} and @code{hit-paddle2}, using the Design Recipe to help you.}
+                                                      @item{Change @code{next-state-tick} so it checks for a paddle collision in addition to
+                                                            the wall collision.}]}
+                                 }
+                         @teacher{}
+                         }
+                 ]}
+             
+                  
+
+@lesson/studteach[
+     #:title "Closing"
+     #:duration "5 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[]
+     #:standards (list)
+     #:materials @itemlist[]
+     #:preparation @itemlist[]
+     #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Now that you've seen the work it takes to create Ninja Cat, you have a good idea about what is needed to create a complex game. For the next exercise, think about the @italic{simplest possible version of your game}. Once you have that working, you can add advanced features later on. How many characters will you have, and what will you need to have in your World? You can use Numbers to keep track of the score, or the characters' x- and y-coordinates. You can also store an Image in the world, so that your character can change the way they look or to swap out the background once the score reaches a certain level. Once you have a simple game, it's easy to add more pieces to the World. 
-@activity[#:forevidence (list "N-Q&1&1" "BS-M&1&1" "BS-M&1&2" "BS-M&1&3")]{@itemlist[@item{Turn to @worksheet-link[#:page 32 #:name "Game Brainstorming"] in your workbook.}
-                    @item{Start by drawing a sketch of what your game will look like at the very start, and another sketch of what it will look like @italic{one second} later, without user input. What elements move on their own?}
-                    @item{In the table below, list all the images you will need for your game.}
-                    @item{At the bottom of the page, list all the things that will have @italic{changed} from one moment to the next. What will you need to keep track of in your world structure? If something moves, will you need to keep track of its x-coordinate, y-coordinate, or both? Will you have a score that changes?}]}}
-                        @teacher{Remind students that for every single thing that changes in their game, they must have a field in their world structure for it.}}
-                 @point{@student{Now that you have a list of everything that changes, it’s time to turn them into a World structure.
-                                @activity[#:forevidence (list "N-Q&1&1" "BS-M&1&1" "BS-M&1&2" "BS-M&1&3" "BS-DS.1&1&4" "BS-DS.1&1&5"  "BS-DS.2&1&2")]{@itemlist[@item{Turn to @worksheet-link[#:page 33 #:name "Your World"] in your workbooks, and define your world structure, using the changeable things you wrote in the second table of your Game Design page.}
-                                                    @item{Underneath your world structure, define two example worlds called @code{worldA} and @code{worldB}.} 
-                                                    @item{Finally, write down the @vocab{dot-accessors} you will need to access the fields of @code{worldA}.}]}}
-                       @teacher{Have the class take turns telling their peers about their games. Most importantly, have them tell the class what they have in their World structure.
-@itemlist[@item{Make sure student names are on page 32}
-                   @item{Take page 32 itself, or take photos of page 32, to prep game images for the next unit.}
-                   @item{Images should be in PNG or GIF format. Background images should be 640x480, and character images should generally be 
-                         no larger than 200px in either dimension. Make sure that the character images have transparent backgrounds!}
-                   @item{TIP: use animated GIFs for the characters - not only does the animation make the game look a lot better, but these 
-                         images usually have transparent backgrounds to begin with.}]}
-                       }             
-                 ]
-         }
-       }
-
-       
+        @points[
+           @point{@student{You've got the beginnings of a very nice Pong game! What are some features you might want to add?}
+                  @teacher{Let students brainstorm ideas. Some suggestions: keeping score, a game-over event, a splash screen...}}]}
+}
