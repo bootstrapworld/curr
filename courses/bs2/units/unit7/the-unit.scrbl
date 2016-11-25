@@ -29,7 +29,7 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@item{@student{@animated-gif{images/pong.gif}In Unit 3, you practiced decomposing simple animations into the data structures and functions. Let's consider how a 
+        @points[@point{@student{@animated-gif{images/pong.gif}In Unit 3, you practiced decomposing simple animations into the data structures and functions. Let's consider how a 
                                2-player game of Pong works: There are two "players", each represented by a paddle on either side of the screen. Each paddle
                                can move up and down, as long as they remain on the screen. There is also a ping-pong ball, which moves at any angle and can 
                                be on or off the screen. Let's start out by adding the paddles, making sure they can move up and down, and then we'll add the ball 
@@ -38,7 +38,7 @@
                                }
                        @teacher{Students should realize that each paddle is simply a y-coordinate, since neither paddle can ever move left or right.}
                        }
-                 @item{@student{Here is one possible structure that we could use to model the two players:
+                 @point{@student{Here is one possible structure that we could use to model the two players:
                                 @code[#:multi-line #t]{
 # a PongState has the y-coordinate of paddle1 and paddle2
 data pongState:
@@ -52,7 +52,7 @@ end
                                 where the paddles are at other locations.}
                         @teacher{}
                         }
-                 @item{@student{We'll need to answer some questions, in order to write our @code{draw-state} function.
+                 @point{@student{We'll need to answer some questions, in order to write our @code{draw-state} function.
                                @activity{@itemlist[@item{What will the paddles look like?}
                                                     @item{What does the background look like?}
                                                     @item{How wide is the background? How tall is it?}
@@ -60,7 +60,7 @@ end
                                          expect them to.}]}}
                         @teacher{}
                         }
-                 @item{@student{The paddles don't move on their own, so right now there's no @code{next-state-tick} function. However, they DO move
+                 @point{@student{The paddles don't move on their own, so right now there's no @code{next-state-tick} function. However, they DO move
                                 when a user hits a key! That means we'll need to define @code{next-state-key}, and answer a few questions in the process:
                                 @activity{@itemlist[@item{What key makes @code{paddle1} move up? Move down?}
                                                      @item{What key makes @code{paddle2} move up? Move down?}
@@ -69,7 +69,7 @@ end
                                                      @item{Use the Design Recipe to write the code for @code{next-state-tick}}]}}
                         @teacher{Have students discuss their answers to these questions, before moving on to @code{next-state-tick}.}
                         }
-                 @item{@student{At this point, we know how to change the @code{pongState} in response to a keypress and how to draw that @code{pongState}
+                 @point{@student{At this point, we know how to change the @code{pongState} in response to a keypress and how to draw that @code{pongState}
                                 as an image. Let's build a @code{reactor}, which uses a @code{pongState} instance as the starting state and hooks
                                 up these functions to the @code{on-tick} and @code{to-draw} event handlers.
                                 @code[#:multi-line #t]{
@@ -84,7 +84,7 @@ end
                                 them to do? What happens if you hit some @italic{other} key?}
                         @teacher{}
                         }
-                 @item{@student{Right now, what happens if you keep moving one of the paddles up or down? Will it go off the edge of the 
+                 @point{@student{Right now, what happens if you keep moving one of the paddles up or down? Will it go off the edge of the 
                                 screen? We should make sure to prevent that! @activity{Take a few minutes and discuss with your partner: 
                                 what needs to change, in order to stop the paddles from going offscreen? You can use an Animation Design
                                 Worksheet if you want to be precise. Once you have a strategy that you feel confident about, take 15 
