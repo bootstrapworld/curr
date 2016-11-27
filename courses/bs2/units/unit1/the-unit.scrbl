@@ -42,7 +42,7 @@
                                
                                @activity[#:forevidence (list "BS-IDE&1&1")]{@itemlist[@item{What are the names of the variables defined in this file? What are their values?}
                                                           @item{What would you get back if you were to evaluate each of those variables in the Interactions area? Take a guess first, then click "Run" and type the name of each variable into the interactions area. Were your guesses correct?}]
-                                                 Look at the variable @code{OUTLINE} on line 18.
+                                                 Look at the variable @code{OUTLINE} on line 16.
                                                  @itemlist[@item{What shape will this draw?}
                                                            @item{How big do you think it will be?}
                                                            @item{Will it be solid or outline?}
@@ -89,7 +89,7 @@ Contracts summarize three pieces of essential information about a function:
                     @item{The @vocab{Range} of this function, which is the type of data that the function produces: In this case, an Image!}]
 @bannerline{Every contract has three parts: Name, Domain and Range!}
 A contract is a note we write to ourselves about how to use the function. Just as in Bootstrap:1, it will be helpful to keep track of the contracts for each function you learn about. The last page in your workbook has a table labeled "Contracts," where you can (and should!) copy down each contract as you learn it.
-Contracts in Pyret are just as important as they are in Racket, and are written the same way. You write contracts as comments: pieces of text for humans only, which are ignored by the computer. In Racket we used a @code{;} before Contracts, but in Pyret, just put a @code{#} before a line of text to turn it into a comment!
+Contracts in Pyret are just as important as they are in Racket, and are written the same way. You write contracts as comments: pieces of text for humans only, which are ignored by the computer. In Racket we used a @code{;} (semicolon) before Contracts, but in Pyret, just put a @code{#} (pound sign, or octothorpe) before a line of text to turn it into a comment!
 @activity[#:forevidence (list "BS-PL.2&1&1")]{The Contract for @code{+} is shown below.
           @code[#:multi-line ""]{#  +  : Number Number -> Number}                
 Write down the Contracts for @code{*}, @code{-}, @code{/} and @code{num-sqrt} in your Contracts page. (You know @code{num-sqrt} as the @code{sqrt} function in Racket!)}
@@ -191,13 +191,13 @@ Once you’ve defined the function itself, Pyret will automatically check your e
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
-      ]{@points[@point{@student{You'll be working with a lot of animations in Bootstrap:2. In Bootstrap:1, the way your game characters moved and where they were placed on the screen was mostly determined for you. In this course, you have all the control over your animation. To start, let's practice making static scenes: images with no animation. Do you remember the @code{put-image} function from Racket? Pyret has the same function, and its contract should look familiar: @code{# put-image : Image, Number, Number, Image -> Image}.
+      ]{@points[@point{@student{You'll be working with a lot of animations in Bootstrap:2. In Bootstrap:1, the way your game characters moved and where they were placed on the screen was mostly determined for you. In this course, you have all the control over your animation. To start, let's practice making static scenes: images with no animation. Do you remember the @code{put-image} function from Racket? Pyret has the same function, and its contract should look familiar:  @code[#:multi-line #t]{# put-image : Image, Number, Number, Image -> Image}.
                                @activity{@itemlist[@item{Open the @editor-link[#:public-id "0B9rKDmABYlJVaVpta3FVc0wydG8" "Take a hike!"] starter file.}
                                                    @item{At the beginning of the file, we've provided you with a few image values. What are their names?}
                                                    @item{Try typing @code{HIKER1} into the interactions area. What do you see?}
                                                    @item{Look below the line that says @code{# Creating a scene}. What is the name of the value defined here?}
                                                    @item{What data type is @code{SCENE}? How do you know?}]}
-                               This piece of code uses the @code{put-image} function to place the image of the boat onto the @code{BACKGROUND} at the coordinates 750, 200. To find out the best place to put the image of the boat, first we had to find out how large the background image was. Two functions help with this: @code{# image-width : Image -> Number}, which returns the width of the given image (in pixels), and  @code{# image-height : Image -> Number}, which returns the height of the given image.
+                               This piece of code uses the @code{put-image} function to place the image of the boat onto the @code{BACKGROUND} at the coordinates 750, 200. To find out the best place to put the image of the boat, first we had to find out how large the background image was. Two functions help with this:  @code[#:multi-line #t]{# image-width : Image -> Number}, which returns the width of the given image (in pixels), and   @code[#:multi-line #t]{# image-height : Image -> Number}, which returns the height of the given image.
                                @activity{Try evaluating @code{image-width(BACKGROUND)} in the interactions area to find the total width of the background.}}
                         @teacher{}}
                  @point{@student{Since the range of @code{put-image} is an image, the expression @code{put-image(BOAT, 750, 200, BACKGROUND)} will evaluate to an image. If we then want to put the image of a hiker onto @italic{this} image (like creating a collage), we can do that by nesting expressions using the @code{put-image} function. 
