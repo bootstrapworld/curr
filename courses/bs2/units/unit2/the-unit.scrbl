@@ -105,7 +105,7 @@ end}
         #:product-outcomes @itemlist[@item{Students identify real-world behaviors that require data structures}]
         #:standards (list "5.OA.1-2" "7.EE.3-4" "8.F.1-3" "8.F.4" "8.F.5" "F-IF.1-3" "A-SSE.1-2" "F-LE.1-4" "F-LE.5" "BS-M" "BS-DR.1" "BS-DR.2" "BS-DR.3" "BS-DR.4" "BS-IDE")
         #:materials @itemlist[@item{}]
-        #:preparation @itemlist[@item{The @editor-link[#:public-id "0B9rKDmABYlJVWTBKc3QxT3lDVE0" "Parachute Jumper"] file preloaded on student machines}]
+        #:preparation @itemlist[@item{The @editor-link[#:public-id "0B9rKDmABYlJVbUVUeVJDZ1p3Ulk" "Parachute Jumper"] file preloaded on student machines}]
         #:prerequisites (list)
         #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -114,7 +114,7 @@ end}
                 )
       ]{
           @points[
-                   @point{@student{@activity{Open @editor-link[#:public-id "0B9rKDmABYlJVWTBKc3QxT3lDVE0" "this link"] on your computer and press 'Run'. What happens?}
+                   @point{@student{@activity{Open the @editor-link[#:public-id "0B9rKDmABYlJVbUVUeVJDZ1p3Ulk" "Parachute Jumper"] file on your computer and press 'Run'. What happens?}
                                     The parachute jumper jumps out of the airplane and falls straight down, into the water! It's much safer to land on the shore. Let's take a look at the code to see why he falls into the water instead. There are a few new concepts in this file, but first, let's focus on what you already know.
                                     @activity[#:forevidence (list "8.F.1-3&1&1" "8.F.5&1&1" "F-IF.1-3&1&1" "A-SSE.1-2&1&1" "A-SSE.1-2&1&3")]{Look at the function defined here called @code{next-position}. @itemlist[@item{What is this function's Domain? Its Range?}
           @item{What does @code{next-position} do with its inputs?}]}
@@ -125,7 +125,7 @@ end}
                     @point{@student{Functions can return only one thing at a time, but we need to return both an x @bold{and} a y-coordinate in order to make the jumper move diagonally. Thankfully, we have a way to combine multiple things within one container, called a @vocab{Data Structure}. Just like Racket and Pyret have built-in functions and also let you define your own functions, these languages allow you to create your own data structures as well. For this project, we've created a structure for you to use called @code{JumperState}, which contains two Numbers, representing an x and a y-coordinate.                                                                            @activity{Look at line 6, where we've defined @code{JumperState}. We'll go through the new syntax for defining a data structure, because very soon you'll be defining brand new structures of your own!}
                             @itemlist[@item{First, we've written a comment to remind ourselves what we're creating. In this case, we're calling our new structure @code{JumperState}, which contains two numbers: an x and y-coordinate.}
                                       @item{The next line begins with @code{data JumperState:}. Similar to the keyword @code{fun} you learned in the last lesson, @code{data} tells the computer that you're about to define a new type of data. This is a @bold{very} powerful  piece of code: In Bootstrap:1, you wrote programs using four @vocab{data types}: Numbers, Strings, Images, and Booleans. In this course, now you can create brand new data types. We can use these data types to create complex animations, multi-player video games, or account for both coordinates of a parachute jumper, so he moves in 2-dimensions! We called this data type @code{JumperState}, because it represents the current state, or position, of the parachute jumper.  Pyret would let us write any name after @code{data}, but as a convention, the name of a new data structure is capitalized, and we choose a meaningful name for it.}
-                                      @item{The next line begins with the | symbol, sometimes called a "bar" or "pipe", followed by the name of the @code{constructor function} for the structure (in this case, @code{jumper}.)  A @code{constructor function} is similar to some functions you've seen before, for creating images.  To create an @code{Image}, we call the function that creates it: rectangle, triangle, square, etc. Similarly, to create a @code{JumperState}, we can use the @code{jumper} @vocab{constructor} function with its inputs (two numbers, called x and y).  Again, the names @code{JumperState} and @code{jumper} were chosen by us, the programmer, and putting them in a @code{data} definition makes them available as a new data type and as a constructor function.}] 
+                                      @item{The next line begins with the | symbol, sometimes called a "bar" or "pipe", followed by the name of the @vocab{constructor} function for the structure (in this case, @code{jumper}.)  A @vocab{constructor} function is similar to some functions you've seen before, for creating images.  To create an Image, we call the function that creates it: rectangle, triangle, square, etc. Similarly, to create a @code{JumperState}, we can use the @code{jumper} @vocab{constructor} function with its inputs (two numbers, called x and y).  Again, the names @code{JumperState} and @code{jumper} were chosen by us, the programmer, and putting them in a @code{data} definition makes them available as a new data type and as a constructor function.}] 
                                                                                        Let's get back to constructing a @code{jumper}, specifically how we knew the inputs would be numbers. The block of code we've given you defines all of this! @code[#:multi-line #t]{data JumperState:
        | jumper(
           x :: Number, 
@@ -156,7 +156,7 @@ tells us that we're defining a new data type called @code{JumperState}, whose co
                                      When you finish, your function definition should look like: @code[#:multi-line #t]{fun next-position(x, y):
                          jumper(x + 5, y - 5)
                        end}
-                                     Now, instead of just changing and returning one number (a y-coordinate), we can return @bold{both} the x and y-coordinates of the parachute jumper within a @vocab{Data Structure}. @activity[#:forevidence (list "BS-IDE&1&1")]{Open the @editor-link[#:public-id "0B9rKDmABYlJVWTBKc3QxT3lDVE0" "Parachute Jumper"] code again and replace the original @code{next-position} function with the one in your workbook to make the parachute jumper land safely on the shore!}}
+                                     Now, instead of just changing and returning one number (a y-coordinate), we can return @bold{both} the x and y-coordinates of the parachute jumper within a @vocab{Data Structure}. @activity[#:forevidence (list "BS-IDE&1&1")]{Open the @editor-link[#:public-id "0B9rKDmABYlJVbUVUeVJDZ1p3Ulk" "Parachute Jumper"] code again and replace the original @code{next-position} function with the one in your workbook to make the parachute jumper land safely on the shore! Don't forget to change the given examples to match your new function definition.}}
                            @teacher{}}
                     
                     @point{@student{In Bootstrap:1, a function could return only one value: either a Number, String, Image, or Boolean. In Bootstrap:2, our functions will still return one value, but that value can be a @vocab{Data Structure}, (or just "structure" for short) containing any number of things within it. This way we could return both the x and y-coordinate of a player using a JumperState, or create new structures and return even more detail about a player, like their health, position, amount of armor, or inventory.}
@@ -177,7 +177,7 @@ tells us that we're defining a new data type called @code{JumperState}, whose co
                                      @item{Students will generalize their understanding of function constructors and accessors}]
         #:standards (list "N-Q" "F-IF.1-3" "BS-PL.1" "BS-DS.1" "BS-DS.2" "BS-IDE")
         #:materials @itemlist[@item{}]
-        #:preparation @itemlist[@item{The @editor-link[#:public-id "0B9rKDmABYlJVU2lINzk1X0x2ODg" "Bakery"] file preloaded on students' machines}]
+        #:preparation @itemlist[@item{The @editor-link[#:public-id "0B9rKDmABYlJVa0cxbEpoSG1pT0k" "Bakery"] file preloaded on students' machines}]
         #:prerequisites (list)
         #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -197,7 +197,7 @@ tells us that we're defining a new data type called @code{JumperState}, whose co
                                    @bitmap{images/cake2.png}                                                   
                                    Now that we know everything that is part of a cake, we can use a data structure to represent the cake itself. Let's take a look at how this works.
                                    @activity{Open your workbook to @worksheet-link[#:page 11 #:name "Cakes"].}
-                                   At the top of this page we see a comment, stating what things are part of a CakeT. Below that is a line that says @code{data CakeT:}, which begins the definition of a new data structure, called CakeT. On the next line, we define the function that makes a CakeT (@code{cake}), and how @italic{exactly} to make a CakeT - the names of each thing in a CakeT, and their data types. 
+                                   At the top of this page we see a comment, stating what things are part of a CakeT. Below that is a line that says @code{data CakeT:}, which begins the definition of a new data structure, called CakeT (We chose this name for our data structure to be short for 'CakeType', but we could have chosen any number of descriptive names). On the next line, we define the function that makes a CakeT (@code{cake}), and how @italic{exactly} to make a CakeT - the names of each thing in a CakeT, and their data types. 
                                    @activity{What is the first part of a CakeT? What data type can we use to represent it?}
                                    There is a little bit of new syntax involved in defining structures. On the first line on @worksheet-link[#:page 11 #:name "Cakes"], we write @code{flavor :: String,}, which tells Pyret that the first element of @italic{any} CakeT will be its flavor, represented by a String. 
                                    @activity{What is the second part of a CakeT? What data type can we use to represent it?}
@@ -211,13 +211,13 @@ tells us that we're defining a new data type called @code{JumperState}, whose co
                                                              layers      :: Number, 
                                                              is-iceCream :: Boolean)
                                                        end}
-                             This is the code that defines the CakeT data structure. It tells the computer what a CakeT is and what goes into it. It also defines its @vocab{constructor} function, called @code{cake}. To make a CakeT, you @italic{must} call the constructor function with three things: a @code{flavor}, which is a String, @code{layers}, a Number, and @code{is-iceCream}, which is a Boolean. Remember that order matters! For now, these are the only things that we're going to keep track of in a cakeStruct, but you can imagine how you might extend it to include other information.}
+                             This is the code that defines the CakeT data structure. It tells the computer what a CakeT is and what goes into it. It also defines its @vocab{constructor} function, called @code{cake}. To make a CakeT, you @italic{must} call the constructor function with three things: a @code{flavor}, which is a String, @code{layers}, a Number, and @code{is-iceCream}, which is a Boolean. Remember that order matters! For now, these are the only things that we're going to keep track of in a cakeT, but you can imagine how you might extend it to include other information.}
                         @teacher{Stress the importance of being able to define your own datatypes
                                  to students: no longer are they bound by the single values of numbers, strings, or booleans! Pyret allows you to define brand new @vocab{Data Structures}, containing 
                                  any combination of values.}}
                    
-                    @point{@student{@activity{Open the @editor-link[#:public-id "0B9rKDmABYlJVU2lINzk1X0x2ODg" "Bakery"] file and look at lines 3 - 8. Do they match what you have on your paper?} 
-                                      Now take a look farther down, at line 10: @code{cake2 = cake("Chocolate", 8, false)}
+                    @point{@student{@activity{Open the @editor-link[#:public-id "0B9rKDmABYlJVa0cxbEpoSG1pT0k" "Bakery"] file and look at lines 3 - 8. Do they match what you have on your paper?} 
+                                      Now take a look farther down, at line 11: @code{cake2 = cake("Chocolate", 8, false)}
                                                @itemlist[@item{What is the name of this variable?}
                                                           @item{What is the flavor of @code{cake2}?}
                                                           @item{How many layers does @code{cake2} have?}
@@ -250,7 +250,7 @@ tells us that we're defining a new data type called @code{JumperState}, whose co
               
                  @point{@student{@activity[#:forevidence (list "BS-IDE&1&1")]{After clicking the "Run" button, in Pyret, type @code{cake1} into the interactions area and hit enter. What do you get back?}
                                   Does this make sense? What happens when you type just a number into the interactions area? We get that same number back! What about Strings? Images? 
-                                  Booleans? If we don't do anything to our input, or use any function on it, we get back exactly what we put in! Here, you put in a CakeT, let's see what we get back.  At first glance, it looks like a function call was the answer!  But there's a few things different about what appears in the output.  First, it isn't the same color as a normal function call, which is the first hint that something's different.  Second, we can @emph{click} on it, and see that this value is storing three other values in its fields – the flavor, layers, and whether or not it's ice cream.  This compound value that's printed is n @vocab{instance} of a @code{CakeT}.  It's a value in its own right, so when we type in @code{cake1} it shows us this value (just like with numbers and strings).}
+                                  Booleans? If we don't do anything to our input, or use any function on it, we get back exactly what we put in! Here, you put in a CakeT, let's see what we get back.  At first glance, it looks like a function call was the answer!  But there's a few things different about what appears in the output.  First, it isn't the same color as a normal function call, which is the first hint that something's different.  Second, we can @emph{click} on it, and see that this value is storing three other values in its fields – the flavor, layers, and whether or not it's ice cream.  This compound value that's printed is an @vocab{instance} of a @code{CakeT}.  It's a value in its own right, so when we type in @code{cake1} it shows us this value (just like with numbers and strings).}
                          @teacher{Remind students that values will always evaluate to themselves. 4 evaluates to 4, the string @code{"pizza"} evaluates to @code{"pizza"}, and @code{cake1} evaluates
                                   to @code{cake("Vanilla", 4, false)}}}
                 
@@ -283,7 +283,7 @@ tells us that we're defining a new data type called @code{JumperState}, whose co
                     
                                 Of course, there are ways to access any part of a CakeT, not just the flavor! What do you think you would get if you typed @code{cake4.layers} in the interactions area? 
                                 @activity[#:forevidence (list "BS-IDE&1&1")]{Try using the dot-accessors @code{.layers} and @code{.is-iceCream} on your CakeTs! Do they do what you expect?}}
-                 @teacher{A way to prompt students to use these accessors is to ask: "How do you get the message out of a CakeT?" or "How do you get the layers out of a CakeT?"
+                 @teacher{A way to prompt students to use these accessors is to ask: "How do you get the flavor out of a CakeT?" or "How do you get the layers out of a CakeT?"
                           Throughout the course you can set up a call and response system with students, where the question "How do you get the X out of a Y?" will prompt the name of the accessor.}}
                  
                  @point{@student{The previous syntax is known as @vocab{Dot-Accessors}. They allow you to specify exactly what part of a structure you want. If we want to know if we can fit a certain CakeT through a doorway, we probably care only whether the number of layers is less than a certain amount. Likewise, if we want to know whether or not a character in our game has lost, we need to know only if her health is less than 0: 
@@ -308,7 +308,7 @@ tells us that we're defining a new data type called @code{JumperState}, whose co
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[@item{Students will write functions that access fields of a CakeT}]
         #:standards (list "7.EE.1-2" "F-IF.1-3" "A-CED.1-4" "BS-DR.1" "BS-DR.2" "BS-DR.3" "BS-DR.4" "BS-DS.1")
-        #:materials @itemlist[@item{The  @editor-link[#:public-id "0B9rKDmABYlJVU2lINzk1X0x2ODg" "Bakery"] file used in the previous lessons}]
+        #:materials @itemlist[@item{The  @editor-link[#:public-id "0B9rKDmABYlJVa0cxbEpoSG1pT0k" "Bakery"] file used in the previous lessons}]
         #:preparation @itemlist[]
         #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -320,7 +320,7 @@ tells us that we're defining a new data type called @code{JumperState}, whose co
         @points[@point{@student{Of course, when programmers work with data structures, they don't just define them and create instances- they also write functions that use and produce structures. Let's get started writing some functions for CakeTs.}
                         @teacher{}}
                  
-                 @point{@student{@activity[#:forevidence (list "F-IF.1-3&1&1" "BS-DR.1&1&1" "BS-DS.2&1&1")]{Turn to @worksheet-link[#:page 14 #:name "taller-than"] in your workbooks. Write the contract and purpose statement for a function called @code{taller-than}, which consumes two CakeTs, and produces true if the first CakeT is taller than the second.
+                 @point{@student{@activity[#:forevidence (list "F-IF.1-3&1&1" "BS-DR.1&1&1" "BS-DS.2&1&1")]{Turn to @worksheet-link[#:page 12 #:name "taller-than"] in your workbooks. Write the contract and purpose statement for a function called @code{taller-than}, which consumes two CakeTs, and produces true if the first CakeT is taller than the second.
                                                    @itemlist[@item{What is the domain for this function?}
                                                              @item{What is the range of @code{taller-than}?}
                                                              @item{Which part(s) of the CakeTs will you need to check to determine if one is taller than the other?}]}
@@ -347,13 +347,13 @@ tells us that we're defining a new data type called @code{JumperState}, whose co
                                                          end}}
                          @teacher{ }}
                  
-                 @point{@student{@activity[#:forevidence (list "7.EE.1-2&1&1" "A-CED.1-4&1&1" "BS-DR.1&1&1" "BS-DR.1&1&2" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1" "BS-DS.1&1&5")]{Turn to @worksheet-link[#:page 15 #:name "will-melt"] in your workbooks. Your bakery needs to know if certain CakeTs need to be refrigerated. If the temperature is greater than 32 degrees AND the given CakeT is an ice cream cake, the function should return true. 
+                 @point{@student{@activity[#:forevidence (list "7.EE.1-2&1&1" "A-CED.1-4&1&1" "BS-DR.1&1&1" "BS-DR.1&1&2" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1" "BS-DS.1&1&5")]{Turn to @worksheet-link[#:page 13 #:name "will-melt"] in your workbooks. Your bakery needs to know if certain CakeTs need to be refrigerated. If the temperature is greater than 32 degrees AND the given CakeT is an ice cream cake, the function should return true. 
                                                    @itemlist[@item{Fill out the @vocab{Contract} and @vocab{Purpose Statement} for the function.}
                                                               @item{Write two examples for how one would use @code{will-melt}.}
                                                               @item{Circle and label what varies between those examples and label it with a @vocab{variable} name.}
                                                               @item{Define the function.}]}}
                          @teacher{Give students plenty of time to practice using dot-accessors, extracting pieces of the Cake structures and modifying them.}}
-                                                                                                          @point{@student{@bold{Optional:} In the @editor-link[#:public-id "0B9rKDmABYlJVU2lINzk1X0x2ODg" "Bakery"] file, extend the CakeT data structure to include one more field: a message, represented as a String. (Make sure you remember to change each CakeT instance below the data definition: if a CakeT now contains four fields, each instance will need to include all four fields!) Next, write a function called @code{birthday-cake}, which takes in a string representing someone's name, and produces a 2-layer, chocolate CakeT with "Happy birthday [Name]!" as the message. @bold{Hint:} You'll want to use the @code{string-append} function to combine two strings into one. Here is its contract: @code{string-append : String, String -> String}}
+                                                                                                          @point{@student{@bold{Optional:} In the @editor-link[#:public-id "0B9rKDmABYlJVa0cxbEpoSG1pT0k" "Bakery"] file, extend the CakeT data structure to include one more field: a message, represented as a String. (Make sure you remember to change each CakeT instance below the data definition: if a CakeT now contains four fields, each instance will need to include all four fields!) Next, write a function called @code{birthday-cake}, which takes in a string representing someone's name, and produces a 2-layer, chocolate CakeT with "Happy birthday [Name]!" as the message. @bold{Hint:} You'll want to use the @code{string-append} function to combine two strings into one. Here is its contract: @code{# string-append : String, String -> String}}
                                                                                                 @teacher{Since this function returns a CakeT, remind students that they'll need to use the @code{cake} constructor function to produce a CakeT. }}  ]
          }
 
