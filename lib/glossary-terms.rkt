@@ -1,5 +1,13 @@
 #lang racket/base
 
+#|
+Glossary for terminology used in the notes.  The first entry of each entry can be either
+a single string or a list of keys that map to the same definition.
+
+If a list of keys is provided, the generated glossary will use the first in the list
+when it prints out the glossary for a particular unit
+|#
+
 (provide glossary-terms-dictionary)
 
 (define glossary-terms-dictionary
@@ -7,7 +15,7 @@
     ("apply" "use a given function on some inputs")
     ("arguments" "the inputs to a function; expressions for arguments follow the name of a function")
     ("boolean" "a type of data with two values: true and false")
-    ("calling" "Using a function by giving it inputs")
+    (("calling" "calls") "Using a function by giving it inputs")
     ("circle of evaluation" "a diagram of the structure of an expression (arithmetic or code)")
     ("clause" "a question and its corresponding answer in a conditional expression")
     ("conditional" "a code expression made of questions and answers")
