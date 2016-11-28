@@ -48,9 +48,9 @@
                @activity{What information is changing from frame to frame of this animation? What is fixed?  Fill in an animation design worksheet with this information. [MAY NEED TO SCAFFOLD THIS AS WE DO IN BS1]}
 	       There are two pieces of information changing across these images: the x-coordinate of the sun and the y-coordinate of the sun. Given these two pieces of information, we could draw an image that puts the sun at those coordinates. More interestingly, however, we could compute the coordinates of the sun in the next frame. By repeating these two steps--drawing an image of the sun at coordinates and computing the next set of coordinates, we can generate an entire animation.  The following picture shows the sequence [PUT IN IMAGE OF DRAW-WORLD/NEXT-WORLD].}
 	       @teacher{}}
-	@point{@student{The first step in writing functions to generate sunset images is to have a data structure for the sun's coordinates.
-	       @activity{Create a data structure that holds the x-coordinate of the sun and the y-coordinate of the sun.}
-               You should have come up with something like this [DECIDE TERMS -- WORLD, DATA, ETC]:
+	@point{@student{The first step in writing functions to generate sunset images is to have a data structure for the sun's coordinates. 
+	       @activity{Create a data structure named @code{SunsetState} that holds the x-coordinate of the sun and the y-coordinate of the sun.}
+               You should have come up with something like this: a data block with numbers for the two coordinates.
                 @code[#:multi-line #t]{# a SunsetState has the x-coordinate of the sun and the y-coordinate of the sun
 		      data SunsetState:
 		       | sunset(
@@ -59,13 +59,18 @@
 			   )
 		       end}
 		  }
-		@teacher{JOE AND I AGREE WITH GOING WITH 'STATE' FOR THE DATA STRUCTURE NAME, AND SIMPLIFYING THE CONSTRUCTOR NAME ( just sunset() )}
+		@teacher{We are adopting a convention here, in which we include "State" in the name of the data block, then use the same base name (without "State") for the constructor.
+                         By not conflating the names here, students should have an easier time distinguishing between the constructor name and data structure name.}
 		}
-	 @point{@student{Here is a [GIVE DESCRIPTIVE NAME] worksheet showing three consecutive images in a sunset animation.  Under each image, we have written down the x-coordinate and y-coordinate of the sun in that image. 
-	     @activity{In the [FILL] section, write the @vocab{instance} of @code{SunsetState} that captures the coodinates of each image.}
-		 }
+	 @point{@student{@activity{For each of the sunset images that you drew [CHECK KEPT STEP] above, write down the @code{SunsetState} instance that corresponds to that image.}
+                         For example, when the sun is at the top-left corner, you might have written
+                         @code[#:multi-line #t]{sunset(10, 15)}
+                         }
 	       @teacher{}}
-	@point{@student{Now we want to develop a function @code{next-state-tick} that generates the @code{SunsetState} for each frame from the @code{SunsetState} in the previous frame. Using the @code{SunsetState} instances that you wrote under the frames above, write two examples of the @code{next-state-tick} function.  [THIS NEEDS A BIT MORE SETUP TO FIT INTO THE FULL DESIGN RECIPE, BUT THIS IS THE IDEA].}
+	@point{@student{You now have a data structure for the state [CHECK] of your animation.  The next step is to create a function that will generate the next state of the
+                        animation from a given state.  In the case of sunset, this function will produce a new @code{SunsetState} instance that has fallen a bit in the sky
+                        from the previous one. Across all of our animations, we will call this function @code{next-state-tick}. [CONTINUE HERE]
+     that generates the @code{SunsetState} for each frame from the @code{SunsetState} in the previous frame. Using the @code{SunsetState} instances that you wrote under the frames above, write two examples of the @code{next-state-tick} function.  [THIS NEEDS A BIT MORE SETUP TO FIT INTO THE FULL DESIGN RECIPE, BUT THIS IS THE IDEA].}
 	       @teacher{}}
 	@point{@student{Follow the design recipe and write @code{next-state-tick}.}
 	       @teacher{}}
