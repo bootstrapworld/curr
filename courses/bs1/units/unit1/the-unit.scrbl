@@ -433,6 +433,7 @@
      #:standards (list "A-SSE.1-2" "N-Q" "BS-CE" "BS-PL.1" "BS-IDE")
      #:materials @itemlist[@item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}]
      #:preparation @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket}
+                              @item{Students are logged into WeScheme.org, OR have opened DrRacket.}
                               @item{Student Workbooks, and something to write with}
                               @item{Overhead projector}]
      #:prerequisites (list "Order of Operations")

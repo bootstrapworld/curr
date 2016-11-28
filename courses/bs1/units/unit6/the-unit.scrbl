@@ -54,7 +54,7 @@
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, language table, course calendar)}
                             @item{Language Table (see below)}]
-     #:preparation @itemlist[]
+     #:preparation @itemlist[@item{Students are logged into WeScheme.org, OR have opened DrRacket.}]
      #:prerequisites (list "Intro to Programming" "Contracts")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}

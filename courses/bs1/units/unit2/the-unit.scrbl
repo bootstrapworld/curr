@@ -59,7 +59,8 @@ include other datatypes, including Strings and Images.}
                        (make-exercise-locator "Strings-and-Images" "many-types-coe-to-code2"))
      #:standards (list "N-Q" "BS-PL.1" "BS-PL.2")
      #:materials @itemlist[@item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}]
-     #:preparation @itemlist[@item{Student Workbooks, and something to write with.}]
+     #:preparation @itemlist[@item{Students are logged into WeScheme.org, OR have opened DrRacket.}
+                              @item{Student Workbooks, and something to write with.}]
      #:prerequisites (list "Intro to Programming")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}

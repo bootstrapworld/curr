@@ -23,7 +23,7 @@
                             @item{Class poster (List of rules, language table, course calendar)}
                             @item{Language Table (see below)}
                             @item{Bug Hunting [Bugs.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=JCTcwYc57r" "WeScheme")] file preloaded on students' machines, as the front-most window.}]
-     #:preparation @itemlist[]
+     #:preparation @itemlist[@item{Students are logged into WeScheme.org, OR have opened DrRacket.}]
      #:prerequisites (list "Defining Functions")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}

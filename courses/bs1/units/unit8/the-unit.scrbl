@@ -26,7 +26,7 @@
                            @item{Class posters (List of rules, basic skills, course calendar)}
                            @item{Language Table (see below)}
                           ]
-     #:preparation @itemlist[]
+     #:preparation @itemlist[@item{Students are logged into WeScheme.org, OR have opened DrRacket.}]
      #:prerequisites (list "Luigi's Pizza" "Coordinate Planes")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
