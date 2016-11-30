@@ -29,7 +29,7 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{@animated-gif{images/pong.gif}In Unit 3, you practiced decomposing simple animations into the data structures and functions. Let's consider how a 
+        @points[@point{@student{@animated-gif{images/pong.gif}In Unit 3, you practiced decomposing simple animations into their data structures and functions. Let's consider how a 
                                2-player game of Pong works: There are two "players", each represented by a paddle on either side of the screen. Each paddle
                                can move up and down, as long as they remain on the screen. There is also a ping-pong ball, which moves at any angle and can 
                                be on or off the screen. Let's start out by adding the paddles, making sure they can move up and down, and then we'll add the ball 
@@ -56,7 +56,7 @@ end
                                @activity{@itemlist[@item{What will the paddles look like?}
                                                     @item{What does the background look like?}
                                                     @item{How wide is the background? How tall is it?}
-                                                     @item{Use the Design Recipe to write the code for @code{draw-state}, and make sure your sample draw the way you
+                                                     @item{Use the Design Recipe to write the code for @code{draw-state}, and try drawing your sample @code{PongState} instances to make sure they look the way you
                                          expect them to.}]}}
                         @teacher{}
                         }
@@ -172,7 +172,7 @@ end
                          }
                  @point{@student{Here is one example of a way to represent this, during Numbers to keep track of direction:
                                  @code[#:multi-line #t]{
-# a PongState has the y-coordinate of paddle1 and paddle2
+# a PongState has the y-coordinates of paddle1 and paddle2, x and y-coordinates of the ball, and x and y-coordinates representing the direction of the ball
 data pongState:
  | pong(
      paddle1 :: Number,
@@ -189,8 +189,8 @@ end
                                  }
                          @teacher{}
                          }
-                 @point{Before we worry about the paddles, let's start by thinking about the top and bottom walls of the game screen.
-                        @student{@activity{@itemlist[@item{What should happen if the ball hits the top of bottom of the screen?}
+                 @point{@student{Before we worry about the paddles, let's start by thinking about the top and bottom walls of the game screen.
+                        @activity{@itemlist[@item{What should happen if the ball hits the top of bottom of the screen?}
                                                       @item{How would you detect a collision with the top or bottom wall?}
                                                       @item{Make the ball bounce off the top and bottom, using the Animation Design
                                                             Worksheet and the Design Recipe to help you if you get stuck!}]}
