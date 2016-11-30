@@ -44,7 +44,7 @@
 
     @itemlist[
 
-      @item{Click Run, so that you can use @code{wear} in the interactions pane.}
+      @item{Click Run, so that you can use @code{wear} in the interactions area.}
 
       @item{What does @code{wear(50)} evaluate to?}
 
@@ -68,7 +68,7 @@
 
 @point{@student{The @code{if} expression is similar to the @code{cond} expression from Racket
   in Bootstrap:1.  The difference is in the syntax; the
-  behavior is the same.An @code{if} expression has a few parts, in order:
+  behavior is the same. An @code{if} expression has a few parts, in order:
 
   @itemlist[
     @item{An @code{if} clause}
@@ -102,7 +102,7 @@
   be another element in the domain of @code{wear}.
 
   The fact that we have @emph{more changing things than elements in the
-  domain} tells us that @code{wear} must be a piecewise function.  This is
+  domain} tells us that @code{wear} must be a @vocab{piecewise function}.  This is
   the same rule as in Bootstrap:1, and just as we could in Racket, we can tell
   that a function must be piecewise just by looking at its contract and the
   examples.  This helps us identify when a function we are writing in our games
@@ -110,7 +110,7 @@
   it.
 
 }
-@teacher{ This is an important point to review.  Conditionals are a big moment in
+@teacher{ This is an important point to review.  Conditionals, or Piecewise functions, are a big moment in
   Bootstrap:1, and the extension of the Design Recipe is key for
   students to design their own piecewise functions later on.  In the next
   exercise, make sure they use the Recipe steps to remind them of the mechanics
@@ -158,8 +158,10 @@ background image:
 @activity{Once you've completed the problem on paper, open the @editor-link[#:public-id "0B9rKDmABYlJVX21wZ2lSMTRZbG8" "Where's the Jumper?"] file. We've gotten you started with the contract and purpose statement for @code{location} in the file:}
 
 @code[#:multi-line #t]{
-location :: JumperState -> String
-# Returns a string representing the location: either "cliff", "beach", "water", or "air"
+# location :: JumperState -> String
+# Consumes a JumperState and produces a String 
+# representing the location of the jumper: either "cliff", "beach", "water", or "air"
+
 }
 Copy the work you have in your workbok to implement @code{location} on the computer.
 
@@ -238,7 +240,8 @@ information about the animation.}
                  @point{@student{Since the color of the sun will be changing, this is something we @italic{could} add to the @code{SunsetState} data structure, as a String. However, the color will not change independantly: we want the color to change based on the position of the sun in the sky, and get darker as it gets lower. @activity{@itemlist[@item{Will the color of the sun change based on its x or y position?}
                     @item{What function in your code determines how your animation @italic{looks}?}
                     @item{How might you change this function to draw a different scene depending on where the sun is located in the scene?}]}
-We know we'll need to change our @code{draw-state} function in some way, since this is the function that changes how our animation is drawn. Our first instinct may be to turn it into a piecewise function, and draw something different when the @code{SunsetState}'s y-coordinate gets below 225 or below 150. @italic{however}, if we were to start coding, we might quickly find that we're writing the same code over and over. We don't want to change how large the sun is, or where the ground is drawn in the scene. The only thing we want to change is the actual image of the sun. To do this, we can write a helper function to ask questions about the @code{SunsetState}, and produce an image based on its y-coordinate, instead of doing that work inside @code{draw-state}.
+                                                                                                   
+We know we'll need to change our @code{draw-state} function in some way, since this is the function that controls how our animation is drawn. Our first instinct may be to turn it into a piecewise function, and draw something different when the @code{SunsetState}'s y-coordinate gets below 225 or below 150. @italic{however}, if we were to start coding, we might quickly find that we're writing the same code over and over. We don't want to change how large the sun is, or where the ground is drawn in the scene. The @italic{only} thing we want to change is the actual image of the sun. To do this, we can write a helper function to ask questions about the @code{SunsetState}, and produce an image based on its y-coordinate, instead of doing that work inside @code{draw-state}.
 @activity{Open your wokbook to @worksheet-link[#:page 222 #:name "sun-color"]. Here we have directions for writing a function called @code{sun-color}, Which consumes a @code{SunsetState} and produces an image of the sun, whose color is either "yellow", "orange", or "red" depending on its y-coordinate.}}
                         @teacher{The word problem assumes a background scene size of 400x300 pixels. Once students use their @code{sun-color} function in their animation, they may need to change the specific conditions if they have a much larger or smaller scene.}}
                  
