@@ -325,7 +325,7 @@ include other datatypes, including Strings and Images.}
                                 the Circle of Evaluation for the example here, and @italic{then} convert it to code.}
                         }
                  @point{@student{@activity{For each of the following functions, write the Contract in your workbook and experiment with the sample code.
-                                           Can you figure out what each function does to it's Image?
+                                           Can you figure out what each function does to its Image?
                                            @code[#:multi-line ""]{; flip-vertical : Image -> Image
 (flip-vertical (triangle 50 "outline" "orange"))
 
