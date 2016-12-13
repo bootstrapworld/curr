@@ -40,7 +40,7 @@
   expression.
 
   @activity{
-    Open the file at @editor-link[#:public-id "0B9rKDmABYlJVaUw0VjdiOE5DVzQ" "What to Wear"] and do the following:
+    Open the file at @editor-link[#:public-id "0B9rKDmABYlJVaUw0VjdiOE5DVzQ" "What to Wear"]. After reading through the definition for the @code{wear} function:
 
     @itemlist[
 
@@ -130,7 +130,7 @@ a function that tells us where the jumper is for a given @code{JumperState}.
 This is the kind of function you might need to write later on in your game, to
 detect where characters are, and make decisions based on that information.
 
-@activity{Open your workbook to @worksheet-link[#:page 110 #:name "Location"]. Use the design recipe to write a function to tell you where the parachute jumper is, based on the JumperState (either "cliff", "beach", "water", or "air").}
+@activity{Open your workbook to @worksheet-link[#:page 110 #:name "Location"]. Use the design recipe to write a function to tell you where the parachute jumper is (either "cliff", "beach", "water", or "air"), based on the JumperState.}
           
 Use this picture to figure out the regions of the different parts of the
 background image: 
