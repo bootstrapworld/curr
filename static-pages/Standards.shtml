@@ -33,6 +33,7 @@
         document.getElementById('content').style.display  = 'none';
         document.getElementById('TEKS').style.display = 'none';
         document.getElementById('csta').style.display = 'none';
+        document.getElementById('k12cs').style.display = 'none';
         document.getElementById(id).style.display = 'block';
       }
     </script>
@@ -57,6 +58,7 @@
       <h1>What's Covered in 25 Hours?</h1>
       <input type="button" onclick="showTable('practice')"  value="Mathematical Practice Standards"/>
       <input type="button" onclick="showTable('content')"   value="Mathematical Content Standards"/>
+      <input type="button" onclick="showTable('k12cs')"     value="K12CS"/>
       <input type="button" onclick="showTable('TEKS')"      value="TEKS"/>
       <input type="button" onclick="showTable('csta')"      value="CSTA"/>
 
@@ -595,6 +597,159 @@
           </td>
         </tr>
 
+      </table> 
+
+
+      <table width="100%" id="k12cs">
+        <thead>
+          <tr><td><h2>K12 CS Framework</h2></td>
+            <td><h2>Alignment</h2></td></tr>
+        </thead>
+        <tr>
+          <td><span>Practice 1:</span> Fostering an Inclusive Computing Culture</td>
+          <td>
+            By integrating Computing into standard math classes, Bootstrap allows schools to immediate create an inclusive computing environment. <i>Everyone</i> takes math, which means <i>everyone</i> computes. But in addition to the course settings the curriculum allows, Bootstrap also embeds teamwork, metacognition and group reflection into every step of the programming process - from co-designing a game to thinking about effective co-working strategies, Bootstrap's pedagogy fosters an inclusive culture.
+          </td>
+        </tr>
+        <tr>
+          <td><span>Practice 2:</span> Collaborating Around Computing</td>
+          <td>
+            Bootstap students work on small teams, and must cultivate relationships with other students who possess diverse perspectives, skills and personalities. Students work on problems together, and are given strategies to evaluate and give feedback to one another at each step in the problem-solving process.
+          </td>
+        </tr>
+        <tr>
+          <td><span>Practice 3:</span> Recognizing and Defining Computational Problems</td>
+          <td>
+            Bootstrap uses real-world problems throughout the course, as students are constantly engaged in the creation of a meaningful computational artifact (a videogame of their own invention, modeling a physics simulation, or analyzing a rich dataset). Each part of this project requires that students identify problems that can be solved computationally, decompose those problems into sub-problems, and evaluate the limits of their solutions.
+          </td>
+        </tr>
+        <tr>
+          <td><span>Practice 4:</span> Developing and Using Abstractions</td>
+          <td>
+          Students develop and use abstractions throughout the course, starting with visual-spatial representations for arithmetic expressions and ending with complex, multi-function programs that define, use and re-use student-generated abstractions. Students define everything from Functions (Bootstrap:1) to Data Structures (Bootstrap:2), and Reactive Simulations (Bootstrap:Physics) to Big Data queries (Bootstrap:Data Science).
+          </td>
+        </tr>
+        <tr>
+          <td><span>Practice 5:</span> Creating Computational Artifacts</td>
+          <td>
+            Bootstrap's project-based approach is absed on the creation of computational artifacts. Students write programs to draw flags, make a rocket blast off, trap a butterfly, run a cash register, implement a videogame, answer real questions with data, and model an observed physical phenomenon. The creation of these artifacts is personal, customizable, and based on a rigorous methodology for iterative design and problem solving.
+          </td>
+        </tr>
+        <tr>
+          <td><span>Practice 6:</span> Testing and Refining Computational Artifacts</td>
+          <td>
+            Many introductory courses treat testing as a second-class citizen, either asking students to test by running a program and "seeing if it looks right" or by using programming tools that <i>completely lack</i> and framework for automated testing. By contrast, Bootstrap introduces testing early on in the course, and our language and software enviroment offer rich support for writing tests and developing software based on test feedback.
+          </td>
+        </tr>
+        <tr>
+          <td><span>Practice 7:</span> Communicating About Computing</td>
+          <td>
+            Students in our Data Science module must choose a question that matters to them, select a relevant dataset, and answer that question - justifying their choice and answer at every step. Students in our Physics, Data Structures and Algebra courses explain their thinking as well, whether it's about the creation of a piecewise function to handle key events or a data structure to model an interactive program.
+          </td>
+        </tr>
+        <!--
+        <tr>
+          <td><span>Devices</span></td>
+          <td>
+          </td>
+        </tr>
+        -->
+        <tr>
+          <td><span>Hardware and Software</span></td>
+          <td>
+            Bootstrap:2, Bootstrap:Data Science and Bootstrap:Physics introduce students to sophisticated programming paradigms, in which they must process user input as mediated by the software evironment. This mediation involves the flow of information from multiple sources (keyboards, mice, GPS systems, and internet-connected resources), and students must consider this flow when designing their programs.
+          </td>
+        </tr>
+        <tr>
+          <td><span>Troubleshooting</span></td>
+          <td>
+              All Bootstrap modules embrace <i>Example Driven Design</i>, in which students write test cases for each abstraction they create. This bakes in troubleshooting by design: a student immediately has a mechanism to locate an error, and knows a pedagogical approach for debugging their thinking process.
+          </td>
+        </tr>
+        <!--
+        <tr>
+          <td><span>Network Communication and Organization</span></td>
+          <td>
+          </td>
+        </tr>
+        <tr>
+          <td><span>Cybersecurity</span></td>
+          <td>
+          </td>
+        </tr>
+        -->
+        <tr>
+          <td><span>Data Collection</span></td>
+          <td>
+            Students in Bootstrap:Data Science and Bootstrap:Physics collect data using an array of tools techniques: tapping into existing datasets (e.g. - Spreadsheets) as well as automated or manual sampling using an array of instruments. The choice of sampling mechanism is instruction, as it exposes students to the strengths and weaknesses of a particular approach. Movement-tracking via observation v. changes in a cell phone's GPS coordinates, for example, will influence the amount and quality of the data that is collected.
+          </td>
+        </tr>
+        <!--
+        <tr>
+          <td><span>Data Storage</span></td>
+          <td>
+          </td>
+        </tr>
+        -->
+        <tr>
+          <td><span>Visualization and Transformation</span></td>
+          <td>
+            Our Data Science module embraces authentic data science concepts in a lightweight fashion: students must identify, transform, clean and manipulate data sets as they explore a research question of their own design. This involves everything from visualizing to aggregation, and rearrangement to transformation.
+          </td>
+        </tr>
+        <tr>
+          <td><span>Inference and Models</span></td>
+          <td>
+            Bootstrap:1 and Bootstrap:2 are all build around students' developing a model for a desired (or observed) behavior. Bootstrap:1 has students model the <i>process</i> of computation, and Bootstrap:2 gives students the ability to model the <i>data</i> behind it. Bootstrap:Physics goes one step farther, having students use these models to predict the behavior of a complex system. In these activities, the tradeoffs between model complexity and model quality become clear.
+          </td>
+        </tr>
+        <tr>
+          <td><span>Algorithms</span></td>
+          <td>
+            Bootstrap students consider many algorithms throughout our material. They are confronted with multiple ways to reach a solution, asked to generalize a algorithms so they can be re-used for other problems, and given opportunities to discuss the tradeoffs between different approaches.
+          </td>
+        </tr>
+        <tr>
+          <td><span>Variables</span></td>
+          <td>
+            Bootstrap introduces variables early on, with students confronting variables and functions almost immediately in Bootstrap:1. These variables can be used to represent Numbers, Strings, Images, Booleans, data structures of infinite complexity, and even remote spreadsheets stored across the internet! Our pedagogy explicitly asks students to come up with meaningful identifiers for every variable they use, and Bootstrap:2 allows students to select their own Data Structures. (<b>Note:</b> in a slight deviation from the K12CS standards, Bootstrap uses the <i>mathematical</i> concept of variable. Namely, we do not discuss the notion of "machine storage", since that concept directly undermines the notion of variables in mathematics.)
+          </td>
+        </tr>
+        <tr>
+          <td><span>Control</span></td>
+          <td>
+            Students in all of Bootstrap's modules confront program control, sequences of evaluation, and conditionals. Bootstrap:2, Data Science and Physics add loops and event handlers, to create more complex behavior.
+          </td>
+        </tr>
+        <tr>
+          <td><span>Modularity</span></td>
+            Bootstrap's focus on abstraction works hand in hand with the concept of modularity. Students decompose complex problems into smaller ones, and build abstractions (functions, data structures, etc) to solve them. The abstractions are used to organize code, and can be composed with one another or repurposed to solve more complex problems without having to duplicate code. Students assemble these abstractions to form complex, reactive programs - relying on the modularity of those abstractions to manage complexity.
+          <td>
+          </td>
+        </tr>
+        <tr>
+          <td><span>Program Development</span></td>
+          <td>
+            Our pedagogy is based on a robust process for program development, known as the <i>Design Recipe</i>. This approach has been used for decades at the university level, and mirrors many best practices from industrial contexts. The Design Recipe is an iterative process that involves defining type specifications, communicating those specifications through writing, building example-driven test cases, implementation, and testing. 
+          </td>
+        </tr>
+        <!--
+        <tr>
+          <td><span>Culture</span></td>
+          <td>
+          </td>
+        </tr>
+        <tr>
+          <td><span>Social Interactions</span></td>
+          <td>
+          </td>
+        </tr>
+        <tr>
+          <td><span>Safety, Law, and Ethics</span></td>
+          <td>
+          </td>
+        </tr>
+        -->
       </table> 
   		</div>
     
