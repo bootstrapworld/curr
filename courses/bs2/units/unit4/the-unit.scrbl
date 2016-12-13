@@ -211,7 +211,7 @@ information about the animation.}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{@points[
-                @point{@student{@activity{Open your workbook to @worksheet-link[#:page 111 #:name "Piecewise Bug Hunting"]. In the left column, we've given you broken or buggy Pyret code. On the right, we've given you space to either write out the correct code, or write an explaination of the problems with the provided code.  Work through this workbook page, then check with your partner to confirm you've found all the bugs!}}
+                @point{@student{@activity{Open your workbook to @worksheet-link[#:page 111 #:name "Piecewise Bug Hunting"]. In the left column, we've given you broken or buggy Pyret code. On the right, we've given you space to either write out the correct code, or write an explanation of the problems with the provided code.  Work through this workbook page, then check with your partner to confirm you've found all the bugs!}}
 
         @teacher{}
       }
