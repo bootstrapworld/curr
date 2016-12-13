@@ -80,34 +80,18 @@
   The @code{if} clause has a question, followed by a @code{:} (a colon),
   followed by an answer for if the question evaluates to @code{true}.  Each
   @code{else if} clause also has a question, followed by a colon, followed by
-  an answer for if the question evalautes to @code{true}.
-
-  Just like in Racket, the @code{else:} clause runs if none of the questions in
-  the other clauses evaluated to @code{true}.  It catches all the cases that
-  aren't covered by a specific question in one of the @code{if} or @code{else
-  if} clauses.
+  an answer for if the question evalautes to @code{true}. Just like in Racket, the @code{else:} clause runs if none of the questions in the other clauses evaluated to @code{true}.  It catches all the cases that aren't covered by a specific question in one of the @code{if} or @code{else if} clauses.
 
 }
 @teacher{We mention that the @code{else:} clause at the end of an @code{if} expression is optional. Typically, it is important to make sure your code will account for all possible conditions, and ending with @code{else:} is a useful catchall condition if all of the other conditions return false. However, this is optional in the case that every single possible condition is covered by @code{else if} statements.}
 }
 
 @point{@student{At this point, we need to remember an important lesson about the Design
-  Recipe for conditionals from Boostrap:1.
-
-  If we look at the examples for @code{wear}, and circle everything that
+  Recipe for conditionals from Boostrap:1. If we look at the examples for @code{wear}, and circle everything that
   changes, both the input (the temperature) and the output (the image) change.
   However, @code{wear} only has a single variable according to the domain in
   its contract.  Also, the image is completely dependent on the temperature –
-  it isn't a separate independent variable, so it wouldn't make sense for it to
-  be another element in the domain of @code{wear}.
-
-  The fact that we have @emph{more changing things than elements in the
-  domain} tells us that @code{wear} must be a @vocab{piecewise function}.  This is
-  the same rule as in Bootstrap:1, and just as we could in Racket, we can tell
-  that a function must be piecewise just by looking at its contract and the
-  examples.  This helps us identify when a function we are writing in our games
-  needs to use @code{if}, as long as we follow the Design Recipe when building
-  it.
+  it isn't a separate independent variable, so it wouldn't make sense for it to be another element in the domain of @code{wear}. The fact that we have @emph{more changing things than elements in the domain} tells us that @code{wear} must be a @vocab{piecewise function}.  This is the same rule as in Bootstrap:1, and just as we could in Racket, we can tell that a function must be piecewise just by looking at its contract and the examples.  This helps us identify when a function we are writing in our games needs to use @code{if}, as long as we follow the Design Recipe when building it.
 
 }
 @teacher{ This is an important point to review.  Conditionals, or Piecewise functions, are a big moment in
