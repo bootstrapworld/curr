@@ -243,12 +243,13 @@ We know we'll need to change our @code{draw-state} function in some way, since t
       rectangle(WIDTH, HEIGHT, "solid", "light-blue")))
 end }
 
-@bold{Optional:} @itemlist[@item{Once you've completed changing the color of the sun, have it wrap around: after "setting" behind the horizon, have it reappear back at the top left corner of the scene, and repeat its journey.}
-                                 @item{In addition to changing the color of the sun, have the background color change as well: it should be light blue when the sun is high in the sky, and get darker as the sun sets.}] 
-     
+@activity{Once you've completed changing the color of the sun, have it wrap around: after "setting" behind the horizon, have it reappear back at the top left corner of the scene, and repeat its journey. Think about what color the sun will be when it wraps back around. Will it be red (the last color it had at the bottom) or will it return to being yellow?}
+}
+                         @teacher{This question about the color of the sun is an especially good question-and it likely to come up-from students who may have experience prohgramming with variables and updates in other languages, such as Scratch. The actual implementation of the sun's color and movement is up to them, but make sure students can explain and defend their choices!}}
 
-      }
-                        @teacher{Like changing the color of the sun, there are multiple valid ways of completing these optional activities. If you have students solving the same problem with different code, have them share their code with the class and have a dicsussion about the merits of each version.}
+                                 @point{@student{@bold{Optional:}In addition to changing the color of the sun, have the background color change as well: it should be light blue when the sun is high in the sky, and get darker as the sun sets.} 
+     
+                                        @teacher{Like changing the color of the sun, there are multiple valid ways of completing this optional activity. If you have students solving the same problem with different code, have them share their code with the class and have a dicsussion about the merits of each version.}
                         }
                  ]
          }
