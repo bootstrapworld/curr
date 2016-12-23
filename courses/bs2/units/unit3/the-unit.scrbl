@@ -169,15 +169,16 @@
       ]{
         @points[
       	@point{@student{You've learned the components of an animation in Pyret. The data structure for the state lies at the heart of the animation: each of the initial state, the @code{draw-state} function and the @code{next-state-tick} function are based on the data structure you choose. Being able to figure out the data structure you need for an animation is therefore a critical skills in making your own animations.  In this lesson, we are going to practice identifying the data and creating the data structures for various animations. We will not write the entire animation.  We are just going to practice identifying the data.}
-	       @teacher{Figuring out the data structure is one of the most creative tasks in programming.  SAY MORE ABOUT WHY THIS IS IMPORTANT AND INTERESTING.}}
+	       @teacher{Figuring out the data structure is actually one of the most creative tasks in programming. More complex problems can be captured through multiple data structures. For example, we might have some information that could be computed from other information, so we have to decide what data to include and what to compute.  Or, we might want to combine multiple smaller data structures into a larger one, having a data structure for a coordinate (with both x- and y-positions), and a data structure for a character that has a coordinate and a color. We don't expect that you can envision all of these possibilities right now.  We do want you to be aware that students may come up with different ideas, and that this is appropriate and interesting at this stage.  Your students can have some valuable discussions about design once they start brainstorming different ways to organize data for a problem.}}
 	@point{@student{Look at this animation of a cow jumping over the moon.
+	                @animated-gif{images/cowjump.gif} 
 	                @activity{Fill in the first part of an animation-design worksheet, drawing three individual frames.}
 			Which frames did you pick?  Is the cow at the same height in each one, or did you pick frames at at least two different heights?  Choosing images with some variation will help you think through the data in your animation.
 			@activity{What information is changing across the frames?}
-			In this case, the cow's x-coordinate and y-coordinate are both changing.
+			In this case, the cow's x-coordinate and y-coordinate are both changing. The image changes too, but the position (coordinates) determines which image to use.  The state data structure therefore only needs to store the coordinates.
 			@activity{Write a data structure @code{CowState} to capture the data in this animation.}
 			}
-	       @teacher{}}
+	       @teacher{If students want to include the image in the state, that is fine too. Examples like this are good for raising discussion about what parts of an animation depend on one another.  The image doesn't need to be in the state, but it isn't wrong to include it there either.}}
 	@point{@student{Do "Falling" from the revisions sheet.  Point out that need one coordinate per character.  Shows multiple characters, and that don't always need both x and y coordinates.}
 	       @teacher{}}
 	@point{@student{Look at this animation of a star that pulses as it moves across the sky.
