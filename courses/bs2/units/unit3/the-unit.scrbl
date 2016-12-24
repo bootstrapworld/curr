@@ -38,40 +38,38 @@
 	       @teacher{}}
 	@point{@student{In Bootstrap:1, many decisions about your animation were made for you. We told you how many characters you had and which aspects of them could change during the animation.  The danger always moved in the x-axis, the player always moved in the y-axis.  In Bootstrap:2, we give you much more control of your game: you decide how many characters you will have, and what aspects of them can change (position, color, size, etc).  In order to have this flexibility, we need to do a little more work to set up the animation.  Let's break down an animation to see what we need.}
 	       @teacher{}}
-	@point{@student{Let's create an animation of a sunset.  The sun will start at the top-left corner of the screen and fall diagonally down and right across the sky.
-                        In Bootstrap:1, we talked about how an animation is made of a sequence of images that we flip through quickly.
-                        We continue to think of an animation as a sequence of images in Bootstrap:2. In order to see a sunset, we need a sequence of images like the following
-                       [INSERT PICTURE].
-                       Flipping through them would yield the following animation [CAN WE EMBED A VIDEO OF THIS RUNNING?].}
+	@point{@student{Let's create an animation of a sunset.  The sun will start at the top-left corner of the screen and fall diagonally down and right across the sky. Here's a running version of the animation we are trying to create:
+	                @bannerline{@animated-gif{images/sunset.gif}}
+	                In Bootstrap:1, we talked about how an animation is made of a sequence of images that we flip through quickly.
+                        We continue to think of an animation as a sequence of images in Bootstrap:2. For example, here are the first three frames of the sunset
+			animation:
+			 @bannerline{@bitmap{images/first-three-sunset-frames.png}}
+			}
 	       @teacher{}
 	       }
-	@point{@student{Where will we get this sequence of images? We don't want to create them all by hand. Instead, we want to write functions that will create them for us.
-                        This is the power of computer programming.  It can automate tasks (like creating new images) that might otherwise be tedious for people to do.}
-	       @teacher{This is a key point at which to emphasize why functions are important to computer science. Computers are good at repetition, but they need instructions
+	@point{@student{Where will we get this sequence of images? We don't want to create them all by hand.
+			Instead, we want to write programs that will create them for us.
+                        This is the power of computer programming.  It can automate tasks (like creating
+			new images) that might otherwise be tedious for people to do. There are four steps to creating
+			animations programs.  You've actually already done the first three in the first two units, but
+			now we need to show you how to put them together.}
+	       @teacher{This is a key point at which to emphasize why functions are important to computer science.
+	       		Computers are good at repetition, but they need instructions
                         telling them what steps to repeat.  Functions capture those instructions.}
 	       }
-	@point{@student{In order to create these images, we first have to figure out what information changes between images (during the animation).
-               @activity{What information is changing from frame to frame of this animation? What is fixed?  Fill in [FILL PART NUMBER] an animation design worksheet with this information.}
-	       There are two pieces of information changing across the sunset images: the x-coordinate of the sun and the y-coordinate of the sun.
-               Given these two pieces of information, we could draw an image that puts the sun at those coordinates. More interestingly, however, we could compute the
-               coordinates of the sun in the next frame. By repeating these two steps--drawing an image of the sun at coordinates and computing the next set of coordinates,
-               we can generate an entire animation!}
-	       @teacher{}}
-        @point{@student{Understanding the interaction between drawing and computing new coordinates is essential for understanding how an animation works.
-                        The following image gives an example [PUT IN IMAGE OF DRAW-WORLD/NEXT-WORLD WITH EXPLANATION].}
-               @teacher{}}
-	@point{@student{Summarizing what we have seen so far, we have to write three things in order to make an animation:
-                        @itemlist[#:style 'ordered
-                           @item{Create a state structure to hold the information that changes across frames. This information is called the @vocab{state}.}
-                           @item{Write a function to generate a new state from a given state (we'll call this @code{next-state-tick}).}
-                           @item{Write a function to generate an image of the current state (we'll call this @code{draw-state}).}
-                        ]
-                        Let's work on these one at a time.
-                        }
-               @teacher{}}
-        @point{@student{
-	       @activity{Create a data structure named @code{SunsetState} that holds the x-coordinate of the sun and the y-coordinate of the sun.}
-               You should have come up with something like this: a data block with numbers for the two coordinates.
+	@point{@student{The first step is to develop a data structure for the information that changes across frames.
+			Look at our three sample images: what information
+			is needed to create each frame image?  Which infomation is different across
+			the frames?  What is the same? 
+			@activity{Figure out the differences and write them down in [FILL PART]
+			of the animation worksheet.}
+			Hopefully, you identified two pieces of changing information: the x-coordinate of
+			the sun and the y-coordinate of the sun. Each image also contains the horizon (the
+			brown rectangle), but that is the same in every frame. Let's write down a data
+			structure for this.
+	                @activity{Create a data structure named @code{SunsetState} that holds the
+				  x-coordinate of the sun and the y-coordinate of the sun.}
+                        You should have come up with something like this: a data block with numbers for the two coordinates.
                 @code[#:multi-line #t]{# a SunsetState has the x-coordinate of the sun and the y-coordinate of the sun
 		      data SunsetState:
 		       | sunset(
@@ -79,73 +77,167 @@
 			   ypos :: Number
 			   )
 		       end}
+		       The term @vocab{state} is used in computer science to refer to the details of a program
+		       at a specific point in time.  Here, we use it to refer to the details that are unique to
+		       a single frame of the animation.
 		  }
-		@teacher{We are adopting a convention here, in which we include "State" in the name of the data block, then use the same base name (without "State") for the constructor.
-                         By not conflating the names here, students should have an easier time distinguishing between the constructor name and data structure name.}
+		@teacher{We are adopting a convention here, in which we include "State" in the name of the data block,
+			 then use the same base name (without "State") for the constructor.
+                         By not conflating the names here, students should have an easier time distinguishing between
+			 the constructor name and data structure name.}
 		}
-	 @point{@student{@activity{For each of the sunset images that you drew [CURRENTLY NO POINT ABOVE DOES THIS] above, write down the @code{SunsetState} instance that corresponds to that image.}
-                         For example, when the sun is at the top-left corner, you might have written
-                         @code[#:multi-line #t]{sunset(10, 15)}
-                         }
+	@point{@student{Any time we make a data structure, we should make some sample instances: this helps check
+			that we have the right fields and gives us data to use in making examples later.
+			@activity{In the worksheet,
+			write down the @code{sunset} instances under each frame. The first one is at coordinate (10, 300),
+			the second is at (18, 292), and the third is at (26, 284).}
+	                }
+   	       @teacher{}}
+     	@point{@student{The second step in making an animation is to write a function that consumes an instance of one state
+	                and produces the image for that instance. For sunset, we want to write a function named @code{draw-state}
+			that consumes a @emph{SunsetState} instance and produces an image with the sun at that location
+			over the horizon. This function should use @code{put-image}, as we did with the hikers in unit 1.
+			@activity{Go to page [FILL] in your workbook and develop the @code{draw-state} function
+			          described there. Type in your function and use it to draw several individual sunset frames.}
+			}
+			
+	       @teacher{You may have noticed that we used @code{SunsetState} instead of @code{sunset} as the domain name.
+	                Remember that @code{sunset} is just the name of the constructor, while @code{SunsetState} is the
+			name of the type.  We use @code{SunsetState} whenever we need a type name for the domain or range.}}
+
+     	@point{@student{We can now draw one frame, but an animation needs many frames. How can we draw multiple frames?
+	                Let's simply the problem a bit: if you have the instance for one frame, how do we compute the instance
+			for the next frame?  Note we didn't ask how to produce the @emph{image} for the next frame. We only asked
+			how to produce the next @code{SunsetState} instance.  Why?  We just wrote @code{draw-state}, which
+			produces the image from a @code{SunsetState}.  So if we can produce the instance for the next
+			frame, we can use @code{draw-state} to get the image.}
+	       @teacher{Separating the instance from the image of it is key here: when we produce an animation, we actually
+	                produce a sequence of instances, and use @code{draw-state} to produce each one.  Students may
+			need some practice to think of the instance as separate from the image that goes into the animation.}}
+     	@point{@student{The third step in making an animation is to write a function that consumes an instance of one state
+	                and produces the instance for the next state. For sunset, we want to write a function named
+			@code{next-state-tick} that consumes a @emph{SunsetState} instance and produces a @emph{SunsetState}
+			instance that is just a little lower in the sky.
+			@activity{Go to page [FILL] in your workbook and develop the @code{next-state-tick} function
+				  described there. Use the sample @code{SunsetState} instances that you developed in
+				  step 1 as you make your examples of the function. Type in your code and make sure
+				  your examples are producing the expected answers.}
+			}
 	       @teacher{}}
-	@point{@student{You now have a data structure for the state of your animation.  Next, create a function that computes the next state of the
-                        animation from a given state.  In the case of sunset, this function should produce a new @code{SunsetState} instance that has fallen a bit in the sky
-                        from the given one. Across all of our animations, we will call this function @code{next-state-tick}.
-                        @activity{Using the @code{SunsetState} instances that you wrote under the frames above, write two examples of the @code{next-state-tick} function.
-                         [WHICH WORKSHEETS IF ANY TO REFERENCE HERE?].}
+	       
+     	@point{@student{Together, the @code{draw-state} and @code{next-state-tick} give us the building blocks for an
+	                animation. To start to see how, let's first use these two functions to create the first
+			several frames of an animation by hand (then we'll show you how to make more frames automatically).
+			@activity{Run each of the following expressions in the interactions window in turn. Just copy and
+			          paste them, rather than type them by hand each time:
+				  @itemlist[
+				  @item{@code{draw-state(sunset(10,300))}}
+				  @item{@code{next-state-tick(sunset(10,300))}}
+				  ]
+				  Now use @code{draw-state} on the result of @code{next-state-tick}, then call
+				  @code{next-state-tick} again:
+				  @itemlist[
+				  @item{@code{draw-state(sunset(18,296))}}
+				  @item{@code{next-state-tick(sunset(18,296))}}
+				  @item{@code{draw-state(sunset(26,292))}}
+				  @item{@code{next-state-tick(sunset(26,292))}}
+				  ]}
+		          Do you see the sun getting lower in the sky from image to image?
+			  Do you see how we are creating a "chain" of images by alternating calls
+			  to @code{draw-state} and @code{next-state-tick}? We use @code{next-state-tick} to
+			  create the instance for a new frame, then use @code{draw-state} to produce the image
+			  for that frame.
+			
+			@activity{(Optional) Here's another way to see the same sequence of expressions. Run each of the
+			          following expressions in the interactions window in turn. Just copy and 
+			          paste them, rather than type them by hand each time:
+				  @itemlist[
+				  @item{@code{draw-state(sunset(10,300))}}
+				  @item{@code{draw-state(next-state-tick(sunset(10,300)))}}
+				  @item{@code{draw-state(next-state-tick(next-state-tick(sunset(10,300))))}}
+				  @item{@code{draw-state(next-state-tick(next-state-tick(next-state-tick(sunset(10,300)))))}}
+				  ]}
+		        Do you see what this sequence
+			of expressions does? Each one starts with the sun in the upper-left corner, calls
+			@code{next-state-tick} one or more times to compute a new position for the sun, then draws the state.
+			Notice that this sequence only has us write down one @code{SunsetState} instance
+			explicitly (the first one).  All the others are computed from @code{next-state-tick}.
+			If we could only get Pyret to keep making these calls for us, and to show us the images
+			quickly one after the next, we'd have an animation!
+			}
+	       @teacher{These sequences show students how the two functions work together to create an animation.
+	       If you feel the second one that composes @code{next-state-tick} with itself many times is too
+	       complicated for your students, you can skip it. The goal of the second sequence is to show that we
+	       only need an initial instance and the two functions to generate a sequence of images that make
+	       up an animation.}}
+
+        @point{@student{The fourth (and final) step in making an animation is to tell Pyret to create an
+	 		animation using an initial @code{SunsetState} instance and our @code{draw-state} and
+			@code{next-state-tick} functions. To do this, we need a new construct called a
+			@vocab{reactor}. A reactor gathers up the information needed to create an animation.
+			Here, we define a reactor named @code{r} for the sunset animation:
+			@code[#:multi-line #t]{
+                          r = reactor:
+  			    init: sunset(10, 300),
+			    on-tick: next-state-tick,
+			    to-draw: draw-state	  
+                          end}
+			Each of @code{init:}, @code{on-tick:}, and @code{to-draw:} is a tag indicating the
+			job of a function in an animation.  For example, this reactor says to use our @code{draw-state}
+			function whenever the reactor needs "to draw" a new image.  It says to use our
+			@code{next-state-tick} to create a new instance of the animation state between frames. The
+			instance marked @code{init} tells the reactor where the sun should start at the beginning of the
+			animation.
+			}
+	       @teacher{The reactor is new to Bootstrap:2. In Bootstrap:1, the reactor was built into each teachpack so
+	                you didn't see it.  We could do that because we fixed the contents of the state data structure
+			(a target moving in the x-coordinate, a player moving in the y-coordinate, etc) and the names
+			of all the functions.  In Bootstrap:2, however, you get to customize these; in exchange, you
+			have to write the reactor expression yourself. In each line, the contents to the left of the colon
+			are fixed.  You tailor the instance and function names to the right of each colon.
+	       
+	        	If you happen to know the term "handler" from other programming experience (we don't expect you to!),
+	                a reactor expression specifies handlers to use for various tasks.}}
+
+     	@point{@student{Introduce interact}
+	       @teacher{}}
+
+     	@point{@student{}
+	       @teacher{}}
+
+        @point{@student{The following diagram summaries what happens inside Pyret when you interact with a reactor. Pyret 
+	                automates the work that you did by hand in the interactions window just a little while ago: it
+			draws the initial instance, then repeatedly calls @code{next-state-tick} and @code{draw-state} to
+			create and display successive frames of your animation.
+ 	                @bannerline{@bitmap{images/world-model.png}}
+	}
+               @teacher{This figure may be too complex for some students.  Hopefully it helps you, and perhaps them,
+	                see how an animation arises from the two functions we've written in this lesson.}}
+	@point{@student{Summarizing what we have seen so far, we have to write four things in order to make an animation:
+                        @itemlist[#:style 'ordered
+                           @item{Create a state structure to hold the information that changes across frames. This information is called the @vocab{state}.}
+                           @item{Write a function to generate an image of the current state (we'll call this @code{draw-state}).}
+                           @item{Write a function to generate a new state from a given state (we'll call this @code{next-state-tick}).}
+                           @item{Define a reactor that will use an initial instance of the state and the two functions to create an animation.}
+                        ]
                         }
-	       @teacher{}}
-	@point{@student{@activity{Finish the design recipe and write @code{next-state-tick}. [UPDATE ONCE AGREE ON WORKSHEETS]}
-                         Don't forget to test you @code{next-state-tick} function in the interactions window.}
-	       @teacher{}}
-	@point{@student{Now let's write @code{draw-state}, which takes a @code{SunsetState} and draws the sun at the state's coordinates.
-                       @activity{Fill in a Design Recipe [CHECK] worksheet for @code{draw-state}.}
-                       [DO WE TEND TO PUT THE SOLUTIONS IN HERE FOR THE FIRST ANIMATION??]
-                       }
-	       @teacher{}}
-	@point{@student{Let's try some expressions in the interactions window to show you how these two functions work together to create an animation.
-                        @activity{Enter each of these expressions in the interactions window in turn [CHECK SYNTAX] [GO THROUGH NAMES OR NESTED EXPRESSIONS HERE?]:
-                                  @itemlist[@item{draw-state(sunset(10,15))}
-                                            @item{next-state-tick(sunset(10,15))}
-                                            @item{draw-state(next-state-tick(sunset(10,15)))}
-                                            @item{draw-state(next-state-tick(next-state-tick(sunset(10,15))))}
-                                           ]}
-                        Do you see the series of images that you are creating? Do you see the sun moving down a bit across each one?  If we had a long
-                        sequence of these images, we'd have our sunset animation.
-                       }
-	       @teacher{}}
-	@point{@student{Of course, we don't want to have to call these functions by hand to try to create an animation.  We want Pyret to do that for us
-                       (it will be faster, and the sun will appear to move that way).  We tell Pyret to make an animation by creating something called a
-                       @vocab{reactor}.  Here's an example:
-	           @code[#:multi-line #t]{
-		     r = reactor:
-                       init: sunset(10,15),
-                       on-tick: next-state-tick,
-                       to-draw: draw-state
-                     end}
-		       [NEED TO TALK ABOUT INITIAL SUN POSITION]
-		       [NEED TO SHOW HOW TO RUN A REACTOR]
-		       When you start a reactor, Pyret starts an animation. It uses the function you labeled @code{to-draw} to draw the initial state, then calls the function you labeled @code{on-tick} to generate the next state.  Pyret repeatedly calls these two functions (the on-draw and on-tick functions) to draw a state, compute the next one, draw the new state, compute the next one, and so on.
-		       @activity{Write out the series of calls that Pyret makes to @code{draw-state} and @code{next-state-tick}, starting from an initial state of [FILL IN], until 4 images have been created.}
-	               @activity{Need an activity that gives students a file with multiple next-state-tick and draw-state functions.  Give them combos and ask them to predict what the resulting animation will look like.}
+               @teacher{}}
+
+	@point{@student{[FILL IN]@activity{Need an activity that gives students a file with multiple next-state-tick and draw-state functions.  Give them combos and ask them to predict what the resulting animation will look like.}
 	               }
 	       @teacher{}}
-	@point{@student{You have just seen the incredible power of functions in programming! Functions let us @italic{generate content automatically}. In the early days of making cartoons,
-                        artists drew every frame by hand.  They had to decide at the beginning how many frames to create. Here, we let the computer generate as many frames as we want,
-                        by letting it call @code{next-state-tick} over and over until we stop the animation.  If we want to slow down the sunset, we simply change the new coordinates
-                        within @code{next-state-tick}.  If we start with a larger screen size, the computer will continue to generate as many images as we need to let the sun drop out of the window.
-                        The computer can give us this flexibility as long as @italic{we provide a function that tells the computer how to generate another frame}.
-	@activity{[QUESTION]Is it worth having an activity that has students compute how many frames are needed to get the sun off the screen under different next-state-tick and initial screen size computations?}
+	       
+	@point{@student{You have just seen the incredible power of functions in programming! Functions let us
+	                @emph{generate content automatically}. In the early days of making cartoons,
+                        artists drew every frame by hand.  They had to decide at the beginning how many frames
+			to create. Here, we let the computer generate as many frames as we want,
+                        by letting it call @code{next-state-tick} over and over until we stop the animation.
+			If we want to slow down the sunset, we simply change the new coordinates
+                        within @code{next-state-tick}.  If we start with a larger screen size, the computer
+			will continue to generate as many images as we need to let the sun drop out of the window.
+                        The computer can give us this flexibility as long as @italic{we provide a function that tells
+			the computer how to generate another frame}.
 	       }
-	       @teacher{}}
-	@point{@student{You have also seen the steps to creating an animation. They are broken out in the Animation Template [NEED NAME -- THIS IS THE THING WITH SPACES FOR THE DATA STRUCT,
-                        DRAW, NEXT, INIT, AND REACTOR PARTS -- IS THIS A WORKSHEET, A TEMPLATE FILE, SOMETHING ELSE?].  Whenever you want to create an animation, you will define these five pieces.}
-	       @teacher{}}
-	@point{@student{}
-	       @teacher{}}
-	@point{@student{}
-	       @teacher{}}
-	@point{@student{}
 	       @teacher{}}
 	       ]
 	       }
