@@ -182,12 +182,14 @@
 			    on-tick: next-state-tick,
 			    to-draw: draw-state	  
                           end}
-			Each of @code{init:}, @code{on-tick:}, and @code{to-draw:} is a tag indicating the
-			job of a function in an animation.  For example, this reactor says to use our @code{draw-state}
+			Each of @code{init:}, @code{on-tick:}, and @code{to-draw:} names a piece of information needed
+			to make an animation.  We supply the instances and functions for each piece. For example,
+			this reactor says to use our @code{draw-state} 
 			function whenever the reactor needs "to draw" a new image.  It says to use our
 			@code{next-state-tick} to create a new instance of the animation state between frames. The
 			instance marked @code{init} tells the reactor where the sun should start at the beginning of the
 			animation.
+			@activity{Copy this reactor definition into your sunset animation program.}
 			}
 	       @teacher{The reactor is new to Bootstrap:2. In Bootstrap:1, the reactor was built into each teachpack so
 	                you didn't see it.  We could do that because we fixed the contents of the state data structure
@@ -199,20 +201,35 @@
 	        	If you happen to know the term "handler" from other programming experience (we don't expect you to!),
 	                a reactor expression specifies handlers to use for various tasks.}}
 
-     	@point{@student{Introduce interact}
-	       @teacher{}}
+     	@point{@student{If you run your sunset program after adding the reactor, nothing seems to happen. We have set
+			up an animation by defining @code{r}, but we haven't told Pyret to run it.  You could define
+			multiple reactors in the same file, so we have to tell Pyret explicitly when we want to run one.
+			@activity{Type @code{interact(r)} in the interactions window to run your sunset animation.}
+			}
+	       @teacher{The Bootstrap:1 teachpacks started the animation automatically.  In Bootstrap:2, you
+	       		have to start the animation manually by calling @code{interact}.}}
 
-     	@point{@student{}
-	       @teacher{}}
-
-        @point{@student{The following diagram summaries what happens inside Pyret when you interact with a reactor. Pyret 
-	                automates the work that you did by hand in the interactions window just a little while ago: it
+        @point{@student{What happens when we call @code{interact}?  The following diagram summaries what Pyret does to
+			run the animation. It
 			draws the initial instance, then repeatedly calls @code{next-state-tick} and @code{draw-state} to
-			create and display successive frames of your animation.
+			create and display successive frames of your animation.  
+			
  	                @bannerline{@bitmap{images/world-model.png}}
-	}
+
+			These are the same computations you did by hand in the interactions window a little while
+			ago, but Pyret now automates the cycle of generating and drawing instances.  By having
+			functions that can generate instances and draw images, we can let the computer do the work of
+			creating the full animation.}
                @teacher{This figure may be too complex for some students.  Hopefully it helps you, and perhaps them,
 	                see how an animation arises from the two functions we've written in this lesson.}}
+	@point{@student{Functions are essential to creating animations, because each frame comes from a different @code{SusetState}
+			instance. The process of drawing each instance is the same, but the instance is different each time.
+			Functions are computations that we want to perform many times.  In an animation, we perform
+			the @code{draw-state}and @code{next-state-tick} functions once per frame.  Animations are an
+			excellent illustration of why functions matter in programming.}
+	       @teacher{Whether you are primarily teaching math or CS, helping students see the idea of functions and
+	       		repeated computations is a key part of what Bootstrap tries to teach.  Animations are a powerful
+			illustration of repeated computations that functions can capture naturally.}}
 	@point{@student{Summarizing what we have seen so far, we have to write four things in order to make an animation:
                         @itemlist[#:style 'ordered
                            @item{Create a state structure to hold the information that changes across frames. This information is called the @vocab{state}.}
@@ -222,10 +239,6 @@
                         ]
                         }
                @teacher{}}
-
-	@point{@student{[FILL IN]@activity{Need an activity that gives students a file with multiple next-state-tick and draw-state functions.  Give them combos and ask them to predict what the resulting animation will look like.}
-	               }
-	       @teacher{}}
 	       
 	@point{@student{You have just seen the incredible power of functions in programming! Functions let us
 	                @emph{generate content automatically}. In the early days of making cartoons,
