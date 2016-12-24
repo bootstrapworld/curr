@@ -97,7 +97,7 @@
 	                and produces the image for that instance. For sunset, we want to write a function named @code{draw-state}
 			that consumes a @emph{SunsetState} instance and produces an image with the sun at that location
 			over the horizon. This function should use @code{put-image}, as we did with the hikers in unit 1.
-			@activity{Go to page [FILL] in your workbook and develop the @code{draw-state} function
+			@activity{Go to @worksheet-link[#:name "next-position"] in your workbook and develop the @code{draw-state} function
 			          described there. Type in your function and use it to draw several individual sunset frames.}
 			}
 			

@@ -28,13 +28,13 @@
       ]{
         @points[@point{@student{Welcome back to Bootstrap! In Bootstrap:1, you used a @vocab{programming language} called Racket to make your video games. We chose this language because it behaves like algebra, but there are many different languages you could use to make video games. In Bootstrap:2, you’re going to learn a new language, called Pyret. Pyret is similar to Python, a programming language you may have heard of, but this language contains many of the features you remember from Racket. The @vocab{syntax} is a little different, but with a bit of practice you’ll pick it up in no time!}
                        @teacher{Introduce teaching staff. Give some background: age, where you're from, something surprising about yourself, favorite food, etc. Anything to allow kids to connect. Have students introduce themselves. Set expectations and rules for the class.}}
-                 @point{@student{Open your workbook to @worksheet-link[#:page 1 #:name "Review"]. Here we have a table, with examples of value definitions in Racket and Pyret. On the left-hand column, we've defined values in Racket, and on the right we have the same values defined in Pyret. For instance, the first line on the left-hand side says @code{(define AGE 14)}. Directly to the right, we have the Pyret @vocab{syntax}: @code{AGE = 14}, which does the same thing: defines a variable called AGE, which has a value of 14.
+                 @point{@student{Open your workbook to @worksheet-link[#:name "Review"]. Here we have a table, with examples of value definitions in Racket and Pyret. On the left-hand column, we've defined values in Racket, and on the right we have the same values defined in Pyret. For instance, the first line on the left-hand side says @code{(define AGE 14)}. Directly to the right, we have the Pyret @vocab{syntax}: @code{AGE = 14}, which does the same thing: defines a variable called AGE, which has a value of 14.
                          @activity[#:forevidence (list "BS-PL.1&1&1")]{ Take a look at the other values defined here for Numbers, Strings, Images, and Booleans. On the right-hand side of the table, practice defining values in Pyret:
                            @itemlist[@item{two additional Numbers}
                                      @item{two additional Strings}
                                      @item{one more Boolean}
                                      @item{one more Image}]}
-                         The last row of the table on @worksheet-link[#:page 2 #:name "Review"] shows you the same function definition in Racket and Pyret. We'll go into more detail on functions soon.}
+                         The last row of the table on @worksheet-link[#:name "Review-page2"] shows you the same function definition in Racket and Pyret. We'll go into more detail on functions soon.}
                          @teacher{}}  
                @point{@student{Open the @editor-link[#:public-id "0B9rKDmABYlJVdHZESmZ6ZnRmdXc" "Review file"] in a new window. The first thing you’ll notice is that we’re no longer using WeScheme to edit our programs, although the Pyret editor behaves very similarly. The definitions area (where you write code you want to save for later) is on the left side of the screen, and the interactions area (where you write code you just want to test out once, like scratch paper) is on the right. The top of the editor has space to write a name for your program, and the “Run” button at the top right will clear the interactions area and run whatever program is written in the definitions area.}
                        @teacher{}}
@@ -52,7 +52,7 @@
        @activity[#:forevidence (list "BS-PL.1&1&1" "BS-PL.3&1&1")]{Replace this variable name with something more descriptive.}}
                        @teacher{Remind students about the importance of good variable names: they make code more readable, and a descriptive variable name makes it very clear what is being defined.}}
                
-               @point{@student{As you can see, Pyret uses the same data types that we used in Racket: Numbers, Strings, Images, and Booleans are used in Pyret, and look and behave in the same way. @activity{In your review file, define the new Numbers, Strings, Images, and Boolean you wrote in your workbook on @worksheet-link[#:page 1 #:name "Review"].}}
+               @point{@student{As you can see, Pyret uses the same data types that we used in Racket: Numbers, Strings, Images, and Booleans are used in Pyret, and look and behave in the same way. @activity{In your review file, define the new Numbers, Strings, Images, and Boolean you wrote in your workbook on @worksheet-link[#:name "Review"].}}
                        @teacher{}}
                
                @point{@student{Now we have values, and we know how to define shortcuts for them. There are also plenty of built-in functions, which let us play around with these values. 
@@ -121,7 +121,7 @@ One notable difference between Racket and Pyret is that Pyret requires commas be
                 )
       ]{
           @points[@point{@student{Now you know how to define values in Pyret, and you know how to use Contracts for pre-built functions. But what about defining functions of your own? In Bootstrap:1, you used a tool called the @vocab{Design Recipe} to define functions from word problems. Let’s review the steps of the Design Recipe in Pyret. 
-                                  @activity{Turn to @worksheet-link[#:page 3 #:name "Fast-Functions"] in your workbook.}
+                                  @activity{Turn to @worksheet-link[#:name "Fast-Functions-double"] in your workbook.}
                                   Here we have a function definition: @code[#:multi-line #t]{# double : Number -> Number
                                                                                              examples:
                                                                                                  double(5) is 2 * 5
@@ -172,7 +172,7 @@ Once you’ve defined the function itself, Pyret will automatically check your e
             }
           @teacher{Have a student act out one of the functions they've defined. They will take on the name and behavior of that function (@code{plus1}, @code{red-spot}, etc.) and can be used by the class. Remind the class that in order to use the function they must practice @vocab{calling} it by name with some input(s).}
           
-          @point{@student{For some extra practice with Pyret syntax, turn to @worksheet-link[#:page 6 #:name "Bug Hunting"] in your workbook and see if you can spot the bugs in the Pyret code in the left column. Circle each error (some sections might have more than one!), and then write the correct code in the right column.}
+          @point{@student{For some extra practice with Pyret syntax, turn to @worksheet-link[#:name "Bug-Hunting"] in your workbook and see if you can spot the bugs in the Pyret code in the left column. Circle each error (some sections might have more than one!), and then write the correct code in the right column.}
                  @teacher{Students will make syntax errors when learning any new language. This workbook page is intended to give them practice finding syntax bugs on paper first, to help identify the same bugs while typing later on.}}
           }]}
        
@@ -233,7 +233,7 @@ Once you’ve defined the function itself, Pyret will automatically check your e
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{@points[@point{@student{You just reviewed the first half of the entire Bootstrap:1 course in one unit, and learned how to write material from Bootstrap:1 in the @vocab{syntax} of a new language! Throughout Bootstrap:2 you’ll use all the concepts that you learned in Bootstrap:1, as well as brand new data types, functions, and programming concepts. Of course, you’ll do it all with the help of our old friend the Design Recipe, which will help you write your own functions for your own videogame! Since this is Bootstrap:2, the games you will be able to create will be even more interactive and advanced than in Bootstrap:1. There’s a lot to learn... onward to Unit 2!}
-                       @teacher{If time permits, have students practice solving other algebra word problems using the Fast Functions sections on @worksheet-link[#:page 4 #:name "Fast Functions"] and @worksheet-link[#:page 5 #:name "Fast Functions"] in their workbook.}}
+                       @teacher{If time permits, have students practice solving other algebra word problems using the Fast Functions sections on @worksheet-link[#:name "Fast-Functions-blank1"] and @worksheet-link[#:name "Fast-Functions-blank2"] in their workbook.}}
                                   ]
          }
        }

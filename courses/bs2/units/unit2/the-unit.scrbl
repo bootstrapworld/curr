@@ -43,7 +43,7 @@
                                             @item{What is the Pyret code to draw a solid, green triangle of size 22?}
                                             @item{Why is it important to write at least 2 examples before defining a function?}]}} 
                  
-                 @point{@student{To make sure the material from the previous unit is fresh in your mind, tackle the following activity: @activity{Turn to @worksheet-link[#:page 8 #:name "double-radius"] in your workbook. Write a function called @code{double-radius}, 
+                 @point{@student{To make sure the material from the previous unit is fresh in your mind, tackle the following activity: @activity{Turn to @worksheet-link[#:name "double-radius"] in your workbook. Write a function called @code{double-radius}, 
                                                    which takes in a radius and a color. It produces an outlined circle of whatever color was passed in, whose radius 
                                                    is twice as big as the input.}}
                         @teacher{If walking through this example as a class, use a projector so kids can see the function being written on the computer.}}
@@ -88,7 +88,7 @@ Don't forget to include the lines @code{examples:} and @code{end}! Your examples
 fun double-radius(radius, color):
   circle(radius * 2, "outline", color)
 end}
-           @activity[#:forevidence (list "N-Q&1&1" "8.F.1-3&1&1" "F-IF.1-3&1&1" "A-SSE.1-2&1&1" "BS-M&1&1" "BS-PL.3&1&3" "BS-DR.1&1&1" "BS-DR.1&1&2" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1")]{For more practice, turn to @worksheet-link[#:page 9 #:name "double-width"] in your workbook and complete the Design Recipe for the @code{double-width} function.}}
+           @activity[#:forevidence (list "N-Q&1&1" "8.F.1-3&1&1" "F-IF.1-3&1&1" "A-SSE.1-2&1&1" "BS-M&1&1" "BS-PL.3&1&3" "BS-DR.1&1&1" "BS-DR.1&1&2" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1")]{For more practice, turn to @worksheet-link[#:name "double-width"] in your workbook and complete the Design Recipe for the @code{double-width} function.}}
                 @teacher{Check students understanding: Why do we use variables in place of specific values? Why is it important to have descriptive variable
                          names, as opposed to @code{n} or @code{x}?
                           Remind students about nested functions: A function whose range is a number can be used inside of a function requiring a number in its domain, as in 
@@ -136,7 +136,7 @@ tells us that we're defining a new data type called @code{JumperState}, whose co
                             @teacher{This is the first data block students see in this course, but they will soon be writing their own to create new data structures. It's worth spending the time to cover this new syntax, paying special attention to capitalization (the name of the structure is capitalized (JumperState), whereas its constructor function (jumper) is lowercase), double colons (::) before data types, and commas between inputs to the constructor function.}
                             }
                                      
-                    @point{@student{Now it's up to us to protect this parachute jumper, and make sure he lands safely on the shore. @activity[#:forevidence (list "F-IF.1-3&1&1" "F-LE.5&1&1" "BS-M&1&2" "BS-DR.1&1&1" "BS-DR.1&1&2")]{Turn to @worksheet-link[#:page 10 #:name "next-position"] in your workbook, read the word problem, and fill in the Contract and Purpose Statement for the function @code{next-position}.}
+                    @point{@student{Now it's up to us to protect this parachute jumper, and make sure he lands safely on the shore. @activity[#:forevidence (list "F-IF.1-3&1&1" "F-LE.5&1&1" "BS-M&1&2" "BS-DR.1&1&1" "BS-DR.1&1&2")]{Turn to @worksheet-link[#:name "next-position"] in your workbook, read the word problem, and fill in the Contract and Purpose Statement for the function @code{next-position}.}
     @code[#:multi-line #t]{# next-position : Number Number -> JumperState
                            # Given 2 numbers, make a JumperState by adding 5 to x and subtracting 5 from y}}
                             @teacher{Point out that we're now using a new data type in a contract: @code{next-position} consumes two Numbers, and produces a @italic{JumperState}. Once we've defined a new data structure using the above data block, we can use it just like other datatypes.}}
@@ -196,10 +196,10 @@ tells us that we're defining a new data type called @code{JumperState}, whose co
                                               What datatype could we use to represent the entire cake?}
                                    @bitmap{images/cake2.png}                                                   
                                    Now that we know everything that is part of a cake, we can use a data structure to represent the cake itself. Let's take a look at how this works.
-                                   @activity{Open your workbook to @worksheet-link[#:page 11 #:name "Cakes"].}
+                                   @activity{Open your workbook to @worksheet-link[#:name "Cakes"].}
                                    At the top of this page we see a comment, stating what things are part of a CakeT. Below that is a line that says @code{data CakeT:}, which begins the definition of a new data structure, called CakeT (We chose this name for our data structure to be short for 'CakeType', but we could have chosen any number of descriptive names). On the next line, we define the function that makes a CakeT (@code{cake}), and how @italic{exactly} to make a CakeT - the names of each thing in a CakeT, and their data types. 
                                    @activity{What is the first part of a CakeT? What data type can we use to represent it?}
-                                   There is a little bit of new syntax involved in defining structures. On the first line on @worksheet-link[#:page 11 #:name "Cakes"], we write @code{flavor :: String,}, which tells Pyret that the first element of @italic{any} CakeT will be its flavor, represented by a String. 
+                                   There is a little bit of new syntax involved in defining structures. On the first line on @worksheet-link[#:name "Cakes"], we write @code{flavor :: String,}, which tells Pyret that the first element of @italic{any} CakeT will be its flavor, represented by a String. 
                                    @activity{What is the second part of a CakeT? What data type can we use to represent it?}
                                    On the next line, write @code{layers :: Number,}, which tells Pyret that the second element of any CakeT will be its number of layers, represented by a Number.
                                    @activity{What data structure should we use to represent whether or not the CakeT is an ice cream cake? List it along with the oter fields.}
@@ -242,7 +242,7 @@ tells us that we're defining a new data type called @code{JumperState}, whose co
                     @point{@student{Based on these instances of CakeTs you just wrote:
                                     @activity[#:forevidence (list "F-IF.1-3&1&1")]{@itemlist[@item{What is the name of the function that creates a CakeT?}
                                                         @item{What is the Domain of this function?}
-                                                        @item{How many things are in the domain?}]} The three things in the domain of @code{cake} are, in fact, the three things that we have already listed on @worksheet-link[#:page 11 #:name "Cakes"]! With data structures, the order is very important: we always want the first string in @code{cake} to be the CakeT's flavor, the first number to be its number of layers, etc.}
+                                                        @item{How many things are in the domain?}]} The three things in the domain of @code{cake} are, in fact, the three things that we have already listed on @worksheet-link[#:name "Cakes"]! With data structures, the order is very important: we always want the first string in @code{cake} to be the CakeT's flavor, the first number to be its number of layers, etc.}
                                    
                          @teacher{CakeTs are the first example of defining a new datatype that students will see, but Pyret allows you to define any number of new data structures to hold
                                   any combination of values. The important points to remember about creating structures at this point is that whenever the constructor function is called (in this case, @code{cake}), it must take in the same 
@@ -320,7 +320,7 @@ tells us that we're defining a new data type called @code{JumperState}, whose co
         @points[@point{@student{Of course, when programmers work with data structures, they don't just define them and create instances- they also write functions that use and produce structures. Let's get started writing some functions for CakeTs.}
                         @teacher{}}
                  
-                 @point{@student{@activity[#:forevidence (list "F-IF.1-3&1&1" "BS-DR.1&1&1" "BS-DS.2&1&1")]{Turn to @worksheet-link[#:page 12 #:name "taller-than"] in your workbooks. Write the contract and purpose statement for a function called @code{taller-than}, which consumes two CakeTs, and produces true if the first CakeT is taller than the second.
+                 @point{@student{@activity[#:forevidence (list "F-IF.1-3&1&1" "BS-DR.1&1&1" "BS-DS.2&1&1")]{Turn to @worksheet-link[#:name "taller-than"] in your workbooks. Write the contract and purpose statement for a function called @code{taller-than}, which consumes two CakeTs, and produces true if the first CakeT is taller than the second.
                                                    @itemlist[@item{What is the domain for this function?}
                                                              @item{What is the range of @code{taller-than}?}
                                                              @item{Which part(s) of the CakeTs will you need to check to determine if one is taller than the other?}]}
@@ -347,7 +347,7 @@ tells us that we're defining a new data type called @code{JumperState}, whose co
                                                          end}}
                          @teacher{ }}
                  
-                 @point{@student{@activity[#:forevidence (list "7.EE.1-2&1&1" "A-CED.1-4&1&1" "BS-DR.1&1&1" "BS-DR.1&1&2" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1" "BS-DS.1&1&5")]{Turn to @worksheet-link[#:page 13 #:name "will-melt"] in your workbooks. Your bakery needs to know if certain CakeTs need to be refrigerated. If the temperature is greater than 32 degrees AND the given CakeT is an ice cream cake, the function should return true. 
+                 @point{@student{@activity[#:forevidence (list "7.EE.1-2&1&1" "A-CED.1-4&1&1" "BS-DR.1&1&1" "BS-DR.1&1&2" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1" "BS-DS.1&1&5")]{Turn to @worksheet-link[#:name "will-melt"] in your workbooks. Your bakery needs to know if certain CakeTs need to be refrigerated. If the temperature is greater than 32 degrees AND the given CakeT is an ice cream cake, the function should return true. 
                                                    @itemlist[@item{Fill out the @vocab{Contract} and @vocab{Purpose Statement} for the function.}
                                                               @item{Write two examples for how one would use @code{will-melt}.}
                                                               @item{Circle and label what varies between those examples and label it with a @vocab{variable} name.}
