@@ -275,31 +275,79 @@
         @points[
       	@point{@student{You've learned the components of an animation in Pyret. The data structure for the state lies at the heart of the animation: each of the initial state, the @code{draw-state} function and the @code{next-state-tick} function are based on the data structure you choose. Being able to figure out the data structure you need for an animation is therefore a critical skills in making your own animations.  In this lesson, we are going to practice identifying the data and creating the data structures for various animations. We will not write the entire animation.  We are just going to practice identifying the data.}
 	       @teacher{Figuring out the data structure is actually one of the most creative tasks in programming. More complex problems can be captured through multiple data structures. For example, we might have some information that could be computed from other information, so we have to decide what data to include and what to compute.  Or, we might want to combine multiple smaller data structures into a larger one, having a data structure for a coordinate (with both x- and y-positions), and a data structure for a character that has a coordinate and a color. We don't expect that you can envision all of these possibilities right now.  We do want you to be aware that students may come up with different ideas, and that this is appropriate and interesting at this stage.  Your students can have some valuable discussions about design once they start brainstorming different ways to organize data for a problem.}}
-	@point{@student{Look at this animation of a cow jumping over the moon.
+	@point{@student{@bold{Exercise: Jumping Cow} -- Look at this animation of a cow jumping over the moon.
 	                @animated-gif{images/cowjump.gif} 
-	                @activity{Fill in the first part of an animation-design worksheet, drawing three individual frames.}
-			Which frames did you pick?  Is the cow at the same height in each one, or did you pick frames at at least two different heights?  Choosing images with some variation will help you think through the data in your animation.
-			@activity{What information is changing across the frames?}
-			In this case, the cow's x-coordinate and y-coordinate are both changing. The image changes too, but the position (coordinates) determines which image to use.  The state data structure therefore only needs to store the coordinates.
-			@activity{Write a data structure @code{CowState} to capture the data in this animation.}
+	                @activity{Go to page [FILL] in the workbook. Draw three frames from this animation.
+				  Choose ones that highlight differences across the frames.
+			          The frames don't need to be consecutive.}
+			When you chose which frames to draw, did you include ones with different images or heights of the cow?
+			Choosing images with some variation will help you think through the data in your animation.
+			@activity{Fill in the table of what information changes across the frames.}
+			In this case, the cow's x-coordinate and y-coordinate are both changing. The image changes too,
+			but the position (coordinates) determines which image to use.  The state data structure therefore
+			only needs to store the coordinates.
+			@activity{Fill in the table of what fields you need for each piece of changing information.
+			          Write a data structure @code{CowState} to capture the data in this animation.}
 			}
-	       @teacher{If students want to include the image in the state, that is fine too. Examples like this are good for raising discussion about what parts of an animation depend on one another.  The image doesn't need to be in the state, but it isn't wrong to include it there either.}}
-	@point{@student{Do "Falling" from the revisions sheet.  Point out that need one coordinate per character.  Shows multiple characters, and that don't always need both x and y coordinates.}
+	       @teacher{If students want to include the image in the state, that is fine too. Examples like this
+	       		are good for raising discussion about what parts of an animation depend on one another.
+			The image doesn't need to be in the state, but it isn't wrong to include it there either.}}
+	       
+	@point{@student{@bold{Exercise: Falling Person} -- Look at this animation of a person falling through the sky while two
+			birds fly upwards.
+	                @animated-gif{images/falling.gif} 
+	                @activity{Go to page [FILL] in the workbook. Draw three frames from this animation.
+				  Choose ones that highlight differences across the frames.
+			          The frames don't need to be consecutive.}
+			When you chose which frames to draw, did you include ones with the two birds different distances from each other?
+			@activity{Fill in the table of what information changes across the frames.}
+			In this case, there are five pieces of information: the y-coordinate of the person,
+			the x- and y-coordinates of the first bird, and the x- and y-coordinates of the second bird.
+			Do we really need the x-coordinates of the birds?  They only move in the y-axis, but once they go off screen,
+			their x-coordinates can change for their next pass upward.  You only notice that the x-axis changes if you
+			look at frames from multiple passes, rather than three consecutive frames.
+			@activity{Fill in the table of what fields you need for each piece of changing information.
+			          Write a data structure @code{FallingState} to capture the data in this animation.}
+			}
 	       @teacher{}}
-	@point{@student{Look at this animation of a star that pulses as it moves across the sky.
-	                @activity{Fill in the first part of an animation-design worksheet, drawing three individual frames.}
-			Which frames did you pick?  Is the star always getting smaller or always getting larger across your frames, or did you have it get smaller between two frames and larger between two other frames?  Choosing images that illustrate the various behaviors of the animation will help you think through the data that you need.
-			@activity{What information is changing across the frames?}
-			As in previous animations, the star's x-coordinate and y-coordinate are both changing. However, the star's size is also changing.
-			@activity{Write a data structure @code{StarState} to capture these three pieces of data.}
-			Even though we aren't going to write the entire animation, thinking about examples of @code{next-state-tick} can help us check whether our data struture has all the information it needs.  Assume you had the following @code{StarState} structure and were trying to write examples for the @code{next-state-tick} function.  Can you fill in the right side of the example?
-			[INSERT Data block and an example next-state-tick(star-data(100, 125, 25)) is _______________]
-			This example is interesting because we don't know whether the star is getting larger or smaller.  The size is enough information to @italic{draw} the frame, but it isn't enough to compute the @code{next} frame.  To compute the next state, our data structure also needs to know whether the star is growing or shrinking.
-			@activity{Edit your @code{StarState} to capture information about the direction the star is growing.}
+	       
+	 @point{@student{@bold{Exercise: Pulsing Star} -- Look at this animation of a star that pulses as it moves across the sky.
+	                @animated-gif{images/pulsingstar.gif} 
+	                @activity{Go to page [FILL] in the workbook. Draw three frames from this animation.
+				  Choose ones that highlight differences across the frames.
+			          The frames don't need to be consecutive.}
+
+		        When you chose which frames to draw, did you show the star getting smaller and then getting larger again?
+
+			@activity{Fill in the table of what information changes across the frames.}
+
+			The x- and y-coordinates of the star change, as does the size of the star. These changes are easy to see across
+			two frames. Something else changes too, but you have to look across at least three frames to see it. Imagine you
+			had a single frame with the star at size 75. In the next frame, should the star be larger or smaller? It's hard
+			to tell, because we don't know whether the star is currently in a "growing" phase or a "shrinking" one.  This
+			animation actually has a fourth state field: the direction of growth of the star. When the star is getting bigger,
+			the star's size should increase in the next frame. When the star is getting smaller, the size should decrease in
+			the next frame.
+
+			@activity{Fill in the table of what fields you need for each piece of changing information.
+			          Write a data structure @code{StarState} to capture the data in this animation.}
+
+		        What type did you choose for the field that tracks the direction of growth?  You have several choices: a boolean
+			such as @code{is-growing}, a string such as @code{direction} (with values @code{"grow"} or @code{"shrink"}), or
+			a number such @code{growth-rate} which is the amount to add to the size from state to state (a positive value
+			grows the star while a negative value shrinks it).  The code for @code{next-state-tick} will be cleaner if you
+			use the number, but the others make sense before you've thought ahead to the code.}
+			
+	       @teacher{The type for tracking direction of growth gives potential for a good discussion. None of these answers are
+	                wrong.  If they were to use the boolean or the string, however, their @code{next-state-tick} function would
+			need a conditional to decide whether to add or substract from the current size.  In this exercise, they
+			aren't writing the animations, so this is less of an issue. Our real goal is to get them to imagine
+			animations and to identify the state information that underlies each one.}
 			}
-	       @teacher{Different ways to capture growth -- boolean, number that use to multiply, string -- good chance for a design discussion [FILL AND FINISH]}}
+
 	@point{@student{Light Dimmer -- point here is that two visual effects might be due to the same variable.}
 	       @teacher{}}
+	       
 	@point{@student{For a real challenge, do single-paddle pong}
 	       @teacher{}}
          ]}
