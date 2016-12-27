@@ -452,7 +452,7 @@ ul.teacherNotes li div.student.slide{ width: 90%; }
 .lessonItem .slide .editbox,
 .lessonItem .slide .CodeMirror,
 .lessonItem .slide div.codesexp{
-  font-size: 30px; font-size: 2vw;
+  font-size: 48px;
 }
 
 #progressBar{position: fixed; top: 0px; left: 0px; height: 3px; background: black; visibility: visible; }
