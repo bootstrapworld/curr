@@ -23,6 +23,11 @@
  ; 16 is page two of the sunset-ds-design
  ("draw-state-sunset" 17)
  ("next-state-sunset" 18)
+ ("anim-data-blank1" 19)
+ ("anim-data-blank2" 21)
+ ("anim-data-blank3" 23)
+ ("anim-data-blank4" 25)
+ ("full-anim-design" 27)
  ;;;;; UNIT 4 ;;;;;;;;;
  ("Unit-4" 23)
  ("location" 24)

@@ -255,9 +255,20 @@
                            @item{Write a function to generate a new state from a given state (we'll call this @code{next-state-tick}).}
                            @item{Define a reactor that will use an initial instance of the state and the two functions to create an animation.}
                         ]
+			At this point, you could create your own animation from scratch by following these four steps.  If you do,
+			you may find it helpful to use the animation design worksheet on page @worksheet-link[#:name "full-anim-design"]
+			in your workbook: it takes you through sketching out your frames, developing the data structure for your
+			animation state, and writing the functions for the animation. It also gives you a checklist of the four
+			steps above. The checklist mentions a fifth (optional) step, which involves getting your characters to
+			respond when the user presses a key.  You'll learn how to do that in the next unit.
                         }
-               @teacher{}}
-	       
+               @teacher{The animation-design worksheet is a condensed summary of the steps to creating an animation.  If your
+	       		students still need more scaffolding, follow the sequence of sheets that we used to develop sunset,
+			including explicit worksheets for @code{draw-state} and @code{next-state-tick}. If your students are
+			doing fine without the scaffolding of the design recipe worksheets, the condensed worksheet should
+			suffice to keep them on track (though they should still write tests and follow the other steps of
+			the design recipe as they work).}}
+
 	@point{@student{You have just seen the incredible power of functions in programming! Functions let us
 	                @emph{generate content automatically}. In the early days of making cartoons,
                         artists drew every frame by hand.  They had to decide at the beginning how many frames
@@ -295,7 +306,7 @@
 	       @teacher{Figuring out the data structure is actually one of the most creative tasks in programming. More complex problems can be captured through multiple data structures. For example, we might have some information that could be computed from other information, so we have to decide what data to include and what to compute.  Or, we might want to combine multiple smaller data structures into a larger one, having a data structure for a coordinate (with both x- and y-positions), and a data structure for a character that has a coordinate and a color. We don't expect that you can envision all of these possibilities right now.  We do want you to be aware that students may come up with different ideas, and that this is appropriate and interesting at this stage.  Your students can have some valuable discussions about design once they start brainstorming different ways to organize data for a problem.}}
 	@point{@student{@bold{Exercise: Jumping Cow} -- Look at this animation of a cow jumping over the moon.
 	                @animated-gif{images/cowjump.gif} 
-	                @activity{Go to page [FILL] in the workbook. Draw three frames from this animation.
+	                @activity{Go to @worksheet-link[#:name "anim-data-blank1"] in the workbook. Draw three frames from this animation.
 				  Choose ones that highlight differences across the frames.
 			          The frames don't need to be consecutive.}
 			When you chose which frames to draw, did you include ones with different images or heights of the cow?
@@ -314,7 +325,7 @@
 	@point{@student{@bold{Exercise: Falling Person} -- Look at this animation of a person falling through the sky while two
 			birds fly upwards.
 	                @animated-gif{images/falling.gif} 
-	                @activity{Go to page [FILL] in the workbook. Draw three frames from this animation.
+	                @activity{Go to @worksheet-link[#:name "anim-data-blank2"] in the workbook. Draw three frames from this animation.
 				  Choose ones that highlight differences across the frames.
 			          The frames don't need to be consecutive.}
 			When you chose which frames to draw, did you include ones with the two birds different distances from each other?
@@ -331,7 +342,7 @@
 	       
 	 @point{@student{@bold{Exercise: Pulsing Star} -- Look at this animation of a star that pulses as it moves across the sky.
 	                @animated-gif{images/pulsingstar.gif} 
-	                @activity{Go to page [FILL] in the workbook. Draw three frames from this animation.
+	                @activity{Go to @worksheet-link[#:name "anim-data-blank3"] in the workbook. Draw three frames from this animation.
 				  Choose ones that highlight differences across the frames.
 			          The frames don't need to be consecutive.}
 
@@ -365,7 +376,7 @@
 
 	@point{@student{@bold{Exercise: Light Dimmer} -- Look at this animation of a slider to control the brightness of a light.
 	                @animated-gif{images/dimmer.gif} 
-	                @activity{Go to page [FILL] in the workbook. Draw three frames from this animation.
+	                @activity{Go to @worksheet-link[#:name "anim-data-blank4"] in the workbook. Draw three frames from this animation.
 				  Choose ones that highlight differences across the frames.
 			          The frames don't need to be consecutive.}
 			When you chose which frames to draw, did you include ones with the two birds different distances from each other?
