@@ -8,20 +8,26 @@
                                        (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image})
                                        (list "Cake" @code{cake .flavor .color .message .layers .is-iceCream}))]{
 
-@unit-descr{Students, having worked with pre-made data structures in the last lesson (Cakes), generalize their understanding by defining more data structures of their own, accessing their fields, and writing functions that produce them. 
-}
+@unit-descr{Students create a complete animation (of a sunset) from scratch.  They learn how to use data structures
+            to capture the essence of an animation. They apply the put-image function to draw single frames from data
+	    structure instances, and write a function to generate new frame data from previous frame data.  They learn
+	    how to combine their data and functions into a full running animation.}
 }
 @unit-lessons{
-@lesson/studteach[#:title "Animations in Pyret (still need to fix lesson metadata)"
-        #:duration "10 minutes"
+@lesson/studteach[#:title "Animations in Pyret"
+        #:duration "50 minutes"
         #:overview ""
-         #:learning-objectives @itemlist[@item{Write complex functions that consume, modify and produce structures}
-            @item{Deepen their understanding of structures, constructors and accessors by being introduced to a new data structure.}]
+        #:learning-objectives @itemlist[@item{Capture essense of an animation in a data structure}
+	 		                 @item{Create images for single frames of an animation}
+					 @item{Write a function to generate data structure instances for a frame from the instance for the previous frame}
+					 @item{Use reactors to define animations}
+					 @item{Understand how animations are built from simple functions}]
         #:evidence-statements @itemlist[]
-        #:product-outcomes @itemlist[@item{Students define a new data structure: a party }]
-        #:standards (list "N-Q" "F-IF.1-3" "BS-M" "BS-IDE" "BS-PL.1" "BS-DS.1" "BS-DS.2")
-        #:materials @itemlist[@item{The @editor-link[#:public-id "0B9rKDmABYlJVUUt1SUc5UnVsdm8" "Party Planner"] file preloaded on students' machines}
-                              @item{Pens/pencils for the students, fresh whiteboard markers for teachers}
+        #:product-outcomes @itemlist[@item{Students create a complete animation of a sunset}
+	                             @item{Students learn to use data structures to model the state of an animation}]
+        #:standards (list "MP.7" "F-IF.1-3" "F-IF.4-6" "L1:6:CT.1" "L2:CT:1" "L2:CPP:4" "L2:CPP:5"
+	                  "BS-M" "BS-IDE" "BS-PL.1"  "BS-PL.3" "BS-DS.1" "BS-DS.2" "BS-W" "BS-PL.P")
+        #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, design recipe, course calendar)}
                             @item{Editing environment (Pyret Editor)}
                             @item{Language Table}]
@@ -268,14 +274,14 @@
 	       }
          
 	       
-@lesson/studteach[#:title "Designing Data Structures for Animations (metadata needs to be fixed)"
-        #:duration "80 minutes"
+@lesson/studteach[#:title "Designing Data Structures for Animations"
+        #:duration "30 minutes"
         #:overview ""
-        #:learning-objectives @itemlist[@item{Students will write complex functions that consume, modify and produce structures}]
+        #:learning-objectives @itemlist[@item{Students practice identifying the data that underlies animations}]
         #:evidence-statements @itemlist[]
-        #:product-outcomes @itemlist[@item{Students will write functions that access fields of a Cake, and produce new Cakes}]
-        #:standards (list "7.EE.1-2" "F-IF.1-3" "A-CED.1-4" "BS-DR.1" "BS-DR.2" "BS-DR.3" "BS-DR.4" "BS-DS.1")
-        #:materials @itemlist[@item{The  @editor-link[#:public-id "0B9rKDmABYlJVU2lINzk1X0x2ODg" "Bakery"] file used in the previous unit}]
+        #:product-outcomes @itemlist[@item{Students develop data structures to capture several pre-defined animations}]
+        #:standards (list "MP.4" "MP.7" "BS-DS.2" "BS-W")
+        #:materials @itemlist[]
         #:preparation @itemlist[]
         #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
