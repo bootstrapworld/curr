@@ -19,6 +19,10 @@
  ("will-melt" 13)
  ;;;;; UNIT 3 ;;;;;;;;;
  ("Lesson-3" 14)
+ ("sunset-ds-design" 15)
+ ; 16 is page two of the sunset-ds-design
+ ("draw-state-sunset" 17)
+ ("next-state-sunset" 18)
  ;;;;; UNIT 4 ;;;;;;;;;
  ("Unit-4" 23)
  ("location" 24)

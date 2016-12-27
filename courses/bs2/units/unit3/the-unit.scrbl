@@ -58,19 +58,26 @@
                         telling them what steps to repeat.  Functions capture those instructions.}
 	       }
 	@point{@student{The first step is to develop a data structure for the information that changes across frames.
-			Look at our three sample images: what information
-			is needed to create each frame image?  Which infomation is different across
-			the frames?  What is the same? 
-			@activity{Figure out the differences and write them down in [FILL PART]
-			of the animation worksheet.}
+			To do this, we need to figure out what fields our data structure will need.
+			@activity{Turn to @worksheet-link[#:name "sunset-ds-design"] in your workbook. Copy the three sunset
+			images we gave you into the boxes at the top of the worksheet.}
+			To identify the fields, we have to figure out what information is needed to create each
+			frame image. Information that changes from frame to frame must be in the data structure.
+
+			@activity{On your worksheet, fill in the table just below the three images to indicate
+			what information changes across the frames.}
+
 			Hopefully, you identified two pieces of changing information: the x-coordinate of
 			the sun and the y-coordinate of the sun. Each image also contains the horizon (the
 			brown rectangle), but that is the same in every frame. Let's write down a data
 			structure for this.
-	                @activity{Create a data structure named @code{SunsetState} that holds the
-				  x-coordinate of the sun and the y-coordinate of the sun.}
+
+			@activity{Fill in the second table, giving a name and type for each of the x-coordinate and y-coordinate.
+			Then fill in the @code{SunsetState} data structure definition that we started for you
+			at the bottom of the page. Use @code{sunset} as the name of the constructor.}
+			
                         You should have come up with something like this: a data block with numbers for the two coordinates.
-                @code[#:multi-line #t]{# a SunsetState has the x-coordinate of the sun and the y-coordinate of the sun
+                      @code[#:multi-line #t]{# a SunsetState has the x-coordinate of the sun and the y-coordinate of the sun
 		      data SunsetState:
 		       | sunset(
 		           xpos :: Number,
@@ -81,23 +88,28 @@
 		       at a specific point in time.  Here, we use it to refer to the details that are unique to
 		       a single frame of the animation.
 		  }
-		@teacher{We are adopting a convention here, in which we include "State" in the name of the data block,
+		@teacher{We have the students copy the images into the workbook partly to make sure they
+			 understand what images they are working with and partly so that they have a
+			 self-contained worksheet page for later reference.
+			 
+			 We are adopting a convention here, in which we include "State" in the name of the data block,
 			 then use the same base name (without "State") for the constructor.
                          By not conflating the names here, students should have an easier time distinguishing between
 			 the constructor name and data structure name.}
 		}
 	@point{@student{Any time we make a data structure, we should make some sample instances: this helps check
 			that we have the right fields and gives us data to use in making examples later.
-			@activity{In the worksheet,
-			write down the @code{sunset} instances under each frame. The first one is at coordinate (10, 300),
-			the second is at (18, 292), and the third is at (26, 284).}
+			@activity{At the bottom of the worksheet, use the @code{sunset} constructor to write
+			write down the @code{SunsetState} instance for the first frame (labeled "Sketch A").
+			It has x-coordinate 10 and y-coordinate 300.}
 	                }
    	       @teacher{}}
      	@point{@student{The second step in making an animation is to write a function that consumes an instance of one state
 	                and produces the image for that instance. For sunset, we want to write a function named @code{draw-state}
 			that consumes a @emph{SunsetState} instance and produces an image with the sun at that location
 			over the horizon. This function should use @code{put-image}, as we did with the hikers in unit 1.
-			@activity{Go to @worksheet-link[#:name "next-position"] in your workbook and develop the @code{draw-state} function
+			
+			@activity{Go to @worksheet-link[#:name "draw-state-sunset"] in your workbook and develop the @code{draw-state} function
 			          described there. Type in your function and use it to draw several individual sunset frames.}
 			}
 			
@@ -118,7 +130,7 @@
 	                and produces the instance for the next state. For sunset, we want to write a function named
 			@code{next-state-tick} that consumes a @emph{SunsetState} instance and produces a @emph{SunsetState}
 			instance that is just a little lower in the sky.
-			@activity{Go to page [FILL] in your workbook and develop the @code{next-state-tick} function
+			@activity{Go to @worksheet-link[#:name "next-state-sunset"] in your workbook and develop the @code{next-state-tick} function
 				  described there. Use the sample @code{SunsetState} instances that you developed in
 				  step 1 as you make your examples of the function. Type in your code and make sure
 				  your examples are producing the expected answers.}
@@ -345,10 +357,24 @@
 			animations and to identify the state information that underlies each one.}
 			}
 
-	@point{@student{Light Dimmer -- point here is that two visual effects might be due to the same variable.}
-	       @teacher{}}
-	       
-	@point{@student{For a real challenge, do single-paddle pong}
+	@point{@student{@bold{Exercise: Light Dimmer} -- Look at this animation of a slider to control the brightness of a light.
+	                @animated-gif{images/dimmer.gif} 
+	                @activity{Go to page [FILL] in the workbook. Draw three frames from this animation.
+				  Choose ones that highlight differences across the frames.
+			          The frames don't need to be consecutive.}
+			When you chose which frames to draw, did you include ones with the two birds different distances from each other?
+			@activity{Fill in the table of what information changes across the frames.}
+			In this case, we see two things changing: the y-coordinate of the slider and the brightness of the light.
+			You could have one field for each of these. Or, you could just have a field for the y-coordinate and compute
+			the brightness from that value (you can control the brightness of a shape by putting a number from 0 to 255
+			in place of "solid" or "outline" in the arguments to the shape-image functions).
+			@activity{Fill in the table of what fields you need for each piece of changing information.
+			          Write a data structure @code{LightState} to capture the data in this animation.}
+			}
+	       @teacher{As an example of using the transparency argument, @code{circle(25, 150, "white")} creates a semi-bright white circle.}}
+
+	@point{@student{@bold{Exercise: Pong} For a real challenge of your data structure design skills, figure out the world data structure
+			needed for a single-paddle pong game (a ball bouncing off the walls and a single user-controlled paddle).}
 	       @teacher{}}
          ]}
        
@@ -368,7 +394,14 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{You've learned how to create an animation in Pyret. You saw how having control of drawing the state lets you create interesting effects like changing the color of the sun.  You've gotten a hint that you can make states with any information you want.  In upcoming lessons, we will make use of this to do even more interesting animations.}
+        @points[@point{@student{You've learned how to create an animation in Pyret. You've learned how to create a data structure for
+	                        the state of your animation.  You've written a function to draw the frame for one instance of your state
+				data.  You've written another function to produce the state instance for the next frame, and you've learned how
+				to write a reactor to create an animation from these pieces. Your state data structures can contain
+				information far beyond the coordinates for players: you can include images, sizes of characters,
+				colors of elements, and so on.  Once you control the data structure, you can create much richer animations
+				than you could in Bootstrap:1. Coming up, we will show you how to use keys to control your players.  Later,
+				we show you how to add other common game features to your Bootstrap:2 programs.}
                         @teacher{Have students volunteer what they learned in this lesson}}
                         
                         ]}
