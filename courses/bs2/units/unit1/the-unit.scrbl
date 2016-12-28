@@ -27,7 +27,17 @@
                 )
       ]{
         @points[@point{@student{Welcome back to Bootstrap! In Bootstrap:1, you used a @vocab{programming language} called Racket to make your video games. We chose this language because it behaves like algebra, but there are many different languages you could use to make video games. In Bootstrap:2, you’re going to learn a new language, called Pyret. Pyret is similar to Python, a programming language you may have heard of, but this language contains many of the features you remember from Racket. The @vocab{syntax} is a little different, but with a bit of practice you’ll pick it up in no time!}
-                       @teacher{Introduce teaching staff. Give some background: age, where you're from, something surprising about yourself, favorite food, etc. Anything to allow kids to connect. Have students introduce themselves. Set expectations and rules for the class.}}
+                       @teacher{@bold{Why the language switch?}
+                                 
+                                 Some students and teachers may already have experiences with languages such as HTML, Javascript, or Python.  With each new language, one encounters new syntax (how the language looks) and semantics (how the language behaves). Each of these languages has settings for which it is particularly appropriate and effective, and learning each teaches new lessons about programming style. The world of computing is multi-lingual, and we think a good introduction to computing should be, too.
+                                 
+                                 @bold{Why Pyret?} 
+                                 
+                                 Pyret, the language we will learn in Bootstrap:2, takes all the nice parts of the Bootstrap:1 language, and uses a syntax that is similar to traditional industry languages like Python. This means it shares the mathematical behavior of Racket, and allows for easy image-manipulation, test-cases, and the Design Recipe. This lets teachers and students to use what they know about Racket as they progress into Bootstrap:2. Pyret also has some unique features that make programming interactive programs more pleasant than in WeScheme.
+
+                                 
+This new syntax gives us an opportunity to show students that key programming ideas, like defining and using functions, carry over across different languages. It also provides a stepping stone towards more traditional languages, without diving head first into a language like Python, in which we'd have to learn different rules for numbers (among other things), new terminology for errors, and use functions that don’t always correspond to algebra. Pyret also provides us with the ability to write interactive programs and use images in a familiar way.}}
+                 
                  @point{@student{Open your workbook to @worksheet-link[#:name "Review"]. Here we have a table, with examples of value definitions in Racket and Pyret. On the left-hand column, we've defined values in Racket, and on the right we have the same values defined in Pyret. For instance, the first line on the left-hand side says @code{(define AGE 14)}. Directly to the right, we have the Pyret @vocab{syntax}: @code{AGE = 14}, which does the same thing: defines a variable called AGE, which has a value of 14.
                          @activity[#:forevidence (list "BS-PL.1&1&1")]{ Take a look at the other values defined here for Numbers, Strings, Images, and Booleans. On the right-hand side of the table, practice defining values in Pyret:
                            @itemlist[@item{two additional Numbers}
