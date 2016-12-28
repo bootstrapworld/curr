@@ -1,5 +1,13 @@
 #lang racket/base
 
+#|
+Glossary for terminology used in the notes.  The first entry of each entry can be either
+a single string or a list of keys that map to the same definition.
+
+If a list of keys is provided, the generated glossary will use the first in the list
+when it prints out the glossary for a particular unit
+|#
+
 (provide glossary-terms-dictionary)
 
 (define glossary-terms-dictionary
@@ -7,7 +15,7 @@
     ("apply" "use a given function on some inputs")
     ("arguments" "the inputs to a function; expressions for arguments follow the name of a function")
     ("boolean" "a type of data with two values: true and false")
-    ("calling" "Using a function by giving it inputs")
+    (("calling" "calls") "Using a function by giving it inputs")
     ("circle of evaluation" "a diagram of the structure of an expression (arithmetic or code)")
     ("clause" "a question and its corresponding answer in a conditional expression")
     ("conditional" "a code expression made of questions and answers")
@@ -15,7 +23,7 @@
     ("contract" "a statement of the name, domain, and range of a function")
     ("data block" "Code that lists the name, constructor(s), and field(s) of a data structure")
     ("data structure" "A datatype which packages several datatypes as fields")   
-    ("datatype" "A way of classifying values, such as: Number, String, Image, or Boolean")
+    ("data type" "A way of classifying values, such as: Number, String, Image, or Boolean")
     ("datatypes" "A way of classifying values, such as: Number, String, Image, or Boolean")
     ("define" "associate a descriptive name with a value")
     ("definitions area" "the text box in the Editor (DrRacket or WeScheme), where definitions for values and functions are written")
@@ -36,6 +44,7 @@
     ("function block" "code that names a function, lists its variables, and states the expression to compute when the function is used")
     ("function" "a mathematical object that takes in some inputs and produces an output")
     ("handler" "Connects an event (like a tick or keypress) and a function within a reactor")
+    ("helper function" "A small function that contains frequently-used code, which is called from within one or more other functions")
     ("hypotenuse" "the side opposite the 90-degree angle in a right triangle")
     ("image" "a type of data for pictures")
     ("interactions area" "the text box in the Editor (DrRacket or WeScheme), where we enter expressions to evaluate")

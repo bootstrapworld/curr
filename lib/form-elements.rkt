@@ -434,6 +434,10 @@
                                        (begin
                                          (printf "WARNING: Vocabulary term has empty definition in dictionary: ~a ~n" (first term))
                                          (glossary-entry (first term) #f))]
+                                      ;; if glossary entry indexed on multiple words for same defn, use first one
+                                      [(and (list? term) (cons? (first term)))
+                                       (glossary-entry (first (first term)) (second term))]
+                                      ;; if get here, entry should be indexed on only a single word
                                       [(list? term)
                                        (glossary-entry (first term) (second term))]
                                       [else (glossary-entry term #f)]))))))))))))
@@ -1319,14 +1323,17 @@
 
 ;;;;;;;;;;;;;; MISC HELPERS ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; lookup-tags: list[string] assoc[string, string] string -> element
+;; lookup-tags: list[string] assoc[(string or string-list), string] string -> element
 ;; looks up value associated with each string in taglist in 
 ;;    association list given as second arg
-;;    optional arg controls whether undefined terms are displayed in output
-;; used to generate standards and glossary
+;; The assoc list can have single strings or string-lists as keys (mult terms map to one defn).
+;; Optional arg controls whether undefined terms are displayed in output
+;; Used to generate standards and glossary
 (define (lookup-tags taglist in-dictionary tag-descr #:show-unbound (show-unbound #f))
   (foldr (lambda (elt result)
-           (let ([lookup (assoc elt in-dictionary)])
+           (let ([lookup (assf (lambda (entry-key) (or (equal? elt entry-key)
+                                                       (and (list? entry-key) (member elt entry-key))))
+                               in-dictionary)])
              (if lookup (cons lookup result)
                  (begin 
                    (printf "WARNING: ~a not in dictionary: ~a~n" tag-descr elt)
