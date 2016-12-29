@@ -11,7 +11,7 @@
 @unit-descr{Students create a complete animation (of a sunset) from scratch.  They learn how to use data structures
             to capture the essence of an animation. They apply the put-image function to draw single frames from data
 	    structure instances, and write a function to generate new frame data from previous frame data.  They learn
-	    how to combine their data and functions into a full running animation.}
+	    how to use reactors to combine their data and functions into a full running animation.}
 }
 @unit-lessons{
 @lesson/studteach[#:title "Animations in Pyret"
@@ -30,6 +30,7 @@
         #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, design recipe, course calendar)}
                             @item{Editing environment (Pyret Editor)}
+			    @item{@(hyperlink "https://code.pyret.org/editor#share=0B9rKDmABYlJVSm94cFA4T3R2NTA&v=f9fd139" "Sunset starter file")}
                             @item{Language Table}]
      #:preparation @itemlist[@item{Seating arrangements: ideally clusters of desks/tables}]
      #:pacings (list 
@@ -44,7 +45,7 @@
 	       @teacher{}}
 	@point{@student{In Bootstrap:1, many decisions about your animation were made for you. We told you how many characters you had and which aspects of them could change during the animation.  The danger always moved in the x-axis, the player always moved in the y-axis.  In Bootstrap:2, we give you much more control of your game: you decide how many characters you will have, and what aspects of them can change (position, color, size, etc).  In order to have this flexibility, we need to do a little more work to set up the animation.  Let's break down an animation to see what we need.}
 	       @teacher{}}
-	@point{@student{Let's create an animation of a sunset.  The sun will start at the top-left corner of the screen and fall diagonally down and right across the sky. Here's a running version of the animation we are trying to create:
+	@point{@student{Let's create an animation of a sunset.  The sun will start at the top-left corner of the screen and fall diagonally down and right across the sky. Here's a running version of the animation we are trying to create. Notice that the sun dips below the horizon in the bottom-right corner.
 	                @bannerline{@animated-gif{images/sunset.gif}}
 	                In Bootstrap:1, we talked about how an animation is made of a sequence of images that we flip through quickly.
                         We continue to think of an animation as a sequence of images in Bootstrap:2. For example, here are the first three frames of the sunset
@@ -63,8 +64,8 @@
 	       		Computers are good at repetition, but they need instructions
                         telling them what steps to repeat.  Functions capture those instructions.}
 	       }
-	@point{@student{The first step is to develop a data structure for the information that changes across frames.
-			To do this, we need to figure out what fields our data structure will need.
+	@point{@student{@bold{Step 1:} The first step is to develop a @vocab{data structure} for the information that changes across frames.
+			To do this, we need to figure out what @vocab{fields} our data structure will need.
 			@activity{Turn to @worksheet-link[#:name "sunset-ds-design"] in your workbook. Copy the three sunset
 			images we gave you into the boxes at the top of the worksheet.}
 			To identify the fields, we have to figure out what information is needed to create each
@@ -76,7 +77,7 @@
 			Hopefully, you identified two pieces of changing information: the x-coordinate of
 			the sun and the y-coordinate of the sun. Each image also contains the horizon (the
 			brown rectangle), but that is the same in every frame. Let's write down a data
-			structure for this.
+			structure that captures the two coordinates.
 
 			@activity{Fill in the second table, giving a name and type for each of the x-coordinate and y-coordinate.
 			Then fill in the @code{SunsetState} data structure definition that we started for you
@@ -103,20 +104,20 @@
                          By not conflating the names here, students should have an easier time distinguishing between
 			 the constructor name and data structure name.}
 		}
-	@point{@student{Any time we make a data structure, we should make some sample instances: this helps check
+	@point{@student{Any time we make a data structure, we should make some sample @vocab{instances}: this helps check
 			that we have the right fields and gives us data to use in making examples later.
 			@activity{At the bottom of the worksheet, use the @code{sunset} constructor to write
 			write down the @code{SunsetState} instance for the first frame (labeled "Sketch A").
 			It has x-coordinate 10 and y-coordinate 300.}
 	                }
    	       @teacher{}}
-     	@point{@student{The second step in making an animation is to write a function that consumes an instance of one state
-	                and produces the image for that instance. For sunset, we want to write a function named @code{draw-state}
-			that consumes a @emph{SunsetState} instance and produces an image with the sun at that location
-			over the horizon. This function should use @code{put-image}, as we did with the hikers in unit 1.
+     	@point{@student{@bold{Step 2:} The second step in making an animation is to write a function that consumes an instance of one state
+	                and produces the image for that instance. We call this function @code{draw-state}. For sunset, @code{draw-state}
+			takes a @emph{SunsetState} instance and produces an image with the sun at that location
+			(dipping behind the horizon when low in the sky). This function should use @code{put-image}, as we did with the hikers in unit 1.
 			
 			@activity{Go to @worksheet-link[#:name "draw-state-sunset"] in your workbook and develop the @code{draw-state} function
-			          described there. Type in your function and use it to draw several individual sunset frames.}
+			          described there. Type in your function and use it (in the interactions window) to draw several individual sunset frames.}
 			}
 			
 	       @teacher{You may have noticed that we used @code{SunsetState} instead of @code{sunset} as the domain name.
@@ -128,13 +129,13 @@
 			for the next frame?  Note we didn't ask how to produce the @emph{image} for the next frame. We only asked
 			how to produce the next @code{SunsetState} instance.  Why?  We just wrote @code{draw-state}, which
 			produces the image from a @code{SunsetState}.  So if we can produce the instance for the next
-			frame, we can use @code{draw-state} to get the image.}
+			frame, we can use @code{draw-state} to produce the image.}
 	       @teacher{Separating the instance from the image of it is key here: when we produce an animation, we actually
 	                produce a sequence of instances, and use @code{draw-state} to produce each one.  Students may
 			need some practice to think of the instance as separate from the image that goes into the animation.}}
-     	@point{@student{The third step in making an animation is to write a function that consumes an instance of one state
-	                and produces the instance for the next state. For sunset, we want to write a function named
-			@code{next-state-tick} that consumes a @emph{SunsetState} instance and produces a @emph{SunsetState}
+     	@point{@student{@bold{Step 3:} The third step in making an animation is to write a function that consumes an instance of one state
+	                and produces the instance for the next state. We call this function @code{next-state-tick}. For sunset, 
+			@code{next-state-tick} takes a @code{SunsetState} instance and produces a @emph{SunsetState}
 			instance that is just a little lower in the sky.
 			@activity{Go to @worksheet-link[#:name "next-state-sunset"] in your workbook and develop the @code{next-state-tick} function
 				  described there. Use the sample @code{SunsetState} instances that you developed in
@@ -143,7 +144,7 @@
 			}
 	       @teacher{}}
 	       
-     	@point{@student{Together, the @code{draw-state} and @code{next-state-tick} give us the building blocks for an
+     	@point{@student{Together, the @code{draw-state} and @code{next-state-tick} functions are the building blocks for an
 	                animation. To start to see how, let's first use these two functions to create the first
 			several frames of an animation by hand (then we'll show you how to make more frames automatically).
 			@activity{Run each of the following expressions in the interactions window in turn. Just copy and
@@ -189,13 +190,13 @@
 	       only need an initial instance and the two functions to generate a sequence of images that make
 	       up an animation.}}
 
-        @point{@student{The fourth (and final) step in making an animation is to tell Pyret to create an
+        @point{@student{@bold{Step 4:} The fourth (and final) step in making an animation is to tell Pyret to create an
 	 		animation using an initial @code{SunsetState} instance and our @code{draw-state} and
 			@code{next-state-tick} functions. To do this, we need a new construct called a
 			@vocab{reactor}. A reactor gathers up the information needed to create an animation.
-			Here, we define a reactor named @code{r} for the sunset animation:
+			Here, we define a reactor named @code{sunset-react} for the sunset animation:
 			@code[#:multi-line #t]{
-                          r = reactor:
+                          sunset-react = reactor:
   			    init: sunset(10, 300),
 			    on-tick: next-state-tick,
 			    to-draw: draw-state	  
@@ -220,9 +221,9 @@
 	                a reactor expression specifies handlers to use for various tasks.}}
 
      	@point{@student{If you run your sunset program after adding the reactor, nothing seems to happen. We have set
-			up an animation by defining @code{r}, but we haven't told Pyret to run it.  You could define
+			up an animation by defining @code{sunset-react}, but we haven't told Pyret to run it.  You could define
 			multiple reactors in the same file, so we have to tell Pyret explicitly when we want to run one.
-			@activity{Type @code{interact(r)} in the interactions window to run your sunset animation.}
+			@activity{Type @code{interact(sunset-react)} in the interactions window to run your sunset animation.}
 			}
 	       @teacher{The Bootstrap:1 teachpacks started the animation automatically.  In Bootstrap:2, you
 	       		have to start the animation manually by calling @code{interact}.}}
@@ -250,10 +251,10 @@
 			illustration of repeated computations that functions can capture naturally.}}
 	@point{@student{Summarizing what we have seen so far, we have to write four things in order to make an animation:
                         @itemlist[#:style 'ordered
-                           @item{Create a state structure to hold the information that changes across frames. This information is called the @vocab{state}.}
-                           @item{Write a function to generate an image of the current state (we'll call this @code{draw-state}).}
-                           @item{Write a function to generate a new state from a given state (we'll call this @code{next-state-tick}).}
-                           @item{Define a reactor that will use an initial instance of the state and the two functions to create an animation.}
+                           @item{Create a @vocab{data structure} to hold the information that changes across frames. This information is called the @vocab{state}.}
+                           @item{Write a @vocab{function} to generate an image of the current state (we'll call this @code{draw-state}).}
+                           @item{Write a @vocab{function} to generate a new state from a given state (we'll call this @code{next-state-tick}).}
+                           @item{Define a @vocab{reactor} that will use an initial instance of the state and the two functions to create an animation.}
                         ]
 			At this point, you could create your own animation from scratch by following these four steps.  If you do,
 			you may find it helpful to use the animation design worksheet on page @worksheet-link[#:name "full-anim-design"]
@@ -302,7 +303,8 @@
       
       ]{
         @points[
-      	@point{@student{You've learned the components of an animation in Pyret. The data structure for the state lies at the heart of the animation: each of the initial state, the @code{draw-state} function and the @code{next-state-tick} function are based on the data structure you choose. Being able to figure out the data structure you need for an animation is therefore a critical skills in making your own animations.  In this lesson, we are going to practice identifying the data and creating the data structures for various animations. We will not write the entire animation.  We are just going to practice identifying the data.}
+      	@point{@student{You've learned the components of an animation in Pyret. The data structure for the state lies at the heart of the animation: each of the initial state, the @code{draw-state} function and the @code{next-state-tick} function are based on the data structure you choose. Being able to figure out the data structure you need for an animation is therefore a critical skills in making your own animations.  In this lesson, we are going to practice identifying the data and creating the data structures for various animations. We will not write the entire animation.
+	       We are just going to practice identifying the data and writing the data structures.}
 	       @teacher{Figuring out the data structure is actually one of the most creative tasks in programming. More complex problems can be captured through multiple data structures. For example, we might have some information that could be computed from other information, so we have to decide what data to include and what to compute.  Or, we might want to combine multiple smaller data structures into a larger one, having a data structure for a coordinate (with both x- and y-positions), and a data structure for a character that has a coordinate and a color. We don't expect that you can envision all of these possibilities right now.  We do want you to be aware that students may come up with different ideas, and that this is appropriate and interesting at this stage.  Your students can have some valuable discussions about design once they start brainstorming different ways to organize data for a problem.}}
 	@point{@student{@bold{Exercise: Jumping Cow} -- Look at this animation of a cow jumping over the moon.
 	                @animated-gif{images/cowjump.gif} 
@@ -328,7 +330,7 @@
 	                @activity{Go to @worksheet-link[#:name "anim-data-blank2"] in the workbook. Draw three frames from this animation.
 				  Choose ones that highlight differences across the frames.
 			          The frames don't need to be consecutive.}
-			When you chose which frames to draw, did you include ones with the two birds different distances from each other?
+			When you chose which frames to draw, did you include ones with the two birds at different distances from each other?
 			@activity{Fill in the table of what information changes across the frames.}
 			In this case, there are five pieces of information: the y-coordinate of the person,
 			the x- and y-coordinates of the first bird, and the x- and y-coordinates of the second bird.
@@ -352,7 +354,7 @@
 
 			The x- and y-coordinates of the star change, as does the size of the star. These changes are easy to see across
 			two frames. Something else changes too, but you have to look across at least three frames to see it. Imagine you
-			had a single frame with the star at size 75. In the next frame, should the star be larger or smaller? It's hard
+			had a single frame with the star at size 25. In the next frame, should the star be larger or smaller? It's hard
 			to tell, because we don't know whether the star is currently in a "growing" phase or a "shrinking" one.  This
 			animation actually has a fourth state field: the direction of growth of the star. When the star is getting bigger,
 			the star's size should increase in the next frame. When the star is getting smaller, the size should decrease in
@@ -379,7 +381,8 @@
 	                @activity{Go to @worksheet-link[#:name "anim-data-blank4"] in the workbook. Draw three frames from this animation.
 				  Choose ones that highlight differences across the frames.
 			          The frames don't need to be consecutive.}
-			When you chose which frames to draw, did you include ones with the two birds different distances from each other?
+			When you chose which frames to draw, did you include the far left position when the light goes out? It can be useful
+			to think about the extreme cases when picking frames to focus on.
 			@activity{Fill in the table of what information changes across the frames.}
 			In this case, we see two things changing: the y-coordinate of the slider and the brightness of the light.
 			You could have one field for each of these. Or, you could just have a field for the y-coordinate and compute
@@ -391,7 +394,8 @@
 	       @teacher{As an example of using the transparency argument, @code{circle(25, 150, "white")} creates a semi-bright white circle.}}
 
 	@point{@student{@bold{Exercise: Pong} For a real challenge of your data structure design skills, figure out the world data structure
-			needed for a single-paddle pong game (a ball bouncing off the walls and a single user-controlled paddle).}
+			needed for a single-paddle pong game (a ball bouncing off the walls and a single user-controlled paddle). If
+			you want to build an entire Pong game, see the optional unit on how to do this.}
 	       @teacher{}}
          ]}
        
