@@ -11,6 +11,7 @@ body#beta::after{
   left: 80px;
   color: rgba(0,0,0,0.2);
   transform: rotate(45deg);
+  pointer-events: none;
 }
 
 /************************************************************************************
