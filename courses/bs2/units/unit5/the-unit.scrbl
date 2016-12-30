@@ -274,7 +274,7 @@ already know to build a game.
 
 @activity[]{
 
-Open the @editor-link[#:public-id "0B9rKDmABYlJVXy00M1VteEZxaHM" "Virtual Pet
+Open the @editor-link[#:public-id "0B32bNEogmncOMmZwMjEwaG4yZWM" "Virtual Pet
 Starter"] file.
 Run it, and use @code{interact(r)} to see the game run.
 
