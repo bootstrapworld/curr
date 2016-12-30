@@ -37,15 +37,15 @@
       ]{
         @points[
                 @point{@student{In the previous unit, you reviewed almost everything from Bootstrap:1 including Datatypes, Contracts, and the Design Recipe. 
-                                In this unit you will go above and beyond all that, and learn an entirely new datatype that will be the basis for everything you'll do in Bootstrap:2.}
+                                In this unit you will go above and beyond all that, and learn an entirely new construct that will be the basis for everything you'll do in Bootstrap:2.}
                         @teacher{Ask a few introductory review questions to test students' understanding: 
                                  @itemlist[@item{What are the three parts of a Contract?}        
                                             @item{What is the Pyret code to draw a solid, green triangle of size 22?}
                                             @item{Why is it important to write at least 2 examples before defining a function?}]}} 
                  
                  @point{@student{To make sure the material from the previous unit is fresh in your mind, tackle the following activity: @activity{Turn to @worksheet-link[#:name "double-radius"] in your workbook. Write a function called @code{double-radius}, 
-                                                   which takes in a radius and a color. It produces an outlined circle of whatever color was passed in, whose radius 
-                                                   is twice as big as the input.}}
+                                                   which takes in a radius and a color. It produces an outlined circle of whatever color was passed in, with radius 
+                                                   twice as big as the input.}}
                         @teacher{If walking through this example as a class, use a projector so kids can see the function being written on the computer.}}
                  @point{@student{Remember how to use the design recipe to work through word problems? @bannerline{Step 1: Contract and Purpose Statement}
                                  @activity[#:forevidence (list "N-Q&1&1" "F-IF.1-3&1&1" "F-LE.5&1&1" "BS-M&1&2" "BS-DR.1&1&1" "BS-DR.1&1&2")]{ @itemlist[@item{What is the @vocab{Name} of this function? How do you know?}
@@ -125,7 +125,7 @@ end}
                     @point{@student{Functions can return only one thing at a time, but we need to return both an x @bold{and} a y-coordinate in order to make the jumper move diagonally. Thankfully, we have a way to combine multiple things within one container, called a @vocab{Data Structure}. Just like Racket and Pyret have built-in functions and also let you define your own functions, these languages allow you to create your own data structures as well. For this project, we've created a structure for you to use called @code{JumperState}, which contains two Numbers, representing an x and a y-coordinate.                                                                            @activity{Look at line 6, where we've defined @code{JumperState}. We'll go through the new syntax for defining a data structure, because very soon you'll be defining brand new structures of your own!}
                             @itemlist[@item{First, we've written a comment to remind ourselves what we're creating. In this case, we're calling our new structure @code{JumperState}, which contains two numbers: an x and y-coordinate.}
                                       @item{The next line begins with @code{data JumperState:}. Similar to the keyword @code{fun} you learned in the last lesson, @code{data} tells the computer that you're about to define a new type of data. This is a @bold{very} powerful  piece of code: In Bootstrap:1, you wrote programs using four @vocab{data types}: Numbers, Strings, Images, and Booleans. In this course, now you can create brand new data types. We can use these data types to create complex animations, multi-player video games, or account for both coordinates of a parachute jumper, so he moves in 2-dimensions! We called this data type @code{JumperState}, because it represents the current state, or position, of the parachute jumper.  Pyret would let us write any name after @code{data}, but as a convention, the name of a new data structure is capitalized, and we choose a meaningful name for it.}
-                                      @item{The next line begins with the | symbol, sometimes called a "bar" or "pipe", followed by the name of the @vocab{constructor} function for the structure (in this case, @code{jumper}.)  A @vocab{constructor} function is similar to some functions you've seen before, for creating images.  To create an Image, we call the function that creates it: rectangle, triangle, square, etc. Similarly, to create a @code{JumperState}, we can use the @code{jumper} @vocab{constructor} function with its inputs (two numbers, called x and y).  Again, the names @code{JumperState} and @code{jumper} were chosen by us, the programmer, and putting them in a @code{data} definition makes them available as a new data type and as a constructor function.}] 
+                                      @item{The next line begins with the | symbol, sometimes called a "bar" or "pipe", followed by the name of the @vocab{constructor} function for the structure (in this case, @code{jumper}.)  A @vocab{constructor} function is similar to some functions you've seen before, for creating images.  To create an Image, we call the function that creates it: @code{rectangle}, @code{triangle}, @code{square}, etc. Similarly, to create a @code{JumperState}, we can use the @code{jumper} @vocab{constructor} function with its inputs (two numbers, called x and y).  Again, the names @code{JumperState} and @code{jumper} were chosen by us, the programmer, and putting them in a @code{data} definition makes them available as a new data type and as a constructor function.}] 
                                                                                        Let's get back to constructing a @code{jumper}, specifically how we knew the inputs would be numbers. The block of code we've given you defines all of this! @code[#:multi-line #t]{data JumperState:
        | jumper(
           x :: Number, 
@@ -197,12 +197,18 @@ tells us that we're defining a new data type called @code{JumperState}, whose co
                                    @bitmap{images/cake2.png}                                                   
                                    Now that we know everything that is part of a cake, we can use a data structure to represent the cake itself. Let's take a look at how this works.
                                    @activity{Open your workbook to @worksheet-link[#:name "Cakes"].}
-                                   At the top of this page we see a comment, stating what things are part of a CakeT. Below that is a line that says @code{data CakeT:}, which begins the definition of a new data structure, called CakeT (We chose this name for our data structure to be short for 'CakeType', but we could have chosen any number of descriptive names). On the next line, we define the function that makes a CakeT (@code{cake}), and how @italic{exactly} to make a CakeT - the names of each thing in a CakeT, and their data types. 
-                                   @activity{What is the first part of a CakeT? What data type can we use to represent it?}
-                                   There is a little bit of new syntax involved in defining structures. On the first line on @worksheet-link[#:name "Cakes"], we write @code{flavor :: String,}, which tells Pyret that the first element of @italic{any} CakeT will be its flavor, represented by a String. 
-                                   @activity{What is the second part of a CakeT? What data type can we use to represent it?}
+                                   On this page, we will define a data structure for cakes, which we call @code{CakeT} (T for "type"). At the top of this page we see a comment, stating what things are part of a @code{CakeT}. Below that is a line that says @code{data CakeT:}, which begins the definition of a new data structure, called CakeT. On the next line, we define the function that makes a CakeT (@code{cake}), and how @italic{exactly} to make a CakeT---the names of each thing in a CakeT, and their data types. Each piece of information that makes up a cake (the flavor, etc) is called a @vocab{field}.  A field has both a descriptive name (like @code{flavor}) and a datatype.
+				   
+                                   @activity{What name describes the first field in a CakeT? What data type can we use to represent it?}
+				   
+                                   There is a little bit of new syntax involved in defining structures. On the first line on @worksheet-link[#:name "Cakes"], we write @code{flavor :: String,}, which tells Pyret that the first element of @italic{any} CakeT will be its flavor, represented by a String. This line shows how to define one field in a data structure.
+				   
+                                   @activity{What name describes the second field in a CakeT? What data type can we use to represent it?}
+				   
                                    On the next line, write @code{layers :: Number,}, which tells Pyret that the second element of any CakeT will be its number of layers, represented by a Number.
-                                   @activity{What data structure should we use to represent whether or not the CakeT is an ice cream cake? List it along with the oter fields.}
+				   
+                                   @activity{What data structure should we use to represent whether or not the CakeT is an ice cream cake?  Use this to define another field.}
+				   
                                    On your paper, you should have: 
                                    @code[#:multi-line #t]{ # a CakeT is a flavor, number of layers, and whether or not it is an ice cream cake.
                                                        data CakeT:
@@ -211,33 +217,39 @@ tells us that we're defining a new data type called @code{JumperState}, whose co
                                                              layers      :: Number, 
                                                              is-iceCream :: Boolean)
                                                        end}
-                             This is the code that defines the CakeT data structure. It tells the computer what a CakeT is and what goes into it. It also defines its @vocab{constructor} function, called @code{cake}. To make a CakeT, you @italic{must} call the constructor function with three things: a @code{flavor}, which is a String, @code{layers}, a Number, and @code{is-iceCream}, which is a Boolean. Remember that order matters! For now, these are the only things that we're going to keep track of in a cakeT, but you can imagine how you might extend it to include other information.}
+                             This is the code that defines the CakeT data structure. It tells the computer what a CakeT is and what goes into it. It also defines its @vocab{constructor} function, called @code{cake}. To make a CakeT, you @italic{must} call the constructor function with three things: a @code{flavor}, which is a String, @code{layers}, a Number, and @code{is-iceCream}, which is a Boolean. Remember that order matters! For now, these are the only things that we're going to keep track of in a CakeT, but you can imagine how you might extend it to include other information.}
                         @teacher{Stress the importance of being able to define your own datatypes
                                  to students: no longer are they bound by the single values of numbers, strings, or booleans! Pyret allows you to define brand new @vocab{Data Structures}, containing 
                                  any combination of values.}}
                    
                     @point{@student{@activity{Open the @editor-link[#:public-id "0B9rKDmABYlJVa0cxbEpoSG1pT0k" "Bakery"] file and look at lines 3 - 8. Do they match what you have on your paper?} 
-                                      Now take a look farther down, at line 11: @code{cake2 = cake("Chocolate", 8, false)}
+                                      Now take a look farther down, at line 10: @code{birthday-cake = cake("Vanilla", 4, false)}
                                                @itemlist[@item{What is the name of this variable?}
-                                                          @item{What is the flavor of @code{cake2}?}
-                                                          @item{How many layers does @code{cake2} have?}
-                                                          @item{Finally, is @code{cake2} an ice cream cake, or not?}]}
+                                                          @item{What is the flavor of @code{birthday-cake}?}
+                                                          @item{How many layers does @code{birthday-cake} have?}
+                                                          @item{Finally, is @code{birthday-cake} an ice cream cake, or not?}]}
                             
-                            @teacher{Below the data definition for CakeT there are four CakeTs defined and assigned to the variables @code{cake1}, @code{cake2}, @code{cake3}, and @code{cake4}. Ask students 
-                                     questions about these CakeTs to get them thinking about how they would define their own.}}
-                    @point{@student{@activity[#:forevidence (list "BS-IDE&1&1" "BS-PL.1&1&1" "BS-DS.1&1&4")]{Define another CakeT, called @code{cake5}. To start,
+                            @teacher{Below the data definition for CakeT there are four CakeTs defined and assigned to the variables @code{birthday-cake}, @code{chocolate-cake}, @code{strawberry-cake}, and @code{red-velvet-cake}. Ask students questions about these CakeTs to get them thinking about how they would define their own.}}
+                    @point{@student{@activity[#:forevidence (list "BS-IDE&1&1" "BS-PL.1&1&1" "BS-DS.1&1&4")]{On line 14, define another CakeT, which you can name however you like (but choose something descriptive, like @code{pb-cake}, @code{lemon-cake}, etc.) To start,
                                                                          @itemlist[@item{how would you define this variable?}
                                                                                     @item{What function is used to make a Cake?}
                                                                                     @item{Which thing comes first in a Cake structure?}] 
-                                              Now what do you expect to happen when you type @code{cake5} into the interactions area? Click 'Run' and try it out.}
-                                              @code{cake5 = cake("Peanut Butter", 2, true)}}
-                            @teacher{Have students walk you through the process of defining a value called @code{cake5} and making a CakeT with whatever flavor, etc. they like.}}
-                 @point{@student{@activity[#:forevidence (list "BS-IDE&1&1" "BS-PL.1&1&1" "BS-DS.1&1&4")]{Define two new values for some of your favorite cakes. You can call them @code{cake6} and @code{cake7}, or whatever names you prefer. You can make any kind of CakeTs that you want, as long as your structure has the right types in the right orders!}}
+                                              Now what do you expect to happen when you type the name of your new CakeT into the interactions area? Click 'Run' and try it out.}
+                                              @code{pb-cake = cake("Peanut Butter", 2, true)}}
+                            @teacher{Have students walk you through the process of defining a new value and making a CakeT with whatever flavor, etc. they like.}}
+                 @point{@student{@activity[#:forevidence (list "BS-IDE&1&1" "BS-PL.1&1&1" "BS-DS.1&1&4")]{Define two new values for some of your favorite cakes. You can give them whatever names you prefer. You can make any kind of CakeTs that you want, as long as your structure has the right types in the right orders!}}
                          @teacher{Repetition is key in this lesson. Have students identify each part of the CakeT for every CakeT they've defined.
                                   What is the flavor of their first CakeT? Its number of layers? Ensure that students are using their inputs in the right order!}}
                  
-                 @point{@student{At this point, you've worked with two different @vocab{Data Structures}: JumperStates and CakeTs, and you've created different examples, or @vocab{instances}, of these structures. Throughout this course you'll create many more instances of structures than you will define whole new structures. For now, the important point is to recognize the difference between a structure @italic{definition} (the @code{data....} piece of code) and specific @vocab{instances} of a data structure (like @code{cake1}, or @code{jumper(44, 75)}.}
-                            @teacher{}}
+                 @point{@student{At this point, you've worked with two different @vocab{Data Structures}: JumperStates and CakeTs, and you've created different examples, or @vocab{instances}, of these structures.
+		 		 Instances are concrete uses of a datatype, just as 3 is a concrete Number (where Number is the type).  Here, CakeT is the type, and @code{cake("Chocolate", 8, false)} is
+				 a concrete cake with specific values for each field. In programming, we create instances much more often than we create new data structures.
+				 For now, the important point is to recognize the difference between a structure @italic{definition} (the @code{data....} piece of code) and
+				 specific @vocab{instances} of a data structure (like @code{birthday-cake}, or @code{jumper(44, 75)}.}
+                            @teacher{Students often struggle with the difference between the definition of a data structure and instances (items created from) a data structure. When students define CakeT, they haven't
+			             created any specific cakes.  They have defined a type that they can use to define specific cakes.  If they have a specific cake, they can ask questions of it such as "is this a chocolate
+				     cake?" and produce an answer.  If all they have is the CakeT definition, they can't answer such questions. Some people like the analogy of a cookie cutter here -- CakeT defines
+				     a cookie cutter, but doesn't produce any cookies.  To get a cookie, you use the @code{cake} constructor to define a specific cake with specific values for the fields.}}
                     
                     @point{@student{Based on these instances of CakeTs you just wrote:
                                     @activity[#:forevidence (list "F-IF.1-3&1&1")]{@itemlist[@item{What is the name of the function that creates a CakeT?}
@@ -248,10 +260,10 @@ tells us that we're defining a new data type called @code{JumperState}, whose co
                                   any combination of values. The important points to remember about creating structures at this point is that whenever the constructor function is called (in this case, @code{cake}), it must take in the same 
                                   number and type of values as in the structure's definition, and its inputs must be in the @italic{same order} as the definition.}}
               
-                 @point{@student{@activity[#:forevidence (list "BS-IDE&1&1")]{After clicking the "Run" button, in Pyret, type @code{cake1} into the interactions area and hit enter. What do you get back?}
+                 @point{@student{@activity[#:forevidence (list "BS-IDE&1&1")]{After clicking the "Run" button, in Pyret, type @code{birthday-cake} into the interactions area and hit enter. What do you get back?}
                                   Does this make sense? What happens when you type just a number into the interactions area? We get that same number back! What about Strings? Images? 
-                                  Booleans? If we don't do anything to our input, or use any function on it, we get back exactly what we put in! Here, you put in a CakeT, let's see what we get back.  At first glance, it looks like a function call was the answer!  But there's a few things different about what appears in the output.  First, it isn't the same color as a normal function call, which is the first hint that something's different.  Second, we can @emph{click} on it, and see that this value is storing three other values in its fields – the flavor, layers, and whether or not it's ice cream.  This compound value that's printed is an @vocab{instance} of a @code{CakeT}.  It's a value in its own right, so when we type in @code{cake1} it shows us this value (just like with numbers and strings).}
-                         @teacher{Remind students that values will always evaluate to themselves. 4 evaluates to 4, the string @code{"pizza"} evaluates to @code{"pizza"}, and @code{cake1} evaluates
+                                  Booleans? If we don't do anything to our input, or use any function on it, we get back exactly what we put in! Here, you put in a CakeT, let's see what we get back.  At first glance, it looks like a function call was the answer!  But there's a few things different about what appears in the output.  First, it isn't the same color as a normal function call, which is the first hint that something's different.  Second, we can @emph{click} on it, and see that this value is storing three other values in its @vocab{fields} – the flavor, layers, and whether or not it's ice cream.  This compound value that's printed is an @vocab{instance} of a @code{CakeT}.  It's a value in its own right, so when we type in @code{birthday-cake} it shows us this value (just like with numbers and strings).}
+                         @teacher{Remind students that values will always evaluate to themselves. 4 evaluates to 4, the string @code{"pizza"} evaluates to @code{"pizza"}, and @code{birthday-cake} evaluates
                                   to @code{cake("Vanilla", 4, false)}}}
                 
                       
@@ -275,13 +287,13 @@ tells us that we're defining a new data type called @code{JumperState}, whose co
                 )
       
       ]{@points[
-                @point{@student{Suppose you want to get the flavor @emph{out} of @code{cake4}. You don't care about the message, color, or anything else - you just want to 
+                @point{@student{Suppose you want to get the flavor @emph{out} of @code{chocolate-cake}. You don't care about the message, color, or anything else - you just want to 
                                 know the flavor. Pyret has syntax for doing precisely that: @code{.flavor}.
-                                @activity[#:forevidence (list "BS-IDE&1&1")]{If you type @code{cake4.flavor} into the interactions area, what should it evaluate to? Try it out! 
+                                @activity[#:forevidence (list "BS-IDE&1&1")]{If you type @code{chocolate-cake.flavor} into the interactions area, what should it evaluate to? Try it out! 
                                                       @itemlist[@item{What kind of thing did it return: A Number, String, Image, Boolean, or structure?}
                                                                  @item{Practice taking the flavor out of @emph{every} CakeT you have defined, using @code{.flavor}}]}
                     
-                                Of course, there are ways to access any part of a CakeT, not just the flavor! What do you think you would get if you typed @code{cake4.layers} in the interactions area? 
+                                Of course, there are ways to access any part of a CakeT, not just the flavor! What do you think you would get if you typed @code{chocolate-cake.layers} in the interactions area? 
                                 @activity[#:forevidence (list "BS-IDE&1&1")]{Try using the dot-accessors @code{.layers} and @code{.is-iceCream} on your CakeTs! Do they do what you expect?}}
                  @teacher{A way to prompt students to use these accessors is to ask: "How do you get the flavor out of a CakeT?" or "How do you get the layers out of a CakeT?"
                           Throughout the course you can set up a call and response system with students, where the question "How do you get the X out of a Y?" will prompt the name of the accessor.}}
@@ -291,11 +303,11 @@ tells us that we're defining a new data type called @code{JumperState}, whose co
                          @teacher{}}
                                     
                                     
-                  @point{@student{Our CakeT structure is defined using @code{data CakeT:} and the @code{cake(...)} line, which tells the computer what things make up that structure, and what order and type each 
-                                                          thing is. In return, we get new functions to use. Until we write these two lines, we don't have 
+                  @point{@student{Our CakeT structure is defined using @code{data CakeT:} and the @code{cake(...)} lines, which tell the computer what things make up that structure, and what order and type each 
+                                                          thing is. In return, we get new functions to use. Until we write these lines, we don't have 
                                                           @code{cake(...)} (to make a Cake), @code{.flavor} (to get the flavor out of the Cake), @code{.layers}, or any other dot-accessors, because Pyret doesn't know what a CakeT is- @italic{we haven't defined it}.
-            @activity[#:forevidence (list "BS-IDE&1&1")]{To see this for yourself, type a pound sign (#) before the line which begins with @code{cake(...)}. This comments it out, so that the computer ignores it. Hit run, and see what happens. }}
-                    @teacher{When the @code{cake(...)} line is commented out, Pyret returns some errors, saying you're trying to use @code{cake} before its definition. It doesn't know what @code{cake} is or does, because we defined a CakeT structure with no constructor. Make sure students understand that the line beginning with
+            @activity[#:forevidence (list "BS-IDE&1&1")]{To see this for yourself, type a pound sign (#) before the line which begins with @code{cake(...)} and each of the fields. This comments out the definition, so that the computer ignores it. Hit run, and see what happens. }}
+                    @teacher{When the @code{cake(...)} lines are commented out, Pyret returns some errors, saying you're trying to use @code{cake} before its definition. It doesn't know what @code{cake} is or does, because we defined a CakeT structure with no constructor. Make sure students understand that the line beginning with
                                       @code{data} and a line similar to @code{cake(...)} are needed in order to create and work with @italic{any} structure.}}         
                                     ]
          }
@@ -317,24 +329,24 @@ tells us that we're defining a new data type called @code{JumperState}, whose co
                 )
       
       ]{
-        @points[@point{@student{Of course, when programmers work with data structures, they don't just define them and create instances- they also write functions that use and produce structures. Let's get started writing some functions for CakeTs.}
+        @points[@point{@student{Of course, when programmers work with data structures, they don't just define them and create instances. They also write functions that use and produce structures. Let's get started writing some functions for CakeTs.}
                         @teacher{}}
                  
-                 @point{@student{@activity[#:forevidence (list "F-IF.1-3&1&1" "BS-DR.1&1&1" "BS-DS.2&1&1")]{Turn to @worksheet-link[#:name "taller-than"] in your workbooks. Write the contract and purpose statement for a function called @code{taller-than}, which consumes two CakeTs, and produces true if the first CakeT is taller than the second.
+                 @point{@student{@activity[#:forevidence (list "F-IF.1-3&1&1" "BS-DR.1&1&1" "BS-DS.2&1&1")]{Turn to @worksheet-link[#:name "taller-than"] in your workbook. Write the contract and purpose statement for a function called @code{taller-than}, which consumes two CakeTs, and produces true if the first CakeT is taller than the second.
                                                    @itemlist[@item{What is the domain for this function?}
                                                              @item{What is the range of @code{taller-than}?}
                                                              @item{Which part(s) of the CakeTs will you need to check to determine if one is taller than the other?}]}
                @code[#:multi-line #t]{
 # taller-than: CakeT, CakeT -> Boolean
 # consumes two CakeTs and produces true if the number of layers in the first CakeT is greater than the number of layers in the second}
-               For your first example, try comparing the original @code{cake1} and @code{cake2}. Do we care about what flavor either of these CakeTs are? What about whether or not one of them is an ice cream cake? All we need to figure out which one is taller is their number of layers. 
-               @activity{How do you get the number of layers out of @code{cake1}? What about @code{cake2}? Write your first example to figure out if @code{cake1} has a greater number of layers than @code{cake2}.}}
+               For your first example, try comparing @code{birthday-cake} and @code{chocolate-cake}. Do we care about what flavor either of these CakeTs are? What about whether or not one of them is an ice cream cake? All we need to figure out which one is taller is their number of layers. 
+               @activity{How do you get the number of layers out of @code{birthday-cake}? What about @code{chocolate-cake}? Write your first example to figure out if @code{birthday-cake} has a greater number of layers than @code{chocolate-cake}.}}
                          @teacher{ }}
                  
                  @point{@student{
                   @code[#:multi-line #t]{examples:
-                                             taller-than(cake1, cake2) is 
-                                             cake1.layers > cake2.layers
+                                             taller-than(birthday-cake, chocolate-cake) is 
+                                             birthday-cake.layers > chocolate-cake.layers
                                              
                                          end}
                                                                         
@@ -347,12 +359,12 @@ tells us that we're defining a new data type called @code{JumperState}, whose co
                                                          end}}
                          @teacher{ }}
                  
-                 @point{@student{@activity[#:forevidence (list "7.EE.1-2&1&1" "A-CED.1-4&1&1" "BS-DR.1&1&1" "BS-DR.1&1&2" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1" "BS-DS.1&1&5")]{Turn to @worksheet-link[#:name "will-melt"] in your workbooks. Your bakery needs to know if certain CakeTs need to be refrigerated. If the temperature is greater than 32 degrees AND the given CakeT is an ice cream cake, the function should return true. 
+                 @point{@student{@activity[#:forevidence (list "7.EE.1-2&1&1" "A-CED.1-4&1&1" "BS-DR.1&1&1" "BS-DR.1&1&2" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1" "BS-DS.1&1&5")]{Turn to @worksheet-link[#:name "will-melt"] in your workbook. Your bakery needs to know if certain CakeTs needs to be refrigerated. If the temperature is greater than 32 degrees AND the given CakeT is an ice cream cake, the function should return true. 
                                                    @itemlist[@item{Fill out the @vocab{Contract} and @vocab{Purpose Statement} for the function.}
                                                               @item{Write two examples for how one would use @code{will-melt}.}
                                                               @item{Circle and label what varies between those examples and label it with a @vocab{variable} name.}
                                                               @item{Define the function.}]}}
-                         @teacher{Give students plenty of time to practice using dot-accessors, extracting pieces of the Cake structures and modifying them.}}
+                         @teacher{Give students plenty of time to practice using dot-accessors, extracting pieces of the Cake structures and writing expressions that compute with them.}}
                                                                                                           @point{@student{@bold{Optional:} In the @editor-link[#:public-id "0B9rKDmABYlJVa0cxbEpoSG1pT0k" "Bakery"] file, extend the CakeT data structure to include one more field: a message, represented as a String. (Make sure you remember to change each CakeT instance below the data definition: if a CakeT now contains four fields, each instance will need to include all four fields!) Next, write a function called @code{birthday-cake}, which takes in a string representing someone's name, and produces a 2-layer, chocolate CakeT with "Happy birthday [Name]!" as the message. @bold{Hint:} You'll want to use the @code{string-append} function to combine two strings into one. Here is its contract: @code{# string-append : String, String -> String}}
                                                                                                 @teacher{Since this function returns a CakeT, remind students that they'll need to use the @code{cake} constructor function to produce a CakeT. }}  ]
          }
