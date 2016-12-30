@@ -194,7 +194,7 @@ tells us that we're defining a new data type called @code{JumperState}, whose co
                                                        @item{The number of layers}
                                                        @item{Whether or not the cake is an ice cream cake.}]
                                               What datatype could we use to represent the entire cake?}
-                                   @bitmap{images/cake2.png}                                                   
+                                   @bitmap{images/chocolate-cake.png}                                                   
                                    Now that we know everything that is part of a cake, we can use a data structure to represent the cake itself. Let's take a look at how this works.
                                    @activity{Open your workbook to @worksheet-link[#:name "Cakes"].}
                                    On this page, we will define a data structure for cakes, which we call @code{CakeT} (T for "type"). At the top of this page we see a comment, stating what things are part of a @code{CakeT}. Below that is a line that says @code{data CakeT:}, which begins the definition of a new data structure, called CakeT. On the next line, we define the function that makes a CakeT (@code{cake}), and how @italic{exactly} to make a CakeT---the names of each thing in a CakeT, and their data types. Each piece of information that makes up a cake (the flavor, etc) is called a @vocab{field}.  A field has both a descriptive name (like @code{flavor}) and a datatype.
@@ -245,7 +245,9 @@ tells us that we're defining a new data type called @code{JumperState}, whose co
 		 		 Instances are concrete uses of a datatype, just as 3 is a concrete Number (where Number is the type).  Here, CakeT is the type, and @code{cake("Chocolate", 8, false)} is
 				 a concrete cake with specific values for each field. In programming, we create instances much more often than we create new data structures.
 				 For now, the important point is to recognize the difference between a structure @italic{definition} (the @code{data....} piece of code) and
-				 specific @vocab{instances} of a data structure (like @code{birthday-cake}, or @code{jumper(44, 75)}.}
+				 specific @vocab{instances} of a data structure (like @code{birthday-cake}, or @code{jumper(44, 75)}.
+                         @bitmap{images/strawberry-cake.png}  
+                         }
                             @teacher{Students often struggle with the difference between the definition of a data structure and instances (items created from) a data structure. When students define CakeT, they haven't
 			             created any specific cakes.  They have defined a type that they can use to define specific cakes.  If they have a specific cake, they can ask questions of it such as "is this a chocolate
 				     cake?" and produce an answer.  If all they have is the CakeT definition, they can't answer such questions. Some people like the analogy of a cookie cutter here -- CakeT defines
