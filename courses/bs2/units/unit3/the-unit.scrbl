@@ -32,7 +32,7 @@
                             @item{Editing environment (Pyret Editor)}
                             @item{Language Table}]
      #:preparation @itemlist[@item{Computer for each student (or pair), running the Pyret Editor}
-     		             @item{The @(hyperlink "https://code.pyret.org/editor#share=0B9rKDmABYlJVSm94cFA4T3R2NTA&v=f9fd139" "sunset starter file") loaded on student machines}
+     		             @item{The @editor-link[#:public-id "0B9rKDmABYlJVSm94cFA4T3R2NTA" "sunset starter file"] loaded on student machines}
 			     ]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
