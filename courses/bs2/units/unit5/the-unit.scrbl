@@ -291,8 +291,8 @@ to the data definition, just adding and editing functions like
 @code{next-state-tick}, @code{next-state-key}, and @code{draw-state}.
 
 @activity[]{
-The next state on each tick should be a state where the hunger, sleep, and
-happiness are one less than before.
+The next state on each tick should be a state where the hunger is less by 2,
+sleep is less by 0.5 (or 1/2), and happiness is less by 1.
 }
 
 
@@ -306,35 +306,26 @@ we don't need to add any new fields, because the problem description only talks
 about existing fields.  Make sure you get a working animation with bars that
 decrease before moving on, like this:
 
-FILL (gif)
+@bannerline{@animated-gif{images/cat-decreasing-bars.gif}}
 
-Next, we'll add key events to the game so the bar doesn't @emph{always}
-decrease.
+Next, we'll add key events to the game so the player can increase them so they
+don't reach zero!
 
 @activity[]{
 On a key press, if the user pressed "f" (for "feed"), @code{hunger} should
-increase by 5. If the user pressed "p" (for "play"), @code{happy} should
-increase by 5.  If the user pressed "s" (for "sleep"), @code{sleep} should
+increase by 10. If the user pressed "p" (for "play"), @code{happy} should
+increase by 3.  If the user pressed "s" (for "sleep"), @code{sleep} should
 increase by 5.  If the user presses any other keys, nothing should change.
 }
 
 Follow the animation design worksheet, and work through this one on your own.
 What function needs to change?  What functions can stay the same?  Are any new
-fields needed?  Hint: The problem description mentions existing fields and the
-@code{next-state-key} function.
-
-
-@activity[]{ When any bar reaches zero, the game is lost and your pet is sad –
-change the picture to indicate this.  In addition, when the game is lost, then
-key presses shouldn't change anything any more; the reactor needs to be
-restarted in order to play again.}
-
-
-
+fields needed?  Hint: The problem description mentions all existing fields and
+the @code{next-state-key} function.
 
 @activity[]{
-When you've implemented both @code{next-state-key} and @code{next-state-tick},
-you can add them to the reactor at the bottom of the file with:
+When you've implemented @code{next-state-key},
+you can add it to the reactor at the bottom of the file with:
 
 @code[#:multi-line #t]{
 r = reactor:
@@ -343,20 +334,28 @@ r = reactor:
   on-tick: next-state-tick,
   to-draw: draw-state
 end
-}
-
 and test out your game!
 }
+}
+
+
+
+@activity[]{ When any bar reaches zero, the game is lost and your pet is sad –
+make the picture change to show the player this!  In addition, when the game is
+lost, the "f", "p", and "s" keys shouldn't do anything.  Instead, the user
+should be able to press the "r" key (for "restart"), to reset hunger, sleep,
+and happiness to 100, and start playing again.}
+
 
 }
 
 @teacher{
 
-Some next steps/optional activities if students finish these two functions:
-         @itemlist[@item{Find your own images to create a different virtual pet}
-                   @item{Stop the bars from overflowing some maximum. (produce something like @editor-link[#:public-id "0B9rKDmABYlJVNTR6ajd4N1hPRm8" "this completed game"])}
-                   @item{Add an x-coordinate to the PetState so the pet moves around, either on key press or automatically.}
-                   @item{Add a costume to the PetState, then change the draw-pet function so that it changes the costume based on the pet's mood (if a-pet.hunger <= 50, show a pic of the pet looking hungry}]
+Some next steps/optional activities if students finish these activities:
+@itemlist[@item{Find your own images to create a different virtual pet}
+          @item{Stop the bars from overflowing some maximum. (produce something like @editor-link[#:public-id "0B9rKDmABYlJVNTR6ajd4N1hPRm8" "this completed game"])}
+          @item{Add an x-coordinate to the PetState so the pet moves around, either on key press or automatically.}
+          @item{Add a costume to the PetState, then change the draw-pet function so that it changes the costume based on the pet's mood (if a-pet.hunger <= 50, show a pic of the pet looking hungry}]
 
 }
 }
