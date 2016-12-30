@@ -30,9 +30,10 @@
         #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, design recipe, course calendar)}
                             @item{Editing environment (Pyret Editor)}
-			    @item{@(hyperlink "https://code.pyret.org/editor#share=0B9rKDmABYlJVSm94cFA4T3R2NTA&v=f9fd139" "Sunset starter file")}
                             @item{Language Table}]
-     #:preparation @itemlist[@item{Seating arrangements: ideally clusters of desks/tables}]
+     #:preparation @itemlist[@item{Computer for each student (or pair), running the Pyret Editor}
+     		             @item{The @(hyperlink "https://code.pyret.org/editor#share=0B9rKDmABYlJVSm94cFA4T3R2NTA&v=f9fd139" "sunset starter file") loaded on student machines}
+			     ]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -64,7 +65,8 @@
 	       		Computers are good at repetition, but they need instructions
                         telling them what steps to repeat.  Functions capture those instructions.}
 	       }
-	@point{@student{@bold{Step 1:} The first step is to develop a @vocab{data structure} for the information that changes across frames.
+	@point{@student{@bannerline{@bold{Step 1: Define the data structure}}
+		        The first step is to develop a @vocab{data structure} for the information that changes across frames.
 			To do this, we need to figure out what @vocab{fields} our data structure will need.
 			@activity{Turn to @worksheet-link[#:name "sunset-ds-design"] in your workbook. Copy the three sunset
 			images we gave you into the boxes at the top of the worksheet.}
@@ -111,7 +113,8 @@
 			It has x-coordinate 10 and y-coordinate 300.}
 	                }
    	       @teacher{}}
-     	@point{@student{@bold{Step 2:} The second step in making an animation is to write a function that consumes an instance of one state
+     	@point{@student{@bannerline{@bold{Step 2: Draw one frame}}
+			The second step in making an animation is to write a function that consumes an instance of one state
 	                and produces the image for that instance. We call this function @code{draw-state}. For sunset, @code{draw-state}
 			takes a @emph{SunsetState} instance and produces an image with the sun at that location
 			(dipping behind the horizon when low in the sky). This function should use @code{put-image}, as we did with the hikers in unit 1.
@@ -133,7 +136,9 @@
 	       @teacher{Separating the instance from the image of it is key here: when we produce an animation, we actually
 	                produce a sequence of instances, and use @code{draw-state} to produce each one.  Students may
 			need some practice to think of the instance as separate from the image that goes into the animation.}}
-     	@point{@student{@bold{Step 3:} The third step in making an animation is to write a function that consumes an instance of one state
+			
+     	@point{@student{@bannerline{@bold{Step 3: Produce the next frame instance}}
+			The third step in making an animation is to write a function that consumes an instance of one state
 	                and produces the instance for the next state. We call this function @code{next-state-tick}. For sunset, 
 			@code{next-state-tick} takes a @code{SunsetState} instance and produces a @emph{SunsetState}
 			instance that is just a little lower in the sky.
@@ -190,7 +195,8 @@
 	       only need an initial instance and the two functions to generate a sequence of images that make
 	       up an animation.}}
 
-        @point{@student{@bold{Step 4:} The fourth (and final) step in making an animation is to tell Pyret to create an
+        @point{@student{@bannerline{@bold{Step 4: Define an animation with a reactor}}
+	                The fourth (and final) step in making an animation is to tell Pyret to create an
 	 		animation using an initial @code{SunsetState} instance and our @code{draw-state} and
 			@code{next-state-tick} functions. To do this, we need a new construct called a
 			@vocab{reactor}. A reactor gathers up the information needed to create an animation.
