@@ -52,7 +52,7 @@
   (@code{CharState}) that has an x and y position.
 
 @activity[]{
-  Write an example instance of a @code{char-state} where both the @code{x}
+  Write an example instance of a @code{char} where both the @code{x}
   field and the @code{y} field are between 100 and 500.  Give it the name
   @code{middle}.
 }
@@ -192,6 +192,10 @@ a new @code{char} instance with appropriate @code{x} and @code{y} values?}
 the animation?}
 
 ]
+
+You should be able to move Sam the Butterfly around:
+
+@animated-gif{images/sam-moving.gif}
 
 }
 
