@@ -163,7 +163,7 @@ draw-state(next-state-key(next-state-key(middle, "left"), "up"))
   user presses a key.  That looks like this:
 
 @code[#:multi-line #t]{
-r = reactor:
+char-react = reactor:
   init: middle,
   to-draw: draw-state,
   on-key: next-state-key
@@ -274,8 +274,7 @@ already know to build a game.
 
 @activity[]{
 
-Open the @editor-link[#:public-id "0B32bNEogmncOMmZwMjEwaG4yZWM" "Virtual Pet
-Starter"] file.
+Open the @editor-link[#:public-id "0B9rKDmABYlJVXy00M1VteEZxaHM" "Virtual Pet Starter"] file.
 Run it, and use @code{interact(r)} to see the game run.
 
 }
@@ -296,7 +295,7 @@ sleep is less by 0.5 (or 1/2), and happiness is less by 1.
 }
 
 
-Open your workbook to FILL, and use the animation design worksheet to work
+Open your workbook to @worksheet-link[#:page 110 #:name "Animation-Design"], and use the animation design worksheet to work
 through this new feature.  For example, we know the image on each frame should
 show smaller bars on each tick.  The drawing function already draws the bars by
 using the length from the world – how could we check?  We know we should
@@ -328,7 +327,7 @@ When you've implemented @code{next-state-key},
 you can add it to the reactor at the bottom of the file with:
 
 @code[#:multi-line #t]{
-r = reactor:
+pet-react = reactor:
   init: FULLPET,
   on-key: next-state-key,
   on-tick: next-state-tick,
@@ -375,9 +374,8 @@ Some of these ideas are more straightforward than others with what you know.
 The rest of the workbook and units are designed to show you different
 @emph{features} that you can add to interactive programs.  You can work through
 them all if you like, or come up with an idea for your own program, and try the
-ones that will help you build your very own program!
-
-}
+ones that will help you build your very own program!}
+ @teacher{}
 }
 
 
