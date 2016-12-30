@@ -223,22 +223,21 @@ tells us that we're defining a new data type called @code{JumperState}, whose co
                                  any combination of values.}}
                    
                     @point{@student{@activity{Open the @editor-link[#:public-id "0B9rKDmABYlJVa0cxbEpoSG1pT0k" "Bakery"] file and look at lines 3 - 8. Do they match what you have on your paper?} 
-                                      Now take a look farther down, at line 11: @code{cake2 = cake("Chocolate", 8, false)}
+                                      Now take a look farther down, at line 10: @code{birthday-cake = cake("Vanilla", 4, false)}
                                                @itemlist[@item{What is the name of this variable?}
-                                                          @item{What is the flavor of @code{cake2}?}
-                                                          @item{How many layers does @code{cake2} have?}
-                                                          @item{Finally, is @code{cake2} an ice cream cake, or not?}]}
+                                                          @item{What is the flavor of @code{birthday-cake}?}
+                                                          @item{How many layers does @code{birthday-cake} have?}
+                                                          @item{Finally, is @code{birthday-cake} an ice cream cake, or not?}]}
                             
-                            @teacher{Below the data definition for CakeT there are four CakeTs defined and assigned to the variables @code{cake1}, @code{cake2}, @code{cake3}, and @code{cake4}. Ask students 
-                                     questions about these CakeTs to get them thinking about how they would define their own.}}
-                    @point{@student{@activity[#:forevidence (list "BS-IDE&1&1" "BS-PL.1&1&1" "BS-DS.1&1&4")]{Define another CakeT, called @code{cake5}. To start,
+                            @teacher{Below the data definition for CakeT there are four CakeTs defined and assigned to the variables @code{birthday-cake}, @code{chocolate-cake}, @code{strawberry-cake}, and @code{red-velvet-cake}. Ask students questions about these CakeTs to get them thinking about how they would define their own.}}
+                    @point{@student{@activity[#:forevidence (list "BS-IDE&1&1" "BS-PL.1&1&1" "BS-DS.1&1&4")]{On line 14, define another CakeT, which you can name however you like (but choose something descriptive, like @code{pb-cake}, @code{lemon-cake}, etc.) To start,
                                                                          @itemlist[@item{how would you define this variable?}
                                                                                     @item{What function is used to make a Cake?}
                                                                                     @item{Which thing comes first in a Cake structure?}] 
-                                              Now what do you expect to happen when you type @code{cake5} into the interactions area? Click 'Run' and try it out.}
-                                              @code{cake5 = cake("Peanut Butter", 2, true)}}
-                            @teacher{Have students walk you through the process of defining a value called @code{cake5} and making a CakeT with whatever flavor, etc. they like.}}
-                 @point{@student{@activity[#:forevidence (list "BS-IDE&1&1" "BS-PL.1&1&1" "BS-DS.1&1&4")]{Define two new values for some of your favorite cakes. You can call them @code{cake6} and @code{cake7}, or whatever names you prefer. You can make any kind of CakeTs that you want, as long as your structure has the right types in the right orders!}}
+                                              Now what do you expect to happen when you type the name of your new CakeT into the interactions area? Click 'Run' and try it out.}
+                                              @code{pb-cake = cake("Peanut Butter", 2, true)}}
+                            @teacher{Have students walk you through the process of defining a new value and making a CakeT with whatever flavor, etc. they like.}}
+                 @point{@student{@activity[#:forevidence (list "BS-IDE&1&1" "BS-PL.1&1&1" "BS-DS.1&1&4")]{Define two new values for some of your favorite cakes. You can give them whatever names you prefer. You can make any kind of CakeTs that you want, as long as your structure has the right types in the right orders!}}
                          @teacher{Repetition is key in this lesson. Have students identify each part of the CakeT for every CakeT they've defined.
                                   What is the flavor of their first CakeT? Its number of layers? Ensure that students are using their inputs in the right order!}}
                  
@@ -246,7 +245,7 @@ tells us that we're defining a new data type called @code{JumperState}, whose co
 		 		 Instances are concrete uses of a datatype, just as 3 is a concrete Number (where Number is the type).  Here, CakeT is the type, and @code{cake("Chocolate", 8, false)} is
 				 a concrete cake with specific values for each field. In programming, we create instances much more often than we create new data structures.
 				 For now, the important point is to recognize the difference between a structure @italic{definition} (the @code{data....} piece of code) and
-				 specific @vocab{instances} of a data structure (like @code{cake1}, or @code{jumper(44, 75)}.}
+				 specific @vocab{instances} of a data structure (like @code{birthday-cake}, or @code{jumper(44, 75)}.}
                             @teacher{Students often struggle with the difference between the definition of a data structure and instances (items created from) a data structure. When students define CakeT, they haven't
 			             created any specific cakes.  They have defined a type that they can use to define specific cakes.  If they have a specific cake, they can ask questions of it such as "is this a chocolate
 				     cake?" and produce an answer.  If all they have is the CakeT definition, they can't answer such questions. Some people like the analogy of a cookie cutter here -- CakeT defines
@@ -261,10 +260,10 @@ tells us that we're defining a new data type called @code{JumperState}, whose co
                                   any combination of values. The important points to remember about creating structures at this point is that whenever the constructor function is called (in this case, @code{cake}), it must take in the same 
                                   number and type of values as in the structure's definition, and its inputs must be in the @italic{same order} as the definition.}}
               
-                 @point{@student{@activity[#:forevidence (list "BS-IDE&1&1")]{After clicking the "Run" button, in Pyret, type @code{cake1} into the interactions area and hit enter. What do you get back?}
+                 @point{@student{@activity[#:forevidence (list "BS-IDE&1&1")]{After clicking the "Run" button, in Pyret, type @code{birthday-cake} into the interactions area and hit enter. What do you get back?}
                                   Does this make sense? What happens when you type just a number into the interactions area? We get that same number back! What about Strings? Images? 
-                                  Booleans? If we don't do anything to our input, or use any function on it, we get back exactly what we put in! Here, you put in a CakeT, let's see what we get back.  At first glance, it looks like a function call was the answer!  But there's a few things different about what appears in the output.  First, it isn't the same color as a normal function call, which is the first hint that something's different.  Second, we can @emph{click} on it, and see that this value is storing three other values in its @vocab{fields} – the flavor, layers, and whether or not it's ice cream.  This compound value that's printed is an @vocab{instance} of a @code{CakeT}.  It's a value in its own right, so when we type in @code{cake1} it shows us this value (just like with numbers and strings).}
-                         @teacher{Remind students that values will always evaluate to themselves. 4 evaluates to 4, the string @code{"pizza"} evaluates to @code{"pizza"}, and @code{cake1} evaluates
+                                  Booleans? If we don't do anything to our input, or use any function on it, we get back exactly what we put in! Here, you put in a CakeT, let's see what we get back.  At first glance, it looks like a function call was the answer!  But there's a few things different about what appears in the output.  First, it isn't the same color as a normal function call, which is the first hint that something's different.  Second, we can @emph{click} on it, and see that this value is storing three other values in its @vocab{fields} – the flavor, layers, and whether or not it's ice cream.  This compound value that's printed is an @vocab{instance} of a @code{CakeT}.  It's a value in its own right, so when we type in @code{birthday-cake} it shows us this value (just like with numbers and strings).}
+                         @teacher{Remind students that values will always evaluate to themselves. 4 evaluates to 4, the string @code{"pizza"} evaluates to @code{"pizza"}, and @code{birthday-cake} evaluates
                                   to @code{cake("Vanilla", 4, false)}}}
                 
                       
@@ -288,13 +287,13 @@ tells us that we're defining a new data type called @code{JumperState}, whose co
                 )
       
       ]{@points[
-                @point{@student{Suppose you want to get the flavor @emph{out} of @code{cake4}. You don't care about the message, color, or anything else - you just want to 
+                @point{@student{Suppose you want to get the flavor @emph{out} of @code{chocolate-cake}. You don't care about the message, color, or anything else - you just want to 
                                 know the flavor. Pyret has syntax for doing precisely that: @code{.flavor}.
-                                @activity[#:forevidence (list "BS-IDE&1&1")]{If you type @code{cake4.flavor} into the interactions area, what should it evaluate to? Try it out! 
+                                @activity[#:forevidence (list "BS-IDE&1&1")]{If you type @code{chocolate-cake.flavor} into the interactions area, what should it evaluate to? Try it out! 
                                                       @itemlist[@item{What kind of thing did it return: A Number, String, Image, Boolean, or structure?}
                                                                  @item{Practice taking the flavor out of @emph{every} CakeT you have defined, using @code{.flavor}}]}
                     
-                                Of course, there are ways to access any part of a CakeT, not just the flavor! What do you think you would get if you typed @code{cake4.layers} in the interactions area? 
+                                Of course, there are ways to access any part of a CakeT, not just the flavor! What do you think you would get if you typed @code{chocolate-cake.layers} in the interactions area? 
                                 @activity[#:forevidence (list "BS-IDE&1&1")]{Try using the dot-accessors @code{.layers} and @code{.is-iceCream} on your CakeTs! Do they do what you expect?}}
                  @teacher{A way to prompt students to use these accessors is to ask: "How do you get the flavor out of a CakeT?" or "How do you get the layers out of a CakeT?"
                           Throughout the course you can set up a call and response system with students, where the question "How do you get the X out of a Y?" will prompt the name of the accessor.}}
@@ -340,14 +339,14 @@ tells us that we're defining a new data type called @code{JumperState}, whose co
                @code[#:multi-line #t]{
 # taller-than: CakeT, CakeT -> Boolean
 # consumes two CakeTs and produces true if the number of layers in the first CakeT is greater than the number of layers in the second}
-               For your first example, try comparing the original @code{cake1} and @code{cake2}. Do we care about what flavor either of these CakeTs are? What about whether or not one of them is an ice cream cake? All we need to figure out which one is taller is their number of layers. 
-               @activity{How do you get the number of layers out of @code{cake1}? What about @code{cake2}? Write your first example to figure out if @code{cake1} has a greater number of layers than @code{cake2}.}}
+               For your first example, try comparing @code{birthday-cake} and @code{chocolate-cake}. Do we care about what flavor either of these CakeTs are? What about whether or not one of them is an ice cream cake? All we need to figure out which one is taller is their number of layers. 
+               @activity{How do you get the number of layers out of @code{birthday-cake}? What about @code{chocolate-cake}? Write your first example to figure out if @code{birthday-cake} has a greater number of layers than @code{chocolate-cake}.}}
                          @teacher{ }}
                  
                  @point{@student{
                   @code[#:multi-line #t]{examples:
-                                             taller-than(cake1, cake2) is 
-                                             cake1.layers > cake2.layers
+                                             taller-than(birthday-cake, chocolate-cake) is 
+                                             birthday-cake.layers > chocolate-cake.layers
                                              
                                          end}
                                                                         
