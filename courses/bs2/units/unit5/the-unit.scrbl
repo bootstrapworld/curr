@@ -332,10 +332,11 @@ pet-react = reactor:
   on-key: next-state-key,
   on-tick: next-state-tick,
   to-draw: draw-state
-end
+end}
+
 and test out your game!
 }
-}
+
 
 
 
