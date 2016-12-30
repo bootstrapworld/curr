@@ -73,8 +73,11 @@ This new syntax gives us an opportunity to show students that key programming id
                        @teacher{The spaces matter because Pyret allow various non-alphabetic characters to be used in names of variables and identifiers.  Pyret needs the spaces
 		       		to tell whether @code{-} is a minus sign or a hyphen, for example.  The spacing rule thus applies to all arithmetic function characters.}}
                
-              
-                                  ]}
+               @point{@student{Another difference between Racket and Pyret is that Pyret requires commas between each input to a function. So, @code{circle(50 “solid” “red”)} will return an error message, because you need commas between each input. @code{circle(50, “solid”, “red”)} is the correct code. Keep this in mind as you write your programs!}
+                       @teacher{}
+                       }
+                        ]
+         }
    
 @lesson/studteach[
         #:title "Contracts"
@@ -103,8 +106,7 @@ A contract is a note we write to ourselves about how to use the function. Just a
 Contracts in Pyret are just as important as they are in Racket, and are written the same way. You write contracts as comments: pieces of text for humans only, which are ignored by the computer. In Racket we used a @code{;} (semicolon) before Contracts, but in Pyret, just put a @code{#} (pound sign, or octothorpe) before a line of text to turn it into a comment!
 @activity[#:forevidence (list "BS-PL.2&1&1")]{The Contract for @code{+} is shown below.
           @code[#:multi-line ""]{#  +  : Number Number -> Number}                
-Write down the Contracts for @code{*}, @code{-}, @code{/} and @code{num-sqrt} in your Contracts page. (You know @code{num-sqrt} as the @code{sqrt} function in Racket!)}
-One notable difference between Racket and Pyret is that Pyret requires commas between each input to a function. So, @code{circle(50 “solid” “red”)} will return an error message, because you need commas between each input. @code{circle(50, “solid”, “red”)} is the correct code. Keep this in mind as you write your programs!}                             
+Write down the Contracts for @code{*}, @code{-}, @code{/} and @code{num-sqrt} in your Contracts page. (You know @code{num-sqrt} as the @code{sqrt} function in Racket!)}}                             
        @teacher{Emphasize to students that a function's contract can tell you a LOT about that function. It may also be useful to ask them to articulate reasons why Contracts are a good thing, so they are able to say it in their own voice. Make sure they write every contract down in their workbooks!}}
                    @point{@student{@activity[#:forevidence (list "BS-PL.2&1&1")]{Below are some Pyret expressions using functions you used in Bootstrap:1. For each one, identify which function is being used and write its Contract in your Contracts page. If you need help, try typing the expressions into your computer. @itemlist[@item{@code{circle(75, "solid", "red")}}
                     @item{@code{rectangle(20, 30, "outline", "green")}}
