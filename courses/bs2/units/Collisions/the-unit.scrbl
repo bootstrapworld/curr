@@ -65,7 +65,7 @@ In one dimension, such as on a number line, finding the distance is pretty easy.
                                 Pythagoras proved that you can get the square of the hypotenuse by adding the squares of the other two sides. In your games, you're going to use the horizontal and vertical distance between two characters as the two sides of your triangle, and use the Pythagorean theorem to find the length of that third side.}
                        @teacher{Remind students that A and B are the horizontal and vertical lengths, which are calculated by @code{line-length}.}
                        }
-                @point{@student{@activity[#:forevidence (list "BS-CE&1&4" "BS-PL.3&1&3")]{@itemlist[@item{Turn to @worksheet-link[#:page 999 #:name "Distance-Formula-With-Numbers"] of your workbook - you'll see the formula written out.} 
+                @point{@student{@activity[#:forevidence (list "BS-CE&1&4" "BS-PL.3&1&3")]{@itemlist[@item{Turn to @worksheet-link[#:page 35 #:name "distance-formula"] of your workbook - you'll see the formula written out.} 
                                                     @item{Draw out the circle of evaluation, starting with the simplest expression you can see first.}
                                                      @item{Once you have the circle of evaluation, translate it into Pyret code at the bottom of the page, starting with 
                                                            @code[#:multi-line #true]{check: 
@@ -73,7 +73,7 @@ In one dimension, such as on a number line, finding the distance is pretty easy.
        end}}]}
 Now you've got code that tells you the distance between the points (4, 2) and (0, 5). But we want to have it work for @italic{any} two points. It would be great if we had a function that would just take the x's and y's as input, and do the math for us.}
                         @teacher{}}
-                @point{@student{@activity[#:forevidence (list "N-Q&1&1" "8.G.6-8&1&3" "8.F.1-3&1&1" "F-IF.1-3&1&1" "BS-M&1&1" "BS-PL.3&1&2" "BS-PL.3&1&3" "BS-DR.1&1&1" "BS-DR.1&1&2" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1")]{@itemlist[@item{Turn to @worksheet-link[#:page 30 #:name "Distance"], and read the problem statement and function header carefully.}
+                @point{@student{@activity[#:forevidence (list "N-Q&1&1" "8.G.6-8&1&3" "8.F.1-3&1&1" "F-IF.1-3&1&1" "BS-M&1&1" "BS-PL.3&1&2" "BS-PL.3&1&3" "BS-DR.1&1&1" "BS-DR.1&1&2" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1")]{@itemlist[@item{Turn to @worksheet-link[#:page 36 #:name "distance"], and read the problem statement and function header carefully.}
                                                       @item{Use the Design Recipe to write your distance function. Feel free to use the work from the previous page as your first example, and then come up with a new one of your own.}
                                                       @item{When finished, type your @code{distance} functions into your game, and see what happens.}
                                                       @item{Does anything happen when things run into each other?}]}
@@ -83,7 +83,7 @@ You still need a function to check whether or not two things are colliding.}
                 
                 @point{@student{So what do we want to do with this distance? 
                                 @activity{How close should your danger and your player be, before they hit each other?}
-                                At the top of @worksheet-link[#:page 31 #:name "is-collision"] you'll find the Word Problem for @code{is-collision}. 
+                                At the top of @worksheet-link[#:page 37 #:name "is-collision"] you'll find the Word Problem for @code{is-collision}. 
                                 @activity[#:forevidence (list "N-Q&1&1" "7.EE.3-4&1&1" "8.G.6-8&1&3" "8.F.1-3&1&1" "F-IF.1-3&1&1" "A-CED.1-4&1&1" "BS-M&1&1" "BS-DR.1&1&1" "BS-DR.1&1&2" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1")]{@itemlist[@item{Fill in the Contract, two examples, and then write the code. Remember: you WILL need to make use of the @code{distance} function you just wrote!}
                                                     @item{When you're done, type it into your game, underneath @code{distance}.}]}}
                         @teacher{Using visual examples, ask students to guess the distance between a danger and a player at different positions. How far apart do they need to be before one has hit the other? Make sure students understand what is going on by asking questions: If the collision distance is small, does that mean the game is hard or easy? What would make it easier?}

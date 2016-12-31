@@ -130,7 +130,7 @@ a function that tells us where the jumper is for a given @code{JumperState}.
 This is the kind of function you might need to write later on in your game, to
 detect where characters are, and make decisions based on that information.
 
-@activity{Open your workbook to @worksheet-link[#:page 110 #:name "Location"]. Use the design recipe to write a function to tell you where the parachute jumper is (either "cliff", "beach", "water", or "air"), based on the JumperState.}
+@activity{Open your workbook to @worksheet-link[#:page 26 #:name "location"]. Use the design recipe to write a function to tell you where the parachute jumper is (either "cliff", "beach", "water", or "air"), based on the JumperState.}
           
 Use this picture to figure out the regions of the different parts of the
 background image: 
@@ -195,7 +195,7 @@ information about the animation.}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{@points[
-                @point{@student{@activity{Open your workbook to @worksheet-link[#:page 111 #:name "Piecewise Bug Hunting"]. In the left column, we've given you broken or buggy Pyret code. On the right, we've given you space to either write out the correct code, or write an explanation of the problems with the provided code.  Work through this workbook page, then check with your partner to confirm you've found all the bugs!}}
+                @point{@student{@activity{Open your workbook to @worksheet-link[#:page 28 #:name "piecewise-bug-hunting"]. In the left column, we've given you broken or buggy Pyret code. On the right, we've given you space to either write out the correct code, or write an explanation of the problems with the provided code.  Work through this workbook page, then check with your partner to confirm you've found all the bugs!}}
 
         @teacher{}
       }
@@ -227,7 +227,7 @@ information about the animation.}
                                                                                                    
 We know we'll need to change our @code{draw-state} function in some way, since this is the function that controls how our animation is drawn. Our first instinct may be to turn it into a piecewise function, and draw something different when the @code{SunsetState}'s y-coordinate gets below 225 or below 150. @italic{however}, if we were to start coding, we might quickly find that we're writing the same code over and over. We don't want to change how large the sun is, or where the ground is drawn in the scene. The @italic{only} thing we want to change is the actual image of the sun. To do this, we can write a @vocab{helper function} to ask questions about the @code{SunsetState}, and produce an image based on its y-coordinate, instead of doing that work inside @code{draw-state}. @vocab{Helper functions} are incredibly useful if you find yourself writing the same piece of code over and over again, or if you simply want to make your code more readable. In this case, we're going to write a function called @code{sun-color}, which will help us draw a picture of the sun separate from everything else in @code{draw-state}.
 
-@activity{Open your wokbook to @worksheet-link[#:page 222 #:name "sun-color"]. Here we have directions for writing a function called @code{sun-color}, Which consumes a @code{SunsetState} and produces an image of the sun, whose color is either "yellow", "orange", or "red" depending on its y-coordinate.}}
+@activity{Open your wokbook to @worksheet-link[#:page 29 #:name "sun-color"]. Here we have directions for writing a function called @code{sun-color}, Which consumes a @code{SunsetState} and produces an image of the sun, whose color is either "yellow", "orange", or "red" depending on its y-coordinate.}}
                         @teacher{The word problem assumes a background scene size of 400x300 pixels. Once students use their @code{sun-color} function in their animation, they may need to change the specific conditions if they have a much larger or smaller scene.}}
                  
                  @point{@student{Once you've completed and typed the @code{sun-color} function into your @editor-link[#:public-id "0B9rKDmABYlJVSm94cFA4T3R2NTA" "sunset animation"] program, it will need to be used within one of our main animation functions: either @code{draw-state} or @code{next-state-tick}.

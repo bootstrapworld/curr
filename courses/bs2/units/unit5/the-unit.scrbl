@@ -295,7 +295,7 @@ sleep is less by 0.5 (or 1/2), and happiness is less by 1.
 }
 
 
-Open your workbook to @worksheet-link[#:page 32 #:name "Animation-Design"], and use the animation design worksheet to work
+Open your workbook to @worksheet-link[#:page 32 #:name "anim-design-pet"], and use the animation design worksheet to work
 through this new feature.  For example, we know the image on each frame should
 show smaller bars on each tick.  The drawing function already draws the bars by
 using the length from the world – how could we check?  We know we should
