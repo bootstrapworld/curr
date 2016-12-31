@@ -18,7 +18,7 @@
  ("taller-than" 12)
  ("will-melt" 13)
  ;;;;; UNIT 3 ;;;;;;;;;
- ("Lesson-3" 14)
+ ("Unit-3" 14)
  ("sunset-ds-design" 15)
  ; 16 is page two of the sunset-ds-design
  ("draw-state-sunset" 17)
@@ -29,19 +29,24 @@
  ("anim-data-blank4" 25)
  ("full-anim-design" 27)
  ;;;;; UNIT 4 ;;;;;;;;;
- ("Unit-4" 23)
- ("location" 24)
- ("piecewise-bug-hunting" 26)
- ("sun-color" 27)
+ ("Unit-4" 25)
+ ("location" 26)
+; 27 is page 2 of location 
+ ("piecewise-bug-hunting" 28)
+ ("sun-color" 29)
+; 30 is page 2 of sun-color
  ;;;;; UNIT 5 ;;;;;;;;;
- ("Unit-5" 29)
- ("anim-design-pet" 34)
- ("red-shape" 30)
- ("strong-password" 31)
- ("off-left-right" 32)
- ("line-length" 34)
- ("distance" 35)
- ("distanceWP" 36)
- ("is-collision" 37)
- ("next-world-helpers" 38)
+ ("Unit-5" 31)
+ ("anim-design-pet" 32)
+ ;;;;; SUPPLEMENTAL/FEATURES ;;;;;;;
+("Supplemental" 34)
+("distance-formula" 35)
+("distance" 36)
+("is-collision" 37)
+("blank-dr1" 38)
+("blank-dr2" 39)
+("anim-design1" 40)
+("anim-design2" 42)
+("anim-design3" 44)
+("contracts" 46)
  )
