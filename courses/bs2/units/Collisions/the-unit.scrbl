@@ -24,7 +24,7 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{So far in the animations we've created, we haven't included any distance or collision detection functions. 
+        @points[@point{@student{So far, none of the animations we've created included any distance or collision-detection functions. 
                                 However, if you want to make a game where the player has to hit a target, avoid an enemy, jump onto platforms, 
                                 or reach a specific part of the screen, we'll need to account for collisions.  This is going to require a 
                                 little math, but luckily it's exactly the same as it was in Bootstrap:1.} 
@@ -39,20 +39,18 @@
                                                      @item{If the cat was moved one space to the right, how far apart would they be?}
                                                      @item{What if the cat and dog switched positions?}]}
 
-In one dimension, such as on a number line, finding the distance is pretty easy. If the characters are on the same line, you just subtract 
-one coordinate from another, and you have your distance. However, if all we did was subtract the second number from the first, the function 
-would only work half the time!
+Finding the distance in one dimesion is pretty easy: if the characters are on the same number line, we subtract the @italic{smaller} coordinate from
+the @italic{larger} one, and we have our distance.
 @activity[#:forevidence (list "6.NS.5-8&1&4")]{When the cat and dog were switched, did you still subtract the dog's position from the cat's, 
                                                or subtract the cat's position from the dog's? Why?}}
-                        @teacher{Draw the number line on the board, with the cutouts of the cat and dog at the given positions. Ask 
+                        @teacher{Draw a number line on the board, with the cutouts of the cat and dog at the given positions. Ask 
                                  students to tell you the distance between them, and move the images accordingly. Having students act 
                                  this out can also work well: draw a number line, have two students stand at different points on the 
                                  line, using their arms or cutouts to give objects of different sizes. Move students along the number 
                                  line until they touch, then compute the distance on the number line.}}
                  
                  @point{@student{Unfortunately, most distances aren't only measured in one dimention. We'll need some code to 
-                                 calculate the distance between two points in two dimentions, in case two characters don't 
-                                 happen to be on the same x or y-axis.                   
+                                 calculate the distance between two points in two dimentions.
                                 @bitmap{images/ABCgraph.png}
                                 @activity{@itemlist[@item{How could you find the distance between the two points shown in this image?}
                                                      @item{How could you find the length of the C, also called the @vocab{Hypotenuse}?}]}
