@@ -102,7 +102,7 @@ You still need a function to check whether or not two things are colliding.}
                            g.playery, 
                            g.dangerx, 
                            g.dangery):   ...result...}
-Remember that @code{next-state-tik} produces a GameState, so what function should come first in our result?
+Remember that @code{next-state-tick} produces a GameState, so what function should come first in our result?
 @code[#:multi-line #t]{if is-collision(
                            g.playerx, 
                            g.playery, 
@@ -124,13 +124,13 @@ Remember that @code{next-state-tik} produces a GameState, so what function shoul
                            g.dangerx, 
                            g.dangery):
                                       game(g.playerx, 
-                                      200, 
-                                      num-random(480),
-                                      0, 
-                                      0, 
-                                      g.targetx, 
-                                      g.targety, 
-                                      g.targetspeed) }
+                                           200, 
+                                           num-random(480),
+                                      	   0, 
+                                      	   0, 
+                                      	   g.targetx, 
+                                      	   g.targety, 
+                                      	   g.targetspeed) }
              }
                         @teacher{Collision detection must be part of the @code{next-state-tick} function because the game should be checking for a collision @italic{each time} the GameState is updated, on every tick. Students may assume that @code{draw-state} should handle collision detection, but point out that the Range of @code{draw-state} is an Image, and their function must return a new GameState in order to set the locations of the characters after a collision.}}
                  
