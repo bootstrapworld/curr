@@ -56,13 +56,13 @@
 end
 }}
                          @teacher{@bold{Reminder:} Your students will likely have radically different games at this point in the course. 
-                                   This lesson is not meant to be followed exactly, but rather used to give students an idea of what 
+                                   This lesson is @bold{not} meant to be followed exactly, but rather used to give students an idea of what 
                                    steps they should take to add a scoring system to their own games. For extra practice, students 
                                    can work through adding a scoring system to the Ninja Cat program as well as their own games.}}
 
-                 @point{@student{Now that the game has a score, that score needs to actually increase or decrease. For our Ninja Cat 
-                                 game, we'll say that the score should go up by 30 points when Ninja Cat collides with the ruby (target), 
-                                 and down by 20 points when she collides with the dog (danger).
+                 @point{@student{Now that the game has a score, that score needs to actually increase or decrease depending on what happens 
+                                 in the game. For our Ninja Cat game, we'll say that the score should go up by 30 points when Ninja Cat 
+                                 collides with the ruby (target), and down by 20 points when she collides with the dog (danger).
                                  @activity[#:forevidence (list "A-SSE.1-2&1&1" "BS-M&1&1" "BS-PL.3&1&1" "BS-PL.4&1&1" "BS-DR.4&1&1" "BS-DS.1&1&5" "BS-W&1&1")]{
                                                        @itemlist[@item{Which of the @code{if} branches in your @code{next-state-tick} 
                                                                       function checks whether your player has collided with another character?}
@@ -78,15 +78,47 @@ end
 @code[#:multi-line #t]{# next-state-tick : GameState -> GameState
 fun next-state-tick(g):
   if game-over(g): g
-    # if player and danger collide while player is on the ground, reset player and danger and decrease score
-  else if is-collision(g.playerx, g.playery, g.dangerx, g.dangery) and (g.playery < 110): 
-    game(START.playerx, START.playery, 750, g.dangery, g.dangerspeed, g.targetx, g.targety, g.targetspeed, g.score - 20)
-    # if player and danger collide while player is jumping, reset danger and increase score
-  else if is-collision(g.playerx, g.playery, g.dangerx, g.dangery) and (g.playery > 110) and (g.playery < 300):
-      game(g.playerx, 200, -100, 0, 0, g.targetx, g.targety, g.targetspeed, g.score + 30)  
-    # if player and target collide, reset target and increase score
-  else if is-collision(g.playerx, g.playery, g.targetx, g.targety):
-      game(g.playerx, g.playery, g.dangerx, g.dangery, g.dangerspeed, -400, 0, 0, g.score + 30)}
+  # if player and danger collide while player is on the ground, 
+  #reset player and danger and decrease score
+else if is-collision(g.playerx, g.playery, g.dangerx, g.dangery) 
+  and (g.playery < 110): 
+  game(
+    START.playerx, 
+    START.playery, 
+    750, 
+    g.dangery, 
+    g.dangerspeed, 
+    g.targetx, 
+    g.targety, 
+    g.targetspeed, 
+    g.score - 20)
+  # if player and danger collide while player is jumping, 
+  # reset danger and increase score
+else if is-collision(g.playerx, g.playery, g.dangerx, g.dangery) 
+  and (g.playery > 110) and (g.playery < 300):
+  game( 
+    g.playerx, 
+    200, 
+    -100, 
+    0, 
+    0, 
+    g.targetx, 
+    g.targety, 
+    g.targetspeed, 
+    g.score + 30)  
+  # if player and target collide, reset target and increase score
+else if is-collision(g.playerx, g.playery, g.targetx, g.targety):
+  game(
+    g.playerx, 
+    g.playery, 
+    g.dangerx, 
+    g.dangery, 
+    g.dangerspeed, 
+    -400, 
+    0, 
+    0, 
+    g.score + 30)
+    }
 
                                  @activity[#:forevidence (list "BS-IDE&1&1" "BS-DR.4&1&3" "BS-DS.1&1&5" "BS-W&1&5")]{
                                        Change your own game code so that your score increases and decreases depending on various game 
