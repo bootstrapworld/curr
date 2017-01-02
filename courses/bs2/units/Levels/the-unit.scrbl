@@ -18,15 +18,15 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{You can add depth and more challenge to your game by adding levels. In this lesson, we'll cover making new levels based 
+        @points[@point{@student{You can add depth to your game by adding @italic{levels}. In this lesson, we'll cover making new levels based 
                                 on the game's score. We want @editor-link[#:public-id "0B9rKDmABYlJVVkpkTmEyd1ZTaE0" "our Ninja Cat game"] to have a 
                                 different background image when the player progresses to the next level. We'll say that the player reaches level two 
                                 when his or her score is greater than 250.
                                  @activity[#:forevidence (list "BS-IDE&1&1" "BS-PL.1&1&1")]{
                                        Where do you define the @code{BACKGROUND-IMG} image in your game? Keep your original background for the first level, 
                                        but define a new variable, @code{BACKGROUND2-IMG}, that will be used for level 2. For the best results, use an image 
-                                       that is the same size as your original background.} Once you have your second background image, it should be drawn 
-                                                                                          into the game- but @bold{only} when a certain condition is met. 
+                                       that is the same size as your original background.} 
+                               Once you have your second background image, it should be drawn into the game- but @bold{only} when a certain condition is met. 
                                  @activity[#:forevidence (list "BS-M&1&1" "BS-W&1&4")]{
                                         @itemlist[@item{What must be true for the player to progress to level 2?}
                                                    @item{Which function handles the way the game looks?}
