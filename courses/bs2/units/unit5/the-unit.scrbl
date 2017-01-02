@@ -6,8 +6,9 @@
 
 @unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / num-sqr num-sqrt num-expt})
                                        (list "String" @code{string-append string-length})
-                                       (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image}))]
+                                       (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image}))]{
 @unit-descr{Students return to the subject of piecewise functions, this time defining a key-event handler that modifies a world when certain keys are pressed.}
+ }
 @unit-lessons{
 @lesson/studteach[#:title "Using Keys to Move a Character in Two Dimensions"
         #:duration "45 minutes"
@@ -33,15 +34,15 @@
 @points[@point{
 @student{
 
-  We've already seen one kind of interactivity in our programs, which is
-  getting the next state from the current one on a tick, which drives
-  animations forward in time.  An important kind of behavior in not only games,
-  but interactive programs in general, is to respond to keypresses from the
-  user.  A keypress, like a tick, is kind of event, and we'll re-use the idea
-  of a function like @code{next-state-tick}, this time called
-  @code{next-state-key}, which will compute the next state from the current
-  one.  We're going to use this idea to build up a reactor with a character
-  moving in two dimensions, where the movement is triggered by key presses.
+  We've already seen one kind of interactivity in our programs: getting
+  the next state from the current state on a tick-event. This drives
+  animations forward, without any user intervention.  An important kind of behavior
+  in @italic{interactive} programs is to respond to keypresses from the
+  user.  A keypress, like a tick, is a kind of event, and we'll re-use the idea
+  of a function like @code{next-state-tick} (this time called
+  @code{next-state-key}) to compute the next state from the current one after a
+  key event.  We're going to use this idea to build up a reactor with a character
+  moving in two dimensions, where the movement is triggered by keypresses.
 
 @activity[]{
   Open up the @editor-link[#:public-id "0B9rKDmABYlJVVWk4MGJidEtsRWc" "Moving
@@ -72,7 +73,7 @@ data to represent positions in an image, to make sure we understand what values
 in the data structure correspond to which drawing behavior.
 
 @activity[]{
-  Write an example instance that represents the butterfly in the top-right of
+  Write an example instance that represents the butterfly in the top-right corner of
   the window.  Give it a meaningful name of your own choice.  Re-run the
   program, and check using @code{draw-state} that it showed up where you
   expect.
@@ -90,16 +91,15 @@ next-state-key :: CharState, String -> CharState
 
 @activity[]{
   How does the contract of @code{next-state-key} differ from the contract of
-  @code{next-state-tick} in your previous programs?  Discuss all the ways it's
-  different.
+  @code{next-state-tick} in your previous programs?
 }
 
-  It is different from the contract for @code{next-state-tick}, which handles
-  tick events, in an important way.  When a key event happens, the next state
+  It is different from the contract for @code{next-state-tick} (which handles
+  tick events) in an important way.  When a key event happens, the next state
   may differ depending on @emph{which} key was pressed.  That means the
-  @code{next-state-key} function needs both the current state and which key was
+  @code{next-state-key} function needs both the current state @italic{and} which key was
   pressed as parts of its domain.  That's why @code{next-state-key} has an
-  additional variable, @code{key}, which represents the key pressed by the
+  additional @code{String} input, which represents the key pressed by the
   user.
 
 @activity[]{
@@ -153,14 +153,16 @@ draw-state(next-state-key(next-state-key(middle, "left"), "up"))
 ]
 }
 
-  Just like with ticks, we see that we can manually pass key press strings into
-  this function, and see what an animation would look like if we drew the
-  corresponding states.  That's cool, but it would be much more exciting if we
-  could hook up this function to a reactor, which will send in actual
-  keypresses from someone playing the game.  To do this, we need to create a
-  reactor, and instead of using @code{on-tick}, we will use @code{on-key} to
-  specify that our @code{next-state-key} function should be called when the
-  user presses a key.  That looks like this:
+  As with ticks-events, we can manually pass key press strings into
+  this function, see what the next state would be, and even draw that state
+  to see what it looks like.  That's great, but we still want to hook
+  this function up to a reactor, so that it actually handles
+  keypresses from a user playing the game.  To do this, we need to create a
+  reactor use @code{on-key} to specify that our @code{next-state-key} function 
+  should be called when the user presses a key (we don't need to specify an
+  @code{on-tick} handler, since for now the only movement in our program comes
+  from keypresses). Our reactor with a @code{to-draw} and @code{on-key} handler
+  looks like this:
 
 @code[#:multi-line #t]{
 char-react = reactor:
@@ -201,37 +203,36 @@ Bootstrap:1, we'd next implement @code{is-onscreen} to check if Sam has left
 the board, and use it in @code{next-state-tick}.
 
 }
-@teacher{@itemlist[
-
-@item{Act out a reactor with key presses: have four total students: one who
+@teacher{ Act out a reactor with key-events. You will need four students: one who
 acts as the @code{next-state-key} function, one who acts as the keyboard (you
 could also have the class act as a keyboard by having students shout out keys),
-one who acts as the reactor, and one who acts as the @code{draw-state} function.
+one who acts as the reactor, and one who acts as the @code{draw-state} function. Give
+each student a few sheets of paper and something to write with.
 
-When a key is "pressed" by the keyboard, the reactor should show the current
-state and the key that was pressed to the @code{next-state-key} actor.  That
-actor should consult the function they evaluate and hand a new state back to
-the reactor.  The reactor should discard their old state, replacing it with the
-new one, and then show the new state to the @code{draw-state} actor, who can
-produce an image for the reactor to post.  This can be done by giving each
-student a piece of paper and a pen, with each new state drawn on a new sheet of
-paper and handed to the reactor, who shows it to @code{draw-state} and discards
-it on the next key press.
+@itemlist[
+@item{When a key is "pressed" by the keyboard, the reactor write doesn the current
+state and the key that was pressed, then shows their paper to @code{next-state-key}. 
+}
+@item{@code{next-state-key} produces a new state based on the current state and the key, 
+writes it down, and then hands the new state back to the reactor.}
+@item{The reactor @italic{discards} their old state, replacing it with the
+new one, and shows the new one to @code{draw-state}.}
+@item{@code{draw-state} produces an image for the reactor to post, and draws it on paper. 
+They hand the image to the reactor, who holds it up as the new frame in the animation.}
+]
 
-We recommend not having a @code{next-state-tick} function for this activity to
-keep the focus on the new key events.  You can add a @code{on-tick} handler in
+We recommend @bold{not} having a @code{next-state-tick} function for this activity,
+to keep the focus on key events.  You can add a @code{on-tick} handler in
 a separate stage when talking through games which have both time- and key-based
 events.}
 
-@item{Optional: implement boundaries to keep character onscreen, using the same
+Optional: implement boundaries to keep character onscreen, using the same
 ideas as @code{safe-left} and @code{safe-right} from before.  You can also
 write @code{safe-top} and @code{safe-bottom}, and use all of them to keep the
-character fully on the screen.}
+character fully on the screen.
 
-@item{Optional: use @code{num-to-string} and @code{text} to display the
-position at the top of the window.}]
-
-}
+Optional: use @code{num-to-string} and @code{text} to display the
+position at the top of the window.
 }
 
 
@@ -268,9 +269,7 @@ position at the top of the window.}]
 
 Now, you've seen how to use functions to compute the next state in a game or
 animation for both tick and key events.  We can combine these to make
-interesting interactive games from scratch!  This lesson actually doesn't show
-any new features of Pyret or reactors, and just puts together things you
-already know to build a game.
+an interactive "digital-pet" from scratch!
 
 @activity[]{
 
@@ -281,7 +280,7 @@ Run it, and use @code{interact(r)} to see the game run.
 
 Notice that not much is happening!  It's going to be your job to write two
 functions, one to compute the next state for a tick, and one to compute the
-next state for a key press.  You'll also update the drawing function to show
+next state for a keypress.  You'll also update the drawing function to show
 the state when the player loses the game.
 
 To do this, you will use the @emph{Animation Design Worksheet} three times to
@@ -290,8 +289,8 @@ to the data definition, just adding and editing functions like
 @code{next-state-tick}, @code{next-state-key}, and @code{draw-state}.
 
 @activity[]{
-The next state on each tick should be a state where the hunger is less by 2,
-sleep is less by 0.5 (or 1/2), and happiness is less by 1.
+The next state on each tick should be a state where the hunger is decreased by 2,
+sleep is decreased by 0.5 (or 1/2), and happiness is decreased by 1.
 }
 
 
@@ -311,7 +310,7 @@ Next, we'll add key events to the game so the player can increase them so they
 don't reach zero!
 
 @activity[]{
-On a key press, if the user pressed "f" (for "feed"), @code{hunger} should
+On a keypress, if the user pressed "f" (for "feed"), @code{hunger} should
 increase by 10. If the user pressed "p" (for "play"), @code{happy} should
 increase by 3.  If the user pressed "s" (for "sleep"), @code{sleep} should
 increase by 5.  If the user presses any other keys, nothing should change.
@@ -354,7 +353,7 @@ and happiness to 100, and start playing again.}
 Some next steps/optional activities if students finish these activities:
 @itemlist[@item{Find your own images to create a different virtual pet}
           @item{Stop the bars from overflowing some maximum. (produce something like @editor-link[#:public-id "0B9rKDmABYlJVNTR6ajd4N1hPRm8" "this completed game"])}
-          @item{Add an x-coordinate to the PetState so the pet moves around, either on key press or automatically.}
+          @item{Add an x-coordinate to the PetState so the pet moves around, either on keypress or automatically.}
           @item{Add a costume to the PetState, then change the draw-pet function so that it changes the costume based on the pet's mood (if a-pet.hunger <= 50, show a pic of the pet looking hungry}]
 
 }
