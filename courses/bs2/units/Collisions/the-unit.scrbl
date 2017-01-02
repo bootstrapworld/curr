@@ -155,25 +155,25 @@ You still need a function to check whether or not two things are colliding.}
                                                 @item{How do you get the @code{playery} out of the GameState? @code{playerx}?}
                                                 @item{How do you get the @code{dangerx} out of the GameState? @code{dangery}?} ]}
 @code[#:multi-line #t]{if is-collision(
-                           g.playerx, 
-                           g.playery, 
-                           g.dangerx, 
-                           g.dangery):   ...result...}
+    g.playerx, 
+    g.playery, 
+    g.dangerx, 
+    g.dangery):   ...result...}
 Remember that @code{next-state-tik} produces a GameState, so what function should come first in our result?
 @code[#:multi-line #t]{if is-collision(
-                           g.playerx, 
-                           g.playery, 
-                           g.dangerx, 
-                           g.dangery):
-                         game(
-                           ...playerx..., 
-                           ...playery..., 
-                           ...dangerx..., 
-                           ...dangery..., 
-                           ...dangerspeed...
-                           ...targetx...
-                           ...targety...
-                           ...targetspeed...)}
+    g.playerx, 
+    g.playery, 
+    g.dangerx, 
+    g.dangery):
+  game(
+    ...playerx..., 
+    ...playery..., 
+    ...dangerx..., 
+    ...dangery..., 
+    ...dangerspeed...
+    ...targetx...
+    ...targety...
+    ...targetspeed...)}
                                 @activity[#:forevidence (list "BS-PL.4&1&1")]{
                                    And what should happen when the cat and dog collide? Can you think of a number that puts the dog 
                                    off the screen on the left side? What about the dog's y-coordinate? We could choose a number and 
@@ -191,7 +191,7 @@ Remember that @code{next-state-tik} produces a GameState, so what function shoul
                                       0, 
                                       g.targetx, 
                                       g.targety, 
-                                      g.targetspeed) }
+    g.targetspeed) }
              }
                         @teacher{Collision detection must be part of the @code{next-state-tick} function because the game should 
                                 be checking for a collision @italic{each time} the GameState is updated, on every tick. Students 
