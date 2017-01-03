@@ -20,7 +20,7 @@
         @points[@point{@student{In Bootstrap:1, the scoring system for your video game was included in the teachpack, code which ran 
                                 "under the hood" in your game file. In Bootstrap:2, however, you no longer need this hidden code, 
                                 since you've learned enough to program your entire Bootstrap:1 game (and more) yourself! In this 
-                                lesson, we'll cover how to add a scoring system and different levels to your Bootstrap:2 game.}
+                                lesson, we'll cover how to add a scoring system to your Bootstrap:2 game.}
                         
                         @teacher{This lesson is part of a series of features meant to come at the end of the Bootstrap:2 units. 
                                  Once students have made a number of simple animations and games, they will have @italic{lots} of 
@@ -37,7 +37,7 @@
                                             @itemlist[@item{What data type is a score? Number, String, Image, or Boolean?}
                                                       @item{What would be the score in your starting game state? (we called this @code{START} in our game.)}
                                                       @item{Change the data structure in your game so it includes a @code{score}.}]}
-                               Remember: Since your structure is changing, you now have to go through your game code- @italic{every time}
+                               Remember: Since your structure is changing, you now have to go through your game code---@italic{every time}
                                you call the constructor function for your structure (ours is @code{game()}), the score must be included. 
                                It may be helpful to add the score as the very first or last field of the structure, to make this easier. 
                                @activity[#:forevidence (list "BS-DS.1&1&5")]{How would you get the @code{score} out of one of your instances?}
@@ -80,44 +80,44 @@ fun next-state-tick(g):
   if game-over(g): g
   # if player and danger collide while player is on the ground, 
   #reset player and danger and decrease score
-else if is-collision(g.playerx, g.playery, g.dangerx, g.dangery) 
-  and (g.playery < 110): 
-  game(
-    START.playerx, 
-    START.playery, 
-    750, 
-    g.dangery, 
-    g.dangerspeed, 
-    g.targetx, 
-    g.targety, 
-    g.targetspeed, 
-    g.score - 20)
-  # if player and danger collide while player is jumping, 
-  # reset danger and increase score
-else if is-collision(g.playerx, g.playery, g.dangerx, g.dangery) 
-  and (g.playery > 110) and (g.playery < 300):
-  game( 
-    g.playerx, 
-    200, 
-    -100, 
-    0, 
-    0, 
-    g.targetx, 
-    g.targety, 
-    g.targetspeed, 
-    g.score + 30)  
+  else if is-collision(g.playerx, g.playery, g.dangerx, g.dangery) 
+    and (g.playery < 110): 
+    game(
+      START.playerx, 
+      START.playery, 
+      750, 
+      g.dangery, 
+      g.dangerspeed, 
+      g.targetx, 
+      g.targety, 
+      g.targetspeed, 
+      g.score - 20)
+    # if player and danger collide while player is jumping, 
+    # reset danger and increase score
+  else if is-collision(g.playerx, g.playery, g.dangerx, g.dangery) 
+    and (g.playery > 110) and (g.playery < 300):
+    game( 
+      g.playerx, 
+      200, 
+      -100, 
+      0, 
+      0, 
+      g.targetx, 
+      g.targety, 
+      g.targetspeed, 
+      g.score + 30)  
   # if player and target collide, reset target and increase score
-else if is-collision(g.playerx, g.playery, g.targetx, g.targety):
-  game(
-    g.playerx, 
-    g.playery, 
-    g.dangerx, 
-    g.dangery, 
-    g.dangerspeed, 
-    -400, 
-    0, 
-    0, 
-    g.score + 30)
+  else if is-collision(g.playerx, g.playery, g.targetx, g.targety):
+    game(
+      g.playerx, 
+      g.playery, 
+      g.dangerx, 
+      g.dangery, 
+      g.dangerspeed, 
+      -400, 
+      0, 
+      0, 
+      g.score + 30)
     }
 
                                  @activity[#:forevidence (list "BS-IDE&1&1" "BS-DR.4&1&3" "BS-DS.1&1&5" "BS-R&1&5")]{
