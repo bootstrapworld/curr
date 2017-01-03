@@ -73,13 +73,13 @@ end
                                 as an image. Let's build a @code{reactor}, which uses a @code{pongState} instance as the starting state and hooks
                                 up these functions to the @code{on-tick} and @code{to-draw} event handlers.
                                 @code[#:multi-line #t]{
-r = reactor:
+pong-react = reactor:
   init: pongState(200, 200),
   on-key: next-state-key,
   to-draw: draw-state
 end
 }
-                                When you run this reactor (@code{interact(r)}), you should see your initial instance drawn on the screen,
+                                When you run this reactor (@code{interact(pong-react)}), you should see your initial instance drawn on the screen,
                                 and the paddle positions should change based on the keys you press! Do all four keys do what you expect
                                 them to do? What happens if you hit some @italic{other} key?}
                         @teacher{}
