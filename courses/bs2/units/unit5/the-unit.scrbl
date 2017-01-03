@@ -176,7 +176,7 @@ end
 
 Make your program create a reactor by that uses the @code{on-key} handler with
 the @code{next-state-key} function you just implemented.  Run the program and
-use @code{interact(r)} to start the reactor.  Does it work the way you
+use @code{interact(char-react)} to start the reactor.  Does it work the way you
 expected?  If it doesn't, check:
 
 @itemlist[
@@ -274,14 +274,14 @@ an interactive "digital-pet" from scratch!
 @activity[]{
 
 Open the @editor-link[#:public-id "0B9rKDmABYlJVXy00M1VteEZxaHM" "Virtual Pet Starter"] file.
-Run it, and use @code{interact(r)} to see the game run.
+Run it, and use @code{interact(pet-react)} to see the game run.
 
 }
 
 Notice that not much is happening!  It's going to be your job to write two
 functions, one to compute the next state for a tick, and one to compute the
-next state for a keypress.  You'll also update the drawing function to show
-the state when the player loses the game.
+next state for a keypress.  You'll also update the drawing function to change
+the pet's appearance when the player loses the game.
 
 To do this, you will use the @emph{Animation Design Worksheet} three times to
 augment the game.  Note that none of these should require adding any new fields
