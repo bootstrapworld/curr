@@ -21,7 +21,7 @@
         #:product-outcomes @itemlist[]
         #:standards (list "BS-M" "BS-IDE" "BS-PL.1" "BS-PL.4" "BS-DR.4" "BS-R")
         #:materials @itemlist[@item{}]
-        #:preparation @itemlist[@item{The "Scoring System" feature}]
+        #:preparation @itemlist[@item{Make sure students have completed the "Scoring" feature before starting this lesson.}]
         #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}

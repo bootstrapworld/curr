@@ -1,7 +1,7 @@
 #lang curr/lib
 @declare-tags[]
 
-@title{Track: Making Pong}
+@title{Feature: Making Pong}
 
 @unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sqr sqrt expt})
                                        (list "String" @code{string-append string-length})
@@ -17,7 +17,7 @@
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
-     #:standards (list)
+     #:standards (list "BS-DS.1" "BS-DS.2" "BS-R")
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, language table, course calendar)}
                             @item{Language Table (see below)}
@@ -103,7 +103,7 @@ end
                                     ]
      #:product-outcomes @itemlist[]
      #:exercises (list )
-     #:standards (list )
+     #:standards (list "BS-DS.1" "BS-DS.2" "BS-R")
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, language table, course calendar)}
                             @item{Language Table (see below)}]
