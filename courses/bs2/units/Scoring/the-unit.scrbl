@@ -1,16 +1,27 @@
 #lang curr/lib
 
-@declare-tags[management]
+@declare-tags[]
+@title{Feature: Scoring}
 
+@unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sqr sqrt expt})
+                                       (list "String" @code{string-append string-length})
+                                       (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image}))]{
+@unit-descr{Students extend their State structure to include a score, then modify their game code to change and display that score.}
+}
+
+@unit-lessons{
 @lesson/studteach[#:title "Adding a Scoring System"
-        #:duration "30 minutes"
+        #:duration "45 minutes"
         #:overview "Students learn how to add a scoring system to their game"
-        #:learning-objectives @itemlist[]
+        #:learning-objectives @itemlist["BS-DS.1" "BS-DS.2" "BS-R"]
         #:evidence-statements @itemlist[]
-        #:product-outcomes @itemlist[]
-        #:standards (list "N-Q" "A-SSE.1-2" "A-CED.1-4" "BS-M" "BS-IDE" "BS-PL.1" "BS-PL.2" "BS-PL.3" "BS-PL.4" "BS-DR.4" "BS-DS.1" "BS-DS.2" "BS-R")
+        #:product-outcomes @itemlist[@item{Students add a @code{score} field to their @code{gameState} structure}
+                                      @item{Students modify their @code{draw-state} function to display the score on the screen}
+                                      @item{Students modify other parts of their code to increment or decrement the score}]
+        #:standards (list "BS-M" "BS-PL.1" "BS-PL.2" "BS-PL.3" "BS-PL.4" "BS-DS.1" "BS-DS.2" "BS-R")
         #:materials @itemlist[@item{}]
-        #:preparation @itemlist[@item{Student Games @italic{or} the @editor-link[#:public-id "0B9rKDmABYlJVVkpkTmEyd1ZTaE0" "Pyret Ninja Cat"] file preloaded on students' machines}]
+        #:preparation @itemlist[@item{Student Games @italic{or} the @editor-link[#:public-id "0B9rKDmABYlJVVkpkTmEyd1ZTaE0" "Pyret Ninja Cat"] 
+                                      file preloaded on students' machines}]
         #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -33,7 +44,7 @@
                                  to the @code{____State} data structure. In our example Ninja Cat program, we've called our structure 
                                  @code{GameState}, which currently contains the x and y-coordinates for our player, danger, and target, 
                                  plus the speed of the danger, and speed of the target. Your game(s) will likely have different structures.
-                               @activity[#:forevidence (list "N-Q&1&1" "BS-M&1&2" "BS-DS.2&1&3")]{
+                               @activity[#:forevidence (list "BS-M&1&2" "BS-DS.2&1&3")]{
                                             @itemlist[@item{What data type is a score? Number, String, Image, or Boolean?}
                                                       @item{What would be the score in your starting game state? (we called this @code{START} in our game.)}
                                                       @item{Change the data structure in your game so it includes a @code{score}.}]}
@@ -63,7 +74,7 @@ end
                  @point{@student{Now that the game has a score, that score needs to actually increase or decrease depending on what happens 
                                  in the game. For our Ninja Cat game, we'll say that the score should go up by 30 points when Ninja Cat 
                                  collides with the ruby (target), and down by 20 points when she collides with the dog (danger).
-                                 @activity[#:forevidence (list "A-SSE.1-2&1&1" "BS-M&1&1" "BS-PL.3&1&1" "BS-PL.4&1&1" "BS-DR.4&1&1" "BS-DS.1&1&5" "BS-R&1&1")]{
+                                 @activity[#:forevidence (list "A-SSE.1-2&1&1" "BS-M&1&1" "BS-PL.3&1&1" "BS-PL.4&1&1" "BS-DS.1&1&5" "BS-R&1&1")]{
                                                        @itemlist[@item{Which of the @code{if} branches in your @code{next-state-tick} 
                                                                       function checks whether your player has collided with another character?}
                                                                  @item{How would you decrease the game's @code{score} by 20 points 
@@ -120,7 +131,7 @@ fun next-state-tick(g):
       g.score + 30)
     }
 
-                                 @activity[#:forevidence (list "BS-IDE&1&1" "BS-DR.4&1&3" "BS-DS.1&1&5" "BS-R&1&5")]{
+                                 @activity[#:forevidence (list "BS-DS.1&1&5" "BS-R&1&5")]{
                                        Change your own game code so that your score increases and decreases depending on various game 
                                        conditions: Maybe your score increases when the player collides with a target, reaches a specific 
                                        area of the screen, or reaches a specific area @italic{only after} picking up an item. Maybe your 
@@ -154,4 +165,4 @@ then be passed to the @code{text} function to return an Image that can be used i
                          @teacher{}}
                  ]
          }      
-   
+   }

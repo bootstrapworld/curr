@@ -13,10 +13,12 @@
 @lesson/studteach[
      #:title "Setting up the paddles"
      #:duration "45 minutes"
-     #:overview ""
+     #:overview "Students begin creating a game of Pong"
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[]
+     #:product-outcomes @itemlist[@item{Students create the first stage of a game of Pong, including a game board and two paddles}
+                                   @item{Students build interactivity into the game, allowing each paddle to be controlled by
+                                         keypresses.}]
      #:standards (list "BS-DS.1" "BS-DS.2" "BS-R")
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, language table, course calendar)}
@@ -99,9 +101,9 @@ end
      #:duration "45 minutes"
      #:overview "Students extend their program to add a bouncing ball"
      #:learning-objectives @itemlist[@item{}]
-     #:evidence-statements @itemlist[@item{}
-                                    ]
-     #:product-outcomes @itemlist[]
+     #:evidence-statements @itemlist[@item{}]
+     #:product-outcomes @itemlist[@item{Students extend their pongState data structure to include a ball, tracking both its position and direction}
+                                   @item{Students add collision detection, allowing the ball to bounce when it hits a wall or paddle.}]
      #:exercises (list )
      #:standards (list "BS-DS.1" "BS-DS.2" "BS-R")
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
