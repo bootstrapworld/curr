@@ -145,8 +145,8 @@ end
                                  on the screen. Meanwhile, we have a ball that can move in any direction...but so far the ball doesn't know how
                                  to bounce! It's time to plan out what bouncing will look like, and wire it all together.
                                  @activity{@itemlist[@item{How do you know when the ball has hit the top or bottom wall of the screen?}
-                                                      @item{Write @code{hit-wall}, using the Design Recipe to help you.}
-                                                      @item{Hook @code{hit-wall} up to the reactor's @code{stop-when} event-handler, so that
+                                                      @item{Write @code{is-on-wall}, using the Design Recipe to help you.}
+                                                      @item{Hook @code{it-on-wall} up to the reactor's @code{stop-when} event-handler, so that
                                                             the game will end as soon as the ball hits the top or bottom of the screen.
                                                             You may need to change your initial instance, to make sure the ball hits that wall!}]}
                                  }
@@ -233,7 +233,7 @@ pongStateC = pong(200, 300, 550, 320, 20, -10)
 # next-state-tick : pongState -> pongState
 # move the ball, based on direction fields
 fun next-state-tick(w):
-  if (hit-wall(w)):
+  if (is-on-wall(w)):
     pong(
       w.paddle1,                # the paddles don't change position
       w.paddle2,
