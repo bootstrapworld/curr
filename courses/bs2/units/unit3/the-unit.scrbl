@@ -199,7 +199,16 @@
 	                The fourth (and final) step in making an animation is to tell Pyret to create an
 	 		animation using an initial @code{SunsetState} instance and our @code{draw-state} and
 			@code{next-state-tick} functions. To do this, we need a new construct called a
-			@vocab{reactor}. A reactor gathers up the information needed to create an animation.
+			@vocab{reactor}. A reactor gathers up the information needed to create an animation:
+                        @itemlist[@item{An instance of the data at the start of the animation}
+                                   @item{(Optional) A function that knows how this data should change automatically as time passes}
+                                   @item{(Optional) A function that knows how to take this data and draw one frame of the animation}]}
+                @teacher{Proceed slowly here -- this is a very abstract concept, so you'll want to do a lot of checking for understanding.}
+                }
+        @point{@student{A reactor is designed to "react" to different events. When the computer's clock ticks,
+                        we'd like to call @code{next-state-tick} on the reactor's state, and have it update to the next state
+                        automatically. Reactors have event @vocab{handlers}, which connect events to functions.
+                
 			Here, we define a reactor named @code{sunset-react} for the sunset animation:
 			@code[#:multi-line #t]{
                           sunset-react = reactor:
@@ -207,24 +216,17 @@
 			    on-tick: next-state-tick,
 			    to-draw: draw-state	  
                           end}
-			Each of @code{init:}, @code{on-tick:}, and @code{to-draw:} names a piece of information needed
-			to make an animation.  We supply the instances and functions for each piece. For example,
-			this reactor says to use our @code{draw-state} 
-			function whenever the reactor needs "to draw" a new image.  It says to use our
-			@code{next-state-tick} to create a new instance of the animation state between frames. The
-			instance marked @code{init} tells the reactor where the sun should start at the beginning of the
-			animation.
+			@code{init} tells the reactor which instance to use when the program starts. In this example,
+                        the program will start with a @code{SunsetState} instance with the sun at (10, 30). @code{on-tick}
+                        and @code{to-draw} are event @vocab{handlers}, which connect @code{tick} and @code{draw} events
+                        to our @code{next-state-tick} and @code{draw-state} functions.
 			@activity{Copy this reactor definition into your sunset animation program.}
 			}
-	       @teacher{The reactor is new to Bootstrap:2. In Bootstrap:1, the reactor was built into each teachpack so
-	                you didn't see it.  We could do that because we fixed the contents of the state data structure
-			(a target moving in the x-coordinate, a player moving in the y-coordinate, etc) and the names
-			of all the functions.  In Bootstrap:2, however, you get to customize these; in exchange, you
-			have to write the reactor expression yourself. In each line, the contents to the left of the colon
-			are fixed.  You tailor the instance and function names to the right of each colon.
-	       
-	        	If you happen to know the term "handler" from other programming experience (we don't expect you to!),
-	                a reactor expression specifies handlers to use for various tasks.}}
+	       @teacher{The reactor is new to Bootstrap:2. In Bootstrap:1, every student had the same reactor "under the hood", 
+                        and had to fill in the handlers. This made it easy to focus on the basics and write those handlers,
+                        but it also meant that everyone's game looked a lot alike!  In Bootstrap:2, however, students get to 
+                        customize the states of their reactors, and gives them a lot of flexibility in how to deal with events!}
+               }
 
      	@point{@student{If you run your sunset program after adding the reactor, nothing seems to happen. We have set
 			up an animation by defining @code{sunset-react}, but we haven't told Pyret to run it.  You could define
