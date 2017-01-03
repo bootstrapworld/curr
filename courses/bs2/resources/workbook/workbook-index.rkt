@@ -33,7 +33,7 @@
  ("location" 26)
 ; 27 is page 2 of location 
  ("piecewise-bug-hunting" 28)
- ("sun-color" 29)
+ ("draw-sun" 29)
 ; 30 is page 2 of sun-color
  ;;;;; UNIT 5 ;;;;;;;;;
  ("Unit-5" 31)
