@@ -277,7 +277,7 @@ an interactive "digital-pet" from scratch!
 @activity[]{
 
 Open the @editor-link[#:public-id "0B9rKDmABYlJVXy00M1VteEZxaHM" "Virtual Pet Starter"] file.
-Run it, and use @code{interact(pet-react)} to see the game run.
+Run it, see the game run.  You can use @code{interact(pet-react)} to run it multiple times.
 
 }
 
@@ -292,20 +292,79 @@ to the data definition, just adding and editing functions like
 @code{next-state-tick}, @code{next-state-key}, and @code{draw-state}.
 
 @activity[]{
-The next state on each tick should be a state where the hunger is decreased by 2,
-sleep is decreased by 0.5 (or 1/2), and happiness is decreased by 1.
+The next state on each tick should be a state where the hunger is decreased by
+2 and sleep is decreased by 1.
 }
 
 
-Open your workbook to @worksheet-link[#:page 32 #:name "anim-design-pet"], and use the animation design worksheet to work
-through this new feature.  For example, we know the image on each frame should
-show smaller bars on each tick.  The drawing function already draws the bars by
-using the length from the world – how could we check?  We know we should
-update the @code{next-state-tick} function to add this behavior, because the
-problem description only talks about tick events, not key events.  We also know
-we don't need to add any new fields, because the problem description only talks
-about existing fields.  Make sure you get a working animation with bars that
-decrease before moving on, like this:
+Open your workbook to @worksheet-link[#:page 32 #:name "anim-design-pet"],
+which has an example of using the animation design worksheet to fill in the
+implementation.  We step through the pieces here.
+
+@itemlist[
+@item{
+First, the description from the problem is written down into the “goal” part
+of the worksheet.  This is like the “purpose statement” for the feature.
+}
+@item{
+Second, three sketches of the goal are shown.  They depict an animation with
+the bars’ size changing.
+}
+@item{
+Third, we identify that both hunger and sleep are changing in new ways.  Since
+they @emph{aren't} new fields, this feature is completely dependent on existing
+data, and we don't need to add any new fields.
+}
+@item{
+Fourth, we skip the “new fields” section, since we don't need any more for
+this feature.
+}
+@item{
+Fifth, we identify the pieces that we need to write or update. We don't
+need to change the data definition at all, because no new fields were added. We
+@emph{may} need to update @code{draw-state} function, since the size of the
+bars changes.  We definitely need to write the @code{next-state-tick} function,
+which doesn't yet exist.  We do not need to address anything about keypresses
+with this feature, so @code{next-state-key} is untouched  Since
+@code{next-state-tick} has been added for this feature, we need to add a
+@code{on-tick} handler to the reactor.
+}
+@item{
+Now we can move onto code.  Sixth, we write example instances corresponding to
+the sketches we made.  We estimate a bit from looking at the pictures, but note
+that we pick numbers that would work with the desired behavior – @code{petB}
+represents the state after 5 ticks, because hunger is 10 less (decreased by 2
+each tick), and sleep is 5 less (decreased by 1 on each tick).  Th @code{petC}
+sample instance corresponds to the state after how many ticks?
+}
+@item{
+Seventh, we write example uses of the function we're working on, in this case
+@code{next-state-tick}.  We pick two of the example instances to add as
+examples.
+}
+]
+
+Now we need to use this information to go into the program and make the
+necessary edits, checking off the boxes we identified as we go.  In this case,
+we can look at the @code{draw-state} function and see that it is already
+drawing rectangles of the right size, so we can check off the @code{draw-state}
+box right away.  Then we need to implement the @code{next-state-tick} function.
+We already have the contract for it, and the last step above gave us examples
+for it.  This gets us halfway through the design recipe already!  Once we've
+finished using the design recipe to implement @code{next-state-tick}, we can
+check off its box.  Finally, we need to add the handler to the @code{reactor}
+so the reactor calls the function we just wrote on tick events.  That looks
+like this:
+
+@code[#:multi-line #t]{
+pet-react = reactor:
+  init: FULLPET,
+  on-tick: next-state-tick,
+  to-draw: draw-state
+end}
+
+Make sure you get a working animation with bars that decrease before moving on,
+like this:
 
 @bannerline{@animated-gif{images/cat-decreasing-bars.gif}}
 
@@ -314,15 +373,14 @@ don't reach zero!
 
 @activity[]{
 On a keypress, if the user pressed "f" (for "feed"), @code{hunger} should
-increase by 10. If the user pressed "p" (for "play"), @code{happy} should
-increase by 3.  If the user pressed "s" (for "sleep"), @code{sleep} should
+increase by 10. If the user pressed "s" (for "sleep"), @code{sleep} should
 increase by 5.  If the user presses any other keys, nothing should change.
 }
 
 Follow the animation design worksheet, and work through this one on your own.
-What function needs to change?  What functions can stay the same?  Are any new
-fields needed?  Hint: The problem description mentions all existing fields and
-the @code{next-state-key} function.
+What are useful sketches to draw that capture this new feature?  How does the
+state change?  Are any new fields needed?  What function needs to change?  What
+functions can stay the same?
 
 @activity[]{
 When you've implemented @code{next-state-key},
@@ -344,9 +402,9 @@ and test out your game!
 
 @activity[]{ When any bar reaches zero, the game is lost and your pet is sad –
 make the picture change to show the player this!  In addition, when the game is
-lost, the "f", "p", and "s" keys shouldn't do anything.  Instead, the user
-should be able to press the "r" key (for "restart"), to reset hunger, sleep,
-and happiness to 100, and start playing again.}
+lost, the "f" and "s" keys shouldn't do anything.  Instead, the user should be
+able to press the "r" key (for "restart"), to reset hunger and sleep
+100, and start playing again.}
 
 
 }
