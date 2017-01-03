@@ -15,7 +15,7 @@
 }
 @unit-lessons{
 @lesson/studteach[#:title "Animations in Pyret"
-        #:duration "50 minutes"
+        #:duration "55 minutes"
         #:overview ""
         #:learning-objectives @itemlist[@item{Capture essense of an animation in a data structure}
 	 		                 @item{Create images for single frames of an animation}
@@ -293,7 +293,7 @@
          
 	       
 @lesson/studteach[#:title "From Animations to Structures"
-        #:duration "30 minutes"
+        #:duration "55 minutes"
         #:overview ""
         #:learning-objectives @itemlist[@item{Students practice identifying the data that underlies animations}]
         #:evidence-statements @itemlist[]
