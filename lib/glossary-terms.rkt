@@ -35,7 +35,7 @@ when it prints out the glossary for a particular unit
     ("evaluate" "perform the computation in an expression, producing an answer")
     ("evaluates to" "the result of computing an expression")
     ("event-based programming" "a style of programming in which every functions are written to respond to mouse-clicks, keypresses, etc.")
-    ("events" "something that happens outside of a running program, which the program can respond to")
+    ("event" "something that happens outside of a running program, which the program can respond to")
     ("example" "shows the use of a function on specific inputs and the computation the function should perform on those inputs")
     ("examples block" "Code that lists examples starting with 'examples:' and ends with 'end'")
     ("expression" "a computation written in the rules of some language (such as arithmetic, code, or a Circle of Evaluation)")
