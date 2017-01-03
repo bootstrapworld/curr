@@ -1,7 +1,7 @@
 #lang curr/lib
 @declare-tags[]
 
-@title{Track: Making Pong}
+@title{Feature: Making Pong}
 
 @unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sqr sqrt expt})
                                        (list "String" @code{string-append string-length})
@@ -17,7 +17,7 @@
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
-     #:standards (list)
+     #:standards (list "BS-DS.1" "BS-DS.2" "BS-R")
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, language table, course calendar)}
                             @item{Language Table (see below)}
@@ -73,13 +73,13 @@ end
                                 as an image. Let's build a @code{reactor}, which uses a @code{pongState} instance as the starting state and hooks
                                 up these functions to the @code{on-tick} and @code{to-draw} event handlers.
                                 @code[#:multi-line #t]{
-r = reactor:
+pong-react = reactor:
   init: pongState(200, 200),
   on-key: next-state-key,
   to-draw: draw-state
 end
 }
-                                When you run this reactor (@code{interact(r)}), you should see your initial instance drawn on the screen,
+                                When you run this reactor (@code{interact(pong-react)}), you should see your initial instance drawn on the screen,
                                 and the paddle positions should change based on the keys you press! Do all four keys do what you expect
                                 them to do? What happens if you hit some @italic{other} key?}
                         @teacher{}
@@ -103,7 +103,7 @@ end
                                     ]
      #:product-outcomes @itemlist[]
      #:exercises (list )
-     #:standards (list )
+     #:standards (list "BS-DS.1" "BS-DS.2" "BS-R")
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, language table, course calendar)}
                             @item{Language Table (see below)}]
