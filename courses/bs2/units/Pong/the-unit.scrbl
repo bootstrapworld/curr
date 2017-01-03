@@ -43,10 +43,11 @@
                  @point{@student{Here is one possible structure that we could use to model the two players:
                                 @code[#:multi-line #t]{
 # a PongState has the y-coordinate of paddle1 and paddle2
+# (no x-coordinate needed, since the paddles only go up/down!)
 data pongState:
  | pong(
-     paddle1 :: Number,
-     paddle2 :: Number)
+     paddle1Y :: Number,
+     paddle2Y :: Number)
 end
                                                        }
                                 We can imagine a few sample @code{pongState} instances, in which the paddles are at different locations on the screen. If you 
@@ -58,14 +59,14 @@ end
                                @activity{@itemlist[@item{What will the paddles look like?}
                                                     @item{What does the background look like?}
                                                     @item{How wide is the background? How tall is it?}
-                                                     @item{Use the Design Recipe to write the code for @code{draw-state}, and try drawing your sample @code{PongState} instances to make sure they look the way you
-                                         expect them to.}]}}
+                                                     @item{Define the function @code{draw-state}, and try drawing your sample @code{PongState} instances to 
+                                                           make sure they look the way you expect them to.}]}}
                         @teacher{}
                         }
                  @point{@student{The paddles don't move on their own, so right now there's no @code{next-state-tick} function. However, they DO move
                                 when a user hits a key! That means we'll need to define @code{next-state-key}, and answer a few questions in the process:
-                                @activity{@itemlist[@item{What key makes @code{paddle1} move up? Move down?}
-                                                     @item{What key makes @code{paddle2} move up? Move down?}
+                                @activity{@itemlist[@item{What key makes @code{paddle1Y} increase? Decrease?}
+                                                     @item{What key makes @code{paddle2Y} increase? Decrease?}
                                                      @item{How much does each paddle move when it goes up or down?}
                                                      @item{What happens if some @italic{other} key is pressed?}
                                                      @item{Use the Design Recipe to write the code for @code{next-state-tick}}]}}
@@ -81,14 +82,14 @@ pong-react = reactor:
   to-draw: draw-state
 end
 }
-                                When you run this reactor (@code{interact(pong-react)}), you should see your initial instance drawn on the screen,
+                                When you run this reactor with @code{interact(pong-react)}, you should see your initial instance drawn on the screen,
                                 and the paddle positions should change based on the keys you press! Do all four keys do what you expect
                                 them to do? What happens if you hit some @italic{other} key?}
                         @teacher{}
                         }
                  @point{@student{Right now, what happens if you keep moving one of the paddles up or down? Will it go off the edge of the 
-                                screen? We should make sure to prevent that! @activity{Take a few minutes and discuss with your partner: 
-                                what needs to change, in order to stop the paddles from going offscreen? You can use an Animation Design
+                                screen? We should prevent that! @activity{Take a few minutes and discuss with your partner: 
+                                what needs to change to stop the paddles from going offscreen? You can use an Animation Design
                                 Worksheet if you want to be precise. Once you have a strategy that you feel confident about, take 15 
                                 minutes to try it out!}}
                         @teacher{Give the class 2-3 minutes to discuss, and then have different teams share back @italic{before}
@@ -145,10 +146,7 @@ end
                                  on the screen. Meanwhile, we have a ball that can move in any direction...but so far the ball doesn't know how
                                  to bounce! It's time to plan out what bouncing will look like, and wire it all together.
                                  @activity{@itemlist[@item{How do you know when the ball has hit the top or bottom wall of the screen?}
-                                                      @item{Write @code{is-on-wall}, using the Design Recipe to help you.}
-                                                      @item{Hook @code{it-on-wall} up to the reactor's @code{stop-when} event-handler, so that
-                                                            the game will end as soon as the ball hits the top or bottom of the screen.
-                                                            You may need to change your initial instance, to make sure the ball hits that wall!}]}
+                                                      @item{Write @code{is-on-wall}, using the Design Recipe to help you.}]}
                                  }
                          @teacher{The goal of this activity is to have students get their collision-detection working, in preparation for the
                                   bouncing behavior. } 
@@ -174,15 +172,17 @@ end
                          }
                  @point{@student{Here is one example of a way to represent this, during Numbers to keep track of direction:
                                  @code[#:multi-line #t]{
-# a PongState has the y-coordinates of paddle1 and paddle2, x and y-coordinates of the ball, and x and y-coordinates representing the direction of the ball
+# a PongState has the y-coordinates of paddle1 and paddle2, 
+# x and y-coordinates of the ball, and x and y-coordinates 
+#representing the direction of the ball
 data pongState:
  | pong(
-     paddle1 :: Number,
-     paddle2 :: Number,
-     ballX   :: Number,
-     ballY   :: Number,
-     moveX   :: Number,
-     moveY   :: Number)
+     paddle1Y :: Number,
+     paddle2Y :: Number,
+     ballX    :: Number,
+     ballY    :: Number,
+     moveX    :: Number,
+     moveY    :: Number)
 end
                                                        }
                                  When the game begins, we can start out with @code{moveX} and @code{moveY} being specific numbers that move
@@ -217,7 +217,7 @@ pongStateC = pong(200, 300, 550, 320, 20, -10)
                                  The ball starts out moving up and to the right, but once it hits a wall the direction needs to change.
                                  Instead of moving up (adding 10 each tick), it's now moving down (adding -10 each tick) after
                                  bouncing off the wall (it's still moving up the screen by 10 each time, so we leave that unchanged).
-                                 @bold{Note:} Once the ball hits the wall, it's y-position needs to change! If the ball stays where it is,
+                                 @bold{Note:} Once the ball hits the wall, its y-position needs to change! If the ball stays where it is,
                                  it will still be considered to have "hit" the wall on the next @code{tick}. This will cause the ball to jitter
                                  back and forth, as it constantly hits the same wall over and over.
                                  @activity{Change @code{next-state-tick} so that it generates the next @code{pongState} using the ball's
@@ -235,16 +235,16 @@ pongStateC = pong(200, 300, 550, 320, 20, -10)
 fun next-state-tick(w):
   if (is-on-wall(w)):
     pong(
-      w.paddle1,                # the paddles don't change position
-      w.paddle2,
+      w.paddle1Y,               # the paddles don't change position
+      w.paddle2Y,
       w.ballX + w.moveX,        # the ball keeps moving in the same x-direction
-      w.ballY + (w.moveY * -1), # but it bounces off the wall...
+      w.ballY + (w.moveY * -1), # but it bounces off the wall...(move backwards by moveY)
       w.moveX * -1,             # ...and the y-direction is reversed
       w.moveY)
   else:
     pong(
-      w.paddle1,
-      w.paddle2,
+      w.paddle1Y,
+      w.paddle2Y,
       w.ballX + w.moveX,
       w.ballY + w.moveY,
       w.moveX,
