@@ -8,7 +8,7 @@
         #:learning-objectives @itemlist[]
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[]
-        #:standards (list "N-Q" "A-SSE.1-2" "A-CED.1-4" "BS-M" "BS-IDE" "BS-PL.1" "BS-PL.2" "BS-PL.3" "BS-PL.4" "BS-DR.4" "BS-DS.1" "BS-DS.2" "BS-W")
+        #:standards (list "N-Q" "A-SSE.1-2" "A-CED.1-4" "BS-M" "BS-IDE" "BS-PL.1" "BS-PL.2" "BS-PL.3" "BS-PL.4" "BS-DR.4" "BS-DS.1" "BS-DS.2" "BS-R")
         #:materials @itemlist[@item{}]
         #:preparation @itemlist[@item{Student Games @italic{or} the @editor-link[#:public-id "0B9rKDmABYlJVVkpkTmEyd1ZTaE0" "Pyret Ninja Cat"] file preloaded on students' machines}]
         #:pacings (list 
@@ -63,7 +63,7 @@ end
                  @point{@student{Now that the game has a score, that score needs to actually increase or decrease depending on what happens 
                                  in the game. For our Ninja Cat game, we'll say that the score should go up by 30 points when Ninja Cat 
                                  collides with the ruby (target), and down by 20 points when she collides with the dog (danger).
-                                 @activity[#:forevidence (list "A-SSE.1-2&1&1" "BS-M&1&1" "BS-PL.3&1&1" "BS-PL.4&1&1" "BS-DR.4&1&1" "BS-DS.1&1&5" "BS-W&1&1")]{
+                                 @activity[#:forevidence (list "A-SSE.1-2&1&1" "BS-M&1&1" "BS-PL.3&1&1" "BS-PL.4&1&1" "BS-DR.4&1&1" "BS-DS.1&1&5" "BS-R&1&1")]{
                                                        @itemlist[@item{Which of the @code{if} branches in your @code{next-state-tick} 
                                                                       function checks whether your player has collided with another character?}
                                                                  @item{How would you decrease the game's @code{score} by 20 points 
@@ -120,7 +120,7 @@ else if is-collision(g.playerx, g.playery, g.targetx, g.targety):
     g.score + 30)
     }
 
-                                 @activity[#:forevidence (list "BS-IDE&1&1" "BS-DR.4&1&3" "BS-DS.1&1&5" "BS-W&1&5")]{
+                                 @activity[#:forevidence (list "BS-IDE&1&1" "BS-DR.4&1&3" "BS-DS.1&1&5" "BS-R&1&5")]{
                                        Change your own game code so that your score increases and decreases depending on various game 
                                        conditions: Maybe your score increases when the player collides with a target, reaches a specific 
                                        area of the screen, or reaches a specific area @italic{only after} picking up an item. Maybe your 
@@ -132,13 +132,13 @@ else if is-collision(g.playerx, g.playery, g.targetx, g.targety):
 
                  @point{@student{Now your scoring system is in place, but how will the person playing your game know what their score is? 
                                  You'll want to display the score on the screen. 
-                                 @activity[#:forevidence (list "BS-W&1&2" "BS-W&1&4")]{Which function handles how the game state is drawn?}
+                                 @activity[#:forevidence (list "BS-R&1&2" "BS-R&1&4")]{Which function handles how the game state is drawn?}
 In the @code{draw-state} function, images are placed onto the background using @code{put-image} to draw the game. But the score is 
 represented by a Number: we need a way to represent it as an Image. Thankfully, Pyret has some built-in functions that can help with this: 
 the function @code{num-to-string} takes in a Number for its domain and returns a String representation of that number. This string can 
 then be passed to the @code{text} function to return an Image that can be used in @code{draw-state}. 
 
-@activity[#:forevidence (list "BS-M&1&1" "BS-PL.2&1&1" "BS-DS.1&1&5" "BS-W&1&2" "BS-W&1&5")]{Copy the following contracts into your workbook:
+@activity[#:forevidence (list "BS-M&1&1" "BS-PL.2&1&1" "BS-DS.1&1&5" "BS-R&1&2" "BS-R&1&5")]{Copy the following contracts into your workbook:
                                            @itemlist[@item{@code{num-to-string : Number -> String}}
                                                      @item{@code{text : String, Number, String -> Image}}
                                                      @item{How would you use the @code{num-to-string} and @code{text} functions together

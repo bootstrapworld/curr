@@ -2,13 +2,24 @@
 
 @declare-tags[management]
 
+@title{Track: Adding Collisions}
+
+@unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / num-sqr num-sqrt num-expt})
+                                       (list "String" @code{string-append string-length})
+                                       (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image})
+				       )]{
+
+@unit-descr{Using what they know from Bootstrap:1, students write a distance function and collision detection function to handle 
+            collisions in their games, this time using the Data Structures and Reactor from their games.}
+}
+@unit-lessons{
 @lesson/studteach[#:title "Collisions in Your Game"
         #:duration "45 minutes"
         #:overview "Using what they know from Bootstrap:1, students write a distance function and collision detection function to handle collisions in their games"
         #:learning-objectives @itemlist[]
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[]
-        #:standards (list "N-Q" "6.NS.5-8" "7.EE.3-4" "8.G.6-8" "8.F.1-3" "F-IF.1-3" "F-LE.5" "A-SSE.1-2" "A-CED.1-4" "BS-M" "BS-CE" "BS-PL.3" "BS-PL.4" "BS-DR.1" "BS-DR.2" "BS-DR.3" "BS-DR.4" "BS-W")
+        #:standards (list "8.G.6-8" "8.F.1-3" "F-IF.1-3" "F-LE.5" "A-SSE.1-2" "A-CED.1-4" "BS-M" "BS-CE" "BS-PL.3" "BS-PL.4" "BS-DR.1" "BS-DR.2" "BS-DR.3" "BS-DR.4" "BS-R")
         #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, design recipe, course calendar)}
                             @item{Editing environment (Pyret Editor)}
@@ -110,7 +121,7 @@ the @italic{larger} one, and we have our distance.
 Now you've got code that tells you the distance between the points (4, 2) and (0, 5). But we want to have it work for @italic{any} two points. 
 It would be great if we had a function that would just take the x's and y's as input, and do the math for us.}
                         @teacher{}}
-                @point{@student{@activity[#:forevidence (list "N-Q&1&1" "8.G.6-8&1&3" "8.F.1-3&1&1" "F-IF.1-3&1&1" "BS-M&1&1" "BS-PL.3&1&2" "BS-PL.3&1&3" "BS-DR.1&1&1" "BS-DR.1&1&2" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1")]{
+                @point{@student{@activity[#:forevidence (list "BS-M&1&1" "BS-PL.3&1&2" "BS-PL.3&1&3" "BS-DR.1&1&1" "BS-DR.1&1&2" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1")]{
                                  @itemlist[@item{Turn to @worksheet-link[#:page 36 #:name "distance"], and read the problem statement and 
                                                  function header carefully.}
                                             @item{Use the Design Recipe to write your distance function. Feel free to use the work from the 
@@ -129,7 +140,7 @@ You still need a function to check whether or not two things are colliding.}
                                 @activity{How close should your danger and your player be, before they hit each other?}
                                 At the top of @worksheet-link[#:page 37 #:name "is-collision"] you'll find the Word Problem 
                                 for @code{is-collision}. 
-                                @activity[#:forevidence (list "N-Q&1&1" "7.EE.3-4&1&1" "8.G.6-8&1&3" "8.F.1-3&1&1" "F-IF.1-3&1&1" "A-CED.1-4&1&1" "BS-M&1&1" "BS-DR.1&1&1" "BS-DR.1&1&2" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1")]{
+                                @activity[#:forevidence (list "BS-M&1&1" "BS-DR.1&1&1" "BS-DR.1&1&2" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1")]{
                                    @itemlist[@item{Fill in the Contract, two examples, and then write the code. Remember: you WILL need to make use of the @code{distance} function you just wrote!}
                                               @item{When you're done, type it into your game, underneath @code{distance}.}]}}
                         @teacher{Using visual examples, ask students to guess the distance between a danger and a player at 
@@ -142,31 +153,24 @@ You still need a function to check whether or not two things are colliding.}
                                 in your game! For extra practice, You can also implement collision detection into this 
                                 @editor-link[#:public-id "0B9rKDmABYlJVT1FBd3RpQWFqbGM" "Pyret Ninja Cat game"]. This is the 
                                 program we'll be altering for this lesson, as an example. 
-                                @activity[#:forevidence (list "BS-W&1&4")]{
+                                @activity[#:forevidence (list "BS-R&1&4")]{
                                    Out of the major functions in the game (@code{next-state-tick}, @code{draw-state}, or
                                    @code{next-state-key}), which do you think you'll need to edit to handle collisions?}
                                 We'll need to make some more @code{if} branches for @code{next-state-tick}. In Ninja Cat, 
                                 when the cat collides with the dog, we want to put the dog offscreen so that he can come back 
                                 to attack again.}
                         @teacher{}}
-                 @point{@student{@activity[#:forevidence (list "N-Q&1&1" "8.G.6-8&1&3" "F-LE.5&1&1" "A-SSE.1-2&1&1" "BS-PL.4&1&1" "BS-DR.4&1&3" "BS-DS.1&1&5")]{
+                 @point{@student{@activity[#:forevidence (list "BS-PL.4&1&1" "BS-DR.4&1&3" "BS-DS.1&1&5")]{
                                      @itemlist[@item{Start with the test: how could you check whether the cat and dog are colliding? Have you written a function to check that?}
                                                 @item{What do the inputs need to be?}
                                                 @item{How do you get the @code{playery} out of the GameState? @code{playerx}?}
                                                 @item{How do you get the @code{dangerx} out of the GameState? @code{dangery}?} ]}
 @code[#:multi-line #t]{if is-collision(
-<<<<<<< HEAD
-                           g.playerx, 
-                           g.playery, 
-                           g.dangerx, 
-                           g.dangery):   ...result...}
-Remember that @code{next-state-tick} produces a GameState, so what function should come first in our result?
-=======
     g.playerx, 
     g.playery, 
     g.dangerx, 
     g.dangery):   ...result...}
-Remember that @code{next-state-tik} produces a GameState, so what function should come first in our result?
+Remember that @code{next-state-tick} produces a GameState, so what function should come first in our result?
 @code[#:multi-line #t]{if is-collision(
     g.playerx, 
     g.playery, 
@@ -187,18 +191,19 @@ Remember that @code{next-state-tik} produces a GameState, so what function shoul
                                    always place it at the same y-coordinate each time, but we know a function that can place him at 
                                    a @italic{random} y-coordinate...}
              @code[#:multi-line #t]{if is-collision(
-                           g.playerx, 
-                           g.playery, 
-                           g.dangerx, 
-                           g.dangery):
-                                      game(g.playerx, 
-                                           200, 
-                                           num-random(480),
-                                      	   0, 
-                                      	   0, 
-                                      	   g.targetx, 
-                                      	   g.targety, 
-                                      	   g.targetspeed) }
+    g.playerx, 
+    g.playery, 
+    g.dangerx, 
+    g.dangery):
+  game(
+    g.playerx, 
+    200, 
+    num-random(480),
+    0, 
+    0, 
+    g.targetx, 
+    g.targety, 
+    g.targetspeed) }
              }
                         @teacher{Collision detection must be part of the @code{next-state-tick} function because the game should 
                                 be checking for a collision @italic{each time} the GameState is updated, on every tick. Students 
@@ -225,7 +230,7 @@ Remember that @code{next-state-tik} produces a GameState, so what function shoul
                 ]
          }
 
-    
+    }
 
                                  
                         

@@ -6,8 +6,9 @@
 @unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / num-sqr num-sqrt num-expt})
                                        (list "String" @code{string-append string-length})
                                        (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image}))]{
-@unit-descr{Students are introduced to conditionals using @tt{if}, on both built-in data (like numbers) and on programmer-defined data structures.
-            They then use conditionals to implement an animation that goes through distinct phases.
+@unit-descr{Students are introduced to conditionals using @tt{if-expressions}, on both built-in data (like numbers) and on programmer-defined data structures.
+            They then use conditionals to implement an animation that goes through distinct phases. They also learn about helper functions, which abstract away
+            frequently-used code to improve readability and reduce duplication.
             }
 }
 
@@ -18,7 +19,7 @@
         #:learning-objectives @itemlist[]
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[@item{Students learn conditional expressions by writing a simple function}]
-        #:standards (list "N-Q" "BS-IDE" "BS-DS.2")
+        #:standards (list "BS-IDE" "BS-DS.2")
         #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, design recipe, course calendar)}
                             @item{Editing environment (Pyret Editor)}
@@ -73,7 +74,7 @@
   @itemlist[
     @item{An @code{if} clause}
     @item{Any number of @code{else if} clauses}
-    @item{An optional @code{else:} clause}
+    @item{An optional @code{else} clause}
     @item{An @code{end} keyword}
   ]
 
@@ -161,9 +162,12 @@ shows.  For example, if @code{location} returns @code{"cliff"} on some input,
 when we draw that same input, it ought to look like the parachutist has hit the
 cliff!
 
-@activity[]{Experiment with this function:  in the interactions pane, run @code{location(START)}:
-what does it return (hopefully @code{"air"})?  Run @code{draw(START)}: does it
-look like the jumper is in the air?  Do the same for an instance of a JumperState where the jumper is on the cliff, in the water, and on the beach.
+@activity[]{Experiment with this function!  
+            @itemlist[
+                      @item{Click "Run" to compile your program, then close the animation window.}
+                       @item{In the interactions pane, evaluate @code{location(START)}. What does it return (hopefully @code{"air"})?}
+                       @item{Evaluate @code{draw(START)}. does it look like the jumper is in the air?}  
+                       @item{Do the same for an instance of a JumperState where the jumper is on the cliff, in the water, and on the beach.}]
 
 }
 
@@ -225,7 +229,7 @@ information about the animation.}
                     @item{What function in your code determines how your animation @italic{looks}?}
                     @item{How might you change this function to draw a different scene depending on where the sun is located in the scene?}]}
                                                                                                    
-We know we'll need to change our @code{draw-state} function in some way, since this is the function that controls how our animation is drawn. Our first instinct may be to turn it into a piecewise function, and draw something different when the @code{SunsetState}'s y-coordinate gets below 225 or below 150. @italic{However}, if we were to start coding, we might quickly find that we're writing the same code over and over. We don't want to change how large the sun is, or where the ground is drawn in the scene. The @italic{only} thing we want to change is the actual image of the sun. To do this, we can write a @vocab{helper function} to ask questions about the @code{SunsetState}, and produce an image based on its y-coordinate, instead of doing that work inside @code{draw-state}. @vocab{Helper functions} are incredibly useful if you find yourself writing the same piece of code over and over again, or if you simply want to make your code more readable. In this case, we're going to write a function called @code{sun-color}, which will help us draw a picture of the sun separate from everything else in @code{draw-state}.
+We know we'll need to change our @code{draw-state} function in some way, since this is the function that controls the way things @italic{look}. Our first instinct may be to turn it into a piecewise function, and draw something different when the @code{SunsetState}'s y-coordinate gets below 225 or below 150. @italic{However}, if we were to start coding, we might quickly find that we're writing the same code over and over. We don't want to change how large the sun is, or where the ground is drawn in the scene. The @italic{only} thing we want to change is the actual image of the sun. To do this, we can write a @vocab{helper function} to ask questions about the @code{SunsetState}, and produce an image based on its y-coordinate, instead of doing that work inside @code{draw-state}. @vocab{Helper functions} are incredibly useful if you find yourself writing the same piece of code over and over again, or if you simply want to make your code more readable. In this case, we're going to write a function called @code{sun-color}, which will help us draw a picture of the sun separate from everything else in @code{draw-state}.
 
 @activity{Open your wokbook to @worksheet-link[#:page 29 #:name "sun-color"]. Here we have directions for writing a function called @code{sun-color}, Which consumes a @code{SunsetState} and produces an image of the sun, whose color is either "yellow", "orange", or "red" depending on its y-coordinate.}}
                         @teacher{The word problem assumes a background scene size of 400x300 pixels. Once students use their @code{sun-color} function in their animation, they may need to change the specific conditions if they have a much larger or smaller scene.}}

@@ -9,7 +9,9 @@
                                        (list "String" @code{string-append string-length})
                                        (list "Image"  @code{rectangle circle triangle ellipse star text}))
                                                                                                           ]{
-@unit-descr{Students discover the need for data structures, and practice defining them.}
+@unit-descr{Students discover the need for compound date - data structures - using 2-dimentionsal
+            animation. They learn the syntax for data blocks, constructors and dot-accessors, and
+            practice each by creating a "digital bakery".}
 }
 @unit-lessons{
               
@@ -20,7 +22,7 @@
      #:learning-objectives @itemlist[@item{Students will deepen their understanding of function definitions and the Design Recipe}]
      #:evidence-statements @itemlist[@item{}]
      #:product-outcomes @itemlist[@item{}]
-     #:standards (list "N-Q" "8.F.1-3" "F-IF.1-3" "F-LE.5" "A-SSE.1-2" "BS-M" "BS-PL.3" "BS-DR.1" "BS-DR.1" "BS-DR.2" "BS-DR.2" "BS-DR.3")
+     #:standards (list "BS-M" "BS-PL.3" "BS-DR.1" "BS-DR.1" "BS-DR.2" "BS-DR.2" "BS-DR.3")
      #:materials @itemlist[@item{Pens/pencils for students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, language table, course calendar)}
                             @item{Language Table (see below)}
@@ -48,7 +50,7 @@
                                                    twice as big as the input.}}
                         @teacher{If walking through this example as a class, use a projector so kids can see the function being written on the computer.}}
                  @point{@student{Remember how to use the design recipe to work through word problems? @bannerline{Step 1: Contract and Purpose Statement}
-                                 @activity[#:forevidence (list "N-Q&1&1" "F-IF.1-3&1&1" "F-LE.5&1&1" "BS-M&1&2" "BS-DR.1&1&1" "BS-DR.1&1&2")]{ @itemlist[@item{What is the @vocab{Name} of this function? How do you know?}
+                                 @activity[#:forevidence (list "BS-M&1&2" "BS-DR.1&1&1" "BS-DR.1&1&2")]{ @itemlist[@item{What is the @vocab{Name} of this function? How do you know?}
                                                        @item{How many inputs does it have in its @vocab{Domain}?}
                                                        @item{What kind of data is the @vocab{Domain}?}
                                                        @item{What is the @vocab{Range} of this function?}
@@ -88,7 +90,7 @@ Don't forget to include the lines @code{examples:} and @code{end}! Your examples
 fun double-radius(radius, color):
   circle(radius * 2, "outline", color)
 end}
-           @activity[#:forevidence (list "N-Q&1&1" "8.F.1-3&1&1" "F-IF.1-3&1&1" "A-SSE.1-2&1&1" "BS-M&1&1" "BS-PL.3&1&3" "BS-DR.1&1&1" "BS-DR.1&1&2" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1")]{For more practice, turn to @worksheet-link[#:name "double-width"] in your workbook and complete the Design Recipe for the @code{double-width} function.}}
+           @activity[#:forevidence (list "BS-M&1&1" "BS-PL.3&1&3" "BS-DR.1&1&1" "BS-DR.1&1&2" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1")]{For more practice, turn to @worksheet-link[#:name "double-width"] in your workbook and complete the Design Recipe for the @code{double-width} function.}}
                 @teacher{Check students understanding: Why do we use variables in place of specific values? Why is it important to have descriptive variable
                          names, as opposed to @code{n} or @code{x}?
                           Remind students about nested functions: A function whose range is a number can be used inside of a function requiring a number in its domain, as in 
@@ -103,7 +105,7 @@ end}
         #:learning-objectives @itemlist[@item{Students will understand the limitations of atomic datatypes}]
         #:evidence-statements @itemlist[@item{}]
         #:product-outcomes @itemlist[@item{Students identify real-world behaviors that require data structures}]
-        #:standards (list "5.OA.1-2" "7.EE.3-4" "8.F.1-3" "8.F.4" "8.F.5" "F-IF.1-3" "A-SSE.1-2" "F-LE.1-4" "F-LE.5" "BS-M" "BS-DR.1" "BS-DR.2" "BS-DR.3" "BS-DR.4" "BS-IDE")
+        #:standards (list "BS-M" "BS-DR.1" "BS-DR.2" "BS-DR.3" "BS-DR.4" "BS-IDE")
         #:materials @itemlist[@item{}]
         #:preparation @itemlist[@item{The @editor-link[#:public-id "0B9rKDmABYlJVbUVUeVJDZ1p3Ulk" "Parachute Jumper"] file preloaded on student machines}]
         #:prerequisites (list)
@@ -116,10 +118,10 @@ end}
           @points[
                    @point{@student{@activity{Open the @editor-link[#:public-id "0B9rKDmABYlJVbUVUeVJDZ1p3Ulk" "Parachute Jumper"] file on your computer and press 'Run'. What happens?}
                                     The parachute jumper jumps out of the airplane and falls straight down, into the water! It's much safer to land on the shore. Let's take a look at the code to see why he falls into the water instead. There are a few new concepts in this file, but first, let's focus on what you already know.
-                                    @activity[#:forevidence (list "8.F.1-3&1&1" "8.F.5&1&1" "F-IF.1-3&1&1" "A-SSE.1-2&1&1" "A-SSE.1-2&1&3")]{Look at the function defined here called @code{next-position}. @itemlist[@item{What is this function's Domain? Its Range?}
+                                    @activity[#:forevidence (list)]{Look at the function defined here called @code{next-position}. @itemlist[@item{What is this function's Domain? Its Range?}
           @item{What does @code{next-position} do with its inputs?}]}
                                     This function takes in two numbers, representing the x and y coordinate of the parachute jumper, but it changes and returns only the y-coordinate, by subtracting 5 from it. But if only the y-coordinate is changing, he'll always fall straight down, landing in the water every time. To reach the land, he'll have to fall diagonally. How could we make that happen?
-                                    @activity[#:forevidence (list "F-LE.5&1&1")]{How should the jumper's x-coordinate change if he moves diagonally to the right (toward the land)? How should his y-coordinate change?}}
+                                    @activity[#:forevidence (list)]{How should the jumper's x-coordinate change if he moves diagonally to the right (toward the land)? How should his y-coordinate change?}}
                            @teacher{}}
                     
                     @point{@student{Functions can return only one thing at a time, but we need to return both an x @bold{and} a y-coordinate in order to make the jumper move diagonally. Thankfully, we have a way to combine multiple things within one container, called a @vocab{Data Structure}. Just like Racket and Pyret have built-in functions and also let you define your own functions, these languages allow you to create your own data structures as well. For this project, we've created a structure for you to use called @code{JumperState}, which contains two Numbers, representing an x and a y-coordinate.                                                                            @activity{Look at line 6, where we've defined @code{JumperState}. We'll go through the new syntax for defining a data structure, because very soon you'll be defining brand new structures of your own!}
@@ -136,7 +138,7 @@ tells us that we're defining a new data type called @code{JumperState}, whose co
                             @teacher{This is the first data block students see in this course, but they will soon be writing their own to create new data structures. It's worth spending the time to cover this new syntax, paying special attention to capitalization (the name of the structure is capitalized (JumperState), whereas its constructor function (jumper) is lowercase), double colons (::) before data types, and commas between inputs to the constructor function.}
                             }
                                      
-                    @point{@student{Now it's up to us to protect this parachute jumper, and make sure he lands safely on the shore. @activity[#:forevidence (list "F-IF.1-3&1&1" "F-LE.5&1&1" "BS-M&1&2" "BS-DR.1&1&1" "BS-DR.1&1&2")]{Turn to @worksheet-link[#:name "next-position"] in your workbook, read the word problem, and fill in the Contract and Purpose Statement for the function @code{next-position}.}
+                    @point{@student{Now it's up to us to protect this parachute jumper, and make sure he lands safely on the shore. @activity[#:forevidence (list "BS-M&1&2" "BS-DR.1&1&1" "BS-DR.1&1&2")]{Turn to @worksheet-link[#:name "next-position"] in your workbook, read the word problem, and fill in the Contract and Purpose Statement for the function @code{next-position}.}
     @code[#:multi-line #t]{# next-position : Number Number -> JumperState
                            # Given 2 numbers, make a JumperState by adding 5 to x and subtracting 5 from y}}
                             @teacher{Point out that we're now using a new data type in a contract: @code{next-position} consumes two Numbers, and produces a @italic{JumperState}. Once we've defined a new data structure using the above data block, we can use it just like other datatypes.}}
@@ -152,7 +154,7 @@ tells us that we're defining a new data type called @code{JumperState}, whose co
                     @item{Once your first example is complete, write one more example with different inputs for the x and y coordinates.}]}}
                             @teacher{Remind students to show every step of their work in the example step of the design recipe: if the x-coordinate increases by 5 while the y-coordinate decreases by 5, they should show the addition and subtraction within the JumperState data structure, instead of just returning the new numbers.}}
                     
-                    @point{@student{@activity[#:forevidence (list "8.F.4&1&1" "F-LE.1-4&1&5" "BS-DR.3&1&1" "BS-DR.4&1&2")]{Now that you have two examples, it's time to define the function. You know the drill: circle and label everything that changes between your two examples, copy everything that stays the same, and replace the changing things with the variables you chose.}
+                    @point{@student{@activity[#:forevidence (list "BS-DR.3&1&1" "BS-DR.4&1&2")]{Now that you have two examples, it's time to define the function. You know the drill: circle and label everything that changes between your two examples, copy everything that stays the same, and replace the changing things with the variables you chose.}
                                      When you finish, your function definition should look like: @code[#:multi-line #t]{fun next-position(x, y):
                          jumper(x + 5, y - 5)
                        end}
@@ -175,7 +177,7 @@ tells us that we're defining a new data type called @code{JumperState}, whose co
         #:product-outcomes @itemlist[@item{Students make use of a complex data structure: @code{Cake}}
                                      @item{Students define variables bound to Cakes}
                                      @item{Students will generalize their understanding of function constructors and accessors}]
-        #:standards (list "N-Q" "F-IF.1-3" "BS-PL.1" "BS-DS.1" "BS-DS.2" "BS-IDE")
+        #:standards (list "BS-PL.1" "BS-DS.1" "BS-DS.2" "BS-IDE")
         #:materials @itemlist[@item{}]
         #:preparation @itemlist[@item{The @editor-link[#:public-id "0B9rKDmABYlJVa0cxbEpoSG1pT0k" "Bakery"] file preloaded on students' machines}]
         #:prerequisites (list)
@@ -189,7 +191,7 @@ tells us that we're defining a new data type called @code{JumperState}, whose co
                    @point{@student{Suppose you own a famous bakery. You bake things like cookies, pastries, and tarts, but you're especially known for your world-famous cakes.
                                    What type of thing is a cake? Is it a number? String? Image? Boolean? You couldn't describe all of the important things 
                                    about a cake with any one of those data types. However, we could say that we care about a couple of details about each cake, each of which can be described with the types we already know.
-                                   @activity[#:forevidence (list "N-Q&1&1" "BS-DS.2&1&1")]{For each of the following aspects of a cake, think about what datatype you might use to represent it:
+                                   @activity[#:forevidence (list "BS-DS.2&1&1")]{For each of the following aspects of a cake, think about what datatype you might use to represent it:
                                              @itemlist[@item{The flavor of the cake. That could be "Chocolate", "Strawberry", "Red Velvet", or something else.}
                                                        @item{The number of layers}
                                                        @item{Whether or not the cake is an ice cream cake.}]
@@ -254,7 +256,7 @@ tells us that we're defining a new data type called @code{JumperState}, whose co
 				     a cookie cutter, but doesn't produce any cookies.  To get a cookie, you use the @code{cake} constructor to define a specific cake with specific values for the fields.}}
                     
                     @point{@student{Based on these instances of CakeTs you just wrote:
-                                    @activity[#:forevidence (list "F-IF.1-3&1&1")]{@itemlist[@item{What is the name of the function that creates a CakeT?}
+                                    @activity[#:forevidence (list)]{@itemlist[@item{What is the name of the function that creates a CakeT?}
                                                         @item{What is the Domain of this function?}
                                                         @item{How many things are in the domain?}]} The three things in the domain of @code{cake} are, in fact, the three things that we have already listed on @worksheet-link[#:name "Cakes"]! With data structures, the order is very important: we always want the first string in @code{cake} to be the CakeT's flavor, the first number to be its number of layers, etc.}
                                    
@@ -321,7 +323,7 @@ tells us that we're defining a new data type called @code{JumperState}, whose co
         #:learning-objectives @itemlist[@item{Students will write complex functions that consume, modify and produce structures}]
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[@item{Students will write functions that access fields of a CakeT}]
-        #:standards (list "7.EE.1-2" "F-IF.1-3" "A-CED.1-4" "BS-DR.1" "BS-DR.2" "BS-DR.3" "BS-DR.4" "BS-DS.1")
+        #:standards (list "BS-DR.1" "BS-DR.2" "BS-DR.3" "BS-DR.4" "BS-DS.1")
         #:materials @itemlist[@item{The  @editor-link[#:public-id "0B9rKDmABYlJVa0cxbEpoSG1pT0k" "Bakery"] file used in the previous lessons}]
         #:preparation @itemlist[]
         #:pacings (list 
@@ -334,7 +336,7 @@ tells us that we're defining a new data type called @code{JumperState}, whose co
         @points[@point{@student{Of course, when programmers work with data structures, they don't just define them and create instances. They also write functions that use and produce structures. Let's get started writing some functions for CakeTs.}
                         @teacher{}}
                  
-                 @point{@student{@activity[#:forevidence (list "F-IF.1-3&1&1" "BS-DR.1&1&1" "BS-DS.2&1&1")]{Turn to @worksheet-link[#:name "taller-than"] in your workbook. Write the contract and purpose statement for a function called @code{taller-than}, which consumes two CakeTs, and produces true if the first CakeT is taller than the second.
+                 @point{@student{@activity[#:forevidence (list "BS-DR.1&1&1" "BS-DS.2&1&1")]{Turn to @worksheet-link[#:name "taller-than"] in your workbook. Write the contract and purpose statement for a function called @code{taller-than}, which consumes two CakeTs, and produces true if the first CakeT is taller than the second.
                                                    @itemlist[@item{What is the domain for this function?}
                                                              @item{What is the range of @code{taller-than}?}
                                                              @item{Which part(s) of the CakeTs will you need to check to determine if one is taller than the other?}]}
@@ -361,7 +363,7 @@ tells us that we're defining a new data type called @code{JumperState}, whose co
                                                          end}}
                          @teacher{ }}
                  
-                 @point{@student{@activity[#:forevidence (list "7.EE.1-2&1&1" "A-CED.1-4&1&1" "BS-DR.1&1&1" "BS-DR.1&1&2" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1" "BS-DS.1&1&5")]{Turn to @worksheet-link[#:name "will-melt"] in your workbook. Your bakery needs to know if certain CakeTs needs to be refrigerated. If the temperature is greater than 32 degrees AND the given CakeT is an ice cream cake, the function should return true. 
+                 @point{@student{@activity[#:forevidence (list "BS-DR.1&1&1" "BS-DR.1&1&2" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1" "BS-DS.1&1&5")]{Turn to @worksheet-link[#:name "will-melt"] in your workbook. Your bakery needs to know if certain CakeTs needs to be refrigerated. If the temperature is greater than 32 degrees AND the given CakeT is an ice cream cake, the function should return true. 
                                                    @itemlist[@item{Fill out the @vocab{Contract} and @vocab{Purpose Statement} for the function.}
                                                               @item{Write two examples for how one would use @code{will-melt}.}
                                                               @item{Circle and label what varies between those examples and label it with a @vocab{variable} name.}

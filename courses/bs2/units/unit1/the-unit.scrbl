@@ -15,7 +15,7 @@
       #:learning-objectives @itemlist[]
       #:evidence-statements @itemlist[]
       #:product-outcomes @itemlist[]
-      #:standards (list "BS-PL.1" "BS-IDE" "BS-PL.3" "5.OA.1-2")
+      #:standards (list "BS-PL.1" "BS-IDE" "BS-PL.3")
       #:materials @itemlist[@item{Editing environment (Pyret Editor)}]
       #:preparation @itemlist[@item{Computer for each student (or pair), running the Pyret Editor}
                               @item{The @editor-link[#:public-id "0B9rKDmABYlJVdHZESmZ6ZnRmdXc" "Review file"] preloaded on students' machines.}
@@ -66,7 +66,7 @@ This new syntax gives us an opportunity to show students that key programming id
                        @teacher{}}
                
                @point{@student{Now we have values, and we know how to define shortcuts for them. There are also plenty of built-in functions, which let us play around with these values. 
-@activity[#:forevidence (list "5.OA.1-2&1&2")]{What are some functions you know that work on numbers? How many can you list?}}
+@activity[#:forevidence (list )]{What are some functions you know that work on numbers? How many can you list?}}
                    @teacher{Remind students that arithmetic operations, such as +, -, *, and / are functions.}}
                
                @point{@student{One of the big changes from Racket to Pyret is the way arithmetic functions are used. In Pyret, you can write these expressions with math notation, like so: @code{(2 + 9)} or @code{(10 * 8)}. @bold{But don't forget to leave a space before and after the function!} Pyret will report an error if you write something like @code{2+9} without spaces around the @code{+}.}
@@ -124,7 +124,7 @@ Write down the Contracts for @code{*}, @code{-}, @code{/} and @code{num-sqrt} in
         #:learning-objectives @itemlist[@item{Students review the Design Recipe and become comfortable using it to write functions}]
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[@item{Students define functions based on a problem statement.}]
-        #:standards (list "F-IF.1-3&1&1" "8.F.5&1&1" "BS-DR.1&1&1" "BS-DR.2&1&1" "8.F.1-3&1&1" "7.EE.3-4&1&4" "BS-M&1&1" "BS-DR.3&1&1")
+        #:standards (list "BS-DR.1&1&1" "BS-DR.2&1&1" "BS-M&1&1" "BS-DR.3&1&1")
         #:materials @itemlist[@item{Design Recipe Sign}]
         #:preparation @itemlist[]
         #:pacings (list 
@@ -165,7 +165,7 @@ The key words here are @italic{examples} and @italic{is}. Pyret knows that anyth
 Once you’ve defined the function itself, Pyret will automatically check your examples to make sure your results match the function body. If they don’t, you’ll get an error message, just like in Bootstrap:1.}
                           @teacher{Make sure students are writing Pyret code for the results of their examples. @code{double(5) is 10}, while technically correct, doesn’t show us the work and thought process behind the code, and makes it much harder to define the function in the next step. Writing examples is akin to "showing your work" in math class: You want to see @italic{how} students arrived at their answers, not just that they have an answer. It is also much easier to debug a function using the design recipe, because you can check each section individually for errors. Writing examples for code is also called "unit testing," something professional programmers do all the time.}}
                   
-                  @point{@student{@activity[#:forevidence (list "8.F.5&1&1" "BS-DR.1&1&1" "BS-DR.2&1&1")]{At the bottom of @worksheet-link[#:name "Fast-Functions-double"] in your workbook, write the contract and two examples for a function called @code{triple}, which takes in a number as its input and multiplies it by 3.}
+                  @point{@student{@activity[#:forevidence (list "BS-DR.1&1&1" "BS-DR.2&1&1")]{At the bottom of @worksheet-link[#:name "Fast-Functions-double"] in your workbook, write the contract and two examples for a function called @code{triple}, which takes in a number as its input and multiplies it by 3.}
                                     Now look at your two examples. What is the only thing that changes from one to the other? @activity{In your workbook, circle what is changeable, or @vocab{variable}, between your two examples.} 
                The only thing that changes is the Number being given to @code{triple} and multiplied by 3. Remember from Bootstrap:1 that once you've circled and labeled what changes in each example, it becomes incredibly easy to define the function! All you need to do is replace the thing that changes with its label! 
                @bannerline{Step 3: Define the function}
@@ -178,7 +178,7 @@ Once you’ve defined the function itself, Pyret will automatically check your e
                      This activity can be done as a team competition: teams have one minute to write the contract and two examples for @code{triple}, and another minute for the function header and body. Assign points to the teams that complete each function. Make sure students fill out the ENTIRE contract, with two examples, before they circle what changes and move on to the function body. Build these good habits early in the course!}}
                   
           @point{@student{Try using the Design Recipe to solve the following word problems (in the "Fast Function" areas starting on @worksheet-link[#:name "Fast-Functions-blank1"] of your workbook):
-                          @activity[#:forevidence (list "7.EE.3-4&1&4" "8.F.1-3&1&1" "8.F.5&1&1" "BS-M&1&1" "BS-DR.1&1&1" "BS-DR.2&1&1" "BS-DR.3&1&1")]{@itemlist/splicing[
+                          @activity[#:forevidence (list "BS-M&1&1" "BS-DR.1&1&1" "BS-DR.2&1&1" "BS-DR.3&1&1")]{@itemlist/splicing[
                                @item{Write a function @code{plus1}, that takes in a number and adds one to it}
                                @item{Write a function @code{mystery}, that takes in a number and subtracts 4}
                                @item{Write a function @code{red-spot}, that takes in a number and draws a solid red circle, using the number as the radius}]}

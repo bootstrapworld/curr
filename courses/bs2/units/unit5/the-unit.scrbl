@@ -1,23 +1,25 @@
 #lang curr/lib
 
-@title{Unit 5: Key Press Events}
+@title{Unit 5: Key Events}
 
 @declare-tags[]
 
 @unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / num-sqr num-sqrt num-expt})
                                        (list "String" @code{string-append string-length})
                                        (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image}))]{
-@unit-descr{Students return to the subject of piecewise functions, this time defining a key-event handler that modifies a world when certain keys are pressed.}
+@unit-descr{Students are introduced to another type of event, called on-key. They define a key-event handler that modifies a reactor
+            state to move a character when certain keys are pressed. To handle multiple possible keys, students return to the subject 
+            of piecewise functions, giving them more practice with Pyret's if expressions.}
  }
 @unit-lessons{
-@lesson/studteach[#:title "Using Keys to Move a Character in Two Dimensions"
+@lesson/studteach[#:title "2d Character Movement"
         #:duration "45 minutes"
         #:overview ""
         #:learning-objectives @itemlist[@item{Students learn how to connect keypress events with their functions}
                                         @item{Students get practice with piecewise functions}]
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[@item{Students implement the entire Sam the Butterfly activity from Bootstrap:1 with a character of their choice}]
-        #:standards (list)
+        #:standards (list "BS-DS.1" "BS-DS.2" "BS-R")
         #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, design recipe, course calendar)}
                             @item{Editing environment (Pyret Editor)}
@@ -35,13 +37,16 @@
 @student{
 
   We've already seen one kind of interactivity in our programs: getting
-  the next state from the current state on a tick-event. This drives
-  animations forward, without any user intervention.  An important kind of behavior
-  in @italic{interactive} programs is to respond to keypresses from the
-  user.  A keypress, like a tick, is a kind of event, and we'll re-use the idea
-  of a function like @code{next-state-tick} (this time called
-  @code{next-state-key}) to compute the next state from the current one after a
-  key event.  We're going to use this idea to build up a reactor with a character
+  the next state from the current state on a tick-event. This is perfect for
+  animations that happen on their own, without any user intervention. In a game,
+  that might be clouds moving across the sky or a ball bouncing on its own.
+  An important kind of behavior in @italic{interactive} programs is to respond 
+  user input, such as keypresses. A keypress, like the @code{tick} of a clock, 
+  is a kind of @vocab{event}, and we'll re-use the idea of an event @vocab{handler}
+  like @code{on-tick} and a function like @code{next-state-tick}. For key-events,
+  the event handler is called @code{on-key}, and our function
+  @code{next-state-key} will compute the next state from the current one after a
+  key event.  We're going to use this idea to build up a @vocab{reactor} with a character
   moving in two dimensions, where the movement is triggered by keypresses.
 
 @activity[]{
@@ -114,15 +119,15 @@ these two example instances?
 
 
 @activity[]{
-Use the Design Recipe to fill in examples and an implementation of
-@code{next-state-key}.  Use the sample instances you created before to fill in
+Use the Design Recipe to fill in your examples and definition of
+@code{next-state-key}.  Use the sample instances you created before in
 the examples block.
 }
 
 }
 
-@teacher{It's an important point that @code{next-state-key} takes an extra
-piece of information in the pressed key.  This makes it much richer in terms of
+@teacher{It's an important point that @code{next-state-key} takes in an extra
+piece of information: the pressed key.  This makes it much richer in terms of
 its purpose statement, which should describe what different keys ought to do to
 the state of the reactor.
 
@@ -153,7 +158,7 @@ draw-state(next-state-key(next-state-key(middle, "left"), "up"))
 ]
 }
 
-  As with ticks-events, we can manually pass key press strings into
+  As with ticks-events, we can manually pass keypress strings into
   this function, see what the next state would be, and even draw that state
   to see what it looks like.  That's great, but we still want to hook
   this function up to a reactor, so that it actually handles

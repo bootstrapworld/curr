@@ -8,7 +8,7 @@
                                        (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image})
 				       )]{
 
-@unit-descr{Students create a complete animation (of a sunset) from scratch.  They learn how to use data structures
+@unit-descr{Students create a complete animation (of a sunset) from scratch, and learn how to use data structures
             to capture the essence of an animation. They apply the put-image function to draw single frames from data
 	    structure instances, and write a function to generate new frame data from previous frame data.  They learn
 	    how to use reactors to combine their data and functions into a full running animation.}
@@ -25,8 +25,8 @@
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[@item{Students create a complete animation of a sunset}
 	                             @item{Students learn to use data structures to model the state of an animation}]
-        #:standards (list "MP.7" "F-IF.1-3" "F-IF.4-6" "L1:6:CT.1" "L2:CT:1" "L2:CPP:4" "L2:CPP:5"
-	                  "BS-M" "BS-IDE" "BS-PL.1"  "BS-PL.3" "BS-DS.1" "BS-DS.2" "BS-W" "BS-PL.P")
+        #:standards (list "L1:6:CT.1" "L2:CT:1" "L2:CPP:4" "L2:CPP:5"
+	                  "BS-M" "BS-IDE" "BS-PL.1"  "BS-PL.3" "BS-DS.1" "BS-DS.2" "BS-R" "BS-PL.P")
         #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, design recipe, course calendar)}
                             @item{Editing environment (Pyret Editor)}
@@ -292,13 +292,13 @@
 	       }
          
 	       
-@lesson/studteach[#:title "Designing Data Structures for Animations"
+@lesson/studteach[#:title "From Animations to Structures"
         #:duration "30 minutes"
         #:overview ""
         #:learning-objectives @itemlist[@item{Students practice identifying the data that underlies animations}]
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[@item{Students develop data structures to capture several pre-defined animations}]
-        #:standards (list "MP.4" "MP.7" "BS-DS.2" "BS-W")
+        #:standards (list "BS-DS.2" "BS-R")
         #:materials @itemlist[]
         #:preparation @itemlist[]
         #:pacings (list 
