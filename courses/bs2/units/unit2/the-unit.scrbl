@@ -28,8 +28,7 @@
                             @item{Language Table (see below)}
                             @item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "Workbook"] folders with names on covers, and something to write with}]
      #:preparation @itemlist[@item{Write Agenda on board}
-                             @item{Display class posters, Language Table, Design Recipe}
-                             @item{Seating arrangements: ideally clusters of desks/tables}]
+                             @item{Display class posters, Language Table, Design Recipe}]
      
       #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}

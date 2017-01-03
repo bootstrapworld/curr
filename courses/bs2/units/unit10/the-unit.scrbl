@@ -24,7 +24,7 @@
                             @item{Student workbooks}
                             @item{Language Table}
                             ]
-        #:preparation @itemlist[@item{Seating arrangements: ideally clusters of desks/tables}]
+        #:preparation @itemlist[]
         #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}

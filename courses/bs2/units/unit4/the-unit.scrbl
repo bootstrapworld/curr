@@ -24,8 +24,7 @@
                             @item{Class poster (List of rules, design recipe, course calendar)}
                             @item{Editing environment (Pyret Editor)}
                             @item{Language Table}]
-        #:preparation @itemlist[@item{The @editor-link[#:public-id "0B9rKDmABYlJVaUw0VjdiOE5DVzQ" "What to Wear"] file, preloaded on students' machines}
-                                 @item{Seating arrangements: ideally clusters of desks/tables}]
+        #:preparation @itemlist[@item{The @editor-link[#:public-id "0B9rKDmABYlJVaUw0VjdiOE5DVzQ" "What to Wear"] file, preloaded on students' machines}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
