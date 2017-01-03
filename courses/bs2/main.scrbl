@@ -19,8 +19,6 @@ We provide all of our materials @italic{free of charge}, to anyone who is intere
  	  @summary-item/unit-link["Adding Scores" "units/Scoring/index"]{Students add a score to their games, based on the number of collisions (requires the Collisions unit)}
  	  @summary-item/unit-link["Adding Levels" "units/Levels/index"]{Students add levels of play to their games, with levels changing based on scores (requires the Scores unit)}
  	  @summary-item/unit-link["Writing Pong" "units/Pong/index"]{Students implement a one-player version of the classic Pong video game (requires Units 1-5)}
-          @summary-item/unit-link["Supplemental" "units/Supplemental/index"]{
-           These supplemental lessons include ideas and explanations for frequently requested game elements, including a scoring system, levels, and an added challenge of using nested structures to create more complex games. These lessons are meant to be taught after students complete the main components of Bootstrap:2.}
           )
          (list 
           @summary-item/no-link["Student Workbook"]{
