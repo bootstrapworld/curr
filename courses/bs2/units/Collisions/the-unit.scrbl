@@ -2,20 +2,19 @@
 
 @declare-tags[management]
 
-@title{Track: Adding Collisions}
+@title{Feature: Adding Collisions}
 
 @unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / num-sqr num-sqrt num-expt})
                                        (list "String" @code{string-append string-length})
                                        (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image})
 				       )]{
 
-@unit-descr{Using what they know from Bootstrap:1, students write a distance function and collision detection function to handle 
-            collisions in their games, this time using the Data Structures and Reactor from their games.}
+@unit-descr{Using what they know from Bootstrap:1, students write a distance function and collision detection function to handle collisions in their games, this time using the Data Structures and Reactor from their games.}
 }
 @unit-lessons{
-@lesson/studteach[#:title "Collisions in Your Game"
-        #:duration "45 minutes"
-        #:overview "Using what they know from Bootstrap:1, students write a distance function and collision detection function to handle collisions in their games"
+@lesson/studteach[#:title "The Distance Formula"
+        #:duration "30 minutes"
+        #:overview "Using the Pythagorean theorem and what they know from Bootstrap:1, students write a distance function for their games"
         #:learning-objectives @itemlist[]
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[]
@@ -26,8 +25,8 @@
                             @item{Student workbooks}
                             @item{Language Table}
                             @item{Cutouts of Cat and Dog images}
-                            @item{Cutouts of Pythagorean Theorem packets [@(resource-link #:path "images/pythag1.png" #:label "1"), @(resource-link #:path "images/pythag2.png" #:label "2")] - 1 per cluster}
-                            @item{Student Games @italic{or} the @editor-link[#:public-id "0B9rKDmABYlJVT1FBd3RpQWFqbGM" "Pyret Ninja Cat Starter"] file preloaded on students' machines}]
+                            @item{Cutouts of Pythagorean Theorem packets [@(resource-link #:path "images/pythag1.png" #:label "1"), @(resource-link #:path "images/pythag2.png" #:label "2")] - 1 per cluster}]
+                           
         #:preparation @itemlist[@item{Seating arrangements: ideally clusters of desks/tables}]
         #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -135,8 +134,31 @@ You still need a function to check whether or not two things are colliding.}
                                 matters, and the distance function will not work otherwise. Also be sure to check that students are 
                                 using @code{num-sqr} and @code{num-sqrt} in the correct places. }
                         }
-                
-                @point{@student{So what do we want to do with this distance? 
+                ]}
+       
+       
+
+@lesson/studteach[#:title "Collision Detection"
+        #:duration "30 minutes"
+        #:overview "Students write a collision detection function, and modify their next-state-tick function to handle collisions in their games"
+        #:learning-objectives @itemlist[]
+        #:evidence-statements @itemlist[]
+        #:product-outcomes @itemlist[]
+        #:standards (list "BS-M" "BS-CE" "BS-PL.3" "BS-PL.4" "BS-DR.1" "BS-DR.2" "BS-DR.3" "BS-DR.4" "BS-R")
+        #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
+                            @item{Class poster (List of rules, design recipe, course calendar)}
+                            @item{Editing environment (Pyret Editor)}
+                            @item{Student workbooks}
+                            @item{Language Table}
+                            @item{Student Games @italic{or} the @editor-link[#:public-id "0B9rKDmABYlJVT1FBd3RpQWFqbGM" "Pyret Ninja Cat Starter"] file preloaded on students' machines}]
+        #:preparation @itemlist[@item{Seating arrangements: ideally clusters of desks/tables}]
+        #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[@point{@student{So what do we want to do with this distance? 
                                 @activity{How close should your danger and your player be, before they hit each other?}
                                 At the top of @worksheet-link[#:page 37 #:name "is-collision"] you'll find the Word Problem 
                                 for @code{is-collision}. 
