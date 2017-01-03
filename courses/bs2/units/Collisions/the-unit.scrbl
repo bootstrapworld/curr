@@ -212,7 +212,7 @@ Remember that @code{next-state-tick} produces a GameState, so what function shou
                                 the locations of the characters after a collision.}}
                  
                  
-                  @student{@activity[#:forevidence (list "BS-PL.4&1&1" "BS-DR.4&1&3" "BS-DS.1&1&5")]{
+                  @point{@student{@activity[#:forevidence (list "BS-PL.4&1&1" "BS-DR.4&1&3" "BS-DS.1&1&5")]{
                               Once you've finished, write another branch to check whether the player 
                               and the target have collided. @bold{Challenges:} 
                               @itemlist[@item{Change your first condition so that the danger gets reset only when the player and 
@@ -225,7 +225,7 @@ Remember that @code{next-state-tick} produces a GameState, so what function shou
                                                (maybe the GameState is drawn differently once the game is over.)}] 
                                 }}
                                   
-                   @teacher{For reference, a complete version of the Pyret Ninja Cat game can be @editor-link[#:public-id "0B9rKDmABYlJVTjVydm93eGptc0k" "found here"].}
+                   @teacher{For reference, a complete version of the Pyret Ninja Cat game can be @editor-link[#:public-id "0B9rKDmABYlJVTjVydm93eGptc0k" "found here"].}}
                 
                 ]
          }
