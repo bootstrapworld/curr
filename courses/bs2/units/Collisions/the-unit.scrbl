@@ -173,14 +173,10 @@ You still need a function to check whether or not two things are colliding.}
                 
                 @point{@student{Now that you have a function which will check whether two things are colliding, you can use it 
                                 in your game! For extra practice, You can also implement collision detection into this 
-                                @editor-link[#:public-id "0B9rKDmABYlJVT1FBd3RpQWFqbGM" "Pyret Ninja Cat game"]. This is the 
-                                program we'll be altering for this lesson, as an example. 
-                                @activity[#:forevidence (list "BS-R&1&4")]{
-                                   Out of the major functions in the game (@code{next-state-tick}, @code{draw-state}, or
-                                   @code{next-state-key}), which do you think you'll need to edit to handle collisions?}
-                                We'll need to make some more @code{if} branches for @code{next-state-tick}. In Ninja Cat, 
-                                when the cat collides with the dog, we want to put the dog offscreen so that he can come back 
-                                to attack again.}
+                                @editor-link[#:public-id "0B9rKDmABYlJVT1FBd3RpQWFqbGM" "Pyret Ninja Cat game"]. This is the program we'll be altering for this lesson, as an example. In Ninja Cat, when the cat collides with the dog, we want to put the dog offscreen so that he can come back to attack again.  
+                         @activity[#:forevidence (list "BS-R&1&4")]{
+                                   Out of the major functions in the game (@code{next-state-tick}, @code{draw-state}, or @code{next-state-key}), which do you think you'll need to edit to handle collisions, changing the @code{GameState} when two characters collide?} 
+                         We'll need to make some more @code{if} branches for @code{next-state-tick}.}
                         @teacher{}}
                  @point{@student{@activity[#:forevidence (list "BS-PL.4&1&1" "BS-DR.4&1&3" "BS-DS.1&1&5")]{
                                      @itemlist[@item{Start with the test: how could you check whether the cat and dog are colliding? Have you written a function to check that?}
