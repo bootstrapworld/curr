@@ -18,7 +18,7 @@
         #:overview "Students learn how to add levels to their game"
         #:learning-objectives @itemlist[]
         #:evidence-statements @itemlist[]
-        #:product-outcomes @itemlist[]
+        #:product-outcomes @itemlist[@item{Students add a second level (with a different background image) to NinjaCat}]
         #:standards (list "BS-M" "BS-IDE" "BS-PL.1" "BS-PL.4" "BS-DR.4" "BS-R")
         #:materials @itemlist[@item{}]
         #:preparation @itemlist[@item{Make sure students have completed the "Scoring" feature before starting this lesson.}]

@@ -27,7 +27,7 @@
                             @item{Cutouts of Cat and Dog images}
                             @item{Cutouts of Pythagorean Theorem packets [@(resource-link #:path "images/pythag1.png" #:label "1"), @(resource-link #:path "images/pythag2.png" #:label "2")] - 1 per cluster}]
                            
-        #:preparation @itemlist[@item{Seating arrangements: ideally clusters of desks/tables}]
+        #:preparation @itemlist[]
         #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -143,7 +143,7 @@ You still need a function to check whether or not two things are colliding.}
         #:overview "Students write a collision detection function, and modify their next-state-tick function to handle collisions in their games"
         #:learning-objectives @itemlist[]
         #:evidence-statements @itemlist[]
-        #:product-outcomes @itemlist[]
+        #:product-outcomes @itemlist[@item{Students add collision-detection to their games}]
         #:standards (list "BS-M" "BS-CE" "BS-PL.3" "BS-PL.4" "BS-DR.1" "BS-DR.2" "BS-DR.3" "BS-DR.4" "BS-R")
         #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, design recipe, course calendar)}
@@ -151,7 +151,7 @@ You still need a function to check whether or not two things are colliding.}
                             @item{Student workbooks}
                             @item{Language Table}
                             @item{Student Games @italic{or} the @editor-link[#:public-id "0B9rKDmABYlJVT1FBd3RpQWFqbGM" "Pyret Ninja Cat Starter"] file preloaded on students' machines}]
-        #:preparation @itemlist[@item{Seating arrangements: ideally clusters of desks/tables}]
+        #:preparation @itemlist[]
         #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
