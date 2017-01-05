@@ -144,7 +144,7 @@
 			instance that is just a little lower in the sky.
 			@activity{Go to @worksheet-link[#:name "next-state-sunset"] in your workbook and develop the @code{next-state-tick} function
 				  described there. Use the sample @code{SunsetState} instances that you developed in
-				  step 1 as you make your examples of the function. Type in your code and make sure
+				  step 1 as you make your examples of the function. Then, type in the code you have so far (including the data definition for @code{SunsetState} into the @editor-link[#:public-id "0B9rKDmABYlJVSm94cFA4T3R2NTA" "sunset starter file"], and make sure
 				  your examples are producing the expected answers.}
 			}
 	       @teacher{}}
