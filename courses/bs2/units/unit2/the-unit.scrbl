@@ -323,7 +323,7 @@ tells us that we're defining a new data type called @code{JumperState}, whose co
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[@item{Students will write functions that access fields of a CakeT}]
         #:standards (list "BS-DR.1" "BS-DR.2" "BS-DR.3" "BS-DR.4" "BS-DS.1")
-        #:materials @itemlist[@item{The  @editor-link[#:public-id "0B9rKDmABYlJVa0cxbEpoSG1pT0k" "Bakery"] file used in the previous lessons}]
+        #:materials @itemlist[]
         #:preparation @itemlist[]
         #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
