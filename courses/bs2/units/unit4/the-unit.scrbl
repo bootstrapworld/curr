@@ -130,7 +130,7 @@ a function that tells us where the jumper is for a given @code{JumperState}.
 This is the kind of function you might need to write later on in your game, to
 detect where characters are, and make decisions based on that information.
 
-@activity{Open your workbook to @worksheet-link[#:page 26 #:name "location"]. Use the design recipe to write a function to tell you where the parachute jumper is (either "cliff", "beach", "water", or "air"), based on the JumperState.}
+@activity{Open your workbook to @worksheet-link[#:name "location"]. Use the design recipe to write a function to tell you where the parachute jumper is (either "cliff", "beach", "water", or "air"), based on the JumperState.}
           
 Use this picture to figure out the regions of the different parts of the
 background image: 
@@ -198,7 +198,7 @@ information about the animation.}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{@points[
-                @point{@student{@activity{Open your workbook to @worksheet-link[#:page 28 #:name "piecewise-bug-hunting"]. In the left column, we've given you broken or buggy Pyret code. On the right, we've given you space to either write out the correct code, or write an explanation of the problems with the provided code.  Work through this workbook page, then check with your partner to confirm you've found all the bugs!}}
+                @point{@student{@activity{Open your workbook to @worksheet-link[#:name "piecewise-bug-hunting"]. In the left column, we've given you broken or buggy Pyret code. On the right, we've given you space to either write out the correct code, or write an explanation of the problems with the provided code.  Work through this workbook page, then check with your partner to confirm you've found all the bugs!}}
 
         @teacher{}
       }

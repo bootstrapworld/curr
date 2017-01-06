@@ -111,7 +111,7 @@ the @italic{larger} one, and we have our distance.
                        @teacher{Remind students that A and B are the horizontal and vertical lengths, which are calculated by @code{line-length}.}
                        }
                 @point{@student{@activity[#:forevidence (list "BS-CE&1&4" "BS-PL.3&1&3")]{@itemlist[
-                                    @item{Turn to @worksheet-link[#:page 35 #:name "distance-formula"] of your workbook - you'll see the formula written out.} 
+                                    @item{Turn to @worksheet-link[#:name "distance-formula"] of your workbook - you'll see the formula written out.} 
                                      @item{Draw out the circle of evaluation, starting with the simplest expression you can see first.}
                                      @item{Once you have the circle of evaluation, translate it into Pyret code at the bottom of the page, starting with 
 @code[#:multi-line #true]{check: 
@@ -121,7 +121,7 @@ Now you've got code that tells you the distance between the points (4, 2) and (0
 It would be great if we had a function that would just take the x's and y's as input, and do the math for us.}
                         @teacher{}}
                 @point{@student{@activity[#:forevidence (list "BS-M&1&1" "BS-PL.3&1&2" "BS-PL.3&1&3" "BS-DR.1&1&1" "BS-DR.1&1&2" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1")]{
-                                 @itemlist[@item{Turn to @worksheet-link[#:page 36 #:name "distance"], and read the problem statement and 
+                                 @itemlist[@item{Turn to @worksheet-link[#:name "distance"], and read the problem statement and 
                                                  function header carefully.}
                                             @item{Use the Design Recipe to write your distance function. Feel free to use the work from the 
                                                   previous page as your first example, and then come up with a new one of your own.}
@@ -160,7 +160,7 @@ You still need a function to check whether or not two things are colliding.}
       ]{
         @points[@point{@student{So what do we want to do with this distance? 
                                 @activity{How close should your danger and your player be, before they hit each other?}
-                                At the top of @worksheet-link[#:page 37 #:name "is-collision"] you'll find the Word Problem 
+                                At the top of @worksheet-link[#:name "is-collision"] you'll find the Word Problem 
                                 for @code{is-collision}. 
                                 @activity[#:forevidence (list "BS-M&1&1" "BS-DR.1&1&1" "BS-DR.1&1&2" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1")]{
                                    @itemlist[@item{Fill in the Contract, two examples, and then write the code. Remember: you WILL need to make use of the @code{distance} function you just wrote!}
