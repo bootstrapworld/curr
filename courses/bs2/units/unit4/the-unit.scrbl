@@ -221,39 +221,119 @@ information about the animation.}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{@points[
-                @point{@student{Let's return to your @editor-link[#:public-id "0B9rKDmABYlJVSm94cFA4T3R2NTA" "sunset animation"] from the previous unit. Currently, the sun's x and y-coordinate change to make it move across the screen and disappear behind the horizon. In this unit, we'll make the animation a bit more realistic, by changing the @italic{color} of the sun as it gets lower in the sky. At the top of the screen, the sun should be yellow, then change to orange as it gets to the middle of the screen, and then become red as it reaches the bottom, close to the horizon.  
-                                 @activity{Talk with your partner about how you might make this happen. Will you need to add something new to your @code{SunsetState} data structure, or can you change the look of your animation based on what is already there?}}
-                        @teacher{There are a number of ways students can solve this problem. Once students have brainstormed with their partners, have a classroom discussion to have pairs share their ideas. For groups with different implementation ideas, encourage them to solve the problem their way, and share the differences in their code at the end of class.}}
-                 @point{@student{Since the color of the sun will be changing, this is something we @italic{could} add to the @code{SunsetState} data structure, as a String. However, the color will not change independently: we want the color to change based on the position of the sun in the sky, and get darker as it gets lower. @activity{@itemlist[@item{Will the color of the sun change based on its x or y position?}
-                    @item{What function in your code determines how your animation @italic{looks}?}
-                    @item{How might you change this function to draw a different scene depending on where the sun is located in the scene?}]}
-                                                                                                   
-We know we'll need to change our @code{draw-state} function in some way, since this is the function that controls the way things @italic{look}. Our first instinct may be to turn it into a piecewise function, and draw something different when the @code{SunsetState}'s y-coordinate gets below 225 or below 150. @italic{However}, if we were to start coding, we might quickly find that we're writing the same code over and over. We don't want to change how large the sun is, or where the ground is drawn in the scene. The @italic{only} thing we want to change is the actual image of the sun. To do this, we can write a @vocab{helper function} to ask questions about the @code{SunsetState}, and produce an image based on its y-coordinate, instead of doing that work inside @code{draw-state}. @vocab{Helper functions} are incredibly useful if you find yourself writing the same piece of code over and over again, or if you simply want to make your code more readable. In this case, we're going to write a function called @code{draw-sun}, which will help us draw a picture of the sun separate from everything else in @code{draw-state}.
+                @point{@student{Let's return to your @editor-link[#:public-id "0B9rKDmABYlJVSm94cFA4T3R2NTA" "sunset animation"] from the previous unit. Currently, the sun's x and y-coordinate change to make it move across the screen and disappear behind the horizon. In this unit, we'll make the animation a bit more realistic, by changing the @italic{color} of the sun as it gets lower in the sky. At the top of the screen, the sun should be yellow, then change to orange as it gets to the middle of the screen, and then become red as it reaches the bottom, close to the horizon.}
+		      @teacher{}}
+		 @point{@student{In programming, it is fairly common that you will change a program that you've already
+		                 written to do something new or different. Modifying existing code is a valuable skill, and
+				 one that we want to practice with this exercise.  It is so useful, in fact, that we've
+				 created a worksheet to help you map out what needs to change in an existing animation
+				 to support new behavior.
+				 @activity{Turn to @worksheet-link[#:name "extend-sunset-color"]. Fill in the description
+				 	   of the animation change and three sample images at the top of the first page.
+					   If you don't have colored pencils, just make an annotation near each sketch
+					   as to what color the sun should be in that sketch.}
+			         Once you know what new behavior you want, the next task is to build it into your code.
+				 The next two tables in the worksheet ask you to think about the NEW features that are
+				 changing in your game and how you might capture them.
+                                 @activity{Talk with your partner about what new information is changing and how you might
+				           build that into your program. Does the color change in a predictable way?
+					   Is the color a new field that is independent of the fields you already have?
+					   Based on your answer, do you think you will need to add something new to your
+					   @code{SunsetState} data structure, or can you change the look of your animation
+					   based on what is already there?}}
+                        @teacher{There are a number of ways students can solve this problem. Once students have brainstormed
+				 with their partners, have a classroom discussion to have pairs share their ideas.}}
+                 @point{@student{Since the color of the sun will be changing, we @italic{could} add a field to the
+		 		 @code{SunsetState} data structure, such as a String with the current color name.
+				 However, the color will not change independently:
+				 we want the color to change based on the position of the sun in the sky, and get darker as it gets lower.
+				 Let's figure out how to make the sun color change based only on the fields we already have.
+				 @activity{Fill in the table at the bottom of the worksheet
+					   assuming we are not changing the data structure: which components
+					   (including existing functions) need to change?}
+				 If we have decided not to add fields, you should have marked that the @code{draw-state}
+				 method changes, but nothing else needs to.  We only change @code{next-state-tick} and
+				 @code{next-state-key} if there has been a change to the data structure.}
+			 @teacher{You may need to guide students to realizing that a change in the appearance of the
+			 	  animation can be done entirely through draw-state. This is another point for
+				  emphasizing the separation between maintaining instances and drawing instances.}}
+		@point{@student{How do we change @code{draw-state}? Our first instinct may be to turn it into a piecewise function,
+				and draw something different when the @code{SunsetState}'s y-coordinate gets below 225 or below 150.
+				This would yield code along the lines of:
 
-@activity{Open your wokbook to @worksheet-link[#:page 29 #:name "draw-sun"]. Here we have directions for writing a function called @code{draw-sun}, Which consumes a @code{SunsetState} and produces an image of the sun, whose color is either "yellow", "orange", or "red" depending on its y-coordinate.}}
-                        @teacher{The word problem assumes a background scene size of 400x300 pixels. Once students use their @code{draw-sun} function in their animation, they may need to change the specific conditions if they have a much larger or smaller scene.}}
+				@code[#:multi-line #t]{fun draw-state(a-sunset):
+				                         if a-sunset.y < 150:
+				                           put-image(rectangle(WIDTH, HORIZON-HEIGHT, "solid", "brown"),
+				                                     200, 50,
+				          		  	     put-image(circle(10, "yellow", "solid"),
+									       a-sunset.x, a-sunset.y,
+						      			       rectangle(WIDTH, HEIGHT, "solid", "light-blue")))
+			                                 else if a.sunset.y < 225:
+							   # same code with "orange" as sun color
+							 else:
+							   # same code with "red" as sun color
+							end
+						       end }
+
+				Notice that this version contains three very similar calls to @code{put-image}. The @italic{only}
+				thing that is different about these three calls is the color we use to draw the sun. Whenever you
+				find yourself writing nearly-identical expressions multiple times, you should create another
+				function that computes the piece that is different. You can then write the
+			        overall expression just once, calling the new function to handle the different part. Functions
+				that handle one part of an overall computation are called @vocab{helper functions}.}
+                        @teacher{}}
+		@point{@student{Assume for the moment that we had written a helper function called @code{draw-sun} that takes a
+		       		@code{SunsetState} and returns the image to use for the sun. If we had such a function, then
+				our @code{draw-state} function would look as follows:
+
+				@code[#:multi-line #t]{fun draw-state(a-sunset):
+				                         put-image(rectangle(WIDTH, HORIZON-HEIGHT, "solid", "brown"),
+				                                   200, 50,
+				          			   put-image(draw-sun(a-sunset),
+									     a-sunset.x, a-sunset.y,
+						      			     rectangle(WIDTH, HEIGHT, "solid", "light-blue")))
+						       end }
+				
+				@activity{Open your wokbook to @worksheet-link[#:name "draw-sun"]. Here we have directions for
+				writing a function called @code{draw-sun}, Which consumes a @code{SunsetState} and produces an
+				image of the sun, whose color is either "yellow", "orange", or "red" depending on its y-coordinate.}}
+                        @teacher{The word problem assumes a background scene size of 400x300 pixels. Once students use their
+				 @code{draw-sun} function in their animation, they may need to change the specific conditions
+				 if they have a much larger or smaller scene.}}
                  
-                 @point{@student{Once you've completed and typed the @code{draw-sun} function into your @editor-link[#:public-id "0B9rKDmABYlJVSm94cFA4T3R2NTA" "sunset animation"] program, it will need to be used within one of our main animation functions: either @code{draw-state} or @code{next-state-tick}.
-                      @activity{@itemlist[@item{Which of these functions do you think will use @code{draw-sun}? @bold{Hint: Which function handles how the animation looks?}}
-                                          @item{How does @code{draw-state} currently know how the sun looks? What does it look like in the animation right now?}
-                                          @item{How could you change the code so instead of always drawing the sun as a solid yellow circle, you instead draw the image returned by @code{draw-sun} at the @code{SunsetState}'s x and y-coordinate?}]}
-                      Inside of @code{draw-state}, your code should look similar to:
-                      
-@code[#:multi-line #t]{fun draw-state(a-sunset):
-  put-image(rectangle(WIDTH, HORIZON-HEIGHT, "solid", "brown"),
-    200, 50,
-    put-image(draw-sun(a-sunset),
-      a-sunset.x, a-sunset.y,
-      rectangle(WIDTH, HEIGHT, "solid", "light-blue")))
-end }
+                 @point{@student{Once you've completed and typed the @code{draw-sun} function into your @editor-link[#:public-id "0B9rKDmABYlJVSm94cFA4T3R2NTA" "sunset animation"] program, modify @code{draw-state} to use it as we showed just above.}
+		        @teacher{}}
 
-@activity{Once you've completed changing the color of the sun, have it wrap around: after "setting" behind the horizon, have it reappear back at the top left corner of the scene, and repeat its journey. Think about what color the sun will be when it wraps back around. Will it be red (the last color it had at the bottom) or will it return to being yellow?}
-}
-                         @teacher{This question about the color of the sun is an especially good question-and it likely to come up-from students who may have experience prohgramming with variables and updates in other languages, such as Scratch. The actual implementation of the sun's color and movement is up to them, but make sure students can explain and defend their choices!}}
+                 @point{@student{Now let's think about having the sunset animation "start again" after the sun sets, with the sun
+		 		 reappearing in the upper-left corner.
 
-                                 @point{@student{@bold{Optional:}In addition to changing the color of the sun, have the background color change as well: it should be light blue when the sun is high in the sky, and get darker as the sun sets.} 
+				 @activity{Assume you edited your animation to restart the sun at the upper left after it sets.
+				 What color @italic{should} the sun be
+				 when it appears at the upper-left the second time around?  What color @italic{will} it be
+				 based on your code?  Will it be yellow again, or will the color have changed somehow to red?}
+
+				 To figure this out, think about what controls the color of the sun in your current code.
+
+				 @activity{Edit the sunset animation so that the animation restarts. Which of your functions
+				 has to be modified to include this change?  Is restarting fundamentally about drawing one
+				 frame or about generating new instances?  Use that question to help yourself figure out which
+				 function to modify.  You could use the space for examples of functions at the end of your
+				 worksheet on extending the animation to write a new example before you modify your code.}
+				 }
+                        @teacher{This question about the color of the sun is an especially good question-and it likely to
+			         come up-from students who may have experience programming with variables and updates in other languages,
+				 such as Scratch (where the color would have changed to red). In our approach, where we simply
+				 determine the sun color from the y-coordinate, the sun should naturally restart as yellow.
+				 Of course, if students had maintained the sun color as a separate field in their data structure,
+				 they would have to consider this issue, and manually reset the sun color as well as the y-coordinate
+				 when restarting the animation.}}
+
+                   @point{@student{@bold{Optional:}In addition to changing the color of the sun, have the background color change
+		                   as well: it should be light blue when the sun is high in the sky, and get darker as the sun sets.} 
      
-                                        @teacher{Like changing the color of the sun, there are multiple valid ways of completing this optional activity. If you have students solving the same problem with different code, have them share their code with the class and have a dicsussion about the merits of each version.}
+                          @teacher{Like changing the color of the sun, there are multiple valid ways of completing this
+			           optional activity. If you have students solving the same problem with different code,
+				   have them share their code with the class and have a dicsussion about the merits of each version.}
                         }
                  ]
          }
