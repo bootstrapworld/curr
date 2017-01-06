@@ -100,7 +100,7 @@ next-state-key :: CharState, String -> CharState
 
   It is different from the contract for @code{next-state-tick} (which handles
   tick events) in an important way.  When a key event happens, the next state
-  may differ depending on @emph{which} key was pressed.  That means the
+  may differ depending on @italic{which} key was pressed.  That means the
   @code{next-state-key} function needs both the current state @italic{and} which key was
   pressed as parts of its domain.  That's why @code{next-state-key} has an
   additional @code{String} input, which represents the key pressed by the
@@ -108,7 +108,7 @@ next-state-key :: CharState, String -> CharState
 
 @activity[]{
 Create an example instance that corresponds to the position 5 pixels to the
-@emph{right} of the example instance you wrote above.  Use @code{draw-state} to
+@italic{right} of the example instance you wrote above.  Use @code{draw-state} to
 check it, as before.
 }
 
@@ -277,84 +277,106 @@ an interactive "digital-pet" from scratch!
 @activity[]{
 
 Open the @editor-link[#:public-id "0B9rKDmABYlJVXy00M1VteEZxaHM" "Virtual Pet Starter"] file.
-Run it, see the game run.  You can use @code{interact(pet-react)} to run it multiple times.
-
+Run it. You will see a frame come up, showing a cat face and green status bars for the cat's sleep and hunger.
 }
 
-Notice that not much is happening!  It's going to be your job to write two
-functions, one to compute the next state for a tick, and one to compute the
-next state for a keypress.  You'll also update the drawing function to change
-the pet's appearance when the player loses the game.
+Notice that not much is happening! To make this game more interesting, we want to
+add three behaviors to it:
 
-To do this, you will use the @emph{Animation Design Worksheet} three times to
-augment the game.  Note that none of these should require adding any new fields
+@itemlist[@item{as time passes, the hunger and sleep values should decrease}
+          @item{a human player should be able to increase hunger and sleep through keypresses}
+	  @item{the image of the cat should change when hunger and sleep both reach 0 (and the player
+	        loses the game)}]
+
+In this lesson, you will extend the animation three times, once for each of these behaviors, by
+adding or changing the functions that make up an animation.  
+To do this, you will use the @italic{Animation Extension Worksheet} three times.
+Note that none of these should require adding any new fields
 to the data definition, just adding and editing functions like
 @code{next-state-tick}, @code{next-state-key}, and @code{draw-state}.
-
-@activity[]{
-The next state on each tick should be a state where the hunger is decreased by
-2 and sleep is decreased by 1.
+We will walk you through the first use of the animation extension worksheet,
+then let you try the other two on your own. }
+@teacher{}
 }
 
+@point{@student{@bannerline{Extension 1: Decrease Hunger and Sleep on Ticks}
+                For this extension, we want to decrease
+		the hunger by 2 and the sleep by 1 each time the animation ticks to a new frame.
 
-Open your workbook to @worksheet-link[#:page 32 #:name "anim-design-pet"],
-which has an example of using the animation design worksheet to fill in the
-implementation.  We step through the pieces here.
+       @activity{Open your workbook to @worksheet-link[#:name "anim-design-pet"], which
+       		 shows you the extension worksheet filled in for this extension.}
 
-@itemlist[
-@item{
-First, the description from the problem is written down into the “goal” part
+In this filled-in worksheet, the description from the problem is written down into the “goal” part
 of the worksheet.  This is like the “purpose statement” for the feature.
-}
-@item{
-Second, three sketches of the goal are shown.  They depict an animation with
-the bars’ size changing.
-}
-@item{
-Third, we identify that both hunger and sleep are changing in new ways.  Since
-they @emph{aren't} new fields, this feature is completely dependent on existing
-data, and we don't need to add any new fields.
-}
-@item{
-Fourth, we skip the “new fields” section, since we don't need any more for
-this feature.
-}
-@item{
-Fifth, we identify the pieces that we need to write or update. We don't
-need to change the data definition at all, because no new fields were added. We
-@emph{may} need to update @code{draw-state} function, since the size of the
-bars changes.  We definitely need to write the @code{next-state-tick} function,
-which doesn't yet exist.  We do not need to address anything about keypresses
-with this feature, so @code{next-state-key} is untouched  Since
-@code{next-state-tick} has been added for this feature, we need to add a
-@code{on-tick} handler to the reactor.
-}
-@item{
-Now we can move onto code.  Sixth, we write example instances corresponding to
-the sketches we made.  We estimate a bit from looking at the pictures, but note
-that we pick numbers that would work with the desired behavior – @code{petB}
-represents the state after 5 ticks, because hunger is 10 less (decreased by 2
-each tick), and sleep is 5 less (decreased by 1 on each tick).  Th @code{petC}
-sample instance corresponds to the state after how many ticks?
-}
-@item{
-Seventh, we write example uses of the function we're working on, in this case
-@code{next-state-tick}.  We pick two of the example instances to add as
-examples.
-}
-]
 
-Now we need to use this information to go into the program and make the
-necessary edits, checking off the boxes we identified as we go.  In this case,
-we can look at the @code{draw-state} function and see that it is already
-drawing rectangles of the right size, so we can check off the @code{draw-state}
-box right away.  Then we need to implement the @code{next-state-tick} function.
-We already have the contract for it, and the last step above gave us examples
-for it.  This gets us halfway through the design recipe already!  Once we've
-finished using the design recipe to implement @code{next-state-tick}, we can
-check off its box.  Finally, we need to add the handler to the @code{reactor}
-so the reactor calls the function we just wrote on tick events.  That looks
-like this:
+       @activity{Think about what sketches you would draw to illustrate the animation
+                 with this new behavior.  Then check out the ones we drew on the example
+		 worksheet.  Notice that they focus on the bars having different lengths.}
+}
+      @teacher{}}
+
+@point{@student{Next, we consider the tables that summarize what now changes in the
+                animation.
+		@activity{What changes between frames now that didn't in the starter file
+		          for the virtual pet?}
+		The worksheet identifies that both hunger and sleep are changing in new ways.  Since
+		they @italic{aren't} new fields, this feature is completely dependent on existing
+		data, and we don't need to add any new fields. We therefore leave the second table
+		empty (since we aren't adding new fields).
+		}
+       @teacher{}}
+
+@point{@student{Next, we identify the components that we need to write or update. We don't
+		need to change the data definition at all, because no new fields were added. We
+		@italic{may} need to update @code{draw-state} function, since the size of the
+		bars changes.  We definitely need to write the @code{next-state-tick} function,
+		which doesn't yet exist.  We do not need to address anything about keypresses
+		with this feature, so @code{next-state-key} is untouched  Since
+		@code{next-state-tick} has been added for this feature, we need to add a
+		@code{on-tick} handler to the reactor.}
+       @teacher{}}
+
+@point{@student{Now that we've planned what work needs to be done (on paper), we can start
+                thinking about the code. As always, we write examples before we write functions,
+		so we are clear on what we are trying to do.
+		
+		@activity{Come up with two example instances of @code{PetState} that
+		          illustrate what should happen as we change the sleep and hunger fields.
+			  You can see the ones we chose on the worksheet.  What's another good
+			  example for us to use in coding and testing?}
+
+	        In our samples, we estimate a bit from looking at the pictures, but note
+		that we pick numbers that would work with the desired behavior – @code{petB}
+		represents the state after 5 ticks, because hunger is 10 less (decreased by 2
+		each tick), and sleep is 5 less (decreased by 1 on each tick).  Th @code{petC}
+		sample instance corresponds to the state after how many ticks?
+
+		@activity{Use your sample instances to write examples of the @code{next-state-tick}
+			  function, which we marked as a to-do item on the first page of the worksheet.}
+		}
+       @teacher{}}
+
+
+@point{@student{Now we need to use this information to edit the current code,
+		checking off the boxes we identified as we go.
+
+		@activity{Look at the @code{draw-state} function: how will it need to change to draw
+		          boxes for the sleep and hunger values?}
+
+                The @code{draw-state} function already does this, so we can check the @code{draw-state}
+		changes off as being done (without doing additional work).
+
+		@activity{Develop @code{next-state-tick}, using the contract in the starter file
+		          and the examples from the worksheet.}
+
+		Once we've finished using the design recipe to implement @code{next-state-tick}, we can
+		check off its box.  Finally, we need to add the handler to the @code{reactor}
+		so the reactor calls the function we just wrote on tick events.
+
+		@activity{Edit the @code{pet=react} reactor to include @code{next-state-tick} alongside the
+		          @code{on-tick} handler.}
+
+                 You should have ended up with something like this:
 
 @code[#:multi-line #t]{
 pet-react = reactor:
@@ -363,28 +385,29 @@ pet-react = reactor:
   to-draw: draw-state
 end}
 
-Make sure you get a working animation with bars that decrease before moving on,
-like this:
+		Make sure you get a working animation with bars that decrease before moving on,
+		like this:
 
-@bannerline{@animated-gif{images/cat-decreasing-bars.gif}}
+		@bannerline{@animated-gif{images/cat-decreasing-bars.gif}}
+          }
+	  @teacher{}}
 
-Next, we'll add key events to the game so the player can increase them so they
-don't reach zero!
+@point{@student{@bannerline{Modification 2: Key Events}
+                Next, we'll add key events to the game so the player can increase them so they
+		don't reach zero! 
 
-@activity[]{
-On a keypress, if the user pressed "f" (for "feed"), @code{hunger} should
-increase by 10. If the user pressed "s" (for "sleep"), @code{sleep} should
-increase by 5.  If the user presses any other keys, nothing should change.
-}
+		@activity[]{Turn to @worksheet-link[#:name "pet-key-extension"] in your workbook.
+		            Fill in the first page to plan out the following extension:
+	    		    On a keypress, if the user pressed "f" (for "feed"), @code{hunger} should
+			    increase by 10. If the user pressed "s" (for "sleep"), @code{sleep} should
+	    		    increase by 5.  If the user presses any other keys, nothing should change.
+            		    }
 
-Follow the animation design worksheet, and work through this one on your own.
-What are useful sketches to draw that capture this new feature?  How does the
-state change?  Are any new fields needed?  What function needs to change?  What
-functions can stay the same?
+		As you fill in the worksheet, think about useful sketches that capture this new feature,
+		whether you need new fields, and which functions are effected.
 
-@activity[]{
-When you've implemented @code{next-state-key},
-you can add it to the reactor at the bottom of the file with:
+		@activity[]{When you've implemented @code{next-state-key},
+		            you can add it to the reactor at the bottom of the file with:
 
 @code[#:multi-line #t]{
 pet-react = reactor:
@@ -395,30 +418,20 @@ pet-react = reactor:
 end}
 
 and test out your game!
-}
+}}
+         @teacher{}}
 
+@point{@student{@bannerline{Modification 3: Change Pet Image When Game is Lost}
 
+		@activity[]{ When any bar reaches zero, the game is lost and your pet is sad –
+		             make the picture change to show the player this!  In addition, when the game is
+			     lost, the "f" and "s" keys shouldn't do anything.  Instead, the user should be
+			     able to press the "r" key (for "restart"), to reset hunger and sleep
+			     100, and start playing again. Use the animation-extension worksheet on
+			     @worksheet-link[#:name "pet-sad-extension"] to plan out your changes.}
+	         }
 
-
-@activity[]{ When any bar reaches zero, the game is lost and your pet is sad –
-make the picture change to show the player this!  In addition, when the game is
-lost, the "f" and "s" keys shouldn't do anything.  Instead, the user should be
-able to press the "r" key (for "restart"), to reset hunger and sleep
-100, and start playing again.}
-
-
-}
-
-@teacher{
-
-Some next steps/optional activities if students finish these activities:
-@itemlist[@item{Find your own images to create a different virtual pet}
-          @item{Stop the bars from overflowing some maximum. (produce something like @editor-link[#:public-id "0B9rKDmABYlJVNTR6ajd4N1hPRm8" "this completed game"])}
-          @item{Add an x-coordinate to the PetState so the pet moves around, either on keypress or automatically.}
-          @item{Add a costume to the PetState, then change the draw-pet function so that it changes the costume based on the pet's mood (if a-pet.hunger <= 50, show a pic of the pet looking hungry}]
-
-}
-}
+        @teacher{}}
 
 
 @point{
@@ -433,11 +446,17 @@ much, much more.
 
 Some of these ideas are more straightforward than others with what you know.
 The rest of the workbook and units are designed to show you different
-@emph{features} that you can add to interactive programs.  You can work through
+@italic{features} that you can add to interactive programs.  You can work through
 them all if you like, or come up with an idea for your own program, and try the
 ones that will help you build your very own program!}
- @teacher{}
-}
+
+ @teacher{Some next steps/optional activities if students finish these activities:
+@itemlist[@item{Find your own images to create a different virtual pet}
+          @item{Stop the bars from overflowing some maximum. (produce something like @editor-link[#:public-id "0B9rKDmABYlJVNTR6ajd4N1hPRm8" "this completed game"])}
+          @item{Add an x-coordinate to the PetState so the pet moves around, either on keypress or automatically.}
+          @item{Add a costume to the PetState, then change the draw-pet function so that it changes the costume based on the pet's mood (if a-pet.hunger <= 50, show a pic of the pet looking hungry)}]
+
+}}
 
 
 ]
