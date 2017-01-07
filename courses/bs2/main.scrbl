@@ -15,6 +15,7 @@ We provide all of our materials @italic{free of charge}, to anyone who is intere
          (for/list ([n (in-range 1 6)])
            (unit-summary/links n))
          (list
+ 	  @summary-item/unit-link["Build Your Own Animation" "units/BuildOwn/index"]{Students create their own animation from scratch (requires Units 1-5)}
  	  @summary-item/unit-link["Detecting Collisions" "units/Collisions/index"]{Students use the Pythagorean Theorem to detect collisions in their games (requires Units 1-5)}
  	  @summary-item/unit-link["Adding Scores" "units/Scoring/index"]{Students add a score to their games, based on the number of collisions (requires the Collisions unit)}
  	  @summary-item/unit-link["Adding Levels" "units/Levels/index"]{Students add levels of play to their games, with levels changing based on scores (requires the Scores unit)}
