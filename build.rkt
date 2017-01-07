@@ -475,7 +475,7 @@
       )
     (when (equal? course "bs2")
       (putenv "TARGET-LANG" "pyret")
-      (putenv "RELEASE-STATUS" "beta")
+      (putenv "RELEASE-STATUS" "mature") ;; was "beta"
       )
     (textbook-styling-on)
     (update-resource-paths)
