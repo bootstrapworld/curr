@@ -28,6 +28,7 @@ We provide all of our materials @italic{free of charge}, to anyone who is intere
            Please fill out a request using our @hyperlink["https://docs.google.com/a/bootstrapworld.org/spreadsheet/viewform?formkey=dHpQc0VHV2dBU2tSN1ptMktBUmtoZWc6MQ#gid=0"]{online form}, 
            and we'll get back to you right away.})         
          )
+         #:style "BSUnitList"
         )
 
 Of course, there's more to a curriculum than software and lesson plans! We also provide a number of resources to educators, including standards alignment, an answer key for the programming exercises and forums where they can ask questions and share ideas. 

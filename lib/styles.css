@@ -13,15 +13,19 @@ body {
     line-height: 22px;
 }
 
-a {
+a[href] {
     color: #F4AB3A;
     text-decoration: none;
 }
 
-a:hover {
+a[href]:hover {
     text-decoration: underline;
 }
-
+/* Used for better anchor behavior in the context of a fixed header */
+.anchor{
+   display:block;
+   visibility:hidden;
+}
 ul,
 ol {
     margin-left: -18px;
@@ -30,8 +34,8 @@ ol {
 
 div#top {
     position: fixed;
-    width: 1125px;
-    left: 13%;
+    width: 74%;
+    left: 26%;
     top: 0px;
     text-align: left;
     z-index: 10;
@@ -40,10 +44,12 @@ div#top {
 }
 
 div#top img#logo {
-    height: 150px;
-    margin: 0px 35px 0px 0px;
+	width: 60%;
+    max-width: 400px;
+	height: auto;
+    margin: 10px 0px 0px 10px;
     padding: 10px 0;
-    float: left;
+	float: none;
 }
 
 .facebook-icon,
@@ -60,9 +66,13 @@ div#top img#logo {
     margin-left: 10px;
     padding: 5px;
     background-repeat: no-repeat;
-    background-color: #B6D990;
-
+	background-color: #B6D990;
 }
+
+.facebook-icon:hover,
+.twitter-icon:hover,
+.google-icon:hover,
+.email-icon:hover{background-color: #75328A}
 
 .facebook-icon {
     background-image: url('/images/facebook.png');
@@ -89,34 +99,18 @@ div#top img#logo {
     background-size: 60px 60px;
     display: block;
 }
-/* Quotes */
-
-.quotes {
-    display: block;
-    width: 100%;
-}
-
-.quote {
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 26px;
-    color: #B6D990;
-}
-
-.bold {
-    font-weight: 700;
-}
-
-.author {
-    font-weight: 400;
-}
 /* Sidebar and menu links */
 
 div#sidebar {
     position: fixed;
     left: 13%;
-    top: 175px;
+    top: 0px;
     width: 165px;
+}
+
+div#sidebar img {
+	margin: 15px auto; 
+	display: block;
 }
 
 div#sidebar ul {
@@ -171,10 +165,9 @@ span.date {
 
 div.item {
     float: left;
-    padding: 0px 0px 40px 0px;
+    padding: 0px 0px 20px 0px;
+	width: 100%;
 }
-
-.boxedtext{border: 1px dashed black; padding: 10px;}
 
 div.item>img,
 div.item>div#map,
@@ -196,7 +189,6 @@ div.video-wrapper {
 }
 
 iframe {
-    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -205,8 +197,8 @@ iframe {
 
 div#cm_map {
     border: 1px solid black;
-    width: 310px;
-    height: 240px;
+    width: 350px;
+    height: 200px;
     -moz-box-shadow: 5px 5px 7px #000;
     -webkit-box-shadow: 5px 5px 7px #000;
     box-shadow: 5px 5px 7px #000;
@@ -222,13 +214,9 @@ h3 {
     margin-bottom: 10px;
 }
 
-h2 {
-    font-size: 20px;
-}
-
-h1 {
-    line-height: 30px;
-}
+h1 { line-height: 30px; }
+h2 { font-size: 20px; }
+h3 { font-size: 16px; }
 
 div#socialMedia {
     width: 180px;
@@ -316,6 +304,12 @@ div.one-third {
     padding: 0 20px 0 0;
 }
 
+div.two-thirds {
+    width: 66%;
+    min-width: 0;
+    padding: 0 20px 0 0;
+}
+
 div.one-half {
     width: 50%;
     min-width: 0;
@@ -349,9 +343,10 @@ div.bottom-border {
     color: #F4AB3A;
 }
 
-.button-purple {
+.button-purple, .button-purple[href] {
     display: block;
-    width: 150px;
+    width: 200px;
+	text-align: center;
     background: #75328A;
     padding: 5px 20px 6px;
     margin: 20px 0;
@@ -382,7 +377,7 @@ ul.done b {
 
 .BSUnitTitle {
     display: block;
-    margin-top: 5px;
+    margin-bottom: 5px;
     font-size: 20px;
     font-weight: 700;
 }
@@ -395,13 +390,6 @@ ul.done b {
 .workshops div.item>img {
     max-width: 100%;
     height: auto;
-}
-/* Community Layout */
-
-.community div.item img {
-    float: left;
-    width: 30%;
-    margin-right: 15px;
 }
 
 .member-bio {
@@ -421,8 +409,8 @@ ul.done b {
 only screen and (max-device-width: 1375px) {
     div#top {
         margin-left: 0px;
-        width: 90%;
-        left: 5%;
+        width: 75%;
+        left: 25%;
     }
     div#sidebar {
         left: 5%;
@@ -438,14 +426,22 @@ only screen and (max-device-width: 1375px) {
 @media only screen and (max-width: 800px),
 only screen and (max-device-width: 800px) {
     div#top {
-        width: 94%;
-        left: 3%;
+        width: 75%;
+        left: 25%;
+		height: 100px;
     }
+    .twitter-icon,
+    .google-icon {
+        display: none;
+    }
+
     div#sidebar {
         left: 3%;
         width: 20%;
     }
+	div#sidebar img, div#top img {width: 70%; height: auto; }
     div#body {
+		top: 135px;
         left: 25%;
         width: 72%;
     }
@@ -461,6 +457,7 @@ only screen and (max-device-width: 800px) {
 
 @media only screen and (max-width: 600px),
 only screen and (max-device-width: 600px) {
+	div#top img#logo { margin-top: 10px; width: 60%; height: auto;}
     .facebook-icon,
     .twitter-icon,
     .google-icon {
@@ -470,7 +467,7 @@ only screen and (max-device-width: 600px) {
         font-size: 16px;
     }
 }
-/* 580px Breakpoint */
+/* 500px Breakpoint */
 
 @media only screen and (max-width: 500px),
 only screen and (max-device-width: 500px) {
@@ -479,7 +476,6 @@ only screen and (max-device-width: 500px) {
         width: 100%;
         left: 0;
         padding: 0px;
-        min-width: 320px;
         text-align: center;
     }
     div#top img#logo {
@@ -498,23 +494,28 @@ only screen and (max-device-width: 500px) {
         z-index: 10;
         background: #B6D990;
     }
+	div#sidebar img { display: none; }
     div#sidebar ul {
         text-align: center;
+		margin: 0px auto;
     }
     div#sidebar ul li {
         width: auto;
+		float: none;
         border: 0px;
-        min-width: 50px;
+        min-width: 70px;
         margin: 0px 5px;
         padding: 5px 0;
+		display: inline-block;
     }
     div#sidebar ul li a {
         font-size: 14px;
         display: inline;
         color: white;
     }
-    div#sidebar ul li:hover {
+    div#sidebar ul li:hover, div#sidebar ul li:hover > a {
         background-color: #B6D990;
+		color: #75328A;
     }
     /* Main body entries and images */
     
@@ -547,7 +548,7 @@ only screen and (max-device-width: 500px) {
     div#cm_map {
         border: 1px solid black;
         width: 250px;
-        height: 150px;
+        height: 200px;
         -moz-box-shadow: none;
         -webkit-box-shadow: none;
         box-shadow: none;
