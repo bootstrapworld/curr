@@ -12,11 +12,14 @@ Would you like to attend a Bootstrap Workshop? Check our
 We provide all of our materials @italic{free of charge}, to anyone who is interested in using our lesson plans or student workbooks.
 @(apply itemlist
         (append         
-         (for/list ([n (in-range 1 (add1 10))])
+         (for/list ([n (in-range 1 6)])
            (unit-summary/links n))
-         (list 
-          @summary-item/unit-link["Supplemental Lessons" "units/Supplemental/index"]{
-           These supplemental lessons include ideas and explanations for frequently requested game elements, including a scoring system, levels, and an added challenge of using nested structures to create more complex games. These lessons are meant to be taught after students complete the main components of Bootstrap:2.}
+         (list
+ 	  @summary-item/unit-link["Build Your Own Animation" "units/BuildOwn/index"]{Students create their own animation from scratch (requires Units 1-5)}
+ 	  @summary-item/unit-link["Detecting Collisions" "units/Collisions/index"]{Students use the Pythagorean Theorem to detect collisions in their games (requires Units 1-5)}
+ 	  @summary-item/unit-link["Adding Scores" "units/Scoring/index"]{Students add a score to their games, based on the number of collisions (requires the Collisions unit)}
+ 	  @summary-item/unit-link["Adding Levels" "units/Levels/index"]{Students add levels of play to their games, with levels changing based on scores (requires the Scores unit)}
+ 	  @summary-item/unit-link["Writing Pong" "units/Pong/index"]{Students implement a one-player version of the classic Pong video game (requires Units 1-5)}
           )
          (list 
           @summary-item/no-link["Student Workbook"]{
@@ -25,6 +28,7 @@ We provide all of our materials @italic{free of charge}, to anyone who is intere
            Please fill out a request using our @hyperlink["https://docs.google.com/a/bootstrapworld.org/spreadsheet/viewform?formkey=dHpQc0VHV2dBU2tSN1ptMktBUmtoZWc6MQ#gid=0"]{online form}, 
            and we'll get back to you right away.})         
          )
+         #:style "BSUnitList"
         )
 
 Of course, there's more to a curriculum than software and lesson plans! We also provide a number of resources to educators, including standards alignment, an answer key for the programming exercises and forums where they can ask questions and share ideas. 

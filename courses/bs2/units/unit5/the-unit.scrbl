@@ -6,221 +6,460 @@
 
 @unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / num-sqr num-sqrt num-expt})
                                        (list "String" @code{string-append string-length})
-                                       (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image})
-                                       (list "Cake" @code{cake .flavor .color .message .layers .is-iceCream})
-                                       (list "Party" @code{party .theme .location .guests}))]{
-@unit-descr{Students return to the subject of piecewise functions, this time defining a key-event handler that modifies a world when certain keys are pressed.}
-}
+                                       (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image}))]{
+@unit-descr{Students are introduced to another type of event, called on-key. They define a key-event handler that modifies a reactor
+            state to move a character when certain keys are pressed. To handle multiple possible keys, students return to the subject 
+            of piecewise functions, giving them more practice with Pyret's if expressions.}
+ }
 @unit-lessons{
-@lesson/studteach[#:title "Introduction"
-        #:duration "10 minutes"
+@lesson/studteach[#:title "2d Character Movement"
+        #:duration "45 minutes"
         #:overview ""
-        #:learning-objectives @itemlist[]
+        #:learning-objectives @itemlist[@item{Students learn how to connect keypress events with their functions}
+                                        @item{Students get practice with piecewise functions}]
         #:evidence-statements @itemlist[]
-        #:product-outcomes @itemlist[@item{Students codewalk through a piecewise function they used in Bootstrap:1, identifying the differences in Pyret syntax.}]
-        #:standards (list "7.EE.3-4" "F-IF.1-3" "A-SSE.1-2" "BS-M" "BS-IDE")
+        #:product-outcomes @itemlist[@item{Students implement the entire Sam the Butterfly activity from Bootstrap:1 with a character of their choice}]
+        #:standards (list "BS-DS.1" "BS-DS.2" "BS-R")
         #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, design recipe, course calendar)}
                             @item{Editing environment (Pyret Editor)}
                             @item{Student workbooks}
                             @item{Language Table}]
-     #:preparation @itemlist[@item{Seating arrangements: ideally clusters of desks/tables}
-                             @item{The @editor-link[#:public-id "0B9rKDmABYlJVY3lNVU8tVVdvbXc" "Luigi's Pizza"] file preloaded on students' machines}]
+     #:preparation @itemlist[@item{The @editor-link[#:public-id "0B9rKDmABYlJVVWk4MGJidEtsRWc" "Moving Character"] file preloaded on students' machines}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{@activity[#:forevidence (list "7.EE.3-4&1&3" "F-IF.1-3&1&1" "A-SSE.1-2&1&1" "BS-M&1&2")]{Open the @editor-link[#:public-id "0B9rKDmABYlJVY3lNVU8tVVdvbXc" "Luigi's Pizza"] file. Does it look familiar?
-                                 
-            @itemlist[@item{What is the name of this function?}
-                      @item{What is the contract for the @code{cost} function?}
-                      @item{What does this function do?}
-                      @item{What should @code{cost("cheese")} evaluate to? @code{cost("chicken")}?}
-                      @item{What do you think would happen if someone asked for a pizza not on the menu, like "sausage"?}]}
-                      This function is the same as the @code{cost} function you worked with in Bootstrap:1, except this one is written in Pyret! @code{cost} will still take in a String, representing a pizza topping, in its domain, and give back a number for its range, representing the price of that pizza. In Pyret, instead of using @code{cond} branches, we use a keyword called @code{ask}, which lets the computer know we're going to have different situations and behavior in our code. Just like you learned in Bootstrap:1, this is known as a @vocab{Piecewise function}. Each ask statement starts with the '|' key, (known as 'pipe') followed by a test, or an expression that produces a @vocab{Boolean} (either true or false). The other keyword to know here is @code{then:}. This tells the computer that whatever follows is what will be returned if the preceding expression is @bold{true}. In the case of this function, if the string representing the topping (@code{topping}) is equal to the string "pepperoni" (@code{string-equal(topping, "pepperoni")}), @italic{then} the function will return 10.50.
-                       @activity[#:forevidence (list "BS-IDE&1&1")]{Have students practice adding their own pizza toppings to the menu, and asking the @code{cost} function for the price of those toppings.}}
-                      @teacher{@code{string-equal} is exactly the same as @code{string=?} in Racket. It takes two Strings in its domain and returns a Boolean, telling you whether or not the given strings are equal. Have students copy the contract for this function
-                                  into their contracts page.}}
-                 @point{@student{In Racket we had an @code{else} clause, that would return true when all other tests had failed. In Pyret, we have the @code{otherwise:} keyword, which behaves the same way. If we didn't have this line of code our program would crash if someone tried to order a pizza that was not on the menu, like "anchovies", or "mushroom". This way, if you order off the menu, the function returns 0. A free pizza!}
-                         @teacher{@code{otherwise} clauses are best used as a catch-all for cases that you can’t otherwise enumerate. If you can state a precise 
-                                   question for a clause, write the precise question instead of otherwise. For example, if you have a function that does
-                                   different things depending on whether some variable @code{x} is larger than @code{5}, it is better for beginners to
-                                   write the two questions @code{(> x 5)} and @code{(<= x 5)} rather than have the second question be @code{otherwise}. 
-                                   Explicit questions make it easier to read and maintain programs. When you use @code{otherwise}, someone has to read
-                                   all the previous questions to know what condition else corresponds to: they can’t just skim all the questions 
-                                   to find the one that matches their situation. This makes code more readable and understandable.}}
-                 @point{@student{One final syntax note: notice that there are two @code{end} statements at the bottom of this function. One to close the @code{ask:} branches and one to close the function itself. Whenever you write a @vocab{piecewise function} in Pyret, you will need to remember to add two @code{end} statements in order to finish the function.}
-                         @teacher{}}
-                 ]
-         }
-                      
-@lesson/studteach[#:title "Keypress in Ninja World"
-        #:duration "30 minutes"
-        #:overview ""
-        #:learning-objectives @itemlist[@item{Students will extend their understanding of events to cover key-events}
-            @item{Students will deepen their knowledge of conditionals, by combining them with dot-accessor and constructor functions.}]
-        #:evidence-statements @itemlist[]
-        #:product-outcomes @itemlist[]
-        #:standards (list "F-IF.1-3" "BS-PL.1" "BS-PL.4")
-        #:materials @itemlist[@item{The @editor-link[#:public-id "0B9rKDmABYlJVM2tUSFNTc21xOFU" "Ninja World"] file preloaded on students' machines}]
-        #:preparation @itemlist[@item{}]
-        #:pacings (list 
-                @pacing[#:type "remediation"]{@itemlist[@item{}]}
-                @pacing[#:type "misconception"]{@itemlist[@item{}]}
-                @pacing[#:type "challenge"]{@itemlist[@item{}]}
-                )
-      ]{
-        @points[@point{@student{In the last unit, your Ninja Cat game was starting to take shape: You extended the world to include the dog's x-coordinate, the coin's x-coordinate, and the cat's x and y-coordinates. You also learned about event-handlers, and used the @code{draw-world} and @code{update-world} functions to create a simple animation. 
-                     @activity[#:forevidence (list "F-IF.1-3&1&1" "BS-PL.1&1&2" "BS-PL.4&1&1")]{Open the @editor-link[#:public-id "0B9rKDmABYlJVM2tUSFNTc21xOFU" "Ninja World"] file. It should look similar to the simple game you had last time.
-                               @itemlist[@item{Scroll down to where it says @code{# KEY EVENTS} in the code.}
-                                         @item{What is the name of the function defined here? What is its Domain? Its Range?}
-                                         @item{How does @code{keypress} change the world it takes in? What happens on screen as a result of pressing certain keys?}
-                                         @item{Right now this function only checks whether the key pressed by the player is the 'up' arrow key. But how can we get it to check if the 'down' arrow key was pressed, and move the cat accordingly? Take a few minutes with your partner to write one more line of code inside the @code{keypress} function to make the player move down.}]}}
-                         @teacher{Remind students that this is similar to the @code{update-player} function they wrote in Bootstrap:1, give them a few minutes to work on it, and move on to debrief.}}
-                 @point{@student{After adding a line to make Ninja Cat move down, your @code{keypress} function should look something like this:
-@code[#:multi-line #t]{# keypress : World, String -> World
-# Make cat respond to key events
-fun keypress(current-world, key):
-  ask:
-    | string-equal(key, "up") then: 
-      world(current-world.dogX, current-world.coinX, current-world.catX, current-world.catY + 10)
-    | string-equal(key, "down") then: 
-      world(current-world.dogX, current-world.coinX, current-world.catX, current-world.catY - 10)
-    | otherwise: current-world
-  end
-end}}
-                         @teacher{}}
-                      @point{@student{At the end of the file, there's one more bit of code that makes the game respond to key presses. Inside of @code{big-bang}, 
-                                 the very last line reads @code{on-key(keypress)}. @code{on-key} is a special function that detects when the user has pressed any key, and its argument tells it which function will handle the user input (in this case, @code{keypress}). Now @code{big-bang} has all the information it needs to manage the state of this game: @code{on-tick}, which tells the computer which function updates the game on every "tick" of a timer, @code{to-draw}, which tells it what function to use to draw the world, and finally, @code{on-key}, which handles user input.}
-                         @teacher{}
-                         }
-                      ]
-         }
+@points[@point{
+@student{
 
-@lesson/studteach[#:title "Extending Keypress"
-        #:duration "15 minutes"
-        #:overview ""
-        #:learning-objectives @itemlist[@item{}]
-        #:evidence-statements @itemlist[]
-        #:product-outcomes @itemlist[]
-        #:standards (list "BS-PL.1" "BS-PL.4" "BS-DR.4")
-        #:materials @itemlist[]
-        #:preparation @itemlist[@item{}]
-        #:pacings (list 
-                @pacing[#:type "remediation"]{@itemlist[@item{}]}
-                @pacing[#:type "misconception"]{@itemlist[@item{}]}
-                @pacing[#:type "challenge"]{@itemlist[@item{}]}
-                )
-      ]{
-        @points[@point{@student{We've made Ninja Cat move up and down, but in the original version of the game she moved left and right as well. Now that you're familiar with data structures, this is easy! 
-                                @activity[#:forevidence (list "BS-PL.1&1&2" "BS-PL.4&1&1" "BS-DR.4&1&3")]{@itemlist[@item{What changes about the cat if she moves to the left? To the right? What part of the world is that?}
-                                                     @item{How would you change the @code{keypress} function so it also asks whether the player has pressed the "left" or "right" arrow keys?}
-                                                     @item{What would you change about the world if the player presses the left arrow key? The right?}
-                                                     @item{Change the @code{keypress} function so that the cat moves left and right based on the arrow keys.}]}
-When finished, your code should look like: 
-@code[#:multi-line #t]{# keypress : World, String -> World
-# Make cat respond to key events
-fun keypress(current-world, key):
-  ask:
-    | string-equal(key, "up") then: 
-      world(current-world.dogX, current-world.coinX, current-world.catX, current-world.catY + 10)
-    | string-equal(key, "down") then: 
-      world(current-world.dogX, current-world.coinX, current-world.catX, current-world.catY - 10)
-    | string-equal(key, "left") then: 
-      world(current-world.dogX, current-world.coinX, current-world.catX - 10, current-world.catY)
-    | string-equal(key, "right") then: 
-      world(current-world.dogX, current-world.coinX, current-world.catX + 10, current-world.catY)
-    | otherwise: current-world
-  end
-end}
-For reference and to check your work, you can see the completed Design Recipe for @code{keypress} in Ninja World on @worksheet-link[#:page 18 #:name "Keypress-in-Ninja-World"].
+  We've already seen one kind of interactivity in our programs: getting
+  the next state from the current state on a tick-event. This is perfect for
+  animations that happen on their own, without any user intervention. In a game,
+  that might be clouds moving across the sky or a ball bouncing on its own.
+  An important kind of behavior in @italic{interactive} programs is to respond 
+  user input, such as keypresses. A keypress, like the @code{tick} of a clock, 
+  is a kind of @vocab{event}, and we'll re-use the idea of an event @vocab{handler}
+  like @code{on-tick} and a function like @code{next-state-tick}. For key-events,
+  the event handler is called @code{on-key}, and our function
+  @code{next-state-key} will compute the next state from the current one after a
+  key event.  We're going to use this idea to build up a @vocab{reactor} with a character
+  moving in two dimensions, where the movement is triggered by keypresses.
+
+@activity[]{
+  Open up the @editor-link[#:public-id "0B9rKDmABYlJVVWk4MGJidEtsRWc" "Moving
+  Character"] template file.
 }
-                        @teacher{}}]}      
-                                                                       
-@lesson/studteach[#:title "Asking the World"
-        #:duration "30 minutes"
+
+  It contains a data block for representing a character's position
+  (@code{CharState}) that has an x and y position.
+
+@activity[]{
+  Write an example instance of a @code{char-state} where both the @code{x}
+  field and the @code{y} field are between 100 and 500.  Give it the name
+  @code{middle}.
+}
+  
+  We've filled in a picture of Sam the Butterfly from Bootstrap:1. There is a
+  drawing function called @code{draw-state} provided that simply draws the
+  character image on a white background at the x and y coordinate in a
+  @code{CharState}.
+
+@activity[]{
+  Run the program, and use @code{draw-state} to draw the example instance you
+  created above.  Did it appear where you expected?
+}
+
+This is a reminder that it's often useful, when working on programs that use
+data to represent positions in an image, to make sure we understand what values
+in the data structure correspond to which drawing behavior.
+
+@activity[]{
+  Write an example instance that represents the butterfly in the top-right corner of
+  the window.  Give it a meaningful name of your own choice.  Re-run the
+  program, and check using @code{draw-state} that it showed up where you
+  expect.
+}
+
+  There is also a contract for a function @code{next-state-key}, which looks
+  like:
+
+  @code[#:multi-line #t]{
+next-state-key :: CharState, String -> CharState
+# Moves the character by 5 pixels in the corresponding direction
+# if an arrow key ("up", "left", "down", or "right") is pressed,
+# and leaves the character in place otherwise
+  }
+
+@activity[]{
+  How does the contract of @code{next-state-key} differ from the contract of
+  @code{next-state-tick} in your previous programs?
+}
+
+  It is different from the contract for @code{next-state-tick} (which handles
+  tick events) in an important way.  When a key event happens, the next state
+  may differ depending on @italic{which} key was pressed.  That means the
+  @code{next-state-key} function needs both the current state @italic{and} which key was
+  pressed as parts of its domain.  That's why @code{next-state-key} has an
+  additional @code{String} input, which represents the key pressed by the
+  user.
+
+@activity[]{
+Create an example instance that corresponds to the position 5 pixels to the
+@italic{right} of the example instance you wrote above.  Use @code{draw-state} to
+check it, as before.
+}
+
+This gives us a good input and output test for the examples block when working
+on @code{next-state-key}.  What call to @code{next-state-key} should connect
+these two example instances?
+
+
+@activity[]{
+Use the Design Recipe to fill in your examples and definition of
+@code{next-state-key}.  Use the sample instances you created before in
+the examples block.
+}
+
+}
+
+@teacher{It's an important point that @code{next-state-key} takes in an extra
+piece of information: the pressed key.  This makes it much richer in terms of
+its purpose statement, which should describe what different keys ought to do to
+the state of the reactor.
+
+Students will create something like @editor-link[#:public-id
+"0B9rKDmABYlJVTUtoekI2XzE3Znc" "this completed file"] by adding a
+next-state-key function}
+}
+
+@point{
+
+@student{
+
+@activity[]{
+Once you've implemented @code{next-state-key}, experiment with it in the interactions pane:
+
+@itemlist[
+
+  @item{Try @code{draw-state(next-state-key(middle, "left"))}.  How is the
+  output different from @code{draw-state(middle)}?}
+  
+  @item{Try using a few different calls to @code{next-state-key} to move the
+  character several times, then draw it.  For example:
+
+    @code[#:multi-line #t]{
+draw-state(next-state-key(next-state-key(middle, "left"), "up"))
+    }
+  }
+]
+}
+
+  As with ticks-events, we can manually pass keypress strings into
+  this function, see what the next state would be, and even draw that state
+  to see what it looks like.  That's great, but we still want to hook
+  this function up to a reactor, so that it actually handles
+  keypresses from a user playing the game.  To do this, we need to create a
+  reactor use @code{on-key} to specify that our @code{next-state-key} function 
+  should be called when the user presses a key (we don't need to specify an
+  @code{on-tick} handler, since for now the only movement in our program comes
+  from keypresses). Our reactor with a @code{to-draw} and @code{on-key} handler
+  looks like this:
+
+@code[#:multi-line #t]{
+char-react = reactor:
+  init: middle,
+  to-draw: draw-state,
+  on-key: next-state-key
+end
+}
+
+@activity[]{
+
+Make your program create a reactor by that uses the @code{on-key} handler with
+the @code{next-state-key} function you just implemented.  Run the program and
+use @code{interact(char-react)} to start the reactor.  Does it work the way you
+expected?  If it doesn't, check:
+
+@itemlist[
+
+@item{Does the program have any typos or syntax errors?}
+
+@item{Do the examples of @code{next-state-key} match what you expect, creating
+a new @code{char} instance with appropriate @code{x} and @code{y} values?}
+
+@item{Do the examples pass the implementation of @code{next-state-key}?}
+
+@item{Did you remember to add @code{on-key} to the reactor?}
+
+@item{Did you remember to re-run the program and use @code{interact} to start
+the animation?}
+
+]
+
+}
+
+With this working, you can see the behind-the-scenes work that was going on in
+Sam the Butterfly from Bootstrap:1.  To get to the same point as in
+Bootstrap:1, we'd next implement @code{is-onscreen} to check if Sam has left
+the board, and use it in @code{next-state-tick}.
+
+}
+@teacher{ Act out a reactor with key-events. You will need four students: one who
+acts as the @code{next-state-key} function, one who acts as the keyboard (you
+could also have the class act as a keyboard by having students shout out keys),
+one who acts as the reactor, and one who acts as the @code{draw-state} function. Give
+each student a few sheets of paper and something to write with.
+
+@itemlist[
+@item{When a key is "pressed" by the keyboard, the reactor write doesn the current
+state and the key that was pressed, then shows their paper to @code{next-state-key}. 
+}
+@item{@code{next-state-key} produces a new state based on the current state and the key, 
+writes it down, and then hands the new state back to the reactor.}
+@item{The reactor @italic{discards} their old state, replacing it with the
+new one, and shows the new one to @code{draw-state}.}
+@item{@code{draw-state} produces an image for the reactor to post, and draws it on paper. 
+They hand the image to the reactor, who holds it up as the new frame in the animation.}
+]
+
+We recommend @bold{not} having a @code{next-state-tick} function for this activity,
+to keep the focus on key events.  You can add a @code{on-tick} handler in
+a separate stage when talking through games which have both time- and key-based
+events.}
+
+Optional: implement boundaries to keep character onscreen, using the same
+ideas as @code{safe-left} and @code{safe-right} from before.  You can also
+write @code{safe-top} and @code{safe-bottom}, and use all of them to keep the
+character fully on the screen.
+
+Optional: use @code{num-to-string} and @code{text} to display the
+position at the top of the window.
+}
+
+
+]
+}
+
+
+@lesson/studteach[#:title "Combining Ticks and Keypresses"
+        #:duration "45 minutes"
         #:overview ""
-        #:learning-objectives @itemlist[@item{Students will turn update-world into a piecewise function in order to add jumping, falling, and gravity to their Ninja World game.}]
+        #:learning-objectives @itemlist[@item{Students see separate key and tick handlers combine to make a game}
+                                        @item{Students get practice with piecewise functions}]
         #:evidence-statements @itemlist[]
-        #:product-outcomes @itemlist[@item{Students will use @code{ask} in their next-world function}]
-        #:standards (list "7.EE.3-4" "F-IF.1-3" "F-IF.4-6" "BS-PL.4" "BS-DR.1" "BS-DR.2" "BS-DR.4" "BS-DS.1" "BS-W")
-        #:materials @itemlist[]
-        #:preparation @itemlist[@item{}]
-        #:pacings (list 
-                @pacing[#:type "remediation"]{@itemlist[@item{}]}
-                @pacing[#:type "misconception"]{@itemlist[@item{}]}
-                @pacing[#:type "challenge"]{@itemlist[@item{}]}
-                )
-      ]{
-        @points[@point{@student{Now Ninja Cat can move up and down, but we can add some more interesting elements to this game as well- what about gravity?
-                                If we want to make it seem like gravity is acting on Ninja Cat, she'll need to appear to "fall" at any point when she is not on the ground. @activity[#:forevidence (list "F-IF.4-6&1&1" "BS-W&1&4")]{@itemlist[@item{What part of the world structure will change if the cat is moving down?}
-                    @item{Since this "falling" will happen automatically, not as a result of user input, which function should control the gravity? @code{draw-world, next-world}, or @code{keypress}?}]}
-                   Right now, @code{next-world} takes in a world, and returns the next world by changing the dog's x-coordinate and the coin's x-coordinate. We want the cat's y-coordinate to change as well, every time @code{next-world} runs. But we don't want the cat to fall all the way below the screen and keep falling. Gravity should cause her to fall, but @italic{only} when she is above the ground (if her y-coordinate is above 75 pixels). Sometimes we want our function to move the dog, coin @italic{and} the cat, but if Ninja Cat is already on the ground only the dog and coin should move. We need @code{next-world} to become a @vocab{piecewise function}!}
-                       @teacher{}}
-                 @point{@student{@activity[#:forevidence (list "F-IF.1-3&1&1" "BS-DR.1&1&1" "BS-DR.1&1&2")]{@itemlist[@item{turn to @worksheet-link[#:page 20 #:name "Complex next-world"] in your workbook.}
-                                                     @item{Write the Contract and Purpose statement for this updated version of @code{next-world}.}]}
-                                  Now it's time to think about examples. @activity[#:forevidence (list "BS-DR.2&1&1" "BS-DR.4&1&1")]{Write one example using a World where Ninja Cat is above the ground, and one where she is on the ground. What should change about the world in each example? Does the dog's x-coordinate change in both instances, or just one? Why?}}
-                         @teacher{Remind students that at this point, @code{next-world} will always change the x-coordinates of the dog and coin, because they move independantly. The @italic{only} time the cat's y-coordinate should change without user input is when it gets above 75 pixels.}}
-                 
-                 @point{@student{Your exampes should look similar to:
-@code[#:multi-line #t]{examples:
-                         next-world(worldA) is
-                         world(worldA.dogX + 10, worldA.coinX - 5, worldA.catX, worldA.catY - 5)
-                         next-world(worldB) is 
-                         world(worldB.dogX + 10, worldB.coinX - 5, worldB.catX, worldB.catY)
-                       end}
-Circle and label what changes. Did more things change than you entered in the Domain? Sometimes we subtract 5 from the cat's y-coordinate, but sometimes her position stays the same. @activity[#:forevidence (list "F-LE.5&1&1" "A-CED.1-4&1&1" "BS-PL.3&1&3" "BS-DR.4&1&3" "BS-DS.1&1&5")]{@itemlist[@item{What question should we ask to tell us if the cat is above 75 pixels? What dot-accessor will we need to use?}
-                     @item{Our first condition must ask if the cat's x-coordinate is greater than 75. What changes about the world if this is true?}
-                     @item{Complete the design recipe for @code{next-world} and put the code into the @editor-link[#:public-id "0B9rKDmABYlJVM2tUSFNTc21xOFU" "Ninja World"] file.}]}}
-                         @teacher{}}
-                 @point{@student{The complete code for @code{next-world} should look like: 
-@code[#:multi-line #t]{# next-world: World -> World
-                       fun next-world(current-world):
-                          ask:
-                            | current-world.catY > 75 then: 
-                              world(
-                                current-world.dogX + 10, 
-                                current-world.coinX - 5, 
-                                current-world.catX,
-                                current-world.catY - 5
-                                )
-                            | otherwise: 
-                              world(current-world.dogX + 10, 
-                              current-world.coinX - 5, 
-                              current-world.catX,
-                              current-world.catY
-                              )
-                          end
-                        end }
-Ninja Cat is falling slowly in response to gravity, but it's now pretty tough for her to move up quickly. She needs some way to jump! @activity[#:forevidence (list "7.EE.3-4&1&1" "BS-PL.4&1&1" "BS-DR.4&1&3" "BS-DS.1&1&5")]{Think about how you could implement jumping in this game. @itemlist[@item{How would the player make a character jump?}
-                @item{What part of the world needs to change if Ninja Cat jumps up?}
-                @item{How many pixels should Ninja Cat move up if she's jumping?}
-                @item{What function controls the world in responce to key presses?}
-                @item{Scroll back down to the @code{keypress} function. Add one more condition that makes Ninja Cat's y-coordinate increase if the player presses a key of your choice. @bold{Hint:} The spacebar can be written as an empty string, like so: @code{" "}}]}}
-        @teacher{}
-        }
-]}
-                                                                       
-@lesson/studteach[#:title "Closing"
-        #:duration "5 minutes"
-        #:overview ""
-        #:learning-objectives @itemlist[]
-        #:evidence-statements @itemlist[]
-        #:product-outcomes @itemlist[]
+        #:product-outcomes @itemlist[@item{Students build the interactive parts of a simple game}]
         #:standards (list)
-        #:materials @itemlist[]
-        #:preparation @itemlist[@item{}]
-        #:pacings (list 
+        #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
+                            @item{Class poster (List of rules, design recipe, course calendar)}
+                            @item{Editing environment (Pyret Editor)}
+                            @item{Student workbooks}
+                            @item{Language Table}]
+     #:preparation @itemlist[@item{The @editor-link[#:public-id "0B9rKDmABYlJVXy00M1VteEZxaHM" "Virtual Pet Starter"] file preloaded on students' machines}]
+     #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{With @vocab{piecewise functions}, you can make a lot of things happen in a game with just a few lines of code, like controlling the movement of characters. Speaking of controlling characters, what happens in Ninja World when the dog and coin go off the screen? They keep going, but don't come back - the same problem we had in Bootstrap:1! If you need a refresher on how to fix it, that's what we'll be covering in the next unit.}         
-                       @teacher{}
-                       }
-                 ]
-         }
-       }
+
+@points[
+
+@point{
+@student{
+
+Now, you've seen how to use functions to compute the next state in a game or
+animation for both tick and key events.  We can combine these to make
+an interactive "digital-pet" from scratch!
+
+@activity[]{
+
+Open the @editor-link[#:public-id "0B9rKDmABYlJVXy00M1VteEZxaHM" "Virtual Pet Starter"] file.
+Run it. You will see a frame come up, showing a cat face and green status bars for the cat's sleep and hunger.
+}
+
+Notice that not much is happening! To make this game more interesting, we want to
+add three behaviors to it:
+
+@itemlist[@item{as time passes, the hunger and sleep values should decrease}
+          @item{a human player should be able to increase hunger and sleep through keypresses}
+	  @item{the image of the cat should change when hunger and sleep both reach 0 (and the player
+	        loses the game)}]
+
+In this lesson, you will extend the animation three times, once for each of these behaviors, by
+adding or changing the functions that make up an animation.  
+To do this, you will use the @italic{Animation Extension Worksheet} three times.
+Note that none of these should require adding any new fields
+to the data definition, just adding and editing functions like
+@code{next-state-tick}, @code{next-state-key}, and @code{draw-state}.
+We will walk you through the first use of the animation extension worksheet,
+then let you try the other two on your own. }
+@teacher{}
+}
+
+@point{@student{@bannerline{Extension 1: Decrease Hunger and Sleep on Ticks}
+                For this extension, we want to decrease
+		the hunger by 2 and the sleep by 1 each time the animation ticks to a new frame.
+
+       @activity{Open your workbook to @worksheet-link[#:name "anim-design-pet"], which
+       		 shows you the extension worksheet filled in for this extension.}
+
+In this filled-in worksheet, the description from the problem is written down into the “goal” part
+of the worksheet.  This is like the “purpose statement” for the feature.
+
+       @activity{Think about what sketches you would draw to illustrate the animation
+                 with this new behavior.  Then check out the ones we drew on the example
+		 worksheet.  Notice that they focus on the bars having different lengths.}
+}
+      @teacher{}}
+
+@point{@student{Next, we consider the tables that summarize what now changes in the
+                animation.
+		@activity{What changes between frames now that didn't in the starter file
+		          for the virtual pet?}
+		The worksheet identifies that both hunger and sleep are changing in new ways.  Since
+		they @italic{aren't} new fields, this feature is completely dependent on existing
+		data, and we don't need to add any new fields. We therefore leave the second table
+		empty (since we aren't adding new fields).
+		}
+       @teacher{}}
+
+@point{@student{Next, we identify the components that we need to write or update. We don't
+		need to change the data definition at all, because no new fields were added. We
+		@italic{may} need to update @code{draw-state} function, since the size of the
+		bars changes.  We definitely need to write the @code{next-state-tick} function,
+		which doesn't yet exist.  We do not need to address anything about keypresses
+		with this feature, so @code{next-state-key} is untouched  Since
+		@code{next-state-tick} has been added for this feature, we need to add a
+		@code{on-tick} handler to the reactor.}
+       @teacher{}}
+
+@point{@student{Now that we've planned what work needs to be done (on paper), we can start
+                thinking about the code. As always, we write examples before we write functions,
+		so we are clear on what we are trying to do.
+		
+		@activity{Come up with two example instances of @code{PetState} that
+		          illustrate what should happen as we change the sleep and hunger fields.
+			  You can see the ones we chose on the worksheet.  What's another good
+			  example for us to use in coding and testing?}
+
+	        In our samples, we estimate a bit from looking at the pictures, but note
+		that we pick numbers that would work with the desired behavior – @code{petB}
+		represents the state after 5 ticks, because hunger is 10 less (decreased by 2
+		each tick), and sleep is 5 less (decreased by 1 on each tick).  Th @code{petC}
+		sample instance corresponds to the state after how many ticks?
+
+		@activity{Use your sample instances to write examples of the @code{next-state-tick}
+			  function, which we marked as a to-do item on the first page of the worksheet.}
+		}
+       @teacher{}}
+
+
+@point{@student{Now we need to use this information to edit the current code,
+		checking off the boxes we identified as we go.
+
+		@activity{Look at the @code{draw-state} function: how will it need to change to draw
+		          boxes for the sleep and hunger values?}
+
+                The @code{draw-state} function already does this, so we can check the @code{draw-state}
+		changes off as being done (without doing additional work).
+
+		@activity{Develop @code{next-state-tick}, using the contract in the starter file
+		          and the examples from the worksheet.}
+
+		Once we've finished using the design recipe to implement @code{next-state-tick}, we can
+		check off its box.  Finally, we need to add the handler to the @code{reactor}
+		so the reactor calls the function we just wrote on tick events.
+
+		@activity{Edit the @code{pet=react} reactor to include @code{next-state-tick} alongside the
+		          @code{on-tick} handler.}
+
+                 You should have ended up with something like this:
+
+@code[#:multi-line #t]{
+pet-react = reactor:
+  init: FULLPET,
+  on-tick: next-state-tick,
+  to-draw: draw-state
+end}
+
+		Make sure you get a working animation with bars that decrease before moving on,
+		like this:
+
+		@bannerline{@animated-gif{images/cat-decreasing-bars.gif}}
+          }
+	  @teacher{}}
+
+@point{@student{@bannerline{Modification 2: Key Events}
+                Next, we'll add key events to the game so the player can increase them so they
+		don't reach zero! 
+
+		@activity[]{Turn to @worksheet-link[#:name "pet-key-extension"] in your workbook.
+		            Fill in the first page to plan out the following extension:
+	    		    On a keypress, if the user pressed "f" (for "feed"), @code{hunger} should
+			    increase by 10. If the user pressed "s" (for "sleep"), @code{sleep} should
+	    		    increase by 5.  If the user presses any other keys, nothing should change.
+            		    }
+
+		As you fill in the worksheet, think about useful sketches that capture this new feature,
+		whether you need new fields, and which functions are effected.
+
+		@activity[]{When you've implemented @code{next-state-key},
+		            you can add it to the reactor at the bottom of the file with:
+
+@code[#:multi-line #t]{
+pet-react = reactor:
+  init: FULLPET,
+  on-key: next-state-key,
+  on-tick: next-state-tick,
+  to-draw: draw-state
+end}
+
+and test out your game!
+}}
+         @teacher{}}
+
+@point{@student{@bannerline{Modification 3: Change Pet Image When Game is Lost}
+
+		@activity[]{ When any bar reaches zero, the game is lost and your pet is sad –
+		             make the picture change to show the player this!  In addition, when the game is
+			     lost, the "f" and "s" keys shouldn't do anything.  Instead, the user should be
+			     able to press the "r" key (for "restart"), to reset hunger and sleep
+			     100, and start playing again. Use the animation-extension worksheet on
+			     @worksheet-link[#:name "pet-sad-extension"] to plan out your changes.}
+	         }
+
+        @teacher{}}
+
+
+@point{
+@student{
+
+You now know everything you need to build interactive games that react to the
+keyboard, draw an image, and change over time!  These are the fundamentals of
+building up an interactive program, and there are a lot of games, simulations,
+or activities you can build already.  For example, you could build Pong, or the
+extended Ninja Cat, a more involved Pet Simulator, a game with levels, and
+much, much more.
+
+Some of these ideas are more straightforward than others with what you know.
+The rest of the workbook and units are designed to show you different
+@italic{features} that you can add to interactive programs.  You can work through
+them all if you like, or come up with an idea for your own program, and try the
+ones that will help you build your very own program!}
+
+ @teacher{Some next steps/optional activities if students finish these activities:
+@itemlist[@item{Find your own images to create a different virtual pet}
+          @item{Stop the bars from overflowing some maximum. (produce something like @editor-link[#:public-id "0B9rKDmABYlJVNTR6ajd4N1hPRm8" "this completed game"])}
+          @item{Add an x-coordinate to the PetState so the pet moves around, either on keypress or automatically.}
+          @item{Add a costume to the PetState, then change the draw-pet function so that it changes the costume based on the pet's mood (if a-pet.hunger <= 50, show a pic of the pet looking hungry)}]
+
+}}
+
+
+]
+
+}
+}

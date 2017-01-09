@@ -106,6 +106,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Command line parsing.  We initialize the SCRIBBLE_TAGS environmental
 ;; variable
+(define courses (list "bs1" "bs2"))
 (putenv "AUDIENCE" "teacher")
 (putenv "CURRENT-SOLUTIONS-MODE" "off")
 (putenv "TARGET-LANG" "pyret")
@@ -116,8 +117,10 @@
    #:once-each
    ;; Going to remove this option: it's obsolete, as we always
    ;; build bs1 and bs2.
-   #;[("--course") -course "Choose course (default bs1)"
-      (current-course -course)]
+   [("--course") -course "Choose course (default bs1 and bs2)"
+    (if (string=? -course "bs2")
+        (set! courses (list "bs2"))
+        (set! courses (list "bs1")))]
    ;; removed option for now, since not scribbling workbook
    ;; option is set in main entry point at end of file
    #;[("--worksheet-links-to-pdf") "Direct worksheet links to StudentWorkbook.pdf" 
@@ -457,7 +460,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Main entry point:
 (make-fresh-deployment-and-copy-static-pages)
-(define bootstrap-courses '("bs1" "bs2"))  
+(define bootstrap-courses courses)
 ;; remove next line if ever want to generate links to web docs instead of PDF
 (putenv "WORKSHEET-LINKS-TO-PDF" "true")
 (for ([course (in-list bootstrap-courses)])
@@ -472,7 +475,7 @@
       )
     (when (equal? course "bs2")
       (putenv "TARGET-LANG" "pyret")
-      (putenv "RELEASE-STATUS" "beta")
+      (putenv "RELEASE-STATUS" "mature") ;; was "beta"
       )
     (textbook-styling-on)
     (update-resource-paths)
