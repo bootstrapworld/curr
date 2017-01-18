@@ -1,0 +1,90 @@
+TO TRANSLATE A SINGLE BOOTSTRAP UNIT PAGE
+
+source: curr/courses/bs1/units/*/the-unit.scrbl
+
+* the @ sign marks a scribble command. So @student names a formatting
+  function in our scribble infrastructure. You are looking to edit the
+  arguments to those functions, but not the @names themselves.
+
+* Editing the arguments to the @functions will update both the
+  activities in the notes and the teachers notes
+
+In particular, you are looking to edit
+
+- the @title contents at the top of the file
+- the argument to @unit-descr near the top of the file 
+- for each @lesson/studteach,
+   - the string tagged as #:title
+   - the #:duration content
+   - any text in the other tags in the header
+- the text within each @student and @teacher block
+
+-------
+
+The metadata at the top of each unit page comes from several source
+files:
+
+* curr/lib/glossary-terms.rkt
+  this maps vocabulary terms (tagged with @vocab) to definitions.
+  This file is consulted to generate the glossary at the top of each
+  unit page, based on the @vocab terms that appear on the page.
+
+* curr/lib/standards.csv
+  this file maps learning standards tags to their descriptions. It is
+  used to generate the standards section at the top of each unit
+  page.
+
+  IGNORE the file lib/standards-dictionary.rkt.  That is an unused
+  file that I need to get around to taking out of the repo.
+
+-----
+
+The file that defines all of the scribble formatting commands is
+
+   curr/lib/form-elements.rkt
+
+There are little bits of English text within this file. This file also
+has some dead code in it.
+
+Not all string constants get translated.  In particular, if you see a
+string immediately after #:style, do not translate it.  That string is
+naming a css tag that our css files depend on.
+
+Here are the spots I could readily spot that will need updating.  We
+will find the rest as we generate the pages and detect stray English
+words:
+
+* the language-table function ("Types" and "Functions") [line 274]
+
+* in the lesson/studteach function [line 516]
+
+    - the string arguments to the lesson-section commands in the middle
+      of the function ("Learning Objectives", etc) [line 568+]
+    - the capitalized "Overview" [line 566]
+    - the capitalized "Time" [line 590]
+
+* the word "Agenda" in the agenda function [line 375]
+
+* the word "Glossary" in gen-glossary [line 431, NOT line 428]za
+
+* the button names (in the "value" argument) in the
+  insert-teacher-toggle-button function [line 682]
+
+* in unit-overview/auto [line 849]
+      - "Unit Overview" [line 864]
+      - "Product Outcomes" [line 879]
+      - "Materials" [line 885]
+      - "Preparation" [line 889]
+
+* in learn-evid-from-standards [line 635]
+      - "Standards and Evidence Statements" [line 666]
+      - "Standards Document"  [line 671]
+
+---------------
+
+In the lower part of the file, there are additional strings around our
+generated exercise handouts.  We will need to translate those in the
+second phase, after we get the units to translate properly.  I'll
+update this document around exercise generation when we get to that
+point. 
+
