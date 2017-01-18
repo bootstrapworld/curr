@@ -38,7 +38,11 @@ Installation:
 2.  Run build.rkt to generate the curriculum.  You can do this either
 at the command line, or from DrRacket.
 
+    $ racket build-workbook.rkt
     $ racket build.rkt
+
+    The first command is only needed the first time you build;
+    subsequent builds can just use `racket build.rkt`
 
     To generate the curriculum under a different tagging context,
     provide additional arguments to the build.rkt program.  e.g:
