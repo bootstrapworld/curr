@@ -38,14 +38,6 @@ at the command line, or from DrRacket.
     The first command is only needed the first time you build;
     subsequent builds can just use `racket build.rkt`
 
-    To generate the curriculum under a different tagging context,
-    provide additional arguments to the build.rkt program.  e.g:
-
-    $ racket build.rkt pedagogy group
-
-    Under DrRacket, you can change your Language settings to include
-    the tags as custom command line arguments.
-
 ----------------------------------------------------------------------
 
 # Contributors
