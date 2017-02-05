@@ -43,25 +43,25 @@ at the command line, or from DrRacket.
 # Contributors
 
 ## Current Maintainers:
-  Kathi Fisler 
-  Shriram Krishnamurthi
-  Joe Politz
-  Emmanuel Schanzer
-  Emma Youndtsmith
+- Kathi Fisler 
+- Emmanuel Schanzer 
+- Emma Youndtsmith 
+- Joe Politz 
+- Shriram Krishnamurthi
 
 ## Major past contributers:
-  Danny Yoo
-  Rosanna Sobota
+- Danny Yoo
+- Rosanna Sobota
 
 ## Other past contributers:
-  Vicki Crosson 
-  Miles Eldon
-  Daniel Kocoj
-  Katherine Ng 
-  Mike Rowland
-  Jonah Stanley 
-  Andrew Tian 
-  Winnie Wang
+- Vicki Crosson 
+- Miles Eldon
+- Daniel Kocoj
+- Katherine Ng 
+- Mike Rowland
+- Jonah Stanley 
+- Andrew Tian 
+- Winnie Wang
 
 
 
