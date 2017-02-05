@@ -1,32 +1,26 @@
-This is the repository for Bootstrap 1 materials.
-
-Contributors:
-
-The following contributors worked on converting this material in the
-summer of 2012 at Brown University:
-
-  Daniel Kocoj
-  Mike Rowland
-  Winnie Wang
-  Kathi Fisler
-  Jonah Stanley
-  Miles Eldon
-  Andrew Tian
-  Katherine Ng
-
-
-After the summer, this codebase has been maintained by:
-
-  Emmanuel Schanzer
-  Kathi Fisler
-  Vicki Crosson
-  Emma Youndtsmith
-
-
+This is the repository for Bootstrap curriculum and the software
+infrastructure that generates notes, handouts, workbooks, and other
+educational materials from the curriculum.
 
 ----------------------------------------------------------------------
 
-Installation:
+# Licenses
+
+The curriculum is licensed under a Creative Commons 4.0 Unported
+License (type
+[CC BY-NC-ND](https://creativecommons.org/licenses/by-nc-nd/4.0/
+"Terms")). Based on a work at www.BootstrapWorld.org.
+
+The software infrastructure is licensed under a Creative Commons 4.0
+Unported license (type
+[CC BY-NC-SA](https://creativecommons.org/licenses/by-nc-sa/4.0/ "Terms"))
+
+Permissions beyond the scope of these licenses may be available by
+contacting schanzer@bootstrapworld.org. 
+
+----------------------------------------------------------------------
+
+# Installation
 
 1.  Set up curr as a Racket collection.
 
@@ -51,4 +45,32 @@ at the command line, or from DrRacket.
 
     Under DrRacket, you can change your Language settings to include
     the tags as custom command line arguments.
+
+----------------------------------------------------------------------
+
+# Contributors
+
+## Current Maintainers:
+  Kathi Fisler 
+  Shriram Krishnamurthi
+  Joe Politz
+  Emmanuel Schanzer
+  Emma Youndtsmith
+
+## Major past contributers:
+  Danny Yoo
+  Rosanna Sobota
+
+## Other past contributers:
+  Vicki Crosson 
+  Miles Eldon
+  Daniel Kocoj
+  Katherine Ng 
+  Mike Rowland
+  Jonah Stanley 
+  Andrew Tian 
+  Winnie Wang
+
+
+
 
