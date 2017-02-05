@@ -42,6 +42,11 @@ at the command line, or from DrRacket.
 
 # Contributors
 
+Bootstrap builds on the
+[Scribble](https://docs.racket-lang.org/scribble/) infrastructure
+developed by Matthew Flatt and Eli Barzilay as part of the PLT
+project.
+
 ## Current Maintainers:
 - Kathi Fisler 
 - Emmanuel Schanzer 
