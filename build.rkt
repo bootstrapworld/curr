@@ -106,7 +106,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Command line parsing.  We initialize the SCRIBBLE_TAGS environmental
 ;; variable
-(define courses (list "bs1" "bs2"))
+(define courses (list "datascience"))
 (putenv "AUDIENCE" "teacher")
 (putenv "CURRENT-SOLUTIONS-MODE" "off")
 (putenv "TARGET-LANG" "pyret")
@@ -476,6 +476,10 @@
     (when (equal? course "bs2")
       (putenv "TARGET-LANG" "pyret")
       (putenv "RELEASE-STATUS" "mature") ;; was "beta"
+      )
+    (when (equal? course "datascience")
+      (putenv "TARGET-LANG" "pyret")
+      (putenv "RELEASE-STATUS" "beta") ;; was "beta"
       )
     (textbook-styling-on)
     (update-resource-paths)

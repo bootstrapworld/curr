@@ -187,7 +187,7 @@
 
 
 ; for now, only bs1 is set up for auto-building
-(define bootstrap-courses '("bs1" "bs2"))
+(define bootstrap-courses '("datascience"))
 
 ; use this to tell scribble to use the workbook.css file
 (putenv "BOOTSTRAP-TARGET" "workbook")
