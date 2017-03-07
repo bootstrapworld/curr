@@ -265,7 +265,7 @@ information about the animation.}
 				                         if a-sunset.y < 150:
 				                           put-image(rectangle(WIDTH, HORIZON-HEIGHT, "solid", "brown"),
 				                                     200, 50,
-				          		  	     put-image(circle(10, "yellow", "solid"),
+				          		  	     put-image(circle(25, "solid", "yellow"),
 									       a-sunset.x, a-sunset.y,
 						      			       rectangle(WIDTH, HEIGHT, "solid", "light-blue")))
 			                                 else if a.sunset.y < 225:
