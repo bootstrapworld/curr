@@ -87,10 +87,11 @@ in the data structure correspond to which drawing behavior.
   like:
 
   @code[#:multi-line #t]{
-next-state-key :: CharState, String -> CharState
-# Moves the character by 5 pixels in the corresponding direction
-# if an arrow key ("up", "left", "down", or "right") is pressed,
-# and leaves the character in place otherwise
+# next-state-key :: CharState, String -> CharState
+# Moves the character by 5 pixels 
+# in the corresponding direction
+# if an arrow key ("up", "left", "down", or "right") 
+# is pressed, & leaves the character in place otherwise
   }
 
 @activity[]{
