@@ -265,7 +265,7 @@
                            @item{Define a @vocab{reactor} that will use an initial instance of the state and the two functions to create an animation.}
                         ]
 			At this point, you could create your own animation from scratch by following these four steps.  If you do,
-			you may find it helpful to use the animation design worksheet on page @worksheet-link[#:name "full-anim-design"]
+			you may find it helpful to use the animation design worksheet on page @worksheet-link[#:name "build-own-design"]
 			in your workbook: it takes you through sketching out your frames, developing the data structure for your
 			animation state, and writing the functions for the animation. It also gives you a checklist of the four
 			steps above. The checklist mentions a fifth (optional) step, which involves getting your characters to
