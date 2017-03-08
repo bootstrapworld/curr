@@ -71,8 +71,10 @@
                                                        ]}
 Don't forget to include the lines @code{examples:} and @code{end}! Your examples should look similar to:
                                   @code[#:multi-line #t]{examples:
-                                                           double-radius(50, "pink") is circle(50 * 2, "outline", "pink")
-                                                           double-radius(918, "orange") is circle(918 * 2, "outline", "orange")
+                                                           double-radius(50, "pink") is
+                                                                 circle(50 * 2, "outline", "pink")
+                                                           double-radius(918, "orange") is 
+                                                                 circle(918 * 2, "outline", "orange")
                                                          end}}
                          
                          @teacher{Each one of these answers can be found in the Contract or Purpose Statement. Suggestion: Write these steps on the board, and draw 
@@ -139,7 +141,8 @@ tells us that we're defining a new data type called @code{JumperState}, whose co
                                      
                     @point{@student{Now it's up to us to protect this parachute jumper, and make sure he lands safely on the shore. @activity[#:forevidence (list "BS-M&1&2" "BS-DR.1&1&1" "BS-DR.1&1&2")]{Turn to @worksheet-link[#:name "next-position"] in your workbook, read the word problem, and fill in the Contract and Purpose Statement for the function @code{next-position}.}
     @code[#:multi-line #t]{# next-position : Number Number -> JumperState
-                           # Given 2 numbers, make a JumperState by adding 5 to x and subtracting 5 from y}}
+                           # Given 2 numbers, make a JumperState by 
+                           # adding 5 to x and subtracting 5 from y}}
                             @teacher{Point out that we're now using a new data type in a contract: @code{next-position} consumes two Numbers, and produces a @italic{JumperState}. Once we've defined a new data structure using the above data block, we can use it just like other datatypes.}}
 
                     @point{@student{Now for our two examples. Using, or @vocab{calling} @code{next-position} with two numbers is easy, but what happens to those numbers? We can't return both at the same time... unless we use a data structure! To do so we'll need to use the constructor function to make a structure from the data we already have. @activity[#:forevidence (list "5.OA.1-2&1&1" "5.OA.1-2&1&1" "7.EE.3-4&1&1" "A-SSE.1-2&1&1" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.4&1&1")]{@itemlist[@item{According to the definition for @code{JumperState}, what function makes a JumperState? What is its contract?}
@@ -211,7 +214,8 @@ tells us that we're defining a new data type called @code{JumperState}, whose co
                                    @activity{What data structure should we use to represent whether or not the CakeT is an ice cream cake?  Use this to define another field.}
 				   
                                    On your paper, you should have: 
-                                   @code[#:multi-line #t]{ # a CakeT is a flavor, number of layers, and whether or not it is an ice cream cake.
+                                   @code[#:multi-line #t]{ # a CakeT is a flavor, number of layers, 
+                                                           # and whether or not it is an ice cream cake.
                                                        data CakeT:
                                                          | cake(
                                                              flavor      :: String,
@@ -341,7 +345,9 @@ tells us that we're defining a new data type called @code{JumperState}, whose co
                                                              @item{Which part(s) of the CakeTs will you need to check to determine if one is taller than the other?}]}
                @code[#:multi-line #t]{
 # taller-than: CakeT, CakeT -> Boolean
-# consumes two CakeTs and produces true if the number of layers in the first CakeT is greater than the number of layers in the second}
+# consumes two CakeTs and produces true if the number of 
+# layers in the first CakeT is greater than the number of 
+# layers in the second}
                For your first example, try comparing @code{birthday-cake} and @code{chocolate-cake}. Do we care about what flavor either of these CakeTs are? What about whether or not one of them is an ice cream cake? All we need to figure out which one is taller is their number of layers. 
                @activity{How do you get the number of layers out of @code{birthday-cake}? What about @code{chocolate-cake}? Write your first example to figure out if @code{birthday-cake} has a greater number of layers than @code{chocolate-cake}.}}
                          @teacher{ }}
@@ -357,7 +363,7 @@ tells us that we're defining a new data type called @code{JumperState}, whose co
                                                       @item{Next, circle and label what changes between the two examples. How many variables will this function need? Then write the definition, using your examples to help you.}]}
                         
                                   After replacing the changing things with variables, your definition should look similar to: 
-                                  @code[#:multi-line #t]{taller-than(a-cake1, a-cake2):
+                                  @code[#:multi-line #t]{fun taller-than(a-cake1, a-cake2):
                                                            a-cake1.layers > a-cake2.layers
                                                          end}}
                          @teacher{ }}
