@@ -60,7 +60,7 @@ when it prints out the glossary for a particular unit
     ("range" "the type of data that a function produces")
     ("reactor" "A value that contains a current state, and functions for updating, drawing, and interacting with that state")
     ("sample instances" "A collection of single instances, or also used to describe illustrative instances that we use to provide examples of a data structure")
-    ("state" "The current value stored by a reactor")
+    ("state" "The value of a changing system at any point in time (ie - a stoplight can be in the 'red', 'yellow' or 'green' state). In Pyret, the state of a Reactor is it's current value.")
     ("string" "any sequence of characters between quotation marks (examples: \"hello\", \"42\", \"this is a string!\")")
     ("syntax" "The set of rules that defines a language, whether it be spoken, written, or programmed.")
     ("type" "refers to a general kind of data, like Number, String, Image, or Boolean")
