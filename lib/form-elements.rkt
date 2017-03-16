@@ -93,7 +93,7 @@
          point
          student
          teacher
-         itemlist/splicing ;; need because bs1 teachers-guide.scrbl using it (still in old lesson format)
+         itemlist/splicing ;; need because algebra teachers-guide.scrbl using it (still in old lesson format)
          activity
          csp-activity
          unit-descr
@@ -455,7 +455,7 @@
 
 ;;;;;;;;;;; OLD LESSON FORMAT ;;;;;;;;;;;;;;;;;;;;;
 
-;; This is currently used only in the teacher-notes.scrbl (for bs1).  Can remove this
+;; This is currently used only in the teacher-notes.scrbl (for algebra).  Can remove this
 ;; if ever convert those over to lesson/studteach
 
 ;; lesson: #:title #:duration #:subsumes #:prerequisites #:video body ... -&gt; block
