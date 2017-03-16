@@ -106,6 +106,7 @@ div#sidebar {
     left: 13%;
     top: 0px;
     width: 165px;
+    z-index: 99;
 }
 
 div#sidebar img {

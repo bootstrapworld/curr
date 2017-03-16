@@ -17,7 +17,7 @@ Write an expression (using your newly-defined items) which will give you the tot
 
 @fill-in-the-blank[#:id "exp1" #:columns 80]
 
-When you get to the checkout line, you discover an old gift card in your pocket, worth $12.50. Define a new variable called “GIFTCARD”. 
+When you get to the checkout line, you discover an old gift card in your pocket, worth $12.50. Define a new variable called "GIFTCARD". 
 
 @fill-in-the-blank[#:id "gc"]
 

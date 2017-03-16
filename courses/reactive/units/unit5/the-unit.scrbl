@@ -310,8 +310,8 @@ then let you try the other two on your own. }
        @activity{Open your workbook to @worksheet-link[#:name "anim-design-pet"], which
        		 shows you the extension worksheet filled in for this extension.}
 
-In this filled-in worksheet, the description from the problem is written down into the “goal” part
-of the worksheet.  This is like the “purpose statement” for the feature.
+In this filled-in worksheet, the description from the problem is written down into the "goal" part
+of the worksheet.  This is like the "purpose statement" for the feature.
 
        @activity{Think about what sketches you would draw to illustrate the animation
                  with this new behavior.  Then check out the ones we drew on the example
