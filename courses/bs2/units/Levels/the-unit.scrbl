@@ -47,9 +47,14 @@
                  @point{@student{Now that we have our helper function, we can use it to draw of that one part of the animation. Instead
                                  of blindly putting @code{BACKGROUND-IMG} into our function, now we'll use @code{draw-bg(g.score)}:
 @code[#:multi-line #t]{fun draw-state(g):
-  put-image(text(string-append("NinjaCat! Score: ", num-to-string(g.score)), 20, "white"),
+  put-image(text(
+  string-append("NinjaCat! Score: ", num-to-string(g.score)), 
+            20, "white"),
       310, 470,
-      put-image(text("Use arrow keys to move. Jump on the dog and catch the ruby!", 12, "white"), 
+      put-image(
+      text("Use arrow keys to move. 
+            Jump on the dog and catch the ruby!", 
+            12, "white"), 
         320, 450,
         put-image(PLAYER-IMG, g.playerx, g.playery,
           put-image(CLOUD-IMG, 150, 350,

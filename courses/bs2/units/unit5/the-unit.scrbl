@@ -87,10 +87,11 @@ in the data structure correspond to which drawing behavior.
   like:
 
   @code[#:multi-line #t]{
-next-state-key :: CharState, String -> CharState
-# Moves the character by 5 pixels in the corresponding direction
-# if an arrow key ("up", "left", "down", or "right") is pressed,
-# and leaves the character in place otherwise
+# next-state-key :: CharState, String -> CharState
+# Moves the character by 5 pixels 
+# in the corresponding direction
+# if an arrow key ("up", "left", "down", or "right") 
+# is pressed, & leaves the character in place otherwise
   }
 
 @activity[]{
@@ -228,9 +229,9 @@ They hand the image to the reactor, who holds it up as the new frame in the anim
 We recommend @bold{not} having a @code{next-state-tick} function for this activity,
 to keep the focus on key events.  You can add a @code{on-tick} handler in
 a separate stage when talking through games which have both time- and key-based
-events.}
+events.}}
 
-Optional: implement boundaries to keep character onscreen, using the same
+@point{@student{Optional: implement boundaries to keep character onscreen, using the same
 ideas as @code{safe-left} and @code{safe-right} from before.  You can also
 write @code{safe-top} and @code{safe-bottom}, and use all of them to keep the
 character fully on the screen.
@@ -238,6 +239,9 @@ character fully on the screen.
 Optional: use @code{num-to-string} and @code{text} to display the
 position at the top of the window.
 }
+        @teacher{}
+        }
+
 
 
 ]

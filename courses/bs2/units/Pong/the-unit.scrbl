@@ -42,8 +42,10 @@
                        }
                  @point{@student{Here is one possible structure that we could use to model the two players:
                                 @code[#:multi-line #t]{
-# a PongState has the y-coordinate of paddle1 and paddle2
-# (no x-coordinate needed, since the paddles only go up/down!)
+# a PongState has the y-coordinate 
+# of paddle1 and paddle2
+# (no x-coordinate needed, since
+# the paddles only go up/down!)
 data pongState:
  | pong(
      paddle1Y :: Number,
@@ -172,9 +174,11 @@ end
                          }
                  @point{@student{Here is one example of a way to represent this, during Numbers to keep track of direction:
                                  @code[#:multi-line #t]{
-# a PongState has the y-coordinates of paddle1 and paddle2, 
-# x and y-coordinates of the ball, and x and y-coordinates 
-#representing the direction of the ball
+# a PongState has the y-coordinates 
+# of paddle1 and paddle2, 
+# x and y-coordinates of the ball, 
+# and x and y-coordinates 
+# representing the direction of the ball
 data pongState:
  | pong(
      paddle1Y :: Number,
@@ -202,16 +206,21 @@ end
                  @point{@student{Now let's make some sample instances for when the game begins, when the ball is about to hit a paddle, and
                                  then immediately after:
                                  @code[#:multi-line #t]{    
-# an instance where the paddles are at the starting position,
-# the ball is in the center (300, 200), and it's moving to the
-# right by 20 and up by 10 on each tick
+# an instance where the paddles are 
+# at the starting position,
+# the ball is in the center (300, 200),
+# and moving to the right by 20 
+# and up by 10 on each tick
 pongStateA = pong(200, 200, 300, 200, 20, 10)
 
-# an instance where the ball (x=150, y=280) is about to hit the top wall
+# an instance where the ball (x=150, y=280) 
+# is about to hit the top wall
 pongStateB = pong(200, 300, 150, 280, 20, 10)
 
-# an instance after the ball (x=550, y=280) hits the top wall
-# it's still moving right (20), but now it's moving down instead of up (-10)
+# an instance after the ball (x=550, y=280) 
+# hits the top wall
+# it's still moving right (20), 
+# but now it's moving down instead of up (-10)
 pongStateC = pong(200, 300, 550, 320, 20, -10)
 }
                                  The ball starts out moving up and to the right, but once it hits a wall the direction needs to change.
@@ -235,11 +244,15 @@ pongStateC = pong(200, 300, 550, 320, 20, -10)
 fun next-state-tick(w):
   if (is-on-wall(w)):
     pong(
-      w.paddle1Y,               # the paddles don't change position
+      w.paddle1Y,               
       w.paddle2Y,
-      w.ballX + w.moveX,        # the ball keeps moving in the same x-direction
-      w.ballY + (w.moveY * -1), # but it bounces off the wall...(move backwards by moveY)
-      w.moveX * -1,             # ...and the y-direction is reversed
+      # the paddles don't change position
+      w.ballX + w.moveX,        
+      # the ball keeps moving in the same x-direction
+      w.ballY + (w.moveY * -1), 
+      # but it bounces off the wall (move backwards by moveY)
+      w.moveX * -1,            
+      # and the y-direction is reversed
       w.moveY)
   else:
     pong(

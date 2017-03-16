@@ -144,7 +144,8 @@ background image:
 @code[#:multi-line #t]{
 # location :: JumperState -> String
 # Consumes a JumperState and produces a String 
-# representing the location of the jumper: either "cliff", "beach", "water", or "air"
+# representing the location of the jumper: 
+# either "cliff", "beach", "water", or "air"
 
 }
 Copy the work you have in your workbok to implement @code{location} on the computer.
@@ -263,11 +264,12 @@ information about the animation.}
 
 				@code[#:multi-line #t]{fun draw-state(a-sunset):
 				                         if a-sunset.y < 150:
-				                           put-image(rectangle(WIDTH, HORIZON-HEIGHT, "solid", "brown"),
+				                           put-image(
+                                                           rectangle(WIDTH, HORIZON-HEIGHT, "solid", "brown"),
 				                                     200, 50,
-				          		  	     put-image(circle(10, "yellow", "solid"),
+				          		  	     put-image(circle(25, "solid", "yellow"),
 									       a-sunset.x, a-sunset.y,
-						      			       rectangle(WIDTH, HEIGHT, "solid", "light-blue")))
+						            rectangle(WIDTH, HEIGHT, "solid", "light-blue")))
 			                                 else if a.sunset.y < 225:
 							   # same code with "orange" as sun color
 							 else:
@@ -287,11 +289,12 @@ information about the animation.}
 				our @code{draw-state} function would look as follows:
 
 				@code[#:multi-line #t]{fun draw-state(a-sunset):
-				                         put-image(rectangle(WIDTH, HORIZON-HEIGHT, "solid", "brown"),
+				                         put-image(
+                                                         rectangle(WIDTH, HORIZON-HEIGHT, "solid", "brown"),
 				                                   200, 50,
 				          			   put-image(draw-sun(a-sunset),
 									     a-sunset.x, a-sunset.y,
-						      			     rectangle(WIDTH, HEIGHT, "solid", "light-blue")))
+						               rectangle(WIDTH, HEIGHT, "solid", "light-blue")))
 						       end }
 				
 				@activity{Open your wokbook to @worksheet-link[#:name "draw-sun"]. Here we have directions for
