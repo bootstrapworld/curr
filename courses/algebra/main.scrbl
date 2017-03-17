@@ -1,14 +1,17 @@
 #lang curr/lib
 
 @main-contents{
-@(elem #:style bs-coursename-style "Bootstrap:Algebra")
+@(elem #:style bs-coursename-style "Bootstrap: Algebra")
 
-@boxed-text{We work hard to provide a "curriculum-in-a-box" experience, but a curriculum based on 20 years’ research has a lot of 
-            moving parts! Spend some time with our master trainers, and take your game to the next level by 
-            @bold{@(hyperlink "http://www.BootstrapWorld.org/workshops" "attending a Bootstrap workshop!")}}
+@boxed-text{@animated-gif{splash.png}Bootstrap: Algebra applies mathematical concepts and rigorous programming principles to creating a simple videogame, and 
+            is aligned to @(hyperlink "../../Standards.shtml" "National and State Standards") for Mathematics, as well as the CSTA standards and K12CS 
+            frameworks. Students create a simple, 3-character game involving a player, a target and a danger. They design 
+            what each character looks like, and use algebraic concepts to detect collisions, handle keystrokes, and determine how they 
+            move and interact.}
+
+@bold{@(hyperlink "http://www.BootstrapWorld.org/workshops" "Click here for our upcoming trainings")}
 
 @; workbook link names and targets
-
 We provide all of the our materials @italic{free of charge}, to anyone who is interested in using our lesson plans or student workbooks.
 @(apply itemlist
         (append
@@ -41,7 +44,6 @@ We provide all of the our materials @italic{free of charge}, to anyone who is in
 Of course, there's more to a curriculum than software and lesson plans! We also provide a number of resources to educators, including standards alignment, an answer key for the programming exercises and forums where they can ask questions and share ideas. 
 @itemlist[#:style "BSResourceList"
         @item{@(hyperlink "resources/teachers/index.shtml" "Teacher-Only Resources" ) - We also offer several teachers-only materials, including an answer key to the student workbook, a quick-start guide to making the final project, and pre- and post-tests for teachers who are paticipating in our research study. For access to these materials, please fill out the @(hyperlink "https://docs.google.com/a/bootstrapworld.org/spreadsheet/viewform?formkey=dHpQc0VHV2dBU2tSN1ptMktBUmtoZWc6MQ#gid=0" "password request form"). We’ll get back to you soon with the necessary login information.}
-         @item{@(hyperlink "../../Standards.shtml" "Standards Alignment") - Find out how Bootstrap aligns with Common Core Standards for Mathematics, as well as the standards for Mathematical Practice. }
 
           @summary-item/custom["Support Forums" @(list (hyperlink "https://groups.google.com/d/forum/bootstrap-announce" "Announcements")
                                                        (hyperlink "https://groups.google.com/d/forum/bootstrap-discuss" "Discussion"))]{

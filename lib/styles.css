@@ -106,7 +106,7 @@ div#sidebar {
     left: 13%;
     top: 0px;
     width: 165px;
-    z-index: 99;
+	z-index: 9;
 }
 
 div#sidebar img {
@@ -128,7 +128,7 @@ div#sidebar ul li {
     padding: 10px;
 }
 
-div#sidebar ul li a {
+div#sidebar ul li>a {
     font-size: 18px;
     font-weight: 700;
     display: block;
@@ -377,11 +377,12 @@ ul.done b {
 }
 
 .BSUnitTitle {
-    display: block;
-    margin-bottom: 5px;
-    font-size: 20px;
+    display: inline-block;
+    margin-right: 5px;
+    font-size: 18px;
     font-weight: 700;
 }
+.BSUnitTitle::after{content: ' ::';}
 
 .BSUnitSummary {
     margin: 15px 0px;
@@ -404,8 +405,72 @@ ul.done b {
     height: auto;
     padding: 0 0 10px 0;
 }
-/* 1375px Breakpoint */
 
+/* Tab and dropdown styles */
+ul.tab, .tabcontent li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* Float the list items side by side */
+ul.tab>li {
+    display: inline-block;
+    min-width: 160px;
+    transition: 0.3s; 
+    text-align: center;
+    z-index: 2;
+}
+
+.tablinks h2 a {color: inherit;}
+/* Style the tab content */
+.tabcontent{ 
+    display: none; 
+    padding: 12px 12px; 
+    text-align: left;
+    z-index: 1;
+}
+ul.tab>li:hover, .tabcontent {
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
+    opacity: 1;
+    border: solid 1px black;
+}
+ul.tab>li:hover {background: #75328A; color: white;}
+
+ul.tab li:hover .tabcontent {
+    background-color: #f9f9f9;
+    display: block;
+    position: absolute;
+    left: 0px;
+    color: #75328A;
+}
+.tabcontent img{float: right; border: solid 1px black;}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    left: 150px;
+    top: 0px;
+    background-color: #75328A;
+    min-width: 160px;
+    padding: 12px 16px;
+    z-index: 99;
+}
+
+.dropdown-content a { display: block; color: white; }
+
+.dropdown:hover .dropdown-content, .dropdown-content:hover {
+    display: block;
+}
+
+/* 1375px Breakpoint */
 @media only screen and (max-width: 1375px),
 only screen and (max-device-width: 1375px) {
     div#top {

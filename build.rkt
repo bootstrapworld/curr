@@ -106,7 +106,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Command line parsing.  We initialize the SCRIBBLE_TAGS environmental
 ;; variable
-(define courses (list "algebra" "reactive"))
+(define courses (list "algebra" "reactive" "data-science" "physics"))
 (putenv "AUDIENCE" "teacher")
 (putenv "CURRENT-SOLUTIONS-MODE" "off")
 (putenv "TARGET-LANG" "pyret")
@@ -115,12 +115,7 @@
   (command-line
    #:program "build"
    #:once-each
-   ;; Going to remove this option: it's obsolete, as we always
-   ;; build algebra and reactive.
-   [("--course") -course "Choose course (default algebra and reactive)"
-    (if (string=? -course "reactive")
-        (set! courses (list "reactive"))
-        (set! courses (list "algebra")))]
+   
    ;; removed option for now, since not scribbling workbook
    ;; option is set in main entry point at end of file
    #;[("--worksheet-links-to-pdf") "Direct worksheet links to StudentWorkbook.pdf" 

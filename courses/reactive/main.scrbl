@@ -2,13 +2,18 @@
 
 
 @main-contents{
-@(elem #:style bs-coursename-style "Bootstrap:Reactive")
+@(elem #:style bs-coursename-style "Bootstrap: Reactive")
 
-Would you like to attend a Bootstrap Workshop? Check our
-@(hyperlink "http://www.BootstrapWorld.org/workshops" "workshops page") to stay up to date on our workshop schedule. Don't see a workshop in your area? Let us know, and we'll work with you to bring one to your school or district.
+@boxed-text{@animated-gif{splash.png}Bootstrap: Reactive goes deeper into programming, building events and data structures on top of the foundation 
+             laid by our intro course and allowing students to build far more sophisticated programs. Students learn how the world-based event 
+             loop that drives their Bootstrap: Algebra game works, and use it to create animations using simple datatypes for their world. 
+             They then learn about data structures, and design a World structure for a sophisticated game of their own design. 
+             Bootstrap: Reactive is @(hyperlink "http://www.bootstrapworld.org/materials/Standards.shtml" "aligned") to the CSTA standards and 
+             K12CS frameworks.}
+
+@bold{@(hyperlink "http://www.BootstrapWorld.org/workshops" "Click here for our upcoming trainings")}
 
 @; workbook link names and targets
-
 We provide all of our materials @italic{free of charge}, to anyone who is interested in using our lesson plans or student workbooks.
 @(apply itemlist
         (append         
@@ -43,11 +48,6 @@ our research study. For access to these materials, please fill out the
 @(hyperlink "https://docs.google.com/a/bootstrapworld.org/spreadsheet/viewform?formkey=dHpQc0VHV2dBU2tSN1ptMktBUmtoZWc6MQ#gid=0" "password
 request form"). We’ll get back to you soon with the necessary login
 information.}
-
-
-  @item{@(hyperlink "http://www.bootstrapworld.org/materials/Standards.shtml" "Standards
-Alignment") - Find out how Bootstrap aligns with Common Core Standards
-for Mathematics, as well as the standards for Mathematical Practice. }
 
   @summary-item/custom["Support Forums"
        @list[@hyperlink["https://groups.google.com/d/forum/bootstrap-announce" "Announcements"]
