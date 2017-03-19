@@ -204,10 +204,7 @@ Remember that @code{next-state-tick} produces a GameState, so what function shou
     ...targety...
     ...targetspeed...)}
                                 @activity[#:forevidence (list "BS-PL.4&1&1")]{
-                                   And what should happen when the cat and dog collide? Can you think of a number that puts the dog 
-                                   off the screen on the left side? What about the dog's y-coordinate? We could choose a number and 
-                                   always place it at the same y-coordinate each time, but we know a function that can place him at 
-                                   a @italic{random} y-coordinate...}
+                                   And what should happen when the cat and dog collide? Can you think of a number that puts the dog off the screen on the left side? What about the dog's y-coordinate? We could choose a number and always place it at the same y-coordinate each time, but then the game would be really easy! To make it more challenging, we'd like the dog to appear at a @italic{random} y-coordinate each time it collides with the cat. Thankfully, Pyret has a function which produces a random number between zero and its input: @code{# num-random : Number -> Number}}
              @code[#:multi-line #t]{if is-collision(
     g.playerx, 
     g.playery, 
