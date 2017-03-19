@@ -3,13 +3,13 @@
 @main-contents{
 @(elem #:style bs-coursename-style "Bootstrap: Data Science")
 
-@boxed-text{@animated-gif{splash.png}What makes your favorite athlete the Greatest of All Time? How would you determine the most successful 
-             musician ever? Did changing weather cause the fall of the Roman Empire? All of these questions involve collecting and 
-             measuring data, from VORP scores in sports to record sales and album counts in music. Our Data Science module teaches students 
-             to view programs as questions we ask of data. Students form their own questions about the world around them, and learn how to 
-             analyze data critically and carefully to find answers. Business and history teachers can utilize this module to help students 
-             make inferences from data, and math teachers can use this module to introduce foundational concepts in statistics. It also 
-             works great as a module for AP CS Principles' unit on data!}
+@boxed-text{@animated-gif{splash.png}What makes your favorite athlete the Greatest of All Time?  How would you determine the most 
+             successful musician ever?  How is the population of your country changing?  Answering these questions involves 
+             collecting and manipulating data, from sports stats to record sales to census data.  Our Data Science module teaches 
+             students to view programs as questions we ask of data.  Students form their own questions about the world around them, 
+             and learn how to analyze data critically and carefully to find answers.  Business, science, and history teachers can 
+             utilize this module to help students make inferences from data.  Math teachers can use this module to introduce 
+             foundational concepts in statistics.  It also works great as a module for AP CS Principles' unit on data!}
 
 @bold{@(hyperlink "http://www.BootstrapWorld.org/workshops" "Click here for our upcoming trainings")}
 
