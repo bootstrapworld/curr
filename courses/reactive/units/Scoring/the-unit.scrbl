@@ -71,16 +71,13 @@ end
                                    steps they should take to add a scoring system to their own games. For extra practice, students 
                                    can work through adding a scoring system to the Ninja Cat program as well as their own games.}}
 
-                 @point{@student{Now that the game has a score, that score needs to actually increase or decrease depending on what happens 
-                                 in the game. For our Ninja Cat game, we'll say that the score should go up by 30 points when Ninja Cat 
-                                 collides with the ruby (target), and down by 20 points when she collides with the dog (danger).
+                 @point{@student{Now that the game has a score, that score needs to actually increase or decrease depending on what happens in the game. For our Ninja Cat game, we'll say that the score should go up by 30 points when Ninja Cat collides with the ruby (target), and down by 20 points when she collides with the dog (danger).
                                  @activity[#:forevidence (list "A-SSE.1-2&1&1" "BS-M&1&1" "BS-PL.3&1&1" "BS-PL.4&1&1" "BS-DS.1&1&5" "BS-R&1&1")]{
                                                        @itemlist[@item{Which of the @code{if} branches in your @code{next-state-tick} function checks whether your player has collided with another character?}
                                                                  @item{How would you decrease the game's @code{score} by 20 points  if the player collides with the danger?}
                                                                  @item{@bold{Hint:} How many dangers does your game have? If there are  multiple things your player could hit to lose points, remember to check for each possible collision condition!}]}
                                  
-                                 
-                                 If you completed the optional challenge at the end of the @hyperlink(http://www.bootstrapworld.org/materials/spring2017/courses/bs2/units/Collisions/index.html, Collisions Feature) to write the function @code{game-over}, you already have your own @vocab{helper function} to check whether or not your game over condition is met. That will be the first condition inside @code{next-state-tick}, since we don't want the game to continue if it's already over! (In our Ninja Cat game, @code{game-over} returns true if the cat collides with the dog, AND the cat is on the ground.) After checking whether or not the game is over, the next three conditions in our @code{next-state-tick} function check whether the player has collided with the danger and target, as well as whether the player is jumping on the danger:
+                                 If you completed the optional challenge at the end of the @(hyperlink "http://www.bootstrapworld.org/materials/spring2017/courses/bs2/units/Collisions/index.html" "Collisions Feature") to write the function @code{game-over}, you already have your own @vocab{helper function} to check whether or not your game over condition is met. That will be the first condition inside @code{next-state-tick}, since we don't want the game to continue if it's already over! (In our Ninja Cat game, @code{game-over} returns true if the cat collides with the dog, AND the cat is on the ground.) After checking whether or not the game is over, the next three conditions in our @code{next-state-tick} function check whether the player has collided with the danger and target, as well as whether the player is jumping on the danger:
 
 @code[#:multi-line #t]{# next-state-tick : GameState -> GameState
 fun next-state-tick(g):
