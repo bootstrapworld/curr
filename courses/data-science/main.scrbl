@@ -7,7 +7,7 @@
              successful musician ever?  How is the population of your country changing?  Answering these questions involves 
              collecting and manipulating data, from sports stats to record sales to census data.  Our Data Science module teaches 
              students to view programs as questions we ask of data.  Students form their own questions about the world around them, 
-             and learn how to analyze data critically and carefully to find answers.  Business, science, and history teachers can 
+             and learn how to analyze data critically and carefully to find answers.  Business, science, and social studies teachers can 
              utilize this module to help students make inferences from data.  Math teachers can use this module to introduce 
              foundational concepts in statistics.  It also works great as a module for AP CS Principles' unit on data!}
 
