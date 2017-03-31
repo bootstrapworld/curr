@@ -12,7 +12,7 @@
              utilize this module to help students make inferences from data.  Math teachers can use this module to introduce 
              foundational concepts in statistics.  It also works great as a module for AP CS Principles' unit on data!}
 
-@bold{Bootstrap: Data Science is currently under development, with a beta release in Summer 2017.}
+@bold{Bootstrap: Data Science is being pilot tested at a number of schools across the US, with a beta release planned for 2017.}
 
             
 @(copyright)

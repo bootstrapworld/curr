@@ -4,7 +4,7 @@
 @main-contents{
 @(elem #:style bs-coursename-style "Bootstrap: Reactive")
 
-@boxed-text{@animated-gif{splash.png}Bootstrap: Reactive goes deeper into programming, building events and data structures on top of the foundation 
+@boxed-text{@animated-gif{splash.png}Bootstrap: Reactive (or "Bootstrap:2") goes deeper into programming, building events and data structures on top of the foundation 
              laid by our intro course and allowing students to build far more sophisticated programs. Students learn how the world-based event 
              loop that drives their Bootstrap: Algebra game works, and use it to create animations using simple datatypes for their world. 
              They then learn about data structures, and design a World structure for a sophisticated game of their own design. 
