@@ -1,9 +1,9 @@
 #lang curr/lib
 
 @main-contents{
-@(elem #:style bs-coursename-style "Bootstrap: Algebra")
+@(elem #:style bs-coursename-style "Bootstrap:Algebra")
 
-@boxed-text{@animated-gif{splash.png}Bootstrap: Algebra (or "Bootstrap:1") applies mathematical concepts and rigorous programming principles to creating a simple videogame, and 
+@boxed-text{@animated-gif{splash.png}Bootstrap:Algebra (or "Bootstrap:1") applies mathematical concepts and rigorous programming principles to creating a simple videogame, and 
             is aligned to @(hyperlink "../../Standards.shtml" "National and State Standards") for Mathematics, as well as the CSTA standards and K12CS 
             frameworks. Students create a simple, 3-character game involving a player, a target and a danger. They design 
             what each character looks like, and use algebraic concepts to detect collisions, handle keystrokes, and determine how they 

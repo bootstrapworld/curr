@@ -1,7 +1,7 @@
 #lang curr/lib
 
 @main-contents{
-@(elem #:style bs-coursename-style "Bootstrap: Data Science")
+@(elem #:style bs-coursename-style "Bootstrap:DataScience")
 
 @boxed-text{@animated-gif{splash.png}What makes your favorite athlete the Greatest of All Time?  How would you determine the most 
              successful musician ever?  How is the population of your country changing?  Are the schools in one part of your
@@ -12,7 +12,7 @@
              utilize this module to help students make inferences from data.  Math teachers can use this module to introduce 
              foundational concepts in statistics.  It also works great as a module for AP CS Principles' unit on data!}
 
-@bold{Bootstrap: Data Science is being pilot tested at a number of schools across the US, with a beta release planned for 2017.}
+@bold{Bootstrap:DataScience is being pilot tested at a number of schools across the US, with a beta release planned for 2017.}
 
             
 @(copyright)

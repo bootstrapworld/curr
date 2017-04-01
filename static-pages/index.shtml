@@ -91,7 +91,7 @@ moving parts! <b>Spend some time with our master trainers, and take your game to
                     <div id="algebra" class="tabcontent">
                         <h3>Recommended for: Grades 7-10</h3>
                         <img src="courses/algebra/splash.png">
-                        <a href="courses/algebra/index.shtml">Bootstrap: Algebra</a> applies mathematical concepts and rigorous programming principles to creating a simple videogame, and is <a href="Standards.shtml">aligned</a> to National and State Standards for Mathematics -- including the new standards for Mathematical Practice! Students create a simple, 3-character game involving a player, a target and a danger. They design what each character looks like, and use algebraic concepts to detect collisions, handle keystrokes, and determine how they move and interact.
+                        <a href="courses/algebra/index.shtml">Bootstrap:Algebra</a> applies mathematical concepts and rigorous programming principles to creating a simple videogame, and is <a href="Standards.shtml">aligned</a> to National and State Standards for Mathematics -- including the new standards for Mathematical Practice! Students create a simple, 3-character game involving a player, a target and a danger. They design what each character looks like, and use algebraic concepts to detect collisions, handle keystrokes, and determine how they move and interact.
                         <table>
                             <tr><td>
                                 <h2>Mathematics</h2>
@@ -127,7 +127,7 @@ moving parts! <b>Spend some time with our master trainers, and take your game to
                     <div id="structures" class="tabcontent">
                         <h3>Recommended for: Grades 8-11</h3>
                         <img src="courses/reactive/splash.png">
-                        <a href="courses/reactive/index.shtml">Bootstrap: Reactive</a></b> goes deeper into programming, building events and data structures on top of the foundation laid by our intro course and allowing students to build far more sophisticated programs. We've listed the breakdown of concepts in the table below, so you can find the best fit for your class.Students learn how the world-based event loop that drives their Bootstrap:Algebra game works, and use it to create animations using simple datatypes for their world. They then learn about data structures, and design a World structure for a sophisticated game of their own design.
+                        <a href="courses/reactive/index.shtml">Bootstrap:Reactive</a></b> goes deeper into programming, building events and data structures on top of the foundation laid by our intro course and allowing students to build far more sophisticated programs. We've listed the breakdown of concepts in the table below, so you can find the best fit for your class.Students learn how the world-based event loop that drives their Bootstrap:Algebra game works, and use it to create animations using simple datatypes for their world. They then learn about data structures, and design a World structure for a sophisticated game of their own design.
                         </p>
                         <table>
                             <tr><td>
