@@ -1,15 +1,15 @@
 #lang curr/lib
 
-@title{Unit 1: Introduction to Pyret}
+@title{Unit 7: Measuring Center}
 
 @declare-tags[]
 
 @unit-overview/auto[#:lang-table (list (list "" @code{}))]{
-  @unit-descr{Students are introduced to the Pyret development, and fundamental syntactic elements of the Pyret language: values, expressions, operations, and functions.}
+  @unit-descr{Students are introduced to the concept of a "center" of a list of data, and different representations of that center:  Mean, Median, and Mode.  After computing mean, median, and mode by hand, students use the Pyret statistics library to compute measures of center using programs.}
 }
 @unit-lessons{
 @lesson/studteach[
-     #:title "Introduction to Pyret and Values"
+     #:title "Varying Quantitative Data"
      #:duration "5 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
@@ -17,7 +17,7 @@
      #:product-outcomes @itemlist[]
      #:standards (list)
      #:materials @itemlist[]
-     #:preparation @itemlist[@item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/1USFPXkeO5AbGOzm_U0tMv4NV3RrxTMTyg-bqIKUf4q4/edit?usp=sharing" "Warmup activity sheet").}]
+     #:preparation @itemlist[]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -27,26 +27,133 @@
         @points[
              @point{
                     @student{
-						
+														
 										}
                     @teacher{
-					
+														
 										}
              }
              @point{
 										@student{
-				
+													
 										}
                     @teacher{
-			 
+												 
+										}
+             }
+        ]
+   }
+@lesson/studteach[
+     #:title "Mean"
+     #:duration "10 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[]
+     #:standards (list)
+     #:materials @itemlist[]
+     #:preparation @itemlist[]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[
+             @point{
+                    @student{
+														
+										}
+                    @teacher{
+														
+										}
+             }
+             @point{
+										@student{
+													
+										}
+                    @teacher{
+												 
 										}
              }
         ]
    }
 
 @lesson/studteach[
-     #:title "Expressions and Operations"
-     #:duration "25 minutes"
+     #:title "Median"
+     #:duration "10 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[]
+     #:standards (list)
+     #:materials @itemlist[]
+     #:preparation @itemlist[]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[
+             @point{
+                    @student{
+														
+										}
+                    @teacher{
+														
+										}
+             }
+             @point{
+										@student{
+													
+										}
+                    @teacher{
+												 
+										}
+             }
+        ]
+   }
+
+@lesson/studteach[
+     #:title "Mode(s)"
+     #:duration "15 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[]
+     #:standards (list)
+     #:materials @itemlist[]
+     #:preparation @itemlist[]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[
+             @point{
+                    @student{
+														
+										}
+                    @teacher{
+														
+										}
+             }
+             @point{
+										@student{
+													
+										}
+                    @teacher{
+												 
+										}
+             }
+        ]
+   }
+
+@lesson/studteach[
+     #:title "Measuring Center in Pyret"
+     #:duration "20 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -66,7 +173,7 @@
 
 										}
                     @teacher{
-										
+
 										}
              }
              @point{
@@ -79,7 +186,7 @@
              }
 						 @point{
                     @student{
-                          
+                            
 										}
                     @teacher{
 										}
@@ -110,152 +217,5 @@
              }
         ]
    }
-@lesson/studteach[
-     #:title "Identifiers and Variables"
-     #:duration "15 minutes"
-     #:overview ""
-     #:learning-objectives @itemlist[]
-     #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[]
-     #:standards (list)
-     #:materials @itemlist[]
-     #:preparation @itemlist[]
-     #:pacings (list 
-                @pacing[#:type "remediation"]{@itemlist[@item{}]}
-                @pacing[#:type "misconception"]{@itemlist[@item{}]}
-                @pacing[#:type "challenge"]{@itemlist[@item{}]}
-                )
-      ]{
-        @points[
-             @point{
-                    @student{
-										
-										}
-                    @teacher{
-									
-										}
-             }
-             @point{
-										@student{
-								
-										}
-                    @teacher{
-														 
-										}
-             }
-        ]
-   }
-
-@lesson/studteach[
-     #:title "Function Definition & Application"
-     #:duration "30 minutes"
-     #:overview ""
-     #:learning-objectives @itemlist[]
-     #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[]
-     #:standards (list)
-     #:materials @itemlist[]
-     #:preparation @itemlist[]
-     #:pacings (list 
-                @pacing[#:type "remediation"]{@itemlist[@item{}]}
-                @pacing[#:type "misconception"]{@itemlist[@item{}]}
-                @pacing[#:type "challenge"]{@itemlist[@item{}]}
-                )
-      ]{
-        @points[
-             @point{
-                    @student{
-									
-										}
-                    @teacher{
-
-										}
-             }
-             @point{
-										@student{
-
-										}
-                    @teacher{
-														 
-										}
-             }
-						 @point{
-										@student{
-
-										}
-                    @teacher{
-														 
-										}
-             }
-						 @point{
-										@student{
-
-										}
-                    @teacher{
-														 
-										}
-             }
-						 @point{
-										@student{
-
-										}
-                    @teacher{
-														 
-										}
-             }
-						 @point{
-										@student{
-
-										}
-                    @teacher{
-														 
-										}
-             }
-						 @point{
-										@student{
-
-										}
-                    @teacher{
-														 
-										}
-             }
-						 @point{
-										@student{
-
-										}
-                    @teacher{
-   
-										}
-             }
-        ]
-   }
-@lesson/studteach[
-     #:title "Closing"
-     #:duration "5 minutes"
-     #:overview ""
-     #:learning-objectives @itemlist[]
-     #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[]
-     #:standards (list)
-     #:materials @itemlist[]
-     #:preparation @itemlist[@item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/1USFPXkeO5AbGOzm_U0tMv4NV3RrxTMTyg-bqIKUf4q4/edit?usp=sharing" "Warmup activity sheet").}]
-     #:pacings (list 
-                @pacing[#:type "remediation"]{@itemlist[@item{}]}
-                @pacing[#:type "misconception"]{@itemlist[@item{}]}
-                @pacing[#:type "challenge"]{@itemlist[@item{}]}
-                )
-      ]{
-        @points[
-             @point{
-                    @student{
-
-										}
-                    @teacher{
-
-										}
-             }
-        ]
-   }
 }
-
 

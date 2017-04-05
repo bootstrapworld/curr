@@ -1,15 +1,15 @@
 #lang curr/lib
 
-@title{Unit 1: Introduction to Pyret}
+@title{Unit 4: Table Operations Part 1}
 
 @declare-tags[]
 
 @unit-overview/auto[#:lang-table (list (list "" @code{}))]{
-  @unit-descr{Students are introduced to the Pyret development, and fundamental syntactic elements of the Pyret language: values, expressions, operations, and functions.}
+  @unit-descr{Students are introduced to their first examples of operations that consume and produce tables.  Students will select columns from tables, and order columns from tables.  They will also reason about what it means to order different types of data.}
 }
 @unit-lessons{
 @lesson/studteach[
-     #:title "Introduction to Pyret and Values"
+     #:title "Introducing Table Operations"
      #:duration "5 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
@@ -17,7 +17,7 @@
      #:product-outcomes @itemlist[]
      #:standards (list)
      #:materials @itemlist[]
-     #:preparation @itemlist[@item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/1USFPXkeO5AbGOzm_U0tMv4NV3RrxTMTyg-bqIKUf4q4/edit?usp=sharing" "Warmup activity sheet").}]
+     #:preparation @itemlist[]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -27,26 +27,26 @@
         @points[
              @point{
                     @student{
-						
+														
 										}
                     @teacher{
-					
+														
 										}
              }
              @point{
 										@student{
-				
+													
 										}
                     @teacher{
-			 
+												 
 										}
              }
         ]
    }
 
 @lesson/studteach[
-     #:title "Expressions and Operations"
-     #:duration "25 minutes"
+     #:title "Selecting"
+     #:duration "15 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -66,7 +66,7 @@
 
 										}
                     @teacher{
-										
+
 										}
              }
              @point{
@@ -79,7 +79,7 @@
              }
 						 @point{
                     @student{
-                          
+                            
 										}
                     @teacher{
 										}
@@ -111,7 +111,42 @@
         ]
    }
 @lesson/studteach[
-     #:title "Identifiers and Variables"
+     #:title "Ordering"
+     #:duration "25 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[]
+     #:standards (list)
+     #:materials @itemlist[]
+     #:preparation @itemlist[]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[
+             @point{
+                    @student{
+
+										}
+                    @teacher{
+
+										}
+             }
+             @point{
+										@student{
+
+										}
+                    @teacher{
+														 
+										}
+             }
+        ]
+   }
+@lesson/studteach[
+     #:title "Selecting, Ordering in Pyret"
      #:duration "15 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
@@ -129,15 +164,15 @@
         @points[
              @point{
                     @student{
-										
+
 										}
                     @teacher{
-									
+
 										}
              }
              @point{
 										@student{
-								
+
 										}
                     @teacher{
 														 
@@ -147,8 +182,8 @@
    }
 
 @lesson/studteach[
-     #:title "Function Definition & Application"
-     #:duration "30 minutes"
+     #:title "Combining Expressions"
+     #:duration "15 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -165,10 +200,9 @@
         @points[
              @point{
                     @student{
-									
+
 										}
                     @teacher{
-
 										}
              }
              @point{
@@ -221,33 +255,6 @@
              }
 						 @point{
 										@student{
-
-										}
-                    @teacher{
-   
-										}
-             }
-        ]
-   }
-@lesson/studteach[
-     #:title "Closing"
-     #:duration "5 minutes"
-     #:overview ""
-     #:learning-objectives @itemlist[]
-     #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[]
-     #:standards (list)
-     #:materials @itemlist[]
-     #:preparation @itemlist[@item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/1USFPXkeO5AbGOzm_U0tMv4NV3RrxTMTyg-bqIKUf4q4/edit?usp=sharing" "Warmup activity sheet").}]
-     #:pacings (list 
-                @pacing[#:type "remediation"]{@itemlist[@item{}]}
-                @pacing[#:type "misconception"]{@itemlist[@item{}]}
-                @pacing[#:type "challenge"]{@itemlist[@item{}]}
-                )
-      ]{
-        @points[
-             @point{
-                    @student{
 
 										}
                     @teacher{
@@ -257,5 +264,4 @@
         ]
    }
 }
-
 
