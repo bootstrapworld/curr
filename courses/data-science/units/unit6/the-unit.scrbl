@@ -111,7 +111,74 @@
         ]
    }
 @lesson/studteach[
-     #:title "Lists from Tables in Pyret"
+     #:title "Lists in Pyret"
+     #:duration "15 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[]
+     #:standards (list)
+     #:materials @itemlist[]
+     #:preparation @itemlist[]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[
+             @point{
+                    @student{
+
+										}
+                    @teacher{
+
+										}
+             }
+             @point{
+										@student{
+
+										}
+                    @teacher{
+														 
+										}
+             }
+						 @point{
+                    @student{
+                            
+										}
+                    @teacher{
+										}
+             }
+						 @point{
+                    @student{
+
+										}
+                    @teacher{
+
+										}
+             }
+						 @point{
+                    @student{
+
+										}
+                    @teacher{
+
+										}
+             }
+						 @point{
+                    @student{
+
+										}
+                    @teacher{
+														
+										}
+             }
+        ]
+   }
+
+@lesson/studteach[
+     #:title "Extracting Lists from Tables"
      #:duration "25 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]

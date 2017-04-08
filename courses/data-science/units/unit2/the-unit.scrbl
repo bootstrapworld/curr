@@ -89,6 +89,7 @@
 														Let's start with an example: 
 
                             @bitmap{images/table_basic.png}
+														@(data-table (list "First-Name" "Last-Name" "Eye-Color" "Hair-Color"))
 										}
                     @teacher{
 														Show the kids slides with each image of the example 

@@ -42,6 +42,7 @@
          boxed-text
          new-paragraph
          animated-gif
+				 data-table
          language-table
          build-table/cols
          design-recipe-exercise
@@ -274,6 +275,18 @@
                  (cons (list (para #:style "BootstrapTableHeader" "Types")
                              (para #:style "BootstrapTableHeader" "Functions"))
                        (map (lambda (r) (map para r)) rows)))))
+
+;; data-table : list[string] list[list[element]] -> table
+;; produces a table for representing data in data-science ocurse, with same format
+;;          as lang table.  TODO:  Give own styling
+(define (data-table col-names . rows)
+  (nested #:style (bootstrap-div-style/id/nested "LanguageTable")
+					(table (style "thetable"
+												(list
+													(table-columns
+														(map (lambda (h) (style "BootstrapTable" '(center))) col-names))))
+								 (cons (map (lambda (col) (para #:style "BootstrapTableHeader" col)) col-names)
+											 (map (lambda (r) (map para r)) rows)))))
 
 ;; build-table : list[string] list[list[element]] (number number -> element) 
 ;;               number number -> table

@@ -27,7 +27,7 @@
         @points[
              @point{
                     @student{
-						
+														
 										}
                     @teacher{
 					

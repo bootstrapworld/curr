@@ -4,6 +4,8 @@ pict*.png
 *.html
 *.dep
 *.zo
+*.swp
+*.swo
 .DS_Store
 json2.min.js
 scribble.css
