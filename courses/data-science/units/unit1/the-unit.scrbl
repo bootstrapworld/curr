@@ -9,7 +9,7 @@
 }
 @unit-lessons{
 @lesson/studteach[
-     #:title "Programs, Values and Errors"
+     #:title "Programs, Values & Errors"
      #:duration "10 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
@@ -97,13 +97,14 @@
                                         the next line in the Interactions area.
                             }
 
-                            Congratulations, you've written and evaluated your first program!  Yes, really.  When a program
+                            Congratulations, you've written your first program!  Yes, really.  When a program
                             is run, the editor will turn that program into a @vocab{value}.  Values are how the computer represents
-                            data.  In this case, the editor's job is easy because the program is already a value!  We call this 
-                            process of running a program to produce a value @vocab{evaluating} the program.
+                            data.  In this case, the editor's job is easy because the program is already a value!  When we hit Run,
+                            we @vocab{evaluate} the program, which is another way of saying "give me the value that is produced by
+                            this program".
                     }
                     @teacher{
-                            
+
                     }
              }
              @point{
@@ -176,14 +177,17 @@
                             }
                     }
                     @teacher{
-                                        
+                            It is crucial to encourage students to read error messages and debug their code.  Often, when a student
+                            encounters an error message for the first time, they will throw their hand up and tell the teacher 
+                            "I did something wrong".  When helping students with this, make sure to ask questions about the answer 
+                            rather than fixing code for them.
                     }
              }
         ]
    }
 
 @lesson/studteach[
-     #:title "Expressions and Operations"
+     #:title "Expressions & Operations"
      #:duration "20 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
@@ -219,7 +223,7 @@
    }
 
 @lesson/studteach[
-     #:title "Identifiers and Variables"
+     #:title "Identifiers & Variables"
      #:duration "15 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
