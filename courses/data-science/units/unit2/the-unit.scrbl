@@ -9,65 +9,6 @@
 }
 @unit-lessons{
 @lesson/studteach[
-     #:title "Introduction"
-     #:duration "5 minutes"
-     #:overview ""
-     #:learning-objectives @itemlist[]
-     #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[]
-     #:standards (list)
-     #:materials @itemlist[]
-     #:preparation @itemlist[]
-     #:pacings (list 
-                @pacing[#:type "remediation"]{@itemlist[@item{}]}
-                @pacing[#:type "misconception"]{@itemlist[@item{}]}
-                @pacing[#:type "challenge"]{@itemlist[@item{}]}
-                )
-      ]{
-        @points[
-             @point{
-                    @student{
-														Welcome to Bootstrap Data Science Lite. In this course, 
-														you'll learn how to ask and answer questions about data.  The process 
-														of learning from data is called data science.  Data science techniques 
-														are used by scientists, business people, politicians, sports analysts, 
-														and hundereds of other different fields to ask and answer questions about data.
-										}
-                    @teacher{
-														Motivate relevance of data science by using examples that
-														relate to student interests.  Here are some examples:
-														@itemlist[
-																		@item{@(hyperlink "http://motherboard.vice.com/read/a-data-scientists-emoji-guide-to-kanye-west-and-taylor-swift" "Emojis")}
-																		@item{@(hyperlink "https://mic.com/articles/131092/these-students-are-using-data-science-to-predict-which-rap-songs-will-become-hits#.0d3wkhxQE" "Pop Music")}
-																		@item{@(hyperlink "http://www.kdnuggets.com/2016/06/politics-analytics-trump-clinton-sanders-twitter-sentiment.html"  "Election Analysis")}
-																		@item{@(hyperlink "http://fivethirtyeight.com/" "Polling")}
-																		@item{@(hyperlink "http://games.espn.com/fba/tools/projections" "Predicting Sports Performance")}
-																		@item{@(hyperlink "http://www.salon.com/2015/07/18/how_big_data_can_help_save_the_environment_partner/" "Environmental")}
-														]
-										}
-             }
-             @point{
-										@student{
-														In order to ask questions from data, you will use a programming 
-														language.  Just like any language (English, Spanish, French), programming 
-														languages have their own vocabulary and grammar that you will need to learn.  
-														The language you'll be learning for data science is Pyret, which lets you ask 
-														and answer questions quickly from very large data sets.  The first feature in 
-														Pyret you will learn to use for data science is the @vocab{Table}.  
-														But first, you need to know what tables are.
-										}
-                    @teacher{
-														Set expectations for the class.  This course is an introduction to
-														programming and data science, so some of the questions students want
-														to answer may be out of scope.  However, this course will give students
-														a foundation to answer their more complicated questions later in their 
-														data science education. 
-										}
-             }
-        ]
-   }
-
-@lesson/studteach[
      #:title "What are Tables?"
      #:duration "25 minutes"
      #:overview ""
