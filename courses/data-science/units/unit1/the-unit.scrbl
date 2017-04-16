@@ -146,9 +146,6 @@
                                                  the next line in the Interactions area.
                                             }
                                             @item{
-
-                                            }
-                                            @item{
                                                  Try to type your name within a pair of quotation marks, then hit Return.
                                             }
                                             @item{
@@ -394,7 +391,7 @@
 
 @lesson/studteach[
      #:title "Identifiers & Variables"
-     #:duration "15 minutes"
+     #:duration "20 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -714,67 +711,139 @@
         @points[
              @point{
                     @student{
-									
-										}
+							You've probably seen numbers, variables, and operators in math classes as
+                            well as in Pyret.  These are extremely important concepts that will be used
+                            in almost all programs you write in this course.  However, there's one more 
+                            important construct from math classes that is crucial to writing Pyret programs:
+                            @vocab{function}s.
+					}
                     @teacher{
 
-										}
+					}
              }
              @point{
-										@student{
-
-										}
+                    @student{
+                            @activity[#:forevidence "BS-IDE&1&1"]{
+                                    Type @code{num-sqr(2)} into the interactions window, and hit Enter.
+                                    What does this code evaluate to?  Try changing the number in between
+                                    the parentheses.
+                            }
+                    }
                     @teacher{
-														 
-										}
+
+                    }
              }
-						 @point{
-										@student{
-
-										}
+             @point{
+                    @student{
+                            This is your first example of a function in Pyret.  Each function has:
+                            @itemlist[
+                                    @item{
+                                            A name.  This function's name is @code{num-sqr}
+                                    }
+                                    @item{
+                                            Parentheses.  A correct function usage will always have
+                                            one left, and one right parentheses.
+                                    }
+                                    @item{
+                                            Argument(s).  In this case, there is one argument:  The
+                                            number we want to square.  However, different functions
+                                            can have any number of arguments.
+                                    }
+                            ]
+                            Each function also outputs a value.  The @code{num-sqr} function outputs
+                            a number that is equal to the argument times itself.
+                    }
                     @teacher{
-														 
-										}
+
+                    }
              }
-						 @point{
-										@student{
+             @point{
+                    @student{
+                            Pyret has hundreds of built in functions we can use to write more interesting
+                            programs than are possible with just operators and variables.
 
-										}
+                            @activity[#:forevidence "BS-IDE&1&1"]{
+                                    Let's explore a new function, @code{num-min}.  Type each of these
+                                    lines of code into the interactions window and hit enter.
+
+                                    @itemlist[
+                                            @item{
+                                                    @code{num-min(0, 1)}
+                                            }
+                                            @item{
+                                                    @code{num-min(-5, 2)}
+                                            }
+                                            @item{
+                                                    @code{num-min(8, 6)}
+                                            }
+                                    ]
+
+                                    How many arguments does @code{num-min} have?
+                                    What type of values does this function take in?
+                                    What type of value does this function output?  How does
+                                    this output relate to the arguments?
+                            }
+                    }
                     @teacher{
-														 
-										}
+
+                    }
              }
-						 @point{
-										@student{
-
-										}
+             @point{
+                    @student{
+                            There are some common errors you can run into when applying functions.
+                            @itemlist[
+                                    @item{
+                                            Missing parentheses:  @code{num-min(2, 3}
+                                    }
+                                    @item{
+                                            Missing commas between arguments:  @code{num-min(1 9)}
+                                    }
+                                    @item{
+                                            Wrong type of argument:  @code{num-min("hi", 2)}
+                                    }
+                                    @item{
+                                            Wrong number of arguments:  @code{num-min(1, 4, 6)}
+                                    }
+                            ]
+                    }
                     @teacher{
-														 
-										}
+                            Explanations for each error message:
+                            @itemlist[
+                                    @item{
+                                            Pyret needs both parentheses around the arguments, so that 
+                                            it knows exactly where function call begins and ends.  This
+                                            is similar to the error with Strings needing both quotation
+                                            marks.
+                                    }
+                                    @item{
+                                            For a similar reason, Pyret needs a comma between each argument
+                                            so that it can tell how many arguments there are.
+                                    }
+                                    @item{
+                                            @code{num-min} returns the minimum between the two numbers 
+                                            that are given as arguments.  It can't compare a String "hi"
+                                            to a number, so an error is raised.
+                                    }
+                                    @item{
+                                            Functions need to be called with the exact number of arguments
+                                            it is expecting.  @code{num-min} takes two arguments, so calling
+                                            it with 1, 3, 4, 5 etc. will give an error.
+                                    }
+
+                            ]
+                    }
              }
-						 @point{
-										@student{
-
-										}
+             @point{
+                    @student{
+                            @activity[#:forevidence "BS-IDE&1&1"]{
+                                    Turn to TODO in your workbook.  For each set of function calls,
+                                    determine the name, number of arguments, type of argument(s), and
+                                    in your own words what is the output of this function.
+                            }   
+                    }
                     @teacher{
-														 
-										}
-             }
-						 @point{
-										@student{
 
-										}
-                    @teacher{
-														 
-										}
-             }
-						 @point{
-										@student{
-
-										}
-                    @teacher{
-   
-										}
+                    }
              }
         ]
    }
@@ -797,11 +866,14 @@
         @points[
              @point{
                     @student{
-
-										}
+                            Pat yourself on the back:  you're now officially data scientists!  By
+                            learning to use values, variables, operations and functions, you are now familiar with the 
+                            fundamental concepts needed to write programs.  You will have many opportunities to
+                            use these concepts in the next units, by writing programs to answer data science questions.
+					}
                     @teacher{
 
-										}
+					}
              }
         ]
    }
