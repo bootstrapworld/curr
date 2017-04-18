@@ -264,7 +264,8 @@
 									@(hyperlink "https://docs.google.com/spreadsheets/d/14er5Mh443Lb5SIFxXZHdAnLCuQZaA8O6qtgGlibQuEg/edit#gid=0" "this url").
 									
 									@code[#:multi-line #t]{
-											presidents-sheet = GDS.load-spreadsheet("14er5Mh443Lb5SIFxXZHdAnLCuQZaA8O6qtgGlibQuEg")
+											presidents-sheet = 
+												GDS.load-spreadsheet("14er5Mh443Lb5SIFxXZHdAnLCuQZaA8O6qtgGlibQuEg")
 									}
 											
 							}
@@ -301,7 +302,8 @@
 									your @vocab{definitions area}:
 
 									@code[#:multi-line #t]{
-											nutrition-sheet = GDS.load-spreadsheet("1fMNIgAZ-wdNF7sf4j5Vns-g2Qr9UDa8kSgnzxPfDl5I")
+											nutrition-sheet = 
+												GDS.load-spreadsheet("1fMNIgAZ-wdNF7sf4j5Vns-g2Qr9UDa8kSgnzxPfDl5I")
 									}
 							}
 							@activity[#:forevidence "BS-IDE&1&1"]{
@@ -310,7 +312,9 @@
 									than the presidents table.
 
 									@code[#:multi-line #t]{
-											nutrition = load-table: food, serving-size, calories, calories-from-fat, fat, cholesterol, sodium, sugar, protein
+											nutrition = load-table: food, serving-size, calories, calories-from-fat, 
+												fat, cholesterol, sodium, sugar, protein
+												
 												source: nutrition-sheet.sheet-by-name("nutrition", true)
 											end
 									}
