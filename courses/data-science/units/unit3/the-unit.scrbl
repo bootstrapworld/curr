@@ -161,15 +161,7 @@
                             }                   
                     }
                     @teacher{
-                                                        
-                    }
-            }
-            @point{
-                    @student{
-                            Guide students towards this list: Amber, Blue, Green, Brown, Grey, Hazel.                     
-                    }
-                    @teacher{
-                                                        
+                            Guide students towards this list: Amber, Blue, Green, Brown, Grey, Hazel.                         
                     }
             }
             @point{
