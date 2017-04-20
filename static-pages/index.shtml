@@ -41,6 +41,8 @@
         background: rgba(90, 50, 50, 0.2)
     }
 
+    .button-white:hover{background: #75328A; color: white; cursor: pointer; cursor: hand;}
+
     </style>
     <script>
     <!-- Controls the loading of the embedded Google Group -->
@@ -188,7 +190,7 @@ moving parts! <b>Spend some time with our master trainers, and take your game to
                 <h1>Software</h1> Bootstrap uses <a href="http://www.wescheme.org">WeScheme</a> and <a href="http://code.pyret.org">Pyret</a>, cloud-based IDEs that require <b>no downloading or installation</b>. Anyone with a Gmail account can start coding, storing and retrieving files from the cloud. Bootstrap programs can be shared simply by sending out a link, or posting it to sites such as Facebook, Reddit, Twitter, etc.
                 <p/> No internet access? Bootstrap also supports <a href="http://www.drracket.org/">DrRacket</a>, a multi-platform graphical environment. DrRacket runs on all major platforms (Windows, OS X, Unix/Linux) and programs written for one platform run seamlessly on the others, supporting a wide variety of classroom and home computing scenarios. Its emphasis on beginner-friendly features and support for images makes it ideal for Bootstrap.
                 <p/>
-                <h2>Accessibility</h2> A tool designed for learning should be accessible to <i>all</i> students. We work hard to ensure that our software environments are compatible with screen-readers on popular operating systems.
+                <h2>Accessibility</h2> A tool designed for learning should be accessible to <i>all</i> students. We work hard to ensure that our software environments are compatible with screen-readers on popular operating systems, and are a Development Partner of the <a href="https://www.washington.edu/accesscomputing/accesscsforall">AccessCSforAll</a> Alliance.
             </div>
         </div>
         <div class="clearfix">
