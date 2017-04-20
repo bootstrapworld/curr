@@ -27,7 +27,7 @@
         @points[
              @point{
                     @student{
-                            Welcome to Bootstrap Data Science Lite. In this course, 
+                            Welcome to Bootstrap: DataScience. In this course, 
                             you'll learn how to ask and answer questions about data.  The process 
                             of learning from data is called @vocab{Data Science}.  Data science techniques 
                             are used by scientists, business people, politicians, sports analysts, 
@@ -174,8 +174,9 @@
                             The editor gives us error messages when a program can't be properly evaluated.
 
 
-                            Don't worry, you have NOT broken the computer!  Running into error messages is a natural part of
-                            programming;  they exist so that you can change your code to help the computer understand it.  In the case above,
+                            Error messages are really helpful, and they're a natural part of
+                            programming;  they exist so that the computer can help you find
+                            small mistakes in your code.  In the case above,
                             without the second quotation mark the computer can't figure out when the end of the String is, which makes
                             evaluation impossible.
 
@@ -295,8 +296,9 @@
              }
              @point{
                     @student{
-                            Notice that the last two program give error.  We know that Pyret gives errors whenever it
-                            can't evaluate a program.
+                            Notice that the last two programs give errors.  We know that Pyret gives errors whenever it can't evaluate a program. Read the errors
+                            carefully, and see if you can understand why the program could
+                            not be evaluated.
                             @itemlist[
                                     @item{
                                             In @code{6 / 0} we know that you can't divide any number by 0!  In this case,
@@ -351,8 +353,8 @@
              }
              @point{
                     @student{
-                            Not only can we use @code{+}, @code{-}, @code{*}, @code{/} from math class, but you can also
-                            use parentheses!
+                            @code{+}, @code{-}, @code{*}, @code{/} all work the way they do in math class. Parentheses work pretty much the same way, but with one
+                            important exception!
 
                             @activity[#:forevidence "BS-IDE&1&1"]{
                                     Type @code{(2 * 3) + 5} into the Interactions window, and hit Run.  It should produce 11.
@@ -364,11 +366,9 @@
              }
              @point{
                     @student{
-                            Parentheses allow you to write compound expressions, or expressions that are composed of smaller,
-                            sub-expressions.  In this example, Pyret evaluates what is inside the parentheses: @code{2 * 3}.
+                            Parentheses allow you to write more complex expressions.  In this example, Pyret evaluates what is inside the parentheses: @code{2 * 3}.
                             Then, it uses this value in the larger expression.  So @code{(2 * 3) + 5} becomes @code{6 + 5}, 
-                            which is evaluated to 11.  These parentheses follow the same order of operations you have learned
-                            in math class!
+                            which is evaluated to 11.  @bold{Note:} There is one difference between the way parentheses work in math class, and the way they do in Pyret! In Pyret, any time you have more than one operation, you @bold{must} include parenthesis.
                     }
                     @teacher{
                     
@@ -419,9 +419,7 @@
                     @student{
                             Imagine your school wants to throw you a pizza party for beginning to 
                             learn data science.  However, the party can't happen until we figure 
-                            out how much it will cost to throw the party.  The principal has asked
-                            you to write a Pyret program to figure out how much money we need to 
-                            throw the party, using data about the price of pizza & supplies.
+                            out how much it will cost to throw the party.
                     }
                     @teacher{
                             
@@ -475,7 +473,8 @@
              }
              @point{
                     @student{
-                            In order to write this program, we will need to combine write expressions
+                            The principal has asked you to write a Pyret program to figure out how much money we need to 
+                            throw the party, using data about the price of pizza & supplies. In order to write this program, we will need to write expressions
                             using parentheses, operators, and values.
                     }
                     @teacher{

@@ -145,9 +145,9 @@
             @point{
                     @student{
                             Can we ask the question "Does John Doe have more eye color than Andrea Garcia?"  No. 
-                            That question makes no sense. The second kind of data we will look at is @vocab{Categorical Data}. 
+                            That question makes no sense! This is the second kind of data we will look at, called @vocab{Categorical Data}. 
                             We used Quantitative Data to quantify; to ask "how much" there is of something. 
-                            @vocab{Categorical Data} is used to categorize; it puts something into a category. 
+                            We use @vocab{Categorical Data} to ask "which one"?
                             In this case, students are put into the same category if they have the same eye color.                   
                     }
                     @teacher{

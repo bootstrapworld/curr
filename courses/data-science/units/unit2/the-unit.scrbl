@@ -154,7 +154,7 @@
 							There are many different apps for working with tables, but 
 							the one we'll be using is Google Sheets.  Google Sheets is 
 							an app that lets you create and edit @vocab{spreadsheet}s:
-							a @vocab{spreadsheet} is a collection of sheets, and each sheet 
+							a spreadsheet is a collection of sheets, and each sheet 
 							holds a table.	
 					}
                     @teacher{
@@ -233,7 +233,7 @@
 					@student{
 							The program you will be writing to use Tables in Pyret
 							is very different from the kind of program you wrote in
-							Unit 1, so if you feel overwhelmed, don't worry:  that's normal.
+							Unit 1.
 							You will learn exactly what this program is doing over the course of
 							the unit, and will practice writing programs with tables many times in the course.
 					}
