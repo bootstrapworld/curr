@@ -608,13 +608,13 @@
         <tr>
           <td><span>Practice 1:</span> Fostering an Inclusive Computing Culture</td>
           <td>
-            By integrating Computing into standard math classes, Bootstrap allows schools to immediate create an inclusive computing environment. <i>Everyone</i> takes math, which means <i>everyone</i> computes. But in addition to the course settings the curriculum allows, Bootstrap also embeds teamwork, metacognition and group reflection into every step of the programming process - from co-designing a game to thinking about effective co-working strategies, Bootstrap's pedagogy fosters an inclusive culture.
+            By integrating Computing into standard math classes, Bootstrap allows schools to immediately create an inclusive computing environment. <i>Everyone</i> takes math, which means <i>everyone</i> computes. But in addition to the course settings the curriculum allows, Bootstrap also embeds teamwork, metacognition and group reflection into every step of the programming process - from co-designing a game to thinking about effective co-working strategies, Bootstrap's pedagogy fosters an inclusive culture.
           </td>
         </tr>
         <tr>
           <td><span>Practice 2:</span> Collaborating Around Computing</td>
           <td>
-            Bootstap students work on small teams, and must cultivate relationships with other students who possess diverse perspectives, skills and personalities. Students work on problems together, and are given strategies to evaluate and give feedback to one another at each step in the problem-solving process.
+            Bootstrap students work on small teams, and must cultivate relationships with other students who possess diverse perspectives, skills and personalities. Students work on problems together, and are given strategies to evaluate and give feedback to one another at each step in the problem-solving process.
           </td>
         </tr>
         <tr>
@@ -638,7 +638,7 @@
         <tr>
           <td><span>Practice 6:</span> Testing and Refining Computational Artifacts</td>
           <td>
-            Many introductory courses treat testing as a second-class citizen, either asking students to test by running a program and "seeing if it looks right" or by using programming tools that <i>completely lack</i> and framework for automated testing. By contrast, Bootstrap introduces testing early on in the course, and our language and software enviroment offer rich support for writing tests and developing software based on test feedback.
+            Many introductory courses treat testing as a second-class citizen, either asking students to test by running a program and "seeing if it looks right" or by using programming tools that <i>completely lack</i> any framework for automated testing. By contrast, Bootstrap introduces testing early on in each course, and our languages and software enviroments offer rich support for writing tests and developing software based on test feedback.
           </td>
         </tr>
         <tr>
