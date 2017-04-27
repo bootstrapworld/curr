@@ -406,288 +406,204 @@
                 )
       ]{
         @points[
-             @point{
-                    @student{
-							You've used operations and expressions to compute new values.  Now it's
-                            time to put your data science skills to their first test!
-					}
-                    @teacher{
-									
-					}
-             }
-             @point{
-                    @student{
-                            Imagine your school wants to throw you a pizza party for beginning to 
-                            learn data science.  However, the party can't happen until we figure 
-                            out how much it will cost to throw the party.
-                    }
-                    @teacher{
-                            
-                    }
-             }
-             @point{
-                    @student{
-                            We will need to buy enough of these supplies so that each student has:
-                            @itemlist[
-                                    @item{
-                                         1 Slice of Pizza
-                                    }
-                                    @item{
-                                         1 Plastic Plate
-                                    }
-                                    @item{
-                                         1 Plastic Cup
-                                    }
-                            ]
+                @point{
+                        @student{
+                                You've used operations and expressions to compute new values.  Now it's
+                                time to put your data science skills to their first test!
+                        }
+                        @teacher{
 
-                            Additionally, we need to buy 2 bottles of soda, for a class of 16.
-                    }
-                    @teacher{
-                            The particular items for the party do not matter, feel free to change
-                            them as long as they are supplies where each student gets one of each
-                            item.  Also, change the class size to be the same as your actual
-                            class.
-                    }
-             }
-             @point{
-                    @student{
-                             Here are the prices of each item:
-                             @itemlist[
-                                    @item{
-                                         Slice of Pizza: $2.50
-                                    }
-                                    @item{
-                                         Plastic Plate: $0.20
-                                    }
-                                    @item{
-                                         Plastic Cup: $0.15
-                                    }
-                                    @item{
-                                         Bottle of Soda: $4.00
-                                    }
-                             ]
-                    }
-                    @teacher{
-                            
-                    }
-             }
-             @point{
-                    @student{
-                            The principal has asked you to write a Pyret program to figure out how much money we need to 
-                            throw the party, using data about the price of pizza & supplies. In order to write this program, we will need to write expressions
-                            using parentheses, operators, and values.
-                    }
-                    @teacher{
-                                    
-                    }
-             }
-             @point{
-                    @student{
-                            First, we need to figure out how much the bottles of soda will cost;
-                            Each one is $4.00, and we want to buy 2 of them total, so the total cost of
-                            soda is @code{4.00 * 2}.      
-                    }
-                    @teacher{
-                                    
-                    }
-             }
-             @point{
-                    @student{
-                            We're going to combine the expression we just wrote with another expression,
-                            using parentheses and the plus operation.
+                        }
+                }
+                @point{
+                        @student{
+                                For each of these word problems, write an expression in Pyret to compute
+                                the answer.
+                        }
+                        @teacher{
 
-                            Next, we need to figure out how much it will cost to buy pizza, plates, and
-                            cups for each student.  This requires two steps:
-                            @itemlist[
-                                    @item{
-                                            Writing an expression to get the cost of a pizza slice,
-                                            plate, and cup per student.
-                                    }
-                                    @item{
-                                            Multiplying that expression by 16 to get the cost of 
-                                            pizza slices, plates, and cups for all 16 students.
-                                    }
-                            ]   
-                    }
-                    @teacher{
-                                    
-                    }
-             }
-             @point{
-                    @student{
-                            @itemlist[
-                                @item{
-                                        To write the expression for the cost of pizza, plate, and 
-                                        cup per student, we add the prices of these individual items
-                                        together:  @code{2.50 + 0.20 + 0.15}
+                        }
+                }
+                @point{
+                        @student{
+                                @activity[#:forevidence "BS-IDE&1&1"]{
+                                        You want to buy two ice cream cones:  one for you, and one for a friend.
+                                        Each ice cream cone costs $1.98.
+                                        How much will 2 ice cream cone cost?
                                 }
-                                @item{
-                                        To get the cost of pizza, plates, and cups for all 16 students,
-                                        we need to multiply the previous expression by 16.  Here we 
-                                        use parentheses to create this compound expression:  
-                                        @code{(2.50 + 0.20 + 0.15) * 16}
+                        }
+                        @teacher{
+
+                        }
+                }
+                @point{
+                    @student{
+                            We need to compute the cost of 2 cones, and each cone costs $1.98.
+                            So we need to multiply the cost per cone by the number of ice cream cones we
+                            want to buy.
+
+                            @code[#:multi-line #t]{
+                                    2 * 1.98
+                            }
+                    }
+                    @teacher{
+
+                    }
+                }
+                @point{
+                        @student{
+                                @activity[#:forevidence "BS-IDE&1&1"]{
+                                        There are 60 minutes in an hour, and 24 hours in a day.  How many
+                                        minutes are there in a year?  (365 Days).
                                 }
-                                @item{
-                                        Finally, we need to add this expression to our expression for
-                                        the total cost of the soda.  Again, we need to add a set of
-                                        parentheses around our two expressions to form a larger expression.
-                                        This allows Pyret to know exactly how to apply the order of operations.
-                                        @code{((2.50 + 0.20 + 0.15) * 16) + (4.0 * 2)}
+                        }
+                        @teacher{
+                                Multiply 60 min/hour by 24 hours/day to get the number of minutes per day.
+                                Then multiply by 365 days/year.
+
+                                @code[#:multi-line #t]{
+                                        (60 * 24) * 365
                                 }
+                        }
+                }
+                @point{
+                        @student{
+                                @activity[#:forevidence "BS-IDE&1&1"]{
+                                        You want to throw a pizza party for a class of 16 students.  
+                                        We need to buy one of each of these per student:
+                                        @itemlist[
+                                                @item{
+                                                        1 Slice of Pizza : $2.50
+                                                }
+                                                @item{
+                                                        1 Plastic Plate : $0.20
+                                                }
+                                                @item{
+                                                        1 Soda : $0.98
+                                                }
+                                        ]
+                                }
+                        }
+                        @teacher{
+                                @itemlist[
+                                        @item{
+                                                The particular items for the party do not matter, feel free to change
+                                                them as long as they are supplies where each student gets one of each
+                                                item.  Also, change the class size to be the same as your actual
+                                                class.
+                                        }
+                                        @item{
+                                                Sum the cost of each item, then multiply by the number of students:
 
-                            ]
+                                                @code[#:multi-line #t]{
+                                                        (2.50 * 16) + (0.20 * 16) + (0.98 * 16)
+                                                }
+                                        }
+                                        @item{
+                                                You could write this program more concisely as @code{(2.50 + 0.20 + 0.98) * 16},
+                                                but this form will emphasize how using variables/identifiers can make it
+                                                easier to edit and read programs.
+                                        }
+                                ]
+                        }
+                }
+                @point{
+                        @student{
+                                Now suppose that you want to include the teacher in the pizza party (teachers like
+                                pizza too!)  How would you rewrite this program to compute the cost of paying 
+                                for supplies for 16 students and 1 teacher?
 
-                            When we evaluate this program, we get a total cost of $53.6.  We just finished writing
-                            our first program to solve a data science problem!   
-                    }
-                    @teacher{
-                            
-                    }
-             }
-             @point{
-                    @student{
-                            We aren't done just yet though.  Imagine that we present our program to the Principal.
-                            How will the principle know what each of the numbers mean?  Someone who doesn't know what
-                            problem we're solving would have no idea what this program means.
-                    }
-                    @teacher{
-                            
-                    }
-             }
-             @point{
-                    @student{
-                            We can make our program more readable by binding @vocab{variable}s.  This will be our first
-                            example of writing a program in the definitions area.
-                    }
-                    @teacher{
-                                    
-                    }
-             }
-             @point{
-                    @student{
-                            @activity[#:forevidence "BS-IDE&1&1"]{
-                                    First, let's add this line of code to our definitions area: @code{pizza-slice-cost = 2.50}.
-                            }
+                                @activity[#:forevidence "BS-IDE&1&1"]{
+                                        Rewrite your program to get the new cost of a pizza party for 17 people.
+                                }
+                        }
+                        @teacher{
+                                Force students to manually change each @code{16} to a @code{17}.
+                        }
+                }
+                @point{
+                        @student{
+                                @itemlist[
+                                        @item{
+                                                Notice how tedious it is to change each @code{16} to a @code{17}, when
+                                                each number represents the same thing.  If we ever want to change the
+                                                number of people at the party, we'll have to change all 3 numbers again.
+                                        }
+                                        @item{
+                                                There has to be a better way...
+                                        }
+                                ]
+                        }
+                        @teacher{
+                        
+                        }
+                }
+                @point{
+                        @student{
+                                ...and there is!  In Pyret, you can define @vocab{variable}s with the
+                                @code{=} sign, just like in math class.
+                                You're probably used to seeing variables @code{x, y, z}, etc.  In Pyret,
+                                you can use words to define variables, which will make your code readable and
+                                easy to change.
+                        }
+                        @teacher{
+                        
+                        }
+                }
+                @point{
+                        @student{
+                                @activity[#:forevidence "BS-IDE&1&1"]{
+                                        Add this line of code to the top of your definitions window:
+                                        @code[#:multi-line #t]{
+                                            how-many-people = 17
+                                        }
+                                        Then, substitute all of the instances of @code{17} with @code{how-many-people}
+                                        in your expression to compute the cost of the party.
+                                }
+                        }
+                        @teacher{
+                                Make students compute the cost of throwing a pizza party for 20 people.  Ask them
+                                which line they need to update for this party size, and highlight the ease of 
+                                editing this program vs. the previous one.
+                        }
+                }
+                @point{
+                        @student{
+                                Imagine we learn that a different pizza place will sell us 
+                                better tasting pizza, for only $2 per slice!  We could change the @code{2.50}
+                                in our program to @code{2.00}, but what's a more readable solution?
 
-                            This line of code uses @code{=}, which we haven't seen before in Pyret.  However, it behaves
-                            very similarly to the @code{=} you've seen in math class:  @code{pizza-slice-cost} is now a 
-                            variable that we can use in other expressions, and when evaluating those expressions, we just
-                            replace @code{pizza-slice-cost} with the number @code{2.50}.
+                                @activity[#:forevidence "BS-IDE&1&1"]{
+                                        @itemlist[
+                                                @item{
+                                                        Add variable definitions at the top of your definitions window
+                                                        for the cost of each item we need
+                                                        to buy per person (@code{pizza-slice-cost, plate-cost, soda-cost}). 
+                                                }
+                                                @item{
+                                                        Then, use these new variables to rewrite your old program to 
+                                                        compute the cost of the party.
+                                                }
+                                        ]
+                                }
+                        }
+                        @teacher{
+                                Here is what the final solution should look like.  Once you have motivated
+                                the use of variables in code, you can encourage students to use the distributive
+                                rule to simplify this code.
 
-                            @activity[#:forevidence "BS-IDE&1&1"]{
-                                    Hit the Run button, then type @code{pizza-slice-cost} into the interactions window.
-                            }
+                                @code[#:multi-line #t]{
+                                        pizza-slice-cost = 2
+                                        plate-cost = 0.2
+                                        soda-cost = 0.98
+                                        how-many-people = 20
 
-                            There you have it!  We can now introduce variables into our program.  Writing expressions 
-                            in the definitions window using variables is much more readable, which is good for helping the
-                            data scientist avoid mistakes in the code.
-                    }
-                    @teacher{
-                                    
-                    }
-             }
-             @point{
-                    @student{
-                            @activity[#:forevidence "BS-IDE&1&1"]{
-                                    What should the variable names be for the costs of the other items?  For
-                                    each item, add a line of code creating a variable binding for that item's cost.
-                                    Make sure each is on a new line in the definitions area.  Also, add a variable 
-                                    for the number of students in class
-                            } 
-                    }
-                    @teacher{
-                            Make sure to use a consistent naming convention for these costs.  The students will have
-                            opportunities later in the curriculum to explore how much freedom they have naming variables.
-
-                            @itemlist[
-                                    @item{
-                                            @code{plate-cost = 0.20}
-                                    }
-                                    @item{
-                                            @code{cup-cost = 0.15}
-                                    }
-                                    @item{
-                                            @code{soda-cost = 4.00}
-                                    }
-                                    @item{
-                                            @code{num-students = 16}
-                                    }
-
-                            ]
-                    }
-             }
-             @point{
-                    @student{
-                            Now that we have these variables defined, let's rewrite our old expression for the
-                            total cost in terms of these new variables:
-
-                            @activity[#:forevidence "BS-IDE&1&1"]{
-                                    Bind the variable @code{total-cost} to the expression that uses all of our
-                                    new variables to calculate the total cost.  Then hit run and type @code{total-cost}
-                                    into the interactions window.
-                            }
-                    }
-                    @teacher{
-                            @code{total-cost = ((pizza-cost + plate-cost + cup-cost) * num-students) + (soda-cost * 2)}
-                    }
-             }
-             @point{
-                    @student{
-                             This program produces the same answer as before, but now it is much more human readable,
-                             which is an important part of writing programs!  Computers will run your programs, but humans
-                             will read and try to understand your programs.
-                    }
-                    @teacher{
-                                    
-                    }
-             }
-             @point{
-                    @student{
-                            Another advantage of using variables is that we can easily change our program.  For example, imagine
-                            if we found more data about these prices, and figured out that another store sells pizza
-                            slices at a cost of $2.25 each.  By changing the line @code{pizza-cost = 2.50} to
-                            @code{pizza-cost = 2.25}, when we hit Run again, @code{total-cost} will have the new correct
-                            value if we bought pizza from the new, less expensive store.
-                    }
-                    @teacher{
-                            
-                    }
-             }
-             @point{
-                    @student{
-                            When using variables, there are some common errors that can occur.
-
-                            @activity[#:forevidence "BS-IDE&1&1"]{
-                                    Type @code{pizza-slice-cost} into the interactions window and hit enter.
-                            }
-                    }
-                    @teacher{
-
-                    }
-             }
-             @point{
-                    @student{
-                            Notice that this error message says @code{pizza-slice-cost} is an "unbound identifier".  
-                            This happens when a Pyret program doesn't have a line of code binding the exact variable
-                            name to a value.  We only have a line that binds @code{pizza-cost}, and while we might think
-                            these two variables would have the same value, the computer sees them as entirely different.
-                    }
-                    @teacher{
-                    
-                    }
-             }
-             @point{
-                    @student{
-                            @activity[#:forevidence "BS-IDE&1&1"]{
-                                    Turn to TODO in your workbook.  You are given a program in the definitions window
-                                    that binds several variables.  For each of the expressions, say whether they would
-                                    return a value or an error when typed into the interactions area.
-                            }
-                    }
-                    @teacher{
-                    
-                    }
-             }
+                                        (pizza-slice-cost + 
+                                        plate-cost + 
+                                        soda-cost) * how-many-people
+                                }
+                        }
+                }
         ]
    }
 
