@@ -705,21 +705,26 @@
              }
              @point{
                     @student{
-                            There are some common errors you can run into when applying functions.
-                            @itemlist[
-                                    @item{
-                                            Missing parentheses:  @code{num-min(2, 3}
-                                    }
-                                    @item{
-                                            Missing commas between arguments:  @code{num-min(1 9)}
-                                    }
-                                    @item{
-                                            Wrong type of argument:  @code{num-min("hi", 2)}
-                                    }
-                                    @item{
-                                            Wrong number of arguments:  @code{num-min(1, 4, 6)}
-                                    }
-                            ]
+                            @activity[#:forevidence "BS-IDE&1&1"]{
+                                    For each of these lines of code, try to guess what 
+                                    the problem is based on the error messages.
+
+                                    @itemlist[
+                                            @item{
+                                                    @code{num-min(2, 3}
+                                            }
+                                            @item{
+                                                    @code{num-min(1 9)}
+                                            }
+                                            @item{
+                                                    @code{num-min("hi", 2)}
+                                            }
+                                            @item{
+                                                    @code{num-min(1, 4, 6)}
+                                            }
+                                    ]
+
+                            }                            
                     }
                     @teacher{
                             Explanations for each error message:
