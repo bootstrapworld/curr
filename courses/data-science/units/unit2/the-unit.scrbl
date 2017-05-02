@@ -187,6 +187,32 @@
             				we did in unit 1.
             		}
             		@teacher{
+            				The students should not need to know exactly how this scaffold code
+            				works to complete the exercises.  However, for those that are curious:
+
+            				@itemlist[
+            						@item{
+            								The @code{include} statement allows Pyret to use a
+            								supplementary module which can talk to the Google Sheets
+            								API.  This lets students use/apply functions that take data
+            								from Google Sheets.
+            						}
+            						@item{
+            								The @code{load-spreadsheet} function applications
+            								are what will find particular spreadsheets and their
+            								content.  The argument is a String that is a unique ID
+            								to a particular Google Sheet.  We have hardcoded these IDs
+            								in the scaffolding so that they link to our presidents and
+            								nutrition tables.
+            						}
+            						@item{
+            								The @code{load-table} command is what actually loads a table
+            								that we can use in the interactions window.  In this expression,
+            								each of the column names are enumerated (this establishes what 
+            								the header row contains), and says that the source will be
+            								the sheets from the @code{load-spreadsheet} functions applications.
+            						}
+            				]
 
             		}
             }
