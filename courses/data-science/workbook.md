@@ -73,6 +73,7 @@ function does.
  - What is the value of the "Number of Legs" 
    in the row with "Human" as the values in the
    Animal column? ______________
+ - Circle the header row of this table.
 
 ## Page 5
 
