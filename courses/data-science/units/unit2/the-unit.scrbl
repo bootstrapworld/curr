@@ -25,7 +25,7 @@
                 )
       ]{
         @points[
-        	 @point{
+        	@point{
         	 		@student{
         	 				So far you have learned the fundamentals of writing programs to compute values with expressions.
         	 				This is powerful, but as data scientists, we need write programs that compute new values from
@@ -35,8 +35,8 @@
         	 		@teacher{
 
         	 		}
-        	 }
-             @point{
+        	}
+            @point{
                     @student{
 							@build-table/cols[
 										'("First" "Last" "Color" "Height")
@@ -55,8 +55,8 @@
 							Express that each row represents a distinct object, and
 							each entry in a row stores information about that object.
 					}
-             }
-             @point{
+            }
+            @point{
 					@student{
 							This is a @vocab{table} storing information about students in
 							a fourth grade class.  @vocab{table}s are collections of 
@@ -67,8 +67,8 @@
                     @teacher{
 														 
 					}
-             }
-			 @point{
+            }
+			@point{
                     @student{
 							@vocab{Table}s are organized into @vocab{column}s and @vocab{row}s.
                             This table has exactly 4 columns.
@@ -87,7 +87,7 @@
                     @teacher{
 
 					}
-             }
+            }
 			@point{
                     @student{
 							The first @vocab{row} in a table is a special row called the 
@@ -103,21 +103,7 @@
 					}
                     @teacher{
 					}
-             }
-			@point{
-                    @student{
-							Every other row in the table is called a @vocab{record}, and contains
-							values for every column.  In our example,
-							each @vocab{record} represents a different person in the class, and 
-							each @vocab{entry} in that @vocab{record} is a person's First Name,
-							Last Name, Eye Color or Height.
-
-					}
-                    @teacher{
-							Express that records represent distinct objects, and
-							each entry in a record represents an attribute of that record.
-					}
-             }
+            }
 			@point{
                     @student{
 					        @activity[#:forevidence "BS-IDE&1&1"]{
@@ -131,8 +117,10 @@
             }
         ]
    }
+
+
 @lesson/studteach[
-     #:title "Tables in Google Sheets"
+     #:title "Tables in Pyret"
      #:duration "10 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
@@ -150,43 +138,99 @@
         @points[
              @point{
                     @student{
-							Now that you know what tables are, it's time to use them. 
-							There are many different apps for working with tables, but 
-							the one we'll be using is Google Sheets.  Google Sheets is 
-							an app that lets you create and edit @vocab{spreadsheet}s:
-							a spreadsheet is a collection of sheets, and each sheet 
-							holds a table.	
+							Now that you know the basic information about tables, 
+							it's time to get some hands on experience with tables in Pyret.
+							Pyret allows us to write programs with tables, similar to
+							how we write programs using regular Number and String values.
 					}
                     @teacher{
-							Students may have been exposed to other spreadsheet software,
-							such as Numbers or Excel.  Communicate that Google Sheets 
-							does the same thing as these applications.
+                    		In supplemental lessons, students/teachers can load their 
+                    		own tables into Google Sheets, as well as design surveys 
+                    		to populate Google Sheets with data.  However, in the core
+                    		curriculum this will not be covered;  students will use 
+                    		scaffolded code to work with tables exclusively in Pyret.
 					}
-             }
-             @point{
-					@student{
-							@activity[#:forevidence "BS-IDE&1&1"]{
-									Open your web browser, and navigate to the following link:
-									
-									@(hyperlink "https://docs.google.com/spreadsheets/d/14er5Mh443Lb5SIFxXZHdAnLCuQZaA8O6qtgGlibQuEg/edit?usp=sharing" "https://docs.google.com/spreadsheets/d/14er5Mh443Lb5SIFxXZHdAnLCuQZaA8O6qtgGlibQuEg/edit?usp=sharing")
+            }
+            @point{
+            		@student{
+            				@activity[#:forevidence "BS-IDE&1&1"]{
+            						Open up the @editor-link[#:public-id "0BxJ2mGqPUGt0bnZKcHYxbG5HSG8&v=3a4fb05" "Unit 2"] template file.
 
-									Then, turn to TODO in your
-									workbooks, and fill in the answers to questions about the
-									Presidents table.
+            						Make sure you are signed into your Google account.  All of the Pyret scripts you write will 
+									be saved into the code.pyret.org folder in your Google Drive.  Hit the Save a Copy button.
+            				}
+            		}
+            		@teacher{
 
-							}
+            		}
+            }
+            @point{
+            		@student{
+            				The definitions window contains code that you haven't seen before,
+            				so it's ok if you don't understand it all at once!
 
-					}
-                    @teacher{
-														 
-					}
-             }
+            				@activity[#:forevidence "BS-IDE&1&1"]{
+            						Type each of these programs into the interactions window and hit Enter/Return
+            						@itemlist[
+            								@item{
+            										@code{nutrition}
+            								}
+            								@item{
+            										@code{presidents}
+            								}
+            						]
+            				}
+
+            				This program loads tables from Google Sheets using the @code{load-table} keyword,
+            				and sets @code{presidents} and @code{nutrition} to be variables that 
+            				refer to these tables.  We use @code{=} for variable assignment the same way that
+            				we did in unit 1.
+            		}
+            		@teacher{
+            				The students should not need to know exactly how this scaffold code
+            				works to complete the exercises.  However, for those that are curious:
+
+            				@itemlist[
+            						@item{
+            								The @code{include} statement allows Pyret to use a
+            								supplementary module which can talk to the Google Sheets
+            								API.  This lets students use/apply functions that take data
+            								from Google Sheets.
+            						}
+            						@item{
+            								The @code{load-spreadsheet} function applications
+            								are what will find particular spreadsheets and their
+            								content.  The argument is a String that is a unique ID
+            								to a particular Google Sheet.  We have hardcoded these IDs
+            								in the scaffolding so that they link to our presidents and
+            								nutrition tables.
+            						}
+            						@item{
+            								The @code{load-table} command is what actually loads a table
+            								that we can use in the interactions window.  In this expression,
+            								each of the column names are enumerated (this establishes what 
+            								the header row contains), and says that the source will be
+            								the sheets from the @code{load-spreadsheet} functions applications.
+            						}
+            				]
+
+            		}
+            }
+            @point{
+            		@student{
+            				Turn to TODO in your workbooks, and answer questions about the tables
+            				in the output of @code{presidents} when entered into the interactions area.
+            		}
+            		@teacher{
+
+            		}
+            }
         ]
    }
 
 @lesson/studteach[
-     #:title "Loading Tables in Pyret"
-     #:duration "25 minutes"
+     #:title "Quantitative and Categorical Data"
+     #:duration "20 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -201,135 +245,132 @@
                 )
       ]{
         @points[
-             @point{
+        	@point{
+        			@student{
+        					You have loaded your first tables into Pyret. These tables contain different data: 
+        					the first is a table about the presidents of the US, and the second has nutritional 
+        					information about items on a menu. Before we can dive into all of the cool things 
+        					you can do with tables, we need to understand the two different kinds of 
+        					data that can appear in tables: categorical and quantitative.	
+        			}
+        			@teacher{
+
+        			}
+        	}
+            @point{
                     @student{
-							Now that you know the basic information about tables, 
-							it's time to get some hands on experience with tables in Pyret. 
-							One of the best parts of Pyret is that you can create and 
-							load tables from Google Sheets. Later in the course we'll use 
-							Pyret to compute different values from the data to answer 
-							complex questions about the data.
-					}
+                            Let's take another look at the first example table we saw in Unit 2.
+
+                            @build-table/cols[
+                                        '("First" "Last" "Color" "Height")
+                                        '(("John" "Jane" "Javon" "Angela" "Jack" "Dominique" "Sammy" "Andrea")
+                                          ("Doe" "Smith" "Jackson" "Enriquez" "Thompson" "Rodriguez" "Carter" "Garcia")
+                                          ("Green" "Brown" "Brown" "Hazel" "Blue" "Hazel" "Blue" "Brown")
+                                          ("52.0" "49.1" "57.7" "52.5" "53.0" "51.1" "56.2" "50.8"))
+                                         (lambda (r c) (para ""))
+                                         4 8
+                            ]                      
+                    }
                     @teacher{
-
-					}
-             }
-             @point{
-					@student{
-							@activity[#:forevidence "BS-IDE&1&1"]{
-									 Open @(hyperlink "https://code.pyret.org/" "this link") to create
-									 an empty Pyret program.
-
-									 Make sure you are signed into your Google account.  All of the Pyret scripts you write will 
-									 be saved into the code.pyret.org folder in your Google Drive. Save this blank 
-									 program as @code{unit-2}.
-							}
-					}
+                                                        
+                    }
+            }
+            @point{
+                    @student{
+                            The first kind of data we will look at is @vocab{Quantitative Data}. @vocab{Quantitative Data} always 
+                            measures an amount of something. If a question asks "how much" 
+                            there is of something, the answer will be quantitative data.                  
+                    }
                     @teacher{
-														 
-					}
-             }
-			@point{
-					@student{
-							The program you will be writing to use Tables in Pyret
-							is very different from the kind of program you wrote in
-							Unit 1.
-							You will learn exactly what this program is doing over the course of
-							the unit, and will practice writing programs with tables many times in the course.
-					}
-            		@teacher{
-							Stress that if/when students run into errors writing this code, it is normal.
-							These error messages may be different from ones they've seen before, but 
-							they have the skills to use them to adjust their programs.  Encourage students
-							to read the error messages & try to use their feedback before asking for help.			 
-					}
-             }
-			 @point{
-					@student{
-							Add each of the following lines of code to your @vocab{definitions area}
-							(the left window). Don't worry if you don't understand what the code 
-							is doing, it will be explained in more detail later in the unit. 
+                                                        
+                    }
+            }
+            @point{
+                    @student{
+                            Look at the Height (inches) column.  
 
-							@activity[#:forevidence "BS-IDE&1&1"]{
-									First, we'll need to import Pyret's library for interacting 
-									with files in the Google Drive:
-
-									@code[#:multi-line #t]{
-											import gdrive-sheets as GDS
-									}
-							}
-							@activity[#:forevidence "BS-IDE&1&1"]{
-									Then, add the line of code that accesses a specific Google Spreadsheet. 
-									This code will access the Google Sheet at
-									@(hyperlink "https://docs.google.com/spreadsheets/d/14er5Mh443Lb5SIFxXZHdAnLCuQZaA8O6qtgGlibQuEg/edit#gid=0" "this url").
-									
-									@code[#:multi-line #t]{
-											presidents-sheet = 
-												GDS.load-spreadsheet("14er5Mh443Lb5SIFxXZHdAnLCuQZaA8O6qtgGlibQuEg")
-									}
-											
-							}
-							@activity[#:forevidence "BS-IDE&1&1"]{
-									Finally, we need to create a Table object using the data we've loaded.
-									@code[#:multi-line #t]{
-											presidents = load-table: nth, name, home-state, year-started, year-ended, party
-												source: presidents-sheet.sheet-by-name("presidents", true)
-											end
-									}
-							}
-					}
+                            If you ask the question "How tall is John Doe?" (in other words, how much 
+                            height does John Doe have?), the answer is 52.0 inches. Quantitative Data usually has 
+                            units of measurement; in this case the unit of measurement is inches.                    
+                    }
                     @teacher{
-														 
-					}
-             }
-			 @point{
-					@student{
-							Now, hit run, then type @code{presidents} into the @vocab{interactions area} 
-							(the right window). You should see the same presidents table that was 
-							in the Google Sheets document.
-
-							Next, we will load a different table that you haven't seen before. 
-							This table will contain nutrition information for a restaurant menu.
-					}
+                                                        
+                    }
+            }
+            @point{
+                    @student{
+                            Another important fact is that Quantitative Data can be larger or smaller than other 
+                            Quantitative Data. For example, if we ask the question "Is John Doe taller than Andrea Garcia?" 
+                            (in other words, does John Doe have more height than Andrea Garcia), it can be answered by 
+                            comparing their entries in the height column. John Doe's height is bigger than Andrea Garcia's, 
+                            so we can say yes, he is taller.                   
+                    }
                     @teacher{
-														 
-					}
-             }
-			 @point{
-					@student{
-							@activity[#:forevidence "BS-IDE&1&1"]{
-									This code accesses this new Google Sheet.  Add it to
-									your @vocab{definitions area}:
+                                                        
+                    }
+            }
+            @point{
+            		@student{
+                            Now look at the Eye Color column.
 
-									@code[#:multi-line #t]{
-											nutrition-sheet = 
-												GDS.load-spreadsheet("1fMNIgAZ-wdNF7sf4j5Vns-g2Qr9UDa8kSgnzxPfDl5I")
-									}
-							}
-							@activity[#:forevidence "BS-IDE&1&1"]{
-									Next, add the code to load this spreadsheet into the form of a Pyret 
-									table. Notice that this table has several more columns 
-									than the presidents table.
-
-									@code[#:multi-line #t]{
-											nutrition = load-table: food, serving-size, calories, calories-from-fat, 
-												fat, cholesterol, sodium, sugar, protein
-												
-												source: nutrition-sheet.sheet-by-name("nutrition", true)
-											end
-									}
-							}
-							@activity[#:forevidence "BS-IDE&1&1"]{
-									Now, hit the run button again, then type @code{nutrition} into 
-									the @vocab{interactions area}. You should see a table with 10 
-									records containing information about different foods.
-							}
-					}
+                            @build-table/cols[
+                                        '("First" "Last" "Color" "Height")
+                                        '(("John" "Jane" "Javon" "Angela" "Jack" "Dominique" "Sammy" "Andrea")
+                                          ("Doe" "Smith" "Jackson" "Enriquez" "Thompson" "Rodriguez" "Carter" "Garcia")
+                                          ("Green" "Brown" "Brown" "Hazel" "Blue" "Hazel" "Blue" "Brown")
+                                          ("52.0" "49.1" "57.7" "52.5" "53.0" "51.1" "56.2" "50.8"))
+                                         (lambda (r c) (para ""))
+                                         4 8
+                            ]      
+                    }
                     @teacher{
-							Whenever students change or modify the program in the @vocab{definitions area},
-							they must re-run the program.   
-					}
-             }
+                                                        
+                    }
+            }
+            @point{
+                    @student{
+                            Can we ask the question "Does John Doe have more eye color than Andrea Garcia?"  No. 
+                            That question makes no sense! This is the second kind of data we will look at, called @vocab{Categorical Data}. 
+                            We used Quantitative Data to quantify; to ask "how much" there is of something. 
+                            We use @vocab{Categorical Data} to ask "which one"?
+                            In this case, students are put into the same category if they have the same eye color.                   
+                    }
+                    @teacher{
+                                                        
+                    }
+            }
+            @point{
+                    @student{
+                            @activity[#:forevidence "BS-IDE&1&1"]{
+                                    Let's consider eye color. How many different eye colors are there?  
+                            }                   
+                    }
+                    @teacher{
+                            Guide students towards this list: Amber, Blue, Green, Brown, Grey, Hazel.                         
+                    }
+            }
+            @point{
+                    @student{
+                            So if there are only 6 different natural eye colors, then each value in the 
+                            column has to be one of these categories. We would say that this 
+                            column has 6 different possible categories.                     
+                    }
+                    @teacher{
+                                                        
+                    }
+            }
+            @point{
+                    @student{
+                            @activity[#:forevidence "BS-IDE&1&1"]{
+                                    Navigate back to your pyret program that loads the @code{nutrition}
+                                    and @code{presidents} tables.
+                                    Then, turn to TODO in your workbook and answer the questions about these two data sets. 
+                            }                          
+                    }
+                    @teacher{
+                                                        
+                    }
+            }
         ]
    }
 @lesson/studteach[

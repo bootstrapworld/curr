@@ -37,7 +37,7 @@
    }
 
 @lesson/studteach[
-     #:title "Quantitative Data"
+     #:title "Quantitative and Categorical Data"
      #:duration "10 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
