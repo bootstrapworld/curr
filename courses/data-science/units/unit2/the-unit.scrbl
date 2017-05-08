@@ -40,9 +40,9 @@
                     @student{
 							@build-table/cols[
 										'("First" "Last" "Color" "Height")
-										'(("John" "Jane" "Javon" "Angela" "Jack" "Dominique" "Sammy" "Andrea")
-										  ("Doe" "Smith" "Jackson" "Enriquez" "Thompson" "Rodriguez" "Carter" "Garcia")
-										  ("Green" "Brown" "Brown" "Hazel" "Blue" "Hazel" "Blue" "Brown")
+										'(("\"John\"" "\"Jane\"" "\"Javon\"" "\"Angela\"" "\"Jack\"" "\"Dominique\"" "\"Sammy\"" "\"Andrea\"")
+										  ("\"Doe\"" "\"Smith\"" "\"Jackson\"" "\"Enriquez\"" "\"Thompson\"" "\"Rodriguez\"" "\"Carter\"" "\"Garcia\"")
+										  ("\"Green\"" "\"Brown\"" "\"Brown\"" "\"Hazel\"" "\"Blue\"" "\"Hazel\"" "\"Blue\"" "\"Brown\"")
 										  ("52.0" "49.1" "57.7" "52.5" "53.0" "51.1" "56.2" "50.8"))
 										 (lambda (r c) (para ""))
 										 4 8
@@ -79,7 +79,7 @@
 
 							@build-table/cols[
 										'("Color")
-										'(("Green" "Brown" "Brown" "Hazel" "Blue" "Hazel" "Blue" "Brown"))
+										'(("\"Green\"" "\"Brown\"" "\"Brown\"" "\"Hazel\"" "\"Blue\"" "\"Hazel\"" "\"Blue\"" "\"Brown\""))
 										 (lambda (r c) (para ""))
 										 1 8
 							]
