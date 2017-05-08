@@ -39,7 +39,7 @@
             @point{
                     @student{
 							@build-table/cols[
-										'("First" "Last" "Color" "Height")
+										'("First" "Last" "Eye-Color" "Height")
 										'(("\"John\"" "\"Jane\"" "\"Javon\"" "\"Angela\"" "\"Jack\"" "\"Dominique\"" "\"Sammy\"" "\"Andrea\"")
 										  ("\"Doe\"" "\"Smith\"" "\"Jackson\"" "\"Enriquez\"" "\"Thompson\"" "\"Rodriguez\"" "\"Carter\"" "\"Garcia\"")
 										  ("\"Green\"" "\"Brown\"" "\"Brown\"" "\"Hazel\"" "\"Blue\"" "\"Hazel\"" "\"Blue\"" "\"Brown\"")
@@ -78,7 +78,7 @@
 							value in the 3rd column represents the eye color of a person in the class. 
 
 							@build-table/cols[
-										'("Color")
+										'("Eye-Color")
 										'(("\"Green\"" "\"Brown\"" "\"Brown\"" "\"Hazel\"" "\"Blue\"" "\"Hazel\"" "\"Blue\"" "\"Brown\""))
 										 (lambda (r c) (para ""))
 										 1 8
@@ -95,7 +95,7 @@
 							name of a particular @vocab{column}.
 
 							@build-table/cols[
-										'("First" "Last" "Color" "Height")
+										'("First" "Last" "Eye-Color" "Height")
 										'()
 										 (lambda (r c) (para ""))
 										 4 0
@@ -262,14 +262,14 @@
                             Let's take another look at the first example table we saw in Unit 2.
 
                             @build-table/cols[
-                                        '("First" "Last" "Color" "Height")
-                                        '(("John" "Jane" "Javon" "Angela" "Jack" "Dominique" "Sammy" "Andrea")
-                                          ("Doe" "Smith" "Jackson" "Enriquez" "Thompson" "Rodriguez" "Carter" "Garcia")
-                                          ("Green" "Brown" "Brown" "Hazel" "Blue" "Hazel" "Blue" "Brown")
-                                          ("52.0" "49.1" "57.7" "52.5" "53.0" "51.1" "56.2" "50.8"))
-                                         (lambda (r c) (para ""))
-                                         4 8
-                            ]                      
+										'("First" "Last" "Eye-Color" "Height")
+										'(("\"John\"" "\"Jane\"" "\"Javon\"" "\"Angela\"" "\"Jack\"" "\"Dominique\"" "\"Sammy\"" "\"Andrea\"")
+										  ("\"Doe\"" "\"Smith\"" "\"Jackson\"" "\"Enriquez\"" "\"Thompson\"" "\"Rodriguez\"" "\"Carter\"" "\"Garcia\"")
+										  ("\"Green\"" "\"Brown\"" "\"Brown\"" "\"Hazel\"" "\"Blue\"" "\"Hazel\"" "\"Blue\"" "\"Brown\"")
+										  ("52.0" "49.1" "57.7" "52.5" "53.0" "51.1" "56.2" "50.8"))
+										 (lambda (r c) (para ""))
+										 4 8
+							]        
                     }
                     @teacher{
                                                         
@@ -314,14 +314,14 @@
                             Now look at the Eye Color column.
 
                             @build-table/cols[
-                                        '("First" "Last" "Color" "Height")
-                                        '(("John" "Jane" "Javon" "Angela" "Jack" "Dominique" "Sammy" "Andrea")
-                                          ("Doe" "Smith" "Jackson" "Enriquez" "Thompson" "Rodriguez" "Carter" "Garcia")
-                                          ("Green" "Brown" "Brown" "Hazel" "Blue" "Hazel" "Blue" "Brown")
-                                          ("52.0" "49.1" "57.7" "52.5" "53.0" "51.1" "56.2" "50.8"))
-                                         (lambda (r c) (para ""))
-                                         4 8
-                            ]      
+										'("First" "Last" "Eye-Color" "Height")
+										'(("\"John\"" "\"Jane\"" "\"Javon\"" "\"Angela\"" "\"Jack\"" "\"Dominique\"" "\"Sammy\"" "\"Andrea\"")
+										  ("\"Doe\"" "\"Smith\"" "\"Jackson\"" "\"Enriquez\"" "\"Thompson\"" "\"Rodriguez\"" "\"Carter\"" "\"Garcia\"")
+										  ("\"Green\"" "\"Brown\"" "\"Brown\"" "\"Hazel\"" "\"Blue\"" "\"Hazel\"" "\"Blue\"" "\"Brown\"")
+										  ("52.0" "49.1" "57.7" "52.5" "53.0" "51.1" "56.2" "50.8"))
+										 (lambda (r c) (para ""))
+										 4 8
+							]     
                     }
                     @teacher{
                                                         
