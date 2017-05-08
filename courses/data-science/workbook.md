@@ -77,39 +77,49 @@ function does.
 
 ## Page 5
 
- - How many rows does the presidents 
-   table have? ___________
+### Presidents Table
+
  - How many columns does the presidents 
-   table have? ___________
- - What are the attributes in the header 
-   row? _______________________________
+   table have? ___________________
+ - What are the names of the columns? 
+   _______________________________
+ - How many rows does the presidents 
+   table have? __________________
+ - Does the `party` column have quantitative
+   or categorical data?  ______________
+ - Is the data in the `home-state` column
+   categorical?  If so, how many
+   categories are there? ______________
+ - Does the `year-started` column have 
+   categorical or quantitative data?
+   ________________________
  - What is the home state of
    Millard Fillmore? __________________
  - What year did Rutherford B. Hayes
    start his presidency? ______________
-
-
-# Unit 3
-
-## Page 6
-
-### Presidents Table
- - Does the party column have
-   quantitative or categorical
-   data?  ____________________
- - How many categories are there for
-   a value in the home-state column?
-   ________________
- - What kind of data does the year-started
-   column have?  __________________
+ - Who was the most recent president 
+   from California?  __________________
+ - Who were the first two presidents from
+   the Federalist party? ____________________
 
 ### Nutrition Table
+ - How many columns does the nutrition 
+   table have? ___________________
+ - What are the names of the columns? 
+   _______________________________
+ - How many rows does the nutrition 
+   table have? __________________
  - What kind of data does the calories
-   column have?  __________________
- - How can you tell? ______________
-   ________________________________
+   column have?  How can you tell?
+   _______________________________
+ - How many grams of cholesterol does
+   the Hamburger have?  _____________
+ - Which has more sodium; a Cheeseburger
+   or a burrito?  ___________________
+ - Which food has the largest serving size?
+   ____________________
 
-# Unit 4
+# Unit 3
 
 ## Page 7
 
