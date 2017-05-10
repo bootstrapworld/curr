@@ -1,16 +1,16 @@
 #lang curr/lib
 
-@title{Unit 5: Table Operations Part 2}
+@title{Unit 5: Visualizing Quantitative Data}
 
 @declare-tags[]
 
 @unit-overview/auto[#:lang-table (list (list "" @code{}))]{
-  @unit-descr{Students learn to extend tables with new columns, computed from a previous table's data.  Students will practice designing solutions to problems with tables by following a Table Plan, which is a process for solving word problems by composing table operations.}
+  @unit-descr{Students are introduced to Histograms as visualizations for quantitative data, learn to analyze features of Histograms, and construct them in Pyret}
 }
 @unit-lessons{
 @lesson/studteach[
-     #:title "Extending Tables"
-     #:duration "25 minutes"
+     #:title "Guess the Dice"
+     #:duration "20 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -45,8 +45,8 @@
    }
 
 @lesson/studteach[
-     #:title "Review of Table Operations"
-     #:duration "10 minutes"
+     #:title "Bins and Spread"
+     #:duration "20 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -97,8 +97,8 @@
    }
 
 @lesson/studteach[
-     #:title "Table Plans"
-     #:duration "25 minutes"
+     #:title "Creating Histograms"
+     #:duration "15 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -147,5 +147,58 @@
                  }
         ]
    }
+
+@lesson/studteach[
+     #:title "Analyzing Histograms"
+     #:duration "15 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[]
+     #:standards (list)
+     #:materials @itemlist[]
+     #:preparation @itemlist[]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[
+                @point{
+                        @student{
+                                                            
+                        }
+                        @teacher{
+                                                            
+                        }
+                }
+                 @point{
+                        @student{
+                                    
+                        }
+                        @teacher{
+                                                     
+                        }
+                 }
+                 @point{
+                        @student{
+                                                            
+                        }
+                        @teacher{
+                                                            
+                        }
+                }
+                 @point{
+                        @student{
+                                    
+                        }
+                        @teacher{
+                                                     
+                        }
+                 }
+        ]
+   }
+
 }
 

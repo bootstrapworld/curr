@@ -1,16 +1,16 @@
 #lang curr/lib
 
-@title{Unit 4: Table Operations Part 1}
+@title{Unit 4: Visualizing Categorical Data}
 
 @declare-tags[]
 
 @unit-overview/auto[#:lang-table (list (list "" @code{}))]{
-  @unit-descr{Students are introduced to booleans and comparisons, and practice using them as predicates to filter over rows in a table.}
+  @unit-descr{Students learn to create and interpret bar charts and pie charts.}
 }
 @unit-lessons{
 @lesson/studteach[
-     #:title "A Taste of Sieving"
-     #:duration "15 minutes"
+     #:title "How Can We Present Data?"
+     #:duration "10 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -49,27 +49,11 @@
                       
                       }
                 }
-                @point{
-                      @student{
-
-                      }
-                      @teacher{
-                      
-                      }
-                }
-                @point{
-                      @student{
-
-                      }
-                      @teacher{
-                      
-                      }
-                }
         ]
    }
 
 @lesson/studteach[
-     #:title "Booleans and Comparison"
+     #:title "Creating Charts in Pyret"
      #:duration "20 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
@@ -129,7 +113,7 @@
    }
 
 @lesson/studteach[
-     #:title "Sieve in Pyret"
+     #:title "Analysis of Charts"
      #:duration "20 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
