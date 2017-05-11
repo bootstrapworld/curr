@@ -755,6 +755,63 @@
              }
              @point{
                     @student{
+                            Every successful application of @code{num-min} will take 2 Numbers
+                            as input, and evaluate to one Number.  For each function we learn,
+                            we need to keep track of what arguments it takes, and what type of
+                            value it returns.
+                    }
+                    @teacher{
+
+                    }
+             }
+             @point{
+                    @student{
+                            We do this by writing @vocab{contracts}.  @vocab{Contracts}
+                            are comments in code that give the programmer instructions on what
+                            functions take in and output.  Below is the contract for
+                            @code{num-min}:
+
+                            @code[#:multi-line #t]{
+                                    # num-min : Number Number -> Number
+                            }
+
+                            The first part of a contract is the function name.  This function
+                            is @code{num-min}, so that part is easy.  @code{num-min} takes two
+                            arguments of type Number, so we write Number Number.  Finally, after
+                            the arrow goes the type of the function's output, which in this case is
+                            Number.
+
+                    }
+                    @teacher{
+
+                    }
+             }
+             @point{
+                    @student{
+                            Let's write the contract for @code{num-sqr} together.
+
+                            @itemlist[
+                                    @item{
+                                            What is the function name?
+                                    }
+                                    @item{
+                                            How many arguments are there?  What are the types of each?
+                                    }
+                                    @item{
+                                            What is the type of the output?
+                                    }
+                            ]
+
+                            @code[#:multi-line #t]{
+                                    # num-sqr : Number -> Number
+                            }                          
+                    }
+                    @teacher{
+
+                    }
+             }
+             @point{
+                    @student{
                             @activity[#:forevidence "BS-IDE&1&1"]{
                                     Turn to TODO in your workbook.  For each set of function calls,
                                     determine the name, number of arguments, type of argument(s), and
@@ -790,6 +847,10 @@
                             learning to use values, variables, operations and functions, you are now familiar with the 
                             fundamental concepts needed to write programs.  You will have many opportunities to
                             use these concepts in the next units, by writing programs to answer data science questions.
+
+                            @activity[#:forevidence "BS-IDE&1&1"]{
+                                    Make sure to save your Pyret program as @code{unit-1} into your Google Drive.
+                            }
 					}
                     @teacher{
 

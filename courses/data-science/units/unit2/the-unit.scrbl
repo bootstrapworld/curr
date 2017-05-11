@@ -216,15 +216,6 @@
 
             		}
             }
-            @point{
-            		@student{
-            				Turn to TODO in your workbooks, and answer questions about the tables
-            				in the output of @code{presidents} when entered into the interactions area.
-            		}
-            		@teacher{
-
-            		}
-            }
         ]
    }
 
@@ -368,7 +359,8 @@
                             }                          
                     }
                     @teacher{
-                                                        
+                            This workbook assignment could also become a homework assignment, or be
+            				made into a quiz/jeopardy style game.                       
                     }
             }
         ]
