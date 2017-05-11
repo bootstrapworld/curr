@@ -27,7 +27,19 @@
         @points[
                 @point{
                       @student{
-                              
+                              @itemlist[
+                                      @item{
+                                            Students are shown a bar chart and, as a class, identify
+                                            features:  X-Axis (What are all possible values, how many), 
+                                            Y-Axis (What does bar height represent)
+                                      }
+                                      @item{
+
+                                      }
+                                      @item{
+
+                                      }
+                              ]
                       }
                       @teacher{
 
@@ -71,7 +83,14 @@
         @points[
                 @point{
                       @student{
+                              @itemlist[
+                                      @item{
+                                            Exercise to construct bar charts over presidents, nutrition, lifespan tables.
+                                      }
+                                      @item{
 
+                                      }
+                              ]
                       }
                       @teacher{
 
@@ -131,7 +150,18 @@
         @points[
                 @point{
                       @student{
+                              @itemlist[
+                                      @item{ 
+                                            Read bar charts (some from outside of Pyret)
+                                            and interpret them to answer questions.
+                                      }
+                                      @item{
 
+                                      }
+                                      @item{
+
+                                      }
+                              ]
                       }
                       @teacher{
 

@@ -27,7 +27,16 @@
         @points[
                 @point{
                         @student{
-                                                            
+                                @itemlist[
+                                        @item{
+                                                Motivate linear regression with a question about a correlation:
+                                                "If you pay more is the restaurant better?".  Display scatter plot of yelp 
+                                                data and ask the students.
+                                        }
+                                        @item{
+                                                Students learn how to plot 2 quantitative variables against each other.
+                                        }
+                                ]              
                         }
                         @teacher{
                                                             
@@ -79,7 +88,18 @@
         @points[
                 @point{
                         @student{
-                                                            
+                                @itemlist[
+                                        @item{
+                                                Display several lines attempting to fit the data.  Which one is best?
+                                        }
+                                        @item{
+                                                Students will assign lines of best fit for several scatter plots.
+                                        }
+                                        @item{
+                                                Students give each of the lines a grade between [0, 1] for how
+                                                well it fits.
+                                        }
+                                ]        
                         }
                         @teacher{
                                                             
@@ -131,7 +151,21 @@
         @points[
                 @point{
                         @student{
-                                                            
+                                @itemlist[
+                                        @item{
+                                                Students learn to use linear regression to generate line of best fit
+                                        }
+                                        @item{
+                                                Correlate r-squared value with grade of "how well line fits".
+                                        }
+                                        @item{
+                                                Students brainstorm, then explore correlations over the lifespan data.
+                                        }
+                                        @item{
+                                                Students brainstorm what correlations they may want to test in real life
+                                                (maybe related to data sets we provide?)
+                                        }
+                                ]      
                         }
                         @teacher{
                                                             
