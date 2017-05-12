@@ -319,7 +319,7 @@
                               The third and last measure of center is the @vocab{mode}.  The @vocab{mode}
                               of a list is the element that appears most often in the list.
 
-                              @code[#:forevidence "BS-IDE&1&1"]{
+                              @code[#:multi-line #t]{
                                     [list: 1, 2, 2, 3, 4]
                               }
 
@@ -333,7 +333,7 @@
                       @student{
                               What is the mode of this list?
 
-                              @code[#:forevidence "BS-IDE&1&1"]{
+                              @code[#:multi-line #t]{
                                     [list: 1, 1, 2, 3, 4, 4]
                               }
 
@@ -342,7 +342,8 @@
                               the list.
 
                               @activity[#:forevidence "BS-IDE&1&1"]{
-                                      Complete the final column
+                                      Complete the final column, by calculating the mean for 
+                                      each example list.
                               }
                       }
                       @teacher{
@@ -377,7 +378,7 @@
                               but @code{modes} will return a List<Number> containing all of
                               the modes.  Their contracts are:
 
-                              @code[#:forevidence "BS-IDE&1&1"]{
+                              @code[#:multi-line #t]{
                                     # mode : List<Number> -> Number
                                     # modes : List<Number> -> List<Number>
                               }
@@ -423,23 +424,132 @@
                               same value.  So, which one should we use, and when?
                       }
                       @teacher{
-
+                              For each of the following example lists, discuss with the students 
+                              what the strengths/weaknesses of each measurement.
                       }
                 }
                 @point{
                       @student{
+                              Imagine that a math teacher is tracking their students' grades, using
+                              lists in Pyret.  Here are the students' grades on the first test.
+
+                              @code[#:multi-line #t]{
+                                    [list: 68, 64, 62, 100, 100, 68, 67]
+                              }
+
                               @itemlist[
                                       @item{
-                                            Students are given 3 examples of lists & context, 
-                                            and the 3 measures of center for each list
+                                            mean:  @code{75.57}
                                       }
                                       @item{
-                                            Students choose which measure is most accurate for 
-                                            that context.  The answer is different for each.
+                                            median:  @code{68}
                                       }
                                       @item{
-                                            At the end, we give heuristics:  mode is better for categorical,
-                                            or course grained data, mean is affected by outliers easily. 
+                                            mode:  @code{69}
+                                      }
+                              ]
+                      }
+                      @teacher{
+                              Highlight that the mean here is more affected by outliers;  the two
+                              100s are bringing the average up, when most students scored below 70.
+                              This is because mean is calculated using every value in the list,
+                              while the median is calculated with at most 2 values from the list.
+                      }
+                }
+                @point{
+                      @student{
+                              Here is a different list of student grades, from their second test.
+
+                              @code[#:multi-line #t]{
+                                    [list: 68, 68, 89, 91, 88, 93, 92]
+                              }
+
+                              @itemlist[
+                                      @item{
+                                            mean:  @code{84.14}
+                                      }
+                                      @item{
+                                            median:  @code{89}
+                                      }
+                                      @item{
+                                            mode:  @code{68}
+                                      }
+                              ]
+                      }
+                      @teacher{
+                              Highlight that even though 68 appears more than any one number,
+                              most of the scores are concentrated around ~90.
+                      }
+                }
+                @point{
+                      @student{
+                              Grades on the students' 3rd test:
+
+                              @code[#:multi-line #t]{
+                                    [list: 94, 96, 98, 85, 82, 70, 71]
+                              }
+
+                              @itemlist[
+                                      @item{
+                                            mean:  @code{85.14}
+                                      }
+                                      @item{
+                                            median:  @code{85}
+                                      }
+                                      @item{
+                                            modes:  @code{94, 96, 98, 85, 82, 70, 71}
+                                      }
+                              ]
+                      }
+                      @teacher{
+                              Highlight that, since all of the values are distinct,
+                              the mode is less useful than the median or mode.
+                      }
+                }
+                @point{
+                      @student{
+                              The teacher just gave the students their fourth test, and here
+                              is the list of grades:
+
+                              @code[#:multi-line #t]{
+                                    [list: 98, 96, 98, 85, 70, 70, 71]
+                              }
+
+                              @itemlist[
+                                      @item{
+                                            mean:  @code{84}
+                                      }
+                                      @item{
+                                            median:  @code{85}
+                                      }
+                                      @item{
+                                            modes:  @code{70, 98}
+                                      }
+                              ]
+                      }
+                      @teacher{
+                              Highlight that the mean and median are both weaker measures here,
+                              because the scores are clustered in two groups around the modes.
+                      }
+                }
+                @point{
+                      @student{
+                              In general, here are some guidelines for when to use 
+                              one measurement over the other:
+
+                              @itemlist[
+                                      @item{
+                                            If the data is unlikely to have values occurring multiple times
+                                            (like with decimals, or with grades), do not use mode.
+                                      }
+                                      @item{
+                                            If the data is more "course grained", meaning the data is
+                                            quantitative but there are only a small number of possible values
+                                            each entry can take, then mode will be useful.
+                                      }
+                                      @item{
+                                            If the data is going to have lots of outliers, then median
+                                            gives a better estimate of the center than mean.
                                       }
                               ]
                       }
@@ -447,22 +557,7 @@
 
                       }
                 }
-                @point{
-                      @student{
 
-                      }
-                      @teacher{
-                      
-                      }
-                }
-                @point{
-                      @student{
-
-                      }
-                      @teacher{
-                      
-                      }
-                }
         ]
    }
 
