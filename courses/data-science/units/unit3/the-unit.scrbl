@@ -97,25 +97,29 @@
                 @point{
                       @student{
                               @vocab{lists} are a new type:  they are collections of values.  Whereas tables are 2-dimensional collections
-                              of values, lists are 1-dimensional collections of values
+                              of values, lists are 1-dimensional collections of values.
 
                               @activity[#:forevidence "BS-IDE&1&1"]{
-                                      Open the TODO Unit 3 template file, and for each of these, add code to the definitions
-                                      window to extract a column as a list:
+                                      Open the @editor-link[#:public-id "0BxJ2mGqPUGt0Q0ZLaFNYdWZmUWc&v=c0b83ab" "Unit 3"] template file, 
+                                      and for each of these bullet points, add code to the definitions window to extract a column as a list:
 
                                       @itemlist[
                                               @item{
-                                                    Define a list called @code{name-list} that contains the name column from @code{presidents}.
+                                                    Define a list called @code{sodium-list} that contains the @code{sodium} column from @code{nutrition}.
                                               }
                                               @item{
-                                                    Define a list called @code{calories-list} containing the calories column from @code{nutrition}.
+                                                    Define a list called @code{calories-list} containing the @code{calories} column from @code{nutrition}.
                                               }
                                               @item{
-                                                    Define a list called @code{sugar-list} containing the sugar column from @code{nutrition}.
+                                                    Define a list called @code{gdp-list} containing the @code{gdp} column from @code{countries}.
+                                              }
+                                              @item{
+                                                    Define a list called @code{life-expectancy-list} that contains the 
+                                                    @code{median-life-expectancy} column from @code{countries}.
                                               }
                                       ]
 
-                                      Notice that these Lists contain either Strings, or Numbers.
+                                      Notice that these Lists contain either only Strings, or only Numbers.
                               }
                       }
                       @teacher{
@@ -580,33 +584,35 @@
         @points[
                 @point{
                       @student{
+                              @activity[#:forevidence "BS-IDE&1&1"]{
+                                      Turn to TODO in your workbooks and complete all
+                                      of the questions, using your Pyret program. 
+                              }
+                      }
+                      @teacher{
                               @itemlist[
                                       @item{
-                                            Students practice extracting & measuring center with lifespan data
+                                            This exercise gives students more practice using Pyret
+                                            to compute mean/median/mode.  Students will also see
+                                            first hand that calculating a median of medians of many lists
+                                            is not necessarily the same as the median of a larger list.
                                       }
                                       @item{
-                                            We explain why NOT to get median of medians, using 3 lists of size 3 example.
+                                            After all the students complete this workbook page,
+                                            discuss the implications of this for the countries table.
+                                            Taking the median of the @code{median-life-expectancy} column
+                                            is an inaccurate measure of the median life expectancy of humans
+                                            all over the world.  The most accurate measure of median human life
+                                            expectancy would require a table with every human as a row.
                                       }
+                                      @item{
+                                            The punchline of this portion of the exercise is:  
+                                            don't take the median of medians.
+                                      }
+
                               ]
-                      }
-                      @teacher{
+                              
 
-                      }
-                }
-                @point{
-                      @student{
-
-                      }
-                      @teacher{
-                      
-                      }
-                }
-                @point{
-                      @student{
-
-                      }
-                      @teacher{
-                      
                       }
                 }
         ]
