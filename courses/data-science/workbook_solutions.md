@@ -50,6 +50,51 @@
 
 ## Page 5
 
+### Presidents Table
+
+ - How many columns does the presidents 
+   table have? **46**
+ - What are the names of the columns? 
+   **presidency, name, party, home-state, year-started, year-ended**
+ - How many rows does the presidents 
+   table have (aside from the
+   header row)? **46**
+ - Does the `party` column have quantitative
+   or categorical data?  **Categorical**
+ - Is the data in the `home-state` column
+   categorical?  If so, how many
+   categories are there? **Yes, 50**
+ - Does the `year-started` column have 
+   categorical or quantitative data?
+   **Quantitative**
+ - What is the home state of
+   Millard Fillmore? **New York**
+ - What year did Rutherford B. Hayes
+   start his presidency? **1877**
+ - Who was the most recent president 
+   from Michigan?  **Gerald Ford**
+ - Who were the first president from
+   the federalist party? **John Adams**
+
+### Nutrition Table
+ - How many columns does the nutrition 
+   table have? **9**
+ - What are the names of the columns? 
+   **food, serving-size, calories, calories-from-fat, fat, cholesterol, sodium, sugar, protein**
+ - How many rows does the nutrition 
+   table have? **11**
+ - What kind of data does the calories
+   column have?  How can you tell?
+   **Quantitative, the question "does x have more calories than y" makes sense**
+ - How many grams of cholesterol does
+   the Hamburger have?  **30**
+ - Which has more sodium; a Cheeseburger
+   or a burrito?  **Burrito**
+ - Which food has the largest serving size?
+   **Chicken Salad**
+
+## Page 5
+
  - How many rows does the presidents 
    table have? **46**
  - How many columns does the presidents 
