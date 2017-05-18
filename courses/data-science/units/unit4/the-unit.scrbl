@@ -162,11 +162,10 @@
                               @code[#:multi-line #t]{
                                     bar-chart(food-list,
                                               cholesterol-list,
-                                              'Menu Item',
                                               _.{title: 'Cholesterol per Menu Item'})
                               }
 
-                              Here, the @code{bar-chart} function takes four arguments:
+                              Here, the @code{bar-chart} function takes three arguments:
                               @itemlist[
                                       @item{
                                             The first is the list of labels.  Each of these will
@@ -175,10 +174,6 @@
                                       @item{
                                             The second is the list of values.  Each of these 
                                             corresponds to the length of a bar on the chart.
-                                      }
-                                      @item{
-                                            The next argument is a String, which is 
-                                            the name of the horizontal axis.
                                       }
                                       @item{
                                             The final argument looks a little strange.  This
@@ -195,8 +190,8 @@
                                               _.{title: 'Cholesterol per Menu Item'})
                               }
 
-                              The @code{pie-chart} has a very similar contract:  it has all of the same
-                              arguments, except for the name of the horizontal axis.
+                              The @code{pie-chart} has the same contract:  It takes the list
+                              of labels, list of values, and PlotOptions.
                       }
                       @teacher{
                               @itemlist[
@@ -207,10 +202,18 @@
                                       }
                                       @item{
                                             More information on the @code{_.{}} syntax of the PlotOptions
-                                            can be found in the [@(hyperlink "https://www.pyret.org/docs/latest/plot.html#%28part._.The_.Options_.Types_and_.Default_.Values%29" "Pyret Documentation")]
+                                            can be found in the @(hyperlink "https://www.pyret.org/docs/latest/plot.html#%28part._.The_.Options_.Types_and_.Default_.Values%29" "Pyret Documentation")
                                       }
                               ]
                               
+                      }
+                }
+                @point{
+                      @student{
+                              What happens when you hover over a slice of the pie?
+                      }
+                      @teacher{
+                              It reveals the value and percentage of the whole.
                       }
                 }
                 @point{
@@ -241,7 +244,6 @@
                                             these tables before.
                                       }
                               ]
-                              
                       }
                 }
         ]
@@ -266,52 +268,101 @@
         @points[
                 @point{
                       @student{
+                              Recall the table of our favorite 4th grade class from Unit 2:
+
+                              @build-table/cols[
+                                    '("First" "Last" "Eye-Color")
+                                    '(("\"John\"" "\"Jane\"" "\"Javon\"" "\"Angela\"" "\"Jack\"" "\"Dominique\"" "\"Sammy\"" "\"Andrea\"")
+                                      ("\"Doe\"" "\"Smith\"" "\"Jackson\"" "\"Enriquez\"" "\"Thompson\"" "\"Rodriguez\"" "\"Carter\"" "\"Garcia\"")
+                                      ("\"Green\"" "\"Brown\"" "\"Brown\"" "\"Hazel\"" "\"Blue\"" "\"Hazel\"" "\"Blue\"" "\"Brown\""))
+                                     (lambda (r c) (para ""))
+                                     3 8
+                              ]
+
+                              @activity[#:forevidence "BS-IDE&1&1"]{
+                                      Turn to TODO in your workbook, and complete the exercise using this table.
+                              }
+                      }
+                      @teacher{
+
+                      }
+                }
+                @point{
+                      @student{
+                              By filling in the last bar, you have created a bar chart.  However, there's something
+                              special about chart.  What is different about this bar chart from the ones
+                              we have created before?
+                      }
+                      @teacher{
+                              Guide discussion towards this distinction:
                               @itemlist[
-                                      @item{ 
-                                            
+                                      @item{
+                                            Previous bar charts used a column from the table as the labels,
+                                            and another column as the values.
                                       }
                                       @item{
+                                            In this bar chart, we are using the @vocab{categories} of a column
+                                            as the labels, and the @vocab{frequency} of each category as the value.
+                                      }
+                              ]
+                      }
+                }
+                @point{
+                      @student{
+                              Here, we are looking at the Eye Color column, which contains categorical data.
+                              In this special kind of bar chart, we are computing the @vocab{frequency} of 
+                              each category, and that frequency relates to the length of each bar.  Since there
+                              are 3 people with brown eyes, the bar for Brown extends to 3 marks long.
+                      }
+                      @teacher{
+                      
+                      }
+                }
+                @point{
+                      @student{
+                              This special kind of bar chart is called a @vocab{frequency bar chart}.  We can
+                              create these charts with a new function in Pyret.  Below is an example that
+                              computes the frequency of categories in the @code{home-state} column
+                              of @code{presidents}.
 
+                              @code[#:multi-line #t]{
+                                    home-state-list = extract home-state from presidents end
+
+                                    freq-bar-chart(home-state-list,
+                                                   _.{title: 'Presidents from each State'})
+                              }
+
+                              The @code{freq-bar-chart} function takes two arguments:
+                              @itemlist[
+                                      @item{
+                                            A List<String> containing the labels in a table
                                       }
                                       @item{
-
+                                            A PlotOptions object, the same as @code{pie-chart} and @code{bar-chart}.
                                       }
                               ]
                       }
                       @teacher{
-
-                      }
-                }
-                @point{
-                      @student{
-
-                      }
-                      @teacher{
                       
                       }
                 }
                 @point{
                       @student{
-
+                              @activity[#:forevidence "BS-IDE&1&1"]{
+                                      @itemlist[
+                                              @item{
+                                                    Create a frequency bar chart for the @code{party} column in @code{presidents}.
+                                                    Which political party has created the most presidents?
+                                              }
+                                              @item{
+                                                    Create a frequency bar chart for the @code{continent} column in @code{countries}.
+                                                    Which continent has the most countries within it?
+                                              }
+                                      ]
+                              }
                       }
                       @teacher{
-                      
-                      }
-                }
-                @point{
-                      @student{
 
-                      }
-                      @teacher{
-                      
-                      }
-                }
-                @point{
-                      @student{
-
-                      }
-                      @teacher{
-                      
                       }
                 }
         ]
@@ -336,53 +387,36 @@
         @points[
                 @point{
                       @student{
+                              For the rest of your life, you will probably see bar charts 
+                              and pie charts in many different colors and formats.  To prepare 
+                              for this, we'll practice answering questions about several 
+                              different bar and pie charts from a variety of sources.
+                              @activity[#:forevidence "BS-IDE&1&1"]{
+                                      Turn to TODO in your workbook and answer the questions 
+                                      about each of the charts.
+                              }                          
+                      }
+                      @teacher{
+                              This workbook assignment could also become a homework assignment, or be
+                              made into a quiz/jeopardy style game.
+
+                              Image Sources:
                               @itemlist[
-                                      @item{ 
-                                            Read bar charts and pie charts (some from outside of Pyret)
-                                            and interpret them to answer questions.
-                                      }
-                                      @item{
+                                    @item{
+                                           @(hyperlink "http://study.com/cimages/multimages/16/pie_chart_2.JPG" "Accounting")
+                                    }
+                                    @item{
+                                           @(hyperlink "http://study.com/cimages/multimages/16/pie_chart_1.JPG" "Pet Ownership")
+                                    }
+                                    @item{
+                                           @(hyperlink "https://gurufrequent.files.wordpress.com/2015/05/simple_bar_chart.png" "Fruit Sales")
+                                    }
+                                    @item{
+                                           @(hyperlink "https://www.mathsisfun.com/data/images/bar-chart-movies.svg" "Movie Types")
+                                    }
 
-                                      }
-                                      @item{
-
-                                      }
                               ]
-                      }
-                      @teacher{
-
-                      }
-                }
-                @point{
-                      @student{
-
-                      }
-                      @teacher{
-                      
-                      }
-                }
-                @point{
-                      @student{
-
-                      }
-                      @teacher{
-                      
-                      }
-                }
-                @point{
-                      @student{
-
-                      }
-                      @teacher{
-                      
-                      }
-                }
-                @point{
-                      @student{
-
-                      }
-                      @teacher{
-                      
+                                                
                       }
                 }
         ]
