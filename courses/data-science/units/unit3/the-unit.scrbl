@@ -609,10 +609,7 @@
                                             The punchline of this portion of the exercise is:  
                                             don't take the median of medians.
                                       }
-
                               ]
-                              
-
                       }
                 }
         ]
