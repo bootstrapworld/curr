@@ -75,7 +75,7 @@
                 @point{
                         @student{
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Open the TODO Unit 5 template file, and type each of the following
+                                        Open the @editor-link[#:public-id "0BxJ2mGqPUGt0aVBzZFNTc1NMM0k" "Unit 5"] template file, and type each of the following
                                         lines of code into the interactions window, and hit Enter/Return.
 
                                         @itemlist[

@@ -154,7 +154,7 @@
             @point{
             		@student{
             				@activity[#:forevidence "BS-IDE&1&1"]{
-            						Open up the @editor-link[#:public-id "0BxJ2mGqPUGt0bnZKcHYxbG5HSG8&v=3a4fb05" "Unit 2"] template file.
+            						Open up the @editor-link[#:public-id "0BxJ2mGqPUGt0SDZlTWdmZWlEYlE" "Unit 2"] template file.
 
             						Make sure you are signed into your Google account.  All of the Pyret scripts you write will 
 									be saved into the code.pyret.org folder in your Google Drive.  Hit the Save a Copy button.

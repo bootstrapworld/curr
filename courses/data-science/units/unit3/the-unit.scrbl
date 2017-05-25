@@ -100,7 +100,7 @@
                               of values, lists are 1-dimensional collections of values.
 
                               @activity[#:forevidence "BS-IDE&1&1"]{
-                                      Open the @editor-link[#:public-id "0BxJ2mGqPUGt0Q0ZLaFNYdWZmUWc&v=c0b83ab" "Unit 3"] template file, 
+                                      Open the @editor-link[#:public-id "0BxJ2mGqPUGt0Zjl2Nk4yeTJzeU0" "Unit 3"] template file, 
                                       and for each of these bullet points, add code to the definitions window to extract a column as a list:
 
                                       @itemlist[

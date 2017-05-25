@@ -28,7 +28,7 @@
                 @point{
                       @student{
                               @activity[#:forevidence "BS-IDE&1&1"]{
-                                      Open the @editor-link[#:public-id "0BxJ2mGqPUGt0aXJVN1oyYkduSzg" "Unit 7"] template
+                                      Open the @editor-link[#:public-id "0BxJ2mGqPUGt0WWpheFVBNUNXX2s" "Unit 7"] template
                                       file, and use it to answer the following questions:
 
                                       @itemlist[
@@ -361,7 +361,7 @@
                                 Pyret lets you change the order of a table's rows with the @code{order} table operation.
                                 
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Return to your @editor-link[#:public-id "0BxJ2mGqPUGt0aXJVN1oyYkduSzg" "Unit 7"] template file.  
+                                        Return to your @editor-link[#:public-id "0BxJ2mGqPUGt0WWpheFVBNUNXX2s" "Unit 7"] template file.  
                                         Type @code{nutrition-ordered} into the interactions window.
                                 }
 

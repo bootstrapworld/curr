@@ -322,7 +322,7 @@
                                 application, with functions that consume lists.
 
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Open the @editor-link[#:public-id "0BxJ2mGqPUGt0RkxQRF9KMHZIMjg" "Unit 6"] template file, and hit run.
+                                        Open the @editor-link[#:public-id "0BxJ2mGqPUGt0aER1ZTdSZEFBRjA" "Unit 6"] template file, and hit run.
                                 }
 
                                 The code in this starter file creates the scatter plot for the restaurant example we
