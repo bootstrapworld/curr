@@ -18,7 +18,8 @@
         #:product-outcomes @itemlist[@item{Students will use nested structures to add complexity to their games}]
         #:standards  (list "N-Q" "BS-M" "BS-PL.3" "BS-DS.1" "BS-DS.2" "BS-W")
         #:materials @itemlist[@item{}]
-        #:preparation @itemlist[@item{The @editor-link[#:public-id "__________" "Rotating Pinwheels"] file preloaded on students' machines}]
+        #:preparation @itemlist[@item{The @editor-link[#:public-id "0B9rKDmABYlJVMjF3OU83dGtaVTQ&v=a49eb01" "Pinwheels Starter #1"] file}
+                                @item{The @editor-link[#:public-id "0B9rKDmABYlJVcFFCeDlnTm4zSGM&v=a49eb01" "Pinwheels Starter #2"] file preloaded on students' machines}]
         #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -31,7 +32,7 @@
                         @point{@student{Making changes to your structure, or writing functions to alter it, can get extremely complex. One way to manage this complexity is to use @italic{nested} structures: Just like we can write functions to handle repetitive processes, we can make structures to handle repetitive data. For example, if each of our 4 game characters have their own x and y coordinates, we could make one @code{Position} structure to use for each character. Then, instead of our game structure containing 8 numbers, it only contains 4 @code{Position}s.}
                                 @teacher{}}
                                 
-                                @point{@student{Let's start out with a small animation to explore the benefits of nested structures. Open the @editor-link[#:public-id "__________" "Rotating Pinwheels"] file in Pyret, and click "Run". We see four colorful pinwheels spinning in the breeze. Now, take a look at the code:
+                                @point{@student{Let's start out with a small animation to explore the benefits of nested structures. Open the @editor-link[#:public-id "0B9rKDmABYlJVMjF3OU83dGtaVTQ&v=a49eb01" "Pinwheels Starter #1"] file in Pyret, and click "Run". We see four colorful pinwheels spinning in the breeze. Now, take a look at the code:
 
 @code[#:multi-line #t]{# A PinwheelState is the angle of rotation for 4 pinwheels
 data PinwheelState:
@@ -51,7 +52,7 @@ The only things that change in this animation are the angles of rotaton for each
                          @teacher{}}
                  
                  @point{@student{Now we have a nice animation of pinwheels spinning at different speeds, but what if we had started off by making each individual pinwheel @italic{its own structure}? As we'll see shortly, this can help save us some time and headaches down the road, if we want to add to our animation later. 
-                                  @activity{Open the @editor-link[#:public-id "__________" "Nested Pinwheels Starter"] file on your computer and take a look at the code. What differences do you see between this starter file and the first?}}
+                                  @activity{Open the @editor-link[#:public-id "0B9rKDmABYlJVcFFCeDlnTm4zSGM&v=a49eb01" "Pinwheels Starter #2"] file on your computer and take a look at the code. What differences do you see between this starter file and the first?}}
                          @teacher{}}
                  
                  @point{@student{This animation looks exactly the same, but the data structure and the code is slightly different. This time, the @code{PinwheelState} data structure contains four @italic{Pinwheels}, each their own structure, instead of four numbers. The angle of rotation is now contained inside the @code{Pinwheel} structure: @code[#:multi-line #t]{# A Pinwheel is an angle of rotation
@@ -82,20 +83,23 @@ STARTING-PINWHEELS = pinwheels(pw(60), pw(3), pw(25), pw(70))
                  @point{@student{Let's do the same activity for the nested version of the code, where we make each pinwheel spin at a different speed. @activity{Print out the following code screenshot: __[Link to N-Pinwheels-1]_____ and underline or highlight each spot in the code you would need to change in order to change each pinwheel's speed independently. Once you've identified which sections will need to change, edit the nested version of the program on the computer.}}
                                  @teacher{Point out the differences in underlining between the two code screenshots. Note that when students finish this activity, both of the animations will look the same- but one program will have been much more straightforward to modify! We wrote a bit more code at the beginning to set up the nested structures, but that paid off later by giving us more flexibility to change the behavior of the pinwheels.}}
                  
-                 @bitmap{images/NN-Pinwheels1-HighlightedSmall.png}  
-                 @bitmap{images/N-Pinwheels1-HighlightedSmall.png} 
+                    @point{@student{
+                                    @bitmap{images/NN-Pinwheels1-HighlightedSmall.png}  
+                                    @bitmap{images/N-Pinwheels1-HighlightedSmall.png}
                  
-                    @point{@student{Just by looking at the differences on paper, we can see the difference in complexity of changing our animations. In order to make each pinwheel spin at a different speed, much more of the non-nested program will need to change, as opposed to the nested version where only the @code{Pinwheel} structure, @code{STARTING-PINWHEELS} instance, and the @code{update-pinwheel} function need to be edited.}
+                 Just by looking at the differences on paper, we can see the difference in complexity of changing our animations. In order to make each pinwheel spin at a different speed, much more of the non-nested program will need to change, as opposed to the nested version where only the @code{Pinwheel} structure, @code{STARTING-PINWHEELS} instance, and the @code{update-pinwheel} function need to be edited.}
                             @teacher{}}
                     
                     @point{@student{What if we wanted to add a breeze to our animation, and make the pinwheels move across the screen to the left? Let's assume that each pinwheel moves at the same speed, but each of their x-coordinates will need to change. @activity{Go through the same process as before: Starting with the non-nested version of the code, print out these code screenshots: ______[Link to NN-Pinwheels-2 and N-Pinwheels-2]______, and underline or highlight the places in the code you would need to edit in order to change the x-coordinates of each pinwheel. Do this for both the nested and non-nested versions of the animation.}}
                           @teacher{@bold{Optonal:} For practice, have students make this change in both programs on the computer. Have them pay special attention to their helper functions- will they be able to use the existing @code{update-pinwheel} in the non-nested version of the animation?}}
-                    
-          @bitmap{images/NN-Pinwheels2-HighlightedSmall.png}  
-          @bitmap{images/N-Pinwheels2-HighlightedSmall.png} 
-                    
-                    @point{@student{As before, we end up underlining, and needing to change @italic{much} more of the code in the non-nested version of the animation. We also may realize something important about the non-nested code: if both a pinwheel's angle of rotation @italic{and} its x-coordinate are changing, we're no longer able to use our @code{update-pinwheel} @vocab{helper function}. Previously, this function consumed an angle and speed, and added these numbers together to produce the new angle. However, since functions can only return one thing at a time, we can't use this function to produce the updated angle and updated x-coordinate. Instead, the work of decreasing the x-coordinate must be done inside @code{next-state-tick}. Writing that code is nothing new, but wouldn't it be nice to leave @code{next-state-tick} alone, and update each pinwheel individually inside the @vocab{helper function}?}
-                            @teacher{}}
+         
+                    @point{@student{
+                                     @bitmap{images/NN-Pinwheels2-HighlightedSmall.png}  
+                                     @bitmap{images/N-Pinwheels2-HighlightedSmall.png}
+                                     
+                                     As before, we end up underlining, and needing to change @italic{much} more of the code in the non-nested version of the animation. We also may realize something important about the non-nested code: if both a pinwheel's angle of rotation @italic{and} its x-coordinate are changing, we're no longer able to use our @code{update-pinwheel} @vocab{helper function}. Previously, this function consumed an angle and speed, and added these numbers together to produce the new angle. However, since functions can only return one thing at a time, we can't use this function to produce the updated angle and updated x-coordinate. Instead, the work of decreasing the x-coordinate must be done inside @code{next-state-tick}. Writing that code is nothing new, but wouldn't it be nice to leave @code{next-state-tick} alone, and update each pinwheel individually inside the @vocab{helper function}?}
+                            @teacher{For reference, the complete code for the nested and non-nested versions of the pinwheels file including speed can be found here: @itemlist[@item{@editor-link[#:public-id "0B9rKDmABYlJVWWM2aTdUZG02ZGM&v=a49eb01" "Non-nested Pinwheels+Speed"]}
+                                                  @item{@editor-link[#:public-id "0B9rKDmABYlJVaUsxbUkyLUJhZDg&v=a49eb01" "Nested Pinwheels+Speed"]}]}}
                     
                     @point{@student{Compare the updating functions for the non-nested version of the code:
           @code[#:multi-line #t]{
@@ -191,6 +195,7 @@ PLAY  = game(char(320, 100), char(600, 75), 5, char(300, 250), 20, 0)
                     
                     @point{@student{Now take a look at YOUR video games. If you were to re-write your program to use nested structures, what would it look like? Do you have multiple characters in your game with their own x, y, and speed? Do you have any opportunities to use @vocab{helper functions} to move characters in the same way? @activity{For practice, re-write the data block and sample instances for your video game using nested structures.}}
                             @teacher{@bold{Optional:} If you like, have students completely @vocab{refactor} their entire game code to make use of nested structures and helper functions. }}
+                    
                     ]
          }
        }
