@@ -87,6 +87,12 @@
   		                            | <a href="solutions/Moving-object-solutions.pdf">answers</a>]
   		                    </span>
   		                  </li>
+  		                  <li>Matching Data
+  		                    <span class="links">
+  		                      [<a href="exercises/MatchingData.pdf">original</a>
+  		                            | <a href="solutions/MatchingData-solutions.pdf">answers</a>]
+  		                    </span>
+  		                  </li>
   		                </ul>
   		                <h3><a href="../../units/unit4/">Unit 4</a></h3>
   		                <ul>
@@ -100,6 +106,12 @@
   		                    <span class="links">
   		                      [<a href="exercises/CodeReading.pdf">original</a>
   		                           | <a href="solutions/CodeReading-solutions.pdf">answers</a>]
+  		                    </span>
+  		                  </li>
+  		                  <li>Detecting Helper Functions
+  		                    <span class="links">
+  		                      [<a href="exercises/DetectingHelpers.pdf">original</a>
+  		                            | <a href="solutions/DetectingHelpers-solutions.pdf">answers</a>]
   		                    </span>
   		                  </li>
     		                </ul>
