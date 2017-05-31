@@ -282,42 +282,132 @@
         @points[
                 @point{
                       @student{
+                              @activity[#:forevidence "BS-IDE&1&1"]{
+                                      Open the TODO template file.  Hit the run button,
+                                      then type each of these commands into the interactions
+                                      window and hit Enter.
 
+                                      @itemlist[
+                                            @item{
+                                                  @code{restaurants}
+                                            }
+                                            @item{
+                                                  @code{restaurants-sieved}
+                                            }
+                                      ]
+
+                                      What is different about these two tables?
+                              }
                       }
                       @teacher{
-
+                              Guide students' discussion towards these points:
+                              @itemlist[
+                                    @item{
+                                          @code{restaurants-sieved} has fewer rows
+                                    }
+                                    @item{
+                                          All of the restaurants in @code{restaurants-sieved}
+                                          have a rating greater than or equal to 4.0
+                                    }
+                              ]
                       }
                 }
                 @point{
                       @student{
-
+                              So far in this unit, you have answered question using only some
+                              rows in a table, and have learned how to ask questions about
+                              data using comparisons and booleans.  The new table operation
+                              @vocab{sieve} combines these two concepts.
                       }
                       @teacher{
-                      
+                              Many students may not have seen the word sieve before.  Explain
+                              to them that a sieve is used to separate gold/precious metal
+                              from dirt.  In this context, we separate the gold (rows that answer
+                              our question with 'true') from dirt (rows that answer our question
+                              with 'false').
                       }
                 }
                 @point{
                       @student{
+                              @code[#:multi-line #t]{
+                                    restaurants-sieved = sieve restaurants using rating:
+                                        rating >= 4
+                                    end
+                              }
 
+                              @itemlist[
+                                    @item{
+                                          Every @code{sieve} query starts with the same keyword:
+                                          @code{sieve}.
+                                    }
+                                    @item{
+                                          Next we name the table we want to sieve.  In this
+                                          case, it is the @code{restaurants} table.
+                                    }
+                                    @item{
+                                          After the table name comes the keyword @code{using},
+                                          which tells Pyret what columns are being used to
+                                          ask a question of each row.
+                                    }
+                                    @item{
+                                          Then we give the names of each column being used,
+                                          followed by a colon @code{:}.
+                                          In this case we are only using one column, which
+                                          is the @code{rating} column.
+                                    }
+                                    @item{
+                                          On the next line is the most important part:  this
+                                          is a boolean expression that asks the question "is
+                                          the restaurant's rating at least 4.0?".  Notice that
+                                          we can use the column name the same way we can use
+                                          a variable, within this expression.
+                                    }
+                                    @item{
+                                          Finally, like all table queries, we end with the
+                                          @code{end} keyword.
+                                    }
+                              ]
                       }
                       @teacher{
-                      
+                              Some students may try to use column names as variables outside
+                              of table queries, but this will throw errors.  For these students,
+                              let them know that to write expressions with single columns (not
+                              in table queries), they must use @code{extract}.
                       }
                 }
                 @point{
                       @student{
+                              @activity[#:forevidence "BS-IDE&1&1"]{
+                                      Add code to your definitions window to create the following:
 
+                                      @itemlist[
+                                            @item{
+                                                  A table called @code{nutrition-sieved} that contains
+                                                  only foods with less than 250 calories.
+                                            }
+                                            @item{
+                                                  A table called @code{presidents-sieved} that contains
+                                                  only presidents with the home state "California".
+                                            }
+                                      ]
+
+                                      For each table, uncomment the scaffold code to help create
+                                      these definitions.  
+                              }
                       }
                       @teacher{
-                      
-                      }
-                }
-                @point{
-                      @student{
-
-                      }
-                      @teacher{
-                      
+                              @itemlist[
+                                    @item{
+                                          Have students delete every instance of TODO in the code they
+                                          uncomment, and replace it with code.
+                                    }
+                                    @item{
+                                          When attempting the @code{presidents-sieved} problem,
+                                          some students will probably run into the bug
+                                          caused by capitalization in string comparison.
+                                          
+                                    }
+                              ]
                       }
                 }
         ]
@@ -325,7 +415,7 @@
 
 @lesson/studteach[
      #:title "Sieve, Order, and Select"
-     #:duration "20 minutes"
+     #:duration "30 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -342,7 +432,7 @@
         @points[
                 @point{
                       @student{
-
+                              
                       }
                       @teacher{
 
