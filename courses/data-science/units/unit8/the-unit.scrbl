@@ -28,7 +28,7 @@
                 @point{
                       @student{
                               @activity[#:forevidence "BS-IDE&1&1"]{
-                                      Turn to TODO in your workbooks and complete the warmup exercise asking questions with tables.
+                                      Turn to TODO Page 20 in your workbooks and complete the warmup exercise asking questions with tables.
                               }
                       }
                       @teacher{
@@ -228,7 +228,7 @@
                 @point{
                       @student{
                               @activity[#:forevidence "BS-IDE&1&1"]{
-                                      Turn to TODO in your workbooks, and complete the exercise.  Call 
+                                      Turn to TODO Page 21 in your workbooks, and complete the exercise.  Call 
                                       over the teacher when you have finished the worksheet
                               }
                       }
@@ -265,7 +265,7 @@
 
 @lesson/studteach[
      #:title "Sieve in Pyret"
-     #:duration "20 minutes"
+     #:duration "30 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -283,7 +283,7 @@
                 @point{
                       @student{
                               @activity[#:forevidence "BS-IDE&1&1"]{
-                                      Open the TODO template file.  Hit the run button,
+                                      Open the @editor-link[#:public-id "0BxJ2mGqPUGt0RnFuc3NDWlFSMzg" "Unit 8"] template file.  Hit the run button,
                                       then type each of these commands into the interactions
                                       window and hit Enter.
 
@@ -398,7 +398,7 @@
                       @teacher{
                               @itemlist[
                                     @item{
-                                          Have students delete every instance of TODO in the code they
+                                          Have students delete every instance of [REPLACE ME WITH CODE] in the code they
                                           uncomment, and replace it with code.
                                     }
                                     @item{
@@ -410,68 +410,35 @@
                               ]
                       }
                 }
-        ]
-   }
-
-@lesson/studteach[
-     #:title "Sieve, Order, and Select"
-     #:duration "30 minutes"
-     #:overview ""
-     #:learning-objectives @itemlist[]
-     #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[]
-     #:standards (list)
-     #:materials @itemlist[]
-     #:preparation @itemlist[]
-     #:pacings (list 
-                @pacing[#:type "remediation"]{@itemlist[@item{}]}
-                @pacing[#:type "misconception"]{@itemlist[@item{}]}
-                @pacing[#:type "challenge"]{@itemlist[@item{}]}
-                )
-      ]{
-        @points[
                 @point{
                       @student{
+                              Like with @code{select} and @code{order}, @code{sieve} is more powerful
+                              when used with other table commands.
+
+                              @activity[#:forevidence "BS-IDE&1&1"]{
+                                      What countries in Asia have the top 3 highest GDP values?
+                                      Turn to TODO Page 22 in your workbooks, and complete the exercise
+                                      to write the code to answer this question.  Then, add 
+                                      this code to your Pyret programs and check your answer.
+                              }
+                      }
+                      @teacher{
+                              @itemlist[
+                                    @item{
+                                          This workbook exercise is the first example of students writing out
+                                          a Table Plan on paper.  This is a process for breaking down a table
+                                          generation problem into 4 different queries.  The students will use this process
+                                          to create complex tables from the starting data they have seen in the course.
+                                    }
+                                    @item{
+                                          Emphasize that all of the code blocks (of which there are 3 in the worksheet) 
+                                          that students fill in need to be added to their definitions windows.
+                                    }
+                              ]
                               
                       }
-                      @teacher{
-
-                      }
-                }
-                @point{
-                      @student{
-
-                      }
-                      @teacher{
-                      
-                      }
-                }
-                @point{
-                      @student{
-
-                      }
-                      @teacher{
-                      
-                      }
-                }
-                @point{
-                      @student{
-
-                      }
-                      @teacher{
-                      
-                      }
-                }
-                @point{
-                      @student{
-
-                      }
-                      @teacher{
-                      
-                      }
                 }
         ]
    }
-
 }
 
