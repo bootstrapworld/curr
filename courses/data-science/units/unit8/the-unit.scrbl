@@ -1,6 +1,6 @@
 #lang curr/lib
 
-@title{Unit 8: Table Operations Part 2}
+@title{Unit 8: Booleans, Comparison, and Sieves}
 
 @declare-tags[]
 

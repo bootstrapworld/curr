@@ -1,6 +1,6 @@
 #lang curr/lib
 
-@title{Unit 7: Table Operations Part 1}
+@title{Unit 7: Select and Order}
 
 @declare-tags[]
 
