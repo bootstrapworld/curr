@@ -878,17 +878,17 @@
                              ;(para #:style bs-header-style/span "Unit Overview")
                              ;(para #:style (bootstrap-div-style/id "overviewDescr") description)
                              (if product-outcomesItems (product-outcomes product-outcomesItems) 
-                                 (summary-data/auto 'product-outcomes "Product Outcomes"))
+                                 (summary-data/auto 'product-outcomes (translate 'iHeader-product))
                              (learn-evid-from-standards)
                              (if length (length-of-lesson length) (length-of-unit/auto))
                              (gen-glossary)
                              (if (audience-in? (list "teacher" "volunteer"))
                                  (if materialsItems (materials materialsItems) 
-                                     (summary-data/auto 'materials "Materials"))
+                                     (summary-data/auto 'materials (translate 'iHeader-mat)))
                                  (elem))
                              (if (audience-in? (list "teacher" "volunteer"))
                                  (if preparationItems (preparation preparationItems) 
-                                     (summary-data/auto 'preparation "Preparation"))
+                                     (summary-data/auto 'preparation (translate 'iHeader-preparation)))
                                  (elem))
                              (if lang-table 
                                  (if (list? (first lang-table))
@@ -903,7 +903,7 @@
 ;creates the length of the lesson based on input
 ;input ONLY THE NUMBER!
 (define (length-of-lesson l)
-  (para #:style bs-header-style/span (format "Length: ~a minutes" l)))
+  (para #:style bs-header-style/span (format (string-append (translate 'length)": ~a "(translate 'minutes)) l))))
 
 (define (length-of-unit/auto)
   (traverse-block
@@ -990,13 +990,13 @@
   (format-key-terms str terms-to-ital italic))
 
 (define exercise-terms-to-italicize 
-  (list "Circle of Evaluation" 
-        "Arithmetic Expression" 
-        "arithmetic expression"
-        "Expression"
-        "Example"
-        "Contract" 
-        "code"))
+  (list (translate 'c-eval)
+        (translate 'cap-a-exp) 
+        (translate 'low-a-exp)
+        (translate 'exp)
+        (translate 'example)
+        (translate 'contract) 
+        (translate 'code)))
 
 (define (exercise-handout #:title [title #f]
                           #:instr [instr #f]
@@ -1005,7 +1005,7 @@
   ;(printf "processing handout~n")
   ;(printf "evidence is ~a~n" forevidence)
   ;(printf "body has length ~a~n~n" (length body))
-  (let ([full-title (if title (string-append "Exercise: " title) "Exercise")])
+  (let ([full-title (if title (string-append (translate 'exercise) ": " title) (translate 'exercise))])
     (interleave-parbreaks/all
      (list (head-title-no-content full-title)
            (elem #:style (bootstrap-div-style/id "homeworkInfo") "")
@@ -1013,7 +1013,7 @@
            (nested #:style bs-content-style
                    (nested #:style bs-handout-style
                            (interleave-parbreaks/all
-                            (cons (para #:style bs-exercise-instr-style (bold "Directions: ") 
+                            (cons (para #:style bs-exercise-instr-style (bold (string-append (translate 'directions) ": ")) 
                                         (italicize-within-string instr exercise-terms-to-italicize))
                                   body))))
            (copyright)))))
@@ -1082,12 +1082,12 @@
                    (nested #:style (bootstrap-div-style "ExtraExercises")
                            (interleave-parbreaks/all
                             (list 
-                             (para #:style bs-lesson-title-style "Additional Exercises:")
+                             (para #:style bs-lesson-title-style (string-append (translate 'add-exer) ":"))
                              (apply itemlist/splicing 
                                     (map (lambda (exloc)
                                            (let-values ([(extitle exforevid) 
                                                          (if (exercise-locator/dr-assess? exloc)
-                                                             (values (string-append "Check This Design Recipe: "
+                                                             (values (string-append (translate 'checkDR) ":")
                                                                                     (exercise-locator/dr-assess-descr exloc))
                                                                      #f)
                                                              (extract-exercise-data exloc)
@@ -1208,7 +1208,7 @@
 ;; produces a link to the standards documents
 (define (standards-link descr)
   (hyperlink #:style bootstrap-hyperlink-style
-             "http://www.bootstrapworld.org/materials/Standards.shtml"
+             (translate 'slink)
              descr))
 
 ;; wraps a hyperlink in the bootstrap styling tag
@@ -1248,7 +1248,7 @@
     ;                                                         (format "~a.html" name)))])))
   (list (hyperlink #:style bootstrap-hyperlink-style
                    (path->string the-relative-path)
-                   "Page " (number->string 
+                   (string-append (translate 'page) " ") (number->string 
                             (cond [page page] 
                                   [name (let ([num (get-workbook-page/name name)])
                                           (if num num
@@ -1293,7 +1293,7 @@
    [html
     (sxml->element
      `(div (@ (style "float: right"))
-           (a (@ (href "http://www.lulu.com/commerce/index.php?fBuyContent=14790241"))
+           (a (@ (href (translate 'lulu-link)))
               (img (@ (border "0") 
                       (alt "Support independent publishing: Buy this book on Lulu.")
                       (src "http://static.lulu.com/images/services/buy_now_buttons/en/book.gif?20140805085029"))))))]
