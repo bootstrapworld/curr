@@ -6,6 +6,7 @@
 ; there are comments for translators to indicate what each phrase is and where exactly it
 ; is located, and there are separate comments for developers to see where the statements
 ; are generated in the back end.
+;Translator; Capitalization, punctuation, and spacing should be maintained to the best of your ability
 ;Developer; Developer comments begin with a function name. If not otherwise indicated, these methods
           ; can be found within form-elements.rkt. Alternative racket source files will be indicated next
           ; to the function name.
@@ -24,6 +25,17 @@
     (btn-flip "flip")
 
 
+    
+
+    ;Translator; IGNORE THE FOLLOWING WORDS UNTIL "copyright section"
+    ;Developer; The following are links to websites to buy the workbook. If there are versions
+              ; of this website in the language being translated to, place it here.
+    (lulu-link "http://www.lulu.com/commerce/index.php?fBuyContent=14790241")
+
+
+
+    
+
     ;;;;;;;;;;;;;;;;copyright section;;;;;;;;;;;;;;;;;;;;;
     ;Translator; Found at the bottom of most pages; includes all copyright information
 
@@ -41,6 +53,46 @@
                ; Note that this does not include the hyperlink at the end of the sentence
     ;Developler; copyright
     (copyright-permissions "Permissions beyond the scope of this license may be available by contacting")
+    ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+    ;;;;;;;;;;;;;;;;;;EXERCISE HANDOUTS;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+    ;Translator; This is going in the title of example handouts (either prepended to a title or standing alone as the title)
+    ;Developer; exercise-handout
+    (exercise "Exercise")
+
+    ;Translator; This goes before the directions provided to students on exercise handouts
+    ;Developer; exercise-handout
+    (directions "Directions")
+    
+
+                  ;;;Special Keywords;;;
+    ;Translator; These words are searched for within the instructions of exercise handouts so they can
+               ; be specially italicized. Therefore, the translations given below should match the translations used
+               ; when entering the instructions to generate an exercise handout
+    ;Developer; exercise-terms-to-italicize
+    (c-eval "Circle of Evaluation")
+    (low-a-exp "arithmetic Expression")
+    (cap-a-exp "Arithmetic Expression")
+    (exp "Expression")
+    (example "Example")
+    (contract "Contract")
+    (code "code")
+
+    
+
+
+
+
+
+    
+
+
+
+    ;;;;;;;;;;;;;;;;UNIT;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 
 
 
@@ -70,6 +122,14 @@
     ;Developer; agenda
 
 
+             ;;;Length Marker;;;
+    ;Translator; This is found directly above the Glossary in the intro section. This indicates the total
+               ; the total time of the unit lesson
+    ;Developer; length-of-lesson
+    (length "Length")
+    (minutes "Minutes")
+
+    
              ;;;Bootstrap Language Table;;;
     ;Translator; Found at the bottom of the intro/overview section at the beginning of unit pages
 
@@ -81,6 +141,12 @@
 
 
              ;;;Standards Subtitle
+
+    ;Translator; IGNORE THE FOLLOWING 2 LINES. This is a link that developers will alter
+    ;Developer; This link will need to be changed based on what language you're in
+    (s-link "http://www.bootstrapworld.org/materials/Standards.shtml")
+
+    
     ;Translator; The subtitle/description found beneath Standards and Evidence Statements.
                ; NOTE that these three phrases appear together in the order listed- they should
                ; be translated to be read clearly in succession, together.
@@ -141,12 +207,28 @@
 
 
 
-    ;;;;;;;;;;;;;;;;;;;;;;Lesson Sections;;;;;;;;;;;;;;;;;;;;;;;;;
+                            ;;;Lesson Sections;;;
+
+               ;;;Additional Exercises;;;
+    ;Translator; This is the label for the additional exercises found at the bottom of the page
+    ;Developer; gen-exercises
+    (add-exer "Additional Exercises")
+    ;Translator; This is something added to certain exercise link titles (See Unit 4 for examples)
+               ; This is a directive.
+    (checkDR "Check This Design Recipe")
+    
                ;;; Section headers ;;;
     ;Translator; this is the time listed on the righ of every purple block of the
                ;lesson sections. simply change the word for time or duration
     ;Developer; lesson/studteach
     (sHeader-duration "Time")
+
+               ;;; Section Bodies ;;;
+    ;Translator; This is the text associated with a link that sends the student to the student workbook.
+               ; This is meant to say "Page" which will be followed by a page number
+    ;Developer; worksheet-link
+    (page "Page")
+    
 
 
 
