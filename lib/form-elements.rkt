@@ -212,10 +212,10 @@
 (define (copyright . body)
   (para #:style (bootstrap-div-style/id "copyright")
    (hyperlink #:style bootstrap-hyperlink-style "http://creativecommons.org/licenses/by-nc-nd/4.0/" creativeCommonsLogo)
-   "Bootstrap by Emmanuel Schanzer, Emma Youndtsmith, Kathi Fisler, Shriram Krishnamurthi, Joe Politz and Ben Lerner is licensed under a "
-   (hyperlink #:style bootstrap-hyperlink-style "http://creativecommons.org/licenses/by-nc-nd/4.0/" "Creative Commons 4.0 Unported License")
-   ". Based on a work at " (hyperlink "http://www.bootstrapworld.org/" "www.BootstrapWorld.org")
-   ". Permissions beyond the scope of this license may be available by contacting "
+   (translate 'copyright-names)
+   (hyperlink #:style bootstrap-hyperlink-style "http://creativecommons.org/licenses/by-nc-nd/4.0/" (translate 'copyright-license))
+   (string-append ". " (translate 'copyright-based) " ") (hyperlink "http://www.bootstrapworld.org/" "www.BootstrapWorld.org")
+   (string-append ". " (translate 'copyright-permissions) " ")
    (hyperlink "mailto:schanzer@BootstrapWorld.org" "schanzer@BootstrapWorld.org") "."))
 
 ;; activities that are interspersed into the notes
