@@ -665,7 +665,7 @@
              (nested #:style (bootstrap-div-style/id/nested "LearningObjectives")
                      (interleave-parbreaks/all
                       (list
-                       (para #:style bs-header-style/span "Standards and Evidence Statements:")
+                       (para #:style bs-header-style/span (string-append (translate iHeader-standar"Standards and Evidence Statements:")
                        (list "Standards with"
                              " prefix BS are specific to Bootstrap; others are from the Common Core."
                              " Mouse over each standard to see its corresponding evidence statements."
