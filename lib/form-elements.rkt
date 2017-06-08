@@ -32,6 +32,7 @@
          "exercise-generator.rkt"
 	 "math-rendering.rkt"
          "wescheme.rkt"
+         "./../translating/translator.rkt"
          )
  
 ;; FIXME: must add contracts!
@@ -271,8 +272,8 @@
                           (list 
                            (style "BootstrapTable" '(center))
                            (style "BootstrapTable" '(center))))))   
-                 (cons (list (para #:style "BootstrapTableHeader" "Types")
-                             (para #:style "BootstrapTableHeader" "Functions"))
+                 (cons (list (para #:style "BootstrapTableHeader" (translate 'lang-table-types))
+                             (para #:style "BootstrapTableHeader" (translate 'lang-table-func)))
                        (map (lambda (r) (map para r)) rows)))))
 
 ;; build-table : list[string] list[list[element]] (number number -> element) 
@@ -318,30 +319,30 @@
 
 (define (materials . items)
   (list (compound-paragraph bs-header-style 
-                            (decode-flow (list "Materials and Equipment:")))
+                            (decode-flow (list (string-append (translate 'iHeader-materials)":"))))
         (apply itemlist/splicing items #:style "BootstrapMaterialsList")))
-
+  
 (define (objectives . items)
   (list (compound-paragraph bs-header-style 
-                            (decode-flow (list "Learning Objectives:")))
+                            (decode-flow (list (string-append (translate 'iHeader-learning)":"))))
         (apply itemlist/splicing items #:style "BootstrapLearningObjectivesList")))
 
 (define (evidence-statements . items)
   (list (compound-paragraph bs-header-style 
-                            (decode-flow (list "Evidence Statements:")))
+                            (decode-flow (list (string-append (translate 'iHeader-evidence)":"))))
         (apply itemlist/splicing items #:style "BootstrapEvidenceStatementsList")))
 
 (define (product-outcomes . items)
   (list (compound-paragraph bs-header-style 
-                            (decode-flow (list "Product Outcomes:")))
+                            (decode-flow (list (string-append (translate 'iHeader-product)":"))))
         (apply itemlist/splicing items #:style "BootstrapProductOutcomesList")))
 
 (define (exercises . content)
-  (lesson-section "Exercises" content))
+  (lesson-section (string-append (translate 'iHeader-exercises)":") content))
 
 (define (preparation . items)
   (list (compound-paragraph bs-header-style 
-                            (decode-flow (list "Preparation:")))
+                            (decode-flow (list (string-append (translate 'iHeader-preparation)":"))))
         (apply itemlist/splicing items #:style "BootstrapPreparationList")))
   
 ;; Cooperates with the Lesson tag.
@@ -372,13 +373,13 @@
          
        (nested #:style bootstrap-agenda-style 
                (interleave-parbreaks/all
-               (list "Agenda"
+               (list (translate 'agenda-title)
                      (apply 
                       itemlist/splicing 
                       #:style "BootstrapAgendaList"
                       (for/list ([a-lesson lessons])
                         (item (para (elem #:style "BSLessonDuration"
-                                          (format "~a min" 
+                                          (format (string-append"~a "(translate 'agenda-min) )
                                                   (extract-minutes a-lesson)))
                                     (maybe-hyperlink
                                      (elem #:style "BSLessonName"
@@ -428,7 +429,7 @@
              (nested #:style (bootstrap-div-style/id/nested "Glossary")
                      (interleave-parbreaks/all
                       (list
-                       (para #:style bs-header-style/span "Glossary:")
+                       (para #:style bs-header-style/span (string-append (translate 'iHeader-glossary) ":"))
                        (apply itemlist/splicing
                               (for/list ([term terms])
                                 (cond [(and (list? term) (string=? "" (second term)))
@@ -563,15 +564,15 @@
                   (nested #:style bs-logo-style (image logo.png "bootstrap logo"))
                   ;; agenda would insert here
                   (nested #:style bs-lesson-title-style
-                          (nested #:style bs-lesson-name-style "Overview"))
+                          (nested #:style bs-lesson-name-style (translate 'iHeader-overview)))
                   overview
-                  (lesson-section "Learning Objectives" learning-objectives)
-                  (lesson-section "Evidence Statements" evidence-statements)
-                  (lesson-section "Product Outcomes" product-outcomes)
+                  (lesson-section (translate 'iHeader-learning) learning-objectives)
+                  (lesson-section (translate 'iHeader-evidence) evidence-statements)
+                  (lesson-section (translate 'iHeader-product) product-outcomes)
                   ; commented out to suppress warnings that aren't relevant with unit-level generation
                   ;(lesson-section "Standards" (expand-standards standards))
-                  (lesson-section "Materials" materials)
-                  (lesson-section "Preparation" preparation)
+                  (lesson-section (translate 'iHeader-mat) materials)
+                  (lesson-section (translate 'iHeader-preparation) preparation)
                   ;; look at unit-level glossary generation to build lesson-level glossary
                   ;(lesson-section "Glossary" (glossary get))
                   )))
@@ -587,7 +588,7 @@
                                          (list (elem title) 
                                                video-elem
                                                (cond [duration
-                                                      (elem #:style bs-time-style (format "(Time ~a)" duration))]
+                                                      (elem #:style bs-time-style (format (string-append "(" (translate 'sHeader-duration) " ~a)") duration))]
                                                      [else (elem)]))))
                                   (list (elem)))))) ;pacings))) -- reinclude later if desired
                    body
@@ -599,6 +600,7 @@
 (define (lesson-section title contents)
   (traverse-block 
    (lambda (get set)
+     ;;string-downcase: non-english errors?
      (let ([title-tag (string->symbol (string-downcase (string-replace title " " "-")))])
        (when (itemization? contents)
          (set title-tag (append/itemization (get title-tag '()) contents))))
