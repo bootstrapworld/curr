@@ -665,13 +665,13 @@
              (nested #:style (bootstrap-div-style/id/nested "LearningObjectives")
                      (interleave-parbreaks/all
                       (list
-                       (para #:style bs-header-style/span (string-append (translate iHeader-standar"Standards and Evidence Statements:")
-                       (list "Standards with"
-                             " prefix BS are specific to Bootstrap; others are from the Common Core."
-                             " Mouse over each standard to see its corresponding evidence statements."
-                             " Our " 
-                             (standards-link "Standards Document") 
-                             " shows which units cover each standard. "
+                       (para #:style bs-header-style/span (string-append (translate 'iHeader-standards)":"))
+                       (list (translate 'standards-stitle)
+                             " "
+                             (standards-link (translate 'standards-link)) 
+                             " "
+                             (translate 'standards-rest)"shows which units cover each standard"
+                             ". "
                              )
                        (list->itemization tag-formatted-LOtree 
                                           (list "LearningObjectivesList" "EvidenceStatementsList")))))))))))
@@ -686,15 +686,15 @@
    [html (sxml->element
           `(div (@ (class "fixed") (id "lessonToolbar"))
                 (input (@ (type "button") 
-                          (value "Show Teacher Notes") 
+                          (value (translate 'btn-show)) 
                           (onclick "toggleTeacherNotes(this);")) "")
                 (br)
                 (input (@ (type "button")
-                          (value "Discussion Group")
+                          (value (translate 'btn-group))
                           (onclick "showGroup()")))
                 (br)
                 (input (@ (type "button")
-                          (value "Slides")
+                          (value (translate 'btn-slide))
                           (onclick "showSlides()")))))]
    [else (elem)]))
 
@@ -703,7 +703,7 @@
    [html (sxml->element
           `(center
             (input (@ (type "button") (id "prev")   (value "<<")) "")
-            (input (@ (type "button") (id "flip")   (value "flip")) "")
+            (input (@ (type "button") (id "flip")   (value (translate 'btn-flip))) "")
             (input (@ (type "button") (id "next")   (value ">>")) "")
             ))]
    [else (elem "")]))
@@ -821,7 +821,7 @@
 ;;   used on the main page for the BS1 curriculum
 ;; previously used summary-item/links (for both html/pdf links)
 (define (unit-summary/links num)
-  (summary-item/unit-link (format "Unit ~a" num)
+  (summary-item/unit-link (format (string-append (translate 'unit)" ~a") num)
                           (format "units/unit~a/index" num)  ; index used to be "the-unit"
                           (get-unit-descr (format "unit~a" num))))
 
