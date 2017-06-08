@@ -61,7 +61,12 @@
 
     ;Translator; This is the Glossary header
     ;Developer; gen-glossary
-    (gloss-title "Glossary")
+    (iHeader-glossary "Glossary")
+
+     ;Translator; This is the overview header, which is repressed by css
+    ;Developer; lesson/studteach
+    (iHeader-overview "Overview")
+
     
     
     
@@ -85,9 +90,11 @@
 
 
     ;;;;;;;;;;;;;;;;;;;;;;Lesson Sections;;;;;;;;;;;;;;;;;;;;;;;;;
-
-    ;Translator; This does not appear in the output document. It is simpl
-
+               ;;; Section headers ;;;
+    ;Translator; this is the time listed on the righ of every purple block of the
+               ;lesson sections. simply change the word for time or duration
+    ;Developer; lesson/studteach
+    (sHeader-duration "Time")
     
 
     
