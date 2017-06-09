@@ -1087,7 +1087,7 @@
                                     (map (lambda (exloc)
                                            (let-values ([(extitle exforevid) 
                                                          (if (exercise-locator/dr-assess? exloc)
-                                                             (values (string-append (translate 'checkDR) ":")
+                                                             (values (string-append (translate 'checkDR) ": "
                                                                                     (exercise-locator/dr-assess-descr exloc))
                                                                      #f)
                                                              (extract-exercise-data exloc)
