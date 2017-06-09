@@ -22,7 +22,7 @@
     ;Translator; this is a label to a button that flips things. Should be brief command
     ;                TODO: UNSURE OF LOCATION               ;
     ;Developer; insert-student-buttons
-    (btn-flip "gibber")
+    (btn-flip "flip")
 
 
     
@@ -41,18 +41,18 @@
 
     ;Translator; Names listed at bottom of most pages, included in the copyright statement
     ;Developler; copyright
-    (copyright-names "gibber")
+    (copyright-names "Bootstrap by Emmanuel Schanzer, Emma Youndtsmith, Kathi Fisler, Shriram Krishnamurthi, Joe Politz and Ben Lerner is licensed under a ")
     ;Translator; This is the hyperlink listed within the copyright statement at the bottom of most pages.
     ;Developler; copyright
-    (copyright-license "gibber")
+    (copyright-license "Creative Commons 4.0 Unported License")
     ;Translator; This phrase follows the hyperlink "Creatice Commons 4.0 Unported License",
                ; and is right before the "www.BootstrapWorld.org" link.
     ;Developler; copyright
-    (copyright-based "gibber")
+    (copyright-based "Based on a work at")
     ;Translator; This statement is the last sentence in the copyright statement at the bottom of most pages
                ; Note that this does not include the hyperlink at the end of the sentence
     ;Developler; copyright
-    (copyright-permissions "gibber")
+    (copyright-permissions "Permissions beyond the scope of this license may be available by contacting")
     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
@@ -65,23 +65,23 @@
 
     ;Translator; This is found in the page header of every worksheet of this type.
     ;Developer; assess-design-recipe
-    (design-title "gibber")
+    (design-title "Check for Mistakes in this Word Problem")
 
     ;Translator; It is Unclear where this appears in handouts, but is indicated to be the page-header
     ;                       TODO: LOCATE                        ;
     ;Developer; design-recipe-exercise
-    (design-title2 "gibber")
+    (design-title2 "Word Problem")
 
     
 
     ;;
     ;Translator; This is a section header found within design recipe exercise pages
     ;Developer; design-recipe-exercise
-    (design-section-contract "gibber")
+    (design-section-contract "Contract and Purpose Statement")
 
     ;Translator; This is a subsection header found immediately below the section head directly above in this file^^^^
     ;Developer; design-recipe-exercise
-    (design-subheader-contract "gibber")
+    (design-subheader-contract "Every contract has three parts")
     ;;
 
 
@@ -89,11 +89,11 @@
     ;;
     ;Translator; This is a section header found within design recipe exercise pages
     ;Developer; design-recipe-exercise
-    (design-section-examples "gibber")
+    (design-section-examples "Examples")
 
     ;Translator; This is a subsection header found immediately below the section head directly above in this file^^^^
     ;Developer; design-recipe-exercise
-    (design-subheader-examples "gibber")
+    (design-subheader-examples "Write some examples, then circle and label what changes")
     ;;
 
 
@@ -101,18 +101,18 @@
     ;;
     ;Translator; This is a section header found within design recipe exercise pages
     ;Developer; design-recipe-exercise
-    (design-section-def "gibber")
+    (design-section-def "Definition")
 
     ;Translator; This is a subsection header found immediately below the section head directly above in this file^^^^
     ;Developer; design-recipe-exercise
-    (design-subheader-def "gibber")
+    (design-subheader-def "Write the definition, given variable names to all your input values")
     ;;
 
 
     ;Translator; This is found within the body of the Examples section of Design Recipe pages; It is the all-caps beginning (following
                ; an open paren) to examples of function calls
     ;Developer; design-recipe-exercise
-    (design-example-caps "gibber")
+    (design-example-caps "EXAMPLE")
 
 
 
@@ -123,9 +123,9 @@
     ;Translator; These labels DO NOT currently appear, but would provide labels to the three parts of "Contract" structure, in this order, found in Unit 3. Examples
                ; of this can be found in pages 9 and 10 and the student workbook
     ;Developer; This is printed only when generating a pdf or tex version of the exercise worksheets; HTML ignores it.
-    (contract-name "gibber")
-    (contract-domain "gibber")
-    (contract-range "gibber")
+    (contract-name "Name")
+    (contract-domain "Domain")
+    (contract-range "Range")
 
 
 
@@ -136,27 +136,27 @@
                ; This would appear in the solution key to a matching exercise. This indicates the correct answer is the statement
                ; following this key, rather than a command for a student to provide an answer
     ;Developer; attach-exercise-answer
-    (exercise-answer "gibber")
+    (exercise-answer "Answer")
 
     ;Translator; This appears in the solution document to matching exercises in the right column when nothing in
                ; the left column matches with it. This can be seen in the teacher solutions to matching exercises in Unit 1
     ;Developer; matching-exercise-answers (exercise-generator.rkt)
-    (exercise-noAnswer "gibber")
+    (exercise-noAnswer "No matching answer")
 
     ;Translator; This is essetially the same as above, but is used when asserting a specific item has no answer; that item would
                ; follow this statement. Example: "No match for (message-cost 15)"
-    (exercise-noMatch "gibber")
+    (exercise-noMatch "No match for")
 
     
 
     ;Translator; This is going in the title of example handouts (either prepended to a title or standing alone as the title)
     ;Developer; exercise-handout
-    (exercise "gibber")
+    (exercise "Exercise")
 
     ;Translator; This goes before the directions provided to students on exercise handouts
     ;Developer; exercise-handout & design-recipe-exercise (in design-recipe-generator.rkt)
     ;                           TODO: Why is this called twice?                       ;
-    (directions "gibber")
+    (directions "Directions")
     
 
                   ;;;Special Keywords;;;
@@ -164,13 +164,13 @@
                ; be specially italicized. Therefore, the translations given below should match the translations used
                ; when entering the instructions to generate an exercise handout
     ;Developer; exercise-terms-to-italicize
-    (c-eval "gibber")
-    (low-a-exp "gibber")
-    (cap-a-exp "gibber")
-    (exp "gibber")
-    (example "gibber")
-    (contract "gibber")
-    (code "gibber")
+    (c-eval "Circle of Evaluation")
+    (low-a-exp "arithmetic Expression")
+    (cap-a-exp "Arithmetic Expression")
+    (exp "Expression")
+    (example "Example")
+    (contract "Contract")
+    (code "code")
 
     
 
@@ -191,7 +191,7 @@
     ;Translator; This is the word that goes at the very top of the page, indicating what unit it is. IT will
                ; followed by the number of what unit it is. Example: "Unit 3"
     ;Developer; unit-summary-links
-    (unit "gibber")
+    (unit "Unit")
 
 
 
@@ -201,9 +201,9 @@
     ;Developer; insert-teacher-toggle-button
 
     ;Translator;
-    (btn-show "gibber")
-    (btn-group "gibber")
-    (btn-slide "gibber")
+    (btn-show "Show Teacher Notes")
+    (btn-group "Discussion Group")
+    (btn-slide "Slides")
 
 
 
@@ -217,8 +217,8 @@
     ;Translator; This is found directly above the Glossary in the intro section. This indicates the total
                ; the total time of the unit lesson
     ;Developer; length-of-lesson
-    (length "gibber")
-    (minutes "gibber")
+    (length "Length")
+    (minutes "Minutes")
 
     
              ;;;Bootstrap Language Table;;;
@@ -226,8 +226,8 @@
 
     ;Translator; Headers of the Bootstrap Language Table
     ;Developer; language-table
-    (lang-table-types "gibber")
-    (lang-table-func "gibber")
+    (lang-table-types "Types")
+    (lang-table-func "Functions")
 
 
 
@@ -242,11 +242,11 @@
                ; NOTE that these three phrases appear together in the order listed- they should
                ; be translated to be read clearly in succession, together.
     ;Developer; learn-evid-from-standards
-    (standards-stitle "gibber")
+    (standards-stitle "Standards with prefix BS are specific to Bootstrap; others are from the Common Core. Mouse over each standard to see its corresponding evidence statements. Our")
     ;Translator; This is the Standards Document hyperlink text found within
                ; the subtitle of the Standards and Evidence Statements section
-    (standards-link "gibber")
-    (standards-rest "gibber")
+    (standards-link "Standards Document")
+    (standards-rest "shows which units cover each standard")
 
 
 
@@ -255,10 +255,10 @@
     ;Translator; This is the White Agenda box in the top right that provides a listing of what sections are in that unit
 
     ;Translator; Title of Agenda box
-    (agenda-title "gibber")
+    (agenda-title "Agenda")
     ;Translator; Note that in English this is the word "minutes" abbreviated to "min". This is what is listed next to the
                ; timing of each section. Example: "Section 1   10 min"
-    (agenda-min "gibber")
+    (agenda-min "min")
 
 
 
@@ -267,11 +267,11 @@
 
     ;Translator; This is the Glossary header
     ;Developer; gen-glossary
-    (iHeader-glossary "gibber")
+    (iHeader-glossary "Glossary")
 
      ;Translator; This is the overview header, which is repressed by css
     ;Developer; lesson/studteach
-    (iHeader-overview "gibber")
+    (iHeader-overview "Overview")
 
 
 
@@ -283,16 +283,16 @@
     ; -repressed by unit-overview/auto
     ;
     ; These are also used within lesson/studteach because they are the same phrases
-    (iHeader-materials "gibber")
+    (iHeader-materials "Materials and Equipment")
     ;Developer; lesson/studteach
-    (iHeader-mat "gibber")
-    (iHeader-learning "gibber")
-    (iHeader-evidence "gibber")
-    (iHeader-product "gibber")
-    (iHeader-exercises "gibber")
-    (iHeader-preparation "gibber")
+    (iHeader-mat "Materials")
+    (iHeader-learning "Learning Objectives")
+    (iHeader-evidence "Evidence Statementes")
+    (iHeader-product "Product Outcomes")
+    (iHeader-exercises "Exercises")
+    (iHeader-preparation "Preparation")
     ;Developer; learn-evid-from-standards
-    (iHeader-standards "gibber")
+    (iHeader-standards "Standards and Evidence Statements")
 
 
 
@@ -303,22 +303,22 @@
                ;;;Additional Exercises;;;
     ;Translator; This is the label for the additional exercises found at the bottom of the page
     ;Developer; gen-exercises
-    (add-exer "gibber")
+    (add-exer "Additional Exercises")
     ;Translator; This is something added to certain exercise link titles (See Unit 4 for examples)
                ; This is a directive.
-    (checkDR "gibber")
+    (checkDR "Check This Design Recipe")
     
                ;;; Section headers ;;;
     ;Translator; this is the time listed on the righ of every purple block of the
                ;lesson sections. simply change the word for time or duration
     ;Developer; lesson/studteach
-    (sHeader-duration "gibber")
+    (sHeader-duration "Time")
 
                ;;; Section Bodies ;;;
     ;Translator; This is the text associated with a link that sends the student to the student workbook.
                ; This is meant to say "Page" which will be followed by a page number
     ;Developer; worksheet-link
-    (page "gibber")
+    (page "Page")
     
 
 
