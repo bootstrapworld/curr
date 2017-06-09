@@ -191,7 +191,7 @@
                                  (lambda (e)
                                    (if some-no-match?
                                        (elem #:style "matchLabelAns" (translate 'exercise-noAnswer))
-                                       (raise 'matching-exercise-answers (format "No match for ~a" ansC))))])
+                                       (raise 'matching-exercise-answers (format (string-append (translate 'exercise-noMatch) " ~a") ansC))))])
                   (let ([label (matching-label #:compare-with compare-with
                                                ansC presented-ans)])
                     (nested #:style (bootstrap-div-style "labeledRightColumn")
