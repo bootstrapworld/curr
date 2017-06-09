@@ -10,6 +10,7 @@
          "process-code.rkt"  ; for sexp
          "sxml.rkt"
          "racket2pyret.rkt"
+         "./../translating/translator.rkt"
          )
 
 (provide fill-in-the-blank
@@ -77,9 +78,9 @@
 ;; only used by create-exercise-itemlist
 (define (contract-exercise tag #:name [name-ans #f] #:domain [domain-ans #f] #:range [range-ans #f])
   (cond-element [html
-                 (elem "; " (fill-in-the-blank #:id (format "~aname" tag) #:label "Name" #:class "contract-name studentAnswer")
-                       " : " (fill-in-the-blank #:id (format "~aarg" tag) #:label "Domain" #:class "contract-domain studentAnswer")
-                       " -> " (fill-in-the-blank #:id (format "~aoutput" tag) #:label "Range" #:class "contract-range studentAnswer"))]
+                 (elem "; " (fill-in-the-blank #:id (format "~aname" tag) #:label (translate 'contract-name) #:class "contract-name studentAnswer")
+                       " : " (fill-in-the-blank #:id (format "~aarg" tag) #:label (translate 'contract-domain) #:class "contract-domain studentAnswer")
+                       " -> " (fill-in-the-blank #:id (format "~aoutput" tag) #:label (translate 'contract-range) #:class "contract-range studentAnswer"))]
                 [(or latex pdf)
                  (elem #:style bs-contract-exercise-style "")]))
 
@@ -171,7 +172,7 @@
 
 ;; format a question and answer for a solution key
 (define (attach-exercise-answer question answer)
-  (nested #:style (bootstrap-div-style "question-with-answer") question (bold " Answer: ") answer))  
+  (nested #:style (bootstrap-div-style "question-with-answer") question (bold (string-append " " (translate 'exercise-answer) ": ")) answer))  
 
 ;; given answer key for matching exercise, generate solutions
 (define (matching-exercise-sols matches)
@@ -189,7 +190,7 @@
                 (with-handlers ([(lambda (e) (eq? e 'get-index-elt-not-found))
                                  (lambda (e)
                                    (if some-no-match?
-                                       (elem #:style "matchLabelAns" "No matching answer")
+                                       (elem #:style "matchLabelAns" (translate 'exercise-noAnswer))
                                        (raise 'matching-exercise-answers (format "No match for ~a" ansC))))])
                   (let ([label (matching-label #:compare-with compare-with
                                                ansC presented-ans)])
