@@ -670,7 +670,7 @@
                              " "
                              (standards-link (translate 'standards-link)) 
                              " "
-                             (translate 'standards-rest)"shows which units cover each standard"
+                             (translate 'standards-rest)
                              ". "
                              )
                        (list->itemization tag-formatted-LOtree 
@@ -686,15 +686,15 @@
    [html (sxml->element
           `(div (@ (class "fixed") (id "lessonToolbar"))
                 (input (@ (type "button") 
-                          (value (translate 'btn-show)) 
+                          (value ,(translate 'btn-show)) 
                           (onclick "toggleTeacherNotes(this);")) "")
                 (br)
                 (input (@ (type "button")
-                          (value (translate 'btn-group))
+                          (value ,(translate 'btn-group))
                           (onclick "showGroup()")))
                 (br)
                 (input (@ (type "button")
-                          (value (translate 'btn-slide))
+                          (value ,(translate 'btn-slide))
                           (onclick "showSlides()")))))]
    [else (elem)]))
 
@@ -703,7 +703,7 @@
    [html (sxml->element
           `(center
             (input (@ (type "button") (id "prev")   (value "<<")) "")
-            (input (@ (type "button") (id "flip")   (value (translate 'btn-flip))) "")
+            (input (@ (type "button") (id "flip")   ,(value (translate 'btn-flip))) "")
             (input (@ (type "button") (id "next")   (value ">>")) "")
             ))]
    [else (elem "")]))
@@ -1293,7 +1293,7 @@
    [html
     (sxml->element
      `(div (@ (style "float: right"))
-           (a (@ (href (translate 'lulu-link)))
+           (a (@ (href ,(translate 'lulu-link)))
               (img (@ (border "0") 
                       (alt "Support independent publishing: Buy this book on Lulu.")
                       (src "http://static.lulu.com/images/services/buy_now_buttons/en/book.gif?20140805085029"))))))]
