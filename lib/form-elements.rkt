@@ -878,7 +878,7 @@
                              ;(para #:style bs-header-style/span "Unit Overview")
                              ;(para #:style (bootstrap-div-style/id "overviewDescr") description)
                              (if product-outcomesItems (product-outcomes product-outcomesItems) 
-                                 (summary-data/auto 'product-outcomes (translate 'iHeader-product))
+                                 (summary-data/auto 'product-outcomes (translate 'iHeader-product)))
                              (learn-evid-from-standards)
                              (if length (length-of-lesson length) (length-of-unit/auto))
                              (gen-glossary)
@@ -903,7 +903,7 @@
 ;creates the length of the lesson based on input
 ;input ONLY THE NUMBER!
 (define (length-of-lesson l)
-  (para #:style bs-header-style/span (format (string-append (translate 'length)": ~a "(translate 'minutes)) l))))
+  (para #:style bs-header-style/span (format (string-append (translate 'length)": ~a "(translate 'minutes)) l)))
 
 (define (length-of-unit/auto)
   (traverse-block
