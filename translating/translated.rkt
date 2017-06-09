@@ -127,7 +127,7 @@
                ; the total time of the unit lesson
     ;Developer; length-of-lesson
     (length "Length")
-    (minutes "Minutes")
+    (minutes "minutes")
 
     
              ;;;Bootstrap Language Table;;;
