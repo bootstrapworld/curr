@@ -118,8 +118,34 @@
 
 
 
-    
+                 ;;Contract;;
 
+    ;Translator; These labels DO NOT currently appear, but would provide labels to the three parts of "Contract" structure, in this order, found in Unit 3. Examples
+               ; of this can be found in pages 9 and 10 and the student workbook
+    ;Developer; This is printed only when generating a pdf or tex version of the exercise worksheets; HTML ignores it.
+    (contract-name "Name")
+    (contract-domain "Domain")
+    (contract-range "Range")
+
+
+
+
+                 ;;Matching;;
+
+    ;Translator; This currently DOES NOT appear in any worksheets or solutions.
+               ; This would appear in the solution key to a matching exercise. This indicates the correct answer is the statement
+               ; following this key, rather than a command for a student to provide an answer
+    ;Developer; attach-exercise-answer
+    (exercise-answer "Answer")
+
+    ;Translator; This appears in the solution document to matching exercises in the right column when nothing in
+               ; the left column matches with it. This can be seen in the teacher solutions to matching exercises in Unit 1
+    ;Developer; matching-exercise-answers (exercise-generator.rkt)
+    (exercise-noAnswer "No matching answer")
+
+    ;Translator; This is essetially the same as above, but is used when asserting a specific item has no answer; that item would
+               ; follow this statement. Example: "No match for (message-cost 15)"
+    (exercise-noMatch "No match for")
 
     
 
