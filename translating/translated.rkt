@@ -59,12 +59,77 @@
     ;;;;;;;;;;;;;;;;;;EXERCISE HANDOUTS;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
+                  ;;;Design Recipe;;
+    ;Translator; These exercises are title "Check This Design Recipe
+    ;Developer; In design-recipe-generator.rkt
+
+    ;Translator; This is found in the page header of every worksheet of this type.
+    ;Developer; assess-design-recipe
+    (design-title "Check for Mistakes in this Word Problem")
+
+    ;Translator; It is Unclear where this appears in handouts, but is indicated to be the page-header
+    ;                       TODO: LOCATE                        ;
+    ;Developer; design-recipe-exercise
+    (design-title2 "Word Problem")
+
+    
+
+    ;;
+    ;Translator; This is a section header found within design recipe exercise pages
+    ;Developer; design-recipe-exercise
+    (design-section-contract "Contract and Purpose Statement")
+
+    ;Translator; This is a subsection header found immediately below the section head directly above in this file^^^^
+    ;Developer; design-recipe-exercise
+    (design-subheader-contract "Every contract has three parts")
+    ;;
+
+
+
+    ;;
+    ;Translator; This is a section header found within design recipe exercise pages
+    ;Developer; design-recipe-exercise
+    (design-section-examples "Examples")
+
+    ;Translator; This is a subsection header found immediately below the section head directly above in this file^^^^
+    ;Developer; design-recipe-exercise
+    (design-subheader-examples "Write some examples, then circle and label what changes")
+    ;;
+
+
+
+    ;;
+    ;Translator; This is a section header found within design recipe exercise pages
+    ;Developer; design-recipe-exercise
+    (design-section-def "Definition")
+
+    ;Translator; This is a subsection header found immediately below the section head directly above in this file^^^^
+    ;Developer; design-recipe-exercise
+    (design-subheader-def "Write the definition, given variable names to all your input values")
+    ;;
+
+
+    ;Translator; This is found within the body of the Examples section of Design Recipe pages; It is the all-caps beginning (following
+               ; an open paren) to examples of function calls
+    ;Developer; design-recipe-exercise
+    (design-example-caps "EXAMPLE")
+
+
+
+
+
+    
+
+
+    
+
     ;Translator; This is going in the title of example handouts (either prepended to a title or standing alone as the title)
     ;Developer; exercise-handout
     (exercise "Exercise")
 
     ;Translator; This goes before the directions provided to students on exercise handouts
-    ;Developer; exercise-handout
+    ;Developer; exercise-handout & design-recipe-exercise (in design-recipe-generator.rkt)
+    ;                           TODO: Why is this called twice?                       ;
     (directions "Directions")
     
 
