@@ -1,7 +1,7 @@
 #lang curr/lib
 
 @declare-tags[]
-@title{Feature: Nested Structures}
+@title{Going Deeper: Nested Structures}
 
 @unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sqr sqrt expt})
                                        (list "String" @code{string-append string-length})
