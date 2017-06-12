@@ -686,7 +686,9 @@
    [html (sxml->element
           `(div (@ (class "fixed") (id "lessonToolbar"))
                 (input (@ (type "button") 
-                          (value ,(translate 'btn-show)) 
+                          (valueShow ,(translate 'btn-show))
+                          (valueHide ,(translate 'btn-hide))
+                          (valueState ,(translate 'btn-show))
                           (onclick "toggleTeacherNotes(this);")) "")
                 (br)
                 (input (@ (type "button")

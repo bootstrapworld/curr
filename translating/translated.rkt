@@ -202,6 +202,7 @@
 
     ;Translator;
     (btn-show "Show Teacher Notes")
+    (btn-hide "Hide Teacher Notes")
     (btn-group "Discussion Group")
     (btn-slide "Slides")
 
