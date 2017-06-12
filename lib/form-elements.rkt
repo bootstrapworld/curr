@@ -23,7 +23,7 @@
          "scribble-helpers.rkt"
          "standards-csv-api.rkt"
          "standards-dictionary.rkt"
-         "glossary-terms.rkt"
+         "langs/english/glossary-terms.rkt"
          "auto-format-within-strings.rkt"
          "workbook-index-api.rkt"
          "styles.rkt"
