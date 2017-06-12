@@ -470,8 +470,7 @@
                 }
                 @point{
                         @student{
-                                These 4 problems are wildly different, but the Table Plan helps you find the answer to all of the problems!
-                                Throughout your future data science studies, you can apply the Table Plan to most tables in order to solve problems.
+                                These 4 problems are wildly different, but the Table Plan helps you find the answer to all of them!
                         }
                         @teacher{
                         
