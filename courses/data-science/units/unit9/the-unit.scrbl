@@ -61,7 +61,7 @@
 
 @lesson/studteach[
      #:title "Extend in Pyret"
-     #:duration "25 minutes"
+     #:duration "20 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -200,7 +200,7 @@
 
 @lesson/studteach[
      #:title "Table Plans"
-     #:duration "25 minutes"
+     #:duration "20 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -238,7 +238,7 @@
                         }
                         @teacher{
 
-                        }                
+                        }
                 }
                 @point{
                         @student{
@@ -266,7 +266,9 @@
                                 }
                         }
                         @teacher{
-                        
+                                In this particular example, the students will say yes and fill out each
+                                block of scaffold code.  However, there will be practice examples where the
+                                students do not need to use every table query.
                         }                
                 }
                 @point{
@@ -300,7 +302,7 @@
                                 }
                         }
                         @teacher{
-
+                                Students will get lots of practice with Table Plans in the next section.
                         }
                 }
                 @point{
@@ -324,6 +326,155 @@
                         }
                         @teacher{
 
+                        }
+                }
+        ]
+   }
+
+@lesson/studteach[
+     #:title "Table Plan Practice"
+     #:duration "40 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[]
+     #:standards (list)
+     #:materials @itemlist[]
+     #:preparation @itemlist[]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[
+                @point{
+                        @student{
+                                The table plan provides a fixed sequence of steps to create 
+                                tables for problem solving:  the order is always @code{extend}, then
+                                @code{sieve}, then @code{order}, then @code{select}.  Many times you
+                                won't need to use all of these queries, but following the table plan 
+                                will still give you the answer you want.
+                        }
+                        @teacher{
+                                
+                        }                
+                }
+                @point{
+                        @student{
+                                @activity[#:forevidence "BS-IDE&1&1"]{
+                                        Open the TODO Unit 9 Table Practice template file.
+                                        For each of the following questions, fill out the corresponding
+                                        Table Plan in your workbook, then add the code from your table 
+                                        plan to the definitions window.  After finishing each question,
+                                        get the teacher to check you off before continuing.
+                                }
+                        }
+                        @teacher{
+
+                        }
+                }
+                @point{
+                        @student{
+                                @activity[#:forevidence "BS-IDE&1&1"]{
+                                        @itemlist[
+                                                @item{
+                                                        Your uncle is a body builder, and only wants to buy "healthy"
+                                                        foods.  Your uncle says a healthy food is food that has less than 80 grams
+                                                        of cholesterol.
+                                                }
+                                                @item{
+                                                        Which healthy foods have the highest protein/gram?  Fill out
+                                                        the table plan on page TODO, then add your scaffold code to 
+                                                        the definitions window.
+                                                }
+                                        ]
+                                        
+
+                                }
+                        }
+                        @teacher{
+
+                        }
+                }
+                @point{
+                        @student{
+                                @activity[#:forevidence "BS-IDE&1&1"]{
+                                        @itemlist[
+                                                @item{
+                                                        How many years was each Democratic president in office?  Turn to
+                                                        page TODO, and fill out the table plan.
+
+                                                }
+                                                @item{
+                                                        After completing your table plan, make a histogram to find out 
+                                                        if more democratic presidents serve between 0 - 4 years, or 4 - 8 years.
+                                                }
+                                        ]
+                                }
+                        }
+                        @teacher{
+                        
+                        }
+                }
+                @point{
+                        @student{
+                                @activity[#:forevidence "BS-IDE&1&1"]{
+                                        @itemlist[
+                                                @item{
+                                                        The table @code{rainfall} stores information about how much rain a particular
+                                                        forest is receiving every day.  The @code{day} column contains which day a 
+                                                        measurement took place, and the @code{inches-rain} column stores how many
+                                                        inches of rain fell that day.
+                                                }
+                                                @item{
+                                                        Make a scatter plot of how much rain fell on each day in the first 99 days.
+                                                        Fill out a table plan on page TODO to create the table needed to make this
+                                                        scatter plot.
+                                                }
+                                                @item{
+                                                        Is the amount of rain decreasing/increasing/staying the same over these first 99 
+                                                        days?  If there is a correlation, plot a line of best fit over this scatter plot.
+                                                }
+                                        ]
+                                }
+                        }
+                        @teacher{
+                        
+                        }
+                }
+                @point{
+                        @student{
+                                @activity[#:forevidence "BS-IDE&1&1"]{
+                                        @itemlist[
+                                                @item{
+                                                        Make a histogram of the per-capita GDP for countries that have universal 
+                                                        health care.  Remember that per-capita GDP is defined as @code{gdp / population}.
+                                                }
+                                                @item{
+                                                        Turn to page TODO in your workbook and complete the table plan to create
+                                                        the table needed to create this histogram.
+                                                }
+                                                @item{
+                                                        After adding the code from the table plan to your definitions window, 
+                                                        calculate the average per-capita GDP for every country.  Based on your histogram,
+                                                        do most countries with universal healthcare tend to have higher or lower per-capita GDP
+                                                        than the average?
+                                                }
+                                        ]
+                                }
+                        }
+                        @teacher{
+                        
+                        }
+                }
+                @point{
+                        @student{
+                                These 4 problems are wildly different, but the Table Plan helps you find the answer to all of the problems!
+                                Throughout your future data science studies, you can apply the Table Plan to most tables in order to solve problems.
+                        }
+                        @teacher{
+                        
                         }
                 }
         ]
