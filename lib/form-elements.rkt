@@ -688,7 +688,7 @@
                 (input (@ (type "button") 
                           (valueShow ,(translate 'btn-show))
                           (valueHide ,(translate 'btn-hide))
-                          (valueState ,(translate 'btn-show))
+                          (value ,(translate 'btn-show))
                           (onclick "toggleTeacherNotes(this);")) "")
                 (br)
                 (input (@ (type "button")
