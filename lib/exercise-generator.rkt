@@ -10,7 +10,7 @@
          "process-code.rkt"  ; for sexp
          "sxml.rkt"
          "racket2pyret.rkt"
-         "./../translating/translator.rkt"
+         "translator.rkt"
          )
 
 (provide fill-in-the-blank

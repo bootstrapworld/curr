@@ -13,7 +13,7 @@
          "sxml.rkt"
          "escape-values.rkt"
          "build-modes.rkt"
-         "./../translating/translator.rkt"
+         "translator.rkt"
          )
 
 (provide design-recipe-exercise

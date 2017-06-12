@@ -32,7 +32,7 @@
          "exercise-generator.rkt"
 	 "math-rendering.rkt"
          "wescheme.rkt"
-         "./../translating/translator.rkt"
+         "translator.rkt"
          )
  
 ;; FIXME: must add contracts!
