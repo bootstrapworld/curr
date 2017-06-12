@@ -79,8 +79,8 @@
                 @point{
                         @student{
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Open the TODO Unit 9 template code.  Type each
-                                        of the following into your interactions window:
+                                        Open the @editor-link[#:public-id "0BxJ2mGqPUGt0Skl3YjQ1aVZON2c" "Unit 9"] template code.  
+                                        Hit the run button, then type each of the following into your interactions window:
 
                                         @itemlist[
                                                 @item{
@@ -363,7 +363,7 @@
                 @point{
                         @student{
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Open the TODO Unit 9 Table Practice template file.
+                                        Open the @editor-link[#:public-id "0BxJ2mGqPUGt0aU5vc25MTWhpemM" "Unit 9 Table Plan Practice"] template file.
                                         For each of the following questions, fill out the corresponding
                                         Table Plan in your workbook, then add the code from your table 
                                         plan to the definitions window.  After finishing each question,
