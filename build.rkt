@@ -7,6 +7,7 @@
          racket/path
          racket/file
          racket/list
+         racket/match
          "lib/system-parameters.rkt"
          "lib/translate-pdfs.rkt"
          "lib/paths.rkt"
@@ -62,7 +63,7 @@
 
 (define document-namespace (make-fresh-document-namespace))
 
-;; filters an aoutput directory so that it is agnostic to the language structure used to produce it
+;; filters an output directory so that it is agnostic to the language structure used to produce it
 ;; This effectively makes the build script produce the "distributions" directory in the same way that
 ;; it did prior to when translation capability was added
 ;; added by jake and kielan 13 jun
@@ -203,7 +204,7 @@
           #:when (directory-exists? (build-path (get-units-dir) subdir)))
       (let (;[exercises-dir (build-path (get-units-dir) subdir "exercises")]
             [deploy-exercises-dir (build-path (current-deployment-dir) "courses" (current-course)
-                                              "units" subdir "exercises")]);;langs english
+                                              "units" subdir "exercises")])
         ;(when (directory-exists? exercises-dir)
         ;  (delete-directory/files exercises-dir))
         ;(make-directory exercises-dir)
@@ -352,10 +353,29 @@
             [output-resources-dir (deploy-resources-dir)])
         (when (directory-exists? output-resources-dir)
           (delete-directory/files output-resources-dir))
-        ;(printf "Copying from ~a to ~a ~n" input-resources-dir output-resources-dir)
-        (copy-directory/files input-resources-dir
-                              (simple-form-path output-resources-dir))
-   
+        ;(printf (string-append "subdirs: " (directory-list input-resources-dir)))
+        (for ([subdir (directory-list input-resources-dir)])
+          (printf "Copying from ~a to ~a ~n" (path->string (build-path input-resources-dir subdir)) (path->string (build-path output-resources-dir subdir)))
+          ;;creates the directories in distribution/.../resources that we want to copy to. It avoids doing sor
+          (if (string-contains? (path->string subdir) ".")(printf "not a dir")(make-directory (build-path output-resources-dir subdir)))
+          
+
+          ;; this created new directories for each of the four subdirs contained in resources, at the distribution end
+          (match (path->string subdir)
+            ["teachers" (copy-directory/files (build-path input-resources-dir subdir "lang" "english")
+                              (build-path (simple-form-path output-resources-dir) "teachers"))]
+            ["workbook" (copy-directory/files (build-path input-resources-dir subdir "lang" "english")
+                              (build-path (simple-form-path output-resources-dir) "workbook" ))]
+            ["images" (copy-directory/files (build-path input-resources-dir subdir)
+                              (build-path (simple-form-path output-resources-dir) "images"))]
+            ["source-files" (copy-directory/files (build-path input-resources-dir subdir)
+                              (build-path (simple-form-path output-resources-dir) "source-files"))]
+            [_ (printf (string-append "FELL THROUGH " (path->string subdir) "\n"))
+               (if (equal? ".DS_Store" (path->string subdir))
+                           (printf "what is subdir")
+                           (copy-file (build-path input-resources-dir subdir)
+                                      (build-path (simple-form-path output-resources-dir))
+                                      #t))]))
         ; keep only certain files in workbook resources dir
         (let ([keep-workbook-files (list "workbook.pdf")])
           (for ([wbfiledir (directory-list (build-path output-resources-dir "workbook"))])
@@ -425,7 +445,7 @@
                         (when (file-exists? oldsols)
                           (delete-file oldsols))
                         (printf "Copying teachers workbook solutions into distribution~n")
-                        (copy-file workbooksols oldsols))))
+                        (copy-file workbooksols (filter-output-dir oldsols)))))
                   )
                 ]
                [else

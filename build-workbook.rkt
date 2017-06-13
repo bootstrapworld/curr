@@ -28,7 +28,7 @@
 ;;  I haven't figured out how to access when setting the current-course.
 ;;  As a result, we'd always generate the algebra workbook, even when our
 ;;  current-course is set to reactive.
-(define (kf-get-workbook-dir) (build-path courses-base (current-course) "resources" "workbook"))
+(define (kf-get-workbook-dir) (build-path courses-base (current-course) "resources" "workbook" "langs" "english"))
 
 ; converts list of pages to having all pdf extensions
 (define (pdf-pagenames pages)
@@ -40,7 +40,7 @@
 
 ; generate index of entire workbook by computing page sizes per PDF
 (define (gen-wkbk-index pdfpages 
-                        #:pdfdir [pdfdir (build-path (get-workbook-dir) "pages")] 
+                        #:pdfdir [pdfdir (build-path (get-workbook-dir) "langs" "english" "pages")] 
                         #:startpage [startpage 1]
                         #:indexfile [indexfile (build-path (get-workbook-dir) "workbook-index.rkt")]
                         )
@@ -187,7 +187,7 @@
 
 
 ; for now, only algebra is set up for auto-building
-(define bootstrap-courses '("algebra" "reactive"))
+(define bootstrap-courses '("algebra"));; removed "reactive"
 
 ; use this to tell scribble to use the workbook.css file
 (putenv "BOOTSTRAP-TARGET" "workbook")
