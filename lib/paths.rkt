@@ -23,7 +23,7 @@
   (build-path courses-base (current-course) "units" "langs" "english"))
 
 (define (get-course-main)
-  (build-path courses-base (current-course) "main.scrbl"));;"langs" "english" 
+  (build-path courses-base (current-course) "langs" "english" "main.scrbl"))
 
 (define (get-resources)
 ;  (build-path (get-units-dir) "_resources"))

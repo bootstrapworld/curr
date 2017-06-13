@@ -62,13 +62,23 @@
 
 (define document-namespace (make-fresh-document-namespace))
 
+;; filters an aoutput directory so that it is agnostic to the language structure used to produce it
+;; This effectively makes the build script produce the "distributions" directory in the same way that
+;; it did prior to when translation capability was added
+;; added by jake and kielan 13 jun
+(define (filter-output-dir dir)
+  (build-path (string-replace (path->string dir) "/langs/english" "")))
+ 
+
+
 
 ;; run-scribble: path -> void
 ;; Runs scribble on the given file.
 (define (run-scribble scribble-file #:outfile (outfile #f)
                                     #:never-generate-pdf? [never-generate-pdf? #f]
                                     #:include-base-path? [include-base-path? #t])
-  (define output-dir (cond [(current-deployment-dir)
+  
+  (define output-dir (filter-output-dir (cond [(current-deployment-dir)
                             ;; Rendering to a particular deployment directory.
 			    (if include-base-path?
 				(let-values ([(base name dir?) 
@@ -82,7 +92,7 @@
                             ;; In-place rendering
                             #;(let-values ([(base name dir?)
                             (split-path (simple-form-path scribble-file))])
-                            base)]))
+                            base)])))
   (define-values (base name dir?) (split-path scribble-file))
   (define output-path (build-path output-dir (string->path (regexp-replace #px"\\.scrbl$" (path->string name) ".html"))))
   (parameterize ([current-directory base]
@@ -193,7 +203,7 @@
           #:when (directory-exists? (build-path (get-units-dir) subdir)))
       (let (;[exercises-dir (build-path (get-units-dir) subdir "exercises")]
             [deploy-exercises-dir (build-path (current-deployment-dir) "courses" (current-course)
-                                              "units" "langs" "english" subdir "exercises")]);;langs english
+                                              "units" subdir "exercises")]);;langs english
         ;(when (directory-exists? exercises-dir)
         ;  (delete-directory/files exercises-dir))
         ;(make-directory exercises-dir)
@@ -382,11 +392,11 @@
       (unless (string=? "." (substring (path->string subdir) 0 1))
         (copy-file (build-path "lib" "box.gif")
                    (build-path (current-deployment-dir) "courses"
-                               (current-course) "units" "langs" "english" subdir "box.gif");;langs english
+                               (current-course) "units" subdir "box.gif")
                    #t)
         (copy-file (build-path "lib" "backlogo.png")
                    (build-path (current-deployment-dir) "courses"
-                               (current-course) "units" "langs" "english" subdir "backlogo.png");;langs english
+                               (current-course) "units"  subdir "backlogo.png")
                    #t))))
 
 
