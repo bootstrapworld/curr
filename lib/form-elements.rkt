@@ -824,7 +824,7 @@
 ;; previously used summary-item/links (for both html/pdf links)
 (define (unit-summary/links num)
   (summary-item/unit-link (format (string-append (translate 'unit)" ~a") num)
-                          (format "units/unit~a/index" num)  ; index used to be "the-unit"
+                          (format "units/langs/english/unit~a/index" num)  ; index used to be "the-unit" ; langs english
                           (get-unit-descr (format "unit~a" num))))
 
 ;;;;;;;;;; Unit summary generation ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

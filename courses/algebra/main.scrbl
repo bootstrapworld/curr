@@ -18,7 +18,7 @@ We provide all of the our materials @italic{free of charge}, to anyone who is in
          (for/list ([n (in-range 1 (add1 9))])
            (unit-summary/links n))
          (list 
-          @summary-item/unit-link["Supplemental Lessons" "units/Supplemental/index"]{
+          @summary-item/unit-link["Supplemental Lessons" "units/langs/english/Supplemental/index"]{
            For teachers looking for additional exercises, we have compiled many activities for students 
            to go deeper into the material. Have students use composition and coordinates to create flags for 
            their countries of origin, or for a country they want to make up! 
