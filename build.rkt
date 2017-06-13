@@ -176,7 +176,7 @@
     (printf "Phase ~a\n" phase)
     (for ([subdir (directory-list (get-units-dir))]
           #:when (directory-exists? (build-path (get-units-dir) subdir)))
-      (define scribble-file (simple-form-path (build-path (get-units-dir) subdir "the-unit.scrbl")))
+      (define scribble-file (simple-form-path (build-path (get-units-dir) subdir "the-unit.scrbl"))); langs path
       (cond [(file-exists? scribble-file)
              (printf "build.rkt: Building ~a\n" scribble-file)
              (copy-file (build-path "lib" "box.gif") 
@@ -193,7 +193,7 @@
           #:when (directory-exists? (build-path (get-units-dir) subdir)))
       (let (;[exercises-dir (build-path (get-units-dir) subdir "exercises")]
             [deploy-exercises-dir (build-path (current-deployment-dir) "courses" (current-course)
-                                              "units" subdir "exercises")])
+                                              "units" "langs" "english" subdir "exercises")]);;langs english
         ;(when (directory-exists? exercises-dir)
         ;  (delete-directory/files exercises-dir))
         ;(make-directory exercises-dir)
@@ -382,11 +382,11 @@
       (unless (string=? "." (substring (path->string subdir) 0 1))
         (copy-file (build-path "lib" "box.gif")
                    (build-path (current-deployment-dir) "courses"
-                               (current-course) "units" subdir "box.gif")
+                               (current-course) "units" "langs" "english" subdir "box.gif");;langs english
                    #t)
         (copy-file (build-path "lib" "backlogo.png")
                    (build-path (current-deployment-dir) "courses"
-                               (current-course) "units" subdir "backlogo.png")
+                               (current-course) "units" "langs" "english" subdir "backlogo.png");;langs english
                    #t))))
 
 

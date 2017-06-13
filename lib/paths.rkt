@@ -20,10 +20,10 @@
   (build-path 'up "static-pages"))
 
 (define (get-units-dir)
-  (build-path courses-base (current-course) "units"))
+  (build-path courses-base (current-course) "units" "langs" "english"))
 
 (define (get-course-main)
-  (build-path courses-base (current-course) "main.scrbl"))
+  (build-path courses-base (current-course) "main.scrbl"));;"langs" "english" 
 
 (define (get-resources)
 ;  (build-path (get-units-dir) "_resources"))
