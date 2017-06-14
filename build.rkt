@@ -95,7 +95,9 @@
                             (split-path (simple-form-path scribble-file))])
                             base)])))
   (define-values (base name dir?) (split-path scribble-file))
+  
   (define output-path (build-path output-dir (string->path (regexp-replace #px"\\.scrbl$" (path->string name) ".html"))))
+  
   (parameterize ([current-directory base]
                  [current-namespace document-namespace]
                  [current-document-output-path output-path])
@@ -117,7 +119,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Command line parsing.  We initialize the SCRIBBLE_TAGS environmental
 ;; variable
-(define courses (list "algebra" "reactive")) ;"reactive" "data-science" "physics"))
+(define courses (list "algebra" "reactive")) ; "data-science" "physics"))
 (putenv "AUDIENCE" "teacher")
 (putenv "CURRENT-SOLUTIONS-MODE" "off")
 (putenv "TARGET-LANG" "pyret")
@@ -239,6 +241,7 @@
 
   (printf "build.rkt: building ~a main\n" (current-course))
   (run-scribble (get-course-main) #:outfile "index")
+  (printf "build.rkt: renaming directory for ~a \n" (current-course))
   (rename-file-or-directory (build-path (current-deployment-dir) "courses" (current-course) "index.html")
                             (build-path (current-deployment-dir) "courses" (current-course) "index.shtml")
                             #t)
@@ -357,22 +360,16 @@
         (make-directory  output-resources-dir )
         (for ([subdir (directory-list input-resources-dir)])
           (printf "Copying from ~a to ~a ~n" (path->string (build-path input-resources-dir subdir)) (path->string (build-path output-resources-dir subdir)))
-          ;;creates the directories in distribution/.../resources that we want to copy to. It avoids doing sor
-          ;(if (string-contains? (path->string subdir) ".")(printf "not a dir")(make-directory (build-path output-resources-dir subdir)))
-          
-
           ;; this created new directories for each of the four subdirs contained in resources, at the distribution end
           (match (path->string subdir)
-            ["teachers" (copy-directory/files (build-path input-resources-dir subdir "langs" "english")
-                              (build-path (simple-form-path output-resources-dir) "teachers"))]
-            ["workbook" (copy-directory/files (build-path input-resources-dir subdir "langs" "english")
-                              (build-path (simple-form-path output-resources-dir) "workbook" ))]
-            ["images" (copy-directory/files (build-path input-resources-dir subdir)
-                              (build-path (simple-form-path output-resources-dir) "images"))]
-            ["source-files" (copy-directory/files (build-path input-resources-dir subdir)
-                              (build-path (simple-form-path output-resources-dir) "source-files"))]
-            [_ (printf (string-append "FELL THROUGH " (path->string subdir) "\n"))
-               (if (equal? ".DS_Store" (path->string subdir))
+            [(or "teachers" "workbook")
+             (copy-directory/files (build-path input-resources-dir subdir "langs" "english")
+                              (build-path (simple-form-path output-resources-dir) subdir))]
+            [(or "images" "source-files")
+             (copy-directory/files (build-path input-resources-dir subdir)
+                              (build-path (simple-form-path output-resources-dir) subdir))]
+            [_
+             (if (equal? ".DS_Store" (path->string subdir))
                            (printf "what is subdir")
                            (copy-file (build-path input-resources-dir subdir)
                                       (build-path (simple-form-path output-resources-dir) subdir )
