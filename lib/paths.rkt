@@ -11,7 +11,7 @@
 (define-runtime-path root-path (build-path 'up))
 
 (define-runtime-path lessons-dir
-  (build-path 'up "lessons"))
+  (build-path 'up "lessons"  "langs" "english"))
 
 (define-runtime-path courses-base
   (build-path 'up "courses"))
