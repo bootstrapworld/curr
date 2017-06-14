@@ -125,6 +125,8 @@
 (putenv "TARGET-LANG" "pyret")
 (putenv "BUILD-FOR" "bootstrap")
 (putenv "LANGUAGE" "english")
+(parameterize ([current-language (getenv "LANGUAGE")])
+  (printf "Printing documents in ~a" (getenv "LANGUAGE")))
 (define current-contextual-tags
   (command-line
    #:program "build"
