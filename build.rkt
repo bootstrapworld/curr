@@ -354,17 +354,18 @@
         (when (directory-exists? output-resources-dir)
           (delete-directory/files output-resources-dir))
         ;(printf (string-append "subdirs: " (directory-list input-resources-dir)))
+        (make-directory  output-resources-dir )
         (for ([subdir (directory-list input-resources-dir)])
           (printf "Copying from ~a to ~a ~n" (path->string (build-path input-resources-dir subdir)) (path->string (build-path output-resources-dir subdir)))
           ;;creates the directories in distribution/.../resources that we want to copy to. It avoids doing sor
-          (if (string-contains? (path->string subdir) ".")(printf "not a dir")(make-directory (build-path output-resources-dir subdir)))
+          ;(if (string-contains? (path->string subdir) ".")(printf "not a dir")(make-directory (build-path output-resources-dir subdir)))
           
 
           ;; this created new directories for each of the four subdirs contained in resources, at the distribution end
           (match (path->string subdir)
-            ["teachers" (copy-directory/files (build-path input-resources-dir subdir "lang" "english")
+            ["teachers" (copy-directory/files (build-path input-resources-dir subdir "langs" "english")
                               (build-path (simple-form-path output-resources-dir) "teachers"))]
-            ["workbook" (copy-directory/files (build-path input-resources-dir subdir "lang" "english")
+            ["workbook" (copy-directory/files (build-path input-resources-dir subdir "langs" "english")
                               (build-path (simple-form-path output-resources-dir) "workbook" ))]
             ["images" (copy-directory/files (build-path input-resources-dir subdir)
                               (build-path (simple-form-path output-resources-dir) "images"))]
@@ -374,7 +375,7 @@
                (if (equal? ".DS_Store" (path->string subdir))
                            (printf "what is subdir")
                            (copy-file (build-path input-resources-dir subdir)
-                                      (build-path (simple-form-path output-resources-dir))
+                                      (build-path (simple-form-path output-resources-dir) subdir )
                                       #t))]))
         ; keep only certain files in workbook resources dir
         (let ([keep-workbook-files (list "workbook.pdf")])
