@@ -17,7 +17,7 @@
   (build-path 'up "courses"))
 
 (define-runtime-path static-pages-path
-  (build-path 'up "static-pages"))
+  (build-path 'up "static-pages" "langs" "english"))
 
 (define (get-units-dir)
   (build-path courses-base (current-course) "units" "langs" "english"))
