@@ -124,6 +124,7 @@
 (putenv "CURRENT-SOLUTIONS-MODE" "off")
 (putenv "TARGET-LANG" "pyret")
 (putenv "BUILD-FOR" "bootstrap")
+(putenv "LANGUAGE" "english")
 (define current-contextual-tags
   (command-line
    #:program "build"
@@ -363,7 +364,7 @@
           ;; this created new directories for each of the four subdirs contained in resources, at the distribution end
           (match (path->string subdir)
             [(or "teachers" "workbook")
-             (copy-directory/files (build-path input-resources-dir subdir "langs" "english")
+             (copy-directory/files (build-path input-resources-dir subdir "langs" (or (getenv "LANGUAGE") "english"))
                               (build-path (simple-form-path output-resources-dir) subdir))]
             [(or "images" "source-files")
              (copy-directory/files (build-path input-resources-dir subdir)

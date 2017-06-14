@@ -1,5 +1,4 @@
 #lang curr/lib
-
 @title{Supplemental Lessons}
 
 @declare-tags[]
@@ -11,8 +10,9 @@
               encountering more complicated material (structs).}
 }
 
+
 @unit-lessons{
-              
+@;TRANSLATORS: please write your lanuage where it says english in these four functions (all lower case)     
 @(include-lesson (lib "curr/lessons/langs/english/Manipulating-Images/lesson/lesson.scrbl"))
 @(include-lesson (lib "curr/lessons/langs/english/Making-Flags/lesson/lesson.scrbl"))
 @(include-lesson (lib "curr/lessons/langs/english/Function-Example-Red-Shape/lesson/lesson.scrbl"))
