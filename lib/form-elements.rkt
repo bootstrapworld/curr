@@ -23,7 +23,7 @@
          "scribble-helpers.rkt"
          "standards-csv-api.rkt"
          "standards-dictionary.rkt"
-         
+         "langs/english/glossary-terms.rkt"
          "auto-format-within-strings.rkt"
          "workbook-index-api.rkt"
          "styles.rkt"
@@ -34,9 +34,6 @@
          "wescheme.rkt"
          "translator.rkt"
          )
-(match (getenv "LANGUAGE")
-  ["english" (require "langs/english/glossary-terms.rkt")]
-  [_ "langs/fail/glossary-terms.rkt"])
  
 ;; FIXME: must add contracts!
 (provide vocab
