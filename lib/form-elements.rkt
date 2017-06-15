@@ -23,7 +23,7 @@
          "scribble-helpers.rkt"
          "standards-csv-api.rkt"
          "standards-dictionary.rkt"
-         "langs/english/glossary-terms.rkt"
+         
          "auto-format-within-strings.rkt"
          "workbook-index-api.rkt"
          "styles.rkt"
@@ -34,6 +34,9 @@
          "wescheme.rkt"
          "translator.rkt"
          )
+(match (getenv "LANGUAGE")
+  ["english" (require "langs/english/glossary-terms.rkt")]
+  [_ "langs/fail/glossary-terms.rkt"])
  
 ;; FIXME: must add contracts!
 (provide vocab
@@ -920,7 +923,7 @@
   (match mp
     [(list 'lib path)
      (cond
-       [(regexp-match #px"^curr/lessons/langs/english/([^/]+)/lesson/lesson.scrbl$" path)
+       [(regexp-match #px"^curr/lessons/langs/([^/]+)/([^/]+)/lesson/lesson.scrbl$" path)
         =>
         (lambda (result)
           (list-ref result 1))]

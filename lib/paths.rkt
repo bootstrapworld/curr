@@ -18,14 +18,13 @@
   (build-path 'up "courses"))
 
 (define-runtime-path static-pages-path
-  (begin
-  (build-path 'up "static-pages" "langs" "english")))
+  (build-path 'up "static-pages" "langs" "english"))
 
 (define (get-units-dir)
-  (build-path courses-base (current-course) "units" "langs" "english"))
+  (build-path courses-base (current-course) "units" "langs" (current-language)))
 
 (define (get-course-main)
-  (build-path courses-base (current-course) "langs" "english" "main.scrbl"))
+  (build-path courses-base (current-course) "langs" (current-language) "main.scrbl"))
 
 (define (get-resources)
 ;  (build-path (get-units-dir) "_resources"))

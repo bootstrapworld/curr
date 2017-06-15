@@ -10,7 +10,8 @@
          current-lesson-xref
          current-document-output-path
          current-worksheet-links-refer-to-pdf?
-         current-lesson-name)
+         current-lesson-name
+         current-language)
 
 
 ;; Parameters for controlling the distribution directories.  The top-level build.rkt
