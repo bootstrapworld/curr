@@ -69,8 +69,10 @@
                 }
                 @point{
                       @student{
-                              We can do just that with @vocab{select}.  @code{select} is a @vocab{table operator};
-                              it is a special key word that will create a new table using information from a starting table.
+                              We can do just that with @vocab{select}.  @code{select} is a @vocab{table query}:
+                              a special key word that will create a new table using information from a starting table.
+                              @vocab{Table queries} are called queries because they are used to ask questions using
+                              specific information in tables.
                               @vocab{select} creates a table containing only the columns that the programmer specifies.
 
                               @code[#:multi-line #t]{

@@ -251,8 +251,8 @@
                 }
                 @point{
                         @student{
-                                We have all the tools to answer this question using the tables operations we have
-                                learned!  The next step is to determine which operations we will use.s
+                                We have all the tools to answer this question using the table queries we have
+                                learned!  The next step is to determine which table queries we will use.s
                         }
                         @teacher{
 

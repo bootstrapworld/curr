@@ -316,7 +316,7 @@
                       @student{
                               So far in this unit, you have answered question using only some
                               rows in a table, and have learned how to ask questions about
-                              data using comparisons and booleans.  The new table operation
+                              data using comparisons and booleans.  The new table query
                               @vocab{sieve} combines these two concepts.
                       }
                       @teacher{
