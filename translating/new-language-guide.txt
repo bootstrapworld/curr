@@ -7,6 +7,7 @@ courses/<course>/langs/<new language>
 courses/<course>/resources/teachers/langs/<new language>
 courses/<course>/resources/workbook/langs/<new language>
 courses/<course>/units/langs/<new language>
+curr/static-pages/lang/<new language>
 lessons/langs/<new language>
 lib/langs/<new language>
 
