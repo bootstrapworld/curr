@@ -23,7 +23,6 @@
          "scribble-helpers.rkt"
          "standards-csv-api.rkt"
          "standards-dictionary.rkt"
-         "langs/english/glossary-terms.rkt"
          "auto-format-within-strings.rkt"
          "workbook-index-api.rkt"
          "styles.rkt"
@@ -33,6 +32,7 @@
 	 "math-rendering.rkt"
          "wescheme.rkt"
          "translator.rkt"
+         (for-syntax syntax/parse)
          )
  
 ;; FIXME: must add contracts!
@@ -125,6 +125,18 @@
          bs-coursename-style
                   
          )        
+
+
+
+;;;;;;;;;;;; language-specific require ;;;;;;;;;;;;;;;;;;;;;;;
+(define-for-syntax language (getenv "LANGUAGE"))
+(define-syntax (choose stx)
+  (syntax-parse stx
+                 [(_  a b)
+                  (case language
+                    [("english") #'a]
+                    [("spanish") #'b])]))
+(choose (require "langs/english/glossary-terms.rkt") (require "langs/spanish/glossary-terms.rkt"))
 
 ;;;;;;;;;;;; Runtime paths and settings ;;;;;;;;;;;;;;;;;;;;;;;
 

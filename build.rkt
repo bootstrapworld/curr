@@ -8,6 +8,7 @@
          racket/file
          racket/list
          racket/match
+         (for-syntax racket/base)
          "lib/system-parameters.rkt"
          "lib/translate-pdfs.rkt"
          "lib/paths.rkt"
@@ -64,12 +65,13 @@
 
 (define document-namespace (make-fresh-document-namespace))
 
+
 ;; filters an output directory so that it is agnostic to the language structure used to produce it
 ;; This effectively makes the build script produce the "distributions" directory in the same way that
 ;; it did prior to when translation capability was added
 ;; added by jake and kielan 13 jun
 (define (filter-output-dir dir)
-  (build-path (string-replace (path->string dir) "/langs/english" "")))
+  (build-path (string-replace (path->string dir) (string-append "/langs/" (getenv "LANGUAGE")) "")))
  
 
 
@@ -368,7 +370,7 @@
           ;; this created new directories for each of the four subdirs contained in resources, at the distribution end
           (match (path->string subdir)
             [(or "teachers" "workbook")
-             (copy-directory/files (build-path input-resources-dir subdir "langs" (or (getenv "LANGUAGE") "english"))
+             (copy-directory/files (build-path input-resources-dir subdir "langs" (getenv "LANGUAGE") )
                               (build-path (simple-form-path output-resources-dir) subdir))]
             [(or "images" "source-files")
              (copy-directory/files (build-path input-resources-dir subdir)
