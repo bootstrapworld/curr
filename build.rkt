@@ -127,9 +127,9 @@
 (putenv "CURRENT-SOLUTIONS-MODE" "off")
 (putenv "TARGET-LANG" "pyret")
 (putenv "BUILD-FOR" "bootstrap")
-(putenv "LANGUAGE" "english")
+(putenv "LANGUAGE" "spanish")
 (parameterize ([current-language (getenv "LANGUAGE")])
-  (printf "Printing documents in ~a" (getenv "LANGUAGE")))
+  (printf "Printing documents in ~a \n" (getenv "LANGUAGE")))
 (define current-contextual-tags
   (command-line
    #:program "build"
@@ -271,7 +271,6 @@
 
 ;; Building exercise handouts
 (define (build-exercise-handouts)
-  
   (for ([subdir (directory-list (lessons-dir))]
         #:when (directory-exists? (build-path (lessons-dir) subdir)))
     (when (directory-exists? (build-path (lessons-dir) subdir "exercises"))
