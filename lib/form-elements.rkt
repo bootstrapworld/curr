@@ -1028,7 +1028,8 @@
 ;; produces values for the title and forevidence arguments for given exercise locator
 ;;  either or both values will be false if not found in the file
 (define (extract-exercise-data exloc)
-  (let ([filepath (build-path lessons-dir (exercise-locator-lesson exloc) 
+  ;; because we had to stitch to deine instead of define-runtime path, the relative paths created are static and must be manually edited
+  (let ([filepath (build-path 'up 'up 'up 'up 'up 'up(lessons-dir) (exercise-locator-lesson exloc) 
                               "exercises" (string-append (exercise-locator-filename exloc) ".scrbl"))]
         )
     (let ([data
@@ -1104,7 +1105,7 @@
                                                    )
                                                (let ([exdirpath (if (current-deployment-dir)
                                                                     (build-path (current-deployment-dir) "lessons") 
-                                                                    (build-path lessons-dir))]
+                                                                    (build-path 'up (lessons-dir)))]
                                                      [expathname 
                                                       (build-path "lessons" (exercise-locator-lesson exloc) 
                                                                   "exercises" (string-append (exercise-locator-filename exloc) 
