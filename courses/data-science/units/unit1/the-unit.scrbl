@@ -429,7 +429,7 @@
                                 @activity[#:forevidence "BS-IDE&1&1"]{
                                         You want to buy two ice cream cones:  one for you, and one for a friend.
                                         Each ice cream cone costs $1.98.
-                                        How much will 2 ice cream cone cost?
+                                        How much will 2 ice cream cones cost?
                                 }
                         }
                         @teacher{
@@ -439,7 +439,7 @@
                 @point{
                     @student{
                             We need to compute the cost of 2 cones, and each cone costs $1.98.
-                            So we need to multiply the cost per cone by the number of ice cream cones we
+                            So we need to multiply the cost-per-cone by the number of ice cream cones we
                             want to buy.
 
                             @code[#:multi-line #t]{
@@ -453,8 +453,8 @@
                 @point{
                         @student{
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                        There are 60 minutes in an hour, and 24 hours in a day.  How many
-                                        minutes are there in a year?  (365 Days).
+                                        There 365 days in a year, 60 minutes in an hour, and 24 hours in a day.  How many
+                                        minutes are there in a year?
                                 }
                         }
                         @teacher{

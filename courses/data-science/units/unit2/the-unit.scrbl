@@ -27,10 +27,11 @@
         @points[
         	@point{
         	 		@student{
-        	 				So far you have learned the fundamentals of writing programs to compute values with expressions.
-        	 				This is powerful, but as data scientists, we need write programs that compute new values from
-        	 				real data.  In this unit, you will learn how Pyret can store real world data, and how to 
-        	 				answer data science questions by writing programs.
+        	 				So far you have learned the fundamentals of writing programs that do work on simple data like
+                                                Numbers (@code{1, -6, 3.5,} etc.) and Strings ((@code{"hello", "17",} etc.). As data scientists, 
+                                                we need write programs that work on complex data, which can have many related parts and contain
+                                                dozens or millions of entries. In this unit, you will learn how Pyret works with real world data, 
+                                                and how to answer data science questions by writing programs over that data.
         	 		}
         	 		@teacher{
 
@@ -71,7 +72,7 @@
 			@point{
                     @student{
 							@vocab{Table}s are organized into @vocab{column}s and @vocab{row}s.
-                            This table has exactly 4 columns.
+                            @activity{How many columns does this table have?}
 
 							All of the entries in a particular @vocab{column} will contain values that 
 							are the same type, and represent the same thing. For example, each 
@@ -91,7 +92,7 @@
 			@point{
                     @student{
 							The first @vocab{row} in a table is a special row called the 
-							@vocab{header row}. Each @vocab{entry} in the @vocab{header row} is the 
+							@vocab{header row}. Each part of the @vocab{header row} is the 
 							name of a particular @vocab{column}.
 
 							@build-table/cols[
@@ -139,9 +140,9 @@
              @point{
                     @student{
 							Now that you know the basic information about tables, 
-							it's time to get some hands on experience with tables in Pyret.
-							Pyret allows us to write programs with tables, similar to
-							how we write programs using regular Number and String values.
+							it's time to get some hands on experience with them in Pyret.
+							Pyret allows us to write programs that work on tables, similar to
+							how we write programs that work on Numbers and Strings.
 					}
                     @teacher{
                     		In supplemental lessons, students/teachers can load their 
@@ -166,11 +167,14 @@
             }
             @point{
             		@student{
-            				The definitions window contains code that you haven't seen before,
-            				so it's ok if you don't understand it all at once!
+            				The definitions window contains some code that you haven't seen before. This program loads two tables from Google
+                                        Sheets using the @code{load-table} keyword, and defines the variables @code{presidents} and @code{nutrition} to
+            				refer to these tables.  We use @code{=} to define these variables, just as we did in unit 1.
 
             				@activity[#:forevidence "BS-IDE&1&1"]{
-            						Type each of these programs into the interactions window and hit Enter/Return
+                                                        To evaluate a variable, we click Run and type its name into the Interactions Area. We do the same
+                                                        thing if that variable is a Number, a String, or even a Table! Click Run, and
+            						type each of these programs into the interactions window and hit Enter/Return
             						@itemlist[
             								@item{
             										@code{nutrition}
@@ -181,10 +185,7 @@
             						]
             				}
 
-            				This program loads tables from Google Sheets using the @code{load-table} keyword,
-            				and sets @code{presidents} and @code{nutrition} to be variables that 
-            				refer to these tables.  We use @code{=} for variable assignment the same way that
-            				we did in unit 1.
+            				
             		}
             		@teacher{
             				The students should not need to know exactly how this scaffold code

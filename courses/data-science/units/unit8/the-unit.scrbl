@@ -104,9 +104,9 @@
                 }
                 @point{
                       @student{
-                              This expression produces a new type, called a @vocab{boolean}.
-                              A boolean type can only have two values:  either true, or false.
-                              Computer scientists and data scientists use boolean values whenever
+                              This expression produces a new type, called a @vocab{Boolean}.
+                              A boolean type can only have two values: true, or false.
+                              Computer scientists and data scientists use Boolean values whenever
                               they are asking yes or no questions of data.  For example, the 
                               expression @code{2 > 1} is asking "is 2 greater than one?".  The 
                               answer is yes, so the computer will produce @code{true}.

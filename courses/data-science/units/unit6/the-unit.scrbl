@@ -27,9 +27,13 @@
         @points[
                 @point{
                         @student{
+                                Suppose you want to go out to dinner, and you have a list of restaurants in town. 
+                                If you knew the average price and average review score for each one, how would you know
+                                which one is best? Does a more expensive menu always mean a better meal? 
                                 You now have significant experience asking questions about data sets:  You can
                                 measure the center of, and visualize, both categorical and quantitative data sets.
-                                Let's look at a new data set:  a table containing information about the restaurants in
+                                Let's use this experience to find out if the expensive restaurants are really worth the money.
+                                First, we'll start with out data set:  a table containing information about the restaurants in
                                 a town.
 
                                 @build-table/cols[
@@ -352,11 +356,11 @@
                                                                     _.{title: ''})
                                 }
 
-                                Here we see a function @code{scatter-plot}.  This is similar to the
-                                other chart functions because it takes in the lists we care about, and 
-                                a PlotOptions object.  It is different because, unlike @code{histogram, bar-chart, }etc.,
-                                this doesn't make a scatter plot appear on screen.  It just binds a Plot to
-                                the variable @code{prices-vs-ratings-plot}.  A Plot is a new type, like String or Number.
+                                Here we see a function @code{scatter-plot}. Like the other chart functions you've seen,
+                                it takes in the two Lists we care about, and a @code{PlotOptions} object.  It is different 
+                                because, unlike @code{histogram, bar-chart,} etc., this doesn't make a scatter plot appear 
+                                on screen. Instead, it produces a @vocab{Plot} value, which we define to be @code{prices-vs-ratings-plot}.  
+                                A Plot is a new type, like String, Number, List or Table.
                                 We will use the variable @code{prices-vs-ratings-plot} later to make a plot appear on screen.
                         }
                         @teacher{

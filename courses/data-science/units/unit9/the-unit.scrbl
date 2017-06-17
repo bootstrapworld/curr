@@ -39,8 +39,8 @@
                  @point{
                         @student{
                                 In this workbook exercise, you've done something very different
-                                from what we've learned so far;  you have computed NEW data
-                                based on old data in the table.  In the sock exercise, this means
+                                from what we've learned so far:  you computed a new column
+                                based on existing data in the table.  In the sock exercise, this means
                                 creating a new column called @code{price-per-sock}, and filling 
                                 in a new value for each row, based on the @code{price} and @code{socks}
                                 values in that row.  Creating a new table with an additional column

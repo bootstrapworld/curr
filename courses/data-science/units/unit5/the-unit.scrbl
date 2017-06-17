@@ -27,11 +27,11 @@
         @points[
                 @point{
                         @student{
-                                Imagine you are in a casino, and a stranger offers you to play a game.  
+                                Imagine you are in a casino, and a stranger invites you to play a game.  
 
-                                You can guess a number between 2 and 12.  The stranger will then roll two dice,
-                                and add the numbers together.  If that number matches your number, you get $5!
-                                If your number is wrong, then you give the stranger $5.
+                                In this game, you start by guessing a number between 2 and 12.  The stranger rolls two dice,
+                                and add the numbers together.  If that number matches your number, you win the jackpot!
+                                If your number is wrong, then you lose your money. How can we maximize our chances of winning?
                         }
                         @teacher{
                                 @itemlist[
@@ -107,7 +107,8 @@
                                 Because Pyret computers are so fast, use @code{dice-roll} to 
                                 create a list of 10,000 dice rolls within a few seconds.  How would we 
                                 use this List to come up with the most likely number, which would
-                                be our best guess?
+                                be our best guess? Is there a measure of center that could answer this question,
+                                and help us win the jackpot?
                         }
                         @teacher{
                                 Guide students to suggest using mean, median, and mode
