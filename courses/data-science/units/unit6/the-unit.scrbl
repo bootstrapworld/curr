@@ -510,7 +510,7 @@
                 @point{
                         @student{
                                 In your workbook activity, you gave predictors "grades" for how well they performed.
-                                Data scientists use @vocab{r squared values} to grade predictors in real life.
+                                Data scientists use @vocab{r squared} values to grade predictors in real life.
 
                                 @activity[#:forevidence "BS-IDE&1&1"]{
                                         Type @code{rating-model.r-squared()} into the interactions window.
