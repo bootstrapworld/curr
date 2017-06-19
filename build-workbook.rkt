@@ -22,6 +22,9 @@
          scribble/render
          file/zip)
 
+;
+(putenv "LANGUAGE" "english")
+
 ;; NOTE: This defn is a hack.  Ideally, we should be using the
 ;;  get-workbook-dir function from paths.rkt.  However, that is
 ;;  capturing a binding for the current-course parameter that
@@ -187,7 +190,7 @@
 
 
 ; for now, only algebra is set up for auto-building
-(define bootstrap-courses '("algebra"));; removed "reactive"
+(define bootstrap-courses '("algebra" "reactive"));; removed "reactive"
 
 ; use this to tell scribble to use the workbook.css file
 (putenv "BOOTSTRAP-TARGET" "workbook")
