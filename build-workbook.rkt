@@ -22,7 +22,11 @@
          scribble/render
          file/zip)
 
+<<<<<<< HEAD
 ;; this is because build-workbook does not call build.rkt
+=======
+;
+>>>>>>> origin/summer-cleanup
 (putenv "LANGUAGE" "english")
 
 ;; NOTE: This defn is a hack.  Ideally, we should be using the
@@ -192,7 +196,7 @@
 
 
 ; for now, only algebra is set up for auto-building
-(define bootstrap-courses '("algebra"));; removed "reactive"
+(define bootstrap-courses '("algebra" "reactive"));; removed "reactive"
 
 ; use this to tell scribble to use the workbook.css file
 (putenv "BOOTSTRAP-TARGET" "workbook")

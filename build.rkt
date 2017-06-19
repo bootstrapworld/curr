@@ -122,12 +122,12 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Command line parsing.  We initialize the SCRIBBLE_TAGS environmental
 ;; variable
-(define courses (list "algebra" "reactive")) ; "data-science" "physics"))
+(define courses (list "algebra" "reactive" )) ;  "data-science" "physics"))
 (putenv "AUDIENCE" "teacher")
 (putenv "CURRENT-SOLUTIONS-MODE" "off")
 (putenv "TARGET-LANG" "pyret")
 (putenv "BUILD-FOR" "bootstrap")
-(putenv "LANGUAGE" "spanish")
+(putenv "LANGUAGE" "english")
 (printf "Printing documents in ~a \n" (getenv "LANGUAGE"))
 (define current-contextual-tags
   (command-line

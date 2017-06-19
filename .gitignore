@@ -38,7 +38,7 @@ courses/*/resources/workbook/langs/*/workbook.pdf
 courses/*/resources/workbook/langs/*/workbooksols.pdf
 courses/*/units/langs/*/*/box.gif
 courses/*/units/langs/*/*/backlogo.png
-lessons/langs/*/*/exercises/*.pdf
+lessons/*/exercises/*.pdf
 courses/*/resources/workbook/workbook.pdf
 courses/*/resources/workbook/workbooksols.pdf
 courses/*/units/*/box.gif
