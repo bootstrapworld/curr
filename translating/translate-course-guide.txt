@@ -1,0 +1,52 @@
+Stage I - Directory Modifications
+
+      1.   main.scrbl
+In the course folder, create a "langs" directory
+In this "langs" directory, create a folder for each language to which this course will be translated
+In each of these language folders, put the version of "main.scrbl" for that language.
+Example: To create the English structure in Algebra, create “/algebra/langs/english/main.scrbl
+
+      2.   Teachers and workbook 
+Create in the resources these structures for the appropriate module, putting english in for language unless you are translating
+	/courses/<module>/resources/teachers/langs/<language>
+		Into this file put all of the contents of the old file /teachers except 
+-----
+teachers-guide
+WorkshopSlides.ppt
+-----
+		Leave these in courses/<module>/resources/teachers so that it contains 
+-----
+langs
+teachers-guide
+WorkshopSlides.ppt
+-----
+	/courses/<module>/resources/workbook/langs/<language>
+Into this file put all of the contents of the old file /workbook. 
+ 
+      3.   units 
+In the course folder, go to the “units” directory, and create a “langs” directory within that.
+In this "langs" directory, create a folder for each language to which this course will be translated
+Move all contents of “/courses/<module>/units” to “courses/<module>/units/langs/<language>”.
+	
+
+
+
+
+
+Stage II - Reference modifications
+ 
+main.scrbl
+In the main.scrbl file for that course, in about the 5th line, there will be something like:
+@boxed-text{@animated-gif{splash.png}Bootstrap:Algebra (or "Bootstrap:1") ...
+Change the argument of “@animated-gif” to “../../splash.pgn”.
+All that’s happening here is that the main.scrbl file now needs to move up out of langs/<language> to find the splash.png file.
+ 
+
+
+
+
+
+Stage III - Add to course list
+ 
+In build.rkt, there is a definition statement for “course-list” that states which courses are being constructed. 
+Simply add to this list the name of whatever course it is that you are now building

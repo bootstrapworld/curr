@@ -14,7 +14,7 @@
 (define WORKBOOK-INDEX-FILE "workbook-index.rkt")
 
 (define (read-workbook-index) 
-  (with-input-from-file (build-path (get-workbook-dir) WORKBOOK-INDEX-FILE) read))
+  (with-input-from-file (build-path (get-workbook-dir) "langs" (getenv "LANGUAGE") WORKBOOK-INDEX-FILE) read))
   ;(with-input-from-file (build-path root-path "lib" WORKBOOK-INDEX-FILE) read))
 
 ;; get-workbook-page/tag : string -> num or #f

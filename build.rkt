@@ -7,12 +7,15 @@
          racket/path
          racket/file
          racket/list
+         racket/match
+         (for-syntax racket/base)
          "lib/system-parameters.rkt"
          "lib/translate-pdfs.rkt"
          "lib/paths.rkt"
          "lib/build-modes.rkt"
          "lib/scribble-pdf-helpers.rkt"
          "lib/pdf-lesson-exercises.rkt"
+         
          scribble/render
          file/zip)
 
@@ -63,12 +66,23 @@
 (define document-namespace (make-fresh-document-namespace))
 
 
+;; filters an output directory so that it is agnostic to the language structure used to produce it
+;; This effectively makes the build script produce the "distributions" directory in the same way that
+;; it did prior to when translation capability was added
+;; added by jake and kielan 13 jun
+(define (filter-output-dir dir)
+  (build-path (string-replace (path->string dir) (string-append "/langs/" (getenv "LANGUAGE")) "")))
+ 
+
+
+
 ;; run-scribble: path -> void
 ;; Runs scribble on the given file.
 (define (run-scribble scribble-file #:outfile (outfile #f)
                                     #:never-generate-pdf? [never-generate-pdf? #f]
                                     #:include-base-path? [include-base-path? #t])
-  (define output-dir (cond [(current-deployment-dir)
+  
+  (define output-dir (filter-output-dir (cond [(current-deployment-dir)
                             ;; Rendering to a particular deployment directory.
 			    (if include-base-path?
 				(let-values ([(base name dir?) 
@@ -82,9 +96,11 @@
                             ;; In-place rendering
                             #;(let-values ([(base name dir?)
                             (split-path (simple-form-path scribble-file))])
-                            base)]))
+                            base)])))
   (define-values (base name dir?) (split-path scribble-file))
+  
   (define output-path (build-path output-dir (string->path (regexp-replace #px"\\.scrbl$" (path->string name) ".html"))))
+  
   (parameterize ([current-directory base]
                  [current-namespace document-namespace]
                  [current-document-output-path output-path])
@@ -106,11 +122,13 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Command line parsing.  We initialize the SCRIBBLE_TAGS environmental
 ;; variable
-(define courses (list "algebra" "reactive" "data-science" "physics"))
+(define courses (list "algebra" "reactive")) ; "data-science" "physics"))
 (putenv "AUDIENCE" "teacher")
 (putenv "CURRENT-SOLUTIONS-MODE" "off")
 (putenv "TARGET-LANG" "pyret")
 (putenv "BUILD-FOR" "bootstrap")
+(putenv "LANGUAGE" "spanish")
+(printf "Printing documents in ~a \n" (getenv "LANGUAGE"))
 (define current-contextual-tags
   (command-line
    #:program "build"
@@ -149,8 +167,8 @@
   (when (directory-exists? (current-deployment-dir))
     (delete-directory/files (current-deployment-dir)))
   (make-directory (current-deployment-dir))
-  (for ([base (directory-list static-pages-path)])
-    (define source-full-path (build-path static-pages-path base))
+  (for ([base (directory-list (static-pages-path))])
+    (define source-full-path (build-path (static-pages-path) base))
     (define target-full-path (build-path (current-deployment-dir) base))
     (when (or (file-exists? target-full-path)
               (directory-exists? target-full-path))
@@ -176,7 +194,7 @@
     (printf "Phase ~a\n" phase)
     (for ([subdir (directory-list (get-units-dir))]
           #:when (directory-exists? (build-path (get-units-dir) subdir)))
-      (define scribble-file (simple-form-path (build-path (get-units-dir) subdir "the-unit.scrbl")))
+      (define scribble-file (simple-form-path (build-path (get-units-dir) subdir "the-unit.scrbl"))); langs path
       (cond [(file-exists? scribble-file)
              (printf "build.rkt: Building ~a\n" scribble-file)
              (copy-file (build-path "lib" "box.gif") 
@@ -228,6 +246,7 @@
 
   (printf "build.rkt: building ~a main\n" (current-course))
   (run-scribble (get-course-main) #:outfile "index")
+  (printf "build.rkt: renaming directory for ~a \n" (current-course))
   (rename-file-or-directory (build-path (current-deployment-dir) "courses" (current-course) "index.html")
                             (build-path (current-deployment-dir) "courses" (current-course) "index.shtml")
                             #t)
@@ -237,27 +256,28 @@
 ;; Building the lessons
 (define (build-lessons)
   (printf "build.rkt: building lessons\n")
-  (for ([subdir (directory-list lessons-dir)]
-        #:when (directory-exists? (build-path lessons-dir subdir)))
-    (define scribble-file (simple-form-path (build-path lessons-dir subdir "lesson" "lesson.scrbl")))
+  (for ([subdir (directory-list (lessons-dir))]
+        #:when (directory-exists? (build-path (lessons-dir) subdir)))
+    (define scribble-file (simple-form-path (build-path (lessons-dir) subdir "lesson" "lesson.scrbl")))
     (cond [(file-exists? scribble-file)
            (printf "build.rkt: Building ~a\n" scribble-file)
            (run-scribble scribble-file #:never-generate-pdf? #t)]
           [else
            (printf "Could not find a \"lesson.scrbl\" in directory ~a\n"
-                   (build-path lessons-dir subdir))])
+                   (build-path (lessons-dir) subdir))])
     )
   )
 
 ;; Building exercise handouts
 (define (build-exercise-handouts)
-  (for ([subdir (directory-list lessons-dir)]
-        #:when (directory-exists? (build-path lessons-dir subdir)))
-    (when (directory-exists? (build-path lessons-dir subdir "exercises"))
-      (for ([worksheet (directory-list (build-path lessons-dir subdir "exercises"))]
+  (for ([subdir (directory-list (lessons-dir))]
+        #:when (directory-exists? (build-path (lessons-dir) subdir)))
+    (when (directory-exists? (build-path (lessons-dir) subdir "exercises"))
+      (for ([worksheet (directory-list (build-path (lessons-dir) subdir "exercises"))]
             #:when (regexp-match #px".scrbl$" worksheet))
         (printf "build.rkt: building exercise handout ~a: ~a\n" subdir worksheet)
-        (run-scribble (build-path lessons-dir subdir "exercises" worksheet))
+        (printf "building exercise at: ~a \n" (path->string (build-path (lessons-dir) subdir "exercises" worksheet)))
+        (run-scribble (build-path (lessons-dir) subdir "exercises" worksheet))
         (copy-file (build-path "lib" "backlogo.png")
                    (build-path (current-deployment-dir) "lessons" subdir "exercises" "backlogo.png")
                    #t)
@@ -272,9 +292,9 @@
     (parameterize ([current-deployment-dir (build-path (root-deployment-dir) "courses" (current-course) "resources")])
       (unless (directory-exists? (current-deployment-dir))
         (make-directory (current-deployment-dir))) 
-      (for ([subdir (directory-list lessons-dir)]
-            #:when (directory-exists? (build-path lessons-dir subdir)))
-        (let ([exercises-path (build-path lessons-dir subdir "exercises")])
+      (for ([subdir (directory-list (lessons-dir))]
+            #:when (directory-exists? (build-path (lessons-dir) subdir)))
+        (let ([exercises-path (build-path (lessons-dir) subdir "exercises")])
           (when (directory-exists? exercises-path)
             (for ([worksheet (directory-list exercises-path)]
                   #:when (regexp-match #px".scrbl$" worksheet))
@@ -285,13 +305,13 @@
 
 (define (build-worksheets)
   ;; and the worksheets
-  (for ([subdir (directory-list lessons-dir)]
-        #:when (directory-exists? (build-path lessons-dir subdir)))
-    (when (directory-exists? (build-path lessons-dir subdir "worksheets"))
-      (for ([worksheet (directory-list (build-path lessons-dir subdir "worksheets"))]
+  (for ([subdir (directory-list (lessons-dir))]
+        #:when (directory-exists? (build-path (lessons-dir) subdir)))
+    (when (directory-exists? (build-path (lessons-dir) subdir "worksheets"))
+      (for ([worksheet (directory-list (build-path (lessons-dir) subdir "worksheets"))]
             #:when (regexp-match #px".scrbl$" worksheet))
         (printf "build.rkt: building worksheet ~a: ~a\n" subdir worksheet)
-        (run-scribble (build-path lessons-dir subdir "worksheets" worksheet))))))
+        (run-scribble (build-path (lessons-dir) subdir "worksheets" worksheet))))))
 
 ;; build extra PDF worksheet-style pages
 ;;
@@ -303,7 +323,7 @@
   (for-each (lambda (lesson-spec)
               (let* ([lesson-name (first lesson-spec)]
                      [exer-files (second lesson-spec)]
-                     [exer-dir (build-path lessons-dir lesson-name "exercises")]
+                     [exer-dir (build-path (lessons-dir) lesson-name "exercises")]
 		     [exer-deploy-dir (build-path (root-deployment-dir) "lessons" lesson-name "exercises")])
                 (parameterize [(current-deployment-dir exer-dir)]
                   (scribble-to-pdf exer-files exer-dir))
@@ -317,13 +337,13 @@
 
 (define (build-drills)
   ;; and the drills
-  (for ([subdir (directory-list lessons-dir)]
-        #:when (directory-exists? (build-path lessons-dir subdir)))
-    (when (directory-exists? (build-path lessons-dir subdir "drills"))
-      (for ([drill (directory-list (build-path lessons-dir subdir "drills"))]
+  (for ([subdir (directory-list (lessons-dir))]
+        #:when (directory-exists? (build-path (lessons-dir) subdir)))
+    (when (directory-exists? (build-path (lessons-dir) subdir "drills"))
+      (for ([drill (directory-list (build-path (lessons-dir) subdir "drills"))]
             #:when (regexp-match #px".scrbl$" drill))
         (printf "build.rkt: building drill ~a: ~a\n" subdir drill)
-        (run-scribble (build-path lessons-dir subdir "drills" drill))))))
+        (run-scribble (build-path (lessons-dir) subdir "drills" drill))))))
 
 
 
@@ -342,10 +362,24 @@
             [output-resources-dir (deploy-resources-dir)])
         (when (directory-exists? output-resources-dir)
           (delete-directory/files output-resources-dir))
-        ;(printf "Copying from ~a to ~a ~n" input-resources-dir output-resources-dir)
-        (copy-directory/files input-resources-dir
-                              (simple-form-path output-resources-dir))
-   
+        ;(printf (string-append "subdirs: " (directory-list input-resources-dir)))
+        (make-directory  output-resources-dir )
+        (for ([subdir (directory-list input-resources-dir)])
+          (printf "Copying from ~a to ~a ~n" (path->string (build-path input-resources-dir subdir)) (path->string (build-path output-resources-dir subdir)))
+          ;; this created new directories for each of the four subdirs contained in resources, at the distribution end
+          (match (path->string subdir)
+            [(or "teachers" "workbook")
+             (copy-directory/files (build-path input-resources-dir subdir "langs" (getenv "LANGUAGE") )
+                              (build-path (simple-form-path output-resources-dir) subdir))]
+            [(or "images" "source-files")
+             (copy-directory/files (build-path input-resources-dir subdir)
+                              (build-path (simple-form-path output-resources-dir) subdir))]
+            [_
+             (if (equal? ".DS_Store" (path->string subdir))
+                           (printf "what is subdir")
+                           (copy-file (build-path input-resources-dir subdir)
+                                      (build-path (simple-form-path output-resources-dir) subdir )
+                                      #t))]))
         ; keep only certain files in workbook resources dir
         (let ([keep-workbook-files (list "workbook.pdf")])
           (for ([wbfiledir (directory-list (build-path output-resources-dir "workbook"))])
@@ -386,7 +420,7 @@
                    #t)
         (copy-file (build-path "lib" "backlogo.png")
                    (build-path (current-deployment-dir) "courses"
-                               (current-course) "units" subdir "backlogo.png")
+                               (current-course) "units"  subdir "backlogo.png")
                    #t))))
 
 
@@ -415,7 +449,7 @@
                         (when (file-exists? oldsols)
                           (delete-file oldsols))
                         (printf "Copying teachers workbook solutions into distribution~n")
-                        (copy-file workbooksols oldsols))))
+                        (copy-file workbooksols (filter-output-dir oldsols)))))
                   )
                 ]
                [else
@@ -448,7 +482,6 @@
     (copy-file (build-path "lib" "mathjaxlocal.js")
                (build-path distrib-lib-dir "mathjaxlocal.js")
                #t)))
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

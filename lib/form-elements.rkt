@@ -23,7 +23,6 @@
          "scribble-helpers.rkt"
          "standards-csv-api.rkt"
          "standards-dictionary.rkt"
-         "glossary-terms.rkt"
          "auto-format-within-strings.rkt"
          "workbook-index-api.rkt"
          "styles.rkt"
@@ -32,6 +31,8 @@
          "exercise-generator.rkt"
 	 "math-rendering.rkt"
          "wescheme.rkt"
+         "translator.rkt"
+         (for-syntax syntax/parse)
          )
  
 ;; FIXME: must add contracts!
@@ -125,6 +126,18 @@
                   
          )        
 
+
+
+;;;;;;;;;;;; language-specific require ;;;;;;;;;;;;;;;;;;;;;;;
+(define-for-syntax language (getenv "LANGUAGE"))
+(define-syntax (choose stx)
+  (syntax-parse stx
+                 [(_  a b)
+                  (case language
+                    [("english") #'a]
+                    [("spanish") #'b])]))
+(choose (require "langs/english/glossary-terms.rkt") (require "langs/spanish/glossary-terms.rkt"))
+
 ;;;;;;;;;;;; Runtime paths and settings ;;;;;;;;;;;;;;;;;;;;;;;
 
 (define-runtime-path worksheet-lesson-root (build-path 'up "lessons"))
@@ -212,10 +225,10 @@
 (define (copyright . body)
   (para #:style (bootstrap-div-style/id "copyright")
    (hyperlink #:style bootstrap-hyperlink-style "http://creativecommons.org/licenses/by-nc-nd/4.0/" creativeCommonsLogo)
-   "Bootstrap by Emmanuel Schanzer, Emma Youndtsmith, Kathi Fisler, Shriram Krishnamurthi, Joe Politz and Ben Lerner is licensed under a "
-   (hyperlink #:style bootstrap-hyperlink-style "http://creativecommons.org/licenses/by-nc-nd/4.0/" "Creative Commons 4.0 Unported License")
-   ". Based on a work at " (hyperlink "http://www.bootstrapworld.org/" "www.BootstrapWorld.org")
-   ". Permissions beyond the scope of this license may be available by contacting "
+   (translate 'copyright-names)
+   (hyperlink #:style bootstrap-hyperlink-style "http://creativecommons.org/licenses/by-nc-nd/4.0/" (translate 'copyright-license))
+   (string-append ". " (translate 'copyright-based) " ") (hyperlink "http://www.bootstrapworld.org/" "www.BootstrapWorld.org")
+   (string-append ". " (translate 'copyright-permissions) " ")
    (hyperlink "mailto:schanzer@BootstrapWorld.org" "schanzer@BootstrapWorld.org") "."))
 
 ;; activities that are interspersed into the notes
@@ -271,8 +284,8 @@
                           (list 
                            (style "BootstrapTable" '(center))
                            (style "BootstrapTable" '(center))))))   
-                 (cons (list (para #:style "BootstrapTableHeader" "Types")
-                             (para #:style "BootstrapTableHeader" "Functions"))
+                 (cons (list (para #:style "BootstrapTableHeader" (translate 'lang-table-types))
+                             (para #:style "BootstrapTableHeader" (translate 'lang-table-func)))
                        (map (lambda (r) (map para r)) rows)))))
 
 ;; build-table : list[string] list[list[element]] (number number -> element) 
@@ -318,30 +331,30 @@
 
 (define (materials . items)
   (list (compound-paragraph bs-header-style 
-                            (decode-flow (list "Materials and Equipment:")))
+                            (decode-flow (list (string-append (translate 'iHeader-materials)":"))))
         (apply itemlist/splicing items #:style "BootstrapMaterialsList")))
-
+  
 (define (objectives . items)
   (list (compound-paragraph bs-header-style 
-                            (decode-flow (list "Learning Objectives:")))
+                            (decode-flow (list (string-append (translate 'iHeader-learning)":"))))
         (apply itemlist/splicing items #:style "BootstrapLearningObjectivesList")))
 
 (define (evidence-statements . items)
   (list (compound-paragraph bs-header-style 
-                            (decode-flow (list "Evidence Statements:")))
+                            (decode-flow (list (string-append (translate 'iHeader-evidence)":"))))
         (apply itemlist/splicing items #:style "BootstrapEvidenceStatementsList")))
 
 (define (product-outcomes . items)
   (list (compound-paragraph bs-header-style 
-                            (decode-flow (list "Product Outcomes:")))
+                            (decode-flow (list (string-append (translate 'iHeader-product)":"))))
         (apply itemlist/splicing items #:style "BootstrapProductOutcomesList")))
 
 (define (exercises . content)
-  (lesson-section "Exercises" content))
+  (lesson-section (string-append (translate 'iHeader-exercises)":") content))
 
 (define (preparation . items)
   (list (compound-paragraph bs-header-style 
-                            (decode-flow (list "Preparation:")))
+                            (decode-flow (list (string-append (translate 'iHeader-preparation)":"))))
         (apply itemlist/splicing items #:style "BootstrapPreparationList")))
   
 ;; Cooperates with the Lesson tag.
@@ -372,13 +385,13 @@
          
        (nested #:style bootstrap-agenda-style 
                (interleave-parbreaks/all
-               (list "Agenda"
+               (list (translate 'agenda-title)
                      (apply 
                       itemlist/splicing 
                       #:style "BootstrapAgendaList"
                       (for/list ([a-lesson lessons])
                         (item (para (elem #:style "BSLessonDuration"
-                                          (format "~a min" 
+                                          (format (string-append"~a "(translate 'agenda-min) )
                                                   (extract-minutes a-lesson)))
                                     (maybe-hyperlink
                                      (elem #:style "BSLessonName"
@@ -428,7 +441,7 @@
              (nested #:style (bootstrap-div-style/id/nested "Glossary")
                      (interleave-parbreaks/all
                       (list
-                       (para #:style bs-header-style/span "Glossary:")
+                       (para #:style bs-header-style/span (string-append (translate 'iHeader-glossary) ":"))
                        (apply itemlist/splicing
                               (for/list ([term terms])
                                 (cond [(and (list? term) (string=? "" (second term)))
@@ -563,15 +576,15 @@
                   (nested #:style bs-logo-style (image logo.png "bootstrap logo"))
                   ;; agenda would insert here
                   (nested #:style bs-lesson-title-style
-                          (nested #:style bs-lesson-name-style "Overview"))
+                          (nested #:style bs-lesson-name-style (translate 'iHeader-overview)))
                   overview
-                  (lesson-section "Learning Objectives" learning-objectives)
-                  (lesson-section "Evidence Statements" evidence-statements)
-                  (lesson-section "Product Outcomes" product-outcomes)
+                  (lesson-section (translate 'iHeader-learning) learning-objectives)
+                  (lesson-section (translate 'iHeader-evidence) evidence-statements)
+                  (lesson-section (translate 'iHeader-product) product-outcomes)
                   ; commented out to suppress warnings that aren't relevant with unit-level generation
                   ;(lesson-section "Standards" (expand-standards standards))
-                  (lesson-section "Materials" materials)
-                  (lesson-section "Preparation" preparation)
+                  (lesson-section (translate 'iHeader-mat) materials)
+                  (lesson-section (translate 'iHeader-preparation) preparation)
                   ;; look at unit-level glossary generation to build lesson-level glossary
                   ;(lesson-section "Glossary" (glossary get))
                   )))
@@ -587,7 +600,7 @@
                                          (list (elem title) 
                                                video-elem
                                                (cond [duration
-                                                      (elem #:style bs-time-style (format "(Time ~a)" duration))]
+                                                      (elem #:style bs-time-style (format (string-append "(" (translate 'sHeader-duration) " ~a)") duration))]
                                                      [else (elem)]))))
                                   (list (elem)))))) ;pacings))) -- reinclude later if desired
                    body
@@ -599,6 +612,7 @@
 (define (lesson-section title contents)
   (traverse-block 
    (lambda (get set)
+     ;;string-downcase: non-english errors?
      (let ([title-tag (string->symbol (string-downcase (string-replace title " " "-")))])
        (when (itemization? contents)
          (set title-tag (append/itemization (get title-tag '()) contents))))
@@ -663,13 +677,13 @@
              (nested #:style (bootstrap-div-style/id/nested "LearningObjectives")
                      (interleave-parbreaks/all
                       (list
-                       (para #:style bs-header-style/span "Standards and Evidence Statements:")
-                       (list "Standards with"
-                             " prefix BS are specific to Bootstrap; others are from the Common Core."
-                             " Mouse over each standard to see its corresponding evidence statements."
-                             " Our " 
-                             (standards-link "Standards Document") 
-                             " shows which units cover each standard. "
+                       (para #:style bs-header-style/span (string-append (translate 'iHeader-standards)":"))
+                       (list (translate 'standards-stitle)
+                             " "
+                             (standards-link (translate 'standards-link)) 
+                             " "
+                             (translate 'standards-rest)
+                             ". "
                              )
                        (list->itemization tag-formatted-LOtree 
                                           (list "LearningObjectivesList" "EvidenceStatementsList")))))))))))
@@ -684,15 +698,17 @@
    [html (sxml->element
           `(div (@ (class "fixed") (id "lessonToolbar"))
                 (input (@ (type "button") 
-                          (value "Show Teacher Notes") 
+                          (valueShow ,(translate 'btn-show))
+                          (valueHide ,(translate 'btn-hide))
+                          (value ,(translate 'btn-show))
                           (onclick "toggleTeacherNotes(this);")) "")
                 (br)
                 (input (@ (type "button")
-                          (value "Discussion Group")
+                          (value ,(translate 'btn-group))
                           (onclick "showGroup()")))
                 (br)
                 (input (@ (type "button")
-                          (value "Slides")
+                          (value ,(translate 'btn-slide))
                           (onclick "showSlides()")))))]
    [else (elem)]))
 
@@ -701,7 +717,7 @@
    [html (sxml->element
           `(center
             (input (@ (type "button") (id "prev")   (value "<<")) "")
-            (input (@ (type "button") (id "flip")   (value "flip")) "")
+            (input (@ (type "button") (id "flip")   ,(value (translate 'btn-flip))) "")
             (input (@ (type "button") (id "next")   (value ">>")) "")
             ))]
    [else (elem "")]))
@@ -819,8 +835,8 @@
 ;;   used on the main page for the BS1 curriculum
 ;; previously used summary-item/links (for both html/pdf links)
 (define (unit-summary/links num)
-  (summary-item/unit-link (format "Unit ~a" num)
-                          (format "units/unit~a/index" num)  ; index used to be "the-unit"
+  (summary-item/unit-link (format (string-append (translate 'unit)" ~a") num)
+                          (format "units/unit~a/index" num)  ; index used to be "the-unit" 
                           (get-unit-descr (format "unit~a" num))))
 
 ;;;;;;;;;; Unit summary generation ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -876,17 +892,17 @@
                              ;(para #:style bs-header-style/span "Unit Overview")
                              ;(para #:style (bootstrap-div-style/id "overviewDescr") description)
                              (if product-outcomesItems (product-outcomes product-outcomesItems) 
-                                 (summary-data/auto 'product-outcomes "Product Outcomes"))
+                                 (summary-data/auto 'product-outcomes (translate 'iHeader-product)))
                              (learn-evid-from-standards)
                              (if length (length-of-lesson length) (length-of-unit/auto))
                              (gen-glossary)
                              (if (audience-in? (list "teacher" "volunteer"))
                                  (if materialsItems (materials materialsItems) 
-                                     (summary-data/auto 'materials "Materials"))
+                                     (summary-data/auto 'materials (translate 'iHeader-mat)))
                                  (elem))
                              (if (audience-in? (list "teacher" "volunteer"))
                                  (if preparationItems (preparation preparationItems) 
-                                     (summary-data/auto 'preparation "Preparation"))
+                                     (summary-data/auto 'preparation (translate 'iHeader-preparation)))
                                  (elem))
                              (if lang-table 
                                  (if (list? (first lang-table))
@@ -901,7 +917,7 @@
 ;creates the length of the lesson based on input
 ;input ONLY THE NUMBER!
 (define (length-of-lesson l)
-  (para #:style bs-header-style/span (format "Length: ~a minutes" l)))
+  (para #:style bs-header-style/span (format (string-append (translate 'length)": ~a "(translate 'minutes)) l)))
 
 (define (length-of-unit/auto)
   (traverse-block
@@ -916,7 +932,7 @@
   (match mp
     [(list 'lib path)
      (cond
-       [(regexp-match #px"^curr/lessons/([^/]+)/lesson/lesson.scrbl$" path)
+       [(regexp-match #px"^curr/lessons/langs/([^/]+)/([^/]+)/lesson/lesson.scrbl$" path)
         =>
         (lambda (result)
           (list-ref result 1))]
@@ -988,13 +1004,13 @@
   (format-key-terms str terms-to-ital italic))
 
 (define exercise-terms-to-italicize 
-  (list "Circle of Evaluation" 
-        "Arithmetic Expression" 
-        "arithmetic expression"
-        "Expression"
-        "Example"
-        "Contract" 
-        "code"))
+  (list (translate 'c-eval)
+        (translate 'cap-a-exp) 
+        (translate 'low-a-exp)
+        (translate 'exp)
+        (translate 'example)
+        (translate 'contract) 
+        (translate 'code)))
 
 (define (exercise-handout #:title [title #f]
                           #:instr [instr #f]
@@ -1003,7 +1019,7 @@
   ;(printf "processing handout~n")
   ;(printf "evidence is ~a~n" forevidence)
   ;(printf "body has length ~a~n~n" (length body))
-  (let ([full-title (if title (string-append "Exercise: " title) "Exercise")])
+  (let ([full-title (if title (string-append (translate 'exercise) ": " title) (translate 'exercise))])
     (interleave-parbreaks/all
      (list (head-title-no-content full-title)
            (elem #:style (bootstrap-div-style/id "homeworkInfo") "")
@@ -1011,7 +1027,7 @@
            (nested #:style bs-content-style
                    (nested #:style bs-handout-style
                            (interleave-parbreaks/all
-                            (cons (para #:style bs-exercise-instr-style (bold "Directions: ") 
+                            (cons (para #:style bs-exercise-instr-style (bold (string-append (translate 'directions) ": ")) 
                                         (italicize-within-string instr exercise-terms-to-italicize))
                                   body))))
            (copyright)))))
@@ -1024,7 +1040,8 @@
 ;; produces values for the title and forevidence arguments for given exercise locator
 ;;  either or both values will be false if not found in the file
 (define (extract-exercise-data exloc)
-  (let ([filepath (build-path lessons-dir (exercise-locator-lesson exloc) 
+  ;; because we had to stitch to deine instead of define-runtime path, the relative paths created are static and must be manually edited
+  (let ([filepath (build-path 'up 'up 'up 'up 'up 'up(lessons-dir) (exercise-locator-lesson exloc) 
                               "exercises" (string-append (exercise-locator-filename exloc) ".scrbl"))]
         )
     (let ([data
@@ -1080,12 +1097,12 @@
                    (nested #:style (bootstrap-div-style "ExtraExercises")
                            (interleave-parbreaks/all
                             (list 
-                             (para #:style bs-lesson-title-style "Additional Exercises:")
+                             (para #:style bs-lesson-title-style (string-append (translate 'add-exer) ":"))
                              (apply itemlist/splicing 
                                     (map (lambda (exloc)
                                            (let-values ([(extitle exforevid) 
                                                          (if (exercise-locator/dr-assess? exloc)
-                                                             (values (string-append "Check This Design Recipe: "
+                                                             (values (string-append (translate 'checkDR) ": "
                                                                                     (exercise-locator/dr-assess-descr exloc))
                                                                      #f)
                                                              (extract-exercise-data exloc)
@@ -1100,7 +1117,7 @@
                                                    )
                                                (let ([exdirpath (if (current-deployment-dir)
                                                                     (build-path (current-deployment-dir) "lessons") 
-                                                                    (build-path lessons-dir))]
+                                                                    (build-path 'up (lessons-dir)))]
                                                      [expathname 
                                                       (build-path "lessons" (exercise-locator-lesson exloc) 
                                                                   "exercises" (string-append (exercise-locator-filename exloc) 
@@ -1206,7 +1223,7 @@
 ;; produces a link to the standards documents
 (define (standards-link descr)
   (hyperlink #:style bootstrap-hyperlink-style
-             "http://www.bootstrapworld.org/materials/Standards.shtml"
+             (translate 'slink)
              descr))
 
 ;; wraps a hyperlink in the bootstrap styling tag
@@ -1246,7 +1263,7 @@
     ;                                                         (format "~a.html" name)))])))
   (list (hyperlink #:style bootstrap-hyperlink-style
                    (path->string the-relative-path)
-                   "Page " (number->string 
+                   (string-append (translate 'page) " ") (number->string 
                             (cond [page page] 
                                   [name (let ([num (get-workbook-page/name name)])
                                           (if num num
@@ -1291,7 +1308,7 @@
    [html
     (sxml->element
      `(div (@ (style "float: right"))
-           (a (@ (href "http://www.lulu.com/commerce/index.php?fBuyContent=14790241"))
+           (a (@ (href ,(translate 'lulu-link)))
               (img (@ (border "0") 
                       (alt "Support independent publishing: Buy this book on Lulu.")
                       (src "http://static.lulu.com/images/services/buy_now_buttons/en/book.gif?20140805085029"))))))]
