@@ -22,11 +22,9 @@
          scribble/render
          file/zip)
 
-<<<<<<< HEAD
+
 ;; this is because build-workbook does not call build.rkt
-=======
 ;
->>>>>>> origin/summer-cleanup
 (putenv "LANGUAGE" "english")
 
 ;; NOTE: This defn is a hack.  Ideally, we should be using the
