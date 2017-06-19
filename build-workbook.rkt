@@ -22,12 +22,17 @@
          scribble/render
          file/zip)
 
+;; this is because build-workbook does not call build.rkt
+(putenv "LANGUAGE" "english")
+
 ;; NOTE: This defn is a hack.  Ideally, we should be using the
 ;;  get-workbook-dir function from paths.rkt.  However, that is
 ;;  capturing a binding for the current-course parameter that
 ;;  I haven't figured out how to access when setting the current-course.
 ;;  As a result, we'd always generate the algebra workbook, even when our
 ;;  current-course is set to reactive.
+
+
 (define (kf-get-workbook-dir) (build-path courses-base (current-course) "resources" "workbook" "langs" (getenv "LANGUAGE")))
 
 ; converts list of pages to having all pdf extensions
