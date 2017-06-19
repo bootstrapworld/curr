@@ -1,6 +1,6 @@
 #lang racket/base
 
-#|
+#|SPANISH
 Glossary for terminology used in the notes.  The first entry of each entry can be either
 a single string or a list of keys that map to the same definition.
 
@@ -55,7 +55,7 @@ when it prints out the glossary for a particular unit
     ("piecewise function" "a function that computes different expressions based on its input")
     ("name" "how we refer to a function or value defined in a language (examples: +, *, star, circle)")
     ("produce" "to compute a value from an expression")
-    ("programming language" "a set of rules for writing code that a computer can evaluate") 
+    ("programming language" "a set of reglas for writing code that una computadora can evaluate") 
     ("purpose statement" "a brief description of what a function does")
     ("range" "the type of data that a function produces")
     ("reactor" "A value that contains a current state, and functions for updating, drawing, and interacting with that state")

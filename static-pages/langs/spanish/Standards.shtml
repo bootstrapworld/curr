@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+	<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<title>Bootstrap: Standards Alignment</title>
+		<link rel="stylesheet" type="text/css" href="../../styles.css"/>
+    <style>
+      .BSUnitTitle{font-weight: bold;}
+      .BSUnitSummary{margin: 5px;}
+      td{padding: 5px; vertical-align: top;}
+      .algebra {background: rgba(90, 50, 50, 0.2)}
+      .reactive {background: rgba(90, 50, 50, 0.3)}
+      table{display: none; border-collapse:collapse;background: #F0EFEE;padding: 10px;}
+      table#practice{display: block;}
+      table tr {border-bottom: 1px solid #B6D990; margin: 20px 10px;}
+      table tr:last-child {border-bottom: none;}
+      thead  {font-weight: bold;color: #75328A;}
+      tbody tr td:first-child{color: #75328A; width: 50%;}
+      tbody tr td:first-child>span{font-weight: bold;}
+      td:nth-child(odd) {padding-right: 40px;padding-left: 0;}
+/*
+.A-REI, .A-SSE, .A-CED, .F-IF, .F-BF, F-TF.{background: white; }
+.EE, .NS, .G {background: rgba(90, 50, 50, 0.3);}
+*/
+      input{margin-top: 20px; color: #75328A; background: #F0EFEE; border: none; padding: 15px; border-top-left-radius: 16px; border-top-right-radius: 16px; font-size: 16px; font-weight: 700; outline: none;}
+      input:hover {background: #75328A; color: #fff;}
+      @media only screen and (max-width: 960px), only screen and (max-device-width: 960px){input {font-size: 12px;}}
+      @media only screen and (max-width: 800px), only screen and (max-device-width: 800px){input {display: block; border-radius: 20px; margin: 10px 0; font-size: 16px; padding: 10px 15px;}}
+    </style>
+    
+    <script>
+      function showTable(id){
+        document.getElementById('practice').style.display = 'none';
+        document.getElementById('content').style.display  = 'none';
+        document.getElementById('TEKS').style.display = 'none';
+        document.getElementById('csta').style.display = 'none';
+        document.getElementById('k12cs').style.display = 'none';
+        document.getElementById(id).style.display = 'block';
+      }
+    </script>
+	</head>
+	<body>
+	<!--#include virtual="../../menubar.ssi" -->
+	
+	<div id="body" class="standards">
+		<div class="item">
+		<h1>Standards Alignment</h1>
+      <p>Extra lessons are nice, but Math teachers don't <i>have</i> 25 hours of spare classtime to spend on new materials, no matter how good it might be.
+
+      <p>That's why Bootstrap is aligned to National and State Standards for Mathematics, covering most Functional and Algebraic standards from Grade 7 through Algebra 2. This alignment makes it possible to integrate Bootstrap into the classroom smoothly, using time you've already planned into your pacing guidelines or scope and sequence plans.
+      
+      <p>For states using the Common Core, Bootstrap is also a model implementation of Common Core Standards for Mathematical Practice, offering explicit pedgagogical recommendation across all eight practice standards.
+
+      <p>Bootstrap also satisfies several of the CSTA (Computer Science Teacher's Association) standards across levels 1 (grades K-6), 2 (grades 6-9), and 3 (grades 9-12); Bootstrap1 (the algebra-oriented first course) covers standards in levels 1 and 2, while Bootstrap2 goes deeper into computer science and covers more standards in levels 2 and 3.
+    </div>
+    
+    
+    <div class="item">
+      <h1>What's Covered in 25 Hours?</h1>
+      <input type="button" onclick="showTable('practice')"  value="Mathematical Practice Standards"/>
+      <input type="button" onclick="showTable('content')"   value="Mathematical Content Standards"/>
+      <input type="button" onclick="showTable('k12cs')"     value="K12CS"/>
+      <input type="button" onclick="showTable('TEKS')"      value="TEKS"/>
+      <input type="button" onclick="showTable('csta')"      value="CSTA"/>
+
+      <table width="100%" id="practice">
+        <thead>
+          <tr><td><h2>Practice Standard</h2></td>
+            <td><h2>Alignment</h2></td></tr>
+        </thead>
+        <tr>
+          <td><span>MP.1:</span> Make sense of problems and persevere in solving them</td>
+          <td>
+            Bootstrap students are confronted with challenging problems, and use a problem-solving methodology known as the <i>Design Recipe</i> to solve them. The recipe teaches critical thinking, asking students to write down what they know and think through each step on their way to a solution.
+          </td>
+        </tr>
+        <tr>
+          <td><span>MP.2:</span> Reason abstractly and quantitatively</td>
+          <td>
+            Students focus on mathematical models of program behavior, and use quantitative examples to prove these models correct.
+          </td>
+        </tr>
+        <tr class="">
+          <td><span>MP.3:</span> Construct viable arguments and critique the reasoning of others</td>
+          <td>
+            Teachers engage students in discussion about each step in the Design Recipe, asking them to explain how they move from one step to another. In addition, students are challenged to debug the code of others, not just by identifying programmatic flaws but by also identifying faulty reasoning.
+          </td>
+        </tr>
+        <tr>
+          <td><span>MP.4:</span> Model with mathematics</td>
+          <td>
+            When Bootstrap students want their characters to move, to stay onscreen or collide with one another, they must first model that behavior mathematically. And since the programming language is purely algebraic, these models become the programs themselves!
+          </td>
+        </tr>
+        <tr>
+          <td><span>MP.5:</span> Use appropriate tools strategically</td>
+          <td>
+            Even programmers know that a computer isn't the perfect tool for every situation. Bootstrap students draw graphical diagrams, write out written examnples, and use the computer <i>when the situation calls for it</i>.
+          </td>
+        </tr>
+        <tr>
+          <td><span>MP.6:</span> Attend to precision</td>
+          <td>
+            Communicating precisely is key, whether you're a mathematician or a professional progammer. In Bootstrap, students consider datatypes, select clear function and variable names, and write comments for their code.
+          </td>
+        </tr>
+        <tr>
+          <td><span>MP.7:</span> Look for and make use of structure</td>
+          <td>
+            Bootstrap students look closely at worked-out examples before generalizing to a formula, as part of the Design Recipe. When working with the Circles of Evaluation, students consider the structure of arithmetic expressions as functions being composed on one another -- and this structure becomes the basis for their code.
+          </td>
+        </tr>
+        <tr>
+          <td><span>MP.8:</span> Look for and express regularity in repeated reasoning</td>
+          <td>
+            By practicing the Design Recipe repeatedly, students begin to discern the connection between multiple representations of functions. They notice patterns in the examples they write and contracts they derive.
+          </td>
+        </tr>
+      </table>
+      
+      <table width="100%" id="content">
+        <thead>
+          <tr><td><h2>Algebra Standard</h2></td>
+            <td><h2>Bootstrap Units</h2></td>
+          </tr>
+        </thead>
+        </tr>
+        
+        <!-- Number System -->
+        <tr class="NS">
+          <td><span>N-Q:</span> Reason quantitatively and use units to solve problems.</td>
+          <td>Units 1, 2, 3 and 5</td>
+        </tr>
+        <tr class="NS">
+          <td><span>6.NS.5-8:</span> Apply and extend previous understandings of numbers to the system of rational numbers.</td>
+          <td>Unit 1</td>
+        </tr>
+        
+        <!-- Expressions and Equations -->
+        <tr class="EE">
+          <td><span>7.EE.1-4:</span> The student uses numerical and algebraic expressions and equations to solve real-life and mathematical problems.</td>
+          <td>Units 3 and 6</td>
+        </tr>
+        
+        <!-- Functions -->
+        <tr class="F">
+          <td><span>8.F.1-3:</span> Define, evaluate, and compare functions.</td>
+          <td>Unit 4, 6 and 8</td>
+        </tr>
+        
+        <!-- Seeing Structure in Expressions -->
+        <tr class="A-SSE">
+          <td><span>A-SSE.1-2:</span> Interpret the structure of expressions</td>
+          <td>Units 1, 2, 3, 7 and Supplemental Lessons</td>
+        </tr>
+        <tr class="A-SSE">
+          <td><span>A-SSE.3-4:</span> Write expressions in equivalent forms to solve problems</td>
+          <td>Units 1, 2 and Supplemental Lessons</td>
+        </tr>
+        
+        <!-- Creating Equations -->
+        <tr class="A-CED">
+          <td><span>A-CED.1-4:</span> Create equations that describe numbers or relationships</td>
+          <td>Units 3, 4, 5, 6, 7, 8 and Supplemental Lessons</td>
+        </tr>
+        
+        <!-- Reasoning with Equations and Inequalities -->
+        <tr class="A-REI">
+          <td><span>A-REI.1-2:</span> Understand solving equations as a process of reasoning and explain the reasoning</td>
+          <td>Units 1, 2 and Supplemental Lessons</td>
+        </tr>
+        <tr class="A-REI">
+          <td><span>A-REI.3-4:</span> Solve equations and inequalities in one variable</td>
+          <td>Unit 6</td>
+        </tr>
+        <tr class="A-REI">
+          <td><span>A-REI.10-12:</span> Represent and solve equations and inequalities graphically</td>
+          <td>Unit 6</td>
+        </tr>
+        
+        <!-- Geometry -->
+        <tr class="G">
+          <td><span>8.G.6-8:</span> Understand and apply the Pythagorean Theorem</td>
+          <td>Unit 8</td>
+        </tr>
+        
+        <!-- Interpreting Functions -->
+        <tr class="F_IF">
+          <td><span>F-IF.1-3:</span> Understand the concept of a function and use function notation</td>
+          <td>Units 2-9 and Supplemental Lessons</td>
+        </tr>
+        <tr class="F-IF">
+          <td><span>F-IF.4-6:</span> Interpret functions that arise in applications in terms of the context</td>
+          <td>Units 3, 4, 6, 8 and Supplemental Lessons</td>
+        </tr>
+        <tr class="F-IF">
+          <td><span>F.IF.7-9:</span> Analyze functions using different representations</td>
+          <td>Units 3-9 and Supplemental Lessons</td>
+        </tr>
+        
+        <!-- Building Functions -->
+        <tr class="F-BF">
+          <td><span>F-BF.1-2:</span> Build a function that models a relationship between two quantities</td>
+          <td>Units 3-9 and Supplemental Lessons</td>
+        </tr>
+        <tr class="F-BF">
+          <td><span>F-BF.3-4:</span> Build new functions from existing functions</td>
+          <td>Units 6, 7, 8 and Supplemental Lessons</td>
+        </tr>
+        
+        <!-- Linear, Quadratic, and Exponential Models -->
+        <tr class="F_LE">
+          <td><span>F-LE.1-4:</span> Construct and compare linear, quadratic, and exponential models and solve problems</td>
+          <td>Unit 3</td>
+        </tr>
+        <tr class="F-LE">
+          <td><span>F-LE.5:</span> Interpret expressions for functions in terms of the situation they model</td>
+          <td>Unit 5 and Supplemental Lessons</td>
+        </tr>
+        
+        <!-- Trigonometric Functions -->
+        <tr class="F-TF">
+          <td><span>F-TF.5:</span> Model periodic phenomena with trigonometric functions</td>
+          <td>Supplemental Lessons</td>
+        </tr>
+      </table>
+      
+      <table width="100%" id="TEKS">
+        <thead>
+          <tr><td>TEKS Standard</td>
+              <td>Alignment</td></tr>
+        </thead>
+        <tr>
+            <td><span>1A (all grades):</span> Mathematical process standards. The student uses mathematical processes to acquire and demonstrate mathematical understanding. The student is expected to apply mathematics to problems arising in everyday life, society, and the workplace
+            </td>
+            <td>Units 3-8</td>
+        </tr>
+        <tr>
+          <td><span>1B (all grades):</span> Mathematical process standards. The student uses mathematical processes to acquire and demonstrate mathematical understanding. The student is expected to use a problem-solving model that incorporates analyzing given information, formulating a plan or strategy, determining a solution, justifying the solution, and evaluating the problem-solving process and the reasonableness of the solution
+          </td>
+          <td>Units 3-8</td>
+        </tr>
+        <tr>
+            <td><span>1C (all grades):</span> Mathematical process standards. The student uses mathematical processes to acquire and demonstrate mathematical understanding. The student is expected to select tools, including real objects, manipulatives, paper and pencil, and technology as appropriate, and techniques, including mental math, estimation, and number sense as appropriate, to solve problems;
+            </td>
+            <td>Units 3-8</td>
+        </tr>
+        <tr>
+          <td><span>1D (all grades):</span> Mathematical process standards. The student uses mathematical processes to acquire and demonstrate mathematical understanding. The student is expected to communicate mathematical ideas, reasoning, and their implications using multiple representations, including symbols, diagrams, graphs, and language as appropriate
+          </td>
+          <td>Units 3-8</td>
+        </tr>
+        <tr>
+          <td><span>1F (all grades):</span> Mathematical process standards. The student uses mathematical processes to acquire and demonstrate mathematical understanding. The student is expected to analyze mathematical relationships to connect and communicate mathematical ideas
+          </td>
+          <td>Units 3-8</td>
+        </tr>
+        <tr>
+          <td><span>1G (all grades):</span> Mathematical process standards. The student uses mathematical processes to acquire and demonstrate mathematical understanding. The student is expected to display, explain, and justify mathematical ideas and arguments using precise mathematical language in written or oral communication
+          </td>
+          <td>Units 3-8</td>
+        </tr>
+        <tr>
+            <td><span>5.4F:</span> Algebraic reasoning. The student applies mathematical process standards to develop concepts of expressions and equations. The student is expected to simplify numerical expressions that do not involve exponents, including up to two levels of grouping.
+            </td>
+            <td>Units 1-2</td>
+        </tr>
+        <tr>
+            <td><span>5.8A:</span> Geometry and measurement. The student applies mathematical process standards to identify locations on a coordinate plane. The student is expected to describe the key attributes of the coordinate plane, including perpendicular number lines (axes) where the intersection (origin) of the two lines coincides with zero on each number line and the given point (0, 0); the x-coordinate, the first number in an ordered pair, indicates movement parallel to the x-axis starting at the origin; and the y-coordinate, the second number, indicates movement parallel to the y-axis starting at the origin.
+            </td>
+            <td>Unit 1</td>
+        </tr>
+        <tr>
+            <td><span>5.8B:</span> Geometry and measurement. The student applies mathematical process standards to identify locations on a coordinate plane. The student is expected to describe the process for graphing ordered pairs of numbers in the first quadrant of the coordinate plane.
+            </td>
+            <td>Unit 1</td>
+        </tr>
+        <tr>
+            <td><span>5.8C:</span> Geometry and measurement. The student applies mathematical process standards to identify locations on a coordinate plane. The student is expected to graph in the first quadrant of the coordinate plane ordered pairs of numbers arising from mathematical and real-world problems, including those generated by number patterns or found in an input-output table.
+            </td>
+            <td>Units 1-2</td>
+        </tr>
+        <tr>
+            <td><span>6.2C:</span> Number and operations. The student applies mathematical process standards to represent and use rational numbers in a variety of forms. The student is expected to locate, compare, and order integers and rational numbers using a number line.
+            </td>
+            <td>Units 1-2</td>
+        </tr>
+        <tr>
+            <td><span>6.4B:</span> Proportionality. The student applies mathematical process standards to develop an understanding of proportional relationships in problem situations. The student is expected to apply qualitative and quantitative reasoning to solve prediction and comparison of real-world problems involving ratios and rates.
+            </td>
+            <td>Units 4-5</td>
+        </tr>
+        <tr>
+            <td><span>6.6A:</span> Expressions, equations, and relationships. The student applies mathematical process standards to use multiple representations to describe algebraic relationships. The student is expected to identify independent and dependent quantities from tables and graphs.
+            </td>
+            <td>Units 4-8</td>
+        </tr>
+        <tr>
+            <td><span>6.6B:</span> Expressions, equations, and relationships. The student applies mathematical process standards to use multiple representations to write an equation that represents the relationship between independent and dependent quantities from a table.
+            </td>
+            <td>Units 4-8</td>
+        </tr>
+        <tr>
+            <td><span>6.7A:</span> Expressions, equations, and relationships. The student applies mathematical process standards to develop concepts of expressions and equations. The student is expected to generate equivalent numerical expressions using order of operations, including whole number exponents, and prime factorization.
+            </td>
+            <td>Units 1-2</td>
+        </tr>
+        <tr>
+            <td><span>6.9A:</span> Expressions, equations, and relationships. The student applies mathematical process standards to use equations and inequalities to represent situations. The student is expected to write one-variable, one-step equations and inequalities to represent constraints or conditions within problems.
+            </td>
+            <td>Units 4-8</td>
+        </tr>
+        <tr>
+            <td><span>6.10A:</span> Expressions, equations, and relationships. The student applies mathematical process standards to use equations and inequalities to solve problems. The student is expected to model and solve one-variable, one-step equations and inequalities that represent problems, including geometric concepts.
+            </td>
+            <td>Units 4-8</td>
+        </tr>
+        <tr>
+            <td><span>6.10B:</span> Expressions, equations, and relationships. The student applies mathematical process standards to use equations and inequalities to solve problems. The student is expected to determine if the given value(s) make(s) one-variable, one-step equations or inequalities true.
+            </td>
+            <td>Units 4-8</td>
+        </tr>
+        <tr>
+            <td><span>6.11A:</span> Measurement and data. The student applies mathematical process standards to use coordinate geometry to identify locations on a plane. The student is expected to graph points in all four quadrants using ordered pairs of rational numbers.
+            </td>
+            <td>Unit 2</td>
+        </tr>
+        <tr>
+            <td><span>7.5C:</span> Proportionality. The student applies mathematical process standards to use geometry to describe or solve problems involving proportional relationships. The student is expected to solve mathematical and real-world problems involving similar shape and scale drawings.
+            </td>
+            <td>Units 2-3</td>
+        </tr>
+        <tr>
+            <td><span>7.10A:</span> Expressions, equations, and relationships. The student applies mathematical process standards to use one-variable equations and inequalities to represent situations. The student is expected to write one-variable, two-step equations and inequalities to represent constraints or conditions within problems.
+            </td>
+            <td>Units 6, 8</td>
+        </tr>
+        <tr>
+            <td><span>7.11B:</span> Expressions, equations, and relationships. The student applies mathematical process standards to solve one-variable equations and inequalities. The student is expected to determine if the given value(s) make(s) one-variable, two-step equations and inequalities true.
+            </td>
+            <td>Units 6, 8</td>
+        </tr>
+        <tr>
+            <td><span>8.3A:</span> Proportionality. The student applies mathematical process standards to use proportional relationships to describe dilations. The student is expected to generalize that the ratio of corresponding sides of similar shapes are proportional, including a shape and its dilation.
+            </td>
+            <td>Unit 2, Supplemental Units</td>
+        </tr>
+        <tr>
+            <td><span>8.3B:</span> Proportionality. The student applies mathematical process standards to use proportional relationships to describe dilations. The student is expected to compare and contrast the attributes of a shape and its dilation(s) on a coordinate plane.
+            </td>
+            <td>Unit 2, Supplemental Units</td>
+        </tr>
+        <tr>
+            <td><span>8.5I:</span> Proportionality. The student applies mathematical process standards to use proportional and non-proportional relationships to develop foundational concepts of functions. The student is expected to write an equation in the form y = mx + b to model a linear relationship between two quantities using verbal, numerical, tabular, and graphical representations.
+            </td>
+            <td>Units 4-5</td>
+        </tr>
+        <tr>
+            <td><span>8.6C:</span> Expressions, equations, and relationships. The student applies mathematical process standards to develop mathematical relationships and make connections to geometric formulas. The student is expected to use models and diagrams to explain the Pythagorean theorem.
+            </td>
+            <td>Unit 8</td>
+        </tr>
+        <tr>
+            <td><span>8.7C:</span> Expressions, equations, and relationships. The student applies mathematical process standards to use geometry to solve problems. The student is expected to use the Pythagorean theorem and its converse to solve problems.
+            </td>
+            <td>Unit 8</td>
+        </tr>
+        <tr>
+            <td><span>8.7D:</span> Expressions, equations, and relationships. The student applies mathematical process standards to use geometry to solve problems. The student is expected to determine the distance between two points on a coordinate plane using the Pythagorean theorem.
+            </td>
+            <td>Unit 8</td>
+        </tr>
+        <tr>
+            <td><span>A.2A:</span> Linear functions, equations, and inequalities. The student applies the mathematical process standards when using properties of linear functions to write and represent in multiple ways, with and without technology, linear equations, inequalities, and systems of equations. The student is expected to determine the domain and range of a linear function in mathematical problems; determine reasonable domain and range values for real-world situations, both continuous and discrete; and represent domain and range using inequalities.
+            </td>
+            <td>Units 4-8</td>
+        </tr>
+        <tr>
+            <td><span>A.6A:</span> Quadratic functions and equations. The student applies the mathematical process standards when using properties of quadratic functions to write and represent in multiple ways, with and without technology, quadratic equations. The student is expected to determine the domain and range of quadratic functions and represent the domain and range using inequalities.
+            </td>
+            <td>Units 4, Supplemental Units</td>
+        </tr>
+        <tr>
+            <td><span>A.7A:</span> Quadratic functions and equations. The student applies the mathematical process standards when using graphs of quadratic functions and their related transformations to represent in multiple ways and determine, with and without technology, the solutions to equations. The student is expected to graph quadratic functions on the coordinate plane and use the graph to identify key attributes, if possible, including x-intercept, y-intercept, zeros, maximum value, minimum values, vertex, and the equation of the axis of symmetry.
+            </td>
+            <td>Units 4, Supplemental Units</td>
+        </tr>
+        <tr>
+            <td><span>G.2A:</span> Coordinate and transformational geometry. The student uses the process skills to understand the connections between algebra and geometry and uses the one- and two-dimensional coordinate systems to verify geometric conjectures. The student is expected to understand the connections between algebra and geometry and uses the one- and two-dimensional coordinate systems to verify geometric conjectures.
+            </td>
+            <td>Unit 8</td>
+        </tr>
+        <tr>
+            <td><span>G.2B:</span> Coordinate and transformational geometry. The student uses the process skills to understand the connections between algebra and geometry and uses the one- and two-dimensional coordinate systems to verify geometric conjectures. The student is expected to derive and use the distance, slope, and midpoint formulas to verify geometric relationships, including congruence of segments and parallelism or perpendicularity of pairs of lines.
+            </td>
+            <td>Unit 8</td>
+        </tr>
+        <tr>
+            <td><span>G.3A:</span> Coordinate and transformational geometry. The student uses the process skills to generate and describe rigid transformations (translation, reflection, and rotation) and non-rigid transformations (dilations that preserve similarity and reductions and enlargements that do not preserve similarity). The student is expected to describe and perform transformations of figures in a plane using coordinate notation.
+            </td>
+            <td>Unit 2, Supplemental Units</td>
+        </tr>
+        <tr>
+            <td><span>G.4B:</span> Logical argument and constructions. The student uses the process skills with deductive reasoning to understand geometric relationships. The student is expected to identify and determine the validity of the converse, inverse, and contrapositive of a conditional statement and recognize the connection between a biconditional statement and a true conditional statement with a true converse
+            </td>
+            <td>Unit 7</td>
+        </tr>
+        <tr>
+            <td><span>G.4C:</span> Logical argument and constructions. The student uses the process skills with deductive reasoning to understand geometric relationships. The student is expected to verify that a conjecture is false using a counterexample.
+            </td>
+            <td>Unit 7</td>
+        </tr>
+       </table>
+      <table width="100%" id="csta">
+        <thead>
+          <tr><td><h2>CSTA Standard</h2></td>
+            <td><h2>Alignment</h2></td></tr>
+        </thead>
+        <tr>
+          <td><span>L1:6:CT.1:</span> Understand and use the basic steps in algorithmic problem-solving (e.g., problem statement and exploration, examination of sample instances, design, implementation, and testing).
+          </td>
+          <td>
+<strong>Bootstrap:Algebra - Units 2-8
+<br/>Bootstrap:Reactive - Units 1-10</strong>
+<br/>
+            Bootstrap teaches students to develop programs and solve problems through a concrete sequence of steps called the <i>Design Recipe</i>.  Summarizing problem statements, writing test cases, designing functions around data, coding, and testing are all explicit steps in this recipe.  Bootstrap1 begins introducing these steps in unit 2, building on them throughout the curriculum.  Bootstrap2 extends these steps into richer structured data. 
+          </td>
+        </tr>
+        <tr>
+          <td><span>L1:6:CPP.6:</span> Implement problem solutions using a block-based visual programming language.
+          </td>
+          <td>
+<strong>N/A</strong>
+<br/>
+          Bootstrap currently has students implement programs in a simple textual language.  
+          </td>
+        </tr>
+        <tr>
+          <td><span>L2:CT:1:</span> Use the basic steps in algorithmic problem-solving to design solutions (e.g., problem statement and exploration, examination of sample instances, design, implementing a solution, testing, evaluation).
+          </td>
+          <td>
+<strong>Bootstrap:Algebra - Units 2-8
+<br/>Bootstrap:Reactive - Units 1-10</strong>
+<br/>
+            Bootstrap teaches students to develop programs and solve problems through a concrete sequence of steps called the <i>Design Recipe</i>.  Summarizing problem statements, writing test cases, designing functions around data, coding, and testing are all explicit steps in this recipe. Bootstrap:Algebra begins introducing these steps in unit 2, building on them throughout the curriculum.  Bootstrap:Reactive extends these steps into richer structured data. 
+          </td>
+        </tr>
+        <tr>
+          <td><span>L2:CT:6:</span> Describe and analyze a sequence of instructions being followed (e.g., describe a character's behavior in a video game as driven by rules and algorithms).
+          </td>
+          <td>
+<strong>Bootstrap:Algebra - Units 5 and 7
+<br/>Bootstrap:Reactive - Units 3-6, 8-10</strong>
+<br/>
+          In Bootstrap, students write algebraic functions that are used repeatedly to move characters across a screen and respond to key presses.   Bootstrap emphasizes sequences of instructions less than other early programming efforts, but in doing so gains close adherence to algebra.  
+          </td>
+        </tr>
+        <tr>
+          <td><span>L2:CT:7:</span> Represent data in a variety of ways including text, sounds, pictures, and numbers.
+          </td>
+          <td>
+<strong>Bootstrap:Algebra - Units 2-8
+<br/>Bootstrap:Reactive - Units 1-10</strong>
+<br/>
+          Students write functions that consume and produce each of text, images, and numbers in the Bootstrap curriculum.  Functions over each datatype are used in students' games, as well in as the in-class exercises.
+          </td>
+        </tr>
+        <tr>
+          <td><span>L2:CT:14:</span> Examine connections between elements of mathematics and computer science including binary numbers, logic, sets and functions.</td>
+          <td>
+<strong>Bootstrap:Algebra - Units 1-9
+<br/>Bootstrap:Reactive - Units 1-10</strong>
+<br/>
+          Bootstrap relies heavily on algebraic functions.  Students learn how different representations of functions from mathematics (domain/range, input/output tables, and symbolic representations) correspond to important artifacts in writing programs.  Within their games, students use Boolean logic to determine how characters move, to report collisions, and to determine when characters have moved off the screen.
+          </td>
+        </tr>
+        <tr>
+          <td><span>L2:CPP:4:</span> Demonstrate an understanding of algorithms and their practical application.</td>
+          <td>
+<strong>Bootstrap:Algebra - Units 3-8
+<br/>Bootstrap:Reactive - Units 2-10</strong>
+<br/>
+          Bootstrap emphasizes computation, particularly the idea that computations are reusable with different inputs.  Through their games and in-class exercises, students see various applications for reusable computations in practical settings.
+          </td>
+        </tr>
+        <tr>
+          <td><span>L2:CPP:5:</span> Implement problem solutions using a programming language, including: looping behavior, conditional statements, logic, expressions, variables, and functions.</td>
+          <td>
+<strong>Bootstrap:Algebra - Units 1-9
+<br/>Bootstrap:Reactive - Units 1-10</strong>
+<br/>
+          Bootstrap:Algebra covers functions, variables, logic, and conditionals (this is all one needs to create a rich game in our software infrastructure!).  Bootstrap:Reactive introduces looping in the context of handling multiple similar game elements with similar behavior.
+          </td>
+        </tr>
+        <tr>
+          <td><span>L2:CPP:9:</span> Collect and analyze data that is output from multiple runs of a computer program.</td>
+          <td>
+<strong>Bootstrap:Algebra - Units 3-8
+<br/>Bootstrap:Reactive - Units 2-10</strong>
+<br/>
+          Design and execution of test cases is emphasized throughout Bootstrap:Algebra and Bootstrap:Reactive.  Students are required to write multiple test cases (including expected answers for each) for each function; our software helps them track which tests are passing and which are failing.
+          </td>
+        </tr>
+        <tr>
+          <td><span>L3:CT:A2:</span> Describe a software development process used to solve software problems (e.g. design, coding, testing, verification).</td>
+          <td>
+<strong>Bootstrap:Algebra - Units 3-8
+<br/>Bootstrap:Reactive - Units 1-10</strong>
+<br/>
+          Bootstrap's Design Recipe emphasizes design, coding, and testing from early in Bootstrap:Algebra.  The process is explicit in Bootstrap's worksheets and exercises.  Bootstrap:Reactive continues to emphasize this process.
+          </td>
+        </tr>
+        <!-- BOOTSTRAP 2 -->
+        <tr>
+          <td><span>L3:CPP:A2:</span> Use mobile devices/emulators to design, develop, and implement mobile computing applications.</td>
+          <td>
+<strong>Bootstrap:Reactive - Unit 10</strong>
+<br/>
+          Bootstrap:Reactive has optional material on writing games that respond to common mobile-phone stimuli (such as shaking, tilting, and GPS), and a library for exporting these games to mobile phones.
+          </td>
+        </tr>
+        <tr>
+          <td><span>L3:CPP:A3:</span> Use various debugging and testing methods to ensure program correctness (e.g., test cases, unit testing, white box, black box, integration testing).</td>
+          <td>
+<strong>Bootstrap:Algebra - Units 3-8
+<br/>Bootstrap:Reactive - Units 1-10</strong>
+<br/>
+          Testing is emphasized throughout Bootstrap.  Bootstrap:Algebra drills black-box test cases (with tests written before corresponding code).  As problems get more challenging in Bootstrap:Reactive, students begin to confront elements of white-box testing as well. Note: Bootstrap does not introduce modular programming, as would be required to cover integration testing.
+          </td>
+        </tr>
+        <tr>
+          <td><span>L3:CPP:A4:</span> Apply analysis, design, and implementation techniques to solve problems (e.g., use one or more software lifecycle models).</td>
+          <td>
+<strong>Bootstrap:Algebra - Units 2-8
+<br/>Bootstrap:Reactive - Units 1-10</strong>
+<br/>
+            Bootstrap's Design Recipe is a step-by-step software development technique that emphasizes test-first and data-driven design.  Bootstrap strongly recommends (and has exercises written for) pair programming, a common software development practice.
+          </td>
+        </tr>
+        <tr>
+          <td><span>L3:CPP:A8:</span> Explain the program execution process</td>
+          <td>
+<strong>Bootstrap:Algebra - Units 1-8
+<br/>Bootstrap:Reactive - Units 1-10</strong>
+<br/>
+          Bootstrap1 introduces this process at a general level; students dig deeper into how programs evaluate when they reach loops in Bootstrap:Reactive.
+          </td>
+        </tr>
+        <tr>
+          <td><span>L3:CPP:A12:</span> Describe how mathematical and statistical functions, sets, and logic are used in computation.</td>
+          <td>
+<strong>Bootstrap:Algebra - Units 3-8
+<br/>Bootstrap:Reactive - Units 1-10</strong>
+<br/>
+          Bootstrap puts mathematical and logical functions in the context of programming videogames.
+          </td>
+        </tr>
+        <tr>
+          <td><span>L3:CT:B5:</span> Use data analysis to enhance understanding of complex natural and human systems.</td>
+          <td>
+<strong>Bootstrap:Reactive - Units 3-10</strong>
+<br/>
+          Bootstrap:Reactive begins to emphasize data modeling: the Design Recipe includes an explicit step in which students determine how to model data for a problem and develop illustrative examples of the problem relative to their data model. 
+          </td>
+        </tr>
+        <tr>
+          <td><span>L3:CT:B6:</span> Compare and contrast simple data structures and their uses (e.g., arrays and lists).</td>
+          <td>
+<strong>Bootstrap:Reactive - Units 2-10</strong>
+<br/>
+          Bootstrap:Reactive emphasizes the differences between structs (compound data with fixed numbers of fields) and lists (compound data with arbitrary numbers of elements).  Students practice recognizing each of these basic data patterns in various problems, and learn how to nest these concepts to build richer data structures (advanced students can easily get to trees with this approach). Note: Bootstrap does not cover different linear data structures (lists versus arrays), preferring to emphasize how to design richer data structures from simple building blocks of structs and lists.
+          </td>
+        </tr>
+        <tr>
+          <td><span>L3:CT:B10:</span> Decompose a problem by defining new functions and classes.</td>
+          <td>
+<strong>Bootstrap:Algebra - Units 6 and 8
+<br/>Bootstrap:Reactive - Units 4-10</strong>
+<br/>
+          Bootstrap introduces students to programming problems that benefit from decomposition into multiple functions and data structures.  The Design Recipe provides some structured guidance on when to introduce new functions when decomposing problems.
+          </td>
+        </tr>
+        <tr>
+          <td><span>L3:CPP:B2:</span> Use tools of abstraction to decompose a large-scale computational problem (e.g., procedural abstraction, object-oriented design, functional design).</td>
+          <td>
+<strong>Bootstrap:Algebra - Units 6 and 8
+<br/>Bootstrap:Reactive - Units 4-10</strong>
+<br/>
+          Bootstrap:Algebra introduces the core idea of functions as abstractions over repeated computations.  Bootstrap:Reactive moves into larger programs that get decomposed into subproblems, which are designed, implemented, and tested independently.
+          </td>
+        </tr>
+        <tr>
+          <td><span>L3:CPP:B7:</span> Use data analysis to enhance understanding of complex natural and human systems.</td>
+          <td>
+<strong>Bootstrap:Reactive - Units 4-10</strong>
+<br/>
+          Bootstrap:Reactive begins to emphasize data modeling: the Design Recipe includes an explicit step in which students determine how to model data for a problem and develop illustrative examples of the problem relative to their data model. 
+          </td>
+        </tr>
+
+      </table> 
+
+
+      <table width="100%" id="k12cs">
+        <thead>
+          <tr><td><h2>K12 CS Framework</h2></td>
+            <td><h2>Alignment</h2></td></tr>
+        </thead>
+        <tr>
+          <td><span>Practice 1:</span> Fostering an Inclusive Computing Culture</td>
+          <td>
+            By integrating Computing into standard math classes, Bootstrap allows schools to immediately create an inclusive computing environment. <i>Everyone</i> takes math, which means <i>everyone</i> computes. But in addition to the course settings the curriculum allows, Bootstrap also embeds teamwork, metacognition and group reflection into every step of the programming process - from co-designing a game to thinking about effective co-working strategies, Bootstrap's pedagogy fosters an inclusive culture.
+          </td>
+        </tr>
+        <tr>
+          <td><span>Practice 2:</span> Collaborating Around Computing</td>
+          <td>
+            Bootstrap students work on small teams, and must cultivate relationships with other students who possess diverse perspectives, skills and personalities. Students work on problems together, and are given strategies to evaluate and give feedback to one another at each step in the problem-solving process.
+          </td>
+        </tr>
+        <tr>
+          <td><span>Practice 3:</span> Recognizing and Defining Computational Problems</td>
+          <td>
+            Bootstrap uses real-world problems throughout the course, as students are constantly engaged in the creation of a meaningful computational artifact (a videogame of their own invention, modeling a physics simulation, or analyzing a rich dataset). Each part of this project requires that students identify problems that can be solved computationally, decompose those problems into sub-problems, and evaluate the limits of their solutions.
+          </td>
+        </tr>
+        <tr>
+          <td><span>Practice 4:</span> Developing and Using Abstractions</td>
+          <td>
+          Students develop and use abstractions throughout the course, starting with visual-spatial representations for arithmetic expressions and ending with complex, multi-function programs that define, use and re-use student-generated abstractions. Students define everything from Functions (Bootstrap:Algebra) to Data Structures (Bootstrap:Reactive), and Reactive Simulations (Bootstrap:Physics) to Big Data queries (Bootstrap:Data Science).
+          </td>
+        </tr>
+        <tr>
+          <td><span>Practice 5:</span> Creating Computational Artifacts</td>
+          <td>
+            Bootstrap's project-based approach is absed on the creation of computational artifacts. Students write programs to draw flags, make a rocket blast off, trap a butterfly, run a cash register, implement a videogame, answer real questions with data, and model an observed physical phenomenon. The creation of these artifacts is personal, customizable, and based on a rigorous methodology for iterative design and problem solving.
+          </td>
+        </tr>
+        <tr>
+          <td><span>Practice 6:</span> Testing and Refining Computational Artifacts</td>
+          <td>
+            Many introductory courses treat testing as a second-class citizen, either asking students to test by running a program and "seeing if it looks right" or by using programming tools that <i>completely lack</i> any framework for automated testing. By contrast, Bootstrap introduces testing early on in each course, and our languages and software enviroments offer rich support for writing tests and developing software based on test feedback.
+          </td>
+        </tr>
+        <tr>
+          <td><span>Practice 7:</span> Communicating About Computing</td>
+          <td>
+            Students in our Data Science module must choose a question that matters to them, select a relevant dataset, and answer that question - justifying their choice and answer at every step. Students in our Physics, Data Structures and Algebra courses explain their thinking as well, whether it's about the creation of a piecewise function to handle key events or a data structure to model an interactive program.
+          </td>
+        </tr>
+        <!--
+        <tr>
+          <td><span>Devices</span></td>
+          <td>
+          </td>
+        </tr>
+        -->
+        <tr>
+          <td><span>Hardware and Software</span></td>
+          <td>
+            Bootstrap:Reactive, Bootstrap:Data Science and Bootstrap:Physics introduce students to sophisticated programming paradigms, in which they must process user input as mediated by the software evironment. This mediation involves the flow of information from multiple sources (keyboards, mice, GPS systems, and internet-connected resources), and students must consider this flow when designing their programs.
+          </td>
+        </tr>
+        <tr>
+          <td><span>Troubleshooting</span></td>
+          <td>
+              All Bootstrap modules embrace <i>Example Driven Design</i>, in which students write test cases for each abstraction they create. This bakes in troubleshooting by design: a student immediately has a mechanism to locate an error, and knows a pedagogical approach for debugging their thinking process.
+          </td>
+        </tr>
+        <!--
+        <tr>
+          <td><span>Network Communication and Organization</span></td>
+          <td>
+          </td>
+        </tr>
+        <tr>
+          <td><span>Cybersecurity</span></td>
+          <td>
+          </td>
+        </tr>
+        -->
+        <tr>
+          <td><span>Data Collection</span></td>
+          <td>
+            Students in Bootstrap:Data Science and Bootstrap:Physics collect data using an array of tools techniques: tapping into existing datasets (e.g. - Spreadsheets) as well as automated or manual sampling using an array of instruments. The choice of sampling mechanism is instruction, as it exposes students to the strengths and weaknesses of a particular approach. Movement-tracking via observation v. changes in a cell phone's GPS coordinates, for example, will influence the amount and quality of the data that is collected.
+          </td>
+        </tr>
+        <!--
+        <tr>
+          <td><span>Data Storage</span></td>
+          <td>
+          </td>
+        </tr>
+        -->
+        <tr>
+          <td><span>Visualization and Transformation</span></td>
+          <td>
+            Our Data Science module embraces authentic data science concepts in a lightweight fashion: students must identify, transform, clean and manipulate data sets as they explore a research question of their own design. This involves everything from visualizing to aggregation, and rearrangement to transformation.
+          </td>
+        </tr>
+        <tr>
+          <td><span>Inference and Models</span></td>
+          <td>
+            Bootstrap:Algebra and Bootstrap:Reactive are all build around students' developing a model for a desired (or observed) behavior. Bootstrap:Algebra has students model the <i>process</i> of computation, and Bootstrap:Reactive gives students the ability to model the <i>data</i> behind it. Bootstrap:Physics goes one step farther, having students use these models to predict the behavior of a complex system. In these activities, the tradeoffs between model complexity and model quality become clear.
+          </td>
+        </tr>
+        <tr>
+          <td><span>Algorithms</span></td>
+          <td>
+            Bootstrap students consider many algorithms throughout our material. They are confronted with multiple ways to reach a solution, asked to generalize a algorithms so they can be re-used for other problems, and given opportunities to discuss the tradeoffs between different approaches.
+          </td>
+        </tr>
+        <tr>
+          <td><span>Variables</span></td>
+          <td>
+            Bootstrap introduces variables early on, with students confronting variables and functions almost immediately in Bootstrap:Algebra. These variables can be used to represent Numbers, Strings, Images, Booleans, data structures of infinite complexity, and even remote spreadsheets stored across the internet! Our pedagogy explicitly asks students to come up with meaningful identifiers for every variable they use, and Bootstrap:Reactive allows students to select their own Data Structures. (<b>Note:</b> in a slight deviation from the K12CS standards, Bootstrap uses the <i>mathematical</i> concept of variable. Namely, we do not discuss the notion of "machine storage", since that concept directly undermines the notion of variables in mathematics.)
+          </td>
+        </tr>
+        <tr>
+          <td><span>Control</span></td>
+          <td>
+            Students in all of Bootstrap's modules confront program control, sequences of evaluation, and conditionals. Bootstrap:Reactive, Data Science and Physics add loops and event handlers, to create more complex behavior.
+          </td>
+        </tr>
+        <tr>
+          <td><span>Modularity</span></td>
+          <td>
+            Bootstrap's focus on abstraction works hand in hand with the concept of modularity. Students decompose complex problems into smaller ones, and build abstractions (functions, data structures, etc) to solve them. The abstractions are used to organize code, and can be composed with one another or repurposed to solve more complex problems without having to duplicate code. Students assemble these abstractions to form complex, reactive programs - relying on the modularity of those abstractions to manage complexity.
+          </td>
+        </tr>
+        <tr>
+          <td><span>Program Development</span></td>
+          <td>
+            Our pedagogy is based on a robust process for program development, known as the <i>Design Recipe</i>. This approach has been used for decades at the university level, and mirrors many best practices from industrial contexts. The Design Recipe is an iterative process that involves defining type specifications, communicating those specifications through writing, building example-driven test cases, implementation, and testing. 
+          </td>
+        </tr>
+        <!--
+        <tr>
+          <td><span>Culture</span></td>
+          <td>
+          </td>
+        </tr>
+        <tr>
+          <td><span>Social Interactions</span></td>
+          <td>
+          </td>
+        </tr>
+        <tr>
+          <td><span>Safety, Law, and Ethics</span></td>
+          <td>
+          </td>
+        </tr>
+        -->
+      </table> 
+  		</div>
+    
+	</div>
+	</body>
+</html>

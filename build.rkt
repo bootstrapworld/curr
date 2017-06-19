@@ -128,8 +128,7 @@
 (putenv "TARGET-LANG" "pyret")
 (putenv "BUILD-FOR" "bootstrap")
 (putenv "LANGUAGE" "spanish")
-(parameterize ([current-language (getenv "LANGUAGE")])
-  (printf "Printing documents in ~a \n" (getenv "LANGUAGE")))
+(printf "Printing documents in ~a \n" (getenv "LANGUAGE"))
 (define current-contextual-tags
   (command-line
    #:program "build"
@@ -277,6 +276,7 @@
       (for ([worksheet (directory-list (build-path (lessons-dir) subdir "exercises"))]
             #:when (regexp-match #px".scrbl$" worksheet))
         (printf "build.rkt: building exercise handout ~a: ~a\n" subdir worksheet)
+        (printf "building exercise at: ~a \n" (path->string (build-path (lessons-dir) subdir "exercises" worksheet)))
         (run-scribble (build-path (lessons-dir) subdir "exercises" worksheet))
         (copy-file (build-path "lib" "backlogo.png")
                    (build-path (current-deployment-dir) "lessons" subdir "exercises" "backlogo.png")

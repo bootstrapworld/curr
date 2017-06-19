@@ -1,7 +1,7 @@
 #lang racket
 
 (provide translations)
-;;
+;;SPANISH
 ;;The section headers refer to the sections of the output webpages generated. Note that
 ; there are comments for translators to indicate what each phrase is and where exactly it
 ; is located, and there are separate comments for developers to see where the statements
@@ -41,7 +41,7 @@
 
     ;Translator; Names listed at bottom of most pages, included in the copyright statement
     ;Developler; copyright
-    (copyright-names "Bootstrap by Emmanuel Schanzer, Emma Youndtsmith, Kathi Fisler, Shriram Krishnamurthi, Joe Politz and Ben Lerner is licensed under a ")
+    (copyright-names "Bootstrap by Emmanuel Schanzer, Emma Youndtsmith, Kathi Fisler, Shriram Krishnamurthi, Joe Politz y Ben Lerner is licensed under a ")
     ;Translator; This is the hyperlink listed within the copyright statement at the bottom of most pages.
     ;Developler; copyright
     (copyright-license "Creative Commons 4.0 Unported License")
@@ -201,7 +201,7 @@
     ;Developer; insert-teacher-toggle-button
 
     ;Translator;
-    (btn-show "Show Teacher Notes")
+    (btn-show "Mostrar Notas")
     (btn-hide "Hide Teacher Notes")
     (btn-group "Discussion Group")
     (btn-slide "Slides")

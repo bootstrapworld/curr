@@ -11,28 +11,22 @@
 
 (define-runtime-path root-path (build-path 'up))
 
-;;removesd to allow language flexibility
-;(define-runtime-path lessons-dir
-;  (build-path 'up "lessons"  "langs" "english"))
 
 (define (lessons-dir)
-  (build-path "lessons"  "langs" (current-language)))
+  (build-path "lessons"  "langs" (getenv "LANGUAGE")))
 
 (define-runtime-path courses-base
   (build-path 'up "courses"))
 
-;;removesd to allow language flexibility
-;(define-runtime-path static-pages-path
-;  (build-path 'up "static-pages" "langs" "english"))
 
 (define (static-pages-path)
-  (build-path "static-pages" "langs" (current-language)))
+  (build-path "static-pages" "langs" (getenv "LANGUAGE")))
 
 (define (get-units-dir)
-  (build-path courses-base (current-course) "units" "langs" (current-language)))
+  (build-path courses-base (current-course) "units" "langs" (getenv "LANGUAGE")))
 
 (define (get-course-main)
-  (build-path courses-base (current-course) "langs" (current-language) "main.scrbl"))
+  (build-path courses-base (current-course) "langs" (getenv "LANGUAGE") "main.scrbl"))
 
 (define (get-resources)
   ;  (build-path (get-units-dir) "_resources"))
