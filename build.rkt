@@ -15,7 +15,6 @@
          "lib/build-modes.rkt"
          "lib/scribble-pdf-helpers.rkt"
          "lib/pdf-lesson-exercises.rkt"
-         
          scribble/render
          file/zip)
 
