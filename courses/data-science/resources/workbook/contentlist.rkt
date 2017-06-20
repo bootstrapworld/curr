@@ -18,46 +18,42 @@
  ("DSAWorkbook.pdf" "Presidents-Nutrition")
 
  ;;;;; UNIT 3 ;;;;;;;;;
- ("ColleenPages.pdf" "Unit-3")
- ("DSAWorkbook.pdf" "Fast-Functions")
- ("DSAWorkbook.pdf" "Fast-Functions2")
+ ("DSAWorkbook.pdf" "Mean-Median-Mode")
+ ("DSAWorkbook.pdf" "Measuring-Center")
  ;;;;; UNIT 4 ;;;;;;;;;
- ("ColleenPages.pdf" "Unit-4")
- "rocket-height.scrbl"
- "lawn-area.scrbl"
- "red-square.scrbl"
+ ("DSAWorkbook.pdf" "Questions-With-Charts")
+ ("DSAWorkbook.pdf" "Freq-Bar-Chart")
+ ("DSAWorkbook.pdf" "Chart-Practice")
+ ("DSAWorkbook.pdf" "More-Chart-Practice")
+
  ;;;;; UNIT 5 ;;;;;;;;;
- ("ColleenPages.pdf" "Unit-5")
- "update-danger.scrbl"
- "update-target.scrbl"
+ ("DSAWorkbook.pdf" "Histograms")
+ ("DSAWorkbook.pdf" "Histogram-Practice")
+
  ;;;; UNIT 6 ;;;;;;;;;
- ("ColleenPages.pdf" "Unit-6")
- ("DSAWorkbook.pdf" "Protecting-Sam")
- "safe-left.scrbl"
- "safe-right.scrbl"
- ("DSAWorkbook.pdf" "AND-and-OR")
- "onscreen.scrbl"
+ ("DSAWorkbook.pdf" "Scatter-Plot")
+ ("DSAWorkbook.pdf" "Grading-Predictors")
+ ("DSAWorkbook.pdf" "More-Predictors")
+ 
  ;;;; UNIT 7 ;;;;;;;;;
- ("ColleenPages.pdf" "Unit-7")
- "cost.scrbl"
- "update-player.scrbl"
+ ("DSAWorkbook.pdf" "Select-Practice")
+ ("DSAWorkbook.pdf" "Select-Continued")
+ ("DSAWorkbook.pdf" "Order-Practice")
+
  ;;;; UNIT 8 ;;;;;;;;;
- ("ColleenPages.pdf" "Unit-8")
- "line-length.scrbl"
- ("DSAWorkbook.pdf" "distance-example")
- "distance.scrbl"
- "collide.scrbl"
+ ("DSAWorkbook.pdf" "Rows-Questions")
+ ("DSAWorkbook.pdf" "Booleans-Comparison")
+ ("DSAWorkbook.pdf" "Sieve-Practice")
+
  ;;;; UNIT 9 ;;;;;;;;;
- ("ColleenPages.pdf" "Unit-9")
- ("DSAWorkbook.pdf" "Game-Summary")
- ("DSAWorkbook.pdf" "Lines")
- ("DSAWorkbook.pdf" "Feedback")
- ("DSAWorkbook.pdf" "Feedback")
- "red-shape.scrbl"
- ("DSAWorkbook.pdf" "Translating-to-Algebra")
- ("DSAWorkbook.pdf" "Math-Rocket-Distance")
- ("DSAWorkbook.pdf" "Math-Rocket-Time")
- ("DSAWorkbook.pdf" "Math-Rocket-Collision")
- ("DSAWorkbook.pdf" "Math-Blank-Recipe")
- ("DSAWorkbook.pdf" "Math-Blank-Recipe")
- )
+ ("DSAWorkbook.pdf" "Extending-Tables")
+ ("DSAWorkbook.pdf" "Countries-Example")
+ ("DSAWorkbook.pdf" "Nutrition-Plan")
+ ("DSAWorkbook.pdf" "Presidents-Plan")
+ ("DSAWorkbook.pdf" "Rainfall-Plan")
+ ("DSAWorkbook.pdf" "Countries-Plan")
+
+ ;;;; APPENDIX ;;;;;;;
+ ("DSAWorkbook.pdf" "General-Table-Plan")
+ ("DSAWorkbook.pdf" "General-Table-Plan")
+)
