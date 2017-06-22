@@ -126,7 +126,7 @@
 (putenv "CURRENT-SOLUTIONS-MODE" "off")
 (putenv "TARGET-LANG" "pyret")
 (putenv "BUILD-FOR" "bootstrap")
-(putenv "LANGUAGE" "english")
+(putenv "LANGUAGE" "spanish")
 (printf "Printing documents in ~a \n" (getenv "LANGUAGE"))
 (define current-contextual-tags
   (command-line

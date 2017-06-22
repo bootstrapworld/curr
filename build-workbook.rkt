@@ -25,7 +25,7 @@
 
 ;; this is because build-workbook does not call build.rkt
 ;
-(putenv "LANGUAGE" "english")
+(putenv "LANGUAGE" "spanish")
 
 ;; NOTE: This defn is a hack.  Ideally, we should be using the
 ;;  get-workbook-dir function from paths.rkt.  However, that is
