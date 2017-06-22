@@ -322,7 +322,7 @@
   (for-each (lambda (lesson-spec)
               (let* ([lesson-name (first lesson-spec)]
                      [exer-files (second lesson-spec)]
-                     [exer-dir (build-path (lessons-dir) lesson-name "exercises")]
+                     [exer-dir (build-path lessons-dir-eng lesson-name "exercises")]
 		     [exer-deploy-dir (build-path (root-deployment-dir) "lessons" lesson-name "exercises")])
                 (parameterize [(current-deployment-dir exer-dir)]
                   (scribble-to-pdf exer-files exer-dir))

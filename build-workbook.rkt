@@ -49,7 +49,7 @@
 (define (gen-wkbk-index pdfpages 
                         #:pdfdir [pdfdir (build-path (get-workbook-dir) "langs" (getenv "LANGUAGE") "pages")] 
                         #:startpage [startpage 1]
-                        #:indexfile [indexfile (build-path (get-workbook-dir) "workbook-index.rkt")]
+                        #:indexfile [indexfile (build-path (get-workbook-dir) "langs" (getenv "LANGUAGE") "workbook-index.rkt")]
                         )
   ; map and get pdf size, create pairs of page name and page number
   (let loop ([pages pdfpages] [nextpage startpage] [indexlist '()])

@@ -1,4 +1,4 @@
- #lang racket/base
+#lang racket/base
 
 (require racket/runtime-path
          (for-syntax racket/base)
@@ -14,6 +14,9 @@
 
 (define (lessons-dir)
   (build-path "lessons"  "langs" (getenv "LANGUAGE")))
+
+(define-runtime-path lessons-dir-eng
+  (build-path 'up "lessons"  "langs" "english"))
 
 (define-runtime-path courses-base
   (build-path 'up "courses"))
