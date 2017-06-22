@@ -166,7 +166,7 @@ cliff!
             @itemlist[
                       @item{Click "Run" to compile your program, then close the animation window.}
                        @item{In the interactions pane, evaluate @code{location(START)}. What does it return (hopefully @code{"air"})?}
-                       @item{Evaluate @code{draw(START)}. does it look like the jumper is in the air?}  
+                       @item{Evaluate @code{draw-state(START)}. does it look like the jumper is in the air?}  
                        @item{Do the same for an instance of a JumperState where the jumper is on the cliff, in the water, and on the beach.}]
 
 }
@@ -176,7 +176,7 @@ cliff!
   @teacher{This kind of experimenting shows an important connection between functions that
 work with instances of a data structure, and the way we draw those instances.
 We have, in our design for the animation, an understanding of what different
-regions of the screen mean.  Here, we see that the @code{draw} and
+regions of the screen mean.  Here, we see that the @code{draw-state} and
 @code{location} functions both share this understanding to give consistent
 information about the animation.}
 }
