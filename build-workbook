@@ -6,7 +6,7 @@
 
 # build the notes
 
-racket -l errortrace -t build.rkt -- "$@"
+racket -l errortrace -t build-workbook.rkt -- "$@"
 
 # then build the solutions
 #racket -l errortrace -t build-sols.rkt 

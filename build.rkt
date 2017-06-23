@@ -8,6 +8,7 @@
          racket/file
          racket/list
          racket/match
+         racket/vector
          (for-syntax racket/base)
          "lib/system-parameters.rkt"
          "lib/translate-pdfs.rkt"
@@ -34,6 +35,9 @@
 ;; The default deployment directory is "distribution"
 (root-deployment-dir (simple-form-path "distribution"))
 (current-deployment-dir (root-deployment-dir))
+
+;;This lists all courses which are currently able to be built
+(define available-courses '("algebra" "reactive"));"data-science" "physics"
 
 ;; Depending on who we are generating for, we need to relocate the resources dirs.
 ;; This function sets the resource-locating parameters based on the BUILD-FOR env setting
@@ -64,7 +68,7 @@
 
 (define document-namespace (make-fresh-document-namespace))
 
-
+;; filter-output-dir: path -> path
 ;; filters an output directory so that it is agnostic to the language structure used to produce it
 ;; This effectively makes the build script produce the "distributions" directory in the same way that
 ;; it did prior to when translation capability was added
@@ -117,17 +121,56 @@
                                    ".html")))))
   (void))
 
+;(define (parse-course-args rest-args)
+;  (cond
+;    [(empty? rest-args) empty]
+;    [(cons? rest-args)
+;     ;;checks if next argument is a command-line argument tag, rather than a course name
+;     (let [(course-name (first rest-args))]
+;     (if (char=? (string-ref course-name 0) #\-)
+;                            empty
+ ;                           (if (member course-name available-courses)
+;;                                (cons course-name (parse-course-args (rest rest-args)))
+;                                (error "Build got unrecognized target course: " course-name " -- expected"
+;                                       (foldl (lambda (a b) (string-append a " or " b)) "" available-courses)))))]))
 
+;; parse-course-args: list/of string -> list/of string
+;; This parses the list of course arguments, ensuring that they are all valid course names
+(define (parse-course-args rest-args)
+  (cond
+    [(empty? rest-args) empty]
+    [(cons? rest-args)
+     ;;checks if next argument is a command-line argument tag, rather than a course name
+     (let [(course-name (first rest-args))]
+       (if (member course-name available-courses)
+           (cons course-name (parse-course-args (rest rest-args)))
+           (error "Build got unrecognized target course: " course-name " -- expected"
+                  (foldl (lambda (a b) (string-append a " or " b)) "" available-courses))))]))
+
+;(define (determine-courses)
+; (let [(course-pos? (vector-member "--course" (current-command-line-arguments)))]
+;        (if course-pos?
+;            ;;collects input courses if the "--course" tag is given
+;            (parse-course-args (vector->list (vector-drop (current-command-line-arguments)
+;                        (+ 1 course-pos?))))
+;            ;;defaults to all available courses
+;            available-courses)))
+     
+
+
+  
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Command line parsing.  We initialize the SCRIBBLE_TAGS environmental
 ;; variable
-(define courses (list "algebra" "reactive" )) ;  "data-science" "physics"))
+;; Hard-set list. This is being replaced with command-line arguments
+;(define courses (list "algebra" "reactive" )) ;  "data-science" "physics"))
+(define courses available-courses) ;  "data-science" "physics"))
 (putenv "AUDIENCE" "teacher")
 (putenv "CURRENT-SOLUTIONS-MODE" "off")
 (putenv "TARGET-LANG" "pyret")
 (putenv "BUILD-FOR" "bootstrap")
 (putenv "LANGUAGE" "spanish")
-(printf "Printing documents in ~a \n" (getenv "LANGUAGE"))
+
 (define current-contextual-tags
   (command-line
    #:program "build"
@@ -143,8 +186,14 @@
         (error "Build got unrecognized audience" -audience " -- expected student teacher volunteer or self-guided"))]
    [("--deploy") -deploy-dir "Deploy into the given directory, and create a .zip.  Default: deploy" 
     (current-deployment-dir (simple-form-path -deploy-dir))]
+   [("--language") -language "Select what language you are printing the curriculum for. Default: english"
+                   (if (member -language (list "english" "spanish"))
+                       (putenv "LANGUAGE" -language)
+                       (error "Build got unrecognized target language: " -language " -- expected english or spanish"))]
    [("--lang") -lang "Indicate which language (Racket or Pyret) to generate"
     (putenv "TARGET-LANG" -lang)]
+   [("--course") -course "List all courses that you want to build. They MUST be separated by \"_\"_. Default: All available courses"
+                 (set! courses (parse-course-args (string-split -course "_")))]
    [("--pdf") "Generate PDF documentation"
     (current-generate-pdf? #t)]
    [("--buildfor") -buildfor "Indicate bootstrap or codeorg"
@@ -154,6 +203,9 @@
    
    #:args tags
    tags))
+(printf "Printing documents in ~a \n" (getenv "LANGUAGE"))
+(printf "Building courses: ~a\n" courses)
+(printf "\n\n")
 
 
 

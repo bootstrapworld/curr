@@ -27,6 +27,23 @@
 ;
 (putenv "LANGUAGE" "spanish")
 
+; parse command-line arguments
+
+(command-line
+ #:program "build-workbook"
+ #:once-each
+ [("--language") -language "Select what language you are printing the curriculum for. Default: english"
+                   (if (member -language (list "english" "spanish"))
+                       (putenv "LANGUAGE" -language)
+                       (error "Build got unrecognized target language: " -language " -- expected english or spanish"))]
+ [("--solutions") "Generate workbook with solutions"
+                               (solutions-mode-on)]
+ #:args tags
+ tags)
+
+
+(printf "Printing Documents in ~a\n" (getenv "LANGUAGE"))
+
 ;; NOTE: This defn is a hack.  Ideally, we should be using the
 ;;  get-workbook-dir function from paths.rkt.  However, that is
 ;;  capturing a binding for the current-course parameter that
@@ -201,12 +218,6 @@
 
 ; by default, generate student workbook, not solutions workbook
 (solutions-mode-off)
-
-; parse command-line arguments
-(command-line #:program "build-workbook"
-              #:once-each
-              [("--solutions") "Generate workbook with solutions"
-                               (solutions-mode-on)])
 
 ; is there a workbook to build?
 (define (workbook-to-build?)
