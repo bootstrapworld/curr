@@ -141,7 +141,7 @@
                                 so it will appear to the far right of the chart.  Riverside Grille has an average rating of 4.9,
                                 so it will appear towards the top of the chart.
 
-                                @activity[#:forevidence "BS-IDE&1&!"]{
+                                @activity[#:forevidence "BS-IDE&1&1"]{
                                         @itemlist[
                                                 @item{
                                                         Which dot represents the restaurant "Family Diner"?
@@ -174,7 +174,8 @@
                                 for relationships in data using a visualization than a table by itself.
 
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Turn to TODO in your workbook and complete the exercise practicing creating scatter plots.
+                                        Turn to @worksheet-link[#:name "Scatter-Plot"] 
+                                        in your workbook and complete the exercise practicing creating scatter plots.
                                 }
                         }
                         @teacher{
@@ -286,7 +287,8 @@
                 @point{
                         @student{
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Turn to TODO in your workbook, and complete the exercise grading
+                                        Complete @worksheet-link[#:name "Grading-Predictors"] and @worksheet-link[#:name "More-Predictors"] 
+                                        in your workbook, and complete the exercise grading
                                         different predictor functions on how well they match scatter plots.
                                 }
 
@@ -359,7 +361,7 @@
                                 Here we see a function @code{scatter-plot}. Like the other chart functions you've seen,
                                 it takes in the two Lists we care about, and a @code{PlotOptions} object.  It is different 
                                 because, unlike @code{histogram, bar-chart,} etc., this doesn't make a scatter plot appear 
-                                on screen. Instead, it produces a @vocab{Plot} value, which we define to be @code{prices-vs-ratings-plot}.  
+                                on screen. Instead, it produces a @code{Plot} value, which we define to be @code{prices-vs-ratings-plot}.  
                                 A Plot is a new type, like String, Number, List or Table.
                                 We will use the variable @code{prices-vs-ratings-plot} later to make a plot appear on screen.
                         }

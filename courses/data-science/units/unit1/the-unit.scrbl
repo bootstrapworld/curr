@@ -377,7 +377,7 @@
              @point{
                     @student{
                             @activity[#:forevidence "BS-IDE&1&1"]{
-                                    Turn to TODO in your workbook.  For each program, say whether it will produce an error or not.  If it
+                                    Turn to @worksheet-link[#:name "Expressions-Values-Errors"] in your workbook.  For each program, say whether it will produce an error or not.  If it
                                     does not produce an error, what value will it produce?  If it does produce an error, why?  
                                     The error will be a kind of error you have seen before.  
                             }
@@ -813,7 +813,8 @@
              @point{
                     @student{
                             @activity[#:forevidence "BS-IDE&1&1"]{
-                                    Turn to TODO in your workbook.  For each set of function calls,
+                                    Turn to @worksheet-link[#:name "Contracts-Functions"] in your workbook.  
+                                    For each set of function calls,
                                     determine the name, number of arguments, type of argument(s), and
                                     in your own words what is the output of this function.
                             }   

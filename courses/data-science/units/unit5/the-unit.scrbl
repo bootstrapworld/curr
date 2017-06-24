@@ -267,7 +267,8 @@
                                 clever data scientists came up with a way around this problem...
 
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Turn to page TODO in your workbook and complete the exercise.
+                                        Turn to @worksheet-link[#:name "Histograms"] 
+                                        in your workbook and complete the exercise.
                                 }
                         }
                         @teacher{
@@ -379,7 +380,8 @@
                               in many shapes, sizes, colors, and forms.
 
                               @activity[#:forevidence "BS-IDE&1&1"]{
-                                      Turn to TODO in your workbook and answer the questions 
+                                      Turn to @worksheet-link[#:name "Histograms-Practice"] 
+                                      in your workbook and answer the questions 
                                       about each of the histograms.
                               }                          
                       }

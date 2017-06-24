@@ -108,8 +108,8 @@
 			@point{
                     @student{
 					        @activity[#:forevidence "BS-IDE&1&1"]{
-					        		Turn to TODO in your workbook.  Complete the exercise to identify different aspects
-									about this new table.
+					        		Turn to @worksheet-link[#:name "Animals"] in your workbook.  
+                                    Complete the exercise to identify different aspects about this new table.
 							}
 			}
                     @teacher{
@@ -356,7 +356,8 @@
                             @activity[#:forevidence "BS-IDE&1&1"]{
                                     Navigate back to your pyret program that loads the @code{nutrition}
                                     and @code{presidents} tables.
-                                    Then, turn to TODO in your workbook and answer the questions about these two data sets. 
+                                    Then, turn to @worksheet-link[#:name "Presidents-Nutrition"] 
+                                    in your workbook and answer the questions about these two data sets. 
                             }                          
                     }
                     @teacher{

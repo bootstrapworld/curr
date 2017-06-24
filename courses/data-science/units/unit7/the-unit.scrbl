@@ -108,7 +108,8 @@
                               }
 
                               @activity[#:forevidence "BS-IDE&1&1"]{
-                                      Turn to TODO in your workbook, and complete the exercises requiring you to
+                                      Complete @worksheet-link[#:name "Select-Practice"] and @worksheet-link[#:name "Select-Continued"] 
+                                      in your workbook, and complete the exercises requiring you to
                                       write and interpret @code{select} statements.
                               }                              
                       }
@@ -332,7 +333,8 @@
                 @point{
                         @student{
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Turn to TODO in your workbook and complete the exercises for ordering tables.
+                                        Turn to @worksheet-link[#:name "Order-Practice"] 
+                                        in your workbook and complete the exercises for ordering tables.
                                 }                   
                         }
                         @teacher{

@@ -27,8 +27,8 @@
         @points[
                 @point{
                         @student{
-                                @activity[#:forevidence "BS-IDEE&1&1"]{
-                                        Turn to TODO in your workbook, and complete the exercise.
+                                @activity[#:forevidence "BS-IDE&1&1"]{
+                                        Turn to @worksheet-link[#:name "Extending-Tables"] in your workbook, and complete the exercise.
                                 }                     
                         }
                         @teacher{
@@ -261,7 +261,8 @@
                 @point{
                         @student{
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Turn to page TODO in your workbooks.  For each question that 
+                                        Turn to @worksheet-link[#:name "Countries-Example"] in your workbooks.  
+                                        For each question that 
                                         you answer "Yes" to, complete the code scaffolding.
                                 }
                         }
@@ -363,8 +364,8 @@
                 @point{
                         @student{
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Open the @editor-link[#:public-id "0BxJ2mGqPUGt0aU5vc25MTWhpemM" "Unit 9 Table Plan Practice"] template file.
-                                        For each of the following questions, fill out the corresponding
+                                        Open the @editor-link[#:public-id "0BxJ2mGqPUGt0aU5vc25MTWhpemM" "Unit 9 Table Plan Practice"]
+                                        template file. For each of the following questions, fill out the corresponding
                                         Table Plan in your workbook, then add the code from your table 
                                         plan to the definitions window.  After finishing each question,
                                         get the teacher to check you off before continuing.
@@ -385,8 +386,8 @@
                                                 }
                                                 @item{
                                                         Which healthy foods have the highest protein/gram?  Fill out
-                                                        the table plan on page TODO, then add your scaffold code to 
-                                                        the definitions window.
+                                                        the table plan on @worksheet-link[#:name "Nutrition-Plan"], 
+                                                        then add your scaffold code to the definitions window.
                                                 }
                                         ]
                                         
@@ -403,7 +404,7 @@
                                         @itemlist[
                                                 @item{
                                                         How many years was each Democratic president in office?  Turn to
-                                                        page TODO, and fill out the table plan.
+                                                        @worksheet-link[#:name "Presidents-Plan"], and fill out the table plan.
 
                                                 }
                                                 @item{
@@ -429,8 +430,8 @@
                                                 }
                                                 @item{
                                                         Make a scatter plot of how much rain fell on each day in the first 99 days.
-                                                        Fill out a table plan on page TODO to create the table needed to make this
-                                                        scatter plot.
+                                                        Fill out a table plan on @worksheet-link[#:name "Rainfall-Plan"] 
+                                                        to create the table needed to make this scatter plot.
                                                 }
                                                 @item{
                                                         Is the amount of rain decreasing/increasing/staying the same over these first 99 
@@ -452,8 +453,7 @@
                                                         health care.  Remember that per-capita GDP is defined as @code{gdp / population}.
                                                 }
                                                 @item{
-                                                        Turn to page TODO in your workbook and complete the table plan to create
-                                                        the table needed to create this histogram.
+                                                        Turn to @worksheet-link[#:name "Countries-Plan"] in your workbook and complete the table plan to create the table needed to create this histogram.
                                                 }
                                                 @item{
                                                         After adding the code from the table plan to your definitions window, 

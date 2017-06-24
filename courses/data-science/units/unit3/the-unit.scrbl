@@ -171,8 +171,9 @@
                 }
                 @point{
                       @student{
-                              @activity[#:forevidence "BS-IDE7&1&1"]{
-                                      Open your workbooks to TODO and practice calculating the mean of
+                              @activity[#:forevidence "BS-IDE&1&1"]{
+                                      Open your workbooks to @worksheet-link[#:name "Mean-Median-Mode"] 
+                                      and practice calculating the mean of
                                       each list of Numbers by hand.  DO NOT fill in the median and mode
                                       columns yet, even if you know how!
                               }
@@ -423,7 +424,8 @@
         @points[
                 @point{
                       @student{
-                              After completing TODO in your workbook, you may have noticed that 
+                              After completing @worksheet-link[#:name "Mean-Median-Mode"] 
+                              in your workbook, you may have noticed that 
                               the @vocab{mean}, @vocab{median}, and @vocab{mode} are rarely the
                               same value.  So, which one should we use, and when?
                       }
@@ -585,7 +587,7 @@
                 @point{
                       @student{
                               @activity[#:forevidence "BS-IDE&1&1"]{
-                                      Turn to TODO in your workbooks and complete all
+                                      Turn to @worksheet-link[#:name "Measuring-Center"]  in your workbooks and complete all
                                       of the questions, using your Pyret program. 
                               }
                       }

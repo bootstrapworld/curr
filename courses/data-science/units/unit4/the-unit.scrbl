@@ -228,8 +228,8 @@
                                                     Create a pie chart showing the GDP of every country in @code{countries}.
                                               }
                                       ]
-                                      After completing these bar charts, turn to TODO in your workbook and answer
-                                      the questions using these charts.
+                                      After completing these bar charts, turn to @worksheet-link[#:name "Questions-With-Charts"]
+                                      in your workbook and answer the questions using these charts.
                               }
                       }
                       @teacher{
@@ -280,7 +280,8 @@
                               ]
 
                               @activity[#:forevidence "BS-IDE&1&1"]{
-                                      Turn to TODO in your workbook, and complete the exercise using this table.
+                                      Turn to @worksheet-link[#:name "Freq-Bar-Chart"]  in your workbook, 
+                                      and complete the exercise using this table.
                               }
                       }
                       @teacher{
@@ -392,8 +393,7 @@
                               for this, we'll practice answering questions about several 
                               different bar and pie charts from a variety of sources.
                               @activity[#:forevidence "BS-IDE&1&1"]{
-                                      Turn to TODO in your workbook and answer the questions 
-                                      about each of the charts.
+                                      Complete @worksheet-link[#:name "Chart-Practice"] and @worksheet-link[#:name "More-Chart-Practice"] in your workbook by answering the questions about each of the charts.
                               }                          
                       }
                       @teacher{
