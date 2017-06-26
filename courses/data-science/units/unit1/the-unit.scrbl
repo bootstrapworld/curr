@@ -588,7 +588,7 @@
              @point{
                     @student{
                             @activity[#:forevidence "BS-IDE&1&1"]{
-                                    Turn to @worksheet-link[#:name "Identifiers-and-Expressions"] in your workbook.  
+                                    Turn to @worksheet-link[#:name "Contracts-Functions"] in your workbook.  
                                     For each expression, write down the value the computer will return. If the expression
                                     will result in an error, write down what you think the error will say.
                             }   
