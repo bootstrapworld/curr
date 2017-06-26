@@ -5,7 +5,7 @@
 @declare-tags[]
 
 @unit-overview/auto[#:lang-table (list (list "" @code{}))]{
-  @unit-descr{Students are introduced to the Pyret development, and fundamental syntactic elements of the Pyret language: values, expressions, operations, and functions.}
+  @unit-descr{Students write simple programs in Pyret, and learn about values, expressions, operations, and functions.}
 }
 @unit-lessons{
 @lesson/studteach[
@@ -27,8 +27,11 @@
         @points[
              @point{
                     @student{
-                            Welcome to Bootstrap: DataScience. In this course, 
-                            you'll learn how to ask and answer questions about data.  The process 
+                            Welcome to Bootstrap: DataScience. Let's start with a simple question: how do you
+                            know if a restaurant is a @italic{good value}? How could you measure that?
+                            Almost immediately, this question turns into a question about data - how you measure
+                            it and how you interpret the results. In this course, you'll learn how to use data 
+                            data to ask and answer questions about data.  The process 
                             of learning from data is called @vocab{Data Science}.  Data science techniques 
                             are used by scientists, business people, politicians, sports analysts, 
                             and hundereds of other different fields to ask and answer questions about data.
@@ -48,8 +51,8 @@
              }
              @point{
                     @student{
-                            In order to ask questions from data, you will use a @vocab{programming language}.  
-                            Just like any language (English, Spanish, French), programming 
+                            In order to ask questions from data, we'll use a @vocab{programming language}.  
+                            Just like any human language (English, Spanish, French), programming 
                             languages have their own vocabulary and grammar that you will need to learn.  
                             The language you'll be learning for data science is Pyret, which lets you ask 
                             and answer questions quickly from very large data sets.
@@ -78,7 +81,6 @@
                             taken up by two large boxes: the @vocab{Definitions area} on the left and the 
                             @vocab{Interactions area} on the right.
 
-
                             For now, we will only be writing programs in the Interactions area.
                     }
                     @teacher{
@@ -97,9 +99,9 @@
                                         the next line in the Interactions area.
                             }
 
-                            Congratulations, you've written your first program!  Yes, really.  When a program
-                            is run, the editor will turn that program into a @vocab{value}.  Values are how the computer represents
-                            data.  In this case, the editor's job is easy because the program is already a value!  When we hit Run,
+                            Congratulations, you've written your first (very simple) program!  When a program
+                            is run, the computer will run that program to produce a @vocab{value}.  Values are how the computer represents
+                            data.  In this case, the computer's job is easy because the program is already a value!  When we hit Run,
                             we @vocab{evaluate} the program, which is another way of saying "give me the value that is produced by
                             this program".
                     }
@@ -109,19 +111,21 @@
              }
              @point{
                     @student{
-                            @itemlist[
-                                @item{
-                                     Type 10 in the Interactions area and hit "Return".  Now the 
-                                     value @code{10} appears in the Interactions area.
-                                }
-                                @item{
-                                    Try evaluating numbers, like @code{10345017}, or negative 
-                                    numbers, like @code{-2}. Is there a limit to how big a number can be?
-                                    What happens if you write a decimal? What happens when you click on
-                                    a decimal, like @code{0.75}? You get a new type of number, a 
-                                    fraction, like @code{3/4}.
-                                }
-                            ]
+                            @activity{
+                                @itemlist[
+                                    @item{
+                                         Type 10 in the Interactions area and hit "Return".  Now the 
+                                         value @code{10} appears in the Interactions area.
+                                    }
+                                    @item{
+                                        Try evaluating numbers, like @code{10345017}, or negative 
+                                        numbers, like @code{-2}. Is there a limit to how big a number can be?
+                                        What happens if you write a decimal? What happens when you click on
+                                        a decimal, like @code{0.75}? You get a new type of number, a 
+                                        fraction, like @code{3/4}.
+                                    }
+                                ]
+                            }
                     }
                     @teacher{
                             The editing environment evaluates all fractions and returns them as decimals by default. This can be
@@ -134,8 +138,7 @@
              }
              @point{
                     @student{
-                            All values that a computer program can produce have a @vocab{type}.  Each of the values 
-                            produced by the programs you just wrote are Numbers.  Another fundamental type is @vocab{String}.  A String
+                            Every value has a  @vocab{Type}.  Each of the values produced by the programs you just wrote are Numbers, but there are other types as well. One of these types is called a @vocab{String}.  A String
                             is a sequence of characters (letters, numbers, symbols) in between a pair of quotation marks @code{""}.
 
                             @activity[#:forevidence "BS-IDE&1&1"]{
@@ -147,6 +150,9 @@
                                             }
                                             @item{
                                                  Try to type your name within a pair of quotation marks, then hit Return.
+                                            }
+                                            @item{
+                                                 What do you notice about the way Pyret displays Strings on the screen?
                                             }
                                             @item{
                                                  CHALLENGE:  Type this program into the Interactions area:  @code{"4"}
@@ -174,8 +180,7 @@
                             The editor gives us error messages when a program can't be properly evaluated.
 
 
-                            Error messages are really helpful, and they're a natural part of
-                            programming;  they exist so that the computer can help you find
+                            Error messages a way for the computer to help you find
                             small mistakes in your code.  In the case above,
                             without the second quotation mark the computer can't figure out when the end of the String is, which makes
                             evaluation impossible.
@@ -214,8 +219,8 @@
         @points[
              @point{
                     @student{
-                            We've successfully written and evaluated programs, but writing programs that only contain values would
-                            be boring.  Luckily, Pyret allows us to compute new values using old values in @vocab{expression}s.  
+                            We've successfully written and evaluated programs, but writing programs that only just repeat values would
+                            be boring.  Luckily, Pyret allows us to @italic{compute} values using @vocab{expression}s.  
                             One of the great things about Pyret is that these expressions are similar to the ones you've seen
                             in math classes.
                     }
@@ -225,8 +230,8 @@
              }
              @point{
                     @student{
-                            @activity[#:forevidence "BS-IDE&1&1"]{Type @code{2 + 5} into the Interactions area, then hit 
-                                        Return.  You should see the value 7 printed on a new line.
+                            @activity[#:forevidence "BS-IDE&1&1"]{Type @code{2 + 5} into the Interactions area. Notice the spaces between the numbers and the plus sign! Then hit 
+                                        Return.  You should see the value @code{7} printed on a new line.
                             }
                     }
                     @teacher{
@@ -237,33 +242,23 @@
              @point{
                     @student{
                             Let's break this down.  @code{2 + 5} is an expression, and this expression is made up of values
-                            and an @vocab{operator}.  Here the operator is +, which is the standard addition you've seen in
+                            and an @vocab{operator}.  Here the operator is +, which you've seen in
                             math classes:  adding two values to create a new value.
 
-                            Some of you may have gotten an error when trying to run this program.  This error happened 
-                            because Pyret needs you to write spaces between numbers and operators.  To address this issue,
-                            add spaces between the operator and values.
+                            Now try leaving out the spaces around the plus sign. We get an error! This error happened 
+                            because Pyret needs you to write spaces between numbers and operators.
 
                     }
                     @teacher{
-                            @itemlist[
-                                    @item{
-                                            Ask students who encountered this error to read the error 
-                                            message out loud before you explain it.
-                                    }
-
-                                    @item{
-                                            Pyret requires this whitespace for code readability, and to remove ambiguity
+                            Pyret requires this whitespace for code readability, and to remove ambiguity
                                             when dealing with negative numbers.  For example, without the white space rule,
                                             the program @code{5+-2} is hard to understand.
-                                    }
-                            ]
                     }
              }
              @point{
                     @student{
                             @activity[#:forevidence "BS-IDE&1&1"]{
-                                    What other operations can we use?  Type each of these programs into the Interactions area.
+                                    What other operations can we use?  Type each of these programs into the Interactions area. If you get an error message, read it out loud and see if you can figure out what it means.
                                     @itemlist[
                                             @item{
                                                     @code{3 - 8}
@@ -296,9 +291,7 @@
              }
              @point{
                     @student{
-                            Notice that the last two programs give errors.  We know that Pyret gives errors whenever it can't evaluate a program. Read the errors
-                            carefully, and see if you can understand why the program could
-                            not be evaluated.
+                            Notice that the last two programs give errors.  We know that Pyret gives errors whenever it can't evaluate a program.
                             @itemlist[
                                     @item{
                                             In @code{6 / 0} we know that you can't divide any number by 0!  In this case,
@@ -368,22 +361,10 @@
                     @student{
                             Parentheses allow you to write more complex expressions.  In this example, Pyret evaluates what is inside the parentheses: @code{2 * 3}.
                             Then, it uses this value in the larger expression.  So @code{(2 * 3) + 5} becomes @code{6 + 5}, 
-                            which is evaluated to 11.  @bold{Note:} There is one difference between the way parentheses work in math class, and the way they do in Pyret! In Pyret, any time you have more than one operation, you @bold{must} include parenthesis.
+                            which is evaluated to 11.  @bold{Note:} There is one difference between the way parentheses work in math class, and the way they do in Pyret! @italic{In Pyret, any time you have more than one operation, you must include parentheses.}
                     }
                     @teacher{
                     
-                    }
-             }
-             @point{
-                    @student{
-                            @activity[#:forevidence "BS-IDE&1&1"]{
-                                    Turn to @worksheet-link[#:name "Expressions-Values-Errors"] in your workbook.  For each program, say whether it will produce an error or not.  If it
-                                    does not produce an error, what value will it produce?  If it does produce an error, why?  
-                                    The error will be a kind of error you have seen before.  
-                            }
-                    }
-                    @teacher{
-                                        
                     }
              }
         ]
@@ -409,7 +390,7 @@
                 @point{
                         @student{
                                 You've used operations and expressions to compute new values.  Now it's
-                                time to put your data science skills to their first test!
+                                time to put your programming skills to the test!
                         }
                         @teacher{
 
@@ -604,6 +585,18 @@
                                 }
                         }
                 }
+             @point{
+                    @student{
+                            @activity[#:forevidence "BS-IDE&1&1"]{
+                                    Turn to @worksheet-link[#:name "Identifiers-and-Expressions"] in your workbook.  
+                                    For each expression, write down the value the computer will return. If the expression
+                                    will result in an error, write down what you think the error will say.
+                            }   
+                    }
+                    @teacher{
+
+                    }
+             }
         ]
    }
 
@@ -844,9 +837,8 @@
         @points[
              @point{
                     @student{
-                            Pat yourself on the back:  you're now officially data scientists!  By
-                            learning to use values, variables, operations and functions, you are now familiar with the 
-                            fundamental concepts needed to write programs.  You will have many opportunities to
+                            By learning to use values, variables, operations and functions, you are now familiar with the 
+                            fundamental concepts needed to write simple programs.  You will have many opportunities to
                             use these concepts in the next units, by writing programs to answer data science questions.
 
                             @activity[#:forevidence "BS-IDE&1&1"]{
