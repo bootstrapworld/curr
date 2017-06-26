@@ -108,8 +108,8 @@
 			@point{
                     @student{
 					        @activity[#:forevidence "BS-IDE&1&1"]{
-					        		Turn to TODO in your workbook.  Complete the exercise to identify different aspects
-									about this new table.
+					        		Turn to @worksheet-link[#:name "Animals"] in your workbook.  
+                                    Complete the exercise to identify different aspects about this new table.
 							}
 			}
                     @teacher{
@@ -167,14 +167,18 @@
             }
             @point{
             		@student{
-            				The definitions window contains some code that you haven't seen before. This program loads two tables from Google
-                                        Sheets using the @code{load-table} keyword, and defines the variables @code{presidents} and @code{nutrition} to
-            				refer to these tables.  We use @code{=} to define these variables, just as we did in unit 1.
+                            The definitions wiindow contains code to load two tables from Google Sheets; @code{presidents}
+                            and @code{nutrition}.  As you saw at the beginning of the lesson, tables need header rows 
+                            to describe them! Just as you did in your workbook, you need to come up with a header row 
+                            for this table in Pyret. The @code{load-table:} block lets you do just that!  
+                            Each of these @code{load-table:} blocks comes after an @code{=} operator which defines the
+                            variable names as these tables.
 
             				@activity[#:forevidence "BS-IDE&1&1"]{
-                                                        To evaluate a variable, we click Run and type its name into the Interactions Area. We do the same
-                                                        thing if that variable is a Number, a String, or even a Table! Click Run, and
-            						type each of these programs into the interactions window and hit Enter/Return
+                                    To evaluate a variable, we click Run and type its name into the Interactions Area. 
+                                    We do the same thing if that variable is a Number, a String, or even a Table! 
+                                    Click Run, and type each of these programs into the interactions window, then hit Enter/Return.
+
             						@itemlist[
             								@item{
             										@code{nutrition}
@@ -356,7 +360,8 @@
                             @activity[#:forevidence "BS-IDE&1&1"]{
                                     Navigate back to your pyret program that loads the @code{nutrition}
                                     and @code{presidents} tables.
-                                    Then, turn to TODO in your workbook and answer the questions about these two data sets. 
+                                    Then, turn to @worksheet-link[#:name "Presidents-Nutrition"] 
+                                    in your workbook and answer the questions about these two data sets. 
                             }                          
                     }
                     @teacher{

@@ -28,7 +28,8 @@
                 @point{
                       @student{
                               @activity[#:forevidence "BS-IDE&1&1"]{
-                                      Turn to TODO Page 20 in your workbooks and complete the warmup exercise asking questions with tables.
+                                      Turn to @worksheet-link[#:name "Rows-Questions"] 
+                                      in your workbooks and complete the warmup exercise asking questions with tables.
                               }
                       }
                       @teacher{
@@ -228,7 +229,8 @@
                 @point{
                       @student{
                               @activity[#:forevidence "BS-IDE&1&1"]{
-                                      Turn to TODO Page 21 in your workbooks, and complete the exercise.  Call 
+                                      Turn to @worksheet-link[#:name "Booleans-Comparison"] 
+                                      in your workbooks, and complete the exercise.  Call 
                                       over the teacher when you have finished the worksheet
                               }
                       }
@@ -417,7 +419,7 @@
 
                               @activity[#:forevidence "BS-IDE&1&1"]{
                                       What countries in Asia have the top 3 highest GDP values?
-                                      Turn to TODO Page 22 in your workbooks, and complete the exercise
+                                      Turn to @worksheet-link[#:name "Sieve-Practice"] in your workbooks, and complete the exercise
                                       to write the code to answer this question.  Then, add 
                                       this code to your Pyret programs and check your answer.
                               }
