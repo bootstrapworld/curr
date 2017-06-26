@@ -152,7 +152,7 @@
    }
 @lesson/studteach[
      #:title "Ordering"
-     #:duration "25 minutes"
+     #:duration "10 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -212,28 +212,6 @@
                 }
                 @point{
                         @student{
-                                @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Create a new table with these same students as rows, 
-                                        but the rows are ordered by test scores in descending order.
-                                }                        
-                        }
-                        @teacher{
-                                @itemlist[
-                                        @item{
-                                             Have the students tell you what to write in each cell of the new table.
-                                             Make them explain why certain information should stay in the same row as others 
-                                             (i.e. 'Jane' and 'Smith' stay in the same row since they belong to the same person).    
-                                        }
-                                        @item{
-                                             Alternatively, you can cut out sheets of paper to represent as rows, or
-                                             drag each row as an image around on a screen, and have students direct
-                                             you in ordering the rows for them.
-                                        }
-                                ]
-                        }
-                }
-                @point{
-                        @student{
                                 @build-table/cols[
                                             '("first" "last" "test-grade")
                                             '(("\"Dominique\"" "\"Andrea\"" "\"Javon\"" "\"Jane\"" "\"John\"" "\"Jack\"" "\"Sammy\"" "\"Angela\"")
@@ -241,87 +219,25 @@
                                               ("93" "91" "88" "86" "82" "81" "79" "76"))
                                              (lambda (r c) (para ""))
                                              3 8
-                                ]                  
+                                ]               
                         }
                         @teacher{
-                                                     
-                        }
-                }
-                @point{
-                        @student{
-                                This table we just created is the classroom table ordered by @code{test-grade}
+                                This table has all of the same rows as the classroom table, but they are now ordered by @code{test-grade}
                                 in @vocab{descending} order. It is in descending order by test grade because 
-                                the test grades start high at the top of the table, and get lower further in the table.                       
-                        }
-                        @teacher{
-                                                            
+                                the test grades start high at the top of the table, and get lower further in the table.              
                         }
                 }
                 @point{
                         @student{
-                                @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Now create a new table with these rows in @vocab{ascending} order by @code{test-grade};
-                                        the values in the test grade column should start low, and get larger further in the table.
-                                }
+                                The opposite order, in which values are INCREASING as you go further down the table, is 
+                                called @vocab{ascending}.  Here's what the classroom table looks like ordered by the 
+                                @code{test-grade} column in ascending order:
 
                                 @build-table/cols[
                                             '("first" "last" "test-grade")
                                             '(("\"Angela\"" "\"Sammy\"" "\"Jack\"" "\"John\"" "\"Jane\"" "\"Javon\"" "\"Andrea\"" "\"Dominique\"")
                                               ("\"Enriquez\"" "\"Carter\"" "\"Thompson\"" "\"Doe\"" "\"Smith\"" "\"Jackson\"" "\"Garcia\"" "\"Rodriguez\"")
                                               ("76" "79" "81" "82" "86" "88" "91" "93"))
-                                             (lambda (r c) (para ""))
-                                             3 8
-                                ]           
-                        }
-                        @teacher{
-                                                     
-                        }
-                }
-                @point{
-                        @student{
-                                Data scientists don't just order tables by columns with numbers in them: 
-                                tables can be ordered by Strings too. Recall from Unit 1 that String "apple" is
-                                considered less than "banana", because "apple" comes before "banana" alphabetically.
-                                We can use this fact to order tables by columns with Strings as well!
-                        }
-                        @teacher{
-                                                            
-                        }
-                }
-                @point{
-                        @student{
-                                Here's the classroom table in ascending order by the first name column.
-
-                                @build-table/cols[
-                                            '("first" "last" "test-grade")
-                                            '(("\"Andrea\"" "\"Angela\"" "\"Dominique\"" "\"Jack\"" "\"Jane\"" "\"Javon\"" "\"John\"" "\"Sammy\"")
-                                              ("\"Garcia\"" "\"Enriquez\"" "\"Rodriguez\"" "\"Thompson\"" "\"Smith\"" "\"Jackson\"" "\"Doe\"" "\"Carter\"")
-                                              ("91" "76" "93" "81" "86" "88" "82" "79"))
-                                             (lambda (r c) (para ""))
-                                             3 8
-                                ]
-
-                                This new table is the classroom table in alphabetical order by the first name column. 
-                                Data scientists treat alphabetical order to be ascending order for Strings.             
-                        }
-                        @teacher{
-                                                     
-                        }
-                }
-                @point{
-                        @student{
-                                @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Now create a new table with these rows in reverse alphabetical order by @code{first} name.
-                                        Is this ascending or descending order?
-                                }
-
-                                Your table should look like this:
-
-                                @build-table/cols[
-                                            '("first" "last" "test-grade")
-                                            '(("\"Sammy\"" "\"John\"" "\"Javon\"" "\"Jane\"" "\"Jack\"" "\"Dominique\"" "\"Angela\"" "\"Andrea\"")
-                                              ("\"Carter\"" "\"Doe\"" "\"Jackson\"" "\"Smith\"" "\"Thompson\"" "\"Rodriguez\"" "\"Enriquez\"" "\"Garcia\"")
-                                              ("79" "82" "88" "86" "81" "93" "76" "91"))
                                              (lambda (r c) (para ""))
                                              3 8
                                 ]
@@ -338,7 +254,9 @@
                                 }                   
                         }
                         @teacher{
-                                                     
+                                You may want to go over this worksheet as a class, since it will involve
+                                ordering the table by different columns for each question.  Some students
+                                may order the table by the same column both times.
                         }
                 }
         ]
@@ -400,9 +318,19 @@
                                 }
 
                                 Now the table is in ascending order by the @code{sodium} column.  
+
+                                @activity[#:forevidence "BS-IDE&1&1"]{
+                                        What happens if we order the @code{nutrition} table 
+                                        by the food's name, which is a String?  Change the @code{sodium ascending}
+                                        to @code{food ascending}
+                                }
+
+                                It turns out you can order tables by columns Numbers AND Strings.  A table in 
+                                ascending order by a String means it is in alphabetical order, and descending
+                                means reverse alphabetical order.
                         }
                         @teacher{
-                                                     
+                                        
                         }
                 }
                 @point{
