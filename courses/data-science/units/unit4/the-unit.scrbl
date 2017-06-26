@@ -27,30 +27,19 @@
         @points[
                 @point{
                       @student{
-                              So far we've answered questions by computing one or several numbers.
-                              The mean/median/mode are measurements that try to summarize a data set.
-                              These are useful, but often they do not give us "the whole picture"
-                              about a data set.   
+                              So far we've answered questions by computing one or several numbers. The mean/median/mode are measurements that try to summarize a data set. These are useful, but often they do not give us "the whole picture" about a data set.   
                       }
                       @teacher{
-                              Feel free to use motivating examples that students will see in your
-                              classroom, or examples from real life data sets.
+                              Feel free to use motivating examples that students will see in your classroom, or examples from real life data sets.
                       }
                 }
                 @point{
                       @student{
-                              Data scientists often use @vocab{charts} to give a graphical 
-                              representation of the data.  @vocab{Charts} are pictures, where
-                              some part of the picture relates to values in a data set.
+                              Data scientists often use @vocab{charts} to give a graphical  representation of the data.  @vocab{Charts} are pictures, where some part of the picture relates to values in a data set.
 
                               @bitmap{images/cholesterol_per_item.png}
 
-                              This is your first example of a chart.  @vocab{Bar charts}
-                              are used to compare rows in a table by their entries
-                              in some column.  Here, we are comparing each item on the menu
-                              by their amount of cholesterol.  The length of the bar relates
-                              to the amount of cholesterol:  shorter bars mean less cholesterol,
-                              and higher bars mean more cholesterol.
+                              This is your first example of a chart.  @vocab{Bar charts} are used to compare rows in a table by their entries in some column.  Here, we are comparing each item on the menu by their amount of cholesterol.  The length of the bar relates to the amount of cholesterol:  shorter bars mean less cholesterol, and higher bars mean more cholesterol.
 
                       }
                       @teacher{
@@ -74,10 +63,7 @@
                               }
                       }
                       @teacher{
-                              Highlight that you can very quickly see which items have the most cholesterol,
-                              compared to reading an entire table to find out.  Reading charts is advantageous
-                              for seeing how the rows relate to each other.  However, it's harder to read
-                              exact values from charts, as we see from the grilled chicken question. 
+                              Highlight that you can very quickly see which items have the most cholesterol, compared to reading an entire table to find out.  Reading charts is advantageous for seeing how the rows relate to each other.  However, it's harder to read exact values from charts, as we see from the grilled chicken question. 
                       }
                 }
                 @point{
@@ -86,15 +72,10 @@
 
                               @bitmap{images/cholesterol_per_item_pie.png}
 
-                              In pie charts, each row of the table gets a slice of the pie, and the size of 
-                              the pie slice relates to the value of cholesterol:  bigger pie slice means more
-                              cholesterol, and a thinner slice means less cholesterol. 
+                              In pie charts, each row of the table gets a slice of the pie, and the size of  the pie slice relates to the value of cholesterol:  bigger pie slice means more cholesterol, and a thinner slice means less cholesterol. 
                       }
                       @teacher{
-                              Later in the unit we will present guidelines for when to use pie charts vs. bar charts.
-                              For this example, a bar chart is preferable, but we want students to understand that
-                              pie and bar charts are different pictures to represent the same kind of data:  one
-                              column of labels (food item), and one column of values (cholesterol).
+                              Later in the unit we will present guidelines for when to use pie charts vs. bar charts. For this example, a bar chart is preferable, but we want students to understand that pie and bar charts are different pictures to represent the same kind of data: one column of labels (food item), and one column of values (cholesterol).
                       }
                 }
                 @point{
@@ -135,9 +116,7 @@
                               In Pyet, you can easily construct pie charts and bar charts with functions.
 
                               @activity[#:forevidence "BS-IDE&1&1"]{
-                                      Open the @editor-link[#:public-id "0BxJ2mGqPUGt0WDZaVUdlVVNTSms" "Unit 4"] template file, 
-                                      and hit run.  You should see the bar and pie charts from the previous section appear sequentially.
-                                      Hit the X button in the top left to view the next chart.
+                                      Open the @editor-link[#:public-id "0BxJ2mGqPUGt0WDZaVUdlVVNTSms" "Unit 4"] template file, and hit run.  You should see the bar and pie charts from the previous section appear sequentially. Hit the X button in the top left to view the next chart.
                               }
 
                       }
@@ -154,10 +133,7 @@
                                     cholesterol-list = extract cholesterol from nutrition end
                               }
 
-                              You've seen this code before:  Extracting specific
-                              lists from a table, to look at columns by themselves.  These lists
-                              are the labels and values (respectively) that will be used to
-                              create our charts.
+                              You've seen this code before:  Extracting specific lists from a table, to look at columns by themselves.  These lists are the labels and values (respectively) that will be used to create our charts.
 
                               @code[#:multi-line #t]{
                                     bar-chart(food-list,
@@ -168,19 +144,14 @@
                               Here, the @code{bar-chart} function takes three arguments:
                               @itemlist[
                                       @item{
-                                            The first is the list of labels.  Each of these will
-                                            be the name of a bar on the chart.
+                                            The first is the list of labels.  Each of these will be the name of a bar on the chart.
                                       }
                                       @item{
-                                            The second is the list of values.  Each of these 
-                                            corresponds to the length of a bar on the chart.
+                                            The second is the list of values.  Each of these corresponds to the length of a bar on the chart.
                                       }
                                       @item{
-                                            The final argument looks a little strange.  This
-                                            argument is a PlotOptions object.  All you need to
-                                            know is that this argument allows us to change the
-                                            title, color, and many other aspects of the plot.
-                                            For now, all we will change is the title.
+                                            The final argument looks a little strange.  This argument is a PlotOptions object.  All you need to
+                                            know is that this argument allows us to change the title, color, and many other aspects of the plot. For now, all we will change is the title.
                                       }
                               ]
 
@@ -190,19 +161,15 @@
                                               _.{title: 'Cholesterol per Menu Item'})
                               }
 
-                              The @code{pie-chart} has the same contract:  It takes the list
-                              of labels, list of values, and PlotOptions.
+                              The @code{pie-chart} has the same contract:  It takes the list of labels, list of values, and PlotOptions.
                       }
                       @teacher{
                               @itemlist[
                                       @item{
-                                            Encourage students to follow the convention of these function applications:
-                                            Hit Enter/Return after every argument when applying plot functions, as it
-                                            makes things easier to read.
+                                            Encourage students to follow the convention of these function applications: Hit Enter/Return after every argument when applying plot functions, as it makes things easier to read.
                                       }
                                       @item{
-                                            More information on the @code{_.{}} syntax of the PlotOptions
-                                            can be found in the @(hyperlink "https://www.pyret.org/docs/latest/plot.html#%28part._.The_.Options_.Types_and_.Default_.Values%29" "Pyret Documentation")
+                                            More information on the @code{_.{}} syntax of the PlotOptions can be found in the @(hyperlink "https://www.pyret.org/docs/latest/plot.html#%28part._.The_.Options_.Types_and_.Default_.Values%29" "Pyret Documentation")
                                       }
                               ]
                               
@@ -228,20 +195,16 @@
                                                     Create a pie chart showing the GDP of every country in @code{countries}.
                                               }
                                       ]
-                                      After completing these bar charts, turn to @worksheet-link[#:name "Questions-With-Charts"]
-                                      in your workbook and answer the questions using these charts.
+                                      After completing these bar charts, turn to @worksheet-link[#:name "Questions-With-Charts"] in your workbook and answer the questions using these charts.
                               }
                       }
                       @teacher{
                               @itemlist[
                                       @item{
-                                            Students should add 2 more function calls to their definitions window; 
-                                            one using @code{bar-chart}, the other using @code{pie-chart}.
+                                            Students should add 2 more function calls to their definitions window; one using @code{bar-chart}, the other using @code{pie-chart}.
                                       }
                                       @item{
-                                            Emphasize that students should choose informative axis & title names,
-                                            as if they're showing these charts to someone who has never seen
-                                            these tables before.
+                                            Emphasize that students should choose informative axis & title names, as if they're showing these charts to someone who has never seen these tables before.
                                       }
                               ]
                       }
@@ -280,8 +243,7 @@
                               ]
 
                               @activity[#:forevidence "BS-IDE&1&1"]{
-                                      Turn to @worksheet-link[#:name "Freq-Bar-Chart"]  in your workbook, 
-                                      and complete the exercise using this table.
+                                      Turn to @worksheet-link[#:name "Freq-Bar-Chart"]  in your workbook, and complete the exercise using this table.
                               }
                       }
                       @teacher{
@@ -290,30 +252,23 @@
                 }
                 @point{
                       @student{
-                              By filling in the last bar, you have created a bar chart.  However, there's something
-                              special about chart.  What is different about this bar chart from the ones
-                              we have created before?
+                              By filling in the last bar, you have created a bar chart.  However, there's something special about chart.  What is different about this bar chart from the ones we have created before?
                       }
                       @teacher{
                               Guide discussion towards this distinction:
                               @itemlist[
                                       @item{
-                                            Previous bar charts used a column from the table as the labels,
-                                            and another column as the values.
+                                            Previous bar charts used a column from the table as the labels, and another column as the values.
                                       }
                                       @item{
-                                            In this bar chart, we are using the @vocab{categories} of a column
-                                            as the labels, and the @vocab{frequency} of each category as the value.
+                                            In this bar chart, we are using the @vocab{categories} of a column as the labels, and the @vocab{frequency} of each category as the value.
                                       }
                               ]
                       }
                 }
                 @point{
                       @student{
-                              Here, we are looking at the Eye Color column, which contains categorical data.
-                              In this special kind of bar chart, we are computing the @vocab{frequency} of 
-                              each category, and that frequency relates to the length of each bar.  Since there
-                              are 3 people with brown eyes, the bar for Brown extends to 3 marks long.
+                              Here, we are looking at the Eye Color column, which contains categorical data. In this special kind of bar chart, we are computing the @vocab{frequency} of  each category, and that frequency relates to the length of each bar.  Since there are 3 people with brown eyes, the bar for Brown extends to 3 marks long.
                       }
                       @teacher{
                       
@@ -321,10 +276,7 @@
                 }
                 @point{
                       @student{
-                              This special kind of bar chart is called a @vocab{frequency bar chart}.  We can
-                              create these charts with a new function in Pyret.  Below is an example that
-                              computes the frequency of categories in the @code{home-state} column
-                              of @code{presidents}.
+                              This special kind of bar chart is called a @vocab{frequency bar chart}.  We can create these charts with a new function in Pyret.  Below is an example that computes the frequency of categories in the @code{home-state} column of @code{presidents}.
 
                               @code[#:multi-line #t]{
                                     home-state-list = extract home-state from presidents end
@@ -352,12 +304,10 @@
                               @activity[#:forevidence "BS-IDE&1&1"]{
                                       @itemlist[
                                               @item{
-                                                    Create a frequency bar chart for the @code{party} column in @code{presidents}.
-                                                    Which political party has created the most presidents?
+                                                    Create a frequency bar chart for the @code{party} column in @code{presidents}. Which political party has created the most presidents?
                                               }
                                               @item{
-                                                    Create a frequency bar chart for the @code{continent} column in @code{countries}.
-                                                    Which continent has the most countries within it?
+                                                    Create a frequency bar chart for the @code{continent} column in @code{countries}. Which continent has the most countries within it?
                                               }
                                       ]
                               }
