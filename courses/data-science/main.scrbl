@@ -3,12 +3,12 @@
 @main-contents{
 @(elem #:style bs-coursename-style "Bootstrap:Data Science")
 
-@boxed-text{We work hard to provide a "curriculum-in-a-box" experience, but a curriculum based on 20 years’ research has a lot of 
-            moving parts! Spend some time with our master trainers, and take your game to the next level by 
-            @bold{@(hyperlink "http://www.BootstrapWorld.org/workshops" "attending a Bootstrap workshop!")}}
+@boxed-text{@animated-gif{splash.png}What factors make some people live longer than others? Are the schools in one part of your neighborhood better than schools in another part? How would you measure that? Answering these questions involves collecting and manipulating data, from sports stats to record sales to census data. Our Data Science module teaches students to view programs as questions we ask of data. Students form their own questions about the world around them, and learn how to analyze data critically and carefully to find answers. Business, science, and social studies teachers can utilize this module to help students make inferences from data. Math teachers can use this module to introduce foundational concepts in statistics. It also works great as a module for AP CS Principles’ unit on data!}
+
+@bold{@(hyperlink "http://www.BootstrapWorld.org/workshops" "Click here for our upcoming trainings")}
+
 
 @; workbook link names and targets
-
 We provide all of the our materials @italic{free of charge}, to anyone who is interested in using our lesson plans or student workbooks.
 @(apply itemlist
         (append
