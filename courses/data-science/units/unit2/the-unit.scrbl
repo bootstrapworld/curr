@@ -27,7 +27,7 @@
         @points[
         	@point{
         	 		@student{
-        	 				So far you have learned the fundamentals of writing programs that do work on simple data like Numbers (@code{1, -6, 3.5,} etc.) and Strings ((@code{"hello", "17",} etc.). As data scientists, we need write programs that work on complex data, which can have many related parts and contain dozens or millions of entries. In this unit, you will learn how Pyret works with real world data, and how to answer data science questions by writing programs over that data.
+        	 				So far you have learned the fundamentals of writing programs that do work on simple data like Numbers (@code{1, -6, 3.5,} etc.) and Strings (@code{"hello", "17",} etc.). As data scientists, we need write programs that work on complex data, which can have many related parts and contain dozens or millions of entries. In this unit, you will learn how Pyret works with real-world data, and how to answer data science questions by writing programs over that data. Let's take a look at some complex data right now...
         	 		}
         	 		@teacher{
 
@@ -53,7 +53,7 @@
             }
             @point{
 					@student{
-							This is a @vocab{table} storing information about students in a fourth grade class.  @vocab{table}s are collections of entries, where each @vocab{entry} contains one value.  In most of the tables you will encounter, these values will be of type Number or String.
+							This is a @vocab{table} containing information about students in a fourth grade class.  @vocab{table}s are collections of cells - or "entries", where each @vocab{entry} contains one value.  In most of the tables you will encounter, these values will be of type Number or String.
 					}
                     @teacher{
 														 
@@ -64,7 +64,7 @@
 							@vocab{Table}s are organized into @vocab{column}s and @vocab{row}s.
                             @activity{How many columns does this table have?}
 
-							All of the entries in a particular @vocab{column} will contain values that are the same type, and represent the same thing. For example, each value in the 3rd column represents the eye color of a person in the class. 
+							All of the entries in a particular @vocab{column} will contain values that are the same type, and represent the same thing. For example, each entry in the 3rd column represents the eye color of a person in the class. 
 
 							@build-table/cols[
 										'("Eye-Color")
@@ -94,7 +94,7 @@
 			@point{
                     @student{
 					        @activity[#:forevidence "BS-IDE&1&1"]{
-				        		Turn to @worksheet-link[#:name "Animals"] in your workbook. Complete the exercise to identify different aspects about this new table.
+				        		Turn to @worksheet-link[#:name "Animals"] in your workbook, and use your knowledge of tables to answer the questions there.
 							}
 			}
                     @teacher{
@@ -122,59 +122,69 @@
                 )
       ]{
         @points[
-             @point{
-                    @student{
-							Now that you know the basic information about tables, it's time to get some hands on experience with them in Pyret. Pyret allows us to write programs that work on tables, similar to how we write programs that work on Numbers and Strings.
-					}
+            @point{
+               @student{
+  					 		  Now that you know the basic information about tables, it's time to get some hands on experience with them in Pyret. Pyret allows us to write programs that work on tables, similar to how we write programs that work on Numbers and Strings.
+  					   }
+                @teacher{
+                		In supplemental lessons, students/teachers can load their own tables into Google Sheets, as well as design surveys to populate Google Sheets with data.  However, in the core curriculum this will not be covered;  students will use scaffolded code to work with tables exclusively in Pyret.
+					     }
+            }
+            @point{
+            		@student{
+            				@activity[#:forevidence "BS-IDE&1&1"]{
+        						  Open up the @editor-link[#:public-id "0BxJ2mGqPUGt0SDZlTWdmZWlEYlE" "Unit 2"] template file. Make sure you are signed into your Google account.  All of the Pyret programs you write will be saved into the @code{code.pyret.org} folder in your Google Drive. Hit the @code{Save a Copy} button.
+            				}
+            		}
+            		@teacher{
+
+            		}
+            }
+            @point{
+            		@student{
+                            As you learned in Unit 1, Pyret allows us to define names for values and expressions, so that we can refer to them later. Every definition you've seen involves an identifier, followed by the equals sign, and an expression to bidn to that name. For example, we can define the identifier @code{name} to be string @code{"Tara"} by writing
+                            @code[#:multi-line #t]{
+                                name = "Tara"
+                            }
+                            Some definitions are more complex than that. What identifiers do you see defined in this file?
+                    }
                     @teacher{
-                    		In supplemental lessons, students/teachers can load their own tables into Google Sheets, as well as design surveys to populate Google Sheets with data.  However, in the core curriculum this will not be covered;  students will use scaffolded code to work with tables exclusively in Pyret.
-					}
+
+                    }
             }
             @point{
-            		@student{
-            				@activity[#:forevidence "BS-IDE&1&1"]{
-        						Open up the @editor-link[#:public-id "0BxJ2mGqPUGt0SDZlTWdmZWlEYlE" "Unit 2"] template file. Make sure you are signed into your Google account.  All of the Pyret scripts you write will be saved into the @code{code.pyret.org} folder in your Google Drive. Hit the @code{Save a Copy} button.
-            				}
-            		}
-            		@teacher{
+                    @student{
+                            The definitions area contains code to load two tables from Google Sheets; @code{presidents} and @code{nutrition}.  As you saw at the beginning of the lesson, tables need header rows to describe them! The @code{load-table:} block specifies the header row for the table being imported! Each of these @code{load-table:} blocks comes after an @code{=} operator which defines the variable names as these tables.
 
-            		}
-            }
-            @point{
-            		@student{
-                            The definitions wiindow contains code to load two tables from Google Sheets; @code{presidents} and @code{nutrition}.  As you saw at the beginning of the lesson, tables need header rows to describe them! Just as you did in your workbook, you need to come up with a header row for this table in Pyret. The @code{load-table:} block lets you do just that! Each of these @code{load-table:} blocks comes after an @code{=} operator which defines the variable names as these tables.
+                        @activity[#:forevidence "BS-IDE&1&1"]{
+                              To evaluate a variable, we click Run and type its name into the Interactions Area. We do the same thing if that variable is a Number, a String, or even a Table! Click Run, and type each of these programs into the interactions window, then hit Enter/Return.
 
-            				@activity[#:forevidence "BS-IDE&1&1"]{
-                                    To evaluate a variable, we click Run and type its name into the Interactions Area. We do the same thing if that variable is a Number, a String, or even a Table! Click Run, and type each of these programs into the interactions window, then hit Enter/Return.
+                          @itemlist[
+                              @item{
+                                  @code{nutrition}
+                              }
+                              @item{
+                                  @code{presidents}
+                              }
+                          ]
+                        }
+            		    }
+            		    @teacher{
+              				The students should not need to know exactly how this scaffold code works to complete the exercises.  However, for those that are curious:
 
-            						@itemlist[
-            								@item{
-            										@code{nutrition}
-            								}
-            								@item{
-            										@code{presidents}
-            								}
-            						]
-            				}
+              				@itemlist[
+              						@item{
+              								The @code{include} statement allows Pyret to use a supplementary module which can talk to the Google Sheets API.  This lets students use/apply functions that take data from Google Sheets.
+              						}
+              						@item{
+              								The @code{load-spreadsheet} function applications are what will find particular spreadsheets and their content.  The argument is a String that is a unique ID to a particular Google Sheet.  We have hardcoded these IDs in the scaffolding so that they link to our presidents and nutrition tables.
+              						}
+              						@item{
+              								The @code{load-table} command is what actually loads a table that we can use in the interactions window.  In this expression, each of the column names are enumerated (this establishes what the header row contains), and says that the source will be the sheets from the @code{load-spreadsheet} functions applications.
+              						}
+              				]
 
-            				
-            		}
-            		@teacher{
-            				The students should not need to know exactly how this scaffold code works to complete the exercises.  However, for those that are curious:
-
-            				@itemlist[
-            						@item{
-            								The @code{include} statement allows Pyret to use a supplementary module which can talk to the Google Sheets API.  This lets students use/apply functions that take data from Google Sheets.
-            						}
-            						@item{
-            								The @code{load-spreadsheet} function applications are what will find particular spreadsheets and their content.  The argument is a String that is a unique ID to a particular Google Sheet.  We have hardcoded these IDs in the scaffolding so that they link to our presidents and nutrition tables.
-            						}
-            						@item{
-            								The @code{load-table} command is what actually loads a table that we can use in the interactions window.  In this expression, each of the column names are enumerated (this establishes what the header row contains), and says that the source will be the sheets from the @code{load-spreadsheet} functions applications.
-            						}
-            				]
-
-            		}
+              		  }
             }
         ]
    }
@@ -303,6 +313,8 @@
             }
         ]
    }
+       
+       
 @lesson/studteach[
      #:title "Closing"
      #:duration "5 minutes"

@@ -8,8 +8,9 @@
   @unit-descr{Students learn how to measure central tendency using mean/median/mode.  They will practice calculating these values by hand, and learn to do so using Lists in Pyret}
 }
 @unit-lessons{
+
 @lesson/studteach[
-     #:title "Extracting Lists"
+     #:title "Introduction"
      #:duration "10 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
@@ -27,97 +28,53 @@
         @points[
                 @point{
                       @student{
-                              Now that you are familiar with how tables organize data, it's time to solve some problems with them. However, we have a problem:  We can type the identifier @code{presidents} or @code{nutrition} into the interactions window, and we see the table.  However, we can't write any other expressions using this table using the functions & operators we've learned.
+                              Open the @editor-link[#:public-id "0BxJ2mGqPUGt0Zjl2Nk4yeTJzeU0" "Unit 3"] template file and click run.
+                              Now that you are familiar with how tables organize data, it's time to solve some problems with them. We already know how to evaluate an identifier once a program has been run: we just type the identifier into the Interactions Area and hit "Enter" to see the value. For example, we can type the identifier @code{presidents} or @code{nutrition} into the interactions window, and we see the table. There are some other identifiers defined here - what are their names?
 
                       }
                       @teacher{
-
+                              Lists @code{a}, @code{b}, and @code{c} are defined.
                       }
                 }
                 @point{
                       @student{
-                              Tables are 2-dimensional collections of data.  If we ask "what is the lowest amount of sodium on the menu", or "What is biggest serving size possible", these are questions that only involve one column at a time.  We need some way of looking at each column individually in our programs.  In other words, we want to get 1-dimensional data OUT of the 2-dimensional table.
-
-                      }
-                      @teacher{
-                              
-                      }
-                }
-                @point{
-                      @student{
-                              The @vocab{extract} operation does just that!
-
+                              Let's take a look at one of these identifiers: 
                               @code[#:multi-line #t]{
-                                  sodium-list = extract sodium from nutrition end
+                                a = [list: 1, 1, 4]
                               }
+                              The value being defined is something you haven't seen before, which is neither a Number, a String, or even a table of numbers and strings. It's what is called a @italic{list}. To make a list, we use square brackets and the @code{list:} constructor, followed by a comma-separated list of values.
 
-                              After running this program, typing @code{sodium-list} into the interactions window and hitting Return gives us the following list: @code{[list: 480, 680, 820, 360, 1300, 790, 160, 150, 680, 130]}.
+                              @activity{
+                                In the Interactions Area, try making a few lists for practice:
+                                @itemlist[
+                                  @item{A list of all the days of the week}
+                                  @item{A list of first 10 even numbers}
+                                  @item{A list of your favorite colors}
+                                ]
+                              }
                       }
                       @teacher{
-                      
+
                       }
                 }
                 @point{
                       @student{
-                              Let's examine this line of code, piece by piece.
+                            In what ways are Lists different from Tables? Tables are 2-dimensional, while Lists are 1-dimensional. Tables also have a @italic{header row}, which associates a name with each column. Lists, on the other hand, have no header.  
 
-                              @itemlist[
-                                      @item{
-                                            @code{extract} tells Pyret that we want to take a particular column out of a table. 
-                                      }
-                                      @item{
-                                            After the @code{extract} keyword, we choose the name of 1 column we want 
-                                            to see as a list.  In this case, it is the @code{sodium} column.
-                                      }
-                                      @item{
-                                            Then, the @code{from} keyword, which indicates which table we are extracting the column from.  Following this is the table name, which is @code{nutrition}.
-                                      }
-                                      @item{
-                                            Finally, an @code{end} keyword tells Pyret that our line of code involving a table is done.
-                                      }
-                              ]
-
-
+                            However, List do share some qualities with tables. They have multiple entries, and those entries are in a specific @italic{order}. They can also be filled with either quantitative or categorical data! 
+                            @activity{
+                              Look back at the three lists you created in the interactions area - are those quantitative or categorical? For practice, try constructing two lists of each kind.
+                            }
                       }
                       @teacher{
-                              This is the first example of an expression that consumes a table that students will need to write for themselves.  These expressions (@code{extract, sieve, select, order}, and @code{extend}) have fundamentally different syntax than programs they have seen with arithmetic or function application.
                       }
                 }
-                @point{
-                      @student{
-                              @vocab{lists} are a new type:  they are collections of values.  Whereas tables are 2-dimensional collections of values, lists are 1-dimensional collections of values.
 
-                              @activity[#:forevidence "BS-IDE&1&1"]{
-                                      Open the @editor-link[#:public-id "0BxJ2mGqPUGt0Zjl2Nk4yeTJzeU0" "Unit 3"] template file, 
-                                      and for each of these bullet points, add code to the definitions window to extract a column as a list:
-
-                                      @itemlist[
-                                              @item{
-                                                    Define a list called @code{sodium-list} that contains the @code{sodium} column from @code{nutrition}.
-                                              }
-                                              @item{
-                                                    Define a list called @code{calories-list} containing the @code{calories} column from @code{nutrition}.
-                                              }
-                                              @item{
-                                                    Define a list called @code{gdp-list} containing the @code{gdp} column from @code{countries}.
-                                              }
-                                              @item{
-                                                    Define a list called @code{life-expectancy-list} that contains the @code{median-life-expectancy} column from @code{countries}.
-                                              }
-                                      ]
-
-                                      Notice that these Lists contain either only Strings, or only Numbers.
-                              }
-                      }
-                      @teacher{
-                              TODO add usage of the lifespan dataset
-                      }
-                }
         ]
-   }
+      }
 
 @lesson/studteach[
-     #:title "Mean, Median, Mode, and Pyret"
+     #:title "Mean, Median, and Mode"
      #:duration "30 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
@@ -135,7 +92,15 @@
         @points[
                 @point{
                       @student{
-                              One of the most important questions we can ask about columns containing quantitative data is:  what is the @vocab{average} value? How can we estimate what the 'center' of the data in a column is?
+                              We encounter quantitative, 1-dimensional data all the time. Sometimes we have a list of temperatures for the day, and we want to know what the average is. Maybe we want to split a list of players into two teams, or find the most common birthday in our group of friends. All of these involve taking 1-dimensional data and asking questions about it's "center", but there are several different kinds of center. 
+                      }
+                      @teacher{
+                              Have your students come up with other questions involving "center".
+                      }
+                }
+                @point{
+                      @student{
+                        There are 3 ways to measure the "center" of a list of data: @vocab{mean}, @vocab{median} and @vocab{mode}. One of the most important questions we can ask about a column of quantitative data is:  what is the @vocab{average} value?
                       }
                       @teacher{
                               Use your favorite method of teaching the concept of averages.
@@ -143,7 +108,7 @@
                 }
                 @point{
                       @student{
-                              There are 3 ways to measure the center of a list of data:  The first is the @vocab{mean}.  We calculate the mean by adding up each element in the list, and dividing by the number of elements in the list.
+                              We calculate the mean by adding up each element in the list, and dividing by the number of elements in that list.
 
                               For example, the @vocab{mean} of the list @code{[list: 1, 4, 5, 8, 2]} is calculated by @code{(1 + 4 + 5 + 8 + 2) / 5}, which evaluates to 4.
                       }
@@ -348,6 +313,105 @@
                 }
         ]
    }
+@lesson/studteach[
+     #:title "Extracting Lists from Tables"
+     #:duration "10 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[]
+     #:standards (list)
+     #:materials @itemlist[]
+     #:preparation @itemlist[]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[
+                @point{
+                      @student{
+                              Tables are 2-dimensional collections of data, but we often want to ask 1-dimensional questions of them. For example, if we ask "what is the lowest amount of sodium on the menu", or "What is biggest serving size possible", these are questions that @italic{only involve one column at a time}.  We need some way of looking at each column individually in our programs.  In other words, we often want to get 1-dimensional data OUT of a 2-dimensional table.
+
+                      }
+                      @teacher{
+                              
+                      }
+                }
+                @point{
+                      @student{
+                              The @vocab{extract} operation does just that!
+
+                              @code[#:multi-line #t]{
+                                  sodium-list = extract sodium from nutrition end
+                              }
+
+                              @activity{What is the name of the identifier being defined here? What do you think its value is?}
+                              After running this program, typing @code{sodium-list} into the interactions window and hitting Return gives us the following list: @code{[list: 480, 680, 820, 360, 1300, 790, 160, 150, 680, 130]}.
+                      }
+                      @teacher{
+                      
+                      }
+                }
+                @point{
+                      @student{
+                              Let's examine this line of code, piece by piece.
+
+                              @itemlist[
+                                      @item{
+                                            @code{extract} tells Pyret that we want to take a particular column out of a table. 
+                                      }
+                                      @item{
+                                            After the @code{extract} keyword, we choose the name of 1 column we want 
+                                            to see as a list.  In this case, it is the @code{sodium} column.
+                                      }
+                                      @item{
+                                            Then, the @code{from} keyword, which indicates which table we are extracting the column from.  Following this is the table name, which is @code{nutrition}.
+                                      }
+                                      @item{
+                                            Finally, an @code{end} keyword tells Pyret that our line of code involving a table is done.
+                                      }
+                              ]
+
+
+                      }
+                      @teacher{
+                              This is the first example of an expression that consumes a table that students will need to write for themselves.  These expressions (@code{extract, sieve, select, order}, and @code{extend}) have fundamentally different syntax than programs they have seen with arithmetic or function application.
+                      }
+                }
+                @point{
+                      @student{
+                              @vocab{lists} are a new type:  they are collections of values.  Whereas tables are 2-dimensional collections of values, lists are 1-dimensional collections of values.
+
+                              @activity[#:forevidence "BS-IDE&1&1"]{
+                                      Open the @editor-link[#:public-id "0BxJ2mGqPUGt0Zjl2Nk4yeTJzeU0" "Unit 3"] template file, 
+                                      and for each of these bullet points, add code to the definitions window to extract a column as a list:
+
+                                      @itemlist[
+                                              @item{
+                                                    Define a list called @code{party-list} that contains the @code{party} column from @code{presidents}.
+                                              }
+                                              @item{
+                                                    Define a list called @code{calories-list} containing the @code{calories} column from @code{nutrition}.
+                                              }
+                                              @item{
+                                                    Define a list called @code{gdp-list} containing the @code{gdp} column from @code{countries}.
+                                              }
+                                              @item{
+                                                    Define a list called @code{life-expectancy-list} that contains the @code{median-life-expectancy} column from @code{countries}.
+                                              }
+                                      ]
+
+                                      Notice that these Lists contain just one type of data: either only Strings, or only Numbers.
+                              }
+                      }
+                      @teacher{
+                              TODO add usage of the lifespan dataset
+                      }
+                }
+        ]
+}
 
 @lesson/studteach[
      #:title "Which Measure is Best?"

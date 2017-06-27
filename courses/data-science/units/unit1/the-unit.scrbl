@@ -37,8 +37,8 @@
                             and hundereds of other different fields to ask and answer questions about data.
                     }
                     @teacher{
-                            Motivate relevance of data science by using examples that
-                            relate to student interests.  Here are some examples:
+                            Let students discuss restaurant question for a minute or two, guiding them towards the notion of measurement and data. You can motivate relevance of data science by using additional examples that
+                            relate to student interests.  Here are a few:
                             @itemlist[
                                     @item{@(hyperlink "http://motherboard.vice.com/read/a-data-scientists-emoji-guide-to-kanye-west-and-taylor-swift" "Emojis")}
                                     @item{@(hyperlink "https://mic.com/articles/131092/these-students-are-using-data-science-to-predict-which-rap-songs-will-become-hits#.0d3wkhxQE" "Pop Music")}
@@ -67,8 +67,7 @@
             }
              @point{
                     @student{
-                            Begin by opening the @editor-link["code.pyret.org editor"].  Hit the log in button, and sign in with your
-                            Google account information, then choose "Start Coding".
+                            Begin by opening a web browser, and going to @(hyperlink "http://code.pyret.org" "The Pyret Editor"). Hit the "log in" button, and sign in with your Google account information, then choose "Start Coding".
                     }
                     @teacher{
                             Each student (or pair of students) should have a Google Account.    
@@ -139,7 +138,7 @@
              @point{
                     @student{
                             Every value has a  @vocab{Type}.  Each of the values produced by the programs you just wrote are Numbers, but there are other types as well. One of these types is called a @vocab{String}.  A String
-                            is a sequence of characters (letters, numbers, symbols) in between a pair of quotation marks @code{""}.
+                            is a sequence of characters (letters, numbers, symbols) in between a pair of quotation marks.
 
                             @activity[#:forevidence "BS-IDE&1&1"]{
                                     @itemlist[
@@ -350,7 +349,7 @@
                             important exception!
 
                             @activity[#:forevidence "BS-IDE&1&1"]{
-                                    Type @code{(2 * 3) + 5} into the Interactions window, and hit Run.  It should produce 11.
+                                    Type @code{(2 * 3) + 5} into the Interactions area, and hit Run.  It should produce 11.
                             }
                     }
                     @teacher{
@@ -534,7 +533,7 @@
                 @point{
                         @student{
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Add this line of code to the top of your definitions window:
+                                        Add this line of code to the top of your definitions area:
                                         @code[#:multi-line #t]{
                                             how-many-people = 17
                                         }
@@ -557,7 +556,7 @@
                                 @activity[#:forevidence "BS-IDE&1&1"]{
                                         @itemlist[
                                                 @item{
-                                                        Add variable definitions at the top of your definitions window
+                                                        Add variable definitions at the top of your definitions area
                                                         for the cost of each item we need
                                                         to buy per person (@code{pizza-slice-cost, plate-cost, soda-cost}). 
                                                 }
@@ -632,7 +631,7 @@
              @point{
                     @student{
                             @activity[#:forevidence "BS-IDE&1&1"]{
-                                    Type @code{num-sqr(2)} into the interactions window, and hit Enter.
+                                    Type @code{num-sqr(2)} into the interactions area, and hit Enter.
                                     What does this code evaluate to?  Try changing the number in between
                                     the parentheses.
                             }
@@ -672,7 +671,7 @@
 
                             @activity[#:forevidence "BS-IDE&1&1"]{
                                     Let's explore a new function, @code{num-min}.  Type each of these
-                                    lines of code into the interactions window and hit enter.
+                                    lines of code into the interactions area and hit enter.
 
                                     @itemlist[
                                             @item{
