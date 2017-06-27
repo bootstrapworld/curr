@@ -33,7 +33,7 @@
 
                       }
                       @teacher{
-                              Lists @code{a}, @code{b}, and @code{c} are defined.
+                              The identifiers are @code{a}, @code{b}, and @code{c}, each of which is defined to be a different List.
                       }
                 }
                 @point{
@@ -138,11 +138,10 @@
                 }
                 @point{
                       @student{
-                              Type @code{mean(sugar-list)}.  What does this give us?
+                              Type @code{mean([list: 1, 2, 3]])}.  What does this give us? Why?
 
                               @activity[#:forevidence "BS-IDE&1&1"]{
-                                      Type each of the following programs
-                                      into the interactions window, to check your work:
+                                      Type each of the following programs into the interactions window, to check your work:
                                       @itemlist[
                                               @item{
                                                     mean(a)
@@ -160,17 +159,18 @@
                               }
                       }
                       @teacher{
-                              A Number, that is the mean.
+                              @code{2}, which is the mean of the numbers 1, 2 and 3.
                       }
                 }
                 @point{
                       @student{
-                              This function takes a List of Numbers as input, and gives us the mean (a Number) as output.  We write this contract as:
+                              This function takes a @italic{List of Numbers} as input, and gives us the mean (a Number) as output. Write the contract for this function into your contracrs page as:
 
-                              @code{# mean: List<Number> -> Number}
+                              @code[#:multi-line #t]{# mean: List<Number> -> Number}
+                              Notice that we use @code{List<Number>} to descibe "lists of numbers"!
                       }
                       @teacher{
-                              Have the students add this to their contract list.
+
                       }
                 }
                 @point{
@@ -178,7 +178,7 @@
                               The second measure of center is the @vocab{median}.  The median is the "middle" value of a list, or a value that separates the top half of a list from the bottom half.
                       }
                       @teacher{
-                              Again, you can use your preferred method of teaching the median concept, as long as the students complete the workbook practice exercises for calculating the median.
+                              
                       }
                 }
                 @point{
@@ -266,7 +266,7 @@
                               This list has multiple modes:  @code{1, 4}, because they appear equally often, and more than other elements in the list.
 
                               @activity[#:forevidence "BS-IDE&1&1"]{
-                                      Complete the final column, by calculating the mean for each example list.
+                                      Complete the final column, by calculating the mode for each example list.
                               }
                       }
                       @teacher{
@@ -332,7 +332,7 @@
         @points[
                 @point{
                       @student{
-                              Tables are 2-dimensional collections of data, but we often want to ask 1-dimensional questions of them. For example, if we ask "what is the lowest amount of sodium on the menu", or "What is biggest serving size possible", these are questions that @italic{only involve one column at a time}.  We need some way of looking at each column individually in our programs.  In other words, we often want to get 1-dimensional data OUT of a 2-dimensional table.
+                              Tables are 2-dimensional collections of data, but we often want to ask 1-dimensional questions of them. For example, if we ask "what is the lowest amount of sodium on the menu", or "What is biggest serving size possible", these are questions that @italic{only involve one column at a time}.  We need some way of looking at each column individually in our programs.  In other words, we often want to get 1-dimensional data @bold{out} of a 2-dimensional table.
 
                       }
                       @teacher{
@@ -385,8 +385,8 @@
                               @vocab{lists} are a new type:  they are collections of values.  Whereas tables are 2-dimensional collections of values, lists are 1-dimensional collections of values.
 
                               @activity[#:forevidence "BS-IDE&1&1"]{
-                                      Open the @editor-link[#:public-id "0BxJ2mGqPUGt0Zjl2Nk4yeTJzeU0" "Unit 3"] template file, 
-                                      and for each of these bullet points, add code to the definitions window to extract a column as a list:
+                                      Back in the @editor-link[#:public-id "0BxJ2mGqPUGt0Zjl2Nk4yeTJzeU0" "Unit 3"] template file, 
+                                      add code to the definitions area to extract the following columns as lists:
 
                                       @itemlist[
                                               @item{
@@ -440,12 +440,12 @@
                 }
                 @point{
                       @student{
-                              Imagine that a math teacher is tracking their students' grades, using lists in Pyret.  Here are the students' grades on the first test.
+                              Imagine that a math teacher is tracking their students' grades.  Here are the students' grades on the first test.
 
                               @code[#:multi-line #t]{
                                     [list: 68, 64, 62, 100, 100, 68, 67]
                               }
-
+                              Which measure of center gives the best indication of how the class did?
                               @itemlist[
                                       @item{
                                             mean:  @code{75.57}
@@ -457,9 +457,10 @@
                                             mode:  @code{69}
                                       }
                               ]
+                              Notice that the mean is well over 75, even though most of the students scored below 70! The mean here is more affected by @italic{outliers}: those two 100s are bringing the average up. This is because mean is calculated using every value in the list, while the median is calculated with at most 2 values from the list.
                       }
                       @teacher{
-                              Highlight that the mean here is more affected by outliers;  the two 100s are bringing the average up, when most students scored below 70. This is because mean is calculated using every value in the list, while the median is calculated with at most 2 values from the list.
+                              
                       }
                 }
                 @point{
