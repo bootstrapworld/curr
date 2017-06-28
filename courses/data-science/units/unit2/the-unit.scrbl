@@ -1,16 +1,16 @@
 #lang curr/lib
 
-@title{Unit 2: Introduction to Tables}
+@title{Unit 2: Lists and Tables}
 
 @declare-tags[]
 
 @unit-overview/auto[#:lang-table (list (list "" @code{}))]{
-  @unit-descr{Students are introduced to Google Sheets as a convenient way to store tabular data.  They then create their first Pyret program, in which they load a table from Google Sheets.}
+  @unit-descr{Students are introduced to Lists and Tables in Pyret, as well as scatter plots as a way of visualizing data}
 }
 @unit-lessons{
 @lesson/studteach[
-     #:title "What are Tables?"
-     #:duration "25 minutes"
+     #:title "Thinking about Tables"
+     #:duration "10 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -35,71 +35,71 @@
         	}
             @point{
                     @student{
-							@build-table/cols[
-										'("First" "Last" "Eye-Color" "Height")
-										'(("\"John\"" "\"Jane\"" "\"Javon\"" "\"Angela\"" "\"Jack\"" "\"Dominique\"" "\"Sammy\"" "\"Andrea\"")
-										  ("\"Doe\"" "\"Smith\"" "\"Jackson\"" "\"Enriquez\"" "\"Thompson\"" "\"Rodriguez\"" "\"Carter\"" "\"Garcia\"")
-										  ("\"Green\"" "\"Brown\"" "\"Brown\"" "\"Hazel\"" "\"Blue\"" "\"Hazel\"" "\"Blue\"" "\"Brown\"")
-										  ("52.0" "49.1" "57.7" "52.5" "53.0" "51.1" "56.2" "50.8"))
-										 (lambda (r c) (para ""))
-										 4 8
-							]
+            							@build-table/cols[
+            										'("First" "Last" "Eye-Color" "Height")
+            										'(("\"John\"" "\"Jane\"" "\"Javon\"" "\"Angela\"" "\"Jack\"" "\"Dominique\"" "\"Sammy\"" "\"Andrea\"")
+            										  ("\"Doe\"" "\"Smith\"" "\"Jackson\"" "\"Enriquez\"" "\"Thompson\"" "\"Rodriguez\"" "\"Carter\"" "\"Garcia\"")
+            										  ("\"Green\"" "\"Brown\"" "\"Brown\"" "\"Hazel\"" "\"Blue\"" "\"Hazel\"" "\"Blue\"" "\"Brown\"")
+            										  ("52.0" "49.1" "57.7" "52.5" "53.0" "51.1" "56.2" "50.8"))
+            										 (lambda (r c) (para ""))
+            										 4 8
+            							]
 
 					}
                     @teacher{
-							Show the kids slides with each image of the example table, focusing on the different aspects of tables.
-							Express that each row represents a distinct object, and each entry in a row stores information about that object.
+							           Show the kids slides with each image of the example table, focusing on the different aspects of tables. Express that each row represents a distinct object, and each entry in a row stores information about that object.
 					}
             }
             @point{
-					@student{
-							This is a @vocab{table} containing information about students in a fourth grade class.  @vocab{table}s are collections of cells - or "entries", where each @vocab{entry} contains one value.  In most of the tables you will encounter, these values will be of type Number or String.
-					}
+          					@student{
+          							This is a @vocab{table} containing information about students in a fourth grade class.  @vocab{table}s are collections of cells - or "entries", where each @vocab{entry} contains one value.  In most of the tables you will encounter, these values will be of type Number or String.
+          					}
                     @teacher{
 														 
-					}
+					          }
             }
 			@point{
                     @student{
-							@vocab{Table}s are organized into @vocab{column}s and @vocab{row}s.
-                            @activity{How many columns does this table have?}
+          							@vocab{Table}s are organized into @vocab{column}s and @vocab{row}s.
+                                      @activity{How many columns does this table have?}
 
-							All of the entries in a particular @vocab{column} will contain values that are the same type, and represent the same thing. For example, each entry in the 3rd column represents the eye color of a person in the class. 
+          							All of the entries in a particular @vocab{column} will contain values that are the same type, and represent the same thing. For example, each entry in the 3rd column represents the eye color of a person in the class. 
 
-							@build-table/cols[
-										'("Eye-Color")
-										'(("\"Green\"" "\"Brown\"" "\"Brown\"" "\"Hazel\"" "\"Blue\"" "\"Hazel\"" "\"Blue\"" "\"Brown\""))
-										 (lambda (r c) (para ""))
-										 1 8
-							]
-					}
+          							@build-table/cols[
+          										'("Eye-Color")
+          										'(("\"Green\"" "\"Brown\"" "\"Brown\"" "\"Hazel\"" "\"Blue\"" "\"Hazel\"" "\"Blue\"" "\"Brown\""))
+          										 (lambda (r c) (para ""))
+          										 1 8
+          							]
+          					}
                     @teacher{
 
-					}
+          					}
             }
 			@point{
                     @student{
-							The first @vocab{row} in a table is a special row called the @vocab{header row}. Each part of the @vocab{header row} is the name of a particular @vocab{column}.
+          							The first @vocab{row} in a table is a special row called the @vocab{header row}. Each part of the @vocab{header row} is the name of a particular @vocab{column}.
 
-							@build-table/cols[
-										'("First" "Last" "Eye-Color" "Height")
-										'()
-										 (lambda (r c) (para ""))
-										 4 0
-							]
-					}
+          							@build-table/cols[
+          										'("First" "Last" "Eye-Color" "Height")
+          										'()
+          										 (lambda (r c) (para ""))
+          										 4 0
+          							]
+          					}
                     @teacher{
-					}
+
+          					}
             }
 			@point{
                     @student{
-					        @activity[#:forevidence "BS-IDE&1&1"]{
-				        		Turn to @worksheet-link[#:name "Animals"] in your workbook, and use your knowledge of tables to answer the questions there.
-							}
-			}
+      					        @activity[#:forevidence "BS-IDE&1&1"]{
+      				        		Turn to @worksheet-link[#:name "Animals"] in your workbook, and use your knowledge of tables to answer the questions there.
+          							}
+              			}
                     @teacher{
 												
-					}
+          					}
             }
         ]
    }
@@ -123,25 +123,25 @@
       ]{
         @points[
             @point{
-               @student{
-  					 		  Now that you know the basic information about tables, it's time to get some hands on experience with them in Pyret. Pyret allows us to write programs that work on tables, similar to how we write programs that work on Numbers and Strings.
-  					   }
-                @teacher{
-                		In supplemental lessons, students/teachers can load their own tables into Google Sheets, as well as design surveys to populate Google Sheets with data.  However, in the core curriculum this will not be covered;  students will use scaffolded code to work with tables exclusively in Pyret.
-					     }
+                   @student{
+      					 		      Now that you know the basic information about tables, it's time to get some hands on experience with them in Pyret. Pyret allows us to write programs that work on tables, similar to how we write programs that work on Numbers and Strings.
+      					   }
+                    @teacher{
+                    		  In supplemental lessons, students/teachers can load their own tables into Google Sheets, as well as design surveys to populate Google Sheets with data.  However, in the core curriculum this will not be covered;  students will use scaffolded code to work with tables exclusively in Pyret.
+    					     }
             }
             @point{
-            		@student{
-            				@activity[#:forevidence "BS-IDE&1&1"]{
-        						  Open up the @editor-link[#:public-id "0BxJ2mGqPUGt0SDZlTWdmZWlEYlE" "Unit 2"] template file. Make sure you are signed into your Google account.  All of the Pyret programs you write will be saved into the @code{code.pyret.org} folder in your Google Drive. Hit the @code{Save a Copy} button.
-            				}
-            		}
-            		@teacher{
+              		@student{
+              				@activity[#:forevidence "BS-IDE&1&1"]{
+          						    Open up the @editor-link[#:public-id "0BzzMl1BJlJDkNXNNWVJLUURMeHc" "Unit 2"] template file. Make sure you are signed into your Google account.  "Save a Copy" button.
+              				}
+              		}
+              		@teacher{
 
-            		}
+              		}
             }
             @point{
-            		@student{
+            		    @student{
                             As you learned in Unit 1, Pyret allows us to define names for values and expressions, so that we can refer to them later. Every definition you've seen involves an identifier, followed by the equals sign, and an expression to bidn to that name. For example, we can define the identifier @code{name} to be string @code{"Tara"} by writing
                             @code[#:multi-line #t]{
                                 name = "Tara"
@@ -191,7 +191,7 @@
 
 @lesson/studteach[
      #:title "Quantitative and Categorical Data"
-     #:duration "20 minutes"
+     #:duration "15 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -313,8 +313,110 @@
             }
         ]
    }
-       
-       
+
+@lesson/studteach[
+     #:title "Extracting Lists from Tables"
+     #:duration "10 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[]
+     #:standards (list)
+     #:materials @itemlist[]
+     #:preparation @itemlist[]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[
+                @point{
+                      @student{
+                              Tables are 2-dimensional collections of data, but we often want to ask 1-dimensional questions of them. For example, if we ask "what is the lowest amount of sodium on the menu", or "What is biggest serving size possible", these are questions that @italic{only involve one column at a time}.  We need some way of looking at each column individually in our programs.  In other words, we often want to get 1-dimensional data @bold{out of of a 2-dimensional table}.
+
+                      }
+                      @teacher{
+                              
+                      }
+                }
+                @point{
+                      @student{
+                              The @vocab{extract} operation does just that!
+
+                              @code[#:multi-line #t]{
+                                  sodium-list = extract sodium from nutrition end
+                              }
+
+                              @activity{What is the name of the identifier being defined here? What do you think its value is?}
+                              After running this program, typing @code{sodium-list} into the interactions window and hitting Return gives us the following list: @code{[list: 480, 680, 820, 360, 1300, 790, 160, 150, 680, 130]}.
+                      }
+                      @teacher{
+                      
+                      }
+                }
+                @point{
+                      @student{
+                              Let's examine this line of code, piece by piece.
+
+                              @itemlist[
+                                      @item{
+                                            @code{extract} tells Pyret that we want to take a particular column out of a table. 
+                                      }
+                                      @item{
+                                            After the @code{extract} keyword, we choose the name of 1 column we want 
+                                            to see as a list.  In this case, it is the @code{sodium} column.
+                                      }
+                                      @item{
+                                            Then, the @code{from} keyword, which indicates which table we are extracting the column from.  Following this is the table name, which is @code{nutrition}.
+                                      }
+                                      @item{
+                                            Finally, an @code{end} keyword tells Pyret that our line of code involving a table is done.
+                                      }
+                              ]
+
+
+                      }
+                      @teacher{
+                              This is the first example of an expression that consumes a table that students will need to write for themselves.  These expressions (@code{extract, sieve, select, order}, and @code{extend}) have fundamentally different syntax than programs they have seen with arithmetic or function application.
+                      }
+                }
+                @point{
+                      @student{
+                              @vocab{Lists} are a new type, and we write the type of a list in terms of it's contents. For example, a List of Numbers would be of type @code{List<Number>}. How do you think you would write the type for a List of Strings?
+
+                              @activity[#:forevidence "BS-IDE&1&1"]{
+                                      @itemlist[
+                                              @item{
+                                                    Define a list called @code{state-list} containing the @code{state} column from @code{presidents}.
+                                              }
+                                              @item{
+                                                    Define a list called @code{calories-list} containing the @code{calories} column from @code{nutrition}.
+                                              }
+                                              @item{
+                                                    Define a list called @code{sugar-list} that contains the @code{sugar} column from @code{nutrition}.
+                                              }
+                                      ]
+                                      Notice that these Lists contain just one type of data: either only Strings, or only Numbers.
+                              }
+                      }
+                      @teacher{
+
+                      }
+                }
+                @point{
+                      @student{
+                            In what ways are Lists different from Tables? Tables are 2-dimensional, while Lists are 1-dimensional. Tables also have a @italic{header row}, which associates a name with each column. Lists, on the other hand, have no header.  
+
+                            However, List do share some qualities with tables. They have multiple entries, and those entries are in a specific @italic{order}. They can also be filled with either quantitative or categorical data. In the next lesson, we'll learn about functions that let us ask questions of lists, to help us look for ways to measure a set of data.
+                      }
+                      @teacher{
+
+                      }
+                }
+        ]
+}       
+
 @lesson/studteach[
      #:title "Closing"
      #:duration "5 minutes"
@@ -334,16 +436,16 @@
         @points[
              @point{
                     @student{
-							Congratulations! You've just finished loading your first table in Pyret, which is a big accomplishment. Next, you will learn how to write Pyret code that manipulates these tables. This will be the first thing in your "data science tool box".
+							             Congratulations! You've just finished loading your first table in Pyret, which is a big accomplishment. Next, you will learn how to write Pyret code that manipulates these tables. This will be the first thing in your "data science tool box".
 
-							@activity[#:forevidence "BS-IDE&1&1"]{
-								Make sure to save your work.  Hit the Save button in the top left. This will save your program in the code.pyret.org folder within your Google Drive.
-							}
-					}
+							       @activity[#:forevidence "BS-IDE&1&1"]{
+								            Make sure to save your work.  Hit the Save button in the top left. This will save your program in the code.pyret.org folder within your Google Drive.
+    							}
+    					}
                     @teacher{
-							If your students are working in pairs/groups, make sure that each student has access to a version of the program.  The student who saved the program to their Google Drive can share their program with anyone by hitting the Publish button in the top left, choosing "Publish a new copy", then clicking the "Share Link" option.  This will allow them to copy a link to the program, then send to their partners in an email/message.
-					}
-             }
+							               If your students are working in pairs/groups, make sure that each student has access to a version of the program.  The student who saved the program to their Google Drive can share their program with anyone by hitting the Publish button in the top left, choosing "Publish a new copy", then clicking the "Share Link" option.  This will allow them to copy a link to the program, then send to their partners in an email/message.
+					         }
+              }
         ]
    }
 }

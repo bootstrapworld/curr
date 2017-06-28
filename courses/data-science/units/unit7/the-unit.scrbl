@@ -28,8 +28,7 @@
                 @point{
                       @student{
                               @activity[#:forevidence "BS-IDE&1&1"]{
-                                      Open the @editor-link[#:public-id "0BxJ2mGqPUGt0WWpheFVBNUNXX2s" "Unit 7"] template
-                                      file, and use it to answer the following questions:
+                                      Open the @editor-link[#:public-id "0BxJ2mGqPUGt0WWpheFVBNUNXX2s" "Unit 7"] template file, and use it to answer the following questions:
 
                                       @itemlist[
                                               @item{
@@ -72,7 +71,7 @@
                               }
                       }
                       @teacher{
-                              When demonstrating the @code{select} operation, it may be helpful to do "live coding", by projecting a screen where you write code into the interactions window, and display the output of the interactions window to the class.
+                              Demonstrate the @code{select} query to the class, selecting different columns from the @code{presidents} table.
                       }
                 }
                 @point{
@@ -93,7 +92,7 @@
 
                               @activity[#:forevidence "BS-IDE&1&1"]{
                                       Complete @worksheet-link[#:name "Select-Practice"] and @worksheet-link[#:name "Select-Continued"] in your workbook, and complete the exercises requiring you to write and interpret @code{select} statements.
-                              }                              
+                              }
                       }
                       @teacher{
                               @code{select} will be used in combination with @code{order} (and other operations later in the course) to produce tables that are easier for humans to visually extract relevant information from, so one exercise that could highlight these benefits is having students race (everyone tries to beat a time of 3 seconds) to find the 3 foods with highest protein amount, or what parties Herbert Hoover, Benjamin Harrison, and Millard Fillmore belong to.  When students have to keep scrolling back and forth to see which values are in entries within the rows they were searching for, they will see the benefits of removing columns with @code{select}.
@@ -135,7 +134,7 @@
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
-      ]{
+      ]{f
         @points[
                 @point{
                         @student{

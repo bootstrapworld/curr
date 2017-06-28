@@ -35,11 +35,10 @@
                 }
                 @point{
                       @student{
-                              Data scientists often use @vocab{charts} to give a graphical  representation of the data.  @vocab{Charts} are pictures, where some part of the picture relates to values in a data set.
-
                               @bitmap{images/cholesterol_per_item.png}
 
-                              This is your first example of a chart.  @vocab{Bar charts} are used to compare rows in a table by their entries in some column.  Here, we are comparing each item on the menu by their amount of cholesterol.  The length of the bar relates to the amount of cholesterol:  shorter bars mean less cholesterol, and higher bars mean more cholesterol.
+                              Data scientists often use @vocab{charts} to give a graphical  representation of the data.  @vocab{Charts} are pictures, where some part of the picture relates to values in a data set.
+                              This is your first example of a chart.  @vocab{Bar charts} are used to compare rows in a table by their entries in a particular column.  In this example, we are comparing each item on the menu by the amount of cholesterol it has.  The length of the bar relates to the amount of cholesterol:  shorter bars mean less cholesterol, and higher bars mean more cholesterol.
 
                       }
                       @teacher{
@@ -68,10 +67,9 @@
                 }
                 @point{
                       @student{
-                              Another chart used to compare rows in a table by some column is a @vocab{pie chart}.
-
                               @bitmap{images/cholesterol_per_item_pie.png}
 
+                              Another chart used to compare rows in a table by some column is a @vocab{pie chart}.
                               In pie charts, each row of the table gets a slice of the pie, and the size of  the pie slice relates to the value of cholesterol:  bigger pie slice means more cholesterol, and a thinner slice means less cholesterol. 
                       }
                       @teacher{
@@ -80,15 +78,19 @@
                 }
                 @point{
                       @student{
-                              Notice the main similarities between the two kinds of chart:
+                              Bar and Pie charts are similar in some ways:
                               @itemlist[
                                       @item{
-                                            Each row gets a bar/slice of the pie.
+                                            Every row is represented, either as a bar or a pie slice.
                                       }
                                       @item{
-                                            How large the row's value is determines the height of the bar/size of the slice of pie.
+                                            The value being examined is proportional to the size of the bar or pie slice.
                                       }
                               ]
+                              What differences do you see between bar and pie charts?
+                      }
+                      @teacher{
+                              Pie charts are useful for showing @italic{percentages}, or "how big is this row relative to the size of the whole?" Bar charts show the actual magnitude of each row, independently of the total value.
                       }
                 }
         ]
@@ -133,25 +135,39 @@
                                     cholesterol-list = extract cholesterol from nutrition end
                               }
 
-                              You've seen this code before:  Extracting specific lists from a table, to look at columns by themselves.  These lists are the labels and values (respectively) that will be used to create our charts.
+                              @activity{
+                                What does this code do?
+                              }
 
+                              You've seen this code before:  Extracting columns from a table as lists.  These lists are the labels and values (respectively) that will be used to create our charts.
+                      }
+                      @teacher{
+                              If students cannot explain what these first two lines do, STOP and review.
+                      }
+                }
+                @point{
+                      @student{
                               @code[#:multi-line #t]{
                                     bar-chart(food-list,
                                               cholesterol-list,
                                               _.{title: 'Cholesterol per Menu Item'})
                               }
 
-                              Here, the @code{bar-chart} function takes three arguments:
+                              This code uses a new function you haven't seen before: @code{bar-chart}. The contract for the function is:
+                               @code[#:multi-line #t]{
+                                    bar-chart : List<String> List<Number> PlotOptions -> Plot
+                              }
+
+                              The @code{bar-chart} function takes three arguments, and returns a @code{Plot}. What do these arguments mean?
                               @itemlist[
                                       @item{
-                                            The first is the list of labels.  Each of these will be the name of a bar on the chart.
+                                            The first is the list of labels.  Each of these will be the @italic{name} of a bar on the chart.
                                       }
                                       @item{
-                                            The second is the list of values.  Each of these corresponds to the length of a bar on the chart.
+                                            The second is the list of values.  Each of these corresponds to the @italic{length} of a bar on the chart.
                                       }
                                       @item{
-                                            The final argument looks a little strange.  This argument is a PlotOptions object.  All you need to
-                                            know is that this argument allows us to change the title, color, and many other aspects of the plot. For now, all we will change is the title.
+                                            The final argument is a PlotOptions object.  This argument allows us to change the title, color, and many other aspects of the plot. For now, all we will change is the title.
                                       }
                               ]
 
@@ -161,7 +177,7 @@
                                               _.{title: 'Cholesterol per Menu Item'})
                               }
 
-                              The @code{pie-chart} has the same contract:  It takes the list of labels, list of values, and PlotOptions.
+                              The @code{pie-chart} function is very similar. Can you write the contract for @code{pie-chart}?
                       }
                       @teacher{
                               @itemlist[
@@ -177,7 +193,7 @@
                 }
                 @point{
                       @student{
-                              What happens when you hover over a slice of the pie?
+                              A @code{Plot} is much more than just an image. One of the nice things about a @code{Plot} is that it can be interactive: what happens when you hover over a slice of the pie?
                       }
                       @teacher{
                               It reveals the value and percentage of the whole.
@@ -276,7 +292,11 @@
                 }
                 @point{
                       @student{
-                              This special kind of bar chart is called a @vocab{frequency bar chart}.  We can create these charts with a new function in Pyret.  Below is an example that computes the frequency of categories in the @code{home-state} column of @code{presidents}.
+                              This special kind of bar chart is called a @vocab{frequency bar chart}.  There's a function in Pyret that lets us build frequency bar charts from a list:
+                              @code[#:multi-line #t]{
+                              freq-bar-char : List<String> PlotOptions -> Plot
+                              }
+                              Below is an example that computes the frequency of categories in the @code{home-state} column of @code{presidents}.
 
                               @code[#:multi-line #t]{
                                     home-state-list = extract home-state from presidents end
@@ -285,15 +305,7 @@
                                                    _.{title: 'Presidents from each State'})
                               }
 
-                              The @code{freq-bar-chart} function takes two arguments:
-                              @itemlist[
-                                      @item{
-                                            A List<String> containing the labels in a table
-                                      }
-                                      @item{
-                                            A PlotOptions object, the same as @code{pie-chart} and @code{bar-chart}.
-                                      }
-                              ]
+                              What do the two arguments to @code{freq-bar-chart} mean?
                       }
                       @teacher{
                       

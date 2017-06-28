@@ -5,12 +5,12 @@
 @declare-tags[]
 
 @unit-overview/auto[#:lang-table (list (list "" @code{}))]{
-  @unit-descr{Students write simple programs in Pyret, and learn about values, expressions, operations, and functions.}
+  @unit-descr{Students write simple programs in Pyret, and learn about Numbers, Strings, Expressions, Operations, Functions, Lists and Tables.}
 }
 @unit-lessons{
 @lesson/studteach[
-     #:title "Programs, Values & Errors"
-     #:duration "10 minutes"
+     #:title "Introduction"
+     #:duration "5 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -27,18 +27,10 @@
         @points[
              @point{
                     @student{
-                            Welcome to Bootstrap: DataScience. Let's start with a simple question: how do you
-                            know if a restaurant is a @italic{good value}? How could you measure that?
-                            Almost immediately, this question turns into a question about data - how you measure
-                            it and how you interpret the results. In this course, you'll learn how to use data 
-                            data to ask and answer questions about data.  The process 
-                            of learning from data is called @vocab{Data Science}.  Data science techniques 
-                            are used by scientists, business people, politicians, sports analysts, 
-                            and hundereds of other different fields to ask and answer questions about data.
+                            Welcome to Bootstrap: DataScience. Let's start with some simple questions: what's the greatest movie of all time? The best song? Almost immediately, these question turns into a question about data - how you measure "best" and how you interpret the results. In this course, you'll learn how to use data to ask and answer questions about data.  The process of learning from data is called @vocab{Data Science}. Data science techniques are used by scientists, business people, politicians, sports analysts, and hundereds of other different fields to ask and answer questions about data.
                     }
                     @teacher{
-                            Let students discuss restaurant question for a minute or two, guiding them towards the notion of measurement and data. You can motivate relevance of data science by using additional examples that
-                            relate to student interests.  Here are a few:
+                            Let students discuss restaurant question for a minute, guiding them towards the notion of measurement and data. You can motivate relevance of data science by using additional examples that relate to student interests.  Here are a few:
                             @itemlist[
                                     @item{@(hyperlink "http://motherboard.vice.com/read/a-data-scientists-emoji-guide-to-kanye-west-and-taylor-swift" "Emojis")}
                                     @item{@(hyperlink "https://mic.com/articles/131092/these-students-are-using-data-science-to-predict-which-rap-songs-will-become-hits#.0d3wkhxQE" "Pop Music")}
@@ -51,20 +43,12 @@
              }
              @point{
                     @student{
-                            In order to ask questions from data, we'll use a @vocab{programming language}.  
-                            Just like any human language (English, Spanish, French), programming 
-                            languages have their own vocabulary and grammar that you will need to learn.  
-                            The language you'll be learning for data science is Pyret, which lets you ask 
-                            and answer questions quickly from very large data sets.
+                            In order to ask questions from data, we'll use a @vocab{programming language}. Just like any human language (English, Spanish, French), programming languages have their own vocabulary and grammar that you will need to learn. The language you'll be learning for data science is Pyret, which lets you ask and answer questions quickly from very large data sets.
                     }
                     @teacher{
-                            Set expectations for the class.  This course is an introduction to
-                            programming and data science, so some of the questions students want
-                            to answer may be out of scope.  However, this course will give students
-                            a foundation to answer their more complicated questions later in their 
-                            data science education. 
+                            Set expectations for the class.  This course is an introduction to programming and data science, so some of the questions students want to answer may be out of scope.  However, this course will give students a foundation to answer their more complicated questions later in their data science education.
                     }
-            }
+             }
              @point{
                     @student{
                             Begin by opening a web browser, and going to @(hyperlink "http://code.pyret.org" "The Pyret Editor"). Hit the "log in" button, and sign in with your Google account information, then choose "Start Coding".
@@ -75,22 +59,35 @@
              }
              @point{
                     @student{
-                            @bitmap{images/wireframeIDE.png}This screen is called the @vocab{editor}, and it looks something
-                            like the diagram you see here. There are a few buttons at the top, but most of the screen is 
-                            taken up by two large boxes: the @vocab{Definitions area} on the left and the 
-                            @vocab{Interactions area} on the right.
+                            @bitmap{images/wireframeIDE.png}
+                            This screen is called the @vocab{editor}, and it looks something like the diagram you see here. There are a few buttons at the top, but most of the screen is taken up by two large boxes: the @vocab{Definitions area} on the left and the @vocab{Interactions area} on the right.
 
                             For now, we will only be writing programs in the Interactions area.
                     }
                     @teacher{
-                            The Definitions area is where programmers define values and functions in their program, 
-                            while the Interactions area allows them to experiment with those values and functions. 
-                            This is analogous to writing a series of function definitions on a blackboard, and having 
-                            student evaluate expressions using those function on scrap paper. As students are not yet 
-                            defining values of their own, it is not important that students understand this distinction 
-                            right now.  For now, we will work only with the Interactions area.
+                            The Definitions area is where programmers define values and functions in their program, while the Interactions area allows them to experiment with those values and functions. This is analogous to writing a series of function definitions on a blackboard, and having student evaluate expressions using those function on scrap paper. As students are not yet defining values of their own, it is not important that students understand this distinction right now.  For now, we will work only with the Interactions area.
                     }
              }
+     ]
+ }
+
+@lesson/studteach[
+     #:title "Numbers, Strings & Operators"
+     #:duration "15 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[]
+     #:standards (list)
+     #:materials @itemlist[]
+     #:preparation @itemlist[]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[
              @point{
                     @student{
                             @activity[#:forevidence "BS-IDE&1&1"]{Begin by typing @code{4} into the Interactions area, then hit 
@@ -98,11 +95,8 @@
                                         the next line in the Interactions area.
                             }
 
-                            Congratulations, you've written your first (very simple) program!  When a program
-                            is run, the computer will run that program to produce a @vocab{value}.  Values are how the computer represents
-                            data.  In this case, the computer's job is easy because the program is already a value!  When we hit Run,
-                            we @vocab{evaluate} the program, which is another way of saying "give me the value that is produced by
-                            this program".
+                            Congratulations, you've written your first (very simple) program!  When a program is run, the computer will run that program to produce a @vocab{value}.  Values are how the computer represents
+                            data.  In this case, the computer's job is easy because the program is already a value!  When we hit Run, we @vocab{evaluate} the program, which is another way of saying "give me the value that is produced by this program".
                     }
                     @teacher{
 
@@ -196,31 +190,9 @@
                             rather than fixing code for them.
                     }
              }
-        ]
-   }
-
-@lesson/studteach[
-     #:title "Expressions & Operations"
-     #:duration "20 minutes"
-     #:overview ""
-     #:learning-objectives @itemlist[]
-     #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[]
-     #:standards (list)
-     #:materials @itemlist[]
-     #:preparation @itemlist[@item{Make sure each student (or pair of students) has a Google Account}]
-     #:pacings (list 
-                @pacing[#:type "remediation"]{@itemlist[@item{}]}
-                @pacing[#:type "misconception"]{@itemlist[@item{}]}
-                @pacing[#:type "challenge"]{@itemlist[@item{}]}
-                )
-      ]{
-        @points[
              @point{
                     @student{
-                            We've successfully written and evaluated programs, but writing programs that only just repeat values would
-                            be boring.  Luckily, Pyret allows us to @italic{compute} values using @vocab{expression}s.  
-                            One of the great things about Pyret is that these expressions are similar to the ones you've seen
+                            We've successfully written and evaluated programs, but writing programs that only just repeat values would be boring.  Luckily, Pyret allows us to @italic{compute} values using @vocab{expression}s.  One of the great things about Pyret is that these expressions are similar to the ones you've seen
                             in math classes.
                     }
                     @teacher{
@@ -229,29 +201,23 @@
              }
              @point{
                     @student{
-                            @activity[#:forevidence "BS-IDE&1&1"]{Type @code{2 + 5} into the Interactions area. Notice the spaces between the numbers and the plus sign! Then hit 
-                                        Return.  You should see the value @code{7} printed on a new line.
+                            @activity[#:forevidence "BS-IDE&1&1"]{Type @code{2 + 5} into the Interactions area. Notice the spaces between the numbers and the plus sign! Then hit Return.  You should see the value @code{7} printed on a new line.
                             }
                     }
                     @teacher{
-                            Some students may encounter syntax errors because they did not put white space
-                            between the values and the operator.  We address this error in the next point.
+                            Some students may encounter syntax errors because they did not put white space between the values and the operator.  We address this error in the next point.
                     }
              }
              @point{
                     @student{
                             Let's break this down.  @code{2 + 5} is an expression, and this expression is made up of values
-                            and an @vocab{operator}.  Here the operator is +, which you've seen in
-                            math classes:  adding two values to create a new value.
+                            and an @vocab{operator}.  Here the operator is +, which you've seen in math classes:  adding two values to create a new value.
 
-                            Now try leaving out the spaces around the plus sign. We get an error! This error happened 
-                            because Pyret needs you to write spaces between numbers and operators.
+                            Now try leaving out the spaces around the plus sign. We get an error! This error happened because Pyret needs you to write spaces between numbers and operators.
 
                     }
                     @teacher{
-                            Pyret requires this whitespace for code readability, and to remove ambiguity
-                                            when dealing with negative numbers.  For example, without the white space rule,
-                                            the program @code{5+-2} is hard to understand.
+                            Pyret requires this whitespace for code readability, and to remove ambiguity when dealing with negative numbers.  For example, without the white space rule, the program @code{5+-2} is hard to understand.
                     }
              }
              @point{
@@ -333,10 +299,7 @@
              }
              @point{
                     @student{
-                            As data scientists, you will see many different error messages in this course.  They are
-                            a part of using the computer as a tool to solve problems, so don't give up when you see them!
-                            The most important part of using an error message is reading the message editing the program
-                            to fix the errors.
+                            Error messages are the computer's way of giving you a hint on what went wrong. The most important part of using an error message is reading the message editing the program to fix the errors.
 
                     }
                     @teacher{
@@ -358,9 +321,7 @@
              }
              @point{
                     @student{
-                            Parentheses allow you to write more complex expressions.  In this example, Pyret evaluates what is inside the parentheses: @code{2 * 3}.
-                            Then, it uses this value in the larger expression.  So @code{(2 * 3) + 5} becomes @code{6 + 5}, 
-                            which is evaluated to 11.  @bold{Note:} There is one difference between the way parentheses work in math class, and the way they do in Pyret! @italic{In Pyret, any time you have more than one operation, you must include parentheses.}
+                            Parentheses allow you to write more complex expressions.  In this example, Pyret evaluates what is inside the parentheses: @code{2 * 3}. Then, it uses this value in the larger expression.  So @code{(2 * 3) + 5} becomes @code{6 + 5}, which is evaluated to 11.  @bold{Note:} There is one difference between the way parentheses work in math class, and the way they do in Pyret! @italic{In Pyret, any time you have more than one operation, you must include parentheses.}
                     }
                     @teacher{
                     
@@ -370,7 +331,7 @@
    }
 
 @lesson/studteach[
-     #:title "Identifiers & Variables"
+     #:title "Variables and Functions"
      #:duration "20 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
@@ -388,69 +349,16 @@
         @points[
                 @point{
                         @student{
-                                You've used operations and expressions to compute new values.  Now it's
-                                time to put your programming skills to the test!
+                            In Pyret, you can define @vocab{variable}s with the @code{=} sign, just like in math class. You're probably used to seeing variables @code{x, y, z}, etc.  In Pyret, you can use meaningful to define variables, which will make your code readable and easy to change.
                         }
                         @teacher{
-
-                        }
-                }
-                @point{
-                        @student{
-                                For each of these word problems, write an expression in Pyret to compute
-                                the answer.
-                        }
-                        @teacher{
-
+                        
                         }
                 }
                 @point{
                         @student{
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                        You want to buy two ice cream cones:  one for you, and one for a friend.
-                                        Each ice cream cone costs $1.98.
-                                        How much will 2 ice cream cones cost?
-                                }
-                        }
-                        @teacher{
-
-                        }
-                }
-                @point{
-                    @student{
-                            We need to compute the cost of 2 cones, and each cone costs $1.98.
-                            So we need to multiply the cost-per-cone by the number of ice cream cones we
-                            want to buy.
-
-                            @code[#:multi-line #t]{
-                                    2 * 1.98
-                            }
-                    }
-                    @teacher{
-
-                    }
-                }
-                @point{
-                        @student{
-                                @activity[#:forevidence "BS-IDE&1&1"]{
-                                        There 365 days in a year, 60 minutes in an hour, and 24 hours in a day.  How many
-                                        minutes are there in a year?
-                                }
-                        }
-                        @teacher{
-                                Multiply 60 min/hour by 24 hours/day to get the number of minutes per day.
-                                Then multiply by 365 days/year.
-
-                                @code[#:multi-line #t]{
-                                        (60 * 24) * 365
-                                }
-                        }
-                }
-                @point{
-                        @student{
-                                @activity[#:forevidence "BS-IDE&1&1"]{
-                                        You want to throw a pizza party for a class of 16 students.  
-                                        We need to buy one of each of these per student:
+                                        Suppose you want to throw a pizza party for a class of 16 students. We need to buy one of each of these per student:
                                         @itemlist[
                                                 @item{
                                                         1 Slice of Pizza : $2.50
@@ -462,27 +370,13 @@
                                                         1 Soda : $0.98
                                                 }
                                         ]
+                                        What code would you write, to compute the total cost of the party?
                                 }
                         }
                         @teacher{
                                 @itemlist[
                                         @item{
-                                                The particular items for the party do not matter, feel free to change
-                                                them as long as they are supplies where each student gets one of each
-                                                item.  Also, change the class size to be the same as your actual
-                                                class.
-                                        }
-                                        @item{
-                                                Sum the cost of each item, then multiply by the number of students:
-
-                                                @code[#:multi-line #t]{
-                                                        (2.50 * 16) + (0.20 * 16) + (0.98 * 16)
-                                                }
-                                        }
-                                        @item{
-                                                You could write this program more concisely as @code{(2.50 + 0.20 + 0.98) * 16},
-                                                but this form will emphasize how using variables/identifiers can make it
-                                                easier to edit and read programs.
+                                                The particular items for the party do not matter, feel free to change them as long as they are supplies where each student gets one of each item, or change the number of students to be the number of students in your class.
                                         }
                                 ]
                         }
@@ -503,105 +397,45 @@
                 }
                 @point{
                         @student{
-                                @itemlist[
-                                        @item{
-                                                Notice how tedious it is to change each @code{16} to a @code{17}, when
-                                                each number represents the same thing.  If we ever want to change the
-                                                number of people at the party, we'll have to change all 3 numbers again.
-                                        }
-                                        @item{
-                                                There has to be a better way...
-                                        }
-                                ]
-                        }
-                        @teacher{
-                        
-                        }
-                }
-                @point{
-                        @student{
-                                ...and there is!  In Pyret, you can define @vocab{variable}s with the
-                                @code{=} sign, just like in math class.
-                                You're probably used to seeing variables @code{x, y, z}, etc.  In Pyret,
-                                you can use words to define variables, which will make your code readable and
-                                easy to change.
-                        }
-                        @teacher{
-                        
-                        }
-                }
-                @point{
-                        @student{
                                 @activity[#:forevidence "BS-IDE&1&1"]{
                                         Add this line of code to the top of your definitions area:
                                         @code[#:multi-line #t]{
-                                            how-many-people = 17
+                                            party-people = 17
                                         }
-                                        Then, substitute all of the instances of @code{17} with @code{how-many-people}
-                                        in your expression to compute the cost of the party.
+                                        Then, substitute all of the instances of @code{17} with @code{party-people} in your expression to compute the cost of the party.
                                 }
                         }
                         @teacher{
-                                Make students compute the cost of throwing a pizza party for 20 people.  Ask them
-                                which line they need to update for this party size, and highlight the ease of 
-                                editing this program vs. the previous one.
+                                Make students compute the cost of throwing a pizza party for 20 people.  Ask them which line they need to update for this party size, and highlight the ease of editing this program vs. the previous one.
                         }
                 }
                 @point{
-                        @student{
-                                Imagine we learn that a different pizza place will sell us 
-                                better tasting pizza, for only $2 per slice!  We could change the @code{2.50}
-                                in our program to @code{2.00}, but what's a more readable solution?
-
-                                @activity[#:forevidence "BS-IDE&1&1"]{
-                                        @itemlist[
-                                                @item{
-                                                        Add variable definitions at the top of your definitions area
-                                                        for the cost of each item we need
-                                                        to buy per person (@code{pizza-slice-cost, plate-cost, soda-cost}). 
-                                                }
-                                                @item{
-                                                        Then, use these new variables to rewrite your old program to 
-                                                        compute the cost of the party.
-                                                }
-                                        ]
-                                }
-                        }
-                        @teacher{
-                                Here is what the final solution should look like.  Once you have motivated
-                                the use of variables in code, you can encourage students to use the distributive
-                                rule to simplify this code.
-
-                                @code[#:multi-line #t]{
-                                        pizza-slice-cost = 2
-                                        plate-cost = 0.2
-                                        soda-cost = 0.98
-                                        how-many-people = 20
-
-                                        (pizza-slice-cost + 
-                                        plate-cost + 
-                                        soda-cost) * how-many-people
-                                }
-                        }
+                    @student{
+                            @activity{
+                                Use identifiers to program the following word problem:
+                                A train is moving at a constant speed of 65mph. How far has it gone in 3.75 hours?
+                            }
+                    }
+                    @teacher{
+                            Students should use identifiers for @code{speed} and @code{time}. 
+                    }
                 }
-             @point{
+                @point{
                     @student{
                             @activity[#:forevidence "BS-IDE&1&1"]{
-                                    Turn to @worksheet-link[#:name "Contracts-Functions"] in your workbook.  
-                                    For each expression, write down the value the computer will return. If the expression
-                                    will result in an error, write down what you think the error will say.
+                                    Turn to @worksheet-link[#:name "Identifiers-Expressions"] in your workbook.   For each expression, write down the value the computer will return. If the expression will result in an error, write down what you think the error will say.
                             }   
                     }
                     @teacher{
 
                     }
-             }
+                }
         ]
    }
 
 @lesson/studteach[
      #:title "Applying Functions"
-     #:duration "20 minutes"
+     #:duration "25 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -618,56 +452,7 @@
         @points[
              @point{
                     @student{
-							You've probably seen numbers, variables, and operators in math classes as
-                            well as in Pyret.  These are extremely important concepts that will be used
-                            in almost all programs you write in this course.  However, there's one more 
-                            important construct from math classes that is crucial to writing Pyret programs:
-                            @vocab{function}s.
-					}
-                    @teacher{
-
-					}
-             }
-             @point{
-                    @student{
-                            @activity[#:forevidence "BS-IDE&1&1"]{
-                                    Type @code{num-sqr(2)} into the interactions area, and hit Enter.
-                                    What does this code evaluate to?  Try changing the number in between
-                                    the parentheses.
-                            }
-                    }
-                    @teacher{
-
-                    }
-             }
-             @point{
-                    @student{
-                            This is your first example of a function in Pyret.  Each function has:
-                            @itemlist[
-                                    @item{
-                                            A name.  This function's name is @code{num-sqr}
-                                    }
-                                    @item{
-                                            Parentheses.  A correct function usage will always have
-                                            one left, and one right parentheses.
-                                    }
-                                    @item{
-                                            Argument(s).  In this case, there is one argument:  The
-                                            number we want to square.  However, different functions
-                                            can have any number of arguments.
-                                    }
-                            ]
-                            Each function also outputs a value.  The @code{num-sqr} function outputs
-                            a number that is equal to the argument times itself.
-                    }
-                    @teacher{
-
-                    }
-             }
-             @point{
-                    @student{
-                            Pyret has hundreds of built in functions we can use to write more interesting
-                            programs than are possible with just operators and variables.
+                    So now you know about Numbers, Strings, Operators and Variables - all of which behave just like they do in math. But what about functions? Pyret has hundreds of built in functions, which we can use to write more interesting programs than are possible with just operators and variables.
 
                             @activity[#:forevidence "BS-IDE&1&1"]{
                                     Let's explore a new function, @code{num-min}.  Type each of these
@@ -685,11 +470,25 @@
                                             }
                                     ]
 
-                                    How many arguments does @code{num-min} have?
-                                    What type of values does this function take in?
-                                    What type of value does this function output?  How does
-                                    this output relate to the arguments?
+                                    How many arguments does @code{num-min} have? What type of values does this function take in? What type of value does this function output?  How does this output relate to the arguments?
                             }
+                    }
+                    @teacher{
+
+                    }
+             }
+             @point{
+                    @student{
+                            This is your first example of @italic{using a function} in Pyret. To use a function, a programmer writes:
+                            @itemlist[
+                                    @item{
+                                            The name of the function.  This function's name is @code{num-sqr}
+                                    }
+                                    @item{
+                                            The argument(s) we want to give to the function, wrapped in parentheses and separated by commas.  In this case, there is one argument:  The number we want to square.  However, different functions can have differents numbers of arguments.
+                                    }
+                            ]
+                            Each function also outputs a value.  The @code{num-sqr} function outputs a number that is equal to the square of the argument. What do you think the function @code{num-sqrt} does?
                     }
                     @teacher{
 
@@ -747,10 +546,7 @@
              }
              @point{
                     @student{
-                            Every successful application of @code{num-min} will take 2 Numbers
-                            as input, and evaluate to one Number.  For each function we learn,
-                            we need to keep track of what arguments it takes, and what type of
-                            value it returns.
+                            Every successful application of @code{num-min} will take 2 Numbers as input, and evaluate to one Number.  For each function we learn, we need to keep track of what arguments it takes, and what type of value it returns.
                     }
                     @teacher{
 
@@ -758,21 +554,16 @@
              }
              @point{
                     @student{
-                            We do this by writing @vocab{contracts}.  @vocab{Contracts}
-                            are comments in code that give the programmer instructions on what
-                            functions take in and output.  Below is the contract for
-                            @code{num-min}:
+                            We do this by writing @vocab{contracts}. Contracts are comments in code that give the programmer instructions on what functions take in and output.  Below is the contract for @code{num-min}:
 
                             @code[#:multi-line #t]{
                                     # num-min : Number Number -> Number
                             }
 
-                            The first part of a contract is the function name.  This function
-                            is @code{num-min}, so that part is easy.  @code{num-min} takes two
-                            arguments of type Number, so we write Number Number.  Finally, after
-                            the arrow goes the type of the function's output, which in this case is
-                            Number.
-
+                            The first part of a contract is the function name.  This function is @code{num-min}, so that part is easy.  @code{num-min} takes two arguments of type Number, so we write Number Number.  Finally, after the arrow goes the type of the function's output, which in this case is Number.
+                            @activity{
+                                Write the contract for @code{num-min} in the back of your workbook. What do you think the contract would be for @code{num-max}? Write it down, and then try using it in the Interactions area.
+                            }
                     }
                     @teacher{
 
@@ -780,7 +571,7 @@
              }
              @point{
                     @student{
-                            Let's write the contract for @code{num-sqr} together.
+                            There are also plenty of functions you know from math class. Let's write the contract for @code{num-sqrt} together.
 
                             @itemlist[
                                     @item{
@@ -795,8 +586,9 @@
                             ]
 
                             @code[#:multi-line #t]{
-                                    # num-sqr : Number -> Number
-                            }                          
+                                    # num-sqrt : Number -> Number
+                            }
+                            On your own, write the contract for @code{num-sqr}.
                     }
                     @teacher{
 
@@ -805,16 +597,40 @@
              @point{
                     @student{
                             @activity[#:forevidence "BS-IDE&1&1"]{
-                                    Turn to @worksheet-link[#:name "Contracts-Functions"] in your workbook.  
-                                    For each set of function calls,
-                                    determine the name, number of arguments, type of argument(s), and
-                                    in your own words what is the output of this function.
+                                    Turn to @worksheet-link[#:name "Contracts-Functions"] in your workbook.  For each set of function calls,
+                                    determine the name, number of arguments, type of argument(s), and in your own words what is the output of this function.
                             }   
                     }
                     @teacher{
 
                     }
              }
+            @point{
+                    @student{
+                        As you know from math, any function that consumes a number and produces a number can be graphed on an x-y axis. There's even a function in Pyret for graphing other functions!
+                        @code[#:multi-line #t]{
+                            display-function("f(x)=√x", num-sqrt)
+                        }
+                        Try typing this into Pyret, and see what happens.
+
+                    }
+                    @teacher{
+
+                    }
+            }
+            @point{
+                @student{
+                        @bitmap{images/sqrt-graph.png}
+                        What's the contract for @code{display-function}? The Name is the easy part, but what about the Domain and Range? We can see that it takes in two arguments: the String @code{"f(x)=√x"}, and the @italic{function} @code{num-sqrt}. It also produces something that is neither a Number nor a String: it produces an @italic{Image} of the plot. We would write the contract for the function as:
+                        @code[#:multi-line #t]{
+                            # display-function: String (Number->Number) -> Image
+                        }
+                        As you can see, @code{display-function} can use any title we like, and it only works on functions that consume and produce a single number. Looking at your contracts page, what other functions do you see that could be graphed?
+                }
+                @teacher{
+
+                }
+            }
         ]
    }
 @lesson/studteach[

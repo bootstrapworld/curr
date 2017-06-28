@@ -27,9 +27,7 @@
         @points[
                 @point{
                         @student{
-                                Imagine you are in a casino, and a stranger invites you to play a game.  
-
-                                In this game, you start by guessing a number between 2 and 12.  The stranger rolls two dice, and add the numbers together.  If that number matches your number, you win the jackpot! If your number is wrong, then you lose your money. How can we maximize our chances of winning?
+                                Suppose a stranger invites you to play a game. You start by guessing a number between 2 and 12.  The stranger rolls two dice, and add the numbers together.  If that number matches your number, you win the jackpot! If your number is wrong, then you lose your money. How can we maximize our chances of winning?
                         }
                         @teacher{
                                 @itemlist[
@@ -44,7 +42,7 @@
                 }
                 @point{
                         @student{
-                                What are the all of the possible numbers we could guess? Is there a best number that we should guess every time? Should we play this game?  
+                                What are the all of the possible numbers we could guess? Is there a "lucky number" that we should use, or are all guesses equally likely? Should we play this game?  
                         }
                         @teacher{
                                 Ask the classroom if they have any guesses if there is a best number to guess, and if so why.  Ask the class to remember their answers for after they've completed this exercise.
@@ -52,7 +50,7 @@
                 }
                 @point{
                         @student{
-                                Lucky for us, we can use Pyret to simulate this game!  By writing a computer program to estimate what the most common dice rolls are, we can come up with a good guess for what the dice roll will be.
+                                We can use Pyret to simulate this game, and analyze the results to answer our question. By writing a computer program to estimate what the most common dice rolls are, we can come up with a good guess for what the dice roll will be.
                         }
                         @teacher{
                                 In this exercise, students will use a nondeterministic function for the first time.  As they explore the @code{roll-dice} function, stress that @code{roll-dice} rarely gives the same answer more than once.
@@ -61,29 +59,29 @@
                 @point{
                         @student{
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Open the @editor-link[#:public-id "0BxJ2mGqPUGt0aVBzZFNTc1NMM0k" "Unit 5"] template file, and type each of the following lines of code into the interactions window, and hit Enter/Return.
+                                        Open the @editor-link[#:public-id "0BxJ2mGqPUGt0aVBzZFNTc1NMM0k" "Unit 5 starter file"], and click run. Then evaluate each of the following expressions:
 
                                         @itemlist[
                                                 @item{
-                                                        @code{dice-roll(1)}
+                                                        @code{roll-dice(1)}
                                                 }
                                                 @item{
-                                                        @code{dice-roll(3)}
+                                                        @code{roll-dice(3)}
                                                 }
                                                 @item{
-                                                        @code{dice-roll(10)}
+                                                        @code{roll-dice(10)}
                                                 }
                                         ]
-                                        How many arguments does the @code{dice-roll} function take? What is it returning?  How does the argument relate to what is returned? Try typing in @code{dice-roll(10)} multiple times. Does it always return the same thing?
+                                        What is the contract for @code{roll-dice}? How does the input relate to the output? Try typing in @code{roll-dice(10)} multiple times. Does it always return the same thing?
                               }
                         }
                         @teacher{
-                                The function @code{dice-roll} takes in a number of rolls to perform, and returns a @code{List<Number>} containing all of the dice rolls. The @code{roll-dice} treats each dice roll separately, and makes different numbers every time.
+                                The function @code{roll-dice} takes in a number of rolls to perform, and returns a @code{List<Number>} containing all of the dice rolls. The @code{roll-dice} treats each dice roll separately, and makes different numbers every time.
                         }
                 }
                 @point{
                         @student{
-                                Because Pyret computers are so fast, use @code{dice-roll} to create a list of 10,000 dice rolls within a few seconds.  How would we use this List to come up with the most likely number, which would be our best guess? Is there a measure of center that could answer this question, and help us win the jackpot?
+                                Use @code{roll-dice} to create a list of 10,000 rolls.  How can we use this List to come up with our lucky number? Is there a measure of center that could answer this question, and help us win the jackpot?
                         }
                         @teacher{
                                 Guide students to suggest using mean, median, and mode to measure the center of the list of dice rolls.
@@ -92,11 +90,11 @@
                 @point{
                         @student{
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                        What are the mean, median, and mode of a list of 100,000 dice rolls?  Use the functions you've learned in Pyret to compute them.
+                                        What are the @code{mean}, @code{median}, and @code{mode} of a list of 10,000 dice rolls?  Use the functions you've learned in Pyret to compute them.
                               }
                         }
                         @teacher{
-                                Students should try running these functions on the output of @code{dice-roll} multiple times, since @code{dice-roll} will usually return a different list. 
+                                Students should try running these functions on the output of @code{roll-dice} multiple times, since @code{roll-dice} will usually return a different list.
                         }
                 }
                 @point{
@@ -106,21 +104,23 @@
                                 Should we play the game?  We haven't answered this question yet.  What do we need to know to figure this out?
                         }
                         @teacher{
-                                We know the most frequent number, but how frequent is it?  We need some way of asking if 7 appears more than all the other numbers combined.
+                                We've used our measures of center to figure out the most frequent number, but just @italic{how frequent} is it?  We need some way of asking if 7 appears more than all the other numbers combined.
                         }
                 }
                 @point{
                         @student{
-                                We can create a very special chart for visualizing how frequent values are in a list of quantitative data.  This special chart is a @vocab{histogram}, and it is similar to the bar charts you have seen before.
+                                We can use a different kind of chart for visualizing @italic{how frequent values are} in a list of quantitative data.  This kind  of chart is a called @vocab{histogram}, and it is similar to the bar charts you have seen before.
 
                                 @activity[#:forevidence "BS-IDE&1&1"]{
                                         Type the following code into your interactions window, then hit Enter/Return:
 
                                         @code[#:multi-line #t]{
-                                                histogram(dice-roll(10000),
+                                                histogram(roll-dice(10000),
                                                           11,
                                                           _.{title: 'Frequency of Dice Rolls'})
                                         }
+
+                                        Try changing the second argument from @code{11} to @code{1}. What do you think this argument means?
                                 }
 
                                 Here, the @code{histogram} function takes three arguments:
@@ -129,17 +129,17 @@
                                                 The first is a list of numbers, containing the quantitative data.
                                         }
                                         @item{
-                                                The second is a Number... we will learn what this important number is in the next section.  For now, think of it as the number of columns we need.
+                                                The second is the number of evenly-spaced @italic{bins} into which we want to group our list (we'll talk more about this in a moment).
                                         }
                                         @item{
-                                                The third is a PlotOptions object, just like in @code{bar-chart}, @code{pie-chart}, or @code{freq-bar-chart}.
+                                                The third is a @code{PlotOptions} object, just like in @code{bar-chart}, @code{pie-chart}, or @code{freq-bar-chart}.
                                         }
                                 ]
                         }
                         @teacher{
                                 @itemlist[
                                         @item{
-                                                We will first show and explain what the histogram represents, then we will more thoroughly go through what the second argument (bin size) means.
+                                                We will first show and explain what the histogram represents, then we will more thoroughly go through what that second argument (bin size) means.
                                         }
                                         @item{
                                                 It may be easier for you to project the live code/image of the histogram. Since students do not yet know what a histogram is, or what this code is doing, they will have a harder time if they make syntax errors.
@@ -149,7 +149,7 @@
                 }
                 @point{
                         @student{
-                                There are 11 possible values for each dice roll, and there are 11 bars in our chart. Just like the frequency bar charts from last unit, the length of the bar corresponds with how frequent a value is.  For example, the longest bar the bar for 7, because 7 is the most frequent.  Notice this interesting hump shape; the further away from 7, the less common the number.
+                                We want to count the number of times @italic{each} permutation shows up in the dice game. Since there are 11 possible values for each dice roll, we have 11 bars in our chart. Just like the frequency bar charts from last unit, the length of the bar corresponds with how frequent a value is.  For example, the longest bar the bar for 7, because 7 is the most frequent.  Notice this interesting hump shape; the further away from 7, the less common the number.
                         }
                         @teacher{
                                 For curious students, you can explain this by showing that there are more combinations that add up to 8 than there are for 2 (for example).
@@ -157,7 +157,7 @@
                 }
                 @point{
                         @student{
-                                Bar charts are different from histograms in that each bar represents how frequent a category is.  In histograms, each bar represents certain numbers, and these numbers increase in value from left to right.  You should use frequency bar charts for categorical data, and histograms for quantitative data.
+                                Bar charts and histograms both count the @italic{frequency} in which values show up in a dataset. Unlike bar charts, however, histograms provide extra features for @vocab{quantitative data}: the bars are ordered from left to right, and the bins can be resized. Both of these are only made possible because quantitative data can be compared - one bar can be said to be "greater than" than another bar, and a value can be said to be "within" the range of a bin. For categorical data, neither of these is the case, so we use bar charts instead of histograms.
                         }
                         @teacher{
 
@@ -185,9 +185,24 @@
         @points[
                 @point{
                         @student{
-                                In the dice roll game, there were 11 possible numbers that the dice roll could produce, so we only need 11 bars.  But what happens when our quantitative data has decimals?
+                                In the dice roll game, there were 11 possible numbers that the dice roll could produce. Would it be helpful to have 20 bars? 30? What would happen if we only used 1?
 
-                                For example, let's look again at our favorite 4th grade class:
+                                Look back at your call to the @code{histogram} function for the dice game. In the first example, it made sense to use 11 bins because there were only 11 possible values that the pair of dice could produce.
+
+                                @activity[#:forevidence "BS-IDE&1&1"]{
+                                        What would happen if we only used 4 bins for the dice game?  What if we used 40?
+                                        Try them out with new function calls in the interactions window.
+                                }
+
+                                Using only 4 bins gives us a histogram that is less helpful, because 11 bins more accurately covers the range from 2 to 12.  However, 40 isn't any more helpful, because there are so many bins that are empty. Choosing the right bin size helps us make sense of the data, and is a skill that every data scientist should practice.
+                        }
+                    @teacher{
+
+                    }
+                }
+                @point{
+                        @student{
+                                For another example, let's look again at our favorite 4th grade class:
 
                                 @build-table/cols[
                                         '("First" "Last" "Height")
@@ -198,7 +213,7 @@
                                          3 8
                                 ]
 
-                                If we want to make a histogram for heights of students, how many possible values are there? 10? 100? The values of heights have decimals.  If we want to have a bar for every possible height value, how many bars do we need?
+                                Suppose we had 100 different students in this table. If we want to make a histogram for their height, how many possible values are there? 10? 100? The values of heights have decimals.  If we want to have a bar for every possible height value, how many bars do we need?
                         }
                         @teacher{
                                 Guide discussion towards the fact that there are infinitely many values that height could take, so we can't have a bar for each one.
@@ -206,15 +221,14 @@
                 }
                 @point{
                         @student{
-                                The answer is, we can't have a bar for every possible height.  However, a long time ago, some very clever data scientists came up with a way around this problem...
+                                We can't have a bar for every possible height, and having a bar for each student in the table isn't really helpful to us. This is where bin sizes come in really handy!
 
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Turn to @worksheet-link[#:name "Histograms"] 
-                                        in your workbook and complete the exercise.
+                                        Turn to @worksheet-link[#:name "Histograms"] in your workbook and complete the exercise.
                                 }
                         }
                         @teacher{
-                                In this workbook activity, students will explicitly count the frequency of values appearing within certain ranges.  They will draw the bar corresponding to a particular bin.
+                                In this workbook activity, students will explicitly count the frequency of values appearing within certain ranges, and draw the bar corresponding to a particular bin.
                         }
                 }
                 @point{
@@ -223,21 +237,6 @@
                         }
                         @teacher{
                                 Before this discussion, ask students to describe in their own words how histograms can visualize the frequency of an unlimited number of values, using a limited number of bars.
-                        }
-                }
-                @point{
-                        @student{
-                                Look back at your call to the @code{histogram} function for the dice game. The second argument is the number of bins we want to use in our histogram. In the first example, it made sense to use 11 bins because there were only 11 possible values that the pair of dice could produce.  However, for the table of heights, we use 5 bins, each of size 2.
-
-                                @activity[#:forevidence "BS-IDE&1&1"]{
-                                        What would happen if we only used 4 bins for the dice game?  What if we used 40?
-                                        Try them out with new function calls in the interactions window.
-                                }
-
-                                Using only 4 bins gives us a histogram that is less helpful, because 11 bins more accurately covers the range from 2 to 12.  However, 40 isn't any more helpful, because there are so many bins that are empty.
-                        }
-                        @teacher{
-                        
                         }
                 }
                 @point{

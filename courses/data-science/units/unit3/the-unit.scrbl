@@ -42,7 +42,7 @@
                               @code[#:multi-line #t]{
                                 a = [list: 1, 1, 4]
                               }
-                              The value being defined is something you haven't seen before, which is neither a Number, a String, or even a table of numbers and strings. It's what is called a @italic{list}. To make a list, we use square brackets and the @code{list:} constructor, followed by a comma-separated list of values.
+                              To make a list, we use square brackets and the @code{list:} constructor, followed by a comma-separated list of values. What is the type of @code{a}?
 
                               @activity{
                                 In the Interactions Area, try making a few lists for practice:
@@ -55,18 +55,6 @@
                       }
                       @teacher{
 
-                      }
-                }
-                @point{
-                      @student{
-                            In what ways are Lists different from Tables? Tables are 2-dimensional, while Lists are 1-dimensional. Tables also have a @italic{header row}, which associates a name with each column. Lists, on the other hand, have no header.  
-
-                            However, List do share some qualities with tables. They have multiple entries, and those entries are in a specific @italic{order}. They can also be filled with either quantitative or categorical data! 
-                            @activity{
-                              Look back at the three lists you created in the interactions area - are those quantitative or categorical? For practice, try constructing two lists of each kind.
-                            }
-                      }
-                      @teacher{
                       }
                 }
 
@@ -305,17 +293,16 @@
                                     @item{
                                           Note that later, we will reveal that @code{mode} and @code{modes}
                                           can be used on Lists of Strings as well.
-
-                                          TODO: Do we explain generic type notation here?
                                     }
                               ]
                       }
                 }
         ]
    }
+
 @lesson/studteach[
-     #:title "Extracting Lists from Tables"
-     #:duration "10 minutes"
+     #:title "Measuring Tables"
+     #:duration "15 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -332,86 +319,46 @@
         @points[
                 @point{
                       @student{
-                              Tables are 2-dimensional collections of data, but we often want to ask 1-dimensional questions of them. For example, if we ask "what is the lowest amount of sodium on the menu", or "What is biggest serving size possible", these are questions that @italic{only involve one column at a time}.  We need some way of looking at each column individually in our programs.  In other words, we often want to get 1-dimensional data @bold{out} of a 2-dimensional table.
+                          In the last lesson, you learned how to @code{extract} a column from a table, and turn it into a list. Now let's use that knowledge to start asking questions about some of our datasets. Suppose we wanted to know what the average number of calories are on the menu. We'd need to first extract that column from the table, and then take the @code{mean} of the resulting list. We can write this using identifiers:
+
+                          @code[#:multi-line #t]{
+                              calorie-list = extract calories from nutrition end
+                              mean(calorie-list)
+                          }
+
+                          ...or as a single expression, by combining the @code{extract} expression with mean:
+                          @code[#:multi-line #t]{
+                              mean(extract calories from nutrition end)
+                          }
+                          Which style do you like better? Why?
 
                       }
                       @teacher{
-                              
+
                       }
                 }
                 @point{
                       @student{
-                              The @vocab{extract} operation does just that!
-
-                              @code[#:multi-line #t]{
-                                  sodium-list = extract sodium from nutrition end
+                              @activity[#:forevidence "BS-IDE&1&1"]{
+                                      Turn to @worksheet-link[#:name "Measuring-Center"] in your workbooks and complete all of the questions. You may have to do some programming to answer some of these!
                               }
-
-                              @activity{What is the name of the identifier being defined here? What do you think its value is?}
-                              After running this program, typing @code{sodium-list} into the interactions window and hitting Return gives us the following list: @code{[list: 480, 680, 820, 360, 1300, 790, 160, 150, 680, 130]}.
                       }
                       @teacher{
-                      
-                      }
-                }
-                @point{
-                      @student{
-                              Let's examine this line of code, piece by piece.
-
                               @itemlist[
                                       @item{
-                                            @code{extract} tells Pyret that we want to take a particular column out of a table. 
+                                            This exercise gives students more practice using Pyret to compute mean/median/mode.  Students will also see first hand that calculating a median of medians of many lists is not necessarily the same as the median of a larger list.
                                       }
                                       @item{
-                                            After the @code{extract} keyword, we choose the name of 1 column we want 
-                                            to see as a list.  In this case, it is the @code{sodium} column.
+                                            After all the students complete this workbook page, discuss the implications of this for the countries table. Taking the median of the @code{median-life-expectancy} column is an inaccurate measure of the median life expectancy of humans all over the world.  The most accurate measure of median human life expectancy would require a table with every human as a row.
                                       }
                                       @item{
-                                            Then, the @code{from} keyword, which indicates which table we are extracting the column from.  Following this is the table name, which is @code{nutrition}.
-                                      }
-                                      @item{
-                                            Finally, an @code{end} keyword tells Pyret that our line of code involving a table is done.
+                                            The punchline of this portion of the exercise is: don't take the median of medians.
                                       }
                               ]
-
-
-                      }
-                      @teacher{
-                              This is the first example of an expression that consumes a table that students will need to write for themselves.  These expressions (@code{extract, sieve, select, order}, and @code{extend}) have fundamentally different syntax than programs they have seen with arithmetic or function application.
-                      }
-                }
-                @point{
-                      @student{
-                              @vocab{lists} are a new type:  they are collections of values.  Whereas tables are 2-dimensional collections of values, lists are 1-dimensional collections of values.
-
-                              @activity[#:forevidence "BS-IDE&1&1"]{
-                                      Back in the @editor-link[#:public-id "0BxJ2mGqPUGt0Zjl2Nk4yeTJzeU0" "Unit 3"] template file, 
-                                      add code to the definitions area to extract the following columns as lists:
-
-                                      @itemlist[
-                                              @item{
-                                                    Define a list called @code{party-list} that contains the @code{party} column from @code{presidents}.
-                                              }
-                                              @item{
-                                                    Define a list called @code{calories-list} containing the @code{calories} column from @code{nutrition}.
-                                              }
-                                              @item{
-                                                    Define a list called @code{gdp-list} containing the @code{gdp} column from @code{countries}.
-                                              }
-                                              @item{
-                                                    Define a list called @code{life-expectancy-list} that contains the @code{median-life-expectancy} column from @code{countries}.
-                                              }
-                                      ]
-
-                                      Notice that these Lists contain just one type of data: either only Strings, or only Numbers.
-                              }
-                      }
-                      @teacher{
-                              TODO add usage of the lifespan dataset
                       }
                 }
         ]
-}
+   }
 
 @lesson/studteach[
      #:title "Which Measure is Best?"
@@ -432,7 +379,7 @@
         @points[
                 @point{
                       @student{
-                              After completing @worksheet-link[#:name "Mean-Median-Mode"] in your workbook, you may have noticed that the @vocab{mean}, @vocab{median}, and @vocab{mode} are rarely the same value.  So, which one should we use, and when?
+                              By now, you may have noticed that the @vocab{mean}, @vocab{median}, and @vocab{mode} of a data set are rarely the same value.  So, which one should we use, and when?
                       }
                       @teacher{
                               For each of the following example lists, discuss with the students what the strengths/weaknesses of each measurement.
@@ -555,47 +502,27 @@
 
                       }
                 }
-
-        ]
-   }
-
-@lesson/studteach[
-     #:title "More Practice in Pyret"
-     #:duration "15 minutes"
-     #:overview ""
-     #:learning-objectives @itemlist[]
-     #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[]
-     #:standards (list)
-     #:materials @itemlist[]
-     #:preparation @itemlist[]
-     #:pacings (list 
-                @pacing[#:type "remediation"]{@itemlist[@item{}]}
-                @pacing[#:type "misconception"]{@itemlist[@item{}]}
-                @pacing[#:type "challenge"]{@itemlist[@item{}]}
-                )
-      ]{
-        @points[
                 @point{
-                      @student{
-                              @activity[#:forevidence "BS-IDE&1&1"]{
-                                      Turn to @worksheet-link[#:name "Measuring-Center"] in your workbooks and complete all of the questions, using your Pyret program.
-                              }
-                      }
-                      @teacher{
+                    @student{
+                          @activity{
                               @itemlist[
-                                      @item{
-                                            This exercise gives students more practice using Pyret to compute mean/median/mode.  Students will also see first hand that calculating a median of medians of many lists is not necessarily the same as the median of a larger list.
-                                      }
-                                      @item{
-                                            After all the students complete this workbook page, discuss the implications of this for the countries table. Taking the median of the @code{median-life-expectancy} column is an inaccurate measure of the median life expectancy of humans all over the world.  The most accurate measure of median human life expectancy would require a table with every human as a row.
-                                      }
-                                      @item{
-                                            The punchline of this portion of the exercise is: don't take the median of medians.
-                                      }
+                                  @item{
+                                      Suppose we want to look at how much salt is in our menu. Would taking the @code{mean} be a good idea? Why or why not?
+                                  }
+                                  @item{
+                                      How would we find out which state sent the most people to the White House?
+                                  }
+                                  @item{
+                                      TODO: add more
+                                  }
                               ]
-                      }
+                          }
+                    }
+                    @teacher{
+
+                    }
                 }
+
         ]
    }
 
