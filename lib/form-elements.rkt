@@ -936,7 +936,7 @@
        [(regexp-match #px"^curr/lessons/langs/([^/]+)/([^/]+)/lesson/lesson.scrbl$" path)
         =>
         (lambda (result)
-          (list-ref result 1))]
+          (list-ref result 2))]
        [else
         (raise-lesson-error mp)])]
     [else
@@ -952,6 +952,7 @@
 ;; registers the use in the current document.
 ;; NOTE: currently assumes lesson placed within a file named index.html
 (define (extract-lesson mp)
+  (printf "in extract-lesson. Hash: \n~a\n\n\n" (current-lesson-xref))
   (define lesson-name (lesson-module-path->lesson-name mp))
   (define a-doc (parameterize ([current-lesson-name lesson-name])
                   (dynamic-require mp 'doc)))
