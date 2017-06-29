@@ -5,7 +5,7 @@
 @declare-tags[]
 
 @unit-overview/auto[#:lang-table (list (list "" @code{}))]{
-  @unit-descr{Students learn to create and interpret bar charts and pie charts.}
+  @unit-descr{Students learn to create and interpret Bar and Pie charts.}
 }
 @unit-lessons{
 @lesson/studteach[

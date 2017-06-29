@@ -420,13 +420,24 @@
                           @code[#:multi-line #t]{
                             display-scatter-plot(sugar-list, calories-list, "Sugar v. Calories")
                           }
-                          @activity{
+                          This chart has two @vocab{axes}.  An @vocab{axis} is the line that measures a particular value. For example, in this chart the @vocab{horizontal axis} (left to right) measures the @code{calories} in a menu item. The @vocab{vertical axis} (up and down) axis in this chart measures the @code{sugar} in that item. Each axis has lines to indicate where certain values should lie along the axis.
+                      }
+                      @teacher{
+
+                      }
+
+                }
+                @point{
+                      @student{
+                        @activity{
                               Write the contract for @code{display-scatter-plot} in your Contracts page.
                               Try plotting other columns against one another. What patterns do you see?
                           }
                           What do you notice about this plot? Is there a relationship between sugar and calories? Later on in this class, you'll learn how to plot many kinds of data, and how to search for trends and relationships like this one!
                       }
+                      @teacher{
 
+                      }
                 }
         ]
 }       
