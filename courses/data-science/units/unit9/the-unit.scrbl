@@ -218,10 +218,22 @@
                 @point{
                         @student{
                                 The United Nations has hired our class to come up with a report on the
-                                world economy.  They want us to compare countries by how productive they are.
+                                world economy.  They want us to compare countries by asking "which countries
+                                have the most productive people?"
 
-                                We have a table with the GDP of each country, which measures a country's economic
-                                output.  should we use this to compare each country's economy?  Why might this be a bad idea?
+                                @activity[#:forevidence "BS-IDE&1&1"]{
+                                        @itemlist[
+                                                @item{
+                                                        Which column in the @code{countries} table
+                                                        do we need to use?  Which one measures what
+                                                        a country produces?
+                                                }
+                                                @item{
+                                                        Why might this not be the best way to compare
+                                                        different countries when asking this question?
+                                                }
+                                        ]
+                                }
                         }
                         @teacher{
                                 Ask the class what they think may be drawbacks to this approach.  Guide the discussion
@@ -231,10 +243,26 @@
                 }
                 @point{
                         @student{
-                                Economics data scientists use something called a @code{gdp-per-capita} to
-                                compare countries' productivity.  This is calculated by dividing a country's
-                                GDP by population.  This estimates how productive the average citizen of a
-                                particular country is.
+                                It's unfair to compare the GDP of a country with 100 million people to 
+                                a country with 2 million people, because of course the country with 100
+                                people can produce more stuff: they have 98 million more people to do so!
+
+                                What we need is a measurement of the average amount of dollars that
+                                each person in a country produces.
+
+                                @activity[#:forevidence "BS-IDE&1&1"]{
+                                        @itemlist[
+                                                @item{
+                                                        Which column measures the people in each country?
+                                                }
+                                                @item{
+                                                        The @code{gdp} adds up the total number of dollars
+                                                        that all the people in a country produce.  How can
+                                                        we use this, and the column from above, to 
+                                                        get the average amount of GDP per person?
+                                                }
+                                        ]
+                                }
                         }
                         @teacher{
 
@@ -242,8 +270,19 @@
                 }
                 @point{
                         @student{
-                                The main question that the United Nations wants us to answer is:  "What are
-                                the top 5 countries in Asia, in terms of highest GDP per capita?"
+                                By dividing the @code{gdp} by the @code{population}, you can measure
+                                the average @code{gdp-per-person}.  Not only is this a measure we can 
+                                use to compare the countries, but it's a measurement we can compute
+                                with @code{extend}!
+                        }
+                        @teacher{
+
+                        }
+                }
+                @point{
+                        @student{
+                                The official question the United Nations wants us to answer is:  
+                                "What 5 countries in Asia have the most productive people?"
                         }
                         @teacher{
                         
@@ -252,7 +291,7 @@
                 @point{
                         @student{
                                 We have all the tools to answer this question using the table queries we have
-                                learned!  The next step is to determine which table queries we will use.s
+                                learned!  The next step is to determine which table queries we will use.
                         }
                         @teacher{
 
@@ -313,11 +352,11 @@
 
                                         @itemlist[
                                                 @item{
-                                                        A bar chart of the @code{gdp-per-capita}
+                                                        A bar chart of the @code{gdp-per-person}
                                                         for every country in Asia.
                                                 }
                                                 @item{
-                                                        The mean and median @code{gdp-per-capitab}
+                                                        The mean and median @code{gdp-per-person}
                                                         values for countries in Asia.
                                                 }
                                         ]

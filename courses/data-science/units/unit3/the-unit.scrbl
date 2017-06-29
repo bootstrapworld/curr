@@ -41,8 +41,8 @@
                       @student{
                               Tables are 2-dimensional collections of data.  If we ask "what is the lowest amount of sodium on the menu", or
                               "What is biggest serving size possible", these are questions that only involve one column at a time.  We
-                              need some way of looking at each column individually in our programs.  In other words, we want to get 1-dimensional
-                              data OUT of the 2-dimensional table.
+                              need some way of looking at each column individually in our programs.  
+                              In other words, we want to get 1-dimensional data OUT of the 2-dimensional table.
 
                       }
                       @teacher{
@@ -108,22 +108,24 @@
                                                     Define a list called @code{sodium-list} that contains the @code{sodium} column from @code{nutrition}.
                                               }
                                               @item{
-                                                    Define a list called @code{calories-list} containing the @code{calories} column from @code{nutrition}.
-                                              }
-                                              @item{
-                                                    Define a list called @code{gdp-list} containing the @code{gdp} column from @code{countries}.
-                                              }
-                                              @item{
-                                                    Define a list called @code{life-expectancy-list} that contains the 
-                                                    @code{median-life-expectancy} column from @code{countries}.
+                                                    Define a list called @code{name-list} that contains the @code{name} column from
+                                                    @code{presidents}.
                                               }
                                       ]
-
-                                      Notice that these Lists contain either only Strings, or only Numbers.
                               }
                       }
                       @teacher{
-                              TODO add usage of the lifespan dataset
+                              
+                      }
+                }
+                @point{
+                      @student{
+                              You may have noticed there's a new table in this program.  This 
+                              table contains information about different countries all over the world.
+                              Part of being data scientists is 
+                      }
+                      @teacher{
+
                       }
                 }
         ]

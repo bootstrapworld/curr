@@ -75,28 +75,29 @@
                 @point{
                         @student{
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Open the @editor-link[#:public-id "0BxJ2mGqPUGt0aVBzZFNTc1NMM0k" "Unit 5"] template file, and type each of the following
+                                        Open the @editor-link[#:public-id "0BxJ2mGqPUGt0VllHVEN1MU44QnM" "Unit 5"]
+                                        template file, and type each of the following
                                         lines of code into the interactions window, and hit Enter/Return.
 
                                         @itemlist[
                                                 @item{
-                                                        @code{dice-roll(1)}
+                                                        @code{roll-dice(1)}
                                                 }
                                                 @item{
-                                                        @code{dice-roll(3)}
+                                                        @code{roll-dice(3)}
                                                 }
                                                 @item{
-                                                        @code{dice-roll(10)}
+                                                        @code{roll-dice(10)}
                                                 }
                                         ]
-                                        How many arguments does the @code{dice-roll} function take?
+                                        How many arguments does the @code{roll-dice} function take?
                                         What is it returning?  How does the argument relate to what is returned?
-                                        Try typing in @code{dice-roll(10)} multiple times.  Does it 
+                                        Try typing in @code{roll-dice(10)} multiple times.  Does it 
                                         always return the same thing?
                               }
                         }
                         @teacher{
-                                The function @code{dice-roll} takes in a number of rolls to perform,
+                                The function @code{roll-dice} takes in a number of rolls to perform,
                                 and returns a List<Number> containing all of the dice rolls.  The 
                                 @code{roll-dice} treats each dice roll separately, and makes different
                                 numbers every time.
@@ -104,7 +105,7 @@
                 }
                 @point{
                         @student{
-                                Because Pyret computers are so fast, use @code{dice-roll} to 
+                                Because Pyret computers are so fast, use @code{roll-dice} to 
                                 create a list of 10,000 dice rolls within a few seconds.  How would we 
                                 use this List to come up with the most likely number, which would
                                 be our best guess? Is there a measure of center that could answer this question,
@@ -124,8 +125,8 @@
                               }
                         }
                         @teacher{
-                                Students should try running these functions on the output of @code{dice-roll}
-                                multiple times, since @code{dice-roll} will usually return a different list. 
+                                Students should try running these functions on the output of @code{roll-dice}
+                                multiple times, since @code{roll-dice} will usually return a different list. 
                         }
                 }
                 @point{
@@ -152,7 +153,7 @@
                                         then hit Enter/Return:
 
                                         @code[#:multi-line #t]{
-                                                histogram(dice-roll(10000),
+                                                histogram(roll-dice(10000),
                                                           11,
                                                           _.{title: 'Frequency of Dice Rolls'})
                                         }
@@ -203,6 +204,36 @@
                         @teacher{
                                 For curious students, you can explain this by showing that there are more combinations 
                                 that add up to 8 than there are for 2 (for example).
+                        }
+                }
+                @point{
+                        @student{
+                                By hovering over a particular bar on the histogram, you can see how frequent a value is.
+
+                                @activity[#:forevidence "BS-IDE&1&1"]{
+                                        @itemlist[
+                                                @item{
+                                                    Hover over the middle bar, for the number 7.  How many 
+                                                    times was a 7 rolled?
+                                                }
+                                                @item{
+                                                    Out of the 10000 rolls, is this more than half?  Less than half?
+                                                }
+                                                @item{
+                                                    Run the code to make the histogram a few more times.  Is the 
+                                                    number of times 7 appears ever more than 5000 times?
+                                                }
+                                        ]
+                                }
+
+                                The roll 7 is definitely the roll that happens the most often.  However, it never
+                                appears more than half of the 10000 rolls.  That means, most of the time we 
+                                play this game, we would lose!  We should definitely NOT play this game!  If
+                                a stranger ever offers to play this game with you, walk away and put your 
+                                money into a savings account.
+                        }
+                        @teacher{
+
                         }
                 }
                 @point{
