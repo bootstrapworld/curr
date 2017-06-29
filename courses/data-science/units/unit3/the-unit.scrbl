@@ -28,8 +28,11 @@
         @points[
                 @point{
                       @student{
-                              Open the @editor-link[#:public-id "0BxJ2mGqPUGt0Zjl2Nk4yeTJzeU0" "Unit 3"] template file and click run.
+                              Open the @editor-link[#:public-id "0BzzMl1BJlJDkd2pNMmRwc2dkNE0" "Unit 3 template file"] and click run.
                               Now that you are familiar with how tables organize data, it's time to solve some problems with them. We already know how to evaluate an identifier once a program has been run: we just type the identifier into the Interactions Area and hit "Enter" to see the value. For example, we can type the identifier @code{presidents} or @code{nutrition} into the interactions window, and we see the table. There are some other identifiers defined here - what are their names?
+                              @activity{
+                                  You'll notice that there's a new table defined here as well, called @code{countries}. What columns are included in this table, and what do they tell us about each country?
+                              }
 
                       }
                       @teacher{
@@ -152,7 +155,7 @@
                 }
                 @point{
                       @student{
-                              This function takes a @italic{List of Numbers} as input, and gives us the mean (a Number) as output. Write the contract for this function into your contracrs page as:
+                              This function takes a @italic{List of Numbers} as input, and gives us the mean (a Number) as output. Write the contract for this function into your Contracts page as:
 
                               @code[#:multi-line #t]{# mean: List<Number> -> Number}
                               Notice that we use @code{List<Number>} to descibe "lists of numbers"!
@@ -319,7 +322,7 @@
         @points[
                 @point{
                       @student{
-                          In the last lesson, you learned how to @code{extract} a column from a table, and turn it into a list. Now let's use that knowledge to start asking questions about some of our datasets. Suppose we wanted to know what the average number of calories are on the menu. We'd need to first extract that column from the table, and then take the @code{mean} of the resulting list. We can write this using identifiers:
+                          In the last lesson, you learned how to @code{extract} a column from a table, turning it into a list. Now let's use that knowledge to start asking questions about some of our datasets. Suppose we wanted to know what the average number of calories are on the menu. We'd need to first extract that column from the table, and then take the @code{mean} of the resulting list. We can write this using identifiers:
 
                           @code[#:multi-line #t]{
                               calorie-list = extract calories from nutrition end
@@ -507,13 +510,13 @@
                           @activity{
                               @itemlist[
                                   @item{
-                                      Suppose we want to look at how much salt is in our menu. Would taking the @code{mean} be a good idea? Why or why not?
+                                      Suppose we want to look at how much sodium is in our menu. Would taking the @code{mean} or @code{median} be more accurate? Why or why not?
                                   }
                                   @item{
-                                      How would we find out which state sent the most people to the White House?
+                                      Suppose we want to know how long the average person on Earth lives. Would taking the mean of @code{median-life-expectancy} give us the answer? Why or why not?
                                   }
                                   @item{
-                                      TODO: add more
+                                      Do people in wealthier countries live longer than people in poor countries? Use the @code{display-scatter-plot} function to plot the relationship between GDP and median life expectancy.
                                   }
                               ]
                           }

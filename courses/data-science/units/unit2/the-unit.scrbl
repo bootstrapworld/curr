@@ -316,7 +316,7 @@
 
 @lesson/studteach[
      #:title "Extracting Lists from Tables"
-     #:duration "10 minutes"
+     #:duration "20 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -413,6 +413,20 @@
                       @teacher{
 
                       }
+                }
+                @point{
+                      @student{
+                          Do foods with more sugar tend to have more calories? Now that we have calories and sugar extracted as lists, we can plot these data points and find out! We can use the @code{display-scatter-plot} function to do just that, by writing:
+                          @code[#:multi-line #t]{
+                            display-scatter-plot(sugar-list, calories-list, "Sugar v. Calories")
+                          }
+                          @activity{
+                              Write the contract for @code{display-scatter-plot} in your Contracts page.
+                              Try plotting other columns against one another. What patterns do you see?
+                          }
+                          What do you notice about this plot? Is there a relationship between sugar and calories? Later on in this class, you'll learn how to plot many kinds of data, and how to search for trends and relationships like this one!
+                      }
+
                 }
         ]
 }       
