@@ -3,34 +3,51 @@
 ; For data science, this file is managed manually
 ; check the page numbers here -- Kathi made them up to get things to compile (6/26/17)
 
-(("Expressions-Values-Errors" 1)
- ("Identifiers-Expressions" 1 )
- ("Contracts-Functions" 1 )
- ("Animals" 1 )
- ("Presidents-Nutrition" 1 )
- ("Mean-Median-Mode" 1 )
- ("Measuring-Center" 1 )
- ("Questions-With-Charts" 1 )
- ("Freq-Bar-Chart" 1 )
- ("Chart-Practice" 1 )
- ("More-Chart-Practice" 1 )
- ("Histograms" 1 )
- ("Histograms-Practice" 1 )
- ("Scatter-Plot" 1 )
- ("Grading-Predictors" 1 )
- ("More-Predictors" 1 )
- ("Select-Practice" 1 )
- ("Select-Continued" 1 )
- ("Order-Practice" 1 )
- ("Rows-Questions" 1 )
- ("Booleans-Comparison" 1 )
- ("Sieve-Practice" 1 )
- ("Extending-Tables" 1 )
- ("Countries-Example" 1 )
- ("Nutrition-Plan" 1 )
- ("Presidents-Plan" 1 )
- ("Rainfall-Plan" 1 )
- ("Countries-Plan" 1 )
+(
+;;;;;;;;;;;;;;;; Unit 1;;;;;;;;;;;;;
+ ("Expressions-Values-Errors" 	 4 )
+ ("Identifiers-Expressions" 	 5 )
+
+;;;;;;;;;;;;;;;; Unit 2;;;;;;;;;;;;;
+ ("Animals" 					 7 )
+ ("Presidents-Nutrition" 		 8 )
+
+;;;;;;;;;;;;;;;; Unit 3;;;;;;;;;;;;;
+ ("Mean-Median-Mode" 			10 )
+ ("Measuring-Center" 			11 )
+
+;;;;;;;;;;;;;;;; Unit 4;;;;;;;;;;;;;
+ ("Questions-With-Charts" 		13 )
+ ("Freq-Bar-Chart" 				14 )
+ ("Chart-Practice" 				15 )
+ ("More-Chart-Practice" 		17 )
+
+;;;;;;;;;;;;;;;; Unit 5;;;;;;;;;;;;;
+ ("Histograms" 					20 )
+ ("Histograms-Practice" 		21 )
+
+;;;;;;;;;;;;;;;; Unit 6;;;;;;;;;;;;;
+ ("Scatter-Plot" 				23 )
+ ("Grading-Predictors" 			24 )
+
+;;;;;;;;;;;;;;;; Unit 7;;;;;;;;;;;;;
+ ("Select-Practice" 			26 )
+ ("Select-Continued" 			27 )
+ ("Order-Practice" 				28 )
+ ("Rows-Questions" 				29 )
+
+;;;;;;;;;;;;;;;; Unit 8;;;;;;;;;;;;;
+ ("Booleans-Comparison" 		31 )
+ ("Sieve-Practice" 				32 )
+ 
+;;;;;;;;;;;;;;;; Unit 9;;;;;;;;;;;;;
+ ("Extending-Tables" 			34 )
+ ("Countries-Example" 			35 )
+ ("Nutrition-Plan" 				36 )
+ ("Presidents-Plan" 			37 )
+ ("Rainfall-Plan" 				38 )
+ ("Countries-Plan" 				39 )
+ ("Contracts" 					43 )
  )
 
 #|

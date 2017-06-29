@@ -278,7 +278,7 @@
                 @point{
                         @student{
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Complete @worksheet-link[#:name "Grading-Predictors"] and @worksheet-link[#:name "More-Predictors"] in your workbook, and complete the exercise grading different predictor functions on how well they match scatter plots (on a scale of 0 to 1).
+                                        Complete @worksheet-link[#:name "Grading-Predictors"] in your workbook, by grading different predictor functions on how well they match scatter plots (on a scale of 0="worst fit" to 1="best fit").
                                 }
 
                                 Some of these scatter plots showed positive correlations.  Others showed @vocab{negative correlations}:  where if one variable increases, the other decreases, and vice versa.  There are also examples where the line doesn't appear to have much value as a predictor; in these examples we say there is no correlation.

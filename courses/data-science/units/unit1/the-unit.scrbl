@@ -300,7 +300,9 @@
              @point{
                     @student{
                             Error messages are the computer's way of giving you a hint on what went wrong. The most important part of using an error message is reading the message editing the program to fix the errors.
-
+                            @activity{
+                            Turn to @worksheet-link[#:name "Expressions-Values-Errors"] in your student workbook, and identify whether the expressions you see will produce an error or a value. In either case, write the resulting value or error messages that you think the computer will respond with.
+                            }
                     }
                     @teacher{
                             
@@ -597,8 +599,7 @@
              @point{
                     @student{
                             @activity[#:forevidence "BS-IDE&1&1"]{
-                                    Turn to @worksheet-link[#:name "Contracts-Functions"] in your workbook.  For each set of function calls,
-                                    determine the name, number of arguments, type of argument(s), and in your own words what is the output of this function.
+                                    Turn to the last page in your workbook.  For each set of function calls, write the complete contract for the function, as well as an example of how to use it.
                             }   
                     }
                     @teacher{
