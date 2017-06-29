@@ -65,9 +65,9 @@
 	       		Computers are good at repetition, but they need instructions
                         telling them what steps to repeat.  Functions capture those instructions.}
 	       }
-	@point{@student{@bannerline{@bold{Step 1: Define the data structure}}
-		        The first step is to develop a @vocab{data structure} for the information that changes across frames.
-			To do this, we need to figure out what @vocab{fields} our data structure will need.
+	@point{@student{@bannerline{@bold{Step 1: Define the state}}
+		        The first step is to develop a clear understanding of the information that changes across frames. Typically, we will represent this information as part of a @vocab{data structure}.
+			To start, we need to figure out what @vocab{fields} our data structure will need.
 			@activity{Turn to @worksheet-link[#:name "sunset-ds-design"] in your workbook. Copy the three sunset
 			images we gave you into the boxes at the top of the worksheet.}
 			To identify the fields, we have to figure out what information is needed to create each
@@ -114,7 +114,7 @@
 			It has x-coordinate 10 and y-coordinate 300.}
 	                }
    	       @teacher{}}
-     	@point{@student{@bannerline{@bold{Step 2: Draw one frame}}
+     	@point{@student{@bannerline{@bold{Step 2: Draw one frame for the state}}
 			The second step in making an animation is to write a function that consumes an instance of one state
 	                and produces the image for that instance. We call this function @code{draw-state}. For sunset, @code{draw-state}
 			takes a @emph{SunsetState} instance and produces an image with the sun at that location
@@ -138,7 +138,7 @@
 	                produce a sequence of instances, and use @code{draw-state} to produce each one.  Students may
 			need some practice to think of the instance as separate from the image that goes into the animation.}}
 			
-     	@point{@student{@bannerline{@bold{Step 3: Produce the next frame instance}}
+     	@point{@student{@bannerline{@bold{Step 3: Compute the next state}}
 			The third step in making an animation is to write a function that consumes an instance of one state
 	                and produces the instance for the next state. We call this function @code{next-state-tick}. For sunset, 
 			@code{next-state-tick} takes a @code{SunsetState} instance and produces a @emph{SunsetState}
@@ -196,7 +196,7 @@
 	       only need an initial instance and the two functions to generate a sequence of images that make
 	       up an animation.}}
 
-        @point{@student{@bannerline{@bold{Step 4: Define an animation with a reactor}}
+        @point{@student{@bannerline{@bold{Step 4: Define (re)actions for the state}}
 	                The fourth (and final) step in making an animation is to tell Pyret to create an
 	 		animation using an initial @code{SunsetState} instance and our @code{draw-state} and
 			@code{next-state-tick} functions. To do this, we need a new construct called a
