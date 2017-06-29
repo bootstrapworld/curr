@@ -27,7 +27,8 @@
         @points[
                 @point{
                         @student{
-                                Suppose a stranger invites you to play a game. You start by guessing a number between 2 and 12.  The stranger rolls two dice, and add the numbers together.  If that number matches your number, you win the jackpot! If your number is wrong, then you lose your money. How can we maximize our chances of winning?
+                                @bitmap{images/dice.png}
+                                Suppose a stranger invites you to play a game. You start by guessing a number between 2 and 12.  The stranger rolls two dice, and add the numbers together.  If that sum is the number you guessed, you win the jackpot, but if your number is wrong, then you lose your money. How can we maximize our chances of winning?
                         }
                         @teacher{
                                 @itemlist[
@@ -59,7 +60,7 @@
                 @point{
                         @student{
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Open the @editor-link[#:public-id "0BxJ2mGqPUGt0aVBzZFNTc1NMM0k" "Unit 5 starter file"], and click run. Then evaluate each of the following expressions:
+                                        Open the @editor-link[#:public-id "0BxJ2mGqPUGt0aVBzZFNTc1NMM0k" "Unit 5 starter file"], and click Run. Then evaluate each of the following expressions:
 
                                         @itemlist[
                                                 @item{
@@ -90,21 +91,18 @@
                 @point{
                         @student{
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                        What are the @code{mean}, @code{median}, and @code{mode} of a list of 10,000 dice rolls?  Use the functions you've learned in Pyret to compute them.
+                                        What are the @code{mean}, @code{median}, and @code{mode} of a list of 10,000 dice rolls?  Use the functions you've learned in Pyret to compute them. Does @code{roll-dice} give you the same list every time? Will you get the same mean every time?
                               }
                         }
                         @teacher{
-                                Students should try running these functions on the output of @code{roll-dice} multiple times, since @code{roll-dice} will usually return a different list.
+                                Students should try running these functions on the output of @code{roll-dice} multiple times, since @code{roll-dice} returns slightly different lists each time.
                         }
                 }
                 @point{
                         @student{
                                 We can see that the mean and median are both 7, and the mean is very very close to 7.  So 7 is probably our best guess.
 
-                                Should we play the game?  We haven't answered this question yet.  What do we need to know to figure this out?
-                        }
-                        @teacher{
-                                We've used our measures of center to figure out the most frequent number, but just @italic{how frequent} is it?  We need some way of asking if 7 appears more than all the other numbers combined.
+                                Unfortunately, we still don't know if 7 comes up often enough for this to be a game worth playing! We've used our measures of center to figure out the most frequent number, but just @italic{how frequent is it}?  We need some way of asking if 7 appears more than all the other numbers combined.
                         }
                 }
                 @point{
@@ -149,10 +147,41 @@
                 }
                 @point{
                         @student{
-                                We want to count the number of times @italic{each} permutation shows up in the dice game. Since there are 11 possible values for each dice roll, we have 11 bars in our chart. Just like the frequency bar charts from last unit, the length of the bar corresponds with how frequent a value is.  For example, the longest bar the bar for 7, because 7 is the most frequent.  Notice this interesting hump shape; the further away from 7, the less common the number.
+                                @bitmap{images/histogram.png}
+                                We want to count the number of times @italic{each} permutation shows up in the dice game. Since there are 11 possible values for each dice roll, we have 11 bars in our chart. Just like the frequency bar charts from last unit, the length of the bar corresponds with how frequent a value is.  For example, the longest bar the bar for 7, because 7 is the most frequent.  Notice the shape of the histogram: the further away from 7, the less common the number.
                         }
                         @teacher{
                                 For curious students, you can explain this by showing that there are more combinations that add up to 8 than there are for 2 (for example).
+                        }
+                }
+                @point{
+                        @student{
+                                By hovering over a particular bar on the histogram, you can see how frequent a value is.
+
+                                @activity[#:forevidence "BS-IDE&1&1"]{
+                                        @itemlist[
+                                                @item{
+                                                    Hover over the middle bar, for the number 7.  How many 
+                                                    times was a 7 rolled?
+                                                }
+                                                @item{
+                                                    Out of the 10000 rolls, is this more than half?  Less than half?
+                                                }
+                                                @item{
+                                                    Run the code to make the histogram a few more times.  Is the 
+                                                    number of times 7 appears ever more than 5000 times?
+                                                }
+                                        ]
+                                }
+
+                                The roll 7 is definitely the roll that happens the most often.  However, it never
+                                appears more than half of the 10000 rolls.  That means, most of the time we 
+                                play this game, we would lose!  We should definitely NOT play this game!  If
+                                a stranger ever offers to play this game with you, walk away and put your 
+                                money into a savings account.
+                        }
+                        @teacher{
+
                         }
                 }
                 @point{
@@ -282,7 +311,7 @@
 
 @lesson/studteach[
      #:title "Analyzing Histograms"
-     #:duration "15 minutes"
+     #:duration "20 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -320,6 +349,29 @@
                                                 
                       }
                 }
+                @point{
+                      @student{
+                        A good histogram can help explain complicated data, but a bad one can make things very confusing. Come up with good histograms for the following questions. How do you choose you bin size?
+
+                        @activity{
+                            @itemlist[
+                                @item{
+                                    Use a histogram to plot the @code{median-life-expectancy} for every country in the world. How many bins do you think you should use, to make this chart helpful?
+                                }
+                                @item{
+                                    Show the distribution of calories across our nutrition table. What calorie ranges are the most common?
+                                }
+                                @item{
+                                    How common is it for a country to have more than a billion people? Make a histogram that shows how common different population sizes are.
+                                }
+                            ]
+                        }
+                          
+                      }
+                      @teacher{
+                                                
+                      }
+                }                
         ]
    }
 

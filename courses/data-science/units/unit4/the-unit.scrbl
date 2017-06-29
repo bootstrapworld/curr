@@ -38,7 +38,7 @@
                               @bitmap{images/cholesterol_per_item.png}
 
                               Data scientists often use @vocab{charts} to give a graphical  representation of the data.  @vocab{Charts} are pictures, where some part of the picture relates to values in a data set.
-                              This is your first example of a chart.  @vocab{Bar charts} are used to compare rows in a table by their entries in a particular column.  In this example, we are comparing each item on the menu by the amount of cholesterol it has.  The length of the bar relates to the amount of cholesterol:  shorter bars mean less cholesterol, and higher bars mean more cholesterol.
+                              You've already seen one kind of chart: a scatterplot.  @vocab{Bar charts} are used to compare rows in a table by their entries in a particular column.  In this example, we are comparing each item on the menu by the amount of cholesterol it has.  The length of the bar relates to the amount of cholesterol:  shorter bars mean less cholesterol, and higher bars mean more cholesterol.
 
                       }
                       @teacher{
@@ -118,7 +118,7 @@
                               In Pyet, you can easily construct pie charts and bar charts with functions.
 
                               @activity[#:forevidence "BS-IDE&1&1"]{
-                                      Open the @editor-link[#:public-id "0BxJ2mGqPUGt0WDZaVUdlVVNTSms" "Unit 4"] template file, and hit run.  You should see the bar and pie charts from the previous section appear sequentially. Hit the X button in the top left to view the next chart.
+                                      Open the @editor-link[#:public-id "0BzzMl1BJlJDkMWdNU2huZWp3Zkk" "Unit 4 template"] file and hit Run.  You should see the bar and pie charts from the previous section appear sequentially. Hit the X button in the top left to view the next chart.
                               }
 
                       }
@@ -131,7 +131,7 @@
                               Let's go through this code together:
 
                               @code[#:multi-line #t]{
-                                    food-list = extract food from nutrition end
+                                    food-list        = extract food        from nutrition end
                                     cholesterol-list = extract cholesterol from nutrition end
                               }
 
@@ -155,10 +155,10 @@
 
                               This code uses a new function you haven't seen before: @code{bar-chart}. The contract for the function is:
                                @code[#:multi-line #t]{
-                                    bar-chart : List<String> List<Number> PlotOptions -> Plot
+                                    bar-chart : List<String> List<Number> PlotOptions -> Image
                               }
 
-                              The @code{bar-chart} function takes three arguments, and returns a @code{Plot}. What do these arguments mean?
+                              The @code{bar-chart} function takes three arguments, and returns a @code{Image}. What do these arguments mean?
                               @itemlist[
                                       @item{
                                             The first is the list of labels.  Each of these will be the @italic{name} of a bar on the chart.
@@ -171,13 +171,17 @@
                                       }
                               ]
 
+                              @activity{
+                                  Write the contract for @code{bar-chart} in your Contracts page.
+                              }
+
                               @code[#:multi-line #t]{
                                     pie-chart(food-list,
                                               cholesterol-list,
                                               _.{title: 'Cholesterol per Menu Item'})
                               }
 
-                              The @code{pie-chart} function is very similar. Can you write the contract for @code{pie-chart}?
+                              The @code{pie-chart} function is very similar. Can you guess the contract for @code{pie-chart}? Write it into your Contracts page.
                       }
                       @teacher{
                               @itemlist[
@@ -193,7 +197,7 @@
                 }
                 @point{
                       @student{
-                              A @code{Plot} is much more than just an image. One of the nice things about a @code{Plot} is that it can be interactive: what happens when you hover over a slice of the pie?
+                              These plots are @italic{interactive}, allowing you to experiment with the data before you generate the final image. One of the nice things about a @code{Plot} is that it can be interactive: what happens when you hover over a slice of the pie?
                       }
                       @teacher{
                               It reveals the value and percentage of the whole.
@@ -269,9 +273,6 @@
                 @point{
                       @student{
                               By filling in the last bar, you have created a bar chart.  However, there's something special about chart.  What is different about this bar chart from the ones we have created before?
-                      }
-                      @teacher{
-                              Guide discussion towards this distinction:
                               @itemlist[
                                       @item{
                                             Previous bar charts used a column from the table as the labels, and another column as the values.
@@ -280,6 +281,9 @@
                                             In this bar chart, we are using the @vocab{categories} of a column as the labels, and the @vocab{frequency} of each category as the value.
                                       }
                               ]
+                      }
+                      @teacher{
+                              
                       }
                 }
                 @point{
@@ -294,7 +298,7 @@
                       @student{
                               This special kind of bar chart is called a @vocab{frequency bar chart}.  There's a function in Pyret that lets us build frequency bar charts from a list:
                               @code[#:multi-line #t]{
-                              freq-bar-char : List<String> PlotOptions -> Plot
+                                freq-bar-char : List<String> PlotOptions -> Plot
                               }
                               Below is an example that computes the frequency of categories in the @code{home-state} column of @code{presidents}.
 
@@ -350,10 +354,7 @@
         @points[
                 @point{
                       @student{
-                              For the rest of your life, you will probably see bar charts 
-                              and pie charts in many different colors and formats.  To prepare 
-                              for this, we'll practice answering questions about several 
-                              different bar and pie charts from a variety of sources.
+                              For the rest of your life, you will probably see bar charts and pie charts in many different colors and formats.  To prepare for this, we'll practice answering questions about several different bar and pie charts from a variety of sources.
                               @activity[#:forevidence "BS-IDE&1&1"]{
                                       Complete @worksheet-link[#:name "Chart-Practice"] and @worksheet-link[#:name "More-Chart-Practice"] in your workbook by answering the questions about each of the charts.
                               }                          
