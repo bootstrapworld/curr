@@ -5,49 +5,49 @@
 
 (
 ;;;;;;;;;;;;;;;; Unit 1;;;;;;;;;;;;;
- ("Expressions-Values-Errors" 	 4 )
- ("Identifiers-Expressions" 	 5 )
+ ("Expressions-Values-Errors" 	 2 )
+ ("Identifiers-Expressions" 	 3 )
 
 ;;;;;;;;;;;;;;;; Unit 2;;;;;;;;;;;;;
- ("Animals" 					 7 )
- ("Presidents-Nutrition" 		 8 )
+ ("Animals" 					 5 )
+ ("Presidents-Nutrition" 		 6 )
 
 ;;;;;;;;;;;;;;;; Unit 3;;;;;;;;;;;;;
- ("Mean-Median-Mode" 			10 )
- ("Measuring-Center" 			11 )
+ ("Mean-Median-Mode" 			 8 )
+ ("Measuring-Center" 			 9 )
 
 ;;;;;;;;;;;;;;;; Unit 4;;;;;;;;;;;;;
- ("Questions-With-Charts" 		13 )
- ("Freq-Bar-Chart" 				14 )
- ("Chart-Practice" 				15 )
- ("More-Chart-Practice" 		17 )
+ ("Questions-With-Charts" 		11 )
+ ("Freq-Bar-Chart" 				12 )
+ ("Chart-Practice" 				13 )
+ ("More-Chart-Practice" 		15 )
 
 ;;;;;;;;;;;;;;;; Unit 5;;;;;;;;;;;;;
- ("Histograms" 					20 )
- ("Histograms-Practice" 		21 )
+ ("Histograms" 					18 )
+ ("Histograms-Practice" 		19 )
 
 ;;;;;;;;;;;;;;;; Unit 6;;;;;;;;;;;;;
- ("Scatter-Plot" 				23 )
- ("Grading-Predictors" 			24 )
+ ("Scatter-Plot" 				21 )
+ ("Grading-Predictors" 			22 )
 
 ;;;;;;;;;;;;;;;; Unit 7;;;;;;;;;;;;;
- ("Select-Practice" 			26 )
- ("Select-Continued" 			27 )
- ("Order-Practice" 				28 )
- ("Rows-Questions" 				29 )
+ ("Select-Practice" 			24 )
+ ("Select-Continued" 			25 )
+ ("Order-Practice" 				26 )
+ ("Rows-Questions" 				27 )
 
 ;;;;;;;;;;;;;;;; Unit 8;;;;;;;;;;;;;
- ("Booleans-Comparison" 		31 )
- ("Sieve-Practice" 				32 )
- 
+ ("Booleans-Comparison" 		29 )
+ ("Sieve-Practice" 				30 )
+
 ;;;;;;;;;;;;;;;; Unit 9;;;;;;;;;;;;;
- ("Extending-Tables" 			34 )
- ("Countries-Example" 			35 )
- ("Nutrition-Plan" 				36 )
- ("Presidents-Plan" 			37 )
- ("Rainfall-Plan" 				38 )
- ("Countries-Plan" 				39 )
- ("Contracts" 					43 )
+ ("Extending-Tables" 			32 )
+ ("Countries-Example" 			33 )
+ ("Nutrition-Plan" 				34 )
+ ("Presidents-Plan" 			35 )
+ ("Rainfall-Plan" 				36 )
+ ("Countries-Plan" 				37 )
+ ("Contracts" 					41 )
  )
 
 #|
