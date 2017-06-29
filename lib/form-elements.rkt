@@ -112,6 +112,7 @@
          ;; Include lesson/lesson link
          include-lesson
          lesson-link
+         unit-link
 
          ;; Unit summaries
          unit-length
@@ -1301,6 +1302,16 @@
         (hyperlink #:style bootstrap-hyperlink-style
                    (path->string the-relative-path)
                    (if label label lesson-name))]))))
+
+(define (unit-link #:name unit-name
+                     #:label [label #f]
+                     #:course [course (current-course)])
+  (hyperlink #:style bootstrap-hyperlink-style
+             (path->string (simple-form-path (build-path (current-deployment-dir) "courses" course "units" unit-name "index.html")))
+             (if label label unit-name)))
+
+
+
 
 ; generates HTML for a link to the Lulu direct-buy button, using Lulu image icon
 (define (lulu-button) 
