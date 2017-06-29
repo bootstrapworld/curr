@@ -1,11 +1,11 @@
 #lang curr/lib
 
-@title{Unit 6: Scatter Plots & Correlation}
+@title{Unit 6: Correlation and Line of Best Fit}
 
 @declare-tags[]
 
 @unit-overview/auto[#:lang-table (list (list "" @code{}))]{
-  @unit-descr{Students are introduced to scatter plots as a method of visualizing the relationship between two axes, and to the notion of "line of best fit". }
+  @unit-descr{Students dig deeper into scatter plots as a method of visualizing the relationship between two axes, and into the notion of "line of best fit". }
 }
 @unit-lessons{
 @lesson/studteach[
@@ -47,8 +47,7 @@
                 @point{
                         @student{
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Open the @editor-link[#:public-id "0BxJ2mGqPUGt0ZURsOENMb1NNU28" "Unit 6"] template file, and hit run.
-                                        Then, answer the following questions.
+                                        Open the @editor-link[#:public-id "0BzzMl1BJlJDkZlEwYjhkY0s0ZTQ" "Unit 6 start file"] , and hit Run.
 
                                         @itemlist[
                                                 @item{
@@ -64,7 +63,10 @@
                                                         Use Pyret to visualize the average prices of restaurants with a histogram.
                                                 }
                                                 @item{
-                                                        According to this data set, do you think expensive restaurants have higher ratings?
+                                                        Use Pyret to create a scatter plot showing the average prices and average review ratings of all the restaurants.
+                                                }
+                                                @item{
+                                                        According to this plot, do you think expensive restaurants have higher ratings?
                                                 }
                                         ]
                                 }
@@ -79,6 +81,9 @@
                                         }
                                         @item{
                                                 Students should extract the @code{price} column, and use the @code{histogram} function over the list.
+                                        }
+                                        @item{
+                                                Students should create a scatterplot, using what they learned in previous lessons.
                                         }
                                         @item{
                                                 Students won't know how to answer this yet, and that's ok!
@@ -97,24 +102,18 @@
                 @point{
                         @student{
                                 @bitmap{images/price-vs-rating.png}
-                                To answer this question, we will create a new kind of chart called a @vocab{scatter plot}. A scatter plot is a chart that plots every pair of numbers in 2 columns. Here is a scatter plot of the data from the @code{price} and @code{rating} columns. We can do this with the following code:
+                                To answer this question, we will return to the very first chart you learned about in this class: @vocab{scatter plots}. A scatter plot is a chart that plots every pair of numbers in 2 columns. By extracting the two columns from @code{restaurants}...
 
                                 @code[#:multi-line #t]{
                                         ratings-list = extract rating from restaurants end
-                                        prices-list = extract price from restaurants end
+                                        prices-list  = extract price  from restaurants end
                                 }
 
-                                The functions that create scatter plots and predictors will take List<Number> arguments, so we will extract them from the tables the same way we've seen before.
+                                ...we can create a series to plot:
 
                                 @code[#:multi-line #t]{
-                                        prices-vs-ratings-plot = scatter-plot(
-                                                                    prices-list, 
-                                                                    ratings-list, 
-                                                                    _.{title: ''})
+                                        plots([scatter-plot(prices-list, ratings-list)]).title("Price v. Rating")
                                 }
-
-                                Here we see a function @code{scatter-plot}. Like the other chart functions you've seen, it takes in the two Lists we care about, and a @code{PlotOptions} object.  It is different because, unlike @code{histogram}, @code{bar-chart} etc., this doesn't make a scatter plot appear on screen. Instead, it produces a @code{Plot} value, which we define to be @code{prices-vs-ratings-plot}.  A Plot is a new type, like String, Number, List or Table.
-                                We will use the variable @code{prices-vs-ratings-plot} later to make a plot appear on screen.
                         }
                         @teacher{
 
@@ -122,9 +121,8 @@
                 }
                 @point{
                         @student{ 
-                                This chart has two @vocab{axes}.  An @vocab{axis} is the line that measures a particular value. For example, in this chart the @vocab{horizontal axis} (left to right) measures the @code{price} of a restaurant. The @vocab{vertical axis} (up and down) axis in this chart measures the average star rating of the restaurant. Each axis has lines to indicate where certain values should lie along the axis.
                                 @activity{
-                                    Try making scatter plots for each of the following relationships:
+                                    For practice, try making scatter plots for each of the following relationships:
                                     @itemlist[
                                                 @item{
                                                         The @code{fat} vs. @code{calories-from-fat} columns of @code{nutrition}.
@@ -144,10 +142,10 @@
                 }
                 @point{
                         @student{
-                                There are 9 points on the scatter plot, one for each restaurant in the table.  Each dot's placement depends on the price and rating values of a particular restaurant.  For example, look at the restaurant "Riverside Grille".  Riverside Grille has an average price of 19.56, so it will appear to the far right of the chart.  Riverside Grille has an average rating of 4.9, so it will appear towards the top of the chart.
+                                There are 9 points on our scatter plot: one for each restaurant in the table.  Each dot's placement depends on the price and rating values of a particular restaurant.  For example, look at the restaurant "Riverside Grille".  Riverside Grille has an average price of 19.56, so it will appear to the far right of the chart.  Riverside Grille has an average rating of 4.9, so it will appear towards the top of the chart.
 
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                    In Pyret, draw the scatter plot that shows the relationship between prices and ratings.
+                                    In Pyret, open the scatter plot that shows the relationship between prices and ratings.
                                         @itemlist[
                                                 @item{
                                                         Which dot represents the restaurant "Family Diner"?
@@ -165,7 +163,7 @@
                                 }
                         }
                         @teacher{
-                                This last question motivates the idea of prediction:  using a general shape of the data to estimate values.
+                                This last question motivates the idea of @bold{prediction}:  using the general @italic{shape of the data} to estimate values.
                         }
                 }
                 @point{
@@ -202,14 +200,6 @@
         @points[
                 @point{
                         @student{
-                                Scatter plots are useful when searching for a relationship between two columns of quantitative data.  Often, if we find a relationship, we can use that relationship to predict values.  For example, we predicted that a restaurant with a price of $16 would have a rating somewhere between 4 and 5.
-                        }
-                        @teacher{
-                                Students' predictions may differ from between [4, 5].  If so, guide them towards why this range is intuitive.
-                        }
-                }
-                @point{
-                        @student{
                                 We noticed that higher-rated restaurants tended to be better-reviewed. This relationship is called a @vocab{positive correlation}, because an increase in one measurement (price) tended to result in an increase in the other (rating). What do you think it would mean if we saw a @vocab{negative correlation}?
                         }
                         @teacher{
@@ -218,12 +208,20 @@
                 }
                 @point{
                         @student{
-                                Correlations help us make predictions, but they're not always right. We might predict that a cheap restaurant won't be as good as a fancy one, but sometimes the local diner is actually a better deal than fancy bistro! Height is positively correlated with being good at basketball, so we'd predict taller players to do better than shorter ones - but that doesn't mean a taller player is always better!
+                                Scatter plots are useful when searching for a relationship between two columns of quantitative data.  Often, if we find a relationship, we can use that relationship to make predictions.  For example, we predicted that a restaurant with a price of $16 would have a rating somewhere between 4 and 5. A prediction summarizes the relationship within our data cloud, for example "for every $4 in price, a restaurant's rating tends to be a full point higher". 
+                        }
+                        @teacher{
+                                Students' predictions may differ from between [4, 5].  If so, guide them towards why this range is intuitive.
+                        }
+                }
+                @point{
+                        @student{
+                                Correlations help us make predictions, but not every prediction is right! We might predict that a cheap restaurant won't be as good as a fancy one, but sometimes the local diner is actually better than fancy bistro! Height is positively correlated with being good at basketball - but that doesn't mean a taller player is @italic{always} better!
 
                                 @activity{
-                                    Brainstorm three positive correlations you see in the world around you, as well as three negative ones.
+                                    Brainstorm three positive correlations you see in the world around you, as well as three negative ones. Can you think of exceptions where the correlation does not hold?
                                 }
-                                But how do measure a correlation? Can something be "more positively" or "more negatively" correlated than another? Are some correlations weaker than others?
+                                But how do measure a correlation? Can something be "more positively" or "more negatively" correlated than another? Are some correlations stronger or weaker than others?
                         }
                         @teacher{
 
@@ -233,7 +231,7 @@
                 @point{
                         @student{
                                 @bitmap{images/price-vs-rating-predictor.png}
-                                We can represent a positive correlation by drawing a line on a scatter plot.
+                                We can represent a positive correlation by drawing a line on a scatter plot, representing the prediction.
 
                                 This line is the graph of a @vocab{predictor} function. A @italic{predictor} is a function that takes in a value for one variable, and returns an estimate of a different variable, based on all the other points in the cloud.  In our example, we can predict the rating of a restaurant, based on its price.
 
@@ -318,68 +316,42 @@
                                         How do we measure the accuracy of our prediction? In other words, "how well does that line fit?"
                                     }
                                 ]
-                                Data scientists use statistics to build a @italic{model} of a data set. This model takes into account a lot of different measures (including some of the ones you already know), and tries to identify patterns and relationships within the data. We can build a model of our own in Pyret, and grab a @italic{predictor function} from it:
-
-                                @code[#:multi-line #t]{
-                                        rating-model = lin-reg-2V(prices-list, ratings-list)
-                                        rating-predictor = rating-model.predictor()
-                                        predictor-plot = function-plot(
-                                          rating-predictor,
-                                          _.{title: ''})
-                                }
-                                @itemlist[
-                                        @item{
-                                                There are a lot of new things going on here.  @code{lin-reg-2V} is a function that takes 2 lists as arguments.  It returns another new type: a @code{StatModel}. This is the statistical model of our data set.
-                                        }
-                                        @item{
-                                                @code{rating-model.predictor()} produces a function, representing the line that best fits the data. We define this function to be the identifier @code{rating-predictor}, and we can use it just like any other function.
-
-                                                @activity[#:forevidence "BS-IDE&1&1"]{
-                                                        Type @code{rating-predictor(0)} into the interactions window. What is the output?  What happens with @code{rating-predictor(20)?} What is the contract for @code{rating-predictor}?
-                                                }
-                                        
-                                        }
-                                        @item{
-                                                @code{function-plot} consumes a predictor function (Number -> Number), and a @code{PlotOptions} object, and returns a Plot.  This type is the same as the return from @code{scatter-plot}. We define this Plot to be the identifier @code{predictor-plot}.
-                                        }
-                                ]
                         }
                         @teacher{
-                                @itemlist[
-                                        @item{
-                                                @code{lin-reg-2V} stands for linear regression of two variables. If you also want to teach students the algorithm for calculating ordinary least squares, do so before students use this function.
-                                        }
-                                        @item{
-                                                For this reason, we leave the title as an empty string.  TODO the object should be allowed as empty, or we should use defaults?
-                                        }
-                                ]
+
                         }
                 }
                 @point{
                         @student{
-                                We now have two @code{Plot}s that we'd like to see on top of one another: the scatterplot of our data cloud and the function plot of our predictor. We can use the @code{render-multi-plot} function to do this:
+                                Data scientists use statistics to build a @italic{model} of a data set. This model takes into account a lot of different measures (including some of the ones you already know), and tries to identify patterns and relationships within the data. We can build a model of our own in Pyret, and grab a @italic{predictor function} from it:
+
                                 @code[#:multi-line #t]{
-                                        render-multi-plot([list: prices-vs-ratings-plot, predictor-plot], 
-                                                          _.{title: 'Restaurant Prices vs. Ratings',
-                                                            x-axis: 'Price',
-                                                            y-axis: 'Rating',
-                                                            x-min: 0, 
-                                                            x-max: 20, 
-                                                            y-min: 0, 
-                                                            y-max: 5})
+                                        rating-model = lin-reg-2V(prices-list, ratings-list) # build a model using linear regression
+                                        rating-predictor = rating-model.predictor()          # define our predictor
+                                }
+                                @code{lin-reg-2V} is a function that takes 2 lists as arguments, and returns a @code{StatModel}. This is the statistical model of our data set.
+
+                                @code{rating-model.predictor()} produces a function, representing the line that best fits the data. We define this function to be the identifier @code{rating-predictor}, and we can use it just like any other function. 
+
+                                @activity[#:forevidence "BS-IDE&1&1"]{
+                                        Type @code{rating-predictor(0)} into the interactions window. What is the output?  What happens with @code{rating-predictor(20)?} What is the contract for @code{rating-predictor}?
                                 }
 
-                                @itemlist[
-                                        @item{
-                                                @code{render-multi-plot} takes a @code{List<Plot>} as its first argument.  This let's us show our scatter plot and the function plot on the same chart.
-                                        }
-                                        @item{
-                                                This function also takes a PlotOptions object, but now we're going to set other options in addition to the title. @code{x-axis} and @code{y-axis} are strings for the axis labels (the names of the columns being used).  @code{x-min} and @code{x-max} are the numbers representing the left and right bounds of the plot; basically what the minimum values are that will show up in the plot.  @code{y-min} and @code{y-max} are the same, but for the top and bottom of the plot.
-                                        }
-                                ]
+                                You can learn more about how a predictor is created by watching @(hyperlink "https://www.youtube.com/watch?v=lZ72O-dXhtM" "this video").
+
                         }
                         @teacher{
-                                For the following exercises, the students may need to tweak the values of the bounds of the plot, and should definitely rename the axis labels.
+                                @code{lin-reg-2V} stands for "linear regression of two variables". If you also want to teach students the algorithm for calculating ordinary least squares, do so before students use this function.
+                        }
+                }
+                @point{
+                        @student{
+                                @activity{
+                                    We already know how to plot a function - we used @code{function-plot} back in unit 1! Use Pyret to plot this function, on top of the scatterplot you created earlier. Remember: you can always go back to your contracts page if you need a reminder!
+                                }
+                        }
+                        @teacher{
+
                         }
                 }
                 @point{
@@ -426,7 +398,7 @@
                 }
                 @point{
                         @student{
-                                In your workbook activity, you gave predictors "grades" for how well they performed. Data scientists use @vocab{r squared} values to grade predictors in real life.
+                                In your workbook activity, you gave predictors "grades" for how well they performed. Data scientists use @vocab{r-squared} values to grade predictors in real life.
 
                                 @activity[#:forevidence "BS-IDE&1&1"]{
                                         Type @code{rating-model.r-squared()} into the interactions window.
@@ -440,6 +412,16 @@
                         }
                         @teacher{
                                 Optional: teach your students how r-squared values are calculated.
+                        }
+                }
+                @point{
+                        @student{
+                                @activity[#:forevidence "BS-IDE&1&1"]{
+                                        Complete @worksheet-link[#:name "Checking-Understanding"] in your workbook, by writing your own definitions for @vocab{Statistical Model}, @vocab{predictor function} and vocab{r-squared}.
+                                }
+                        }
+                        @teacher{
+
                         }
                 }
         ]

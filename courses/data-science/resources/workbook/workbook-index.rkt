@@ -29,25 +29,26 @@
 ;;;;;;;;;;;;;;;; Unit 6;;;;;;;;;;;;;
  ("Scatter-Plot" 				21 )
  ("Grading-Predictors" 			22 )
+ ("Checking-Understanding" 		23 )
 
 ;;;;;;;;;;;;;;;; Unit 7;;;;;;;;;;;;;
- ("Select-Practice" 			24 )
- ("Select-Continued" 			25 )
- ("Order-Practice" 				26 )
- ("Rows-Questions" 				27 )
+ ("Select-Practice" 			25 )
+ ("Select-Continued" 			26 )
+ ("Order-Practice" 				27 )
+ ("Rows-Questions" 				28 )
 
 ;;;;;;;;;;;;;;;; Unit 8;;;;;;;;;;;;;
- ("Booleans-Comparison" 		29 )
- ("Sieve-Practice" 				30 )
+ ("Booleans-Comparison" 		30 )
+ ("Sieve-Practice" 				31 )
 
 ;;;;;;;;;;;;;;;; Unit 9;;;;;;;;;;;;;
- ("Extending-Tables" 			32 )
- ("Countries-Example" 			33 )
- ("Nutrition-Plan" 				34 )
- ("Presidents-Plan" 			35 )
- ("Rainfall-Plan" 				36 )
- ("Countries-Plan" 				37 )
- ("Contracts" 					41 )
+ ("Extending-Tables" 			33 )
+ ("Countries-Example" 			34 )
+ ("Nutrition-Plan" 				35 )
+ ("Presidents-Plan" 			36 )
+ ("Rainfall-Plan" 				37 )
+ ("Countries-Plan" 				38 )
+ ("Contracts" 					42 )
  )
 
 #|
