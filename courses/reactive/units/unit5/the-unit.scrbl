@@ -457,7 +457,7 @@ ones that will help you build your very own program!}
  @teacher{Some next steps/optional activities if students finish these activities:
 @itemlist[@item{Find your own images to create a different virtual pet}
           @item{Stop the bars from overflowing some maximum. (produce something like @editor-link[#:public-id "0B9rKDmABYlJVNTR6ajd4N1hPRm8" "this completed game"])}
-          @item{Add an x-coordinate to the PetState so the pet moves around, either on keypress or automatically.}
+          @item{Add an x-coordinate to the PetState so the pet moves around, either on keypress or based on clock ticks.}
           @item{Add a costume to the PetState, then change the draw-pet function so that it changes the costume based on the pet's mood (if a-pet.hunger <= 50, show a pic of the pet looking hungry)}]
 
 }}

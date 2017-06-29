@@ -128,7 +128,7 @@
 @student{Let's revisit the parachute jumper program from earlier.  We're going to write
 a function that tells us where the jumper is for a given @code{JumperState}.
 This is the kind of function you might need to write later on in your game, to
-detect where characters are, and make decisions based on that information.
+detect where characters are, and make decisions based on that information. For instance, you may need to know whether a character has reached a portal at a certain part of the screen to advance to the next level, or if they've fallen into dangerous lava, which reduces their health!
 
 @activity{Open your workbook to @worksheet-link[#:name "location"]. Use the design recipe to write a function to tell you where the parachute jumper is (either "cliff", "beach", "water", or "air"), based on the JumperState.}
           
