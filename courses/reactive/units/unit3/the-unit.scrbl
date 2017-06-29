@@ -260,7 +260,7 @@
 			illustration of repeated computations that functions can capture naturally.}}
 	@point{@student{Summarizing what we have seen so far, we have to write four things in order to make an animation:
                         @itemlist[#:style 'ordered
-                           @item{Create a @vocab{data structure} to hold the information that changes across frames. This information is called the @vocab{state}.}
+                           @item{Define the @vocab{state} to hold the information that changes across frames. This will typically (but not always!) take the form of a @vocab{data structure}.}
                            @item{Write a @vocab{function} to generate an image of the current state (we'll call this @code{draw-state}).}
                            @item{Write a @vocab{function} to generate a new state from a given state (we'll call this @code{next-state-tick}).}
                            @item{Define a @vocab{reactor} that will use an initial instance of the state and the two functions to create an animation.}
