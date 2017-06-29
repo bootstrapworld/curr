@@ -1,6 +1,5 @@
 #lang curr/lib
 
-@declare-tags[group pedagogy selftaught]
 
 @title{Contracts, Strings and Images}
 

@@ -1,5 +1,4 @@
 #lang curr/lib
-@declare-tags[pedagogy group selftaught bootstrap]
 
 @title{Creating Game Screenshots}
 

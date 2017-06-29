@@ -2,7 +2,6 @@
 
 @title{Unit 5: Key Events}
 
-@declare-tags[]
 
 @unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / num-sqr num-sqrt num-expt})
                                        (list "String" @code{string-append string-length})

@@ -1,6 +1,5 @@
 #lang curr/lib
 
-@declare-tags[group selftaught]
 @title{Unit 7: Conditional Branching}
 
 @unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sqr sqrt expt}) 

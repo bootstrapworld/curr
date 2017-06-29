@@ -1,7 +1,6 @@
 #lang curr/lib
 
 @title{Unit 4: Functions that Ask Questions}
-@declare-tags[]
 
 @unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / num-sqr num-sqrt num-expt})
                                        (list "String" @code{string-append string-length})

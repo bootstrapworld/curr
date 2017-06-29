@@ -1,6 +1,5 @@
 #lang curr/lib
 
-@declare-tags[management]
 
 @lesson/studteach[#:title "Scoring and Levels"
         #:duration "35 minutes"

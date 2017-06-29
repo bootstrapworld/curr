@@ -1,5 +1,4 @@
 #lang curr/lib
-@declare-tags[]
 
 @title{Unit 5: Game Animation}
 

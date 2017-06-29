@@ -1,6 +1,5 @@
 #lang curr/lib
 
-@declare-tags[management]
 
 @lesson/studteach[#:title "Nested Structures"
         #:duration "30 minutes"

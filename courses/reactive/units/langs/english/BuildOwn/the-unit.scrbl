@@ -1,5 +1,4 @@
 #lang curr/lib
-@declare-tags[]
 
 @title{Build Your Own Animation}
 

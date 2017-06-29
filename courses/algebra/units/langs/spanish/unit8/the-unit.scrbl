@@ -1,7 +1,6 @@
 #lang curr/lib
 @title{Unit 8: Collision Detection}
 
-@declare-tags[]
 
 @unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sqr sqrt expt})
                                        (list "String" @code{string-append string-length})

@@ -1,6 +1,5 @@
 #lang curr/lib
 
-@declare-tags[]
 
 @lesson/studteach[
      #:title "Making Flags"

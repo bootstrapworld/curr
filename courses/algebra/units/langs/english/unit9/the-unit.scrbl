@@ -1,6 +1,5 @@
 #lang curr/lib
 
-@declare-tags[]
 
 @title{Unit 9: Prepping for Launch}
 

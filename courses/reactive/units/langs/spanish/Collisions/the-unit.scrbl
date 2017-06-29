@@ -1,6 +1,5 @@
 #lang curr/lib
 
-@declare-tags[management]
 
 @title{Feature: Adding Collisions}
 

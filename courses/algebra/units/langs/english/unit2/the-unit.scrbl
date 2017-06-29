@@ -1,6 +1,5 @@
 #lang curr/lib
 
-@declare-tags[]
 
 @title{Unit 2: Contracts, Strings and Images}
 @unit-overview/auto[#:lang-table (list "Number" @code{+ - * / sqr sqrt expt})]{

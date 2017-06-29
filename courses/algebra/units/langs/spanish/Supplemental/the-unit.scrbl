@@ -1,7 +1,6 @@
 #lang curr/lib
 @title{Supplemental Lessons}
 
-@declare-tags[]
 
 
 @unit-overview/auto[#:lang-table (list (list "" @code{}))]{

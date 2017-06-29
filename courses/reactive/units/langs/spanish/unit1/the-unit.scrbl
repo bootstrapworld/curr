@@ -2,7 +2,6 @@
 
 @title{Unit 1: Everything you learned in Bootstrap:Algebra}
 
-@declare-tags[]
 
 @unit-overview/auto[#:lang-table (list (list "" @code{}))]{
    @unit-descr{While learning a new programming language, students review the major concepts and material from Bootstrap:Algebra, including Contracts, Expressions dealing with numbers, strings and images, Variable definitions, Function definitions, and the Design Recipe.}

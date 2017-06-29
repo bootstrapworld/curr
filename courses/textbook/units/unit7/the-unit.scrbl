@@ -1,5 +1,4 @@
 #lang curr/lib
-@declare-tags[group pedagogy selftaught bootstrap]
 
 @title{Unit 7: Booleans and Conditionals}
 

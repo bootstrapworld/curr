@@ -1,5 +1,4 @@
 #lang curr/lib
-@declare-tags[]
 
 @title{Unit 3: Structures, Reactors, and Animations}
 

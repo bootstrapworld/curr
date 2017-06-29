@@ -2,7 +2,6 @@
 
 @title{Unit 2: Introduction to Data Structures}
 
-@declare-tags[]
 
 
 @unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / num-sqr num-sqrt})
