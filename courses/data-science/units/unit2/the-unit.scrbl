@@ -242,7 +242,7 @@
             }
             @point{
                     @student{
-                            Look at the Height (inches) column. If you ask the question "How tall is John Doe?" (in other words, how much height does John Doe have?), the answer is 52.0 inches. Quantitative Data usually has units of measurement; in this case the unit of measurement is inches.                    
+                            Look at the @code{Height} column. If you ask the question "How tall is John Doe?" (in other words, how much height does John Doe have?), the answer is 52.0 inches. Quantitative Data usually has units of measurement; in this case the unit of measurement is inches.                    
                     }
                     @teacher{
                                                         
