@@ -419,7 +419,7 @@
           (printf "Copying from ~a to ~a ~n" (path->string (build-path input-resources-dir subdir)) (path->string (build-path output-resources-dir subdir)))
           ;; this created new directories for each of the four subdirs contained in resources, at the distribution end
           (match (path->string subdir)
-            [(or "teachers" "workbook")
+            [(or "teachers" "workbook" "misc.")
              (copy-directory/files (build-path input-resources-dir subdir "langs" (getenv "LANGUAGE") )
                               (build-path (simple-form-path output-resources-dir) subdir))]
             [(or "images" "source-files")
@@ -431,6 +431,11 @@
                            (copy-file (build-path input-resources-dir subdir)
                                       (build-path (simple-form-path output-resources-dir) subdir )
                                       #t))]))
+
+        
+
+
+        
         ; keep only certain files in workbook resources dir
         (let ([keep-workbook-files (list "workbook.pdf")])
           (for ([wbfiledir (directory-list (build-path output-resources-dir "workbook"))])
@@ -441,8 +446,8 @@
         ; ideally, modify workbook build process to generate right filename from the
         ; outset.  In the meantime, this puts the right filename in the distribution
         ; the "when" is there to avoid error in reactive (which has no workbook yet)
-        (when (file-exists? (build-path output-resources-dir "workbook" "workbook.pdf"))
-          (rename-file-or-directory (build-path output-resources-dir "workbook" "workbook.pdf")
+        (when (file-exists? (build-path output-resources-dir "workbook" "langs" (getenv "LANGUAGE")"workbook.pdf"))
+          (rename-file-or-directory (build-path output-resources-dir "workbook" "langs" (getenv "LANGUAGE") "workbook.pdf")
                                     (build-path output-resources-dir "workbook" "StudentWorkbook.pdf")))
       
         (let ([sourcefiles (build-path output-resources-dir "source-files")]
