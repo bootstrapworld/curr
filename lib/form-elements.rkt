@@ -952,7 +952,6 @@
 ;; registers the use in the current document.
 ;; NOTE: currently assumes lesson placed within a file named index.html
 (define (extract-lesson mp)
-  (printf "in extract-lesson. Hash: \n~a\n\n\n" (current-lesson-xref))
   (define lesson-name (lesson-module-path->lesson-name mp))
   (define a-doc (parameterize ([current-lesson-name lesson-name])
                   (dynamic-require mp 'doc)))
