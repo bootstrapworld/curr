@@ -27,7 +27,23 @@
 ;
 (putenv "LANGUAGE" "spanish")
 
+(define courses '("algebra" "reactive"))
+
 ; parse command-line arguments
+
+;; parse-course-args: list/of string -> list/of string
+;; This parses the list of course arguments, ensuring that they are all valid course names
+(define (parse-course-args rest-args)
+  (cond
+    [(empty? rest-args) empty]
+    [(cons? rest-args)
+     ;;checks if next argument is a command-line argument tag, rather than a course name
+     (let [(course-name (first rest-args))]
+       (if (member course-name courses)
+           (cons course-name (parse-course-args (rest rest-args)))
+           (error "Build got unrecognized target course: " course-name " -- expected"
+                  (foldl (lambda (a b) (string-append a " or " b)) "" courses))))]))
+
 
 (command-line
  #:program "build-workbook"
@@ -36,6 +52,8 @@
                    (if (member -language (list "english" "spanish"))
                        (putenv "LANGUAGE" -language)
                        (error "Build got unrecognized target language: " -language " -- expected english or spanish"))]
+ [("--course") -course "List all courses that you want to build. They MUST be separated by \"_\"_. Default: All available courses"
+                 (set! courses (parse-course-args (string-split -course "_")))] 
  [("--solutions") "Generate workbook with solutions"
                                (solutions-mode-on)]
  #:args tags
@@ -211,7 +229,7 @@
 
 
 ; for now, only algebra is set up for auto-building
-(define bootstrap-courses '("algebra" "reactive"));; removed "reactive"
+(define bootstrap-courses courses);;
 
 ; use this to tell scribble to use the workbook.css file
 (putenv "BOOTSTRAP-TARGET" "workbook")
