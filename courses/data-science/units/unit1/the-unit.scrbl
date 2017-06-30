@@ -31,7 +31,7 @@
                             you'll learn how to ask and answer questions about data.  The process 
                             of learning from data is called @vocab{Data Science}.  Data science techniques 
                             are used by scientists, business people, politicians, sports analysts, 
-                            and hundereds of other different fields to ask and answer questions about data.
+                            and hundreds of other different fields to ask and answer questions about data.
                     }
                     @teacher{
                             Motivate relevance of data science by using examples that
