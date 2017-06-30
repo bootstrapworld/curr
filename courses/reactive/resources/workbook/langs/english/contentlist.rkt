@@ -24,6 +24,7 @@
  ("StudentWorkbook.pdf" "taller-than")
  ("StudentWorkbook.pdf" "will-melt")
  ;;;;; UNIT 3 ;;;;;;;;;
+ ("StudentWorkbook.pdf" "Unit-3")
  ("StudentWorkbook.pdf" "animation-sunset")
  ("StudentWorkbook.pdf" "animation-data-2-blank")
  ("StudentWorkbook.pdf" "draw-state")
