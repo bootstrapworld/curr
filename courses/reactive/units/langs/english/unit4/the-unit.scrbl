@@ -228,7 +228,7 @@ information about the animation.}
 				 one that we want to practice with this exercise.  It is so useful, in fact, that we've
 				 created a worksheet to help you map out what needs to change in an existing animation
 				 to support new behavior.
-				 @activity{Turn to @worksheet-link[#:name "extend-sunset-color"]. Fill in the description
+				 @activity{Turn to @worksheet-link[#:name "animation-extension-1-sun"]. Fill in the description
 				 	   of the animation change and three sample images at the top of the first page.
 					   If you don't have colored pencils, just make an annotation near each sketch
 					   as to what color the sun should be in that sketch.}
@@ -296,7 +296,7 @@ information about the animation.}
 						               rectangle(WIDTH, HEIGHT, "solid", "light-blue")))
 						       end }
 				
-				@activity{Open your wokbook to @worksheet-link[#:name "draw-sun"]. Here we have directions for
+				@activity{Open your wokbook to @worksheet-link[#:name "sun-color"]. Here we have directions for
 				writing a function called @code{draw-sun}, Which consumes a @code{SunsetState} and produces an
 				image of the sun, whose color is either "yellow", "orange", or "red" depending on its y-coordinate.}}
                         @teacher{The word problem assumes a background scene size of 400x300 pixels. Once students use their

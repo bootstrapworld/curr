@@ -306,7 +306,7 @@ then let you try the other two on your own. }
                 For this extension, we want to decrease
 		the hunger by 2 and the sleep by 1 each time the animation ticks to a new frame.
 
-       @activity{Open your workbook to @worksheet-link[#:name "anim-design-pet"], which
+       @activity{Open your workbook to @worksheet-link[#:name "cat-hunger"], which
        		 shows you the extension worksheet filled in for this extension.}
 
 In this filled-in worksheet, the description from the problem is written down into the "goal" part
@@ -399,7 +399,7 @@ end}
                 Next, we'll add key events to the game so the player can increase them so they
 		don't reach zero! 
 
-		@activity[]{Turn to @worksheet-link[#:name "pet-key-extension"] in your workbook.
+		@activity[]{Turn to @worksheet-link[#:name "animation-extension-pet-key"] in your workbook.
 		            Fill in the first page to plan out the following extension:
 	    		    On a keypress, if the user pressed "f" (for "feed"), @code{hunger} should
 			    increase by 10. If the user pressed "s" (for "sleep"), @code{sleep} should
@@ -431,7 +431,7 @@ and test out your game!
 			     lost, the "f" and "s" keys shouldn't do anything.  Instead, the user should be
 			     able to press the "r" key (for "restart"), to reset hunger and sleep
 			     100, and start playing again. Use the animation-extension worksheet on
-			     @worksheet-link[#:name "pet-sad-extension"] to plan out your changes.}
+			     @worksheet-link[#:name "animation-extension-pet-sad"] to plan out your changes.}
 	         }
 
         @teacher{}}
