@@ -27,7 +27,19 @@
         @points[
                 @point{
                         @student{
-                                Does a more expensive menu always mean a better meal? Suppose you're visiting a new city, and you want to go out for a great meal. Someone suggests a really expensive restaurant, and assures you it's the best in town. How do you know if you're being ripped off? You now have significant experience asking questions about data sets:  You know how to take measures of center, and how to visualize both categorical and quantitative data. Let's use this experience to find out if the expensive restaurants are really worth the money. First, we'll start with out data set:  a table containing information about the restaurants in town.
+                                Are more expensive restaurants generally better than cheaper ones?
+
+                                @activity{
+                                    Turn to page @worksheet-link[#:name "Unit-6"]. Take two minutes and write down what you think.
+                                }
+                        }
+                        @teacher{
+                                Encourage students to discuss openly before writing.
+                        }
+                }
+                @point{
+                        @student{
+                                Suppose you're visiting a new city, and you want to go out for a great meal. Someone suggests a really expensive restaurant, and assures you it's the best in town. How do you know if you're being ripped off? You now have significant experience asking questions about data sets:  You know how to take measures of center, and how to visualize both categorical and quantitative data. Let's use this experience to find out if the expensive restaurants are really worth the money. First, we'll start with out data set:  a table containing information about the restaurants in town.
 
                                 @build-table/cols[
                                         '("name" "price" "rating")
@@ -102,18 +114,15 @@
                 @point{
                         @student{
                                 @bitmap{images/price-vs-rating.png}
-                                To answer this question, we will return to the very first chart you learned about in this class: @vocab{scatter plots}. A scatter plot is a chart that plots every pair of numbers in 2 columns. By extracting the two columns from @code{restaurants}...
+                                To answer this question, we will return to the very first chart you learned about in this class: @vocab{scatter plots}. A scatter plot is a chart that plots every pair of numbers in 2 columns. By extracting the two columns from @code{restaurants}, we can create a series to plot:
 
                                 @code[#:multi-line #t]{
                                         ratings-list = extract rating from restaurants end
                                         prices-list  = extract price  from restaurants end
+                                        prices-vs-ratings-series = scatter-plot(prices-list, ratings-list))
+                                        prices-vs-ratings-plot = plot(prices-vs-ratings-series)
                                 }
-
-                                ...we can create a series to plot:
-
-                                @code[#:multi-line #t]{
-                                        plots([scatter-plot(prices-list, ratings-list)]).title("Price v. Rating")
-                                }
+                                Click Run, and display the scatterplot for @code{prices-vs-ratings-plot}
                         }
                         @teacher{
 
@@ -326,12 +335,10 @@
                                 Data scientists use statistics to build a @italic{model} of a data set. This model takes into account a lot of different measures (including some of the ones you already know), and tries to identify patterns and relationships within the data. We can build a model of our own in Pyret, and grab a @italic{predictor function} from it:
 
                                 @code[#:multi-line #t]{
-                                        rating-model = lin-reg-2V(prices-list, ratings-list) # build a model using linear regression
-                                        rating-predictor = rating-model.predictor()          # define our predictor
+                                        # use linear regression to extract a predictor function
+                                        rating-predictor = linear-regression(prices-list, ratings-list) 
                                 }
-                                @code{lin-reg-2V} is a function that takes 2 lists as arguments, and returns a @code{StatModel}. This is the statistical model of our data set.
-
-                                @code{rating-model.predictor()} produces a function, representing the line that best fits the data. We define this function to be the identifier @code{rating-predictor}, and we can use it just like any other function. 
+                                @code{linear-regression} is a function that takes 2 lists as arguments, and returns a function of Type @code{Number -> Number}. This function is our predictor, representing the line that best fits the data. We define this function to be the identifier @code{rating-predictor}, and we can use it just like any other function. 
 
                                 @activity[#:forevidence "BS-IDE&1&1"]{
                                         Type @code{rating-predictor(0)} into the interactions window. What is the output?  What happens with @code{rating-predictor(20)?} What is the contract for @code{rating-predictor}?
@@ -341,13 +348,13 @@
 
                         }
                         @teacher{
-                                @code{lin-reg-2V} stands for "linear regression of two variables". If you also want to teach students the algorithm for calculating ordinary least squares, do so before students use this function.
+                                If you want to teach students the algorithm for linear regression (calculating ordinary least squares), now is a good time to do it!
                         }
                 }
                 @point{
                         @student{
                                 @activity{
-                                    We already know how to plot a function - we used @code{function-plot} back in unit 1! Use Pyret to plot this function, on top of the scatterplot you created earlier. Remember: you can always go back to your contracts page if you need a reminder!
+                                    We already know how to plot a function - we used @code{plot} back in Unit 1! Use Pyret to plot this function, and the scatter-plot. Ideally, we'd like to plot these @italic{on top of one another}, and we can do this using the @code{plots} functions. It works much the way @code{plot} does, but instead it takes a @italic{list of plots} (@code{List<Series>}) as its Domain.
                                 }
                         }
                         @teacher{
@@ -401,10 +408,13 @@
                                 In your workbook activity, you gave predictors "grades" for how well they performed. Data scientists use @vocab{r-squared} values to grade predictors in real life.
 
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Type @code{rating-model.r-squared()} into the interactions window.
+                                        Type @code{r-squared(prices-list, ratings-list, rating-predictor)} into the interactions window.
                                 }
 
-                                This is a number on the same scale [0, 1] that represents how well our predictor fits the data.  For the price vs ratings, the predictor score is ~0.71, which is fairly accurate.
+                                This is a number on the same scale [0, 1] that represents how well our predictor fits the data.  For the price vs ratings, the predictor score is ~0.71, which is fairly accurate. The contract for @code{r-squared} is:
+                                @code[#:multi-line #t]{
+                                    # r-squared : List<Number> List<Number> (Number->Number) -> Number
+                                }
 
                                 @activity[#:forevidence "BS-IDE&1&1"]{
                                         Determine the r-squared values for each of the 3 models you created previously, and interpret them.  Do they show perfect direct correlation? A weak correlation?  No correlation at all?
@@ -427,8 +437,8 @@
         ]
    }
 @lesson/studteach[
-     #:title "Brainstorming"
-     #:duration "5 minutes"
+     #:title "Closing"
+     #:duration "10 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -446,7 +456,14 @@
                 @point{
                         @student{
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Brainstorm questions that could be answered by determining correlations between data that YOU are interested.  It could be using a sports dataset, music dataset, etc.
+                                    @itemlist[
+                                        @item{
+                                            Turn to @worksheet-link[#:name "Unit-6"], and take two minutes to write down your findings. In your answer, include the fact that you used linear regression to come up with a predictor. Bonus points for explaining what the r-squared value tells about that prediction!
+                                        }
+                                        @item{
+                                            Brainstorm questions that could be answered by determining correlations between data that YOU are interested.  It could be using a sports dataset, music dataset, etc.
+                                        }
+                                    ]
                                 }
                         }
                         @teacher{
@@ -454,6 +471,6 @@
                         }
                 }
         ]
-   }
+    }
 }
 

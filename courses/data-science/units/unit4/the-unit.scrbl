@@ -5,7 +5,7 @@
 @declare-tags[]
 
 @unit-overview/auto[#:lang-table (list (list "" @code{}))]{
-  @unit-descr{Students learn to create and interpret Bar and Pie charts.}
+  @unit-descr{Students learn to create and interpret Bar and Pie charts, as well as Frequency Bar Charts.}
 }
 @unit-lessons{
 @lesson/studteach[
@@ -38,7 +38,7 @@
                               @bitmap{images/cholesterol_per_item.png}
 
                               Data scientists often use @vocab{charts} to give a graphical  representation of the data.  @vocab{Charts} are pictures, where some part of the picture relates to values in a data set.
-                              You've already seen one kind of chart: a scatterplot.  @vocab{Bar charts} are used to compare rows in a table by their entries in a particular column.  In this example, we are comparing each item on the menu by the amount of cholesterol it has.  The length of the bar relates to the amount of cholesterol:  shorter bars mean less cholesterol, and higher bars mean more cholesterol.
+                              You've already seen two kind of plots: a function plot and a scatter plot.  @vocab{Bar charts} are used to compare rows in a table by their entries in a particular column.  In this example, we are comparing each item on the menu by the amount of cholesterol it has.  The length of the bar relates to the amount of cholesterol:  shorter bars mean less cholesterol, and higher bars mean more cholesterol.
 
                       }
                       @teacher{
@@ -148,51 +148,36 @@
                 @point{
                       @student{
                               @code[#:multi-line #t]{
-                                    bar-chart(food-list,
-                                              cholesterol-list,
-                                              _.{title: 'Cholesterol per Menu Item'})
+                                    # Define some Series
+                                    cholesterol-bar-series = bar-chart(food-list, cholesterol-list)
+                                    cholesterol-pie-series = pie-chart(food-list, cholesterol-list)
+                                    # Define some Plots
+                                    cholesterol-bar-chart = bar-chart(food-list, cholesterol-list)
+                                    cholesterol-pie-chart = pie-chart(food-list, cholesterol-list)
                               }
 
-                              This code uses a new function you haven't seen before: @code{bar-chart}. The contract for the function is:
+                              This code uses new functions you haven't seen before: @code{bar-chart} and @code{pie-chart}. As you might expect, the contracts for these function are:
                                @code[#:multi-line #t]{
-                                    bar-chart : List<String> List<Number> PlotOptions -> Image
+                                    # bar-chart : List<String> List<Number> -> Series
+                                    # pie-chart : List<String> List<Number> -> Series
                               }
 
-                              The @code{bar-chart} function takes three arguments, and returns a @code{Image}. What do these arguments mean?
+                              What do the two arguments in their domains represent?
                               @itemlist[
                                       @item{
-                                            The first is the list of labels.  Each of these will be the @italic{name} of a bar on the chart.
+                                            The first is the list of labels.  Each of these will be the @italic{name} of a bar or pie slice on the chart.
                                       }
                                       @item{
-                                            The second is the list of values.  Each of these corresponds to the @italic{length} of a bar on the chart.
-                                      }
-                                      @item{
-                                            The final argument is a PlotOptions object.  This argument allows us to change the title, color, and many other aspects of the plot. For now, all we will change is the title.
+                                            The second is the list of values.  Each of these corresponds to the @italic{size} of a bar or slice on the chart.
                                       }
                               ]
 
                               @activity{
-                                  Write the contract for @code{bar-chart} in your Contracts page.
+                                  Write the contracts for these functions in your Contracts page, then use @code{.display()} with these plots to draw them to screen.
                               }
-
-                              @code[#:multi-line #t]{
-                                    pie-chart(food-list,
-                                              cholesterol-list,
-                                              _.{title: 'Cholesterol per Menu Item'})
-                              }
-
-                              The @code{pie-chart} function is very similar. Can you guess the contract for @code{pie-chart}? Write it into your Contracts page.
                       }
                       @teacher{
-                              @itemlist[
-                                      @item{
-                                            Encourage students to follow the convention of these function applications: Hit Enter/Return after every argument when applying plot functions, as it makes things easier to read.
-                                      }
-                                      @item{
-                                            More information on the @code{_.{}} syntax of the PlotOptions can be found in the @(hyperlink "https://www.pyret.org/docs/latest/plot.html#%28part._.The_.Options_.Types_and_.Default_.Values%29" "Pyret Documentation")
-                                      }
-                              ]
-                              
+                        
                       }
                 }
                 @point{
@@ -298,18 +283,16 @@
                       @student{
                               This special kind of bar chart is called a @vocab{frequency bar chart}.  There's a function in Pyret that lets us build frequency bar charts from a list:
                               @code[#:multi-line #t]{
-                                freq-bar-char : List<String> PlotOptions -> Plot
+                                freq-bar-char : List<String> -> Series
                               }
                               Below is an example that computes the frequency of categories in the @code{home-state} column of @code{presidents}.
 
                               @code[#:multi-line #t]{
-                                    home-state-list = extract home-state from presidents end
-
-                                    freq-bar-chart(home-state-list,
-                                                   _.{title: 'Presidents from each State'})
+                                    home-state-list   = extract home-state from presidents end
+                                    home-state-series = freq-bar-chart(home-state-list)
                               }
 
-                              What do the two arguments to @code{freq-bar-chart} mean?
+                              What does the argument to @code{freq-bar-chart} mean?
                       }
                       @teacher{
                       

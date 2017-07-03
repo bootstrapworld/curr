@@ -5,7 +5,7 @@
 @declare-tags[]
 
 @unit-overview/auto[#:lang-table (list (list "" @code{}))]{
-  @unit-descr{Students write simple programs in Pyret, and learn about Numbers, Strings, Expressions, Operations, Functions, Lists and Tables.}
+  @unit-descr{Students write simple programs in Pyret, and learn about Numbers, Strings, Expressions, Operations, and Functions.}
 }
 @unit-lessons{
 @lesson/studteach[
@@ -333,7 +333,7 @@
    }
 
 @lesson/studteach[
-     #:title "Variables and Functions"
+     #:title "Defining Variables"
      #:duration "20 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
@@ -436,7 +436,7 @@
    }
 
 @lesson/studteach[
-     #:title "Applying Functions"
+     #:title "Functions"
      #:duration "25 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
@@ -605,28 +605,45 @@
                     @teacher{
 
                     }
-             }
+            }
             @point{
                     @student{
-                        As you know from math, any function that consumes a number and produces a number can be graphed on an x-y axis. There's even a function in Pyret for graphing other functions!
-                        @code[#:multi-line #t]{
-                            display-function("f(x)=√x", num-sqrt)
-                        }
-                        Try typing this into Pyret, and see what happens.
-
+                            Pyret has many, many more functions. Some of these functions are defined as part of the language, and others are defined in extra files that we have to load by hand. Fortunately, including an external file is really easy! Try typing in the following code at the top of the Definitions Area:
+                            @code[#:multi-line #t]{
+                                include plot-lib
+                            }
+                            This includes a file called @code{plot-lib}, which defines a lot of extra functions for making charts, graphs and plots. When you click Run, Pyret will read that file and become aware of all those plotting functions.
                     }
                     @teacher{
 
                     }
             }
             @point{
-                @student{
-                        @bitmap{images/sqrt-graph.png}
-                        What's the contract for @code{display-function}? The Name is the easy part, but what about the Domain and Range? We can see that it takes in two arguments: the String @code{"f(x)=√x"}, and the @italic{function} @code{num-sqrt}. It also produces something that is neither a Number nor a String: it produces an @italic{Image} of the plot. We would write the contract for the function as:
+                    @student{
+                        Two functions imported by this file are called @code{plot} and @code{function-plot}:
                         @code[#:multi-line #t]{
-                            # display-function: String (Number->Number) -> Image
+                            # function-plot: (Number -> Number) -> Series
+                            # plot : Series -> Plot
                         }
-                        As you can see, @code{display-function} can use any title we like, and it only works on functions that consume and produce a single number. Looking at your contracts page, what other functions do you see that could be graphed?
+                        @code{function-plot} consumes any function that maps from Numbers to Numbers (xs to ys, for example), and returns a series representing the graph of that function. @code{plot} consumes that series, and produces a @code{Plot} object. Make sure you write these down in your contracts page!
+                    }
+                    @teacher{
+
+                    }
+            }
+            @point{
+                    @student{
+                        We can define identifiers for both the series and the plot:
+                        @code[#:multi-line #t]{
+                            # define the series and the graph for the function f(x)=√x
+                            sqrt-series = function-plot(num-sqrt)
+                            sqrt-graph  = plot(function-plot(num-sqrt))
+                        }
+                        Once we click Run, we can see what these values look like. The @code{plot-object} has a method we can call to display the plot:
+                        @code[#:multi-line #t]{
+                            sqrt-graph.display()
+                        }
+                        Looking at your contracts page, do you see any other functions that we could plot?
                 }
                 @teacher{
 
@@ -653,9 +670,7 @@
         @points[
              @point{
                     @student{
-                            By learning to use values, variables, operations and functions, you are now familiar with the 
-                            fundamental concepts needed to write simple programs.  You will have many opportunities to
-                            use these concepts in the next units, by writing programs to answer data science questions.
+                            By learning to use values, variables, operations and functions, you are now familiar with the fundamental concepts needed to write simple programs.  You will have many opportunities to use these concepts in the next units, by writing programs to answer data science questions.
 
                             @activity[#:forevidence "BS-IDE&1&1"]{
                                     Make sure to save your Pyret program as @code{unit-1} into your Google Drive.

@@ -28,6 +28,17 @@
         @points[
                 @point{
                       @student{
+                          According to the US Census Bureau, the average American household earned more than $45,000 in 2003 - more than 3x the poverty line that year. Can we conclude that only a small percentage of Americans were in poverty that year?
+                          @activity{
+                              Take two minutes to write down what you think on @worksheet-link[#:name "Unit-3"].
+                          }
+                      }
+                      @teacher{
+                          Invite an open discussion for a few minutes, then give students time to write down what they think.
+                      }
+                }
+                @point{
+                      @student{
                               Open the @editor-link[#:public-id "0BzzMl1BJlJDkd2pNMmRwc2dkNE0" "Unit 3 template file"] and click run.
                               Now that you are familiar with how tables organize data, it's time to solve some problems with them. We already know how to evaluate an identifier once a program has been run: we just type the identifier into the Interactions Area and hit "Enter" to see the value. For example, we can type the identifier @code{presidents} or @code{nutrition} into the interactions window, and we see the table. There are some other identifiers defined here - what are their names?
                               @activity{
@@ -516,7 +527,7 @@
                                       Suppose we want to know how long the average person on Earth lives. Would taking the mean of @code{median-life-expectancy} give us the answer? Why or why not?
                                   }
                                   @item{
-                                      Do people in wealthier countries live longer than people in poor countries? Use the @code{display-scatter-plot} function to plot the relationship between GDP and median life expectancy.
+                                      Do people in wealthier countries live longer than people in poor countries? Use the @code{scatter-plot} function to plot the relationship between GDP and median life expectancy.
                                   }
                               ]
                           }
@@ -531,3 +542,46 @@
 
 }
 
+@lesson/studteach[
+     #:title "Closing"
+     #:duration "10 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[]
+     #:standards (list)
+     #:materials @itemlist[]
+     #:preparation @itemlist[]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[
+              @point{
+                  @student{
+                          @activity{
+                              Use @code{mean}, @code{median} and @code{mode} with the @code{household-income} list. Do you think the "average household income" is still a good measure to use when talking about poverty? Why or why not? Take two minutes to write your answer on on @worksheet-link[#:name "Unit-3"].
+                          }
+
+                      }
+                      @teacher{
+                          Have the class debrief their findings. Did anyone's mind change after looking at the data? Is the data convincing or not? Why or why not?
+                      }
+              }
+             @point{
+                    @student{
+                           Congratulations! You've just learned the basics of the Pyret programming language, and how to use that language to answer a data science question. Throughout this course, you'll learn new and more powerful tools that will allow you answer more complex questions, and in greater detail.
+
+                     @activity[#:forevidence "BS-IDE&1&1"]{
+                            Make sure to save your work.  Hit the Save button in the top left. This will save your program in the code.pyret.org folder within your Google Drive.
+                  }
+              }
+                    @teacher{
+                             If your students are working in pairs/groups, make sure that each student has access to a version of the program.  The student who saved the program to their Google Drive can share their program with anyone by hitting the Publish button in the top left, choosing "Publish a new copy", then clicking the "Share Link" option.  This will allow them to copy a link to the program, then send to their partners in an email/message.
+                   }
+              }
+        ]
+   }
+}

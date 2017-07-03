@@ -5,7 +5,7 @@
 @declare-tags[]
 
 @unit-overview/auto[#:lang-table (list (list "" @code{}))]{
-  @unit-descr{Students are introduced to Lists and Tables in Pyret, as well as scatter plots as a way of visualizing data}
+  @unit-descr{Is there a relationship between the amount of sugar in a meal, and the number of calories? Do more caloric meals tend to have more sugar? To answer this question, students are introduced to Lists and Tables in Pyret, as well as scatter plots as a way of visualizing data}
 }
 @unit-lessons{
 @lesson/studteach[
@@ -25,14 +25,25 @@
                 )
       ]{
         @points[
-        	@point{
+            @point{
+              @student{
+                  A lot restaurants these days publish nutrition information as part of their menu. When you look at these menus, you can find out how many calories each item contains. How much of a role does sugar play in that? Do sugary meals @italic{always} have more calories than meals with less sugar? Do high-calorie meals @italic{always} have a lot of sugar in them? 
+                    @activity{
+                        Turn to on @worksheet-link[#:name "Unit-2"]. Take two minutes to write down what you think, and why.
+                    }
+              }
+              @teacher{
+                  Give the class a minute for open discussion. The more they are engaged with the question, the more substantial their answers will be.
+              }
+            }
+        	  @point{
         	 		@student{
-        	 				So far you have learned the fundamentals of writing programs that do work on simple data like Numbers (@code{1, -6, 3.5,} etc.) and Strings (@code{"hello", "17",} etc.). As data scientists, we need write programs that work on complex data, which can have many related parts and contain dozens or millions of entries. In this unit, you will learn how Pyret works with real-world data, and how to answer data science questions by writing programs over that data. Let's take a look at some complex data right now...
+        	 				So far you have learned the fundamentals of writing programs that do work on simple data like Numbers (@code{1, -6, 3.5,} etc.) and Strings (@code{"hello", "17",} etc.). As data scientists, we need write programs that work on complex data like @italic{restaurant menus}, which can have many related parts and contain dozens or millions of entries. In this unit, you will learn how Pyret works with real-world data, and how to answer data science questions like this one by writing programs over that data. Let's take a look at some complex data right now...
         	 		}
         	 		@teacher{
 
         	 		}
-        	}
+        	  }
             @point{
                     @student{
             							@build-table/cols[
@@ -416,24 +427,11 @@
                 }
                 @point{
                       @student{
-                          Do foods with more sugar tend to have more calories? Now that we have calories and sugar extracted as lists, we can plot these data points and find out! We can use the @code{display-scatter-plot} function to do just that, by writing:
+                          Do foods with more sugar tend to have more calories? Now that we have calories and sugar extracted as lists, we can plot these data points and find out! Once again, we'll want to include the @code{plot-lists} file, and all the functions defined within it. This time, instead of using @code{function-plot} we'll use @code{scatter-plot}, which takes in two lists of numbers. 
                           @code[#:multi-line #t]{
-                            display-scatter-plot(sugar-list, calories-list, "Sugar v. Calories")
+                            sugar-v-calories = scatter-plot(calories-list, sugar-list)
                           }
-                          This chart has two @vocab{axes}.  An @vocab{axis} is the line that measures a particular value. For example, in this chart the @vocab{horizontal axis} (left to right) measures the @code{calories} in a menu item. The @vocab{vertical axis} (up and down) axis in this chart measures the @code{sugar} in that item. Each axis has lines to indicate where certain values should lie along the axis.
-                      }
-                      @teacher{
-
-                      }
-
-                }
-                @point{
-                      @student{
-                        @activity{
-                              Write the contract for @code{display-scatter-plot} in your Contracts page.
-                              Try plotting other columns against one another. What patterns do you see?
-                          }
-                          What do you notice about this plot? Is there a relationship between sugar and calories? Later on in this class, you'll learn how to plot many kinds of data, and how to search for trends and relationships like this one!
+                          What do you think the contract is for @code{scatter-plot}? Copy it down into your Contracts page. Once we've created the series, it's time to plot it. 
                       }
                       @teacher{
 
@@ -444,7 +442,7 @@
 
 @lesson/studteach[
      #:title "Closing"
-     #:duration "5 minutes"
+     #:duration "10 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -459,9 +457,22 @@
                 )
       ]{
         @points[
+              @point{
+                  @student{
+                          @activity{
+                            Use the @code{plot} function to draw this scatter plot. What do you notice about this plot? Is there a relationship between sugar and calories? Take two minutes and write your answer on on @worksheet-link[#:name "Unit-2"] - does this support your hypothesis or not?
+                            @bold{What other kinds of relationships can you find in these tables?}
+                          }
+                          Later on in this class, you'll learn how to plot many kinds of data, and how to search for trends and relationships like this one!
+
+                      }
+                      @teacher{
+                          Have the class debrief their findings. Did anyone's mind change after looking at the data? Is the data convincing or not? Why or why not?
+                      }
+              }
              @point{
                     @student{
-							             Congratulations! You've just finished loading your first table in Pyret, which is a big accomplishment. Next, you will learn how to write Pyret code that manipulates these tables. This will be the first thing in your "data science tool box".
+							             Congratulations! You've just learned the basics of the Pyret programming language, and how to use that language to answer a data science question. Throughout this course, you'll learn new and more powerful tools that will allow you answer more complex questions, and in greater detail.
 
 							       @activity[#:forevidence "BS-IDE&1&1"]{
 								            Make sure to save your work.  Hit the Save button in the top left. This will save your program in the code.pyret.org folder within your Google Drive.
@@ -474,5 +485,3 @@
         ]
    }
 }
-
-

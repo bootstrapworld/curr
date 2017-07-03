@@ -28,7 +28,10 @@
                 @point{
                         @student{
                                 @bitmap{images/dice.png}
-                                Suppose a stranger invites you to play a game. You start by guessing a number between 2 and 12.  The stranger rolls two dice, and add the numbers together.  If that sum is the number you guessed, you win the jackpot, but if your number is wrong, then you lose your money. How can we maximize our chances of winning?
+                                Suppose a stranger invites you to play a game. You start by guessing a number between 2 and 12.  The stranger rolls two dice, and add the numbers together.  If that sum is the number you guessed, you win the jackpot, but if your number is wrong, then you lose your money. What are your odds of winning this game? Are they good enough that it's worth playing?
+                                @activity{
+                                        Turn to page @worksheet-link[#:name "Unit-5"]. Take two minutes to write your answer.
+                                }
                         }
                         @teacher{
                                 @itemlist[
@@ -110,15 +113,14 @@
                                 We can use a different kind of chart for visualizing @italic{how frequent values are} in a list of quantitative data.  This kind  of chart is a called @vocab{histogram}, and it is similar to the bar charts you have seen before.
 
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Type the following code into your interactions window, then hit Enter/Return:
+                                        Type the following code into your Definitions Area to create the histogram series and the plot.
 
                                         @code[#:multi-line #t]{
-                                                histogram(roll-dice(10000),
-                                                          11,
-                                                          _.{title: 'Frequency of Dice Rolls'})
+                                                dice-histogram-series = histogram(roll-dice(10000), 11)
+                                                dice-histogram-plot   = plot(dice-histogram-series)
                                         }
 
-                                        Try changing the second argument from @code{11} to @code{1}. What do you think this argument means?
+                                        Use @code{.display()} to see what the histogram looks like, then try changing the second argument from @code{11} to @code{1}. What do you think this argument means?
                                 }
 
                                 Here, the @code{histogram} function takes three arguments:
@@ -128,9 +130,6 @@
                                         }
                                         @item{
                                                 The second is the number of evenly-spaced @italic{bins} into which we want to group our list (we'll talk more about this in a moment).
-                                        }
-                                        @item{
-                                                The third is a @code{PlotOptions} object, just like in @code{bar-chart}, @code{pie-chart}, or @code{freq-bar-chart}.
                                         }
                                 ]
                         }
@@ -171,14 +170,15 @@
                                                     Run the code to make the histogram a few more times.  Is the 
                                                     number of times 7 appears ever more than 5000 times?
                                                 }
+                                                @item{
+                                                    Turn to @worksheet-link[#:name "Unit-5"] and write down your findings.
+                                                }
                                         ]
                                 }
 
                                 The roll 7 is definitely the roll that happens the most often.  However, it never
                                 appears more than half of the 10000 rolls.  That means, most of the time we 
-                                play this game, we would lose!  We should definitely NOT play this game!  If
-                                a stranger ever offers to play this game with you, walk away and put your 
-                                money into a savings account.
+                                play this game, we will lose!
                         }
                         @teacher{
 
