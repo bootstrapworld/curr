@@ -40,67 +40,26 @@
 ;;;;;;;;;;;;;;;; Unit 7;;;;;;;;;;;;;
  ("Unit-7" 	 					24 )
  ("Select-Practice" 			25 )
- ("Select-Continued" 			26 )
- ("Order-Practice" 				27 )
- ("Rows-Questions" 				28 )
+ ("Select-Plan" 				26 )
+ ("Order-Plan" 					27 )
+ ("Select-Order-Plan" 			28 )
+ ("Select-Order-Plan-2" 		29 )
 
 ;;;;;;;;;;;;;;;; Unit 8;;;;;;;;;;;;;
- ("Unit-8" 	 					29 )
- ("Booleans-Comparison" 		30 )
- ("Sieve-Practice" 				31 )
+ ("Unit-8" 	 					30 )
+ ("Booleans-Comparison" 		31 )
+ ("3-Step-Plan-1" 				32 )
+ ("3-Step-Plan-2" 				33 )
+ ("Bad-Starter-Tables" 			34 )
+ ("3-Step-Plan-3" 				35 )
 
 ;;;;;;;;;;;;;;;; Unit 9;;;;;;;;;;;;;
- ("Unit-9" 	 					32 )
- ("Extending-Tables" 			33 )
- ("Countries-Example" 			34 )
- ("Nutrition-Plan" 				35 )
- ("Presidents-Plan" 			36 )
- ("Rainfall-Plan" 				37 )
- ("Countries-Plan" 				38 )
- ("Contracts" 					42 )
+ ("Unit-9" 	 					36 )
+ ("Extending-Tables" 			37 )
+ ("Countries-Example" 			38 )
+ ("Nutrition-Plan" 				39 )
+ ("Presidents-Plan" 			40 )
+ ("Rainfall-Plan" 				41 )
+ ("Countries-Plan" 				42 )
+ ("Contracts" 					46 )
  )
-
-#|
- ("DSAWorkbook.pdf" "Identifiers-Expressions")
- ("DSAWorkbook.pdf" "Contracts-Functions")
-
- ;;;;; UNIT 2 ;;;;;;;;;
- ("DSAWorkbook.pdf" "Animals")
- ("DSAWorkbook.pdf" "Presidents-Nutrition")
-
- ;;;;; UNIT 3 ;;;;;;;;;
- ("DSAWorkbook.pdf" "Mean-Median-Mode")
- ("DSAWorkbook.pdf" "Measuring-Center")
- ;;;;; UNIT 4 ;;;;;;;;;
- ("DSAWorkbook.pdf" "Questions-With-Charts")
- ("DSAWorkbook.pdf" "Freq-Bar-Chart")
- ("DSAWorkbook.pdf" "Chart-Practice")
- ("DSAWorkbook.pdf" "More-Chart-Practice")
-
- ;;;;; UNIT 5 ;;;;;;;;;
- ("DSAWorkbook.pdf" "Histograms")
- ("DSAWorkbook.pdf" "Histogram-Practice")
-
- ;;;; UNIT 6 ;;;;;;;;;
- ("DSAWorkbook.pdf" "Scatter-Plot")
- ("DSAWorkbook.pdf" "Grading-Predictors")
- ("DSAWorkbook.pdf" "More-Predictors")
- 
- ;;;; UNIT 7 ;;;;;;;;;
- ("DSAWorkbook.pdf" "Select-Practice")
- ("DSAWorkbook.pdf" "Select-Continued")
- ("DSAWorkbook.pdf" "Order-Practice")
-
- ;;;; UNIT 8 ;;;;;;;;;
- ("DSAWorkbook.pdf" "Rows-Questions")
- ("DSAWorkbook.pdf" "Booleans-Comparison")
- ("DSAWorkbook.pdf" "Sieve-Practice")
-
- ;;;; UNIT 9 ;;;;;;;;;
- ("DSAWorkbook.pdf" "Extending-Tables")
- ("DSAWorkbook.pdf" "Countries-Example")
- ("DSAWorkbook.pdf" "Nutrition-Plan")
- ("DSAWorkbook.pdf" "Presidents-Plan")
- ("DSAWorkbook.pdf" "Rainfall-Plan")
- ("DSAWorkbook.pdf" "Countries-Plan")
-|#
