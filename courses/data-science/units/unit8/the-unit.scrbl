@@ -43,10 +43,10 @@
                               We have our @code{countries} table, which lists @italic{every} country in the world and shows their GDP. But to answer this question, we need to learn two new things:
                               @itemlist[
                                   @item{
-                                      How to write a @italic{Boolean expression}, which will return true if a country is in Asia and false if it isn't.
+                                      How to write code that @italic{checks} if a country is in Asia.
                                   }
                                   @item{
-                                      How to write queries that use Boolean expressions, so that we can generate a table showing only countries in Asia.
+                                      How to write a query that uses that check, so that we can generate a table showing only countries in Asia.
                                   }
 
                               ]
@@ -104,7 +104,7 @@
                 }
                 @point{
                       @student{
-                              This expression produces a new type, called a @vocab{Boolean}. A boolean type can only have two values: true, or false. Computer scientists and data scientists use Boolean values whenever they are asking yes or no questions of data.  For example, the expression @code{2 > 1} is asking "is 2 greater than one?". The answer is yes, so the computer will produce @code{true}.
+                              The last two expressions produce a new type, called a @vocab{Boolean}. A Boolean type can only be one of values: @code{true}, or @code{false}. Computer scientists and data scientists use Boolean values whenever they are asking @italic{yes or no questions} of data.  For example, the expression @code{2 > 1} is asking "is 2 greater than one?". The answer is yes, so the computer will produce @code{true}.
                       }
                       @teacher{
                               Some students may confuse @code{true} and @code{false} for Strings, because "true and false are words". Point out that what is printed does not have any quotation marks, and only Strings are in quotes!
@@ -219,14 +219,14 @@
                 @point{
                       @student{
                               @activity[#:forevidence "BS-IDE&1&1"]{
-                                      Open the @editor-link[#:public-id "0BxJ2mGqPUGt0RnFuc3NDWlFSMzg" "Unit 8"] template file.  Hit the run button, then type each of these commands into the Interactions Area and hit Enter.
+                                      Open the @editor-link[#:public-id "0BxJ2mGqPUGt0RnFuc3NDWlFSMzg" "Unit 8 starter file"], and hit Run.
 
                                       @itemlist[
                                             @item{
-                                                  @code{restaurants}
+                                                  Type @code{restaurants} into the Interactions Area.
                                             }
                                             @item{
-                                                  @code{restaurants-sieved}
+                                                  Type @code{restaurants-sieved} into the Interactions Area.
                                             }
                                       ]
                                       What is different about these two tables?
@@ -281,7 +281,7 @@
                 @point{
                       @student{
                               @activity[#:forevidence "BS-IDE&1&1"]{
-                                      Let's do some practice writing sieve queries. Complete exercises 1-4 in your Definitions Area.
+                                      Let's do some practice writing sieve queries. Complete exercises 1-3 in the Definitions Area.
                               }
                       }
                       @teacher{
@@ -319,7 +319,7 @@
                 @point{
                       @student{
                           @activity{
-                              Turn to @worksheet-link[#:name "3-Step-Plan-1"] in your workbook, and fill in the Table Plan that will get you from the start table to the end table.
+                              Turn to @worksheet-link[#:name "3-Step-Plan-1"] in your workbook, and fill in the Table Plan that will get you from the start table to the end table. When you're done, type your solution queries into the Definitions Area.
                           }
                       }
                       @teacher{
@@ -329,7 +329,7 @@
                 @point{
                       @student{
                           @activity{
-                              Sometimes it's obvious what your end table will have to look like, but a lot of the time you'll need to figure that out for yourself. For practice, turn to @worksheet-link[#:name "3-Step-Plan-2"]. This time, you'll have to fill in the end table yourself, before you start your table plan!
+                              Sometimes it's obvious what your end table will have to look like, but a lot of the time you'll need to figure that out for yourself. For practice, turn to @worksheet-link[#:name "3-Step-Plan-2"]. This time, you'll have to fill in the end table yourself, before you start your table plan! When you're done, type your solution queries into the Definitions Area.
                           }
                       }
                       @teacher{
