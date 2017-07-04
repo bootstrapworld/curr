@@ -59,7 +59,7 @@
                 @point{
                         @student{
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Open the @editor-link[#:public-id "0BzzMl1BJlJDkZlEwYjhkY0s0ZTQ" "Unit 6 start file"] , and hit Run.
+                                        Open the @editor-link[#:public-id "0BzzMl1BJlJDkZlEwYjhkY0s0ZTQ" "Unit 6 starter file"] , and hit Run.
 
                                         @itemlist[
                                                 @item{
@@ -67,6 +67,9 @@
                                                 }
                                                 @item{
                                                         What is the highest average price for a restaurant?
+                                                }
+                                                @item{
+                                                        Use Pyret to define @code{ratings-list} and @code{prices-list} as two lists representing the rating and price columns of the restaurants table.
                                                 }
                                                 @item{
                                                         Use Pyret to calculate the mean star rating (out of 5 stars) of the restaurants.
@@ -119,7 +122,7 @@
                                 @code[#:multi-line #t]{
                                         ratings-list = extract rating from restaurants end
                                         prices-list  = extract price  from restaurants end
-                                        prices-vs-ratings-series = scatter-plot(prices-list, ratings-list))
+                                        prices-vs-ratings-series = scatter-plot(prices-list, ratings-list)
                                         prices-vs-ratings-plot = plot(prices-vs-ratings-series)
                                 }
                                 Click Run, and display the scatterplot for @code{prices-vs-ratings-plot}
@@ -140,7 +143,7 @@
                                                         The @code{gdp} vs @code{median-life-expectancy} columns of @code{countries}
                                                 }
                                                 @item{
-                                                        The @code{population} vs @code{gdp} columns of @code{countries}
+                                                        The @code{population} vs @code{media-life-expectancy} columns of @code{countries}
                                                 }
                                         ]
                                 }
@@ -151,7 +154,7 @@
                 }
                 @point{
                         @student{
-                                There are 9 points on our scatter plot: one for each restaurant in the table.  Each dot's placement depends on the price and rating values of a particular restaurant.  For example, look at the restaurant "Riverside Grille".  Riverside Grille has an average price of 19.56, so it will appear to the far right of the chart.  Riverside Grille has an average rating of 4.9, so it will appear towards the top of the chart.
+                                There are 9 points on our restaurant scatter plot: one for each restaurant in the table.  Each dot's placement depends on the price and rating values of a particular restaurant.  For example, look at the restaurant "Riverside Grille".  Riverside Grille has an average price of 19.56, so it will appear to the far right of the chart.  Riverside Grille has an average rating of 4.9, so it will appear towards the top of the chart.
 
                                 @activity[#:forevidence "BS-IDE&1&1"]{
                                     In Pyret, open the scatter plot that shows the relationship between prices and ratings.
@@ -374,7 +377,7 @@
                                                         The @code{gdp} vs @code{median-life-expectancy} columns of @code{countries}
                                                 }
                                                 @item{
-                                                        The @code{population} vs @code{gdp} columns of @code{countries}
+                                                        The @code{population} vs @code{median-life-expectancy} columns of @code{countries}
                                                 }
                                         ]
 
@@ -398,7 +401,7 @@
                                                 Almost no correlation between GDP and life expectancy
                                         }
                                         @item{
-                                                Weak correlation between Population and GDP
+                                                Almost no  correlation between Population and life expectancy
                                         }
                                 ]
                         }
@@ -408,26 +411,27 @@
                                 In your workbook activity, you gave predictors "grades" for how well they performed. Data scientists use @vocab{r-squared} values to grade predictors in real life.
 
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Type @code{r-squared(prices-list, ratings-list, rating-predictor)} into the interactions window.
+                                        Type @code{r-squared(prices-list, ratings-list, rating-predictor)} into the Interactions Area.
                                 }
 
-                                This is a number on the same scale [0, 1] that represents how well our predictor fits the data.  For the price vs ratings, the predictor score is ~0.71, which is fairly accurate. The contract for @code{r-squared} is:
+                                This is a number on the same scale [0, 1] that tell us "how much of the variation in the scatterplot is explained by this function". In other words, it's a measure for how well the line fits. A perfect score of 1.0 means that 100% of the variability in the data is explained by the function, and that our predictor is perfect. For the price vs ratings, the predictor score is ~0.71, which is fairly accurate. The contract for @code{r-squared} is:
                                 @code[#:multi-line #t]{
                                     # r-squared : List<Number> List<Number> (Number->Number) -> Number
                                 }
 
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Determine the r-squared values for each of the 3 models you created previously, and interpret them.  Do they show perfect direct correlation? A weak correlation?  No correlation at all?
+                                        Determine the r-squared values for each of the 3 models you created previously, and interpret them.  Do they show a strong correlation? A weak correlation?  No correlation at all?
                                 } 
                         }
                         @teacher{
+                                Have your students examine the r-squared values for the life expectancy models. Population size has virtually no correlation, but GDP has roughly 30%! Is this surprising to the students? Did they expect it to be stronger or weaker? How can they explain the result?
                                 Optional: teach your students how r-squared values are calculated.
                         }
                 }
                 @point{
                         @student{
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Complete @worksheet-link[#:name "Checking-Understanding"] in your workbook, by writing your own definitions for @vocab{Statistical Model}, @vocab{predictor function} and vocab{r-squared}.
+                                        Complete @worksheet-link[#:name "Checking-Understanding"] in your workbook, by writing your own definitions for @vocab{predictor function}, @vocab{predictor function} and vocab{r-squared}.
                                 }
                         }
                         @teacher{
