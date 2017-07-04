@@ -76,7 +76,10 @@
                 }
                 @point{
                       @student{
-                              The @code{select} keyword will choose the column names given (in this case, @code{title} and @code{year}) from the specified table @code{movies}, and create a new table with just those columns.
+                              The @code{select} keyword will choose the column names given (in this case, @code{title} and @code{year}) from the specified table @code{movies}, and create a new table with just those columns. If you turn to the back of your student workbook, on @worksheet-link[#:name "Query-Reference"], you'll find a reference sheet for this and other queries. This is a great place to take notes on how each query is used and to sweat the details. For example, pay close attention to the comma that separates the column names!
+                              @activity{
+                                  In your own words, write down what a @code{select} query is for.
+                              }
                       }
                       @teacher{
                               The benefits of using the @code{select} keyword are mostly for the programmer: having less columns does not make it significantly faster to perform operations on the table, but less columns does make it easier for humans to observe relations between columns (like in the examples above).          
@@ -279,6 +282,9 @@
                                                 }
                                                 @item{
                                                         Complete the word problems on @worksheet-link[#:name "Order-Plan"].
+                                                }
+                                                @item{
+                                                        On page @worksheet-link[#:name "Query-Reference"], write down what an @code{order} query is for.
                                                 }
 
                                         ]

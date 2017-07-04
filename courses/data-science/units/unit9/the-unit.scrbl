@@ -212,7 +212,7 @@
         @points[
                 @point{
                         @student{
-                                Now let's get some practice using @code{extend} queries with our Table Plans! Turn to @worksheet-link[#:name "Nutrition-Plan"], and read the word problem carefully. 
+                                Now let's get some practice using @code{extend} queries with our Table Plans! Turn to @worksheet-link[#:name "Body-Building"], and read the word problem carefully. 
                                 @activity{
                                     @itemlist[
                                         @item{
@@ -238,6 +238,16 @@
                         }
                         @teacher{
                             Debrief and review with the class.
+                        }
+                }
+                @point{
+                        @student{
+                                @activity{
+                                        On page @worksheet-link[#:name "Query-Reference"], write down what an @code{order} query is for.
+                                }
+                        }
+                        @teacher{
+                            Have some student volunteer what they wrote.
                         }
                 }
         ]
@@ -266,7 +276,7 @@
                                 @activity{
                                     @itemlist[
                                         @item{
-                                            Turn to page @worksheet-link[#:name "Presidents-Plan"], and read the word problem carefully.
+                                            Turn to page @worksheet-link[#:name "Term-Length"], and read the word problem carefully.
                                         }
                                         @item{
                                             Complete the Table Plan to create the table you'll need.

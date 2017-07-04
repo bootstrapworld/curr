@@ -213,7 +213,7 @@
                               Now that we know how to write Boolean expressions, we can start using them inside our queries. A "sieve" is a tool used to separate gold from worthless dirt, and we use the @code{sieve} operator to separate the rows we care about from the ones we don't.
                       }
                       @teacher{
-                              Some student may ask "why not call it filter?", and it's worth explaining that @code{filter} is an ambiguous word. Sometimes we use filters to @italic{keep} stuff we like, and other times we use it to @italic{remove} stuff we dislike. Sieve might be a strange word, but nobody questions whether we're "keeping the gold"!
+                              @italic{"Why not call it filter?"} Sometimes we use filters to @italic{keep} stuff we like, and other times we use it to @italic{remove} stuff we dislike. Sieve might be a strange word, but there's no ambiguity about "keeping the gold"!
                       }
                 }
                 @point{
@@ -281,7 +281,14 @@
                 @point{
                       @student{
                               @activity[#:forevidence "BS-IDE&1&1"]{
-                                      Let's do some practice writing sieve queries. Complete the next three excersises in the Definitions Area: Low-Calorie, CA Presidents, and Asian Countries.
+                                      @itemlist[
+                                          @item{
+                                              Complete the next three excersises in the Definitions Area: Low-Calorie, CA Presidents, and Asian Countries.
+                                          }
+                                          @item{
+                                              On page @worksheet-link[#:name "Query-Reference"], write down what a @code{sieve} query is for.
+                                          }
+                                      ]
                               }
                       }
                       @teacher{
