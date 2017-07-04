@@ -377,7 +377,7 @@
 
 @lesson/studteach[
      #:title "Closing"
-     #:duration "10 minutes"
+     #:duration "15 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -392,6 +392,16 @@
                 )
       ]{
         @points[
+                @point{
+                        @student{
+                            @activity{
+                              Open the @editor-link[#:public-id "0BzzMl1BJlJDkM0dQODJZVHBVSjQ" "Sieve Syntax Errors"] file, and see if you can fix all the bugs you find. Once you're done, uncomment each query by removing the hash sign (@code{#}) and click Run.
+                            }
+                        }
+                        @teacher{
+
+                        }
+                }
                 @point{
                     @student{
                         Take a few minutes and record your findings on @worksheet-link[#:name "Unit-9"]. Do your findings match your hypothesis? What new questions does this raise?

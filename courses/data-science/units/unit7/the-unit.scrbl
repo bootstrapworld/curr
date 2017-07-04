@@ -413,7 +413,7 @@
 
 @lesson/studteach[
      #:title "Closing"
-     #:duration "5 minutes"
+     #:duration "15 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -428,6 +428,16 @@
                 )
       ]{
         @points[
+                @point{
+                        @student{
+                            @activity{
+                              With all the commas, colons and end markers, it's easy to make a small syntax error! Open the @editor-link[#:public-id "0BzzMl1BJlJDkQ3c4SDlDS1BaLWM" "Select and Order Syntax Errors"] file, and see if you can fix all the bugs you find. Once you're done, uncomment each query by removing the hash sign (@code{#}) and click Run.
+                            }
+                        }
+                        @teacher{
+
+                        }
+                }
                 @point{
                         @student{
                                 Table Plans allow us to turn query-writing into series of questions. By focusing on just one question at a time, we minimize our chances of making mistakes, and give ourselves a way to retrace our steps if something goes wrong. Being comfortable with Table Plans takes time, but once you've mastered them you'll find it gets easier and easier to program complex table queries.
