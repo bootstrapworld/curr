@@ -144,7 +144,7 @@
             @point{
               		@student{
               				@activity[#:forevidence "BS-IDE&1&1"]{
-          						    Open up the @editor-link[#:public-id "0BzzMl1BJlJDkNXNNWVJLUURMeHc" "Unit 2"] template file. Make sure you are signed into your Google account.  "Save a Copy" button.
+          						    Open up the @editor-link[#:public-id "0BzzMl1BJlJDkeDQyWDdNU2gycmM" "Unit 2 Starter file"]. Make sure you are signed into your Google account, and click the "Save a Copy" button.
               				}
               		}
               		@teacher{

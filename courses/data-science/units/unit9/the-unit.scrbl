@@ -1,6 +1,6 @@
 #lang curr/lib
 
-@title{Unit 9: Extend and Table Plans}
+@title{Unit 9: Extending Tables}
 
 @declare-tags[]
 
@@ -8,6 +8,47 @@
   @unit-descr{Students learn to extend tables with new columns, computed from a previous table's data.}
 }
 @unit-lessons{
+
+@lesson/studteach[
+     #:title "Introduction"
+     #:duration "5 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[]
+     #:standards (list)
+     #:materials @itemlist[]
+     #:preparation @itemlist[]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[
+                @point{
+                      @student{
+                              A while back, we found that a nation's total GDP explained about 30% of the variation in median life expectancy. In other words, our predictor wasn't that great. That's not a surprise: more populous countries will usually have a higher GDP! We're just comparing big countries to small ones, not rich countries to poor ones. Do you think that the GDP @italic{per person} - which is a measure of individual wealth - would be a better indicator?
+
+                              @activity[#:forevidence "BS-IDE&1&1"]{
+                                  Turn to @worksheet-link[#:name "Unit-9"] and take two minutes to write down what you think.
+                              }
+                      }
+                      @teacher{
+
+                      }
+                }
+                @point{
+                      @student{
+                              We have our @code{countries} table, but that only tells us the @italic{total} GDP. We need to find a way to add a new column to the table, which is calculated based on other columns. By the end of this lesson, you'll know how to do just that.
+                      }
+                      @teacher{
+
+                      }
+                }
+        ]
+   }
+
 @lesson/studteach[
      #:title "Extending Tables"
      #:duration "10 minutes"
@@ -28,7 +69,7 @@
                 @point{
                         @student{
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Turn to @worksheet-link[#:name "Extending-Tables"] in your workbook, and complete the exercise.
+                                    Turn to @worksheet-link[#:name "Extending-Tables"] in your workbook, and complete the exercise.
                                 }                     
                         }
                         @teacher{
@@ -37,11 +78,10 @@
                 }
                  @point{
                         @student{
-                                In this workbook exercise, you've done something very different from what we've learned so far:  you computed a new column
-                                based on existing data in the table.  In the sock exercise, this means creating a new column called @code{price-per-sock}, and filling in a new value for each row, based on the @code{price} and @code{socks} values in that row.  Creating a new table with an additional column is called @vocab{extending} a table.
+                                In this workbook exercise, you've done something very different from what we've learned so far:  you computed a new column @italic{based on existing data in the table}.  In the sock exercise, this means creating a new column called @code{price-per-sock}, and filling in a new value for each row, based on the @code{price} and @code{socks} values in that row.  Creating a new table with an additional column is called @vocab{extending} a table.
                         }
                         @teacher{
-                                The students are extending tables "in place" in their workbook exercises, because this saves paper.  Some students may have a misconception that extending @code{table-1} means that evaluating @code{table-1} at the interactions window shows a table with the extended column.  If this happens, convince them that @code{extend}, just like the other table queries, always produces a new table.   
+
                         }
                  }
         ]
@@ -49,7 +89,7 @@
 
 @lesson/studteach[
      #:title "Extend in Pyret"
-     #:duration "20 minutes"
+     #:duration "10 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -67,15 +107,14 @@
                 @point{
                         @student{
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Open the @editor-link[#:public-id "0BxJ2mGqPUGt0Skl3YjQ1aVZON2c" "Unit 9"] template code.  
-                                        Hit the run button, then type each of the following into your interactions window:
+                                        Open the @editor-link[#:public-id "0BzzMl1BJlJDkbDFuRnN2YVo0Z0k" "Unit 9 Starter File"], Save a Copy, and Run the program.
 
                                         @itemlist[
                                                 @item{
-                                                    @code{basketball}
+                                                    What does @code{basketball} evaluate to?
                                                 }
                                                 @item{
-                                                    @code{basketball-extended}
+                                                    What does @code{basketball-extended} evaluate to?
                                                 }
                                         ]
 
@@ -95,22 +134,20 @@
                                 Let's examine the code used to create the @code{basketball-extended} table:
 
                                 @code[#:multi-line #t]{
-                                        basketball-extended = extend basketball using game-1, game-2, game-3:
-                                            total: game-1 + game-2 + game-3
+                                        basketball-extended = extend basketball using game1, game2, game-3:
+                                            total: game1 + game2 + game3
                                         end
                                 }
 
                                 @itemlist[
                                         @item{
-                                                The @code{extend} keyword comes first, just like all other
-                                                table queries.
+                                                The @code{extend} keyword comes first, since we might want to use our new columns for sieving, sorting or selecting later.
                                         }
                                         @item{
                                                 It is followed by the table being extended, in this case @code{basketball}.
                                         }
                                         @item{
-                                                Then, the @code{using} keyword, in the same place as the @code{sieve}
-                                                commands.  This tells Pyret which columns we will use to extend the table.
+                                                Then, the @code{using} keyword, in the same place as the @code{sieve} commands.  This tells Pyret which columns we will use to extend the table.
                                         }
                                         @item{
                                                 Next are the names of the columns being used, followed by a colon @code{:}
@@ -119,7 +156,7 @@
                                                 The expression on the next line is very special:
 
                                                 @code[#:multi-line #t]{
-                                                        total: game-1 + game-2 + game-3
+                                                        total: game1 + game2 + game3
                                                 }
 
                                                 We give our new column the name @code{total}, followed by a colon @code{:}, then an expression to compute the value of each entry in the column.  This expression is the sum of a player's points in each game.s
@@ -147,27 +184,67 @@
                 @point{
                         @student{
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Answer each of the following questions by creating a table with an @code{extend} query:
-
-                                        @itemlist[
-                                                @item{
-                                                        Which president had the longest @code{term-length}?  @code{term-length} is defined by @code{year-ended - year-started}.
-                                                }
-                                                @item{
-                                                        Which 3 menu items in @code{nutrition} have the highest @code{protein-per-gram}? Use the @code{protein, serving-size} columns.
-                                                }
-                                        ]
+                                        Which 3 menu items in @code{nutrition} have the highest @code{sodium-per-gram}? Use the @code{sodium} and @code{serving-size} columns to write @code{extend} query that will answer this question.
                                 }
                         }
                         @teacher{
-                                Students should uncomment the definitions in code exercises 2, 3 to bind @code{presidents-extended} and @code{nutrition-extended} to their answers.
                         }                
                 }
         ]
    }
 
 @lesson/studteach[
-     #:title "Table Plans"
+     #:title "Body Building"
+     #:duration "15 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[]
+     #:standards (list)
+     #:materials @itemlist[]
+     #:preparation @itemlist[]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[
+                @point{
+                        @student{
+                                Now let's get some practice using @code{extend} queries with our Table Plans! Turn to @worksheet-link[#:name "Nutrition-Plan"], and read the word problem carefully. 
+                                @activity{
+                                    @itemlist[
+                                        @item{
+                                            On a sheet of scrap paper, sketch a sample Start and End Table to make sure you have a clear picture of what you need to do.
+                                        }
+                                        @item{
+                                            Now start your table plan: do you need to add any new columns to the table? Yes! We need to add a @code{protein-per-gram} column, which is computed using the @code{protein} and @code{serving-size} columns. Write the @code{extend} query to do this.
+                                        }
+                                        @item{
+                                            Do we need to get rid of any rows? Yes! We want to keep only the rows that have a @code{protein-per-gram} higher than .12. Write the @code{sieve} query to do this.
+                                        }
+                                        @item{
+                                            Do the rows need to be any particular order? It's not clear from the word problem, so we can choose: do we skip this step, or should we order them so your aunt can immediately see which food is best?
+                                        }
+                                        @item{
+                                            Do we have any unecessary columns? Yes! All we care about are the @code{name}, @code{calories}, and @code{protein-per-gram} columns. Write the @code{select} query to do this.
+                                        }
+                                        @item{
+                                            Once you're done with your Table Plan, program your queries in the Definitions Area, under "4. Body Building".
+                                        }
+                                    ]
+                                }
+                        }
+                        @teacher{
+                            Debrief and review with the class.
+                        }
+                }
+        ]
+}
+
+@lesson/studteach[
+     #:title "Term-Length"
      #:duration "20 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
@@ -182,92 +259,25 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[
+        @points[        
                 @point{
                         @student{
-                                The United Nations has hired our class to come up with a report on the world economy.  They want us to compare countries by how productive they are. We have a table with the GDP of each country, which measures a country's economic
-                                output. Sould we use this to compare each country's economy?  Why might this be a bad idea?
-                        }
-                        @teacher{
-                                Ask the class what they think may be drawbacks to this approach.  Guide the discussion with the fact that countries differ radically in size, so bigger countries will always have higher GDP.
-                        }                
-                }
-                @point{
-                        @student{
-                                Economics data scientists use something called a @code{gdp-per-capita} to compare countries' productivity.  This is calculated by dividing a country's GDP by population.  This estimates how productive the average citizen of a particular country is.
-                        }
-                        @teacher{
-
-                        }
-                }
-                @point{
-                        @student{
-                                The main question that the United Nations wants us to answer is:  "What are the top 5 countries in Asia, in terms of highest GDP per capita?"
-                        }
-                        @teacher{
-                        
-                        }                
-                }
-                @point{
-                        @student{
-                                We have all the tools to answer this question using the table queries we have learned!  The next step is to determine which table queries we will use.s
-                        }
-                        @teacher{
-
-                        }                
-                }
-                @point{
-                        @student{
-                                @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Turn to @worksheet-link[#:name "Countries-Example"] in your workbooks.  
-                                        For each question that you answer "Yes" to, complete the code scaffolding.
-                                }
-                        }
-                        @teacher{
-                                In this particular example, the students will say yes and fill out each block of scaffold code.  However, there will be practice examples where the students do not need to use every table query.
-                        }                
-                }
-                @point{
-                        @student{
-                                @itemlist[
+                                How common is it for a president to serve two terms? We'd like to see a histogram comparing 1-term vs. 2-term presidents. The length of a term is defined by @math{year_{ended} - year_{started}}. 
+                                @activity{
+                                    @itemlist[
                                         @item{
-                                                The worksheet you just completed is called a @vocab{Table Plan}. A Table Plan consists of 4 questions that you answer when trying to create a table to answer a bigger question, like the one the UN assigned to us. 
+                                            Turn to page @worksheet-link[#:name "Presidents-Plan"], and read the word problem carefully.
                                         }
                                         @item{
-                                                If you answer yes to the first question, it means you need to add code to your program for an @code{extend} query.  Yes to the second question means you need a @code{sieve} query, and so on.
+                                            Complete the Table Plan to create the table you'll need.
                                         }
-                                ]
-                                
-                        }
-                        @teacher{
-                        
-                        }                
-                }
-                @point{
-                        @student{
-                                @activity[#:forevidence "BS-IDE&1&1"]{
-                                        After completing your Table Plan, add all of the code you wrote to your definitions window.  Then, in your interactions window, type the name of your final table to answer the UN question.
-                                }
-                        }
-                        @teacher{
-                                Students will get lots of practice with Table Plans in the next section.
-                        }
-                }
-                @point{
-                        @student{
-                                @activity[#:forevidence "BS-IDE&1&1"]{
-                                        The UN also wants following information:
-
-                                        @itemlist[
-                                                @item{
-                                                        A bar chart of the @code{gdp-per-capita} for every country in Asia.
-                                                }
-                                                @item{
-                                                        The mean and median @code{gdp-per-capitab} values for countries in Asia.
-                                                }
-                                        ]
-
-                                        Add code to your definitions window to answer these questions.
+                                        @item{
+                                            Extract the columns you'll need to create the histogram
+                                        }
+                                        @item{
+                                            Define the histogram series, and then plot the histogram. If you've forgotten how to make a historgram series, a plot, or how to draw the plot, don't forget to refer back to your contracts page!
+                                        }
+                                    ]
                                 }
                         }
                         @teacher{
@@ -275,11 +285,11 @@
                         }
                 }
         ]
-   }
+}
 
 @lesson/studteach[
-     #:title "Table Plan Practice"
-     #:duration "40 minutes"
+     #:title "Economic Indicators"
+     #:duration "30 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -296,109 +306,91 @@
         @points[
                 @point{
                         @student{
-                                The table plan provides a fixed sequence of steps to create tables for problem solving:  the order is always @code{extend}, then @code{sieve}, then @code{order}, then @code{select}.  Many times you won't need to use all of these queries, but following the table plan will still give you the answer you want.
+                                 Economics data scientists use something called a @code{gdp-per-capita} to compare countries' productivity.  This is calculated by dividing a country's GDP by population.  This estimates how productive the average citizen of a particular country is. 
+                                @bannerline{@math{GDP_{per-capita} = \frac{GDP}{population}}}
                         }
                         @teacher{
-                                
+                                Have students calculate this by hand for one or two countries in the @code{countries} table.
+                        }                
+                }
+
+                @point{
+                        @student{
+                                The United Nations has hired our class to come up with a report on the Africa's economy.  They want us to investigate whether population size or per-capita GDP is the @italic{more significant predictor} for median life expectancy.
+                                @activity{
+                                    @itemlist[
+                                        @item{
+                                            Turn to page @worksheet-link[#:name "GDP-v-Pop-Plan"], and read the word problem carefully.
+                                        }
+                                        @item{
+                                            Complete the Table Plan to create the table you'll need.
+                                        }
+                                        @item{
+                                            Extract the columns you'll need to create the scatterplots and @vocab{predictor functions} for @bold{both relationships}: "population v. life expectancy" and "per-capita-GDP v. life expectancy".
+                                        }
+                                        @item{
+                                            Define the two scatterplot series, and then plot them both.
+                                        }
+                                        @item{
+                                            Define your predictor functions and r-squared values. Plot your predictor functions on top of your scatterplots, and use the r-squared values to determine which predictor better explains median life expectancy.
+                                        }
+                                    ]
+                                }
+                        }
+                        @teacher{
+                        
                         }                
                 }
                 @point{
                         @student{
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Open the @editor-link[#:public-id "0BxJ2mGqPUGt0aU5vc25MTWhpemM" "Unit 9 Table Plan Practice"] template file. For each of the following questions, fill out the corresponding Table Plan in your workbook, then add the code from your table plan to the definitions window.  After finishing each question, get the teacher to check you off before continuing.
+                                        The UN also wants following information:
+
+                                        @itemlist[
+                                                @item{
+                                                        A bar chart of the @code{gdp-per-capita} for every country in Africa.
+                                                }
+                                                @item{
+                                                        The mean and median @code{gdp-per-capita} values for countries in Africa.
+                                                }
+                                        ]
+
+                                        Add code to your definitions window to answer these questions.
                                 }
                         }
                         @teacher{
 
-                        }
-                }
-                @point{
-                        @student{
-                                @activity[#:forevidence "BS-IDE&1&1"]{
-                                        @itemlist[
-                                                @item{
-                                                        Your uncle is a body builder, and only wants to buy "healthy" foods.  Your uncle says a healthy food is food that has less than 80 grams of cholesterol.
-                                                }
-                                                @item{
-                                                        Which healthy foods have the highest protein/gram?  Fill out the table plan on @worksheet-link[#:name "Nutrition-Plan"], then add your scaffold code to the definitions window.
-                                                }
-                                        ]
-                                        
-
-                                }
-                        }
-                        @teacher{
-
-                        }
-                }
-                @point{
-                        @student{
-                                @activity[#:forevidence "BS-IDE&1&1"]{
-                                        @itemlist[
-                                                @item{
-                                                        How many years was each Democratic president in office?  Turn to @worksheet-link[#:name "Presidents-Plan"], and fill out the table plan.
-
-                                                }
-                                                @item{
-                                                        After completing your table plan, make a histogram to find out if more democratic presidents serve between 0 - 4 years, or 4 - 8 years.
-                                                }
-                                        ]
-                                }
-                        }
-                        @teacher{
-                        
-                        }
-                }
-                @point{
-                        @student{
-                                @activity[#:forevidence "BS-IDE&1&1"]{
-                                        @itemlist[
-                                                @item{
-                                                        The table @code{rainfall} stores information about how much rain a particular forest is receiving every day.  The @code{day} column contains which day a measurement took place, and the @code{inches-rain} column stores how many inches of rain fell that day.
-                                                }
-                                                @item{
-                                                        Make a scatter plot of how much rain fell on each day in the first 99 days. Fill out a table plan on @worksheet-link[#:name "Rainfall-Plan"] to create the table needed to make this scatter plot.
-                                                }
-                                                @item{
-                                                        Is the amount of rain decreasing/increasing/staying the same over these first 99 days?  If there is a correlation, plot a line of best fit over this scatter plot.
-                                                }
-                                        ]
-                                }
-                        }
-                        @teacher{
-                        
-                        }
-                }
-                @point{
-                        @student{
-                                @activity[#:forevidence "BS-IDE&1&1"]{
-                                        @itemlist[
-                                                @item{
-                                                        Make a histogram of the per-capita GDP for countries that have universal health care.  Remember that per-capita GDP is defined as @code{gdp / population}.
-                                                }
-                                                @item{
-                                                        Turn to @worksheet-link[#:name "Countries-Plan"] in your workbook and complete the table plan to create the table needed to create this histogram.
-                                                }
-                                                @item{
-                                                        After adding the code from the table plan to your definitions window, calculate the average per-capita GDP for every country.  Based on your histogram, do most countries with universal healthcare tend to have higher or lower per-capita GDP than the average?
-                                                }
-                                        ]
-                                }
-                        }
-                        @teacher{
-                        
-                        }
-                }
-                @point{
-                        @student{
-                                These 4 problems are wildly different, but the Table Plan helps you find the answer to all of them!
-                        }
-                        @teacher{
-                        
                         }
                 }
         ]
    }
 
-}
+@lesson/studteach[
+     #:title "Closing"
+     #:duration "10 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[]
+     #:standards (list)
+     #:materials @itemlist[]
+     #:preparation @itemlist[]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[
+                @point{
+                    @student{
+                        Take a few minutes and record your findings on @worksheet-link[#:name "Unit-9"]. Do your findings match your hypothesis? What new questions does this raise?
+                    }
+                    @teacher{
 
+                    }
+                }
+        ]
+  }
+
+}

@@ -118,7 +118,7 @@
                               In Pyet, you can easily construct pie charts and bar charts with functions.
 
                               @activity[#:forevidence "BS-IDE&1&1"]{
-                                      Open the @editor-link[#:public-id "0BzzMl1BJlJDkMWdNU2huZWp3Zkk" "Unit 4 template"] file and hit Run.  You should see the bar and pie charts from the previous section appear sequentially. Hit the X button in the top left to view the next chart.
+                                      Open the @editor-link[#:public-id "0BzzMl1BJlJDkV2tITHV5OGszR0k" "Unit 4 Starter File"], Save a Copy and Run the program.  You should see the bar and pie charts from the previous section appear sequentially.
                               }
 
                       }

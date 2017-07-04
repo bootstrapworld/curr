@@ -59,7 +59,7 @@
                 @point{
                         @student{
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Open the @editor-link[#:public-id "0BzzMl1BJlJDkZlEwYjhkY0s0ZTQ" "Unit 6 starter file"] , and hit Run.
+                                        Open the @editor-link[#:public-id "0BzzMl1BJlJDkVi1wdWtsVGJGVGc" "Unit 6 starter file"], Save a Copy and Run the program.
 
                                         @itemlist[
                                                 @item{
@@ -374,10 +374,10 @@
                                                         The @code{fat} vs. @code{calories-from-fat} columns of @code{nutrition}.
                                                 }
                                                 @item{
-                                                        The @code{gdp} vs @code{median-life-expectancy} columns of @code{countries}
+                                                        The total @code{gdp} vs @code{median-life-expectancy} columns of @code{countries}
                                                 }
                                                 @item{
-                                                        The @code{population} vs @code{median-life-expectancy} columns of @code{countries}
+                                                        The total @code{population} vs @code{median-life-expectancy} columns of @code{countries}
                                                 }
                                         ]
 
@@ -398,7 +398,7 @@
                                                 Strong correlation between fat and calories from fat
                                         }
                                         @item{
-                                                Almost no correlation between GDP and life expectancy
+                                                Almost no correlation between GDP and life expectancy - @bold{Note:} sharp-eyed students will point out that this is @italic{total} GDP, not per-per-capita, so we don't expect much correlation!
                                         }
                                         @item{
                                                 Almost no  correlation between Population and life expectancy

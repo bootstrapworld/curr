@@ -27,7 +27,7 @@
         @points[
                 @point{
                       @student{
-                              Open the @editor-link[#:public-id "0BxJ2mGqPUGt0WWpheFVBNUNXX2s" "Unit 7 starter file"] and click Run. Today we're going to look at a new table, called @code{movies}. 
+                              Open the @editor-link[#:public-id "0BzzMl1BJlJDkOWh4anRlTW1RQmM" "Unit 7 Starter File"], Save a Copy, and Run the program. Today we're going to look at a new table, called @code{movies}. 
                               @activity[#:forevidence "BS-IDE&1&1"]{
 
                                       @itemlist[
@@ -95,10 +95,10 @@
                               @activity[#:forevidence "BS-IDE&1&1"]{
                                       @itemlist[
                                           @item{
-                                              In your definitions window, complete exercises 1 and 2. Test your code by hitting the Run button and typing the new variable names into the interactions window.
+                                              In your definitions window, complete the next two exercises ("Countries and Continents" and "Fat Content Information"). Test your code by hitting the Run button and typing the new variable names into the interactions window.
                                           }
                                           @item{
-                                              Complete @worksheet-link[#:name "Select-Practice"] in your workbook, and complete the exercises requiring you to write and interpret @code{select} statements.    
+                                              Complete @worksheet-link[#:name "Select-Practice"] in your workbook, and complete the Word Problems requiring you to write and interpret @code{select} statements.    
                                           }
                                           @item{
                                               Complete @worksheet-link[#:name "Select-Plan"].
@@ -275,10 +275,10 @@
                                                 }
                         
                                                 @item{
-                                                        In your definitions window, complete exercises 3 and 4.
+                                                        In your definitions window, complete the next two exercises: "Salt Order" and "Population Order".
                                                 }
                                                 @item{
-                                                        Complete @worksheet-link[#:name "Order-Plan"].
+                                                        Complete the word problems on @worksheet-link[#:name "Order-Plan"].
                                                 }
 
                                         ]
@@ -390,10 +390,10 @@
                                         Turn to @worksheet-link[#:name "Select-Order-Plan"], and look at the start and end table.
                                     }
                                     @item{
-                                        What queries will get us from one to the other? Use this 2-step Table Plan to figure out the @code{order} and @code{select} queries that will produce the final table. When you've finished, type these queries into the Definitions Area.     
+                                        What queries will get us from one to the other? Use this 2-step Table Plan to figure out the @code{order} and @code{select} queries that will produce the final table. When you've finished, type these queries into the Definitions Area, under "Gross and Domestic".
                                     }
                                     @item{
-                                        Complete @worksheet-link[#:name "Select-Order-Plan-2"]. When you've finished, type these queries into the Definitions Area.
+                                        Complete @worksheet-link[#:name "Select-Order-Plan-2"]. When you've finished, type these queries into the Definitions Area, under "Title and Year"
                                     }
                                 ]
                             }

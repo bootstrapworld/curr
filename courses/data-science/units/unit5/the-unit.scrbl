@@ -63,7 +63,7 @@
                 @point{
                         @student{
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Open the @editor-link[#:public-id "0BzzMl1BJlJDkSE01VHZkNFpvelU" "Unit 5 starter file"], and click Run. Then evaluate each of the following expressions:
+                                        Open the @editor-link[#:public-id "0BzzMl1BJlJDkQ0dBQ01tVlh3eFk" "Unit 5 starter file"], Save a Copy and Run the program. Then evaluate each of the following expressions:
 
                                         @itemlist[
                                                 @item{
@@ -110,7 +110,7 @@
                 }
                 @point{
                         @student{
-                                We can use a different kind of chart for visualizing @italic{how frequent values are} in a list of quantitative data.  This kind  of chart is a called @vocab{histogram}, and it is similar to the bar charts you have seen before.
+                                We can use a different kind of chart for visualizing @italic{how frequent values are} in a list of quantitative data.  This kind of chart is a called @vocab{histogram}, and it is similar to the bar charts you have seen before.
 
                                 @activity[#:forevidence "BS-IDE&1&1"]{
                                         Type the following code into your Definitions Area to create the histogram series and the plot.
@@ -134,14 +134,7 @@
                                 ]
                         }
                         @teacher{
-                                @itemlist[
-                                        @item{
-                                                We will first show and explain what the histogram represents, then we will more thoroughly go through what that second argument (bin size) means.
-                                        }
-                                        @item{
-                                                It may be easier for you to project the live code/image of the histogram. Since students do not yet know what a histogram is, or what this code is doing, they will have a harder time if they make syntax errors.
-                                        }
-                                ]
+                                Show students the histogram before explaining what the second argument (bin size) means, to give them a point of reference. It may be easier for you to project the live code/image of the histogram. Since students do not yet know what a histogram is, or what this code is doing, they will have a harder time if they make syntax errors.
                         }
                 }
                 @point{

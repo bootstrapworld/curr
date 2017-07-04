@@ -219,7 +219,7 @@
                 @point{
                       @student{
                               @activity[#:forevidence "BS-IDE&1&1"]{
-                                      Open the @editor-link[#:public-id "0BxJ2mGqPUGt0RnFuc3NDWlFSMzg" "Unit 8 starter file"], and hit Run.
+                                      Open the @editor-link[#:public-id "0BzzMl1BJlJDkNkEtSXdzeXUyMGs" "Unit 8 Starter File"], Save a Copy, and Run the program.
 
                                       @itemlist[
                                             @item{
@@ -281,7 +281,7 @@
                 @point{
                       @student{
                               @activity[#:forevidence "BS-IDE&1&1"]{
-                                      Let's do some practice writing sieve queries. Complete exercises 1-3 in the Definitions Area.
+                                      Let's do some practice writing sieve queries. Complete the next three excersises in the Definitions Area: Low-Calorie, CA Presidents, and Asian Countries.
                               }
                       }
                       @teacher{
@@ -319,7 +319,7 @@
                 @point{
                       @student{
                           @activity{
-                              Turn to @worksheet-link[#:name "3-Step-Plan-1"] in your workbook, and fill in the Table Plan that will get you from the start table to the end table. When you're done, type your solution queries into the Definitions Area.
+                              Turn to @worksheet-link[#:name "3-Step-Plan-1"] in your workbook, and fill in the Table Plan that will solve the Word Problem and get you from the start table to the end table. When you're done, type your solution queries into the Definitions Area under "Recent Title/Area".
                           }
                       }
                       @teacher{
@@ -329,7 +329,7 @@
                 @point{
                       @student{
                           @activity{
-                              Sometimes it's obvious what your end table will have to look like, but a lot of the time you'll need to figure that out for yourself. For practice, turn to @worksheet-link[#:name "3-Step-Plan-2"]. This time, you'll have to fill in the end table yourself, before you start your table plan! When you're done, type your solution queries into the Definitions Area.
+                              Sometimes it's obvious what your end table will have to look like, but a lot of the time you'll need to figure that out for yourself. For practice, turn to @worksheet-link[#:name "3-Step-Plan-2"] and read the Word Problem @italic{carefully}. This time, you'll have to fill in the end table yourself, before you start your table plan! When you're done, type your solution queries into the Definitions Area under "Title and Overseas".
                           }
                       }
                       @teacher{
@@ -364,13 +364,25 @@
                 @point{
                     @student{
                         @activity{
-                              Turn to @worksheet-link[#:name "3-Step-Plan-3"]. This time you'll need to come up with a good starter table @italic{and} end table!
+                              Turn to @worksheet-link[#:name "3-Step-Plan-3"] and read the Word Problem. This time you'll need to come up with a good starter table @italic{and} end table! When you're done, type your solution queries into the Definitions Area under "Asian GDPs".
                         }
 
                     }
                     @teacher{
 
                     }
+               @point{
+                    @student{
+                        Now it's time to return to our original question: how much of Asia's total GDP does @italic{China} generate, compared to the other Asian countries? 
+
+                        @activity{
+                            Use the table you've created to generate a chart, showing the GDP of every country in Asia.
+                        }
+                    }
+                    @teacher{
+                        Some students will likely use pie, bar charts, or perhaps something else for this - point out the differences, and ask the class to discuss the pros and cons of each chart!
+                    }
+              }
                 }
         ]
    }
@@ -391,18 +403,14 @@
                 )
       ]{
         @points[
-               @point{
+                @point{
                     @student{
-                        Now it's time to return to our original question: how much of Asia's total GDP does @italic{China} generate, compared to the other Asian countries? 
-
-                        @activity{
-                            Use the table you've created to generate a chart, showing the GDP of every country in Asia. Then write down your findings on @worksheet-link[#:name "Unit-8"].
-                        }
+                        Take a few minutes and record your findings on @worksheet-link[#:name "Unit-8"]. Do your findings match your hypothesis? What new questions does this raise?
                     }
                     @teacher{
-                        Some students will likely use pie, bar charts, or perhaps something else for this - point out the differences, and ask the class to discuss the pros and cons of each chart!
+
                     }
-              }
+                }
         ]
   }
 
