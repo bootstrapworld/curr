@@ -1224,7 +1224,7 @@
 ;; produces a link to the standards documents
 (define (standards-link descr)
   (hyperlink #:style bootstrap-hyperlink-style
-             (translate 'slink)
+             (translate 's-link)
              descr))
 
 ;; wraps a hyperlink in the bootstrap styling tag

@@ -209,7 +209,7 @@
             (if (and (empty? frontpages) (empty? backpages))
                 (copy-file (build-path (kf-get-workbook-dir) "workbook-numbered.pdf")
                            (build-path (kf-get-workbook-dir) workbook-file)
-                           #:exists-ok? #t)
+                            #t)
                 (begin (extract-PDF-pages frontpages workbook-last-gen-sec)
                        (merge-pages (pdf-pagenames frontpages) #:output "front-matter.pdf")
                        (extract-PDF-pages backpages workbook-last-gen-sec)
