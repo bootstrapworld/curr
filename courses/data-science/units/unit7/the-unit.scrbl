@@ -297,12 +297,12 @@
                 }
                 @point{
                         @student{
-                                We can also order a table by more than one thing at once! For example, suppose we wanted to show all the movies, sorted ascending by studio name @italic{and} sorted by total gross within those groups, from the most-to-least profitable? 
+                                We can also order a table by more than one thing at once! For example, suppose we wanted to show all the movies, sorted ascending by studio name @italic{and} sorted alphabeticall by title within those groups? 
                                   @code[#:multi-line #t]{
                                       movies-ordered = 
                                           order movies:
                                               studio ascending,
-                                              gross descending
+                                              title  ascending
                                           end
                                 }
                         }
