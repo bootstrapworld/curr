@@ -425,6 +425,26 @@
 
                       }
                 }
+          ]
+  }
+
+  @lesson/studteach[
+     #:title "Scatterplots"
+     #:duration "10 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[]
+     #:standards (list)
+     #:materials @itemlist[]
+     #:preparation @itemlist[@item{}]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[
                 @point{
                       @student{
                           Do foods with more sugar tend to have more calories? Now that we have calories and sugar extracted as lists, we can plot these data points and find out! Once again, we'll want to include the @code{plot-lists} file, and all the functions defined within it. This time, instead of using @code{function-plot} we'll use @code{scatter-plot}, which takes in two lists of numbers. 
@@ -435,6 +455,20 @@
                       }
                       @teacher{
 
+                      }
+                }
+                @point{
+                      @student{
+                          There are lots of ways to customize a @code{Plot}, and you can combine options by chaining them together:
+                          @code[#:multi-line #t]{
+                            plot1 = plot(sugar-v-calories)
+                            plot2 = plot(sugar-v-calories).title("Calories and Sodium")
+                            plot3 = plot(sugar-v-calories).title("Calories and Sodium").x-max(600)
+                            plot4 = plot(sugar-v-calories).title("Calories and Sodium").x-max(600).y-max(400)
+                          }
+                      }       
+                      @teacher{
+                          The options you can share with your students at this time are @code{x-min}, @code{y-min}, @code{x-max}, @code{y-max}, @code{title}. The full set can be found in the @(hyperlink "https://www.pyret.org/docs/latest/plot.html#%28part._plot_.Plot.Options%29" "Pyret Documentation").
                       }
                 }
         ]
@@ -449,7 +483,7 @@
      #:product-outcomes @itemlist[]
      #:standards (list)
      #:materials @itemlist[]
-     #:preparation @itemlist[@item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/1USFPXkeO5AbGOzm_U0tMv4NV3RrxTMTyg-bqIKUf4q4/edit?usp=sharing" "Warmup activity sheet").}]
+     #:preparation @itemlist[@item{}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
