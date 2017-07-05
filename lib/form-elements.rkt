@@ -1,4 +1,4 @@
-#lang racket/base
+gen#lang racket/base
 
 (require racket/runtime-path
          ;(except-in racket/contract contract-exercise)
