@@ -226,7 +226,10 @@
 (define (copyright . body)
   (para #:style (bootstrap-div-style/id "copyright")
    (hyperlink #:style bootstrap-hyperlink-style "http://creativecommons.org/licenses/by-nc-nd/4.0/" creativeCommonsLogo)
-   (translate 'copyright-names)
+   (cond
+     [(string=? (current-course) "algebra") (translate 'copyright-names-alg)]
+     [(string=? (current-course) "reactive") (translate 'copyright-names-reac)]
+     [else (printf "WARNING course not found for copyright in form-elements, found ~a instead" (current-course))])
    (hyperlink #:style bootstrap-hyperlink-style "http://creativecommons.org/licenses/by-nc-nd/4.0/" (translate 'copyright-license))
    (string-append ". " (translate 'copyright-based) " ") (hyperlink "http://www.bootstrapworld.org/" "www.BootstrapWorld.org")
    (string-append ". " (translate 'copyright-permissions) " ")

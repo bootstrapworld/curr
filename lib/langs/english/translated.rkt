@@ -39,9 +39,20 @@
     ;;;;;;;;;;;;;;;;copyright section;;;;;;;;;;;;;;;;;;;;;
     ;Translator; Found at the bottom of most pages; includes all copyright information
 
-    ;Translator; Names listed at bottom of most pages, included in the copyright statement
-    ;Developler; copyright
-    (copyright-names "Bootstrap by Emmanuel Schanzer, Emma Youndtsmith, Kathi Fisler, Shriram Krishnamurthi, Joe Politz and Ben Lerner is licensed under a ")
+    ;Translator; Names listed at bottom of most pages in the algebra curriculum, included in the copyright statement
+    ;Developler; copyright for algebra
+    (copyright-names-alg "Bootstrap by Emmanuel Schanzer, Emma Youndtsmith, Kathi Fisler, Shriram Krishnamurthi, Joe Politz and Ben Lerner is licensed under a ")
+     ;Translator; Names listed at bottom of most pages in the reactive curriculum, included in the copyright statement
+    ;Developler; copyright for reactive
+    (copyright-names-reac "Bootstrap by Emmanuel Schanzer, Emma Youndtsmith, Kathi Fisler, Shriram Krishnamurthi, Joe Politz and Ben Lerner is licensed under a ")
+    ;Translator; Names listed at bottom of most pages in the physics curriculum, included in the copyright statement
+    ;Developler; copyright for physics
+    (copyright-names-phys "Bootstrap by Emmanuel Schanzer, Emma Youndtsmith, Kathi Fisler, Shriram Krishnamurthi, Joe Politz and Ben Lerner is licensed under a ")
+     ;Translator; Names listed at bottom of most pages in the data-science curriculum, included in the copyright statement
+    ;Developler; copyright for data-science
+    (copyright-names-data "Bootstrap by Emmanuel Schanzer, Emma Youndtsmith, Kathi Fisler, Shriram Krishnamurthi, Joe Politz and Ben Lerner is licensed under a ")
+
+    
     ;Translator; This is the hyperlink listed within the copyright statement at the bottom of most pages.
     ;Developler; copyright
     (copyright-license "Creative Commons 4.0 Unported License")
