@@ -176,7 +176,7 @@ Once you’ve defined the function itself, Pyret will automatically check your e
             @teacher{Just as writing a Contract helps us write examples, writing examples makes it easier to write the function definition: circling what changes between the examples makes it obvious that the @italic{changeable} thing is where we need to use a @italic{variable} in our function. You will want to explicitly connect each step in the Design Recipe to every other step. Ask students to justify each part of their Contract by referring back to the Word Problem, to justify each step of their examples by referring back to their Contract, and to justify each step of the definition by referring to their Contract and Examples. The same variable name can be used in multiple functions, just as in math (where many functions use x as the variable name, for example).
                      This activity can be done as a team competition: teams have one minute to write the contract and two examples for @code{triple}, and another minute for the function header and body. Assign points to the teams that complete each function. Make sure students fill out the ENTIRE contract, with two examples, before they circle what changes and move on to the function body. Build these good habits early in the course!}}
                   
-          @point{@student{Try using the Design Recipe to solve the following word problems (in the "Fast Function" areas starting on @worksheet-link[#:name "Fast-Functions-blank1"] of your workbook):
+          @point{@student{Try using the Design Recipe to solve the following word problems (in the "Fast Function" areas starting on @worksheet-link[#:name "Fast-Functions-blank"] of your workbook):
                           @activity[#:forevidence (list "BS-M&1&1" "BS-DR.1&1&1" "BS-DR.2&1&1" "BS-DR.3&1&1")]{@itemlist/splicing[
                                @item{Write a function @code{plus1}, that takes in a number and adds one to it}
                                @item{Write a function @code{mystery}, that takes in a number and subtracts 4}
@@ -246,7 +246,7 @@ Once you’ve defined the function itself, Pyret will automatically check your e
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{@points[@point{@student{You just reviewed the first half of the entire Bootstrap:Algebra course in one unit, and learned how to write material from Bootstrap:Algebra in the @vocab{syntax} of a new language! Throughout Bootstrap:Reactive you’ll use all the concepts that you learned in Bootstrap:Algebra, as well as brand new data types, functions, and programming concepts. Of course, you’ll do it all with the help of our old friend the Design Recipe, which will help you write your own functions for your own videogame! Since this is Bootstrap:Reactive, the games you will be able to create will be even more interactive and advanced than in Bootstrap:Algebra. There’s a lot to learn... onward to Unit 2!}
-                       @teacher{If time permits, have students practice solving other algebra word problems using the Fast Functions sections on @worksheet-link[#:name "Fast-Functions-blank1"] and @worksheet-link[#:name "Fast-Functions-blank2"] in their workbook.}}
+                       @teacher{If time permits, have students practice solving other algebra word problems using the Fast Functions sections on @worksheet-link[#:name "Fast-Functions-blank"] and @worksheet-link[#:name "Fast-Functions-blank"] in their workbook.}}
                                   ]
          }
        }

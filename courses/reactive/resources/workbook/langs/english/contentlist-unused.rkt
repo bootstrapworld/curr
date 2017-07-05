@@ -12,8 +12,8 @@
  ("StudentWorkbook.pdf" "Review")
  ("StudentWorkbook.pdf" "Review-page2")
  ("StudentWorkbook.pdf" "Fast-Functions")
- ("StudentWorkbook.pdf" "Fast-Functions-blank1")
- ("StudentWorkbook.pdf" "Fast-Functions-blank2")
+ ("StudentWorkbook.pdf" "Fast-Functions-blank")
+ ("StudentWorkbook.pdf" "Fast-Functions-blank")
  ("StudentWorkbook.pdf" "Bug Hunting")
  ;;;;; UNIT 2 ;;;;;;;;;
  ("StudentWorkbook.pdf" "Unit-2")
@@ -24,7 +24,7 @@
  ("StudentWorkbook.pdf" "taller-than")
  ("StudentWorkbook.pdf" "will-melt")
  ;;;;; UNIT 3 ;;;;;;;;;
- ("StudentWorkbook.pdf" "Lesson-3")
+ ("StudentWorkbook.pdf" "animation-sunset")
  ;;;;; UNIT 4 ;;;;;;;;;
  ("StudentWorkbook.pdf" "Unit-4")
  ("StudentWorkbook.pdf" "location")

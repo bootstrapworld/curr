@@ -67,7 +67,7 @@
 	@point{@student{@bannerline{@bold{Step 1: Define the data structure}}
 		        The first step is to develop a @vocab{data structure} for the information that changes across frames.
 			To do this, we need to figure out what @vocab{fields} our data structure will need.
-			@activity{Turn to @worksheet-link[#:name "sunset-ds-design"] in your workbook. Copy the three sunset
+			@activity{Turn to @worksheet-link[#:name "animation-sunset"] in your workbook. Copy the three sunset
 			images we gave you into the boxes at the top of the worksheet.}
 			To identify the fields, we have to figure out what information is needed to create each
 			frame image. Information that changes from frame to frame must be in the data structure.
@@ -119,7 +119,7 @@
 			takes a @emph{SunsetState} instance and produces an image with the sun at that location
 			(dipping behind the horizon when low in the sky). This function should use @code{put-image}, as we did with the hikers in unit 1.
 			
-			@activity{Go to @worksheet-link[#:name "draw-state-sunset"] in your workbook and develop the @code{draw-state} function
+			@activity{Go to @worksheet-link[#:name "draw-state"] in your workbook and develop the @code{draw-state} function
 			          described there. Type in your function and use it (in the interactions window) to draw several individual sunset frames.}
 			}
 			
@@ -142,7 +142,7 @@
 	                and produces the instance for the next state. We call this function @code{next-state-tick}. For sunset, 
 			@code{next-state-tick} takes a @code{SunsetState} instance and produces a @emph{SunsetState}
 			instance that is just a little lower in the sky.
-			@activity{Go to @worksheet-link[#:name "next-state-sunset"] in your workbook and develop the @code{next-state-tick} function
+			@activity{Go to @worksheet-link[#:name "next-state-tick"] in your workbook and develop the @code{next-state-tick} function
 				  described there. Use the sample @code{SunsetState} instances that you developed in
 				  step 1 as you make your examples of the function. Then, type in the code you have so far (including the data definition for @code{SunsetState} into the @editor-link[#:public-id "0B9rKDmABYlJVSm94cFA4T3R2NTA" "sunset starter file"], and make sure
 				  your examples are producing the expected answers.}
@@ -316,7 +316,7 @@
 	       @teacher{Figuring out the data structure is actually one of the most creative tasks in programming. More complex problems can be captured through multiple data structures. For example, we might have some information that could be computed from other information, so we have to decide what data to include and what to compute.  Or, we might want to combine multiple smaller data structures into a larger one, having a data structure for a coordinate (with both x- and y-positions), and a data structure for a character that has a coordinate and a color. We don't expect that you can envision all of these possibilities right now.  We do want you to be aware that students may come up with different ideas, and that this is appropriate and interesting at this stage.  Your students can have some valuable discussions about design once they start brainstorming different ways to organize data for a problem.}}
 	@point{@student{@bold{Exercise: Jumping Cow} -- Look at this animation of a cow jumping over the moon.
 	                @animated-gif{images/cowjump.gif} 
-	                @activity{Go to @worksheet-link[#:name "anim-data-blank1"] in the workbook. Draw three frames from this animation.
+	                @activity{Go to @worksheet-link[#:name "animation-data-1-blank1"] in the workbook. Draw three frames from this animation.
 				  Choose ones that highlight differences across the frames.
 			          The frames don't need to be consecutive.}
 			When you chose which frames to draw, did you include ones with different images or heights of the cow?
@@ -335,7 +335,7 @@
 	@point{@student{@bold{Exercise: Falling Person} -- Look at this animation of a person falling through the sky while two
 			birds fly upwards.
 	                @animated-gif{images/falling.gif} 
-	                @activity{Go to @worksheet-link[#:name "anim-data-blank2"] in the workbook. Draw three frames from this animation.
+	                @activity{Go to @worksheet-link[#:name "animation-data-1-blank2"] in the workbook. Draw three frames from this animation.
 				  Choose ones that highlight differences across the frames.
 			          The frames don't need to be consecutive.}
 			When you chose which frames to draw, did you include ones with the two birds at different distances from each other?
@@ -352,7 +352,7 @@
 	       
 	 @point{@student{@bold{Exercise: Pulsing Star} -- Look at this animation of a star that pulses as it moves across the sky.
 	                @animated-gif{images/pulsingstar.gif} 
-	                @activity{Go to @worksheet-link[#:name "anim-data-blank3"] in the workbook. Draw three frames from this animation.
+	                @activity{Go to @worksheet-link[#:name "animation-data-1-blank3"] in the workbook. Draw three frames from this animation.
 				  Choose ones that highlight differences across the frames.
 			          The frames don't need to be consecutive.}
 
@@ -386,7 +386,7 @@
 
 	@point{@student{@bold{Exercise: Light Dimmer} -- Look at this animation of a slider to control the brightness of a light.
 	                @animated-gif{images/dimmer.gif} 
-	                @activity{Go to @worksheet-link[#:name "anim-data-blank4"] in the workbook. Draw three frames from this animation.
+	                @activity{Go to @worksheet-link[#:name "animation-data-1-blank4"] in the workbook. Draw three frames from this animation.
 				  Choose ones that highlight differences across the frames.
 			          The frames don't need to be consecutive.}
 			When you chose which frames to draw, did you include the far left position when the light goes out? It can be useful

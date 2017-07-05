@@ -7,5 +7,6 @@
 ; The frontmatter will be generated from these pages in order
 
 (
- "Contracts.pdf"
+ "cover-page.pdf"
+ "credits.pdf"
 )
