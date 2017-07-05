@@ -539,8 +539,6 @@
         ]
    }
 
-}
-
 @lesson/studteach[
      #:title "Closing"
      #:duration "10 minutes"

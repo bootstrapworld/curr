@@ -357,7 +357,7 @@
                 @point{
                         @student{
                                 @activity{
-                                    We already know how to plot a function - we used @code{plot} back in Unit 1! Use Pyret to plot this function, and the scatter-plot. Ideally, we'd like to plot these @italic{on top of one another}, and we can do this using the @code{plots} functions. It works much the way @code{plot} does, but instead it takes a @italic{list of plots} (@code{List<Series>}) as its Domain.
+                                    We already know how to plot a function - we used @code{plot} back in Unit 1! Use Pyret to plot this function, and the scatter-plot. Ideally, we'd like to plot these @italic{on top of one another}, and we can do this using the @code{plots} functions. It works much the way @code{plot} does, but instead of one @code{series} it takes in a @italic{list of series} (@code{List<Series>}) as its Domain.
                                 }
                         }
                         @teacher{
@@ -420,7 +420,21 @@
                                 }
 
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Determine the r-squared values for each of the 3 models you created previously, and interpret them.  Do they show a strong correlation? A weak correlation?  No correlation at all?
+                                        @itemlist[
+                                            @item{
+                                                Determine the r-squared values for each of the 3 models you created previously, and interpret them.  Do they show a strong correlation? A weak correlation?  No correlation at all?
+                                            }
+                                            @item{
+                                                What does it mean a data point is @italic{above} the predictor line?
+                                            }
+                                            @item{
+                                                What does it mean a data point is @italic{below} the predictor line?
+                                            }
+                                            @item{
+                                                If you only have two datapoints, why will the r-squared value always be 1.0?
+                                            }
+                                        ]
+                                        
                                 } 
                         }
                         @teacher{
@@ -460,18 +474,20 @@
                 @point{
                         @student{
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                    @itemlist[
-                                        @item{
-                                            Turn to @worksheet-link[#:name "Unit-6"], and take two minutes to write down your findings. In your answer, include the fact that you used linear regression to come up with a predictor. Bonus points for explaining what the r-squared value tells about that prediction!
-                                        }
-                                        @item{
-                                            Brainstorm questions that could be answered by determining correlations between data that YOU are interested.  It could be using a sports dataset, music dataset, etc.
-                                        }
-                                    ]
+                                    Turn to @worksheet-link[#:name "Unit-6"], and take two minutes to write down your findings. In your answer, include the fact that you used linear regression to come up with a predictor. Bonus points for explaining what the r-squared value tells about that prediction!
                                 }
                         }
                         @teacher{
-                                You are welcome to "salt the waters" with the data sets that we provide for students' final projects.
+
+                        }
+                }
+                @point{
+                        @student{
+                                Suppose you could divide your data up, perhaps by the @italic{kind of restaurant}, or by the @italic{neighborhood where the restaurant is located}. If you ran a linear regression on a per-neighborhood basis, do you think you would find a stronger correlation? Perhaps a different correlation? If your dataset includes both men and women, you might want to re-run the analysis on the genders separately. To do any of this analysis, you'll need to learn how to @italic{manipulate tables}, so you can sort them, break them apart, or add new columns. The next three units will show you how to do just that.
+                                }
+                        }
+                        @teacher{
+
                         }
                 }
         ]
