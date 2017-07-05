@@ -8,8 +8,8 @@ body#beta::after{
   position: fixed;
   font-size: 200px;
   top: 200px;
-  left: 80px;
-  color: rgba(0,0,0,0.2);
+  left: 700px;
+  color: rgba(0,0,0,0.08);
   transform: rotate(45deg);
   pointer-events: none;
 }
