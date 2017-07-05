@@ -10,14 +10,18 @@
 @unit-lessons{
 @lesson/studteach[
      #:title "Introduction"
-     #:duration "5 minutes"
+     #:duration "15 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
      #:standards (list)
      #:materials @itemlist[]
-     #:preparation @itemlist[]
+     #:preparation @itemlist[
+                                @item{
+                                    Show students the @(hyperlink "../resources/OpeningQuestions.pdf" "opening questions"), either as a handout or on posters set up around the room.
+                                }
+                             ]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -27,10 +31,31 @@
         @points[
              @point{
                     @student{
-                            Welcome to Bootstrap: DataScience. Let's start with some simple questions: what's the greatest movie of all time? The best song? Almost immediately, these question turns into a question about data - how you measure "best" and how you interpret the results. In this course, you'll learn how to use data to ask and answer questions about data.  The process of learning from data is called @vocab{Data Science}. Data science techniques are used by scientists, business people, politicians, sports analysts, and hundereds of other different fields to ask and answer questions about data.
+                            Welcome to Bootstrap: DataScience! Take a few minutes to look at the @(hyperlink "../resources/OpeningQuestions.pdf" "opening questions") we have prepared for you, and choose a topic that interests you.  
+                            @activity{
+                                @itemlist[
+                                    @item{
+                                        Once you've selected your topic, break into groups of no more than 4 and choose a question you'd like to answer.
+                                    }
+                                    @item{
+                                        Spend a minute or two discussing your answer, and explaining @italic{why} you answered the way you did. Does everyone in your group have the same answer? Why or why not?
+                                    }
+                                    @item{
+                                        What kind of @italic{measurement} would use to determine if your answer is right or not? What data would you need?
+                                    }
+                                ]
+                            }
                     }
                     @teacher{
-                            Let students discuss restaurant question for a minute, guiding them towards the notion of measurement and data. You can motivate relevance of data science by using additional examples that relate to student interests.  Here are a few:
+                            Have students self-select into groups (no larger than 4), with each group choosing an Opening Question (or writing their own). After they've had time to discuss, have a few students share back what they talked about.
+                    }
+            }
+            @point{
+                    @student{
+                             What's the greatest movie of all time? The best quaterback? Is Stop and Frisk racially biased? These question quickly turn into a discussion about data - how you measure it and how you interpret the results. In this course, you'll learn how to use data to ask and answer questions like this.  The process of learning from data is called @vocab{Data Science}. Data science techniques are used by scientists, business people, politicians, sports analysts, and hundereds of other different fields to ask and answer questions about data.
+                    }
+                    @teacher{
+                            You can motivate relevance of data science by using additional examples that relate to student interests.  Here are a few:
                             @itemlist[
                                     @item{@(hyperlink "http://motherboard.vice.com/read/a-data-scientists-emoji-guide-to-kanye-west-and-taylor-swift" "Emojis")}
                                     @item{@(hyperlink "https://mic.com/articles/131092/these-students-are-using-data-science-to-predict-which-rap-songs-will-become-hits#.0d3wkhxQE" "Pop Music")}
@@ -65,7 +90,7 @@
                             For now, we will only be writing programs in the Interactions area.
                     }
                     @teacher{
-                            The Definitions area is where programmers define values and functions in their program, while the Interactions area allows them to experiment with those values and functions. This is analogous to writing a series of function definitions on a blackboard, and having student evaluate expressions using those function on scrap paper. As students are not yet defining values of their own, it is not important that students understand this distinction right now.  For now, we will work only with the Interactions area.
+                            The Definitions Area is where programmers define values and functions in their program, while the Interactions Area allows them to experiment with those values and functions. This is analogous to writing a series of function definitions on a blackboard, and having student evaluate expressions using those function on scrap paper. As students are not yet defining values of their own, it is not important that students understand this distinction right now.  For now, we will work only with the Interactions area.
                     }
              }
      ]
