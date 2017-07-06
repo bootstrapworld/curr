@@ -314,9 +314,16 @@
                             ;;;Lesson Sections;;;
 
                ;;;Additional Exercises;;;
-    ;Translator; This is the label for the additional exercises found at the bottom of the page
+    ;Translator; This is the label for the additional exercises found at the bottom of unit pages
     ;Developer; gen-exercises
     (add-exer "Additional Exercises")
+
+
+    ;Translator; This is the label for additional exercises that come from teacher contributions,
+               ; found at bottom of unit pages. NOTE: This is not yet live as of 07/06/17.
+    ;Developer; form-elements: TODO
+    (add-teacher-contr "Additional Exercises from Bootstrap Teachers")
+    
     ;Translator; This is something added to certain exercise link titles (See Unit 4 for examples)
                ; This is a directive.
     (checkDR "Check This Design Recipe")

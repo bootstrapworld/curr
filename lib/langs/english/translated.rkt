@@ -317,6 +317,13 @@
     ;Translator; This is the label for the additional exercises found at the bottom of the page
     ;Developer; gen-exercises
     (add-exer "Additional Exercises")
+
+    ;Translator; This is the label for the additional Teacher Contributions found at the bottom of
+               ; the page. NOTE: As of 5/7/17, this is not yet live on the website but would function
+               ; the same as Additional Exercises above
+    ;Developer; gen-exercises
+    (add-teacher-contr "Additional Exercises from Bootstrap Teachers")
+    
     ;Translator; This is something added to certain exercise link titles (See Unit 4 for examples)
                ; This is a directive.
     (checkDR "Check This Design Recipe")

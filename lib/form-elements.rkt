@@ -1095,7 +1095,8 @@
    (lambda (get set)
      (lambda (get set)
        (with-output-to-file "exercise-list.rkt" (lambda () (printf "(")) #:exists 'replace)
-       (let* ([exercise-locs (get 'exercise-locs '())]
+       (let* ([unit-title (current-unit)]
+              [exercise-locs (get 'exercise-locs '())]
               [exercise-output
                (if (empty? exercise-locs) (para)
                    (nested #:style (bootstrap-div-style "ExtraExercises")
@@ -1137,9 +1138,31 @@
                                                              ;(elem #:style (bootstrap-span-style "supports-evid") support)
                                                              ))))))
                                          exercise-locs))
+                             (when (hash-has-key? current-teacher-contr-xref unit-title)
+                             (para #:style bs-lesson-title-style (string-append (translate 'add-teacher-contr) ":")))                          
+                             (when (hash-has-key? current-teacher-contr-xref unit-title)
+                               (apply itemlist/splicing 
+                                    (map (lambda (ex-spec)
+                                           (let* ([name (first ex-spec)]
+                                                 [school (second ex-spec)]
+                                                 [grade (third ex-spec)]
+                                                 [descr (fourth ex-spec)]
+                                                 [link (fifth ex-spec)]
+                                                 ;;TODO: Modify label
+                                                 [label descr])
+                                             (elem (list (hyperlink #:style bootstrap-hyperlink-style link label)))))
+                                         (hash-ref current-teacher-contr-xref unit-title)))   )                                    
+
+                                             
                              ))))])
          (with-output-to-file "exercise-list.rkt" (lambda () (printf ")")) #:exists 'append)
          exercise-output)))))
+
+
+
+
+
+
 
 ;;;;;;;; LINKING BETWEEN COMPONENTS ;;;;;;;;;;;;;;;;;;;;;;;;;;;
 

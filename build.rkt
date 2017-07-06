@@ -10,6 +10,7 @@
          racket/match
          racket/vector
          (for-syntax racket/base)
+         (planet neil/csv:1:=7)
          "lib/system-parameters.rkt"
          "lib/translate-pdfs.rkt"
          "lib/paths.rkt"
@@ -244,6 +245,7 @@
   (for ([phase (in-range 2)])
     (printf "Phase ~a\n" phase)
     (for ([subdir (directory-list (get-units-dir))]
+          
           #:when (directory-exists? (build-path (get-units-dir) subdir)))
       (define scribble-file (simple-form-path (build-path (get-units-dir) subdir "the-unit.scrbl"))); langs path
       (cond [(file-exists? scribble-file)
@@ -251,7 +253,8 @@
              (copy-file (build-path "lib" "box.gif") 
                         (build-path (get-units-dir) subdir "box.gif")
                         #t)
-             (run-scribble scribble-file #:outfile "index" #:never-generate-pdf? (= phase 0))
+             (parameterize ([current-unit (path->string subdir)])
+             (run-scribble scribble-file #:outfile "index" #:never-generate-pdf? (= phase 0)))
              ]
             [else
              (printf "Could not find a \"the-unit.scrbl\" in directory ~a\n"
@@ -386,6 +389,47 @@
                 ))
             pdf-lesson-exercises))
 
+
+
+(define (process-teacher-contributions)
+  (let* ([csv-path (build-path "courses" (current-course) "resources" "teachers" "langs" (getenv "LANGUAGE") "exercises.csv")]
+         [csv-list (csv->list (make-csv-reader (open-input-file csv-path)))]
+         [source-exercise-directory (simple-form-path (build-path csv-path 'up "exercises"))])
+    
+    ;; copy teacher files into their place in distribution
+    ;(copy-directory/files source-exercise-directory target-exercise-directory)
+
+
+    ;; pre-process csv-list to a hash map of units to lists of hyperlinks
+    (hash-clear! current-teacher-contr-xref)
+
+    (for ([exercise (rest csv-list)])
+      (let* ([timestamp (first exercise)]
+             [name (second exercise)]
+             [school (third exercise)]
+             [grade (fourth exercise)]
+             [descr (fifth exercise)]
+             [URL (sixth exercise)]
+             ;;TODO: how to match on units
+             [units (string-split (seventh exercise) ", ")]
+             [title (eighth exercise)]
+             [link (if (string=? URL "")
+                       ;;file-path. TODO: This probably has to be relative to the unit scrbl files
+                       ;(build-path target-exercise-directory title)
+                       ;(build-path "../../resources/teachers/exercises" title)
+                       (build-path (current-deployment-dir) "courses" (current-course) "resources" "teachers" "exercises" title)
+                       URL)])
+
+        (for ([unit units])
+          (when (not (hash-has-key? current-teacher-contr-xref unit)) (hash-set! current-teacher-contr-xref unit '()))
+          (hash-update! current-teacher-contr-xref unit
+                        (lambda (exer-list)
+                          (cons (list name school grade descr link) exer-list) )))))))
+             
+
+
+
+
 (define (build-drills)
   ;; and the drills
   (for ([subdir (directory-list (lessons-dir))]
@@ -432,6 +476,8 @@
                                       (build-path (simple-form-path output-resources-dir) subdir )
                                       #t))]))
 
+
+        
         
 
 
@@ -550,6 +596,7 @@
 (for ([course (in-list bootstrap-courses)])
   (parameterize ([current-course course])
     (solutions-mode-off)
+    (process-teacher-contributions)
     (when (equal? course "algebra")
       (putenv "TARGET-LANG" "racket")
       (putenv "RELEASE-STATUS" "mature")

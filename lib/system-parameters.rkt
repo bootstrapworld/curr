@@ -7,7 +7,9 @@
  	 current-solutions-mode?
          current-generate-pdf?
          current-course
+         current-unit
          current-lesson-xref
+         current-teacher-contr-xref
          current-document-output-path
          current-worksheet-links-refer-to-pdf?
          current-lesson-name
@@ -41,6 +43,9 @@
 ;; subdirectories under "courses".
 (define current-course (make-parameter "algebra"))
 
+;; The current unit being built. Name of directory title
+(define current-unit (make-parameter #f))
+
 
 ;; This language currently being worked in. This should remain an environment variable, but because
 ;; paths does not seem to be able to recognize environment variables, this is our current solution
@@ -53,6 +58,11 @@
 ;; The current-lesson-xref is a hashtable from lesson names to
 ;; records that describe where they can be found.
 (define current-lesson-xref (make-parameter (make-hash)))
+
+
+;; This stores the teacher contributed additionl exercises.
+;; This is a hashtable from Units (String) to lists of lists of titles/descriptions and URLs.
+(define current-teacher-contr-xref (make-hash))
 
 
 ;; Should worksheet links refer to the actual html files, or to the pdf?
