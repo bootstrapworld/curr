@@ -89,7 +89,7 @@
 
 @lesson/studteach[
      #:title "Extend in Pyret"
-     #:duration "10 minutes"
+     #:duration "15 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -107,7 +107,7 @@
                 @point{
                         @student{
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Open the @editor-link[#:public-id "0BzzMl1BJlJDkbDFuRnN2YVo0Z0k" "Unit 9 Starter File"], Save a Copy, and Run the program.
+                                        Open the @editor-link[#:public-id "0BzzMl1BJlJDkdDd3YVNpQ0VHWFk" "Unit 9 Starter File"], Save a Copy, and Run the program.
 
                                         @itemlist[
                                                 @item{
@@ -173,8 +173,7 @@
                 @point{
                         @student{
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Follow the directions in the code for exercise #1, to extend the @code{stores} table in Pyret.  You should
-                                        create a column called @code{price-per-sock}, and write an expression to compute it as you did in the workbook exercise.
+                                        In your Definitions Area, follow the directions in the code for the first exercise, to extend the @code{stores} table in Pyret.  You should create a column called @code{price-per-sock}.
                                 }
                         }
                         @teacher{
@@ -255,7 +254,7 @@
 
 @lesson/studteach[
      #:title "Term-Length"
-     #:duration "20 minutes"
+     #:duration "15 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
