@@ -327,6 +327,17 @@
     ;Translator; This is something added to certain exercise link titles (See Unit 4 for examples)
                ; This is a directive.
     (checkDR "Check This Design Recipe")
+
+
+               ;;; teacher submissions ;;;
+    ;Translator; These form the structure of the sentence describing a teacher sumbission, found (only if they occur) at the bottom of unit page
+    ;an example: TITLE: submitted by TEACHER, a teacher at SCHOOL. designed for students in grade GRADE
+
+    ;Developer; gen-exercises
+    (submitted-by "submitted by")
+    (teach-at "a teacher at")
+    (grade-for "designed for students in grade")
+
     
                ;;; Section headers ;;;
     ;Translator; this is the time listed on the righ of every purple block of the
@@ -339,6 +350,8 @@
                ; This is meant to say "Page" which will be followed by a page number
     ;Developer; worksheet-link
     (page "Page")
+
+               
     
 
 
