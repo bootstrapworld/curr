@@ -86,8 +86,7 @@
          lulu-button
          embedded-wescheme
                 
-         ;; lesson formatting 
-         lesson
+         ;; lesson formatting
          lesson/studteach
          pacing
          points
@@ -469,64 +468,6 @@
                        duration  ;; string e.g. "15 min"
                        anchor)   ;; string
   #:transparent)
-
-;;;;;;;;;;; OLD LESSON FORMAT ;;;;;;;;;;;;;;;;;;;;;
-
-;; This is currently used only in the teacher-notes.scrbl (for algebra).  Can remove this
-;; if ever convert those over to lesson/studteach
-
-;; lesson: #:title #:duration #:subsumes #:prerequisites #:video body ... -&gt; block
-;;
-;; Creates a lesson block; this block is hyperlinked.  Internally,
-;; it's a traverse-block.  In the traverse phase, we assign to
-;; 'bootstrap-lessons so that other phases can pick out which lessons
-;; have been defined.
-;;
-;; bootstrap-lessons is a (listof lesson-struct), whose structure should be
-;; defined right above us.
-(define (lesson #:title (title #f)
-                #:duration (duration #f)
-                #:subsumes (subsumes #f)
-                #:prerequisites (prerequisites #f)
-                #:video (video #f)
-                . body)
-  
-  (define the-lesson-name 
-    (or (current-lesson-name) 
-        (symbol->string (gensym (string->symbol (or title 'lesson))))))
-  
-  (define video-elem (cond [(and video (list? video))
-                            (map (lambda (v) (elem #:style bs-video-style v)) video)]
-                           [video (elem #:style bs-video-style video)]
-                           [else (elem)]))
-  (traverse-block
-   (lambda (get set!)
-     (define anchor (lesson-name->anchor-name the-lesson-name))
-     (set! 'bootstrap-lessons (cons (lesson-struct title
-                                                   duration
-                                                   anchor)
-                                    (get 'bootstrap-lessons '())))     
-     (nested-flow 
-      (style "BootstrapLesson" '())
-      (decode-flow
-       (list
-        (elem #:style (style #f (list (url-anchor anchor))))
-        (cond [(and title duration)
-               (para #:style bs-lesson-title-style
-                     (list (elem #:style bs-lesson-name-style title) 
-                           video-elem
-                           (elem #:style bs-lesson-duration-style (format "(Time ~a)" duration))))]
-              [title 
-               (para #:style bs-lesson-title-style
-                     (list (elem #:style bs-lesson-name-style title)
-                           video-elem))]
-              [duration 
-               (para #:style bs-lesson-title-style
-                     (list (elem #:style bs-lesson-name-style (format "Lesson "))
-                           video-elem
-                           (elem #:style bs-lesson-duration-style (format "(Time ~a)" duration))))])
-        (nested #:style (bootstrap-sectioning-style "BootstrapLesson")
-                body)))))))
 
 ;;;;;;;;;;;;; CURRENT LESSON FORMAT ;;;;;;;;;;;;;;;;;;
 
