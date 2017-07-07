@@ -1089,9 +1089,9 @@
                                                  [grade (third ex-spec)]
                                                  [descr (fourth ex-spec)]
                                                  [link (fifth ex-spec)]
-                                                 ;;TODO: Modify label
                                                  [label descr])
-                                             (elem (list (hyperlink #:style bootstrap-hyperlink-style link label)))))
+                                             (elem (list (hyperlink #:style bootstrap-hyperlink-style link label)
+                                                         (string-append ": "(translate 'submitted-by)" " name ", " (translate 'teach-at) " " school ". "(translate 'grade-for)" " grade)))))
                                          (hash-ref current-teacher-contr-xref unit-title)))   )                                    
 
                                              
