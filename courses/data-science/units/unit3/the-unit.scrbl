@@ -18,11 +18,7 @@
      #:product-outcomes @itemlist[]
      #:standards (list)
      #:materials @itemlist[]
-     #:preparation @itemlist[
-      @item{
-        DO NOW: Do people in wealthier countries live longer than people in poor countries? Use the @code{scatter-plot} function to plot the relationship between GDP and median life expectancy.
-      }
-     ]
+     #:preparation @itemlist[]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}

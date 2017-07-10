@@ -635,9 +635,9 @@
                     @student{
                             Pyret has many, many more functions. Some of these functions are defined as part of the language, and others are defined in extra files that we have to load by hand. Fortunately, including an external file is really easy! Try typing in the following code at the top of the Definitions Area:
                             @code[#:multi-line #t]{
-                                include plot-lib
+                                include plot-list
                             }
-                            This includes a file called @code{plot-lib}, which defines a lot of extra functions for making charts, graphs and plots. When you click Run, Pyret will read that file and become aware of all those plotting functions.
+                            This includes a file called @code{plot-list}, which defines a lot of extra functions for making charts, graphs and plots. When you click Run, Pyret will read that file and become aware of all those plotting functions.
                     }
                     @teacher{
 
@@ -662,9 +662,9 @@
                         @code[#:multi-line #t]{
                             # define the series and the graph for the function f(x)=√x
                             sqrt-series = function-plot(num-sqrt)
-                            sqrt-graph  = plot(function-plot(num-sqrt))
+                            sqrt-graph  = plot(sqrt-series)
                         }
-                        Once we click Run, we can see what these values look like. The @code{plot-object} has a method we can call to display the plot:
+                        Once we click Run, we can see what these values look like. The @code{plot-object} has a method we can call to display the series:
                         @code[#:multi-line #t]{
                             sqrt-graph.display()
                         }

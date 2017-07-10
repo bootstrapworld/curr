@@ -132,27 +132,6 @@
                         }
                 }
                 @point{
-                        @student{ 
-                                @activity{
-                                    For practice, try making scatter plots for each of the following relationships:
-                                    @itemlist[
-                                                @item{
-                                                        The @code{fat} vs. @code{calories-from-fat} columns of @code{nutrition}.
-                                                }
-                                                @item{
-                                                        The @code{gdp} vs @code{median-life-expectancy} columns of @code{countries}
-                                                }
-                                                @item{
-                                                        The @code{population} vs @code{media-life-expectancy} columns of @code{countries}
-                                                }
-                                        ]
-                                }
-                        }
-                        @teacher{
-
-                        }
-                }
-                @point{
                         @student{
                                 There are 9 points on our restaurant scatter plot: one for each restaurant in the table.  Each dot's placement depends on the price and rating values of a particular restaurant.  For example, look at the restaurant "Riverside Grille".  Riverside Grille has an average price of 19.56, so it will appear to the far right of the chart.  Riverside Grille has an average rating of 4.9, so it will appear towards the top of the chart.
 
@@ -176,6 +155,27 @@
                         }
                         @teacher{
                                 This last question motivates the idea of @bold{prediction}:  using the general @italic{shape of the data} to estimate values.
+                        }
+                }
+                @point{
+                        @student{ 
+                                @activity{
+                                    For practice, try making scatter plots for each of the following relationships:
+                                    @itemlist[
+                                                @item{
+                                                        The @code{fat} vs. @code{calories-from-fat} columns of @code{nutrition}.
+                                                }
+                                                @item{
+                                                        The @code{gdp} vs @code{median-life-expectancy} columns of @code{countries}
+                                                }
+                                                @item{
+                                                        The @code{population} vs @code{media-life-expectancy} columns of @code{countries}
+                                                }
+                                        ]
+                                }
+                        }
+                        @teacher{
+
                         }
                 }
                 @point{
@@ -344,7 +344,7 @@
                                 @code{linear-regression} is a function that takes 2 lists as arguments, and returns a function of Type @code{Number -> Number}. This function is our predictor, representing the line that best fits the data. We define this function to be the identifier @code{rating-predictor}, and we can use it just like any other function. 
 
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Type @code{rating-predictor(0)} into the interactions window. What is the output?  What happens with @code{rating-predictor(20)?} What is the contract for @code{rating-predictor}?
+                                        Type @code{rating-predictor(0)} into the Interactions Area. What is the output?  What happens with @code{rating-predictor(20)?} What is the contract for @code{rating-predictor}?
                                 }
 
                                 You can learn more about how a predictor is created by watching @(hyperlink "https://www.youtube.com/watch?v=lZ72O-dXhtM" "this video").
@@ -445,7 +445,7 @@
                 @point{
                         @student{
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Complete @worksheet-link[#:name "Checking-Understanding"] in your workbook, by writing your own definitions for @vocab{predictor function}, @vocab{predictor function} and vocab{r-squared}.
+                                        Complete @worksheet-link[#:name "Checking-Understanding"] in your workbook, by writing your own definitions for predictor function, and vocab{r-squared}.
                                 }
                         }
                         @teacher{
@@ -475,6 +475,16 @@
                         @student{
                                 @activity[#:forevidence "BS-IDE&1&1"]{
                                     Turn to @worksheet-link[#:name "Unit-6"], and take two minutes to write down your findings. In your answer, include the fact that you used linear regression to come up with a predictor. Bonus points for explaining what the r-squared value tells about that prediction!
+                                }
+                        }
+                        @teacher{
+
+                        }
+                }
+                @point{
+                        @student{
+                                @activity[#:forevidence "BS-IDE&1&1"]{
+                                    Open your Final Project document, and answer question 8. What correlations do you think are lurking in your dataset?
                                 }
                         }
                         @teacher{

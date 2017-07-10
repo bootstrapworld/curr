@@ -1,6 +1,6 @@
 #lang curr/lib
 
-@title{Unit 5: Visualizing Quantitative Data}
+@title{Unit 5: Histograms}
 
 @declare-tags[]
 
@@ -103,7 +103,7 @@
                 }
                 @point{
                         @student{
-                                We can see that the mean and median are both 7, and the mean is very very close to 7.  So 7 is probably our best guess.
+                                We can see that the mean and median are both 7, and the mean is very, @italic{very} close to 7.  So 7 is probably our best guess.
 
                                 Unfortunately, we still don't know if 7 comes up often enough for this to be a game worth playing! We've used our measures of center to figure out the most frequent number, but just @italic{how frequent is it}?  We need some way of asking if 7 appears more than all the other numbers combined.
                         }

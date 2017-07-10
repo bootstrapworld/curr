@@ -1,6 +1,6 @@
 #lang curr/lib
 
-@title{Unit 4: Visualizing Categorical Data}
+@title{Unit 4: Bar, Frequency and Pie Charts}
 
 @declare-tags[]
 

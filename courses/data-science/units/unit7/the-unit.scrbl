@@ -30,7 +30,7 @@
             @point{
                   @student{
                       @activity{
-                          Take 15 minutes to answer question 8 in your Project Report.
+                          Take 15 minutes to answer question 9 in your Project Report.
                       }
                   }       
                   @teacher{
@@ -87,7 +87,7 @@
                               You may have noticed that answering these questions requires a little extra work, because the columns we need about are separated by a lot of uneccessary columns.  Finding the year "Maleficent" came out requires looking at the @code{title, year} columns, but not any of the columns in between.  It would be nice if we could choose only the columns we need, and put those into a new table.
 
                               @activity[#:forevidence "BS-IDE&1&1"]{
-                                      Type @code{movies-selected} into the interactions window.
+                                      Type @code{movies-selected} into the Interactions Window.
                               }
                       }
                       @teacher{
@@ -130,7 +130,7 @@
                               @activity[#:forevidence "BS-IDE&1&1"]{
                                       @itemlist[
                                           @item{
-                                              In your definitions window, complete the next two exercises ("Countries and Continents" and "Fat Content Information"). Test your code by hitting the Run button and typing the new variable names into the interactions window.
+                                              In your Definitions Area, complete the next two exercises ("Countries and Continents" and "Fat Content Information"). Test your code by hitting the Run button and typing the new variable names into the Interactions Area.
                                           }
                                           @item{
                                               Complete @worksheet-link[#:name "Select-Practice"] in your workbook, and complete the Word Problems requiring you to write and interpret @code{select} statements.    
@@ -142,7 +142,7 @@
                               }
                         }
                         @teacher{
-                                Encourage students to think of the interactions area as a playground:  if a student needs to write a definition but don't know exactly how, they should experiment with different expressions in the interactions window until they are satisfied.  THEN they should bind that expression to a variable name in the definitions window.
+                                Encourage students to think of the interactions area as a playground:  if a student needs to write a definition but don't know exactly how, they should experiment with different expressions in the Interactions Area until they are satisfied.  THEN they should bind that expression to a variable name in the Definitions Area.
                         }
                 }
         ]
@@ -482,7 +482,7 @@
                       @student{
                           At this point, you may have noticed that your dataset contains @vocab{outliers} that skew the results of your analysis. Perhaps one movie was a box-office failure, or a war in one country is artificially dragging down their life-expectency. Or perhaps you've decided you want to zoom in on a subset of the data, or break it apart and do an analysis on two different groups. Maybe you want to run a separate analysis for movies with female leads v. male leads, or analyze Democratic and Republican presidents separately. You don't know how to do this - yet - but that's exactly what we'll cover in the next lesson!
                           @activity{
-                              Take 10 minutes to answer question 9 in your Project Report.
+                              Take 10 minutes to answer question 10 in your Project Report.
                           }
                       }       
                       @teacher{
