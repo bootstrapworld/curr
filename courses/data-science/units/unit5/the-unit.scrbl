@@ -63,7 +63,7 @@
                 @point{
                         @student{
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Open the @editor-link[#:public-id "0BzzMl1BJlJDkQ0dBQ01tVlh3eFk" "Unit 5 starter file"], Save a Copy and Run the program. Then evaluate each of the following expressions:
+                                        Open the @editor-link[#:public-id "0BzzMl1BJlJDkWk01QktmVXZzS1E" "Unit 5 starter file"], Save a Copy and Run the program. Then evaluate each of the following expressions:
 
                                         @itemlist[
                                                 @item{
@@ -349,10 +349,10 @@
                         @activity{
                             @itemlist[
                                 @item{
-                                    Use a histogram to plot the @code{median-life-expectancy} for every country in the world. How many bins do you think you should use, to make this chart helpful?
+                                    You want to rent a shuttle bus to take people from the airport to an event. You know what time everyone's fight lands, and they all arrive between 8am and 8pm. What would be a good bin-size to determine how many busses you'll need?
                                 }
                                 @item{
-                                    Show the distribution of calories across our nutrition table. What calorie ranges are the most common?
+                                    Look back at your histogram for @code{median-life-expectancy}. How many bins make this chart helpful?
                                 }
                                 @item{
                                     How common is it for a country to have more than a billion people? Make a histogram that shows how common different population sizes are.
@@ -368,5 +368,43 @@
         ]
    }
 
+@lesson/studteach[
+     #:title "Closing"
+     #:duration "20 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[]
+     #:standards (list)
+     #:materials @itemlist[]
+     #:preparation @itemlist[]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[
+              @point{
+                    @student{
+                        @activity{
+                            Take 10 minutes to answer question 7 in your Project Report.
+                        }
+                    }       
+                    @teacher{
+                        See the @(hyperlink "https://docs.google.com/document/d/1iS-JVNNltGY4eio8EYMMWLDQ8ntKC2qsDbtgLiSe20w/edit?usp=sharing" "Sample Project Report") to see an exemplar of student work.
+                    }              
+              }
+              @point{
+                    @student{
+                           Congratulations! You've just learned the basics of the Pyret programming language, and how to use that language to answer a data science question. Throughout this course, you'll learn new and more powerful tools that will allow you answer more complex questions, and in greater detail.
+
+                    }
+                    @teacher{
+                             If your students are working in pairs/groups, make sure that each student has access to a version of the program.  The student who saved the program to their Google Drive can share their program with anyone by hitting the Publish button in the top left, choosing "Publish a new copy", then clicking the "Share Link" option.  This will allow them to copy a link to the program, then send to their partners in an email/message.
+                   }
+              }
+        ]
+   }
 }
 

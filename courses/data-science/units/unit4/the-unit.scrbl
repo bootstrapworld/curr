@@ -98,7 +98,7 @@
 
 @lesson/studteach[
      #:title "Bar Charts & Pie Charts in Pyret"
-     #:duration "20 minutes"
+     #:duration "25 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -219,7 +219,7 @@
 
 @lesson/studteach[
      #:title "Frequency Bar Charts"
-     #:duration "15 minutes"
+     #:duration "20 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -365,6 +365,36 @@
                                                 
                       }
                 }
+        ]
+   }
+
+@lesson/studteach[
+     #:title "Closing"
+     #:duration "20 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[]
+     #:standards (list)
+     #:materials @itemlist[]
+     #:preparation @itemlist[]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[
+              @point{
+                    @student{
+                        @activity{
+                            Take 30 minutes to answer questions 5 and 6 in your Project Report.
+                        }
+                    }       
+                    @teacher{
+                        See the @(hyperlink "https://docs.google.com/document/d/1iS-JVNNltGY4eio8EYMMWLDQ8ntKC2qsDbtgLiSe20w/edit?usp=sharing" "Sample Project Report") to see an exemplar of student work.
+                    }              
+              }
         ]
    }
 }

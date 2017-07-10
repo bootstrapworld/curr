@@ -144,7 +144,7 @@
             @point{
               		@student{
               				@activity[#:forevidence "BS-IDE&1&1"]{
-          						    Open up the @editor-link[#:public-id "0BzzMl1BJlJDkeDQyWDdNU2gycmM" "Unit 2 Starter file"]. Make sure you are signed into your Google account, and click the "Save a Copy" button.
+          						    Open up the @editor-link[#:public-id "0BzzMl1BJlJDkeDQyWDdNU2gycmM" "Unit 2 Starter file"]. Make sure you are signed into your Google account, and click the "Save a Copy" button. This will save a copy of the file into your own account, so that you can make changes and retrieve them later.
               				}
               		}
               		@teacher{
@@ -430,7 +430,7 @@
 
   @lesson/studteach[
      #:title "Scatterplots"
-     #:duration "10 minutes"
+     #:duration "15 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -471,12 +471,94 @@
                           The options you can share with your students at this time are @code{x-min}, @code{y-min}, @code{x-max}, @code{y-max}, @code{title}. The full set can be found in the @(hyperlink "https://www.pyret.org/docs/latest/plot.html#%28part._plot_.Plot.Options%29" "Pyret Documentation").
                       }
                 }
+              @point{
+                  @student{
+                          @activity{
+                            Use the @code{plot} function to draw this scatter plot. What do you notice about this plot? Is there a relationship between sugar and calories? Take two minutes and write your answer on on @worksheet-link[#:name "Unit-2"] - does this support your hypothesis or not?
+                            @bold{What other kinds of relationships can you find in these tables?}
+                          }
+                          Later on in this class, you'll learn how to plot many kinds of data, and how to search for trends and relationships like this one!
+
+                      }
+                      @teacher{
+                          Have the class debrief their findings. Did anyone's mind change after looking at the data? Is the data convincing or not? Why or why not?
+                      }
+              }
         ]
-}       
+ }       
+
+  @lesson/studteach[
+     #:title "Choose Your Dataset"
+     #:duration "15 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[]
+     #:standards (list)
+     #:materials @itemlist[]
+     #:preparation @itemlist[@item{}]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[
+                @point{
+                      @student{
+                          Now that you've had a chance to look at a few tables, it's time to choose a dataset of your own! Thoughout this course, you'll be analyzing this dataset and writing up your findings. As you learn new tools for data science, you'll continue to refine this analysis, answering questions and raising new ones of your own!
+                          Take 5 minutes to look through the following datasets, and choose one that interests you:
+                          @itemlist[
+                              @item{
+                                  @(hyperlink "https://docs.google.com/spreadsheets/d/1SaR2M6Z-s40UuRg3u1aQU-G1GVdcm0RgHpqQ9LNmSQk/edit?usp=sharing" "Movies Dataset") (and the @editor-link[#:public-id "0BzzMl1BJlJDka0tta0Z1MEJzUUU" "Project file"] for this dataset)
+                              }
+                              @item{
+                                  @(hyperlink "https://docs.google.com/spreadsheets/d/1yHPM-poscv6azh59aMwElfUP67P3fMESorVjtMwsFa0/edit?usp=sharing" "School Dataset") (and the @editor-link[#:public-id "0BzzMl1BJlJDkVFdlemN1UmZiR0U" "Project file"] for this dataset)
+                              }
+                              @item{
+                                  @(hyperlink "https://docs.google.com/spreadsheets/d/1cIxBSQebGejWK7S_Iy6cDFSIpD-60x8oG7IvrfCtHbw/edit?usp=sharing" "US Income Dataset") (and the @editor-link[#:public-id "0BzzMl1BJlJDkMUxuWXNsRThBMG8" "Project file"] for this dataset)
+                              }
+                              @item{
+                                  @(hyperlink "https://docs.google.com/spreadsheets/d/14er5Mh443Lb5SIFxXZHdAnLCuQZaA8O6qtgGlibQuEg/edit?usp=sharing" "US Presidents Dataset") (and the @editor-link[#:public-id "0BzzMl1BJlJDkNENhLXZPa1dnT28" "Project file"] for this dataset)
+                              }
+                              @item{
+                                  @(hyperlink "https://docs.google.com/spreadsheets/d/1lOFsofXJNIMKAM8g4Zn688jIdbAK68ovAnzmfuwFd9M/edit?usp=sharing" "Countries of the World Dataset") (and the @editor-link[#:public-id "0BzzMl1BJlJDkVTJfZDhKeGRKa3c" "Project file"] for this dataset)
+                              }
+                              @item{
+                                  Or find your own dataset, and use this (@editor-link[#:public-id "0BzzMl1BJlJDkX0tnU0J1cTVaOHc" "Blank Project file"]) for your project.
+                              }
+                          ]
+                      }
+                      @teacher{
+
+                      }
+                }
+                @point{
+                      @student{
+                          @activity{
+                              @itemlist[
+                                  @item{
+                                      Once you've found a Project file for a dataset that interests you, click "Save a Copy" and save the project to your own account. 
+                                  }
+                                  @item{
+                                      You'll be adding to this file as we go, and keeping a written repository of your work and your findings as well. We've created @(hyperlink "https://docs.google.com/document/d/1jbKSecOtdzVO4iJsIPQRLvnwrt8GhqVFyXvnukdT_Xo/edit?usp=sharing" "a starter file") for this Project Report as well - save a copy to your account, and be sure to @bold{bookmark the page so you can return to it later}.    
+                                  }
+                                  @item{
+                                      Take 5 minutes to fill in your name, and answer questions 1-3 in your Project Report.
+                                  }
+                              ]
+                          }
+                      }       
+                      @teacher{
+                          See the @(hyperlink "https://docs.google.com/document/d/1iS-JVNNltGY4eio8EYMMWLDQ8ntKC2qsDbtgLiSe20w/edit?usp=sharing" "Sample Project Report") to see an exemplar of student work.
+                      }
+                }
+        ]
+ }
 
 @lesson/studteach[
      #:title "Closing"
-     #:duration "10 minutes"
+     #:duration "5 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -492,19 +574,6 @@
       ]{
         @points[
               @point{
-                  @student{
-                          @activity{
-                            Use the @code{plot} function to draw this scatter plot. What do you notice about this plot? Is there a relationship between sugar and calories? Take two minutes and write your answer on on @worksheet-link[#:name "Unit-2"] - does this support your hypothesis or not?
-                            @bold{What other kinds of relationships can you find in these tables?}
-                          }
-                          Later on in this class, you'll learn how to plot many kinds of data, and how to search for trends and relationships like this one!
-
-                      }
-                      @teacher{
-                          Have the class debrief their findings. Did anyone's mind change after looking at the data? Is the data convincing or not? Why or why not?
-                      }
-              }
-             @point{
                     @student{
 							             Congratulations! You've just learned the basics of the Pyret programming language, and how to use that language to answer a data science question. Throughout this course, you'll learn new and more powerful tools that will allow you answer more complex questions, and in greater detail.
 

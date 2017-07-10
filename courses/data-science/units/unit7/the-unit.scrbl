@@ -8,6 +8,38 @@
   @unit-descr{Students are introduced to their first examples of operations that consume and produce tables, and learn how to select columns  and order rows. They are also introduced to the beginnings of Table Plans, as a vehicle for thinking through compound queries.}
 }
 @unit-lessons{
+
+
+@lesson/studteach[
+   #:title "Review"
+   #:duration "15 minutes"
+   #:overview ""
+   #:learning-objectives @itemlist[]
+   #:evidence-statements @itemlist[]
+   #:product-outcomes @itemlist[]
+   #:standards (list)
+   #:materials @itemlist[]
+   #:preparation @itemlist[]
+   #:pacings (list 
+              @pacing[#:type "remediation"]{@itemlist[@item{}]}
+              @pacing[#:type "misconception"]{@itemlist[@item{}]}
+              @pacing[#:type "challenge"]{@itemlist[@item{}]}
+              )
+    ]{
+      @points[
+            @point{
+                  @student{
+                      @activity{
+                          Take 15 minutes to answer question 8 in your Project Report.
+                      }
+                  }       
+                  @teacher{
+                      See the @(hyperlink "https://docs.google.com/document/d/1iS-JVNNltGY4eio8EYMMWLDQ8ntKC2qsDbtgLiSe20w/edit?usp=sharing" "Sample Project Report") to see an exemplar of student work.
+                  }              
+            }
+      ]
+ }
+
 @lesson/studteach[
      #:title "Select Queries"
      #:duration "20 minutes"
@@ -332,7 +364,7 @@
 
 @lesson/studteach[
      #:title "Combining Queries"
-     #:duration "20 minutes"
+     #:duration "25 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -408,12 +440,30 @@
 
                     }
             }
+            @point{
+                    @student{
+                        @activity{
+                          With all the commas, colons and end markers, it's easy to make a small syntax error! Open the @editor-link[#:public-id "0BzzMl1BJlJDkQ3c4SDlDS1BaLWM" "Select and Order Syntax Errors"] file, and see if you can fix all the bugs you find. Once you're done, uncomment each query by removing the hash sign (@code{#}) and click Run.
+                        }
+                    }
+                    @teacher{
+
+                    }
+            }
+            @point{
+                    @student{
+                            Table Plans allow us to turn query-writing into series of questions. By focusing on just one question at a time, we minimize our chances of making mistakes, and give ourselves a way to retrace our steps if something goes wrong. Being comfortable with Table Plans takes time, but once you've mastered them you'll find it gets easier and easier to program complex table queries.
+                    }
+                    @teacher{
+
+                    }
+            }
         ]
    }
 
 @lesson/studteach[
      #:title "Closing"
-     #:duration "15 minutes"
+     #:duration "10 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -429,25 +479,19 @@
       ]{
         @points[
                 @point{
-                        @student{
-                            @activity{
-                              With all the commas, colons and end markers, it's easy to make a small syntax error! Open the @editor-link[#:public-id "0BzzMl1BJlJDkQ3c4SDlDS1BaLWM" "Select and Order Syntax Errors"] file, and see if you can fix all the bugs you find. Once you're done, uncomment each query by removing the hash sign (@code{#}) and click Run.
-                            }
-                        }
-                        @teacher{
-
-                        }
-                }
-                @point{
-                        @student{
-                                Table Plans allow us to turn query-writing into series of questions. By focusing on just one question at a time, we minimize our chances of making mistakes, and give ourselves a way to retrace our steps if something goes wrong. Being comfortable with Table Plans takes time, but once you've mastered them you'll find it gets easier and easier to program complex table queries.
-                        }
-                        @teacher{
-
-                        }
+                      @student{
+                          At this point, you may have noticed that your dataset contains @vocab{outliers} that skew the results of your analysis. Perhaps one movie was a box-office failure, or a war in one country is artificially dragging down their life-expectency. Or perhaps you've decided you want to zoom in on a subset of the data, or break it apart and do an analysis on two different groups. Maybe you want to run a separate analysis for movies with female leads v. male leads, or analyze Democratic and Republican presidents separately. You don't know how to do this - yet - but that's exactly what we'll cover in the next lesson!
+                          @activity{
+                              Take 10 minutes to answer question 9 in your Project Report.
+                          }
+                      }       
+                      @teacher{
+                          See the @(hyperlink "https://docs.google.com/document/d/1iS-JVNNltGY4eio8EYMMWLDQ8ntKC2qsDbtgLiSe20w/edit?usp=sharing" "Sample Project Report") to see an exemplar of student work.
+                      }              
                 }
         ]
     }
+
 }
 
 

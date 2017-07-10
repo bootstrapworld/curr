@@ -18,7 +18,11 @@
      #:product-outcomes @itemlist[]
      #:standards (list)
      #:materials @itemlist[]
-     #:preparation @itemlist[]
+     #:preparation @itemlist[
+      @item{
+        DO NOW: Do people in wealthier countries live longer than people in poor countries? Use the @code{scatter-plot} function to plot the relationship between GDP and median life expectancy.
+      }
+     ]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -425,78 +429,6 @@
                 }
                 @point{
                       @student{
-                              Here is a different list of student grades, from their second test.
-
-                              @code[#:multi-line #t]{
-                                    [list: 68, 68, 89, 91, 88, 93, 92]
-                              }
-
-                              @itemlist[
-                                      @item{
-                                            mean:  @code{84.14}
-                                      }
-                                      @item{
-                                            median:  @code{89}
-                                      }
-                                      @item{
-                                            mode:  @code{68}
-                                      }
-                              ]
-                      }
-                      @teacher{
-                              Highlight that even though 68 appears more than any one number, most of the scores are concentrated around ~90.
-                      }
-                }
-                @point{
-                      @student{
-                              Grades on the students' 3rd test:
-
-                              @code[#:multi-line #t]{
-                                    [list: 94, 96, 98, 85, 82, 70, 71]
-                              }
-
-                              @itemlist[
-                                      @item{
-                                            mean:  @code{85.14}
-                                      }
-                                      @item{
-                                            median:  @code{85}
-                                      }
-                                      @item{
-                                            modes:  @code{94, 96, 98, 85, 82, 70, 71}
-                                      }
-                              ]
-                      }
-                      @teacher{
-                              Highlight that, since all of the values are distinct, the mode is less useful than the median or mode.
-                      }
-                }
-                @point{
-                      @student{
-                              The teacher just gave the students their fourth test, and here is the list of grades:
-
-                              @code[#:multi-line #t]{
-                                    [list: 98, 96, 98, 85, 70, 70, 71]
-                              }
-
-                              @itemlist[
-                                      @item{
-                                            mean:  @code{84}
-                                      }
-                                      @item{
-                                            median:  @code{85}
-                                      }
-                                      @item{
-                                            modes:  @code{70, 98}
-                                      }
-                              ]
-                      }
-                      @teacher{
-                              Highlight that the mean and median are both weaker measures here, because the scores are clustered in two groups around the modes.
-                      }
-                }
-                @point{
-                      @student{
                               In general, here are some guidelines for when to use one measurement over the other:
 
                               @itemlist[
@@ -525,9 +457,6 @@
                                   @item{
                                       Suppose we want to know how long the average person on Earth lives. Would taking the mean of @code{median-life-expectancy} give us the answer? Why or why not?
                                   }
-                                  @item{
-                                      Do people in wealthier countries live longer than people in poor countries? Use the @code{scatter-plot} function to plot the relationship between GDP and median life expectancy.
-                                  }
                               ]
                           }
                     }
@@ -535,13 +464,30 @@
 
                     }
                 }
+                @point{
+                    @student{
+                        @activity{
+                            @itemlist[
+                                  @item{
+                                    Make sure to save your work.  Hit the Save button in the top left. This will save your program in the code.pyret.org folder within your Google Drive.
+                                  }
+                                  @item{  
+                                    Use @code{mean}, @code{median} and @code{mode} with the @code{household-income} list. Do you think the "average household income" is still a good measure to use when talking about poverty? Why or why not? Take two minutes to write your answer on on @worksheet-link[#:name "Unit-3"].
+                                  }
+                            ]
+                        }
 
+                    }
+                    @teacher{
+                        Have the class debrief their findings. Did anyone's mind change after looking at the data? Is the data convincing or not? Why or why not?
+                    }
+                }
         ]
    }
 
 @lesson/studteach[
      #:title "Closing"
-     #:duration "10 minutes"
+     #:duration "20 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -557,24 +503,20 @@
       ]{
         @points[
               @point{
-                  @student{
-                          @activity{
-                              Use @code{mean}, @code{median} and @code{mode} with the @code{household-income} list. Do you think the "average household income" is still a good measure to use when talking about poverty? Why or why not? Take two minutes to write your answer on on @worksheet-link[#:name "Unit-3"].
-                          }
-
-                      }
-                      @teacher{
-                          Have the class debrief their findings. Did anyone's mind change after looking at the data? Is the data convincing or not? Why or why not?
-                      }
+                    @student{
+                        @activity{
+                            Take 10 minutes to answer question 4 in your Project Report.
+                        }
+                    }       
+                    @teacher{
+                        See the @(hyperlink "https://docs.google.com/document/d/1iS-JVNNltGY4eio8EYMMWLDQ8ntKC2qsDbtgLiSe20w/edit?usp=sharing" "Sample Project Report") to see an exemplar of student work.
+                    }              
               }
-             @point{
+              @point{
                     @student{
                            Congratulations! You've just learned the basics of the Pyret programming language, and how to use that language to answer a data science question. Throughout this course, you'll learn new and more powerful tools that will allow you answer more complex questions, and in greater detail.
 
-                     @activity[#:forevidence "BS-IDE&1&1"]{
-                            Make sure to save your work.  Hit the Save button in the top left. This will save your program in the code.pyret.org folder within your Google Drive.
-                  }
-              }
+                    }
                     @teacher{
                              If your students are working in pairs/groups, make sure that each student has access to a version of the program.  The student who saved the program to their Google Drive can share their program with anyone by hitting the Publish button in the top left, choosing "Publish a new copy", then clicking the "Share Link" option.  This will allow them to copy a link to the program, then send to their partners in an email/message.
                    }

@@ -698,7 +698,7 @@
                             By learning to use values, variables, operations and functions, you are now familiar with the fundamental concepts needed to write simple programs.  You will have many opportunities to use these concepts in the next units, by writing programs to answer data science questions.
 
                             @activity[#:forevidence "BS-IDE&1&1"]{
-                                    Make sure to save your Pyret program as @code{unit-1} into your Google Drive.
+                                    Make sure to save your Pyret program as @code{Pyret Practice} into your Google Drive, so you can go back to it later.
                             }
 					}
                     @teacher{
