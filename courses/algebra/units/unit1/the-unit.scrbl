@@ -31,7 +31,17 @@
                               @itemlist[@item{What makes a language? Do some students already speak more than one language?}
                                          @item{Programming is very much a language, with its own syntax, semantics, etc}
                                          @item{Ask students about their favorite videogames. Be open about the scale of a modern game: they cost millions of dollars, are built by huge teams of programmers and artists, and are developed over years.}
-                                         @item{Set expectations about what can be accomplished in a single, introductory programming class.}]}
+                                         @item{Set expectations about what can be accomplished in a single, introductory programming class.}]
+                              Some example development budgets for popular video games, from @(hyperlink "https://kotaku.com/how-much-does-it-cost-to-make-a-big-video-game-1501413649" "Kotaku"):
+                              @itemlist[@item{@bold{Crash Bandicoot:} $1.7 Million}
+                                        @item{@bold{Grim Fandango:} $3 Million}
+                                        @item{@bold{EverQuest:} $3 Million}
+                                        @item{@bold{Jak and Daxter:} $14 Million}
+                                        @item{@bold{Half-Life 2:} $40 Million}
+                                        @item{@bold{Call of Duty 2:} $14.5 Million}
+                                        @item{@bold{Guitar Hero:} $1.7 Million}
+                                        @item{@bold{Rock Band:} $20 Million}
+                                        @item{@bold{Destiny:} $140 Million}]}
                      }
               ]
          }
