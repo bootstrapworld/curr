@@ -1,0 +1,71 @@
+<html>
+  <head>
+    <title>Bootstrap: Teacher Resources</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css"/>
+    <style>
+      .links{float: right;}
+      div#teacherVideos div{
+        float:left;
+        padding:20px;
+        text-align: center;
+        width: 220px;
+        height: 220px;
+      }
+    div#teacherVideos b{height: 44px; display: block;}
+    a.dataset{font-family: courier, monospace;}
+    </style>
+  </head>
+  <body>
+        <!--#include virtual="/menubar.ssi" -->
+        
+        <div id="body">
+            
+            <div class="item">
+              <h1>Teacher Resources</h1>
+              <ul>
+                <li><p class="BSUnitSummary"><span class="BSUnitTitle">Workshop Slides</span> [<a href="WorkshopSlides.pptx">pptx</a>] - The slide deck we use in our PD workshops, in PowerPoint format. This includes the background and context slides, as well as all slides used during the professional development workshops.</p></li>
+                <li><p class="BSUnitSummary"><span class="BSUnitTitle">Support Forums</span> [<a href="https://groups.google.com/d/forum/bootstrap-announce">Announcements</a> | <a href="https://groups.google.com/d/forum/bootstrap-discuss">Discussion</a>] - Want to be kept up-to-date about Bootstrap events, workshops, and curricular changes? Want to ask a question or pose a lesson idea for other Bootstrap teachers? These forums are the place to do it.</p></li>
+                <li><p class="BSUnitSummary"><span class="BSUnitTitle">Finished Final Project [<a href="https://docs.google.com/document/d/1iS-JVNNltGY4eio8EYMMWLDQ8ntKC2qsDbtgLiSe20w/edit?usp=sharing">Final Report</a> | <a href="https://code.pyret.org/editor#share=0BzzMl1BJlJDkUm5PekVRWWpNZU0&v=06c8b98">Pyret Project</a>] - See an example of a completed Bootstrap:DataScience final project.</p></li>
+                </ul>
+            </div>
+
+              
+            
+            <div class="item clearfix">
+              <span class="anchor" id="sourceFiles"></span>
+              <h2>Workshop Files</h2>
+              <ul>
+                <li><a target="_blank" href="https://code.pyret.org/editor">Blank Pyret file (Unit 1)</a></li>
+                <li><a target="_blank" href="https://code.pyret.org/editor#share=0BzzMl1BJlJDkZmxmNkliQ3RFZ2s">Unit 2 Starter File</a></li>
+                <li><a target="_blank" href="https://code.pyret.org/editor#share=0BzzMl1BJlJDkek5OQWtzVFdkaWc">Unit 3 Starter File</a></li>
+                <li><a target="_blank" href="https://code.pyret.org/editor#share=0BzzMl1BJlJDkLVduMEtsSFRKLVE">Unit 4 Starter File</a></li>
+                <li><a target="_blank" href="https://code.pyret.org/editor#share=0BzzMl1BJlJDkWk01QktmVXZzS1E">Unit 5 Starter File</a></li>
+                <li><a target="_blank" href="https://code.pyret.org/editor#share=0BzzMl1BJlJDkNnlKOE84QUlUZVk">Unit 6 Starter File</a></li>
+                <li><a target="_blank" href="https://code.pyret.org/editor#share=0BzzMl1BJlJDkWmcycFB1WTVRc3M">Unit 7 Starter File</a></li>
+                <li><a target="_blank" href="https://code.pyret.org/editor#share=0BzzMl1BJlJDkQ3c4SDlDS1BaLWM">Unit 7 - Select/Order Syntax</a></li>
+                <li><a target="_blank" href="https://code.pyret.org/editor#share=0BzzMl1BJlJDkNkEtSXdzeXUyMGs">Unit 8 Starter File</a></li>
+                <li><a target="_blank" href="https://code.pyret.org/editor#share=0BzzMl1BJlJDkSXNaU185LVZ3VE0">Unit 8 - Sieve Syntax</a></li>
+                <li><a target="_blank" href="https://code.pyret.org/editor#share=0BzzMl1BJlJDkR2JlQzdIRXdZemM">Unit 9 Starter File</a></li>
+                <li><a target="_blank" href="https://code.pyret.org/editor#share=0BzzMl1BJlJDkM0dQODJZVHBVSjQ">Unit 9 - Sieve Syntax</a></li>
+              </ul>
+
+              <h2>Datasets and Final Report Files</h2>
+              <ul>
+                <li><a  target="_blank" class="dataset"
+                        href="https://docs.google.com/spreadsheets/d/1SaR2M6Z-s40UuRg3u1aQU-G1GVdcm0RgHpqQ9LNmSQk/">Movies Dataset</a></li>
+                <li><a  target="_blank" class="dataset"
+                        href="https://docs.google.com/spreadsheets/d/1yHPM-poscv6azh59aMwElfUP67P3fMESorVjtMwsFa0/">RI School Dataset</a></li>
+                <li><a  target="_blank" class="dataset"
+                        href="https://docs.google.com/spreadsheets/d/1cIxBSQebGejWK7S_Iy6cDFSIpD-60x8oG7IvrfCtHbw/">US Income Dataset</a></li>
+                <li><a  target="_blank" class="dataset"
+                        href="https://docs.google.com/spreadsheets/d/14er5Mh443Lb5SIFxXZHdAnLCuQZaA8O6qtgGlibQuEg/">US Presidents Dataset</a></li>
+                <li><a  target="_blank" class="dataset"
+                        href="https://docs.google.com/spreadsheets/d/1lOFsofXJNIMKAM8g4Zn688jIdbAK68ovAnzmfuwFd9M/">Countries of the World Dataset</a></li>
+                <li><a target="_blank" href="https://docs.google.com/document/d/1jbKSecOtdzVO4iJsIPQRLvnwrt8GhqVFyXvnukdT_Xo">Blank Final Report</a></li>
+                <li><a target="_blank" href="https://code.pyret.org/editor#share=0BzzMl1BJlJDkX0tnU0J1cTVaOHc">Blank Starter File</a></li>
+              </ul>
+            </div>
+                
+  </div>
+            </body>
+</html>

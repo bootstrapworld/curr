@@ -59,7 +59,7 @@
         @points[
                 @point{
                       @student{
-                              Open the @editor-link[#:public-id "0BzzMl1BJlJDkOWh4anRlTW1RQmM" "Unit 7 Starter File"], Save a Copy, and Run the program. Today we're going to look at a new table, called @code{movies}. 
+                              Open the @editor-link[#:public-id "0BzzMl1BJlJDkWmcycFB1WTVRc3M" "Unit 7 Starter File"], Save a Copy, and Run the program. Today we're going to look at a new table, called @code{movies}. 
                               @activity[#:forevidence "BS-IDE&1&1"]{
 
                                       @itemlist[
