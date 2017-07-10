@@ -40,13 +40,14 @@
                 }
                 @point{
                       @student{
+                              @bitmap{images/sieve.png}
                               We have our @code{countries} table, which lists @italic{every} country in the world and shows their GDP. But to answer this question, we need to learn two new things:
                               @itemlist[
                                   @item{
                                       How to write code that @italic{checks} if a country is in Asia.
                                   }
                                   @item{
-                                      How to write a query that uses that check, so that we can generate a table showing only countries in Asia.
+                                      How to write a query that uses that check, so that we can generate a table showing only countries in Asia. Essentially, we want to create a @italic{filter} that traps all the rows we want - getting rid of the ones we don't.
                                   }
 
                               ]
@@ -142,7 +143,7 @@
                               }
                       }
                       @teacher{
-                              You can point out the difference between definitions (@code{=}) and equality expressions (@code{==}) by writing @code{x = 4} in the interactions window, and then evaluating the expression @code{x = 10}. This will produce an error because @code{x} is already defined, while @code{x == 10} will produce @code{false}.
+                              You can point out the difference between definitions (@code{=}) and equality expressions (@code{==}) by writing @code{x = 4} in the Interactions Area, and then evaluating the expression @code{x = 10}. This will produce an error because @code{x} is already defined, while @code{x == 10} will produce @code{false}.
                       }
                 }
                 @point{
