@@ -43,6 +43,9 @@
                                     @item{
                                         What kind of @italic{measurement} would use to determine if your answer is right or not? What data would you need?
                                     }
+                                    @item{
+                                        Complete Page 1 in your Student Workbook, by copying down the question, your answer, and what you discussed with your group.
+                                    }
                                 ]
                             }
                     }

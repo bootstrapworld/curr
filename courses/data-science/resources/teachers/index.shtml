@@ -12,7 +12,7 @@
         height: 220px;
       }
     div#teacherVideos b{height: 44px; display: block;}
-    a.dataset{font-family: courier, monospace;}
+    ul#final li b {display: inline-block; width: 200px;}
     </style>
   </head>
   <body>
@@ -51,20 +51,45 @@
                 <li style="padding-top: 20px;"><a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSeMCqv03p7gnV9Lu46zWT10PQ4tzyNG7Ejjk4KNcQ8l756bog/viewform"><b>Daily Workshop Feedback Form</b></a></li>
               </ul>
 
-              <h2>Datasets and Final Report Files</h2>
-              <ul>
-                <li><a  target="_blank" class="dataset"
-                        href="https://docs.google.com/spreadsheets/d/1SaR2M6Z-s40UuRg3u1aQU-G1GVdcm0RgHpqQ9LNmSQk/">Movies Dataset</a></li>
-                <li><a  target="_blank" class="dataset"
-                        href="https://docs.google.com/spreadsheets/d/1yHPM-poscv6azh59aMwElfUP67P3fMESorVjtMwsFa0/">RI School Dataset</a></li>
-                <li><a  target="_blank" class="dataset"
-                        href="https://docs.google.com/spreadsheets/d/1cIxBSQebGejWK7S_Iy6cDFSIpD-60x8oG7IvrfCtHbw/">US Income Dataset</a></li>
-                <li><a  target="_blank" class="dataset"
-                        href="https://docs.google.com/spreadsheets/d/14er5Mh443Lb5SIFxXZHdAnLCuQZaA8O6qtgGlibQuEg/">US Presidents Dataset</a></li>
-                <li><a  target="_blank" class="dataset"
-                        href="https://docs.google.com/spreadsheets/d/1lOFsofXJNIMKAM8g4Zn688jIdbAK68ovAnzmfuwFd9M/">Countries of the World Dataset</a></li>
+              <h2>Final Project Files</h2>
+              <ul id="final">
                 <li><a target="_blank" href="https://docs.google.com/document/d/1jbKSecOtdzVO4iJsIPQRLvnwrt8GhqVFyXvnukdT_Xo">Blank Final Report</a></li>
                 <li><a target="_blank" href="https://code.pyret.org/editor#share=0BzzMl1BJlJDkX0tnU0J1cTVaOHc">Blank Starter File</a></li>
+                <li>
+                    <b>Movies</b> 
+                    [ <a target="_blank" href="https://docs.google.com/spreadsheets/d/1SaR2M6Z-s40UuRg3u1aQU-G1GVdcm0RgHpqQ9LNmSQk/">Dataset</a>
+                    | <a target="_blank" href="https://code.pyret.org/editor#share=0BzzMl1BJlJDkbktKVk1zeEhNUXM">Starter File</a>]
+                </li>
+                <li>
+                    <b>RI Schools</b>
+                    [ <a target="_blank" href="https://docs.google.com/spreadsheets/d/1yHPM-poscv6azh59aMwElfUP67P3fMESorVjtMwsFa0/">Dataset</a>
+                    | <a target="_blank" href="https://code.pyret.org/editor#share=0BzzMl1BJlJDkVFdlemN1UmZiR0U">Starter File</a>]
+                </li>
+                <li>
+                    <b>US Income</b>
+                    [ <a target="_blank" href="https://docs.google.com/spreadsheets/d/1cIxBSQebGejWK7S_Iy6cDFSIpD-60x8oG7IvrfCtHbw/">Dataset</a>
+                    | <a target="_blank" href="https://code.pyret.org/editor#share=0BzzMl1BJlJDkMUxuWXNsRThBMG8">Starter File</a>]
+                </li>
+                <li>
+                    <b>US Presidents</b>
+                    [ <a target="_blank" href="https://docs.google.com/spreadsheets/d/14er5Mh443Lb5SIFxXZHdAnLCuQZaA8O6qtgGlibQuEg/">Dataset</a>
+                    | <a target="_blank" href="https://code.pyret.org/editor#share=0BzzMl1BJlJDkNENhLXZPa1dnT28">Starter File</a>]
+                </li>
+                <li>
+                    <b>Countries</b>
+                    [ <a target="_blank" href="https://docs.google.com/spreadsheets/d/1lOFsofXJNIMKAM8g4Zn688jIdbAK68ovAnzmfuwFd9M/">Dataset</a>
+                    | <a target="_blank" href="https://code.pyret.org/editor#share=0BzzMl1BJlJDkVTJfZDhKeGRKa3c">Starter File</a>]
+                </li>
+                <li>
+                    <b>Music</b>
+                    [ <a target="_blank" href="https://docs.google.com/spreadsheets/d/1-mrDSjS-rWMdiMAIptFS_PHVUFO06lUpYNCiGkYj51s/">Dataset</a>
+                    | <a target="_blank" href="https://code.pyret.org/editor#share=0BzzMl1BJlJDkR00tVGE0OEJJR2c">Starter File</a>]
+                </li>
+                <li>
+                    <b>State Demographics</b>
+                    [ <a target="_blank" href="https://docs.google.com/spreadsheets/d/1HJ6wR4IH9j0hqbaP4OXeChOVMbVMyV0vBMu25NUiw1w/">Dataset</a>
+                    | <a target="_blank" href="https://code.pyret.org/editor#share=0BzzMl1BJlJDkRVU1QWpNVVpoTzg">Starter File</a>]
+                </li>
               </ul>
             </div>
                 
