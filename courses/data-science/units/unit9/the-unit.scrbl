@@ -183,7 +183,7 @@
                 @point{
                         @student{
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Which 3 menu items in @code{nutrition} have the highest @code{sodium-per-gram}? Use the @code{sodium} and @code{serving-size} columns to write @code{extend} query that will answer this question.
+                                        Suppose we want to find out which menu items have the highest amount of sodium @italic{per gram}. Use the @code{sodium} and @code{serving-size} columns to write @code{extend} an query that will answer this question.
                                 }
                         }
                         @teacher{
@@ -394,7 +394,7 @@
                 @point{
                         @student{
                             @activity{
-                              Open the @editor-link[#:public-id "0BzzMl1BJlJDkM0dQODJZVHBVSjQ" "Sieve Syntax Errors"] file, and see if you can fix all the bugs you find. Once you're done, uncomment each query by removing the hash sign (@code{#}) and click Run.
+                              Open the @editor-link[#:public-id "0BzzMl1BJlJDkM0dQODJZVHBVSjQ" "Extend Syntax Errors"] file, and see if you can fix all the bugs you find. Once you're done, uncomment each query by removing the hash sign (@code{#}) and click Run.
                             }
                         }
                         @teacher{
