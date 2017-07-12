@@ -453,7 +453,7 @@ ul.teacherNotes li div.student.slide{ width: 90%; }
 .lessonItem .slide .editbox,
 .lessonItem .slide .CodeMirror,
 .lessonItem .slide div.codesexp{
-  font-size: 48px;
+  font-size: 20px;
 }
 
 #progressBar{position: fixed; top: 0px; left: 0px; height: 3px; background: black; visibility: visible; }
@@ -503,7 +503,7 @@ ul.teacherNotes li div.student.slide{ width: 90%; }
   .CodeMirror{font-size: 12px;}
   
   /* For the printed page, make it clear that this is an actual link, not underlined text */
-  a[href^="http://www.wescheme.org"]:after { content: " Link: " attr(href) " "; }
+  a[href^="http://www.wescheme.org"]:after { content: ": " attr(href) " "; }
   
     /* Fix for Firefox printing, which is terribly broken. See:
    *  http://www.bennadel.com/blog/851-Fixing-DIVs-That-Cause-Content-Truncation-When-Printing.htm

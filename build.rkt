@@ -106,7 +106,11 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Command line parsing.  We initialize the SCRIBBLE_TAGS environmental
 ;; variable
+<<<<<<< HEAD
 (define courses (list "data-science"))
+=======
+(define courses (list "algebra" "reactive" "data-science" "physics"))
+>>>>>>> ce48862221f4bff438c64b2419c158b9901d817d
 (putenv "AUDIENCE" "teacher")
 (putenv "CURRENT-SOLUTIONS-MODE" "off")
 (putenv "TARGET-LANG" "pyret")
@@ -115,12 +119,7 @@
   (command-line
    #:program "build"
    #:once-each
-   ;; Going to remove this option: it's obsolete, as we always
-   ;; build bs1 and bs2.
-   [("--course") -course "Choose course (default bs1 and bs2)"
-    (if (string=? -course "bs2")
-        (set! courses (list "bs2"))
-        (set! courses (list "bs1")))]
+   
    ;; removed option for now, since not scribbling workbook
    ;; option is set in main entry point at end of file
    #;[("--worksheet-links-to-pdf") "Direct worksheet links to StudentWorkbook.pdf" 
@@ -360,7 +359,7 @@
                   (delete-file (build-path output-resources-dir "workbook" wbfiledir))))))
         ; ideally, modify workbook build process to generate right filename from the
         ; outset.  In the meantime, this puts the right filename in the distribution
-        ; the "when" is there to avoid error in bs2 (which has no workbook yet)
+        ; the "when" is there to avoid error in reactive (which has no workbook yet)
         (when (file-exists? (build-path output-resources-dir "workbook" "workbook.pdf"))
           (rename-file-or-directory (build-path output-resources-dir "workbook" "workbook.pdf")
                                     (build-path output-resources-dir "workbook" "StudentWorkbook.pdf")))
@@ -413,7 +412,7 @@
                   ;;   all of the mess around the resources-deploy paths.  This isn't part of
                   ;;   notes building, so shouldn't be here, but this trashes the dirs so
                   ;;   needs to be here until we get the scripts refactored
-                  ;; Once building bs2 workbook sols, need to check that get-resources here gets the right dir
+                  ;; Once building reactive workbook sols, need to check that get-resources here gets the right dir
                   (let ([workbooksols (build-path (get-resources) "workbook" "workbooksols.pdf")])
                     (when (file-exists? workbooksols)
                       (let ([oldsols (build-path (deploy-resources-dir) "teachers" "TeacherWorkbook.pdf")])
@@ -466,14 +465,14 @@
 (for ([course (in-list bootstrap-courses)])
   (parameterize ([current-course course])
     (solutions-mode-off)
-    (when (equal? course "bs1")
+    (when (equal? course "algebra")
       (putenv "TARGET-LANG" "racket")
       (putenv "RELEASE-STATUS" "mature")
-      (build-exercise-handouts) ; not needed for bs2
+      (build-exercise-handouts) ; not needed for reactive
       (workbook-styling-on)
-      (build-extra-pdf-exercises) ; not needed for bs2
+      (build-extra-pdf-exercises) ; not needed for reactive
       )
-    (when (equal? course "bs2")
+    (when (equal? course "reactive")
       (putenv "TARGET-LANG" "pyret")
       (putenv "RELEASE-STATUS" "mature") ;; was "beta"
       )

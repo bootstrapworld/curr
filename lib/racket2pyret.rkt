@@ -2,10 +2,10 @@
 
 ; BS1 -> pyret compiler
 
-(provide bs1->pyret
+(provide algebra->pyret
          pyret->string
-         bs1->pyret-string
-         bs1-string->pyret-string
+         algebra->pyret-string
+         algebra-string->pyret-string
          )
 
 ;--------- PYRET AST -----------
@@ -29,27 +29,27 @@
 
 (define (atom? v) (not (list? v)))
 
-(define (bs1->pyret sexp)
+(define (algebra->pyret sexp)
   (cond [(atom? sexp) (make-pyatom sexp)]
         [else 
          (case (first sexp)
-           [(+ - * /) (make-pybinop (first sexp) (bs1->pyret (second sexp)) (bs1->pyret (third sexp)))]
+           [(+ - * /) (make-pybinop (first sexp) (algebra->pyret (second sexp)) (algebra->pyret (third sexp)))]
            [(define) (let ([defname (first (second sexp))]
                            [args (second (second sexp))]
                            [body (third sexp)])
-                       (make-pyfun defname args (bs1->pyret body)))]
+                       (make-pyfun defname args (algebra->pyret body)))]
            [(cond) (let* ([clauses (rest sexp)]
                           [pyret-clauses 
-                           (map (lambda (c) (make-pyask-clause (bs1->pyret (first c)) (bs1->pyret (second c))))
+                           (map (lambda (c) (make-pyask-clause (algebra->pyret (first c)) (algebra->pyret (second c))))
                                 clauses)])
                      (make-pyask pyret-clauses))]
            [(example) (let ([testexpr (second sexp)]
                             [output (third sexp)])
-                        (make-pyexample (bs1->pyret testexpr) (bs1->pyret output)))]
+                        (make-pyexample (algebra->pyret testexpr) (algebra->pyret output)))]
            [else ;; function application
             (let ([fname (first sexp)]
                   [args (rest sexp)])
-              (make-pyapp fname (map bs1->pyret args)))]
+              (make-pyapp fname (map algebra->pyret args)))]
            )]))
 
 (define (pyret->string pyast)
@@ -75,21 +75,21 @@
                                 (string-join (map pyret->string (pyapp-args pyast)) ", "))]
         [else (error 'pyret->string "Unknown ast ~a~n" pyast)]))
         
-(define (bs1->pyret-string sexp)
-  (pyret->string (bs1->pyret sexp)))
+(define (algebra->pyret-string sexp)
+  (pyret->string (algebra->pyret sexp)))
 
-(define (bs1-string->pyret-string sexpstr) 
-  (bs1->pyret-string (with-input-from-string sexpstr read)))
+(define (algebra-string->pyret-string sexpstr) 
+  (algebra->pyret-string (with-input-from-string sexpstr read)))
 
 ;; TESTS
-(define (test-bs1->pyret expr)
-  (display (pyret->string (bs1->pyret expr)))
+(define (test-algebra->pyret expr)
+  (display (pyret->string (algebra->pyret expr)))
   (printf "~n~n"))
 
 (define (run-tests)
-  (test-bs1->pyret 3)
-  (test-bs1->pyret '(+ 2 3))
-  (test-bs1->pyret '(define (f x) (+ x 2)))
-  (test-bs1->pyret '(example (f x) (+ x 2)))
-  (test-bs1->pyret '(cond [(* 4 5) "cake"] [else "pizza"]))
+  (test-algebra->pyret 3)
+  (test-algebra->pyret '(+ 2 3))
+  (test-algebra->pyret '(define (f x) (+ x 2)))
+  (test-algebra->pyret '(example (f x) (+ x 2)))
+  (test-algebra->pyret '(cond [(* 4 5) "cake"] [else "pizza"]))
   )

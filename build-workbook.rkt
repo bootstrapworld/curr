@@ -26,8 +26,8 @@
 ;;  get-workbook-dir function from paths.rkt.  However, that is
 ;;  capturing a binding for the current-course parameter that
 ;;  I haven't figured out how to access when setting the current-course.
-;;  As a result, we'd always generate the bs1 workbook, even when our
-;;  current-course is set to bs2.
+;;  As a result, we'd always generate the algebra workbook, even when our
+;;  current-course is set to reactive.
 (define (kf-get-workbook-dir) (build-path courses-base (current-course) "resources" "workbook"))
 
 ; converts list of pages to having all pdf extensions
@@ -186,8 +186,13 @@
             )))))
 
 
+<<<<<<< HEAD
 ; for now, only bs1 is set up for auto-building
 (define bootstrap-courses '("data-science"))
+=======
+; for now, only algebra is set up for auto-building
+(define bootstrap-courses '("algebra" "reactive"))
+>>>>>>> ce48862221f4bff438c64b2419c158b9901d817d
 
 ; use this to tell scribble to use the workbook.css file
 (putenv "BOOTSTRAP-TARGET" "workbook")

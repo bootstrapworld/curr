@@ -7,8 +7,8 @@
       .BSUnitTitle{font-weight: bold;}
       .BSUnitSummary{margin: 5px;}
       td{padding: 5px; vertical-align: top;}
-      .bs1 {background: rgba(90, 50, 50, 0.2)}
-      .bs2 {background: rgba(90, 50, 50, 0.3)}
+      .algebra {background: rgba(90, 50, 50, 0.2)}
+      .reactive {background: rgba(90, 50, 50, 0.3)}
       table{display: none; border-collapse:collapse;background: #F0EFEE;padding: 10px;}
       table#practice{display: block;}
       table tr {border-bottom: 1px solid #B6D990; margin: 20px 10px;}
@@ -419,8 +419,8 @@
           <td><span>L1:6:CT.1:</span> Understand and use the basic steps in algorithmic problem-solving (e.g., problem statement and exploration, examination of sample instances, design, implementation, and testing).
           </td>
           <td>
-<strong>Bootstrap:1 - Units 2-8
-<br/>Bootstrap:2 - Units 1-10</strong>
+<strong>Bootstrap:Algebra - Units 2-8
+<br/>Bootstrap:Reactive - Units 1-10</strong>
 <br/>
             Bootstrap teaches students to develop programs and solve problems through a concrete sequence of steps called the <i>Design Recipe</i>.  Summarizing problem statements, writing test cases, designing functions around data, coding, and testing are all explicit steps in this recipe.  Bootstrap1 begins introducing these steps in unit 2, building on them throughout the curriculum.  Bootstrap2 extends these steps into richer structured data. 
           </td>
@@ -438,18 +438,18 @@
           <td><span>L2:CT:1:</span> Use the basic steps in algorithmic problem-solving to design solutions (e.g., problem statement and exploration, examination of sample instances, design, implementing a solution, testing, evaluation).
           </td>
           <td>
-<strong>Bootstrap:1 - Units 2-8
-<br/>Bootstrap:2 - Units 1-10</strong>
+<strong>Bootstrap:Algebra - Units 2-8
+<br/>Bootstrap:Reactive - Units 1-10</strong>
 <br/>
-            Bootstrap teaches students to develop programs and solve problems through a concrete sequence of steps called the <i>Design Recipe</i>.  Summarizing problem statements, writing test cases, designing functions around data, coding, and testing are all explicit steps in this recipe. Bootstrap:1 begins introducing these steps in unit 2, building on them throughout the curriculum.  Bootstrap:2 extends these steps into richer structured data. 
+            Bootstrap teaches students to develop programs and solve problems through a concrete sequence of steps called the <i>Design Recipe</i>.  Summarizing problem statements, writing test cases, designing functions around data, coding, and testing are all explicit steps in this recipe. Bootstrap:Algebra begins introducing these steps in unit 2, building on them throughout the curriculum.  Bootstrap:Reactive extends these steps into richer structured data. 
           </td>
         </tr>
         <tr>
           <td><span>L2:CT:6:</span> Describe and analyze a sequence of instructions being followed (e.g., describe a character's behavior in a video game as driven by rules and algorithms).
           </td>
           <td>
-<strong>Bootstrap:1 - Units 5 and 7
-<br/>Bootstrap:2 - Units 3-6, 8-10</strong>
+<strong>Bootstrap:Algebra - Units 5 and 7
+<br/>Bootstrap:Reactive - Units 3-6, 8-10</strong>
 <br/>
           In Bootstrap, students write algebraic functions that are used repeatedly to move characters across a screen and respond to key presses.   Bootstrap emphasizes sequences of instructions less than other early programming efforts, but in doing so gains close adherence to algebra.  
           </td>
@@ -458,8 +458,8 @@
           <td><span>L2:CT:7:</span> Represent data in a variety of ways including text, sounds, pictures, and numbers.
           </td>
           <td>
-<strong>Bootstrap:1 - Units 2-8
-<br/>Bootstrap:2 - Units 1-10</strong>
+<strong>Bootstrap:Algebra - Units 2-8
+<br/>Bootstrap:Reactive - Units 1-10</strong>
 <br/>
           Students write functions that consume and produce each of text, images, and numbers in the Bootstrap curriculum.  Functions over each datatype are used in students' games, as well in as the in-class exercises.
           </td>
@@ -467,8 +467,8 @@
         <tr>
           <td><span>L2:CT:14:</span> Examine connections between elements of mathematics and computer science including binary numbers, logic, sets and functions.</td>
           <td>
-<strong>Bootstrap:1 - Units 1-9
-<br/>Bootstrap:2 - Units 1-10</strong>
+<strong>Bootstrap:Algebra - Units 1-9
+<br/>Bootstrap:Reactive - Units 1-10</strong>
 <br/>
           Bootstrap relies heavily on algebraic functions.  Students learn how different representations of functions from mathematics (domain/range, input/output tables, and symbolic representations) correspond to important artifacts in writing programs.  Within their games, students use Boolean logic to determine how characters move, to report collisions, and to determine when characters have moved off the screen.
           </td>
@@ -476,8 +476,8 @@
         <tr>
           <td><span>L2:CPP:4:</span> Demonstrate an understanding of algorithms and their practical application.</td>
           <td>
-<strong>Bootstrap:1 - Units 3-8
-<br/>Bootstrap:2 - Units 2-10</strong>
+<strong>Bootstrap:Algebra - Units 3-8
+<br/>Bootstrap:Reactive - Units 2-10</strong>
 <br/>
           Bootstrap emphasizes computation, particularly the idea that computations are reusable with different inputs.  Through their games and in-class exercises, students see various applications for reusable computations in practical settings.
           </td>
@@ -485,53 +485,53 @@
         <tr>
           <td><span>L2:CPP:5:</span> Implement problem solutions using a programming language, including: looping behavior, conditional statements, logic, expressions, variables, and functions.</td>
           <td>
-<strong>Bootstrap:1 - Units 1-9
-<br/>Bootstrap:2 - Units 1-10</strong>
+<strong>Bootstrap:Algebra - Units 1-9
+<br/>Bootstrap:Reactive - Units 1-10</strong>
 <br/>
-          Bootstrap:1 covers functions, variables, logic, and conditionals (this is all one needs to create a rich game in our software infrastructure!).  Bootstrap:2 introduces looping in the context of handling multiple similar game elements with similar behavior.
+          Bootstrap:Algebra covers functions, variables, logic, and conditionals (this is all one needs to create a rich game in our software infrastructure!).  Bootstrap:Reactive introduces looping in the context of handling multiple similar game elements with similar behavior.
           </td>
         </tr>
         <tr>
           <td><span>L2:CPP:9:</span> Collect and analyze data that is output from multiple runs of a computer program.</td>
           <td>
-<strong>Bootstrap:1 - Units 3-8
-<br/>Bootstrap:2 - Units 2-10</strong>
+<strong>Bootstrap:Algebra - Units 3-8
+<br/>Bootstrap:Reactive - Units 2-10</strong>
 <br/>
-          Design and execution of test cases is emphasized throughout Bootstrap:1 and Bootstrap:2.  Students are required to write multiple test cases (including expected answers for each) for each function; our software helps them track which tests are passing and which are failing.
+          Design and execution of test cases is emphasized throughout Bootstrap:Algebra and Bootstrap:Reactive.  Students are required to write multiple test cases (including expected answers for each) for each function; our software helps them track which tests are passing and which are failing.
           </td>
         </tr>
         <tr>
           <td><span>L3:CT:A2:</span> Describe a software development process used to solve software problems (e.g. design, coding, testing, verification).</td>
           <td>
-<strong>Bootstrap:1 - Units 3-8
-<br/>Bootstrap:2 - Units 1-10</strong>
+<strong>Bootstrap:Algebra - Units 3-8
+<br/>Bootstrap:Reactive - Units 1-10</strong>
 <br/>
-          Bootstrap's Design Recipe emphasizes design, coding, and testing from early in Bootstrap:1.  The process is explicit in Bootstrap's worksheets and exercises.  Bootstrap:2 continues to emphasize this process.
+          Bootstrap's Design Recipe emphasizes design, coding, and testing from early in Bootstrap:Algebra.  The process is explicit in Bootstrap's worksheets and exercises.  Bootstrap:Reactive continues to emphasize this process.
           </td>
         </tr>
         <!-- BOOTSTRAP 2 -->
         <tr>
           <td><span>L3:CPP:A2:</span> Use mobile devices/emulators to design, develop, and implement mobile computing applications.</td>
           <td>
-<strong>Bootstrap:2 - Unit 10</strong>
+<strong>Bootstrap:Reactive - Unit 10</strong>
 <br/>
-          Bootstrap:2 has optional material on writing games that respond to common mobile-phone stimuli (such as shaking, tilting, and GPS), and a library for exporting these games to mobile phones.
+          Bootstrap:Reactive has optional material on writing games that respond to common mobile-phone stimuli (such as shaking, tilting, and GPS), and a library for exporting these games to mobile phones.
           </td>
         </tr>
         <tr>
           <td><span>L3:CPP:A3:</span> Use various debugging and testing methods to ensure program correctness (e.g., test cases, unit testing, white box, black box, integration testing).</td>
           <td>
-<strong>Bootstrap:1 - Units 3-8
-<br/>Bootstrap:2 - Units 1-10</strong>
+<strong>Bootstrap:Algebra - Units 3-8
+<br/>Bootstrap:Reactive - Units 1-10</strong>
 <br/>
-          Testing is emphasized throughout Bootstrap.  Bootstrap:1 drills black-box test cases (with tests written before corresponding code).  As problems get more challenging in Bootstrap:2, students begin to confront elements of white-box testing as well. Note: Bootstrap does not introduce modular programming, as would be required to cover integration testing.
+          Testing is emphasized throughout Bootstrap.  Bootstrap:Algebra drills black-box test cases (with tests written before corresponding code).  As problems get more challenging in Bootstrap:Reactive, students begin to confront elements of white-box testing as well. Note: Bootstrap does not introduce modular programming, as would be required to cover integration testing.
           </td>
         </tr>
         <tr>
           <td><span>L3:CPP:A4:</span> Apply analysis, design, and implementation techniques to solve problems (e.g., use one or more software lifecycle models).</td>
           <td>
-<strong>Bootstrap:1 - Units 2-8
-<br/>Bootstrap:2 - Units 1-10</strong>
+<strong>Bootstrap:Algebra - Units 2-8
+<br/>Bootstrap:Reactive - Units 1-10</strong>
 <br/>
             Bootstrap's Design Recipe is a step-by-step software development technique that emphasizes test-first and data-driven design.  Bootstrap strongly recommends (and has exercises written for) pair programming, a common software development practice.
           </td>
@@ -539,17 +539,17 @@
         <tr>
           <td><span>L3:CPP:A8:</span> Explain the program execution process</td>
           <td>
-<strong>Bootstrap:1 - Units 1-8
-<br/>Bootstrap:2 - Units 1-10</strong>
+<strong>Bootstrap:Algebra - Units 1-8
+<br/>Bootstrap:Reactive - Units 1-10</strong>
 <br/>
-          Bootstrap1 introduces this process at a general level; students dig deeper into how programs evaluate when they reach loops in Bootstrap:2.
+          Bootstrap1 introduces this process at a general level; students dig deeper into how programs evaluate when they reach loops in Bootstrap:Reactive.
           </td>
         </tr>
         <tr>
           <td><span>L3:CPP:A12:</span> Describe how mathematical and statistical functions, sets, and logic are used in computation.</td>
           <td>
-<strong>Bootstrap:1 - Units 3-8
-<br/>Bootstrap:2 - Units 1-10</strong>
+<strong>Bootstrap:Algebra - Units 3-8
+<br/>Bootstrap:Reactive - Units 1-10</strong>
 <br/>
           Bootstrap puts mathematical and logical functions in the context of programming videogames.
           </td>
@@ -557,24 +557,24 @@
         <tr>
           <td><span>L3:CT:B5:</span> Use data analysis to enhance understanding of complex natural and human systems.</td>
           <td>
-<strong>Bootstrap:2 - Units 3-10</strong>
+<strong>Bootstrap:Reactive - Units 3-10</strong>
 <br/>
-          Bootstrap:2 begins to emphasize data modeling: the Design Recipe includes an explicit step in which students determine how to model data for a problem and develop illustrative examples of the problem relative to their data model. 
+          Bootstrap:Reactive begins to emphasize data modeling: the Design Recipe includes an explicit step in which students determine how to model data for a problem and develop illustrative examples of the problem relative to their data model. 
           </td>
         </tr>
         <tr>
           <td><span>L3:CT:B6:</span> Compare and contrast simple data structures and their uses (e.g., arrays and lists).</td>
           <td>
-<strong>Bootstrap:2 - Units 2-10</strong>
+<strong>Bootstrap:Reactive - Units 2-10</strong>
 <br/>
-          Bootstrap:2 emphasizes the differences between structs (compound data with fixed numbers of fields) and lists (compound data with arbitrary numbers of elements).  Students practice recognizing each of these basic data patterns in various problems, and learn how to nest these concepts to build richer data structures (advanced students can easily get to trees with this approach). Note: Bootstrap does not cover different linear data structures (lists versus arrays), preferring to emphasize how to design richer data structures from simple building blocks of structs and lists.
+          Bootstrap:Reactive emphasizes the differences between structs (compound data with fixed numbers of fields) and lists (compound data with arbitrary numbers of elements).  Students practice recognizing each of these basic data patterns in various problems, and learn how to nest these concepts to build richer data structures (advanced students can easily get to trees with this approach). Note: Bootstrap does not cover different linear data structures (lists versus arrays), preferring to emphasize how to design richer data structures from simple building blocks of structs and lists.
           </td>
         </tr>
         <tr>
           <td><span>L3:CT:B10:</span> Decompose a problem by defining new functions and classes.</td>
           <td>
-<strong>Bootstrap:1 - Units 6 and 8
-<br/>Bootstrap:2 - Units 4-10</strong>
+<strong>Bootstrap:Algebra - Units 6 and 8
+<br/>Bootstrap:Reactive - Units 4-10</strong>
 <br/>
           Bootstrap introduces students to programming problems that benefit from decomposition into multiple functions and data structures.  The Design Recipe provides some structured guidance on when to introduce new functions when decomposing problems.
           </td>
@@ -582,18 +582,18 @@
         <tr>
           <td><span>L3:CPP:B2:</span> Use tools of abstraction to decompose a large-scale computational problem (e.g., procedural abstraction, object-oriented design, functional design).</td>
           <td>
-<strong>Bootstrap:1 - Units 6 and 8
-<br/>Bootstrap:2 - Units 4-10</strong>
+<strong>Bootstrap:Algebra - Units 6 and 8
+<br/>Bootstrap:Reactive - Units 4-10</strong>
 <br/>
-          Bootstrap:1 introduces the core idea of functions as abstractions over repeated computations.  Bootstrap:2 moves into larger programs that get decomposed into subproblems, which are designed, implemented, and tested independently.
+          Bootstrap:Algebra introduces the core idea of functions as abstractions over repeated computations.  Bootstrap:Reactive moves into larger programs that get decomposed into subproblems, which are designed, implemented, and tested independently.
           </td>
         </tr>
         <tr>
           <td><span>L3:CPP:B7:</span> Use data analysis to enhance understanding of complex natural and human systems.</td>
           <td>
-<strong>Bootstrap:2 - Units 4-10</strong>
+<strong>Bootstrap:Reactive - Units 4-10</strong>
 <br/>
-          Bootstrap:2 begins to emphasize data modeling: the Design Recipe includes an explicit step in which students determine how to model data for a problem and develop illustrative examples of the problem relative to their data model. 
+          Bootstrap:Reactive begins to emphasize data modeling: the Design Recipe includes an explicit step in which students determine how to model data for a problem and develop illustrative examples of the problem relative to their data model. 
           </td>
         </tr>
 
@@ -608,13 +608,13 @@
         <tr>
           <td><span>Practice 1:</span> Fostering an Inclusive Computing Culture</td>
           <td>
-            By integrating Computing into standard math classes, Bootstrap allows schools to immediate create an inclusive computing environment. <i>Everyone</i> takes math, which means <i>everyone</i> computes. But in addition to the course settings the curriculum allows, Bootstrap also embeds teamwork, metacognition and group reflection into every step of the programming process - from co-designing a game to thinking about effective co-working strategies, Bootstrap's pedagogy fosters an inclusive culture.
+            By integrating Computing into standard math classes, Bootstrap allows schools to immediately create an inclusive computing environment. <i>Everyone</i> takes math, which means <i>everyone</i> computes. But in addition to the course settings the curriculum allows, Bootstrap also embeds teamwork, metacognition and group reflection into every step of the programming process - from co-designing a game to thinking about effective co-working strategies, Bootstrap's pedagogy fosters an inclusive culture.
           </td>
         </tr>
         <tr>
           <td><span>Practice 2:</span> Collaborating Around Computing</td>
           <td>
-            Bootstap students work on small teams, and must cultivate relationships with other students who possess diverse perspectives, skills and personalities. Students work on problems together, and are given strategies to evaluate and give feedback to one another at each step in the problem-solving process.
+            Bootstrap students work on small teams, and must cultivate relationships with other students who possess diverse perspectives, skills and personalities. Students work on problems together, and are given strategies to evaluate and give feedback to one another at each step in the problem-solving process.
           </td>
         </tr>
         <tr>
@@ -626,7 +626,7 @@
         <tr>
           <td><span>Practice 4:</span> Developing and Using Abstractions</td>
           <td>
-          Students develop and use abstractions throughout the course, starting with visual-spatial representations for arithmetic expressions and ending with complex, multi-function programs that define, use and re-use student-generated abstractions. Students define everything from Functions (Bootstrap:1) to Data Structures (Bootstrap:2), and Reactive Simulations (Bootstrap:Physics) to Big Data queries (Bootstrap:Data Science).
+          Students develop and use abstractions throughout the course, starting with visual-spatial representations for arithmetic expressions and ending with complex, multi-function programs that define, use and re-use student-generated abstractions. Students define everything from Functions (Bootstrap:Algebra) to Data Structures (Bootstrap:Reactive), and Reactive Simulations (Bootstrap:Physics) to Big Data queries (Bootstrap:Data Science).
           </td>
         </tr>
         <tr>
@@ -638,7 +638,7 @@
         <tr>
           <td><span>Practice 6:</span> Testing and Refining Computational Artifacts</td>
           <td>
-            Many introductory courses treat testing as a second-class citizen, either asking students to test by running a program and "seeing if it looks right" or by using programming tools that <i>completely lack</i> and framework for automated testing. By contrast, Bootstrap introduces testing early on in the course, and our language and software enviroment offer rich support for writing tests and developing software based on test feedback.
+            Many introductory courses treat testing as a second-class citizen, either asking students to test by running a program and "seeing if it looks right" or by using programming tools that <i>completely lack</i> any framework for automated testing. By contrast, Bootstrap introduces testing early on in each course, and our languages and software enviroments offer rich support for writing tests and developing software based on test feedback.
           </td>
         </tr>
         <tr>
@@ -657,7 +657,7 @@
         <tr>
           <td><span>Hardware and Software</span></td>
           <td>
-            Bootstrap:2, Bootstrap:Data Science and Bootstrap:Physics introduce students to sophisticated programming paradigms, in which they must process user input as mediated by the software evironment. This mediation involves the flow of information from multiple sources (keyboards, mice, GPS systems, and internet-connected resources), and students must consider this flow when designing their programs.
+            Bootstrap:Reactive, Bootstrap:Data Science and Bootstrap:Physics introduce students to sophisticated programming paradigms, in which they must process user input as mediated by the software evironment. This mediation involves the flow of information from multiple sources (keyboards, mice, GPS systems, and internet-connected resources), and students must consider this flow when designing their programs.
           </td>
         </tr>
         <tr>
@@ -700,7 +700,7 @@
         <tr>
           <td><span>Inference and Models</span></td>
           <td>
-            Bootstrap:1 and Bootstrap:2 are all build around students' developing a model for a desired (or observed) behavior. Bootstrap:1 has students model the <i>process</i> of computation, and Bootstrap:2 gives students the ability to model the <i>data</i> behind it. Bootstrap:Physics goes one step farther, having students use these models to predict the behavior of a complex system. In these activities, the tradeoffs between model complexity and model quality become clear.
+            Bootstrap:Algebra and Bootstrap:Reactive are all build around students' developing a model for a desired (or observed) behavior. Bootstrap:Algebra has students model the <i>process</i> of computation, and Bootstrap:Reactive gives students the ability to model the <i>data</i> behind it. Bootstrap:Physics goes one step farther, having students use these models to predict the behavior of a complex system. In these activities, the tradeoffs between model complexity and model quality become clear.
           </td>
         </tr>
         <tr>
@@ -712,13 +712,13 @@
         <tr>
           <td><span>Variables</span></td>
           <td>
-            Bootstrap introduces variables early on, with students confronting variables and functions almost immediately in Bootstrap:1. These variables can be used to represent Numbers, Strings, Images, Booleans, data structures of infinite complexity, and even remote spreadsheets stored across the internet! Our pedagogy explicitly asks students to come up with meaningful identifiers for every variable they use, and Bootstrap:2 allows students to select their own Data Structures. (<b>Note:</b> in a slight deviation from the K12CS standards, Bootstrap uses the <i>mathematical</i> concept of variable. Namely, we do not discuss the notion of "machine storage", since that concept directly undermines the notion of variables in mathematics.)
+            Bootstrap introduces variables early on, with students confronting variables and functions almost immediately in Bootstrap:Algebra. These variables can be used to represent Numbers, Strings, Images, Booleans, data structures of infinite complexity, and even remote spreadsheets stored across the internet! Our pedagogy explicitly asks students to come up with meaningful identifiers for every variable they use, and Bootstrap:Reactive allows students to select their own Data Structures. (<b>Note:</b> in a slight deviation from the K12CS standards, Bootstrap uses the <i>mathematical</i> concept of variable. Namely, we do not discuss the notion of "machine storage", since that concept directly undermines the notion of variables in mathematics.)
           </td>
         </tr>
         <tr>
           <td><span>Control</span></td>
           <td>
-            Students in all of Bootstrap's modules confront program control, sequences of evaluation, and conditionals. Bootstrap:2, Data Science and Physics add loops and event handlers, to create more complex behavior.
+            Students in all of Bootstrap's modules confront program control, sequences of evaluation, and conditionals. Bootstrap:Reactive, Data Science and Physics add loops and event handlers, to create more complex behavior.
           </td>
         </tr>
         <tr>

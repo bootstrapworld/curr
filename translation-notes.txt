@@ -1,6 +1,6 @@
 TO TRANSLATE A SINGLE BOOTSTRAP UNIT PAGE
 
-source: curr/courses/bs1/units/*/the-unit.scrbl
+source: curr/courses/algebra/units/*/the-unit.scrbl
 
 * the @ sign marks a scribble command. So @student names a formatting
   function in our scribble infrastructure. You are looking to edit the

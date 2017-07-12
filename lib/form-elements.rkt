@@ -93,7 +93,7 @@
          point
          student
          teacher
-         itemlist/splicing ;; need because bs1 teachers-guide.scrbl using it (still in old lesson format)
+         itemlist/splicing ;; need because algebra teachers-guide.scrbl using it (still in old lesson format)
          activity
          csp-activity
          unit-descr
@@ -111,6 +111,7 @@
          ;; Include lesson/lesson link
          include-lesson
          lesson-link
+         unit-link
 
          ;; Unit summaries
          unit-length
@@ -212,7 +213,7 @@
 (define (copyright . body)
   (para #:style (bootstrap-div-style/id "copyright")
    (hyperlink #:style bootstrap-hyperlink-style "http://creativecommons.org/licenses/by-nc-nd/4.0/" creativeCommonsLogo)
-   "Bootstrap by Emmanuel Schanzer, Emma Youndtsmith, Kathi Fisler, Shriram Krishnamurthi, and Joe Politz is licensed under a "
+   "Bootstrap by Emmanuel Schanzer, Emma Youndtsmith, Kathi Fisler, Shriram Krishnamurthi, Joe Politz and Ben Lerner is licensed under a "
    (hyperlink #:style bootstrap-hyperlink-style "http://creativecommons.org/licenses/by-nc-nd/4.0/" "Creative Commons 4.0 Unported License")
    ". Based on a work at " (hyperlink "http://www.bootstrapworld.org/" "www.BootstrapWorld.org")
    ". Permissions beyond the scope of this license may be available by contacting "
@@ -455,7 +456,7 @@
 
 ;;;;;;;;;;; OLD LESSON FORMAT ;;;;;;;;;;;;;;;;;;;;;
 
-;; This is currently used only in the teacher-notes.scrbl (for bs1).  Can remove this
+;; This is currently used only in the teacher-notes.scrbl (for algebra).  Can remove this
 ;; if ever convert those over to lesson/studteach
 
 ;; lesson: #:title #:duration #:subsumes #:prerequisites #:video body ... -&gt; block
@@ -1284,6 +1285,16 @@
         (hyperlink #:style bootstrap-hyperlink-style
                    (path->string the-relative-path)
                    (if label label lesson-name))]))))
+
+(define (unit-link #:name unit-name
+                     #:label [label #f]
+                     #:course [course (current-course)])
+  (hyperlink #:style bootstrap-hyperlink-style
+             (path->string (simple-form-path (build-path (current-deployment-dir) "courses" course "units" unit-name "index.html")))
+             (if label label unit-name)))
+
+
+
 
 ; generates HTML for a link to the Lulu direct-buy button, using Lulu image icon
 (define (lulu-button) 
