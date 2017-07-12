@@ -479,7 +479,7 @@
         @points[
              @point{
                     @student{
-                    So now you know about Numbers, Strings, Operators and Variables - all of which behave just like they do in math. But what about functions? Pyret has hundreds of built in functions, which we can use to write more interesting programs than are possible with just operators and variables.
+                    So now you know about Numbers, Strings, Operators and Variables - all of which behave just like they do in math. But what about functions? Pyret has lots of built in functions, which we can use to write more interesting programs than are possible with just operators and variables.
 
                             @activity[#:forevidence "BS-IDE&1&1"]{
                                     Let's explore a new function, @code{num-min}.  Type each of these

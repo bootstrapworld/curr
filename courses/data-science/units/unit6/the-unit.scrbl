@@ -4,7 +4,14 @@
 
 @declare-tags[]
 
-@unit-overview/auto[#:lang-table (list (list "" @code{}))]{
+
+@unit-overview/auto[#:lang-table (list (list "Number" @code{+, -, *, /, num-sqrt, num-sqr, mean, median, mode, modes})
+                                       (list "String" "n/a")
+                                       (list "Image" @code{<Plot>.display()})
+                                       (list "Boolean" @code{==, <>, <, >, <=, >=})
+                                       (list "Series" @code{function-plot, scatter-plot, bar-chart, pie-chart, freq-bar-chart, histogram})
+                                       (list "Plot" @code{plot, <Plot>.title(), <Plot>.x-min, <Plot>.x-max(), <Plot>.y-min, <Plot>.y-max()})
+                                       (list "Table" @code{extract}))]{
   @unit-descr{Students dig deeper into scatter plots as a method of visualizing the relationship between two axes, and into the notion of "line of best fit". }
 }
 @unit-lessons{
@@ -137,9 +144,7 @@
                 }
                 @point{
                         @student{
-                                @bitmap{images/price-vs-rating.png}
                                 To answer this question, we will return to the very first chart you learned about in this class: @vocab{scatter plots}. A scatter plot is a chart that plots every pair of numbers in 2 columns. By extracting the two columns from @code{restaurants}, we can create a series to plot:
-
                                 @code[#:multi-line #t]{
                                         ratings-list = extract rating from restaurants end
                                         prices-list  = extract price  from restaurants end
@@ -154,6 +159,7 @@
                 }
                 @point{
                         @student{
+                                @bitmap{images/price-vs-rating.png}
                                 There are 9 points on our restaurant scatter plot: one for each restaurant in the table.  Each dot's placement depends on the price and rating values of a particular restaurant.  For example, look at the restaurant "Riverside Grille".  Riverside Grille has an average price of 19.56, so it will appear to the far right of the chart.  Riverside Grille has an average rating of 4.9, so it will appear towards the top of the chart.
 
                                 @activity[#:forevidence "BS-IDE&1&1"]{

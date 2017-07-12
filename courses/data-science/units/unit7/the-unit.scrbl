@@ -4,8 +4,13 @@
 
 @declare-tags[]
 
-@unit-overview/auto[#:lang-table (list (list "" @code{}))]{
-  @unit-descr{Students are introduced to their first examples of operations that consume and produce tables, and learn how to select columns  and order rows. They are also introduced to the beginnings of Table Plans, as a vehicle for thinking through compound queries.}
+
+@unit-overview/auto[#:lang-table (list (list "Number" @code{+, -, *, /, num-sqrt, num-sqr, mean, median, mode, modes})
+                                       (list "String" "n/a")
+                                       (list "Image" @code{<Plot>.display()})
+                                       (list "Series" @code{function-plot, scatter-plot, bar-chart, pie-chart, freq-bar-chart, histogram})
+                                       (list "Plot" @code{plot, plots, <Plot>.title(), <Plot>.x-min, <Plot>.x-max(), <Plot>.y-min, <Plot>.y-max()})
+                                       (list "Table" @code{extract}))]{  @unit-descr{Students are introduced to their first examples of operations that consume and produce tables, and learn how to select columns  and order rows. They are also introduced to the beginnings of Table Plans, as a vehicle for thinking through compound queries.}
 }
 @unit-lessons{
 
@@ -480,7 +485,7 @@
         @points[
                 @point{
                       @student{
-                          At this point, you may have noticed that your dataset contains @vocab{outliers} that skew the results of your analysis. Perhaps one movie was a box-office failure, or a war in one country is artificially dragging down their life-expectency. Or perhaps you've decided you want to zoom in on a subset of the data, or break it apart and do an analysis on two different groups. Maybe you want to run a separate analysis for movies with female leads v. male leads, or analyze Democratic and Republican presidents separately. You don't know how to do this - yet - but that's exactly what we'll cover in the next lesson!
+                          At this point, you may have noticed that your dataset contains a few "extreme" points that skew the results of your analysis. Perhaps one movie was a box-office failure, or a war in one country is artificially dragging down their life-expectency. These extreme points are called @vocab{outliers}, and sometimes it's best to remove them from your dataset in order to identify a pattern. Or perhaps you've decided you want to zoom in on a subset of the data, or break it apart and do an analysis on two different groups. Maybe you want to run a separate analysis for movies with female leads v. male leads, or analyze Democratic and Republican presidents separately. You don't know how to do this - yet - but that's exactly what we'll cover in the next lesson!
                           @activity{
                               Take 10 minutes to answer question 10 in your Project Report.
                           }

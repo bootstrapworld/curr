@@ -4,7 +4,12 @@
 
 @declare-tags[]
 
-@unit-overview/auto[#:lang-table (list (list "" @code{}))]{
+@unit-overview/auto[#:lang-table (list (list "Number" @code{+, -, *, /, num-sqrt, num-sqr, mean, median, mode, modes})
+                                       (list "String" "n/a")
+                                       (list "Image" @code{<Plot>.display()})
+                                       (list "Series" @code{function-plot, scatter-plot})
+                                       (list "Plot" @code{plot, <Plot>.title(), <Plot>.x-min, <Plot>.x-max(), <Plot>.y-min, <Plot>.y-max()})
+                                       (list "Table" @code{extract}))]{
   @unit-descr{Students learn to create and interpret Bar and Pie charts, as well as Frequency Bar Charts.}
 }
 @unit-lessons{

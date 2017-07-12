@@ -4,7 +4,11 @@
 
 @declare-tags[]
 
-@unit-overview/auto[#:lang-table (list (list "" @code{}))]{
+@unit-overview/auto[#:lang-table (list (list "Number" @code{+, -, *, /, num-sqrt, num-sqr})
+                                       (list "String" "n/a")
+                                       (list "Image" @code{<Plot>.display()})
+                                       (list "Series" @code{function-plot})
+                                       (list "Plot" @code{plot}))]{
   @unit-descr{Is there a relationship between the amount of sugar in a meal, and the number of calories? Do more caloric meals tend to have more sugar? To answer this question, students are introduced to Lists and Tables in Pyret, as well as scatter plots as a way of visualizing data}
 }
 @unit-lessons{

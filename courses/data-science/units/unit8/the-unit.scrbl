@@ -4,8 +4,12 @@
 
 @declare-tags[]
 
-@unit-overview/auto[#:lang-table (list (list "" @code{}))]{
-  @unit-descr{Students are introduced to booleans and comparisons, and practice using them as predicates to write sieve queries.}
+@unit-overview/auto[#:lang-table (list (list "Number" @code{+, -, *, /, num-sqrt, num-sqr, mean, median, mode, modes})
+                                       (list "String" "n/a")
+                                       (list "Image" @code{<Plot>.display()})
+                                       (list "Series" @code{function-plot, scatter-plot, bar-chart, pie-chart, freq-bar-chart, histogram})
+                                       (list "Plot" @code{plot, plots, <Plot>.title(), <Plot>.x-min, <Plot>.x-max(), <Plot>.y-min, <Plot>.y-max()})
+                                       (list "Table" @code{extract, select, order}))]{  @unit-descr{Students are introduced to booleans and comparisons, and practice using them as predicates to write sieve queries.}
 }
 @unit-lessons{
 
@@ -268,7 +272,7 @@
                                           Then we give the names of each column being used, followed by a colon @code{:}. In this case we are only using one column, which is the @code{rating} column.
                                     }
                                     @item{
-                                          On the next line is the most important part: this is a @vocab{boolean expression} that asks the question "is the restaurant's rating at least 4.0?".  Notice that we can use the column name the same way we can use a variable, within this expression.
+                                          On the next line is the most important part: this is a @vocab{boolean} expression that asks the question "is the restaurant's rating at least 4.0?".  Notice that we can use the column name the same way we can use a variable, within this expression.
                                     }
                                     @item{
                                           Finally, like all table queries, we finish with the @code{end} keyword.
