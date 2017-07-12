@@ -4,20 +4,29 @@
 
 @declare-tags[]
 
-@unit-overview/auto[#:lang-table (list (list "" @code{}))]{
+@unit-overview/auto[#:lang-table (list (list "Number" @code{+, -, *, /, num-sqrt, num-sqr})
+                                       (list "String" "n/a")
+                                       (list "Image" @code{<Plot>.display()})
+                                       (list "Series" @code{function-plot})
+                                       (list "Plot" @code{plot}))]{
   @unit-descr{Is there a relationship between the amount of sugar in a meal, and the number of calories? Do more caloric meals tend to have more sugar? To answer this question, students are introduced to Lists and Tables in Pyret, as well as scatter plots as a way of visualizing data}
 }
 @unit-lessons{
+
 @lesson/studteach[
-     #:title "Thinking about Tables"
-     #:duration "10 minutes"
+     #:title "Introduction"
+     #:duration "15 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
      #:standards (list)
      #:materials @itemlist[]
-     #:preparation @itemlist[]
+     #:preparation @itemlist[
+                                @item{
+                                    Show students the @resource-link[#:path "OpeningQuestions.pdf" #:label "opening questions"], either as a handout or on posters set up around the room.
+                                }
+                             ]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -36,6 +45,7 @@
                   Give the class a minute for open discussion. The more they are engaged with the question, the more substantial their answers will be.
               }
             }
+<<<<<<< HEAD
         	  @point{
         	 		@student{
         	 				So far you have learned the fundamentals of writing programs that work on simple data like Numbers (@code{1, -6, 3.5,} etc.) and Strings (@code{"hello", "17",} etc.). As data scientists, we need to write programs that work on complex data like @italic{restaurant menus}, which can have many related parts and contain dozens or millions of entries. In this unit, you will learn how Pyret works with real-world data, and how to answer data science questions like this one by writing programs over that data. Let's take a look at some complex data right now...
@@ -44,6 +54,38 @@
 
         	 		}
         	  }
+=======
+            @point{
+              @student{
+                  So far you have learned the fundamentals of writing programs that do work on simple data like Numbers (@code{1, -6, 3.5,} etc.) and Strings (@code{"hello", "17",} etc.). As data scientists, we need write programs that work on complex data like @italic{restaurant menus}, which can have many related parts and contain dozens or millions of entries. A collection of related data that can be grouped and manipulated by a computer is called a @vocab{dataset}. In this unit, you will learn how Pyret works with real-world data, and how to answer data science questions like this one by writing programs over that data.
+              }
+              @teacher{
+
+              }
+            }
+
+        ]
+
+}
+
+@lesson/studteach[
+     #:title "Tablular Data"
+     #:duration "15 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[]
+     #:standards (list)
+     #:materials @itemlist[]
+     #:preparation @itemlist[]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[
+>>>>>>> 9e95cd72a743c7fca6470f0a6f85841363ddfde9
             @point{
                     @student{
             							@build-table/cols[
@@ -69,10 +111,10 @@
 														 
 					          }
             }
-			@point{
+			      @point{
                     @student{
           							@vocab{Table}s are organized into @vocab{column}s and @vocab{row}s.
-                                      @activity{How many columns does this table have?}
+                        @activity{How many columns does this table have?}
 
           							All of the entries in a particular @vocab{column} will contain values that are the same type, and represent the same thing. For example, each entry in the 3rd column represents the eye color of a person in the class. 
 
@@ -87,7 +129,7 @@
 
           					}
             }
-			@point{
+			      @point{
                     @student{
           							The first @vocab{row} in a table is a special row called the @vocab{header row}. Each part of the @vocab{header row} is the name of a particular @vocab{column}.
 
@@ -102,7 +144,7 @@
 
           					}
             }
-			@point{
+			      @point{
                     @student{
       					        @activity[#:forevidence "BS-IDE&1&1"]{
       				        		Turn to @worksheet-link[#:name "Animals"] in your workbook, and use your knowledge of tables to answer the questions there.
@@ -112,27 +154,6 @@
 												
           					}
             }
-        ]
-   }
-
-
-@lesson/studteach[
-     #:title "Tables in Pyret"
-     #:duration "10 minutes"
-     #:overview ""
-     #:learning-objectives @itemlist[]
-     #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[]
-     #:standards (list)
-     #:materials @itemlist[]
-     #:preparation @itemlist[]
-     #:pacings (list 
-                @pacing[#:type "remediation"]{@itemlist[@item{}]}
-                @pacing[#:type "misconception"]{@itemlist[@item{}]}
-                @pacing[#:type "challenge"]{@itemlist[@item{}]}
-                )
-      ]{
-        @points[
             @point{
                    @student{
       					 		      Now that you know the basic information about tables, it's time to get some hands on experience with them in Pyret. Pyret allows us to write programs that work on tables, similar to how we write programs that work on Numbers and Strings.
@@ -181,7 +202,7 @@
                         }
             		    }
             		    @teacher{
-              				The students should not need to know exactly how this scaffold code works to complete the exercises.  However, for those that are curious:
+              				The students should not need to know exactly how the table-loading code.  However, for those that are curious:
 
               				@itemlist[
               						@item{

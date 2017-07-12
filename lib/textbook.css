@@ -102,14 +102,14 @@ div#lessonToolbar.fixed{
   padding:        5px;
   font-family:    monospace;
 }
-.BootstrapTable{
-	width:          300px;
-	border:         1px solid black;
-	background:     white;
-  padding:        0px;
-}
 
-table {  margin:  20px auto; }
+td.BootstrapTable{padding:0px; background: white;}
+td.BootstrapTable:first-child{ width: 150px; }
+#LanguageTable table{width: 100%;}
+
+td.BootstrapTable .editbox{ white-space: normal; } /* wrap cell contents if they overflow */
+
+table {  margin:  20px auto; table-layout: fixed; }
 
 #BootstrapAgenda{
 	display:        inline-block;

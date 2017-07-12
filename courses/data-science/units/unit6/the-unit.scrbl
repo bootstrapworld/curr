@@ -4,13 +4,21 @@
 
 @declare-tags[]
 
-@unit-overview/auto[#:lang-table (list (list "" @code{}))]{
+
+@unit-overview/auto[#:lang-table (list (list "Number" @code{+, -, *, /, num-sqrt, num-sqr, mean, median, mode, modes})
+                                       (list "String" "n/a")
+                                       (list "Image" @code{<Plot>.display()})
+                                       (list "Boolean" @code{==, <>, <, >, <=, >=})
+                                       (list "Series" @code{function-plot, scatter-plot, bar-chart, pie-chart, freq-bar-chart, histogram})
+                                       (list "Plot" @code{plot, <Plot>.title(), <Plot>.x-min, <Plot>.x-max(), <Plot>.y-min, <Plot>.y-max()})
+                                       (list "Table" @code{extract}))]{
   @unit-descr{Students dig deeper into scatter plots as a method of visualizing the relationship between two axes, and into the notion of "line of best fit". }
 }
 @unit-lessons{
+
 @lesson/studteach[
-     #:title "Scatter Plots"
-     #:duration "15 minutes"
+     #:title "Introduction"
+     #:duration "5 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -27,19 +35,7 @@
         @points[
                 @point{
                         @student{
-                                Are more expensive restaurants generally better than cheaper ones?
-
-                                @activity{
-                                    Turn to page @worksheet-link[#:name "Unit-6"]. Take two minutes and write down what you think.
-                                }
-                        }
-                        @teacher{
-                                Encourage students to discuss openly before writing.
-                        }
-                }
-                @point{
-                        @student{
-                                Suppose you're visiting a new city, and you want to go out for a great meal. Someone suggests a really expensive restaurant, and assures you it's the best in town. How do you know if you're being ripped off? You now have significant experience asking questions about data sets:  You know how to take measures of center, and how to visualize both categorical and quantitative data. Let's use this experience to find out if the expensive restaurants are really worth the money. First, we'll start with out data set:  a table containing information about the restaurants in town.
+                                Suppose you're visiting a new city, and you want to go out for a great meal. Someone suggests a really expensive restaurant, and assures you it's the best in town. How do you know if you're being ripped off? You now have significant experience asking questions about data sets:  You know how to take measures of center, and how to visualize both categorical and quantitative data. Let's use this experience to find out if the expensive restaurants are really worth the money. First, we'll start with out data set: a table containing information about the restaurants in town.
 
                                 @build-table/cols[
                                         '("name" "price" "rating")
@@ -56,6 +52,38 @@
                                    
                         }
                 }
+                @point{
+                        @student{
+                                Are more expensive restaurants generally better than cheaper ones?
+
+                                @activity{
+                                    Turn to page @worksheet-link[#:name "Unit-6"]. Take two minutes and write down what you think.
+                                }
+                        }
+                        @teacher{
+                                Encourage students to discuss openly before writing.
+                        }
+                }
+        ]
+}
+
+@lesson/studteach[
+     #:title "Finding Relationships"
+     #:duration "15 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[]
+     #:standards (list)
+     #:materials @itemlist[]
+     #:preparation @itemlist[]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[
                 @point{
                         @student{
                                 @activity[#:forevidence "BS-IDE&1&1"]{
@@ -116,9 +144,7 @@
                 }
                 @point{
                         @student{
-                                @bitmap{images/price-vs-rating.png}
                                 To answer this question, we will return to the very first chart you learned about in this class: @vocab{scatter plots}. A scatter plot is a chart that plots every pair of numbers in 2 columns. By extracting the two columns from @code{restaurants}, we can create a series to plot:
-
                                 @code[#:multi-line #t]{
                                         ratings-list = extract rating from restaurants end
                                         prices-list  = extract price  from restaurants end
@@ -133,6 +159,7 @@
                 }
                 @point{
                         @student{
+                                @bitmap{images/price-vs-rating.png}
                                 There are 9 points on our restaurant scatter plot: one for each restaurant in the table.  Each dot's placement depends on the price and rating values of a particular restaurant.  For example, look at the restaurant "Riverside Grille".  Riverside Grille has an average price of 19.56, so it will appear to the far right of the chart.  Riverside Grille has an average rating of 4.9, so it will appear towards the top of the chart.
 
                                 @activity[#:forevidence "BS-IDE&1&1"]{
