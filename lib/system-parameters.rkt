@@ -22,7 +22,7 @@
 ;; - unit-to-resources-path: used in resource-link to generate relative paths from a the-unit.html
 ;;   file to the resources folder on a web installation.  Cannot use deploy-resources-dir for this
 ;;   because we may copy a subdirectory of the generated distribution to a site (such as copying 
-;;   just the bs1/units directory over to code.org)
+;;   just the algebra/units directory over to code.org)
 (define current-deployment-dir (make-parameter #f))
 (define root-deployment-dir (make-parameter #f))
 (define deploy-resources-dir (make-parameter #f))
@@ -38,7 +38,7 @@
 
 ;; The current coures being built.  Should be the name of one of the
 ;; subdirectories under "courses".
-(define current-course (make-parameter "bs1"))
+(define current-course (make-parameter "algebra"))
 
 
 ;; The output path of the current document.

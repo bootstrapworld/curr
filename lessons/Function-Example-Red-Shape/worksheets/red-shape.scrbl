@@ -2,7 +2,7 @@
 
 @title{Design Recipe: red-shape}
 @worksheet{
-   Write a function called red-shape, which takes in the name of a shape (“circle”, “triangle”, “star” or “rectangle”), and draws that shape. All shapes should be solid and red, and can be whatever size you choose.
+   Write a function called red-shape, which takes in the name of a shape ("circle", "triangle", "star" or "rectangle"), and draws that shape. All shapes should be solid and red, and can be whatever size you choose.
 
     @worksheet-segment{I.  Contract + Purpose Statement}
     Every contract has three parts:

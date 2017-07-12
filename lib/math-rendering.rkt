@@ -15,7 +15,7 @@
 
 (define mathjax-url
   (neturl:string->url 
-   "http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,http://www.cs.wpi.edu/~kfisler/mathjaxlocal.js"))
+   "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML,http://www.cs.wpi.edu/~kfisler/mathjaxlocal.js"))
   
 ;;;;;;;;;;;;; Formatting ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
