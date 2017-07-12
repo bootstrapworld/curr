@@ -41,7 +41,7 @@
                                         Spend a minute or two discussing your answer, and explaining @italic{why} you answered the way you did. Does everyone in your group have the same answer? Why or why not?
                                     }
                                     @item{
-                                        What kind of @italic{measurement} would use to determine if your answer is right or not? What data would you need?
+                                        What kind of @italic{measurement} would you use to determine if your answer is right or not? What data would you need?
                                     }
                                     @item{
                                         Complete Page 1 in your Student Workbook, by copying down the question, your answer, and what you discussed with your group.
