@@ -27,7 +27,7 @@
         @points[
             @point{
               @student{
-                  A lot restaurants these days publish nutrition information as part of their menu. When you look at these menus, you can find out how many calories each item contains. How much of a role does sugar play in that? Do sugary meals @italic{always} have more calories than meals with less sugar? Do high-calorie meals @italic{always} have a lot of sugar in them? 
+                  A lot of restaurants these days publish nutrition information as part of their menu. When you look at these menus, you can find out how many calories each item contains. How much of a role does sugar play in that? Do sugary meals @italic{always} have more calories than meals with less sugar? Do high-calorie meals @italic{always} have a lot of sugar in them? 
                     @activity{
                         Turn to on @worksheet-link[#:name "Unit-2"]. Take two minutes to write down what you think, and why.
                     }
@@ -38,7 +38,7 @@
             }
         	  @point{
         	 		@student{
-        	 				So far you have learned the fundamentals of writing programs that do work on simple data like Numbers (@code{1, -6, 3.5,} etc.) and Strings (@code{"hello", "17",} etc.). As data scientists, we need write programs that work on complex data like @italic{restaurant menus}, which can have many related parts and contain dozens or millions of entries. In this unit, you will learn how Pyret works with real-world data, and how to answer data science questions like this one by writing programs over that data. Let's take a look at some complex data right now...
+        	 				So far you have learned the fundamentals of writing programs that work on simple data like Numbers (@code{1, -6, 3.5,} etc.) and Strings (@code{"hello", "17",} etc.). As data scientists, we need to write programs that work on complex data like @italic{restaurant menus}, which can have many related parts and contain dozens or millions of entries. In this unit, you will learn how Pyret works with real-world data, and how to answer data science questions like this one by writing programs over that data. Let's take a look at some complex data right now...
         	 		}
         	 		@teacher{
 
@@ -153,7 +153,7 @@
             }
             @point{
             		    @student{
-                            As you learned in Unit 1, Pyret allows us to define names for values and expressions, so that we can refer to them later. Every definition you've seen involves an identifier, followed by the equals sign, and an expression to bidn to that name. For example, we can define the identifier @code{name} to be string @code{"Tara"} by writing
+                            As you learned in Unit 1, Pyret allows us to define names for values and expressions, so that we can refer to them later. Every definition you've seen involves an identifier, followed by the equals sign, and an expression to bind to that name. For example, we can define the identifier @code{name} to be the string @code{"Tara"} by writing
                             @code[#:multi-line #t]{
                                 name = "Tara"
                             }
@@ -344,7 +344,7 @@
         @points[
                 @point{
                       @student{
-                              Tables are 2-dimensional collections of data, but we often want to ask 1-dimensional questions of them. For example, if we ask "what is the lowest amount of sodium on the menu", or "What is biggest serving size possible", these are questions that @italic{only involve one column at a time}.  We need some way of looking at each column individually in our programs.  In other words, we often want to get 1-dimensional data @bold{out of of a 2-dimensional table}.
+                              Tables are 2-dimensional collections of data, but we often want to ask 1-dimensional questions of them. For example, if we ask "what is the lowest amount of sodium on the menu", or "What is the biggest serving size possible", these are questions that @italic{only involve one column at a time}.  We need some way of looking at each column individually in our programs.  In other words, we often want to get 1-dimensional data @bold{out of of a 2-dimensional table}.
 
                       }
                       @teacher{
