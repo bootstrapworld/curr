@@ -33,6 +33,7 @@ when it prints out the glossary for a particular unit
     (("correlation" "correlations") "A relationship between two data sets")
     ("data block" "Code that lists the name, constructor(s), and field(s) of a data structure")
     ("data science" "The study of using data to answer questions about the world")
+    (("dataset" "datasets") "a collection of related information that is composed of separate elements, but can be manipulated as a unit by a computer")
     ("data structure" "A datatype which packages several datatypes as fields")   
     ("data type" "A way of classifying values, such as: Number, String, Image, Boolean, or any use`defined data structure")
     ("datatypes" "A way of classifying values, such as: Number, String, Image, Boolean, or any user-defined data structure")
