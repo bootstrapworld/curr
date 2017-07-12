@@ -19,7 +19,7 @@
      #:materials @itemlist[]
      #:preparation @itemlist[
                                 @item{
-                                    Show students the @(hyperlink "../resources/OpeningQuestions.pdf" "opening questions"), either as a handout or on posters set up around the room.
+                                    Show students the @resource-link[#:path "OpeningQuestions.pdf" #:label "opening questions"], either as a handout or on posters set up around the room.
                                 }
                              ]
      #:pacings (list 
@@ -31,20 +31,20 @@
         @points[
              @point{
                     @student{
-                            Welcome to Bootstrap: DataScience! Take a few minutes to look at the @(hyperlink "../resources/OpeningQuestions.pdf" "opening questions") we have prepared for you, and choose a topic that interests you.  
+                            Welcome to Bootstrap: DataScience! Take 30 seconds to look at the @resource-link[#:path "OpeningQuestions.pdf" #:label "opening questions"] we have prepared for you, and choose a topic that interests you.  
                             @activity{
                                 @itemlist[
                                     @item{
                                         Once you've selected your topic, break into groups of no more than 4 and choose a question you'd like to answer.
                                     }
                                     @item{
-                                        Spend a minute or two discussing your answer, and explaining @italic{why} you answered the way you did. Does everyone in your group have the same answer? Why or why not?
+                                        Spend one minute discussing your answer, and explaining @italic{why} you answered the way you did. Does everyone in your group have the same answer? Why or why not?
                                     }
                                     @item{
                                         What kind of @italic{measurement} would use to determine if your answer is right or not? What data would you need?
                                     }
                                     @item{
-                                        Complete Page 1 in your Student Workbook, by copying down the question, your answer, and what you discussed with your group.
+                                        Take 5 minutes to complete Page 1 in your Student Workbook, by copying down the question, your answer, and what you discussed with your group.
                                     }
                                 ]
                             }
@@ -55,7 +55,7 @@
             }
             @point{
                     @student{
-                             What's the greatest movie of all time? The best quaterback? Is Stop and Frisk racially biased? These question quickly turn into a discussion about data - how you measure it and how you interpret the results. In this course, you'll learn how to use data to ask and answer questions like this.  The process of learning from data is called @vocab{Data Science}. Data science techniques are used by scientists, business people, politicians, sports analysts, and hundereds of other different fields to ask and answer questions about data.
+                             What's the greatest movie of all time? The best quaterback? Is Stop-and-Frisk racially biased? These question quickly turn into a discussion about data - how you measure it and how you interpret the results. In this course, you'll learn how to use data to ask and answer questions like this.  The process of learning from data is called @vocab{Data Science}. Data science techniques are used by scientists, business people, politicians, sports analysts, and hundereds of other different fields to ask and answer questions about data.
                     }
                     @teacher{
                             You can motivate relevance of data science by using additional examples that relate to student interests.  Here are a few:
@@ -71,7 +71,7 @@
              }
              @point{
                     @student{
-                            In order to ask questions from data, we'll use a @vocab{programming language}. Just like any human language (English, Spanish, French), programming languages have their own vocabulary and grammar that you will need to learn. The language you'll be learning for data science is Pyret, which lets you ask and answer questions quickly from very large data sets.
+                            In order to ask questions from data, we'll use a @vocab{programming language}. Just like any human language (English, Spanish, French), programming languages have their own vocabulary and grammar that you will need to learn. The language you'll be learning for data science is called @italic{Pyret}.
                     }
                     @teacher{
                             Set expectations for the class.  This course is an introduction to programming and data science, so some of the questions students want to answer may be out of scope.  However, this course will give students a foundation to answer their more complicated questions later in their data science education.
@@ -176,12 +176,10 @@
                                                  What do you notice about the way Pyret displays Strings on the screen?
                                             }
                                             @item{
-                                                 CHALLENGE:  Type this program into the Interactions area:  @code{"4"}
-                                                 Is this a String or a number?
+                                                 Type this program into the Interactions area:  @code{"4"}. Is this a String or a number?
                                             }
                                             @item{
-                                                 CHALLENGE:  What happens when you leave off the second quotation mark?  Type this
-                                                 code into the Interactions area and hit Return: @code{"I love writing programs}
+                                                 What happens when you leave off the second quotation mark?  Type this code into the Interactions area and hit Return: @code{"I love writing programs}
                                             }
                                     ]
                             }
@@ -379,7 +377,7 @@
         @points[
                 @point{
                         @student{
-                            In Pyret, you can define @vocab{variable}s with the @code{=} sign, just like in math class. You're probably used to seeing variables @code{x, y, z}, etc.  In Pyret, you can use meaningful to define variables, which will make your code readable and easy to change.
+                            In Pyret, you can define @vocab{variable}s with the @code{=} sign, just like in math class. You're probably used to seeing variables @code{x, y, z}, etc.  In Pyret, you can name values to them easier to remember and easy to change.
                         }
                         @teacher{
                         
@@ -442,8 +440,7 @@
                 @point{
                     @student{
                             @activity{
-                                Use identifiers to program the following word problem:
-                                A train is moving at a constant speed of 65mph. How far has it gone in 3.75 hours?
+                                Use identifiers to program the following word problem: A train is moving at a constant speed of 65mph. How far has it gone in 3.75 hours?
                             }
                     }
                     @teacher{
