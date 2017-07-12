@@ -9,7 +9,7 @@
 }
 @unit-lessons{
 @lesson/studteach[
-     #:title "How Can We Present Data?"
+     #:title "Introduction"
      #:duration "10 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]

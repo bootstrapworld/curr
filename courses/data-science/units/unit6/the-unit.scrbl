@@ -8,9 +8,10 @@
   @unit-descr{Students dig deeper into scatter plots as a method of visualizing the relationship between two axes, and into the notion of "line of best fit". }
 }
 @unit-lessons{
+
 @lesson/studteach[
-     #:title "Scatter Plots"
-     #:duration "15 minutes"
+     #:title "Introduction"
+     #:duration "5 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -27,19 +28,7 @@
         @points[
                 @point{
                         @student{
-                                Are more expensive restaurants generally better than cheaper ones?
-
-                                @activity{
-                                    Turn to page @worksheet-link[#:name "Unit-6"]. Take two minutes and write down what you think.
-                                }
-                        }
-                        @teacher{
-                                Encourage students to discuss openly before writing.
-                        }
-                }
-                @point{
-                        @student{
-                                Suppose you're visiting a new city, and you want to go out for a great meal. Someone suggests a really expensive restaurant, and assures you it's the best in town. How do you know if you're being ripped off? You now have significant experience asking questions about data sets:  You know how to take measures of center, and how to visualize both categorical and quantitative data. Let's use this experience to find out if the expensive restaurants are really worth the money. First, we'll start with out data set:  a table containing information about the restaurants in town.
+                                Suppose you're visiting a new city, and you want to go out for a great meal. Someone suggests a really expensive restaurant, and assures you it's the best in town. How do you know if you're being ripped off? You now have significant experience asking questions about data sets:  You know how to take measures of center, and how to visualize both categorical and quantitative data. Let's use this experience to find out if the expensive restaurants are really worth the money. First, we'll start with out data set: a table containing information about the restaurants in town.
 
                                 @build-table/cols[
                                         '("name" "price" "rating")
@@ -56,6 +45,38 @@
                                    
                         }
                 }
+                @point{
+                        @student{
+                                Are more expensive restaurants generally better than cheaper ones?
+
+                                @activity{
+                                    Turn to page @worksheet-link[#:name "Unit-6"]. Take two minutes and write down what you think.
+                                }
+                        }
+                        @teacher{
+                                Encourage students to discuss openly before writing.
+                        }
+                }
+        ]
+}
+
+@lesson/studteach[
+     #:title "Finding Relationships"
+     #:duration "15 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[]
+     #:standards (list)
+     #:materials @itemlist[]
+     #:preparation @itemlist[]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[
                 @point{
                         @student{
                                 @activity[#:forevidence "BS-IDE&1&1"]{

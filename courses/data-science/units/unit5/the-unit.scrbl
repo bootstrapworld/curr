@@ -9,8 +9,8 @@
 }
 @unit-lessons{
 @lesson/studteach[
-     #:title "Guess the Dice"
-     #:duration "20 minutes"
+     #:title "Introduction"
+     #:duration "5 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -60,6 +60,26 @@
                                 In this exercise, students will use a nondeterministic function for the first time.  As they explore the @code{roll-dice} function, stress that @code{roll-dice} rarely gives the same answer more than once.
                         }
                 }
+        ]
+}
+
+@lesson/studteach[
+     #:title "Creating Histograms"
+     #:duration "15 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[]
+     #:standards (list)
+     #:materials @itemlist[]
+     #:preparation @itemlist[]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[
                 @point{
                         @student{
                                 @activity[#:forevidence "BS-IDE&1&1"]{
@@ -303,7 +323,7 @@
    }
 
 @lesson/studteach[
-     #:title "Analyzing Histograms"
+     #:title "Interpreting Histograms"
      #:duration "20 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
