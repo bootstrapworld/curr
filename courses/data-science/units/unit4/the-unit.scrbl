@@ -32,7 +32,7 @@
         @points[
                 @point{
                       @student{
-                              So far we've answered questions by computing one or several numbers. The mean/median/mode are measurements that try to summarize a data set. These are useful, but often they do not give us "the whole picture" about a data set.   
+                              So far we've answered questions by computing one or several numbers. The mean/median/mode are measurements that try to summarize a data set. These are useful, but often they do not give us "the whole picture" about a data set.
                       }
                       @teacher{
                               Feel free to use motivating examples that students will see in your classroom, or examples from real life data sets.
@@ -42,9 +42,8 @@
                       @student{
                               @bitmap{images/cholesterol_per_item.png}
 
-                              Data scientists often use @vocab{charts} to give a graphical  representation of the data.  @vocab{Charts} are pictures, where some part of the picture relates to values in a data set.
-                              You've already seen two kind of plots: a function plot and a scatter plot.  @vocab{Bar charts} are used to compare rows in a table by their entries in a particular column.  In this example, we are comparing each item on the menu by the amount of cholesterol it has.  The length of the bar relates to the amount of cholesterol:  shorter bars mean less cholesterol, and higher bars mean more cholesterol.
-
+                              Data scientists often use @vocab{charts} to give a graphical representation of the data. @vocab{Charts} are pictures, where some part of the picture relates to values in a data set.
+                              You've already seen two kind of plots: a function plot and a scatter plot. @vocab{Bar charts} are used to compare rows in a table by their entries in a particular column. In this example, we are comparing each item on the menu by the amount of cholesterol it has. The length of the bar relates to the amount of cholesterol: shorter bars mean less cholesterol, and higher bars mean more cholesterol.
                       }
                       @teacher{
                               
@@ -67,7 +66,7 @@
                               }
                       }
                       @teacher{
-                              Highlight that you can very quickly see which items have the most cholesterol, compared to reading an entire table to find out.  Reading charts is advantageous for seeing how the rows relate to each other.  However, it's harder to read exact values from charts, as we see from the grilled chicken question. 
+                              Highlight that you can very quickly see which items have the most cholesterol, compared to reading an entire table to find out. Reading charts is advantageous for seeing how the rows relate to each other. However, it's harder to read exact values from charts, as we see from the grilled chicken question. 
                       }
                 }
                 @point{
@@ -75,7 +74,7 @@
                               @bitmap{images/cholesterol_per_item_pie.png}
 
                               Another chart used to compare rows in a table by some column is a @vocab{pie chart}.
-                              In pie charts, each row of the table gets a slice of the pie, and the size of  the pie slice relates to the value of cholesterol:  bigger pie slice means more cholesterol, and a thinner slice means less cholesterol. 
+                              In pie charts, each row of the table gets a slice of the pie, and the size of the pie slice relates to the value of cholesterol: bigger pie slice means more cholesterol, and a thinner slice means less cholesterol. 
                       }
                       @teacher{
                               Later in the unit we will present guidelines for when to use pie charts vs. bar charts. For this example, a bar chart is preferable, but we want students to understand that pie and bar charts are different pictures to represent the same kind of data: one column of labels (food item), and one column of values (cholesterol).
@@ -123,7 +122,7 @@
                               In Pyet, you can easily construct pie charts and bar charts with functions.
 
                               @activity[#:forevidence "BS-IDE&1&1"]{
-                                      Open the @editor-link[#:public-id "0BzzMl1BJlJDkLVduMEtsSFRKLVE" "Unit 4 Starter File"], Save a Copy and Run the program.  You should see the bar and pie charts from the previous section appear sequentially.
+                                      Open the @editor-link[#:public-id "0BzzMl1BJlJDkLVduMEtsSFRKLVE" "Unit 4 Starter File"], Save a Copy and Run the program. You should see the bar and pie charts from the previous section appear sequentially.
                               }
 
                       }
@@ -144,7 +143,7 @@
                                 What does this code do?
                               }
 
-                              You've seen this code before:  Extracting columns from a table as lists.  These lists are the labels and values (respectively) that will be used to create our charts.
+                              You've seen this code before: Extracting columns from a table as lists. These lists are the labels and values (respectively) that will be used to create our charts.
                       }
                       @teacher{
                               If students cannot explain what these first two lines do, STOP and review.
@@ -170,10 +169,10 @@
                               What do the two arguments in their domains represent?
                               @itemlist[
                                       @item{
-                                            The first is the list of labels.  Each of these will be the @italic{name} of a bar or pie slice on the chart.
+                                            The first is the list of labels. Each of these will be the @italic{name} of a bar or pie slice on the chart.
                                       }
                                       @item{
-                                            The second is the list of values.  Each of these corresponds to the @italic{size} of a bar or slice on the chart.
+                                            The second is the list of values. Each of these corresponds to the @italic{size} of a bar or slice on the chart.
                                       }
                               ]
 
@@ -262,7 +261,7 @@
                 }
                 @point{
                       @student{
-                              By filling in the last bar, you have created a bar chart.  However, there's something special about chart.  What is different about this bar chart from the ones we have created before?
+                              By filling in the last bar, you have created a bar chart. However, there's something special about chart. What is different about this bar chart from the ones we have created before?
                               @itemlist[
                                       @item{
                                             Previous bar charts used a column from the table as the labels, and another column as the values.
@@ -278,7 +277,7 @@
                 }
                 @point{
                       @student{
-                              Here, we are looking at the Eye Color column, which contains categorical data. In this special kind of bar chart, we are computing the @vocab{frequency} of  each category, and that frequency relates to the length of each bar.  Since there are 3 people with brown eyes, the bar for Brown extends to 3 marks long.
+                              Here, we are looking at the Eye Color column, which contains categorical data. In this special kind of bar chart, we are computing the @vocab{frequency} of each category, and that frequency relates to the length of each bar. Since there are 3 people with brown eyes, the bar for Brown extends to 3 marks long.
                       }
                       @teacher{
                       
@@ -342,7 +341,7 @@
         @points[
                 @point{
                       @student{
-                              For the rest of your life, you will probably see bar charts and pie charts in many different colors and formats.  To prepare for this, we'll practice answering questions about several different bar and pie charts from a variety of sources.
+                              For the rest of your life, you will probably see bar charts and pie charts in many different colors and formats. To prepare for this, we'll practice answering questions about several different bar and pie charts from a variety of sources.
                               @activity[#:forevidence "BS-IDE&1&1"]{
                                       Complete @worksheet-link[#:name "Chart-Practice"] and @worksheet-link[#:name "More-Chart-Practice"] in your workbook by answering the questions about each of the charts.
                               }                          
