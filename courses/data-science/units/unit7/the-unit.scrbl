@@ -89,7 +89,7 @@
                 }
                 @point{
                       @student{
-                              You may have noticed that answering these questions requires a little extra work, because the columns we need about are separated by a lot of uneccessary columns. Finding the year "Maleficent" came out requires looking at the @code{title, year} columns, but not any of the columns in between. It would be nice if we could choose only the columns we need, and put those into a new table.
+                              You may have noticed that answering these questions requires a little extra work, because the columns we need are separated by a lot of uneccessary columns. Finding the year "Maleficent" came out requires looking at the @code{title, year} columns, but not any of the columns in between. It would be nice if we could choose only the columns we need, and put those into a new table.
 
                               @activity[#:forevidence "BS-IDE&1&1"]{
                                       Type @code{movies-selected} into the Interactions Window.
@@ -101,7 +101,7 @@
                 }
                 @point{
                       @student{
-                              When we want to answer questions about just a few columns in a table, @italic{we can remove the unecessary ones} with @vocab{select}. @code{select} is a @vocab{table query}: a special key word that will create a new table using information from a starting table. Table queries are called queries because they are used to ask questions using specific information in tables. @vocab{select} creates a table containing only the columns that the programmer specifies.
+                              When we want to answer questions about just a few columns in a table, @italic{we can remove the unnecessary ones} with @vocab{select}. @code{select} is a @vocab{table query}: a special key word that will create a new table using information from a starting table. Table queries are called queries because they are used to ask questions using specific information in tables. @vocab{select} creates a table containing only the columns that the programmer specifies.
 
                               @code[#:multi-line #t]{
                                       movies-selected = select title, year from movies end
@@ -124,7 +124,7 @@
                 }
                 @point{
                       @student{
-                              When thinking about select queries, we ask ourselves @bold{are any columns unecessary?} If the answer is no, we have no work to do. But if the answer is yes, we can zoom in and think about which columns we want to keep. Suppose we wanted to make a brochure showing local restaurants and ratings. "Are any columns unecessary?" The following code will select only the @code{country} and @code{continent} columns from the countries table, and bind the new table to the variable @code{countries-selected}:
+                              When thinking about select queries, we ask ourselves @bold{are any columns unnecessary?} If the answer is no, we have no work to do. But if the answer is yes, we can zoom in and think about which columns we want to keep. Suppose we wanted to make a brochure showing local restaurants and ratings. "Are any columns unnecessary?" The following code will select only the @code{country} and @code{continent} columns from the countries table, and bind the new table to the variable @code{countries-selected}:
 
                               @code[#:multi-line #t]{
                                       countries-selected = select 
@@ -334,7 +334,7 @@
                 }
                 @point{
                         @student{
-                                We can also order a table by more than one thing at once! For example, suppose we wanted to show all the movies, sorted ascending by studio name @italic{and} sorted alphabeticall by title within those groups? 
+                                We can also order a table by more than one thing at a time! For example, suppose we wanted to show all the movies, sorted ascending by studio name @italic{and} sorted alphabeticall by title within those groups? 
                                   @code[#:multi-line #t]{
                                       movies-ordered = 
                                           order movies:
@@ -410,7 +410,7 @@
             }
             @point{
                     @student{
-                            This is another example of why @bold{query order matters}. If we'd @code{select}ed our columns first, there would be no way for us to achieve this ordering. That's why, when combining queries, we always put @code{order} before @code{sort}.
+                            This is another example of why @bold{query order matters}. If we'd @code{select}ed our columns first, there would be no way for us to achieve this ordering. That's why, when combining queries, we always put @code{order} before @code{select}.
                     }
                     @teacher{
 
@@ -457,7 +457,7 @@
             }
             @point{
                     @student{
-                            Table Plans allow us to turn query-writing into series of questions. By focusing on just one question at a time, we minimize our chances of making mistakes, and give ourselves a way to retrace our steps if something goes wrong. Being comfortable with Table Plans takes time, but once you've mastered them you'll find it gets easier and easier to program complex table queries.
+                            Table Plans allow us to turn query-writing into a series of questions. By focusing on just one question at a time, we minimize our chances of making mistakes, and give ourselves a way to retrace our steps if something goes wrong. Being comfortable with Table Plans takes time, but once you've mastered them you'll find it gets easier and easier to program complex table queries.
                     }
                     @teacher{
 
@@ -497,6 +497,3 @@
         ]
     }
 }
-
-
-
