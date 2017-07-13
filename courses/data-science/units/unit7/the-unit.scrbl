@@ -10,7 +10,7 @@
                                        (list "Image" @code{<Plot>.display()})
                                        (list "Series" @code{function-plot, scatter-plot, bar-chart, pie-chart, freq-bar-chart, histogram})
                                        (list "Plot" @code{plot, plots, <Plot>.title(), <Plot>.x-min, <Plot>.x-max(), <Plot>.y-min, <Plot>.y-max()})
-                                       (list "Table" @code{extract}))]{  @unit-descr{Students are introduced to their first examples of operations that consume and produce tables, and learn how to select columns  and order rows. They are also introduced to the beginnings of Table Plans, as a vehicle for thinking through compound queries.}
+                                       (list "Table" @code{extract}))]{ @unit-descr{Students are introduced to their first examples of operations that consume and produce tables, and learn how to select columns and order rows. They are also introduced to the beginnings of Table Plans, as a vehicle for thinking through compound queries.}
 }
 @unit-lessons{
 
@@ -89,7 +89,7 @@
                 }
                 @point{
                       @student{
-                              You may have noticed that answering these questions requires a little extra work, because the columns we need about are separated by a lot of uneccessary columns.  Finding the year "Maleficent" came out requires looking at the @code{title, year} columns, but not any of the columns in between.  It would be nice if we could choose only the columns we need, and put those into a new table.
+                              You may have noticed that answering these questions requires a little extra work, because the columns we need about are separated by a lot of uneccessary columns. Finding the year "Maleficent" came out requires looking at the @code{title, year} columns, but not any of the columns in between. It would be nice if we could choose only the columns we need, and put those into a new table.
 
                               @activity[#:forevidence "BS-IDE&1&1"]{
                                       Type @code{movies-selected} into the Interactions Window.
@@ -101,7 +101,7 @@
                 }
                 @point{
                       @student{
-                              When we want to answer questions about just a few columns in a table, @italic{we can remove the unecessary ones} with @vocab{select}.  @code{select} is a @vocab{table query}: a special key word that will create a new table using information from a starting table. Table queries are called queries because they are used to ask questions using specific information in tables. @vocab{select} creates a table containing only the columns that the programmer specifies.
+                              When we want to answer questions about just a few columns in a table, @italic{we can remove the unecessary ones} with @vocab{select}. @code{select} is a @vocab{table query}: a special key word that will create a new table using information from a starting table. Table queries are called queries because they are used to ask questions using specific information in tables. @vocab{select} creates a table containing only the columns that the programmer specifies.
 
                               @code[#:multi-line #t]{
                                       movies-selected = select title, year from movies end
@@ -119,7 +119,7 @@
                               }
                       }
                       @teacher{
-                              The benefits of using the @code{select} keyword are mostly for the programmer: having less columns does not make it significantly faster to perform operations on the table, but less columns does make it easier for humans to observe relations between columns (like in the examples above).          
+                              The benefits of using the @code{select} keyword are mostly for the programmer: having less columns does not make it significantly faster to perform operations on the table, but less columns does make it easier for humans to observe relations between columns (like in the examples above).
                       }
                 }
                 @point{
@@ -138,7 +138,7 @@
                                               In your Definitions Area, complete the next two exercises ("Countries and Continents" and "Fat Content Information"). Test your code by hitting the Run button and typing the new variable names into the Interactions Area.
                                           }
                                           @item{
-                                              Complete @worksheet-link[#:name "Select-Practice"] in your workbook, and complete the Word Problems requiring you to write and interpret @code{select} statements.    
+                                              Complete @worksheet-link[#:name "Select-Practice"] in your workbook, and complete the Word Problems requiring you to write and interpret @code{select} statements.
                                           }
                                           @item{
                                               Complete @worksheet-link[#:name "Select-Plan"].
@@ -147,7 +147,7 @@
                               }
                         }
                         @teacher{
-                                Encourage students to think of the interactions area as a playground:  if a student needs to write a definition but don't know exactly how, they should experiment with different expressions in the Interactions Area until they are satisfied.  THEN they should bind that expression to a variable name in the Definitions Area.
+                                Encourage students to think of the interactions area as a playground: if a student needs to write a definition but don't know exactly how, they should experiment with different expressions in the Interactions Area until they are satisfied. THEN they should bind that expression to a variable name in the Definitions Area.
                         }
                 }
         ]
@@ -225,7 +225,7 @@
                 }
                 @point{
                         @student{
-                                When we answer this question, we have to look through every row in the table to figure out what the top 4 scores are, then the names of the students with those scores. The next operation we will see is @vocab{ordering}. @vocab{Ordering} is sorting all of the rows in a table in a meaningful way, using one of the columns in particular. Data scientists will often order tables so that they are easier to search through.                    
+                                When we answer this question, we have to look through every row in the table to figure out what the top 4 scores are, then the names of the students with those scores. The next operation we will see is @vocab{ordering}. @vocab{Ordering} is sorting all of the rows in a table in a meaningful way, using one of the columns in particular. Data scientists will often order tables so that they are easier to search through.
                         }
                         @teacher{
                                          
@@ -249,7 +249,7 @@
                 }
                 @point{
                         @student{
-                                The opposite order, in which values are INCREASING as you go further down the table, is called @vocab{ascending}.  Here's what the classroom table looks like ordered by the @code{test-grade} column in ascending order:
+                                The opposite order, in which values are INCREASING as you go further down the table, is called @vocab{ascending}. Here's what the classroom table looks like ordered by the @code{test-grade} column in ascending order:
 
                                 @build-table/cols[
                                             '("first" "last" "test-grade")
@@ -288,19 +288,19 @@
                 @point{
                         @student{
 
-                                The key word @code{order} is followed by the name of the table we are ordering (in this case, @code{nutrition}), then a colon (@code{:}).  The colon always comes in front of an expression using column names.  In this case, we are ordering by the @code{sodium} column, in @code{descending} order.
+                                The key word @code{order} is followed by the name of the table we are ordering (in this case, @code{nutrition}), then a colon (@code{:}). The colon always comes in front of an expression using column names. In this case, we are ordering by the @code{sodium} column, in @code{descending} order.
 
                                 @activity[#:forevidence "BS-IDE&1&1"]{
                                         Change the keyword @code{ascending} in the definition of @code{movies-ordered} to @code{descending}. Then hit Run and type @code{movies-ordered} into the interactions window. What has changed?
                                 }
 
-                                Now the table is in descending alphabetical order by the @code{title} column.  
+                                Now the table is in descending alphabetical order by the @code{title} column.
 
                                 @activity[#:forevidence "BS-IDE&1&1"]{
                                         What happens if we instead order the @code{movies-ordered} table by the @code{studio} column? 
                                 }
 
-                                It turns out you can order tables by columns Numbers AND Strings.  A table in ascending order by a String means it is in alphabetical order, and descending means reverse alphabetical order.
+                                It turns out you can order tables by columns Numbers AND Strings. A table in ascending order by a String means it is in alphabetical order, and descending means reverse alphabetical order.
                         }
                         @teacher{
                                         
@@ -496,7 +496,6 @@
                 }
         ]
     }
-
 }
 
 
