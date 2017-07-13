@@ -422,7 +422,7 @@
                                             mode:  @code{69}
                                       }
                               ]
-                              Notice that the mean is well over 75, even though most of the students scored below 70! The mean here is more affected by @italic{outliers}: those two 100s are bringing the average up. This is because mean is calculated using every value in the list, while the median is calculated with at most 2 values from the list.
+                              Notice that the mean is well over 75, even though most of the students scored below 70! The mean here is more affected by @italic{outliers}: those two 100s are bringing the average up. This is because the mean is calculated using every value in the list, while the median is calculated with at most 2 values from the list.
                       }
                       @teacher{
                               
@@ -437,7 +437,7 @@
                                             If the data is unlikely to have values occurring multiple times (like with decimals, or with grades), do not use mode.
                                       }
                                       @item{
-                                            If the data is more "course grained", meaning the data is quantitative but there are only a small number of possible values each entry can take, then mode will be useful.
+                                            If the data is more "coarse grained", meaning the data is quantitative but there are only a small number of possible values each entry can take, then mode will be useful.
                                       }
                                       @item{
                                             If the data is going to have lots of outliers, then median gives a better estimate of the center than mean.
@@ -473,7 +473,7 @@
                                     Make sure to save your work.  Hit the Save button in the top left. This will save your program in the code.pyret.org folder within your Google Drive.
                                   }
                                   @item{  
-                                    Use @code{mean}, @code{median} and @code{mode} with the @code{household-income} list. Do you think the "average household income" is still a good measure to use when talking about poverty? Why or why not? Take two minutes to write your answer on on @worksheet-link[#:name "Unit-3"].
+                                    Use @code{mean}, @code{median} and @code{mode} with the @code{household-income} list. Do you think the "average household income" is still a good measure to use when talking about poverty? Why or why not? Take two minutes to write your answer on @worksheet-link[#:name "Unit-3"].
                                   }
                             ]
                         }
@@ -515,7 +515,7 @@
               }
               @point{
                     @student{
-                           Congratulations! You've just learned the basics of the Pyret programming language, and how to use that language to answer a data science question. Throughout this course, you'll learn new and more powerful tools that will allow you answer more complex questions, and in greater detail.
+                           Congratulations! You've just learned the basics of the Pyret programming language, and how to use that language to answer a data science question. Throughout this course, you'll learn new and more powerful tools that will allow you to answer more complex questions, and in greater detail.
 
                     }
                     @teacher{
