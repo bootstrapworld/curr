@@ -35,7 +35,7 @@
         @points[
                 @point{
                         @student{
-                                Suppose you're visiting a new city, and you want to go out for a great meal. Someone suggests a really expensive restaurant, and assures you it's the best in town. How do you know if you're being ripped off? You now have significant experience asking questions about data sets:  You know how to take measures of center, and how to visualize both categorical and quantitative data. Let's use this experience to find out if the expensive restaurants are really worth the money. First, we'll start with out data set: a table containing information about the restaurants in town.
+                                Suppose you're visiting a new city, and you want to go out for a great meal. Someone suggests a really expensive restaurant, and assures you it's the best in town. How do you know if you're being ripped off? You now have significant experience asking questions about data sets: You know how to take measures of center, and how to visualize both categorical and quantitative data. Let's use this experience to find out if the expensive restaurants are really worth the money. First, we'll start with out data set: a table containing information about the restaurants in town.
 
                                 @build-table/cols[
                                         '("name" "price" "rating")
@@ -136,7 +136,7 @@
                 }
                 @point{
                         @student{
-                                In the last question, we are asking about the relationship between two columns of quantitative data:  @code{price} and @code{rating}.  As the @code{price} increases, what happens to the @code{rating}?  Does it increase as well?
+                                In the last question, we are asking about the relationship between two columns of quantitative data: @code{price} and @code{rating}. As the @code{price} increases, what happens to the @code{rating}? Does it increase as well?
                         }
                         @teacher{
                                 
@@ -160,7 +160,7 @@
                 @point{
                         @student{
                                 @bitmap{images/price-vs-rating.png}
-                                There are 9 points on our restaurant scatter plot: one for each restaurant in the table.  Each dot's placement depends on the price and rating values of a particular restaurant.  For example, look at the restaurant "Riverside Grille".  Riverside Grille has an average price of 19.56, so it will appear to the far right of the chart.  Riverside Grille has an average rating of 4.9, so it will appear towards the top of the chart.
+                                There are 9 points on our restaurant scatter plot: one for each restaurant in the table. Each dot's placement depends on the price and rating values of a particular restaurant. For example, look at the restaurant "Riverside Grille". Riverside Grille has an average price of 19.56, so it will appear to the far right of the chart. Riverside Grille has an average rating of 4.9, so it will appear towards the top of the chart.
 
                                 @activity[#:forevidence "BS-IDE&1&1"]{
                                     In Pyret, open the scatter plot that shows the relationship between prices and ratings.
@@ -207,7 +207,7 @@
                 }
                 @point{
                         @student{
-                                Scatter plots are a simple way to visualize the relationship between two columns of quantitative data.  In this scatter plot, we can see a general trend that restaurants with higher price tend to be rated higher.  This particular example might seem intuitive, but it's a lot easier to search for relationships in data using a visualization than a table by itself.
+                                Scatter plots are a simple way to visualize the relationship between two columns of quantitative data. In this scatter plot, we can see a general trend that restaurants with higher price tend to be rated higher. This particular example might seem intuitive, but it's a lot easier to search for relationships in data using a visualization than a table by itself.
 
                                 @activity[#:forevidence "BS-IDE&1&1"]{
                                         Turn to @worksheet-link[#:name "Scatter-Plot"] in your workbook and complete the exercise practicing creating scatter plots.
@@ -247,10 +247,10 @@
                 }
                 @point{
                         @student{
-                                Scatter plots are useful when searching for a relationship between two columns of quantitative data.  Often, if we find a relationship, we can use that relationship to make predictions.  For example, we predicted that a restaurant with a price of $16 would have a rating somewhere between 4 and 5. A prediction summarizes the relationship within our data cloud, for example "for every $4 in price, a restaurant's rating tends to be a full point higher". 
+                                Scatter plots are useful when searching for a relationship between two columns of quantitative data. Often, if we find a relationship, we can use that relationship to make predictions. For example, we predicted that a restaurant with a price of $16 would have a rating somewhere between 4 and 5. A prediction summarizes the relationship within our data cloud, for example "for every $4 in price, a restaurant's rating tends to be a full point higher". 
                         }
                         @teacher{
-                                Students' predictions may differ from between [4, 5].  If so, guide them towards why this range is intuitive.
+                                Students' predictions may differ from between [4, 5]. If so, guide them towards why this range is intuitive.
                         }
                 }
                 @point{
@@ -272,7 +272,7 @@
                                 @bitmap{images/price-vs-rating-predictor.png}
                                 We can represent a positive correlation by drawing a line on a scatter plot, representing the prediction.
 
-                                This line is the graph of a @vocab{predictor} function. A @italic{predictor} is a function that takes in a value for one variable, and returns an estimate of a different variable, based on all the other points in the cloud.  In our example, we can predict the rating of a restaurant, based on its price.
+                                This line is the graph of a @vocab{predictor} function. A @italic{predictor} is a function that takes in a value for one variable, and returns an estimate of a different variable, based on all the other points in the cloud. In our example, we can predict the rating of a restaurant, based on its price.
 
                                 @activity[#:forevidence "BS-IDE&1&1"]{
                                         For each point, use the linear predictor to estimate the answer.
@@ -292,7 +292,7 @@
                         @teacher{
                                 @itemlist[
                                         @item{
-                                                Emphasize that the predictor isn't always exactly correct, but if the data shows a direct correlation, then the predictor will be pretty close.  This makes it very useful for problems where it is hard to gather lots of data.
+                                                Emphasize that the predictor isn't always exactly correct, but if the data shows a direct correlation, then the predictor will be pretty close. This makes it very useful for problems where it is hard to gather lots of data.
                                         }
                                         @item{
 
@@ -318,7 +318,7 @@
                                         Complete @worksheet-link[#:name "Grading-Predictors"] in your workbook, by grading different predictor functions on how well they match scatter plots (on a scale of 0="worst fit" to 1="best fit").
                                 }
 
-                                Some of these scatter plots showed positive correlations.  Others showed @vocab{negative correlations}:  where if one variable increases, the other decreases, and vice versa.  There are also examples where the line doesn't appear to have much value as a predictor; in these examples we say there is no correlation.
+                                Some of these scatter plots showed positive correlations.  Others showed @vocab{negative correlations}: where if one variable increases, the other decreases, and vice versa. There are also examples where the line doesn't appear to have much value as a predictor; in these examples we say there is no correlation.
                         }
                         @teacher{
 
@@ -394,7 +394,7 @@
                 @point{
                         @student{
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Create statistical models and predictor functions for each of the following relationships, then plot the predict on top of the scatterplots you created earlier:
+                                        Create statistical models and predictor functions for each of the following relationships, then plot the predictor function on top of the scatterplots you created earlier:
 
                                         @itemlist[
                                                 @item{
@@ -417,7 +417,7 @@
                 }
                 @point{
                         @student{
-                                Are there any correlations in this data?  If so, what are they?
+                                Are there any correlations in this data? If so, what are they?
                         }
                         @teacher{
                                 @itemlist[
@@ -428,7 +428,7 @@
                                                 Almost no correlation between GDP and life expectancy - @bold{Note:} sharp-eyed students will point out that this is @italic{total} GDP, not per-per-capita, so we don't expect much correlation!
                                         }
                                         @item{
-                                                Almost no  correlation between Population and life expectancy
+                                                Almost no correlation between Population and life expectancy
                                         }
                                 ]
                         }
@@ -449,7 +449,7 @@
                                 @activity[#:forevidence "BS-IDE&1&1"]{
                                         @itemlist[
                                             @item{
-                                                Determine the r-squared values for each of the 3 models you created previously, and interpret them.  Do they show a strong correlation? A weak correlation?  No correlation at all?
+                                                Determine the r-squared values for each of the 3 models you created previously, and interpret them. Do they show a strong correlation? A weak correlation? No correlation at all?
                                             }
                                             @item{
                                                 What does it mean a data point is @italic{above} the predictor line?
