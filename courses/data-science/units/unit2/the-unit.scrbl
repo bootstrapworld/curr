@@ -36,9 +36,9 @@
         @points[
             @point{
               @student{
-                  A lot restaurants these days publish nutrition information as part of their menu. When you look at these menus, you can find out how many calories each item contains. How much of a role does sugar play in that? Do sugary meals @italic{always} have more calories than meals with less sugar? Do high-calorie meals @italic{always} have a lot of sugar in them? 
+                  A lot of restaurants these days publish nutrition information as part of their menu. When you look at these menus, you can find out how many calories each item contains. How much of a role does sugar play in that? Do sugary meals @italic{always} have more calories than meals with less sugar? Do high-calorie meals @italic{always} have a lot of sugar in them? 
                     @activity{
-                        Turn to on @worksheet-link[#:name "Unit-2"]. Take two minutes to write down what you think, and why.
+                        Turn to @worksheet-link[#:name "Unit-2"]. Take two minutes to write down what you think, and why.
                     }
               }
               @teacher{
@@ -47,7 +47,7 @@
             }
             @point{
               @student{
-                  So far you have learned the fundamentals of writing programs that do work on simple data like Numbers (@code{1, -6, 3.5,} etc.) and Strings (@code{"hello", "17",} etc.). As data scientists, we need write programs that work on complex data like @italic{restaurant menus}, which can have many related parts and contain dozens or millions of entries. A collection of related data that can be grouped and manipulated by a computer is called a @vocab{dataset}. In this unit, you will learn how Pyret works with real-world data, and how to answer data science questions like this one by writing programs over that data.
+                  So far you have learned the fundamentals of writing programs that do work on simple data like Numbers (@code{1, -6, 3.5,} etc.) and Strings (@code{"hello", "17",} etc.). As data scientists, we need to write programs that work on complex data like @italic{restaurant menus}, which can have many related parts and contain dozens or millions of entries. A collection of related data that can be grouped and manipulated by a computer is called a @vocab{dataset}. In this unit, you will learn how Pyret works with real-world data, and how to answer data science questions like this one by writing programs over that data.
               }
               @teacher{
 
@@ -163,7 +163,7 @@
             }
             @point{
             		    @student{
-                            As you learned in Unit 1, Pyret allows us to define names for values and expressions, so that we can refer to them later. Every definition you've seen involves an identifier, followed by the equals sign, and an expression to bidn to that name. For example, we can define the identifier @code{name} to be string @code{"Tara"} by writing
+                            As you learned in Unit 1, Pyret allows us to define names for values and expressions, so that we can refer to them later. Every definition you've seen involves an identifier, followed by the equals sign, and an expression to bind to that name. For example, we can define the identifier @code{name} to be the string @code{"Tara"} by writing
                             @code[#:multi-line #t]{
                                 name = "Tara"
                             }
@@ -399,7 +399,7 @@
 
                       }
                       @teacher{
-                              This is the first example of an expression that consumes a table that students will need to write for themselves.  These expressions (@code{extract, sieve, select, order}, and @code{extend}) have fundamentally different syntax than programs they have seen with arithmetic or function application.
+                              This is the first example of an expression that consumes a table that students will need to write for themselves. These expressions (@code{extract, sieve, select, order}, and @code{extend}) have fundamentally different syntax than programs they have seen with arithmetic or function application.
                       }
                 }
                 @point{
@@ -484,7 +484,7 @@
               @point{
                   @student{
                           @activity{
-                            Use the @code{plot} function to draw this scatter plot. What do you notice about this plot? Is there a relationship between sugar and calories? Take two minutes and write your answer on on @worksheet-link[#:name "Unit-2"] - does this support your hypothesis or not?
+                            Use the @code{plot} function to draw this scatter plot.(Go back to the previous unit if you forget how to display your plot.) What do you notice about this plot? Is there a relationship between sugar and calories? Take two minutes and write your answer on on @worksheet-link[#:name "Unit-2"] - does this support your hypothesis or not?
                             @bold{What other kinds of relationships can you find in these tables?}
                           }
                           Later on in this class, you'll learn how to plot many kinds of data, and how to search for trends and relationships like this one!
@@ -516,7 +516,7 @@
         @points[
                 @point{
                       @student{
-                          Now that you've had a chance to look at a few tables, it's time to choose a dataset of your own! Thoughout this course, you'll be analyzing this dataset and writing up your findings. As you learn new tools for data science, you'll continue to refine this analysis, answering questions and raising new ones of your own!
+                          Now that you've had a chance to look at a few tables, it's time to choose a dataset of your own! Throughout this course, you'll be analyzing this dataset and writing up your findings. As you learn new tools for data science, you'll continue to refine this analysis, answering questions and raising new ones of your own!
                           Take 5 minutes to look through the following datasets, and choose one that interests you:
                           @itemlist[
                               @item{
@@ -591,7 +591,7 @@
         @points[
               @point{
                     @student{
-							             Congratulations! You've just learned the basics of the Pyret programming language, and how to use that language to answer a data science question. Throughout this course, you'll learn new and more powerful tools that will allow you answer more complex questions, and in greater detail.
+							             Congratulations! You've just learned the basics of the Pyret programming language, and how to use that language to answer a data science question. Throughout this course, you'll learn new and more powerful tools that will allow you to answer more complex questions, and in greater detail.
 
 							       @activity[#:forevidence "BS-IDE&1&1"]{
 								            Make sure to save your work.  Hit the Save button in the top left. This will save your program in the code.pyret.org folder within your Google Drive.
