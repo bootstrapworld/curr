@@ -154,12 +154,12 @@
                                                 The first is a list of numbers, containing the quantitative data.
                                         }
                                         @item{
-                                                The second is the number of evenly-spaced @italic{bins} into which we want to group our list (we'll talk more about this in a moment).
+                                                The second is the number of equal-sized @italic{bins} that we want to distribute this list into (we'll talk more about this in a moment).
                                         }
                                 ]
                         }
                         @teacher{
-                                Show students the histogram before explaining what the second argument (bin size) means, to give them a point of reference. It may be easier for you to project the live code/image of the histogram. Since students do not yet know what a histogram is, or what this code is doing, they will have a harder time if they make syntax errors.
+                                Show students the histogram before explaining what the second argument (number of bins) means, to give them a point of reference. It may be easier for you to project the live code/image of the histogram. Since students do not yet know what a histogram is, or what this code is doing, they will have a harder time if they make syntax errors.
                         }
                 }
                 @point{
@@ -268,7 +268,7 @@
                 }
                 @point{
                         @student{
-                                We can't have a bar for every possible height, and having a bar for each student in the table isn't really helpful to us. This is where bin sizes come in really handy!
+                                We can't have a bar for every possible height, and having a bar for each student in the table isn't really helpful to us. This is where being able to control the number of bins comes in really handy!
 
                                 @activity[#:forevidence "BS-IDE&1&1"]{
                                         Turn to @worksheet-link[#:name "Histograms"] in your workbook and complete the exercise.
@@ -280,7 +280,7 @@
                 }
                 @point{
                         @student{
-                                The histogram that you completed only has 5 bars, yet each possible value contributes to the height of a particular bar. This is possible because each of the decimal values is put into a @vocab{bin}. Each @code{bin} is a range of values that our data can take.
+                                The histogram that you completed only has 5 bars, yet each possible value contributes to the height of a particular bar. This is possible because each of the decimal values is put into a @vocab{bin}. Each @code{bin} represents a range of values in our dataset.
                         }
                         @teacher{
                                 Before this discussion, ask students to describe in their own words how histograms can visualize the frequency of an unlimited number of values, using a limited number of bars.
@@ -305,7 +305,7 @@
                                                 }
                                         ]
 
-                                        Play around with the 2nd argument (the number of bins) to try and find the sweet spot.
+                                        Play around with the number of bins to try and find the sweet spot.
                                 }
                         }
                         @teacher{
