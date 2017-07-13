@@ -497,7 +497,7 @@
                                             }
                                     ]
 
-                                    How many arguments does @code{num-min} have? What type of values does this function take in? What type of value does this function output?  How does this output relate to the arguments?
+                                    The values that we give to a function are called it's @vocab{arguments}. How many arguments are we giving to @code{num-min} in the three examples above? What are the types of these arguments? What type of value does this function output?  How does this output relate to the two inputs?
                             }
                     }
                     @teacher{

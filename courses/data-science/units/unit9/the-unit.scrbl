@@ -321,7 +321,7 @@
         @points[
                 @point{
                         @student{
-                                 Economics data scientists use something called a @code{gdp-per-capita} to compare countries' productivity.  This is calculated by dividing a country's GDP by population.  This estimates how productive the average citizen of a particular country is. 
+                                 Economics data scientists use something called a @code{gdp-per-capita} to compare countries' productivity.  This is calculated by dividing a country's GDP by population.  This estimates how productive the average citizen of a particular country is:
                                 @bannerline{@math{GDP_{per-capita} = \frac{GDP}{population}}}
                         }
                         @teacher{
@@ -414,6 +414,14 @@
                     @teacher{
 
                     }
+                }
+                @point{
+                        @student{
+                            You now have all the tools you need to complete your analysis for your final project! Open your Project File and Report, and finish the remaining questions. Be sure to explain why you chose to remove any rows with @code{sieve} or add any columns with @code{extend}, and to add the @vocab{r-squared} value for any correlations you find through linear regression.
+                        }
+                        @teacher{
+
+                        }
                 }
         ]
   }
