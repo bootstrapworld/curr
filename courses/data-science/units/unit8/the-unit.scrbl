@@ -105,11 +105,11 @@
                       }
                       @teacher{
                               We recommend projecting/displaying what the last two expressions evaluates to with a live coding section.
-                      }
+                      }f
                 }
                 @point{
                       @student{
-                              The last two expressions produce a new type, called a @vocab{Boolean}. A Boolean type can only be one of values: @code{true}, or @code{false}. Computer scientists and data scientists use Boolean values whenever they are asking @italic{yes or no questions} of data.  For example, the expression @code{2 > 1} is asking "is 2 greater than one?". The answer is yes, so the computer will produce @code{true}.
+                              The last two expressions produce a new type, called a @vocab{Boolean}. A Boolean type can only be one of two values: @code{true}, or @code{false}. Computer scientists and data scientists use Boolean values whenever they are asking @bold{yes or no questions} of data. For example, the expression @code{2 > 1} is asking the question "is 2 greater than one?". The answer is yes, so the computer will produce @code{true}.
                       }
                       @teacher{
                               Some students may confuse @code{true} and @code{false} for Strings, because "true and false are words". Point out that what is printed does not have any quotation marks, and only Strings are in quotes!
@@ -154,25 +154,25 @@
                       @student{
                               @itemlist[
                                     @item{
-                                          @code{==} is very different from @code{=}!  @code{=} @italic{defines} a variable to be equal to some value, whereas @code{==} asks a question:  are these two things equal?
+                                          @code{==} is very different from @code{=}, which @italic{defines} a variable to be equal to some value, whereas @code{==} asks a question: are these two things equal?
                                     }
                                     @item{
-                                          Pyret also allows you to ask "are these two values NOT equal?" with this operator:  @code{<>}.
+                                          Pyret also allows you to ask "are these two values NOT equal?" with this operator: @code{<>}.
                                     }
                               ]
                       }
                       @teacher{
 
-                      }
+``                      }
                 }
                 @point{
                       @student{
                               @activity[#:forevidence "BS-IDE&1&1"]{
-                                      Turn to @worksheet-link[#:name "Booleans-Comparison"] in your workbooks, and complete the exercise.  Call over the teacher when you have finished the worksheet
+                                      Turn to @worksheet-link[#:name "Booleans-Comparison"] in your workbooks, and complete the exercise. Call over the teacher when you have finished the worksheet
                               }
                       }
                       @teacher{
-                              The exercise contains challenge questions where students must compare Strings for equality.  Some students may have some intuition about this, but this activity "salts the waters" a discussion of String comparisons.
+                              The exercise contains challenge questions where students must compare Strings for equality. Some students may have some intuition about this, but this activity "salts the waters" with a discussion of String comparisons.
                       }
                 }
                 @point{
@@ -190,7 +190,7 @@
                               ]
                       }
                       @teacher{
-                              A very common bug when writing sieve queries is for students to use the incorrect case, or add extra spaces, within the target String.  If students are having trouble with their programs, or if their sieve queries produce completely empty tables, ask them if their target String is exactly what they want it to be.
+                              A very common bug when writing sieve queries is for students to use the incorrect case, or add extra spaces, within the target String. If students are having trouble with their programs, or if their sieve queries produce completely empty tables, ask them if their target String is exactly what they want it to be.
                       }
                 }
         ]
@@ -272,7 +272,7 @@
                                           Then we give the names of each column being used, followed by a colon @code{:}. In this case we are only using one column, which is the @code{rating} column.
                                     }
                                     @item{
-                                          On the next line is the most important part: this is a @vocab{boolean} expression that asks the question "is the restaurant's rating at least 4.0?".  Notice that we can use the column name the same way we can use a variable, within this expression.
+                                          On the next line is the most important part: this is a @vocab{boolean} expression that asks the question "is the restaurant's rating at least 4.0?". Notice that we can use the column name the same way we can use a variable, within this expression.
                                     }
                                     @item{
                                           Finally, like all table queries, we finish with the @code{end} keyword.
@@ -435,5 +435,4 @@
                 }
         ]
   }
-
 }
