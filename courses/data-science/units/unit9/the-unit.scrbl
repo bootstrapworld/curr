@@ -84,7 +84,7 @@
                 }
                  @point{
                         @student{
-                                In this workbook exercise, you've done something very different from what we've learned so far:  you computed a new column @italic{based on existing data in the table}.  In the sock exercise, this means creating a new column called @code{price-per-sock}, and filling in a new value for each row, based on the @code{price} and @code{socks} values in that row.  Creating a new table with an additional column is called @vocab{extending} a table.
+                                In this workbook exercise, you've done something very different from what we've learned so far: you computed a new column @italic{based on existing data in the table}. In the sock exercise, this means creating a new column called @code{price-per-sock}, and filling in a new value for each row, based on the @code{price} and @code{socks} values in that row. Creating a new table with an additional column is called @vocab{extending} a table.
                         }
                         @teacher{
 
@@ -153,7 +153,7 @@
                                                 It is followed by the table being extended, in this case @code{basketball}.
                                         }
                                         @item{
-                                                Then, the @code{using} keyword, in the same place as the @code{sieve} commands.  This tells Pyret which columns we will use to extend the table.
+                                                Then, the @code{using} keyword, in the same place as the @code{sieve} commands This tells Pyret which columns we will use to extend the table.
                                         }
                                         @item{
                                                 Next are the names of the columns being used, followed by a colon @code{:}
@@ -165,7 +165,7 @@
                                                         total: game1 + game2 + game3
                                                 }
 
-                                                We give our new column the name @code{total}, followed by a colon @code{:}, then an expression to compute the value of each entry in the column.  This expression is the sum of a player's points in each game.s
+                                                We give our new column the name @code{total}, followed by a colon @code{:}, then an expression to compute the value of each entry in the column. This expression is the sum of a player's points in each game.s
                                         }
                                         @item{
                                                 Finally, the query ends like all other table queries; with the @code{end} keyword.
@@ -173,13 +173,13 @@
                                 ]
                         }
                         @teacher{
-                                We encourage you to question the class individually on what they think is the purpose of each component of the extend query.  Ask "what do the names after the @code{using} keyword are", etc.
+                                We encourage you to question the class individually on what they think is the purpose of each component of the extend query. Ask "what do the names after the @code{using} keyword are", etc.
                         }
                 }
                 @point{
                         @student{
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                        In your Definitions Area, follow the directions in the code for the first exercise, to extend the @code{stores} table in Pyret.  You should create a column called @code{price-per-sock}.
+                                        In your Definitions Area, follow the directions in the code for the first exercise, to extend the @code{stores} table in Pyret. You should create a column called @code{price-per-sock}.
                                 }
                         }
                         @teacher{
@@ -189,7 +189,7 @@
                 @point{
                         @student{
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Suppose we want to find out which menu items have the highest amount of sodium @italic{per gram}. Use the @code{sodium} and @code{serving-size} columns to write @code{extend} an query that will answer this question.
+                                        Suppose we want to find out which menu items have the highest amount of sodium @italic{per gram}. Use the @code{sodium} and @code{serving-size} columns to write an @code{extend} query that will answer this question.
                                 }
                         }
                         @teacher{
@@ -321,7 +321,7 @@
         @points[
                 @point{
                         @student{
-                                 Economics data scientists use something called a @code{gdp-per-capita} to compare countries' productivity.  This is calculated by dividing a country's GDP by population.  This estimates how productive the average citizen of a particular country is:
+                                 Economics data scientists use something called a @code{gdp-per-capita} to compare countries' productivity.  This is calculated by dividing a country's GDP by population. This estimates how productive the average citizen of a particular country is:
                                 @bannerline{@math{GDP_{per-capita} = \frac{GDP}{population}}}
                         }
                         @teacher{
@@ -331,7 +331,7 @@
 
                 @point{
                         @student{
-                                The United Nations has hired our class to come up with a report on the Africa's economy.  They want us to investigate whether population size or per-capita GDP is the @italic{more significant predictor} for median life expectancy.
+                                The United Nations has hired our class to come up with a report on Africa's economy. They want us to investigate whether population size or per-capita GDP is the @italic{more significant predictor} for median life expectancy.
                                 @activity{
                                     @itemlist[
                                         @item{
