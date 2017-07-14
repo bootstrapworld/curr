@@ -3,7 +3,7 @@
 @main-contents{
 @(elem #:style bs-coursename-style "Bootstrap:Physics")
 
-@boxed-text{@animated-gif{splash.png}Our Physics module is developed in partnership with the 
+@boxed-text{@animated-gif{../../splash.png}Our Physics module is developed in partnership with the 
              @(hyperlink "http://www.aapt.org" "American Association of Physics Teachers") 
              and the @(hyperlink "http://modelinginstruction.org/" "American Modeling Teachers Association"). 
              This module helps students understand basic physics concepts by 

@@ -2,7 +2,7 @@
 
 @title{Unit Two Homework}
 
-@lesson[#:title "Question One:"]{@bold{A)} Write the contract for a function called @bold{star25} that takes in a string representing a color, and returns a solid star of that color with a size of 25 pixels.
+@lesson/studteach[#:title "Question One:"]{@bold{A)} Write the contract for a function called @bold{star25} that takes in a string representing a color, and returns a solid star of that color with a size of 25 pixels.
                                   
                                   @(contract-exercise "c1")
 
@@ -12,15 +12,15 @@
                                  
                                  @bitmap{images/coffee-cup.png}}
 
-@lesson[#:title "Question Two:"]{Explain the difference between @code{33} and @code{"33"}
+@lesson/studteach[#:title "Question Two:"]{Explain the difference between @code{33} and @code{"33"}
                                 
                                  @fill-in-the-blank[#:id "string1"]}                              
 
-@lesson[#:title "Question Three:"]{Is the string "red" an example of a domain or an input? Why?
+@lesson/studteach[#:title "Question Three:"]{Is the string "red" an example of a domain or an input? Why?
                                   
                                    @fill-in-the-blank[#:id "string2"]}
 
-@lesson[#:title "Question Four:"]{@itemlist/splicing[@item{Your school is starting an archery club, and would like you to create a sketch of their archery targets in Racket.}
+@lesson/studteach[#:title "Question Four:"]{@itemlist/splicing[@item{Your school is starting an archery club, and would like you to create a sketch of their archery targets in Racket.}
                    @item{@bold{A)} Underneath the given circles(c1 and c2), define two more circles of your own.} 
 @item{@bold{B)} Using the @bold{overlay} function, place your final circle (c4) on top of the image already defined to create your own image of an archery target. A typical target looks like this:}]                              
                                   @bitmap{images/archerysmall.png}
@@ -28,4 +28,4 @@
                    #:public-id "5sXchyGJ9h"
                    #:width "70%"]}
 
-@lesson[#:title "Bonus!"]{How would you add the thin circles which separate the sections of the target? Try adding them to your image! }
+@lesson/studteach[#:title "Bonus!"]{How would you add the thin circles which separate the sections of the target? Try adding them to your image! }

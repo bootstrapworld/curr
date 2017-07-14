@@ -38,18 +38,13 @@
 (current-deployment-dir (root-deployment-dir))
 
 ;;This lists all courses which are currently able to be built
-(define available-courses '("algebra" "reactive"));"data-science" "physics"
+(define available-courses '("algebra" "reactive" "data-science" "physics"));
 
 ;; Depending on who we are generating for, we need to relocate the resources dirs.
-;; This function sets the resource-locating parameters based on the BUILD-FOR env setting
 ;; May be able to do unit-to-resources-path in the bootstrap case using find-relative path
 (define (update-resource-paths)
-  (when (build-for-bootstrap?)
     (deploy-resources-dir (build-path (root-deployment-dir) "courses" (current-course) "resources"))
     (unit-to-resources-path (build-path 'up 'up "resources")))
-  (when (build-for-codeorg?)
-    (deploy-resources-dir (build-path (root-deployment-dir) "courses" (current-course) "units" "_resources"))
-    (unit-to-resources-path (build-path 'up "_resources"))))
  
 
 ;; The following is a bit of namespace magic to avoid funkiness that 
@@ -85,6 +80,7 @@
 (define (run-scribble scribble-file #:outfile (outfile #f)
                                     #:never-generate-pdf? [never-generate-pdf? #f]
                                     #:include-base-path? [include-base-path? #t])
+  (printf "running scribble on ~a\n" scribble-file)
   
   (define output-dir (filter-output-dir (cond [(current-deployment-dir)
                             ;; Rendering to a particular deployment directory.
@@ -102,8 +98,12 @@
                             (split-path (simple-form-path scribble-file))])
                             base)])))
   (define-values (base name dir?) (split-path scribble-file))
+
   
   (define output-path (build-path output-dir (string->path (regexp-replace #px"\\.scrbl$" (path->string name) ".html"))))
+
+  (printf "output-path: ~a.\n" output-path)
+
   
   (parameterize ([current-directory base]
                  [current-namespace document-namespace]
@@ -163,13 +163,12 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Command line parsing.  We initialize the SCRIBBLE_TAGS environmental
 ;; variable
-;; Hard-set list. This is being replaced with command-line arguments
+;; Hard-set list. This is optionally replaced with command-line arguments below
 ;(define courses (list "algebra" "reactive" )) ;  "data-science" "physics"))
-(define courses available-courses) ;  "data-science" "physics"))
+(define courses available-courses)
 (putenv "AUDIENCE" "teacher")
 (putenv "CURRENT-SOLUTIONS-MODE" "off")
 (putenv "TARGET-LANG" "pyret")
-(putenv "BUILD-FOR" "bootstrap")
 (putenv "LANGUAGE" "spanish")
 
 (define current-contextual-tags
@@ -197,10 +196,6 @@
                  (set! courses (parse-course-args (string-split -course "_")))]
    [("--pdf") "Generate PDF documentation"
     (current-generate-pdf? #t)]
-   [("--buildfor") -buildfor "Indicate bootstrap or codeorg"
-                   (if (member -buildfor (list "bootstrap" "codeorg"))
-                       (putenv "BUILD-FOR" -buildfor)
-                       (error "Build got unrecognized distribution target" -buildfor " -- expected codeorg or boostrap"))]
    
    #:args tags
    tags))
@@ -340,7 +335,6 @@
 ;; Building exercise handout solutions
 ;;  need putenv rather than parameter to communicate with form-elements.rkt -- not sure why
 (define (build-exercise-handout-solutions)
-  (when (build-for-bootstrap?)
     (solutions-mode-on)
     ; generating sols to our internal distribution dir, not the public one
     (parameterize ([current-deployment-dir (build-path (root-deployment-dir) "courses" (current-course) "resources")])
@@ -354,8 +348,7 @@
                   #:when (regexp-match #px".scrbl$" worksheet))
               (printf "build.rkt: building exercise handout solution ~a: ~a\n" subdir worksheet)
               (run-scribble #:include-base-path? #f (build-path exercises-path worksheet)))))))
-    (solutions-mode-off)
-    ))
+    (solutions-mode-off))
 
 (define (build-worksheets)
   ;; and the worksheets
@@ -390,10 +383,12 @@
             pdf-lesson-exercises))
 
 
-
+;; This assumes that the first line of the csv for teacher contributions has titles;
+;;   get rid of the "rest" in the definition of csv-list if there is no title line
 (define (process-teacher-contributions)
   (let* ([csv-path (build-path "courses" (current-course) "resources" "teachers" "langs" (getenv "LANGUAGE") "exercises.csv")]
-         [csv-list (csv->list (make-csv-reader (open-input-file csv-path)))]
+         [csv-list (if (file-exists? csv-path) (rest (csv->list (make-csv-reader (open-input-file csv-path))))
+                       (begin (printf "WARNING: cannot find teacher-contributions in ~a.\n" (current-course)) '()))]
          [source-exercise-directory (simple-form-path (build-path csv-path 'up "exercises"))])
     
     ;; copy teacher files into their place in distribution
@@ -403,20 +398,17 @@
     ;; pre-process csv-list to a hash map of units to lists of hyperlinks
     (hash-clear! current-teacher-contr-xref)
 
-    (for ([exercise (rest csv-list)])
+    
+    (for ([exercise csv-list])
       (let* ([timestamp (first exercise)]
              [name (second exercise)]
              [school (third exercise)]
              [grade (fourth exercise)]
              [descr (fifth exercise)]
              [URL (sixth exercise)]
-             ;;TODO: how to match on units
              [units (string-split (seventh exercise) ", ")]
              [title (eighth exercise)]
              [link (if (string=? URL "")
-                       ;;file-path. TODO: This probably has to be relative to the unit scrbl files
-                       ;(build-path target-exercise-directory title)
-                       ;(build-path "../../resources/teachers/exercises" title)
                        (build-path (current-deployment-dir) "courses" (current-course) "resources" "teachers" "exercises" title)
                        URL)])
 
@@ -530,7 +522,7 @@
   ;;   omit the teacher resources from the distribution
   ;; Subtle: this must come after we potentially touch the output
   ;; resources subdirectory.
-  (cond [(build-for-bootstrap?)
+
          (cond [(file-exists? (get-teachers-guide))
                 (printf "build.rkt: building teacher's guide\n")
                 (run-scribble (get-teachers-guide))
@@ -555,12 +547,7 @@
                   )
                 ]
                [else
-                (printf "build.rkt: no teacher's guide found; skipping\n")])]
-        [else ;; skip building teacher stuff, will just remove it anyway
-         (let ([deploy-teachers-dir (build-path (deploy-resources-dir) "teachers")])
-           (when (directory-exists? deploy-teachers-dir)
-             (delete-directory/files deploy-teachers-dir)))]
-        ))
+                (printf "build.rkt: no teacher's guide found; skipping\n")]))
          
 
 
@@ -591,22 +578,25 @@
 ;; Main entry point:
 (make-fresh-deployment-and-copy-static-pages)
 (define bootstrap-courses courses)
+
+
+
 ;; remove next line if ever want to generate links to web docs instead of PDF
 (putenv "WORKSHEET-LINKS-TO-PDF" "true")
 (for ([course (in-list bootstrap-courses)])
   (parameterize ([current-course course])
     (solutions-mode-off)
+    (putenv "RELEASE-STATUS" "mature")
     (process-teacher-contributions)
     (when (equal? course "algebra")
       (putenv "TARGET-LANG" "racket")
-      (putenv "RELEASE-STATUS" "mature")
       (build-exercise-handouts) ; not needed for reactive
       (workbook-styling-on)
       (build-extra-pdf-exercises) ; not needed for reactive
       )
     (when (equal? course "reactive")
       (putenv "TARGET-LANG" "pyret")
-      (putenv "RELEASE-STATUS" "mature") ;; was "beta"
+      ;; formerly set "RESLEASE-STATUS" to "beta" here
       )
     (textbook-styling-on)
     (update-resource-paths)

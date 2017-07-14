@@ -3,7 +3,7 @@
 @main-contents{
 @(elem #:style bs-coursename-style "Bootstrap:DataScience")
 
-@boxed-text{@animated-gif{splash.png}What makes your favorite athlete the Greatest of All Time?  How would you determine the most 
+@boxed-text{@animated-gif{../../splash.png}What makes your favorite athlete the Greatest of All Time?  How would you determine the most 
              successful musician ever?  How is the population of your country changing?  Are the schools in one part of your
              neighborhood better than schools in another part? How would you measure that? Answering these questions involves 
              collecting and manipulating data, from sports stats to record sales to census data.  Our Data Science module teaches 
