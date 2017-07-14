@@ -19,7 +19,7 @@ We provide all of the our materials @italic{free of charge}, to anyone who is in
         (append
          ; EDIT NUMBER HERE
          ; change '9' to the number of units in your courrse
-         (for/list ([n (in-range 1 (add1 9))])
+         (for/list ([n (in-range 1 (add1 1))])
            (unit-summary/links n))
          (list 
           @summary-item/unit-link["Supplemental Lessons" "units/Supplemental/index"]{
