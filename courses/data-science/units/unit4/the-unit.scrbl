@@ -6,9 +6,8 @@
 
 @unit-overview/auto[#:lang-table (list (list "Number" @code{+, -, *, /, num-sqrt, num-sqr, mean, median, mode, modes})
                                        (list "String" "n/a")
-                                       (list "Image" @code{<Plot>.display()})
+                                       (list "Image" @code{draw-plot})
                                        (list "Series" @code{function-plot, scatter-plot})
-                                       (list "Plot" @code{plot, <Plot>.title(), <Plot>.x-min, <Plot>.x-max(), <Plot>.y-min, <Plot>.y-max()})
                                        (list "Table" @code{extract}))]{
   @unit-descr{Students learn to create and interpret Bar and Pie charts, as well as Frequency Bar Charts.}
 }
@@ -155,9 +154,9 @@
                                     # Define some Series
                                     cholesterol-bar-series = bar-chart(food-list, cholesterol-list)
                                     cholesterol-pie-series = pie-chart(food-list, cholesterol-list)
-                                    # Define some Plots
-                                    cholesterol-bar-chart = bar-chart(food-list, cholesterol-list)
-                                    cholesterol-pie-chart = pie-chart(food-list, cholesterol-list)
+                                    # Define some Plot Images
+                                    cholesterol-bar-chart = draw-plot(cholesterol-bar-series)
+                                    cholesterol-pie-chart = draw-plot(cholesterol-pie-series)
                               }
 
                               This code uses new functions you haven't seen before: @code{bar-chart} and @code{pie-chart}. As you might expect, the contracts for these function are:
@@ -177,7 +176,7 @@
                               ]
 
                               @activity{
-                                  Write the contracts for these functions in your Contracts page, then use @code{.display()} with these plots to draw them to screen.
+                                  Write the contracts for these functions in your Contracts page, then use @code{draw-plot} with these plots to draw them to screen.
                               }
                       }
                       @teacher{

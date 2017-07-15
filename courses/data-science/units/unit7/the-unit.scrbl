@@ -7,10 +7,10 @@
 
 @unit-overview/auto[#:lang-table (list (list "Number" @code{+, -, *, /, num-sqrt, num-sqr, mean, median, mode, modes})
                                        (list "String" "n/a")
-                                       (list "Image" @code{<Plot>.display()})
+                                       (list "Image" @code{draw-plot, draw-plots})
                                        (list "Series" @code{function-plot, scatter-plot, bar-chart, pie-chart, freq-bar-chart, histogram})
-                                       (list "Plot" @code{plot, plots, <Plot>.title(), <Plot>.x-min, <Plot>.x-max(), <Plot>.y-min, <Plot>.y-max()})
-                                       (list "Table" @code{extract}))]{ @unit-descr{Students are introduced to their first examples of operations that consume and produce tables, and learn how to select columns and order rows. They are also introduced to the beginnings of Table Plans, as a vehicle for thinking through compound queries.}
+                                       (list "Table" @code{extract}))
+                    ]{ @unit-descr{Students are introduced to their first examples of operations that consume and produce tables, and learn how to select columns and order rows. They are also introduced to the beginnings of Table Plans, as a vehicle for thinking through compound queries.}
 }
 @unit-lessons{
 

@@ -6,9 +6,8 @@
 
 @unit-overview/auto[#:lang-table (list (list "Number" @code{+, -, *, /, num-sqrt, num-sqr})
                                        (list "String" "n/a")
-                                       (list "Image" @code{<Plot>.display()})
+                                       (list "Image" @code{draw-plot})
                                        (list "Series" @code{function-plot, scatter-plot})
-                                       (list "Plot" @code{plot, <Plot>.title(), <Plot>.x-min, <Plot>.x-max(), <Plot>.y-min, <Plot>.y-max()})
                                        (list "Table" @code{extract}))]{
   @unit-descr{Students learn how to measure central tendency using mean/median/mode.  They will practice calculating these values by hand, and learn to do so using Lists in Pyret}
 }

@@ -6,10 +6,9 @@
 
 @unit-overview/auto[#:lang-table (list (list "Number" @code{+, -, *, /, num-sqrt, num-sqr, mean, median, mode, modes})
                                        (list "String" "n/a")
-                                       (list "Image" @code{<Plot>.display()})
+                                       (list "Image" @code{draw-plot, draw-plots})
                                        (list "Boolean" @code{==, <>, <, >, <=, >=})
                                        (list "Series" @code{function-plot, scatter-plot, bar-chart, pie-chart, freq-bar-chart, histogram})
-                                       (list "Plot" @code{plot, plots, <Plot>.title(), <Plot>.x-min, <Plot>.x-max(), <Plot>.y-min, <Plot>.y-max()})
                                        (list "Table" @code{extract, select, order, sieve, extend}))]{
   @unit-descr{Students learn to extend tables with new columns, computed from a previous table's data.}
 }

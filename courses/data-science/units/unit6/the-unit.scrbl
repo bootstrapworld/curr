@@ -7,10 +7,9 @@
 
 @unit-overview/auto[#:lang-table (list (list "Number" @code{+, -, *, /, num-sqrt, num-sqr, mean, median, mode, modes})
                                        (list "String" "n/a")
-                                       (list "Image" @code{<Plot>.display()})
+                                       (list "Image" @code{draw-plot})
                                        (list "Boolean" @code{==, <>, <, >, <=, >=})
                                        (list "Series" @code{function-plot, scatter-plot, bar-chart, pie-chart, freq-bar-chart, histogram})
-                                       (list "Plot" @code{plot, <Plot>.title(), <Plot>.x-min, <Plot>.x-max(), <Plot>.y-min, <Plot>.y-max()})
                                        (list "Table" @code{extract}))]{
   @unit-descr{Students dig deeper into scatter plots as a method of visualizing the relationship between two axes, and into the notion of "line of best fit". }
 }
@@ -149,9 +148,9 @@
                                         ratings-list = extract rating from restaurants end
                                         prices-list  = extract price  from restaurants end
                                         prices-vs-ratings-series = scatter-plot(prices-list, ratings-list)
-                                        prices-vs-ratings-plot = plot(prices-vs-ratings-series)
+                                        prices-vs-ratings-plot = draw-plot(prices-vs-ratings-series)
                                 }
-                                Click Run, and display the scatterplot for @code{prices-vs-ratings-plot}
+                                Click Run, and show the scatterplot for @code{prices-vs-ratings-plot}
                         }
                         @teacher{
 
@@ -384,7 +383,7 @@
                 @point{
                         @student{
                                 @activity{
-                                    We already know how to plot a function - we used @code{plot} back in Unit 1! Use Pyret to plot this function, and the scatter-plot. Ideally, we'd like to plot these @italic{on top of one another}, and we can do this using the @code{plots} functions. It works much the way @code{plot} does, but instead of one @code{series} it takes in a @italic{list of series} (@code{List<Series>}) as its Domain.
+                                    Once we have the function series, we know how to plot it - we used @code{draw-plot} back in Unit 1! Use Pyret to plot this function, and the scatter-plot. Ideally, we'd like to plot these @italic{on top of one another}, and we can do this using the @code{draw-plots} function. It works much the way @code{draw-plot} does, but instead of one @code{series} it takes in a @italic{list of series} (@code{List<Series>}) as its Domain.
                                 }
                         }
                         @teacher{

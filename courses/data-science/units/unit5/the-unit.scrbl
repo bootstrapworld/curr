@@ -6,9 +6,8 @@
 
 @unit-overview/auto[#:lang-table (list (list "Number" @code{+, -, *, /, num-sqrt, num-sqr, mean, median, mode, modes})
                                        (list "String" "n/a")
-                                       (list "Image" @code{<Plot>.display()})
+                                       (list "Image" @code{draw-plot})
                                        (list "Series" @code{function-plot, scatter-plot, bar-chart, pie-chart, freq-bar-chart})
-                                       (list "Plot" @code{plot, <Plot>.title(), <Plot>.x-min, <Plot>.x-max(), <Plot>.y-min, <Plot>.y-max()})
                                        (list "Table" @code{extract}))]{
   @unit-descr{Students are introduced to Histograms as visualizations for quantitative data, learn to analyze features of Histograms, and construct them in Pyret}
 }
@@ -138,11 +137,11 @@
                                 We can use a different kind of chart for visualizing @italic{how frequent values are} in a list of quantitative data. This kind of chart is a called @vocab{histogram}, and it is similar to the bar charts you have seen before.
 
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Type the following code into your Definitions Area to create the histogram series and the plot.
+                                        Type the following code into your Definitions Area to create the histogram series and draw the plot.
 
                                         @code[#:multi-line #t]{
                                                 dice-histogram-series = histogram(roll-dice(10000), 11)
-                                                dice-histogram-plot   = plot(dice-histogram-series)
+                                                dice-histogram-plot   = draw-plot(dice-histogram-series)
                                         }
 
                                         Use @code{.display()} to see what the histogram looks like, then try changing the second argument from @code{11} to @code{1}. What do you think this argument means?
