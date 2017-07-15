@@ -6,9 +6,9 @@
 
 @unit-overview/auto[#:lang-table (list (list "Number" @code{+, -, *, /, num-sqrt, num-sqr})
                                        (list "String" "n/a")
-                                       (list "Image" @code{<Plot>.display()})
+                                       (list "Image" @code{draw-plot})
                                        (list "Series" @code{function-plot})
-                                       (list "Plot" @code{plot}))]{
+                                       )]{
   @unit-descr{Is there a relationship between the amount of sugar in a meal, and the number of calories? Do more caloric meals tend to have more sugar? To answer this question, students are introduced to Lists and Tables in Pyret, as well as scatter plots as a way of visualizing data}
 }
 @unit-lessons{
@@ -467,24 +467,10 @@
 
                       }
                 }
-                @point{
-                      @student{
-                          There are lots of ways to customize a @code{Plot}, and you can combine options by chaining them together:
-                          @code[#:multi-line #t]{
-                            plot1 = plot(sugar-v-calories)
-                            plot2 = plot(sugar-v-calories).title("Calories and Sodium")
-                            plot3 = plot(sugar-v-calories).title("Calories and Sodium").x-max(600)
-                            plot4 = plot(sugar-v-calories).title("Calories and Sodium").x-max(600).y-max(400)
-                          }
-                      }       
-                      @teacher{
-                          The options you can share with your students at this time are @code{x-min}, @code{y-min}, @code{x-max}, @code{y-max}, @code{title}. The full set can be found in the @(hyperlink "https://www.pyret.org/docs/latest/plot.html#%28part._plot_.Plot.Options%29" "Pyret Documentation").
-                      }
-                }
-              @point{
+ @point{
                   @student{
                           @activity{
-                            Use the @code{plot} function to draw this scatter plot.(Go back to the previous unit if you forget how to display your plot.) What do you notice about this plot? Is there a relationship between sugar and calories? Take two minutes and write your answer on on @worksheet-link[#:name "Unit-2"] - does this support your hypothesis or not?
+                            Use the @code{draw-plot} function to draw this scatter plot.(Go back to the previous unit if you forget how to display your plot.) What do you notice about this plot? Is there a relationship between sugar and calories? Take two minutes and write your answer on @worksheet-link[#:name "Unit-2"] - does this support your hypothesis or not?
                             @bold{What other kinds of relationships can you find in these tables?}
                           }
                           Later on in this class, you'll learn how to plot many kinds of data, and how to search for trends and relationships like this one!
