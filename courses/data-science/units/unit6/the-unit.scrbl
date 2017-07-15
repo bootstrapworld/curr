@@ -148,7 +148,7 @@
                                         ratings-list = extract rating from restaurants end
                                         prices-list  = extract price  from restaurants end
                                         prices-vs-ratings-series = scatter-plot(prices-list, ratings-list)
-                                        prices-vs-ratings-plot = draw-plot(prices-vs-ratings-series)
+                                        prices-vs-ratings-plot = draw-plot("Prices vs. Ratings", prices-vs-ratings-series)
                                 }
                                 Click Run, and show the scatterplot for @code{prices-vs-ratings-plot}
                         }

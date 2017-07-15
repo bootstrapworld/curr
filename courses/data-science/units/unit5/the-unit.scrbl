@@ -141,7 +141,7 @@
 
                                         @code[#:multi-line #t]{
                                                 dice-histogram-series = histogram(roll-dice(10000), 11)
-                                                dice-histogram-plot   = draw-plot(dice-histogram-series)
+                                                dice-histogram-plot   = draw-plot("dice rolls", dice-histogram-series)
                                         }
 
                                         Use @code{.display()} to see what the histogram looks like, then try changing the second argument from @code{11} to @code{1}. What do you think this argument means?
