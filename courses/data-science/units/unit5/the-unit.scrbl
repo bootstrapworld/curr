@@ -8,7 +8,7 @@
                                        (list "String" "n/a")
                                        (list "Image" @code{draw-plot})
                                        (list "Series" @code{function-plot, scatter-plot, bar-chart, pie-chart, freq-bar-chart})
-                                       (list "Table" @code{extract}))]{
+                                       (list "List" @code{extract}))]{
   @unit-descr{Students are introduced to Histograms as visualizations for quantitative data, learn to analyze features of Histograms, and construct them in Pyret}
 }
 @unit-lessons{
