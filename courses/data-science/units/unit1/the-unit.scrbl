@@ -648,7 +648,7 @@
                         Two functions imported by this file are called @code{function-plot} and @code{draw-plot}:
                         @code[#:multi-line #t]{
                             # function-plot: (Number -> Number) -> Series
-                            # draw-plot : String, Series -> Plot
+                            # draw-plot : String Series -> Plot
                         }
                         @code{function-plot} consumes any function that maps from Numbers to Numbers (xs to ys, for example), and returns a series representing the graph of that function. @code{draw-plot} consumes a title and that series, and produces an Image. Make sure you write these down in your contracts page!
                     }
@@ -661,12 +661,12 @@
                         We can define identifiers for both the series and the plot:
                         @code[#:multi-line #t]{
                             # define the series and the graph for the function f(x)=√x
-                            sqrt-plot = function-plot(num-sqrt)
-                            sqrt-graph  = draw-plot(sqrt-plot)
+                            sqrt-plot  = function-plot(num-sqrt)
+                            sqrt-graph = draw-plot("f(x)=√x", sqrt-plot)
                         }
                         Once we click Run, we can see what these values look like.
 
-     Looking at your contracts page, do you see any other functions that we could plot?
+                        Looking at your contracts page, do you see any other functions that we could plot?
                 }
                 @teacher{
 
