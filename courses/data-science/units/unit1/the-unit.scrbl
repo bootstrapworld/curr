@@ -637,7 +637,7 @@
                             @code[#:multi-line #t]{
                                 include plot-list
                             }
-                            This includes a file called @code{plot-list}, which defines a lot of extra functions for making charts, graphs and plots. When you click Run, Pyret will read that file and become aware of all those plotting functions.
+                            This includes a file called @code{plot-list}, which defines a lot of extra functions for drawing charts, graphs and plots. When you click Run, Pyret will read that file and become aware of all those plotting functions.
                     }
                     @teacher{
 
@@ -645,12 +645,12 @@
             }
             @point{
                     @student{
-                        Two functions imported by this file are called @code{plot} and @code{function-plot}:
+                        Two functions imported by this file are called @code{function-plot} and @code{draw-plot}:
                         @code[#:multi-line #t]{
                             # function-plot: (Number -> Number) -> Series
-                            # plot : Series -> Plot
+                            # draw-plot : String, Series -> Plot
                         }
-                        @code{function-plot} consumes any function that maps from Numbers to Numbers (xs to ys, for example), and returns a series representing the graph of that function. @code{plot} consumes that series, and produces a @code{Plot} object. Make sure you write these down in your contracts page!
+                        @code{function-plot} consumes any function that maps from Numbers to Numbers (xs to ys, for example), and returns a series representing the graph of that function. @code{draw-plot} consumes a title and that series, and produces an Image. Make sure you write these down in your contracts page!
                     }
                     @teacher{
 
@@ -661,14 +661,12 @@
                         We can define identifiers for both the series and the plot:
                         @code[#:multi-line #t]{
                             # define the series and the graph for the function f(x)=√x
-                            sqrt-series = function-plot(num-sqrt)
-                            sqrt-graph  = plot(sqrt-series)
+                            sqrt-plot = function-plot(num-sqrt)
+                            sqrt-graph  = draw-plot(sqrt-plot)
                         }
-                        Once we click Run, we can see what these values look like. The @code{plot-object} has a method we can call to display the series:
-                        @code[#:multi-line #t]{
-                            sqrt-graph.display()
-                        }
-                        Looking at your contracts page, do you see any other functions that we could plot?
+                        Once we click Run, we can see what these values look like.
+
+     Looking at your contracts page, do you see any other functions that we could plot?
                 }
                 @teacher{
 
