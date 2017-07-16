@@ -4,12 +4,12 @@
 
 @declare-tags[]
 
-@unit-overview/auto[#:lang-table (list (list "Number" @code{+, -, *, /, num-sqrt, num-sqr, mean, median, mode, modes})
+@unit-overview/auto[#:lang-table (list (list "Number" @code{+, -, *, /, num-sqrt, num-sqr})
                                        (list "String" "n/a")
                                        (list "Image" @code{draw-plot, draw-plots})
                                        (list "Boolean" @code{==, <>, <, >, <=, >=})
                                        (list "Series" @code{function-plot, scatter-plot, bar-chart, pie-chart, freq-bar-chart, histogram})
-                                       (list "List" @code{extract})
+                                       (list "List" @code{extract, mean, median, mode, modes})
                                        (list "Table" @code{select, order, sieve}))]{
   @unit-descr{Students learn to extend tables with new columns, computed from a previous table's data.}
 }
