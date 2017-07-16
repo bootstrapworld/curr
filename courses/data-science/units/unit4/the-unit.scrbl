@@ -1,14 +1,14 @@
 #lang curr/lib
 
 @title{Unit 4: Bar, Frequency and Pie Charts}
-
+n
 @declare-tags[]
 
-@unit-overview/auto[#:lang-table (list (list "Number" @code{+, -, *, /, num-sqrt, num-sqr, mean, median, mode, modes})
+@unit-overview/auto[#:lang-table (list (list "Number" @code{+, -, *, /, num-sqrt, num-sqr})
                                        (list "String" "n/a")
                                        (list "Image" @code{draw-plot})
                                        (list "Series" @code{function-plot, scatter-plot})
-                                       (list "List" @code{extract}))]{
+                                       (list "List" @code{extract, mean, median, mode, modes}))]{
   @unit-descr{Students learn to create and interpret Bar and Pie charts, as well as Frequency Bar Charts.}
 }
 @unit-lessons{
