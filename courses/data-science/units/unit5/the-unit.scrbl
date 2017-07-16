@@ -4,11 +4,11 @@
 
 @declare-tags[]
 
-@unit-overview/auto[#:lang-table (list (list "Number" @code{+, -, *, /, num-sqrt, num-sqr, mean, median, mode, modes})
+@unit-overview/auto[#:lang-table (list (list "Number" @code{+, -, *, /, num-sqrt, num-sqr})
                                        (list "String" "n/a")
                                        (list "Image" @code{draw-plot})
                                        (list "Series" @code{function-plot, scatter-plot, bar-chart, pie-chart, freq-bar-chart})
-                                       (list "List" @code{extract}))]{
+                                       (list "List" @code{extract, mean, median, mode, modes}))]{
   @unit-descr{Students are introduced to Histograms as visualizations for quantitative data, learn to analyze features of Histograms, and construct them in Pyret}
 }
 @unit-lessons{

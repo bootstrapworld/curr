@@ -5,12 +5,12 @@
 @declare-tags[]
 
 
-@unit-overview/auto[#:lang-table (list (list "Number" @code{+, -, *, /, num-sqrt, num-sqr, mean, median, mode, modes})
+@unit-overview/auto[#:lang-table (list (list "Number" @code{+, -, *, /, num-sqrt, num-sqr})
                                        (list "String" "n/a")
                                        (list "Image" @code{draw-plot})
                                        (list "Boolean" @code{==, <>, <, >, <=, >=})
                                        (list "Series" @code{function-plot, scatter-plot, bar-chart, pie-chart, freq-bar-chart, histogram})
-                                       (list "List" @code{extract}))]{
+                                       (list "List" @code{extract, mean, median, mode, modes}))]{
   @unit-descr{Students dig deeper into scatter plots as a method of visualizing the relationship between two axes, and into the notion of "line of best fit". }
 }
 @unit-lessons{
