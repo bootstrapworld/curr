@@ -10,7 +10,7 @@
                                        (list "Image" @code{draw-plot})
                                        (list "Boolean" @code{==, <>, <, >, <=, >=})
                                        (list "Series" @code{function-plot, scatter-plot, bar-chart, pie-chart, freq-bar-chart, histogram})
-                                       (list "Table" @code{extract}))]{
+                                       (list "List" @code{extract}))]{
   @unit-descr{Students dig deeper into scatter plots as a method of visualizing the relationship between two axes, and into the notion of "line of best fit". }
 }
 @unit-lessons{

@@ -8,7 +8,7 @@
                                        (list "String" "n/a")
                                        (list "Image" @code{draw-plot})
                                        (list "Series" @code{function-plot, scatter-plot})
-                                       (list "Table" @code{extract}))]{
+                                       (list "List" @code{extract}))]{
   @unit-descr{Students learn to create and interpret Bar and Pie charts, as well as Frequency Bar Charts.}
 }
 @unit-lessons{

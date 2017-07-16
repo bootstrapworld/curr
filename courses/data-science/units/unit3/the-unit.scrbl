@@ -8,7 +8,7 @@
                                        (list "String" "n/a")
                                        (list "Image" @code{draw-plot})
                                        (list "Series" @code{function-plot, scatter-plot})
-                                       (list "Table" @code{extract}))]{
+                                       (list "List" @code{extract}))]{
   @unit-descr{Students learn how to measure central tendency using mean/median/mode.  They will practice calculating these values by hand, and learn to do so using Lists in Pyret}
 }
 @unit-lessons{

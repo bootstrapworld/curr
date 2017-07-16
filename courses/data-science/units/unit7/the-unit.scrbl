@@ -9,7 +9,7 @@
                                        (list "String" "n/a")
                                        (list "Image" @code{draw-plot, draw-plots})
                                        (list "Series" @code{function-plot, scatter-plot, bar-chart, pie-chart, freq-bar-chart, histogram})
-                                       (list "Table" @code{extract}))
+                                       (list "List" @code{extract}))
                     ]{ @unit-descr{Students are introduced to their first examples of operations that consume and produce tables, and learn how to select columns and order rows. They are also introduced to the beginnings of Table Plans, as a vehicle for thinking through compound queries.}
 }
 @unit-lessons{
