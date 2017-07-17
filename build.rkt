@@ -38,7 +38,7 @@
 (current-deployment-dir (root-deployment-dir))
 
 ;;This lists all courses which are currently able to be built
-(define available-courses '("algebra" "reactive" "data-science" "physics"));
+(define available-courses '("algebra" "reactive" "data-science" "physics" "blank-course"));
 
 ;; Depending on who we are generating for, we need to relocate the resources dirs.
 ;; May be able to do unit-to-resources-path in the bootstrap case using find-relative path
@@ -80,7 +80,6 @@
 (define (run-scribble scribble-file #:outfile (outfile #f)
                                     #:never-generate-pdf? [never-generate-pdf? #f]
                                     #:include-base-path? [include-base-path? #t])
-  (printf "running scribble on ~a\n" scribble-file)
   
   (define output-dir (filter-output-dir (cond [(current-deployment-dir)
                             ;; Rendering to a particular deployment directory.
@@ -101,9 +100,6 @@
 
   
   (define output-path (build-path output-dir (string->path (regexp-replace #px"\\.scrbl$" (path->string name) ".html"))))
-
-  (printf "output-path: ~a.\n" output-path)
-
   
   (parameterize ([current-directory base]
                  [current-namespace document-namespace]
@@ -169,7 +165,7 @@
 (putenv "AUDIENCE" "teacher")
 (putenv "CURRENT-SOLUTIONS-MODE" "off")
 (putenv "TARGET-LANG" "pyret")
-(putenv "LANGUAGE" "spanish")
+(putenv "LANGUAGE" "english")
 
 (define current-contextual-tags
   (command-line

@@ -98,6 +98,8 @@
          csp-activity
          unit-descr
          main-contents
+         slidebreak
+         slideText
          
          ;; Unit sections
          exercises
@@ -168,6 +170,7 @@
 (define bs-time-style (bootstrap-span-style "time"))
 (define bs-callout-style (bootstrap-div-style "callout"))
 (define bs-student-style (bootstrap-div-style "student"))
+(define bs-slideText-style (bootstrap-span-style "slideText"))
 (define bs-teacher-style (bootstrap-div-style "teacher"))
 (define bs-logo-style (bootstrap-span-style "BootstrapLogo"))
 (define bs-vocab-style (bootstrap-span-style "vocab"))
@@ -329,6 +332,9 @@
                        (lambda (row-num) 
                          (map (lambda (col) (list-ref col row-num))
                               all-columns))))))
+
+(define (slideText text) (elem #:style bs-slideText-style text))
+(define slidebreak (slideText "\n"))
 
 ;;;;;;;;;; Sections of Units ;;;;;;;;;;;;;;;;;;;;;;
 

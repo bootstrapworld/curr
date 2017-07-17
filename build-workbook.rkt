@@ -25,7 +25,7 @@
 
 ;; this is because build-workbook does not call build.rkt
 ;
-(putenv "LANGUAGE" "spanish")
+(putenv "LANGUAGE" "english")
 
 (define courses '("algebra" "reactive"))
 
