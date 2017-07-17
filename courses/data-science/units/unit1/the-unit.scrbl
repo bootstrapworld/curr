@@ -55,7 +55,7 @@
             }
             @point{
                     @student{
-                             What's the greatest movie of all time? The best quaterback? Is Stop-and-Frisk racially biased? These question quickly turn into a discussion about data - how you measure it and how you interpret the results. In this course, you'll learn how to use data to ask and answer questions like this.  The process of learning from data is called @vocab{Data Science}. Data science techniques are used by scientists, business people, politicians, sports analysts, and hundereds of other different fields to ask and answer questions about data.
+                             What's the greatest movie of all time? The best quarterback? Is Stop-and-Frisk racially biased? These question quickly turn into a discussion about data - how you measure it and how you interpret the results. In this course, you'll learn how to use data to ask and answer questions like this.  The process of learning from data is called @vocab{Data Science}. Data science techniques are used by scientists, business people, politicians, sports analysts, and hundereds of other different fields to ask and answer questions about data.
                     }
                     @teacher{
                             You can motivate relevance of data science by using additional examples that relate to student interests.  Here are a few:
