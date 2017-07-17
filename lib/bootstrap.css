@@ -154,6 +154,15 @@ div.rightColumn, div.leftColumn {
   margin-bottom:  -100%;
 }
 
+span.BootstrapSlideTitle{
+    text-align:   center;
+    font-size:    28px;
+    padding:      8px;
+    font-weight:  bold;
+    display:      block;
+    z-index:      2;
+}
+
 span.rightColumnLabel,
 div.leftColumn:before,
 div.rightColumn:before{

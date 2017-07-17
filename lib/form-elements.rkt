@@ -165,7 +165,8 @@
 (define bs-lesson-name-style (bootstrap-style "BSLessonName"))
 (define bs-lesson-duration-style (bootstrap-style "BSLessonDuration"))
 (define bs-video-style (bootstrap-style "BootstrapVideo"))
-(define bs-page-title-style (bootstrap-style "BootstrapPageTitle"))
+(define bs-page-title-style (bootstrap-div-style "BootstrapPageTitle"))
+(define bs-slide-title-style (bootstrap-style "BootstrapSlideTitle"))
 
 (define bs-time-style (bootstrap-span-style "time"))
 (define bs-callout-style (bootstrap-div-style "callout"))
@@ -208,8 +209,11 @@
 
 ;;;;;;;;;;;;;; Lesson structuring ;;;;;;;;;;;;;;;;;;;;;;;
 
-(define (student . content)
-  (nested #:style bs-student-style (interleave-parbreaks/select content)))
+(define (student #:title (title #f)
+                 . content)
+  (nested #:style bs-student-style (interleave-parbreaks/select
+                                    (if title (cons (slideText (elem #:style bs-slide-title-style title)) content)
+                                        content))))
 
 (define (teacher . content)
   (nested #:style bs-teacher-style (interleave-parbreaks/select content)))
@@ -335,7 +339,6 @@
 
 (define (slideText text) (elem #:style bs-slideText-style text))
 (define slidebreak (slideText "\n"))
-
 ;;;;;;;;;; Sections of Units ;;;;;;;;;;;;;;;;;;;;;;
 
 (define (materials . items)
