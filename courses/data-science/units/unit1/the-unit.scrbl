@@ -55,7 +55,7 @@
             }
             @point{
                     @student{
-                             What's the greatest movie of all time? The best quaterback? Is Stop-and-Frisk racially biased? These question quickly turn into a discussion about data - how you measure it and how you interpret the results. In this course, you'll learn how to use data to ask and answer questions like this.  The process of learning from data is called @vocab{Data Science}. Data science techniques are used by scientists, business people, politicians, sports analysts, and hundereds of other different fields to ask and answer questions about data.
+                             What's the greatest movie of all time? The best quaterback? Is Stop-and-Frisk racially biased? These questions quickly turn into a discussion about data - how you measure it and how you interpret the results. In this course, you'll learn how to use data to ask and answer questions like this.  The process of learning from data is called @vocab{Data Science}. Data science techniques are used by scientists, business people, politicians, sports analysts, and hundereds of other different fields to ask and answer questions about data.
                     }
                     @teacher{
                             You can motivate relevance of data science by using additional examples that relate to student interests.  Here are a few:
@@ -664,7 +664,7 @@
                             sqrt-plot  = function-plot(num-sqrt)
                             sqrt-graph = draw-plot("f(x)=√x", sqrt-plot)
                         }
-                        Once we click Run, we can see what these values look like.
+                        Review: once I've defined an identifier, I can see its value for by clicking Run, then typing in the identifier in the Interactions Area and hitting Enter.
 
                         Looking at your contracts page, do you see any other functions that we could plot?
                 }
@@ -691,6 +691,22 @@
                 )
       ]{
         @points[
+             @point{
+                    @student{
+                        One of the skills you'll learn in this class is how to diagnose and fix errors. Some of these errors will be @italic{syntax errors}: a missing comma, an unclosed string, etc. All the other errors are @italic{contract errors}. If you see an error and you know the syntax is right, ask yourself these two questions:
+                        @itemlist[
+                            @item{
+                                What is the function that is generating that error?
+                            }
+                            @item{
+                                What is the contract for that function?
+                            }
+                        ]
+                    }
+                    @teacher{
+
+                    }
+             }
              @point{
                     @student{
                             By learning to use values, variables, operations and functions, you are now familiar with the fundamental concepts needed to write simple programs.  You will have many opportunities to use these concepts in the next units, by writing programs to answer data science questions.
