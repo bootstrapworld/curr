@@ -167,6 +167,7 @@
 (define bs-video-style (bootstrap-style "BootstrapVideo"))
 (define bs-page-title-style (bootstrap-div-style "BootstrapPageTitle"))
 (define bs-slide-title-style (bootstrap-style "BootstrapSlideTitle"))
+(define bs-skipSlide-style (bootstrap-div-style "BS-Skip-Slide"))
 
 (define bs-time-style (bootstrap-span-style "time"))
 (define bs-callout-style (bootstrap-div-style "callout"))
@@ -210,10 +211,15 @@
 ;;;;;;;;;;;;;; Lesson structuring ;;;;;;;;;;;;;;;;;;;;;;;
 
 (define (student #:title (title #f)
+                 #:skipSlide? (skip? #f)
                  . content)
-  (nested #:style bs-student-style (interleave-parbreaks/select
+  (if skip?
+      (nested #:style bs-student-style (nested #:style bs-skipSlide-style (interleave-parbreaks/select
                                     (if title (cons (slideText (elem #:style bs-slide-title-style title)) content)
                                         content))))
+      (nested #:style bs-student-style (interleave-parbreaks/select
+                                    (if title (cons (slideText (elem #:style bs-slide-title-style title)) content)
+                                        content)))))
 
 (define (teacher . content)
   (nested #:style bs-teacher-style (interleave-parbreaks/select content)))
