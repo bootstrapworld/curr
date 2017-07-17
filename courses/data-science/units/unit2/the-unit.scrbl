@@ -120,7 +120,7 @@
             }
 			      @point{
                     @student{
-          							The first @vocab{row} in a table is a special row called the @vocab{header row}. Each part of the @vocab{header row} is the name of a particular @vocab{column}.
+          							At the top of our table is the @vocab{header}. Each part of the @vocab{header} is the name of a particular @vocab{column}. @bold{The header is not a row!}. A table with no data has @italic{no rows}, even though it may have a header. For example:
 
           							@build-table/cols[
           										'("First" "Last" "Eye-Color" "Height")
@@ -175,7 +175,7 @@
             }
             @point{
                     @student{
-                            The definitions area contains code to load two tables from Google Sheets; @code{presidents} and @code{nutrition}.  As you saw at the beginning of the lesson, tables need header rows to describe them! The @code{load-table:} block specifies the header row for the table being imported! Each of these @code{load-table:} blocks comes after an @code{=} operator which defines the variable names as these tables.
+                            The definitions area contains code to load two tables from Google Sheets; @code{presidents} and @code{nutrition}.  As you saw at the beginning of the lesson, tables need headers to describe them! The @code{load-table:} block specifies the headers for the table being imported! Each of these @code{load-table:} blocks comes after an @code{=} operator which defines the variable names as these tables.
 
                         @activity[#:forevidence "BS-IDE&1&1"]{
                               To evaluate a variable, we click Run and type its name into the Interactions Area. We do the same thing if that variable is a Number, a String, or even a Table! Click Run, and type each of these programs into the interactions window, then hit Enter/Return.
@@ -201,7 +201,7 @@
               								The @code{load-spreadsheet} function applications are what will find particular spreadsheets and their content.  The argument is a String that is a unique ID to a particular Google Sheet.  We have hardcoded these IDs in the scaffolding so that they link to our presidents and nutrition tables.
               						}
               						@item{
-              								The @code{load-table} command is what actually loads a table that we can use in the interactions window.  In this expression, each of the column names are enumerated (this establishes what the header row contains), and says that the source will be the sheets from the @code{load-spreadsheet} functions applications.
+              								The @code{load-table} command is what actually loads a table that we can use in the interactions window.  In this expression, each of the column names are enumerated (this establishes what the header contains), and says that the source will be the sheets from the @code{load-spreadsheet} functions applications.
               						}
               				]
 
@@ -409,7 +409,7 @@
                               @activity[#:forevidence "BS-IDE&1&1"]{
                                       @itemlist[
                                               @item{
-                                                    Define a list called @code{state-list} containing the @code{state} column from @code{presidents}.
+                                                    Define a list called @code{state-list} containing the @code{home-state} column from @code{presidents}.
                                               }
                                               @item{
                                                     Define a list called @code{calories-list} containing the @code{calories} column from @code{nutrition}.
@@ -427,7 +427,7 @@
                 }
                 @point{
                       @student{
-                            In what ways are Lists different from Tables? Tables are 2-dimensional, while Lists are 1-dimensional. Tables also have a @italic{header row}, which associates a name with each column. Lists, on the other hand, have no header.  
+                            In what ways are Lists different from Tables? Tables are 2-dimensional, while Lists are 1-dimensional. Tables also have a @italic{header}, which associates a name with each column. Lists, on the other hand, have no header.  
 
                             However, List do share some qualities with tables. They have multiple entries, and those entries are in a specific @italic{order}. They can also be filled with either quantitative or categorical data. In the next lesson, we'll learn about functions that let us ask questions of lists, to help us look for ways to measure a set of data.
                       }

@@ -63,7 +63,7 @@ when it prints out the glossary for a particular unit
     (("frequency bar chart" "frequency bar charts") "A bar chart in which each the length of each bar corresponds to the frequency of a particular value")
     ("handler" "Connects an event (like a tick or keypress) and a function within a reactor")
     ("helper function" "A small function that handles a specific part of another computation, and gets called from other functions")
-    ("header row" "The first row of a table, which identifies the names of each column in a table")
+    ("header" "The part of a table that identifies the names of each column")
     (("histogram" "histograms") "A special frequency bar chart in which each bar counts the frequency of values appearing that belong to a certain bin")
     ("horizontal axis" "Axis on a scatter plot that runs from left to right")
     ("hypotenuse" "the side opposite the 90-degree angle in a right triangle")
