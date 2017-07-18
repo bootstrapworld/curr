@@ -15,16 +15,16 @@
  ("Presidents-Nutrition" 		 6 )
 
 ;;;;;;;;;;;;;;;; Unit 3;;;;;;;;;;;;;
- ("Unit-3" 	 					 7 )
- ("Mean-Median-Mode" 			 8 )
- ("Measuring-Center" 			 9 )
-
-;;;;;;;;;;;;;;;; Unit 4;;;;;;;;;;;;;
- ("Unit-4" 	 					10 )
+ ("Unit-3" 	 					10 )
  ("Questions-With-Charts" 		11 )
  ("Freq-Bar-Chart" 				12 )
  ("Chart-Practice" 				13 )
  ("More-Chart-Practice" 		15 )
+
+;;;;;;;;;;;;;;;; Unit 4;;;;;;;;;;;;;
+ ("Unit-4" 	 					 7 )
+ ("Mean-Median-Mode" 			 8 )
+ ("Measuring-Center" 			 9 )
 
 ;;;;;;;;;;;;;;;; Unit 5;;;;;;;;;;;;;
  ("Unit-5" 	 					17 )
