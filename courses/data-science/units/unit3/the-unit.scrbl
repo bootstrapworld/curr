@@ -171,7 +171,7 @@
                       @student{
                               This function takes a @italic{List of Numbers} as input, and gives us the mean (a Number) as output. Write the contract for this function into your Contracts page as:
 
-                              @code[#:multi-line #t]{# mean: List<Number> -> Number}
+                              @code[#:multi-line #t]{# mean :: List<Number> -> Number}
                               Notice that we use @code{List<Number>} to descibe "lists of numbers"!
                       }
                       @teacher{
@@ -236,7 +236,7 @@
 
                               Pyret has a function to compute the median of a list as well, with the contract:
 
-                              @code{# median: List<Number> -> Number}
+                              @code{# median :: List<Number> -> Number}
 
                               @activity[#:forevidence "BS-IDE&1&1"]{
                                       Test your answers in the median column with the @code{median} function.
@@ -298,8 +298,8 @@
                               @code{mode} will return the smallest mode, which is a Number, but @code{modes} will return a List<Number> containing all of the modes.  Their contracts are:
 
                               @code[#:multi-line #t]{
-                                    # mode : List<Number> -> Number
-                                    # modes : List<Number> -> List<Number>
+                                    # mode  :: List<Number> -> Number
+                                    # modes :: List<Number> -> List<Number>
                               }
                       }
                       @teacher{
