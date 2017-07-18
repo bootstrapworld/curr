@@ -442,7 +442,7 @@
 
                                 This is a number on the same scale [0, 1] that tell us "how much of the variation in the scatterplot is explained by this function". In other words, it's a measure for how well the line fits. A perfect score of 1.0 means that 100% of the variability in the data is explained by the function, and that our predictor is perfect. For the price vs ratings, the predictor score is ~0.71, which is fairly accurate. The contract for @code{r-squared} is:
                                 @code[#:multi-line #t]{
-                                    # r-squared : List<Number> List<Number> (Number->Number) -> Number
+                                    # r-squared :: List<Number>, List<Number>, (Number->Number) -> Number
                                 }
 
                                 @activity[#:forevidence "BS-IDE&1&1"]{

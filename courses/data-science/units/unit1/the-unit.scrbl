@@ -584,7 +584,7 @@
                             We do this by writing @vocab{contracts}. Contracts are comments in code that give the programmer instructions on what functions take in and output.  Below is the contract for @code{num-min}:
 
                             @code[#:multi-line #t]{
-                                    # num-min : Number Number -> Number
+                                    # num-min :: Number, Number -> Number
                             }
 
                             The first part of a contract is the function name.  This function is @code{num-min}, so that part is easy.  @code{num-min} takes two arguments of type Number, so we write Number Number.  Finally, after the arrow goes the type of the function's output, which in this case is Number.
@@ -613,7 +613,7 @@
                             ]
 
                             @code[#:multi-line #t]{
-                                    # num-sqrt : Number -> Number
+                                    # num-sqrt :: Number -> Number
                             }
                             On your own, write the contract for @code{num-sqr}.
                     }
@@ -647,8 +647,8 @@
                     @student{
                         Two functions imported by this file are called @code{function-plot} and @code{draw-plot}:
                         @code[#:multi-line #t]{
-                            # function-plot: (Number -> Number) -> Series
-                            # draw-plot : String Series -> Plot
+                            # function-plot :: (Number -> Number) -> Series
+                            # draw-plot :: String, Series -> Plot
                         }
                         @code{function-plot} consumes any function that maps from Numbers to Numbers (xs to ys, for example), and returns a series representing the graph of that function. @code{draw-plot} consumes a title and that series, and produces an Image. Make sure you write these down in your contracts page!
                     }
