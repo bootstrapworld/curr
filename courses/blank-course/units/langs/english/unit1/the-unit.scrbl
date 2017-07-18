@@ -24,8 +24,13 @@
                 )
       ]{
         @points[
-             @point{@student[#:skipSlide? #t #:title "Title only visible in slide mode"]{Student-visible curriculum notes, on the website. @slideText{this is used to clarify points, in slide mode}}
+                
+             @point{@student[ #:title "Title only visible in slide mode"]{Student-visible curriculum notes, on the website. @slideText{this is used to clarify points, in slide mode}}
                      @teacher{Notes for the Teacher}
+                     }
+
+                   @point{@student[#:skipSlide? #t]{this is tagged to skip when in slide mode}
+                     @teacher{more Notes for the Teacher}
                      }
               ]
          }
@@ -49,7 +54,7 @@
         @points[@point{@student{You've done a lot in this first unit! @slidebreak A whole lot! 
                                 @itemlist[@item{This is used to give a recap. all units have a closing section as well as an Introduction}]
                         In the next unit, we'll begin writing programs for more interesting things than just arithmetic.}
-                        @teacher{more teacher notes}}
+                        @teacher{even more teacher notes}}
                ]
          }
 }

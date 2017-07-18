@@ -557,7 +557,7 @@
                            (interleave-parbreaks/all
                             (cons (para #:style bs-lesson-name-style 
                                         (interleave-parbreaks/all
-                                         (list (elem title) 
+                                         (list (elem #:style "Slide-Lesson-Title"  title)
                                                video-elem
                                                (cond [duration
                                                       (elem #:style bs-time-style (format (string-append "(" (translate 'sHeader-duration) " ~a)") duration))]
