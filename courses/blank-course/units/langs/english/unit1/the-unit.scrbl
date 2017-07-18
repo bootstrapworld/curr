@@ -24,7 +24,7 @@
                 )
       ]{
         @points[
-             @point{@student{Student-visible curriculum notes, on the website.}
+             @point{@student[#:skipSlide? #t #:title "Title only visible in slide mode"]{Student-visible curriculum notes, on the website. @slideText{this is used to clarify points, in slide mode}}
                      @teacher{Notes for the Teacher}
                      }
               ]
@@ -46,7 +46,7 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{You've done a lot in this first unit!  
+        @points[@point{@student{You've done a lot in this first unit! @slidebreak A whole lot! 
                                 @itemlist[@item{This is used to give a recap. all units have a closing section as well as an Introduction}]
                         In the next unit, we'll begin writing programs for more interesting things than just arithmetic.}
                         @teacher{more teacher notes}}
