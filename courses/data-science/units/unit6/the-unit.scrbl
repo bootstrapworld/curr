@@ -34,7 +34,8 @@
         @points[
                 @point{
                         @student{
-                                Suppose you're visiting a new city, and you want to go out for a great meal. Someone suggests a really expensive restaurant, and assures you it's the best in town. How do you know if you're being ripped off? You now have significant experience asking questions about data sets: You know how to take measures of center, and how to visualize both categorical and quantitative data. Let's use this experience to find out if the expensive restaurants are really worth the money. First, we'll start with out data set: a table containing information about the restaurants in town.
+                                "The more you pay at a restaurant, the better it is". Do you agree with this statement?
+                                You now have significant experience asking questions about data sets: You know how to take measures of center, and how to visualize both categorical and quantitative data. Let's use this experience to find out if the expensive restaurants are really worth the money. First, we'll start with out data set: a table containing information about the restaurants in town.
 
                                 @build-table/cols[
                                         '("name" "price" "rating")

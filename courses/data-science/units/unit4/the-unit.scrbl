@@ -32,7 +32,8 @@
         @points[
                 @point{
                       @student{
-                          According to the US Census Bureau, the average American household earned more than $45,000 in 2003 - more than 3x the poverty line that year. Can we conclude that only a small percentage of Americans were in poverty that year?
+                          According to the US Census Bureau, the average American household earned more than $45,000 in 2003 - more than 3x the poverty line that year. Does that mean only a small percentage of Americans were in poverty that year?
+
                           @activity{
                               Take two minutes to write down what you think on @worksheet-link[#:name "Unit-4"].
                           }
