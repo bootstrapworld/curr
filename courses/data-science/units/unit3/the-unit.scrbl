@@ -177,7 +177,7 @@
                 }
                 @point{
                       @student{
-                              These plots are @italic{interactive}, allowing you to experiment with the data before you generate the final image. One of the nice things about a @code{Plot} is that it can be interactive: what happens when you hover over a slice of the pie?
+                              These plots are @italic{interactive}, allowing you to experiment with the data before you generate the final image. While the plot window is open, it's interactive: what happens when you hover over a slice of the pie?
                       }
                       @teacher{
                               It reveals the value and percentage of the whole.
