@@ -344,7 +344,7 @@
                               all-columns))))))
 
 (define (slideText text) (elem #:style bs-slideText-style text))
-(define slidebreak (slideText "\n"))
+(define slidebreak (slideText "\n  \n"))
 ;;;;;;;;;; Sections of Units ;;;;;;;;;;;;;;;;;;;;;;
 
 (define (materials . items)
