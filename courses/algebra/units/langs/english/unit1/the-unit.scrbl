@@ -391,7 +391,7 @@
                                  expressions and then convert them into Circles, or giving them Circles and having them 
                                  translate them back into arithmetic.  When you talk about Circles, be sure to consistently use
                                  the term @italic{function} for what's on top, rather than similar terms like "operation", "symbol",
-                                 "procedure", "name", etc.  The Circles of Evaluation will help students see the similarity between
+                                 "procedure", "name", etc. @slidebreak The Circles of Evaluation will help students see the similarity between
                                  arithmetic functions (like @math{+}) and algebraic functions (like @math{f}) if you use 
                                  terminology carefully.}
                         }
@@ -456,7 +456,7 @@
                         }
                  
                 @point{@student{@bitmap{images/wireframeIDE.png}This screen is called the @vocab{editor}, and it looks something
-                                 like the diagram you see here. There are a few buttons at the top, but most of the screen is 
+                                 like the diagram you see here. @slidebreak There are a few buttons at the top, but most of the screen is 
                                  taken up by two large boxes: the @vocab{Definitions area} on the left and the 
                                  @vocab{Interactions area} on the right.}
                         @teacher{The Definitions area is where programmers define values and functions in their program, 
@@ -470,7 +470,7 @@
                 @point{@student{A program is a @vocab{legal expression} that, when evaluated, produces a value. You've been
                                                writing programs using mathematical expressions since you first learned how 
                                                to add! Just as in English, there are rules that determine whether a sentence
-                                               makes sense. Programs have rules too!  A program can be very complicated, but
+                                               makes sense. @slidebreak Programs have rules too!  A program can be very complicated, but
                                                it doesn't have to be: the simplest programs of all are just Numbers.}
                         @teacher{Draw students' attention to the Language Table (see Lesson Overview for Unit 1),
                                  which currently sits empty. Add "Numbers" to the Types section of the language 
@@ -493,7 +493,7 @@
                                 }
                         @teacher{The editing environment evaluates all fractions and returns them as decimals by default. This can be
                                  surprising to students at first, so you may want to take a moment to explain what's going on, and 
-                                 show them that these decimals can be converted back to fractions just by clicking on them.  The 
+                                 show them that these decimals can be converted back to fractions just by clicking on them. @slidebreak The 
                                  environment uses standard annotations for repeating, non-terminating decimal expressions and 
                                  properly handles expressions like @math{(\sqrt -1)}.  If you want to work with those kinds of 
                                  numbers in your class, enter them to get familiar with how they appear in the Interactions area.}
@@ -514,7 +514,7 @@
                                  and the kinds of problems that they catch in programs.}
                         }
                 
-                @point{@student{The Circles of Evaluation are also easy to convert into computer programs. To translate a Circle of
+                @point{@student{The Circles of Evaluation are also easy to convert into computer programs. @slidebreak To translate a Circle of
                                 Evaluation into a program, begin with an open parenthesis @code{(}, and then the function written at
                                 the top of the circle. Then translate the inputs from left to right in the same way, adding a closing
                                 parenthesis @code{)} when you're done. This process gives us the second rule for @vocab{expressions}:  
@@ -553,7 +553,7 @@
                         }
                
                 @point{@student{@bannerline{All of the expressions that follow the function name are called @vocab{arguments} to the 
-                                            function. The following diagram summarizes the shape of an expression that uses a function. 
+                                            function. @slidebreak The following diagram summarizes the shape of an expression that uses a function. 
                                             @bitmap{images/ExpressionDiagram.png}}
                                 @activity[#:forevidence (list "BS-CE&1&2" "BS-CE&1&4")]{
                                         For practice, turn to @worksheet-link[#:name "Circle-of-Evaluation-Practice"]
@@ -561,9 +561,9 @@
                                         that Circle into Racket code.}}
                         @teacher{}
                         }
-                @point{@student{When expressions don't follow the code rules, the computer will tell you that it found a problem.  The
+                @point{@student{When expressions don't follow the code rules, the computer will tell you that it found a problem. @slidebreak The
                                 computer also gives you information to help you fix the problem. This information is called an 
-                                @vocab{error message}. We'll talk more about error messages later.  For now, we just want you to see 
+                                @vocab{error message}. We'll talk more about error messages later. @slidebreak For now, we just want you to see 
                                 a couple of error messages so that you'll know what they are if you run into one while programming.
                        @activity[#:forevidence "BS-IDE&1&2"]{Enter each of the following illegal expressions in the Interactions area 
                                                              and look at the error message or behavior that the computer gives you. 

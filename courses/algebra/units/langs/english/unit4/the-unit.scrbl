@@ -39,10 +39,10 @@
                                                        @item{Can students make the rocket fly faster over time?}]}
                 )
       ]{
-        @points[ @point{@student{Functions are a key part of animation in computer programs. A function that draws a static picture of a cat, 
+        @points[ @point{@student{Functions are a key part of animation in computer programs. @slidebreak A function that draws a static picture of a cat, 
                                 for example, can place the cat at a different location based on the input. When that input changes slightly 
                                 based on time or user-interaction, the cat will appear to move. This is similar to the way that flip-book
-                                animations work, in which each page draws a static image that has changed by a small amount. When the pages 
+                                animations work, in which each page draws a static image that has changed by a small amount. @slidebreak When the pages 
                                 are displayed quickly, the images appear to change smoothly.
                                  @bannerline{@bitmap{images/flipbookSlides.png}}
                                  }
@@ -53,13 +53,13 @@
                                   }
                         }
                  @point{@student{@animated-gif{images/flipbook.gif}Putting these images together, we arrive at an animation of the rocket moving up the screen. 
-                                  Let's see an example of this kind of animation, using a function to make a rocket-blast off! Turn to 
+                                  Let's see an example of this kind of animation, using a function to make a rocket-blast off! @slidebreak Turn to 
                                   @worksheet-link[#:name "rocket-height"] in your workbook, and read the word problem carefully. 
                          }
                          @teacher{Check student understanding carefully, to make sure students read the problem carefully. It may be helpful to draw a diagram or table showing the change of rocket position on the board, and to have students verbally walk through a few examples.}
                          }
-                 @point{@student{@bannerline{A rocket blasts off, traveling at 7 meters per second. Write a function called @code{rocket-height} that takes in the
-                                     number of seconds that have passed since the rocket took off, and which produces the height of the rocket at that time.}
+                 @point{@student{@bannerline{A rocket blasts off, traveling at 7 meters per second. @slidebreak Write a function called @code{rocket-height} that takes in the
+                                     number of seconds that have passed since the rocket took off, and which produces the height of the rocket at that time.} @slidebreak
                          @activity[#:forevidence (list "BS-M&1&1" "BS-DR.1&1&1" "F-IF.1-3&1&1" "F-IF.4-6&1&1")]{
                                     @itemlist[@item{What is the @code{rocket-height} function taking in as an input? What type of data is that?}
                                               @item{What is the function producing as an output? What type of data is that?}
@@ -69,24 +69,24 @@
                                               @item{What is the @vocab{Range} of the function?}]}}
                          @teacher{}
                         }
-                 @point{@student{The Contract is a way of thinking about the function in a general way, without having to worry about exactly how it will work or how it will be used. Starting with simple questions like these will make later steps much easier to think about. However, the Contract doesn't always have enough information! The Domain for @code{star}, for example, specifies that the function needs a Number and two Strings, but doesn't mention the fact that the first String must be @code{"solid"} or @code{"outline"}. To add this information, programmers write @vocab{Purpose Statements}, which are simple sentences that explain what a function does.
+                 @point{@student{The Contract is a way of thinking about the function in a general way, without having to worry about exactly how it will work or how it will be used. @slidebreak Starting with simple questions like these will make later steps much easier to think about. However, the Contract doesn't always have enough information! The Domain for @code{star}, for example, specifies that the function needs a Number and two Strings, but doesn't mention the fact that the first String must be @code{"solid"} or @code{"outline"}. To add this information, programmers write @vocab{Purpose Statements}, which are simple sentences that explain what a function does.
                                  @activity[#:forevidence (list "BS-DR.1&1&2" "F-IF.1-3&1&5")]{Underneath the Contract, copy the following simple Purpose Statement for @code{rocket-height}.}
                                  @code[#:multi-line #t]{; rocket-height : Number -> Number
                                                         ; multiply the number of seconds by 7 to find the height}}
-                         @teacher{This is an opportunity to talk about the importance of writing, clarity, and brevity. What information is essential for a purpose statement? What information is irrelevant?  A good purpose statement describes what is computed and how its inputs are used; it should go beyond the information given in the contract and implicit in the name of the function.}
+                         @teacher{This is an opportunity to talk about the importance of writing, clarity, and brevity. What information is essential for a purpose statement? What information is irrelevant? @slidebreak A good purpose statement describes what is computed and how its inputs are used; it should go beyond the information given in the contract and implicit in the name of the function.}
                          }
-                 @point{@student{Armed with the Contract and Purpose Statement, it becomes easy to write an @code{EXAMPLE}. Every example begins with the name of the function and a sample input, both of which are written in the Contract. In this case, you know that the function is called @code{rocket-height} and that it expects a single number as input. The Purpose Statement goes further, telling you that the input is multiplied by 7. We can use this to write two examples, with different numbers of seconds as inputs.
+                 @point{@student{Armed with the Contract and Purpose Statement, it becomes easy to write an @code{EXAMPLE}. Every example begins with the name of the function and a sample input, both of which are written in the Contract. @slidebreak In this case, you know that the function is called @code{rocket-height} and that it expects a single number as input. The Purpose Statement goes further, telling you that the input is multiplied by 7. We can use this to write two examples, with different numbers of seconds as inputs.
                                 @code[#:multi-line #t]{; rocket-height : Number -> Number
                                                        ; multiply the number of seconds by 7 to find the height
                                                        (EXAMPLE (rocket-height 11) 
                                                                 (* 11 7))
                                                        (EXAMPLE (rocket-height 72) 
                                                                 (* 72 7))}
-                                @bold{Note:} The example shown above is broken into two lines! As functions and examples become more complex, it will become difficult to squeeze them into a single line. In your workbooks, every example and definition from this point onwards will use the two-line format.
+                                @bold{Note:} The example shown above is broken into two lines! As functions and examples become more complex, it will become difficult to squeeze them into a single line. @slidebreak In your workbooks, every example and definition from this point onwards will use the two-line format.
                                 }
                          @teacher{The main idea for students in this activity is to realize that the Contract and Purpose Statement can be relied upon to write examples. Ask students to justify  every part of each example, using only the Contract and Purpose Statement.  Students are often tripped up by the switch from one-line examples to two-line ones. Be @italic{very} careful to point this out to students, and to check their workbooks to see where they are writing their examples. At the end of the activity, make sure that students circle ONLY what has changed.})
                  }
-                 @point{@student{@activity[#:forevidence (list "BS-DR.2&1&1" "8.F.1-3&1&3" "F-IF.1-3&1&4")]{In your workbook, write two new examples of @code{rocket-height} using different values for the number of seconds. Both examples will have a lot in common (they all use @code{rocket-height} as the function name, they all multiply their input by 7, etc). Once you are done writing them, circle only the parts of the examples that are @italic{changeable}.}}
+                 @point{@student{@activity[#:forevidence (list "BS-DR.2&1&1" "8.F.1-3&1&3" "F-IF.1-3&1&4")]{In your workbook, write two new examples of @code{rocket-height} using different values for the number of seconds. @slidebreak Both examples will have a lot in common (they all use @code{rocket-height} as the function name, they all multiply their input by 7, etc). Once you are done writing them, circle only the parts of the examples that are @italic{changeable}.}}
                          @teacher{}
                         }
                  @point{@student{By comparing two different examples, it is easy to tell what changes. According to the Purpose Statement, it is the number of seconds that the rocket has been flying.
@@ -117,7 +117,7 @@
                          @teacher{}
                          }
                  @point{@student{You may have noticed that the Examples for @code{rocket-height} wrote out the multiplication as @code{(* 11 7)}, 
-                                 rather than the actual answer (@code{77}). Why bother to show the way a calculation is performed?  By doing this, 
+                                 rather than the actual answer (@code{77}). Why bother to show the way a calculation is performed? @slidebreak By doing this, 
                                  Examples can provide hints about what process is taking place. In the provided Rocket code (Rocket.rkt from
                                  @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | or the @editor-link[#:public-id "EHgrsZlYNX" "online file"]),
                                  you will see why it is so important to show your work when writing examples. 
@@ -197,8 +197,8 @@
                  @point{@student{A Contract is the foundation for a function, which gives programmers just enough information to use them: the name of the function, the types of data it expects and the type of data it returns.
                                  @activity[#:forevidence (list "BS-DR.2&1&1" "8.F.1-3&1&3" "F-IF.1-3&1&4")]{
                                           Now that you've completed the Contracts for all four word problems, try to generate two Examples for each one.}}
-                         @teacher{Challenge students to defend their Examples (their function name, the number of inputs, their types and the type of the returned value). Make sure that the two Examples for each function have @italic{different input values}! For each of these questions, students must be able to point to the specific part of their Contract as the justification for their Example.}}
-                 @point{@student{Once you have two or more Examples, it should be easy to identify what has changed between them. In fact, the number of things that change should match the number of things in the function's Domain: if the Domain has a Number and a String in it, then those two values should be the things that differ between your Examples.
+                         @teacher{Challenge students to defend their Examples (their function name, the number of inputs, their types and the type of the returned value). Make sure that the two Examples for each function have @italic{different input values}! @slidebreak For each of these questions, students must be able to point to the specific part of their Contract as the justification for their Example.}}
+                 @point{@student{Once you have two or more Examples, it should be easy to identify what has changed between them. In fact, the number of things that change should match the number of things in the function's Domain: @slidebreak if the Domain has a Number and a String in it, then those two values should be the things that differ between your Examples.
                                  @activity[#:forevidence (list "BS-DR.2&1&3" "BS-DR.2&1&3" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2" "7.EE.3-4&1&4")]{
                                        Identify what has changed between these Examples, and use this information to define all four functions.}}
                          @teacher{Make sure students have chosen good variable names for their function definitions, and ask students to justify every part of the function body. The only acceptable answers should be "I copied this because it's the same in both Examples", or "I used a variable name because it differs between Examples."}}
@@ -230,7 +230,7 @@
                         @teacher{}
                         }
                  @point{@student{When typing in a function definition, be sure to type in all three parts: The Contract and Purpose Statement, 
-                                 the Examples and the Definition. When "Run" is clicked, the computer will read the definition, test your 
+                                 the Examples and the Definition. @slidebreak When "Run" is clicked, the computer will read the definition, test your 
                                  Examples to make sure it works correctly, and then add the definition to your language. Once added, you 
                                  can use the function as if it were built into the computer. 
                                  @activity[#:forevidence (list "BS-IDE&1&1")]{
@@ -283,7 +283,7 @@
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
-      ]{@points[@point{@student{The real power of programming isn't how well you know the language. It's about how well you can use it to solve problems! 
+      ]{@points[@point{@student{The real power of programming isn't how well you know the language. It's about how well you can use it to solve problems! @slidebreak
                                 You've learned about a powerful tool that helps you take word problems on paper and turn them into functions on the computer: 
                                 the @vocab{Design Recipe}! It turns out that the Design Recipe can also be used to help you solve word problems in algebra, too!
                                 @activity[#:forevidence (list "F-IF.1-3&1&1" "F-IF.4-6&1&3" "A-SSE.1-2&1&1" "BS-DR.1&1&1")]{
@@ -294,7 +294,7 @@
                   }}
                         @teacher{}
                         }
-                 @point{@student{The distance a rocket travels is measured in numbers of miles, and time is measured in numbers of seconds. This gives us
+                 @point{@student{The distance a rocket travels is measured in numbers of miles, and time is measured in numbers of seconds. @slidebreak This gives us
                                  the contract: 
                                  @bannerline{@math{distance : Number \rightarrow Number}}
                                  Just as before, the Contract gives us a strong hint about how to write the Examples. Here is one Example, written in 
@@ -336,7 +336,7 @@
                                                  @item{Define this function, using Algebraic syntax.}]}}
                     @teacher{}
                     }
-            @point{@student{Once your function is set up, it's easy to just plug in values and get answers back. @italic{With most word problems, the hard part is setting up the function in the first place.} Luckily, the Design Recipe makes setting up that function a lot easier! We've just used it to set up two different functions, which could be used to give us answers in terms of distance or time. Defining functions is like building tools, which you can use to solve simple problems or combine together to solve more complex ones.
+            @point{@student{Once your function is set up, it's easy to just plug in values and get answers back. @italic{With most word problems, the hard part is setting up the function in the first place.} @slidebreak Luckily, the Design Recipe makes setting up that function a lot easier! We've just used it to set up two different functions, which could be used to give us answers in terms of distance or time. @slidebreak Defining functions is like building tools, which you can use to solve simple problems or combine together to solve more complex ones. @slidebreak
                     @activity{Suppose you wanted to know how far the rocket traveled in 6 seconds: which of the two functions here would you use? What if you wanted to know how long it takes for the rocket to go a thousand miles?}}
             @teacher{Ask students to identify which function they would use to answer a variety of different questions.}
             }
@@ -370,7 +370,7 @@
                                      @teacher{}
                                      }
                              @point{@student{By now, you may already see the big picture: the distance given in this problem can be plugged into the equation 
-                                             without having to define the function itself. Sometimes the Design Recipe will get you to the answer without 
+                                             without having to define the function itself. @slidebreak Sometimes the Design Recipe will get you to the answer without 
                                              even having to finish! Other times, however, you may not see the big picture until you've broken the problem
                                              down into smaller parts, each with it's own function.}
                                      @teacher{You can add as many Design Recipe pages as you like to the workbooks, using any algebra problem you like. 
@@ -394,7 +394,7 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{In this unit, you started to see how functions are useful in writing animations: functions help produce information (such as the height of a rocket) that are used to create scenes in a game.  With the extra practice writing functions and using the Design Recipe, you are now ready to start writing functions that will move the elements within your own game.}
+        @points[@point{@student{In this unit, you started to see how functions are useful in writing animations: functions help produce information (such as the height of a rocket) that are used to create scenes in a game. @slidebreak With the extra practice writing functions and using the Design Recipe, you are now ready to start writing functions that will move the elements within your own game.}
                         @teacher{@itemlist[@item{Have students volunteer what they learned in this lesson}
                                             @item{Reward behaviors that you value: teamwork, note-taking, engagement, etc}
                                             @item{Pass out exit slips, dismiss, clean up.}]}

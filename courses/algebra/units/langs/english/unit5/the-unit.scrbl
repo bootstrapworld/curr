@@ -21,7 +21,7 @@
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, language table, course calendar)}
                             @item{Language Table (see below)}
-                            @item{Bug Hunting [Bugs.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=JCTcwYc57r" "WeScheme")] file preloaded on students' machines, as the front-most window.}]
+                            @item{Bug Hunting [Bugs.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"]  @(hyperlink "http://www.wescheme.org/view?publicId=JCTcwYc57r" "WeScheme")] file preloaded on students' machines, as the front-most window.}]
      #:preparation @itemlist[@item{Students are logged into WeScheme.org, OR have opened DrRacket.}]
      #:prerequisites (list "Defining Functions")
      #:pacings (list 
@@ -30,7 +30,7 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Debugging (finding and correcting problems in code) is an important part of programming, so it's a good idea to practice finding bugs in code. 
+        @points[@point{@student{Debugging (finding and correcting problems in code) is an important part of programming, so it's a good idea to practice finding bugs in code. @slidebreak 
                                 @activity[#:forevidence (list "BS-IDE&1&2" "BS-PL.1&1&2" "BS-PL.2&1&1" "BS-PL.2&1&2" "BS-PL.3&1&3")]{
                                         Open the @editor-link[#:public-id "lQUC6RJArG" "Bug Hunting"] program in a new window, and see if you can find the 
                                         bug in each expression. Click "Run" and read the error message carefully! After you fix each one, clicking 
@@ -119,7 +119,7 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{This game template also has a mystery object, which is defined at the very bottom of the screen. The "mystery" is actually a @italic{projectile}, which will be set to the Player's position whenever the spacebar is pressed. As you can see, @code{mystery} is defined to be a small gray star, but you can change that to be any image you like. If you have a game in which the player is a monkey, you could change the definition of @code{mystery} to be a bitmap of a banana, so that the monkey will throw bananas every time you hit the spacebar. A game that takes place in space could have an alien throwing crystals, or a sports game might involve an athlete thowing a ball.
+        @points[@point{@student{This game template also has a mystery object, which is defined at the very bottom of the screen. The "mystery" is actually a @italic{projectile}, which will be set to the Player's position whenever the spacebar is pressed. @slidebreak As you can see, @code{mystery} is defined to be a small gray star, but you can change that to be any image you like. If you have a game in which the player is a monkey, you could change the definition of @code{mystery} to be a bitmap of a banana, so that the monkey will throw bananas every time you hit the spacebar. @slidebreak A game that takes place in space could have an alien throwing crystals, or a sports game might involve an athlete thowing a ball.
                                 @activity[#:forevidence (list "BS-DR.3&1&1" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2" "7.EE.3-4&1&4" "F-IF.1-3&1&4")]{
                                           @itemlist[@item{Change the definition for @code{mystery}, so that your projectile looks the way you want it to. Don't forget to use @code{scale} and @code{rotate} if you need to change the image slightly.}
                                                      @item{Use the Design Recipe to write @code{update-mystery}, so that the projectile moves to the left or right. Hint: this will be very similar to your solutions for @code{update-danger} and @code{update-target}!}]}}
