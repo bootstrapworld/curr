@@ -25,7 +25,7 @@
       ]{
         @points[
                 
-             @point{@student[ #:title "Title only visible in slide mode"]{Student-visible curriculum notes, on the website. @slideText{this is used to clarify points, in slide mode}}
+                @point{@student[ #:title "Title only visible in slide mode"]{Student-visible curriculum notes, on the website. @noSlideText{This text appears only in standard mode, not in slide format} @slideText{this is used to clarify points, in slide mode only}}
                      @teacher{Notes for the Teacher}
                      }
 
