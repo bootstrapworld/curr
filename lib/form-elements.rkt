@@ -502,19 +502,26 @@
   #:transparent)
 
 ;;;;;;;;;;;;; CURRENT LESSON FORMAT ;;;;;;;;;;;;;;;;;;
+
+;;says whether or not a new lesson has been found (for printing slide titles)
 (define NEW-LESSON? #t)
+;;holds the Current lesson name to print it in slide titles
 (define CURRENT-LESSON "")
 
+;;sets variables relevent to setting slide titles
 (define (set-everything! title)
   (set! NEW-LESSON? #t)
   (set! CURRENT-LESSON title))
 
+;;macro used to call set-everything! on the lesson title before the body of lesson/studteach is evaluated
+; This was added on 07/20/17 to add automatic slide titles at the beginning of every new lesson
 (define-syntax (lesson/studteach stx)
   (syntax-case stx ()
     [(_ #:title title opt ... . body) #'(begin
                                           (set-everything! title)
                                           (lesson/studteach/core #:title title opt ... . body))]))
 
+;;main function used in bootstrap files to create a Bootstrap Lesson.
 (define (lesson/studteach/core
          #:title (title #f)
          #:duration (duration #f)
