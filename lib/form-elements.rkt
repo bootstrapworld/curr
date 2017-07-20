@@ -32,6 +32,7 @@
 	 "math-rendering.rkt"
          "wescheme.rkt"
          "translator.rkt"
+         "choose.rkt"
          (for-syntax syntax/parse)
          )
  
@@ -100,6 +101,8 @@
          main-contents
          slidebreak
          slideText
+         noSlideText
+         standard/slideText
          
          ;; Unit sections
          exercises
@@ -131,13 +134,6 @@
 
 
 ;;;;;;;;;;;; language-specific require ;;;;;;;;;;;;;;;;;;;;;;;
-(define-for-syntax language (getenv "LANGUAGE"))
-(define-syntax (choose stx)
-  (syntax-parse stx
-                 [(_  a b)
-                  (case language
-                    [("english") #'a]
-                    [("spanish") #'b])]))
 (choose (require "langs/english/glossary-terms.rkt") (require "langs/spanish/glossary-terms.rkt"))
 
 ;;;;;;;;;;;; Runtime paths and settings ;;;;;;;;;;;;;;;;;;;;;;;
@@ -173,6 +169,7 @@
 (define bs-callout-style (bootstrap-div-style "callout"))
 (define bs-student-style (bootstrap-div-style "student"))
 (define bs-slideText-style (bootstrap-span-style "slideText"))
+(define bs-noSlideText-style (bootstrap-span-style "noSlideText"))
 (define bs-teacher-style (bootstrap-div-style "teacher"))
 (define bs-logo-style (bootstrap-span-style "BootstrapLogo"))
 (define bs-vocab-style (bootstrap-span-style "vocab"))
@@ -213,13 +210,19 @@
 (define (student #:title (title #f)
                  #:skipSlide? (skip? #f)
                  . content)
+
+  
+  (let ([title-filtered (if title title (if NEW-LESSON? CURRENT-LESSON #f))])
+
+  (set! NEW-LESSON? #f)
+    
   (if skip?
       (nested #:style bs-student-style (nested #:style bs-skipSlide-style (interleave-parbreaks/select
-                                    (if title (cons (slideText (elem #:style bs-slide-title-style title)) content)
+                                    (if title-filtered (cons (slideText (elem #:style bs-slide-title-style title-filtered)) content)
                                         content))))
       (nested #:style bs-student-style (interleave-parbreaks/select
-                                    (if title (cons (slideText (elem #:style bs-slide-title-style title)) content)
-                                        content)))))
+                                    (if title-filtered (cons (slideText (elem #:style bs-slide-title-style title-filtered)) content)
+                                        content))))))
 
 (define (teacher . content)
   (nested #:style bs-teacher-style (interleave-parbreaks/select content)))
@@ -342,9 +345,23 @@
                        (lambda (row-num) 
                          (map (lambda (col) (list-ref col row-num))
                               all-columns))))))
-
+;;allows for text to be presented only when in slide mode
 (define (slideText text) (elem #:style bs-slideText-style text))
+
+
+;;makes for easy use of slideText and noSlideText in the same place
+(define (standard/slideText #:slide slide #:standard standard)
+   (elem (slideText slide) (noSlideText standard)))
+
+
+;;uses slideText to give a newline break in slides
 (define slidebreak (slideText "\n  \n"))
+
+;;allows for text to appear only in standard display mode and not when in slide mode
+(define (noSlideText text) (elem #:style bs-noSlideText-style text))
+
+
+
 ;;;;;;;;;; Sections of Units ;;;;;;;;;;;;;;;;;;;;;;
 
 (define (materials . items)
@@ -486,7 +503,26 @@
 
 ;;;;;;;;;;;;; CURRENT LESSON FORMAT ;;;;;;;;;;;;;;;;;;
 
-(define (lesson/studteach
+;;says whether or not a new lesson has been found (for printing slide titles)
+(define NEW-LESSON? #t)
+;;holds the Current lesson name to print it in slide titles
+(define CURRENT-LESSON "")
+
+;;sets variables relevent to setting slide titles
+(define (set-everything! title)
+  (set! NEW-LESSON? #t)
+  (set! CURRENT-LESSON title))
+
+;;macro used to call set-everything! on the lesson title before the body of lesson/studteach is evaluated
+; This was added on 07/20/17 to add automatic slide titles at the beginning of every new lesson
+(define-syntax (lesson/studteach stx)
+  (syntax-case stx ()
+    [(_ #:title title opt ... . body) #'(begin
+                                          (set-everything! title)
+                                          (lesson/studteach/core #:title title opt ... . body))]))
+
+;;main function used in bootstrap files to create a Bootstrap Lesson.
+(define (lesson/studteach/core
          #:title (title #f)
          #:duration (duration #f)
          #:overview (overview "")

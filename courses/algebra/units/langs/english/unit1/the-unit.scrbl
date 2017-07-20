@@ -24,7 +24,7 @@
                 )
       ]{
         @points[
-             @point{@student{Welcome to Bootstrap! In this course, you'll be learning a new @vocab{programming language} - a way to tell computers exactly what you want them to do. @slidebreak Just like English, Spanish or French, a programming language has its own vocabulary and grammar that you'll have to learn. @slidebreak Fortunately, the language you'll be using here has a lot in common with simple math that you already know!}
+             @point{@student[#:title "Welcome to Bootstrap!"]{@noSlideText{Welcome to Bootstrap!} In this course, you'll be learning a new @vocab{programming language} - a way to tell computers exactly what you want them to do. @slidebreak Just like English, Spanish or French, a programming language has its own vocabulary and grammar that you'll have to learn. @slidebreak Fortunately, the language you'll be using here has a lot in common with simple math that you already know!}
                      @teacher{Set expectations and rules for the class.
                               Connect the material to come with things students already know:
                               @itemlist[@item{What makes a language? Do some students already speak more than one language?}
@@ -55,7 +55,7 @@
                 )
       ]{
         @points[
-          @point{@student{Let's begin by exploring a simple videogame, and then figuring out how it works. @slidebreak @slidebreak Open @run-link[#:public-id "sggzRzgU5T" "this link"] 
+          @point{@student[#:title "Dissecting a Demo"]{Let's begin by exploring a simple videogame, and then figuring out how it works. @slidebreak @slidebreak Open @standard/slideText[#:slide @url{http://www.wescheme.org/view?publicId=sggzRzgU5T} #:standard @run-link[#:public-id "sggzRzgU5T" "this link"]]  
                          to play the game, and spend a minute or two exploring it. @slidebreak @italic{You can use the arrow keys to move 
                          the cat left, right and jump - try to catch  the ruby and avoid the dog!}}
                  @teacher{[@(hyperlink "https://www.youtube.com/watch?v=KSt_3ovWfjk" "Video")] Show the kids NinjaCat, either letting them play or by demoing it in front of the class. You can move the cat up, down, left and right by using the arrow keys. 
@@ -110,7 +110,7 @@
                 )
         ]{
   @points[
-      @point{@student{@bitmap{images/number-line.png}Computers use numbers to represent a character's position onscreen, using number lines as rulers to measure 
+      @point{@student[#:title "Coordinate Planes"]{@bitmap{images/number-line.png}Computers use numbers to represent a character's position onscreen, using number lines as rulers to measure 
                        the distance from the bottom-left corner of the screen. @slidebreak For our videogame, we will place the numberline so that the screen runs from 0 
                        (on the left) to 640 (on the right). }
               @teacher{The key point for students here is @italic{precision} and @italic{objectivity}. There are many possible correct answers, but students
@@ -449,7 +449,7 @@
       ]{
         @points[
                 @point{@student{Open the programming tool of your choice: If you've installed, DrRacket, double-click the 
-                                application to launch it. If you are using the online-tool, @login-link["click here to log in"]
+                                application to launch it. If you are using the online-tool, @standard/slideText[ #:standard @login-link["click here to log in"] #:slide @url{www.wescheme.org}]
                                 enter your username and password to log in, then click "Start a New Program".}
                         @teacher{Have the students look at the editor on their computers. Refer to overhead 
                                  projector as necessary.}
@@ -478,8 +478,8 @@
                         }
                 @point{@student{@bannerline{Code Rule 1: All values are legal expressions.}
                                  @activity[#:forevidence "BS-IDE&1&1"]{What do you think @code{4} will evaluate to? 
-                                                                       @editor-link[#:interactions-text "4"
-                                                                                    "Click here to test it out."]}
+                                                                       @noSlideText[@editor-link[#:interactions-text "4"
+                                                                                    "Click here to test it out."]]}
                                               @itemlist[@item{Enter 4 in the Interactions area and hit "Return". You
                                                               will see the value @code{4} appear on the next line in 
                                                               the Interactions area.}
@@ -521,8 +521,9 @@
                                 @bannerline{Code Rule 2: Each open parenthesis is followed by one function, then by one or more legal
                                             expressions, and finally by a closing parenthesis.}
                                  @bitmap{images/FixedCircle.png}Here is the code for this Circle of Evaluation: @code{(- 4 5)}
-                                 @activity[#:forevidence "BS-PL.1&1&2"]{ @editor-link[#:interactions-text "(- 4 5)" "See what happens"]
-                                                                         when this code is entered into the Interactions area.
+                                 @activity[#:forevidence "BS-PL.1&1&2"]{ @standard/slideText[#:standard @elem[@editor-link[#:interactions-text "(- 4 5)" "See what happens "]
+                                                                         "when this code is entered into the Interactions area."]
+                                                                                             #:slide @elem["Try typing" @code{(- 4 5)} "into the Interactions area and see what happens."]]
                                                                          Press the Return key to evaluate the program. You should 
                                                                          see @math{-1} as an answer.
                                                                         }
