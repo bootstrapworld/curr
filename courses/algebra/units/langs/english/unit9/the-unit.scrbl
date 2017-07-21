@@ -33,7 +33,6 @@
                            @item{Camera - take pictures today!}
                           ]
      #:preparation @itemlist[@item{Sample poster or tri-fold poster for a fictional game, to use as a model for students.}]
-     #:prerequisites ""
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -83,7 +82,7 @@
                            @item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
                            @item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                            @item{Class posters (List of rules, basic skills, course calendar)}
-                           @item{Language Table (see below)}
+                           @item{Language Table (seeß below)}
                            @item{Printouts of game code for each team.}
                            @item{Camera - take pictures today!}
                           ]
@@ -94,8 +93,7 @@
                                               @item{Best Focus}
                                               @item{Most Positive Energy}
                                               @item{Design Recipe Masters}]
-                                   }]
-     #:prerequisites ""
+                                   }]ß∂
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
