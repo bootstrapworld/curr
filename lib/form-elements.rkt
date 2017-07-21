@@ -244,6 +244,8 @@
    (cond
      [(string=? (current-course) "algebra") (translate 'copyright-names-alg)]
      [(string=? (current-course) "reactive") (translate 'copyright-names-reac)]
+     [(string=? (current-course) "data-science") (translate 'copyright-names-data)]
+     [(string=? (current-course) "physics") (translate 'copyright-names-phys)]
      [else (printf "WARNING course not found for copyright in form-elements, found ~a instead" (current-course))])
    (hyperlink #:style bootstrap-hyperlink-style "http://creativecommons.org/licenses/by-nc-nd/4.0/" (translate 'copyright-license))
    (string-append ". " (translate 'copyright-based) " ") (hyperlink "http://www.bootstrapworld.org/" "www.BootstrapWorld.org")

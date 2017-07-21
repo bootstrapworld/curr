@@ -159,7 +159,7 @@
      #:materials @itemlist[@item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
                            @item{All student computers should have their game templates pre-loaded, with their image files linked in}]
      #:preparation @itemlist[]
-     #:prerequisites (list "Luigi's Pizza" "Target and Danger Movement")
+     #:prerequisites (list "Luigi's Pizza" "Danger and Target Movement")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
