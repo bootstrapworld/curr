@@ -33,7 +33,6 @@
                            @item{Camera - take pictures today!}
                           ]
      #:preparation @itemlist[@item{Sample poster or tri-fold poster for a fictional game, to use as a model for students.}]
-     #:prerequisites ""
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -95,7 +94,6 @@
                                               @item{Most Positive Energy}
                                               @item{Design Recipe Masters}]
                                    }]
-     #:prerequisites ""
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
