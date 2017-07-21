@@ -20,7 +20,7 @@
          scribble/render
          file/zip)
 
-
+(provide WARNING)
 
 
 ;; This is a toplevel build script which generates scribble files for
@@ -118,18 +118,6 @@
                                    ".html")))))
   (void))
 
-;(define (parse-course-args rest-args)
-;  (cond
-;    [(empty? rest-args) empty]
-;    [(cons? rest-args)
-;     ;;checks if next argument is a command-line argument tag, rather than a course name
-;     (let [(course-name (first rest-args))]
-;     (if (char=? (string-ref course-name 0) #\-)
-;                            empty
- ;                           (if (member course-name available-courses)
-;;                                (cons course-name (parse-course-args (rest rest-args)))
-;                                (error "Build got unrecognized target course: " course-name " -- expected"
-;                                       (foldl (lambda (a b) (string-append a " or " b)) "" available-courses)))))]))
 
 ;; parse-course-args: list/of string -> list/of string
 ;; This parses the list of course arguments, ensuring that they are all valid course names
@@ -141,19 +129,47 @@
      (let [(course-name (first rest-args))]
        (if (member course-name available-courses)
            (cons course-name (parse-course-args (rest rest-args)))
-           (error "Build got unrecognized target course: " course-name " -- expected"
-                  (foldl (lambda (a b) (string-append a " or " b)) "" available-courses))))]))
+           (error (format (string-append "Build got unrecognized target course: " course-name "\n expected one of the following:\n~a\n")
+                  available-courses))))]))
 
-;(define (determine-courses)
-; (let [(course-pos? (vector-member "--course" (current-command-line-arguments)))]
-;        (if course-pos?
-;            ;;collects input courses if the "--course" tag is given
-;            (parse-course-args (vector->list (vector-drop (current-command-line-arguments)
-;                        (+ 1 course-pos?))))
-;            ;;defaults to all available courses
-;            available-courses)))
-     
 
+
+
+;;;;;;;;;;;;;;;;;;;;;;; Warnings ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; warnings to be ignored when running the build script. This can be populated using the
+;; command-line tag "--suppress-warnings a_b_c" or "--sw a_b_c" to suppress warning types a, b, and c.
+(define ignored-warnings '())
+;; provides a list of the available tags that can be ignored when running the build script.
+(define ignore-warning-tags (list 'teacher-contributions ))
+
+;; parse-course-args: list/of string -> list/of string
+;; This parses the list of course arguments, ensuring that they are all valid course names
+(define (parse-sw-args rest-args)
+  (cond
+    [(empty? rest-args) empty]
+    [(cons? rest-args)
+     ;;checks if next argument is a command-line argument tag, rather than a course name
+     (let [(sw-tag (string->symbol (first rest-args)))]
+       (if (member sw-tag ignore-warning-tags)
+           (cons sw-tag (parse-course-args (rest rest-args)))
+           (error (format (string-append "Build got unrecognized warning suppression tag: "
+                                         (symbol->string sw-tag) "\n expected one of the following:\n~a\n")
+                  (map (lambda (x) (symbol->string x))ignore-warning-tags)))))]))
+
+
+
+;;collects all warnings, to be printed at the end of the build script
+(define collected-warnings '())
+
+;;prints WARNING, unless the type of warning is tagged to be ignored (through hard-code or command-line)
+(define (WARNING text tag)
+  (unless (member tag ignored-warnings)
+    (set! collected-warnings (cons text collected-warnings))
+    (printf "WARNING: ~a\n" text)))
+
+(define (print-warnings)
+  (printf "\n\n\nThe following WARNING's were found throughout this build:\n~a" collected-warnings))
 
   
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -186,6 +202,13 @@
                    (if (member -language (list "english" "spanish"))
                        (putenv "LANGUAGE" -language)
                        (error "Build got unrecognized target language: " -language " -- expected english or spanish"))]
+   [("--suppress-warnings" "--sw") -sw
+                                   ;(format "Dictate any types of warnings that you want to be suppressed in the output of running the Build script. Default: none. Available tags:\n ~a"
+                                   ;        ignore-warning-tags)
+                                   "Dictate any types of warnings that you want to be suppressed in the output of running the Build script. Default: none."
+                   (set! ignored-warnings
+                         (append (parse-sw-args (string-split -sw "_"))
+                                 ignored-warnings))]
    [("--lang") -lang "Indicate which language (Racket or Pyret) to generate"
     (putenv "TARGET-LANG" -lang)]
    [("--course") -course "List all courses that you want to build. They MUST be separated by \"_\"_. Default: All available courses"
@@ -384,8 +407,11 @@
 (define (process-teacher-contributions)
   (let* ([csv-path (build-path "courses" (current-course) "resources" "teachers" "langs" (getenv "LANGUAGE") "exercises.csv")]
          [csv-list (if (file-exists? csv-path) (rest (csv->list (make-csv-reader (open-input-file csv-path))))
-                       (begin (printf "WARNING: cannot find teacher-contributions in ~a.\n" (current-course)) '()))]
+                        '())]
          [source-exercise-directory (simple-form-path (build-path csv-path 'up "exercises"))])
+
+    (unless (file-exists? csv-path)
+    (WARNING (format "cannot find teacher-contributions in ~a.\n" (current-course)) 'teacher-contributions))
     
     ;; copy teacher files into their place in distribution
     ;(copy-directory/files source-exercise-directory target-exercise-directory)
@@ -599,7 +625,8 @@
     (build-course-units)
     (build-resources)
     ))  
-(create-distribution-lib) 
+(create-distribution-lib)
+(print-warnings)
 ;(build-lessons)
 ;(build-worksheets)
 ;(build-drills)
