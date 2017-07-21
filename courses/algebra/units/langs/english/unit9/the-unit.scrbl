@@ -93,7 +93,8 @@
                                               @item{Best Focus}
                                               @item{Most Positive Energy}
                                               @item{Design Recipe Masters}]
-                                   }]ß∂
+
+                                   }]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}

@@ -212,7 +212,7 @@
                  . content)
 
   
-  (let ([title-filtered (if title title (if NEW-LESSON? CURRENT-LESSON #f))])
+  (let ([title-filtered (if title title (if NEW-LESSON? (first CURRENT-LESSON-LIST) #f))])
 
   (set! NEW-LESSON? #f)
     
@@ -244,6 +244,8 @@
    (cond
      [(string=? (current-course) "algebra") (translate 'copyright-names-alg)]
      [(string=? (current-course) "reactive") (translate 'copyright-names-reac)]
+     [(string=? (current-course) "data-science") (translate 'copyright-names-data)]
+     [(string=? (current-course) "physics") (translate 'copyright-names-phys)]
      [else (printf "WARNING course not found for copyright in form-elements, found ~a instead" (current-course))])
    (hyperlink #:style bootstrap-hyperlink-style "http://creativecommons.org/licenses/by-nc-nd/4.0/" (translate 'copyright-license))
    (string-append ". " (translate 'copyright-based) " ") (hyperlink "http://www.bootstrapworld.org/" "www.BootstrapWorld.org")
@@ -506,12 +508,12 @@
 ;;says whether or not a new lesson has been found (for printing slide titles)
 (define NEW-LESSON? #t)
 ;;holds the Current lesson name to print it in slide titles
-(define CURRENT-LESSON "")
+(define CURRENT-LESSON-LIST '())
 
 ;;sets variables relevent to setting slide titles
 (define (set-everything! title)
   (set! NEW-LESSON? #t)
-  (set! CURRENT-LESSON title))
+  (set! CURRENT-LESSON-LIST (cons title CURRENT-LESSON-LIST)))
 
 ;;macro used to call set-everything! on the lesson title before the body of lesson/studteach is evaluated
 ; This was added on 07/20/17 to add automatic slide titles at the beginning of every new lesson
@@ -537,6 +539,11 @@
          #:video (video #f)
          #:pacings (pacings #f)
          . body)
+
+  (when prerequisites (for-each (lambda (prereq)
+                                (when (not (member prereq CURRENT-LESSON-LIST))
+                                  (printf "WARNING: Could not find prequisite ~a for lesson ~a\n" prereq title)))
+                                prerequisites))
   
   (define the-lesson-name 
     (or (current-lesson-name) 
