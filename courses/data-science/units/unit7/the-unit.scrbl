@@ -405,7 +405,9 @@
                             This query does something you haven't seem before: @italic{it uses the result of a prior query}. We ordered our table by party and bound the result to @code{movies-ordered}, and now we're @code{select}ing only the relevant columns from that table. Note that the new table is @italic{still sorted}, even though we've dropped the column we used to sort!
                     }
                     @teacher{
-                                                        
+                        Why would you ever want to order, then throw away the column you ordered by?
+
+                        Selecting is merely a presentation matter, but sometimes it matters whether a column is in the output or not. Suppose we want sort a class's data by grade; we may want to share the ranking of students, but we certainly don't want to leak their grades! In that case it's vital that we select away the grades column @italic{after sorting}.                  
                     }
             }
             @point{
