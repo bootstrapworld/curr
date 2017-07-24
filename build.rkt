@@ -175,6 +175,56 @@
 ;; Alternatively, "--sw all" can be used to suppress all WARNINGs.
 (putenv "IGNORED-WARNINGS" ""))
 
+
+
+;;;;;;;;;;;;;;;;;;;; Command-line Usage Guideline ;;;;;;;;;;;;;;;;;;
+;
+;;; General Usage
+; To run build with command-lines arguments, run "./build-notes --<tag> <arg> ...".
+; You can run build using multiple tags. Each tag can only have one argument follow it, BUT
+; some of our command-line arguments need to be able to take multiple arguments. To fix this,
+; enter your arguments seperated by underscores. Example:
+;
+;     ./build-notes --course algebra_reactive_physics
+;
+; The above command would build the algebra, reactive, and physics courses
+;
+;
+;
+;
+;
+;
+;;; Different command-line tags and how to use them:
+;;NOTE: These first three were added in Summer 2017 by Kielan Donahue and Jacob Jackson
+;
+; --course
+; This selects which courses are to be produced. Can take multiple arguments (seperated by underscores)
+;
+; --language
+; Not to be confused with "--lang", this selects what human language to print documents in (currently only spanish or english)
+;
+; --sw or --suppress-warnings
+; Denotes which types of WARNINGs are to be ignored while running build. Can be useful for WARNINGs that we expect
+; and don't care about like evidence statements. In "lib/warnings.rkt" there is a list of all WARNING types. If the
+; names are unclear, search for where that tag is used in the repo; almost all are from "lib/form-elements.rkt".
+; NOTE: --sw can take multiple arguments, seperated by underscores. It can ALSO take "--sw all" to suppress all WARNINGs.
+;;
+;
+; --deploy
+; This indicates the directory to which to deploy the output
+;
+; --lang
+; Indicate which language (Racket or Pyret) to generate
+;
+; --pdf
+; Indicates the build to generate PDF documentation
+;
+;;
+;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+
 (define current-contextual-tags
   (command-line
    #:program "build"
@@ -184,10 +234,6 @@
    ;; option is set in main entry point at end of file
    #;[("--worksheet-links-to-pdf") "Direct worksheet links to StudentWorkbook.pdf" 
     (putenv "WORKSHEET-LINKS-TO-PDF" "true")]
-   [("--audience") -audience "Indicate student, teacher, volunteer, or self-guided"
-    (if (member -audience (list "student" "teacher" "volunteer" "self-guided"))
-        (putenv "AUDIENCE" -audience)
-        (error "Build got unrecognized audience" -audience " -- expected student teacher volunteer or self-guided"))]
    [("--deploy") -deploy-dir "Deploy into the given directory, and create a .zip.  Default: deploy" 
     (current-deployment-dir (simple-form-path -deploy-dir))]
    [("--language") -language "Select what language you are printing the curriculum for. Default: english"
