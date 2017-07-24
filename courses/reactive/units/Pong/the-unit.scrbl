@@ -71,12 +71,12 @@ end
                                                      @item{What key makes @code{paddle2Y} increase? Decrease?}
                                                      @item{How much does each paddle move when it goes up or down?}
                                                      @item{What happens if some @italic{other} key is pressed?}
-                                                     @item{Use the Design Recipe to write the code for @code{next-state-tick}}]}}
-                        @teacher{Have students discuss their answers to these questions, before moving on to @code{next-state-tick}.}
+                                                     @item{Use the Design Recipe to write the code for @code{next-state-key}}]}}
+                        @teacher{Have students discuss their answers to these questions, before moving on to @code{next-state-key}.}
                         }
                  @point{@student{At this point, we know how to change the @code{pongState} in response to a keypress and how to draw that @code{pongState}
                                 as an image. Let's build a @code{reactor}, which uses a @code{pongState} instance as the starting state and hooks
-                                up these functions to the @code{on-tick} and @code{to-draw} event handlers.
+                                up these functions to the @code{on-key} and @code{to-draw} event handlers.
                                 @code[#:multi-line #t]{
 pong-react = reactor:
   init: pongState(200, 200),
