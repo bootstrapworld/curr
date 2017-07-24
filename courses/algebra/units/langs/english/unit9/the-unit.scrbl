@@ -82,7 +82,7 @@
                            @item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
                            @item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                            @item{Class posters (List of rules, basic skills, course calendar)}
-                           @item{Language Table (see below)}
+                           @item{Language Table (seeß below)}
                            @item{Printouts of game code for each team.}
                            @item{Camera - take pictures today!}
                           ]
@@ -93,6 +93,7 @@
                                               @item{Best Focus}
                                               @item{Most Positive Energy}
                                               @item{Design Recipe Masters}]
+
                                    }]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}

@@ -948,7 +948,7 @@
 ;; raise-lesson-error: module-path -> void
 ;; Raises a lesson-specific error.
 (define (raise-lesson-error mp)
-  (error 'extract-lesson "lesson module path ~e does not have expected shape (e.g. (lib curr/lib/FOO/lesson.scrbl)" mp))
+  (error 'extract-lesson "lesson module path ~e does not have expected shape (e.g. (lib curr/lessons/langs/LANGUAGE/FOO/lesson.scrbl)" mp))
 
 ;; extract-lesson: module-path -> (listof block)
 ;; Extracts the lesson from the documentation portion, and also
