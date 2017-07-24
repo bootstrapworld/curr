@@ -137,8 +137,8 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;; Warnings ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; parse-course-args: list/of string -> list/of string
-;; This parses the list of course arguments, ensuring that they are all valid course names
+;; parse-sw-args: list/of string -> list/of string
+;; This parses the list of suppress-warning arguments, ensuring that they are all valid warning tags
 (define (parse-sw-args rest-args)
   (cond
     [(empty? rest-args) empty]
@@ -146,23 +146,26 @@
      ;;checks if next argument is a command-line argument tag, rather than a course name
      (let [(sw-tag (string->symbol (first rest-args)))]
        (if (member sw-tag ignore-warning-tags)
-           (cons sw-tag (parse-course-args (rest rest-args)))
+           (cons sw-tag (parse-sw-args (rest rest-args)))
            (error (format (string-append "Build got unrecognized warning suppression tag: "
                                          (symbol->string sw-tag) "\n expected one of the following:\n~a\n")
-                  (map (lambda (x) (symbol->string x))ignore-warning-tags)))))]))
+                  (map (lambda (x) (symbol->string x))
+                       ignore-warning-tags)))))]))
 
 
 ;;collects all warnings, to be printed at the end of the build script
-(putenv "COLLECTED-WARNINGS" "")
+(void (putenv "COLLECTED-WARNINGS" ""))
 
   
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Command line parsing.  We initialize the SCRIBBLE_TAGS environmental
 ;; variable
+
 ;; Hard-set list. This is optionally replaced with command-line arguments below
 ;(define courses (list "algebra" "reactive" )) ;  "data-science" "physics"))
 (define courses available-courses)
-(putenv "AUDIENCE" "teacher")
+
+(void (putenv "AUDIENCE" "teacher")
 (putenv "CURRENT-SOLUTIONS-MODE" "off")
 (putenv "TARGET-LANG" "pyret")
 (putenv "LANGUAGE" "english")
@@ -170,7 +173,7 @@
 ;; warnings to be ignored when running the build script. This can be populated using the
 ;; command-line tag "--suppress-warnings a_b_c" or "--sw a_b_c" to suppress warning types a, b, and c.
 ;; Alternatively, "--sw all" can be used to suppress all WARNINGs.
-(putenv "IGNORED-WARNINGS" "")
+(putenv "IGNORED-WARNINGS" ""))
 
 (define current-contextual-tags
   (command-line
@@ -208,9 +211,14 @@
    
    #:args tags
    tags))
-(printf "Printing documents in ~a \n" (getenv "LANGUAGE"))
+
+
+(define (print-build-intro-summary)
+(printf "\n\nPrinting documents in ~a \n" (getenv "LANGUAGE"))
 (printf "Building courses: ~a\n" courses)
-(printf "\n\n")
+(unless (string=? (getenv "IGNORED-WARNINGS") "")
+  (printf "Ignoring the following warning types: ~a\n" (string-split (getenv "IGNORED-WARNINGS") "/")))
+(printf "\n\n"))
 
 
 
@@ -594,7 +602,8 @@
 
 
 ;; remove next line if ever want to generate links to web docs instead of PDF
-(putenv "WORKSHEET-LINKS-TO-PDF" "true")
+(void (putenv "WORKSHEET-LINKS-TO-PDF" "true"))
+(print-build-intro-summary)
 (for ([course (in-list bootstrap-courses)])
   (parameterize ([current-course course])
     (solutions-mode-off)

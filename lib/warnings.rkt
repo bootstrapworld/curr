@@ -32,7 +32,7 @@
 
 
 (define (print-warnings)
-  (printf "\n\n\nThe following WARNINGs were found throughout this build:\n~a\n" (getenv "COLLECTED-WARNINGS")))
+  (printf "\n\n\nThe following WARNINGs were found throughout this build:\n~a\n\nBuilding complete.\n" (getenv "COLLECTED-WARNINGS")))
 
 
 (define (set-ignored-warnings iw)
