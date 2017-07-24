@@ -33,6 +33,7 @@
          "wescheme.rkt"
          "translator.rkt"
          "choose.rkt"
+         "warnings.rkt"
          (for-syntax syntax/parse)
          )
  
@@ -246,7 +247,7 @@
      [(string=? (current-course) "reactive") (translate 'copyright-names-reac)]
      [(string=? (current-course) "data-science") (translate 'copyright-names-data)]
      [(string=? (current-course) "physics") (translate 'copyright-names-phys)]
-     [else (printf "WARNING course not found for copyright in form-elements, found ~a instead" (current-course))])
+     [else (WARNING (format "no copyright tag found for course: ~a" (current-course)) 'copyright)])
    (hyperlink #:style bootstrap-hyperlink-style "http://creativecommons.org/licenses/by-nc-nd/4.0/" (translate 'copyright-license))
    (string-append ". " (translate 'copyright-based) " ") (hyperlink "http://www.bootstrapworld.org/" "www.BootstrapWorld.org")
    (string-append ". " (translate 'copyright-permissions) " ")
@@ -266,8 +267,7 @@
             [checked-evidlist (foldr (lambda (evidtag result-rest)
                                        (if (get-evid-statement/tag evidtag) 
                                            (cons evidtag result-rest)
-                                           (begin ;(printf "WARNING: activity using invalid evidence tag ~a~n" evidtag)
-                                                  result-rest)))
+                                           result-rest))
                                      '() evidlist)])
          (when evidence (set! 'activity-evid (append checked-evidlist (get 'activity-evid '()))))
          (nested #:style (bootstrap-div-style style-tag)
@@ -481,10 +481,10 @@
                        (para #:style bs-header-style/span (string-append (translate 'iHeader-glossary) ":"))
                        (apply itemlist/splicing
                               (for/list ([term terms])
+                                (when (and (list? term) (string=? "" (second term)))
+                                  (WARNING (format "Vocabulary term has empty definition in dictionary: ~a ~n" (first term)) 'vocab-terms))
                                 (cond [(and (list? term) (string=? "" (second term)))
-                                       (begin
-                                         (printf "WARNING: Vocabulary term has empty definition in dictionary: ~a ~n" (first term))
-                                         (glossary-entry (first term) #f))]
+                                         (glossary-entry (first term) #f)]
                                       ;; if glossary entry indexed on multiple words for same defn, use first one
                                       [(and (list? term) (cons? (first term)))
                                        (glossary-entry (first (first term)) (second term))]
@@ -542,7 +542,8 @@
 
   (when prerequisites (for-each (lambda (prereq)
                                 (when (not (member prereq CURRENT-LESSON-LIST))
-                                  (printf "WARNING: Could not find prequisite ~a for lesson ~a\n" prereq title)))
+                                  (WARNING (format "Could not find prerequisite ~a for lesson ~a in unit ~a of ~a\n"
+                                                   prereq title (current-unit) (current-course)) 'prereq)))
                                 prerequisites))
   
   (define the-lesson-name 
@@ -661,7 +662,7 @@
                       (let* ([usedevid (sort (get-used-evidnums/std (third lo) evid-used) <=)]
                              [keep-evid (map (lambda (keep-index) (list-ref (second lo) (sub1 keep-index))) usedevid)])
                         (when (empty? keep-evid)
-                          (printf "WARNING: Unit has no activities for evidence statments under listed standard ~a~n" (third lo)))
+                          (WARNING (format "Unit ~a of course ~a has no activities for evidence statments under listed standard ~a~n" (current-unit) (current-course) (third lo)) 'evidence-statements))
                         (list (elem (bold (third lo)) ": " (first lo))
                               keep-evid)))
                     ;; separately alphabetize Common Core and BS standards
@@ -775,11 +776,11 @@
                      'the-unit-description
                      (lambda ()
                        #f)))
+  (unless result
+    (WARNING (format "no unit-descr for ~a~n" unit-name) 'missing-unit-descr))
   (if result
       result
-      (begin 
-        (printf "WARNING: no unit-descr for ~a~n" unit-name)
-        "")))
+      ""))
 
 ;; summary-item/no-link : string -> block
 ;; produces an item for the unit summary with a title but no links
@@ -1055,16 +1056,19 @@
                  ;; check that file starts with a #lang
                  (let ([init-line (read-line)])
                    (unless (and (string? init-line) (string=? "#lang" (substring init-line 0 5)))
-                     (printf (format "WARNING: extract-exercise-data: ~a does not start with #lang~n" filepath))
+                     (WARNING (format "extract-exercise-data: ~a does not start with #lang~n" filepath) 'exercise-langstart)
                      (raise 'local-break)))
                  ;; loop until get to the exercise sexp
                  (let ([exercise-sexp
                         (let loop ()
                           (let ([next (read)])
+
+                            (unless (or (eof-object? next) (eq? next '@))
+                              (WARNING (format "extract-exercise-data: got non-@ term ~a~n" next) 'invalid-exercise))
+                            (when (eof-object? next)
+                                (WARNING "extract-exercise-data reached end of file without finding exercise-handout\n" 'exercise-end))
                             (cond [(eof-object? next) 
-                                   (begin
-                                     (printf "WARNING: extract-exercise-data reached end of file without finding exercise-handout~n")
-                                     (raise 'local-break))]
+                                   (raise 'local-break)]
                                   [(eq? next '@)
                                    (let ([next-char-str (peek-string 1 0)])
                                      (if (string=? next-char-str ";")
@@ -1074,9 +1078,7 @@
                                                next-sexp
                                                (loop)))))]
                                   [else
-                                   (begin
-                                     (printf (format "WARNING: extract-exercise-data: got non-@ term ~a~n" next))
-                                     (raise 'local-break))])))])
+                                     (raise 'local-break)])))])
                    ;; dig into the exercise sexp to find the title and evidence tag
                    (let loop [(title #f) (evtag #f) (rem-sexp (rest exercise-sexp))]
                      (cond [(< (length rem-sexp) 2) (list title evtag)]
@@ -1186,7 +1188,7 @@
           [else (elem)])]
         [(string=? lang "racket") 
          (if (and definitions-text pid)
-             (printf "WARNING: creating wescheme link with both defns text and public id~n")
+             (WARNING "creating wescheme link with both defns text and public id\n" 'weScheme-links)
              (let ([optionstext (if (audience-in? (list "student"))
                                     "hideHeader=true&warnOnExit=false&"
                                     "")]
@@ -1200,12 +1202,12 @@
                                     ,link-text))]
                 [else (elem)])))]
         [else
-         (printf "WARNING: editor-link has unknown lang ~a~n" lang)]))
+         (WARNING (format "editor-link has unknown lang ~a in unit ~a of course ~a~n" lang (current-unit) (current-course)) 'editor-link-lang)]))
 
 ;; create a link to a particular program at wescheme.org, with the embedded target
 (define (run-link #:public-id (pid #f) link-text)
   (if (not pid)
-      (printf "WARNING: run-link needs a public-id argument")
+      (WARNING (format "run-link needs a public-id argument in unit ~a of course ~a"(current-unit) (current-course)) 'run-link)
       (cond-element
        [html
         (sxml->element `(a (@ (href ,(format "http://www.wescheme.org/view?publicId=~a" pid))
@@ -1294,7 +1296,8 @@
                                   [name (let ([num (get-workbook-page/name name)])
                                           (if num num
                                               (error 'worksheek-link (format "Unknown page name ~a" name))))]
-                                  [else (begin (printf "WARNING: worksheet link needs one of page or name~n") 0)])))))
+                                  [else (WARNING "worksheet link needs one of page or name\n" 'incomplete-worksheet)
+                                        0])))))
 
 ;; Link to a particular lesson by name
 ;; lesson-link: #:name string #:label (U string #f) -> element
@@ -1320,7 +1323,7 @@
                    (if label label lesson-name))]       
        ;; If not, fail for now by producing a hyperlink that doesn't quite go to the right place.
        [else
-        (fprintf (current-output-port) "Warning: could not find cross reference to ~a\n" lesson-name)
+        (WARNING (format (current-output-port) "could not find cross reference to ~a in unit ~a of course ~a\n" lesson-name (current-unit) (current-course)) 'lesson-refs) 
         (define the-relative-path
           (find-relative-path (simple-form-path (current-directory))
                               (simple-form-path (build-path worksheet-lesson-root lesson-name "lesson" "lesson.html"))))
@@ -1388,8 +1391,8 @@
            (let ([lookup (assf (lambda (entry-key) (or (equal? elt entry-key)
                                                        (and (list? entry-key) (member elt entry-key))))
                                in-dictionary)])
-             (if lookup (cons lookup result)
-                 (begin 
-                   (printf "WARNING: ~a not in dictionary: ~a~n" tag-descr elt)
-                   (if show-unbound (cons elt result) result)))))
+             (unless lookup
+               (WARNING (format "~a not in dictionary: ~a~n" tag-descr elt) 'lookup-tags))
+             (if lookup (cons lookup result)                   
+                   (if show-unbound (cons elt result) result))))
          '() taglist))

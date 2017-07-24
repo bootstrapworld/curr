@@ -17,10 +17,10 @@
          "lib/build-modes.rkt"
          "lib/scribble-pdf-helpers.rkt"
          "lib/pdf-lesson-exercises.rkt"
+         "lib/warnings.rkt"
          scribble/render
          file/zip)
 
-(provide WARNING)
 
 
 ;; This is a toplevel build script which generates scribble files for
@@ -137,12 +137,6 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;; Warnings ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; warnings to be ignored when running the build script. This can be populated using the
-;; command-line tag "--suppress-warnings a_b_c" or "--sw a_b_c" to suppress warning types a, b, and c.
-(define ignored-warnings '())
-;; provides a list of the available tags that can be ignored when running the build script.
-(define ignore-warning-tags (list 'teacher-contributions ))
-
 ;; parse-course-args: list/of string -> list/of string
 ;; This parses the list of course arguments, ensuring that they are all valid course names
 (define (parse-sw-args rest-args)
@@ -158,18 +152,8 @@
                   (map (lambda (x) (symbol->string x))ignore-warning-tags)))))]))
 
 
-
 ;;collects all warnings, to be printed at the end of the build script
-(define collected-warnings '())
-
-;;prints WARNING, unless the type of warning is tagged to be ignored (through hard-code or command-line)
-(define (WARNING text tag)
-  (unless (member tag ignored-warnings)
-    (set! collected-warnings (cons text collected-warnings))
-    (printf "WARNING: ~a\n" text)))
-
-(define (print-warnings)
-  (printf "\n\n\nThe following WARNING's were found throughout this build:\n~a" collected-warnings))
+(putenv "COLLECTED-WARNINGS" "")
 
   
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -182,6 +166,11 @@
 (putenv "CURRENT-SOLUTIONS-MODE" "off")
 (putenv "TARGET-LANG" "pyret")
 (putenv "LANGUAGE" "english")
+
+;; warnings to be ignored when running the build script. This can be populated using the
+;; command-line tag "--suppress-warnings a_b_c" or "--sw a_b_c" to suppress warning types a, b, and c.
+;; Alternatively, "--sw all" can be used to suppress all WARNINGs.
+(putenv "IGNORED-WARNINGS" "")
 
 (define current-contextual-tags
   (command-line
@@ -202,13 +191,14 @@
                    (if (member -language (list "english" "spanish"))
                        (putenv "LANGUAGE" -language)
                        (error "Build got unrecognized target language: " -language " -- expected english or spanish"))]
-   [("--suppress-warnings" "--sw") -sw
-                                   ;(format "Dictate any types of warnings that you want to be suppressed in the output of running the Build script. Default: none. Available tags:\n ~a"
-                                   ;        ignore-warning-tags)
-                                   "Dictate any types of warnings that you want to be suppressed in the output of running the Build script. Default: none."
-                   (set! ignored-warnings
-                         (append (parse-sw-args (string-split -sw "_"))
-                                 ignored-warnings))]
+   [("--suppress-warnings" "--sw") -sw "Dictate any types of warnings that you want to be suppressed in the output of running the Build script. Default: none."
+                   
+                       (for-each
+                        (lambda (sw-tag)
+                               (set-ignored-warnings sw-tag))
+                        (if (string=? -sw "all")
+                            ignore-warning-tags
+                            (parse-sw-args (string-split -sw "_"))))]
    [("--lang") -lang "Indicate which language (Racket or Pyret) to generate"
     (putenv "TARGET-LANG" -lang)]
    [("--course") -course "List all courses that you want to build. They MUST be separated by \"_\"_. Default: All available courses"
