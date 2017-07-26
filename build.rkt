@@ -1,3 +1,5 @@
+
+
 #!/usr/bin/env racket
 #lang racket/base
 (require racket/runtime-path
@@ -43,7 +45,7 @@
 ;; Depending on who we are generating for, we need to relocate the resources dirs.
 ;; May be able to do unit-to-resources-path in the bootstrap case using find-relative path
 (define (update-resource-paths)
-    (deploy-resources-dir (build-path (root-deployment-dir) "courses" (current-course)(current-language) "resources"))
+    (deploy-resources-dir (build-path (root-deployment-dir) "courses" (current-course)(getenv "LANGUAGE") "resources"))
     (unit-to-resources-path (build-path 'up 'up "resources")))
  
 
@@ -72,6 +74,12 @@
 (define (filter-output-dir dir)
   (build-path (string-replace (path->string dir) (string-append "/langs/" (getenv "LANGUAGE")) "")))
  
+;; add-language path -> path
+;; adds a language section under course in an output dir
+;; added by jake and kielan 26 jul
+(define (add-language dir)
+  (build-path (string-replace (path->string dir) (current-course) (string-append (current-course) "/" (getenv "LANGUAGE")))))
+ 
 
 
 
@@ -81,21 +89,23 @@
                                     #:never-generate-pdf? [never-generate-pdf? #f]
                                     #:include-base-path? [include-base-path? #t])
   
-  (define output-dir (filter-output-dir (cond [(current-deployment-dir)
-                            ;; Rendering to a particular deployment directory.
-			    (if include-base-path?
-				(let-values ([(base name dir?) 
-					      (split-path 
-					       (find-relative-path (simple-form-path root-path)
-								   (simple-form-path scribble-file)))])
-					    (simple-form-path (build-path (current-deployment-dir) base)))
-				(current-deployment-dir))]
-                           [else
-                            (error 'run-scribble "No deployment directory?")
-                            ;; In-place rendering
-                            #;(let-values ([(base name dir?)
-                            (split-path (simple-form-path scribble-file))])
-                            base)])))
+  (define output-dir (add-language
+                      (filter-output-dir
+                       (cond [(current-deployment-dir)
+                              ;; Rendering to a particular deployment directory.
+                              (if include-base-path?
+                                  (let-values ([(base name dir?) 
+                                                (split-path 
+                                                 (find-relative-path (simple-form-path root-path)
+                                                                     (simple-form-path scribble-file)))])
+                                    (simple-form-path (build-path (current-deployment-dir) base)))
+                                  (current-deployment-dir))]
+                             [else
+                              (error 'run-scribble "No deployment directory?")
+                              ;; In-place rendering
+                              #;(let-values ([(base name dir?)
+                                              (split-path (simple-form-path scribble-file))])
+                                  base)]))))
   (define-values (base name dir?) (split-path scribble-file))
 
   
@@ -133,15 +143,6 @@
                   available-courses))))]))
 
 
-(define (parse-lang-args langs)
-  (set! run-languages '())
-  (for-each (lambda (l)
-              (if (member l available-languages)
-                  (set! run-languages (cons l run-languages))
-                  (error "Build got unrecognized target language: " l " -- expected english or spanish")))
-            (string-split langs "_")))
-
-
 
 
 ;;;;;;;;;;;;;;;;;;;;;;; Warnings ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -175,9 +176,6 @@
 (define courses available-courses)
 
 (define available-languages (list "english" "spanish"))
-
-(define run-languages available-languages)
-
 
 (void (putenv "AUDIENCE" "teacher")
 (putenv "CURRENT-SOLUTIONS-MODE" "off")
@@ -251,7 +249,9 @@
    [("--deploy") -deploy-dir "Deploy into the given directory, and create a .zip.  Default: deploy" 
     (current-deployment-dir (simple-form-path -deploy-dir))]
    [("--language") -language "Select what language you are printing the curriculum for. Default: english"
-                   (parse-lang-args -language)]
+                   (if (member -language available-languages)
+                       (putenv "LANGUAGE" -language)
+                       (error "Build got unrecognized target language: " -language " -- expected english or spanish"))]
    [("--suppress-warnings" "--sw") -sw "Dictate any types of warnings that you want to be suppressed in the output of running the Build script. Default: none."
                    
                        (for-each
@@ -272,7 +272,7 @@
 
 
 (define (print-build-intro-summary)
-(printf "\n\nPrinting documents in languages: ~a \n" run-languages)
+(printf "\n\nPrinting documents in ~a \n" (getenv "LANGUAGE"))
 (printf "Building courses: ~a\n" courses)
 (unless (string=? (getenv "IGNORED-WARNINGS") "")
   (printf "Ignoring the following warning types: ~a\n" (string-split (getenv "IGNORED-WARNINGS") "/")))
@@ -315,9 +315,10 @@
   (for ([phase (in-range 2)])
     (printf "Phase ~a\n" phase)
     (for ([subdir (directory-list (get-units-dir))]
-          
-          #:when (directory-exists? (build-path (get-units-dir) subdir)))
-      (define scribble-file (simple-form-path (build-path (get-units-dir) subdir "the-unit.scrbl"))); langs path
+          #:when (directory-exists?  (build-path (get-units-dir) subdir)))
+      ;TODO remove
+      (printf "im here")
+      (define scribble-file (simple-form-path (build-path (build-path courses-base (current-course) "units" "langs" (getenv "LANGUAGE")) subdir "the-unit.scrbl"))); langs path
       (cond [(file-exists? scribble-file)
              (printf "build.rkt: Building ~a\n" scribble-file)
              (copy-file (build-path "lib" "box.gif") 
@@ -334,7 +335,7 @@
     (for ([subdir (directory-list (get-units-dir))]
           #:when (directory-exists? (build-path (get-units-dir) subdir)))
       (let (;[exercises-dir (build-path (get-units-dir) subdir "exercises")]
-            [deploy-exercises-dir (build-path (current-deployment-dir) "courses" (current-course)(current-language)
+            [deploy-exercises-dir (build-path (current-deployment-dir) "courses" (current-course)(getenv "LANGUAGE")
                                               "units" subdir "exercises")])
         ;(when (directory-exists? exercises-dir)
         ;  (delete-directory/files exercises-dir))
@@ -371,8 +372,8 @@
   (printf "build.rkt: building ~a main\n" (current-course))
   (run-scribble (get-course-main) #:outfile "index")
   (printf "build.rkt: renaming directory for ~a \n" (current-course))
-  (rename-file-or-directory (build-path (current-deployment-dir) "courses" (current-course)(current-language) "index.html")
-                            (build-path (current-deployment-dir) "courses" (current-course)(current-language) "index.shtml")
+  (rename-file-or-directory (build-path (current-deployment-dir) "courses" (current-course)(getenv "LANGUAGE") "index.html")
+                            (build-path (current-deployment-dir) "courses" (current-course)(getenv "LANGUAGE") "index.shtml")
                             #t)
   )
 
@@ -412,7 +413,7 @@
 (define (build-exercise-handout-solutions)
     (solutions-mode-on)
     ; generating sols to our internal distribution dir, not the public one
-    (parameterize ([current-deployment-dir (build-path (root-deployment-dir) "courses" (current-course)(current-language) "resources")])
+    (parameterize ([current-deployment-dir (build-path (root-deployment-dir) "courses" (current-course)(getenv "LANGUAGE") "resources")])
       (unless (directory-exists? (current-deployment-dir))
         (make-directory (current-deployment-dir))) 
       (for ([subdir (directory-list (lessons-dir))]
@@ -487,7 +488,7 @@
              [units (string-split (seventh exercise) ", ")]
              [title (eighth exercise)]
              [link (if (string=? URL "")
-                       (build-path (current-deployment-dir) "courses" (current-course)(current-language) "resources" "teachers" "exercises" title)
+                       (build-path (current-deployment-dir) "courses" (current-course)(getenv "LANGUAGE") "resources" "teachers" "exercises" title)
                        URL)])
 
         (for ([unit units])
@@ -576,7 +577,7 @@
         
         ;; copy the background logo to the resources directory
         (copy-file (build-path "lib" "backlogo.png")
-                   (build-path (current-deployment-dir) "courses" (current-course)(current-language) "resources" "backlogo.png")
+                   (build-path (current-deployment-dir) "courses" (current-course)(getenv "LANGUAGE") "resources" "backlogo.png")
                    #t)
         
         )))
@@ -588,11 +589,11 @@
       (unless (string=? "." (substring (path->string subdir) 0 1))
         (copy-file (build-path "lib" "box.gif")
                    (build-path (current-deployment-dir) "courses"
-                               (current-course)(current-language) "units" subdir "box.gif")
+                               (current-course)(getenv "LANGUAGE") "units" subdir "box.gif")
                    #t)
         (copy-file (build-path "lib" "backlogo.png")
                    (build-path (current-deployment-dir) "courses"
-                               (current-course)(current-language) "units"  subdir "backlogo.png")
+                               (current-course)(getenv "LANGUAGE") "units"  subdir "backlogo.png")
                    #t))))
 
 
@@ -658,30 +659,29 @@
 
 ;; remove next line if ever want to generate links to web docs instead of PDF
 (void (putenv "WORKSHEET-LINKS-TO-PDF" "true"))
-(print-build-intro-summary)
-(for ([language (in-list run-languages)])
+(for ([language (in-list available-languages)])
   (putenv "LANGUAGE" language)
-  (printf "\n\nbuild.rkt: building in language ~a~n" (getenv "LANGUAGE"))
-(for ([course (in-list bootstrap-courses)])
-  (parameterize ([current-course course])
-    (solutions-mode-off)
-    (putenv "RELEASE-STATUS" "mature")
-    (process-teacher-contributions)
-    (when (equal? course "algebra")
-      (putenv "TARGET-LANG" "racket")
-      (build-exercise-handouts) ; not needed for reactive
-      (workbook-styling-on)
-      (build-extra-pdf-exercises) ; not needed for reactive
-      )
-    (when (equal? course "reactive")
-      (putenv "TARGET-LANG" "pyret")
-      ;; formerly set "RESLEASE-STATUS" to "beta" here
-      )
-    (textbook-styling-on)
-    (update-resource-paths)
-    (build-course-units)
-    (build-resources)
-    )))
+  (print-build-intro-summary)
+  (for ([course (in-list bootstrap-courses)])
+    (parameterize ([current-course course])
+      (solutions-mode-off)
+      (putenv "RELEASE-STATUS" "mature")
+      (process-teacher-contributions)
+      (when (equal? course "algebra")
+        (putenv "TARGET-LANG" "racket")
+        (build-exercise-handouts) ; not needed for reactive
+        (workbook-styling-on)
+        (build-extra-pdf-exercises) ; not needed for reactive
+        )
+      (when (equal? course "reactive")
+        (putenv "TARGET-LANG" "pyret")
+        ;; formerly set "RESLEASE-STATUS" to "beta" here
+        )
+      (textbook-styling-on)
+      (update-resource-paths)
+      (build-course-units)
+      (build-resources)
+      )))
 (create-distribution-lib)
 (print-warnings)
 ;(build-lessons)
