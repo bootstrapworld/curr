@@ -1,6 +1,4 @@
-#lang racket
 
-(provide translations)
 ;;
 ;;The section headers refer to the sections of the output webpages generated. Note that
 ; there are comments for translators to indicate what each phrase is and where exactly it
@@ -10,8 +8,7 @@
 ;Developer; Developer comments begin with a function name. If not otherwise indicated, these methods
           ; can be found within form-elements.rkt. Alternative racket source files will be indicated next
           ; to the function name.
-(define translations
-  '(
+  (
 
 
 

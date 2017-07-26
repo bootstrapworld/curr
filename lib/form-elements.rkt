@@ -32,7 +32,6 @@
 	 "math-rendering.rkt"
          "wescheme.rkt"
          "translator.rkt"
-         "choose.rkt"
          "warnings.rkt"
          (for-syntax syntax/parse)
          )
@@ -133,9 +132,6 @@
          )        
 
 
-
-;;;;;;;;;;;; language-specific require ;;;;;;;;;;;;;;;;;;;;;;;
-(choose (require "langs/english/glossary-terms.rkt") (require "langs/spanish/glossary-terms.rkt"))
 
 ;;;;;;;;;;;; Runtime paths and settings ;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -459,7 +455,7 @@
 (define (singularize-vocab-terms strlist)
   (map (lambda (str) 
          (if (and (ends-in-s? str)
-                  (assoc (rem-last-char str) glossary-terms-dictionary))
+                  (assoc (rem-last-char str) (current-glossary-terms)))
              (rem-last-char str)
              str))
        strlist))
@@ -473,7 +469,7 @@
        (let* ([clean-terms (sort (remove-duplicates (singularize-vocab-terms (map string-downcase (get 'vocab-used '()))))
                                  string<=?)]
               [terms (lookup-tags clean-terms
-                                  glossary-terms-dictionary "Vocabulary term" #:show-unbound #t)])
+                                  (current-glossary-terms) "Vocabulary term" #:show-unbound #t)])
          (if (empty? terms) (para)
              (nested #:style (bootstrap-div-style/id/nested "Glossary")
                      (interleave-parbreaks/all
