@@ -133,6 +133,15 @@
                   available-courses))))]))
 
 
+(define (parse-lang-args langs)
+  (set! run-languages '())
+  (for-each (lambda (l)
+              (if (member l available-languages)
+                  (set! run-languages (cons l run-languages))
+                  (error "Build got unrecognized target language: " l " -- expected english or spanish")))
+            (string-split langs "_")))
+
+
 
 
 ;;;;;;;;;;;;;;;;;;;;;;; Warnings ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -166,6 +175,9 @@
 (define courses available-courses)
 
 (define available-languages (list "english" "spanish"))
+
+(define run-languages available-languages)
+
 
 (void (putenv "AUDIENCE" "teacher")
 (putenv "CURRENT-SOLUTIONS-MODE" "off")
@@ -239,9 +251,7 @@
    [("--deploy") -deploy-dir "Deploy into the given directory, and create a .zip.  Default: deploy" 
     (current-deployment-dir (simple-form-path -deploy-dir))]
    [("--language") -language "Select what language you are printing the curriculum for. Default: english"
-                   (if (member -language available-languages)
-                       (putenv "LANGUAGE" -language)
-                       (error "Build got unrecognized target language: " -language " -- expected english or spanish"))]
+                   (parse-lang-args -language)]
    [("--suppress-warnings" "--sw") -sw "Dictate any types of warnings that you want to be suppressed in the output of running the Build script. Default: none."
                    
                        (for-each
@@ -262,7 +272,7 @@
 
 
 (define (print-build-intro-summary)
-(printf "\n\nPrinting documents in ~a \n" (getenv "LANGUAGE"))
+(printf "\n\nPrinting documents in languages: ~a \n" run-languages)
 (printf "Building courses: ~a\n" courses)
 (unless (string=? (getenv "IGNORED-WARNINGS") "")
   (printf "Ignoring the following warning types: ~a\n" (string-split (getenv "IGNORED-WARNINGS") "/")))
@@ -649,8 +659,9 @@
 ;; remove next line if ever want to generate links to web docs instead of PDF
 (void (putenv "WORKSHEET-LINKS-TO-PDF" "true"))
 (print-build-intro-summary)
-(for ([language (in-list available-languages)])
-  (parameterize ([current-language language])
+(for ([language (in-list run-languages)])
+  (putenv "LANGUAGE" language)
+  (printf "\n\nbuild.rkt: building in language ~a~n" (getenv "LANGUAGE"))
 (for ([course (in-list bootstrap-courses)])
   (parameterize ([current-course course])
     (solutions-mode-off)
@@ -670,7 +681,7 @@
     (update-resource-paths)
     (build-course-units)
     (build-resources)
-    ))))
+    )))
 (create-distribution-lib)
 (print-warnings)
 ;(build-lessons)

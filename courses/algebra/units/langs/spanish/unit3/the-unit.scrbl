@@ -188,7 +188,7 @@
      #:preparation @itemlist[@item{Students are logged into WeScheme.org, OR have opened DrRacket.}
                              @item{Create student game files. [See the teacher's guide, located in the @(hyperlink "../../resources/teachers/" "protected materials") for this course.]}
                               @item{On student machines: Student Game Files (generated from "Game" template [Game.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=qAGwmaRXYy" "WeScheme")])}]
-     #:prerequisites (list "Defining Values" "Strings and Images" "Brainstorming")
+     #:prerequisites (list "Defining Variables" "Strings and Images" "Brainstorming")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -270,7 +270,7 @@
      #:standards (list "F-IF.1-3" "F-IF.4-6" "F-BF.1-2" "BS-PL.3" "BS-DR.1" "BS-DR.2" "BS-DR.3")
      #:materials @itemlist[@item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders with names on covers.}]
      #:preparation @itemlist[]
-     #:prerequisites (list "Contracts" "Stings and Images" )
+     #:prerequisites (list "Contracts" "Strings and Images" )
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}

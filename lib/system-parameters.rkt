@@ -12,8 +12,7 @@
          current-teacher-contr-xref
          current-document-output-path
          current-worksheet-links-refer-to-pdf?
-         current-lesson-name
-         current-language)
+         current-lesson-name)
 
 
 ;; Parameters for controlling the distribution directories.  The top-level build.rkt
@@ -46,10 +45,6 @@
 ;; The current unit being built. Name of directory title
 (define current-unit (make-parameter #f))
 
-
-;; This language currently being worked in. This should remain an environment variable, but because
-;; paths does not seem to be able to recognize environment variables, this is our current solution
-(define current-language (make-parameter "english"))
 
 ;; The output path of the current document.
 (define current-document-output-path (make-parameter #f))
