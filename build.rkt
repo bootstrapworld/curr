@@ -17,10 +17,10 @@
          "lib/build-modes.rkt"
          "lib/scribble-pdf-helpers.rkt"
          "lib/pdf-lesson-exercises.rkt"
+         "lib/warnings.rkt"
          scribble/render
          file/zip)
 
-(provide WARNING)
 
 
 ;; This is a toplevel build script which generates scribble files for
@@ -137,14 +137,8 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;; Warnings ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; warnings to be ignored when running the build script. This can be populated using the
-;; command-line tag "--suppress-warnings a_b_c" or "--sw a_b_c" to suppress warning types a, b, and c.
-(define ignored-warnings '())
-;; provides a list of the available tags that can be ignored when running the build script.
-(define ignore-warning-tags (list 'teacher-contributions ))
-
-;; parse-course-args: list/of string -> list/of string
-;; This parses the list of course arguments, ensuring that they are all valid course names
+;; parse-sw-args: list/of string -> list/of string
+;; This parses the list of suppress-warning arguments, ensuring that they are all valid warning tags
 (define (parse-sw-args rest-args)
   (cond
     [(empty? rest-args) empty]
@@ -152,36 +146,86 @@
      ;;checks if next argument is a command-line argument tag, rather than a course name
      (let [(sw-tag (string->symbol (first rest-args)))]
        (if (member sw-tag ignore-warning-tags)
-           (cons sw-tag (parse-course-args (rest rest-args)))
+           (cons sw-tag (parse-sw-args (rest rest-args)))
            (error (format (string-append "Build got unrecognized warning suppression tag: "
                                          (symbol->string sw-tag) "\n expected one of the following:\n~a\n")
-                  (map (lambda (x) (symbol->string x))ignore-warning-tags)))))]))
-
+                  (map (lambda (x) (symbol->string x))
+                       ignore-warning-tags)))))]))
 
 
 ;;collects all warnings, to be printed at the end of the build script
-(define collected-warnings '())
-
-;;prints WARNING, unless the type of warning is tagged to be ignored (through hard-code or command-line)
-(define (WARNING text tag)
-  (unless (member tag ignored-warnings)
-    (set! collected-warnings (cons text collected-warnings))
-    (printf "WARNING: ~a\n" text)))
-
-(define (print-warnings)
-  (printf "\n\n\nThe following WARNING's were found throughout this build:\n~a" collected-warnings))
+(void (putenv "COLLECTED-WARNINGS" ""))
 
   
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Command line parsing.  We initialize the SCRIBBLE_TAGS environmental
 ;; variable
+
 ;; Hard-set list. This is optionally replaced with command-line arguments below
 ;(define courses (list "algebra" "reactive" )) ;  "data-science" "physics"))
 (define courses available-courses)
-(putenv "AUDIENCE" "teacher")
+
+(define available-languages (list "english" "spanish"))
+
+(void (putenv "AUDIENCE" "teacher")
 (putenv "CURRENT-SOLUTIONS-MODE" "off")
 (putenv "TARGET-LANG" "pyret")
 (putenv "LANGUAGE" "english")
+
+;; warnings to be ignored when running the build script. This can be populated using the
+;; command-line tag "--suppress-warnings a_b_c" or "--sw a_b_c" to suppress warning types a, b, and c.
+;; Alternatively, "--sw all" can be used to suppress all WARNINGs.
+(putenv "IGNORED-WARNINGS" ""))
+
+
+
+;;;;;;;;;;;;;;;;;;;; Command-line Usage Guideline ;;;;;;;;;;;;;;;;;;
+;
+;;; General Usage
+; To run build with command-lines arguments, run "./build-notes --<tag> <arg> ...".
+; You can run build using multiple tags. Each tag can only have one argument follow it, BUT
+; some of our command-line arguments need to be able to take multiple arguments. To fix this,
+; enter your arguments seperated by underscores. Example:
+;
+;     ./build-notes --course algebra_reactive_physics
+;
+; The above command would build the algebra, reactive, and physics courses
+;
+;
+;
+;
+;
+;
+;;; Different command-line tags and how to use them:
+;;NOTE: These first three were added in Summer 2017 by Kielan Donahue and Jacob Jackson
+;
+; --course
+; This selects which courses are to be produced. Can take multiple arguments (seperated by underscores)
+;
+; --language
+; Not to be confused with "--lang", this selects what human language to print documents in (currently only spanish or english)
+;
+; --sw or --suppress-warnings
+; Denotes which types of WARNINGs are to be ignored while running build. Can be useful for WARNINGs that we expect
+; and don't care about like evidence statements. In "lib/warnings.rkt" there is a list of all WARNING types. If the
+; names are unclear, search for where that tag is used in the repo; almost all are from "lib/form-elements.rkt".
+; NOTE: --sw can take multiple arguments, seperated by underscores. It can ALSO take "--sw all" to suppress all WARNINGs.
+;;
+;
+; --deploy
+; This indicates the directory to which to deploy the output
+;
+; --lang
+; Indicate which language (Racket or Pyret) to generate
+;
+; --pdf
+; Indicates the build to generate PDF documentation
+;
+;;
+;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
 
 (define current-contextual-tags
   (command-line
@@ -192,23 +236,20 @@
    ;; option is set in main entry point at end of file
    #;[("--worksheet-links-to-pdf") "Direct worksheet links to StudentWorkbook.pdf" 
     (putenv "WORKSHEET-LINKS-TO-PDF" "true")]
-   [("--audience") -audience "Indicate student, teacher, volunteer, or self-guided"
-    (if (member -audience (list "student" "teacher" "volunteer" "self-guided"))
-        (putenv "AUDIENCE" -audience)
-        (error "Build got unrecognized audience" -audience " -- expected student teacher volunteer or self-guided"))]
    [("--deploy") -deploy-dir "Deploy into the given directory, and create a .zip.  Default: deploy" 
     (current-deployment-dir (simple-form-path -deploy-dir))]
    [("--language") -language "Select what language you are printing the curriculum for. Default: english"
-                   (if (member -language (list "english" "spanish"))
+                   (if (member -language available-languages)
                        (putenv "LANGUAGE" -language)
                        (error "Build got unrecognized target language: " -language " -- expected english or spanish"))]
-   [("--suppress-warnings" "--sw") -sw
-                                   ;(format "Dictate any types of warnings that you want to be suppressed in the output of running the Build script. Default: none. Available tags:\n ~a"
-                                   ;        ignore-warning-tags)
-                                   "Dictate any types of warnings that you want to be suppressed in the output of running the Build script. Default: none."
-                   (set! ignored-warnings
-                         (append (parse-sw-args (string-split -sw "_"))
-                                 ignored-warnings))]
+   [("--suppress-warnings" "--sw") -sw "Dictate any types of warnings that you want to be suppressed in the output of running the Build script. Default: none."
+                   
+                       (for-each
+                        (lambda (sw-tag)
+                               (set-ignored-warnings sw-tag))
+                        (if (string=? -sw "all")
+                            ignore-warning-tags
+                            (parse-sw-args (string-split -sw "_"))))]
    [("--lang") -lang "Indicate which language (Racket or Pyret) to generate"
     (putenv "TARGET-LANG" -lang)]
    [("--course") -course "List all courses that you want to build. They MUST be separated by \"_\"_. Default: All available courses"
@@ -218,9 +259,14 @@
    
    #:args tags
    tags))
-(printf "Printing documents in ~a \n" (getenv "LANGUAGE"))
+
+
+(define (print-build-intro-summary)
+(printf "\n\nPrinting documents in ~a \n" (getenv "LANGUAGE"))
 (printf "Building courses: ~a\n" courses)
-(printf "\n\n")
+(unless (string=? (getenv "IGNORED-WARNINGS") "")
+  (printf "Ignoring the following warning types: ~a\n" (string-split (getenv "IGNORED-WARNINGS") "/")))
+(printf "\n\n"))
 
 
 
@@ -593,18 +639,18 @@
     (copy-file (build-path "lib" "mathjaxlocal.js")
                (build-path distrib-lib-dir "mathjaxlocal.js")
                #t)))
-
+(define bootstrap-courses courses)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Main entry point:
 (make-fresh-deployment-and-copy-static-pages)
-(define bootstrap-courses courses)
-
-
 
 ;; remove next line if ever want to generate links to web docs instead of PDF
-(putenv "WORKSHEET-LINKS-TO-PDF" "true")
+(void (putenv "WORKSHEET-LINKS-TO-PDF" "true"))
+(print-build-intro-summary)
+(for ([language (in-list available-languages)])
+  (parameterize ([current-language language])
 (for ([course (in-list bootstrap-courses)])
   (parameterize ([current-course course])
     (solutions-mode-off)
@@ -624,7 +670,7 @@
     (update-resource-paths)
     (build-course-units)
     (build-resources)
-    ))  
+    ))))
 (create-distribution-lib)
 (print-warnings)
 ;(build-lessons)
