@@ -43,7 +43,7 @@
 ;; Depending on who we are generating for, we need to relocate the resources dirs.
 ;; May be able to do unit-to-resources-path in the bootstrap case using find-relative path
 (define (update-resource-paths)
-    (deploy-resources-dir (build-path (root-deployment-dir) "courses" (current-course) "resources"))
+    (deploy-resources-dir (build-path (root-deployment-dir) "courses" (current-course)(current-language) "resources"))
     (unit-to-resources-path (build-path 'up 'up "resources")))
  
 
@@ -334,7 +334,7 @@
     (for ([subdir (directory-list (get-units-dir))]
           #:when (directory-exists? (build-path (get-units-dir) subdir)))
       (let (;[exercises-dir (build-path (get-units-dir) subdir "exercises")]
-            [deploy-exercises-dir (build-path (current-deployment-dir) "courses" (current-course)
+            [deploy-exercises-dir (build-path (current-deployment-dir) "courses" (current-course)(current-language)
                                               "units" subdir "exercises")])
         ;(when (directory-exists? exercises-dir)
         ;  (delete-directory/files exercises-dir))
@@ -371,8 +371,8 @@
   (printf "build.rkt: building ~a main\n" (current-course))
   (run-scribble (get-course-main) #:outfile "index")
   (printf "build.rkt: renaming directory for ~a \n" (current-course))
-  (rename-file-or-directory (build-path (current-deployment-dir) "courses" (current-course) "index.html")
-                            (build-path (current-deployment-dir) "courses" (current-course) "index.shtml")
+  (rename-file-or-directory (build-path (current-deployment-dir) "courses" (current-course)(current-language) "index.html")
+                            (build-path (current-deployment-dir) "courses" (current-course)(current-language) "index.shtml")
                             #t)
   )
 
@@ -412,7 +412,7 @@
 (define (build-exercise-handout-solutions)
     (solutions-mode-on)
     ; generating sols to our internal distribution dir, not the public one
-    (parameterize ([current-deployment-dir (build-path (root-deployment-dir) "courses" (current-course) "resources")])
+    (parameterize ([current-deployment-dir (build-path (root-deployment-dir) "courses" (current-course)(current-language) "resources")])
       (unless (directory-exists? (current-deployment-dir))
         (make-directory (current-deployment-dir))) 
       (for ([subdir (directory-list (lessons-dir))]
@@ -487,7 +487,7 @@
              [units (string-split (seventh exercise) ", ")]
              [title (eighth exercise)]
              [link (if (string=? URL "")
-                       (build-path (current-deployment-dir) "courses" (current-course) "resources" "teachers" "exercises" title)
+                       (build-path (current-deployment-dir) "courses" (current-course)(current-language) "resources" "teachers" "exercises" title)
                        URL)])
 
         (for ([unit units])
@@ -576,7 +576,7 @@
         
         ;; copy the background logo to the resources directory
         (copy-file (build-path "lib" "backlogo.png")
-                   (build-path (current-deployment-dir) "courses" (current-course) "resources" "backlogo.png")
+                   (build-path (current-deployment-dir) "courses" (current-course)(current-language) "resources" "backlogo.png")
                    #t)
         
         )))
@@ -588,11 +588,11 @@
       (unless (string=? "." (substring (path->string subdir) 0 1))
         (copy-file (build-path "lib" "box.gif")
                    (build-path (current-deployment-dir) "courses"
-                               (current-course) "units" subdir "box.gif")
+                               (current-course)(current-language) "units" subdir "box.gif")
                    #t)
         (copy-file (build-path "lib" "backlogo.png")
                    (build-path (current-deployment-dir) "courses"
-                               (current-course) "units"  subdir "backlogo.png")
+                               (current-course)(current-language) "units"  subdir "backlogo.png")
                    #t))))
 
 
