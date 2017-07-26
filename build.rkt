@@ -165,6 +165,8 @@
 ;(define courses (list "algebra" "reactive" )) ;  "data-science" "physics"))
 (define courses available-courses)
 
+(define available-languages (list "english" "spanish"))
+
 (void (putenv "AUDIENCE" "teacher")
 (putenv "CURRENT-SOLUTIONS-MODE" "off")
 (putenv "TARGET-LANG" "pyret")
@@ -237,7 +239,7 @@
    [("--deploy") -deploy-dir "Deploy into the given directory, and create a .zip.  Default: deploy" 
     (current-deployment-dir (simple-form-path -deploy-dir))]
    [("--language") -language "Select what language you are printing the curriculum for. Default: english"
-                   (if (member -language (list "english" "spanish"))
+                   (if (member -language available-languages)
                        (putenv "LANGUAGE" -language)
                        (error "Build got unrecognized target language: " -language " -- expected english or spanish"))]
    [("--suppress-warnings" "--sw") -sw "Dictate any types of warnings that you want to be suppressed in the output of running the Build script. Default: none."
@@ -637,19 +639,18 @@
     (copy-file (build-path "lib" "mathjaxlocal.js")
                (build-path distrib-lib-dir "mathjaxlocal.js")
                #t)))
-
+(define bootstrap-courses courses)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Main entry point:
 (make-fresh-deployment-and-copy-static-pages)
-(define bootstrap-courses courses)
-
-
 
 ;; remove next line if ever want to generate links to web docs instead of PDF
 (void (putenv "WORKSHEET-LINKS-TO-PDF" "true"))
 (print-build-intro-summary)
+(for ([language (in-list available-languages)])
+  (parameterize ([current-language language])
 (for ([course (in-list bootstrap-courses)])
   (parameterize ([current-course course])
     (solutions-mode-off)
@@ -669,7 +670,7 @@
     (update-resource-paths)
     (build-course-units)
     (build-resources)
-    ))  
+    ))))
 (create-distribution-lib)
 (print-warnings)
 ;(build-lessons)
