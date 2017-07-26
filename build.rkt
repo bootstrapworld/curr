@@ -43,7 +43,7 @@
 ;; Depending on who we are generating for, we need to relocate the resources dirs.
 ;; May be able to do unit-to-resources-path in the bootstrap case using find-relative path
 (define (update-resource-paths)
-    (deploy-resources-dir (build-path (root-deployment-dir) "courses" (current-course)(current-language) "resources"))
+    (deploy-resources-dir (build-path (root-deployment-dir) "courses" (current-course) "resources"))
     (unit-to-resources-path (build-path 'up 'up "resources")))
  
 
@@ -334,7 +334,7 @@
     (for ([subdir (directory-list (get-units-dir))]
           #:when (directory-exists? (build-path (get-units-dir) subdir)))
       (let (;[exercises-dir (build-path (get-units-dir) subdir "exercises")]
-            [deploy-exercises-dir (build-path (current-deployment-dir) "courses" (current-course)(current-language)
+            [deploy-exercises-dir (build-path (current-deployment-dir) "courses" (current-course)
                                               "units" subdir "exercises")])
         ;(when (directory-exists? exercises-dir)
         ;  (delete-directory/files exercises-dir))
@@ -371,8 +371,8 @@
   (printf "build.rkt: building ~a main\n" (current-course))
   (run-scribble (get-course-main) #:outfile "index")
   (printf "build.rkt: renaming directory for ~a \n" (current-course))
-  (rename-file-or-directory (build-path (current-deployment-dir) "courses" (current-course)(current-language) "index.html")
-                            (build-path (current-deployment-dir) "courses" (current-course)(current-language) "index.shtml")
+  (rename-file-or-directory (build-path (current-deployment-dir) "courses" (current-course) "index.html")
+                            (build-path (current-deployment-dir) "courses" (current-course) "index.shtml")
                             #t)
   )
 
@@ -394,6 +394,7 @@
 
 ;; Building exercise handouts
 (define (build-exercise-handouts)
+  ;(make-directory (build-path (root-deployment-dir) "lessons" (getenv "LANGUAGE")))
   (for ([subdir (directory-list (lessons-dir))]
         #:when (directory-exists? (build-path (lessons-dir) subdir)))
     (when (directory-exists? (build-path (lessons-dir) subdir "exercises"))
@@ -401,9 +402,9 @@
             #:when (regexp-match #px".scrbl$" worksheet))
         (printf "build.rkt: building exercise handout ~a: ~a\n" subdir worksheet)
         (printf "building exercise at: ~a \n" (path->string (build-path (lessons-dir) subdir "exercises" worksheet)))
-        (run-scribble (build-path (lessons-dir) subdir "exercises" worksheet))
+        (run-scribble (build-path (lessons-dir) subdir "exercises" worksheet) )
         (copy-file (build-path "lib" "backlogo.png")
-                   (build-path (current-deployment-dir) "lessons" subdir "exercises" "backlogo.png")
+                   (build-path (current-deployment-dir) "lessons" (getenv "LANGUAGE") subdir "exercises" "backlogo.png")
                    #t)
         ))))
 
@@ -412,7 +413,7 @@
 (define (build-exercise-handout-solutions)
     (solutions-mode-on)
     ; generating sols to our internal distribution dir, not the public one
-    (parameterize ([current-deployment-dir (build-path (root-deployment-dir) "courses" (current-course)(current-language) "resources")])
+    (parameterize ([current-deployment-dir (build-path (root-deployment-dir) "courses" (current-course) "resources")])
       (unless (directory-exists? (current-deployment-dir))
         (make-directory (current-deployment-dir))) 
       (for ([subdir (directory-list (lessons-dir))]
@@ -445,8 +446,8 @@
   (for-each (lambda (lesson-spec)
               (let* ([lesson-name (first lesson-spec)]
                      [exer-files (second lesson-spec)]
-                     [exer-dir (build-path lessons-dir-eng lesson-name "exercises")]
-		     [exer-deploy-dir (build-path (root-deployment-dir) "lessons" lesson-name "exercises")])
+                     [exer-dir (build-path lessons-dir-alt  lesson-name "exercises")]
+		     [exer-deploy-dir (build-path (root-deployment-dir) "lessons" (getenv "LANGUAGE") lesson-name "exercises")])
                 (parameterize [(current-deployment-dir exer-dir)]
                   (scribble-to-pdf exer-files exer-dir))
                 (for ([exerfile exer-files])
@@ -487,7 +488,7 @@
              [units (string-split (seventh exercise) ", ")]
              [title (eighth exercise)]
              [link (if (string=? URL "")
-                       (build-path (current-deployment-dir) "courses" (current-course)(current-language) "resources" "teachers" "exercises" title)
+                       (build-path (current-deployment-dir) "courses" (current-course) "resources" "teachers" "exercises" title)
                        URL)])
 
         (for ([unit units])
@@ -576,7 +577,7 @@
         
         ;; copy the background logo to the resources directory
         (copy-file (build-path "lib" "backlogo.png")
-                   (build-path (current-deployment-dir) "courses" (current-course)(current-language) "resources" "backlogo.png")
+                   (build-path (current-deployment-dir) "courses" (current-course) "resources" "backlogo.png")
                    #t)
         
         )))
@@ -588,11 +589,11 @@
       (unless (string=? "." (substring (path->string subdir) 0 1))
         (copy-file (build-path "lib" "box.gif")
                    (build-path (current-deployment-dir) "courses"
-                               (current-course)(current-language) "units" subdir "box.gif")
+                               (current-course) "units" subdir "box.gif")
                    #t)
         (copy-file (build-path "lib" "backlogo.png")
                    (build-path (current-deployment-dir) "courses"
-                               (current-course)(current-language) "units"  subdir "backlogo.png")
+                               (current-course) "units"  subdir "backlogo.png")
                    #t))))
 
 
@@ -662,6 +663,11 @@
 (for ([language (in-list run-languages)])
   (putenv "LANGUAGE" language)
   (printf "\n\nbuild.rkt: building in language ~a~n" (getenv "LANGUAGE"))
+  (parameterize
+      ([current-translations
+        (with-input-from-file (string-append "lib/langs/" (getenv "LANGUAGE") "/translated.rkt") read)]
+      [current-glossary-terms
+        (with-input-from-file (string-append "lib/langs/" (getenv "LANGUAGE") "/glossary-terms.rkt") read)])
 (for ([course (in-list bootstrap-courses)])
   (parameterize ([current-course course])
     (solutions-mode-off)
@@ -681,7 +687,7 @@
     (update-resource-paths)
     (build-course-units)
     (build-resources)
-    )))
+    ))))
 (create-distribution-lib)
 (print-warnings)
 ;(build-lessons)
