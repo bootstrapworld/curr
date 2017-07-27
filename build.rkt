@@ -78,7 +78,14 @@
 ;; adds a language section under course in an output dir
 ;; added by jake and kielan 26 jul
 (define (add-language dir)
-  (build-path (string-replace (path->string dir) (current-course) (string-append (current-course) "/" (getenv "LANGUAGE")))))
+  (build-path
+   (string-replace
+    (string-replace
+     (path->string dir)
+     (current-course)
+     (string-append (current-course) "/" (getenv "LANGUAGE")))
+    "lessons"
+    (string-append "lessons/" (getenv "LANGUAGE")))))
  
 
 
@@ -354,9 +361,10 @@
                                                (second path-elts))))
                                        unit-exercises))])
                 (for-each (lambda (lessonname)
-                            (let ([lessonexerpath (build-path (current-deployment-dir) "lessons" lessonname "exercises")]
+                            (let ([lessonexerpath (build-path (current-deployment-dir) "lessons" (getenv "LANGUAGE") lessonname "exercises")]
                                   [deploy-exer-path (build-path deploy-exercises-dir lessonname)])
                               (unless (directory-exists? deploy-exer-path)
+                                (printf (path->string deploy-exer-path))
                                 (make-directory deploy-exer-path))
                               (for ([exerfile (directory-list lessonexerpath)])
                                 ; don't copy some file extensions
@@ -396,15 +404,15 @@
 ;; Building exercise handouts
 (define (build-exercise-handouts)
   (for ([subdir (directory-list (lessons-dir))]
-        #:when (directory-exists? (build-path (lessons-dir) subdir)))
+        #:when (directory-exists? (build-path (lessons-dir)  subdir)))
     (when (directory-exists? (build-path (lessons-dir) subdir "exercises"))
       (for ([worksheet (directory-list (build-path (lessons-dir) subdir "exercises"))]
             #:when (regexp-match #px".scrbl$" worksheet))
         (printf "build.rkt: building exercise handout ~a: ~a\n" subdir worksheet)
         (printf "building exercise at: ~a \n" (path->string (build-path (lessons-dir) subdir "exercises" worksheet)))
-        (run-scribble (build-path (lessons-dir) subdir "exercises" worksheet))
+        (run-scribble (build-path (lessons-dir)  subdir "exercises" worksheet))
         (copy-file (build-path "lib" "backlogo.png")
-                   (build-path (current-deployment-dir) "lessons" subdir "exercises" "backlogo.png")
+                   (build-path (current-deployment-dir) "lessons"  (getenv "LANGUAGE") subdir "exercises" "backlogo.png")
                    #t)
         ))))
 
@@ -477,7 +485,6 @@
     ;; pre-process csv-list to a hash map of units to lists of hyperlinks
     (hash-clear! current-teacher-contr-xref)
 
-    
     (for ([exercise csv-list])
       (let* ([timestamp (first exercise)]
              [name (second exercise)]
