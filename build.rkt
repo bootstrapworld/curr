@@ -45,6 +45,23 @@
 ;; Depending on who we are generating for, we need to relocate the resources dirs.
 ;; May be able to do unit-to-resources-path in the bootstrap case using find-relative path
 (define (update-resource-paths)
+
+
+
+
+
+  
+  ;;TODO: ???
+
+
+
+
+
+
+
+
+
+  
     (deploy-resources-dir (build-path (root-deployment-dir) "courses" (current-course)(getenv "LANGUAGE") "resources"))
     (unit-to-resources-path (build-path 'up 'up "resources")))
  
@@ -169,6 +186,13 @@
                   (map (lambda (x) (symbol->string x))
                        ignore-warning-tags)))))]))
 
+(define (parse-lang-args args)
+  (filter (lambda (arg)
+            (unless (member arg available-languages)
+                (error "Build got unrecognized target language: " arg " -- expected english or spanish"))
+            (member arg available-languages))
+            args))
+
 
 ;;collects all warnings, to be printed at the end of the build script
 (void (putenv "COLLECTED-WARNINGS" ""))
@@ -183,6 +207,8 @@
 (define courses available-courses)
 
 (define available-languages (list "english" "spanish"))
+
+(define run-languages (list "english" "spanish"))
 
 (void (putenv "AUDIENCE" "teacher")
 (putenv "CURRENT-SOLUTIONS-MODE" "off")
@@ -220,7 +246,8 @@
 ; This selects which courses are to be produced. Can take multiple arguments (seperated by underscores)
 ;
 ; --language
-; Not to be confused with "--lang", this selects what human language to print documents in (currently only spanish or english)
+; Not to be confused with "--lang", this selects what human languages to print documents in (currently only spanish or english)
+; This can take multiple arguments seperated by underscores.
 ;
 ; --sw or --suppress-warnings
 ; Denotes which types of WARNINGs are to be ignored while running build. Can be useful for WARNINGs that we expect
@@ -256,9 +283,7 @@
    [("--deploy") -deploy-dir "Deploy into the given directory, and create a .zip.  Default: deploy" 
     (current-deployment-dir (simple-form-path -deploy-dir))]
    [("--language") -language "Select what language you are printing the curriculum for. Default: english"
-                   (if (member -language available-languages)
-                       (putenv "LANGUAGE" -language)
-                       (error "Build got unrecognized target language: " -language " -- expected english or spanish"))]
+                   (set! run-languages (parse-lang-args (string-split -language "_")))]
    [("--suppress-warnings" "--sw") -sw "Dictate any types of warnings that you want to be suppressed in the output of running the Build script. Default: none."
                    
                        (for-each
@@ -279,7 +304,7 @@
 
 
 (define (print-build-intro-summary)
-(printf "\n\nPrinting documents in ~a \n" (getenv "LANGUAGE"))
+(printf "\n\nPrinting documents in ~a \n" run-languages)
 (printf "Building courses: ~a\n" courses)
 (unless (string=? (getenv "IGNORED-WARNINGS") "")
   (printf "Ignoring the following warning types: ~a\n" (string-split (getenv "IGNORED-WARNINGS") "/")))
@@ -380,6 +405,7 @@
   (printf "build.rkt: building ~a main\n" (current-course))
   (run-scribble (get-course-main) #:outfile "index")
   (printf "build.rkt: renaming directory for ~a \n" (current-course))
+
   (rename-file-or-directory (build-path (current-deployment-dir) "courses" (current-course)(getenv "LANGUAGE") "index.html")
                             (build-path (current-deployment-dir) "courses" (current-course)(getenv "LANGUAGE") "index.shtml")
                             #t)
@@ -403,6 +429,7 @@
 
 ;; Building exercise handouts
 (define (build-exercise-handouts)
+  ;(make-directory (build-path (root-deployment-dir) "lessons" (getenv "LANGUAGE")))
   (for ([subdir (directory-list (lessons-dir))]
         #:when (directory-exists? (build-path (lessons-dir)  subdir)))
     (when (directory-exists? (build-path (lessons-dir) subdir "exercises"))
@@ -413,6 +440,7 @@
         (run-scribble (build-path (lessons-dir)  subdir "exercises" worksheet))
         (copy-file (build-path "lib" "backlogo.png")
                    (build-path (current-deployment-dir) "lessons"  (getenv "LANGUAGE") subdir "exercises" "backlogo.png")
+
                    #t)
         ))))
 
@@ -454,7 +482,7 @@
   (for-each (lambda (lesson-spec)
               (let* ([lesson-name (first lesson-spec)]
                      [exer-files (second lesson-spec)]
-                     [exer-dir (build-path lessons-dir-eng lesson-name "exercises")]
+                     [exer-dir (build-path lessons-dir-alt  lesson-name "exercises")]
 		     [exer-deploy-dir (build-path (root-deployment-dir) "lessons" (getenv "LANGUAGE") lesson-name "exercises")])
                 (parameterize [(current-deployment-dir exer-dir)]
                   (scribble-to-pdf exer-files exer-dir))
@@ -584,6 +612,7 @@
         
         ;; copy the background logo to the resources directory
         (copy-file (build-path "lib" "backlogo.png")
+                   (build-path (current-deployment-dir) "courses" (current-course) "resources" "backlogo.png")
                    (build-path (current-deployment-dir) "courses" (current-course)(getenv "LANGUAGE") "resources" "backlogo.png")
                    #t)
         
@@ -635,7 +664,11 @@
                [else
                 (printf "build.rkt: no teacher's guide found; skipping\n")]))
          
-
+(define (update-lang-fields language)
+  (putenv "LANGUAGE" language)
+  (printf "\n\nbuild.rkt: building in language ~a~n" (getenv "LANGUAGE"))
+  (current-translations (with-input-from-file (string-append "lib/langs/" (getenv "LANGUAGE") "/translated.rkt") read))
+  (current-glossary-terms (with-input-from-file (string-append "lib/langs/" (getenv "LANGUAGE") "/glossary-terms.rkt") read)))
 
 
 (define (archive-as-zip)
@@ -666,29 +699,29 @@
 
 ;; remove next line if ever want to generate links to web docs instead of PDF
 (void (putenv "WORKSHEET-LINKS-TO-PDF" "true"))
-(for ([language (in-list available-languages)])
-  (putenv "LANGUAGE" language)
-  (print-build-intro-summary)
-  (for ([course (in-list bootstrap-courses)])
-    (parameterize ([current-course course])
-      (solutions-mode-off)
-      (putenv "RELEASE-STATUS" "mature")
-      (process-teacher-contributions)
-      (when (equal? course "algebra")
-        (putenv "TARGET-LANG" "racket")
-        (build-exercise-handouts) ; not needed for reactive
-        (workbook-styling-on)
-        (build-extra-pdf-exercises) ; not needed for reactive
-        )
-      (when (equal? course "reactive")
-        (putenv "TARGET-LANG" "pyret")
-        ;; formerly set "RESLEASE-STATUS" to "beta" here
-        )
-      (textbook-styling-on)
-      (update-resource-paths)
-      (build-course-units)
-      (build-resources)
-      )))
+(print-build-intro-summary)
+(for ([language (in-list run-languages)])
+  (update-lang-fields language)
+(for ([course (in-list bootstrap-courses)])
+  (parameterize ([current-course course])
+    (solutions-mode-off)
+    (putenv "RELEASE-STATUS" "mature")
+    (process-teacher-contributions)
+    (when (equal? course "algebra")
+      (putenv "TARGET-LANG" "racket")
+      (build-exercise-handouts) ; not needed for reactive
+      (workbook-styling-on)
+      (build-extra-pdf-exercises) ; not needed for reactive
+      )
+    (when (equal? course "reactive")
+      (putenv "TARGET-LANG" "pyret")
+      ;; formerly set "RESLEASE-STATUS" to "beta" here
+      )
+    (textbook-styling-on)
+    (update-resource-paths)
+    (build-course-units)
+    (build-resources)
+    )))
 (create-distribution-lib)
 (print-warnings)
 ;(build-lessons)

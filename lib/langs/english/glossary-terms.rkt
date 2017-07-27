@@ -1,4 +1,3 @@
-#lang racket/base
 
 #|
 Glossary for terminology used in the notes.  The first entry of each entry can be either
@@ -8,10 +7,7 @@ If a list of keys is provided, the generated glossary will use the first in the 
 when it prints out the glossary for a particular unit
 |#
 
-(provide glossary-terms-dictionary)
-
-(define glossary-terms-dictionary
-  '(("accessor functions" "functions to extract values from a data structure")
+  (("accessor functions" "functions to extract values from a data structure")
     ("apply" "use a given function on some inputs")
     ("arguments" "the inputs to a function; expressions for arguments follow the name of a function")
     ("boolean" "a type of data with two values: true and false")
@@ -69,4 +65,4 @@ when it prints out the glossary for a particular unit
     ("value" "a specific piece of data, like 5 or \"hello\"")
     ("variable" "something that changes")
     ("variable name" "name of the information that can be different each time a function is used")
-   ))
+   )

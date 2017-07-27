@@ -12,7 +12,9 @@
          current-teacher-contr-xref
          current-document-output-path
          current-worksheet-links-refer-to-pdf?
-         current-lesson-name)
+         current-lesson-name
+         current-glossary-terms
+         current-translations)
 
 
 ;; Parameters for controlling the distribution directories.  The top-level build.rkt
@@ -53,6 +55,14 @@
 ;; The current-lesson-xref is a hashtable from lesson names to
 ;; records that describe where they can be found.
 (define current-lesson-xref (make-parameter (make-hash)))
+
+;; contains the current list of translations, specifically those used mainly in form-elements that
+;; translate small tags on the bootstrap pages.
+(define current-translations (make-parameter #f))
+
+;; contains the current list of glossary terms; changes each time build switches languages
+(define current-glossary-terms (make-parameter #f))
+
 
 
 ;; This stores the teacher contributed additionl exercises.
