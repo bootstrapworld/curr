@@ -302,9 +302,11 @@
                          (table-columns
                           (list 
                            (style "BootstrapTable" '(center))
+                           (style "BootstrapTable" '(center))
                            (style "BootstrapTable" '(center))))))   
                  (cons (list (para #:style "BootstrapTableHeader" (translate 'lang-table-types))
-                             (para #:style "BootstrapTableHeader" (translate 'lang-table-func)))
+                             (para #:style "BootstrapTableHeader" (translate 'lang-table-func))
+                             (para #:style "BootstrapTableHeader" (translate 'lang-table-vals)))
                        (map (lambda (r) (map para r)) rows)))))
 
 ;; build-table : list[string] list[list[element]] (number number -> element) 

@@ -3,7 +3,7 @@
 
 
 
-@unit-overview/auto[#:lang-table (list (list "" @code{}))]{
+@unit-overview/auto[#:lang-table (list (list "" @code{} ""))]{
   @unit-descr{NOTE: THESE LESSONS ARE NOT INTENDED TO BE TAUGHT IN SEQUENCE - they are collected here solely for convenience!
               Students will deepen their understanding of various concepts, either through continued practice and review,
               encountering more complicated material (structs).}
