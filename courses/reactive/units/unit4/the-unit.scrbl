@@ -57,9 +57,6 @@
       @item{Change the @code{wear} function to return the shorts outfit when it's cold
       (less than 30 degrees).}
 
-      @item{@bold{Challenge:} Change the @code{wear} function to use Celsius degrees
-      rather than Fahrenheit.}
-
     ]
   }
 }
