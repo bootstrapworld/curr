@@ -692,6 +692,7 @@
 ;; remove next line if ever want to generate links to web docs instead of PDF
 (void (putenv "WORKSHEET-LINKS-TO-PDF" "true"))
 (print-build-intro-summary)
+(build-languages run-languages)
 (for ([language (in-list run-languages)])
   (update-lang-fields language)
 (for ([course (in-list bootstrap-courses)])
