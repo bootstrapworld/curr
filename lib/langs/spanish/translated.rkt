@@ -30,7 +30,13 @@
     (lulu-link "http://www.lulu.com/commerce/index.php?fBuyContent=14790241")
 
 
+    ;;;;;;;;;;;;;;;;;languages;;;;;;;;;;;;;;;;;;;;
+    ;Translator; these are the labels for links to bootstrap pages in other languages.
+               ; These should be the titles of languages as spoken in this language (right now, English)
+    (english "English")
+    (spanish "Spanish")
 
+    
     
 
     ;;;;;;;;;;;;;;;;copyright section;;;;;;;;;;;;;;;;;;;;;

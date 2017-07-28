@@ -1,5 +1,3 @@
-
-
 #!/usr/bin/env racket
 #lang racket/base
 (require racket/runtime-path
@@ -95,7 +93,14 @@
 ;; adds a language section under course in an output dir
 ;; added by jake and kielan 26 jul
 (define (add-language dir)
-  (build-path (string-replace (path->string dir) (current-course) (string-append (current-course) "/" (getenv "LANGUAGE")))))
+  (build-path
+   (string-replace
+    (string-replace
+     (path->string dir)
+     (current-course)
+     (string-append (current-course) "/" (getenv "LANGUAGE")))
+    "lessons"
+    (string-append "lessons/" (getenv "LANGUAGE")))))
  
 
 
@@ -341,8 +346,6 @@
     (printf "Phase ~a\n" phase)
     (for ([subdir (directory-list (get-units-dir))]
           #:when (directory-exists?  (build-path (get-units-dir) subdir)))
-      ;TODO remove
-      (printf "im here")
       (define scribble-file (simple-form-path (build-path (build-path courses-base (current-course) "units" "langs" (getenv "LANGUAGE")) subdir "the-unit.scrbl"))); langs path
       (cond [(file-exists? scribble-file)
              (printf "build.rkt: Building ~a\n" scribble-file)
@@ -379,7 +382,7 @@
                                                (second path-elts))))
                                        unit-exercises))])
                 (for-each (lambda (lessonname)
-                            (let ([lessonexerpath (build-path (current-deployment-dir) "lessons" lessonname "exercises")]
+                            (let ([lessonexerpath (build-path (current-deployment-dir) "lessons" (getenv "LANGUAGE") lessonname "exercises")]
                                   [deploy-exer-path (build-path deploy-exercises-dir lessonname)])
                               (unless (directory-exists? deploy-exer-path)
                                 (make-directory deploy-exer-path))
@@ -423,15 +426,16 @@
 (define (build-exercise-handouts)
   ;(make-directory (build-path (root-deployment-dir) "lessons" (getenv "LANGUAGE")))
   (for ([subdir (directory-list (lessons-dir))]
-        #:when (directory-exists? (build-path (lessons-dir) subdir)))
+        #:when (directory-exists? (build-path (lessons-dir)  subdir)))
     (when (directory-exists? (build-path (lessons-dir) subdir "exercises"))
       (for ([worksheet (directory-list (build-path (lessons-dir) subdir "exercises"))]
             #:when (regexp-match #px".scrbl$" worksheet))
         (printf "build.rkt: building exercise handout ~a: ~a\n" subdir worksheet)
         (printf "building exercise at: ~a \n" (path->string (build-path (lessons-dir) subdir "exercises" worksheet)))
-        (run-scribble (build-path (lessons-dir) subdir "exercises" worksheet) )
+        (run-scribble (build-path (lessons-dir)  subdir "exercises" worksheet))
         (copy-file (build-path "lib" "backlogo.png")
-                   (build-path (current-deployment-dir) "lessons" (getenv "LANGUAGE") subdir "exercises" "backlogo.png")
+                   (build-path (current-deployment-dir) "lessons"  (getenv "LANGUAGE") subdir "exercises" "backlogo.png")
+
                    #t)
         ))))
 
@@ -504,7 +508,6 @@
     ;; pre-process csv-list to a hash map of units to lists of hyperlinks
     (hash-clear! current-teacher-contr-xref)
 
-    
     (for ([exercise csv-list])
       (let* ([timestamp (first exercise)]
              [name (second exercise)]
@@ -604,7 +607,6 @@
         
         ;; copy the background logo to the resources directory
         (copy-file (build-path "lib" "backlogo.png")
-                   (build-path (current-deployment-dir) "courses" (current-course) "resources" "backlogo.png")
                    (build-path (current-deployment-dir) "courses" (current-course)(getenv "LANGUAGE") "resources" "backlogo.png")
                    #t)
         

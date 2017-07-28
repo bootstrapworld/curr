@@ -14,7 +14,8 @@
          current-worksheet-links-refer-to-pdf?
          current-lesson-name
          current-glossary-terms
-         current-translations)
+         current-translations
+         build-languages)
 
 
 ;; Parameters for controlling the distribution directories.  The top-level build.rkt
@@ -51,6 +52,8 @@
 ;; The output path of the current document.
 (define current-document-output-path (make-parameter #f))
 
+;; The languages being built in
+(define build-languages (make-parameter #f))
 
 ;; The current-lesson-xref is a hashtable from lesson names to
 ;; records that describe where they can be found.

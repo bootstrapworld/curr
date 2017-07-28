@@ -112,6 +112,7 @@
          preparation
          agenda
          copyright
+
          
          ;; Include lesson/lesson link
          include-lesson
@@ -161,6 +162,7 @@
 (define bs-page-title-style (bootstrap-div-style "BootstrapPageTitle"))
 (define bs-slide-title-style (bootstrap-style "BootstrapSlideTitle"))
 (define bs-skipSlide-style (bootstrap-div-style "BS-Skip-Slide"))
+(define bs-translation-buttons-style (bootstrap-span-style "TranslationButton"))
 
 (define bs-time-style (bootstrap-span-style "time"))
 (define bs-callout-style (bootstrap-div-style "callout"))
@@ -750,6 +752,7 @@
 ;; Not sure why we have the dual nested here ...
 (define (main-contents . body)
   (list (augment-head)
+        (include-language-links-main)
         (nested #:style (bootstrap-div-style/id/nested "body")
                 (nested #:style (bootstrap-div-style "item") 
                         body))))
@@ -871,7 +874,8 @@
          #:materials (materialsItems #f)
          #:preparation (preparationItems #f)
          #:lang-table (lang-table #f)
-         #:gen-agenda? (gen-agenda? #t) 
+         #:gen-agenda? (gen-agenda? #t)
+         #:provide-translation? (translation? #t)
          . description
          )
   (interleave-parbreaks/all
@@ -888,6 +892,9 @@
                            (interleave-parbreaks/all
                             (list
                              (if gen-agenda? (agenda) "")
+
+                             (include-language-links-units)
+                             
                              ; moved these outside summary for code.org prep -- remove next two lines once E confirms
                              ;(para #:style bs-header-style/span "Unit Overview")
                              ;(para #:style (bootstrap-div-style/id "overviewDescr") description)
@@ -1083,6 +1090,36 @@
                            [else (loop title evtag (rest (rest rem-sexp)))]))))))])
       ;(printf "extract-data got ~a ~n" data)
       (values (first data) (second data)))))
+
+
+(define (include-language-links-units)
+  (interleave-parbreaks/all
+   ;TODO change interleave-parbreaks/all, can it access run-languages?
+  (foldl (lambda (language rest)
+           (cons (hyperlink #:style bootstrap-hyperlink-style
+                            ;(path->string (find-relative-path
+                             ;              (current-document-output-path)
+                              ;             (string-replace (path->string (current-document-output-path)) (getenv "LANGUAGE") language)))
+                            (string-append "../../../../" (current-course)"/" language "/units/" (current-unit) "/index.html")
+                            (translate (string->symbol language))) rest))
+         '()
+         (filter (lambda (lang) (not (string=? lang (getenv "LANGUAGE")))) (build-languages)))))
+
+(define (include-language-links-main)
+  (interleave-parbreaks/all
+   ;TODO change interleave-parbreaks/all, can it access run-languages?
+  (foldl (lambda (language rest)
+           (cons (hyperlink #:style bootstrap-hyperlink-style
+                            ;(path->string (find-relative-path
+                             ;              (current-document-output-path)
+                              ;             (string-replace (path->string (current-document-output-path)) (getenv "LANGUAGE") language)))
+                            (string-append "../" language "/index.shtml")
+                            (translate (string->symbol language))) rest))
+         '()
+         (filter (lambda (lang) (not (string=? lang (getenv "LANGUAGE")))) (build-languages)))))
+             
+
+
                                      
 ;; generates the DOM for the additional exercises component of the unit page
 ;; the exercise-list.rkt file built up in this function gets used in the build
