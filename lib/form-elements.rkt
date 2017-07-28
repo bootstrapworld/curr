@@ -1274,6 +1274,8 @@
 ;; resource-path should be a path string relative to the resources subdirectory.
 ;; The use of unit-to-resources-path reflects an assumption that all links are
 ;;  created within the-unit.html files.  Will need to add a param if other cases arise
+
+;;TODO
 (define (resource-link #:path resource-path
                        #:label [label #f])
   (let ([the-relative-path (build-path (unit-to-resources-path) resource-path)])
@@ -1368,7 +1370,7 @@
                      #:label [label #f]
                      #:course [course (current-course)])
   (hyperlink #:style bootstrap-hyperlink-style
-             (path->string (simple-form-path (build-path (current-deployment-dir) "courses" course "units" unit-name "index.html")))
+             (path->string (simple-form-path (build-path (current-deployment-dir) "courses" course (getenv "LANGUAGE") "units" unit-name "index.html")))
              (if label label unit-name)))
 
 
