@@ -10,8 +10,8 @@
       td{padding: 5px; vertical-align: top; width: 200px; }
       .col{vertical-align: middle; width: 220px;}
       .col p{font-size: 13px; font-style: italic;}
-      .bs1 {background: rgba(90, 50, 50, 0.2)}
-      .bs2 {background: rgba(90, 50, 50, 0.3)}
+      .algebra {background: rgba(90, 50, 50, 0.2)}
+      .reactive {background: rgba(90, 50, 50, 0.3)}
 button{
 	display: block;
 	font-size: 1em;
@@ -68,7 +68,7 @@ button:active{	-webkit-transform: translateY(3px); transform: translateY(3px);bo
 <p>If you have questions, feel free to email us (we assume that you know someone on the Bootstrap team personally if you are using this prototype version).</p>
 
 		<h1>Materials</h1>
-    <p>We provide two curricula.  <b><a href="courses/bs1/main.shtml">Bootstrap:1</a></b> teaches students to apply mathematical concepts and rigorous programming principles to create a simple videogame.  The second module, <b><a href="courses/bs2/main.shtml">Bootstrap:2</a></b>, helps students create more advanced games using data structures, events, and other more advanced computing topics.  We've listed the breakdown of concepts in the table below.
+    <p>We provide two curricula.  <b><a href="courses/algebra/main.shtml">Bootstrap:Algebra</a></b> teaches students to apply mathematical concepts and rigorous programming principles to create a simple videogame.  The second module, <b><a href="courses/reactive/main.shtml">Bootstrap:Reactive</a></b>, helps students create more advanced games using data structures, events, and other more advanced computing topics.  We've listed the breakdown of concepts in the table below.
 		</div>
 
 		<div class="item">
@@ -76,9 +76,9 @@ button:active{	-webkit-transform: translateY(3px); transform: translateY(3px);bo
         <thead>
           <tr><td class="col"></td><td>Mathematics</td><td>Programming</td></tr>
         </thead>
-        <tr class="bs1">
+        <tr class="algebra">
           <td class="col">
-            <b><a href="courses/bs1/main.shtml">Starting with Bootstrap:1...</a></b>
+            <b><a href="courses/algebra/main.shtml">Starting with Bootstrap:Algebra...</a></b>
             <p/>Students create a simple, 3-character game involving a player, a target and a danger. They design what each character looks like, and use algebraic concepts to detect collisions, handle keystrokes, and determine how they move and interact.
           </td>
           <td>
@@ -109,9 +109,9 @@ button:active{	-webkit-transform: translateY(3px); transform: translateY(3px);bo
             </ul>
           </td>
         </tr>
-        <tr class="bs2">
+        <tr class="reactive">
           <td class="col">
-            <b><a href="courses/bs2/main.shtml">Continuing to Bootstrap:2...</a></b>
+            <b><a href="courses/reactive/main.shtml">Continuing to Bootstrap:Reactive...</a></b>
             <p/>Students learn how the world-based event loop that drives their Bootstrap 1 game works, and use it to create animations using simple datatypes for their world. They then learn about data structures, and design a World structure for a sophisticated game of their own design.
           </td>
           <td>

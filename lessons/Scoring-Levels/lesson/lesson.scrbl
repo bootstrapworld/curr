@@ -18,7 +18,7 @@
                 )
       ]{
         @points[@point{@student{Your version of Ninja Cat is just as complex as the original game, but there's not a lot of variety. The player avoids the dog and gets the coin over and over again. We should mix things up a bit: how about adding new levels? Typically a game would progress to a new level if the player has reached a certain goal: Collected a certain number of coins, destroyed a certain number of zombies, or reached a certain score. Let's start by adding a scoring system to the Ninja World game.}
-                        @teacher{Both the scoring system and randomizing the y-coordinates of the target and danger were part of the included teachpack in Bootstrap:1, code which ran "under the hood" in students' first Bootstrap game. Let them know that in Bootstrap:2, they no longer @italic{need} this hidden code, because they've learned enough to program the entire game (and more!) themselves.}}
+                        @teacher{Both the scoring system and randomizing the y-coordinates of the target and danger were part of the included teachpack in Bootstrap:Algebra, code which ran "under the hood" in students' first Bootstrap game. Let them know that in Bootstrap:Reactive, they no longer @italic{need} this hidden code, because they've learned enough to program the entire game (and more!) themselves.}}
 
                  @point{@student{The score is something that will be changing in the game, so you can be sure that it has to be added to the World structure.
                                  @activity[#:forevidence (list "N-Q&1&1" "BS-M&1&2" "BS-DS.2&1&3")]{@itemlist[@item{What data type is the score? Number, String, Image, or Boolean?}

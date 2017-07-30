@@ -206,7 +206,7 @@
                                 (if purpose (string-append (curr-comment-char) " " purpose "\n") "")
                                 (apply string-append body)
                                 ;(cond [(gen-racket?) (apply string-append body)]
-                                ;      [(gen-pyret?) (apply string-append (map bs1-string->pyret-string body))]
+                                ;      [(gen-pyret?) (apply string-append (map algebra-string->pyret-string body))]
                                 ;      [else (error 'code "Unknown target language")])
                                 )])
     ;; we do not use the built-in Racket code formatting in order

@@ -58,19 +58,19 @@ Define coloring for basic WeScheme types, and re-use them for our CM instances
 /************************************************
 Define coloring for basic Pyret types, and re-use them for our CM instances 
 */
-.cm-s-default.CodeMirror { color: black; }
-.cm-s-default .cm-comment { color: #cd7054; }
-.cm-s-default .cm-boolean { color: darkred; }
-.cm-s-default .cm-builtin { color: #555; }
-.cm-s-default .cm-function-name { color: #374049; }
-.cm-s-default .cm-variable { color: #4d5966; }
-.cm-s-default .cm-keyword { color: black; font-weight: bold; }
-.cm-s-default .cm-number { color: navy; }
-.cm-s-default .cm-roughnum { color: blue; }
-.cm-s-default .cm-bad-number { color: red; font-weight: bold; }
-.cm-s-default .cm-string { color: forestgreen; }
-.cm-s-default .cm-unterminated-string { color: red; font-weight: bold; }
-.cm-s-default .cm-type { color: #374049; }
+.cm-s-default.CodeMirror      { color: black; }
+.cm-comment     { color: #cd7054; }
+.cm-boolean     { color: darkred; }
+.cm-builtin     { color: #555; }
+.cm-variable    { color: #4d5966; }
+.cm-keyword     { color: black; font-weight: bold; }
+.cm-number      { color: navy; }
+.cm-roughnum    { color: blue; }
+.cm-bad-number  { color: red; font-weight: bold; }
+.cm-string      { color: forestgreen; }
+.cm-type        { color: #374049; }
+.cm-function-name { color: #374049; }
+.cm-unterminated-string { color: red; font-weight: bold; }
 .cptteach-fixed { line-height: 1.5; background: #ddd; }
 
 /* CM-only stuff */

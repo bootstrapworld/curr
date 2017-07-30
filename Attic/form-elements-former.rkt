@@ -117,7 +117,7 @@
          exercises
          student
          teacher
-         itemlist/splicing ;; need because bs1 teachers-guide.scrbl using it (still in old lesson format)
+         itemlist/splicing ;; need because algebra teachers-guide.scrbl using it (still in old lesson format)
          
          ;; Itemizations
          materials
@@ -1744,7 +1744,7 @@
                     (bootstrap-span-style/extra-id base-style class-or-id) 
                     (bootstrap-span-style (string-append base-style " " class-or-id)))])
     (para #:style style
-          (cond [show? (format-exercise-text (bs1-string->pyret-string answer) #:fmt-quotes? fmt-quotes?)]
+          (cond [show? (format-exercise-text (algebra-string->pyret-string answer) #:fmt-quotes? fmt-quotes?)]
                 [(string? answer) (make-string (string-length answer) #\M)]
                 [else  " "]))))
 
@@ -2419,7 +2419,7 @@
    (hyperlink "mailto:schanzer@BootstrapWorld.org" "schanzer@BootstrapWorld.org") "."))
 
 ;; ONLY USED IN BS2 UNITS FOLLOWING OLD FORMAT
-;; remove this as soon as bs2 units convert to the bs1-style lesson headers
+;; remove this as soon as reactive units convert to the algebra-style lesson headers
 ;autogenerates state-standards section
 (define state-standards
   (list (para #:style bs-header-style "State Standards")

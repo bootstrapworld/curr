@@ -35,7 +35,6 @@ Of course, there's more to a curriculum than software and lesson plans! We also 
             Want to be kept up-to-date about Bootstrap events, workshops, and curricular changes? 
             Want to ask a question or pose a lesson idea for other Bootstrap teachers? 
             These forums are the place to do it.}
-]
-            
+]            
 @(copyright)
 }
