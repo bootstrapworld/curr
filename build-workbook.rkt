@@ -187,7 +187,7 @@
 
 
 ; for now, only algebra is set up for auto-building
-(define bootstrap-courses '("algebra" "reactive"))
+(define bootstrap-courses '("algebra" "reactive" "data-science"))
 
 ; use this to tell scribble to use the workbook.css file
 (putenv "BOOTSTRAP-TARGET" "workbook")

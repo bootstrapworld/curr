@@ -472,6 +472,10 @@
       (putenv "TARGET-LANG" "pyret")
       (putenv "RELEASE-STATUS" "mature") ;; was "beta"
       )
+    (when (equal? course "data-science")
+      (putenv "TARGET-LANG" "pyret")
+      (putenv "RELEASE-STATUS" "beta") ;; was "beta"
+      )
     (textbook-styling-on)
     (update-resource-paths)
     (build-course-units)
