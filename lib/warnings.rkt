@@ -28,7 +28,8 @@
                                   'lookup-tags
                                   'missing-unit-descr
                                   'incomplete-worksheet
-                                  'missing-lessons))
+                                  'missing-lessons
+                                  'missing-course-dir))
 
 
 
