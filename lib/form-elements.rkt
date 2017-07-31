@@ -1332,7 +1332,9 @@
                             (cond [page page] 
                                   [name (let ([num (get-workbook-page/name name)])
                                           (if num num
-                                              (error 'worksheek-link (format "Unknown page name ~a" name))))]
+                                              (if (file-exists? (build-path (get-workbook-dir) "StudentWorkbook.pdf"))
+                                                  (error 'worksheek-link (format "Unknown page name ~a" name))
+                                                  1)))]
                                   [else (WARNING "worksheet link needs one of page or name\n" 'incomplete-worksheet)
                                         0])))))
 
