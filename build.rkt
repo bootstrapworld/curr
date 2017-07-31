@@ -325,6 +325,7 @@
 ;; We must do this twice to resolve cross references for lessons.
 (define (build-course-units)
   (printf "build.rkt: building ~a\n" (current-course))
+  (when (directory-exists? (get-units-dir))
   (for ([phase (in-range 2)])
     (printf "Phase ~a\n" phase)
     (for ([subdir (directory-list (get-units-dir))]
@@ -386,8 +387,8 @@
 
   (rename-file-or-directory (build-path (current-deployment-dir) "courses" (current-course)(getenv "LANGUAGE") "index.html")
                             (build-path (current-deployment-dir) "courses" (current-course)(getenv "LANGUAGE") "index.shtml")
-                            #t)
-  )
+                            #t))
+  (unless (directory-exists? (get-units-dir)) (WARNING (format "Unit directory not found for course ~a in lanugage ~a" (current-course)(getenv "LANGUAGE")) 'missing-course-dir)))
 
 
 ;; Building the lessons
@@ -593,7 +594,7 @@
         )))
 
   ;; copy auxiliary files into units within distribution
-  (when (current-deployment-dir)
+  (when (and (current-deployment-dir) (directory-exists? (get-units-dir)))
     (for ([subdir (directory-list (get-units-dir))])
       ;; ignore contents starting with .
       (unless (string=? "." (substring (path->string subdir) 0 1))
