@@ -2,10 +2,10 @@
 
 @title{Build Your Own Animation}
 
-@unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / num-sqr num-sqrt num-expt})
-                                       (list "String" @code{string-append string-length})
-                                       (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image})
-				       )]{
+@unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sqr sqrt expt} "1 ,4 ,44.6") 
+                                       (list "String" @code{string-append string-length} " \"hello\" ")                          
+                                       (list "Image" @code{rectangle circle triangle ellipse star scale rotate put-image} "(circle 25 \"solid\" \"red\")")
+                                       )]{
 
 @unit-descr{Students create a game of their own design using what they have learned so far.}
 }

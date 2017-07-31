@@ -2,7 +2,7 @@
 
 
 @title{Unit 2: Contracts, Strings and Images}
-@unit-overview/auto[#:lang-table (list "Number" @code{+ - * / sqr sqrt expt})]{
+@unit-overview/auto[#:lang-table (list "Number" @code{+ - * / sqr sqrt expt} "1 ,4 ,44.6")]{
 @unit-descr{Students are introduced to a set-mapping representation for functions, in which the function object exists as a means of translating points
 from a Domain into a Range. Coupled with their understanding of Circles of Evaluation, students generalize their understanding of functions to
 include other datatypes, including Strings and Images.}

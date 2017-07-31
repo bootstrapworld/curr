@@ -2,10 +2,10 @@
 
 @title{Unit 7: Conditional Branching}
 
-@unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sqr sqrt expt}) 
-                                       (list "String" @code{string-append string-length})                          
-                                       (list "Image" @code{rectangle circle triangle ellipse radial-star scale rotate put-image})
-                                       (list "Boolean" @code{= > < string=? and or}))]{
+@unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sqr sqrt expt} "1 ,4 ,44.6") 
+                                       (list "String" @code{string-append string-length} " \"hello\" ")                          
+                                       (list "Image" @code{rectangle circle triangle ellipse star scale rotate put-image} "(circle 25 \"solid\" \"red\")")
+                                       (list "Boolean" @code{= > < string=? and or} "true false"))]{
   @unit-descr{Students use piecewise functions to move their players in response to key-presses.}
    }
 

@@ -245,6 +245,7 @@
     ;Developer; language-table
     (lang-table-types "Types")
     (lang-table-func "Functions")
+    (lang-table-vals "Values")
 
 
 

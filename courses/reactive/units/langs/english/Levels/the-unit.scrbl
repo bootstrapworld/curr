@@ -2,10 +2,10 @@
 
 @title{Feature: Adding Levels}
 
-@unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / num-sqr num-sqrt num-expt})
-                                       (list "String" @code{string-append string-length})
-                                       (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image})
-				       )]{
+@unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sqr sqrt expt} "1 ,4 ,44.6") 
+                                       (list "String" @code{string-append string-length} " \"hello\" ")                          
+                                       (list "Image" @code{rectangle circle triangle ellipse star scale rotate put-image} "(circle 25 \"solid\" \"red\")")
+                                       )]{
 
 @unit-descr{Students parameterize other parts of their game, so that the experience changes as the score increases.
             This track delves deeper into conditionals and abstraction, offering students a chance to customize their

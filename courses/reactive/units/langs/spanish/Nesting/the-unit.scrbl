@@ -1,10 +1,11 @@
 #lang curr/lib
 
-@title{Feature: Nested Structures}
+@title{Going Deeper: Nested Structures}
 
-@unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sqr sqrt expt})
-                                       (list "String" @code{string-append string-length})
-                                       (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image}))]{
+@unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sqr sqrt expt} "1 ,4 ,44.6") 
+                                       (list "String" @code{string-append string-length} " \"hello\" ")                          
+                                       (list "Image" @code{rectangle circle triangle ellipse star scale rotate put-image} "(circle 25 \"solid\" \"red\")")
+                                       )]{
 @unit-descr{Students refactor code from a simple animation to include structures within structures, and see how to use nested structures in their own games and animations to manage complexity.}
 }
 
@@ -47,7 +48,8 @@ STARTING-PINWHEELS = pinwheel(60, 3, 25, 70)}
 The only things that change in this animation are the angles of rotaton for each of the 4 pinwheels, and each of those numbers are included in the @code{PinwheelState} data structure. As usual, we have a @code{next-state-tick} function to handle updating the state of the animation, and a @code{draw-state} function to draw the animation. We also have two @vocab{helper functions} to do some of the work for these main functions: @code{update-pinwheel}, which increases the angle for an individual pinwheel, and @code{draw-pinwheel}, which rotates the pinwheel image by the given angle. We'll talk about @vocab{helper functions} in greater detail later, but for now, notice that because we've delegated most of the heavy lifting to these helpers, our @code{next-state-tick} function @italic{only} needs to make a new @code{PinwheelState} by calling on @code{update-pinwheel} to increase the angle of rotation for each number in the structure. Most of the actual work in this function is done by @code{update-pinwheel}.} 
                         @teacher{}}
                  
-                 @point{@student{Suppose we wanted each of the pinwheels to spin at a different speed. We already know that any changeable part of the animation will need to be added to the structure, so we'll need to add 4 new numbers to the @code{PinwheelState} structure. @activity{Print out the following code screenshot from the pinwheels file __[Link to NN-Pinwheels-1]_____ and underline or highlight each spot in the code you would need to change in order to add a speed to each pinwheel. Once you've identified which sections of the code will need to change, edit the program on the computer so that each pinwheel spins at a different speed.}}
+                 @point{@student{Suppose we wanted each of the pinwheels to spin at a different speed. We already know that any changeable part of the animation will need to be added to the structure, so we'll need to add 4 new numbers to the @code{PinwheelState} structure. @activity{Print out the following code screenshot from the @(hyperlink "http://www.bootstrapworld.org/materials/spring2017/courses/reactive/resources/images/NonNested-Pinwheels1.png" "pinwheels file") 
+                                          and underline or highlight each spot in the code you would need to change in order to add a speed to each pinwheel. Once you've identified which sections of the code will need to change, edit the program on the computer so that each pinwheel spins at a different speed.}}
                          @teacher{}}
                  
                  @point{@student{Now we have a nice animation of pinwheels spinning at different speeds, but what if we had started off by making each individual pinwheel @italic{its own structure}? As we'll see shortly, this can help save us some time and headaches down the road, if we want to add to our animation later. 
@@ -79,24 +81,23 @@ STARTING-PINWHEELS = pinwheels(pw(60), pw(3), pw(25), pw(70))
                  @point{@student{Another change between the non-nested and nested versions of the code is that in the nested version, our @vocab{helper functions} @code{update-pinwheel} and @code{draw-pinwheel} now take in a @code{Pinwheel} data structure, as opposed to just a number. The animation still works and looks the same on the outside, and the code hasn't changed @italic{too} drastically.}
                          @teacher{}}
                  
-                 @point{@student{Let's do the same activity for the nested version of the code, where we make each pinwheel spin at a different speed. @activity{Print out the following code screenshot: __[Link to N-Pinwheels-1]_____ and underline or highlight each spot in the code you would need to change in order to change each pinwheel's speed independently. Once you've identified which sections will need to change, edit the nested version of the program on the computer.}}
+                 @point{@student{Let's do the same activity for the nested version of the code, where we make each pinwheel spin at a different speed. @activity{Print out the following @(hyperlink "http://www.bootstrapworld.org/materials/spring2017/courses/reactive/resources/images/Nested-Pinwheels1.png" "code screenshot") for the nested pinwheels file, and underline or highlight each spot in the code you would need to change in order to change each pinwheel's speed independently. Once you've identified which sections will need to change, edit the nested version of the program on the computer.}}
                                  @teacher{Point out the differences in underlining between the two code screenshots. Note that when students finish this activity, both of the animations will look the same- but one program will have been much more straightforward to modify! We wrote a bit more code at the beginning to set up the nested structures, but that paid off later by giving us more flexibility to change the behavior of the pinwheels.}}
-                 
-                    @point{@student{
-                                    @bitmap{images/NN-Pinwheels1-HighlightedSmall.png}  
-                                    @bitmap{images/N-Pinwheels1-HighlightedSmall.png}
+                  @point{@student{
+                    @bannerline{@bitmap{images/Nesting1.png}}  
+                                    
                  
                  Just by looking at the differences on paper, we can see the difference in complexity of changing our animations. In order to make each pinwheel spin at a different speed, much more of the non-nested program will need to change, as opposed to the nested version where only the @code{Pinwheel} structure, @code{STARTING-PINWHEELS} instance, and the @code{update-pinwheel} function need to be edited.}
                             @teacher{}}
                     
-                    @point{@student{What if we wanted to add a breeze to our animation, and make the pinwheels move across the screen to the left? Let's assume that each pinwheel moves at the same speed, but each of their x-coordinates will need to change. @activity{Go through the same process as before: Starting with the non-nested version of the code, print out these code screenshots: ______[Link to NN-Pinwheels-2 and N-Pinwheels-2]______, and underline or highlight the places in the code you would need to edit in order to change the x-coordinates of each pinwheel. Do this for both the nested and non-nested versions of the animation.}}
+                    @point{@student{What if we wanted to add a breeze to our animation, and make the pinwheels move across the screen to the left? Let's assume that each pinwheel moves at the same speed, but each of their x-coordinates will need to change. @activity{Go through the same process as before: Starting with the non-nested version of the code, print out these code screenshots: @itemlist[@item{@(hyperlink "http://www.bootstrapworld.org/materials/spring2017/courses/reactive/resources/images/NonNested-Pinwheels2.png" "Non-nested pinwheels")}
+                       @item{@(hyperlink "http://www.bootstrapworld.org/materials/spring2017/courses/reactive/resources/images/Nested-Pinwheels2.png" "Nested pinwheels")}]                                                                                                                                                                                                                                 and underline or highlight the places in the code you would need to edit in order to change the x-coordinates of each pinwheel. Do this for both the nested and non-nested versions of the animation.}}
                           @teacher{@bold{Optonal:} For practice, have students make this change in both programs on the computer. Have them pay special attention to their helper functions- will they be able to use the existing @code{update-pinwheel} in the non-nested version of the animation?}}
-         
-                    @point{@student{
-                                     @bitmap{images/NN-Pinwheels2-HighlightedSmall.png}  
-                                     @bitmap{images/N-Pinwheels2-HighlightedSmall.png}
+          @point{@student{
+                   @bannerline{@bitmap{images/Nesting2.png}} 
                                      
-                                     As before, we end up underlining, and needing to change @italic{much} more of the code in the non-nested version of the animation. We also may realize something important about the non-nested code: if both a pinwheel's angle of rotation @italic{and} its x-coordinate are changing, we're no longer able to use our @code{update-pinwheel} @vocab{helper function}. Previously, this function consumed an angle and speed, and added these numbers together to produce the new angle. However, since functions can only return one thing at a time, we can't use this function to produce the updated angle and updated x-coordinate. Instead, the work of decreasing the x-coordinate must be done inside @code{next-state-tick}. Writing that code is nothing new, but wouldn't it be nice to leave @code{next-state-tick} alone, and update each pinwheel individually inside the @vocab{helper function}?}
+                                     
+                          As before, we end up underlining, and needing to change @italic{much} more of the code in the non-nested version of the animation. We also may realize something important about the non-nested code: if both a pinwheel's angle of rotation @italic{and} its x-coordinate are changing, we're no longer able to use our @code{update-pinwheel} @vocab{helper function}. Previously, this function consumed an angle and speed, and added these numbers together to produce the new angle. However, since functions can only return one thing at a time, we can't use this function to produce the updated angle and updated x-coordinate. Instead, the work of decreasing the x-coordinate must be done inside @code{next-state-tick}. Writing that code is nothing new, but wouldn't it be nice to leave @code{next-state-tick} alone, and update each pinwheel individually inside the @vocab{helper function}?}
                             @teacher{For reference, the complete code for the nested and non-nested versions of the pinwheels file including speed can be found here: @itemlist[@item{@editor-link[#:public-id "0B9rKDmABYlJVWWM2aTdUZG02ZGM&v=a49eb01" "Non-nested Pinwheels+Speed"]}
                                                   @item{@editor-link[#:public-id "0B9rKDmABYlJVaUsxbUkyLUJhZDg&v=a49eb01" "Nested Pinwheels+Speed"]}]}}
                     
