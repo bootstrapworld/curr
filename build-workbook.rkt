@@ -60,8 +60,6 @@
  tags)
 
 
-(printf "Printing Documents in ~a\n" (getenv "LANGUAGE"))
-
 ;; NOTE: This defn is a hack.  Ideally, we should be using the
 ;;  get-workbook-dir function from paths.rkt.  However, that is
 ;;  capturing a binding for the current-course parameter that
@@ -69,22 +67,28 @@
 ;;  As a result, we'd always generate the algebra workbook, even when our
 ;;  current-course is set to reactive.
 
-
-(define (kf-get-workbook-dir) (build-path courses-base (current-course) "resources" "workbook" "langs" (getenv "LANGUAGE")))
+;;TODO: Test
+(define (kf-get-workbook-dir) (get-workbook-dir))
 
 ; converts list of pages to having all pdf extensions
 (define (pdf-pagenames pages)
   (map (lambda (p) 
-         (if (string? p) 
-             (regexp-replace #px"\\.scrbl$" p ".pdf")
-             (string-append (second p) ".pdf")))
+         (cond
+           [(string? p) 
+             (regexp-replace #px"\\.scrbl$" p ".pdf")]
+           [(and (list? p) (= 2 (length p)))
+             (string-append (second p) ".pdf")]
+           [(and (list? p) (= 3 (length p)))
+            ;;TODO
+            (regexp-replace #px"\\.scrbl$" (second p) ".pdf")]
+            ))
        pages))
 
 ; generate index of entire workbook by computing page sizes per PDF
 (define (gen-wkbk-index pdfpages 
-                        #:pdfdir [pdfdir (build-path (get-workbook-dir) "langs" (getenv "LANGUAGE") "pages")] 
+                        #:pdfdir [pdfdir (build-path (get-workbook-dir) "pages")] 
                         #:startpage [startpage 1]
-                        #:indexfile [indexfile (build-path (get-workbook-dir) "langs" (getenv "LANGUAGE") "workbook-index.rkt")]
+                        #:indexfile [indexfile (build-path (get-workbook-dir) "workbook-index.rkt")]
                         )
   ; map and get pdf size, create pairs of page name and page number
   (let loop ([pages pdfpages] [nextpage startpage] [indexlist '()])
@@ -125,7 +129,10 @@
   (let ([havefile? (lambda (f) 
                      (if (string? f) 
                          (file-exists? (build-path basedir f))
-                         (file-exists? (build-path basedir 'up (first f)))))])
+                         (if (string=? (first f) "exercise")
+                             (file-exists? (build-path (lessons-dir) (third f) "exercises"(second f)))
+                             (file-exists? (build-path basedir 'up (first f))))))])
+    ;;TODO: Good start; now see where it handles this stuff
     (let ([missing (filter (lambda (f) (not (havefile? f))) ctlist)])
       (if (empty? missing) ctlist
           (begin
@@ -162,6 +169,7 @@
   (parameterize ([current-directory (kf-get-workbook-dir)])
     (for-each (lambda (pspec)
                 (when (and (list? pspec)
+                           (= (length pspec) 2)
                            (or #t
                                (not (file-exists? (build-path "pages" (string-append (second pspec) ".pdf"))))
                                (not wkbk-mod-sec)
@@ -184,6 +192,7 @@
          [front-spec (with-input-from-file (build-path (kf-get-workbook-dir) "frontmatterlist.rkt") read)]
          [back-spec (with-input-from-file (build-path (kf-get-workbook-dir) "backmatterlist.rkt") read)]
          [pagesdir (build-path (kf-get-workbook-dir) "pages")]
+         [extra-exercises-dir (lessons-dir)]
          [pages (check-contents-exist pages-spec pagesdir)]
          [frontpages (check-contents-exist front-spec pagesdir)]
          [backpages (check-contents-exist back-spec pagesdir)]
@@ -197,7 +206,7 @@
         (printf "WARNING: Empty workbook contents for ~a, no workbook generated~n" (current-course))
         (parameterize ([current-deployment-dir pagesdir])
           ; scribble the scrbl pages and run wkhtmltopdf on the resulting html
-          (scribble-files pages pagesdir workbook-last-gen-sec)
+          (scribble-files pages pagesdir extra-exercises-dir workbook-last-gen-sec)
           ; extract any manual PDF pages from their source file
           (extract-PDF-pages pages workbook-last-gen-sec)
           (let* ([pdfpagenames (pdf-pagenames pages)])
@@ -217,6 +226,7 @@
                        (let ([frontpdf (build-path (kf-get-workbook-dir) "front-matter.pdf")]
                              [backpdf (build-path (kf-get-workbook-dir) "back-matter.pdf")]
                              [workbooknums (build-path (kf-get-workbook-dir) "workbook-numbered.pdf")]
+                             ;;TODO: Have to add pdf here of extra exercises and add to system call below
                              [workbook (build-path (kf-get-workbook-dir) workbook-file)])
                          (system* (get-prog-cmd "pdftk") frontpdf workbooknums backpdf "output" workbook "dont_ask"))))
             ; clean out auxiliary tex files (ie, texwipe, intermed no page nums file)
@@ -239,13 +249,14 @@
 
 ; is there a workbook to build?
 (define (workbook-to-build?)
-  (let ([contentlistfile (build-path (kf-get-workbook-dir) "contentlist.rkt")]) 
-    (printf "checking ~a~n" contentlistfile)
+  (let ([contentlistfile (build-path (kf-get-workbook-dir) "contentlist.rkt")])
     (and (file-exists? contentlistfile)
          (cons? (with-input-from-file contentlistfile read)))))
 
-(printf "Building workbook (solutions-mode is ~a) ~n" (solutions-mode?))
+(printf "Building workbook (solutions-mode is ~a) ~n Building for courses: ~a~n Building in language: ~a~n"
+        (solutions-mode?) bootstrap-courses (getenv "LANGUAGE"))
 (for ([course (in-list bootstrap-courses)])
+  (current-translations (with-input-from-file (string-append "lib/langs/" (getenv "LANGUAGE") "/translated.rkt") read))
   (parameterize ([current-course course])
     (if (workbook-to-build?)
         (build-workbook)

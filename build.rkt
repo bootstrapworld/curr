@@ -43,23 +43,6 @@
 ;; Depending on who we are generating for, we need to relocate the resources dirs.
 ;; May be able to do unit-to-resources-path in the bootstrap case using find-relative path
 (define (update-resource-paths)
-
-
-
-
-
-  
-  ;;TODO: ???
-
-
-
-
-
-
-
-
-
-  
     (deploy-resources-dir (build-path (root-deployment-dir) "courses" (current-course)(getenv "LANGUAGE") "resources"))
     (unit-to-resources-path (build-path 'up 'up "resources")))
  
@@ -417,8 +400,8 @@
            (printf "build.rkt: Building ~a\n" scribble-file)
            (run-scribble scribble-file #:never-generate-pdf? #t)]
           [else
-           (printf "Could not find a \"lesson.scrbl\" in directory ~a\n"
-                   (build-path (lessons-dir) subdir))])
+           (WARNING (format "Could not find a \"lesson.scrbl\" in directory ~a\n"
+                   (build-path (lessons-dir) subdir)) 'missing-lessons)])
     )
   )
 
@@ -556,14 +539,10 @@
       ; first copy over all of the resources files to the deployment resources dir
       (let ([input-resources-dir (get-resources)]
             [output-resources-dir (deploy-resources-dir)])
-        ;TODO: remove
-        (printf "\n\noutput-resources-dir: ~a~n\n\n"output-resources-dir)
         (when (directory-exists? output-resources-dir)
           (delete-directory/files output-resources-dir))
-        ;(printf (string-append "subdirs: " (directory-list input-resources-dir)))
         (make-directory  output-resources-dir )
         (for ([subdir (directory-list input-resources-dir)])
-          (printf "Copying from ~a to ~a ~n" (path->string (build-path input-resources-dir subdir)) (path->string (build-path output-resources-dir subdir)))
           ;; this created new directories for each of the four subdirs contained in resources, at the distribution end
           (match (path->string subdir)
             [(or "teachers" "workbook" "misc.")
@@ -573,8 +552,7 @@
              (copy-directory/files (build-path input-resources-dir subdir)
                               (build-path (simple-form-path output-resources-dir) subdir))]
             [_
-             (if (equal? ".DS_Store" (path->string subdir))
-                           (printf "what is subdir")
+             (unless (equal? ".DS_Store" (path->string subdir))
                            (copy-file (build-path input-resources-dir subdir)
                                       (build-path (simple-form-path output-resources-dir) subdir )
                                       #t))]))

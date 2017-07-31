@@ -1,3 +1,4 @@
+
 #lang racket
 
 (provide (all-defined-out))
@@ -26,7 +27,8 @@
                                   'run-link
                                   'lookup-tags
                                   'missing-unit-descr
-                                  'incomplete-worksheet))
+                                  'incomplete-worksheet
+                                  'missing-lessons))
 
 
 
