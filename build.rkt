@@ -324,6 +324,7 @@
 ;; Building the units of the course.
 ;; We must do this twice to resolve cross references for lessons.
 (define (build-course-units)
+  (when (directory-exists? (get-units-dir)) 
   (printf "build.rkt: building ~a\n" (current-course))
   (when (directory-exists? (get-units-dir))
   (for ([phase (in-range 2)])
@@ -387,9 +388,9 @@
 
   (rename-file-or-directory (build-path (current-deployment-dir) "courses" (current-course)(getenv "LANGUAGE") "index.html")
                             (build-path (current-deployment-dir) "courses" (current-course)(getenv "LANGUAGE") "index.shtml")
-                            #t))
-  (unless (directory-exists? (get-units-dir)) (WARNING (format "Unit directory not found for course ~a in lanugage ~a" (current-course)(getenv "LANGUAGE")) 'missing-course-dir)))
-
+                            #t)))
+  (unless (directory-exists? (get-units-dir)) (WARNING (format "No units directory found for course ~a in language ~a" (current-course) (getenv "LANGUAGE")) 'no-course-dir))
+  )
 
 ;; Building the lessons
 (define (build-lessons)
