@@ -1110,7 +1110,9 @@
 (define (include-language-links-main)
   (interleave-parbreaks/all
    ;TODO change interleave-parbreaks/all, can it access run-languages?
-  (foldl (lambda (language rest)
+(cons (hyperlink #:style bootstrap-hyperlink-style "#" "add translation" ) 
+   
+   (foldl (lambda (language rest)
            (cons (hyperlink #:style bootstrap-hyperlink-style
                             ;(path->string (find-relative-path
                              ;              (current-document-output-path)
@@ -1118,7 +1120,7 @@
                             (string-append "../" language "/index.shtml")
                             (translate (string->symbol language))) rest))
          '()
-        (build-languages))))
+        (build-languages)))))
              
 
 
