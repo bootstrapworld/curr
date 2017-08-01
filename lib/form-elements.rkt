@@ -1332,8 +1332,10 @@
                             (cond [page page] 
                                   [name (let ([num (get-workbook-page/name name)])
                                           (if num num
-                                              (if (file-exists? (build-path (get-workbook-dir) "StudentWorkbook.pdf"))
-                                                  (error 'worksheek-link (format "Unknown page name ~a" name))
+                                             ; (if (file-exists? (build-path (get-workbook-dir) "StudentWorkbook.pdf"))
+                                              ;    (WARNING (format "Unknown page name ~a" name) 'worksheet-link)
+                                              ;;TODO WHY WON'T THIS WORK RIGHT/IS IT OKAY TO HAVE MADE THIS FROM AN ERROR INTO A WARNING?
+                                              (begin (WARNING (format "Unknown page name ~a" name) 'worksheet-link)
                                                   1)))]
                                   [else (WARNING "worksheet link needs one of page or name\n" 'incomplete-worksheet)
                                         0])))))

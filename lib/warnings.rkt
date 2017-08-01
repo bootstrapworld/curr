@@ -29,7 +29,8 @@
                                   'missing-unit-descr
                                   'incomplete-worksheet
                                   'missing-lessons
-                                  'no-course-dir))
+                                  'no-course-dir
+                                  'worksheet-link))
 
 
 
