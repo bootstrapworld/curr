@@ -1105,7 +1105,7 @@
                             (string-append "../../../../" (current-course)"/" language "/units/" (current-unit) "/index.html")
                             (translate (string->symbol language))) rest))
          '()
-         (filter (lambda (lang) (not (string=? lang (getenv "LANGUAGE")))) (build-languages)))))
+         (build-languages))))
 
 (define (include-language-links-main)
   (interleave-parbreaks/all
@@ -1118,7 +1118,7 @@
                             (string-append "../" language "/index.shtml")
                             (translate (string->symbol language))) rest))
          '()
-         (filter (lambda (lang) (not (string=? lang (getenv "LANGUAGE")))) (build-languages)))))
+        (build-languages))))
              
 
 
