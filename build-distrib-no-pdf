@@ -6,11 +6,13 @@
 
 # and the workbook solutions manual
 echo "BUILDING TEACHER WORKBOOK"
-racket -l errortrace -t build-workbook.rkt -- --solutions
+./build-workbook --solutions --language spanish
+./build-workbook --solutions --language english
 
 # build the workbook (for students)
 echo "BUILDING STUDENT WORKBOOK"
-racket -l errortrace -t build-workbook.rkt
+./build-workbook --language english
+./build-workbook --language spanish
 
 echo "BUILDING NOTES AND RESOURCES"
 ./build-notes "$@"
