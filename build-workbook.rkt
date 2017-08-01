@@ -44,6 +44,12 @@
            (error "Build got unrecognized target course: " course-name " -- expected"
                   (foldl (lambda (a b) (string-append a " or " b)) "" courses))))]))
 
+; use this to tell scribble to use the workbook.css file
+(putenv "BOOTSTRAP-TARGET" "workbook")
+
+; by default, generate student workbook, not solutions workbook
+(solutions-mode-off)
+
 
 (command-line
  #:program "build-workbook"
@@ -241,11 +247,6 @@
 ; for now, only algebra is set up for auto-building
 (define bootstrap-courses courses);;
 
-; use this to tell scribble to use the workbook.css file
-(putenv "BOOTSTRAP-TARGET" "workbook")
-
-; by default, generate student workbook, not solutions workbook
-(solutions-mode-off)
 
 ; is there a workbook to build?
 (define (workbook-to-build?)
