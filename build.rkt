@@ -38,7 +38,12 @@
 (current-deployment-dir (root-deployment-dir))
 
 ;;This lists all courses which are currently able to be built
-(define available-courses '("algebra" "reactive" "data-science" "physics" "blank-course"));
+(define available-course-specs '(("algebra" "english" "spanish")
+                                 ("reactive" "english")
+                                 ("data-science" "english")
+                                 ("physics" "english")
+                                 ("blank-course" "english")))
+(define available-courses (map (lambda (course-spec) (first course-spec)) available-course-specs))
 
 ;; Depending on who we are generating for, we need to relocate the resources dirs.
 ;; May be able to do unit-to-resources-path in the bootstrap case using find-relative path
@@ -188,6 +193,8 @@
 (define courses available-courses)
 
 (define available-languages (list "english" "spanish"))
+
+(define bootstrap-course-specs available-course-specs)
 
 (define run-languages (list "english" "spanish"))
 
@@ -670,7 +677,7 @@
     (copy-file (build-path "lib" "mathjaxlocal.js")
                (build-path distrib-lib-dir "mathjaxlocal.js")
                #t)))
-(define bootstrap-courses courses)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -681,28 +688,33 @@
 (void (putenv "WORKSHEET-LINKS-TO-PDF" "true"))
 (print-build-intro-summary)
 (build-languages run-languages)
-(for ([language (in-list run-languages)])
-  (update-lang-fields language)
-(for ([course (in-list bootstrap-courses)])
-  (parameterize ([current-course course])
-    (solutions-mode-off)
-    (putenv "RELEASE-STATUS" "mature")
-    (process-teacher-contributions)
-    (when (equal? course "algebra")
-      (putenv "TARGET-LANG" "racket")
-      (build-exercise-handouts) ; not needed for reactive
-      (workbook-styling-on)
-      (build-extra-pdf-exercises) ; not needed for reactive
-      )
-    (when (equal? course "reactive")
-      (putenv "TARGET-LANG" "pyret")
-      ;; formerly set "RESLEASE-STATUS" to "beta" here
-      )
-    (textbook-styling-on)
-    (update-resource-paths)
-    (build-course-units)
-    (build-resources)
-    )))
+;;TODO: run-languages
+(for ([course-spec (in-list bootstrap-course-specs)]
+      #:when (member (first course-spec) courses))
+  (let ([course (first course-spec)]
+        [languages (rest course-spec)])
+    (parameterize ([current-course course])
+      (for ([language (in-list languages)]
+        #:when (member language run-languages))
+        (update-lang-fields language)
+        (solutions-mode-off)
+        (putenv "RELEASE-STATUS" "mature")
+        (process-teacher-contributions)
+        (when (equal? course "algebra")
+          (putenv "TARGET-LANG" "racket")
+          (build-exercise-handouts) ; not needed for reactive
+          (workbook-styling-on)
+          (build-extra-pdf-exercises) ; not needed for reactive
+          )
+        (when (equal? course "reactive")
+          (putenv "TARGET-LANG" "pyret")
+          ;; formerly set "RESLEASE-STATUS" to "beta" here
+          )
+        (textbook-styling-on)
+        (update-resource-paths)
+        (build-course-units)
+        (build-resources)
+        ))))
 (create-distribution-lib)
 (print-warnings)
 ;(build-lessons)
