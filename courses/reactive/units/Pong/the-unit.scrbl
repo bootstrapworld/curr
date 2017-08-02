@@ -251,9 +251,10 @@ fun next-state-tick(w):
       # the ball keeps moving in the same x-direction
       w.ballY + (w.moveY * -1), 
       # but it bounces off the wall (move backwards by moveY)
-      w.moveX * -1,            
+      w.moveX,            
+      # the x-direction stays the same
+      w.moveY * -1)
       # and the y-direction is reversed
-      w.moveY)
   else:
     pong(
       w.paddle1Y,
@@ -265,7 +266,7 @@ fun next-state-tick(w):
   end
 end
 }
-                                 If a collision occurs, we need to do two things. First, we need to move the ball to it's next position,
+                                 If a collision with an upper or lower wall occurs, we need to do two things. First, we need to move the ball to it's next position,
                                  and make sure that new position is far enough away from the paddle so that it won't be considered another
                                  collision. Second, we need to flip the y-direction so that the ball is moving in the opposite direction.
                                  This is easy to do, by multiplying the @code{moveY} by -1.
