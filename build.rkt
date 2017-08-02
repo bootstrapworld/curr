@@ -535,15 +535,14 @@
 ;; the distribution directories
 (define (build-resources)
   ;; Under deployment mode (currently always enabled), include the resources.
-  (when (current-deployment-dir)
-    (when (directory-exists? (get-resources))
+  (when (and (current-deployment-dir) (directory-exists? (get-resources)))
       
       ; first copy over all of the resources files to the deployment resources dir
       (let ([input-resources-dir (get-resources)]
             [output-resources-dir (deploy-resources-dir)])
         (when (directory-exists? output-resources-dir)
           (delete-directory/files output-resources-dir))
-        (make-directory  output-resources-dir )
+        (make-directory output-resources-dir)
         (for ([subdir (directory-list input-resources-dir)])
           ;; this created new directories for each of the four subdirs contained in resources, at the distribution end
           (match (path->string subdir)
@@ -592,7 +591,7 @@
                    (build-path (current-deployment-dir) "courses" (current-course)(getenv "LANGUAGE") "resources" "backlogo.png")
                    #t)
         
-        )))
+        ))
 
   ;; copy auxiliary files into units within distribution
   (when (and (current-deployment-dir) (directory-exists? (get-units-dir)))

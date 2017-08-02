@@ -1,19 +1,14 @@
 #!/bin/sh
 
 
-
-# and the workbook solutions manual
-echo "BUILDING TEACHER WORKBOOK\n"
-./build-workbook --solutions --language spanish
+# echo "BUILDING TEACHER WORKBOOK\n"
 ./build-workbook --solutions --language english
 
 # build the workbook (for students)
 echo "\nBUILDING STUDENT WORKBOOK\n"
 ./build-workbook --language english
-./build-workbook --language spanish
 
 echo "\nBUILDING NOTES AND RESOURCES\n"
-./build-notes "$@"
+./build-notes --language english "$@"
 
  
-  
