@@ -586,9 +586,10 @@
               [sourcezip (build-path output-resources-dir "source-files.zip")])
           (when (file-exists? sourcezip)
             (delete-file sourcezip))
+          (when (directory-exists? sourcefiles)
           (parameterize ([current-directory sourcefiles])
             (let ([allfiles (directory-list sourcefiles)])
-              (apply zip (cons sourcezip allfiles)))))
+              (apply zip (cons sourcezip allfiles))))))
         
         ;; copy the background logo to the resources directory
         (copy-file (build-path "lib" "backlogo.png")
