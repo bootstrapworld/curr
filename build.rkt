@@ -542,13 +542,16 @@
             [output-resources-dir (deploy-resources-dir)])
         (when (directory-exists? output-resources-dir)
           (delete-directory/files output-resources-dir))
+
+        ;(error "test break")
         (make-directory output-resources-dir)
         (for ([subdir (directory-list input-resources-dir)])
           ;; this created new directories for each of the four subdirs contained in resources, at the distribution end
           (match (path->string subdir)
             [(or "teachers" "workbook" "misc.")
-             (copy-directory/files (build-path input-resources-dir subdir "langs" (getenv "LANGUAGE") )
-                              (build-path (simple-form-path output-resources-dir) subdir))]
+             (when (directory-exists? (build-path input-resources-dir subdir "langs" (getenv "LANGUAGE") ))
+               (copy-directory/files (build-path input-resources-dir subdir "langs" (getenv "LANGUAGE") )
+                              (build-path (simple-form-path output-resources-dir) subdir)))]
             [(or "images" "source-files")
              (copy-directory/files (build-path input-resources-dir subdir)
                               (build-path (simple-form-path output-resources-dir) subdir))]
@@ -565,12 +568,13 @@
 
         
         ; keep only certain files in workbook resources dir
-        (let ([keep-workbook-files (list "workbook.pdf")])
+        (when (directory-exists? (build-path output-resources-dir "workbook"))
+          (let ([keep-workbook-files (list "workbook.pdf")])
           (for ([wbfiledir (directory-list (build-path output-resources-dir "workbook"))])
             (unless (member (path->string wbfiledir) keep-workbook-files)
               (if (directory-exists? (build-path output-resources-dir "workbook" wbfiledir))
                   (delete-directory/files (build-path output-resources-dir "workbook" wbfiledir))
-                  (delete-file (build-path output-resources-dir "workbook" wbfiledir))))))
+                  (delete-file (build-path output-resources-dir "workbook" wbfiledir)))))))
         ; ideally, modify workbook build process to generate right filename from the
         ; outset.  In the meantime, this puts the right filename in the distribution
         ; the "when" is there to avoid error in reactive (which has no workbook yet)
