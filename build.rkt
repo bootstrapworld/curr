@@ -306,9 +306,13 @@
 ;; otherwise.  The intent is for generated files to overwrite static
 ;; resources.
 (define (make-fresh-deployment-and-copy-static-pages)
+  ;;If the directory already exists, wipe it and make a new one
+  
   (when (directory-exists? (current-deployment-dir))
-    (delete-directory/files (current-deployment-dir)))
+      (delete-directory/files (current-deployment-dir)))
   (make-directory (current-deployment-dir))
+
+  
   (for ([base (directory-list (static-pages-path))])
     (define source-full-path (build-path (static-pages-path) base))
     (define target-full-path (build-path (current-deployment-dir) base))
@@ -687,15 +691,16 @@
 ;; remove next line if ever want to generate links to web docs instead of PDF
 (void (putenv "WORKSHEET-LINKS-TO-PDF" "true"))
 (print-build-intro-summary)
-(build-languages run-languages)
 ;;TODO: run-languages
 (for ([course-spec (in-list bootstrap-course-specs)]
       #:when (member (first course-spec) courses))
   (let ([course (first course-spec)]
         [languages (rest course-spec)])
-    (parameterize ([current-course course])
+    (parameterize ([current-course course]
+                   [current-course-languages languages])
       (for ([language (in-list languages)]
         #:when (member language run-languages))
+        
         (update-lang-fields language)
         (solutions-mode-off)
         (putenv "RELEASE-STATUS" "mature")
