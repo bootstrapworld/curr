@@ -1098,7 +1098,7 @@
   (interleave-parbreaks/all
    ;TODO change interleave-parbreaks/all, can it access run-languages?
    (foldl (lambda (language rest)
-            (cons (hyperlink #:style bs-translation-buttons-style
+            (cons (hyperlink #:style bootstrap-hyperlink-style
                                      ;(path->string (find-relative-path
                                      ;              (current-document-output-path)
                                      ;             (string-replace (path->string (current-document-output-path)) (getenv "LANGUAGE") language)))
@@ -1111,13 +1111,13 @@
   (interleave-parbreaks/all
    ;TODO change interleave-parbreaks/all, can it access run-languages?
     (foldl (lambda (language rest)
-             (cons (hyperlink  #:style bs-translation-buttons-style 
+             (cons (hyperlink  #:style bootstrap-hyperlink-style 
                                        ;(path->string (find-relative-path
                                        ;              (current-document-output-path)
                                        ;             (string-replace (path->string (current-document-output-path)) (getenv "LANGUAGE") language)))
                                        (string-append "../" language "/index.shtml")
                                        (translate (string->symbol language))) rest))
-           ( list (hyperlink  #:style bs-translation-buttons-style 
+           ( list (hyperlink  #:style bootstrap-hyperlink-style 
                          "#"
                          "add translation"))
            (current-course-languages))))
