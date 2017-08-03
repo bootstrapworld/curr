@@ -1105,7 +1105,7 @@
                                      (string-append "../../../../" (current-course)"/" language "/units/" (current-unit) "/index.html")
                                      (translate (string->symbol language))) rest))
           '()
-          (build-languages))))
+          (current-course-languages))))
 
 (define (include-language-links-main)
   (interleave-parbreaks/all
@@ -1120,7 +1120,7 @@
            ( list (hyperlink  #:style bootstrap-hyperlink-style 
                          "#"
                          "add translation"))
-           (build-languages))))
+           (current-course-languages))))
              
 
 
