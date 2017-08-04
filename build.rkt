@@ -152,6 +152,18 @@
            (error (format (string-append "Build got unrecognized target course: " course-name "\n expected one of the following:\n~a\n")
                   available-courses))))]))
 
+;; parse-unit-args: list/of string -> list/of string
+;; This parses the list of unit arguments
+(define (parse-unit-args rest-args)
+  (cond
+    [(empty? rest-args) empty]
+    [(cons? rest-args)
+     ;;checks if next argument is a command-line argument tag, rather than a Unit name
+     (let [(unit-name (first rest-args))]
+       (if (string-contains? unit-name "unit")
+           (cons unit-name (parse-unit-args (rest rest-args)))
+           (error (format (string-append "Build got unrecognized target Unit " unit-name "\n expected something that looks like Unitx")))))]))
+
 
 
 
@@ -192,6 +204,8 @@
 ;(define courses (list "algebra" "reactive" )) ;  "data-science" "physics"))
 (define courses available-courses)
 
+(units '())
+
 (define available-languages (list "english" "spanish"))
 
 (define bootstrap-course-specs available-course-specs)
@@ -228,7 +242,10 @@
 ;
 ;
 ;;; Different command-line tags and how to use them:
-;;NOTE: These first three were added in Summer 2017 by Kielan Donahue and Jacob Jackson
+;;NOTE: These first five were added in Summer 2017 by Kielan Donahue and Jacob Jackson
+;
+; --units
+; this selects which units to build (can ONLY be used when running a single course. form unit1_unit3_unit5)
 ;
 ; --course
 ; This selects which courses are to be produced. Can take multiple arguments (seperated by underscores)
@@ -284,6 +301,8 @@
     (putenv "TARGET-LANG" -lang)]
    [("--course") -course "List all courses that you want to build. They MUST be separated by \"_\"_. Default: All available courses"
                  (set! courses (parse-course-args (string-split -course "_")))]
+   [("--units") -unit "List all units that you want to build. They MUST be separated by \"_\"_. Default: All available units. \n only works properly when building just one course"
+                 (units (parse-unit-args (string-split -unit "_")))]
    [("--pdf") "Generate PDF documentation"
     (current-generate-pdf? #t)]
    
@@ -294,10 +313,10 @@
 (define (print-build-intro-summary)
 (printf "\n\nPrinting documents in ~a \n" run-languages)
 (printf "Building courses: ~a\n" courses)
+(printf "Building units ~a\n" (units))
 (unless (string=? (getenv "IGNORED-WARNINGS") "")
   (printf "Ignoring the following warning types: ~a\n" (string-split (getenv "IGNORED-WARNINGS") "/")))
 (printf "\n\n"))
-
 
 
 
@@ -352,15 +371,31 @@
   (when (directory-exists? (get-units-dir))
   (for ([phase (in-range 2)])
     (printf "Phase ~a\n" phase)
-    (for ([subdir (directory-list (get-units-dir))]
+    (for ([unit (units)])
+      (printf "doing  unit ~a \n" unit))
+    (for ([unit (directory-list (get-units-dir))])
+      (printf "we have  unit ~a \n" unit))
+
+    
+    ;;checks to see if you want to use all the units. if no units specified, uses all units
+    (define units-to-use
+      (if (empty? (units))
+                      (directory-list (get-units-dir))
+                      (filter (lambda (unit) (member (path->string unit) (units))) (directory-list (get-units-dir)))))
+    (for ([unit  units-to-use])
+      (printf "we have  unit ~a \n" unit))
+    (for ([subdir units-to-use]
           #:when (directory-exists?  (build-path (get-units-dir) subdir)))
-      (define scribble-file (simple-form-path (build-path (build-path courses-base (current-course) "units" "langs" (getenv "LANGUAGE")) subdir "the-unit.scrbl"))); langs path
+
+      (define scribble-file (simple-form-path (build-path (build-path courses-base (current-course) "units" "langs" (getenv "LANGUAGE"))
+                                                          subdir "the-unit.scrbl"))); langs path
       (cond [(file-exists? scribble-file)
              (printf "build.rkt: Building ~a\n" scribble-file)
              (copy-file (build-path "lib" "box.gif") 
                         (build-path (get-units-dir) subdir "box.gif")
                         #t)
              (parameterize ([current-unit (path->string subdir)])
+               (printf "\n\ncurrent unit set\n\n")
              (run-scribble scribble-file #:outfile "index" #:never-generate-pdf? (= phase 0)))
              ]
             [else
@@ -368,7 +403,9 @@
                      (build-path (get-units-dir) subdir))])))
     
       ;; copy exercises from individual lessons into units that reference them 
-    (for ([subdir (directory-list (get-units-dir))]
+    (for ([subdir (if (empty? (units))
+                      (directory-list (get-units-dir))
+                      (filter (lambda (unit) (member unit (units))) (directory-list (get-units-dir))))]
           #:when (directory-exists? (build-path (get-units-dir) subdir)))
       (let (;[exercises-dir (build-path (get-units-dir) subdir "exercises")]
             [deploy-exercises-dir (build-path (current-deployment-dir) "courses" (current-course)(getenv "LANGUAGE")
@@ -635,7 +672,9 @@
 
   ;; copy auxiliary files into units within distribution
   (when (and (current-deployment-dir) (directory-exists? (get-units-dir)))
-    (for ([subdir (directory-list (get-units-dir))])
+    (for ([subdir (if (empty? (units))
+                      (directory-list (get-units-dir))
+                      (filter (lambda (unit) (member unit (units))) (directory-list (get-units-dir))))])
       ;; ignore contents starting with .
       (unless (string=? "." (substring (path->string subdir) 0 1))
         (copy-file (build-path "lib" "box.gif")

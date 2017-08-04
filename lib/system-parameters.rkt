@@ -8,6 +8,7 @@
          current-generate-pdf?
          current-course
          current-unit
+         units
          current-lesson-xref
          current-teacher-contr-xref
          current-document-output-path
@@ -47,6 +48,9 @@
 
 ;; The current unit being built. Name of directory title
 (define current-unit (make-parameter #f))
+
+;; The units being built, as called by command line
+(define units (make-parameter '() ))
 
 
 ;; The output path of the current document.

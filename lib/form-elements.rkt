@@ -840,10 +840,11 @@
 ;; generate the summary of a unit with links to html and pdf versions as
 ;;   used on the main page for the BS1 curriculum
 ;; previously used summary-item/links (for both html/pdf links)
-(define (unit-summary/links num)
-  (summary-item/unit-link (format (string-append (translate 'unit)" ~a") num)
+(define (unit-summary/links num )
+  (when (member (format (string-append (translate 'unit)" ~a") num) (units))
+    (summary-item/unit-link (format (string-append (translate 'unit)" ~a") num)
                           (format "units/unit~a/index" num)  ; index used to be "the-unit" 
-                          (get-unit-descr (format "unit~a" num))))
+                          (get-unit-descr (format "unit~a" num)))))
 
 ;;;;;;;;;; Unit summary generation ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -1368,7 +1369,8 @@
                    (if label label lesson-name))]       
        ;; If not, fail for now by producing a hyperlink that doesn't quite go to the right place.
        [else
-        (WARNING (format (current-output-port) "could not find cross reference to ~a in unit ~a of course ~a\n" lesson-name (current-unit) (current-course)) 'lesson-refs) 
+        ;;current-output-port breaks
+        ;;(WARNING (format (current-output-port) "could not find cross reference to ~a in unit ~a of course ~a\n" lesson-name (current-unit) (current-course)) 'lesson-refs) 
         (define the-relative-path
           (find-relative-path (simple-form-path (current-directory))
                               (simple-form-path (build-path worksheet-lesson-root lesson-name "lesson" "lesson.html"))))
