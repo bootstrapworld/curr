@@ -501,7 +501,12 @@
   (for-each (lambda (lesson-spec)
               (let* ([lesson-name (first lesson-spec)]
                      [exer-files (second lesson-spec)]
-                     [exer-dir (build-path lessons-dir-alt  lesson-name "exercises")]
+                     ;; TODO: This is a hack. Regular (lessons-dir) creates absurd distribution directories, so we rely
+                     ;;     on this hacky use of define-runtime-paths from paths.rkt, which have to be deliberately selected based on the langauge being used
+                     [exer-dir (build-path (match (getenv "LANGUAGE")
+                                             ["english" lessons-dir-alt-eng]
+                                             ["spanish" lessons-dir-alt-spa])
+                                             lesson-name "exercises")]
 		     [exer-deploy-dir (build-path (root-deployment-dir) "lessons" (getenv "LANGUAGE") lesson-name "exercises")])
                 (parameterize [(current-deployment-dir exer-dir)]
                   (scribble-to-pdf exer-files exer-dir))
