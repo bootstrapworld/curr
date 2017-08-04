@@ -308,10 +308,22 @@
 (define (make-fresh-deployment-and-copy-static-pages)
   ;;If the directory already exists, wipe it and make a new one
   
-  (when (directory-exists? (current-deployment-dir))
-      (delete-directory/files (current-deployment-dir)))
-  (make-directory (current-deployment-dir))
+  ;(when (directory-exists? (current-deployment-dir))
+  ;    (delete-directory/files (current-deployment-dir)))
+  ;(make-directory (current-deployment-dir))
 
+  (cond
+    [(and (directory-exists? (current-deployment-dir))
+          (directory-exists? (build-path (current-deployment-dir) "lessons" (getenv "LANGUAGE")))
+          (not (build-exercises?)))
+     (for ([subdir (directory-list (current-deployment-dir))]
+           #:when (not (string=? (path->string subdir) "lessons")))
+       (delete-directory/files (build-path (current-deployment-dir) subdir)))]
+    [else (when (directory-exists? (current-deployment-dir))
+            (delete-directory/files (current-deployment-dir)))
+          (make-directory (current-deployment-dir))])
+
+  
   
   (for ([base (directory-list (static-pages-path))])
     (define source-full-path (build-path (static-pages-path) base))
@@ -434,6 +446,18 @@
 
                    #t)
         ))))
+
+
+
+;; Decide whether or not the lesson exercises need to be rebuilt. Note that right now this is only done in algebra
+;; TODO: Fill in this stub to accurately check if we want build to build the exercises.
+(define (build-exercises?)
+  #t)
+
+
+
+
+
 
 ;; Building exercise handout solutions
 ;;  need putenv rather than parameter to communicate with form-elements.rkt -- not sure why
@@ -707,9 +731,11 @@
         (process-teacher-contributions)
         (when (equal? course "algebra")
           (putenv "TARGET-LANG" "racket")
-          (build-exercise-handouts) ; not needed for reactive
-          (workbook-styling-on)
-          (build-extra-pdf-exercises) ; not needed for reactive
+          (if (build-exercises?)
+              (begin (build-exercise-handouts) ; not needed for reactive
+              (workbook-styling-on)
+              (build-extra-pdf-exercises)); not needed for reactive
+              (workbook-styling-on))
           )
         (when (equal? course "reactive")
           (putenv "TARGET-LANG" "pyret")
