@@ -198,6 +198,8 @@
 
 (define run-languages (list "english" "spanish"))
 
+(define run-exercises? #t)
+
 (void (putenv "AUDIENCE" "teacher")
 (putenv "CURRENT-SOLUTIONS-MODE" "off")
 (putenv "TARGET-LANG" "pyret")
@@ -272,14 +274,15 @@
     (current-deployment-dir (simple-form-path -deploy-dir))]
    [("--language") -language "Select what language you are printing the curriculum for. Default: english"
                    (set! run-languages (parse-lang-args (string-split -language "_")))]
+   [("--skip-exers") "Dictate if you'd like to skip building exercises"
+                     (set! run-exercises? #f)]
    [("--suppress-warnings" "--sw") -sw "Dictate any types of warnings that you want to be suppressed in the output of running the Build script. Default: none."
-                   
-                       (for-each
-                        (lambda (sw-tag)
-                               (set-ignored-warnings sw-tag))
-                        (if (string=? -sw "all")
-                            ignore-warning-tags
-                            (parse-sw-args (string-split -sw "_"))))]
+                                   (for-each
+                                    (lambda (sw-tag)
+                                      (set-ignored-warnings sw-tag))
+                                    (if (string=? -sw "all")
+                                        ignore-warning-tags
+                                        (parse-sw-args (string-split -sw "_"))))]
    [("--lang") -lang "Indicate which language (Racket or Pyret) to generate"
     (putenv "TARGET-LANG" -lang)]
    [("--course") -course "List all courses that you want to build. They MUST be separated by \"_\"_. Default: All available courses"
@@ -361,7 +364,7 @@
                         (build-path (get-units-dir) subdir "box.gif")
                         #t)
              (parameterize ([current-unit (path->string subdir)])
-             (run-scribble scribble-file #:outfile "index" #:never-generate-pdf? (= phase 0)))
+               (run-scribble scribble-file #:outfile "index" #:never-generate-pdf? (= phase 0)))
              ]
             [else
              (printf "Could not find a \"the-unit.scrbl\" in directory ~a\n"
@@ -376,6 +379,7 @@
         ;(when (directory-exists? exercises-dir)
         ;  (delete-directory/files exercises-dir))
         ;(make-directory exercises-dir)
+        
         (make-directory deploy-exercises-dir)
         (let ([exer-list-path (build-path (get-units-dir) subdir "exercise-list.rkt")])
           (when (file-exists? exer-list-path)
@@ -452,7 +456,7 @@
 ;; Decide whether or not the lesson exercises need to be rebuilt. Note that right now this is only done in algebra
 ;; TODO: Fill in this stub to accurately check if we want build to build the exercises.
 (define (build-exercises?)
-  #t)
+  run-exercises?)
 
 
 
@@ -578,7 +582,7 @@
         (when (directory-exists? output-resources-dir)
           (delete-directory/files output-resources-dir))
 
-        ;(error "test break")
+        
         (make-directory output-resources-dir)
         (for ([subdir (directory-list input-resources-dir)])
           ;; this created new directories for each of the four subdirs contained in resources, at the distribution end

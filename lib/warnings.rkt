@@ -30,7 +30,8 @@
                                   'incomplete-worksheet
                                   'missing-lessons
                                   'no-course-dir
-                                  'worksheet-link))
+                                  'worksheet-link
+                                  'wb-index-entry))
 
 
 

@@ -753,12 +753,11 @@
 ;; Used to generate the curriculum overview pages
 ;; Not sure why we have the dual nested here ...
 (define (main-contents . body)
-  (interleave-parbreaks/all
-   (list (augment-head)
-         (include-language-links-main)
-         (nested #:style (bootstrap-div-style/id/nested "body")
-                 (nested #:style (bootstrap-div-style "item") 
-                         body)))))
+  (list (augment-head)
+        (include-language-links-main)
+        (nested #:style (bootstrap-div-style/id/nested "body")
+                (nested #:style (bootstrap-div-style "item") 
+                        body))))
 
 ;; unit-descr : list[element] -> block
 ;; stores the unit description to use in building the summary, then generates the text
@@ -1096,35 +1095,34 @@
 
 
 (define (include-language-links-units)
-  (apply itemlist/splicing #:style bs-translation-buttons-style
-  ;(interleave-parbreaks/all
+  (interleave-parbreaks/all
    ;TODO change interleave-parbreaks/all, can it access run-languages?
-         (foldl (lambda (language rest)
-                  (cons (hyperlink #:style bs-translation-buttons-style
-                                   ;(path->string (find-relative-path
-                                   ;              (current-document-output-path)
-                                   ;             (string-replace (path->string (current-document-output-path)) (getenv "LANGUAGE") language)))
-                                   (string-append "../../../../" (current-course)"/" language "/units/" (current-unit) "/index.html")
-                                   (translate (string->symbol language))) rest))
-                '()
-                (current-course-languages))))
+   (foldl (lambda (language rest)
+            (cons (hyperlink #:style bs-translation-buttons-style
+                                     ;(path->string (find-relative-path
+                                     ;              (current-document-output-path)
+                                     ;             (string-replace (path->string (current-document-output-path)) (getenv "LANGUAGE") language)))
+                                     (string-append "../../../../" (current-course)"/" language "/units/" (current-unit) "/index.html")
+                                     (translate (string->symbol language))) rest))
+          '()
+          (current-course-languages))))
 
 (define (include-language-links-main)
-  (apply itemlist/splicing #:style bs-translation-buttons-style
-         ;(interleave-parbreaks/all
-         ;TODO change interleave-parbreaks/all, can it access run-languages?
-         (foldl (lambda (language rest)
-                  (cons (hyperlink  #:style bs-translation-buttons-style 
-                                    ;(path->string (find-relative-path
-                                    ;              (current-document-output-path)
-                                    ;             (string-replace (path->string (current-document-output-path)) (getenv "LANGUAGE") language)))
-                                    (string-append "../" language "/index.shtml")
-                                    (translate (string->symbol language)))
-                        rest))
-                (list (hyperlink  #:style bs-translation-buttons-style 
-                                  "#"
-                                  "add translation"))
-                (current-course-languages))))
+  (interleave-parbreaks/all
+   ;TODO change interleave-parbreaks/all, can it access run-languages?
+    (foldl (lambda (language rest)
+             (cons (hyperlink  #:style bs-translation-buttons-style 
+                                       ;(path->string (find-relative-path
+                                       ;              (current-document-output-path)
+                                       ;             (string-replace (path->string (current-document-output-path)) (getenv "LANGUAGE") language)))
+                                       (string-append "../" language "/index.shtml")
+                                       (translate (string->symbol language))) rest))
+           ( list (hyperlink  #:style bs-translation-buttons-style 
+                         "#"
+                         "add translation"))
+           (current-course-languages))))
+             
+
 
                                      
 ;; generates the DOM for the additional exercises component of the unit page
@@ -1330,19 +1328,21 @@
     ;                                                         'up
     ;                                                         "worksheets"
     ;                                                         (format "~a.html" name)))])))
+  
   (list (hyperlink #:style bootstrap-hyperlink-style
                    (path->string the-relative-path)
-                   (string-append (translate 'page) " ") (number->string 
-                            (cond [page page] 
-                                  [name (let ([num (get-workbook-page/name name)])
-                                          (if num num
-                                             ; (if (file-exists? (build-path (get-workbook-dir) "StudentWorkbook.pdf"))
-                                              ;    (WARNING (format "Unknown page name ~a" name) 'worksheet-link)
-                                              ;;TODO WHY WON'T THIS WORK RIGHT/IS IT OKAY TO HAVE MADE THIS FROM AN ERROR INTO A WARNING?
-                                              (begin (WARNING (format "Unknown page name ~a" name) 'worksheet-link)
-                                                  1)))]
-                                  [else (WARNING "worksheet link needs one of page or name\n" 'incomplete-worksheet)
-                                        0])))))
+                   (string-append (translate 'page) " "
+                                  (number->string 
+                                   (cond [page page] 
+                                         [name (let ([num (get-workbook-page/name name)])
+                                                 (if num num (begin (WARNING (format "Unknown page name ~a" name) 'worksheet-link)
+                                                     1))
+                                                 ; (if (file-exists? (build-path (get-workbook-dir) "StudentWorkbook.pdf"))
+                                                 ;    (WARNING (format "Unknown page name ~a" name) 'worksheet-link)
+                                                 ;;TODO WHY WON'T THIS WORK RIGHT/IS IT OKAY TO HAVE MADE THIS FROM AN ERROR INTO A WARNING?
+                                                 )]
+                                         [else (begin (WARNING "worksheet link needs one of page or name\n" 'incomplete-worksheet)
+                                               0)]))))))
 
 ;; Link to a particular lesson by name
 ;; lesson-link: #:name string #:label (U string #f) -> element
