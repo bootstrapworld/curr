@@ -212,6 +212,8 @@
 
 (define run-languages (list "english" "spanish"))
 
+(define run-exercises? #t)
+
 (void (putenv "AUDIENCE" "teacher")
 (putenv "CURRENT-SOLUTIONS-MODE" "off")
 (putenv "TARGET-LANG" "pyret")
@@ -289,14 +291,15 @@
     (current-deployment-dir (simple-form-path -deploy-dir))]
    [("--language") -language "Select what language you are printing the curriculum for. Default: english"
                    (set! run-languages (parse-lang-args (string-split -language "_")))]
+   [("--skip-exers") "Dictate if you'd like to skip building exercises"
+                     (set! run-exercises? #f)]
    [("--suppress-warnings" "--sw") -sw "Dictate any types of warnings that you want to be suppressed in the output of running the Build script. Default: none."
-                   
-                       (for-each
-                        (lambda (sw-tag)
-                               (set-ignored-warnings sw-tag))
-                        (if (string=? -sw "all")
-                            ignore-warning-tags
-                            (parse-sw-args (string-split -sw "_"))))]
+                                   (for-each
+                                    (lambda (sw-tag)
+                                      (set-ignored-warnings sw-tag))
+                                    (if (string=? -sw "all")
+                                        ignore-warning-tags
+                                        (parse-sw-args (string-split -sw "_"))))]
    [("--lang") -lang "Indicate which language (Racket or Pyret) to generate"
     (putenv "TARGET-LANG" -lang)]
    [("--course") -course "List all courses that you want to build. They MUST be separated by \"_\"_. Default: All available courses"
@@ -371,10 +374,7 @@
   (when (directory-exists? (get-units-dir))
   (for ([phase (in-range 2)])
     (printf "Phase ~a\n" phase)
-    (for ([unit (units)])
-      (printf "doing  unit ~a \n" unit))
-    (for ([unit (directory-list (get-units-dir))])
-      (printf "we have  unit ~a \n" unit))
+    
 
     
     ;;checks to see if you want to use all the units. if no units specified, uses all units
@@ -382,8 +382,7 @@
       (if (empty? (units))
                       (directory-list (get-units-dir))
                       (filter (lambda (unit) (member (path->string unit) (units))) (directory-list (get-units-dir)))))
-    (for ([unit  units-to-use])
-      (printf "we have  unit ~a \n" unit))
+   
     (for ([subdir units-to-use]
           #:when (directory-exists?  (build-path (get-units-dir) subdir)))
 
@@ -395,8 +394,8 @@
                         (build-path (get-units-dir) subdir "box.gif")
                         #t)
              (parameterize ([current-unit (path->string subdir)])
-               (printf "\n\ncurrent unit set\n\n")
-             (run-scribble scribble-file #:outfile "index" #:never-generate-pdf? (= phase 0)))
+
+               (run-scribble scribble-file #:outfile "index" #:never-generate-pdf? (= phase 0)))
              ]
             [else
              (printf "Could not find a \"the-unit.scrbl\" in directory ~a\n"
@@ -413,6 +412,7 @@
         ;(when (directory-exists? exercises-dir)
         ;  (delete-directory/files exercises-dir))
         ;(make-directory exercises-dir)
+        
         (make-directory deploy-exercises-dir)
         (let ([exer-list-path (build-path (get-units-dir) subdir "exercise-list.rkt")])
           (when (file-exists? exer-list-path)
@@ -489,7 +489,7 @@
 ;; Decide whether or not the lesson exercises need to be rebuilt. Note that right now this is only done in algebra
 ;; TODO: Fill in this stub to accurately check if we want build to build the exercises.
 (define (build-exercises?)
-  #t)
+  run-exercises?)
 
 
 
@@ -534,7 +534,12 @@
   (for-each (lambda (lesson-spec)
               (let* ([lesson-name (first lesson-spec)]
                      [exer-files (second lesson-spec)]
-                     [exer-dir (build-path lessons-dir-alt  lesson-name "exercises")]
+                     ;; TODO: This is a hack. Regular (lessons-dir) creates absurd distribution directories, so we rely
+                     ;;     on this hacky use of define-runtime-paths from paths.rkt, which have to be deliberately selected based on the langauge being used
+                     [exer-dir (build-path (match (getenv "LANGUAGE")
+                                             ["english" lessons-dir-alt-eng]
+                                             ["spanish" lessons-dir-alt-spa])
+                                             lesson-name "exercises")]
 		     [exer-deploy-dir (build-path (root-deployment-dir) "lessons" (getenv "LANGUAGE") lesson-name "exercises")])
                 (parameterize [(current-deployment-dir exer-dir)]
                   (scribble-to-pdf exer-files exer-dir))
@@ -615,7 +620,7 @@
         (when (directory-exists? output-resources-dir)
           (delete-directory/files output-resources-dir))
 
-        ;(error "test break")
+        
         (make-directory output-resources-dir)
         (for ([subdir (directory-list input-resources-dir)])
           ;; this created new directories for each of the four subdirs contained in resources, at the distribution end

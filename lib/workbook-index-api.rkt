@@ -1,6 +1,7 @@
 #lang racket
 
-(require "paths.rkt")
+(require "paths.rkt"
+         "warnings.rkt")
 
 (provide
  get-workbook-page/name
@@ -25,5 +26,5 @@
   (let* ([wb (read-workbook-index)]
          [entry (assoc wbtag wb)])
     (if entry (get-pagenum entry)
-        (begin (printf (format "WARNING: no workbook index entry for tag ~a~n" wbtag))
+        (begin (WARNING (format "no workbook index entry for tag ~a" wbtag) 'wb-index-entry)
                #f))))

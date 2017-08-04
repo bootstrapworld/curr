@@ -2,8 +2,7 @@
 
 (require racket/runtime-path
          (for-syntax racket/base)
-         "system-parameters.rkt"
-         "choose.rkt")
+         "system-parameters.rkt")
 
 
 (provide (all-defined-out))
@@ -15,11 +14,11 @@
 
 (define (lessons-dir)
   (build-path "lessons"  "langs" (getenv "LANGUAGE")))
-(choose
-(define-runtime-path lessons-dir-alt
+
+(define-runtime-path lessons-dir-alt-eng
   (build-path 'up "lessons"  "langs" "english"))
-(define-runtime-path lessons-dir-alt
-  (build-path 'up "lessons"  "langs" "spanish")))
+(define-runtime-path lessons-dir-alt-spa
+  (build-path 'up "lessons"  "langs" "spanish"))
 
 (define-runtime-path courses-base
   (build-path 'up "courses"))
