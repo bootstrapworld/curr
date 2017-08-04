@@ -753,11 +753,12 @@
 ;; Used to generate the curriculum overview pages
 ;; Not sure why we have the dual nested here ...
 (define (main-contents . body)
-  (list (augment-head)
-        (include-language-links-main)
-        (nested #:style (bootstrap-div-style/id/nested "body")
-                (nested #:style (bootstrap-div-style "item") 
-                        body))))
+  (interleave-parbreaks/all
+   (list (augment-head)
+         (include-language-links-main)
+         (nested #:style (bootstrap-div-style/id/nested "body")
+                 (nested #:style (bootstrap-div-style "item") 
+                         body)))))
 
 ;; unit-descr : list[element] -> block
 ;; stores the unit description to use in building the summary, then generates the text
@@ -1095,32 +1096,35 @@
 
 
 (define (include-language-links-units)
-  (interleave-parbreaks/all
+  (apply itemlist/splicing #:style bs-translation-buttons-style
+  ;(interleave-parbreaks/all
    ;TODO change interleave-parbreaks/all, can it access run-languages?
-   (foldl (lambda (language rest)
-            (cons (hyperlink #:style bs-translation-buttons-style
-                                     ;(path->string (find-relative-path
-                                     ;              (current-document-output-path)
-                                     ;             (string-replace (path->string (current-document-output-path)) (getenv "LANGUAGE") language)))
-                                     (string-append "../../../../" (current-course)"/" language "/units/" (current-unit) "/index.html")
-                                     (translate (string->symbol language))) rest))
-          '()
-          (build-languages))))
+         (foldl (lambda (language rest)
+                  (cons (hyperlink #:style bs-translation-buttons-style
+                                   ;(path->string (find-relative-path
+                                   ;              (current-document-output-path)
+                                   ;             (string-replace (path->string (current-document-output-path)) (getenv "LANGUAGE") language)))
+                                   (string-append "../../../../" (current-course)"/" language "/units/" (current-unit) "/index.html")
+                                   (translate (string->symbol language))) rest))
+                '()
+                (build-languages))))
 
 (define (include-language-links-main)
-  (interleave-parbreaks/all
-   ;TODO change interleave-parbreaks/all, can it access run-languages?
-    (foldl (lambda (language rest)
-             (cons (hyperlink  #:style bs-translation-buttons-style 
-                                       ;(path->string (find-relative-path
-                                       ;              (current-document-output-path)
-                                       ;             (string-replace (path->string (current-document-output-path)) (getenv "LANGUAGE") language)))
-                                       (string-append "../" language "/index.shtml")
-                                       (translate (string->symbol language))) rest))
-           ( list (hyperlink  #:style bs-translation-buttons-style 
-                         "#"
-                         "add translation"))
-           (build-languages))))
+  (apply itemlist/splicing #:style bs-translation-buttons-style
+         ;(interleave-parbreaks/all
+         ;TODO change interleave-parbreaks/all, can it access run-languages?
+         (foldl (lambda (language rest)
+                  (cons (hyperlink  #:style bs-translation-buttons-style 
+                                    ;(path->string (find-relative-path
+                                    ;              (current-document-output-path)
+                                    ;             (string-replace (path->string (current-document-output-path)) (getenv "LANGUAGE") language)))
+                                    (string-append "../" language "/index.shtml")
+                                    (translate (string->symbol language)))
+                        rest))
+                (list (hyperlink  #:style bs-translation-buttons-style 
+                                  "#"
+                                  "add translation"))
+                (build-languages))))
              
 
 
