@@ -1107,7 +1107,7 @@
                                    (string-append "../../../../" (current-course)"/" language "/units/" (current-unit) "/index.html")
                                    (translate (string->symbol language))) rest))
                 '()
-                (build-languages))))
+                (current-course-languages))))
 
 (define (include-language-links-main)
   (apply itemlist/splicing #:style bs-translation-buttons-style
@@ -1124,9 +1124,7 @@
                 (list (hyperlink  #:style bs-translation-buttons-style 
                                   "#"
                                   "add translation"))
-                (build-languages))))
-             
-
+                (current-course-languages))))
 
                                      
 ;; generates the DOM for the additional exercises component of the unit page
