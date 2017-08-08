@@ -97,7 +97,7 @@
           							This is a @vocab{table} containing information about students in a fourth grade class.  @vocab{table}s are collections of cells - or "entries", where each @vocab{entry} contains one value.  In most of the tables you will encounter, these values will be of type Number or String.
           					}
                     @teacher{
-														 
+                        Tables with empty cells will import using the @code{Option} type, in which a column of numbers will display as @code{None} for blank entries, and as @code{Some(n)} for others. None of the provided datasets have blanks, so your students should never have to confront @code{Option} types.
 					          }
             }
 			      @point{
