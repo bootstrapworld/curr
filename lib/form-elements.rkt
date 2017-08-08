@@ -840,7 +840,9 @@
 ;;   used on the main page for the BS1 curriculum
 ;; previously used summary-item/links (for both html/pdf links)
 (define (unit-summary/links num )
-  (when (member (format (string-append (translate 'unit)" ~a") num) (units))
+  ;; NOTE: This assumes every unit is of the form "Unit 1" or "Unit 2"
+  (printf "\n\nchecking ~a against ~a\n\n\n" (format (string-append (translate 'unit)"~a") num) (units))
+  (when (or (empty? (units)) (member (format (string-append "unit""~a") num) (units)))
     (summary-item/unit-link (format (string-append (translate 'unit)" ~a") num)
                           (format "units/unit~a/index" num)  ; index used to be "the-unit" 
                           (get-unit-descr (format "unit~a" num)))))
@@ -1105,7 +1107,9 @@
                                      ;             (string-replace (path->string (current-document-output-path)) (getenv "LANGUAGE") language)))
                                      (string-append "../../../../" (current-course)"/" language "/units/" (current-unit) "/index.html")
                                      (translate (string->symbol language))) rest))
-          '()
+          ( list (hyperlink  #:style bs-translation-buttons-style 
+                         "#"
+                         "add translation"))
           (current-course-languages))))
 
 (define (include-language-links-main)
