@@ -17,7 +17,7 @@
 
 ;; location of the standards csv file (must be a path)
 (define-runtime-path lib-path (build-path 'up "lib"))
-(define STDS-CSV-FILE (build-path lib-path "standards.csv"))
+(define STDS-CSV-FILE (build-path lib-path "langs" (getenv "LANGUAGE") "standards.csv"))
 (define STDS-GDRIVE-SOURCE "https://docs.google.com/spreadsheet/ccc?key=0AjzMl1BJlJDkdFRkR0RRRUJqa21oZHJ3WEhHWE1IVHc&usp=sharing#gid=0")
 
 ;;;;; STANDARDS TREE DATA DEFN ;;;;;;;;;;;;;;;;;;;;;;;;;

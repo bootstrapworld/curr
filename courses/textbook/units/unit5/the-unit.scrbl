@@ -1,5 +1,4 @@
 #lang curr/lib
-@declare-tags[group pedagogy selftaught]
 
 @title{The Design Recipe}
 

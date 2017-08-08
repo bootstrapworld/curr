@@ -1,6 +1,5 @@
 #lang curr/lib
 
-@declare-tags[pedagogy selftaught group]
 
 @lesson[#:title "Defining Variables" #:duration "10 minutes"]{
         @itemlist/splicing[

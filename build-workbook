@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# First argument (if any) should be the audience (teacher student volunteer self-guided)
+# Second argument (if any) should be the distribution target (bootstrap codeorg)
+# Args default to teacher and codeorg
+
+# build the notes
+
+racket -l errortrace -t build-workbook.rkt -- "$@"
+
+# then build the solutions
+#racket -l errortrace -t build-sols.rkt 
+ 
+  

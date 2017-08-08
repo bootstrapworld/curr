@@ -1,6 +1,7 @@
 #lang racket
 
-(require "paths.rkt")
+(require "paths.rkt"
+         "warnings.rkt")
 
 (provide
  get-workbook-page/name
@@ -14,7 +15,9 @@
 (define WORKBOOK-INDEX-FILE "workbook-index.rkt")
 
 (define (read-workbook-index) 
-  (with-input-from-file (build-path (get-workbook-dir) WORKBOOK-INDEX-FILE) read))
+  (if (file-exists? (build-path (get-workbook-dir) WORKBOOK-INDEX-FILE))
+      (with-input-from-file (build-path (get-workbook-dir) WORKBOOK-INDEX-FILE) read)
+      '()))
   ;(with-input-from-file (build-path root-path "lib" WORKBOOK-INDEX-FILE) read))
 
 ;; get-workbook-page/tag : string -> num or #f
@@ -23,5 +26,5 @@
   (let* ([wb (read-workbook-index)]
          [entry (assoc wbtag wb)])
     (if entry (get-pagenum entry)
-        (begin (printf (format "WARNING: no workbook index entry for tag ~a~n" wbtag))
+        (begin (WARNING (format "no workbook index entry for tag ~a" wbtag) 'wb-index-entry)
                #f))))
