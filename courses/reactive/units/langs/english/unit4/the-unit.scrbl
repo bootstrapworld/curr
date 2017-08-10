@@ -1,11 +1,10 @@
 #lang curr/lib
 
 @title{Unit 4: Functions that Ask Questions}
-@declare-tags[]
 
-@unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / num-sqr num-sqrt num-expt})
-                                       (list "String" @code{string-append string-length})
-                                       (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image}))]{
+@unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / num-sqr num-sqrt num-expt} "")
+                                       (list "String" @code{string-append string-length} "")
+                                       (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image} ""))]{
 @unit-descr{Students are introduced to conditionals using @tt{if-expressions}, on both built-in data (like numbers) and on programmer-defined data structures.
             They then use conditionals to implement an animation that goes through distinct phases. They also learn about helper functions, which abstract away
             frequently-used code to improve readability and reduce duplication.
