@@ -5,15 +5,8 @@
 # Args default to teacher and codeorg
 
 # build the notes
-if [ "$2" ]
-then
-  racket -l errortrace -t build.rkt -- --audience $1 --buildfor $2
-elif [ "$1" ]
-then
-  racket -l errortrace -t build.rkt -- --audience $1 --buildfor bootstrap
-else
-  racket -l errortrace -t build.rkt -- --audience teacher --buildfor bootstrap
-fi  
+
+racket -l errortrace -t build.rkt -- "$@"
 
 # then build the solutions
 #racket -l errortrace -t build-sols.rkt 

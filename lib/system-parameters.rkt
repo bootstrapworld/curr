@@ -7,10 +7,16 @@
  	 current-solutions-mode?
          current-generate-pdf?
          current-course
+         current-unit
+         units
          current-lesson-xref
+         current-teacher-contr-xref
          current-document-output-path
          current-worksheet-links-refer-to-pdf?
-         current-lesson-name)
+         current-lesson-name
+         current-glossary-terms
+         current-translations
+         current-course-languages)
 
 
 ;; Parameters for controlling the distribution directories.  The top-level build.rkt
@@ -40,14 +46,35 @@
 ;; subdirectories under "courses".
 (define current-course (make-parameter "algebra"))
 
+;; The current unit being built. Name of directory title
+(define current-unit (make-parameter #f))
+
+;; The units being built, as called by command line
+(define units (make-parameter '() ))
+
 
 ;; The output path of the current document.
 (define current-document-output-path (make-parameter #f))
 
+;; The languages being built in
+(define current-course-languages (make-parameter #f))
 
 ;; The current-lesson-xref is a hashtable from lesson names to
 ;; records that describe where they can be found.
 (define current-lesson-xref (make-parameter (make-hash)))
+
+;; contains the current list of translations, specifically those used mainly in form-elements that
+;; translate small tags on the bootstrap pages.
+(define current-translations (make-parameter #f))
+
+;; contains the current list of glossary terms; changes each time build switches languages
+(define current-glossary-terms (make-parameter #f))
+
+
+
+;; This stores the teacher contributed additionl exercises.
+;; This is a hashtable from Units (String) to lists of lists of titles/descriptions and URLs.
+(define current-teacher-contr-xref (make-hash))
 
 
 ;; Should worksheet links refer to the actual html files, or to the pdf?

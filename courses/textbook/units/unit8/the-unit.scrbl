@@ -1,7 +1,6 @@
 #lang curr/lib
 @title{Unit 8: Collision Detection}
 
-@declare-tags[group pedagogy selftaught]
 
 @overview{
 

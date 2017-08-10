@@ -65,6 +65,12 @@ table td{
  * CONVERTABLE S-EXPRESSIONS
 */
 
+
+
+span.slideText{
+  display:none;
+}
+
 div.code{max-width: 500px; display: inline; margin: 0px; padding: 0px;}
 div.student div.circleevalsexp, div.codesexp{display: inline-block;}
 div.circleevalsexp{float: right;}
@@ -146,6 +152,15 @@ div.rightColumn, div.leftColumn {
   vertical-align: top;
   padding-bottom: 100%;
   margin-bottom:  -100%;
+}
+
+span.BootstrapSlideTitle{
+    text-align:   center;
+    font-size:    28px;
+    padding:      8px;
+    font-weight:  bold;
+    display:      block;
+    z-index:      2;
 }
 
 span.rightColumnLabel,

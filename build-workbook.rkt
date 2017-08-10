@@ -22,20 +22,72 @@
          scribble/render
          file/zip)
 
+
+;; this is because build-workbook does not call build.rkt
+;
+(putenv "LANGUAGE" "english")
+
+(define courses '("algebra" "reactive"))
+
+; parse command-line arguments
+
+;; parse-course-args: list/of string -> list/of string
+;; This parses the list of course arguments, ensuring that they are all valid course names
+(define (parse-course-args rest-args)
+  (cond
+    [(empty? rest-args) empty]
+    [(cons? rest-args)
+     ;;checks if next argument is a command-line argument tag, rather than a course name
+     (let [(course-name (first rest-args))]
+       (if (member course-name courses)
+           (cons course-name (parse-course-args (rest rest-args)))
+           (error "Build got unrecognized target course: " course-name " -- expected"
+                  (foldl (lambda (a b) (string-append a " or " b)) "" courses))))]))
+
+; use this to tell scribble to use the workbook.css file
+(putenv "BOOTSTRAP-TARGET" "workbook")
+
+; by default, generate student workbook, not solutions workbook
+(solutions-mode-off)
+
+
+(command-line
+ #:program "build-workbook"
+ #:once-each
+ [("--language") -language "Select what language you are printing the curriculum for. Default: english"
+                   (if (member -language (list "english" "spanish"))
+                       (putenv "LANGUAGE" -language)
+                       (error "Build got unrecognized target language: " -language " -- expected english or spanish"))]
+ [("--course") -course "List all courses that you want to build. They MUST be separated by \"_\"_. Default: All available courses"
+                 (set! courses (parse-course-args (string-split -course "_")))] 
+ [("--solutions") "Generate workbook with solutions"
+                               (solutions-mode-on)]
+ #:args tags
+ tags)
+
+
 ;; NOTE: This defn is a hack.  Ideally, we should be using the
 ;;  get-workbook-dir function from paths.rkt.  However, that is
 ;;  capturing a binding for the current-course parameter that
 ;;  I haven't figured out how to access when setting the current-course.
 ;;  As a result, we'd always generate the algebra workbook, even when our
 ;;  current-course is set to reactive.
-(define (kf-get-workbook-dir) (build-path courses-base (current-course) "resources" "workbook"))
+
+;;TODO: Test
+(define (kf-get-workbook-dir) (get-workbook-dir))
 
 ; converts list of pages to having all pdf extensions
 (define (pdf-pagenames pages)
   (map (lambda (p) 
-         (if (string? p) 
-             (regexp-replace #px"\\.scrbl$" p ".pdf")
-             (string-append (second p) ".pdf")))
+         (cond
+           [(string? p) 
+             (regexp-replace #px"\\.scrbl$" p ".pdf")]
+           [(and (list? p) (= 2 (length p)))
+             (string-append (second p) ".pdf")]
+           [(and (list? p) (= 3 (length p)))
+            ;;TODO
+            (regexp-replace #px"\\.scrbl$" (second p) ".pdf")]
+            ))
        pages))
 
 ; generate index of entire workbook by computing page sizes per PDF
@@ -83,7 +135,10 @@
   (let ([havefile? (lambda (f) 
                      (if (string? f) 
                          (file-exists? (build-path basedir f))
-                         (file-exists? (build-path basedir 'up (first f)))))])
+                         (if (string=? (first f) "exercise")
+                             (file-exists? (build-path (lessons-dir) (third f) "exercises"(second f)))
+                             (file-exists? (build-path basedir 'up (first f))))))])
+    ;;TODO: Good start; now see where it handles this stuff
     (let ([missing (filter (lambda (f) (not (havefile? f))) ctlist)])
       (if (empty? missing) ctlist
           (begin
@@ -120,6 +175,7 @@
   (parameterize ([current-directory (kf-get-workbook-dir)])
     (for-each (lambda (pspec)
                 (when (and (list? pspec)
+                           (= (length pspec) 2)
                            (or #t
                                (not (file-exists? (build-path "pages" (string-append (second pspec) ".pdf"))))
                                (not wkbk-mod-sec)
@@ -142,6 +198,7 @@
          [front-spec (with-input-from-file (build-path (kf-get-workbook-dir) "frontmatterlist.rkt") read)]
          [back-spec (with-input-from-file (build-path (kf-get-workbook-dir) "backmatterlist.rkt") read)]
          [pagesdir (build-path (kf-get-workbook-dir) "pages")]
+         [extra-exercises-dir (lessons-dir)]
          [pages (check-contents-exist pages-spec pagesdir)]
          [frontpages (check-contents-exist front-spec pagesdir)]
          [backpages (check-contents-exist back-spec pagesdir)]
@@ -155,7 +212,7 @@
         (printf "WARNING: Empty workbook contents for ~a, no workbook generated~n" (current-course))
         (parameterize ([current-deployment-dir pagesdir])
           ; scribble the scrbl pages and run wkhtmltopdf on the resulting html
-          (scribble-files pages pagesdir workbook-last-gen-sec)
+          (scribble-files pages pagesdir extra-exercises-dir workbook-last-gen-sec)
           ; extract any manual PDF pages from their source file
           (extract-PDF-pages pages workbook-last-gen-sec)
           (let* ([pdfpagenames (pdf-pagenames pages)])
@@ -167,7 +224,7 @@
             (if (and (empty? frontpages) (empty? backpages))
                 (copy-file (build-path (kf-get-workbook-dir) "workbook-numbered.pdf")
                            (build-path (kf-get-workbook-dir) workbook-file)
-                           #:exists-ok? #t)
+                            #t)
                 (begin (extract-PDF-pages frontpages workbook-last-gen-sec)
                        (merge-pages (pdf-pagenames frontpages) #:output "front-matter.pdf")
                        (extract-PDF-pages backpages workbook-last-gen-sec)
@@ -175,6 +232,7 @@
                        (let ([frontpdf (build-path (kf-get-workbook-dir) "front-matter.pdf")]
                              [backpdf (build-path (kf-get-workbook-dir) "back-matter.pdf")]
                              [workbooknums (build-path (kf-get-workbook-dir) "workbook-numbered.pdf")]
+                             ;;TODO: Have to add pdf here of extra exercises and add to system call below
                              [workbook (build-path (kf-get-workbook-dir) workbook-file)])
                          (system* (get-prog-cmd "pdftk") frontpdf workbooknums backpdf "output" workbook "dont_ask"))))
             ; clean out auxiliary tex files (ie, texwipe, intermed no page nums file)
@@ -187,29 +245,19 @@
 
 
 ; for now, only algebra is set up for auto-building
-(define bootstrap-courses '("algebra" "reactive"))
+(define bootstrap-courses courses);;
 
-; use this to tell scribble to use the workbook.css file
-(putenv "BOOTSTRAP-TARGET" "workbook")
-
-; by default, generate student workbook, not solutions workbook
-(solutions-mode-off)
-
-; parse command-line arguments
-(command-line #:program "build-workbook"
-              #:once-each
-              [("--solutions") "Generate workbook with solutions"
-                               (solutions-mode-on)])
 
 ; is there a workbook to build?
 (define (workbook-to-build?)
-  (let ([contentlistfile (build-path (kf-get-workbook-dir) "contentlist.rkt")]) 
-    (printf "checking ~a~n" contentlistfile)
+  (let ([contentlistfile (build-path (kf-get-workbook-dir) "contentlist.rkt")])
     (and (file-exists? contentlistfile)
          (cons? (with-input-from-file contentlistfile read)))))
 
-(printf "Building workbook (solutions-mode is ~a) ~n" (solutions-mode?))
+(printf "Building workbook (solutions-mode is ~a) ~n Building for courses: ~a~n Building in language: ~a~n"
+        (solutions-mode?) bootstrap-courses (getenv "LANGUAGE"))
 (for ([course (in-list bootstrap-courses)])
+  (current-translations (with-input-from-file (string-append "lib/langs/" (getenv "LANGUAGE") "/translated.rkt") read))
   (parameterize ([current-course course])
     (if (workbook-to-build?)
         (build-workbook)

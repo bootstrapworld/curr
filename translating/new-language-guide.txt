@@ -1,0 +1,54 @@
+Certain changes must be done to modify the codebase for translation into new languages. 
+
+I Directory Structure
+
+In the following places, you must copy the directory from a currently existing language to a new one:
+courses/<course>/langs/<new language>
+courses/<course>/resources/teachers/langs/<new language>
+courses/<course>/resources/workbook/langs/<new language>
+courses/<course>/units/langs/<new language>
+curr/static-pages/lang/<new language>
+lessons/langs/<new language>
+lib/langs/<new language>
+
+example:
+cp -r courses/algebra/langs/english courses/algebra/langs/mandarin
+NOTE: if using the "cp" Unix command, the "-r" flag is necessary
+
+
+
+
+II Codebase Modifications
+
+In form-elements.rkt and translator.rkt, the following block of code must be modified from:
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(define-syntax (choose stx)
+  (syntax-parse stx
+                 [(_  a b)
+                  (case language
+                    [("english") #'a]
+                    [("spanish") #'b])]))
+(choose (require "langs/english/translated.rkt") (require "langs/spanish/translated.rkt"))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+to:
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(define-syntax (choose stx)
+  (syntax-parse stx
+                 [(_  a b c)
+                  (case language
+                    [("english") #'a]
+                    [("spanish") #'b]
+        	    [("<new language>") #'c])]))
+(choose (require "langs/english/translated.rkt") (require "langs/spanish/translated.rkt") (require "langs/<new language>/translated.rkt"))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+In effect, what you must do is 
+1.) add a new symbol to represent a new case of a potential language
+2.) add the third bracketed line [("<new language>") #'c]
+3.) in the "(choose" line at the end, copy the "(require "langs/<new language>/translated.rkt")" into the LAST spot, placing in the name of your new language.

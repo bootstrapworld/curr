@@ -1,6 +1,5 @@
 #lang curr/lib
 
-@declare-tags[group pedagogy selftaught]
 @lesson[#:title "Ninja World"
         #:duration "20 minutes"]{
           @itemlist/splicing[

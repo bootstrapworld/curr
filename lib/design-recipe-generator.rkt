@@ -13,6 +13,7 @@
          "sxml.rkt"
          "escape-values.rkt"
          "build-modes.rkt"
+         "translator.rkt"
          )
 
 (provide design-recipe-exercise
@@ -54,7 +55,7 @@
   (unless body (error 'assess-design-recipe "body required"))
   (let ([use-examples (if (cons? buggy-example-list) buggy-example-list example-list)])
     (design-recipe-exercise funname directions
-                            #:page-header "Check for Mistakes in this Word Problem:"
+                            #:page-header (string-append (translate 'design-title)":")
                             #:show-funname-contract? #t
                             #:domain-list domain-list
                             #:show-domains? #t 
@@ -99,7 +100,7 @@
 ;;   header and into each example.  These params override that behavior.  At most one of the 
 ;;   example-list and the buggy-example-list should be provided.
 (define (design-recipe-exercise funname directions
-                                #:page-header (page-header "Word Problem:")
+                                #:page-header (page-header (string-append (translate 'design-title2) ":"))
                                 #:show-funname-contract? (show-funname-contract? #f)
                                 #:domain-list (domain-list '()) ; list of string
                                 #:show-domains? (show-domains? #f) 
@@ -130,19 +131,19 @@
                   (bold page-header) (string-append " " funname))
             (if (string? directions)
                 (para #:style (bootstrap-div-style "exercise-instr")
-                      (bold "Directions: ") directions)
+                      (bold (string-append (translate 'directions) ": ")) directions)
                 (nested #:style (bootstrap-div-style "exercise-instr")
                         (interleave-parbreaks/all
                          (cons
-                          (elem (bold "Directions: ") (first directions))
+                          (elem (bold (string-append (translate 'directions) ": ")) (first directions))
                           (rest directions)))))
             (nested #:style (bootstrap-div-style "designRecipeLayout")
                     (interleave-parbreaks/all
                      (list
                       (design-recipe-section
                        "recipe_contract" 
-                       "Contract and Purpose Statement"
-                       "Every contract has three parts ..."
+                       (translate 'design-section-contract)
+                       (string-append (translate 'design-subheader-contract) "...")
                        (make-spacer ";")
                        (make-wrapper
                         (dr-student-answer #:id? #f "recipe_name" #:show? show-funname-contract? funname)
@@ -157,8 +158,9 @@
                       ;; need one of these for each example provided/expected
                       (design-recipe-section 
                         "recipe_examples"
-                        "Examples"
-                        "Write some examples, then circle and label what changes ..."
+                        (translate 'design-section-examples)
+                        (string-append (translate 'design-subheader-examples) "...")
+                       
                         (let ([example-elts
                                (if (cons? buggy-example-list)
                                    (map (lambda (e)
@@ -194,9 +196,9 @@
                         )
                       (design-recipe-section 
                        "recipe_definition"
-                       "Definition"
-                       "Write the definition, giving variable names to all your input values ..."
-                       (make-spacer "(define ")
+                       (translate 'design-section-def)
+                       (string-append (translate 'design-subheader-def) "...")
+                       (make-spacer "(define ");; left literal because it represents a racket command, and should not be translated
                        (make-spacer "(")
                        (make-wrapper
                         (dr-student-answer #:id? #f "recipe_name" #:show? show-funname-defn? (or buggy-funname-defn funname))
@@ -301,7 +303,7 @@
   (let ([input (if (empty? in-out-list) "" (list->spaced-string (all-but-last in-out-list)))]
         [output (if (empty? in-out-list) "" (format-exercise-text (last in-out-list)))])
     (interleave-parbreaks/all
-     (list (make-spacer "(EXAMPLE ")
+     (list (make-spacer (string-append "(" ( translate 'design-example-caps ) " "))
            (make-spacer "(")
            (make-wrapper
             (dr-student-answer #:id? #f "recipe_name" #:show? show-funname? funname)
