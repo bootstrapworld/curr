@@ -253,9 +253,9 @@
 
 ;; activities that are interspersed into the notes
 ;; the style-tag argument is the html tag (string) for the div
-(define (styled-activity #:forevidence (evidence #f) 
+(define (styled-activity #:forevidence (evidence #f)
+                         #:questype (questype "not-in-tutorial")
                          #:answer (answer #f)
-                         #:show-answer? (show-answer? #f)
                          style-tag
                          . body)
   (traverse-block
@@ -268,28 +268,28 @@
                                            result-rest))
                                      '() evidlist)])
          (when evidence (set! 'activity-evid (append checked-evidlist (get 'activity-evid '()))))
-         (nested #:style (bootstrap-div-style style-tag)
+         (nested #:style (bootstrap-div-style (string-append style-tag " " questype))
                  (interleave-parbreaks/select body))))))
 
 ;; activities that are interspersed into the notes, tagged as a generic activity
 (define (activity #:forevidence (evidence #f) 
                   #:answer (answer #f)
-                  #:show-answer? (show-answer? #f)
+                  #:questype (questype "not-in-tutorial")
                   . body)
   (apply styled-activity #:forevidence evidence
                          #:answer answer
-                         #:show-answer? show-answer?
+                         #:questype questype
                          "activity"
                          body))
 
 ;; activities that are interspersed into the notes, tagged as part of CS principles
 (define (csp-activity #:forevidence (evidence #f) 
                       #:answer (answer #f)
-                      #:show-answer? (show-answer? #f)
+                      #:questype (questype "not-in-tutorial")
                       . body)
   (apply styled-activity #:forevidence evidence
                          #:answer answer
-                         #:show-answer? show-answer?
+                         #:questype questype
                          "csp-activity"
                          body))
   
