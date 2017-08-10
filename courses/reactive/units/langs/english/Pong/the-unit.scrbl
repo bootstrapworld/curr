@@ -1,11 +1,11 @@
 #lang curr/lib
+@declare-tags[]
 
 @title{Feature: Making Pong}
 
-@unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sqr sqrt expt} "1 ,4 ,44.6") 
-                                       (list "String" @code{string-append string-length} " \"hello\" ")                          
-                                       (list "Image" @code{rectangle circle triangle ellipse star scale rotate put-image} "(circle 25 \"solid\" \"red\")")
-                                       )]{
+@unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sqr sqrt expt})
+                                       (list "String" @code{string-append string-length})
+                                       (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image}))]{
 @unit-descr{Students use the Animation Design Worksheet to decompose a 2-player game of Pong, and implement it in Pyret.}
 }
 
@@ -71,12 +71,12 @@ end
                                                      @item{What key makes @code{paddle2Y} increase? Decrease?}
                                                      @item{How much does each paddle move when it goes up or down?}
                                                      @item{What happens if some @italic{other} key is pressed?}
-                                                     @item{Use the Design Recipe to write the code for @code{next-state-tick}}]}}
-                        @teacher{Have students discuss their answers to these questions, before moving on to @code{next-state-tick}.}
+                                                     @item{Use the Design Recipe to write the code for @code{next-state-key}}]}}
+                        @teacher{Have students discuss their answers to these questions, before moving on to @code{next-state-key}.}
                         }
                  @point{@student{At this point, we know how to change the @code{pongState} in response to a keypress and how to draw that @code{pongState}
                                 as an image. Let's build a @code{reactor}, which uses a @code{pongState} instance as the starting state and hooks
-                                up these functions to the @code{on-tick} and @code{to-draw} event handlers.
+                                up these functions to the @code{on-key} and @code{to-draw} event handlers.
                                 @code[#:multi-line #t]{
 pong-react = reactor:
   init: pongState(200, 200),
@@ -251,9 +251,10 @@ fun next-state-tick(w):
       # the ball keeps moving in the same x-direction
       w.ballY + (w.moveY * -1), 
       # but it bounces off the wall (move backwards by moveY)
-      w.moveX * -1,            
+      w.moveX,            
+      # the x-direction stays the same
+      w.moveY * -1)
       # and the y-direction is reversed
-      w.moveY)
   else:
     pong(
       w.paddle1Y,
@@ -265,7 +266,7 @@ fun next-state-tick(w):
   end
 end
 }
-                                 If a collision occurs, we need to do two things. First, we need to move the ball to it's next position,
+                                 If a collision with an upper or lower wall occurs, we need to do two things. First, we need to move the ball to it's next position,
                                  and make sure that new position is far enough away from the paddle so that it won't be considered another
                                  collision. Second, we need to flip the y-direction so that the ball is moving in the opposite direction.
                                  This is easy to do, by multiplying the @code{moveY} by -1.
