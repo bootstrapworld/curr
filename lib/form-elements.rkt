@@ -269,7 +269,11 @@
                                      '() evidlist)])
          (when evidence (set! 'activity-evid (append checked-evidlist (get 'activity-evid '()))))
          (nested #:style (bootstrap-div-style (string-append style-tag " " questype))
-                 (interleave-parbreaks/select body))))))
+                 (interleave-parbreaks/select
+                  (if answer
+                      (cons (nested #:style (bootstrap-div-style "activityanswer" answer))
+                            body)
+                      body)))))))
 
 ;; activities that are interspersed into the notes, tagged as a generic activity
 (define (activity #:forevidence (evidence #f) 
