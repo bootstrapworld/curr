@@ -269,9 +269,9 @@
                                      '() evidlist)])
          (when evidence (set! 'activity-evid (append checked-evidlist (get 'activity-evid '()))))
          (nested #:style (bootstrap-div-style (string-append style-tag " " questype))
-                 (interleave-parbreaks/select
+                 (interleave-parbreaks/all
                   (if answer
-                      (cons (nested #:style (bootstrap-div-style "activityanswer" answer))
+                      (cons (nested #:style (bootstrap-div-style "activityanswer") (format "~a" answer))
                             body)
                       body)))))))
 

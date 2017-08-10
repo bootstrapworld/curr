@@ -116,7 +116,7 @@
         @points[
              @point{
                     @student{
-                            @activity[#:forevidence "BS-IDE&1&1"]{Begin by typing @code{4} into the Interactions area, then hit 
+                            @activity[#:forevidence "BS-IDE&1&1" #:answer "4"]{Begin by typing @code{4} into the Interactions area, then hit 
                                         Return.  You should see the value 4 appear on 
                                         the next line in the Interactions area.
                             }
