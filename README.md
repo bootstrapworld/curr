@@ -22,21 +22,21 @@ contacting schanzer@bootstrapworld.org.
 
 # Installation
 
-1.  Set up curr as a Racket collection.
+1.  You'll need to install (http://www.racket-lang.org "DrRacket v6.10+") 
+and (https://wkhtmltopdf.org/ "wkhtmltopdf") first, before cloning the `curr`
+repository.
 
-    Go to the parent directory of curr, and do the following:
+2.  Then set up `curr` as a Racket collection.
 
-    $ raco link curr
+    Go to the parent directory of `curr`, and do the following:
+
+    `$ raco link curr`
 
 
-2.  Run build.rkt to generate the curriculum.  You can do this either
-at the command line, or from DrRacket.
+3.  Generate the curriculum.
 
-    $ racket build-workbook.rkt
-    $ racket build.rkt
+    `$ ./build-distrib-no-pdf`
 
-    The first command is only needed the first time you build;
-    subsequent builds can just use `racket build.rkt`
 
 ----------------------------------------------------------------------
 
@@ -57,6 +57,7 @@ project.
 ## Major past contributers:
 - Danny Yoo
 - Rosanna Sobota
+- Sam Dooman
 
 ## Other past contributers:
 - Vicki Crosson 
