@@ -77,7 +77,9 @@
              }
              @point{
                     @student{
-                            Begin by opening a web browser, and going to @(hyperlink "http://code.pyret.org" "The Pyret Editor"). Hit the "log in" button, and sign in with your Google account information, then choose "Start Coding".
+                            @activity[#:forevidence "BS-IDE&1&1"]{
+                                    Open up the @editor-link[#:public-id "0BzzMl1BJlJDkMTdodnJnenpPQUE" "Unit 1 Starter File"]. Click "Connect to Google Drive" to sign into your Google account, and then click the "Save as" button. This will save a copy of the file into your own account, so that you can make changes and retrieve them later.
+                            }
                     }
                     @teacher{
                             Each student (or pair of students) should have a Google Account.    
@@ -98,8 +100,8 @@
  }
 
 @lesson/studteach[
-     #:title "Numbers, Strings & Operators"
-     #:duration "15 minutes"
+     #:title "Numbers, Strings, Operators and Lists"
+     #:duration "20 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -116,9 +118,8 @@
         @points[
              @point{
                     @student{
-                            @activity[#:forevidence "BS-IDE&1&1"]{Begin by typing @code{4} into the Interactions area, then hit 
-                                        Return.  You should see the value 4 appear on 
-                                        the next line in the Interactions area.
+                            @activity[#:forevidence "BS-IDE&1&1"]{
+                                Begin by typing @code{4} into the Interactions area, then hit Return.  You should see the value 4 appear on the next line in the Interactions area.
                             }
 
                             Congratulations, you've written your first (very simple) program!  When a program is run, the computer will run that program to produce a @vocab{value}.  Values are how the computer represents
@@ -157,7 +158,7 @@
              }
              @point{
                     @student{
-                            Every value has a  @vocab{Type}.  Each of the values produced by the programs you just wrote are Numbers, but there are other types as well. One of these types is called a @vocab{String}.  A String
+                            @bold{Every value has a  @vocab{Type}}.  Each of the values produced by the programs you just wrote of type @code{Number}, but there are other types as well. One of these types is called a @vocab{String}.  A String
                             is a sequence of characters (letters, numbers, symbols) in between a pair of quotation marks.
 
                             @activity[#:forevidence "BS-IDE&1&1"]{
@@ -325,7 +326,7 @@
                     @student{
                             Error messages are the computer's way of giving you a hint on what went wrong. The most important part of using an error message is reading the message editing the program to fix the errors.
                             @activity{
-                            Turn to @worksheet-link[#:name "Expressions-Values-Errors"] in your student workbook, and identify whether the expressions you see will produce an error or a value. In either case, write the resulting value or error messages that you think the computer will respond with.
+                                Turn to @worksheet-link[#:name "Expressions-Values-Errors"] in your student workbook, and identify whether the expressions you see will produce an error or a value. In either case, write the resulting value or error messages that you think the computer will respond with.
                             }
                     }
                     @teacher{
@@ -353,12 +354,29 @@
                     
                     }
              }
+             @point{
+                    @student{
+                        We can also group values together, into what is called a @code{List}. Here are three lists:
+                        @code[#multi-line: #t]{
+                            [list: 1, 2, 3]
+                            [list: 1 + 1, 2 + 2, 3 + 3]
+                            [list: "lists", "can", "be", "strings"]
+                        }
+                        You can make any kind of list you want, but everything inside a list must be of the same type. Each element in a list can be a complete expression (like @code{1 + 1}), which will evaluate to a single value. That means we can make lists of Numbers, Strings, or any other kind of data - but not a list that contains both Numbers @italic{and} Strings.
+                        @activity{
+                            In the Interactions Area, try making a list of strings, where each string is the name of a food you like to eat.
+                        }
+                    }
+                    @teacher{
+
+                    }
+             }
         ]
    }
 
 @lesson/studteach[
      #:title "Defining Variables"
-     #:duration "20 minutes"
+     #:duration "10 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -375,7 +393,7 @@
         @points[
                 @point{
                         @student{
-                            In Pyret, you can define @vocab{variable}s with the @code{=} sign, just like in math class. You're probably used to seeing variables @code{x, y, z}, etc.  In Pyret, you can name values to them easier to remember and easy to change.
+                            In Pyret, you can define @vocab{variable}s with the @code{=} sign, just like in math class. You're probably used to seeing variables @code{x, y, z}, etc. 
                         }
                         @teacher{
                         
@@ -383,67 +401,15 @@
                 }
                 @point{
                         @student{
-                                @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Suppose you want to throw a pizza party for a class of 16 students. We need to buy one of each of these per student:
-                                        @itemlist[
-                                                @item{
-                                                        1 Slice of Pizza : $2.50
-                                                }
-                                                @item{
-                                                        1 Plastic Plate : $0.20
-                                                }
-                                                @item{
-                                                        1 Soda : $0.98
-                                                }
-                                        ]
-                                        What code would you write, to compute the total cost of the party?
+                            In Pyret, you can name values to make them easier to remember and easy to change. In the Definitions Area, you'll see lots of sample definitions. Let's take a look at a few of them:
+                                @code[#:multi-line #t]{
+                                    A = 42
+                                    B = "buffalo "
+                                    C = 2 * 2
+                                    D = 42 - A
                                 }
+                            @bold{Every definition has a name and a value}. The name is the part on the lefthand side of the equals sign, and the value is the part on the right. The value can be a simple value, like @code{42} and @code{"buffalo "}, or it an expression, such as @code{2 * 2}. Definitions can also refer to previous definitions, like @code{D = 42 - A}.
                         }
-                        @teacher{
-                                @itemlist[
-                                        @item{
-                                                The particular items for the party do not matter, feel free to change them as long as they are supplies where each student gets one of each item, or change the number of students to be the number of students in your class.
-                                        }
-                                ]
-                        }
-                }
-                @point{
-                        @student{
-                                Now suppose that you want to include the teacher in the pizza party (teachers like
-                                pizza too!)  How would you rewrite this program to compute the cost of paying 
-                                for supplies for 16 students and 1 teacher?
-
-                                @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Rewrite your program to get the new cost of a pizza party for 17 people.
-                                }
-                        }
-                        @teacher{
-                                Force students to manually change each @code{16} to a @code{17}.
-                        }
-                }
-                @point{
-                        @student{
-                                @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Add this line of code to the top of your definitions area:
-                                        @code[#:multi-line #t]{
-                                            party-people = 17
-                                        }
-                                        Then, substitute all of the instances of @code{17} with @code{party-people} in your expression to compute the cost of the party.
-                                }
-                        }
-                        @teacher{
-                                Make students compute the cost of throwing a pizza party for 20 people.  Ask them which line they need to update for this party size, and highlight the ease of editing this program vs. the previous one.
-                        }
-                }
-                @point{
-                    @student{
-                            @activity{
-                                Use identifiers to program the following word problem: A train is moving at a constant speed of 65mph. How far has it gone in 3.75 hours?
-                            }
-                    }
-                    @teacher{
-                            Students should use identifiers for @code{speed} and @code{time}. 
-                    }
                 }
                 @point{
                     @student{
@@ -455,12 +421,17 @@
 
                     }
                 }
+                @point{
+                    @student{
+                        We've added comments to the starter file, so you can fill in the @vocab{type} of each value being defined. We've already written the name and type for A, B and F. Can you fill in everything else between A and I? 
+                    }
+                }
         ]
    }
 
 @lesson/studteach[
-     #:title "Functions"
-     #:duration "25 minutes"
+     #:title "Applying Functions"
+     #:duration "30 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -475,68 +446,41 @@
                 )
       ]{
         @points[
-             @point{
+            @point{
                     @student{
-                    So now you know about Numbers, Strings, Operators and Variables - all of which behave just like they do in math. But what about functions? Pyret has lots of built in functions, which we can use to write more interesting programs than are possible with just operators and variables.
+                        So now you know about Numbers, Strings, Operators and Variables - all of which behave just like they do in math. But what about functions? Pyret has lots of built in functions, which we can use to write more interesting programs than are possible with just operators and variables.
 
-                            @activity[#:forevidence "BS-IDE&1&1"]{
-                                    Let's explore a new function, @code{num-min}.  Type each of these
-                                    lines of code into the interactions area and hit enter.
-
-                                    @itemlist[
-                                            @item{
-                                                    @code{num-min(0, 1)}
-                                            }
-                                            @item{
-                                                    @code{num-min(-5, 2)}
-                                            }
-                                            @item{
-                                                    @code{num-min(8, 6)}
-                                            }
-                                    ]
-
-                                    The values that we give to a function are called it's @vocab{arguments}. How many arguments are we giving to @code{num-min} in the three examples above? What are the types of these arguments? What type of value does this function output?  How does this output relate to the two inputs?
+                        @activity[#:forevidence "BS-IDE&1&1"]{
+                            Let's explore a new function, @code{triangle}.  Type this line of code into the interactions area and hit Enter. What does this expression evaluate to?
+                            @code[#:multi-line #t]{
+                                triangle(50, "solid", "red")
                             }
+
+                            The values that we give to a function are called its @vocab{arguments}. How many arguments are we giving to @code{triangle} in this example? What are the @italic{types} of those arguments? How does this output relate to the two inputs?
+                        }
                     }
                     @teacher{
 
                     }
-             }
-             @point{
+            }
+            @point{
                     @student{
-                            This is your first example of @italic{using a function} in Pyret. To use a function, a programmer writes:
-                            @itemlist[
-                                    @item{
-                                            The name of the function.  This function's name is @code{num-sqr}
-                                    }
-                                    @item{
-                                            The argument(s) we want to give to the function, wrapped in parentheses and separated by commas.  In this case, there is one argument:  The number we want to square.  However, different functions can have differents numbers of arguments.
-                                    }
-                            ]
-                            Each function also outputs a value.  The @code{num-sqr} function outputs a number that is equal to the square of the argument. What do you think the function @code{num-sqrt} does?
-                    }
-                    @teacher{
-
-                    }
-             }
-             @point{
-                    @student{
-                            @activity[#:forevidence "BS-IDE&1&1"]{
-                                    For each of these lines of code, try to guess what 
-                                    the problem is based on the error messages.
+                            The type of value this function produces is an @italic{Image}. 
+                                @activity[#:forevidence "BS-IDE&1&1"]{
+                                    Can you see what is wrong with each of these expressions? Try copying them into Pyret, one at a time, and reading the error messages aloud.
 
                                     @itemlist[
                                             @item{
-                                                    @code{num-min(2, 3}
+                                                    @code{triangle(2, "solid", "red"}
                                             }
                                             @item{
-                                                    @code{num-min(1 9)}
+                                                    @code{triangle(20 "solid" "red")}
                                             }
                                             @item{
-                                                    @code{num-min("hi", 2)}
+                                                    @code{triangle("20", "solid", "red")}
                                             }
                                             @item{
-                                                    @code{num-min(1, 4, 6)}
+                                                    @code{triangle(20, "solid", "red", "striped")}
                                             }
                                     ]
 
@@ -547,56 +491,57 @@
                             @itemlist[
                                     @item{
                                             Pyret needs both parentheses around the arguments, so that 
-                                            it knows exactly where function call begins and ends.  This
-                                            is similar to the error with Strings needing both quotation
-                                            marks.
+                                            it knows exactly where function call begins and ends.
                                     }
                                     @item{
-                                            For a similar reason, Pyret needs a comma between each argument
-                                            so that it can tell how many arguments there are.
+                                            Arguments must be separated with a comma.
                                     }
                                     @item{
-                                            @code{num-min} returns the minimum between the two numbers 
-                                            that are given as arguments.  It can't compare a String "hi"
-                                            to a number, so an error is raised.
+                                            @code{triangle} expects the first argument to be a Number.
+                                            @code{"20"} is a String.
                                     }
                                     @item{
-                                            Functions need to be called with the exact number of arguments
-                                            it is expecting.  @code{num-min} takes two arguments, so calling
-                                            it with 1, 3, 4, 5 etc. will give an error.
+                                            @code{triangle} takes exactly three arguments. Functions 
+                                            must be called with the correct number of arguments. 
                                     }
 
                             ]
                     }
-             }
-             @point{
+            }
+            @point{
                     @student{
-                            Every successful application of @code{num-min} will take 2 Numbers as input, and evaluate to one Number.  For each function we learn, we need to keep track of what arguments it takes, and what type of value it returns.
+                            Every successful application of @code{triangle} will take a Number and two Strings as input, and produce an Image. As you can imagine, there are many other functions for making images, each with a different set of arguments. For each function we learn, we need to keep track of three things:
+                            @itemlist[
+                                @item{@bold{Name} - the name of the function, which we type in whenver we want to use it}
+                                @item{@bold{Domain} - the type of data we give to the function, written between parentheses and separated by a comma}
+                                @item{@bold{Range} - the type of data the function produces}
+                            ]
+                            Domain and Range are @italic{types}, not specific values. @code{triangle} works on many different Numbers, not just the @code{20} we used in the example above!
                     }
                     @teacher{
 
                     }
-             }
-             @point{
+            }
+            @point{
                     @student{
-                            We do this by writing @vocab{contracts}. Contracts are comments in code that give the programmer instructions on what functions take in and output.  Below is the contract for @code{num-min}:
-
-                            @code[#:multi-line #t]{
-                                    # num-min :: Number, Number -> Number
+                            These three parts make up a @vocab{contract} for each function. What are the Name, Domain and Range of @code{triangle}?
+                              @code[#:multi-line #t]{
+                                    # triangle :: Number String String -> Image
                             }
-
-                            The first part of a contract is the function name.  This function is @code{num-min}, so that part is easy.  @code{num-min} takes two arguments of type Number, so we write Number Number.  Finally, after the arrow goes the type of the function's output, which in this case is Number.
+                            The first part of a contract is the function name. In this example, our function is named @code{triangle}. 
+                            The second part of a contract is the @vocab{Domain}, or the types of arguments the function expects. @code{triangle} expects a Number and two Strings as arguments, so we write @code{Number, String, String} to indicate the Domain.  
+                            Finally, after the arrow goes the type of the @vocab{Range}, or the function's output, which in this case is Image.
                             @activity{
-                                Write the contract for @code{num-min} in the back of your workbook. What do you think the contract would be for @code{num-max}? Write it down, and then try using it in the Interactions area.
+                                Write the contract for @code{triangle} in the back of your workbook. What do you think the contract would be for @code{circle}? @code{rectangle?}. Experiment on the computer to see what other functions there are. Once you've discovered the contract for a function, write it down in your contracts page.
                             }
                     }
                     @teacher{
 
                     }
-             }
-             @point{
+            }
+            @point{
                     @student{
-                            There are also plenty of functions you know from math class. Let's write the contract for @code{num-sqrt} together.
+                            There are also plenty of functions you know from math class. Pyret, for example, has a function called @code{num-sqrt}. What do you think it does?
 
                             @itemlist[
                                     @item{
@@ -618,24 +563,14 @@
                     @teacher{
 
                     }
-             }
-             @point{
-                    @student{
-                            @activity[#:forevidence "BS-IDE&1&1"]{
-                                    Turn to the last page in your workbook.  For each set of function calls, write the complete contract for the function, as well as an example of how to use it.
-                            }   
-                    }
-                    @teacher{
-
-                    }
             }
             @point{
                     @student{
-                            Pyret has many, many more functions. Some of these functions are defined as part of the language, and others are defined in extra files that we have to load by hand. Fortunately, including an external file is really easy! Try typing in the following code at the top of the Definitions Area:
-                            @code[#:multi-line #t]{
-                                include plot-list
+                            Here are some examples of a function you may not have seen before. What do you think its contract is?
+                              @code[#:multi-line #t]{
+                                    num-min(5, 19)  # produces 5
+                                    num-min(0, 4)   # produces 0
                             }
-                            This includes a file called @code{plot-list}, which defines a lot of extra functions for drawing charts, graphs and plots. When you click Run, Pyret will read that file and become aware of all those plotting functions.
                     }
                     @teacher{
 
@@ -643,12 +578,20 @@
             }
             @point{
                     @student{
-                        Two functions imported by this file are called @code{function-plot} and @code{draw-plot}:
+                            Pyret has many, many more functions. Some of these functions are defined as part of the language, and others are defined in extra files that we have to load by hand. In fact, all of the image functions you explored are part of the @code{image} library, which is loaded in the very first line of code in the Definitions Area. Do you see any other library being loaded? The second line of code includes a file called @code{plot-list}, which defines a lot of extra functions for drawing charts, graphs and plots. When you click Run, Pyret will read that file and become aware of all those plotting functions.
+                    }
+                    @teacher{
+
+                    }
+            }
+            @point{
+                    @student{
+                        Two of the functions imported by this file are called @code{function-plot} and @code{draw-plot}. Let's take a look at their contracts:
                         @code[#:multi-line #t]{
                             # function-plot :: (Number -> Number) -> Series
                             # draw-plot :: String, Series -> Plot
                         }
-                        @code{function-plot} consumes any function that maps from Numbers to Numbers (xs to ys, for example), and returns a series representing the graph of that function. @code{draw-plot} consumes a title and that series, and produces an Image. Make sure you write these down in your contracts page!
+                        @code{function-plot} consumes any function that maps from Numbers to Numbers (xs to ys, for example), and returns something called a @code{Series} representing the graph of that function. @code{draw-plot} consumes a title and that Series, and produces an Image. Make sure you write these down in your contracts page!
                     }
                     @teacher{
 
@@ -659,16 +602,16 @@
                         We can define identifiers for both the series and the plot:
                         @code[#:multi-line #t]{
                             # define the series and the graph for the function f(x)=√x
-                            sqrt-plot  = function-plot(num-sqrt)
-                            sqrt-graph = draw-plot("f(x)=√x", sqrt-plot)
+                            sqrt-series  = function-plot(num-sqrt)
+                            sqrt-graph = draw-plot("f(x)=√x", sqrt-series)
                         }
                         Review: once I've defined an identifier, I can see its value for by clicking Run, then typing in the identifier in the Interactions Area and hitting Enter.
 
                         Looking at your contracts page, do you see any other functions that we could plot?
-                }
-                @teacher{
+                    }
+                    @teacher{
 
-                }
+                    }
             }
         ]
    }
