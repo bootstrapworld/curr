@@ -2,10 +2,18 @@
 
 @title{Unit 2: Lists and Tables}
 
-@unit-overview/auto[#:lang-table (list (list "Number" @code{+, -, *, /, num-sqrt, num-sqr} "")
-                                       (list "String" @code{"n/a"} "")
-                                       (list "Image" @code{draw-plot} "")
-                                       (list "Series" @code{function-plot} "")
+@unit-overview/auto[#:lang-table (list (list "Number" 
+                                              @code{+, -, *, /, num-sqrt, num-sqr} 
+                                              @code{4, -1.2. 2/3})
+                                       (list "String" 
+                                              @code{"n/a"} 
+                                              (list @code{"hello" "91"} ))
+                                       (list "Image" 
+                                              @code{draw-plot} 
+                                              (list @bitmap{images/imgValue1.png} @bitmap{images/imgValue2.png}))
+                                       (list "Series" 
+                                              @code{function-plot} 
+                                              "")
                                        )]{
   @unit-descr{Is there a relationship between the amount of sugar in a meal, and the number of calories? Do more caloric meals tend to have more sugar? To answer this question, students are introduced to Lists and Tables in Pyret, as well as scatter plots as a way of visualizing data}
 }

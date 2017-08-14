@@ -2,11 +2,22 @@
 
 @title{Unit 5: Histograms}
 
-@unit-overview/auto[#:lang-table (list (list "Number" @code{+, -, *, /, num-sqrt, num-sqr} "")
-                                       (list "String" "n/a" "")
-                                       (list "Image" @code{draw-plot} "")
-                                       (list "Series" @code{function-plot, scatter-plot, bar-chart, pie-chart, freq-bar-chart} "")
-                                       (list "List" @code{extract, mean, median, mode, modes} ""))]{
+@unit-overview/auto[#:lang-table (list (list "Number" 
+                                              @code{+, -, *, /, num-sqrt, num-sqr} 
+                                              @code{4, -1.2. 2/3})
+                                       (list "String" 
+                                              "n/a" 
+                                              (list @code{"hello" "91"} ))
+                                       (list "Image" 
+                                              @code{draw-plot} 
+                                              (list @bitmap{images/imgValue1.png} @bitmap{images/imgValue2.png}))
+                                       (list "Series" 
+                                              @code{function-plot, scatter-plot, bar-chart, pie-char, freq-bar-chart} 
+                                              "")
+                                       (list "List" 
+                                              @code{extract, mean, median, modes} 
+                                              @code{[list: "list", "of", "strings"]})
+                                  )]{
   @unit-descr{Students are introduced to Histograms as visualizations for quantitative data, learn to analyze features of Histograms, and construct them in Pyret}
 }
 @unit-lessons{

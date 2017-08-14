@@ -2,12 +2,23 @@
 
 @title{Unit 7: Select and Order}
 
-@unit-overview/auto[#:lang-table (list (list "Number" @code{+, -, *, /, num-sqrt, num-sqr} "")
-                                       (list "String" "n/a" "")
-                                       (list "Image" @code{draw-plot, draw-plots} "")
-                                       (list "Series" @code{function-plot, scatter-plot, bar-chart, pie-chart, freq-bar-chart, histogram} "")
-                                       (list "List" @code{extract, mean, median, mode, modes} ""))
-                    ]{ @unit-descr{Students are introduced to their first examples of operations that consume and produce tables, and learn how to select columns and order rows. They are also introduced to the beginnings of Table Plans, as a vehicle for thinking through compound queries.}
+@unit-overview/auto[#:lang-table (list (list "Number" 
+                                              @code{+, -, *, /, num-sqrt, num-sqr} 
+                                              @code{4, -1.2. 2/3})
+                                       (list "String" 
+                                              "n/a" 
+                                              (list @code{"hello" "91"} ))
+                                       (list "Image" 
+                                              @code{draw-plot} 
+                                              (list @bitmap{images/imgValue1.png} @bitmap{images/imgValue2.png}))
+                                       (list "Series" 
+                                              @code{function-plot, scatter-plot, bar-chart, pie-char, freq-bar-chart, histogram} 
+                                              "")
+                                       (list "List" 
+                                              @code{extract, mean, median, modes} 
+                                              @code{[list: "list", "of", "strings"]})
+                                  )]{                                           
+  @unit-descr{Students are introduced to their first examples of operations that consume and produce tables, and learn how to select columns and order rows. They are also introduced to the beginnings of Table Plans, as a vehicle for thinking through compound queries.}
 }
 @unit-lessons{
 

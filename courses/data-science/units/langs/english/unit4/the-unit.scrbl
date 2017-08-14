@@ -2,11 +2,22 @@
 
 @title{Unit 4: Measuring Center}
 
-@unit-overview/auto[#:lang-table (list (list "Number" @code{+, -, *, /, num-sqrt, num-sqr} "")
-                                       (list "String" "n/a" "")
-                                       (list "Image" @code{draw-plot} "")
-                                       (list "Series" @code{function-plot, scatter-plot, bar-chart, pie-char, freq-bar-chart} "")
-                                       (list "List" @code{extract} ""))]{
+@unit-overview/auto[#:lang-table (list (list "Number" 
+                                              @code{+, -, *, /, num-sqrt, num-sqr} 
+                                              @code{4, -1.2. 2/3})
+                                       (list "String" 
+                                              "n/a" 
+                                              (list @code{"hello" "91"} ))
+                                       (list "Image" 
+                                              @code{draw-plot} 
+                                              (list @bitmap{images/imgValue1.png} @bitmap{images/imgValue2.png}))
+                                       (list "Series" 
+                                              @code{function-plot, scatter-plot, bar-chart, pie-char, freq-bar-chart} 
+                                              "")
+                                       (list "List" 
+                                              @code{extract} 
+                                              @code{[list: "list", "of", "strings"]})
+                                  )]{
   @unit-descr{Students learn how to measure central tendency using mean/median/mode.  They will practice calculating these values by hand, and learn to do so using Lists in Pyret}
 }
 @unit-lessons{

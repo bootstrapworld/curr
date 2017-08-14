@@ -2,12 +2,25 @@
 
 @title{Unit 8: Booleans, Comparison, and Sieve}
 
-@unit-overview/auto[#:lang-table (list (list "Number" @code{+, -, *, /, num-sqrt, num-sqr} "")
-                                       (list "String" "n/a" "")
-                                       (list "Image" @code{draw-plot, draw-plots} "")
-                                       (list "Series" @code{function-plot, scatter-plot, bar-chart, pie-chart, freq-bar-chart, histogram} "")
-                                       (list "List" @code{extract, mean, median, mode, modes} "")
-                                       (list "Table" @code{select, order} ""))]{  
+@unit-overview/auto[#:lang-table (list (list "Number" 
+                                              @code{+, -, *, /, num-sqrt, num-sqr} 
+                                              @code{4, -1.2. 2/3})
+                                       (list "String" 
+                                              "n/a" 
+                                              (list @code{"hello" "91"} ))
+                                       (list "Image" 
+                                              @code{draw-plot} 
+                                              (list @bitmap{images/imgValue1.png} @bitmap{images/imgValue2.png}))
+                                       (list "Series" 
+                                              @code{function-plot, scatter-plot, bar-chart, pie-char, freq-bar-chart, histogram} 
+                                              "")
+                                       (list "List" 
+                                              @code{extract, mean, median, modes} 
+                                              @code{[list: "list", "of", "strings"]})
+                                       (list "Table" 
+                                              @code{select, order} 
+                                              "")
+                                  )]{
     @unit-descr{Students are introduced to booleans and comparisons, and practice using them as predicates to write sieve queries.}
 }
 @unit-lessons{
