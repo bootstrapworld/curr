@@ -333,7 +333,7 @@ div.activity{
   -webkit-print-color-adjust: exact;
 }
 
-img{float: right; padding: 5px;}
+div#body img{float: right; padding: 5px;}
 div.activity::after{
     content: ".";
     display: block;
