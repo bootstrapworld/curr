@@ -28,11 +28,7 @@
      #:product-outcomes @itemlist[]
      #:standards (list)
      #:materials @itemlist[]
-     #:preparation @itemlist[
-                                @item{
-                                    Show students the @resource-link[#:path "OpeningQuestions.pdf" #:label "opening questions"], either as a handout or on posters set up around the room.
-                                }
-                             ]
+     #:preparation @itemlist[]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -42,7 +38,7 @@
         @points[
             @point{
               @student{
-                  A lot of restaurants these days publish nutrition information as part of their menu. When you look at these menus, you can find out how many calories each item contains. How much of a role does sugar play in that? Do sugary meals @italic{always} have more calories than meals with less sugar? Do high-calorie meals @italic{always} have a lot of sugar in them? 
+                  Do sugary meals @italic{always} have more calories than meals with less sugar? Do high-calorie meals @italic{always} have a lot of sugar in them?
                     @activity{
                         Turn to @worksheet-link[#:name "Unit-2"]. Take two minutes to write down what you think, and why.
                     }
@@ -126,7 +122,7 @@
             }
 			      @point{
                     @student{
-          							At the top of our table is the @vocab{header}. Each part of the @vocab{header} is the name of a particular @vocab{column}. @bold{The header is not a row!}. A table with no data has @italic{no rows}, even though it may have a header. For example:
+          							At the top of our table is the @vocab{header}. Each part of the @vocab{header} is the name of a particular @vocab{column}. @bold{The header is not a row!}. A table with no data has @italic{no rows}, even though it must still have a header. For example:
 
           							@build-table/cols[
           										'("First" "Last" "Eye-Color" "Height")
@@ -343,7 +339,7 @@
 
 @lesson/studteach[
      #:title "Extracting Lists from Tables"
-     #:duration "20 minutes"
+     #:duration "10 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -360,7 +356,7 @@
         @points[
                 @point{
                       @student{
-                              Tables are 2-dimensional collections of data, but we often want to ask 1-dimensional questions of them. For example, if we ask "what is the lowest amount of sodium on the menu", or "What is biggest serving size possible", these are questions that @italic{only involve one column at a time}.  We need some way of looking at each column individually in our programs.  In other words, we often want to get 1-dimensional data @bold{out of of a 2-dimensional table}.
+                              Tables are 2-dimensional collections of data, but we often want to ask 1-dimensional questions of them. For example, if we ask "what is the lowest amount of sodium on the menu", or "What is biggest serving size possible", these are questions that @italic{only involve one column at a time}. We need some way of extracting a @italic{list of data} from a table.
 
                       }
                       @teacher{
@@ -410,8 +406,6 @@
                 }
                 @point{
                       @student{
-                              @vocab{Lists} are a new type, and we write the type of a list in terms of it's contents. For example, a List of Numbers would be of type @code{List<Number>}. How do you think you would write the type for a List of Strings?
-
                               @activity[#:forevidence "BS-IDE&1&1"]{
                                       @itemlist[
                                               @item{
@@ -463,27 +457,46 @@
         @points[
                 @point{
                       @student{
-                          Do foods with more sugar tend to have more calories? Now that we have calories and sugar extracted as lists, we can plot these data points and find out! Once again, we'll want to include the @code{plot-list} file, and all the functions defined within it. This time, instead of using @code{function-plot} we'll use @code{scatter-plot}, which takes in two lists of numbers. 
-                          @code[#:multi-line #t]{
-                            sugar-v-calories = scatter-plot(calories-list, sugar-list)
-                          }
-                          What do you think the contract is for @code{scatter-plot}? Copy it down into your Contracts page. Once we've created the series, it's time to plot it. 
+                          A lot of restaurants these days publish nutrition information as part of their menu - how could we use this data to answer our topic question about sugar and calories? When we ask "do sugary foods have more calories?", we are asking about a @italic{relationship} between two variables: the amount of sugar in a meal, and the number of calories in that meal. In math class, relationships are usually black-and-white. The equation @math{y = 2x} says that the @math{y} is @italic{always} twice as much as @math{x}. But in the real world, relationships aren't quite so simple!
                       }
                       @teacher{
 
                       }
                 }
- @point{
-                  @student{
+                @point{
+                      @student{
+                          We can represent each menu item as a point on a graph, where the x-axis is the amount of sugar and the y-axis is the number of calories. The two lists we've defined represent our x's (the amount of sugar) and our y's (the number of calories). Each item gives us a single point on the graph. Will these points have to fit perfectly on a single line?
+                      }
+                      @teacher{
+
+                      }
+                }
+                @point{
+                      @student{
+                          @bitmap{images/scatter.png}
+                          In the last lesson, you used @code{function-plot} to generate a series from a mathematical function. But to plot all of these data points, we're going to use the @code{scatter-plot} function, which takes in two lists of numbers. 
+                          @code[#:multi-line #t]{
+                          # sugar-cal-series :: Series
+                          sugar-cal-series = scatter-plot(
+                                              calories-list, 
+                                              sugar-list)
+                          }
+                          What do you think the contract is for @code{scatter-plot}? Copy it down into your Contracts page. Once we've created the series, it's time to plot it: @code{draw-plot("Sugar v. Calories", sugar-cal-series)}. 
+                      }
+                      @teacher{
+
+                      }
+                }
+                @point{
+                      @student{
                           @activity{
-                            Use the @code{draw-plot} function to draw this scatter plot.(Go back to the previous unit if you forget how to display your plot.) What do you notice about this plot? Is there a relationship between sugar and calories? Take two minutes and write your answer on @worksheet-link[#:name "Unit-2"] - does this support your hypothesis or not?
-                            @bold{What other kinds of relationships can you find in these tables?}
+                            These data points don't look like they're on a neat line at all! However, the "cloud" of points does seem to shift upwards farther along the x-axis. That suggests that as sugar increases, calories tend to increase as well. Scatterplots are helpful because they allow us to search for trends in "messy" data like this. Take two minutes and write your answer on @worksheet-link[#:name "Unit-2"] - does this support your hypothesis or not?
                           }
                           Later on in this class, you'll learn how to plot many kinds of data, and how to search for trends and relationships like this one!
 
                       }
                       @teacher{
-                          Have the class debrief their findings. Did anyone's mind change after looking at the data? Is the data convincing or not? Why or why not?
+                          Have the class debrief their findings. Did anyone's mind change after looking at the data? Is the data convincing or not? Why or why not? If there's time, have students plot other columns in the table.
                       }
               }
         ]
