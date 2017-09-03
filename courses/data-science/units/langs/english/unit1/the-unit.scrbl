@@ -3,7 +3,7 @@
 @title{Unit 1: Introduction to Pyret}
 
 @unit-overview/auto[#:lang-table (list (list "" @code{} ""))]{
-  @unit-descr{Students write simple programs in Pyret, and learn about Numbers, Strings, Expressions, Operations, and Functions.}
+  @unit-descr{Students write simple programs in Pyret, and learn about Numbers, Strings, Lists, Types, operations, and function application.}
 }
 @unit-lessons{
 @lesson/studteach[
@@ -42,7 +42,7 @@
                                         What kind of @italic{measurement} would you use to determine if your answer is right or not? What data would you need?
                                     }
                                     @item{
-                                        Take 5 minutes to complete Page 1 in your Student Workbook, by copying down the question, your answer, and what you discussed with your group.
+                                        Take 5 minutes to complete @worksheet-link[#:name "Unit-1"] in your Student Workbook, by copying down the question, your answer, and what you discussed with your group.
                                     }
                                 ]
                             }
@@ -100,7 +100,7 @@
  }
 
 @lesson/studteach[
-     #:title "Values, Operators & Lists"
+     #:title "Values, Types & Operators"
      #:duration "20 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
@@ -157,7 +157,7 @@
              }
              @point{
                     @student{
-                            @bold{Every value has a  @vocab{Type}}.  Each of the values produced by the programs you just wrote of type @code{Number}, but there are other types as well. One of these types is called a @vocab{String}.  A String
+                            @bold{Every value has a @vocab{Type}}.  Each of the values produced by the programs you just wrote of type @code{Number}, but there are other types as well. One of these types is called a @vocab{String}.  A String
                             is a sequence of characters (letters, numbers, symbols) inside a pair of quotation marks.
 
                             @activity[#:forevidence "BS-IDE&1&1"]{
@@ -235,40 +235,16 @@
              @point{
                     @student{
                             @activity[#:forevidence "BS-IDE&1&1"]{
-                                    What other operations can we use?  Type each of these programs into the Interactions area. If you get an error message, read it out loud and see if you can figure out what it means.
-                                    @itemlist[
-                                            @item{
-                                                    @code{3 - 8}
-                                            }
-                                            @item{
-                                                    @code{1.5 * 3}
-                                            }
-                                            @item{
-                                                    @code{100 / 5}
-                                            }
-                                            @item{
-                                                    @code{8 + -2}
-                                            }
-                                            @item{
-                                                    @code{2.3 * 7}
-                                            }
-                                            @item{
-                                                    @code{6 / 0}
-                                            }
-                                            @item{
-                                                    @code{2 + "hello"}
-                                            }              
-                                    ]
+                                    What other operations can we use?  Experiment by writing different arithmetic expressions into the Interactions area. If you get an error message, read it out loud and see if you can figure out what it means.
                             }
                     }
                     @teacher{
-                            Each of these programs should compile and execute correctly except for the last two, which
-                            should raise errors.  Possible errors for the other programs should be whitespace/syntax related. 
+
                     }
              }
              @point{
                     @student{
-                            Notice that the last two programs give errors.  We know that Pyret gives errors whenever it can't evaluate a program.
+                            We know that Pyret gives errors whenever it can't evaluate a program.
                             @itemlist[
                                     @item{
                                             In @code{6 / 0} we know that you can't divide any number by 0!  In this case,
@@ -553,7 +529,7 @@
                                     C = 2 * 2
                                     D = 42 - A
                                 }
-                            @bold{Every definition has a name and a value}. The name is the part to the left of the equals sign, and the value is the part on the right. The value can be simple, like @code{42} and @code{"buffalo "}, or it can be an expression, such as @code{2 * 2}. Definitions can even refer to previous definitions, like @code{D = 42 - A}.
+                            @bold{Every definition has a name and a value}, and we know that every value has a type. The name is the part to the left of the equals sign, and the value is the part on the right. The value can be simple, like @code{42} and @code{"buffalo "}, or it can be an expression, such as @code{2 * 2}. Definitions can even refer to previous definitions, like @code{D = 42 - A}.
                         }
                         @teacher{
 
@@ -562,7 +538,7 @@
                 @point{
                     @student{
                             @activity[#:forevidence "BS-IDE&1&1"]{
-                                    Turn to @worksheet-link[#:name "Identifiers-Expressions"] in your workbook. For each expression, write down the value the computer will return. If the expression will result in an error, write down what you think the error will say.
+                                    Turn to @worksheet-link[#:name "Fill-In-Value"] in your workbook. For each definition, come up with a value or expression that matches the given name and type, and write it on the space provided.
                             }
                     }
                     @teacher{
@@ -619,8 +595,8 @@
                         @student{
                             Two of the functions imported by this file are called @code{function-plot} and @code{draw-plot}. Write them down in your contracts page:
                             @code[#:multi-line #t]{
-                                # draw-plot :: String, Series -> Image
-                                # function-plot :: (Number -> Number) -> Series
+                                # draw-plot :: String, DataSeries -> Image
+                                # function-plot :: (Number -> Number) -> DataSeries
 
                             }
                             These contracts have a lot of new information in them, but you can use what you know to reason about them. 
@@ -635,9 +611,9 @@
                 }
                 @point{
                         @student{
-                            @code{draw-plot} consumes a String and something called a @code{Series}, and then produces an Image. The String is the title of a plot, and the resulting Image is the picture of the plot (with that title). You've used your knowledge of contracts to identify that the function also takes in a @code{Series}, but what @italic{is} that? 
+                            Even though you haven't seen a @code{DataSeries} before, we can figure out that @code{draw-plot} consumes a String and a @code{DataSeries}, and then produces an Image. The String is the title of a plot, and the resulting Image is the picture of the plot (with that title). You've used your knowledge of contracts to identify that the function also takes in a @code{DataSeries}, but what @italic{is} that? 
 
-                            When you plot a function on your calculator, you can zoom in and out of the resulting graph. Zooming in and out will change the image on the screen, but it doesn't change the data itself. That means you can think about a plot as having two parts: the abstract @italic{data}, and then the settings for how that data is presented. A @code{Series} is the abstract data. You've already seen some functions that may be familiar to you, such as @code{num-sqr} and @code{num-sqrt}. How can we take these functions and build a series out of them? 
+                            When you plot a function on your calculator, you can zoom in and out of the resulting graph. Zooming in and out will change the image on the screen, but it doesn't change the data itself. That means you can think about a plot as having two parts: the abstract @italic{data}, and then the settings for how that data is presented. A @code{DataSeries} is the abstract data. You've already seen some functions that may be familiar to you, such as @code{num-sqr} and @code{num-sqrt}. How can we take these functions and build a DataSeries out of them? 
                         }
                         @teacher{
                             You can provide other examples that distinguish data from presentation: the same graph can be shown in any color, or with xMin and xMax shifted by any amount, but the underlying data behind the graph doesn't change!
@@ -645,7 +621,7 @@
                 }
                 @point{
                         @student{
-                            You might notice that every contracts has an arrow separating Domain from Range. @code{function-plot} has an interesting domain: @code{(Number -> Number)}. That means it consumes a @italic{function} that maps from Numbers to Numbers (xs to ys, for example), and returns a @code{Series}. 
+                            You might notice that every contracts has an arrow separating Domain from Range. @code{function-plot} has an interesting domain: @code{(Number -> Number)}. That means it consumes a @italic{function} that maps from Numbers to Numbers (xs to ys, for example), and returns a @code{DataSeries}. 
                         }
                         @teacher{
 
@@ -653,11 +629,11 @@
                 }
                 @point{
                         @student{
-                            We can define identifiers for both the series and the plot:
+                            We can define names for both the DataSeries and the plot:
                             @code[#:multi-line #t]{
                                 # define the series and the graph for the function f(x)=√x
                                 sqrt-series  = function-plot(num-sqrt)
-                                sqrt-graph = draw-plot("f(x)=√x", sqrt-series)
+                                sqrt-graph = draw-plot("f(x)=√x", sqrt-DataSeries)
                             }
                             Review: once I've defined an identifier, I can see its value for by clicking Run, then typing in the identifier in the Interactions Area and hitting Enter.
 
