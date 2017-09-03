@@ -11,7 +11,7 @@
                                        (list "Image" 
                                               @code{draw-plot} 
                                               (list @bitmap{images/imgValue1.png} @bitmap{images/imgValue2.png}))
-                                       (list "Series" 
+                                       (list "DataSeries" 
                                               @code{function-plot, scatter-plot, bar-chart, pie-char, freq-bar-chart, histogram} 
                                               "")
                                        (list "List" 

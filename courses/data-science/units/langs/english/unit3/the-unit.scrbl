@@ -11,7 +11,7 @@
                                        (list "Image" 
                                               @code{draw-plot} 
                                               (list @bitmap{images/imgValue1.png} @bitmap{images/imgValue2.png}))
-                                       (list "Series" 
+                                       (list "DataSeries" 
                                               @code{function-plot, scatter-plot} 
                                               "")
                                        (list "List" 
@@ -151,7 +151,7 @@
                 @point{
                       @student{
                               @code[#:multi-line #t]{
-                                    # Define some Series
+                                    # Define some DataSeries
                                     cholesterol-bar-series = bar-chart(food-list, cholesterol-list)
                                     cholesterol-pie-series = pie-chart(food-list, cholesterol-list)
                                     # Define some Plot Images
@@ -161,8 +161,8 @@
 
                               This code uses new functions you haven't seen before: @code{bar-chart} and @code{pie-chart}. As you might expect, the contracts for these function are:
                                @code[#:multi-line #t]{
-                                    # bar-chart :: List<String>, List<Number> -> Series
-                                    # pie-chart :: List<String>, List<Number> -> Series
+                                    # bar-chart :: List<String>, List<Number> -> DataSeries
+                                    # pie-chart :: List<String>, List<Number> -> DataSeries
                               }
 
                               What do the two arguments in their domains represent?
@@ -286,7 +286,7 @@
                       @student{
                               This special kind of bar chart is called a @vocab{frequency bar chart}.  There's a function in Pyret that lets us build frequency bar charts from a list:
                               @code[#:multi-line #t]{
-                                freq-bar-char :: List<String> -> Series
+                                freq-bar-char :: List<String> -> DataSeries
                               }
                               Below is an example that computes the frequency of categories in the @code{home-state} column of @code{presidents}.
 

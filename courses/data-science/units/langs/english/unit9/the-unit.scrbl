@@ -11,7 +11,7 @@
                                        (list "Image" 
                                               @code{draw-plot} 
                                               (list @bitmap{images/imgValue1.png} @bitmap{images/imgValue2.png}))
-                                       (list "Series" 
+                                       (list "DataSeries" 
                                               @code{function-plot, scatter-plot, bar-chart, pie-char, freq-bar-chart, histogram} 
                                               "")
                                        (list "List" 
@@ -300,7 +300,7 @@
                                             Extract the columns you'll need to create the histogram
                                         }
                                         @item{
-                                            Define the histogram series, and then plot the histogram. If you've forgotten how to make a historgram series, a plot, or how to draw the plot, don't forget to refer back to your contracts page!
+                                            Define the histogram DataSeries, and then plot the histogram. If you've forgotten how to make a historgram DataSeries, a plot, or how to draw the plot, don't forget to refer back to your contracts page!
                                         }
                                     ]
                                 }
@@ -354,7 +354,7 @@
                                             Extract the columns you'll need to create the scatterplots and @vocab{predictor} functions for @bold{both relationships}: "population v. life expectancy" and "per-capita-GDP v. life expectancy".
                                         }
                                         @item{
-                                            Define the two scatterplot series, and then plot them both.
+                                            Define the two scatterplot DataSeries, and then plot them both.
                                         }
                                         @item{
                                             Define your predictor functions and r-squared values. Plot your predictor functions on top of your scatterplots, and use the r-squared values to determine which predictor better explains median life expectancy.

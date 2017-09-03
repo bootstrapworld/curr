@@ -11,7 +11,7 @@
                                        (list "Image" 
                                               @code{draw-plot} 
                                               (list @bitmap{images/imgValue1.png} @bitmap{images/imgValue2.png}))
-                                       (list "Series" 
+                                       (list "DataSeries" 
                                               @code{function-plot, scatter-plot, bar-chart, pie-char, freq-bar-chart} 
                                               "")
                                        (list "List" 
@@ -146,7 +146,7 @@
                                 We can use a different kind of chart for visualizing @italic{how frequent values are} in a list of quantitative data. This kind of chart is a called @vocab{histogram}, and it is similar to the bar charts you have seen before.
 
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Type the following code into your Definitions Area to create the histogram series and draw the plot.
+                                        Type the following code into your Definitions Area to create the histogram DataSeries and draw the plot.
 
                                         @code[#:multi-line #t]{
                                                 dice-histogram-series = histogram(roll-dice(10000), 11)

@@ -11,7 +11,7 @@
                                        (list "Image" 
                                               @code{draw-plot} 
                                               (list @bitmap{images/imgValue1.png} @bitmap{images/imgValue2.png}))
-                                       (list "Series" 
+                                       (list "DataSeries" 
                                               @code{function-plot, scatter-plot, bar-chart, pie-char, freq-bar-chart, histogram} 
                                               "")
                                        (list "List" 
@@ -151,7 +151,7 @@
                 }
                 @point{
                         @student{
-                                To answer this question, we will return to the very first chart you learned about in this class: @vocab{scatter plots}. A scatter plot is a chart that plots every pair of numbers in 2 columns. By extracting the two columns from @code{restaurants}, we can create a series to plot:
+                                To answer this question, we will return to the very first chart you learned about in this class: @vocab{scatter plots}. A scatter plot is a chart that plots every pair of numbers in 2 columns. By extracting the two columns from @code{restaurants}, we can create a DataSeries to plot:
                                 @code[#:multi-line #t]{
                                         ratings-list = extract rating from restaurants end
                                         prices-list  = extract price  from restaurants end
@@ -391,7 +391,7 @@
                 @point{
                         @student{
                                 @activity{
-                                    Once we have the function series, we know how to plot it - we used @code{draw-plot} back in Unit 1! Use Pyret to plot this function, and the scatter-plot. Ideally, we'd like to plot these @italic{on top of one another}, and we can do this using the @code{draw-plots} function. It works much the way @code{draw-plot} does, but instead of one @code{series} it takes in a @italic{list of series} (@code{List<Series>}) as its Domain.
+                                    Once we have the function DataSeries, we know how to plot it - we used @code{draw-plot} back in Unit 1! Use Pyret to plot this function, and the scatter-plot. Ideally, we'd like to plot these @italic{on top of one another}, and we can do this using the @code{draw-plots} function. It works much the way @code{draw-plot} does, but instead of one @code{DataSeries} it takes in a @italic{list of DataSeries} (@code{List<DataSeries>}) as its Domain.
                                 }
                         }
                         @teacher{

@@ -11,11 +11,11 @@
                                        (list "Image" 
                                               @code{draw-plot} 
                                               (list @bitmap{images/imgValue1.png} @bitmap{images/imgValue2.png}))
-                                       (list "Series" 
+                                       (list "DataSeries" 
                                               @code{function-plot} 
                                               "")
                                        )]{
-  @unit-descr{Is there a relationship between the amount of sugar in a meal, and the number of calories? Do more caloric meals tend to have more sugar? To answer this question, students are introduced to Lists and Tables in Pyret, as well as scatter plots as a way of visualizing data}
+  @unit-descr{Is there a relationship between the amount of sugar in a meal, and the number of calories? Do more caloric meals tend to have more sugar? To answer this question, students are introduced to Tables in Pyret, as well as scatter plots as a way of visualizing data}
 }
 @unit-lessons{
 
@@ -474,14 +474,14 @@
                 @point{
                       @student{
                           @bitmap{images/scatter.png}
-                          In the last lesson, you used @code{function-plot} to generate a series from a mathematical function. But to plot all of these data points, we're going to use the @code{scatter-plot} function, which takes in two lists of numbers. 
+                          In the last lesson, you used @code{function-plot} to generate a DataSeries from a mathematical function. But to plot all of these data points, we're going to use the @code{scatter-plot} function, which takes in two lists of numbers. 
                           @code[#:multi-line #t]{
-                          # sugar-cal-series :: Series
+                          # sugar-cal-series :: DataSeries
                           sugar-cal-series = scatter-plot(
                                               calories-list, 
                                               sugar-list)
                           }
-                          What do you think the contract is for @code{scatter-plot}? Copy it down into your Contracts page. Once we've created the series, it's time to plot it: @code{draw-plot("Sugar v. Calories", sugar-cal-series)}. 
+                          What do you think the contract is for @code{scatter-plot}? Copy it down into your Contracts page. Once we've created the DataSeries, it's time to plot it: @code{draw-plot("Sugar v. Calories", sugar-cal-series)}. 
                       }
                       @teacher{
 
