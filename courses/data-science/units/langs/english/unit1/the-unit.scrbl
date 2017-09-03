@@ -317,16 +317,29 @@
              }
              @point{
                     @student{
-                        We can also group values together, into what is called a @code{List}. Here are three lists:
+                        We can also group values together, into what is called a @code{List}. Here are three different List values:
                         @code[#:multi-line #t]{
                             [list: 1, 2, 3]
                             [list: 1 + 1, 2 + 2, 3 + 3]
                             [list: "lists", "can", "be", "strings"]
                         }
-                        You can make any kind of list you want, but everything inside a list must be of the same type. Each element in a list can be a complete expression (like @code{1 + 1}), which will evaluate to a single value. That means we can make lists of Numbers, Strings, or any other kind of data - but not a list that contains both Numbers @italic{and} Strings.
+                        You can make any kind of list you want, but everything inside a list must be of the same @vocab{type}. Each element in a list can be a complete expression (like @code{1 + 1}), which will evaluate to a single value. That means we can make lists of Numbers, Strings, or any other kind of data - but not a list that contains both Numbers @italic{and} Strings.
                         @activity{
-                            In the Interactions Area, try making a list of strings, where each string is the name of a food you like to eat.
+                            In the Interactions Area, try making a List of strings, where each string is the name of a food you like to eat.
                         }
+                    }
+                    @teacher{
+
+                    }
+             }
+             @point{
+                    @student{
+                        What are some possible errors when making Lists? Try them out and see what Pyret says about them.
+                        @itemlist[
+                            @item{@code{[list 1, 2, 3]}}
+                            @item{@code{[list: 1 2, 3]}}
+                            @item{@code{[list: "a", "b]}}
+                        ]
                     }
                     @teacher{
 
