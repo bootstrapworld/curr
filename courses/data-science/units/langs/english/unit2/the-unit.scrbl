@@ -356,7 +356,7 @@
         @points[
                 @point{
                       @student{
-                              Tables are 2-dimensional collections of data, but we often want to ask 1-dimensional questions of them. For example, if we ask "what is the lowest amount of sodium on the menu", or "What is biggest serving size possible", these are questions that @italic{only involve one column at a time}. We need some way of extracting a @italic{list of data} from a table.
+                              Tables are 2-dimensional collections of data, but we often want to ask 1-dimensional questions of them. For example, if we ask "what is the lowest amount of sodium on the menu", or "What is biggest serving size possible", these are questions that @italic{only involve one column at a time}. We need some way of extracting a column from a table, and turning it into a @code{List}!
 
                       }
                       @teacher{
@@ -478,8 +478,8 @@
                           @code[#:multi-line #t]{
                           # sugar-cal-series :: DataSeries
                           sugar-cal-series = scatter-plot(
-                                              calories-list, 
-                                              sugar-list)
+                                              sugar-list,
+                                              calories-list)
                           }
                           What do you think the contract is for @code{scatter-plot}? Copy it down into your Contracts page. Once we've created the DataSeries, it's time to plot it: @code{draw-plot("Sugar v. Calories", sugar-cal-series)}. 
                       }
