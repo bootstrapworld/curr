@@ -121,13 +121,13 @@
                                 Use @code{roll-dice} to create a list of 10,000 rolls.  How can we use this List to come up with our lucky number? Is there a measure of center that could answer this question, and help us win the jackpot?
                         }
                         @teacher{
-                                Guide students to suggest using mean, median, and mode to measure the center of the list of dice rolls.
+                                Guide students to suggest using mean, median, and modes to measure the center of the list of dice rolls.
                         }
                 }
                 @point{
                         @student{
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                        What are the @code{mean}, @code{median}, and @code{mode} of a list of 10,000 dice rolls? Use the functions you've learned in Pyret to compute them. Does @code{roll-dice} give you the same list every time? Will you get the same mean every time?
+                                        What are the @code{mean}, @code{median}, and @code{modes} of a list of 10,000 dice rolls? Use the functions you've learned in Pyret to compute them. Does @code{roll-dice} give you the same list every time? Will you get the same mean every time?
                               }
                         }
                         @teacher{
