@@ -508,6 +508,15 @@
 
                         }
                 }
+                @point{
+                        @student{
+                                @bitmap{images/nonlinear.png}
+                                You've learned how linear regression can be used to compute a linear relationship for a cloud of data, and how to determine the error of that relationship. The word "linear" means "in a straight line", which is why all of our predictors are in a straight line. In the image on the right, there's clearly a pattern, but it doesn't look like a straight line! There are many other kinds of statistical modeling out there, but all of them work the same way: given a particular kind of mathematical function (linear or otherwise), figure out how to get the "best fit" for a cloud of data. 
+                        }
+                        @teacher{
+                        
+                        }
+                }
         ]
    }
 @lesson/studteach[
