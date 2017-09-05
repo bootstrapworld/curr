@@ -41,7 +41,7 @@
                 @point{
                         @student{
                                 @bitmap{images/dice.png}
-                                Suppose a stranger invites you to play a game. You start by guessing a number between 2 and 12. The stranger rolls two dice, and add the numbers together. If that sum is the number you guessed, you win the jackpot, but if your number is wrong, then you lose your money. What are your odds of winning this game? Are they good enough that it's worth playing?
+                                While traveling to Vegas, you find yourself at Pearson's Casino. Pearson himself invites you to play a game, and it only costs you $1. He rolls two dice and adds the numbers together, while you guess what number he came up with. If you guess right, you keep your money and get an extra $1 to boot! But if you guess wrong, he keeps your dollar. What are your odds of winning this game? Are they good enough that it's worth playing?
                                 @activity{
                                         Turn to page @worksheet-link[#:name "Unit-5"]. Take two minutes to write your answer.
                                 }
@@ -53,6 +53,9 @@
                                         }
                                         @item{
                                                 If you are uneasy about using a gambling example in the classroom, we understand: the students will see at the end that they should NOT agree to play this game!
+                                        }
+                                        @item{
+                                                Note: The field of Statistics (and Karl Pearson himself) has a <a href="https://en.wikipedia.org/wiki/Karl_Pearson">checkered past</a> when it comes to how they have been used throughout history.
                                         }
                                 ]
                         }
@@ -138,7 +141,7 @@
                         @student{
                                 We can see that the mean and median are both 7, and the mean is very, @italic{very} close to 7. So 7 is probably our best guess.
 
-                                Unfortunately, we still don't know if 7 comes up often enough for this to be a game worth playing! We've used our measures of center to figure out the most frequent number, but just @italic{how frequent is it}? We need some way of asking if 7 appears more than all the other numbers combined.
+                                Unfortunately, we still don't know if 7 comes up often enough for this to be a game worth playing! If each round means we lose a dollar or win a dollar, we need our odds to be better than 50% to make it worth playing. We've used our measures of center to figure out the most frequent number, but just @italic{how frequent is it}? We need some way of asking if 7 appears more than all the other numbers combined.
                         }
                 }
                 @point{
