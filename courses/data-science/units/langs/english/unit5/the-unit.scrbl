@@ -55,7 +55,7 @@
                                                 If you are uneasy about using a gambling example in the classroom, we understand: the students will see at the end that they should NOT agree to play this game!
                                         }
                                         @item{
-                                                Note: The field of Statistics (and Karl Pearson himself) has a <a href="https://en.wikipedia.org/wiki/Karl_Pearson">checkered past</a> when it comes to how they have been used throughout history.
+                                                Note: The field of Statistics (and Karl Pearson himself) has a @(hyperlink "https://en.wikipedia.org/wiki/Karl_Pearson" "checkered past") when it comes to how they have been used throughout history.
                                         }
                                 ]
                         }
