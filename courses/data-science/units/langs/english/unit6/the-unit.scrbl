@@ -170,7 +170,7 @@
                                 There are 9 points on our restaurant scatter plot: one for each restaurant in the table. Each dot's placement depends on the price and rating values of a particular restaurant. For example, look at the restaurant "Riverside Grille". Riverside Grille has an average price of 19.56, so it will appear to the far right of the chart. Riverside Grille has an average rating of 4.9, so it will appear towards the top of the chart.
 
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                    In Pyret, open the scatter plot that shows the relationship between prices and ratings.
+                                    In Pyret, evalute @code{prices-vs-ratings-plot} to see the relationship between prices and ratings.
                                         @itemlist[
                                                 @item{
                                                         Which dot represents the restaurant "Family Diner"?
@@ -369,7 +369,29 @@
                 }
                 @point{
                         @student{
-                                Data scientists use statistics to build a @italic{model} of a data set. This model takes into account a lot of different measures (including some of the ones you already know), and tries to identify patterns and relationships within the data. We can build a model of our own in Pyret, and grab a @italic{predictor function} from it:
+                                Data scientists use statistics to build a @italic{model} of a data set. This model takes into account a lot of different measures (including some of the ones you already know), and tries to identify patterns and relationships within the data. When we draw our predictor line on a scatterplot, we can imagine a rubber band stretching between the line itself and each point in the plot - every point pulls the line a little "up" or "down". 
+                        }
+                        @teacher{
+
+                        }
+                }
+                @point{
+                        @student{
+                                @activity{
+                                  You can see this model action, in this @(hyperlink "https://www.geogebra.org/m/xC6zq7Zv" "interactive simulation"). Each vertical line represents the error, or the amount the rubber band has to stretch between a single datapoint and the prediction line. The "Target SSE" shows how much error there is in the best possible predictor line. Our goal is to match that, by moving the red line or the "guide dots" on it. 
+                                  @itemlist[
+                                      @item{Could the predictor line ever be above or below @italic{all} the points? Why or why not?}
+                                      @item{What would the plot have to look like for SSE to be zero?}
+                                  ]
+                                }
+                        }
+                        @teacher{
+                                Give students some time to experiment here! Can your students come up with rules or suggestions for how to minimize error? 
+                        }
+                }
+                @point{
+                        @student{
+                                We can computer our own predictor line in Pyret, and grab a @italic{predictor function} from it:
 
                                 @code[#:multi-line #t]{
                                         # use linear regression to extract a predictor function
@@ -391,7 +413,7 @@
                 @point{
                         @student{
                                 @activity{
-                                    Once we have the function DataSeries, we know how to plot it - we used @code{draw-plot} back in Unit 1! Use Pyret to plot this function, and the scatter-plot. Ideally, we'd like to plot these @italic{on top of one another}, and we can do this using the @code{draw-plots} function. It works much the way @code{draw-plot} does, but instead of one @code{DataSeries} it takes in a @italic{list of DataSeries} (@code{List<DataSeries>}) as its Domain.
+                                    Once we have the function's DataSeries, we know how to plot it - we used @code{draw-plot} back in Unit 1! We can use @code{draw-plot} to plot the function @code{DataSeries} or the scatterplot @code{DataSeries}, but we'd like to plot these @italic{on top of one another}, and we can do this using the @code{draw-plots} function. It works much the way @code{draw-plot} does, but instead of one @code{DataSeries} it takes in a @italic{list of DataSeries} (@code{List<DataSeries>}) as its Domain.
                                 }
                         }
                         @teacher{
