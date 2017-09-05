@@ -109,7 +109,7 @@
                 }
                 @point{
                       @student{
-                              When we want to answer questions about just a few columns in a table, @italic{we can remove the unnecessary ones} with @vocab{select}. @code{select} is a @vocab{table query}: a special key word that will create a new table using information from a starting table. Table queries are called queries because they are used to ask questions using specific information in tables. @vocab{select} creates a table containing only the columns that the programmer specifies.
+                              When we want to answer questions about just a few columns in a table, @italic{we can cherry-pick the ones we want} with @vocab{select}. @code{select} is a @vocab{table query}: a special key word that will create a new table using information from a starting table. Table queries are called queries because they are used to ask questions using specific information in tables. @vocab{select} creates a table containing only the columns that the programmer specifies.
 
                               @code[#:multi-line #t]{
                                       movies-selected = select title, year from movies end

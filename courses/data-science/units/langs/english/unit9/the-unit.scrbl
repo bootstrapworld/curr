@@ -243,7 +243,7 @@
                                             Do the rows need to be any particular order? It's not clear from the word problem, so we can choose: do we skip this step, or should we order them so your aunt can immediately see which food is best?
                                         }
                                         @item{
-                                            Do we have any unecessary columns? Yes! All we care about are the @code{name}, @code{calories}, and @code{protein-per-gram} columns. Write the @code{select} query to do this.
+                                            Which columns do we need? All we care about are the @code{name}, @code{calories}, and @code{protein-per-gram} columns. Write the @code{select} query to do grab those columns.
                                         }
                                         @item{
                                             Once you're done with your Table Plan, program your queries in the Definitions Area, under "4. Body Building".
