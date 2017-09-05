@@ -474,7 +474,7 @@
                 @point{
                       @student{
                           @bitmap{images/scatter.png}
-                          In the last lesson, you used @code{function-plot} to generate a DataSeries from a mathematical function. But to plot all of these data points, we're going to use the @code{scatter-plot} function, which takes in two lists of numbers. 
+                          In the last lesson, you used @code{function-plot} to generate a DataSeries from a mathematical function. But to plot all of these data points, we're going to use the @code{scatter-plot} function, which takes in two lists of numbers as the xs and ys. 
                           @code[#:multi-line #t]{
                           # sugar-cal-series :: DataSeries
                           sugar-cal-series = scatter-plot(

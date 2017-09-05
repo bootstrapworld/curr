@@ -161,8 +161,8 @@
 
                               This code uses new functions you haven't seen before: @code{bar-chart} and @code{pie-chart}. As you might expect, the contracts for these function are:
                                @code[#:multi-line #t]{
-                                    # bar-chart :: List<String>, List<Number> -> DataSeries
-                                    # pie-chart :: List<String>, List<Number> -> DataSeries
+                                    # bar-chart :: (labels :: List<String>, values :: List<Number>) -> DataSeries
+                                    # pie-chart :: (labels :: List<String>, values :: List<Number>) -> DataSeries
                               }
 
                               What do the two arguments in their domains represent?
@@ -286,7 +286,7 @@
                       @student{
                               This special kind of bar chart is called a @vocab{frequency bar chart}.  There's a function in Pyret that lets us build frequency bar charts from a list:
                               @code[#:multi-line #t]{
-                                freq-bar-char :: List<String> -> DataSeries
+                                freq-bar-char :: (values :: List<String>) -> DataSeries
                               }
                               Below is an example that computes the frequency of categories in the @code{home-state} column of @code{presidents}.
 

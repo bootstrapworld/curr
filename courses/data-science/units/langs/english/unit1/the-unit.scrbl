@@ -431,10 +431,10 @@
                             The @code{triangle} function needs a Number and two Strings as input, and it produces an Image. As you can imagine, there are many other functions for making images, each with a different set of arguments. For each function we learn, we need to keep track of three things:
                             @itemlist[
                                 @item{@bold{Name} - the name of the function, which we type in whenver we want to use it}
-                                @item{@bold{Domain} - the type of data we give to the function, written between parentheses and separated by a comma}
+                                @item{@bold{Domain} - the data we give to the function (names and Types!), written between parentheses and separated by commas}
                                 @item{@bold{Range} - the type of data the function produces}
                             ]
-                            Domain and Range are @italic{Types}, not specific values. @code{triangle} works on many different Numbers, not just the @code{20} we used in the example above!
+                            Domain and Range are @italic{Types}, not specific values. As a convention,  @bold{we capitalize Types and keep names in lowercase when writing contracts}. @code{triangle} works on many different Numbers, not just the @code{20} we used in the example above!
                     }
                     @teacher{
 
@@ -444,7 +444,7 @@
                     @student{
                             These three parts make up a @vocab{contract} for each function. What are the Name, Domain and Range of @code{triangle}?
                               @code[#:multi-line #t]{
-                                    # triangle :: Number, String, String -> Image
+                                    # triangle :: (side :: Number, mode :: String, color :: String) -> Image
                             }
                             The first part of a contract is the function's name. In this example, our function is named @code{triangle}. 
                             The second part of a contract is the @vocab{Domain}, or the types of arguments the function expects. @code{triangle} expects a Number and two Strings as arguments, so we write @code{Number, String, String} to indicate the Domain, with commas between each one (just like lists!).  
@@ -474,7 +474,7 @@
                             ]
 
                             @code[#:multi-line #t]{
-                                    # num-sqrt :: Number -> Number
+                                    # num-sqrt :: (n :: Number) -> Number
                             }
                             There's also a function for @italic{squaring} numbers, called @code{num-sqr}. Write the contract for @code{num-sqr} on your contracts page.
                     }
@@ -498,7 +498,7 @@
                     @student{
                             Here's the contract for a new function. Can you figure out how to use it in the Interactions Area? Once you've figure it out, write it down in your contracts page.
                               @code[#:multi-line #t]{
-                                    string-repeat :: Number, String -> String
+                                    string-repeat :: (s :: String, n :: Number) -> String
                             }
                     }
                     @teacher{
@@ -585,7 +585,7 @@
                     @student{
                         We can even define new names for @italic{functions themselves}. Take a look at line 24:
                         @code[#:multi-line #t]{
-                                M = num-sqrt   # M :: Number -> Number
+                                M = num-sqrt   # M :: (n :: Number) -> Number
                             }
                         This definition creates a name called @code{J}, which is the square root function @italic{itself}! In the comment, you'll notice that M's type looks different from other types we've seen before. Instead of just being a @code{Number}, @code{String}, @code{List}, or @code{Image}, it has an arrow in it! That's because it's a function, just like @code{num-sqrt}. In fact, @code{M} has the same Domain and Range as @code{num-sqrt} because it's being defined as @code{num-sqrt}.
                         @activity{
@@ -608,8 +608,8 @@
                         @student{
                             Two of the functions imported by this file are called @code{function-plot} and @code{draw-plot}. Write them down in your contracts page:
                             @code[#:multi-line #t]{
-                                # draw-plot :: String, DataSeries -> Image
-                                # function-plot :: (Number -> Number) -> DataSeries
+                                # draw-plot :: (title :: String, ds :: DataSeries) -> Image
+                                # function-plot :: (fn :: Number -> Number) -> DataSeries
 
                             }
                             These contracts have a lot of new information in them, but you can use what you know to reason about them. 
@@ -653,7 +653,7 @@
                             Looking at your contracts page, do you see any other functions that we could plot?
                         }
                         @teacher{
-
+                            Have student plot @code{num-sqrt}.
                         }
                 }
 

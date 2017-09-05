@@ -397,7 +397,7 @@
                                         # use linear regression to extract a predictor function
                                         rating-predictor = linear-regression(prices-list, ratings-list) 
                                 }
-                                @code{linear-regression} is a function that takes 2 lists as arguments, and returns a function of Type @code{Number -> Number}. This function is our predictor, representing the line that best fits the data. We define this function to be the identifier @code{rating-predictor}, and we can use it just like any other function. 
+                                @code{linear-regression} is a function that takes 2 a List of xs and ys as arguments, and @italic{returns a function} of Type @code{Number -> Number}. This function is our predictor, representing the line that best fits the data. We define this function to be the identifier @code{rating-predictor}, and we can use it just like any other function. 
 
                                 @activity[#:forevidence "BS-IDE&1&1"]{
                                         Type @code{rating-predictor(0)} into the Interactions Area. What is the output?  What happens with @code{rating-predictor(20)?} What is the contract for @code{rating-predictor}?
@@ -472,7 +472,7 @@
 
                                 This is a number on the same scale [0, 1] that tell us "how much of the variation in the scatterplot is explained by this function". In other words, it's a measure for how well the line fits. A perfect score of 1.0 means that 100% of the variability in the data is explained by the function, and that our predictor is perfect. For the price vs ratings, the predictor score is ~0.71, which is fairly accurate. The contract for @code{r-squared} is:
                                 @code[#:multi-line #t]{
-                                    # r-squared :: List<Number>, List<Number>, (Number->Number) -> Number
+                                    # r-squared :: (xs :: List<Num>, ys :: List<Num>, predictor :: Num->Num) -> Number
                                 }
 
                                 @activity[#:forevidence "BS-IDE&1&1"]{

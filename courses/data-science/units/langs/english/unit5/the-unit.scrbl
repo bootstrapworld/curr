@@ -156,10 +156,13 @@
                                                 dice-histogram-plot   = draw-plot("dice rolls", dice-histogram-series)
                                         }
 
-                                        Use @code{.display()} to see what the histogram looks like, then try changing the second argument from @code{11} to @code{1}. What do you think this argument means?
+                                        See what the histogram looks like, then try changing the second argument to @code{histogram}. What do you think this argument means?
                                 }
 
-                                Here, the @code{histogram} function takes two arguments:
+                                The contract for @code{histogram} is:
+                                @code[#:multi-line #t]{
+                                    # histogram :: (values :: List<Number>, bins :: Number) -> DataSeries
+                                }
                                 @itemlist[
                                         @item{
                                                 The first is a list of numbers, containing the quantitative data.
