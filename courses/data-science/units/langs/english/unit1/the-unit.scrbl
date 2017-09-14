@@ -8,7 +8,7 @@
 @unit-lessons{
 @lesson/studteach[
      #:title "Introduction"
-     #:duration "15 minutes"
+     #:duration "10 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -29,7 +29,7 @@
         @points[
              @point{
                     @student{
-                            Welcome to Bootstrap: DataScience! Take 30 seconds to look at the @resource-link[#:path "OpeningQuestions.pdf" #:label "opening questions"] we have prepared for you, and choose a topic that interests you.  
+                            Welcome to Bootstrap: DataScience! Take a minute to look at the @resource-link[#:path "OpeningQuestions.pdf" #:label "opening questions"] we have prepared for you, and choose a topic that interests you.  
                             @activity{
                                 @itemlist[
                                     @item{
@@ -101,7 +101,7 @@
 
 @lesson/studteach[
      #:title "Values, Types & Operators"
-     #:duration "20 minutes"
+     #:duration "30 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -116,35 +116,32 @@
                 )
       ]{
         @points[
-             @point{
+            @point{
                     @student{
-                            @activity[#:forevidence "BS-IDE&1&1"]{
-                                Begin by typing @code{4} into the Interactions area, then hit Return.  You should see the value 4 appear on the next line in the Interactions area.
+                            Let's play with the starter file. First, click the Run button. This tells Pyret to read all the code on the left-hand side of the editor, in the Definitions Area. For now, let's ignore all those lines of code -- we'll get to them shortly.
+                            @activity{
+                                In the Interactions Area, type @code{language} and hit Enter. What comes back?
                             }
-
-                            Congratulations, you've written your first (very simple) program!  When we hit Enter in the Interactions Area, we @vocab{evaluate} the code, which is another way of saying "give me the value that is produced by this program". In this case, the computer's job is easy because the program is already a value!
                     }
                     @teacher{
 
                     }
-             }
-             @point{
+            }
+            @point{
                     @student{
-                            @activity{
-                                @itemlist[
-                                    @item{
-                                         Type 10 in the Interactions area and hit "Return".  Now the 
-                                         value @code{10} appears in the Interactions area.
-                                    }
-                                    @item{
-                                        Try evaluating numbers, like @code{10345017}, or negative 
-                                        numbers, like @code{-2}. Is there a limit to how big a number can be?
-                                        What happens if you write a decimal? What happens when you click on
-                                        a decimal, like @code{0.75}? You get a new type of number, a 
-                                        fraction, like @code{3/4}.
-                                    }
-                                ]
+                            This table shows us a small map of the Pyret programming language. The language has different @vocab{Types} of data. What Types do you see here? In the row for each Type, the language table has a few examples of different @vocab{values} of that Type. Let's start with Numbers...
+                    }
+                    @teacher{
+                            If time allows, encourage students to click on parts of the table. Let them discover that lists can change the way they print, and that rationals can be toggled between decimal and fractional representations.
+                    }
+            }
+            @point{
+                    @student{
+                            @activity[#:forevidence "BS-IDE&1&1"]{
+                                Begin by typing @code{42} into the Interactions area, then hit Return.  You should see the value 42 appear on the next line in the Interactions area. Try this with other Numbers that you see in the table. Try evaluating numbers, like @code{10345017}, or negative numbers, like @code{-2}. Is there a limit to how big a number can be? What happens if you write a decimal? What happens when you click on a decimal, like @code{0.75}? You get a new type of number, a fraction, like @code{3/4}.
                             }
+
+                            Congratulations, you've written your first (very simple) programs!  When we hit Enter in the Interactions Area, we @vocab{evaluate} the code, which is another way of saying "give me the value that is produced by this program". In this case, the computer's job is easy because the program is already a value!
                     }
                     @teacher{
                             The editing environment evaluates all fractions and returns them as decimals by default. This can be
@@ -152,64 +149,7 @@
                             show them that these decimals can be converted back to fractions just by clicking on them.  The 
                             environment uses standard annotations for repeating, non-terminating decimal expressions and 
                             properly handles expressions like @math{(\sqrt -1)}.  If you want to work with those kinds of 
-                            numbers in your class, enter them to get familiar with how they appear in the Interactions area.             
-                    }
-             }
-             @point{
-                    @student{
-                            @bold{Every value has a @vocab{Type}}.  Each of the values produced by the programs you just wrote of type @code{Number}, but there are other types as well. One of these types is called a @vocab{String}.  A String
-                            is a sequence of characters (letters, numbers, symbols) inside a pair of quotation marks.
-
-                            @activity[#:forevidence "BS-IDE&1&1"]{
-                                    @itemlist[
-                                            @item{
-                                                 Typing @code{"Ahoy, World!"} into the Interactions area, then hit 
-                                                 Return.  You should see the value "Ahoy, World!" appear on 
-                                                 the next line in the Interactions area.
-                                            }
-                                            @item{
-                                                 Try to type your name inside a pair of quotation marks, then hit Return.
-                                            }
-                                            @item{
-                                                 What do you notice about the way Pyret displays Strings on the screen?
-                                            }
-                                            @item{
-                                                 Type this program into the Interactions area:  @code{"4"}. Is this a String or a number?
-                                            }
-                                            @item{
-                                                 What happens when you leave off the second quotation mark?  Type this code into the Interactions area and hit Return: @code{"Data}
-                                            }
-                                    ]
-                            }
-                    }
-                    @teacher{
-                            The program @code{"4"} is a String.  Even though this string only contains the character for the number 4,
-                            it is a String because it is between quotation marks.  Data scientists care about this distinction, because
-                            we often run into data that is represented in a String but should be considered a number by Pyret.  This will
-                            become more relevant later in the course, for now stress to the students that anything within quotations is 
-                            a String.  Pyret is helpful in detecting strings because it highlights them green.
-                    }
-             }
-             @point{
-                    @student{
-                            Notice when you leave off the second quotation mark, @code{"Data} is NOT
-                            printed on the next line! Instead, we get a big red box called an @vocab{error message}.
-                            The editor gives us error messages when a program can't be properly evaluated.
-
-
-                            Error messages a way for the computer to help you find small mistakes in your code.  In the case above,
-                            without the second quotation mark the computer can't figure out when the String ends, which makes
-                            evaluation impossible.
-
-                            @activity[#:forevidence "BS-IDE&1&1"]{
-                                    Fix the error described in the error messages by typing @code{"Data"}
-                                    and hitting the Return key.
-                            }
-                    }
-                    @teacher{
-                            It is crucial to encourage students to read error messages and debug their code.  When a student
-                            encounters an error message for the first time, they will throw their hand up and tell the teacher 
-                            "I did something wrong".  Have them read it aloud, and ask them what they think it means.
+                            numbers in your class, enter them to get familiar with how they appear in the Interactions area. 
                     }
              }
              @point{
@@ -244,6 +184,56 @@
              }
              @point{
                     @student{
+                            Let's look at our next type, which is called a @vocab{String}.  A String is a sequence of characters (letters, numbers, symbols) inside a pair of quotation marks.
+
+                            @activity[#:forevidence "BS-IDE&1&1"]{
+                                    @itemlist[
+                                            @item{
+                                                Try typing in some of the example values that you see in the table, and then hit Return.
+                                            }
+                                            @item{
+                                                 Try to type your name inside a pair of quotation marks, then hit Return.
+                                            }
+                                            @item{
+                                                 What do you notice about the way Pyret displays Strings on the screen?
+                                            }
+                                            @item{
+                                                 Type this program into the Interactions area:  @code{"4"}. Is this a String or a number?
+                                            }
+                                            @item{
+                                                 What happens when you leave off the second quotation mark?  Type this code into the Interactions area and hit Return: @code{"Data}
+                                            }
+                                    ]
+                            }
+                    }
+                    @teacher{
+                            The program @code{"4"} is a String.  Even though this string only contains the character for the number 4, it is a String because it is between quotation marks. Data scientists care about this difference - ZIP codes, for example, contain only numbers, but the ZIP code 02125 is definitely not the same as the number 2125!
+                    }
+             }
+             @point{
+                    @student{
+                            Notice when you leave off the second quotation mark, @code{"Data} is NOT
+                            printed on the next line! Instead, we get a big red box called an @vocab{error message}.
+                            The editor gives us error messages when a program can't be properly evaluated.
+
+
+                            Error messages a way for the computer to help you find small mistakes in your code.  In the case above,
+                            without the second quotation mark the computer can't figure out when the String ends, which makes
+                            evaluation impossible.
+
+                            @activity[#:forevidence "BS-IDE&1&1"]{
+                                    Fix the error described in the error messages by typing @code{"Data"}
+                                    and hitting the Return key.
+                            }
+                    }
+                    @teacher{
+                            It is crucial to encourage students to read error messages and debug their code.  When a student
+                            encounters an error message for the first time, they will throw their hand up and tell the teacher 
+                            "I did something wrong".  Have them read it aloud, and ask them what they think it means.
+                    }
+             }
+             @point{
+                    @student{
                             We know that Pyret gives errors whenever it can't evaluate a program.
                             @itemlist[
                                     @item{
@@ -254,7 +244,7 @@
                                     @item{
                                             In @code{2 + "hello"}, we're trying to add a String to a Number.  This doesn't
                                             make sense to us, and it doesn't make sense to Pyret either;  Pyret can only add
-                                            Numbers to Numbers with the + operation.
+                                            Numbers to Numbers with the + operation. @bold{Types matter!}
                                     }
                             ]
                     }
@@ -264,7 +254,7 @@
              }
              @point{
                     @student{
-                            By now you've seen 4 different kinds of errors:  What are they caused by?
+                            By now you've seen 4 different kinds of errors: can you write code that will demonstrate these errors?
 
                             @itemlist[
                                     @item{
@@ -317,13 +307,46 @@
              }
              @point{
                     @student{
-                        We can also group values together, into what is called a @code{List}. Here are three different List values:
+                            There are lots of operators you might remember from your early math classrs. What about operators like @code{<} and @code{>}? 
+                            @activity{
+                                @itemlist[
+                                    @item{What do you think will happen if you evaluate @code{4 < 3}? Type it in and try it out!}
+                                    @item{What do you get back?}
+                                    @item{Look at the language table - what Type of data did we get?}
+                                ]
+                                
+                            }
+                    }
+                    @teacher{
+
+                    }
+             }
+             @point{
+                    @student{
+                            There are an infinite amount of Number values out there in the universe. An infinite amount of String values. But @code{true} and @code{false} are the only possible @italic{Boolean} values. Since a Boolean can only be one thing or the other - yes or no - Booleans are how Pyret answers yes or no questions. @code{4 < 3} is how we ask "is four less than three"? Data Scientists need to ask yes or no questions of data all the time:
+                            @itemlist[
+                                @item{
+                                    We need to know if one person's age is @italic{less than} someone else's if we want to sort the table by age.
+                                }
+                                @item{
+                                    We need to know if one person's age is @italic{less than} 35 if we want to filter the table to show only young people.
+                                }
+                            ]
+                    }
+                    @teacher{
+
+                    }
+             }
+             @point{
+                    @student{
+                        We can also group values together, into what is called a @code{List}. Here are four different List values:
                         @code[#:multi-line #t]{
                             [list: 1, 2, 3]
                             [list: 1 + 1, 2 + 2, 3 + 3]
                             [list: "lists", "can", "be", "strings"]
+                            [list: true, false]
                         }
-                        You can make any kind of list you want, but everything inside a list must be of the same @vocab{type}. Each element in a list can be a complete expression (like @code{1 + 1}), which will evaluate to a single value. That means we can make lists of Numbers, Strings, or any other kind of data - but not a list that contains both Numbers @italic{and} Strings.
+                        You can make any kind of list you want, but everything inside a list must be of the same @vocab{Type}. Each element in a list can be a complete expression (like @code{1 + 1}), which will evaluate to a single value. That means we can make lists of Numbers, Strings, or any other kind of data - but not a list that contains both Numbers @italic{and} Strings.
                         @activity{
                             In the Interactions Area, try making a List of strings, where each string is the name of a food you like to eat.
                         }
@@ -340,6 +363,14 @@
                             @item{@code{[list: 1 2, 3]}}
                             @item{@code{[list: "a", "b]}}
                         ]
+                    }
+                    @teacher{
+
+                    }
+             }
+             @point{
+                    @student{
+                        These are functions that work on Lists, too. You'll learn all about them in the next lesson!
                     }
                     @teacher{
 
@@ -367,15 +398,14 @@
         @points[
             @point{
                     @student{
-                        So now you know about Numbers, Strings, Operators and Names - all of which behave just like they do in math. But what about functions? Pyret has lots of built in functions, which we can use to write more interesting programs.
+                        So now you know about Numbers, Strings, Booleans and Operators - all of which behave just like they do in math. But what about functions? Pyret has lots of built in functions, which we can use to write more interesting programs.
 
                         @activity[#:forevidence "BS-IDE&1&1"]{
-                            Let's explore a new function, called @code{triangle}.  Type this line of code into the interactions area and hit Enter. What does this expression evaluate to?
+                            Let's explore a new function, called @code{triangle}.  Type this line of code into the interactions area and hit Enter.
                             @code[#:multi-line #t]{
                                 triangle(50, "solid", "red")
                             }
-
-                            The values that we give to a function are called its @vocab{arguments}. How many arguments are we giving to @code{triangle} in this example? What are the @italic{types} of those arguments? How does this output relate to the two inputs?
+                            What does this expression evaluate to? What is the Type of this data?
                         }
                     }
                     @teacher{
@@ -384,25 +414,49 @@
             }
             @point{
                     @student{
-                            The type of value this function produces is an @italic{Image}. 
-                                @activity[#:forevidence "BS-IDE&1&1"]{
-                                    Can you see what is wrong with each of these expressions? Try copying them into Pyret, one at a time, and reading the error messages aloud.
+                        You've just created a new Type of data, called an Image. And you used something called a @vocab{function} to do it. The values that we give to a function are called its @vocab{arguments}. How many arguments are we giving to @code{triangle} in this example? What are the @italic{types} of those arguments? How does this output relate to the two inputs?
+                        @activity{
+                            Take a minute to try making different triangles. Change the size and color! Is there a something besides @code{"solid"} we can use for the second argument?
+                        }
+                    }
+                    @teacher{
 
-                                    @itemlist[
-                                            @item{
-                                                    @code{triangle(2, "solid", "red")}
-                                            }
-                                            @item{
-                                                    @code{triangle(20 "solid" "red")}
-                                            }
-                                            @item{
-                                                    @code{triangle("20", "solid", "red")}
-                                            }
-                                            @item{
-                                                    @code{triangle(20, "solid", "red", "striped")}
-                                            }
-                                    ]
-                            }
+                    }
+            }
+            @point{
+                    @student{
+                            The @code{triangle} function needs a Number and two Strings as input, and it produces an Image. As you can imagine, there are many other functions for making images, each with a different set of arguments. For each function we learn, we need to keep track of three things:
+                            @itemlist[
+                                @item{@bold{Name} - the name of the function, which we type in whenver we want to use it}
+                                @item{@bold{Domain} - the data we give to the function (names and Types!), written between parentheses and separated by commas}
+                                @item{@bold{Range} - the type of data the function produces}
+                            ]
+                            Domain and Range are @italic{Types}, not specific values. As a convention,  @bold{we capitalize Types and keep names in lowercase when writing contracts}. @code{triangle} works on many different Numbers, not just the @code{20} we used in the example above!
+                    }
+                    @teacher{
+
+                    }
+            }
+            @point{
+                    @student{
+                            @activity[#:forevidence "BS-IDE&1&1"]{
+                                Can you see what is wrong with each of these expressions? Try copying them into Pyret, one at a time, and reading the error messages aloud.
+
+                                @itemlist[
+                                        @item{
+                                                @code{triangle(2, "solid", "red")}
+                                        }
+                                        @item{
+                                                @code{triangle(20 "solid" "red")}
+                                        }
+                                        @item{
+                                                @code{triangle("20", "solid", "red")}
+                                        }
+                                        @item{
+                                                @code{triangle(20, "solid", "red", "striped")}
+                                        }
+                                ]
+                        }
                     }
                     @teacher{
                             Explanations for each error message:
@@ -424,20 +478,6 @@
                                     }
 
                             ]
-                    }
-            }
-            @point{
-                    @student{
-                            The @code{triangle} function needs a Number and two Strings as input, and it produces an Image. As you can imagine, there are many other functions for making images, each with a different set of arguments. For each function we learn, we need to keep track of three things:
-                            @itemlist[
-                                @item{@bold{Name} - the name of the function, which we type in whenver we want to use it}
-                                @item{@bold{Domain} - the data we give to the function (names and Types!), written between parentheses and separated by commas}
-                                @item{@bold{Range} - the type of data the function produces}
-                            ]
-                            Domain and Range are @italic{Types}, not specific values. As a convention,  @bold{we capitalize Types and keep names in lowercase when writing contracts}. @code{triangle} works on many different Numbers, not just the @code{20} we used in the example above!
-                    }
-                    @teacher{
-
                     }
             }
             @point{
@@ -510,7 +550,7 @@
 
 @lesson/studteach[
      #:title "Definitions"
-     #:duration "30 minutes"
+     #:duration "25 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
