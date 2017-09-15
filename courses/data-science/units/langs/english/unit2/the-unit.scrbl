@@ -528,8 +528,8 @@
                           @code[#:multi-line #t]{
                           # sugar-cal-series :: DataSeries
                           sugar-cal-series = scatter-plot(
-                                              sugar-list,
-                                              calories-list)
+                            sugar-list,
+                            calories-list)
                           }
                           What do you think the contract is for @code{scatter-plot}? Copy it down into your Contracts page. Once we've created the DataSeries, it's time to plot it: @code{draw-plot("Sugar v. Calories", sugar-cal-series)}. 
                       }

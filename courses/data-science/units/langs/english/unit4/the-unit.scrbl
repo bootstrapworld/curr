@@ -155,7 +155,7 @@
                 }
                 @point{
                       @student{
-                              Type @code{mean([list: 1, 2, 3]])}.  What does this give us? Why?
+                              Type @code{mean([list: 1, 2, 3])}.  What does this give us? Why?
 
                               @activity[#:forevidence "BS-IDE&1&1"]{
                                       Type each of the following programs into the interactions window, to check your work:
