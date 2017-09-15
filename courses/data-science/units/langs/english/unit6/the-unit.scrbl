@@ -15,9 +15,11 @@
                                               @code{function-plot, scatter-plot, bar-chart, pie-char, freq-bar-chart, histogram} 
                                               "")
                                        (list "List" 
-                                              @code{extract, mean, median, modes} 
+                                              @code{.get, mean, median, modes} 
                                               @code{[list: "list", "of", "strings"]})
-                                  )]{                                       
+                                       (list "Table"
+                                              @code{.column}
+                                              @code{}))]{
   @unit-descr{Students dig deeper into scatter plots as a method of visualizing the relationship between two axes, and into the notion of "line of best fit". }
 }
 @unit-lessons{
@@ -153,8 +155,8 @@
                         @student{
                                 To answer this question, we will return to the very first chart you learned about in this class: @vocab{scatter plots}. A scatter plot is a chart that plots every pair of numbers in 2 columns. By extracting the two columns from @code{restaurants}, we can create a DataSeries to plot:
                                 @code[#:multi-line #t]{
-                                        ratings-list = extract rating from restaurants end
-                                        prices-list  = extract price  from restaurants end
+                                        ratings-list = restaurants.column("rating")
+                                        prices-list  = restaurants.column("price")
                                         prices-vs-ratings-series = scatter-plot(prices-list, ratings-list)
                                         prices-vs-ratings-plot = draw-plot("Restaurant Prices vs. Ratings", prices-vs-ratings-series)
                                 }

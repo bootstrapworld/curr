@@ -15,8 +15,11 @@
                                               @code{function-plot, scatter-plot} 
                                               "")
                                        (list "List" 
-                                              @code{extract} 
-                                              @code{[list: "list", "of", "strings"]}))]{
+                                              @code{.get} 
+                                              @code{[list: "list", "of", "strings"]})
+                                       (list "Table"
+                                              @code{.column}
+                                              @code{}))]{
   @unit-descr{Students learn to create and interpret Bar and Pie charts, as well as Frequency Bar Charts.}
 }
 @unit-lessons{
@@ -134,8 +137,8 @@
                               Let's go through this code together:
 
                               @code[#:multi-line #t]{
-                                    food-list        = extract food        from nutrition end
-                                    cholesterol-list = extract cholesterol from nutrition end
+                                    food-list        = nutrition.column("food")
+                                    cholesterol-list = nutrition.column("cholesterol")
                               }
 
                               @activity{
@@ -291,14 +294,13 @@
                               Below is an example that computes the frequency of categories in the @code{home-state} column of @code{presidents}.
 
                               @code[#:multi-line #t]{
-                                    home-state-list   = extract home-state from presidents end
-                                    home-state-series = freq-bar-chart(home-state-list)
+                                    home-state-series = freq-bar-chart(presidents.column("home-state"))
                               }
 
                               What does the argument to @code{freq-bar-chart} mean?
                       }
                       @teacher{
-                      
+                          Show students that this is slightly different than how they've seen it before, breaking out the @code{home-state} column into its own definition.
                       }
                 }
                 @point{

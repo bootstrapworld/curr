@@ -15,9 +15,11 @@
                                               @code{function-plot, scatter-plot, bar-chart, pie-char, freq-bar-chart, histogram} 
                                               "")
                                        (list "List" 
-                                              @code{extract, mean, median, modes} 
+                                              @code{.get, mean, median, modes} 
                                               @code{[list: "list", "of", "strings"]})
-                                  )]{                                           
+                                       (list "Table"
+                                              @code{.column}
+                                              @code{}))]{
   @unit-descr{Students are introduced to their first examples of operations that consume and produce tables, and learn how to select columns and order rows. They are also introduced to the beginnings of Table Plans, as a vehicle for thinking through compound queries.}
 }
 @unit-lessons{
@@ -54,7 +56,7 @@
  }
 
 @lesson/studteach[
-     #:title "Select Queries"
+     #:title "Selecting"
      #:duration "20 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
@@ -72,7 +74,7 @@
         @points[
                 @point{
                       @student{
-                              Open the @editor-link[#:public-id "0BzzMl1BJlJDkWmcycFB1WTVRc3M" "Unit 7 Starter File"], Save a Copy, and Run the program. Today we're going to look at a new table, called @code{movies}. 
+                              Open the @editor-link[#:public-id "0BzzMl1BJlJDkQTBLVmhyTTZGUWM" "Unit 7 Starter File"], Save a Copy, and Run the program. Today we're going to look at a new table, called @code{movies}. 
                               @activity[#:forevidence "BS-IDE&1&1"]{
 
                                       @itemlist[
@@ -100,7 +102,7 @@
                               You may have noticed that answering these questions requires a little extra work, because the columns we need are separated by a lot of uneccessary columns. Finding the year "Maleficent" came out requires looking at the @code{title, year} columns, but not any of the columns in between. It would be nice if we could choose only the columns we need, and put those into a new table.
 
                               @activity[#:forevidence "BS-IDE&1&1"]{
-                                      Type @code{movies-selected} into the Interactions Window.
+                                      Type @code{movies-selected} into the Interactions Window. What did you get back? In the Definitions Area, find the line of code that defines @code{movies-selected}.
                               }
                       }
                       @teacher{
@@ -109,35 +111,40 @@
                 }
                 @point{
                       @student{
-                              When we want to answer questions about just a few columns in a table, @italic{we can grab the ones we want} with @vocab{select}. @code{select} is a @vocab{table query}: a special key word that will create a new table using information from a starting table. Table queries are called queries because they are used to ask questions using specific information in tables. @vocab{select} creates a table containing only the columns that the programmer specifies.
-
-                              @code[#:multi-line #t]{
-                                      movies-selected = select title, year from movies end
-                              }
-                      }
-                      @teacher{
-                              Demonstrate the @code{select} query to the class, selecting different columns from the @code{movies} table.
-                      }
-                }
-                @point{
-                      @student{
-                              The @code{select} keyword will choose the column names given (in this case, @code{title} and @code{year}) from the specified table @code{movies}, and create a new table with just those columns. If you turn to the back of your student workbook, on @worksheet-link[#:name "Query-Reference"], you'll find a reference sheet for this and other queries. This is a great place to take notes on how each query is used and to sweat the details. For example, pay close attention to the comma that separates the column names!
-                              @activity{
-                                  In your own words, write down what a @code{select} query is for.
-                              }
-                      }
-                      @teacher{
-                              The benefits of using the @code{select} keyword are mostly for the programmer: having less columns does not make it significantly faster to perform operations on the table, but less columns does make it easier for humans to observe relations between columns (like in the examples above).
-                      }
-                }
-                @point{
-                      @student{
-                              When thinking about select queries, we ask ourselves @bold{are any columns unnecessary?} If the answer is no, we have no work to do. But if the answer is yes, we can zoom in and think about which columns we want to keep. Suppose we wanted to make a brochure showing local restaurants and ratings. "Are any columns unnecessary?" The following code will select only the @code{country} and @code{continent} columns from the countries table, and bind the new table to the variable @code{countries-selected}:
+                              When we want to answer questions about just a few columns in a table, @italic{we can grab the ones we want} with @code{select-columns}. @code{select-columns} is a @vocab{method} that creates a new table containing only the columns that the programmer specifies. 
 
                               @code[#:multi-line #t]{
-                                      countries-selected = select 
-                                        country, continent from countries
-                                      end
+                                      movies-selected = movies.select-columns([list: "title", "year"])
+                              }
+                      }
+                      @teacher{
+                              Demonstrate the @code{select-columns} method to the class, selecting different columns from the @code{movies} table.
+                      }
+                }
+                @point{
+                      @student{
+                              What is the contract for @code{select-columns}? We know that it's a method, so we should write down the Type of data it's attached to as part of the name: @code{<Table>.select-columns}. The Domain is a list of Strings, and the Range is a @italic{new Table}. Take a minute to write the contract for @code{select-columns} in your contracts page:
+                              @code[#:multi-line #t]{
+                                <Table>.select-columns :: (cols :: List<String>) -> Table
+                              }
+                      }
+                      @teacher{
+
+                      }
+                }
+                @point{
+                      @student{
+                              Why would we want to use @code{select-columns} to drop columns from a table? Because removing data can be an important part of @italic{privacy}! A Data Scientist might need to analyze medical records of everyone in a particular hospital, but they don't want to share the names attached to those records. By using @code{select-columns}, they can produce a table that keeps all the relevant data, without the names.
+                      }
+                      @teacher{
+                      }
+                }
+                @point{
+                      @student{
+                              When thinking about select queries, we ask ourselves @bold{what columns do we need?} If the answer is no, we have no work to do. But if the answer is yes, we can zoom in and think about which columns we want to keep. Suppose we wanted to make a brochure showing local restaurants and ratings. "What columns do we need?" The following code will select only the @code{country} and @code{continent} columns from the countries table, and bind the new table to the variable @code{countries-selected}:
+
+                              @code[#:multi-line #t]{
+                                      countries-selected = countries.select-columns([list: "country", "continent"])
                               }
 
                               @activity[#:forevidence "BS-IDE&1&1"]{
@@ -162,7 +169,7 @@
    }
 
 @lesson/studteach[
-     #:title "Order Queries"
+     #:title "Ordering"
      #:duration "20 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
@@ -221,9 +228,7 @@
                                                 }
                                                 @item{
                                                      What are the names of the top 4 scorers?
-
                                                 }
-
                                         ]
                                 }
                         }
@@ -274,44 +279,25 @@
                 }
                 @point{
                         @student{
-                                Pyret lets you change the order of a table's rows with the @code{order} query. This makes our questions a lot easier to answer quickly! For example, let's think back to our "most sodium" question...
+                                Pyret lets you change the order of a table's rows with the @code{order-by} method. The contract for this method is:
+                                @code[#:multi-line #t]{
+                                    <Table>.order-by :: (col :: String, ascending :: Boolean) -> Table
+                                }
+                                This makes our questions a lot easier to answer quickly! For example, let's think back to our "most sodium" question...
                                 
                                 @activity[#:forevidence "BS-IDE&1&1"]{
                                         Return to your @editor-link[#:public-id "0BxJ2mGqPUGt0WWpheFVBNUNXX2s" "Unit 7"] template file. Type @code{presidents-ordered} into the interactions window.
                                 }
 
-                                Here, movies are in alphabetic order by title, from A to Z. The expression for ordering the @code{presidents} table is the following:
+                                Here, movies are in alphabetic order by title, from A to Z. The table is sorted by the @code{"title"} column, in ascending order. Both of the following lines of code are definitions. One should look familiar, while the other uses the @code{.order-by} method. What do you think would need to change to have it ordered in @italic{descending} order? 
 
                                 @code[#:multi-line #t]{
-                                      movies-ordered = 
-                                          order movies:
-                                              title ascending
-                                          end
+                                      a = 4 + 2
+                                      movies-ordered = movies.order-by("title", true)
                                 }
                         }
                         @teacher{
-                                 Demonstrate that this code can be crammed onto one line, but it may be more readable this way.                           
-                        }
-                }
-                @point{
-                        @student{
 
-                                The key word @code{order} is followed by the name of the table we are ordering (in this case, @code{nutrition}), then a colon (@code{:}). The colon always comes in front of an expression using column names. In this case, we are ordering by the @code{sodium} column, in @code{descending} order.
-
-                                @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Change the keyword @code{ascending} in the definition of @code{movies-ordered} to @code{descending}. Then hit Run and type @code{movies-ordered} into the interactions window. What has changed?
-                                }
-
-                                Now the table is in descending alphabetical order by the @code{title} column.
-
-                                @activity[#:forevidence "BS-IDE&1&1"]{
-                                        What happens if we instead order the @code{movies-ordered} table by the @code{studio} column? 
-                                }
-
-                                It turns out you can order tables by columns Numbers AND Strings. A table in ascending order by a String means it is in alphabetical order, and descending means reverse alphabetical order.
-                        }
-                        @teacher{
-                                        
                         }
                 }
                 @point{
@@ -323,41 +309,22 @@
                                                 }
                         
                                                 @item{
-                                                        In your definitions window, complete the next two exercises: "Salt Order" and "Population Order".
+                                                        In the Definitions Area, complete the next two exercises: "Salt Order" and "Population Order".
                                                 }
                                                 @item{
                                                         Complete the word problems on @worksheet-link[#:name "Order-Plan"].
                                                 }
-                                                @item{
-                                                        On page @worksheet-link[#:name "Query-Reference"], write down what an @code{order} query is for.
-                                                }
-
                                         ]
                                         Test your code by hitting the Run button and typing the new variable names into the interactions window.
                                 }                       
                         }
                         @teacher{
-                                                            
+                              Pyret has a way to sort by multiple columns as well, but that requires one additional concept that students haven't seen yet. Documentation can be @(hyperlink "https://www.pyret.org/docs/horizon/tables.html#%28part._tables_.Table_order-by-columns%29" "found here").
                         }
                 }
                 @point{
                         @student{
-                                We can also order a table by more than one thing at a time! For example, suppose we wanted to show all the movies, sorted ascending by studio name @italic{and} sorted alphabeticall by title within those groups? 
-                                  @code[#:multi-line #t]{
-                                      movies-ordered = 
-                                          order movies:
-                                              studio ascending,
-                                              title  ascending
-                                          end
-                                }
-                        }
-                        @teacher{
-                                                     
-                        }
-                }
-                @point{
-                        @student{
-                                The @code{order} keyword allow us to reorganize the entries of a table so that we can more easily answer these kinds of questions:
+                                The @code{order-by} method allow us to sort the entries of a table so that we can easily answer these kinds of questions:
 
                                 @itemlist[
                                         @item{
@@ -376,7 +343,7 @@
    }
 
 @lesson/studteach[
-     #:title "Combining Queries"
+     #:title "Combining Methods"
      #:duration "25 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
@@ -399,28 +366,27 @@
                             @activity[#:forevidence "BS-IDE&1&1"]{
                                     @itemlist[
                                         @item{
-                                            Type @code{studio-and-gross} into the interactions window.
+                                            Type @code{b} into the Interactions Area. Where is the definition for @code{b}?
                                         }
                                         @item{
-                                            Find the definition of @code{studio-and-gross} in the Definitions Area. What table is this query @italic{using}?
+                                            Type @code{studio-and-gross} into the Interactions Area. Where is the definition for @code{studio-and-gross}?
                                         }
                                         @item{
                                             Are the rows in the @code{studio-and-gross} table in any particular order?
                                         }
                                     ]
                             }
-
-                            This query does something you haven't seem before: @italic{it uses the result of a prior query}. We ordered our table by party and bound the result to @code{movies-ordered}, and now we're @code{select}ing only the relevant columns from that table. Note that the new table is @italic{still sorted}, even though we've dropped the column we used to sort!
+                            You've already seen definitions that refer back to previous definitions, and this is no different. The definition for @code{b} @italic{uses} the definition for @code{a}. Here the definition for @code{studio-and-gross} @italic{uses} the definition for @code{movies-ordered}. Note that the new table is @italic{still sorted}, even though we've dropped the column we used to sort!
                     }
                     @teacher{
-                        Why would you ever want to order, then throw away the column you ordered by?
+                        Why would you want to order by one column, and then throw that column away?
 
                         Selecting is merely a presentation matter, but sometimes it matters whether a column is in the output or not. Suppose we want sort a class's data by grade; we may want to share the ranking of students, but we certainly don't want to leak their grades! In that case it's vital that we select away the grades column @italic{after sorting}.                  
                     }
             }
             @point{
                     @student{
-                            This is another example of why @bold{query order matters}. If we'd @code{select}ed our columns first, there would be no way for us to achieve this ordering. That's why, when combining queries, we always put @code{order} before @code{select}.
+                            This is another example of why @bold{order of operations matters}. If we'd @code{select}ed our columns first, there would be no way for us to achieve this ordering. That's why we always put @code{order} before @code{select}.
                     }
                     @teacher{
 
@@ -450,16 +416,6 @@
                                     }
                                 ]
                             }
-                    }
-                    @teacher{
-
-                    }
-            }
-            @point{
-                    @student{
-                        @activity{
-                          With all the commas, colons and end markers, it's easy to make a small syntax error! Open the @editor-link[#:public-id "0BzzMl1BJlJDkQ3c4SDlDS1BaLWM" "Select and Order Syntax Errors"] file, and see if you can fix all the bugs you find. Once you're done, uncomment each query by removing the hash sign (@code{#}) and click Run.
-                        }
                     }
                     @teacher{
 

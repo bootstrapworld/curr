@@ -15,9 +15,11 @@
                                               @code{function-plot, scatter-plot, bar-chart, pie-char, freq-bar-chart} 
                                               "")
                                        (list "List" 
-                                              @code{extract} 
-                                              @code{[list: "list", "of", "strings"], [list: 1, 2 , 3]})
-                                  )]{
+                                              @code{.get} 
+                                              @code{[list: "list", "of", "strings"], [list: 1, 2 ,3]})
+                                       (list "Table"
+                                              @code{.column}
+                                              @code{}))]{
   @unit-descr{Students learn how to measure central tendency using mean/median/mode.  They will practice calculating these values by hand, and learn to do so using Lists in Pyret}
 }
 @unit-lessons{
@@ -335,13 +337,13 @@
                           In the last lesson, you learned how to @code{extract} a column from a table, turning it into a list. Now let's use that knowledge to start asking questions about some of our datasets. Suppose we wanted to know what the average number of calories are on the menu. We'd need to first extract that column from the table, and then take the @code{mean} of the resulting list. We can write this using identifiers:
 
                           @code[#:multi-line #t]{
-                              calorie-list = extract calories from nutrition end
+                              calorie-list = nutrition.column("calories")
                               mean(calorie-list)
                           }
 
                           ...or as a single expression, by combining the @code{extract} expression with mean:
                           @code[#:multi-line #t]{
-                              mean(extract calories from nutrition end)
+                              mean(nutrition.column("calories"))
                           }
                           Which style do you like better? Why?
 

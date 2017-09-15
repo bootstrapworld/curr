@@ -100,8 +100,8 @@
  }
 
 @lesson/studteach[
-     #:title "Values, Types & Operators"
-     #:duration "30 minutes"
+     #:title "Number and String Types"
+     #:duration "10 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -129,7 +129,7 @@
             }
             @point{
                     @student{
-                            This table shows us a small map of the Pyret programming language. The language has different @vocab{Types} of data. What Types do you see here? In the row for each Type, the language table has a few examples of different @vocab{values} of that Type. Let's start with Numbers...
+                            This table shows us a small map of the Pyret programming language. There's a lot more than what's in this table, as you'll see by the end of this Unit. Our language has different @vocab{Types} of data. What Types do you see here? In the row for each Type, the language table has a few examples of different @vocab{values} of that Type. Let's start with Numbers...
                     }
                     @teacher{
                             If time allows, encourage students to click on parts of the table. Let them discover that lists can change the way they print, and that rationals can be toggled between decimal and fractional representations.
@@ -305,6 +305,27 @@
                     
                     }
              }
+        ]
+
+}
+
+@lesson/studteach[
+     #:title "Boolean and List Types"
+     #:duration "10 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[]
+     #:standards (list)
+     #:materials @itemlist[]
+     #:preparation @itemlist[]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[
              @point{
                     @student{
                             There are lots of operators you might remember from your early math classrs. What about operators like @code{<} and @code{>}? 
@@ -337,6 +358,84 @@
 
                     }
              }
+            @point{
+                  @student{
+                          @activity[#:forevidence "BS-IDE&1&1"]{
+                                  What do each of these expressions evaluate to?
+                                  @itemlist[
+                                            @item{
+                                                  @code{18 > 18}
+                                            }
+                                            @item{
+                                                  @code{18 >= 18}
+                                            }
+                                            @item{
+                                                  @code{-5 <= 20}
+                                            }
+                                            @item{
+                                                  @code{-4 == -4}
+                                            }
+                                            @item{
+                                                  @code{3 == 2}
+                                            }
+                                            @item{
+                                                  @code{(-8 + 8) == 0}
+                                            }
+                                            @item{
+                                                  @code{(12 - 4) == (-4 + 12)}
+                                            }
+                                  ]
+
+                                  Is there a difference between @code{=} and @code{==}?
+                          }
+                  }
+                  @teacher{
+                          You can point out the difference between definitions (@code{=}) and equality expressions (@code{==}) by writing @code{x = 4} in the Interactions Area, and then evaluating the expression @code{x = 10}. This will produce an error because @code{x} is already defined, while @code{x == 10} will produce @code{false}.
+                  }
+            }
+            @point{
+                  @student{
+                          @itemlist[
+                                @item{
+                                      @code{==} is very different from @code{=}, which @italic{defines} a variable to be equal to some value, whereas @code{==} asks a question: are these two things equal?
+                                }
+                                @item{
+                                      Pyret also allows you to ask "are these two values NOT equal?" with this operator: @code{<>}.
+                                }
+                          ]
+                  }
+                  @teacher{
+
+                  }
+            }
+            @point{
+                  @student{
+                          @activity[#:forevidence "BS-IDE&1&1"]{
+                                  Turn to @worksheet-link[#:name "Booleans-Comparison"] in your workbooks, and complete the exercise. Call over the teacher when you have finished the worksheet
+                          }
+                  }
+                  @teacher{
+                          The exercise contains challenge questions where students must compare Strings for equality. Some students may have some intuition about this, but this activity "salts the waters" with a discussion of String comparisons.
+                  }
+            }
+            @point{
+                  @student{
+                          @itemlist[
+                                @item{
+                                      The second table has expressions that evaluate to booleans, but they are different from other boolean expressions because they compare Strings for equality.
+                                }
+                                @item{
+                                      Strings can only be equal if they are EXACTLY equal, down to every character. If two strings have the same characters, but one is upper case and the other is lower case, they are NOT equal!
+                                }
+                                @item{
+                                      How might the last expression (@code{continent == "Asia"}) be useful to us, if we want to find out how China's GDP stacks up compared to other Asian countries?
+                                }
+                          ]
+                  }
+                  @teacher{
+                          A very common bug when writing sieve queries is for students to use the incorrect case, or add extra spaces, within the target String. If students are having trouble with their programs, or if their sieve queries produce completely empty tables, ask them if their target String is exactly what they want it to be.
+                  }
+            }
              @point{
                     @student{
                         We can also group values together, into what is called a @code{List}. Here are four different List values:
@@ -380,8 +479,8 @@
    }
 
 @lesson/studteach[
-     #:title "Functions and Contracts"
-     #:duration "20 minutes"
+     #:title "Functions and Image Types"
+     #:duration "15 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -550,7 +649,7 @@
 
 @lesson/studteach[
      #:title "Definitions"
-     #:duration "25 minutes"
+     #:duration "20 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]

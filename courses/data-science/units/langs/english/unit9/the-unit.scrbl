@@ -1,6 +1,6 @@
 #lang curr/lib
 
-@title{Unit 9: Extending Tables}
+@title{Unit 9: Building Columns}
 
 @unit-overview/auto[#:lang-table (list (list "Number" 
                                               @code{+, -, *, /, num-sqrt, num-sqr} 
@@ -15,13 +15,13 @@
                                               @code{function-plot, scatter-plot, bar-chart, pie-char, freq-bar-chart, histogram} 
                                               "")
                                        (list "List" 
-                                              @code{extract, mean, median, modes} 
+                                              @code{.get, mean, median, modes} 
                                               @code{[list: "list", "of", "strings"]})
                                        (list "Table" 
-                                              @code{select, order, sieve} 
+                                              @code{.select-columns, .order-by, .filter}
                                               "")
                                   )]{
-  @unit-descr{Students learn to extend tables with new columns, computed from a previous table's data.}
+  @unit-descr{Students learn to extend tables with new columns, computed from other columns.}
 }
 @unit-lessons{
 
@@ -66,8 +66,8 @@
    }
 
 @lesson/studteach[
-     #:title "Extending Tables"
-     #:duration "10 minutes"
+     #:title "Building Columns"
+     #:duration "20 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -92,34 +92,14 @@
                                 In this activity, students manually compute entries to new columns, based on values in a table's columns that area already filled in.
                         }
                 }
-                 @point{
+                @point{
                         @student{
                                 In this workbook exercise, you've done something very different from what we've learned so far: you computed a new column @italic{based on existing data in the table}. In the sock exercise, this means creating a new column called @code{price-per-sock}, and filling in a new value for each row, based on the @code{price} and @code{socks} values in that row. Creating a new table with an additional column is called @vocab{extending} a table.
                         }
                         @teacher{
 
                         }
-                 }
-        ]
-   }
-
-@lesson/studteach[
-     #:title "Extend in Pyret"
-     #:duration "15 minutes"
-     #:overview ""
-     #:learning-objectives @itemlist[]
-     #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[]
-     #:standards (list)
-     #:materials @itemlist[]
-     #:preparation @itemlist[]
-     #:pacings (list 
-                @pacing[#:type "remediation"]{@itemlist[@item{}]}
-                @pacing[#:type "misconception"]{@itemlist[@item{}]}
-                @pacing[#:type "challenge"]{@itemlist[@item{}]}
-                )
-      ]{
-        @points[
+                }
                 @point{
                         @student{
                                 @activity[#:forevidence "BS-IDE&1&1"]{
@@ -140,7 +120,7 @@
                         @teacher{
                                 @itemlist[
                                         @item{
-                                                @code{extend} produces a table with a new column, containing data that is computed by an expression over each row.  It is similar sieve in that it applies this expression to each row, but is different because it CREATES data instead of removing it.
+                                                @code{.build-column} produces a table with a new column, containing data that is computed by an expression over each @vocab{row}.  It is similar @code{.filter} in that it applies a function to each row, but is different because it CREATES data instead of removing it.
                                         }
                                 ]                    
                         }
@@ -150,40 +130,11 @@
                                 Let's examine the code used to create the @code{basketball-extended} table:
 
                                 @code[#:multi-line #t]{
-                                        basketball-extended = extend basketball using game1, game2, game-3:
-                                            total: game1 + game2 + game3
-                                        end
+                                        basketball-extended = basketball.build-column(total-points)
                                 }
-
-                                @itemlist[
-                                        @item{
-                                                The @code{extend} keyword comes first, since we might want to use our new columns for sieving, sorting or selecting later.
-                                        }
-                                        @item{
-                                                It is followed by the table being extended, in this case @code{basketball}.
-                                        }
-                                        @item{
-                                                Then, the @code{using} keyword, in the same place as the @code{sieve} commands This tells Pyret which columns we will use to extend the table.
-                                        }
-                                        @item{
-                                                Next are the names of the columns being used, followed by a colon @code{:}
-                                        }
-                                        @item{
-                                                The expression on the next line is very special:
-
-                                                @code[#:multi-line #t]{
-                                                        total: game1 + game2 + game3
-                                                }
-
-                                                We give our new column the name @code{total}, followed by a colon @code{:}, then an expression to compute the value of each entry in the column. This expression is the sum of a player's points in each game.s
-                                        }
-                                        @item{
-                                                Finally, the query ends like all other table queries; with the @code{end} keyword.
-                                        }
-                                ]
                         }
                         @teacher{
-                                We encourage you to question the class individually on what they think is the purpose of each component of the extend query. Ask "what do the names after the @code{using} keyword are", etc.
+                                
                         }
                 }
                 @point{
@@ -199,7 +150,7 @@
                 @point{
                         @student{
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Suppose we want to find out which menu items have the highest amount of sodium @italic{per gram}. Use the @code{sodium} and @code{serving-size} columns to write an @code{extend} query that will answer this question.
+                                        Suppose we want to find out which menu items have the highest amount of sodium @italic{per gram}. Use the @code{sodium} and @code{serving-size} columns to build a column that will answer this question.
                                 }
                         }
                         @teacher{
@@ -227,17 +178,17 @@
         @points[
                 @point{
                         @student{
-                                Now let's get some practice using @code{extend} queries with our Table Plans! Turn to @worksheet-link[#:name "Body-Building"], and read the word problem carefully. 
+                                Now let's get some practice using @code{.build-column} with our Table Plans! Turn to @worksheet-link[#:name "Body-Building"], and read the word problem carefully. 
                                 @activity{
                                     @itemlist[
                                         @item{
                                             On a sheet of scrap paper, sketch a sample Start and End Table to make sure you have a clear picture of what you need to do.
                                         }
                                         @item{
-                                            Now start your table plan: do you need to add any new columns to the table? Yes! We need to add a @code{protein-per-gram} column, which is computed using the @code{protein} and @code{serving-size} columns. Write the @code{extend} query to do this.
+                                            Now start your table plan: do you need to add any new columns to the table? Yes! We need to add a @code{protein-per-gram} column, which is computed using the @code{protein} and @code{serving-size} columns. Write the @code{.build-column} query to do this.
                                         }
                                         @item{
-                                            Do we need to get rid of any rows? Yes! We want to keep only the rows that have a @code{protein-per-gram} higher than .12. Write the @code{sieve} query to do this.
+                                            Do we need to get rid of any rows? Yes! We want to keep only the rows that have a @code{protein-per-gram} higher than .12. Write the @code{.filter} query to do this.
                                         }
                                         @item{
                                             Do the rows need to be any particular order? It's not clear from the word problem, so we can choose: do we skip this step, or should we order them so your aunt can immediately see which food is best?
@@ -253,16 +204,6 @@
                         }
                         @teacher{
                             Debrief and review with the class.
-                        }
-                }
-                @point{
-                        @student{
-                                @activity{
-                                        On page @worksheet-link[#:name "Query-Reference"], write down what an @code{order} query is for.
-                                }
-                        }
-                        @teacher{
-                            Have some student volunteer what they wrote.
                         }
                 }
         ]
@@ -408,16 +349,6 @@
       ]{
         @points[
                 @point{
-                        @student{
-                            @activity{
-                              Open the @editor-link[#:public-id "0BzzMl1BJlJDkM0dQODJZVHBVSjQ" "Extend Syntax Errors"] file, and see if you can fix all the bugs you find. Once you're done, uncomment each query by removing the hash sign (@code{#}) and click Run.
-                            }
-                        }
-                        @teacher{
-
-                        }
-                }
-                @point{
                     @student{
                         Take a few minutes and record your findings on @worksheet-link[#:name "Unit-9"]. Do your findings match your hypothesis? What new questions does this raise?
                     }
@@ -427,7 +358,7 @@
                 }
                 @point{
                         @student{
-                            You now have all the tools you need to complete your analysis for your final project! Open your Project File and Report, and finish the remaining questions. Be sure to explain why you chose to remove any rows with @code{sieve} or add any columns with @code{extend}, and to add the @vocab{r-squared} value for any correlations you find through linear regression.
+                            You now have all the tools you need to complete your analysis for your final project! Open your Project File and Report, and finish the remaining questions. Be sure to explain why you chose to remove any rows with @code{.filter} or add any columns with @code{.build-columns}, and to add the @vocab{r-squared} value for any correlations you find through linear regression.
                         }
                         @teacher{
 
