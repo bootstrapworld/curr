@@ -90,6 +90,7 @@ when it prints out the glossary for a particular unit
     ("range" "the type of data that a function produces")
     ("reactor" "A value that contains a current state, and functions for updating, drawing, and interacting with that state")
     ("refactor" "The process of changing the style or structure of a program's code, without changing the program's behavior")
+    ("refactoring" "The process of changing the style or structure of a program's code, without changing the program's behavior")
     (("row" "rows") "item(s) in a table, which consist of some group of values; each table is a collection of rows")
     ("sample instances" "A collection of single instances, or also used to describe illustrative instances that we use to provide examples of a data structure")
     (("select" "selects" "selecting") "a query that creates a table containing only a subset of a specified table's columns")
