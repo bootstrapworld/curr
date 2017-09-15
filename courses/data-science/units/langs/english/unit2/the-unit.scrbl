@@ -1,21 +1,24 @@
 #lang curr/lib
 
-@title{Unit 2: Lists and Tables}
+@title{Unit 2: Methods, Tables and Plotting}
 
 @unit-overview/auto[#:lang-table (list (list "Number" 
-                                              @code{+, -, *, /, num-sqrt, num-sqr} 
+                                              @code{num-sqrt, num-sqr} 
                                               @code{4, -1.2. 2/3})
                                        (list "String" 
-                                              @code{"n/a"} 
+                                              @code{string-repeat} 
                                               (list @code{"hello" "91"} ))
+                                       (list "Boolean" 
+                                              @code{} 
+                                              (list @code{true false} ))
                                        (list "Image" 
-                                              @code{draw-plot} 
+                                              @code{triangle, star...} 
                                               (list @bitmap{images/imgValue1.png} @bitmap{images/imgValue2.png}))
                                        (list "DataSeries" 
                                               @code{function-plot} 
                                               "")
                                        )]{
-  @unit-descr{Is there a relationship between the amount of sugar in a meal, and the number of calories? Do more caloric meals tend to have more sugar? To answer this question, students are introduced to Tables in Pyret, as well as scatter plots as a way of visualizing data}
+  @unit-descr{Is there a relationship between the amount of sugar in a meal, and the number of calories? Do more caloric meals tend to have more sugar? To answer this question, students are introduced to Tables in Pyret, as well as scatter plots as a way of visualizing data. They also deepen their understanding of Lists and Contracts, using methods.}
 }
 @unit-lessons{
 
@@ -49,7 +52,7 @@
             }
             @point{
               @student{
-                  So far you have learned the fundamentals of writing programs that do work on simple data like Numbers (@code{1, -6, 3.5,} etc.) and Strings (@code{"hello", "17",} etc.). As data scientists, we need to write programs that work on complex data like @italic{restaurant menus}, which can have many related parts and contain dozens or millions of entries. A collection of related data that can be grouped and manipulated by a computer is called a @vocab{dataset}. In this unit, you will learn how Pyret works with real-world data, and how to answer data science questions like this one by writing programs over that data.
+                  So far you have learned the fundamentals of writing programs that do work on simple data like Numbers (@code{1, -6, 3.5,} etc.), Strings (@code{"hello", "17",}), Images and Lists (@code{[list: 1, 2, 3]}). As data scientists, we need to write programs that work on complex data like @italic{restaurant menus}, which can have many related parts and contain dozens or millions of entries. A collection of related data that can be grouped and manipulated by a computer is called a @vocab{dataset}. In this unit, you will learn how Pyret works with real-world data, and how to answer data science questions like this one by writing programs over that data.
               }
               @teacher{
 
@@ -61,7 +64,82 @@
 }
 
 @lesson/studteach[
-     #:title "Tablular Data"
+     #:title "Methods"
+     #:duration "15 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[]
+     #:standards (list)
+     #:materials @itemlist[]
+     #:preparation @itemlist[]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[
+            @point{
+                    @student{
+                        You've already seen one kind of collection, in the form of Lists. Lists are ways of grouping pieces of data, one after another. In addition to being more complex than simpler datatypes, and List values even have special functions, called @vocab{methods} that we can use to manipulate them.
+                    }
+                    @teacher{
+
+                    }
+            }
+            @point{
+                    @student{
+                        Suppose we have a list of names (@code{[list: "Emma", "Ed", "Shriram", "Kathi"]}), and we want to just get the first name (@code{"Emma"}). In Pyret, all Lists have a built-in function called @code{get}, which consumes an index and produces whatever value is at that index. Here is how we would use it:
+                        @code[#:multi-line #t]{
+                            [list: "Emma", "Ed", "Shriram", "Kathi"].get(0)
+                        }
+                        Note: in most programming languages, indexes start at zero. What index would we use to get "Kathi" from this list? "Shriram"? "Ed"?
+                    }
+                    @teacher{
+
+                    }
+            }
+            @point{
+                  @student{
+                          @vocab{Methods} are different from @vocab{functions} in a several ways:
+
+                          @itemlist[
+                                  @item{
+                                        @italic{They are called differently}. For example, the @code{get} method has to be called as part of a List.
+                                  }
+                                  @item{
+                                        @italic{They change the way they behave}, depending on which piece of data they're attached to. One of these lines of code will work, while the other will cause an error:
+                                         @code[#:multi-line #t]{
+                                            [list: 10, 20, 30].get(2)
+                                            [list: "a", "b"].get(2)
+                                         }
+                                  }
+                                  @item{
+                                        @italic{Their contracts are different.} The @code{.get()} method only exists within the @code{List} Type), so we can't use its name without also specifying the name of a List. The contract for a method includes the Type along with the name:
+                                         @code[#:multi-line #t]{
+                                          <List>.get :: (index::Number) -> Any
+                                         }
+                                  }
+                          ]
+
+
+                  }
+                  @teacher{
+                          This method v. function distinction is subtle, and it's worth spending some time walking through it carefully.
+                  }
+            }
+            @point{
+                    @student{
+                          There are many more List methods, but for now let's move on and talk about something much more interesting than Lists...
+                    }
+                    @teacher{}
+            }
+        ]
+}
+
+@lesson/studteach[
+     #:title "Tables"
      #:duration "15 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
@@ -91,12 +169,12 @@
 
 					}
                     @teacher{
-							           Show the kids slides with each image of the example table, focusing on the different aspects of tables. Express that each row represents a distinct object, and each entry in a row stores information about that object.
+							           Show the students slides with each image of the example table, focusing on the different aspects of tables. Express that each row represents a distinct object, and each entry in a row stores information about that object.
 					}
             }
             @point{
           					@student{
-          							This is a @vocab{table} containing information about students in a fourth grade class.  @vocab{table}s are collections of cells - or "entries", where each @vocab{entry} contains one value.  In most of the tables you will encounter, these values will be of type Number or String.
+          							This is a @vocab{table} containing information about students in a fourth grade class.  @vocab{table}s are collections of cells - or "entries", where each @vocab{entry} contains one value.  In most of the tables you will encounter in this class, these values will be of type Number or String.
           					}
                     @teacher{
                         Tables with empty cells will import using the @code{Option} type, in which a column of numbers will display as @code{None} for blank entries, and as @code{Some(n)} for others. None of the provided datasets have blanks, so your students should never have to confront @code{Option} types.
@@ -338,7 +416,7 @@
    }
 
 @lesson/studteach[
-     #:title "Extracting Lists from Tables"
+     #:title "Getting Columns from Tables"
      #:duration "10 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
@@ -365,71 +443,43 @@
                 }
                 @point{
                       @student{
-                              The @vocab{extract} operation does just that!
+                              Tables are sophisticated pieces of data, and have their own methods that we can use to extract columns, rows, and perform all sorts of operations. For example:
 
                               @code[#:multi-line #t]{
-                                  sodium-list = extract sodium from nutrition end
+                                  sodium-list = nutrition.column("sodium")
                               }
-
-                              @activity{What is the name of the identifier being defined here? What do you think its value is?}
                               After running this program, typing @code{sodium-list} into the interactions window and hitting Return gives us the following list: @code{[list: 480, 680, 820, 360, 1300, 790, 160, 150, 680, 130]}.
+                              @activity{
+                                  @itemlist[
+                                    @item{What is the name of this method?}
+                                    @item{How would we write this in our Contracts page?}
+                                    @item{What is the Domain of this method?}
+                                    @item{What is the Range of this method?}
+                                  ]
+                              } 
+                              
                       }
                       @teacher{
                       
                       }
                 }
-                @point{
-                      @student{
-                              Let's examine this line of code, piece by piece.
 
-                              @itemlist[
-                                      @item{
-                                            @code{extract} tells Pyret that we want to take a particular column out of a table. 
-                                      }
-                                      @item{
-                                            After the @code{extract} keyword, we choose the name of 1 column we want 
-                                            to see as a list.  In this case, it is the @code{sodium} column.
-                                      }
-                                      @item{
-                                            Then, the @code{from} keyword, which indicates which table we are extracting the column from.  Following this is the table name, which is @code{nutrition}.
-                                      }
-                                      @item{
-                                            Finally, an @code{end} keyword tells Pyret that our line of code involving a table is done.
-                                      }
-                              ]
-
-
-                      }
-                      @teacher{
-                              This is the first example of an expression that consumes a table that students will need to write for themselves. These expressions (@code{extract, sieve, select, order}, and @code{extend}) have fundamentally different syntax than programs they have seen with arithmetic or function application.
-                      }
-                }
                 @point{
                       @student{
                               @activity[#:forevidence "BS-IDE&1&1"]{
-                                      @itemlist[
-                                              @item{
-                                                    Define a list called @code{state-list} containing the @code{home-state} column from @code{presidents}.
-                                              }
-                                              @item{
-                                                    Define a list called @code{calories-list} containing the @code{calories} column from @code{nutrition}.
-                                              }
-                                              @item{
-                                                    Define a list called @code{sugar-list} that contains the @code{sugar} column from @code{nutrition}.
-                                              }
-                                      ]
-                                      Notice that these Lists contain just one type of data: either only Strings, or only Numbers.
+                                  Let's get some practice using the @code{.column()} method.
+                                  @itemlist[
+                                          @item{
+                                                Define a list called @code{state-list} containing the @code{home-state} column from @code{presidents}.
+                                          }
+                                          @item{
+                                                Define a list called @code{calories-list} containing the @code{calories} column from @code{nutrition}.
+                                          }
+                                          @item{
+                                                Define a list called @code{sugar-list} that contains the @code{sugar} column from @code{nutrition}.
+                                          }
+                                  ]
                               }
-                      }
-                      @teacher{
-
-                      }
-                }
-                @point{
-                      @student{
-                            In what ways are Lists different from Tables? Tables are 2-dimensional, while Lists are 1-dimensional. Tables also have a @italic{header}, which associates a name with each column. Lists, on the other hand, have no header.  
-
-                            However, List do share some qualities with tables. They have multiple entries, and those entries are in a specific @italic{order}. They can also be filled with either quantitative or categorical data. In the next lesson, we'll learn about functions that let us ask questions of lists, to help us look for ways to measure a set of data.
                       }
                       @teacher{
 
