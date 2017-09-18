@@ -102,7 +102,7 @@
                 @point{
                       @student{
                               @activity[#:forevidence "BS-IDE&1&1"]{
-                                      Open the @editor-link[#:public-id "0BzzMl1BJlJDkdW10UmZmTVdYc1U" "Unit 8 Starter File"], Save a Copy, and Run the program.
+                                      Open the @editor-link[#:public-id "0BzzMl1BJlJDkRnB2d1hCVDV5bDA" "Unit 8 Starter File"], Save a Copy, and Run the program.
 
                                       @itemlist[
                                             @item{

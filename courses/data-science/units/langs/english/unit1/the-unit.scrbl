@@ -8,7 +8,7 @@
 @unit-lessons{
 @lesson/studteach[
      #:title "Introduction"
-     #:duration "10 minutes"
+     #:duration "15 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -78,7 +78,7 @@
              @point{
                     @student{
                             @activity[#:forevidence "BS-IDE&1&1"]{
-                                    Open up the @editor-link[#:public-id "0BzzMl1BJlJDkMTdodnJnenpPQUE" "Unit 1 Starter File"]. Click "Connect to Google Drive" to sign into your Google account, and then click the "Save as" button. This will save a copy of the file into your own account, so that you can make changes and retrieve them later.
+                                    Open up the @editor-link[#:public-id "0BzzMl1BJlJDkZ2IyU3dGYXAzblE" "Unit 1 Starter File"]. Click "Connect to Google Drive" to sign into your Google account, and then click the "Save as" button. This will save a copy of the file into your own account, so that you can make changes and retrieve them later.
                             }
                     }
                     @teacher{
@@ -101,7 +101,7 @@
 
 @lesson/studteach[
      #:title "Number and String Types"
-     #:duration "10 minutes"
+     #:duration "15 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -480,7 +480,7 @@
 
 @lesson/studteach[
      #:title "Functions and Image Types"
-     #:duration "15 minutes"
+     #:duration "25 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
