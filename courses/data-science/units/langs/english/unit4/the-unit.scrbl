@@ -9,7 +9,7 @@
                                               "n/a" 
                                               (list @code{"hello" "91"} ))
                                        (list "Image" 
-                                              @code{draw-plot} 
+                                              @code{triangle, star, draw-chart...} 
                                               (list @bitmap{images/imgValue1.png} @bitmap{images/imgValue2.png}))
                                        (list "DataSeries" 
                                               @code{function-plot, scatter-plot, bar-chart, pie-char, freq-bar-chart} 
@@ -65,28 +65,6 @@
                               The identifiers are @code{a}, @code{b}, and @code{c}, each of which is defined to be a different List.
                       }
                 }
-                @point{
-                      @student{
-                              Let's take a look at one of these identifiers: 
-                              @code[#:multi-line #t]{
-                                a = [list: 1, 1, 4]
-                              }
-                              To make a list, we use square brackets and the @code{list:} constructor, followed by a comma-separated list of values. What is the type of @code{a}?
-
-                              @activity{
-                                In the Interactions Area, try making a few lists for practice:
-                                @itemlist[
-                                  @item{A list of all the days of the week}
-                                  @item{A list of first 10 even numbers}
-                                  @item{A list of your favorite colors}
-                                ]
-                              }
-                      }
-                      @teacher{
-
-                      }
-                }
-
         ]
       }
 
@@ -117,7 +95,7 @@
                 }
                 @point{
                       @student{
-                        There are 3 ways to measure the "center" of a list of data: @vocab{mean}, @vocab{median} and @vocab{mode}. One of the most important questions we can ask about a column of quantitative data is:  what is the @vocab{average} value?
+                              There are 3 ways to measure the "center" of a list of data: @vocab{mean}, @vocab{median} and @vocab{mode}. One of the most important questions we can ask about a column of quantitative data is:  what is the @vocab{average} value?
                       }
                       @teacher{
                               Use your favorite method of teaching the concept of averages.

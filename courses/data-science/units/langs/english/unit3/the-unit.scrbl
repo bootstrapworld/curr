@@ -9,7 +9,7 @@
                                               "n/a" 
                                               (list @code{"hello" "91"} ))
                                        (list "Image" 
-                                              @code{draw-plot} 
+                                              @code{triangle, star, draw-chart...} 
                                               (list @bitmap{images/imgValue1.png} @bitmap{images/imgValue2.png}))
                                        (list "DataSeries" 
                                               @code{function-plot, scatter-plot} 
@@ -142,7 +142,7 @@
                               }
 
                               @activity{
-                                What does this code do?
+                                What does this code do? What are the Types of @code{food-list} and @code{cholesterol-list}?
                               }
 
                               You've seen this code before: Extracting columns from a table as lists. These lists are the labels and values (respectively) that will be used to create our charts.
@@ -153,13 +153,14 @@
                 }
                 @point{
                       @student{
+                              Let's use these lists to build two different kinds of charts
                               @code[#:multi-line #t]{
                                     # Define some DataSeries
                                     cholesterol-bar-series = bar-chart(food-list, cholesterol-list)
                                     cholesterol-pie-series = pie-chart(food-list, cholesterol-list)
                                     # Define some Plot Images
-                                    cholesterol-bar-chart = draw-plot("Cholesterol", cholesterol-bar-series)
-                                    cholesterol-pie-chart = draw-plot("Cholesterol", cholesterol-pie-series)
+                                    cholesterol-bar-chart = draw-chart("Cholesterol", cholesterol-bar-series)
+                                    cholesterol-pie-chart = draw-chart("Cholesterol", cholesterol-pie-series)
                               }
 
                               This code uses new functions you haven't seen before: @code{bar-chart} and @code{pie-chart}. As you might expect, the contracts for these function are:
@@ -179,7 +180,7 @@
                               ]
 
                               @activity{
-                                  Write the contracts for these functions in your Contracts page, then use @code{draw-plot} with these plots to draw them to screen.
+                                  Write the contracts for these functions in your Contracts page, then use @code{draw-chart} with these plots to draw them to screen.
                               }
                       }
                       @teacher{
@@ -344,7 +345,7 @@
                       @student{
                               For the rest of your life, you will probably see bar charts and pie charts in many different colors and formats. To prepare for this, we'll practice answering questions about several different bar and pie charts from a variety of sources.
                               @activity[#:forevidence "BS-IDE&1&1"]{
-                                      Complete @worksheet-link[#:name "Chart-Practice"] and @worksheet-link[#:name "More-Chart-Practice"] in your workbook by answering the questions about each of the charts.
+                                      Complete @worksheet-link[#:name "Pie-Chart-Practice"], @worksheet-link[#:name "Bar-Chart-Practice"] and @worksheet-link[#:name "Freq-Chart-Practice"] in your workbook by answering the questions about each of the charts.
                               }                          
                       }
                       @teacher{

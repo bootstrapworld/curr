@@ -9,7 +9,7 @@
                                               "n/a" 
                                               (list @code{"hello" "91"} ))
                                        (list "Image" 
-                                              @code{draw-plot} 
+                                              @code{triangle, star, draw-chart...} 
                                               (list @bitmap{images/imgValue1.png} @bitmap{images/imgValue2.png}))
                                        (list "DataSeries" 
                                               @code{function-plot, scatter-plot, bar-chart, pie-char, freq-bar-chart, histogram} 

@@ -6,20 +6,22 @@
 (
 ;;;;;;;;;;;;;;;; Unit 1;;;;;;;;;;;;;
  ("Unit-1" 	 					 1 )
- ("Expressions-Values-Errors" 	 2 )
- ("Fill-In-Value" 				 3 )
+ ("Numbers-and-Strings" 	 	 2 )
+ ("Booleans-and-Lists" 			 3 )
+ ("Fill-in-Value" 			 	 4 )
 
 ;;;;;;;;;;;;;;;; Unit 2;;;;;;;;;;;;;
- ("Unit-2" 	 					 4 )
- ("Animals" 					 5 )
- ("Presidents-Nutrition" 		 6 )
+ ("Unit-2" 	 					 5 )
+ ("Cities" 						 6 )
+ ("Presidents-Nutrition" 		 7 )
 
 ;;;;;;;;;;;;;;;; Unit 3;;;;;;;;;;;;;
- ("Unit-3" 	 					 7 )
- ("Questions-With-Charts" 		 8 )
- ("Freq-Bar-Chart" 				 9 )
- ("Chart-Practice" 				10 )
- ("More-Chart-Practice" 		12 )
+ ("Unit-3" 	 					 8 )
+ ("Questions-With-Charts" 		 9 )
+ ("Freq-Bar-Chart" 				10 )
+ ("Pie-Chart-Practice" 			11 )
+ ("Bar-Chart-Practice" 			12 )
+ ("Freq-Chart-Practice" 		13 )
 
 ;;;;;;;;;;;;;;;; Unit 4;;;;;;;;;;;;;
  ("Unit-4" 	 					14 )
@@ -63,5 +65,5 @@
  ("Blank-Plan-1" 				42 )
  ("Blank-Plan-2" 				43 )
  ("Blank-Plan-3" 				44 )
- ("Contracts" 					46 )
+ ("Contracts" 					45 )
  )

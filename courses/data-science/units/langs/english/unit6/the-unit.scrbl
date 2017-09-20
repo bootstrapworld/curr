@@ -9,7 +9,7 @@
                                               "n/a" 
                                               (list @code{"hello" "91"} ))
                                        (list "Image" 
-                                              @code{draw-plot} 
+                                              @code{triangle, star, draw-chart...} 
                                               (list @bitmap{images/imgValue1.png} @bitmap{images/imgValue2.png}))
                                        (list "DataSeries" 
                                               @code{function-plot, scatter-plot, bar-chart, pie-char, freq-bar-chart, histogram} 
@@ -135,7 +135,7 @@
                                                 Students should extract the @code{price} column, and use the @code{histogram} function over the list.
                                         }
                                         @item{
-                                                Students should create a scatterplot, using what they learned in previous lessons.
+                                                Students should create a scatter plot, using what they learned in previous lessons.
                                         }
                                         @item{
                                                 Students won't know how to answer this yet, and that's ok!
@@ -158,9 +158,9 @@
                                         ratings-list = restaurants.column("rating")
                                         prices-list  = restaurants.column("price")
                                         prices-vs-ratings-series = scatter-plot(prices-list, ratings-list)
-                                        prices-vs-ratings-plot = draw-plot("Restaurant Prices vs. Ratings", prices-vs-ratings-series)
+                                        prices-vs-ratings-chart = draw-chart("Restaurant Prices vs. Ratings", prices-vs-ratings-series)
                                 }
-                                Click Run, and show the scatterplot for @code{prices-vs-ratings-plot}
+                                Click Run, and show the scatter plot for @code{prices-vs-ratings-chart}
                         }
                         @teacher{
 
@@ -172,7 +172,7 @@
                                 There are 9 points on our restaurant scatter plot: one for each restaurant in the table. Each dot's placement depends on the price and rating values of a particular restaurant. For example, look at the restaurant "Riverside Grille". Riverside Grille has an average price of 19.56, so it will appear to the far right of the chart. Riverside Grille has an average rating of 4.9, so it will appear towards the top of the chart.
 
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                    In Pyret, evalute @code{prices-vs-ratings-plot} to see the relationship between prices and ratings.
+                                    In Pyret, evalute @code{prices-vs-ratings-chart} to see the relationship between prices and ratings.
                                         @itemlist[
                                                 @item{
                                                         Which dot represents the restaurant "Family Diner"?
@@ -358,7 +358,7 @@
                                 This leaves us with two questions:
                                 @itemlist[
                                     @item{
-                                        How do we make a prediction from a scatterplot? In other words, "how do we know where to draw that line?"
+                                        How do we make a prediction from a scatter plot? In other words, "how do we know where to draw that line?"
                                     }
                                     @item{
                                         How do we measure the accuracy of our prediction? In other words, "how well does that line fit?"
@@ -371,7 +371,7 @@
                 }
                 @point{
                         @student{
-                                Data scientists use statistics to build a @italic{model} of a data set. This model takes into account a lot of different measures (including some of the ones you already know), and tries to identify patterns and relationships within the data. When we draw our predictor line on a scatterplot, we can imagine a rubber band stretching between the line itself and each point in the plot - every point pulls the line a little "up" or "down". 
+                                Data scientists use statistics to build a @italic{model} of a data set. This model takes into account a lot of different measures (including some of the ones you already know), and tries to identify patterns and relationships within the data. When we draw our predictor line on a scatter plot, we can imagine a rubber band stretching between the line itself and each point in the plot - every point pulls the line a little "up" or "down". 
                         }
                         @teacher{
 
@@ -415,7 +415,7 @@
                 @point{
                         @student{
                                 @activity{
-                                    Once we have the function's DataSeries, we know how to plot it - we used @code{draw-plot} back in Unit 1! We can use @code{draw-plot} to plot the function @code{DataSeries} or the scatterplot @code{DataSeries}, but we'd like to plot these @italic{on top of one another}, and we can do this using the @code{draw-plots} function. It works much the way @code{draw-plot} does, but instead of one @code{DataSeries} it takes in a @italic{list of DataSeries} (@code{List<DataSeries>}) as its Domain.
+                                    Once we have the function's DataSeries, we know how to plot it - we used @code{draw-chart} back in Unit 1! We can use @code{draw-chart} to plot the function @code{DataSeries} or the scatter plot @code{DataSeries}, but we'd like to plot these @italic{on top of one another}, and we can do this using the @code{draw-chart} function. It works much the way @code{draw-chart} does, but instead of one @code{DataSeries} it takes in a @italic{list of DataSeries} (@code{List<DataSeries>}) as its Domain.
                                 }
                         }
                         @teacher{
@@ -425,7 +425,7 @@
                 @point{
                         @student{
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Create statistical models and predictor functions for each of the following relationships, then plot the predictor function on top of the scatterplots you created earlier:
+                                        Create statistical models and predictor functions for each of the following relationships, then plot the predictor function on top of the scatter plots you created earlier:
 
                                         @itemlist[
                                                 @item{

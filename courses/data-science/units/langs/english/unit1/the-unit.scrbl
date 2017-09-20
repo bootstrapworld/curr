@@ -448,7 +448,7 @@
                 @point{
                     @student{
                             @activity[#:forevidence "BS-IDE&1&1"]{
-                                    Turn to @worksheet-link[#:name "Fill-In-Value"] in your workbook. For each definition, come up with a value or expression that matches the given name and type, and write it on the space provided.
+                                    Turn to @worksheet-link[#:name "Fill-in-Value"] in your workbook. For each definition, come up with a value or expression that matches the given name and type, and write it on the space provided.
                             }
                     }
                     @teacher{
@@ -495,7 +495,7 @@
                 }
                 @point{
                         @student{
-                                Pyret has many, many more functions. Some of these functions are defined as part of the language, and others are defined in extra files that we have to load by hand. In fact, all of the image functions you explored are part of the @code{image} library, which is loaded in the very first line of code in the Definitions Area. Do you see any other library being loaded? The second line of code includes a file called @code{plot-list}, which defines a lot of extra functions for drawing charts, graphs and plots. When you click Run, Pyret will read that file and become aware of all those plotting functions.
+                                Pyret has many, many more functions. Some of these functions are defined as part of the language, and others are defined in extra files that we have to load by hand. The @code{include} line at the top of the file loads one of these files.
                         }
                         @teacher{
 
@@ -505,7 +505,7 @@
                         @student{
                             Two of the functions imported by this file are called @code{function-plot} and @code{draw-plot}. Write them down in your contracts page:
                             @code[#:multi-line #t]{
-                                # draw-plot :: (title :: String, ds :: DataSeries) -> Image
+                                # draw-chart :: (title :: String, ds :: DataSeries) -> Image
                                 # function-plot :: (fn :: Number -> Number) -> DataSeries
 
                             }
@@ -521,7 +521,7 @@
                 }
                 @point{
                         @student{
-                            Even though you haven't seen a @code{DataSeries} before, we can figure out that @code{draw-plot} consumes a String and a @code{DataSeries}, and then produces an Image. The String is the title of a plot, and the resulting Image is the picture of the plot (with that title). You've used your knowledge of contracts to identify that the function also takes in a @code{DataSeries}, but what @italic{is} that? 
+                            Even though you haven't seen a @code{DataSeries} before, we can figure out that @code{draw-chart} consumes a String and a @code{DataSeries}, and then produces an Image. The String is the title of a chart, and the resulting Image is the picture of the plot (with that title). You've used your knowledge of contracts to identify that the function also takes in a @code{DataSeries}, but what @italic{is} that? 
 
                             When you plot a function on your calculator, you can zoom in and out of the resulting graph. Zooming in and out will change the image on the screen, but it doesn't change the data itself. That means you can think about a plot as having two parts: the abstract @italic{data}, and then the settings for how that data is presented. A @code{DataSeries} is the abstract data. You've already seen some functions that may be familiar to you, such as @code{num-sqr} and @code{num-sqrt}. How can we take these functions and build a DataSeries out of them? 
                         }
@@ -543,7 +543,7 @@
                             @code[#:multi-line #t]{
                                 # define the series and the graph for the function f(x)=√x
                                 sqrt-series  = function-plot(num-sqrt)
-                                sqrt-graph = draw-plot("f(x)=√x", sqrt-DataSeries)
+                                sqrt-graph = draw-chart("f(x)=√x", sqrt-series)
                             }
                             Review: once I've defined an identifier, I can see its value for by clicking Run, then typing in the identifier in the Interactions Area and hitting Enter.
 

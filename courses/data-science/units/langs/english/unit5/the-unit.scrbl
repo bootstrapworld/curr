@@ -9,7 +9,7 @@
                                               "n/a" 
                                               (list @code{"hello" "91"} ))
                                        (list "Image" 
-                                              @code{draw-plot} 
+                                              @code{triangle, star, draw-chart...} 
                                               (list @bitmap{images/imgValue1.png} @bitmap{images/imgValue2.png}))
                                        (list "DataSeries" 
                                               @code{function-plot, scatter-plot, bar-chart, pie-char, freq-bar-chart} 
@@ -151,11 +151,11 @@
                                 We can use a different kind of chart for visualizing @italic{how frequent values are} in a list of quantitative data. This kind of chart is a called @vocab{histogram}, and it is similar to the bar charts you have seen before.
 
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Type the following code into your Definitions Area to create the histogram DataSeries and draw the plot.
+                                        Type the following code into your Definitions Area to create the histogram DataSeries and draw the chart.
 
                                         @code[#:multi-line #t]{
                                                 dice-histogram-series = histogram(roll-dice(10000), 11)
-                                                dice-histogram-plot   = draw-plot("dice rolls", dice-histogram-series)
+                                                dice-histogram-chart  = draw-chart("dice rolls", dice-histogram-series)
                                         }
 
                                         See what the histogram looks like, then try changing the second argument to @code{histogram}. What do you think this argument means?
@@ -170,7 +170,7 @@
                                                 The first is a list of numbers, containing the quantitative data.
                                         }
                                         @item{
-                                                The second is the number of equal-sized @italic{bins} that we want to distribute this list into (we'll talk more about this in a moment).
+                                                The second is the size of @italic{bins} that we want to distribute this list into (we'll talk more about this in a moment).
                                         }
                                 ]
                         }
@@ -250,37 +250,18 @@
                         @student{
                                 In the dice roll game, there were 11 possible numbers that the dice roll could produce. Would it be helpful to have 20 bars? 30? What would happen if we only used 1?
 
-                                Look back at your call to the @code{histogram} function for the dice game. In the first example, it made sense to use 11 bins because there were only 11 possible values that the pair of dice could produce.
+                                Look back at your call to the @code{histogram} function for the dice game. In the first example, it made sense to 1 bin for each possible value that the pair of dice could produce.
 
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                        What would happen if we only used 4 bins for the dice game?  What if we used 40?
+                                        What would happen if we used fewer, larger bins? What if we used more, smaller ones?
                                         Try them out with new function calls in the interactions window.
                                 }
 
-                                Using only 4 bins gives us a histogram that is less helpful, because 11 bins more accurately covers the range from 2 to 12. However, 40 isn't any more helpful, because there are so many bins that are empty. Choosing the right bin size helps us make sense of the data, and is a skill that every data scientist should practice.
+                                Using only fewer, larger bins gives us a histogram that is less helpful, because 11 bins more accurately covers the range from 2 to 12. However, lots of tiny bins isn't any more helpful, because there are so many bins that are empty. Choosing the right bin size helps us make sense of the data, and is a skill that every data scientist should practice.
                         }
                     @teacher{
 
                     }
-                }
-                @point{
-                        @student{
-                                For another example, let's look again at our favorite 4th grade class:
-
-                                @build-table/cols[
-                                        '("First" "Last" "Height")
-                                        '(("\"John\"" "\"Jane\"" "\"Javon\"" "\"Angela\"" "\"Jack\"" "\"Dominique\"" "\"Sammy\"" "\"Andrea\"")
-                                          ("\"Doe\"" "\"Smith\"" "\"Jackson\"" "\"Enriquez\"" "\"Thompson\"" "\"Rodriguez\"" "\"Carter\"" "\"Garcia\"")
-                                          ("52.0" "49.1" "57.7" "52.5" "53.0" "51.1" "56.2" "50.8"))
-                                         (lambda (r c) (para ""))
-                                         3 8
-                                ]
-
-                                Suppose we had 100 different students in this table. If we want to make a histogram for their height, how many possible values are there? 10? 100? The values of heights have decimals. If we want to have a bar for every possible height value, how many bars do we need?
-                        }
-                        @teacher{
-                                Guide discussion towards the fact that there are infinitely many values that height could take, so we can't have a bar for each one.
-                        }
                 }
                 @point{
                         @student{

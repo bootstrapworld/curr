@@ -9,7 +9,7 @@
                                               "n/a" 
                                               (list @code{"hello" "91"} ))
                                        (list "Image" 
-                                              @code{draw-plot} 
+                                              @code{triangle, star, draw-chart...} 
                                               (list @bitmap{images/imgValue1.png} @bitmap{images/imgValue2.png}))
                                        (list "DataSeries" 
                                               @code{function-plot, scatter-plot, bar-chart, pie-char, freq-bar-chart, histogram} 
@@ -292,13 +292,13 @@
                                             Complete the Table Plan to create the table you'll need.
                                         }
                                         @item{
-                                            Extract the columns you'll need to create the scatterplots and @vocab{predictor} functions for @bold{both relationships}: "population v. life expectancy" and "per-capita-GDP v. life expectancy".
+                                            Extract the columns you'll need to create the scatter plots and @vocab{predictor} functions for @bold{both relationships}: "population v. life expectancy" and "per-capita-GDP v. life expectancy".
                                         }
                                         @item{
                                             Define the two scatterplot DataSeries, and then plot them both.
                                         }
                                         @item{
-                                            Define your predictor functions and r-squared values. Plot your predictor functions on top of your scatterplots, and use the r-squared values to determine which predictor better explains median life expectancy.
+                                            Define your predictor functions and r-squared values. Plot your predictor functions on top of your scatter plots, and use the r-squared values to determine which predictor better explains median life expectancy.
                                         }
                                     ]
                                 }

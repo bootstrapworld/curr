@@ -12,7 +12,7 @@
                                               @code{} 
                                               (list @code{true false} ))
                                        (list "Image" 
-                                              @code{triangle, star...} 
+                                              @code{triangle, star, draw-chart...} 
                                               (list @bitmap{images/imgValue1.png} @bitmap{images/imgValue2.png}))
                                        (list "DataSeries" 
                                               @code{function-plot} 
@@ -234,7 +234,7 @@
             }
             @point{
                     @student{
-                            The first kind of data we will look at is @vocab{Quantitative Data}. @vocab{Quantitative Data} always measures an amount of something. If a question asks "how much" there is of something, the answer will be quantitative data.                  
+                            The first kind of data we will look at is @vocab{Quantitative Data}. Quantitative Data always measures an amount of something. If a question asks "how much" there is of something, the answer will be quantitative data.                  
                     }
                     @teacher{
                                                         
@@ -493,7 +493,7 @@
                             nutrition.column("sugar"),
                             nutrition.column("calories"))
                           }
-                          What do you think the contract is for @code{scatter-plot}? Copy it down into your Contracts page. Once we've created the DataSeries, it's time to plot it: @code{draw-plot("Sugar v. Calories", sugar-cal-series)}. 
+                          What do you think the contract is for @code{scatter-plot}? Copy it down into your Contracts page. Once we've created the DataSeries, it's time to plot it: @code{draw-chart("Sugar v. Calories", sugar-cal-series)}. 
                       }
                       @teacher{
 
