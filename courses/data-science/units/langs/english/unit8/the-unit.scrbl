@@ -18,7 +18,7 @@
                                               @code{.get, mean, median, modes} 
                                               @code{[list: "list", "of", "strings"]})
                                        (list "Table"
-                                              @code{.column, .select-columns, .order-by}
+                                              @code{.row-n, .column, .select-columns, .order-by}
                                               @code{}))]{
     @unit-descr{Students are introduced to booleans and comparisons, and practice using them as predicates to write filter queries.}
 }

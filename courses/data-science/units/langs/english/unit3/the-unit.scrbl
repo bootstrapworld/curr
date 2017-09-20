@@ -18,7 +18,7 @@
                                               @code{.get} 
                                               @code{[list: "list", "of", "strings"]})
                                        (list "Table"
-                                              @code{.column}
+                                              @code{.row-n, .column}
                                               @code{}))]{
   @unit-descr{Students learn to create and interpret Bar and Pie charts, as well as Frequency Bar Charts.}
 }

@@ -18,7 +18,7 @@
                                               @code{.get, mean, median, modes} 
                                               @code{[list: "list", "of", "strings"]})
                                        (list "Table" 
-                                              @code{.select-columns, .order-by, .filter}
+                                              @code{.row-n, .column, .select-columns, .order-by, .filter}
                                               "")
                                   )]{
   @unit-descr{Students learn to extend tables with new columns, computed from other columns.}

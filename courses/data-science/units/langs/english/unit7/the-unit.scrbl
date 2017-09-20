@@ -18,7 +18,7 @@
                                               @code{.get, mean, median, modes} 
                                               @code{[list: "list", "of", "strings"]})
                                        (list "Table"
-                                              @code{.column}
+                                              @code{.row-n, .column}
                                               @code{}))]{
   @unit-descr{Students are introduced to their first examples of operations that consume and produce tables, and learn how to select columns and order rows. They are also introduced to the beginnings of Table Plans, as a vehicle for thinking through compound queries.}
 }
@@ -141,12 +141,8 @@
                 }
                 @point{
                       @student{
-                              When thinking about select queries, we ask ourselves @bold{what columns do we need?} If the answer is no, we have no work to do. But if the answer is yes, we can zoom in and think about which columns we want to keep. Suppose we wanted to make a brochure showing local restaurants and ratings. "What columns do we need?" The following code will select only the @code{country} and @code{continent} columns from the countries table, and bind the new table to the variable @code{countries-selected}:
-
-                              @code[#:multi-line #t]{
-                                      countries-selected = countries.select-columns([list: "country", "continent"])
-                              }
-
+                              When thinking about select queries, we ask ourselves @bold{what columns do we need?} If the answer is no, we have no work to do. But if the answer is yes, we can zoom in and think about which columns we want to keep. Suppose we wanted to make a brochure showing local restaurants and ratings. "What columns do we need?"
+                              
                               @activity[#:forevidence "BS-IDE&1&1"]{
                                       @itemlist[
                                           @item{

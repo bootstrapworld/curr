@@ -18,7 +18,7 @@
                                               @code{.get, mean, median, modes} 
                                               @code{[list: "list", "of", "strings"]})
                                        (list "Table"
-                                              @code{.column}
+                                              @code{.row-n, .column}
                                               @code{}))]{
   @unit-descr{Students dig deeper into scatter plots as a method of visualizing the relationship between two axes, and into the notion of "line of best fit". }
 }
@@ -153,12 +153,12 @@
                 }
                 @point{
                         @student{
-                                To answer this question, we will return to the very first chart you learned about in this class: @vocab{scatter plots}. A scatter plot is a chart that plots every pair of numbers in 2 columns. By extracting the two columns from @code{restaurants}, we can create a DataSeries to plot:
+                                To answer this question, we will return to @vocab{scatter plots}, which plot x/y-pairs as individual points. By extracting the two columns from @code{restaurants}, we can create a DataSeries to plot:
                                 @code[#:multi-line #t]{
                                         ratings-list = restaurants.column("rating")
                                         prices-list  = restaurants.column("price")
                                         prices-vs-ratings-series = scatter-plot(prices-list, ratings-list)
-                                        prices-vs-ratings-chart = draw-chart("Restaurant Prices vs. Ratings", prices-vs-ratings-series)
+                                        prices-vs-ratings-chart  = draw-chart("Restaurant Prices vs. Ratings", prices-vs-ratings-series)
                                 }
                                 Click Run, and show the scatter plot for @code{prices-vs-ratings-chart}
                         }
