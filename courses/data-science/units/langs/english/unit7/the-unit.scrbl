@@ -19,7 +19,7 @@
                                               @code{[list: "list", "of", "strings"]})
                                        (list "Table"
                                               @code{.row-n, .column}
-                                              @code{}))]{
+                                              ""))]{
   @unit-descr{Students are introduced to their first examples of operations that consume and produce tables, and learn how to select columns and order rows. They are also introduced to the beginnings of Table Plans, as a vehicle for thinking through compound queries.}
 }
 @unit-lessons{
@@ -142,7 +142,7 @@
                 @point{
                       @student{
                               When thinking about select queries, we ask ourselves @bold{what columns do we need?} If the answer is no, we have no work to do. But if the answer is yes, we can zoom in and think about which columns we want to keep. Suppose we wanted to make a brochure showing local restaurants and ratings. "What columns do we need?"
-                              
+
                               @activity[#:forevidence "BS-IDE&1&1"]{
                                       @itemlist[
                                           @item{

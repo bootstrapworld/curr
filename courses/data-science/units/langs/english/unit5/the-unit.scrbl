@@ -19,7 +19,7 @@
                                               @code{[list: "list", "of", "strings"]})
                                        (list "Table"
                                               @code{.row-n, .column}
-                                              @code{}))]{
+                                              ""))]{
   @unit-descr{Students are introduced to Histograms as visualizations for quantitative data, learn to analyze features of Histograms, and construct them in Pyret}
 }
 @unit-lessons{

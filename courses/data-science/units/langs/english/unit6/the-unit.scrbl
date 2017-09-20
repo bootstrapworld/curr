@@ -19,7 +19,7 @@
                                               @code{[list: "list", "of", "strings"]})
                                        (list "Table"
                                               @code{.row-n, .column}
-                                              @code{}))]{
+                                              ""))]{
   @unit-descr{Students dig deeper into scatter plots as a method of visualizing the relationship between two axes, and into the notion of "line of best fit". }
 }
 @unit-lessons{

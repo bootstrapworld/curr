@@ -19,7 +19,7 @@
                                               @code{[list: "list", "of", "strings"], [list: 1, 2 ,3]})
                                        (list "Table"
                                               @code{.row-n, .column}
-                                              @code{}))]{
+                                              ""))]{
   @unit-descr{Students learn how to measure central tendency using mean/median/mode.  They will practice calculating these values by hand, and learn to do so using Lists in Pyret}
 }
 @unit-lessons{

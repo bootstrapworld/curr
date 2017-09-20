@@ -112,6 +112,9 @@
                                                 @item{
                                                     What does @code{basketball-extended} evaluate to?
                                                 }
+                                                @item{
+                                                    What function is being used to extend the table? Where is it defined?
+                                                }
                                         ]
 
                                         Do these outputs match your answers for the workbook exercise?
@@ -140,7 +143,7 @@
                 @point{
                         @student{
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                        In your Definitions Area, follow the directions in the code for the first exercise, to extend the @code{stores} table in Pyret. You should create a column called @code{price-per-sock}.
+                                        In your Definitions Area, extend the @code{stores} table in Pyret. You should create a column called @code{price-per-sock}, and define a helper function that will calculate the per-sock price.
                                 }
                         }
                         @teacher{

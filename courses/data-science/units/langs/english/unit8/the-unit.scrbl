@@ -19,7 +19,7 @@
                                               @code{[list: "list", "of", "strings"]})
                                        (list "Table"
                                               @code{.row-n, .column, .select-columns, .order-by}
-                                              @code{}))]{
+                                              ""))]{
     @unit-descr{Students are introduced to booleans and comparisons, and practice using them as predicates to write filter queries.}
 }
 @unit-lessons{
@@ -59,10 +59,10 @@
                               We have our @code{countries} table, which lists @italic{every} country in the world and shows their GDP. But to answer this question, we need to learn two new things:
                               @itemlist[
                                   @item{
-                                      How to write code that @italic{checks} if a country is in Asia.
+                                      How to write code that @italic{checks} if the row for a country is in Asia.
                                   }
                                   @item{
-                                      How to write a query that uses that check, so that we can generate a table showing only countries in Asia. Essentially, we want to create a @italic{filter} that traps all the rows we want - getting rid of the ones we don't.
+                                      How to use that check to generate a table showing only countries in Asia. Essentially, we want to create a @italic{filter} that traps all the rows we want - getting rid of the ones we don't.
                                   }
 
                               ]
@@ -141,8 +141,22 @@
                 }
                 @point{
                       @student{
+                              Around line 22, you'll find some new code that you've never seen before:
+                              @code[#:multi-line #t]{
+                              fun high-rating(row):
+                                row["rating"] >= 4
+                              end
+                              }
+                              This @bold{defines a function} called @code{high-rating}, which takes in a row. What does it do with that row? How can you tell?
+                      }
+                      @teacher{
+                              Be sure to talk students through this carefully, emphasizing that the @code{high-rating} function @italic{consumes a Row and produces a Boolean}.
+                      }
+                }
+                @point{
+                      @student{
                               @activity[#:forevidence "BS-IDE&1&1"]{
-                                  Complete the next three excersises in the Definitions Area: Low-Calorie, CA Presidents, and Asian Countries.
+                                  Complete the next three excersises in the Definitions Area: Define new functions to solve Low-Calorie, CA Presidents, and Asian Countries.
                               }
                       }
                       @teacher{
