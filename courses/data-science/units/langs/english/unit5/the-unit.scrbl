@@ -45,7 +45,7 @@
                                 @bitmap{images/dice.png}
                                 While traveling to Vegas, you find yourself at Pearson's Casino. Pearson himself invites you to play a game, and it only costs you $1. He rolls two dice and adds the numbers together, while you guess what number he came up with. If you guess right, you keep your money and get an extra $1 to boot! But if you guess wrong, he keeps your dollar. What are your odds of winning this game? Are they good enough that it's worth playing?
                                 @activity{
-                                        Turn to page @worksheet-link[#:name "Unit-5"]. Take two minutes to write your answer.
+                                        Turn to @worksheet-link[#:name "Unit-5"]. Take two minutes to write your answer.
                                 }
                         }
                         @teacher{

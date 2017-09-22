@@ -138,7 +138,7 @@
 			      @point{
                     @student{
       					        @activity[#:forevidence "BS-IDE&1&1"]{
-      				        		Turn to @worksheet-link[#:name "Animals"] in your workbook, and use your knowledge of tables to answer the questions there.
+      				        		Turn to @worksheet-link[#:name "Cities"] in your workbook, and use your knowledge of tables to answer the questions there.
           							}
               			}
                     @teacher{

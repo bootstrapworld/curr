@@ -66,7 +66,7 @@
                                 Are more expensive restaurants generally better than cheaper ones?
 
                                 @activity{
-                                    Turn to page @worksheet-link[#:name "Unit-6"]. Take two minutes and write down what you think.
+                                    Turn to @worksheet-link[#:name "Unit-6"]. Take two minutes and write down what you think.
                                 }
                         }
                         @teacher{
@@ -219,7 +219,7 @@
                                 Scatter plots are a simple way to visualize the relationship between two columns of quantitative data. In this scatter plot, we can see a general trend that restaurants with higher price tend to be rated higher. This particular example might seem intuitive, but it's a lot easier to search for relationships in data using a visualization than a table by itself.
 
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Turn to @worksheet-link[#:name "Scatter-Plot"] in your workbook and complete the exercise practicing creating scatter plots.
+                                        Turn to @worksheet-link[#:name "Scatter-Plot"] in your workbook and practice creating some scatter plots.
                                 }
                         }
                         @teacher{
