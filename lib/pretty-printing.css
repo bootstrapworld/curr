@@ -78,6 +78,35 @@ span.cm-scheme-punctuation                 {color: black;}
 span.cm-scheme-rparen                      {color: black;}
 
 
+/* Pyret Tables */
+.datatable td {
+    text-align: right;
+    padding: 1em;
+    width: auto;
+}
+
+.datatable tbody tr:first-child {
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+  background: #ddd;
+}
+
+.datatable tr:nth-child(even){background-color: #f2f2f2}
+
+.datatable thead {
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+}
+.datatable.pyret-row th {
+  box-shadow: 2px 0px 2px rgba(0, 0, 0, 0.2), -2px 0px 2px rgba(0, 0, 0, 0.2);
+  border: none;
+}
+.datatable.pyret-row td {
+  border: none;
+}
+/* NOTE(joe): this helps distinguish a row that appears in a table cell */
+.datatable.pyret-row {
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
 @media print {
   .wescheme-string,     .cm-scheme-string    {color: black;}
   .wescheme-number,     .cm-scheme-number    {color: black;}

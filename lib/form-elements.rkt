@@ -338,7 +338,7 @@
                           (map cons 
                                (map (lambda (h) (para (bold h))) col-headers)
                                data-columns))])   
-    (table (style #f
+    (table (style "datatable"
                   (list (table-columns
                          (build-list numCols
                                      (lambda (n) (style #f '(left)))))))
