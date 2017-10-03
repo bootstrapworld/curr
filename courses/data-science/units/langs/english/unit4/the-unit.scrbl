@@ -481,7 +481,7 @@
               @point{
                     @student{
                         @activity{
-                            Take 10 minutes to answer question 4 in your Project Report.
+                            Take 10 minutes to fill out "Measures of Center" section in your Project Report.
                         }
                     }       
                     @teacher{

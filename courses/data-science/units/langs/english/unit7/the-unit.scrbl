@@ -449,7 +449,7 @@
                       @student{
                           At this point, you may have noticed that your dataset contains a few "extreme" points that skew the results of your analysis. Perhaps one movie was a box-office failure, or a war in one country is artificially dragging down their life-expectency. These extreme points are called @vocab{outliers}, and sometimes it's best to remove them from your dataset in order to identify a pattern. Or perhaps you've decided you want to zoom in on a subset of the data, or break it apart and do an analysis on two different groups. Maybe you want to run a separate analysis for movies with female leads v. male leads, or analyze Democratic and Republican presidents separately. You don't know how to do this - yet - but that's exactly what we'll cover in the next lesson!
                           @activity{
-                              Take 10 minutes to answer question 9 in your Project Report.
+                              Take 10 minutes to fill out question 13, under the "Modifying Your Dataset" section in your Final Report.
                           }
                       }       
                       @teacher{

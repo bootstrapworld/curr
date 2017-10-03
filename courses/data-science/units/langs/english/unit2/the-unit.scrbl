@@ -81,79 +81,6 @@
       ]{
         @points[
             @point{
-                    @student{
-            							@build-table/cols[
-            										'("city" "population")
-            										'(("\"New York\"" "\"Los Angeles\"" "\"Chicago\"" "\"Houston\"" "\"Phoenix\"" "\"Philadelphia\"" "\"San Antonio\"" "\"San Diego\"")
-                                ("8500000" "4000000" "2700000" "2300000" "1600000" "1600000" "1500000" "1400000"))
-            										 (lambda (r c) (para ""))
-            										 2 8
-            							]
-
-					}
-                    @teacher{
-							           Show the students slides with each image of the example table, focusing on the different aspects of tables. Express that each row represents a distinct object, and each entry in a row stores information about that object.
-					}
-            }
-            @point{
-          					@student{
-          							This is a @vocab{Table} containing information about America's largest cities.  @vocab{Table}s are collections of cells - or "entries", where each @vocab{entry} contains one value.  In most of the tables you will encounter in this class, these values will be of type Number or String.
-          					}
-                    @teacher{
-                        Tables with empty cells will import using the @code{Option} type, in which a column of numbers will display as @code{None} for blank entries, and as @code{Some(n)} for others. None of the provided datasets have blanks, so your students should never have to confront @code{Option} types.
-					          }
-            }
-			      @point{
-                    @student{
-          							@vocab{Table}s are organized into @vocab{Column}s and @vocab{Row}s.
-
-          							All of the entries in a particular @vocab{column} will contain values that are the same type, and represent the same thing. For example, each entry in the 2rd column represents the population of a city.
-
-          							@build-table/cols[
-          										'("population")
-          										'(("8500000" "4000000" "2700000" "2300000" "1600000" "1600000" "1500000" "1400000"))
-          										 (lambda (r c) (para ""))
-          										 1 8
-          							]
-          					}
-                    @teacher{
-
-          					}
-            }
-			      @point{
-                    @student{
-          							At the top of our table is the @vocab{header}. Each part of the @vocab{header} is the name of a particular @vocab{Column}. @bold{The header is not a row!}. A table with no data has @italic{no rows}, even though it must still have a header. For example:
-
-          							@build-table/cols[
-          										'("city" "population")
-          										'()
-          										 (lambda (r c) (para ""))
-          										 2 0
-          							]
-          					}
-                    @teacher{
-
-          					}
-            }
-			      @point{
-                    @student{
-      					        @activity[#:forevidence "BS-IDE&1&1"]{
-      				        		Turn to @worksheet-link[#:name "Cities"] in your workbook, and use your knowledge of tables to answer the questions there.
-          							}
-              			}
-                    @teacher{
-												
-          					}
-            }
-            @point{
-                   @student{
-      					 		      Now that you know the basic information about tables, it's time to get some hands on experience with them in Pyret. Pyret allows us to write programs that work on tables, similar to how we write programs that work on Numbers and Strings.
-      					   }
-                    @teacher{
-                    		  In supplemental lessons, students/teachers can load their own tables into Google Sheets, as well as design surveys to populate Google Sheets with data.  However, in the core curriculum this will not be covered;  students will use scaffolded code to work with tables exclusively in Pyret.
-    					     }
-            }
-            @point{
               		@student{
               				@activity[#:forevidence "BS-IDE&1&1"]{
           						    Open up the @editor-link[#:public-id "0BzzMl1BJlJDkWEFpWS1RZ01RZEU" "Unit 2 Starter File"]. Make sure you are signed into your Google account, and click the "Save a Copy" button. This will save a copy of the file into your own account, so that you can make changes and retrieve them later.
@@ -190,7 +117,7 @@
                         }
             		    }
             		    @teacher{
-              				The students should not need to know exactly how the table-loading code.  However, for those that are curious:
+              				The students should not need to know exactly how the table-loading code works.  However, for those that are curious:
 
               				@itemlist[
               						@item{
@@ -574,10 +501,10 @@
                                       Once you've found a Starter file for a dataset that interests you, click "Save a Copy" and save the project to your own account. 
                                   }
                                   @item{
-                                      You'll be adding to this file as we go, and keeping a written repository of your work and your findings as well. We've created @(hyperlink "https://docs.google.com/document/d/1jbKSecOtdzVO4iJsIPQRLvnwrt8GhqVFyXvnukdT_Xo/edit?usp=sharing" "a starter file") for this Report as well - save a copy to your account, and be sure to @bold{bookmark the page so you can return to it later}.    
+                                      You'll be adding to this file as we go, and keeping a written repository of your work and your findings as well. We've created @(hyperlink "https://docs.google.com/document/d/1jbKSecOtdzVO4iJsIPQRLvnwrt8GhqVFyXvnukdT_Xo/edit?usp=sharing" "a Report Starter File") for this Report as well - save a copy to your account, and be sure to @bold{bookmark the page so you can return to it later}.    
                                   }
                                   @item{
-                                      Take 5 minutes to fill in your name, and answer questions 1-3 in your Report.
+                                      Take 5 minutes to fill in your name, and fill out the "About Your Data" section in your Report.
                                   }
                               ]
                           }

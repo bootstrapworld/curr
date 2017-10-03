@@ -410,7 +410,7 @@
               @point{
                     @student{
                         @activity{
-                            Take 10 minutes to answer question 7 in your Project Report.
+                            Take 10 minutes to fill out the "Histograms" section in your Project Report.
                         }
                     }       
                     @teacher{

@@ -551,7 +551,7 @@
                 @point{
                         @student{
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                    Open your Final Project document, and answer question 8. What correlations do you think are lurking in your dataset?
+                                    Fill out the "Correlations" section in your Final Report. What correlations do you think are lurking in your dataset?
                                 }
                         }
                         @teacher{

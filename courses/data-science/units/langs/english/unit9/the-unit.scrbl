@@ -103,7 +103,7 @@
                 @point{
                         @student{
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Open the @editor-link[#:public-id "0BzzMl1BJlJDkVlVBdHFxNWt4SHM" "Unit 9 Starter File"], Save a Copy, and Run the program.
+                                        Open the @editor-link[#:public-id "0BzzMl1BJlJDkWEROWGhVcHgxeDQ" "Unit 9 Starter File"], Save a Copy, and Run the program.
 
                                         @itemlist[
                                                 @item{
@@ -361,7 +361,7 @@
                 }
                 @point{
                         @student{
-                            You now have all the tools you need to complete your analysis for your final project! Open your Project File and Report, and finish the remaining questions. Be sure to explain why you chose to remove any rows with @code{.filter} or add any columns with @code{.build-columns}, and to add the @vocab{r-squared} value for any correlations you find through linear regression.
+                            You now have all the tools you need to complete your analysis for your final project! Open your Project File and Report, and fill out the "Modifying Your Dataset" section. Be sure to explain why you chose to remove any rows with @code{.filter} or add any columns with @code{.build-columns}, and to add the @vocab{r-squared} value for any correlations you find through linear regression.
                         }
                         @teacher{
 

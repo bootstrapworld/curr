@@ -394,7 +394,7 @@
               @point{
                     @student{
                         @activity{
-                            Take 30 minutes to answer questions 5 and 6 in your Project Report.
+                            Take 30 minutes to answer the questions for the "Charting Your Data" section in your Project Report.
                         }
                     }       
                     @teacher{

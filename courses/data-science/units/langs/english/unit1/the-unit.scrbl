@@ -100,7 +100,7 @@
   }
 
   @lesson/studteach[
-     #:title "Values, Operators and Lists"
+     #:title "Values and Operators"
      #:duration "20 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
@@ -119,9 +119,6 @@
             @point{
                     @student{
                             Let's play with the starter file. First, click the "File" menu, and select "Save as". This will save a copy of the file in @italic{your} account, so you can edit it and refer to it later. Then click the Run button. This tells Pyret to read all the code on the left-hand side of the editor, in the Definitions Area. For now, let's ignore all those lines of code -- we'll get to them shortly.
-                            @activity{
-                                In the Interactions Area, type @code{language} and hit Enter. What comes back?
-                            }
                     }
                     @teacher{
 
@@ -129,6 +126,44 @@
             }
             @point{
                     @student{
+                            In the Definitions Area, you can see that there's already some code in this program:
+                            @code[#:multi-line #t]{
+                                # A table of simple shapes: triangle, circle, square, rectangle, ellipse
+                                shapes = table: name, corners
+                                    row: "triangle", 3
+                                    row: "circle",   0
+                                end
+                            }
+                            This code @italic{defines} a value called @code{shapes}, which is a table keeping track of different shapes. After you've clicked Run, type @code{shapes} into the Interactions Area on the right.
+                    }
+                    @teacher{
+
+                    }
+            }
+            @point{
+                    @student{
+                            Every table has a @vocab{header row}, which lists the columns in the table, and @italic{data rows}, which in this case are where each shape is described. Data Scientists use tables of data all the time. A table of students in this class might have columns for First Name, Last Name, Age, etc.
+                            How many columns does this table have? How many data rows does it have?
+                    }
+                    @teacher{
+
+                    }
+            }
+            @point{
+                    @student{
+                            It's important to remember that tables are only a proxy for the real thing: this table @italic{describes} some shapes we've observed, but it isn't the shapes themselves! Similarly, the table of students in this class isn't @italic{actually} the students - it's merely a description of students we have observed, and each column tells us a new piece of information about how students vary from one to another. Data Scientists use the term @vocab{observations} instead of "data rows", and @vocab{variable} to refer to columns.
+                            @activity{
+                                Add rows to this table for @code{circle}, @code{square}, @code{ellipse} and @code{rectangle}. Pay close attention to how you use commas and colons, since these are part of the program! When you're done, click "Run" and print out your new-and-improved @code{shapes} table.
+                            }
+
+                    }
+                    @teacher{
+                            You may need to walk through these carefully with students, pointing out where the punctuation marks are so that they're aware of them before they start coding.
+                    }
+            }
+            @point{
+                    @student{ 
+                            Pyret lets us use many different kinds of data. In this table, for example, you can see Numbers (the number of corners) and Strings (the name of the shape). Let's get some pratice making Numbers and Strings.
                             @activity{
                                 With your partner(s), go through the questions on @worksheet-link[#:name "Numbers-and-Strings"]. Talk about the answers to each question, and write down your answers when required.
                             }
@@ -185,33 +220,26 @@
             }
             @point{
                     @student{
-                            There are lots of operators you might remember from your math classes. What about operators like @code{<} and @code{>}? 
-                            @activity{
-                                @itemlist[
-                                    @item{What do you think will happen if you evaluate @code{4 < 3}? Type it in and try it out!}
-                                    @item{What do you get back?}
-                                    @item{Look at the language table - what Type of data did we get?}
-                                ]
-                                
-                            }
+                            You've already gotten some practice adding rows - or @vocab{observations} - to the table. But what if we want to add a column, to track whether or not a shape has any corners or not? Which shapes have corners and which don't? 
                     }
                     @teacher{
 
                     }
             }
-           @point{
-                  @student{
+            @point{
+                    @student{
+                            There are an infinite amount of Number values out there in the universe. An infinite amount of String values. But having corners is more of a yes/no, black/white, or true/false thing -- we need a type of data that can only be @code{true} or @code{false} are the only possible @italic{Boolean} values. Since a Boolean can only be one thing or the other - yes or no - Booleans are how Data Scientists indicate if something @italic{does or doesn't} have a certain property.
                             @activity{
-                                With your partner(s), go through the questions on @worksheet-link[#:name "Booleans-and-Lists"]. Talk about the answers to each question, and write down your answers when required.
+                                Add a new column, @code{has-corners} to the table, then add a Boolean value to the end of each row indicating whether or not that shape has corners.
                             }
-                  }
-                  @teacher{
-                          You can point out the difference between definitions (@code{=}) and equality expressions (@code{==}) by writing @code{x = 4} in the Interactions Area, and then evaluating the expression @code{x = 10}. This will produce an error because @code{x} is already defined, while @code{x == 10} will produce @code{false}.
-                  }
+                    }
+                    @teacher{
+                            You may want to walk through one of the rows with your students first, as an example.
+                    }
             }
             @point{
                     @student{
-                            There are an infinite amount of Number values out there in the universe. An infinite amount of String values. But @code{true} and @code{false} are the only possible @italic{Boolean} values. Since a Boolean can only be one thing or the other - yes or no - Booleans are how Pyret answers yes or no questions. @code{4 < 3} is how we ask "is four less than three"? Data Scientists need to ask yes or no questions of data all the time:
+                            Booleans are how Pyret answers yes or no questions. You already know about Number operators like @code{+} and @code{-}, which produce Numbers by adding or subtracting. There are Boolean operators, which produce Booleans by @italic{comparing}! @code{4 < 3} is how we ask "is four less than three"? 
                             @itemlist[
                                 @item{
                                     We need to know if one person's age is @italic{less than} someone else's if we want to sort the table by age.
@@ -226,18 +254,20 @@
                     }
             }
             @point{
-                    @student{
-                        Lists are the most complex kind of value you've seen so far, since they contain other values. Data Scientists usually work with @italic{groups} of data, instead of individual pieces of data. These groups can be one-dimensional (like Lists), or two-dimensional (like the @code{Table} you see here). You'll learn more about Lists in the next lesson, and explore a lot more about Tables.
-                    }
-                    @teacher{
+                  @student{
+                            @activity{
+                                With your partner(s), go through the Boolean section at the top of @worksheet-link[#:name "Booleans-and-Lists"]. Talk about the answers to each question, and write down your answers when required.
+                            }
+                  }
+                  @teacher{
 
-                    }
+                  }
             }
         ]
   }
 
   @lesson/studteach[
-     #:title "Functions and Image Types"
+     #:title "Functions and Images"
      #:duration "25 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
@@ -347,11 +377,16 @@
                             The second part of a contract is the @vocab{Domain}, or the types of arguments the function expects. @code{triangle} expects a Number and two Strings as arguments, so we write @code{Number, String, String} to indicate the Domain, with commas between each one (just like lists!).  
                             Finally, after the arrow goes the type of the @vocab{Range}, or the function's output, which in this case is Image.
                             @activity{
-                                Write the contract for @code{triangle} in the back of your workbook. What do you think the contract would be for @code{circle}? @code{rectangle?}. Experiment on the computer to see what other functions there are. Once you've discovered the contract for a function, write it down in your contracts page.
+                                Turn to the back of your workbook. We've given you the contracts for many Image-producing functions (as well as quite a few others!). Try using some of these contracts to make shapes.
                             }
                     }
                     @teacher{
 
+                    }
+            }
+            @point{
+                    @student{
+                            Extend our @code{shapes} table even further, by adding a column called @code{example}. Then, for each row, add an expression that will create an example of that shape.
                     }
             }
             @point{
@@ -405,6 +440,90 @@
         ]
   }
 
+  @lesson/studteach[
+     #:title "Methods and Lists"
+     #:duration "10 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[]
+     #:standards (list)
+     #:materials @itemlist[]
+     #:preparation @itemlist[]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[
+            @point{
+                  @student{
+                        There are also some special functions that work on tables, called @vocab{methods}. Methods are different from @vocab{functions} in a several ways:
+
+                          @itemlist[
+                                  @item{
+                                        @italic{They are called differently}. For example, the @code{.row-n} method has to be called as part of a Table.
+                                  }
+                                  @item{
+                                        @italic{They change the way they behave}, depending on which piece of data they're attached to. One of these lines of code will work, while the other will cause an error:
+                                         @code{shapes.row-n(4)} will work if our table has four observations, but fail if there are only two.
+                                  }
+                                  @item{
+                                        @italic{Their contracts are different.} The @code{.row-n} method only exists within the @code{Table} Type, so we can't use its name without also specifying the name of a Table. The contract for a method includes the Type along with the name:
+                                         @code[#:multi-line #t]{
+                                          <Table>.row-n :: (n :: Number) -> Row
+                                         }
+                                  }
+                          ]
+
+
+                  }
+                  @teacher{
+                          This method v. function distinction is subtle, and it's worth spending some time walking through it carefully.
+                  }
+            }
+            @point{
+                    @student{
+                        @activity{
+                            In the Interactions Area, practice pulling out each of the obervations in your Table using the @code{.row-n} method.
+                        }
+                    }
+                    @teacher{
+
+                    }
+            }
+            @point{
+                  @student{
+                        We also have methods for extracting an entire column. For example:
+                        @code[#:multi-line #t]{
+                            <Table>.column :: (name :: Number) -> List
+                        }
+                        What is the Name of this method? What is the Domain?
+                        @activity{
+                            In the Interactions Area, use the @code{.column} method to extract the @code{name} column from your @code{shapes} table. Try extracting other columns, and see what you get.
+                        }
+                  }
+                  @teacher{
+
+                  }
+            }
+            @point{
+                    @student{
+                        Lists are a new type of data, and represent a way to group entire columns. We can also make them ourselves!
+                        @activity{
+                                With your partner, go through the List section at the bottom of @worksheet-link[#:name "Booleans-and-Lists"]. Talk about the answers to each question, and write down your answers when required.
+                            }                    
+                    }
+                    @teacher{
+
+                    }
+            }
+
+
+
+      ]
+  }
   @lesson/studteach[
      #:title "Definitions"
      #:duration "20 minutes"
@@ -553,7 +672,6 @@
                             Have student plot @code{num-sqrt}.
                         }
                 }
-
         ]
   }
 
