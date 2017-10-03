@@ -11,14 +11,15 @@
 }
 @unit-lessons{
 @lesson/studteach[#:title "Refactoring Code to Draw an Emoji"
-        #:duration "30 minutes"
+        #:duration "40 minutes"
         #:overview "Students practice reading and using functions which produce images, and learn about refactoring code to change the format, but not the result"
         #:learning-objectives @itemlist[]
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[@item{Students refactor existing code to make an emoji image}]
         #:standards (list "BS-M" "BS-IDE" "BS-PL.1" "BS-PL.4" "BS-DR.4" "BS-R")
         #:materials @itemlist[@item{}]
-        #:preparation @itemlist[@item{The @editor-link[#:public-id "0B9rKDmABYlJVb2FMTGJCWlRzUHc" "Emoji Refactoring"] file preloaded on student machines}]
+        #:preparation @itemlist[@item{The @editor-link[#:public-id "0B9rKDmABYlJVR184UFVZZFNYSTA" "Robot Emoji"] file preloaded on student machines}
+                                @item{The @editor-link[#:public-id "0B9rKDmABYlJVb2FMTGJCWlRzUHc" "Emoji Refactoring"] file preloaded on student machines}]
         #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -33,7 +34,11 @@
                          Both expressions return the same value, but the second is much more readable. Refactoring can involve using existing functions (such as @code{num-sqr} in the example above) or writing new functions to perform small tasks.}
 	       @teacher{}}
 
-         @point{@student{In this lesson, we're going to practice refactoring an existing program that draws an image.
+         @point{@student{Open the @editor-link[#:public-id "0B9rKDmABYlJVR184UFVZZFNYSTA" "Robot Emoji"] file and press 'Run'. In this file, there are two versions of the same program written by different students.
+                         @activity{Take a look at the definitions in this file, and, with your partner, discuss what you notice. Which student's code is easiest to read and understand? Which formatting do you like better? If you were collaborating on a project with another programmer, which version of this code would you rather to receive, and why?}}
+                 @teacher{Discus with students the differences in documentation, formatting, and organization of the two versions of the emoji code.}}
+         
+         @point{@student{Next, we're going to practice refactoring an existing program that draws an image.
                          @activity{Open the @editor-link[#:public-id "0B9rKDmABYlJVb2FMTGJCWlRzUHc" "Emoji Refactoring"] file and click "Run".}
                          This code draws an image of a simple face emoji. Without changing the final image produced, can you see any opportunities to edit the code to make it more readable?
                          @activity{Refactor the code provided. This could include adding comments, more space betwen expressions, or simplifying the existing expressions. Once finished, write one more expression to create a smaller (emoji-sized) version of the original image.}}
