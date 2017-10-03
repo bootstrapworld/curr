@@ -65,7 +65,7 @@ interact(num-react)
                  @teacher{Reinforce the fact that, although the @code{draw-state} and @code{next-state-tick} functions work together within a reactor to produce an animation, each function can work without the other. In this example, @code{next-state-tick} will update the state even without a function to draw the state.}}
 
          @point{@student{There are much more interesting things we can display using a number as the state of the reactor, however! @activity{Change the @code{draw-state} function so that it consumes a Number and produces an image. Then, uncomment the @code{to-draw: draw-state} line in the reactor to see an animation when the program runs!}}
-                @teacher{Encourage students to brainstorm ideas for the @code{draw-state} function before beginning. Some possible options include: @itemlist[@item{Drawing a star of size @code{n} (so that it gets larger on each tick)}
+                @teacher{Encourage students to brainstorm and share ideas for the @code{draw-state} function before beginning. Some possible options include: @itemlist[@item{Drawing a star of size @code{n} (so that it gets larger on each tick)}
                            @item{Display @code{n} as an image using the @code{text} function.}]
                          Have students share back the @code{draw-state} functions they wrote.}}
                    ]}
@@ -127,7 +127,7 @@ interact(state-react)}
         @point{@student{With only the @code{next-state-tick} function, we can see the state updating, increasing the first number by 1 and decreasing the second number by 1 each tick. @activity{How could you define a @code{draw-state} function to show something interesting when the program runs? Branstorm with your partner, then change the existing, broken @code{draw-state} function to consume an @code{AnimationState} and produce an image. Then, comment out the @code{to-draw: draw-state} line in the reactor to see an animation when the program runs!}}
                 @teacher{Some possible ideas for this activity: @itemlist[@item{Display two shapes of size @code{a} and @code{b}, which get larger and smaller, respectively, as the reactor runs.}
                                                                           @item{Make @code{a} and @code{b} the coordinates of an image, moving down and to the right across a background as the reactor runs.}]
-                         Have students share back the @code{draw-state} functions they wrote, and the animations they created!}}
+                         Have students share back what they brainstormed before beginning, then share the completed @code{draw-state} functions they wrote, and the animations they created!}}
 
 
 ]}}
