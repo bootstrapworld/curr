@@ -108,9 +108,9 @@
                     @student{
                             What comes back is called a @vocab{Table}. Pyret allows us to define names for values, and in this case the name @code{shapes} has been defined as the table you see here. Every table has as @vocab{header row}, which names each column in the table. The @code{shapes} table has two columns, for the @code{name} and number of @code{corners} each shape has.
                             @build-table/cols[
-                                        '("name" "color")
+                                        '("name" "corners")
                                         '(("triangle" "square")
-                                          (3 4))
+                                          ("3" "4"))
                                          (lambda (r c) (para ""))
                                          2 2
                             ]     
@@ -430,6 +430,21 @@
                             @activity{
                                 Complete the @code{example} column in the @code{shapes} table by applying the other relevant functions.
                             }
+                    }
+            }
+            @point{
+                    @student{
+                            The library included at the top of the file includes some helper functions that are useful for DataScience, which we will use throughout this course. Here's the contract for one of them:
+                            @code[#:multi-line #t]{
+                                get-row :: (t :: Table, index :: Number) -> Row
+                            }
+                            The @code{get-row} function consumes a Table and an Index, and produces that row from the table. @italic{Note: indexes start at zero, not one!} To get the first row of a table, for example, we would write @code{get-row(shapes, 0)}.
+                            @activity{
+                                In the Interactions Area, use @code{get-row} to get the 2nd and 3rd row of your table.
+                            }
+                    }
+                    @teacher{
+
                     }
             }
         ]
