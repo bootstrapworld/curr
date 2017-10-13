@@ -3,23 +3,20 @@
 @title{Unit 1: Introduction to Pyret}
 
 @unit-overview/auto[#:lang-table (list (list "" @code{} ""))]{
-  @unit-descr{Students write simple programs in Pyret, and learn about Numbers, Strings, Lists, Types, operations, and function application.}
+  @unit-descr{Students are introduced to Tables in Pyret, and learn about Numbers, Strings, Types, Operations, and Function Application.}
 }
 @unit-lessons{
+
   @lesson/studteach[
      #:title "Introduction"
-     #:duration "15 minutes"
+     #:duration "5 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
      #:standards (list)
      #:materials @itemlist[]
-     #:preparation @itemlist[
-                                @item{
-                                    Show students the @resource-link[#:path "OpeningQuestions.pdf" #:label "opening questions"], either as a handout or on posters set up around the room.
-                                }
-                             ]
+     #:preparation @itemlist[]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -27,30 +24,6 @@
                 )
       ]{
         @points[
-             @point{
-                    @student{
-                            Welcome to Bootstrap: DataScience! Take a minute to look at the @resource-link[#:path "OpeningQuestions.pdf" #:label "opening questions"] we have prepared for you, and choose a topic that interests you.  
-                            @activity{
-                                @itemlist[
-                                    @item{
-                                        Once you've selected your topic, break into groups of no more than 4 and choose a question you'd like to answer.
-                                    }
-                                    @item{
-                                        Spend one minute discussing your answer, and explaining @italic{why} you answered the way you did. Does everyone in your group have the same answer? Why or why not?
-                                    }
-                                    @item{
-                                        What kind of @italic{measurement} would you use to determine if your answer is right or not? What data would you need?
-                                    }
-                                    @item{
-                                        Take 5 minutes to complete @worksheet-link[#:name "Unit-1"] in your Student Workbook, by copying down the question, your answer, and what you discussed with your group.
-                                    }
-                                ]
-                            }
-                    }
-                    @teacher{
-                            Have students self-select into groups (no larger than 4), with each group choosing an Opening Question (or writing their own). After they've had time to discuss, have a few students share back what they talked about.
-                    }
-            }
             @point{
                     @student{
                              What's the greatest movie of all time? The best quaterback? Is Stop-and-Frisk racially biased? These questions quickly turn into a discussion about data - how you measure it and how you interpret the results. In this course, you'll learn how to use data to ask and answer questions like this.  The process of learning from data is called @vocab{Data Science}. Data science techniques are used by scientists, business people, politicians, sports analysts, and hundereds of other different fields to ask and answer questions about data.
@@ -78,11 +51,11 @@
              @point{
                     @student{
                             @activity[#:forevidence "BS-IDE&1&1"]{
-                                    Open up the @editor-link[#:public-id "0BzzMl1BJlJDkZ2IyU3dGYXAzblE" "Unit 1 Starter File"]. Click "Connect to Google Drive" to sign into your Google account, and then click the "Save as" button. This will save a copy of the file into your own account, so that you can make changes and retrieve them later.
+                                    Open up the @editor-link[#:public-id "0BzzMl1BJlJDkVTlPTjlIWFB2aDA" "Unit 1 Starter File"]. Click "Connect to Google Drive" to sign into your Google account, and then click the "Save as" button. This will save a copy of the file into your own account, so that you can make changes and retrieve them later.
                             }
                     }
                     @teacher{
-                            Each student (or pair of students) should have a Google Account.    
+                            Each student (or pair of students) should have a Google Account.
                     }
              }
              @point{
@@ -96,12 +69,27 @@
                             The Definitions Area is where programmers define values and functions in their program, while the Interactions Area allows them to experiment with those values and functions. This is analogous to writing a series of function definitions on a blackboard, and having student evaluate expressions using those function on scrap paper. As students are not yet defining values of their own, it is not important that students understand this distinction right now.  For now, we will work only with the Interactions area.
                     }
              }
+             @point{
+                    @student{
+                            When you click "Run", Pyret reads what's written in the Definitions Area on the left, and allows us to use those definitions on the right. The first line of code on the left loads our DataScience library, which has some code that will help us in the course. The rest of the program, however, defines a @vocab{Table} called @code{shapes}.
+                    }
+                    @teacher{
+                    }
+             }
+             @point{
+                    @student{
+                            Now that we've clicked "Run", we can play with that definition. Type @code{shapes} into the Interactions Area and hit Enter...
+                    }
+                    @teacher{
+
+                    }
+             }
      ]
   }
 
   @lesson/studteach[
-     #:title "Values and Operators"
-     #:duration "20 minutes"
+     #:title "Exploring Tables"
+     #:duration "10 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -118,7 +106,14 @@
         @points[
             @point{
                     @student{
-                            Let's play with the starter file. First, click the "File" menu, and select "Save as". This will save a copy of the file in @italic{your} account, so you can edit it and refer to it later. Then click the Run button. This tells Pyret to read all the code on the left-hand side of the editor, in the Definitions Area. For now, let's ignore all those lines of code -- we'll get to them shortly.
+                            What comes back is called a @vocab{Table}. Pyret allows us to define names for values, and in this case the name @code{shapes} has been defined as the table you see here. Every table has as @vocab{header row}, which names each column in the table. The @code{shapes} table has two columns, for the @code{name} and number of @code{corners} each shape has.
+                            @build-table/cols[
+                                        '("name" "color")
+                                        '(("triangle" "square")
+                                          (3 4))
+                                         (lambda (r c) (para ""))
+                                         2 2
+                            ]     
                     }
                     @teacher{
 
@@ -126,34 +121,20 @@
             }
             @point{
                     @student{
-                            In the Definitions Area, you can see that there's already some code in this program:
-                            @code[#:multi-line #t]{
-                                # A table of simple shapes: triangle, circle, square, rectangle, ellipse
-                                shapes = table: name, corners
-                                    row: "triangle", 3
-                                    row: "circle",   0
-                                end
-                            }
-                            This code @italic{defines} a value called @code{shapes}, which is a table keeping track of different shapes. After you've clicked Run, type @code{shapes} into the Interactions Area on the right.
-                    }
-                    @teacher{
-
+                            After the header row, tables can have @vocab{data rows}. Each data row has values for each column (nothing can be left empty!), and table can have an infinite number of rows. A table can even have @italic{zero} data rows:
+                            @build-table/cols[
+                                '("name" "corners")
+                                '(())
+                                (lambda (r c) (para ""))
+                                 2 0
+                            ]
                     }
             }
             @point{
                     @student{
-                            Every table has a @vocab{header row}, which lists the columns in the table, and @italic{data rows}, which in this case are where each shape is described. Data Scientists use tables of data all the time. A table of students in this class might have columns for First Name, Last Name, Age, etc.
-                            How many columns does this table have? How many data rows does it have?
-                    }
-                    @teacher{
-
-                    }
-            }
-            @point{
-                    @student{
-                            It's important to remember that tables are only a proxy for the real thing: this table @italic{describes} some shapes we've observed, but it isn't the shapes themselves! Similarly, the table of students in this class isn't @italic{actually} the students - it's merely a description of students we have observed, and each column tells us a new piece of information about how students vary from one to another. Data Scientists use the term @vocab{observations} instead of "data rows", and @vocab{variable} to refer to columns.
+                            It's important to remember that tables are only a proxy for the real thing: this table @italic{describes} some shapes we've observed, but it isn't the shapes themselves! Data Scientists use the term @vocab{observations} instead of "data rows", and @vocab{variable} to refer to columns.
                             @activity{
-                                Add rows to this table for @code{circle}, @code{square}, @code{ellipse} and @code{rectangle}. Pay close attention to how you use commas and colons, since these are part of the program! When you're done, click "Run" and print out your new-and-improved @code{shapes} table.
+                                Add rows to this table for @code{circle}, @code{ellipse} and @code{rectangle}. Pay close attention to how you use commas and colons, since these are part of the program! When you're done, click "Run" and print out your new-and-improved @code{shapes} table.
                             }
 
                     }
@@ -162,8 +143,69 @@
                     }
             }
             @point{
+                    @student{
+                            Before we can dive into all of the cool things you can do with tables, we need to understand the two different kinds of data that come up in Data Science: Categorical and Quantitative. @vocab{Quantitative Data} is used to measure an @italic{amount} of something, or to compare two pieces of data to see which is @italic{less or more}. If we want to ask "how much" or "which is most", we're talking about Quantitative Data.
+                            @activity{
+                                "Who is the tallest student?" is an example of a question that needs Quantitative Data. Can you come up with additional quantitative questions?
+                            }
+                    }
+                    @teacher{
+                            Have students come up with columns that are quantitative (height, age, wealth, etc...)
+                    }
+            }
+            @point{
+                    @student{
+                            @vocab{Categorical Data} is used to describe different @italic{categories}. Categories don't make sense to compare or measure - if we had a column for eye color, for example, we couldn't ask if "blue" is more than "brown". We use @vocab{Categorical Data} to ask "which one"? When you look at a whether forecast, temperature is quantitative but whether it's snowing or raining is categorical.
+                            @activity{
+                                For the two columns in the @code{shapes} table, which is categorical? Which is quantitative?
+                            }
+                    }
+                    @teacher{
+                            Have students come up with examples of columns that are categorical (gender, race, diet, etc...).
+                    }
+            }
+            @point{
+                    @student{
+                            Data can be categorical or quantitative, depending on how it's used. It doesn't make sense to ask whether "@code{square} is more than @code{triangle}", so most of the time we'd use the @code{name} column as categorical data. But if we wanted to sort the table in alphabetical order, suddenly we @italic{do} care whether @code{square} comes before @code{triangle}.
+                            @activity{
+                                For each of the following questions, determine whether the data being used is quantitative or qualitative.
+                                @itemlist[
+                                    @item{We'd like to sort a phone book by the "last name" column.}
+                                    @item{We'd like to find out which car is the most expensive.}
+                                    @item{We'd like to find out which cars are red.}
+                                    @item{We'd like to find out which puppy is the youngest.}
+                                    @item{We'd like to find out which kitten is a Tabby.}
+                                    @item{We want to know which people have a ZIP code of 02907.}
+                                ]
+                            }
+                    }
+                    @teacher{
+                            The big idea here is that some data can be both categorical @italic{and} quantitative -- what matters is how we use it!
+                    }
+            }
+        ]
+  }
+
+  @lesson/studteach[
+     #:title "Values and Operators"
+     #:duration "25 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[]
+     #:standards (list)
+     #:materials @itemlist[]
+     #:preparation @itemlist[]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[
+            @point{
                     @student{ 
-                            Pyret lets us use many different kinds of data. In this table, for example, you can see Numbers (the number of corners) and Strings (the name of the shape). Let's get some pratice making Numbers and Strings.
+                            Pyret lets us use many different kinds of data. In this table, for example, you can see Numbers (the number of corners) and Strings (the name of the shape). Let's get some pratice playing with both Datatypes.
                             @activity{
                                 With your partner(s), go through the questions on @worksheet-link[#:name "Numbers-and-Strings"]. Talk about the answers to each question, and write down your answers when required.
                             }
@@ -220,26 +262,7 @@
             }
             @point{
                     @student{
-                            You've already gotten some practice adding rows - or @vocab{observations} - to the table. But what if we want to add a column, to track whether or not a shape has any corners or not? Which shapes have corners and which don't? 
-                    }
-                    @teacher{
-
-                    }
-            }
-            @point{
-                    @student{
-                            There are an infinite amount of Number values out there in the universe. An infinite amount of String values. But having corners is more of a yes/no, black/white, or true/false thing -- we need a type of data that can only be @code{true} or @code{false} are the only possible @italic{Boolean} values. Since a Boolean can only be one thing or the other - yes or no - Booleans are how Data Scientists indicate if something @italic{does or doesn't} have a certain property.
-                            @activity{
-                                Add a new column, @code{has-corners} to the table, then add a Boolean value to the end of each row indicating whether or not that shape has corners.
-                            }
-                    }
-                    @teacher{
-                            You may want to walk through one of the rows with your students first, as an example.
-                    }
-            }
-            @point{
-                    @student{
-                            Booleans are how Pyret answers yes or no questions. You already know about Number operators like @code{+} and @code{-}, which produce Numbers by adding or subtracting. There are Boolean operators, which produce Booleans by @italic{comparing}! @code{4 < 3} is how we ask "is four less than three"? 
+                            As you've seen, operators like @code{+} and @code{-} behave exactly the way in Pyret that they do in math class: they add and subtract Numbers, and produce new Numbers! But what about operators like @code{<} and @code{>}? 
                             @itemlist[
                                 @item{
                                     We need to know if one person's age is @italic{less than} someone else's if we want to sort the table by age.
@@ -254,20 +277,32 @@
                     }
             }
             @point{
-                  @student{
+                    @student{
+                            Those come in handy when comparing quanitative data, so how do they work in Pyret?
                             @activity{
                                 With your partner(s), go through the Boolean section at the top of @worksheet-link[#:name "Booleans-and-Lists"]. Talk about the answers to each question, and write down your answers when required.
                             }
-                  }
-                  @teacher{
+                    }
+                    @teacher{
 
-                  }
+                    }
+            }
+            @point{
+                    @student{
+                            You've already gotten some practice adding rows - or @vocab{observations} - to the table. But what if we want to add a column, to track whether or not a shape has any corners or not? Which shapes have corners and which don't?
+                            @activity{
+                                Add a new column, @code{has-corners} to the table, then add a Boolean value to the end of each row indicating whether or not that shape has corners.
+                            }
+                    }
+                    @teacher{
+
+                    }
             }
         ]
   }
 
   @lesson/studteach[
-     #:title "Functions and Images"
+     #:title "Applying Functions"
      #:duration "25 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
@@ -292,7 +327,7 @@
                             @code[#:multi-line #t]{
                                 triangle(50, "solid", "red")
                             }
-                            What does this expression evaluate to? What is the Type of this data?
+                            What does this expression evaluate to? Is it a Number? A String? A Boolean?
                         }
                     }
                     @teacher{
@@ -301,7 +336,7 @@
             }
             @point{
                     @student{
-                        You've just created a new Type of data, called an @italic{Image}. And you used something called a @vocab{function} to do it. The values that we give to a function are called its @vocab{arguments}. How many arguments are we giving to @code{triangle} in this example? What are the @italic{types} of those arguments? How does this output relate to the two inputs?
+                        You've just created an example of a new Datatype, called an @italic{Image}. And you used something called a @vocab{function} to do it. The values that we give to a function are called its @vocab{arguments}. How many arguments are we giving to @code{triangle} in this example? What are the @italic{types} of those arguments? How does this output relate to the two inputs?
                         @activity{
                             Take a minute to try making different triangles. Change the size and color! Is there a something besides @code{"solid"} we can use for the second argument?
                         }
@@ -370,7 +405,7 @@
             @point{
                     @student{
                             These three parts make up a @vocab{contract} for each function. What are the Name, Domain and Range of @code{triangle}?
-                              @code[#:multi-line #t]{
+                            @code[#:multi-line #t]{
                                     # triangle :: (side :: Number, mode :: String, color :: String) -> Image
                             }
                             The first part of a contract is the function's name. In this example, our function is named @code{triangle}. 
@@ -386,146 +421,22 @@
             }
             @point{
                     @student{
-                            Extend our @code{shapes} table even further, by adding a column called @code{example}. Then, for each row, add an expression that will create an example of that shape.
-                    }
-            }
-            @point{
-                    @student{
-                            There are also plenty of functions you know from math class. Pyret, for example, has a function called @code{num-sqrt}. What do you think it does?
-
-                            @itemlist[
-                                    @item{
-                                            What is the function name?
-                                    }
-                                    @item{
-                                            How many arguments are there?  What are the types of each?
-                                    }
-                                    @item{
-                                            What is the type of the output?
-                                    }
-                            ]
-
+                            We can extend our @code{shapes} table even further, by adding a column called @code{example}. Then, for each row, add an expression that will create an example of that shape. For example:
                             @code[#:multi-line #t]{
-                                    # num-sqrt :: (n :: Number) -> Number
+                                shapes = table: name, corners, has-corners, example
+                                  row: "triangle", 3, true, triangle(20, "solid", "green")
+                                  row: "square", ...
                             }
-                            There's also a function for @italic{squaring} numbers, called @code{num-sqr}. Write the contract for @code{num-sqr} on your contracts page.
-                    }
-                    @teacher{
-
-                    }
-            }
-            @point{
-                    @student{
-                            Here are some examples of a function you may not have seen before. What do you think its contract is? Write it down in your contracts page.
-                              @code[#:multi-line #t]{
-                                    num-min(5, 19)  # produces 5
-                                    num-min(0, 4)   # produces 0
+                            @activity{
+                                Complete the @code{example} column in the @code{shapes} table by applying the other relevant functions.
                             }
-                    }
-                    @teacher{
-
-                    }
-            }
-            @point{
-                    @student{
-                            Here's the contract for a new function. Can you figure out how to use it in the Interactions Area? Once you've figure it out, write it down in your contracts page.
-                              @code[#:multi-line #t]{
-                                    string-repeat :: (s :: String, n :: Number) -> String
-                            }
-                    }
-                    @teacher{
-
                     }
             }
         ]
   }
 
   @lesson/studteach[
-     #:title "Methods and Lists"
-     #:duration "10 minutes"
-     #:overview ""
-     #:learning-objectives @itemlist[]
-     #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[]
-     #:standards (list)
-     #:materials @itemlist[]
-     #:preparation @itemlist[]
-     #:pacings (list 
-                @pacing[#:type "remediation"]{@itemlist[@item{}]}
-                @pacing[#:type "misconception"]{@itemlist[@item{}]}
-                @pacing[#:type "challenge"]{@itemlist[@item{}]}
-                )
-      ]{
-        @points[
-            @point{
-                  @student{
-                        There are also some special functions that work on tables, called @vocab{methods}. Methods are different from @vocab{functions} in a several ways:
-
-                          @itemlist[
-                                  @item{
-                                        @italic{They are called differently}. For example, the @code{.row-n} method has to be called as part of a Table.
-                                  }
-                                  @item{
-                                        @italic{They change the way they behave}, depending on which piece of data they're attached to. One of these lines of code will work, while the other will cause an error:
-                                         @code{shapes.row-n(4)} will work if our table has four observations, but fail if there are only two.
-                                  }
-                                  @item{
-                                        @italic{Their contracts are different.} The @code{.row-n} method only exists within the @code{Table} Type, so we can't use its name without also specifying the name of a Table. The contract for a method includes the Type along with the name:
-                                         @code[#:multi-line #t]{
-                                          <Table>.row-n :: (n :: Number) -> Row
-                                         }
-                                  }
-                          ]
-
-
-                  }
-                  @teacher{
-                          This method v. function distinction is subtle, and it's worth spending some time walking through it carefully.
-                  }
-            }
-            @point{
-                    @student{
-                        @activity{
-                            In the Interactions Area, practice pulling out each of the obervations in your Table using the @code{.row-n} method.
-                        }
-                    }
-                    @teacher{
-
-                    }
-            }
-            @point{
-                  @student{
-                        We also have methods for extracting an entire column. For example:
-                        @code[#:multi-line #t]{
-                            <Table>.column :: (name :: Number) -> List
-                        }
-                        What is the Name of this method? What is the Domain?
-                        @activity{
-                            In the Interactions Area, use the @code{.column} method to extract the @code{name} column from your @code{shapes} table. Try extracting other columns, and see what you get.
-                        }
-                  }
-                  @teacher{
-
-                  }
-            }
-            @point{
-                    @student{
-                        Lists are a new type of data, and represent a way to group entire columns. We can also make them ourselves!
-                        @activity{
-                                With your partner, go through the List section at the bottom of @worksheet-link[#:name "Booleans-and-Lists"]. Talk about the answers to each question, and write down your answers when required.
-                            }                    
-                    }
-                    @teacher{
-
-                    }
-            }
-
-
-
-      ]
-  }
-  @lesson/studteach[
-     #:title "Definitions"
+     #:title "Writing Examples"
      #:duration "20 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
@@ -541,137 +452,60 @@
                 )
       ]{
         @points[
-                @point{
-                        @student{
-                            In Pyret, you can define @vocab{names} with the @code{=} sign, just like in math class. In math, you're probably used to seeing definitions like @math{x = 4}, which defines the name "x" to be the number "4".
-                        }
-                        @teacher{
-                        
-                        }
-                }
-                @point{
-                        @student{
-                            In Pyret, you can name values to make them easier to remember and easy to change. In the Definitions Area, you'll see lots of sample definitions. Let's take a look at a few of them:
-                                @code[#:multi-line #t]{
-                                    A = 42
-                                    B = "buffalo "
-                                    C = 2 * 2
-                                    D = 42 - A
-                                }
-                            @bold{Every definition has a name and a value}, and we know that every value has a type. The name is the part to the left of the equals sign, and the value is the part on the right. The value can be simple, like @code{42} and @code{"buffalo "}, or it can be an expression, such as @code{2 * 2}. Definitions can even refer to previous definitions, like @code{D = 42 - A}.
-                        }
-                        @teacher{
-
-                        }
-                }
-                @point{
+            @point{
                     @student{
-                            @activity[#:forevidence "BS-IDE&1&1"]{
-                                    Turn to @worksheet-link[#:name "Fill-in-Value"] in your workbook. For each definition, come up with a value or expression that matches the given name and type, and write it on the space provided.
-                            }
+                            Functions are powerful tools that let us transform data, and it's a good idea to jot down a few examples to make sure we understand them. In the next Unit, you'll learn how to make your @italic{own} functions, and writing examples will become even more important. Pyret gives us an easy way to write examples, using something called @code{example:} blocks.
                     }
                     @teacher{
 
                     }
-                }
-                @point{
+            }
+            @point{
                     @student{
-                        We've added comments to the starter file, so you can fill in the @vocab{type} of each value being defined. We've already written the name and type for A, B and F. Can you fill in everything else between A and I? 
-                    }
-                    @teacher{
-
-                    }
-                }
-                @point{
-                    @student{
-                        We can also use functions inside definitions. In the Definitions Area, take a look at line 18:
-                        @code[#:multi-line #t]{
-                            J = num-sqrt(C)   # J :: Number
-                        }
-                        This definition creates a value called @code{J}, which is the square root of @code{C}. You can see that we've also added a comment, which lists the name and type for this definition.
-                        @activity{
-                            Fill in the name and type for @code{K} and @code{L}.
-                        }
-                    }
-                    @teacher{
-
-                    }
-                }
-                @point{
-                    @student{
-                        We can even define new names for @italic{functions themselves}. Take a look at line 24:
-                        @code[#:multi-line #t]{
-                                M = num-sqrt   # M :: (n :: Number) -> Number
-                            }
-                        This definition creates a name called @code{J}, which is the square root function @italic{itself}! In the comment, you'll notice that M's type looks different from other types we've seen before. Instead of just being a @code{Number}, @code{String}, @code{List}, or @code{Image}, it has an arrow in it! That's because it's a function, just like @code{num-sqrt}. In fact, @code{M} has the same Domain and Range as @code{num-sqrt} because it's being defined as @code{num-sqrt}.
-                        @activity{
-                            Fill in the name and type for @code{N}, @code{O} and @code{P}.
-                        }
-                    }
-                    @teacher{
-                    
-                    }
-                }
-                @point{
-                        @student{
-                                Pyret has many, many more functions. Some of these functions are defined as part of the language, and others are defined in extra files that we have to load by hand. The @code{include} line at the top of the file loads one of these files.
-                        }
-                        @teacher{
-
-                        }
-                }
-                @point{
-                        @student{
-                            Two of the functions imported by this file are called @code{function-plot} and @code{draw-plot}. Write them down in your contracts page:
+                            Below is an example block:
                             @code[#:multi-line #t]{
-                                # draw-chart :: (title :: String, ds :: DataSeries) -> Image
-                                # function-plot :: (fn :: Number -> Number) -> DataSeries
-
+                                example:
+                                    num-min(5, 19)  is  5
+                                    num-min(5, -2)  is -2
+                                end
                             }
-                            These contracts have a lot of new information in them, but you can use what you know to reason about them. 
-                            @itemlist[
-                                @item{What is the Name, Domain and Range of the first function?}
-                                @item{What is the Name, and Range of the second function?}
-                            ]
-                        }
-                        @teacher{
-
-                        }
-                }
-                @point{
-                        @student{
-                            Even though you haven't seen a @code{DataSeries} before, we can figure out that @code{draw-chart} consumes a String and a @code{DataSeries}, and then produces an Image. The String is the title of a chart, and the resulting Image is the picture of the plot (with that title). You've used your knowledge of contracts to identify that the function also takes in a @code{DataSeries}, but what @italic{is} that? 
-
-                            When you plot a function on your calculator, you can zoom in and out of the resulting graph. Zooming in and out will change the image on the screen, but it doesn't change the data itself. That means you can think about a plot as having two parts: the abstract @italic{data}, and then the settings for how that data is presented. A @code{DataSeries} is the abstract data. You've already seen some functions that may be familiar to you, such as @code{num-sqr} and @code{num-sqrt}. How can we take these functions and build a DataSeries out of them? 
-                        }
-                        @teacher{
-                            You can provide other examples that distinguish data from presentation: the same graph can be shown in any color, or with xMin and xMax shifted by any amount, but the underlying data behind the graph doesn't change!
-                        }
-                }
-                @point{
-                        @student{
-                            You might notice that every contracts has an arrow separating Domain from Range. @code{function-plot} has an interesting domain: @code{(Number -> Number)}. That means it consumes a @italic{function} that maps from Numbers to Numbers (xs to ys, for example), and returns a @code{DataSeries}. 
-                        }
-                        @teacher{
-
-                        }
-                }
-                @point{
-                        @student{
-                            We can define names for both the DataSeries and the plot:
-                            @code[#:multi-line #t]{
-                                # define the series and the graph for the function f(x)=√x
-                                sqrt-series  = function-plot(num-sqrt)
-                                sqrt-graph = draw-chart("f(x)=√x", sqrt-series)
+                            @activity{
+                                @itemlist[
+                                    @item{ Add this code to the bottom of the Definitions Area in Pyret. }
+                                    @item{ How many examples are in this block? }
+                                    @item{ What is the name of the function being used? }
+                                    @item{ Based on these examples, what does this function do? }
+                                    @item{ Add another example to this block and click "Run". }
+                                    @item{ Change one of your examples so that it is @bold{incorrect}, then click "Run". What happens? }
+                                ]
                             }
-                            Review: once I've defined an identifier, I can see its value for by clicking Run, then typing in the identifier in the Interactions Area and hitting Enter.
+                    }
+                    @teacher{
+                            Direct students to the test output. Point out that Pyret reports the number of tests that pass!
+                    }
+            }
+            @point{
+                    @student{
+                            Example blocks are ways for us to automatically check out work, by writing down how functions @italic{should} work and having Pyret report back about whether our examples are accurate. Pyret, for example, has a function called @code{num-sqrt}. What do you think it does?
+                            @activity{
+                                Write two examples that use @code{num-sqrt}.
+                            }
+                    }
+                    @teacher{
 
-                            Looking at your contracts page, do you see any other functions that we could plot?
-                        }
-                        @teacher{
-                            Have student plot @code{num-sqrt}.
-                        }
-                }
+                    }
+            }
+            @point{
+                    @student{
+                            Here's the contract for another new function. Can you figure out how to use it in the Interactions Area? Once you've figured it out, add two examples to your block.
+                              @code[#:multi-line #t]{
+                                    string-repeat :: (s :: String, n :: Number) -> String
+                            }
+                    }
+                    @teacher{
+
+                    }
+            }
         ]
   }
 
@@ -723,5 +557,3 @@
         ]
   }
 }
-
-
