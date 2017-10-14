@@ -3,7 +3,9 @@
 @title{Unit 1: Introduction to Pyret}
 
 @unit-overview/auto[#:lang-table (list (list "" @code{} ""))]{
-  @unit-descr{Students are introduced to Tables in Pyret, and learn about Numbers, Strings, Types, Operations, and Function Application.}
+    @unit-descr{
+        Students are introduced to Tables in Pyret, and learn about Numbers, Strings, Types, Operations, and Function Application.
+    }
 }
 @unit-lessons{
 

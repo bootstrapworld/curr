@@ -12,15 +12,14 @@
                                               @code{triangle, star, draw-chart...} 
                                               (list @bitmap{images/imgValue1.png} @bitmap{images/imgValue2.png}))
                                        (list "DataSeries" 
-                                              @code{function-plot, scatter-plot, bar-chart, pie-char, freq-bar-chart, histogram} 
+                                              @code{bar-chart, pie-char, freq-bar-chart, histogram} 
                                               "")
-                                       (list "List" 
-                                              @code{.get, mean, median, modes} 
-                                              @code{[list: "list", "of", "strings"]})
                                        (list "Table"
-                                              @code{.row-n, .column}
+                                              @code{.row-n, .order-by, .filter, .build-column}
                                               ""))]{
-  @unit-descr{Students dig deeper into scatter plots as a method of visualizing the relationship between two axes, and into the notion of "line of best fit". }
+  @unit-descr{
+    Students investigate scatter plots as a method of visualizing the relationship between two axes, and the notion of "line of best fit". 
+  }
 }
 @unit-lessons{
 
@@ -153,14 +152,26 @@
                 }
                 @point{
                         @student{
-                                To answer this question, we will return to @vocab{scatter plots}, which plot x/y-pairs as individual points. By extracting the two columns from @code{restaurants}, we can create a DataSeries to plot:
+                                To answer this question, we will use another kind of visualization, called a @vocab{scatter plot}, which plots x/y-pairs as individual points:
                                 @code[#:multi-line #t]{
-                                        ratings-list = restaurants.column("rating")
-                                        prices-list  = restaurants.column("price")
-                                        prices-vs-ratings-series = scatter-plot(prices-list, ratings-list)
-                                        prices-vs-ratings-chart  = draw-chart("Restaurant Prices vs. Ratings", prices-vs-ratings-series)
+                                    # scatter-plot :: (t :: Table, xs :: String, ys :: String, labels :: String) -> DataSeries
                                 }
-                                Click Run, and show the scatter plot for @code{prices-vs-ratings-chart}
+                                What do the arguments in @code{scatter-plot}'s domains represent?
+                                @itemlist[
+                                      @item{
+                                            The first is the Table that we want to visualize.
+                                      }
+                                      @item{
+                                            The second is the name of the quantitative column that we want measure along the x-axis of our chart.
+                                      }
+                                      @item{
+                                            The third is the name of the quantitative column that we want measure along the y-axis of our chart.
+                                      }
+                                      @item{
+                                            The fourth is the name of the categorical column that we want to use as @italic{labels} for our chart.
+                                      }
+                                ]
+
                         }
                         @teacher{
 
@@ -393,7 +404,7 @@
                 }
                 @point{
                         @student{
-                                We can computer our own predictor line in Pyret, and grab a @italic{predictor function} from it:
+                                We can compute our own predictor line in Pyret, and grab a @italic{predictor function} from it:
 
                                 @code[#:multi-line #t]{
                                         # use linear regression to extract a predictor function

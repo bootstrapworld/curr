@@ -11,16 +11,12 @@
                                        (list "Image" 
                                               @code{triangle, star, draw-chart...} 
                                               (list @bitmap{images/imgValue1.png} @bitmap{images/imgValue2.png}))
-                                       (list "DataSeries" 
-                                              @code{function-plot, scatter-plot, bar-chart, pie-char, freq-bar-chart} 
-                                              "")
-                                       (list "List" 
-                                              @code{.get} 
-                                              @code{[list: "list", "of", "strings"], [list: 1, 2 ,3]})
                                        (list "Table"
-                                              @code{.row-n, .column}
+                                              @code{.row-n, .order-by, .filter, .build-column}
                                               ""))]{
-  @unit-descr{Students learn how to measure central tendency using mean/median/mode.  They will practice calculating these values by hand, and learn to do so using Lists in Pyret}
+  @unit-descr{
+    Students learn how to measure central tendency using mean/median/mode. After applying these concepts to a contrived dataset, they apply them to their own datasets and interpret the results in their research papers.
+  }
 }
 @unit-lessons{
 
@@ -98,14 +94,14 @@
                               There are 3 ways to measure the "center" of a list of data: @vocab{mean}, @vocab{median} and @vocab{mode}. One of the most important questions we can ask about a column of quantitative data is:  what is the @vocab{average} value?
                       }
                       @teacher{
-                              Use your favorite method of teaching the concept of averages.
+                              Use your favorite lesson to teach students about computing averages.
                       }
                 }
                 @point{
                       @student{
-                              We calculate the mean by adding up each element in the list, and dividing by the number of elements in that list.
+                              We calculate the mean by adding up a list of numbers, and dividing that sum by the number of elements in that list.
 
-                              For example, the @vocab{mean} of the list @code{[list: 1, 4, 5, 8, 2]} is calculated by @code{(1 + 4 + 5 + 8 + 2) / 5}, which evaluates to 4.
+                              For example, the @vocab{mean} of the list @code{1, 4, 5, 8, 2} is calculated by @code{(1 + 4 + 5 + 8 + 2) / 5}, which evaluates to 4.
                       }
                       @teacher{
 
@@ -125,7 +121,7 @@
                 }
                 @point{
                       @student{
-                              It would be nice if Pyret had a way for us to compute the @vocab{mean} of any List.  What do you think the contract for this function might be? Can you think of its Name, Domain and Range?
+                              It would be nice if Pyret had a way for us to compute the @vocab{mean} of any column in a Table.  What do you think the contract for this function might be? Can you think of its Name, Domain and Range?
                       }
                       @teacher{
                               Get students to give suggestions as to what the mean function should be called.
@@ -133,7 +129,7 @@
                 }
                 @point{
                       @student{
-                              Type @code{mean([list: 1, 2, 3])}.  What does this give us? Why?
+                              Type @code{mean(pets, "age")}.  What does this give us? Why?
 
                               @activity[#:forevidence "BS-IDE&1&1"]{
                                       Type each of the following programs into the interactions window, to check your work:
@@ -161,8 +157,7 @@
                       @student{
                               This function takes a @italic{List of Numbers} as input, and gives us the mean (a Number) as output. Write the contract for this function into your Contracts page as:
 
-                              @code[#:multi-line #t]{# mean :: (l :: List<Number>) -> Number}
-                              Reminder: we use @code{List<Number>} to descibe a "list of numbers"!
+                              @code[#:multi-line #t]{# mean :: (t :: Table, col :: String) -> Number}
                       }
                       @teacher{
 
@@ -181,7 +176,7 @@
                               As an example, consider this list:
 
                               @code[#:multi-line #t]{
-                                    [list: 2, 3, 1]
+                                    2, 3, 1
                               }
 
                               Here @code{2} is the median, because it separates the "top half" (all values greater than @code{2}, which is just @code{3}), and the "bottom half" (all values less than or equal to 2).
@@ -209,7 +204,7 @@
                               For lists that have an even number of elements, this question is a little trickier.
 
                               @code[#:multi-line #t]{
-                                    [list: 2, 3]
+                                    2, 3
                               }
 
                               There is no one number in the list separating the top half and the bottom half, because there are only 2 numbers!  In this case, we take the @vocab{mean} of the two middle numbers.  So here, the median is @code{(2 + 3) / 2} which evaluates to @code{2.5}.
@@ -226,7 +221,7 @@
 
                               Pyret has a function to compute the median of a list as well, with the contract:
 
-                              @code{# median :: (l :: List<Number>) -> Number}
+                              @code{# median :: (t :: Table, col :: String) -> Number}
 
                               @activity[#:forevidence "BS-IDE&1&1"]{
                                       Test your answers in the median column with the @code{median} function.
@@ -247,15 +242,15 @@
                 @point{
                       @student{
                               @code[#:multi-line #t]{
-                                    [list: 1, 2, 3, 4]
-                                    [list: 1, 2, 2, 3, 4]
-                                    [list: 1, 1, 2, 3, 4, 4]
+                                    1, 2, 3, 4
+                                    1, 2, 2, 3, 4
+                                    1, 1, 2, 3, 4, 4
                               }
 
                               @itemlist[
-                                @item{The mode of the first value is @code{[list: ]}, because no element is repeated at all.}
-                                @item{The mode list of the second value is @code{[list: 2]}, since 2 appears more than any other number.}
-                                @item{The mode list of the last value is @code{[list: 1, 4]}, because @code{1} and @code{4} both appear more often than any other element, and because they are appear equally often.}
+                                @item{The mode of the first value is @italic{empty}, because no element is repeated at all.}
+                                @item{The mode list of the second value is @italic{2}, since 2 appears more than any other number.}
+                                @item{The mode list of the last value is @italic{a list containing 1 and 4}, because @code{1} and @code{4} both appear more often than any other element, and because they are appear equally often.}
                               ]
                       }
                       @teacher{
@@ -276,7 +271,7 @@
                       @student{
                               In Pyret, the mode list is calculated by the @code{modes} function, which consumes a List of Numbers and produces a list of Numbers. 
                               @code[#:multi-line #t]{
-                                    # modes :: (l :: List<Number>) -> List<Number>
+                                    # modes :: (t :: Table, col :: String) -> List<Number>
                               }
                       }
                       @teacher{
@@ -312,19 +307,15 @@
         @points[
                 @point{
                       @student{
-                          In the last lesson, you learned how to @code{extract} a column from a table, turning it into a list. Now let's use that knowledge to start asking questions about some of our datasets. Suppose we wanted to know what the average number of calories are on the menu. We'd need to first extract that column from the table, and then take the @code{mean} of the resulting list. We can write this using identifiers:
+                          Suppose we wanted to know what the average number of calories are on the menu. We'd need to first extract that column from the table, and then take the @code{mean} of the resulting list. We can write this using identifiers:
 
                           @code[#:multi-line #t]{
-                              calorie-list = nutrition.column("calories")
-                              mean(calorie-list)
+                              mean(nutrition, "calories")
                           }
 
-                          ...or as a single expression, by combining the @code{extract} expression with mean:
-                          @code[#:multi-line #t]{
-                              mean(nutrition.column("calories"))
+                          @activity{
+                              How would you compute the median grams of sodium on the menu?
                           }
-                          Which style do you like better? Why?
-
                       }
                       @teacher{
 
@@ -383,7 +374,7 @@
                               Imagine that a math teacher is tracking their students' grades.  Here are the students' grades on the first test.
 
                               @code[#:multi-line #t]{
-                                    [list: 68, 64, 62, 100, 100, 68, 67]
+                                    68, 64, 62, 100, 100, 68, 67
                               }
                               Which measure of center gives the best indication of how the class did?
                               @itemlist[

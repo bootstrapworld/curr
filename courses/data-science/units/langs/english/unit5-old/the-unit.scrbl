@@ -14,12 +14,10 @@
                                        (list "Table"
                                               @code{.row-n, .order-by, .filter, .build-column}
                                               ""))]{
-  @unit-descr{
-    Students are introduced to Visualizations in Pyret, and learn how to construct and interpret DataSeries for Pie Charts, Bar Charts, Frequency Bar Charts, and Histograms. After experimenting with these visualizations in a contrived dataset, they apply them to their own research and intepret the results in their research papers. 
-  }
+  @unit-descr{Students are introduced to Visualizations in Pyret as visualizations for quantitative data, learn to analyze features of Histograms, and construct them in Pyret}
 }
 @unit-lessons{
-  @lesson/studteach[
+@lesson/studteach[
      #:title "Introduction"
      #:duration "5 minutes"
      #:overview ""
@@ -38,208 +36,48 @@
         @points[
                 @point{
                         @student{
-                                
+                                @bitmap{images/dice.png}
+                                While traveling to Vegas, you find yourself at Pearson's Casino. Pearson himself invites you to play a game, and it only costs you $1. He rolls two dice and adds the numbers together, while you guess what number he came up with. If you guess right, you keep your money and get an extra $1 to boot! But if you guess wrong, he keeps your dollar. What are your odds of winning this game? Are they good enough that it's worth playing?
+                                @activity{
+                                        Turn to @worksheet-link[#:name "Unit-5"]. Take two minutes to write your answer.
+                                }
                         }
                         @teacher{
-                                
+                                @itemlist[
+                                        @item{
+                                                This section has students estimating expected values, so if you are also teaching students probability, you can use this section to introduce probabilistic concepts.
+                                        }
+                                        @item{
+                                                If you are uneasy about using a gambling example in the classroom, we understand: the students will see at the end that they should NOT agree to play this game!
+                                        }
+                                        @item{
+                                                Note: The field of Statistics (and Karl Pearson himself) has a @(hyperlink "https://en.wikipedia.org/wiki/Karl_Pearson" "checkered past") when it comes to how they have been used throughout history.
+                                        }
+                                ]
+                        }
+                }
+                @point{
+                        @student{
+                                What are the all of the possible numbers we could guess? Is there a "lucky number" that we should use, or are all guesses equally likely? Should we play this game?
+                        }
+                        @teacher{
+                                Ask the classroom if they have any guesses if there is a best number to guess, and if so why. Ask the class to remember their answers for after they've completed this exercise.
+                        }
+                }
+                @point{
+                        @student{
+                                We can use Pyret to simulate this game, and analyze the results to answer our question. By writing a computer program to estimate what the most common dice rolls are, we can come up with a good guess for what the dice roll will be.
+                        }
+                        @teacher{
+                                In this exercise, students will use a nondeterministic function for the first time. As they explore the @code{roll-dice} function, stress that @code{roll-dice} rarely gives the same answer more than once.
                         }
                 }
         ]
-  }
-
-
-  @lesson/studteach[
-     #:title "Bar & Pie Charts"
-     #:duration "20 minutes"
-     #:overview ""
-     #:learning-objectives @itemlist[]
-     #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[]
-     #:standards (list)
-     #:materials @itemlist[]
-     #:preparation @itemlist[]
-     #:pacings (list 
-                @pacing[#:type "remediation"]{@itemlist[@item{}]}
-                @pacing[#:type "misconception"]{@itemlist[@item{}]}
-                @pacing[#:type "challenge"]{@itemlist[@item{}]}
-                )
-      ]{
-        @points[
-                @point{
-                      @student{
-                              In Pyet, you can easily construct pie charts and bar charts with functions.
-
-                              @activity[#:forevidence "BS-IDE&1&1"]{
-                                      Open the @editor-link[#:public-id "0BzzMl1BJlJDkVkViWHFGZy02UnM" "Unit 3 Starter File"], Save a Copy and Run the program. You should see the bar and pie charts from the previous section appear sequentially.
-                              }
-
-                      }
-                      @teacher{
-                      
-                      }
-                }
-                @point{
-                      @student{
-                              Let's use these lists to build two different kinds of charts
-                              @code[#:multi-line #t]{
-                                    # Define some DataSeries
-                                    cholesterol-bar-series = bar-chart(nutrition, "food", "cholesterol")
-                                    cholesterol-pie-series = bar-chart(nutrition, "food", "cholesterol")
-                              }
-
-                              This code uses new functions you haven't seen before: @code{bar-chart} and @code{pie-chart}. As you might expect, the contracts for these function are:
-                               @code[#:multi-line #t]{
-                                    # bar-chart :: (t :: Table, label :: String, value :: String) -> DataSeries
-                                    # pie-chart :: (t :: Table, label :: String, value :: String) -> DataSeries
-                              }
-
-                              What do the arguments in their domains represent?
-                              @itemlist[
-                                      @item{
-                                            The first is the Table that we want to visualize.
-                                      }
-                                      @item{
-                                            The second is the name of the column that we want to use as labels. These will be the @italic{labels} of a bar or pie slice on the chart.
-                                      }
-                                      @item{
-                                            The third is the name of the quantitative column that we want to measure. Each of these corresponds to the @italic{size} of a bar or slice on the chart.
-                                      }
-                              ]
-                      }
-                      @teacher{
-                        
-                      }
-                }
-                @point{
-                      @student{
-                              These plots are @italic{interactive}, allowing you to experiment with the data before you generate the final image. While the plot window is open, it's interactive: what happens when you hover over a slice of the pie?
-                      }
-                      @teacher{
-                              It reveals the value and percentage of the whole.
-                      }
-                }
-                @point{
-                      @student{
-
-                              @activity[#:forevidence "BS-IDE&1&1"]{
-                                      @itemlist[
-                                              @item{
-                                                    Create a bar chart displaying the amount of sodium for each menu item in @code{nutrition}.
-                                              }
-                                              @item{
-                                                    Create a pie chart showing the GDP of every country in @code{countries}.
-                                              }
-                                      ]
-                                      After completing these bar charts, turn to @worksheet-link[#:name "Questions-With-Charts"] in your workbook and answer the questions using these charts.
-                              }
-                      }
-                      @teacher{
-                              @itemlist[
-                                      @item{
-                                            Students should add 2 more function calls to their definitions window; one using @code{bar-chart}, the other using @code{pie-chart}.
-                                      }
-                                      @item{
-                                            Emphasize that students should choose informative axis & title names, as if they're showing these charts to someone who has never seen these tables before.
-                                      }
-                              ]
-                      }
-                }
-        ]
-  }
-
-  @lesson/studteach[
-     #:title "Frequency Bar Charts"
-     #:duration "10 minutes"
-     #:overview ""
-     #:learning-objectives @itemlist[]
-     #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[]
-     #:standards (list)
-     #:materials @itemlist[]
-     #:preparation @itemlist[]
-     #:pacings (list 
-                @pacing[#:type "remediation"]{@itemlist[@item{}]}
-                @pacing[#:type "misconception"]{@itemlist[@item{}]}
-                @pacing[#:type "challenge"]{@itemlist[@item{}]}
-                )
-      ]{
-        @points[
-                @point{
-                      @student{
-                              Recall the table of our favorite 4th grade class from Unit 2:
-
-                              @build-table/cols[
-                                    '("First" "Last" "Eye-Color")
-                                    '(("\"John\"" "\"Jane\"" "\"Javon\"" "\"Angela\"" "\"Jack\"" "\"Dominique\"" "\"Sammy\"" "\"Andrea\"")
-                                      ("\"Doe\"" "\"Smith\"" "\"Jackson\"" "\"Enriquez\"" "\"Thompson\"" "\"Rodriguez\"" "\"Carter\"" "\"Garcia\"")
-                                      ("\"Green\"" "\"Brown\"" "\"Brown\"" "\"Hazel\"" "\"Blue\"" "\"Hazel\"" "\"Blue\"" "\"Brown\""))
-                                     (lambda (r c) (para ""))
-                                     3 8
-                              ]
-
-                              @activity[#:forevidence "BS-IDE&1&1"]{
-                                      Turn to @worksheet-link[#:name "Freq-Bar-Chart"] in your workbook, and complete the exercise using this table.
-                              }
-                      }
-                      @teacher{
-
-                      }
-                }
-                @point{
-                      @student{
-                              By filling in the last bar, you have created a bar chart. However, there's something special about chart. What is different about this bar chart from the ones we have created before?
-                              @itemlist[
-                                      @item{
-                                            Previous bar charts used a column from the table as the labels, and another column as the values.
-                                      }
-                                      @item{
-                                            In this bar chart, we are using the @vocab{categories} of a column as the labels, and the @vocab{frequency} of each category as the value.
-                                      }
-                              ]
-                      }
-                      @teacher{
-                              
-                      }
-                }
-                @point{
-                      @student{
-                              Here, we are looking at the Eye Color column, which contains categorical data. In this special kind of bar chart, we are computing the @vocab{frequency} of each category, and that frequency relates to the length of each bar. Since there are 3 people with brown eyes, the bar for Brown extends to 3 marks long.
-                      }
-                      @teacher{
-                      
-                      }
-                }
-                @point{
-                      @student{
-                              This special kind of bar chart is called a @vocab{frequency bar chart}.  There's a function in Pyret that lets us build frequency bar charts from a table:
-                              @code[#:multi-line #t]{
-                                freq-bar-char :: (t :: Table, values :: String) -> DataSeries
-                              }
-                              Below is an example that computes the frequency of categories in the @code{home-state} column of @code{presidents}.
-
-                              @code[#:multi-line #t]{
-                                    home-state-frequency = freq-bar-chart(presidents, "home-state")
-                              }
-
-                              What do the arguments in @code{freq-bar-chart}'s domain mean?
-                              @itemlist[
-                                      @item{
-                                            The first is the Table that we want to visualize.
-                                      }
-                                      @item{
-                                            The second is the name of the categorical column that we want to count. Each of these corresponds to the @italic{size} of a bar in the chart.
-                                      }
-                      }
-                      @teacher{
-                          Show students that this is slightly different than how they've seen it before, breaking out the @code{home-state} column into its own definition.
-                      }
-                }
-        ]
-   }  
+}
 
 @lesson/studteach[
-     #:title "Histograms"
-     #:duration "20 minutes"
+     #:title "Creating Histograms"
+     #:duration "15 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -256,35 +94,82 @@
         @points[
                 @point{
                         @student{
+                                @activity[#:forevidence "BS-IDE&1&1"]{
+                                        Open the @editor-link[#:public-id "0BzzMl1BJlJDkVnU0Z2ZUOHJfaVE" "Unit 5 Starter File"], Save a Copy and Run the program. Then evaluate each of the following expressions:
 
+                                        @itemlist[
+                                                @item{
+                                                        @code{roll-dice(1)}
+                                                }
+                                                @item{
+                                                        @code{roll-dice(3)}
+                                                }
+                                                @item{
+                                                        @code{roll-dice(10)}
+                                                }
+                                        ]
+                                        What is the contract for @code{roll-dice}? How does the input relate to the output? Try typing in @code{roll-dice(10)} multiple times. Does it always return the same thing?
+                              }
                         }
                         @teacher{
-
+                                The function @code{roll-dice} takes in a number of rolls to perform, and returns a @code{List<Number>} containing all of the dice rolls. The @code{roll-dice} treats each dice roll separately, and makes different numbers every time.
                         }
                 }
                 @point{
                         @student{
-                                We can use a different kind of chart for visualizing @italic{how frequent values are} in a list of quantitative data. This kind of chart is a called @vocab{histogram}.
+                                Use @code{roll-dice} to create a list of 10,000 rolls.  How can we use this List to come up with our lucky number? Is there a measure of center that could answer this question, and help us win the jackpot?
+                        }
+                        @teacher{
+                                Guide students to suggest using mean, median, and modes to measure the center of the list of dice rolls.
+                        }
+                }
+                @point{
+                        @student{
+                                @activity[#:forevidence "BS-IDE&1&1"]{
+                                        What are the @code{mean}, @code{median}, and @code{modes} of a list of 10,000 dice rolls? Use the functions you've learned in Pyret to compute them. Does @code{roll-dice} give you the same list every time? Will you get the same mean every time?
+                              }
+                        }
+                        @teacher{
+                                Students should try running these functions on the output of @code{roll-dice} multiple times, since @code{roll-dice} returns slightly different lists each time.
+                        }
+                }
+                @point{
+                        @student{
+                                We can see that the mean and median are both 7, and the mean is very, @italic{very} close to 7. So 7 is probably our best guess.
 
-                                
+                                Unfortunately, we still don't know if 7 comes up often enough for this to be a game worth playing! If each round means we lose a dollar or win a dollar, we need our odds to be better than 50% to make it worth playing. We've used our measures of center to figure out the most frequent number, but just @italic{how frequent is it}? We need some way of asking if 7 appears more than all the other numbers combined.
+                        }
+                }
+                @point{
+                        @student{
+                                We can use a different kind of chart for visualizing @italic{how frequent values are} in a list of quantitative data. This kind of chart is a called @vocab{histogram}, and it is similar to the bar charts you have seen before.
+
+                                @activity[#:forevidence "BS-IDE&1&1"]{
+                                        Type the following code into your Definitions Area to create the histogram DataSeries and draw the chart.
+
+                                        @code[#:multi-line #t]{
+                                                dice-histogram-series = histogram(roll-dice(10000), 11)
+                                                dice-histogram-chart  = draw-chart("dice rolls", dice-histogram-series)
+                                        }
+
+                                        See what the histogram looks like, then try changing the second argument to @code{histogram}. What do you think this argument means?
+                                }
+
                                 The contract for @code{histogram} is:
                                 @code[#:multi-line #t]{
-                                    # histogram :: (t :: Table, values :: String, bin-size :: Number) -> DataSeries
+                                    # histogram :: (values :: List<Number>, bins :: Number) -> DataSeries
                                 }
                                 @itemlist[
                                         @item{
-                                                The first is the Table that we want to visualize as a histogram.
+                                                The first is a list of numbers, containing the quantitative data.
                                         }
                                         @item{
-                                                The second is the name of the quantitative column, wich we want to sort into bins.
-                                        }
-                                        @item{
-                                                The third is @italic{the size of bins} into which we will distribute these quantitative values.
+                                                The second is the size of @italic{bins} that we want to distribute this list into (we'll talk more about this in a moment).
                                         }
                                 ]
                         }
                         @teacher{
-                                Show students the histogram before explaining what the second argument (size of bins) means, to give them a point of reference. It may be easier for you to project the live code/image of the histogram. Since students do not yet know what a histogram is, or what this code is doing, they will have a harder time if they make syntax errors.
+                                Show students the histogram before explaining what the second argument (number of bins) means, to give them a point of reference. It may be easier for you to project the live code/image of the histogram. Since students do not yet know what a histogram is, or what this code is doing, they will have a harder time if they make syntax errors.
                         }
                 }
                 @point{
@@ -329,12 +214,32 @@
                 }
                 @point{
                         @student{
-                                Frequency Bar charts and Histograms both count the @italic{frequency} in which values show up in a dataset. Histograms provide extra features for @vocab{quantitative data}: the bars are ordered from left to right, and the bins can be resized. Both of these are only made possible because quantitative data can be compared - one bar can be said to be "greater than" than another bar, and a value can be said to be "within" the range of a bin. For categorical data, neither of these is the case, so we use bar charts instead of histograms. Frequency bar charts are only for counting the frequency of categorical data.
+                                Bar charts and histograms both count the @italic{frequency} in which values show up in a dataset. Unlike bar charts, however, histograms provide extra features for @vocab{quantitative data}: the bars are ordered from left to right, and the bins can be resized. Both of these are only made possible because quantitative data can be compared - one bar can be said to be "greater than" than another bar, and a value can be said to be "within" the range of a bin. For categorical data, neither of these is the case, so we use bar charts instead of histograms.
                         }
                         @teacher{
 
                         }
                 }
+        ]
+   }
+
+@lesson/studteach[
+     #:title "Bins and Spread"
+     #:duration "30 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[]
+     #:standards (list)
+     #:materials @itemlist[]
+     #:preparation @itemlist[]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[
                 @point{
                         @student{
                                 In the dice roll game, there were 11 possible numbers that the dice roll could produce. Would it be helpful to have 20 bars? 30? What would happen if we only used 1?
@@ -414,7 +319,7 @@
    }
 
 @lesson/studteach[
-     #:title "Which Chart is Best?"
+     #:title "Interpreting Histograms"
      #:duration "20 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
@@ -430,14 +335,52 @@
                 )
       ]{
         @points[
-              @point{
-                    @student{
-                        
-                    }       
-                    @teacher{
-                        
-                    }              
-              }
+                @point{
+                      @student{
+                              Just like the bar and pie charts, histograms come in many shapes, sizes, colors, and forms.
+
+                              @activity[#:forevidence "BS-IDE&1&1"]{
+                                      Turn to @worksheet-link[#:name "Histograms-Practice"] in your workbook and answer the questions about each of the histograms.
+                              }                          
+                      }
+                      @teacher{
+                              This workbook assignment could also become a homework assignment, or be made into a quiz/jeopardy style game.
+
+                              Image Sources:
+                              @itemlist[
+                                    @item{
+                                           @(hyperlink "https://tinyurl.com/mubo8ze" "Population")
+                                    }
+                                    @item{
+                                           @(hyperlink "http://media1.shmoop.com/images/prealgebra/unit5/pa.5.044.png" "Test Scores")
+                                    }
+                              ]
+                                                
+                      }
+                }
+                @point{
+                      @student{
+                        A good histogram can help explain complicated data, but a bad one can make things very confusing. Come up with good histograms for the following questions. How will you choose your bin size?
+
+                        @activity{
+                            @itemlist[
+                                @item{
+                                    You want to rent a shuttle bus to take people from the airport to an event. You know what time everyone's flight lands, and they all arrive between 8am and 8pm. What would be a good bin-size to determine how many buses you'll need?
+                                }
+                                @item{
+                                    Look back at your histogram for @code{median-life-expectancy}. How many bins make this chart helpful?
+                                }
+                                @item{
+                                    How common is it for a country to have more than a billion people? Make a histogram that shows how common different population sizes are.
+                                }
+                            ]
+                        }
+                          
+                      }
+                      @teacher{
+                                                
+                      }
+                }                
         ]
    }
 
