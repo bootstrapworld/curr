@@ -93,19 +93,27 @@
             }
             @point{
                   @student{
-                        Pyret also has another kind of procedure, which behaves a little differently. These procedures are called @vocab{table methods}. Here is an example of the table method @code{.row-n} in use:
-                        @code[#:multi-line #t]{
-                            shapes.row-n(2)
+                        Pyret also has another kind of procedure, which behaves a little differently. These procedures are called @vocab{table methods}. Let's take a look at one table method, and compare it to a function you already know. 
+                        @activity{
+                          Type both of these into the Interactions Area and see what comes out.
+                          @code[#:multi-line #t]{
+                              animals.row-n(2)
+                              get-row(animals, 2)
+                          }
+                          Both of these expressions do the same thing, but they are written quite differently. How many differences can you spot?
                         }
-                        Table methods are different from @vocab{functions} in a several ways:
+                  }
+                  @teacher{
+
+                  }
+            }
+            @point{
+                  @student{
+                        Table methods are different from @vocab{functions} in a two important ways:
 
                           @itemlist[
                                   @item{
-                                        @italic{They are called differently}. A method has to be called as part of a Table, and cannot be used on it's own. You can write @code{star} wherever you like, but a table method only makes sense when attached to the name of a Table, separated by a dot.
-                                  }
-                                  @item{
-                                        @italic{They change the way they behave}, depending on which piece of data they're attached to. One of these lines of code will work, while the other will cause an error:
-                                         @code{shapes.row-n(4)} will work if our table has four observations, but fail if there are only two.
+                                        @italic{They are called differently}. A method has to be called as part of a Table, and cannot be used on it's own. You can write @code{get-row} wherever you like, but @code{.row-n} only works when attached to the name of a Table, separated by a dot.
                                   }
                                   @item{
                                         @italic{Their contracts are different.} The @code{.row-n} method only exists within the @code{Table} Type, so we can't use its name without also specifying the name of a Table. The contract for a method includes the Type along with the name:
@@ -123,14 +131,7 @@
             }
             @point{
                     @student{
-                        The @code{.row-n} method is similar to the @code{get-row} function (in fact, they're almost identical!), but one is used as a @vocab{function} and the other is used as a @code{method}.
-                        @activity{
-                            For practice with methods, pull out each of the obervations in your Table using both the @code{.row-n} method @italic{and} the @code{get-row} function in the Interactions Area. For example:
-                            @code[#:multi-line #t]{
-                              get-row(shapes, 2) # function
-                              shapes.row-n(2)    # method
-                            }
-                        }
+                        How well do you understand methods? Turn to @worksheet-link[#:name "Methods"] in your Student Workbook, and see how many questions you can answer.
                     }
                     @teacher{
 
@@ -158,32 +159,16 @@
         @points[
                 @point{
                         @student{
-                                Pyret lets you change the order of a table's rows with the @code{order-by} method. The contract for this method is:
+                                Pyret lets you change the order of a table's rows with the @code{order-by} method. Let's take a look at the contract for this method, and an example of that orders the animals table by species:
                                 @code[#:multi-line #t]{
-                                    <Table>.order-by :: (col :: String, ascending :: Boolean) -> Table
+                                    # <Table>.order-by :: (col :: String, ascending :: Boolean) -> Table
+                                    animals.order-by("species", true)
                                 }
-                        }
-                        @teacher{
-
-                        }
-                }
-                @point{
-                        @student{
-                                @activity[#:forevidence "BS-IDE&1&1"]{
-                                        @itemlist[
-                                                @item{
-                                                        Can we order the movies table by the second word in the title? If not, why?
-                                                }
-                        
-                                                @item{
-                                                        In the Definitions Area, complete the next two exercises: "Salt Order" and "Population Order".
-                                                }
-                                                @item{
-                                                        Complete the word problems on @worksheet-link[#:name "Order-Plan"].
-                                                }
-                                        ]
-                                        Test your code by hitting the Run button and typing the new variable names into the interactions window.
-                                }                       
+                                You can find the contract for this method written at the back of your Student Workbook, along with all the other contracts.
+                                @activity{
+                                    Type the @code{animals.order-by} example into the Interactions Area.
+                                    What did you get? What will happen if you change @code{true} to @code{false}? How could you sort the table alphabetically by pet name? In order of oldest-to-youngest?
+                                }
                         }
                         @teacher{
                               Pyret has a way to sort by multiple columns as well, but that requires one additional concept that students haven't seen yet. Documentation can be @(hyperlink "https://www.pyret.org/docs/horizon/tables.html#%28part._tables_.Table_order-by-columns%29" "found here").
@@ -212,10 +197,34 @@
         @points[
                 @point{
                       @student{
-                              When we want to filter a Table, we can use the @code{.filter} method. The contract for this method is shown below, along with an example expression that filters the @code{restaurants} table to show only highly-rated restaurants.
+                              When we want to filter a Table, we can use the @code{.filter} method. The contract for this method is shown below, along with an example expression that filters the @code{animals} table to show only young pets.
                               @code[#:multi-line #t]{
                                     # <Table>.filter :: (test :: (Row -> Boolean)) -> Table
-                                    restaurants-filtered = restaurants.filter(high-rating)
+                                    animals.filter(young-pets)
+                              } 
+                      }
+                      @teacher{
+
+                      }
+                }
+                @point{
+                      @student{
+                              Notice that the Domain for the filter method takes in a single value (@code{test}), but that @code{test} is @italic{also a function!}. Pyret lets us pass functions into other functions, just as easily as we pass Numbers, Strings, Booleans or Images.
+                              @activity{
+                                  @itemlist[
+                                      @item{ According to the contract for @code{.filter}, what dataype does the @code{test} function consume? }
+                                      @item{ What dataype does the @code{test} function produce? }
+                                  ]
+                              }
+                      }
+                      @teacher{
+                              Proceed with caution here: do a lot of checking for understanding!
+                      }
+                }
+                @point{
+                      @student{
+                              @activity[#:forevidence "BS-IDE&1&1"]{
+                                  In the Interactions Area, use the @code{.filter} method to produce a table of all the animals at the shelter that are dogs that have been fixed. Hint: you'll need to use one of the functions defined at the top of the file!
                               }
                       }
                       @teacher{
@@ -225,11 +234,11 @@
                 @point{
                       @student{
                               @activity[#:forevidence "BS-IDE&1&1"]{
-                                  Complete the next three excersises in the Definitions Area: Define new functions to solve Low-Calorie, CA Presidents, and Asian Countries.
+                                  In the Interactions Area, use the @code{.filter} method to produce a table of all the animals That you would adopt.
                               }
                       }
                       @teacher{
-                              Warning: When attempting the @code{presidents-filtered} problem, some students will probably run into a bug if they're not careful about capitalization!
+
                       }
                 }
         ]
@@ -254,10 +263,10 @@
         @points[
                 @point{
                       @student{
-                              Sometimes we want to @italic{add a column} to a Table, and we can use the @code{.build-column} method to do just that. The contract for this method is shown below, along with an example expression that filters the @code{restaurants} table to show only highly-rated restaurants.
+                              Sometimes we want to @italic{add a column} to a Table, and we can use the @code{.build-column} method to do just that. The contract for this method is shown below, along with an example expression that adds a birth-year to the @code{animals} table.
                               @code[#:multi-line #t]{
                                     # <Table>.build-column :: (builder :: (Row -> Value)) -> Table
-                                    restaurants-filtered = restaurants.build-column(high-rating)
+                                    restaurants-filtered = restaurants.build-column(year-born)
                               }
                       }
                       @teacher{
@@ -267,11 +276,11 @@
                 @point{
                       @student{
                               @activity[#:forevidence "BS-IDE&1&1"]{
-                                  Complete the next three excersises in the Definitions Area: Define new functions to solve Low-Calorie, CA Presidents, and Asian Countries.
+                                  In the Interactions Area, use the @code{.build-column} method to produce a table that includes a @code{nametag} column, which contains an image of the nametag for each pet.
                               }
                       }
                       @teacher{
-                              Warning: When attempting the @code{presidents-filtered} problem, some students will probably run into a bug if they're not careful about capitalization!
+                              
                       }
                 }
         ]
