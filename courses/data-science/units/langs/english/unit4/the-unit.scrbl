@@ -6,10 +6,13 @@
                                               @code{+, -, *, /, num-sqrt, num-sqr} 
                                               @code{4, -1.2. 2/3})
                                        (list "String" 
-                                              "n/a" 
+                                              @code{string-repeat} 
                                               (list @code{"hello" "91"} ))
+                                       (list "Boolean" 
+                                              @code{} 
+                                              (list @code{true false} ))
                                        (list "Image" 
-                                              @code{triangle, star, draw-chart...} 
+                                              @code{triangle, circle, star, rectangle, ellipse, square, text, overlay} 
                                               (list @bitmap{images/imgValue1.png} @bitmap{images/imgValue2.png}))
                                        (list "Table"
                                               @code{.row-n, .order-by, .filter, .build-column}

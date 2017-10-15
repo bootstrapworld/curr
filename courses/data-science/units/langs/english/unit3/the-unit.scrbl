@@ -12,7 +12,7 @@
                                               @code{} 
                                               (list @code{true false} ))
                                        (list "Image" 
-                                              @code{triangle, star, draw-chart...} 
+                                              @code{triangle, circle, star, rectangle, ellipse, square, text, overlay} 
                                               (list @bitmap{images/imgValue1.png} @bitmap{images/imgValue2.png}))
                                        )]{
   @unit-descr{
@@ -40,7 +40,7 @@
         @points[
               @point{
                     @student{
-                          In the last lesson, you learned how to define functions of your own using the Design Recipe. You defined a number of functions that work on Rows of the @code{pets} table. 
+                          In the last lesson, you learned how to define functions of your own using the Design Recipe. You defined a number of functions that work on Rows of the @code{animals} table. 
                           @activity{
                                 What are the steps of the Design Recipe?
                           }
@@ -84,11 +84,24 @@
         @points[
             @point{
                   @student{
-                        There are also some special functions that work on tables, called @vocab{methods}. Methods are different from @vocab{functions} in a several ways:
+                        You've been calling functions like @code{triangle}, @code{num-sqr} or @code{num-min} for a while now, and the rules are pretty straightforward: at any point, you can just write the name of the function, then pass in one or more arguments inside parentheses. @code{num-sqr(4)} will always evaluate to @code{16}, because the function always works the same way and 4 squared is always 16.
+
+                  }
+                  @teacher{
+
+                  }
+            }
+            @point{
+                  @student{
+                        Pyret also has another kind of procedure, which behaves a little differently. These procedures are called @vocab{table methods}. Here is an example of the table method @code{.row-n} in use:
+                        @code[#:multi-line #t]{
+                            shapes.row-n(2)
+                        }
+                        Table methods are different from @vocab{functions} in a several ways:
 
                           @itemlist[
                                   @item{
-                                        @italic{They are called differently}. A method has to be called as part of a Table, and cannot be used on it's own.
+                                        @italic{They are called differently}. A method has to be called as part of a Table, and cannot be used on it's own. You can write @code{star} wherever you like, but a table method only makes sense when attached to the name of a Table, separated by a dot.
                                   }
                                   @item{
                                         @italic{They change the way they behave}, depending on which piece of data they're attached to. One of these lines of code will work, while the other will cause an error:
@@ -110,8 +123,13 @@
             }
             @point{
                     @student{
+                        The @code{.row-n} method is similar to the @code{get-row} function (in fact, they're almost identical!), but one is used as a @vocab{function} and the other is used as a @code{method}.
                         @activity{
-                            In the Interactions Area, practice pulling out each of the obervations in your Table using the @code{.row-n} method.
+                            For practice with methods, pull out each of the obervations in your Table using both the @code{.row-n} method @italic{and} the @code{get-row} function in the Interactions Area. For example:
+                            @code[#:multi-line #t]{
+                              get-row(shapes, 2) # function
+                              shapes.row-n(2)    # method
+                            }
                         }
                     }
                     @teacher{

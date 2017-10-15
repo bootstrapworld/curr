@@ -6,10 +6,13 @@
                                               @code{+, -, *, /, num-sqrt, num-sqr, mean, median, modes} 
                                               @code{4, -1.2. 2/3})
                                        (list "String" 
-                                              "n/a" 
+                                              @code{string-repeat} 
                                               (list @code{"hello" "91"} ))
+                                       (list "Boolean" 
+                                              @code{} 
+                                              (list @code{true false} ))
                                        (list "Image" 
-                                              @code{triangle, star, draw-chart...} 
+                                              @code{triangle, circle, star, rectangle, ellipse, square, text, overlay} 
                                               (list @bitmap{images/imgValue1.png} @bitmap{images/imgValue2.png}))
                                        (list "Table"
                                               @code{.row-n, .order-by, .filter, .build-column}
@@ -229,6 +232,7 @@
                                       @item{
                                             The second is the name of the categorical column that we want to count. Each of these corresponds to the @italic{size} of a bar in the chart.
                                       }
+                              ]
                       }
                       @teacher{
                           Show students that this is slightly different than how they've seen it before, breaking out the @code{home-state} column into its own definition.

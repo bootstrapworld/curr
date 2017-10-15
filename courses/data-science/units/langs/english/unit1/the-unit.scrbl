@@ -27,6 +27,29 @@
       ]{
         @points[
             @point{
+                  @student{
+                      Take a minute to look at the @resource-link[#:path "OpeningQuestions.pdf" #:label "opening questions"] we have prepared for you, and choose a topic that interests you.
+                      @activity{
+                            @itemlist[
+                                @item{
+                                    Once you've selected your topic, break into groups of no more than 4 and choose a question you'd like to answer.
+                                }
+                                @item{
+                                    Spend one minute discussing your answer, and explaining @italic{why} you answered the way you did. Does everyone in your group have the same answer? Why or why not?
+                                }
+                                @item{
+                                    What kind of @italic{measurement} would you use to determine if your answer is right or not? What data would you need?
+                                }
+                                @item{
+                                }
+                            ]
+                      }
+                  }
+                  @teacher{
+                        Have students self-select into groups (no larger than 4), with each group choosing an Opening Question (or writing their own). After they've had time to discuss, have a few students share back what they talked about.
+                  }
+            }
+            @point{
                     @student{
                              What's the greatest movie of all time? The best quaterback? Is Stop-and-Frisk racially biased? These questions quickly turn into a discussion about data - how you measure it and how you interpret the results. In this course, you'll learn how to use data to ask and answer questions like this.  The process of learning from data is called @vocab{Data Science}. Data science techniques are used by scientists, business people, politicians, sports analysts, and hundereds of other different fields to ask and answer questions about data.
                     }
@@ -481,7 +504,7 @@
                     @student{
                             Below is an example block:
                             @code[#:multi-line #t]{
-                                example:
+                                examples:
                                     num-min(5, 19)  is  5
                                     num-min(5, -2)  is -2
                                 end
@@ -503,9 +526,9 @@
             }
             @point{
                     @student{
-                            Example blocks are ways for us to automatically check out work, by writing down how functions @italic{should} work and having Pyret report back about whether our examples are accurate. Pyret, for example, has a function called @code{num-sqrt}. What do you think it does?
+                            Example blocks are ways for us to automatically check our work, by writing down how functions @italic{should} work and having Pyret report back about whether our examples are accurate. Pyret, for example, has a function called @code{num-sqrt}. What do you think it does?
                             @activity{
-                                Write two examples that use @code{num-sqrt}.
+                                Write two examples that use @code{num-sqrt}. Make sure they both pass!
                             }
                     }
                     @teacher{
@@ -514,9 +537,24 @@
             }
             @point{
                     @student{
-                            Here's the contract for another new function. Can you figure out how to use it in the Interactions Area? Once you've figured it out, add two examples to your block.
+                            Here's the contract for another new function. Can you figure out how to use it in the Interactions Area? Once you've figured it out, add two examples to the @code{examples:} block.
                               @code[#:multi-line #t]{
                                     string-repeat :: (s :: String, n :: Number) -> String
+                            }
+                    }
+                    @teacher{
+
+                    }
+            }
+            @point{
+                    @student{
+                            Pyret also has a way for us to get at individual columns of a Row, by using square brackets and the name of the column. Here's an @code{examples:} block that shows how:
+                            @code[#:multi-line #t]{
+                                    get-row(shapes, 0)["name"] is "triangle"
+                                    get-row(shapes, 1)["corners"] is 4
+                            }
+                            @activity{
+                                Add three examples to your block that use this technique. Challenge: can you write an one for the @code{example} column?
                             }
                     }
                     @teacher{

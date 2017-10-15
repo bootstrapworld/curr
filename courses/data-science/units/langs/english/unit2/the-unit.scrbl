@@ -12,7 +12,7 @@
                                               @code{} 
                                               (list @code{true false} ))
                                        (list "Image" 
-                                              @code{triangle, star, draw-chart...} 
+                                              @code{triangle, circle, star, rectangle, ellipse, square, text, overlay} 
                                               (list @bitmap{images/imgValue1.png} @bitmap{images/imgValue2.png}))
                                        )]{
   @unit-descr{
@@ -282,10 +282,21 @@
                     @student{
                         Now that you've walked through the Design Recipe once, it's time to get some practice! For each of the following problems, use a page in your student workbook. Don't forget to write all three steps: (1) Contract & Purpose, (2) Examples & Labels, and (3) Definition!
                         @itemlist[
-                            @item{ Write a function called @code{young-pet}, which consumes a Row of the animals table and produces true if it's less than 2 years old. }
-                            @item{ Write a function called @code{nametag}, prints out each animal's name in big red letters. (Get fancy, by overlaying their name on top of a yellow rectangle!) }
-                            @item{ Write a function called @code{fixed-dog}, which consumes a Row of the animals table and produces true if it's a dog that's been fixed. }
-                            @item{ Write a function called @code{sentence}, which consumes a Row of the animals table and produces a String containing the animal's name, the word "the", and the species of the animal. (For example, "Nori the dog". }
+                            @item{ 
+                                Write a function called @code{young-pet}, which consumes a Row of the animals table and produces @code{true} if it's less than 2 years old. 
+                            }
+                            @item{ 
+                                Write a function called @code{nametag}, prints out each animal's name in big red letters. (Get fancy, by overlaying their name on top of a yellow rectangle!) 
+                            }
+                            @item{ 
+                                Write a function called @code{fixed-dog}, which consumes a Row of the animals table and produces @code{true} if it's a dog that's been fixed. 
+                            }
+                            @item{ 
+                                Write a function called @code{sentence}, which consumes a Row of the animals table and produces a String containing the animal's name, the word "the", and the species of the animal. (For example, "Nori the dog". 
+                            }
+                            @item{
+                                What kind of animal would @italic{you} adopt? Is there a maximum or minum age? Do you care if the animal has been fixed or not? Write a function called @code{adopt}, which consumes a Row of the animals table and produces @code{true} if it's an animal that you would adopt.
+                            }
                         ]
                     }
                 }
@@ -386,7 +397,7 @@
         @points[
               @point{
                     @student{
-							             Congratulations! You've just learned the basics of the Pyret programming language, and how to use that language to answer a data science question. Throughout this course, you'll learn new and more powerful tools that will allow you to answer more complex questions, and in greater detail.
+							             Building functions is a powerful technique, which you'll use throughout the course. Today, you learned how to write functions that work on one row of a table at a time. In the next lesson, you'll learn how to use those functions to loop over an @italic{entire table}, letting us extend, filter, and sort our animals table.
 
 							       @activity[#:forevidence "BS-IDE&1&1"]{
 								            Make sure to save your work.  Hit the Save button in the top left. This will save your program in the code.pyret.org folder within your Google Drive.
