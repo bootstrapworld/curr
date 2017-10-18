@@ -397,7 +397,7 @@ The @code{DeliveryState} @code{data} block tells us that we're defining a new da
                                 different enemies, each with its own position and health, or multiple levels with their own background images, the game can get 
                                 very complicated very fast, and structures are a great way to manage and make sense of all the data. Programmers can do a LOT with data
                                 structures, and in the upcoming lessons you'll start creating your own structures to make a customized animation.}
-           @teacher{Have students volunteer what they learned in this lesson!}}
+           @teacher{Have students volunteer what they learned in this lesson! For extra practice with the vocabulary involved with data structures, have students complete @worksheet-link[#:name "vocabulary-practice"] in their workbooks.}}
   
            
  ]}
