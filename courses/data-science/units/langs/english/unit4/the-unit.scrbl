@@ -2,11 +2,22 @@
 
 @title{Unit 4: Measuring Center}
 
-@unit-overview/auto[#:lang-table (list (list "Number" @code{+, -, *, /, num-sqrt, num-sqr} "")
-                                       (list "String" "n/a" "")
-                                       (list "Image" @code{draw-plot} "")
-                                       (list "Series" @code{function-plot, scatter-plot, bar-chart, pie-char, freq-bar-chart} "")
-                                       (list "List" @code{extract} ""))]{
+@unit-overview/auto[#:lang-table (list (list "Number" 
+                                              @code{+, -, *, /, num-sqrt, num-sqr} 
+                                              @code{4, -1.2. 2/3})
+                                       (list "String" 
+                                              "n/a" 
+                                              (list @code{"hello" "91"} ))
+                                       (list "Image" 
+                                              @code{draw-plot} 
+                                              (list @bitmap{images/imgValue1.png} @bitmap{images/imgValue2.png}))
+                                       (list "DataSeries" 
+                                              @code{function-plot, scatter-plot, bar-chart, pie-char, freq-bar-chart} 
+                                              "")
+                                       (list "List" 
+                                              @code{extract} 
+                                              @code{[list: "list", "of", "strings"], [list: 1, 2 , 3]})
+                                  )]{
   @unit-descr{Students learn how to measure central tendency using mean/median/mode.  They will practice calculating these values by hand, and learn to do so using Lists in Pyret}
 }
 @unit-lessons{
@@ -134,7 +145,7 @@
                 }
                 @point{
                       @student{
-                              It would be nice if Pyret had a way for us to compute the @vocab{mean} of any List.  What would that function be called?
+                              It would be nice if Pyret had a way for us to compute the @vocab{mean} of any List.  What do you think the contract for this function might be? Can you think of its Name, Domain and Range?
                       }
                       @teacher{
                               Get students to give suggestions as to what the mean function should be called.
@@ -170,8 +181,8 @@
                       @student{
                               This function takes a @italic{List of Numbers} as input, and gives us the mean (a Number) as output. Write the contract for this function into your Contracts page as:
 
-                              @code[#:multi-line #t]{# mean :: List<Number> -> Number}
-                              Notice that we use @code{List<Number>} to descibe "lists of numbers"!
+                              @code[#:multi-line #t]{# mean :: (l :: List<Number>) -> Number}
+                              Reminder: we use @code{List<Number>} to descibe a "list of numbers"!
                       }
                       @teacher{
 
@@ -207,7 +218,7 @@
                                             Cross out the lowest number in the list.
                                       }
                                       @item{
-                                            Repeat these steps until there is only one number left in the list.  This number is the median. If there are two numbers left, take the mean of those numbers, for reasons explained in the next point.
+                                            Repeat these steps until there is only one number left in the list.  This number is the median. If there are two numbers left, @italic{take the mean of those numbers}.
                                       }
                               ]
                                
@@ -230,12 +241,12 @@
                 @point{
                       @student{
                               @activity[#:forevidence "BS-IDE&1&1"]{
-                                    Return to your workbook and complete the column for median values.
+                                    Return to @worksheet-link[#:name "Mean-Median-Mode"] in your workbook and complete the column for median values.
                               }
 
                               Pyret has a function to compute the median of a list as well, with the contract:
 
-                              @code{# median :: List<Number> -> Number}
+                              @code{# median :: (l :: List<Number>) -> Number}
 
                               @activity[#:forevidence "BS-IDE&1&1"]{
                                       Test your answers in the median column with the @code{median} function.
@@ -247,13 +258,7 @@
                 }
                 @point{
                       @student{
-                              The third and last measure of center is the @vocab{mode}.  The @vocab{mode} of a list is the element that appears most often in the list.
-
-                              @code[#:multi-line #t]{
-                                    [list: 1, 2, 2, 3, 4]
-                              }
-
-                              Here the mode is @code{2}, since 2 appears more than any other number.
+                              The third and last measure of center is the @vocab{mode}. The @vocab{modes} of a list are all the elements that appear most often in the list. Median and Mean always produce one number. Mode is different than the other measures, since a list can have multiple modes - or even no modes at all!
                       }
                       @teacher{
 
@@ -261,54 +266,46 @@
                 }
                 @point{
                       @student{
-                              What is the mode of this list?
-
                               @code[#:multi-line #t]{
+                                    [list: 1, 2, 3, 4]
+                                    [list: 1, 2, 2, 3, 4]
                                     [list: 1, 1, 2, 3, 4, 4]
                               }
 
-                              This list has multiple modes:  @code{1, 4}, because they appear equally often, and more than other elements in the list.
-
-                              @activity[#:forevidence "BS-IDE&1&1"]{
-                                      Complete the final column, by calculating the mode for each example list.
-                              }
+                              @itemlist[
+                                @item{The mode of the first value is @code{[list: ]}, because no element is repeated at all.}
+                                @item{The mode list of the second value is @code{[list: 2]}, since 2 appears more than any other number.}
+                                @item{The mode list of the last value is @code{[list: 1, 4]}, because @code{1} and @code{4} both appear more often than any other element, and because they are appear equally often.}
+                              ]
                       }
                       @teacher{
-                              For the examples in which a list has multiple modes, students should write in the smallest mode because that is the behavior of the @code{mode} function in Pyret, which can only return one Number, as opposed to @code{modes} which returns a List<Number>.
+
                       }
                 }
                 @point{
                       @student{
-                              There are two different functions provided by Pyret:  @code{mode}, and @code{modes}.
-
                               @activity[#:forevidence "BS-IDE&1&1"]{
-                                      Type each of these lines of code into the interactions window. What's different about these two functions, when applied to the same List?
-
-                                      @itemlist[
-                                              @item{
-                                                    mode(c)
-                                              }
-                                              @item{
-                                                    modes(c)
-                                              }
-                                      ]
+                                      Complete the final column on @worksheet-link[#:name "Mean-Median-Mode"], by calculating the mode list for each value.
                               }
+                      }
+                      @teacher{
 
-                              @code{mode} will return the smallest mode, which is a Number, but @code{modes} will return a List<Number> containing all of the modes.  Their contracts are:
-
+                      }
+                }
+                @point{
+                      @student{
+                              In Pyret, the mode list is calculated by the @code{modes} function, which consumes a List of Numbers and produces a list of Numbers. 
                               @code[#:multi-line #t]{
-                                    # mode  :: List<Number> -> Number
-                                    # modes :: List<Number> -> List<Number>
+                                    # modes :: (l :: List<Number>) -> List<Number>
                               }
                       }
                       @teacher{
                               @itemlist[
                                     @item{
-                                          Have students add these two contracts to their contract list.
+                                          Have students add the two contracts to their contract list.
                                     }
                                     @item{
-                                          Note that later, we will reveal that @code{mode} and @code{modes}
-                                          can be used on Lists of Strings as well.
+                                          Note that later, we will reveal that @code{modes} can be used on Lists of Strings as well. There are also functions for producing a single number, which more closely mirrors what you may find in math class: @code{mode-smallest} and @code{mode-largest}. These will raise an error if the input list has no duplicate values.
                                     }
                               ]
                       }
@@ -417,7 +414,7 @@
                                             median:  @code{68}
                                       }
                                       @item{
-                                            mode:  @code{69}
+                                            modes:  @code{[list: 68, 100]]}
                                       }
                               ]
                               Notice that the mean is well over 75, even though most of the students scored below 70! The mean here is more affected by @italic{outliers}: those two 100s are bringing the average up. This is because the mean is calculated using every value in the list, while the median is calculated with at most 2 values from the list.
@@ -471,7 +468,7 @@
                                     Make sure to save your work.  Hit the Save button in the top left. This will save your program in the code.pyret.org folder within your Google Drive.
                                   }
                                   @item{  
-                                    Use @code{mean}, @code{median} and @code{mode} with the @code{household-income} list. Do you think the "average household income" is still a good measure to use when talking about poverty? Why or why not? Take two minutes to write your answer on @worksheet-link[#:name "Unit-4"].
+                                    Use @code{mean}, @code{median} and @code{modes} with the @code{household-income} list. Do you think the "average household income" is still a good measure to use when talking about poverty? Why or why not? Take two minutes to write your answer on @worksheet-link[#:name "Unit-4"].
                                   }
                             ]
                         }

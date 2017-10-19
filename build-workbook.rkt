@@ -27,7 +27,7 @@
 ;
 (putenv "LANGUAGE" "english")
 
-(define courses '("algebra" "reactive"))
+(define courses '("algebra" "reactive" "data-science"))
 
 ; parse command-line arguments
 

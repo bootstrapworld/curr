@@ -2,12 +2,23 @@
 
 @title{Unit 7: Select and Order}
 
-@unit-overview/auto[#:lang-table (list (list "Number" @code{+, -, *, /, num-sqrt, num-sqr} "")
-                                       (list "String" "n/a" "")
-                                       (list "Image" @code{draw-plot, draw-plots} "")
-                                       (list "Series" @code{function-plot, scatter-plot, bar-chart, pie-chart, freq-bar-chart, histogram} "")
-                                       (list "List" @code{extract, mean, median, mode, modes} ""))
-                    ]{ @unit-descr{Students are introduced to their first examples of operations that consume and produce tables, and learn how to select columns and order rows. They are also introduced to the beginnings of Table Plans, as a vehicle for thinking through compound queries.}
+@unit-overview/auto[#:lang-table (list (list "Number" 
+                                              @code{+, -, *, /, num-sqrt, num-sqr} 
+                                              @code{4, -1.2. 2/3})
+                                       (list "String" 
+                                              "n/a" 
+                                              (list @code{"hello" "91"} ))
+                                       (list "Image" 
+                                              @code{draw-plot} 
+                                              (list @bitmap{images/imgValue1.png} @bitmap{images/imgValue2.png}))
+                                       (list "DataSeries" 
+                                              @code{function-plot, scatter-plot, bar-chart, pie-char, freq-bar-chart, histogram} 
+                                              "")
+                                       (list "List" 
+                                              @code{extract, mean, median, modes} 
+                                              @code{[list: "list", "of", "strings"]})
+                                  )]{                                           
+  @unit-descr{Students are introduced to their first examples of operations that consume and produce tables, and learn how to select columns and order rows. They are also introduced to the beginnings of Table Plans, as a vehicle for thinking through compound queries.}
 }
 @unit-lessons{
 
@@ -98,7 +109,7 @@
                 }
                 @point{
                       @student{
-                              When we want to answer questions about just a few columns in a table, @italic{we can remove the unnecessary ones} with @vocab{select}. @code{select} is a @vocab{table query}: a special key word that will create a new table using information from a starting table. Table queries are called queries because they are used to ask questions using specific information in tables. @vocab{select} creates a table containing only the columns that the programmer specifies.
+                              When we want to answer questions about just a few columns in a table, @italic{we can grab the ones we want} with @vocab{select}. @code{select} is a @vocab{table query}: a special key word that will create a new table using information from a starting table. Table queries are called queries because they are used to ask questions using specific information in tables. @vocab{select} creates a table containing only the columns that the programmer specifies.
 
                               @code[#:multi-line #t]{
                                       movies-selected = select title, year from movies end

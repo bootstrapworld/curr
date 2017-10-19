@@ -2,12 +2,22 @@
 
 @title{Unit 6: Correlation and Line of Best Fit}
 
-@unit-overview/auto[#:lang-table (list (list "Number" @code{+, -, *, /, num-sqrt, num-sqr} "")
-                                       (list "String" "n/a" "")
-                                       (list "Image" @code{draw-plot} "")
-                                       (list "Boolean" @code{==, <>, <, >, <=, >=} "")
-                                       (list "Series" @code{function-plot, scatter-plot, bar-chart, pie-chart, freq-bar-chart, histogram} "")
-                                       (list "List" @code{extract, mean, median, mode, modes} ""))]{
+@unit-overview/auto[#:lang-table (list (list "Number" 
+                                              @code{+, -, *, /, num-sqrt, num-sqr} 
+                                              @code{4, -1.2. 2/3})
+                                       (list "String" 
+                                              "n/a" 
+                                              (list @code{"hello" "91"} ))
+                                       (list "Image" 
+                                              @code{draw-plot} 
+                                              (list @bitmap{images/imgValue1.png} @bitmap{images/imgValue2.png}))
+                                       (list "DataSeries" 
+                                              @code{function-plot, scatter-plot, bar-chart, pie-char, freq-bar-chart, histogram} 
+                                              "")
+                                       (list "List" 
+                                              @code{extract, mean, median, modes} 
+                                              @code{[list: "list", "of", "strings"]})
+                                  )]{                                       
   @unit-descr{Students dig deeper into scatter plots as a method of visualizing the relationship between two axes, and into the notion of "line of best fit". }
 }
 @unit-lessons{
@@ -141,7 +151,7 @@
                 }
                 @point{
                         @student{
-                                To answer this question, we will return to the very first chart you learned about in this class: @vocab{scatter plots}. A scatter plot is a chart that plots every pair of numbers in 2 columns. By extracting the two columns from @code{restaurants}, we can create a series to plot:
+                                To answer this question, we will return to the very first chart you learned about in this class: @vocab{scatter plots}. A scatter plot is a chart that plots every pair of numbers in 2 columns. By extracting the two columns from @code{restaurants}, we can create a DataSeries to plot:
                                 @code[#:multi-line #t]{
                                         ratings-list = extract rating from restaurants end
                                         prices-list  = extract price  from restaurants end
@@ -160,7 +170,7 @@
                                 There are 9 points on our restaurant scatter plot: one for each restaurant in the table. Each dot's placement depends on the price and rating values of a particular restaurant. For example, look at the restaurant "Riverside Grille". Riverside Grille has an average price of 19.56, so it will appear to the far right of the chart. Riverside Grille has an average rating of 4.9, so it will appear towards the top of the chart.
 
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                    In Pyret, open the scatter plot that shows the relationship between prices and ratings.
+                                    In Pyret, evalute @code{prices-vs-ratings-plot} to see the relationship between prices and ratings.
                                         @itemlist[
                                                 @item{
                                                         Which dot represents the restaurant "Family Diner"?
@@ -359,13 +369,35 @@
                 }
                 @point{
                         @student{
-                                Data scientists use statistics to build a @italic{model} of a data set. This model takes into account a lot of different measures (including some of the ones you already know), and tries to identify patterns and relationships within the data. We can build a model of our own in Pyret, and grab a @italic{predictor function} from it:
+                                Data scientists use statistics to build a @italic{model} of a data set. This model takes into account a lot of different measures (including some of the ones you already know), and tries to identify patterns and relationships within the data. When we draw our predictor line on a scatterplot, we can imagine a rubber band stretching between the line itself and each point in the plot - every point pulls the line a little "up" or "down". 
+                        }
+                        @teacher{
+
+                        }
+                }
+                @point{
+                        @student{
+                                @activity{
+                                  You can see this model action, in this @(hyperlink "https://www.geogebra.org/m/xC6zq7Zv" "interactive simulation"). Each vertical line represents the error, or the amount the rubber band has to stretch between a single datapoint and the prediction line. The "Target SSE" shows how much error there is in the best possible predictor line. Our goal is to match that, by moving the red line or the "guide dots" on it. 
+                                  @itemlist[
+                                      @item{Could the predictor line ever be above or below @italic{all} the points? Why or why not?}
+                                      @item{What would the plot have to look like for SSE to be zero?}
+                                  ]
+                                }
+                        }
+                        @teacher{
+                                Give students some time to experiment here! Can your students come up with rules or suggestions for how to minimize error? 
+                        }
+                }
+                @point{
+                        @student{
+                                We can computer our own predictor line in Pyret, and grab a @italic{predictor function} from it:
 
                                 @code[#:multi-line #t]{
                                         # use linear regression to extract a predictor function
                                         rating-predictor = linear-regression(prices-list, ratings-list) 
                                 }
-                                @code{linear-regression} is a function that takes 2 lists as arguments, and returns a function of Type @code{Number -> Number}. This function is our predictor, representing the line that best fits the data. We define this function to be the identifier @code{rating-predictor}, and we can use it just like any other function. 
+                                @code{linear-regression} is a function that takes 2 a List of xs and ys as arguments, and @italic{returns a function} of Type @code{Number -> Number}. This function is our predictor, representing the line that best fits the data. We define this function to be the identifier @code{rating-predictor}, and we can use it just like any other function. 
 
                                 @activity[#:forevidence "BS-IDE&1&1"]{
                                         Type @code{rating-predictor(0)} into the Interactions Area. What is the output?  What happens with @code{rating-predictor(20)?} What is the contract for @code{rating-predictor}?
@@ -381,7 +413,7 @@
                 @point{
                         @student{
                                 @activity{
-                                    Once we have the function series, we know how to plot it - we used @code{draw-plot} back in Unit 1! Use Pyret to plot this function, and the scatter-plot. Ideally, we'd like to plot these @italic{on top of one another}, and we can do this using the @code{draw-plots} function. It works much the way @code{draw-plot} does, but instead of one @code{series} it takes in a @italic{list of series} (@code{List<Series>}) as its Domain.
+                                    Once we have the function's DataSeries, we know how to plot it - we used @code{draw-plot} back in Unit 1! We can use @code{draw-plot} to plot the function @code{DataSeries} or the scatterplot @code{DataSeries}, but we'd like to plot these @italic{on top of one another}, and we can do this using the @code{draw-plots} function. It works much the way @code{draw-plot} does, but instead of one @code{DataSeries} it takes in a @italic{list of DataSeries} (@code{List<DataSeries>}) as its Domain.
                                 }
                         }
                         @teacher{
@@ -440,7 +472,7 @@
 
                                 This is a number on the same scale [0, 1] that tell us "how much of the variation in the scatterplot is explained by this function". In other words, it's a measure for how well the line fits. A perfect score of 1.0 means that 100% of the variability in the data is explained by the function, and that our predictor is perfect. For the price vs ratings, the predictor score is ~0.71, which is fairly accurate. The contract for @code{r-squared} is:
                                 @code[#:multi-line #t]{
-                                    # r-squared :: List<Number>, List<Number>, (Number->Number) -> Number
+                                    # r-squared :: (xs :: List<Num>, ys :: List<Num>, predictor :: Num->Num) -> Number
                                 }
 
                                 @activity[#:forevidence "BS-IDE&1&1"]{
@@ -474,6 +506,15 @@
                         }
                         @teacher{
 
+                        }
+                }
+                @point{
+                        @student{
+                                @bitmap{images/nonlinear.png}
+                                You've learned how linear regression can be used to compute a linear relationship for a cloud of data, and how to determine the error of that relationship. The word "linear" means "in a straight line", which is why all of our predictors are in a straight line. In the image on the right, there's clearly a pattern, but it doesn't look like a straight line! There are many other kinds of statistical modeling out there, but all of them work the same way: given a particular kind of mathematical function (linear or otherwise), figure out how to get the "best fit" for a cloud of data. 
+                        }
+                        @teacher{
+                        
                         }
                 }
         ]

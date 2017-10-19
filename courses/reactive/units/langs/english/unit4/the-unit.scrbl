@@ -1,11 +1,10 @@
 #lang curr/lib
 
 @title{Unit 4: Functions that Ask Questions}
-@declare-tags[]
 
-@unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / num-sqr num-sqrt num-expt})
-                                       (list "String" @code{string-append string-length})
-                                       (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image}))]{
+@unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / num-sqr num-sqrt num-expt} "")
+                                       (list "String" @code{string-append string-length} "")
+                                       (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image} ""))]{
 @unit-descr{Students are introduced to conditionals using @tt{if-expressions}, on both built-in data (like numbers) and on programmer-defined data structures.
             They then use conditionals to implement an animation that goes through distinct phases. They also learn about helper functions, which abstract away
             frequently-used code to improve readability and reduce duplication.
@@ -102,7 +101,7 @@
 ]
 }
 
-@lesson/studteach[#:title "Where's the Jumper?"
+@lesson/studteach[#:title "Where's my Order?"
         #:duration "35"
         #:overview ""
         #:learning-objectives @itemlist[@item{write a piecewise function from scratch using the Design Recipe}
@@ -113,7 +112,7 @@
         #:standards (list)
         #:materials @itemlist[]
         #:preparation @itemlist[
-          @item{The @editor-link[#:public-id "0B9rKDmABYlJVX21wZ2lSMTRZbG8" "Where's the Jumper?"] file preloaded on students' machines}]
+          @item{The @editor-link[#:public-id "0B9rKDmABYlJVNDdsNDBNcHdSVWs" "Where's my Order?"] file preloaded on students' machines}]
         #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -122,27 +121,27 @@
       ]{
         @points[
 @point{
-@student{Let's revisit the parachute jumper program from earlier.  We're going to write
-a function that tells us where the jumper is for a given @code{JumperState}.
+@student{Let's revisit the package delivery program from earlier.  We're going to write
+a function that tells us where the package is for a given @code{DeliveryState}.
 This is the kind of function you might need to write later on in your game, to
-detect where characters are, and make decisions based on that information. For instance, you may need to know whether a character has reached a portal at a certain part of the screen to advance to the next level, or if they've fallen into dangerous lava, which reduces their health!
+detect where objects or characters are, and make decisions based on that information. For instance, you may need to know whether a character has reached a portal at a certain part of the screen to advance to the next level, or if they've fallen into dangerous lava, which reduces their health!
 
-@activity{Open your workbook to @worksheet-link[#:name "location"]. Use the design recipe to write a function to tell you where the parachute jumper is (either "cliff", "beach", "water", or "air"), based on the JumperState.}
+@activity{Open your workbook to @worksheet-link[#:name "location"]. Use the design recipe to write a function to tell you where the falling box is (either "road", "house", "delivery zone", or "air"), based on the DeliveryState.}
           
 Use this picture to figure out the regions of the different parts of the
-background image: 
-@bitmap{images/Jumpersmall.png} 
+background image:
+@bitmap{images/deliverysmall.png} 
  
  
  
 
-@activity{Once you've completed the problem on paper, open the @editor-link[#:public-id "0B9rKDmABYlJVX21wZ2lSMTRZbG8" "Where's the Jumper?"] file. We've gotten you started with the contract and purpose statement for @code{location} in the file:}
+@activity{Once you've completed the problem on paper, open the @editor-link[#:public-id "0B9rKDmABYlJVNDdsNDBNcHdSVWs" "Where's my Order?"] file. We've gotten you started with the contract and purpose statement for @code{location} in the file:}
 
 @code[#:multi-line #t]{
-# location :: JumperState -> String
-# Consumes a JumperState and produces a String 
-# representing the location of the jumper: 
-# either "cliff", "beach", "water", or "air"
+# location :: DeliveryState -> String
+# Consumes a DeliveryState and produces a String 
+# representing the location of the box: 
+# either "road", "delivery zone", "house", or "air"
 
 }
 Copy the work you have in your workbok to implement @code{location} on the computer.
@@ -154,17 +153,16 @@ Copy the work you have in your workbok to implement @code{location} on the compu
 
 @point{
   @student{In addition to writing your examples, you can also check that the @code{location}
-function's behavior matches what a drawing of a @code{JumperState} instance
-shows.  For example, if @code{location} returns @code{"cliff"} on some input,
-when we draw that same input, it ought to look like the parachutist has hit the
-cliff!
+function's behavior matches what a drawing of a @code{DeliveryState} instance
+shows.  For example, if @code{location} returns @code{"road"} on some input,
+when we draw that same input, it ought to look like the package has landed in the road!
 
 @activity[]{Experiment with this function!  
             @itemlist[
                       @item{Click "Run" to compile your program, then close the animation window.}
                        @item{In the interactions pane, evaluate @code{location(START)}. What does it return (hopefully @code{"air"})?}
-                       @item{Evaluate @code{draw-state(START)}. does it look like the jumper is in the air?}  
-                       @item{Do the same for an instance of a JumperState where the jumper is on the cliff, in the water, and on the beach.}]
+                       @item{Evaluate @code{draw-state(START)}. does it look like the box is in the air?}  
+                       @item{Do the same for an instance of a DeliveryState where the box is in the road, on the house, and in the delivery zone.}]
 
 }
 

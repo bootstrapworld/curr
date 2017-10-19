@@ -2,11 +2,22 @@
 
 @title{Unit 5: Histograms}
 
-@unit-overview/auto[#:lang-table (list (list "Number" @code{+, -, *, /, num-sqrt, num-sqr} "")
-                                       (list "String" "n/a" "")
-                                       (list "Image" @code{draw-plot} "")
-                                       (list "Series" @code{function-plot, scatter-plot, bar-chart, pie-chart, freq-bar-chart} "")
-                                       (list "List" @code{extract, mean, median, mode, modes} ""))]{
+@unit-overview/auto[#:lang-table (list (list "Number" 
+                                              @code{+, -, *, /, num-sqrt, num-sqr} 
+                                              @code{4, -1.2. 2/3})
+                                       (list "String" 
+                                              "n/a" 
+                                              (list @code{"hello" "91"} ))
+                                       (list "Image" 
+                                              @code{draw-plot} 
+                                              (list @bitmap{images/imgValue1.png} @bitmap{images/imgValue2.png}))
+                                       (list "DataSeries" 
+                                              @code{function-plot, scatter-plot, bar-chart, pie-char, freq-bar-chart} 
+                                              "")
+                                       (list "List" 
+                                              @code{extract, mean, median, modes} 
+                                              @code{[list: "list", "of", "strings"]})
+                                  )]{
   @unit-descr{Students are introduced to Histograms as visualizations for quantitative data, learn to analyze features of Histograms, and construct them in Pyret}
 }
 @unit-lessons{
@@ -30,7 +41,7 @@
                 @point{
                         @student{
                                 @bitmap{images/dice.png}
-                                Suppose a stranger invites you to play a game. You start by guessing a number between 2 and 12. The stranger rolls two dice, and add the numbers together. If that sum is the number you guessed, you win the jackpot, but if your number is wrong, then you lose your money. What are your odds of winning this game? Are they good enough that it's worth playing?
+                                While traveling to Vegas, you find yourself at Pearson's Casino. Pearson himself invites you to play a game, and it only costs you $1. He rolls two dice and adds the numbers together, while you guess what number he came up with. If you guess right, you keep your money and get an extra $1 to boot! But if you guess wrong, he keeps your dollar. What are your odds of winning this game? Are they good enough that it's worth playing?
                                 @activity{
                                         Turn to page @worksheet-link[#:name "Unit-5"]. Take two minutes to write your answer.
                                 }
@@ -42,6 +53,9 @@
                                         }
                                         @item{
                                                 If you are uneasy about using a gambling example in the classroom, we understand: the students will see at the end that they should NOT agree to play this game!
+                                        }
+                                        @item{
+                                                Note: The field of Statistics (and Karl Pearson himself) has a @(hyperlink "https://en.wikipedia.org/wiki/Karl_Pearson" "checkered past") when it comes to how they have been used throughout history.
                                         }
                                 ]
                         }
@@ -110,13 +124,13 @@
                                 Use @code{roll-dice} to create a list of 10,000 rolls.  How can we use this List to come up with our lucky number? Is there a measure of center that could answer this question, and help us win the jackpot?
                         }
                         @teacher{
-                                Guide students to suggest using mean, median, and mode to measure the center of the list of dice rolls.
+                                Guide students to suggest using mean, median, and modes to measure the center of the list of dice rolls.
                         }
                 }
                 @point{
                         @student{
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                        What are the @code{mean}, @code{median}, and @code{mode} of a list of 10,000 dice rolls? Use the functions you've learned in Pyret to compute them. Does @code{roll-dice} give you the same list every time? Will you get the same mean every time?
+                                        What are the @code{mean}, @code{median}, and @code{modes} of a list of 10,000 dice rolls? Use the functions you've learned in Pyret to compute them. Does @code{roll-dice} give you the same list every time? Will you get the same mean every time?
                               }
                         }
                         @teacher{
@@ -127,7 +141,7 @@
                         @student{
                                 We can see that the mean and median are both 7, and the mean is very, @italic{very} close to 7. So 7 is probably our best guess.
 
-                                Unfortunately, we still don't know if 7 comes up often enough for this to be a game worth playing! We've used our measures of center to figure out the most frequent number, but just @italic{how frequent is it}? We need some way of asking if 7 appears more than all the other numbers combined.
+                                Unfortunately, we still don't know if 7 comes up often enough for this to be a game worth playing! If each round means we lose a dollar or win a dollar, we need our odds to be better than 50% to make it worth playing. We've used our measures of center to figure out the most frequent number, but just @italic{how frequent is it}? We need some way of asking if 7 appears more than all the other numbers combined.
                         }
                 }
                 @point{
@@ -135,17 +149,20 @@
                                 We can use a different kind of chart for visualizing @italic{how frequent values are} in a list of quantitative data. This kind of chart is a called @vocab{histogram}, and it is similar to the bar charts you have seen before.
 
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Type the following code into your Definitions Area to create the histogram series and draw the plot.
+                                        Type the following code into your Definitions Area to create the histogram DataSeries and draw the plot.
 
                                         @code[#:multi-line #t]{
                                                 dice-histogram-series = histogram(roll-dice(10000), 11)
                                                 dice-histogram-plot   = draw-plot("dice rolls", dice-histogram-series)
                                         }
 
-                                        Use @code{.display()} to see what the histogram looks like, then try changing the second argument from @code{11} to @code{1}. What do you think this argument means?
+                                        See what the histogram looks like, then try changing the second argument to @code{histogram}. What do you think this argument means?
                                 }
 
-                                Here, the @code{histogram} function takes two arguments:
+                                The contract for @code{histogram} is:
+                                @code[#:multi-line #t]{
+                                    # histogram :: (values :: List<Number>, bins :: Number) -> DataSeries
+                                }
                                 @itemlist[
                                         @item{
                                                 The first is a list of numbers, containing the quantitative data.

@@ -2,13 +2,25 @@
 
 @title{Unit 9: Extending Tables}
 
-@unit-overview/auto[#:lang-table (list (list "Number" @code{+, -, *, /, num-sqrt, num-sqr} "")
-                                       (list "String" "n/a" "")
-                                       (list "Image" @code{draw-plot, draw-plots} "")
-                                       (list "Boolean" @code{==, <>, <, >, <=, >=} "")
-                                       (list "Series" @code{function-plot, scatter-plot, bar-chart, pie-chart, freq-bar-chart, histogram} "")
-                                       (list "List" @code{extract, mean, median, mode, modes} "")
-                                       (list "Table" @code{select, order, sieve} ""))]{
+@unit-overview/auto[#:lang-table (list (list "Number" 
+                                              @code{+, -, *, /, num-sqrt, num-sqr} 
+                                              @code{4, -1.2. 2/3})
+                                       (list "String" 
+                                              "n/a" 
+                                              (list @code{"hello" "91"} ))
+                                       (list "Image" 
+                                              @code{draw-plot} 
+                                              (list @bitmap{images/imgValue1.png} @bitmap{images/imgValue2.png}))
+                                       (list "DataSeries" 
+                                              @code{function-plot, scatter-plot, bar-chart, pie-char, freq-bar-chart, histogram} 
+                                              "")
+                                       (list "List" 
+                                              @code{extract, mean, median, modes} 
+                                              @code{[list: "list", "of", "strings"]})
+                                       (list "Table" 
+                                              @code{select, order, sieve} 
+                                              "")
+                                  )]{
   @unit-descr{Students learn to extend tables with new columns, computed from a previous table's data.}
 }
 @unit-lessons{
@@ -231,7 +243,7 @@
                                             Do the rows need to be any particular order? It's not clear from the word problem, so we can choose: do we skip this step, or should we order them so your aunt can immediately see which food is best?
                                         }
                                         @item{
-                                            Do we have any unecessary columns? Yes! All we care about are the @code{name}, @code{calories}, and @code{protein-per-gram} columns. Write the @code{select} query to do this.
+                                            Which columns do we need? All we care about are the @code{name}, @code{calories}, and @code{protein-per-gram} columns. Write the @code{select} query to do grab those columns.
                                         }
                                         @item{
                                             Once you're done with your Table Plan, program your queries in the Definitions Area, under "4. Body Building".
@@ -288,7 +300,7 @@
                                             Extract the columns you'll need to create the histogram
                                         }
                                         @item{
-                                            Define the histogram series, and then plot the histogram. If you've forgotten how to make a historgram series, a plot, or how to draw the plot, don't forget to refer back to your contracts page!
+                                            Define the histogram DataSeries, and then plot the histogram. If you've forgotten how to make a historgram DataSeries, a plot, or how to draw the plot, don't forget to refer back to your contracts page!
                                         }
                                     ]
                                 }
@@ -342,7 +354,7 @@
                                             Extract the columns you'll need to create the scatterplots and @vocab{predictor} functions for @bold{both relationships}: "population v. life expectancy" and "per-capita-GDP v. life expectancy".
                                         }
                                         @item{
-                                            Define the two scatterplot series, and then plot them both.
+                                            Define the two scatterplot DataSeries, and then plot them both.
                                         }
                                         @item{
                                             Define your predictor functions and r-squared values. Plot your predictor functions on top of your scatterplots, and use the r-squared values to determine which predictor better explains median life expectancy.

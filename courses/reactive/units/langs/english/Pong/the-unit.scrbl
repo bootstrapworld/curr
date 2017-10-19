@@ -1,11 +1,10 @@
 #lang curr/lib
-@declare-tags[]
 
 @title{Feature: Making Pong}
 
-@unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sqr sqrt expt})
-                                       (list "String" @code{string-append string-length})
-                                       (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image}))]{
+@unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sqr sqrt expt} "")
+                                       (list "String" @code{string-append string-length} "")
+                                       (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image} ""))]{
 @unit-descr{Students use the Animation Design Worksheet to decompose a 2-player game of Pong, and implement it in Pyret.}
 }
 
