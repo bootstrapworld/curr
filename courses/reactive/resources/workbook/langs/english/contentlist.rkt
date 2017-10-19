@@ -23,6 +23,7 @@
  ("StudentWorkbook.pdf" "Cakes")
  ("StudentWorkbook.pdf" "taller-than")
  ("StudentWorkbook.pdf" "will-melt")
+ ("StudentWorkbook.pdf" "vocabulary-practice")
  ;;;;; UNIT 3 ;;;;;;;;;
  ("StudentWorkbook.pdf" "Unit-3")
  ("StudentWorkbook.pdf" "animation-sunset")
@@ -40,12 +41,10 @@
  ;;;;; UNIT 4 ;;;;;;;;;
  ("StudentWorkbook.pdf" "Unit-4")
  ("StudentWorkbook.pdf" "location")
- ("StudentWorkbook.pdf" "piecewise")
  ("StudentWorkbook.pdf" "piecewise-bug-hunting")
  ("StudentWorkbook.pdf" "animation-extension-1-sun")
  ("StudentWorkbook.pdf" "animation-extension-2")
- ("StudentWorkbook.pdf" "sun-color")
- ("StudentWorkbook.pdf" "piecewise")
+ ("StudentWorkbook.pdf" "draw-sun")
  ;;;;; UNIT 5 ;;;;;;;;;
  ("StudentWorkbook.pdf" "Unit-5")
  ("StudentWorkbook.pdf" "cat-hunger")
