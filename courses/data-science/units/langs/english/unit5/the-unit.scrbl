@@ -1,9 +1,9 @@
 #lang curr/lib
 
-@title{Unit 5: Visualization}
+@title{Unit 5: Measuring Center}
 
 @unit-overview/auto[#:lang-table (list (list "Number" 
-                                              @code{+, -, *, /, num-sqrt, num-sqr, mean, median, modes} 
+                                              @code{+, -, *, /, num-sqrt, num-sqr} 
                                               @code{4, -1.2. 2/3})
                                        (list "String" 
                                               @code{string-repeat} 
@@ -18,140 +18,13 @@
                                               @code{.row-n, .order-by, .filter, .build-column}
                                               ""))]{
   @unit-descr{
-    Students are introduced to Visualizations in Pyret, and learn how to construct and interpret DataSeries for Pie Charts, Bar Charts, Frequency Bar Charts, and Histograms. After experimenting with these visualizations in a contrived dataset, they apply them to their own research and intepret the results in their research papers. 
+    Students learn how to measure central tendency using mean/median/mode. After applying these concepts to a contrived dataset, they apply them to their own datasets and interpret the results in their research papers.
   }
 }
 @unit-lessons{
-  @lesson/studteach[
+
+@lesson/studteach[
      #:title "Introduction"
-     #:duration "5 minutes"
-     #:overview ""
-     #:learning-objectives @itemlist[]
-     #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[]
-     #:standards (list)
-     #:materials @itemlist[]
-     #:preparation @itemlist[]
-     #:pacings (list 
-                @pacing[#:type "remediation"]{@itemlist[@item{}]}
-                @pacing[#:type "misconception"]{@itemlist[@item{}]}
-                @pacing[#:type "challenge"]{@itemlist[@item{}]}
-                )
-      ]{
-        @points[
-                @point{
-                        @student{
-                                
-                        }
-                        @teacher{
-                                
-                        }
-                }
-        ]
-  }
-
-
-  @lesson/studteach[
-     #:title "Bar & Pie Charts"
-     #:duration "20 minutes"
-     #:overview ""
-     #:learning-objectives @itemlist[]
-     #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[]
-     #:standards (list)
-     #:materials @itemlist[]
-     #:preparation @itemlist[]
-     #:pacings (list 
-                @pacing[#:type "remediation"]{@itemlist[@item{}]}
-                @pacing[#:type "misconception"]{@itemlist[@item{}]}
-                @pacing[#:type "challenge"]{@itemlist[@item{}]}
-                )
-      ]{
-        @points[
-                @point{
-                      @student{
-                              In Pyet, you can easily construct pie charts and bar charts with functions.
-
-                              @activity[#:forevidence "BS-IDE&1&1"]{
-                                      Open the @editor-link[#:public-id "0BzzMl1BJlJDkVkViWHFGZy02UnM" "Unit 3 Starter File"], Save a Copy and Run the program. You should see the bar and pie charts from the previous section appear sequentially.
-                              }
-
-                      }
-                      @teacher{
-                      
-                      }
-                }
-                @point{
-                      @student{
-                              Let's use these lists to build two different kinds of charts
-                              @code[#:multi-line #t]{
-                                    # Define some DataSeries
-                                    cholesterol-bar-series = bar-chart(nutrition, "food", "cholesterol")
-                                    cholesterol-pie-series = bar-chart(nutrition, "food", "cholesterol")
-                              }
-
-                              This code uses new functions you haven't seen before: @code{bar-chart} and @code{pie-chart}. As you might expect, the contracts for these function are:
-                               @code[#:multi-line #t]{
-                                    # bar-chart :: (t :: Table, label :: String, value :: String) -> DataSeries
-                                    # pie-chart :: (t :: Table, label :: String, value :: String) -> DataSeries
-                              }
-
-                              What do the arguments in their domains represent?
-                              @itemlist[
-                                      @item{
-                                            The first is the Table that we want to visualize.
-                                      }
-                                      @item{
-                                            The second is the name of the column that we want to use as labels. These will be the @italic{labels} of a bar or pie slice on the chart.
-                                      }
-                                      @item{
-                                            The third is the name of the quantitative column that we want to measure. Each of these corresponds to the @italic{size} of a bar or slice on the chart.
-                                      }
-                              ]
-                      }
-                      @teacher{
-                        
-                      }
-                }
-                @point{
-                      @student{
-                              These plots are @italic{interactive}, allowing you to experiment with the data before you generate the final image. While the plot window is open, it's interactive: what happens when you hover over a slice of the pie?
-                      }
-                      @teacher{
-                              It reveals the value and percentage of the whole.
-                      }
-                }
-                @point{
-                      @student{
-
-                              @activity[#:forevidence "BS-IDE&1&1"]{
-                                      @itemlist[
-                                              @item{
-                                                    Create a bar chart displaying the amount of sodium for each menu item in @code{nutrition}.
-                                              }
-                                              @item{
-                                                    Create a pie chart showing the GDP of every country in @code{countries}.
-                                              }
-                                      ]
-                                      After completing these bar charts, turn to @worksheet-link[#:name "Questions-With-Charts"] in your workbook and answer the questions using these charts.
-                              }
-                      }
-                      @teacher{
-                              @itemlist[
-                                      @item{
-                                            Students should add 2 more function calls to their definitions window; one using @code{bar-chart}, the other using @code{pie-chart}.
-                                      }
-                                      @item{
-                                            Emphasize that students should choose informative axis & title names, as if they're showing these charts to someone who has never seen these tables before.
-                                      }
-                              ]
-                      }
-                }
-        ]
-  }
-
-  @lesson/studteach[
-     #:title "Frequency Bar Charts"
      #:duration "10 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
@@ -169,20 +42,69 @@
         @points[
                 @point{
                       @student{
-                              Recall the table of our favorite 4th grade class from Unit 2:
+                          According to the US Census Bureau, the average American household earned more than $45,000 in 2003 - more than 3x the poverty line that year. Does that mean only a small percentage of Americans were in poverty that year?
 
-                              @build-table/cols[
-                                    '("First" "Last" "Eye-Color")
-                                    '(("\"John\"" "\"Jane\"" "\"Javon\"" "\"Angela\"" "\"Jack\"" "\"Dominique\"" "\"Sammy\"" "\"Andrea\"")
-                                      ("\"Doe\"" "\"Smith\"" "\"Jackson\"" "\"Enriquez\"" "\"Thompson\"" "\"Rodriguez\"" "\"Carter\"" "\"Garcia\"")
-                                      ("\"Green\"" "\"Brown\"" "\"Brown\"" "\"Hazel\"" "\"Blue\"" "\"Hazel\"" "\"Blue\"" "\"Brown\""))
-                                     (lambda (r c) (para ""))
-                                     3 8
-                              ]
-
-                              @activity[#:forevidence "BS-IDE&1&1"]{
-                                      Turn to @worksheet-link[#:name "Freq-Bar-Chart"] in your workbook, and complete the exercise using this table.
+                          @activity{
+                              Take two minutes to write down what you think on @worksheet-link[#:name "Unit-4"].
+                          }
+                      }
+                      @teacher{
+                          Invite an open discussion for a few minutes, then give students time to write down what they think.
+                      }
+                }
+                @point{
+                      @student{
+                              Open the @editor-link[#:public-id "0BzzMl1BJlJDkdTNka0NxY0tDVTg" "Unit 4 Starter File"], then click "Save a Copy" and then Run the program. Now that you are familiar with how tables organize data, it's time to solve some problems with them. We already know how to evaluate an identifier once a program has been run: we just type the identifier into the Interactions Area and hit "Enter" to see the value. For example, we can type the identifier @code{presidents} or @code{nutrition} into the interactions window, and we see the table. There are some other identifiers defined here - what are their names?
+                              @activity{
+                                  You'll notice that there's a new table defined here as well, called @code{countries}. What columns are included in this table, and what do they tell us about each country?
                               }
+
+                      }
+                      @teacher{
+                              The identifiers are @code{a}, @code{b}, and @code{c}, each of which is defined to be a different List.
+                      }
+                }
+        ]
+      }
+
+@lesson/studteach[
+     #:title "Mean, Median, and Mode"
+     #:duration "30 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[]
+     #:standards (list)
+     #:materials @itemlist[]
+     #:preparation @itemlist[]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[
+                @point{
+                      @student{
+                              We encounter quantitative, 1-dimensional data all the time. Sometimes we have a list of temperatures for the day, and we want to know what the average is. Maybe we want to split a list of players into two teams, or find the most common birthday in our group of friends. All of these involve taking 1-dimensional data and asking questions about it's "center", but there are several different kinds of center. 
+                      }
+                      @teacher{
+                              Have your students come up with other questions involving "center".
+                      }
+                }
+                @point{
+                      @student{
+                              There are 3 ways to measure the "center" of a list of data: @vocab{mean}, @vocab{median} and @vocab{mode}. One of the most important questions we can ask about a column of quantitative data is:  what is the @vocab{average} value?
+                      }
+                      @teacher{
+                              Use your favorite lesson to teach students about computing averages.
+                      }
+                }
+                @point{
+                      @student{
+                              We calculate the mean by adding up a list of numbers, and dividing that sum by the number of elements in that list.
+
+                              For example, the @vocab{mean} of the list @code{1, 4, 5, 8, 2} is calculated by @code{(1 + 4 + 5 + 8 + 2) / 5}, which evaluates to 4.
                       }
                       @teacher{
 
@@ -190,15 +112,63 @@
                 }
                 @point{
                       @student{
-                              By filling in the last bar, you have created a bar chart. However, there's something special about chart. What is different about this bar chart from the ones we have created before?
-                              @itemlist[
-                                      @item{
-                                            Previous bar charts used a column from the table as the labels, and another column as the values.
-                                      }
-                                      @item{
-                                            In this bar chart, we are using the @vocab{categories} of a column as the labels, and the @vocab{frequency} of each category as the value.
-                                      }
-                              ]
+                              @activity[#:forevidence "BS-IDE&1&1"]{
+                                      Open your workbooks to @worksheet-link[#:name "Mean-Median-Mode"] and practice calculating the mean of each list of Numbers by hand.  DO NOT fill in the median and mode columns yet, even if you know how!
+                              }
+
+                              Notice that calculating the @vocab{mean} requires being able to add and divide, so the @vocab{mean} only makes sense for quantitative data.  For example, the mean of a list of Presidents doesn't make sense.  Same thing for a list of zipcodes:  even though we can add and divide the numbers of zipcodes, the output doesn't correspond to some "center" zipcode.
+                      }
+                      @teacher{
+
+                      }
+                }
+                @point{
+                      @student{
+                              It would be nice if Pyret had a way for us to compute the @vocab{mean} of any column in a Table.  What do you think the contract for this function might be? Can you think of its Name, Domain and Range?
+                      }
+                      @teacher{
+                              Get students to give suggestions as to what the mean function should be called.
+                      }
+                }
+                @point{
+                      @student{
+                              Type @code{mean(pets, "age")}.  What does this give us? Why?
+
+                              @activity[#:forevidence "BS-IDE&1&1"]{
+                                      Type each of the following programs into the interactions window, to check your work:
+                                      @itemlist[
+                                              @item{
+                                                    mean(a)
+                                              }
+                                              @item{
+                                                    mean(b)
+                                              }
+                                              @item{
+                                                    mean(c)
+                                              }
+                                              @item{
+                                                    mean(d)
+                                              }
+                                      ]
+                              }
+                      }
+                      @teacher{
+                              @code{2}, which is the mean of the numbers 1, 2 and 3.
+                      }
+                }
+                @point{
+                      @student{
+                              This function takes a @italic{List of Numbers} as input, and gives us the mean (a Number) as output. Write the contract for this function into your Contracts page as:
+
+                              @code[#:multi-line #t]{# mean :: (t :: Table, col :: String) -> Number}
+                      }
+                      @teacher{
+
+                      }
+                }
+                @point{
+                      @student{
+                              The second measure of center is the @vocab{median}.  The median is the "middle" value of a list, or a value that separates the top half of a list from the bottom half.
                       }
                       @teacher{
                               
@@ -206,220 +176,124 @@
                 }
                 @point{
                       @student{
-                              Here, we are looking at the Eye Color column, which contains categorical data. In this special kind of bar chart, we are computing the @vocab{frequency} of each category, and that frequency relates to the length of each bar. Since there are 3 people with brown eyes, the bar for Brown extends to 3 marks long.
+                              As an example, consider this list:
+
+                              @code[#:multi-line #t]{
+                                    2, 3, 1
+                              }
+
+                              Here @code{2} is the median, because it separates the "top half" (all values greater than @code{2}, which is just @code{3}), and the "bottom half" (all values less than or equal to 2).
                       }
                       @teacher{
-                      
+                              If students are not already familiar with median, we recommend the following
+                              "pencil and paper algorithm" for median finding over a list:
+
+                              @itemlist[
+                                      @item{
+                                            Cross out the highest number in the list.
+                                      }
+                                      @item{
+                                            Cross out the lowest number in the list.
+                                      }
+                                      @item{
+                                            Repeat these steps until there is only one number left in the list.  This number is the median. If there are two numbers left, @italic{take the mean of those numbers}.
+                                      }
+                              ]
+                               
                       }
                 }
                 @point{
                       @student{
-                              This special kind of bar chart is called a @vocab{frequency bar chart}.  There's a function in Pyret that lets us build frequency bar charts from a table:
-                              @code[#:multi-line #t]{
-                                freq-bar-char :: (t :: Table, values :: String) -> DataSeries
-                              }
-                              Below is an example that computes the frequency of categories in the @code{home-state} column of @code{presidents}.
+                              For lists that have an even number of elements, this question is a little trickier.
 
                               @code[#:multi-line #t]{
-                                    home-state-frequency = freq-bar-chart(presidents, "home-state")
+                                    2, 3
                               }
 
-                              What do the arguments in @code{freq-bar-chart}'s domain mean?
+                              There is no one number in the list separating the top half and the bottom half, because there are only 2 numbers!  In this case, we take the @vocab{mean} of the two middle numbers.  So here, the median is @code{(2 + 3) / 2} which evaluates to @code{2.5}.
+                      }
+                      @teacher{
+                              If students are entirely unfamiliar with median, it may help them to work through several more examples of lists with even/odd sizes, before they return to the workbook assignment.
+                      }
+                }
+                @point{
+                      @student{
+                              @activity[#:forevidence "BS-IDE&1&1"]{
+                                    Return to @worksheet-link[#:name "Mean-Median-Mode"] in your workbook and complete the column for median values.
+                              }
+
+                              Pyret has a function to compute the median of a list as well, with the contract:
+
+                              @code{# median :: (t :: Table, col :: String) -> Number}
+
+                              @activity[#:forevidence "BS-IDE&1&1"]{
+                                      Test your answers in the median column with the @code{median} function.
+                              }
+                      }
+                      @teacher{
+
+                      }
+                }
+                @point{
+                      @student{
+                              The third and last measure of center is the @vocab{mode}. The @vocab{modes} of a list are all the elements that appear most often in the list. Median and Mean always produce one number. Mode is different than the other measures, since a list can have multiple modes - or even no modes at all!
+                      }
+                      @teacher{
+
+                      }
+                }
+                @point{
+                      @student{
+                              @code[#:multi-line #t]{
+                                    1, 2, 3, 4
+                                    1, 2, 2, 3, 4
+                                    1, 1, 2, 3, 4, 4
+                              }
+
                               @itemlist[
-                                      @item{
-                                            The first is the Table that we want to visualize.
-                                      }
-                                      @item{
-                                            The second is the name of the categorical column that we want to count. Each of these corresponds to the @italic{size} of a bar in the chart.
-                                      }
+                                @item{The mode of the first value is @italic{empty}, because no element is repeated at all.}
+                                @item{The mode list of the second value is @italic{2}, since 2 appears more than any other number.}
+                                @item{The mode list of the last value is @italic{a list containing 1 and 4}, because @code{1} and @code{4} both appear more often than any other element, and because they are appear equally often.}
                               ]
                       }
                       @teacher{
-                          Show students that this is slightly different than how they've seen it before, breaking out the @code{home-state} column into its own definition.
+
                       }
                 }
-        ]
-   }  
-
-@lesson/studteach[
-     #:title "Histograms"
-     #:duration "20 minutes"
-     #:overview ""
-     #:learning-objectives @itemlist[]
-     #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[]
-     #:standards (list)
-     #:materials @itemlist[]
-     #:preparation @itemlist[]
-     #:pacings (list 
-                @pacing[#:type "remediation"]{@itemlist[@item{}]}
-                @pacing[#:type "misconception"]{@itemlist[@item{}]}
-                @pacing[#:type "challenge"]{@itemlist[@item{}]}
-                )
-      ]{
-        @points[
                 @point{
-                        @student{
+                      @student{
+                              @activity[#:forevidence "BS-IDE&1&1"]{
+                                      Complete the final column on @worksheet-link[#:name "Mean-Median-Mode"], by calculating the mode list for each value.
+                              }
+                      }
+                      @teacher{
 
-                        }
-                        @teacher{
-
-                        }
+                      }
                 }
                 @point{
-                        @student{
-                                We can use a different kind of chart for visualizing @italic{how frequent values are} in a list of quantitative data. This kind of chart is a called @vocab{histogram}.
-
-                                
-                                The contract for @code{histogram} is:
-                                @code[#:multi-line #t]{
-                                    # histogram :: (t :: Table, values :: String, bin-size :: Number) -> DataSeries
-                                }
-                                @itemlist[
-                                        @item{
-                                                The first is the Table that we want to visualize as a histogram.
-                                        }
-                                        @item{
-                                                The second is the name of the quantitative column, wich we want to sort into bins.
-                                        }
-                                        @item{
-                                                The third is @italic{the size of bins} into which we will distribute these quantitative values.
-                                        }
-                                ]
-                        }
-                        @teacher{
-                                Show students the histogram before explaining what the second argument (size of bins) means, to give them a point of reference. It may be easier for you to project the live code/image of the histogram. Since students do not yet know what a histogram is, or what this code is doing, they will have a harder time if they make syntax errors.
-                        }
-                }
-                @point{
-                        @student{
-                                @bitmap{images/histogram.png}
-                                We want to count the number of times @italic{each} permutation shows up in the dice game. Since there are 11 possible values for each dice roll, we have 11 bars in our chart. Just like the frequency bar charts from last unit, the length of the bar corresponds with how frequent a value is. For example, the longest bar the bar for 7, because 7 is the most frequent. Notice the shape of the histogram: the further away from 7, the less common the number.
-                        }
-                        @teacher{
-                                For curious students, you can explain this by showing that there are more combinations that add up to 8 than there are for 2 (for example).
-                        }
-                }
-                @point{
-                        @student{
-                                By hovering over a particular bar on the histogram, you can see how frequent a value is.
-
-                                @activity[#:forevidence "BS-IDE&1&1"]{
-                                        @itemlist[
-                                                @item{
-                                                    Hover over the middle bar, for the number 7.  How many 
-                                                    times was a 7 rolled?
-                                                }
-                                                @item{
-                                                    Out of the 10000 rolls, is this more than half?  Less than half?
-                                                }
-                                                @item{
-                                                    Run the code to make the histogram a few more times.  Is the 
-                                                    number of times 7 appears ever more than 5000 times?
-                                                }
-                                                @item{
-                                                    Turn to @worksheet-link[#:name "Unit-5"] and write down your findings.
-                                                }
-                                        ]
-                                }
-
-                                The roll 7 is definitely the roll that happens the most often.  However, it never
-                                appears more than half of the 10000 rolls. That means, most of the time we 
-                                play this game, we will lose!
-                        }
-                        @teacher{
-
-                        }
-                }
-                @point{
-                        @student{
-                                Frequency Bar charts and Histograms both count the @italic{frequency} in which values show up in a dataset. Histograms provide extra features for @vocab{quantitative data}: the bars are ordered from left to right, and the bins can be resized. Both of these are only made possible because quantitative data can be compared - one bar can be said to be "greater than" than another bar, and a value can be said to be "within" the range of a bin. For categorical data, neither of these is the case, so we use bar charts instead of histograms. Frequency bar charts are only for counting the frequency of categorical data.
-                        }
-                        @teacher{
-
-                        }
-                }
-                @point{
-                        @student{
-                                In the dice roll game, there were 11 possible numbers that the dice roll could produce. Would it be helpful to have 20 bars? 30? What would happen if we only used 1?
-
-                                Look back at your call to the @code{histogram} function for the dice game. In the first example, it made sense to 1 bin for each possible value that the pair of dice could produce.
-
-                                @activity[#:forevidence "BS-IDE&1&1"]{
-                                        What would happen if we used fewer, larger bins? What if we used more, smaller ones?
-                                        Try them out with new function calls in the interactions window.
-                                }
-
-                                Using only fewer, larger bins gives us a histogram that is less helpful, because 11 bins more accurately covers the range from 2 to 12. However, lots of tiny bins isn't any more helpful, because there are so many bins that are empty. Choosing the right bin size helps us make sense of the data, and is a skill that every data scientist should practice.
-                        }
-                    @teacher{
-
-                    }
-                }
-                @point{
-                        @student{
-                                We can't have a bar for every possible height, and having a bar for each student in the table isn't really helpful to us. This is where being able to control the number of bins comes in really handy!
-
-                                @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Turn to @worksheet-link[#:name "Histograms"] in your workbook and complete the exercise.
-                                }
-                        }
-                        @teacher{
-                                In this workbook activity, students will explicitly count the frequency of values appearing within certain ranges, and draw the bar corresponding to a particular bin.
-                        }
-                }
-                @point{
-                        @student{
-                                The histogram that you completed only has 5 bars, yet each possible value contributes to the height of a particular bar. This is possible because each of the decimal values is put into a @vocab{bin}. Each @code{bin} represents a range of values in our dataset.
-                        }
-                        @teacher{
-                                Before this discussion, ask students to describe in their own words how histograms can visualize the frequency of an unlimited number of values, using a limited number of bars.
-                        }
-                }
-                @point{
-                        @student{
-                                Determining the right number of bins is something that takes trial and error.
-
-                                @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Create histograms for each of the following columns of quantitative data.
-
-                                        @itemlist[
-                                                @item{
-                                                        The @code{calories} column in @code{nutrition}
-                                                }
-                                                @item{
-                                                        The @code{median-life-expectancy} column in @code{countries}
-                                                }
-                                                @item{
-                                                        The @code{gdp} column in @code{countries}
-                                                }
-                                        ]
-
-                                        Play around with the number of bins to try and find the sweet spot.
-                                }
-                        }
-                        @teacher{
-                                @itemlist[
-                                        @item{
-                                                Make sure the students know that there are many possible right answers to the question of "what is the correct number of bins".
-                                        }
-                                ]
-                        }
-                }
-                @point{
-                        @student{
-                                Notice that each of these different data sets, no matter what the bin size is, have different general shapes. The histogram for the dice game had a roughly even spread around one peak. The other data sets may have multiple peaks, and have thin or wide humps.
-                        }
-                        @teacher{
-
-                        }
+                      @student{
+                              In Pyret, the mode list is calculated by the @code{modes} function, which consumes a List of Numbers and produces a list of Numbers. 
+                              @code[#:multi-line #t]{
+                                    # modes :: (t :: Table, col :: String) -> List<Number>
+                              }
+                      }
+                      @teacher{
+                              @itemlist[
+                                    @item{
+                                          Have students add the two contracts to their contract list.
+                                    }
+                                    @item{
+                                          Note that later, we will reveal that @code{modes} can be used on Lists of Strings as well. There are also functions for producing a single number, which more closely mirrors what you may find in math class: @code{mode-smallest} and @code{mode-largest}. These will raise an error if the input list has no duplicate values.
+                                    }
+                              ]
+                      }
                 }
         ]
    }
 
 @lesson/studteach[
-     #:title "Which Chart is Best?"
-     #:duration "20 minutes"
+     #:title "Measuring Tables"
+     #:duration "15 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -434,14 +308,150 @@
                 )
       ]{
         @points[
-              @point{
+                @point{
+                      @student{
+                          Suppose we wanted to know what the average number of calories are on the menu. We'd need to first extract that column from the table, and then take the @code{mean} of the resulting list. We can write this using identifiers:
+
+                          @code[#:multi-line #t]{
+                              mean(nutrition, "calories")
+                          }
+
+                          @activity{
+                              How would you compute the median grams of sodium on the menu?
+                          }
+                      }
+                      @teacher{
+
+                      }
+                }
+                @point{
+                      @student{
+                              @activity[#:forevidence "BS-IDE&1&1"]{
+                                      Turn to @worksheet-link[#:name "Measuring-Center"] in your workbooks and complete all of the questions. You may have to do some programming to answer some of these!
+                              }
+                      }
+                      @teacher{
+                              @itemlist[
+                                      @item{
+                                            This exercise gives students more practice using Pyret to compute mean/median/mode.  Students will also see first hand that calculating a median of medians of many lists is not necessarily the same as the median of a larger list.
+                                      }
+                                      @item{
+                                            After all the students complete this workbook page, discuss the implications of this for the countries table. Taking the median of the @code{median-life-expectancy} column is an inaccurate measure of the median life expectancy of humans all over the world.  The most accurate measure of median human life expectancy would require a table with every human as a row.
+                                      }
+                                      @item{
+                                            The punchline of this portion of the exercise is: don't take the median of medians.
+                                      }
+                              ]
+                      }
+                }
+        ]
+   }
+
+@lesson/studteach[
+     #:title "Which Measure is Best?"
+     #:duration "15 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[]
+     #:standards (list)
+     #:materials @itemlist[]
+     #:preparation @itemlist[]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[
+                @point{
+                      @student{
+                              By now, you may have noticed that the @vocab{mean}, @vocab{median}, and @vocab{mode} of a data set are rarely the same value.  So, which one should we use, and when?
+                      }
+                      @teacher{
+                              For each of the following example lists, discuss with the students what the strengths/weaknesses of each measurement.
+                      }
+                }
+                @point{
+                      @student{
+                              Imagine that a math teacher is tracking their students' grades.  Here are the students' grades on the first test.
+
+                              @code[#:multi-line #t]{
+                                    68, 64, 62, 100, 100, 68, 67
+                              }
+                              Which measure of center gives the best indication of how the class did?
+                              @itemlist[
+                                      @item{
+                                            mean:  @code{75.57}
+                                      }
+                                      @item{
+                                            median:  @code{68}
+                                      }
+                                      @item{
+                                            modes:  @code{[list: 68, 100]]}
+                                      }
+                              ]
+                              Notice that the mean is well over 75, even though most of the students scored below 70! The mean here is more affected by @italic{outliers}: those two 100s are bringing the average up. This is because the mean is calculated using every value in the list, while the median is calculated with at most 2 values from the list.
+                      }
+                      @teacher{
+                              
+                      }
+                }
+                @point{
+                      @student{
+                              In general, here are some guidelines for when to use one measurement over the other:
+
+                              @itemlist[
+                                      @item{
+                                            If the data is unlikely to have values occurring multiple times (like with decimals, or with grades), do not use mode.
+                                      }
+                                      @item{
+                                            If the data is more "coarse grained", meaning the data is quantitative but there are only a small number of possible values each entry can take, then mode will be useful.
+                                      }
+                                      @item{
+                                            If the data is going to have lots of outliers, then median gives a better estimate of the center than mean.
+                                      }
+                              ]
+                      }
+                      @teacher{
+
+                      }
+                }
+                @point{
                     @student{
-                        
-                    }       
+                          @activity{
+                              @itemlist[
+                                  @item{
+                                      Suppose we want to look at how much sodium is in our menu. Would taking the @code{mean} or @code{median} be more accurate? Why or why not?
+                                  }
+                                  @item{
+                                      Suppose we want to know how long the average person on Earth lives. Would taking the mean of @code{median-life-expectancy} give us the answer? Why or why not?
+                                  }
+                              ]
+                          }
+                    }
                     @teacher{
-                        
-                    }              
-              }
+
+                    }
+                }
+                @point{
+                    @student{
+                        @activity{
+                            @itemlist[
+                                  @item{
+                                    Make sure to save your work.  Hit the Save button in the top left. This will save your program in the code.pyret.org folder within your Google Drive.
+                                  }
+                                  @item{  
+                                    Use @code{mean}, @code{median} and @code{modes} with the @code{household-income} list. Do you think the "average household income" is still a good measure to use when talking about poverty? Why or why not? Take two minutes to write your answer on @worksheet-link[#:name "Unit-4"].
+                                  }
+                            ]
+                        }
+
+                    }
+                    @teacher{
+                        Have the class debrief their findings. Did anyone's mind change after looking at the data? Is the data convincing or not? Why or why not?
+                    }
+                }
         ]
    }
 
@@ -465,7 +475,7 @@
               @point{
                     @student{
                         @activity{
-                            Take 10 minutes to fill out the "Histograms" section in your Project Report.
+                            Take 10 minutes to fill out "Measures of Center" section in your Project Report.
                         }
                     }       
                     @teacher{
@@ -474,14 +484,13 @@
               }
               @point{
                     @student{
-                           Congratulations! You've just learned the basics of the Pyret programming language, and how to use that language to answer a data science question. Throughout this course, you'll learn new and more powerful tools that will allow you answer more complex questions, and in greater detail.
+                           Congratulations! You've just learned the basics of the Pyret programming language, and how to use that language to answer a data science question. Throughout this course, you'll learn new and more powerful tools that will allow you to answer more complex questions, and in greater detail.
 
                     }
                     @teacher{
-                             If your students are working in pairs/groups, make sure that each student has access to a version of the program. The student who saved the program to their Google Drive can share their program with anyone by hitting the Publish button in the top left, choosing "Publish a new copy", then clicking the "Share Link" option. This will allow them to copy a link to the program, then send to their partners in an email/message.
+                             If your students are working in pairs/groups, make sure that each student has access to a version of the program.  The student who saved the program to their Google Drive can share their program with anyone by hitting the Publish button in the top left, choosing "Publish a new copy", then clicking the "Share Link" option.  This will allow them to copy a link to the program, then send to their partners in an email/message.
                    }
               }
         ]
    }
 }
-
