@@ -68,9 +68,9 @@
  ("StudentWorkbook.pdf" "define-data")
  ("StudentWorkbook.pdf" "animation-design")
  ("StudentWorkbook.pdf" "define-data")
- ("StudentWorkbook.pdf" "animation-extension-1")
+ "animation-extension-1"
  ("StudentWorkbook.pdf" "animation-extension-2")
- ("StudentWorkbook.pdf" "animation-extension-1")
+ "animation-extension-1"
  ("StudentWorkbook.pdf" "animation-extension-2")
  
  )
