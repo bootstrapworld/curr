@@ -536,7 +536,7 @@
                     @student{
                             Example blocks are ways for us to automatically check our work, by writing down how functions @italic{should} work and having Pyret report back about whether our examples are accurate. Pyret, for example, has a function called @code{num-sqrt}. What do you think it does?
                             @activity{
-                                Write two examples that use @code{num-sqrt}. Make sure they both pass!
+                                Add two examples that use @code{num-sqrt} to your @code{examples:} block. Make sure they both pass!
                             }
                     }
                     @teacher{
@@ -545,7 +545,7 @@
             }
             @point{
                     @student{
-                            Here's the contract for another new function. Can you figure out how to use it in the Interactions Area? Once you've figured it out, add two examples to the @code{examples:} block.
+                            Here's the contract for another new function. Can you figure out how to use it in the Interactions Area? Once you've figured it out, add an example to the @code{examples:} block.
                               @code[#:multi-line #t]{
                                     string-repeat :: (s :: String, n :: Number) -> String
                             }
