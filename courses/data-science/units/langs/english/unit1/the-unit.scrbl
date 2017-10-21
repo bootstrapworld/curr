@@ -324,7 +324,7 @@
                     @student{
                             You've already gotten some practice adding rows - or @vocab{observations} - to the table. But what if we want to add a column, to track whether or not a shape has any corners or not? Which shapes have corners and which don't?
                             @activity{
-                                Add a new column, @code{has-corners} to the table, then add a Boolean value to the end of each row indicating whether or not that shape has corners.
+                                Add a new column, @code{is-round} to the table, then add a Boolean value to the end of each row indicating whether or not that shape has corners.
                             }
                     }
                     @teacher{
@@ -456,7 +456,7 @@
                     @student{
                             We can extend our @code{shapes} table even further, by adding a column called @code{example}. Then, for each row, add an expression that will create an example of that shape. For example:
                             @code[#:multi-line #t]{
-                                shapes = table: name, corners, has-corners, example
+                                shapes = table: name, corners, is-round, example
                                   row: "triangle", 3, true, triangle(20, "solid", "green")
                                   row: "square", ...
                             }

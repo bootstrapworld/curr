@@ -1,63 +1,31 @@
 #lang curr/lib
 
-@title{Unit 7: Select and Order}
+@title{Unit 8: Linear Regression}
 
 @unit-overview/auto[#:lang-table (list (list "Number" 
                                               @code{+, -, *, /, num-sqrt, num-sqr} 
                                               @code{4, -1.2. 2/3})
                                        (list "String" 
-                                              "n/a" 
+                                              @code{string-repeat} 
                                               (list @code{"hello" "91"} ))
+                                       (list "Boolean" 
+                                              @code{} 
+                                              (list @code{true false} ))
                                        (list "Image" 
-                                              @code{triangle, star, draw-chart...} 
+                                              @code{triangle, circle, star, rectangle, ellipse, square, text, overlay} 
                                               (list @bitmap{images/imgValue1.png} @bitmap{images/imgValue2.png}))
-                                       (list "DataSeries" 
-                                              @code{function-plot, scatter-plot, bar-chart, pie-char, freq-bar-chart, histogram} 
-                                              "")
-                                       (list "List" 
-                                              @code{.get, mean, median, modes} 
-                                              @code{[list: "list", "of", "strings"]})
                                        (list "Table"
-                                              @code{.row-n, .column}
-                                              ""))]{
-  @unit-descr{Students are introduced to their first examples of operations that consume and produce tables, and learn how to select columns and order rows. They are also introduced to the beginnings of Table Plans, as a vehicle for thinking through compound queries.}
+                                              @code{.row-n, .order-by, .filter, .build-column, num-sqr, mean, median, modes, bar-chart, pie-chart, scatter-plot, labeled-scatter-plot} 
+                                                ""))]{
+  @unit-descr{
+    Students investigate scatter plots as a method of visualizing the relationship between two axes, and the notion of "line of best fit". 
+  }
 }
 @unit-lessons{
 
-
-@lesson/studteach[
-   #:title "Review"
-   #:duration "15 minutes"
-   #:overview ""
-   #:learning-objectives @itemlist[]
-   #:evidence-statements @itemlist[]
-   #:product-outcomes @itemlist[]
-   #:standards (list)
-   #:materials @itemlist[]
-   #:preparation @itemlist[]
-   #:pacings (list 
-              @pacing[#:type "remediation"]{@itemlist[@item{}]}
-              @pacing[#:type "misconception"]{@itemlist[@item{}]}
-              @pacing[#:type "challenge"]{@itemlist[@item{}]}
-              )
-    ]{
-      @points[
-            @point{
-                  @student{
-                      @activity{
-                          Take 15 minutes to answer question 9 in your Project Report.
-                      }
-                  }       
-                  @teacher{
-                      See the @(hyperlink "https://docs.google.com/document/d/1iS-JVNNltGY4eio8EYMMWLDQ8ntKC2qsDbtgLiSe20w/edit?usp=sharing" "Sample Project Report") to see an exemplar of student work.
-                  }              
-            }
-      ]
- }
-
-@lesson/studteach[
-     #:title "Selecting"
-     #:duration "20 minutes"
+  @lesson/studteach[
+     #:title "Introduction"
+     #:duration "5 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -73,100 +41,43 @@
       ]{
         @points[
                 @point{
-                      @student{
-                              Open the @editor-link[#:public-id "0BzzMl1BJlJDkQTBLVmhyTTZGUWM" "Unit 7 Starter File"], Save a Copy, and Run the program. Today we're going to look at a new table, called @code{movies}. 
-                              @activity[#:forevidence "BS-IDE&1&1"]{
+                        @student{
+                                "The more you pay at a restaurant, the better it is". Do you agree with this statement?
+                                You now have significant experience asking questions about data sets: You know how to take measures of center, and how to visualize both categorical and quantitative data. Let's use this experience to find out if the expensive restaurants are really worth the money. First, we'll start with out data set: a table containing information about the restaurants in town.
 
-                                      @itemlist[
-                                              @item{
-                                                    What was the domestic gross for "Big Hero 6"?
-                                              }
-                                              @item{
-                                                    What was the overseas gross for "Up"?
-                                              }
-                                              @item{
-                                                    What was the total gross for "Zootopia"?
-                                              }
-                                              @item{
-                                                    What year did "Maleficent come out?"
-                                              }
-                                      ]
-                              }
-                      }
-                      @teacher{
-                        Suggestion: Give the class one question at a time, and time them for each one. Afterwards, ask them what made it hard to answer things quickly.
-                      }
-                }
-                @point{
-                      @student{
-                              You may have noticed that answering these questions requires a little extra work, because the columns we need are separated by a lot of uneccessary columns. Finding the year "Maleficent" came out requires looking at the @code{title, year} columns, but not any of the columns in between. It would be nice if we could choose only the columns we need, and put those into a new table.
+                                @build-table/cols[
+                                        '("name" "price" "rating")
+                                        '(("\"Family Diner\"" "\"Geoff's Sandwiches\"" "\"Best Burger\"" "\"Riverside Grille\"" "\"Jackie's BBQ\"" "\"La Taqueria\"" "\"Bebop Bar\"" "\"Spike's\"" "\"Fred's Shake Shack\"")
+                                          ("13.21" "10.23" "6.52" "19.56" "5.57" "9.72" "7.2" "6.98" "5.25")
+                                          ("4.5" "4.1" "2.9" "4.9" "2.3" "4" "3.3" "3.8" "3.5"))
+                                         (lambda (r c) (para ""))
+                                         3 9
+                                ]
 
-                              @activity[#:forevidence "BS-IDE&1&1"]{
-                                      Type @code{movies-selected} into the Interactions Window. What did you get back? In the Definitions Area, find the line of code that defines @code{movies-selected}.
-                              }
-                      }
-                      @teacher{
-
-                      }
-                }
-                @point{
-                      @student{
-                              When we want to answer questions about just a few columns in a table, @italic{we can grab the ones we want} with @code{select-columns}. @code{select-columns} is a @vocab{method} that creates a new table containing only the columns that the programmer specifies. 
-
-                              @code[#:multi-line #t]{
-                                      movies-selected = movies.select-columns([list: "title", "year"])
-                              }
-                      }
-                      @teacher{
-                              Demonstrate the @code{select-columns} method to the class, selecting different columns from the @code{movies} table.
-                      }
-                }
-                @point{
-                      @student{
-                              What is the contract for @code{select-columns}? We know that it's a method, so we should write down the Type of data it's attached to as part of the name: @code{<Table>.select-columns}. The Domain is a list of Strings, and the Range is a @italic{new Table}. Take a minute to write the contract for @code{select-columns} in your contracts page:
-                              @code[#:multi-line #t]{
-                                <Table>.select-columns :: (cols :: List<String>) -> Table
-                              }
-                      }
-                      @teacher{
-
-                      }
-                }
-                @point{
-                      @student{
-                              Why would we want to use @code{select-columns} to drop columns from a table? Because removing data can be an important part of @italic{privacy}! A Data Scientist might need to analyze medical records of everyone in a particular hospital, but they don't want to share the names attached to those records. By using @code{select-columns}, they can produce a table that keeps all the relevant data, without the names.
-                      }
-                      @teacher{
-                      }
-                }
-                @point{
-                      @student{
-                              When thinking about select queries, we ask ourselves @bold{what columns do we need?} If the answer is no, we have no work to do. But if the answer is yes, we can zoom in and think about which columns we want to keep. Suppose we wanted to make a brochure showing local restaurants and ratings. "What columns do we need?"
-
-                              @activity[#:forevidence "BS-IDE&1&1"]{
-                                      @itemlist[
-                                          @item{
-                                              In your Definitions Area, complete the next two exercises ("Countries and Continents" and "Fat Content Information"). Test your code by hitting the Run button and typing the new variable names into the Interactions Area.
-                                          }
-                                          @item{
-                                              Complete @worksheet-link[#:name "Select-Practice"] in your workbook, and complete the Word Problems requiring you to write and interpret @code{select} statements.
-                                          }
-                                          @item{
-                                              Complete @worksheet-link[#:name "Select-Plan"].
-                                          }
-                                      ]
-                              }
+                                Here the @code{name} column is the name of the restaurant, the @code{price} contains the average price of an entree at the restaurant, and the @code{rating} column contains the average star rating given by customers.
                         }
                         @teacher{
-                                Encourage students to think of the interactions area as a playground: if a student needs to write a definition but don't know exactly how, they should experiment with different expressions in the Interactions Area until they are satisfied. THEN they should bind that expression to a variable name in the Definitions Area.
+                                   
+                        }
+                }
+                @point{
+                        @student{
+                                Are more expensive restaurants generally better than cheaper ones?
+
+                                @activity{
+                                    Turn to @worksheet-link[#:name "Unit-6"]. Take two minutes and write down what you think.
+                                }
+                        }
+                        @teacher{
+                                Encourage students to discuss openly before writing.
                         }
                 }
         ]
-   }
+  }
 
-@lesson/studteach[
-     #:title "Combining Methods"
-     #:duration "25 minutes"
+  @lesson/studteach[
+     #:title "Linear Regression"
+     #:duration "35 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -181,80 +92,176 @@
                 )
       ]{
         @points[
-            @point{
-                    @student{
-                            These table operations are even more useful when they are combined:
-
-                            @activity[#:forevidence "BS-IDE&1&1"]{
-                                    @itemlist[
-                                        @item{
-                                            Type @code{b} into the Interactions Area. Where is the definition for @code{b}?
-                                        }
-                                        @item{
-                                            Type @code{studio-and-gross} into the Interactions Area. Where is the definition for @code{studio-and-gross}?
-                                        }
-                                        @item{
-                                            Are the rows in the @code{studio-and-gross} table in any particular order?
-                                        }
-                                    ]
-                            }
-                            You've already seen definitions that refer back to previous definitions, and this is no different. The definition for @code{b} @italic{uses} the definition for @code{a}. Here the definition for @code{studio-and-gross} @italic{uses} the definition for @code{movies-ordered}. Note that the new table is @italic{still sorted}, even though we've dropped the column we used to sort!
-                    }
-                    @teacher{
-                        Why would you want to order by one column, and then throw that column away?
-
-                        Selecting is merely a presentation matter, but sometimes it matters whether a column is in the output or not. Suppose we want sort a class's data by grade; we may want to share the ranking of students, but we certainly don't want to leak their grades! In that case it's vital that we select away the grades column @italic{after sorting}.                  
-                    }
-            }
-            @point{
-                    @student{
-                            This is another example of why @bold{order of operations matters}. If we'd @code{select}ed our columns first, there would be no way for us to achieve this ordering. That's why we always put @code{order} before @code{select}.
-                    }
-                    @teacher{
-
-                    }
-            }
-            @point{
-                    @student{
-                            In this course, we'll use @bold{Table Plans} to help us set up our queries. One way to think about Table Plans is to view them as a "Recipe" for writing queries: by answering a series of questions about our data, we can gradually piece together the queries we need. 
-                    }
-                    @teacher{
-                            If your students are familiar with the Design Recipe from Bootstrap:Algebra or Bootstrap:Reactive, this is the time to make those connections!
-                    }
-            }
-            @point{
-                    @student{
-                            We can also think of Table Plans as a kind of puzzle-solver, for getting us from one table to another. 
-                            @activity{
+                @point{
+                        @student{
+                                This leaves us with two questions:
                                 @itemlist[
                                     @item{
-                                        Turn to @worksheet-link[#:name "Select-Order-Plan"], and look at the start and end table.
+                                        How do we make a prediction from a scatter plot? In other words, "how do we know where to draw that line?"
                                     }
                                     @item{
-                                        What queries will get us from one to the other? Use this 2-step Table Plan to figure out the @code{order} and @code{select} queries that will produce the final table. When you've finished, type these queries into the Definitions Area, under "Gross and Domestic".
-                                    }
-                                    @item{
-                                        Complete @worksheet-link[#:name "Select-Order-Plan-2"]. When you've finished, type these queries into the Definitions Area, under "Title and Year"
+                                        How do we measure the accuracy of our prediction? In other words, "how well does that line fit?"
                                     }
                                 ]
-                            }
-                    }
-                    @teacher{
+                        }
+                        @teacher{
 
-                    }
-            }
-            @point{
-                    @student{
-                            Table Plans allow us to turn query-writing into a series of questions. By focusing on just one question at a time, we minimize our chances of making mistakes, and give ourselves a way to retrace our steps if something goes wrong. Being comfortable with Table Plans takes time, but once you've mastered them you'll find it gets easier and easier to program complex table queries.
-                    }
-                    @teacher{
+                        }
+                }
+                @point{
+                        @student{
+                                Data scientists use statistics to build a @italic{model} of a data set. This model takes into account a lot of different measures (including some of the ones you already know), and tries to identify patterns and relationships within the data. When we draw our predictor line on a scatter plot, we can imagine a rubber band stretching between the line itself and each point in the plot - every point pulls the line a little "up" or "down". 
+                        }
+                        @teacher{
 
-                    }
-            }
+                        }
+                }
+                @point{
+                        @student{
+                                @activity{
+                                  You can see this model action, in this @(hyperlink "https://www.geogebra.org/m/xC6zq7Zv" "interactive simulation"). Each vertical line represents the error, or the amount the rubber band has to stretch between a single datapoint and the prediction line. The "Target SSE" shows how much error there is in the best possible predictor line. Our goal is to match that, by moving the red line or the "guide dots" on it. 
+                                  @itemlist[
+                                      @item{Could the predictor line ever be above or below @italic{all} the points? Why or why not?}
+                                      @item{What would the plot have to look like for SSE to be zero?}
+                                  ]
+                                }
+                        }
+                        @teacher{
+                                Give students some time to experiment here! Can your students come up with rules or suggestions for how to minimize error? 
+                        }
+                }
+                @point{
+                        @student{
+                                We can compute our own predictor line in Pyret, and grab a @italic{predictor function} from it:
+
+                                @code[#:multi-line #t]{
+                                        # use linear regression to extract a predictor function
+                                        lr-plot :: (t :: Table, xs :: Str, ys :: Str) -> Image
+                                }
+                                @code{linear-regression} is a function that takes 2 a List of xs and ys as arguments, and @italic{returns a function} of Type @code{Number -> Number}. This function is our predictor, representing the line that best fits the data. We define this function to be the identifier @code{rating-predictor}, and we can use it just like any other function. 
+
+                                @activity[#:forevidence "BS-IDE&1&1"]{
+                                        Type @code{rating-predictor(0)} into the Interactions Area. What is the output?  What happens with @code{rating-predictor(20)?} What is the contract for @code{rating-predictor}?
+                                }
+
+                                You can learn more about how a predictor is created by watching @(hyperlink "https://www.youtube.com/watch?v=lZ72O-dXhtM" "this video").
+
+                        }
+                        @teacher{
+                                If you want to teach students the algorithm for linear regression (calculating ordinary least squares), now is a good time to do it!
+                        }
+                }
+                @point{
+                        @student{
+                                @activity{
+                                    Once we have the function's DataSeries, we know how to plot it - we used @code{draw-chart} back in Unit 1! We can use @code{draw-chart} to plot the function @code{DataSeries} or the scatter plot @code{DataSeries}, but we'd like to plot these @italic{on top of one another}, and we can do this using the @code{draw-chart} function. It works much the way @code{draw-chart} does, but instead of one @code{DataSeries} it takes in a @italic{list of DataSeries} (@code{List<DataSeries>}) as its Domain.
+                                }
+                        }
+                        @teacher{
+
+                        }
+                }
+                @point{
+                        @student{
+                                @activity[#:forevidence "BS-IDE&1&1"]{
+                                        Create statistical models and predictor functions for each of the following relationships, then plot the predictor function on top of the scatter plots you created earlier:
+
+                                        @itemlist[
+                                                @item{
+                                                        The @code{fat} vs. @code{calories-from-fat} columns of @code{nutrition}.
+                                                }
+                                                @item{
+                                                        The total @code{gdp} vs @code{median-life-expectancy} columns of @code{countries}
+                                                }
+                                                @item{
+                                                        The total @code{population} vs @code{median-life-expectancy} columns of @code{countries}
+                                                }
+                                        ]
+
+                                        Make sure to adjust the bounds to see all of the data on each one.  Also, use the appropriate axis labels.
+                                }
+                        }
+                        @teacher{
+                                It may be helpful for students to copy and paste the example code that constructs a scatter plot for these examples, and modify it.
+                        }
+                }
+                @point{
+                        @student{
+                                Are there any correlations in this data? If so, what are they?
+                        }
+                        @teacher{
+                                @itemlist[
+                                        @item{
+                                                Strong correlation between fat and calories from fat
+                                        }
+                                        @item{
+                                                Almost no correlation between GDP and life expectancy - @bold{Note:} sharp-eyed students will point out that this is @italic{total} GDP, not per-per-capita, so we don't expect much correlation!
+                                        }
+                                        @item{
+                                                Almost no correlation between Population and life expectancy
+                                        }
+                                ]
+                        }
+                }
+                @point{
+                        @student{
+                                In your workbook activity, you gave predictors "grades" for how well they performed. Data scientists use @vocab{r-squared} values to grade predictors in real life.
+
+                                @activity[#:forevidence "BS-IDE&1&1"]{
+                                        Type @code{r-squared(prices-list, ratings-list, rating-predictor)} into the Interactions Area.
+                                }
+
+                                This is a number on the same scale [0, 1] that tell us "how much of the variation in the scatterplot is explained by this function". In other words, it's a measure for how well the line fits. A perfect score of 1.0 means that 100% of the variability in the data is explained by the function, and that our predictor is perfect. For the price vs ratings, the predictor score is ~0.71, which is fairly accurate. The contract for @code{r-squared} is:
+                                @code[#:multi-line #t]{
+                                    # r-squared :: (t :: Table, xs :: Str, ys :: Str, predictor :: Num->Num) -> Number
+                                }
+
+                                @activity[#:forevidence "BS-IDE&1&1"]{
+                                        @itemlist[
+                                            @item{
+                                                Determine the r-squared values for each of the 3 models you created previously, and interpret them. Do they show a strong correlation? A weak correlation? No correlation at all?
+                                            }
+                                            @item{
+                                                What does it mean a data point is @italic{above} the predictor line?
+                                            }
+                                            @item{
+                                                What does it mean a data point is @italic{below} the predictor line?
+                                            }
+                                            @item{
+                                                If you only have two datapoints, why will the r-squared value always be 1.0?
+                                            }
+                                        ]
+                                        
+                                } 
+                        }
+                        @teacher{
+                                Have your students examine the r-squared values for the life expectancy models. Population size has virtually no correlation, but GDP has roughly 30%! Is this surprising to the students? Did they expect it to be stronger or weaker? How can they explain the result?
+                                Optional: teach your students how r-squared values are calculated.
+                        }
+                }
+                @point{
+                        @student{
+                                @activity[#:forevidence "BS-IDE&1&1"]{
+                                        Complete @worksheet-link[#:name "Checking-Understanding"] in your workbook, by writing your own definitions for predictor function, and vocab{r-squared}.
+                                }
+                        }
+                        @teacher{
+
+                        }
+                }
+                @point{
+                        @student{
+                                @bitmap{images/nonlinear.png}
+                                You've learned how linear regression can be used to compute a linear relationship for a cloud of data, and how to determine the error of that relationship. The word "linear" means "in a straight line", which is why all of our predictors are in a straight line. In the image on the right, there's clearly a pattern, but it doesn't look like a straight line! There are many other kinds of statistical modeling out there, but all of them work the same way: given a particular kind of mathematical function (linear or otherwise), figure out how to get the "best fit" for a cloud of data. 
+                        }
+                        @teacher{
+                        
+                        }
+                }
         ]
-   }
+  }
 
-@lesson/studteach[
+  @lesson/studteach[
      #:title "Closing"
      #:duration "10 minutes"
      #:overview ""
@@ -272,16 +279,34 @@
       ]{
         @points[
                 @point{
-                      @student{
-                          At this point, you may have noticed that your dataset contains a few "extreme" points that skew the results of your analysis. Perhaps one movie was a box-office failure, or a war in one country is artificially dragging down their life-expectency. These extreme points are called @vocab{outliers}, and sometimes it's best to remove them from your dataset in order to identify a pattern. Or perhaps you've decided you want to zoom in on a subset of the data, or break it apart and do an analysis on two different groups. Maybe you want to run a separate analysis for movies with female leads v. male leads, or analyze Democratic and Republican presidents separately. You don't know how to do this - yet - but that's exactly what we'll cover in the next lesson!
-                          @activity{
-                              Take 10 minutes to fill out question 13, under the "Modifying Your Dataset" section in your Final Report.
-                          }
-                      }       
-                      @teacher{
-                          See the @(hyperlink "https://docs.google.com/document/d/1iS-JVNNltGY4eio8EYMMWLDQ8ntKC2qsDbtgLiSe20w/edit?usp=sharing" "Sample Project Report") to see an exemplar of student work.
-                      }              
+                        @student{
+                                @activity[#:forevidence "BS-IDE&1&1"]{
+                                    Turn to @worksheet-link[#:name "Unit-6"], and take two minutes to write down your findings. In your answer, include the fact that you used linear regression to come up with a predictor. Bonus points for explaining what the r-squared value tells about that prediction!
+                                }
+                        }
+                        @teacher{
+
+                        }
+                }
+                @point{
+                        @student{
+                                @activity[#:forevidence "BS-IDE&1&1"]{
+                                    Fill out the "Correlations" section in your Final Report. What correlations do you think are lurking in your dataset?
+                                }
+                        }
+                        @teacher{
+
+                        }
+                }
+                @point{
+                        @student{
+                                Suppose you could divide your data up, perhaps by the @italic{kind of restaurant}, or by the @italic{neighborhood where the restaurant is located}. If you ran a linear regression on a per-neighborhood basis, do you think you would find a stronger correlation? Perhaps a different correlation? If your dataset includes both men and women, you might want to re-run the analysis on the genders separately. To do any of this analysis, you'll need to learn how to @italic{manipulate tables}, so you can sort them, break them apart, or add new columns. The next three units will show you how to do just that.
+                        }
+                        @teacher{
+
+                        }
                 }
         ]
-    }
+  }
 }
+
