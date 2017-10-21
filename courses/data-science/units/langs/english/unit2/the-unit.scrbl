@@ -21,7 +21,7 @@
 }
 @unit-lessons{
 
-@lesson/studteach[
+  @lesson/studteach[
      #:title "Review"
      #:duration "10 minutes"
      #:overview ""
@@ -75,7 +75,7 @@
                                 source: pets-sheet.sheet-by-name("pets", true)
                               end
                             }
-                            Just as you saw with our @code{shapes} example, this code @italic{defines a new table}. This time, it's called @code{@code{animals-table}}, and it's loaded from our Google Sheet. On line 11, you can see the names we are giving to each of the columns, called @code{name}, @code{name}, @code{animal}, @code{age}, @code{fixed}, and @code{legs}.
+                            Just as you saw with our @code{shapes} example, this code @italic{defines a new table}. This time, it's called @code{animals-table}, and it's loaded from our Google Sheet. On line 11, you can see the names we are giving to each of the columns, called @code{name}, @code{name}, @code{animal}, @code{age}, @code{fixed}, and @code{legs}.
                       }
                       @teacher{
 
@@ -83,7 +83,7 @@
                 }
                 @point{
                       @student{
-                            Click "Run", and type @code{@code{animals-table}} into the Interactions Area to see what this table looks like.
+                            Click "Run", and type @code{animals-table} into the Interactions Area to see what this table looks like.
                             @itemlist[
                               @item{How many columns does this table have?}
                               @item{For each column, is the data quantitative or qualitative? }
@@ -101,8 +101,7 @@
         ]
   }
 
-
-@lesson/studteach[
+  @lesson/studteach[
      #:title "Defining Values"
      #:duration "10 minutes"
      #:overview ""
@@ -160,7 +159,7 @@
       ]
   }
 
-@lesson/studteach[
+  @lesson/studteach[
      #:title "Defining Functions"
      #:duration "40 minutes"
      #:overview ""
@@ -311,9 +310,9 @@
                     }
                 }
         ]
-}
+  }
 
-@lesson/studteach[
+  @lesson/studteach[
      #:title "Choose Your Dataset"
      #:duration "15 minutes"
      #:overview ""
@@ -386,9 +385,9 @@
                       }
                 }
         ]
- }
+  }
 
-@lesson/studteach[
+  @lesson/studteach[
      #:title "Closing"
      #:duration "10 minutes"
      #:overview ""
@@ -418,5 +417,5 @@
 					         }
               }
         ]
-   }
+  }
 }

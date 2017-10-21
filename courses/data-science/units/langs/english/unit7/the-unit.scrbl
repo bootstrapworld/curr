@@ -26,7 +26,7 @@
 }
 @unit-lessons{
 
-@lesson/studteach[
+  @lesson/studteach[
      #:title "Introduction"
      #:duration "5 minutes"
      #:overview ""
@@ -76,9 +76,9 @@
                         }
                 }
         ]
-}
+  }
 
-@lesson/studteach[
+  @lesson/studteach[
      #:title "Finding Relationships"
      #:duration "15 minutes"
      #:overview ""
@@ -241,9 +241,9 @@
                         }
                 }
         ]
-   }
+  }
 
-@lesson/studteach[
+  @lesson/studteach[
      #:title "Seeing Correlations"
      #:duration "25 minutes"
      #:overview ""
@@ -348,9 +348,9 @@
                         }
                 }
         ]
-   }
+  }
 
-@lesson/studteach[
+  @lesson/studteach[
      #:title "Linear Regression"
      #:duration "35 minutes"
      #:overview ""
@@ -534,8 +534,9 @@
                         }
                 }
         ]
-   }
-@lesson/studteach[
+  }
+
+  @lesson/studteach[
      #:title "Closing"
      #:duration "10 minutes"
      #:overview ""
@@ -581,6 +582,6 @@
                         }
                 }
         ]
-    }
+  }
 }
 

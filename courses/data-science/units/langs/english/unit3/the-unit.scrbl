@@ -16,12 +16,12 @@
                                               (list @bitmap{images/imgValue1.png} @bitmap{images/imgValue2.png}))
                                        )]{
   @unit-descr{
-    Students practice the Design Recipe and Table Plans, applying them to their own Dataset. They also start writing Start and End tables as part of Table Plans.
+    Students extend their knowledge of functions to include methods, and learn about Table methods for sorting, filtering and extending Tables. They are also introduced to Table Plans (a structured approach to manipulating tables), and begin manipulating their own datasets.
   }
 }
 @unit-lessons{
 
-@lesson/studteach[
+  @lesson/studteach[
      #:title "Review"
      #:duration "10 minutes"
      #:overview ""
@@ -62,10 +62,9 @@
             }
 
         ]
+  }
 
-}
-
-@lesson/studteach[
+  @lesson/studteach[
      #:title "Introducing Methods"
      #:duration "15 minutes"
      #:overview ""
@@ -140,7 +139,7 @@
       ]
   }
 
-@lesson/studteach[
+  @lesson/studteach[
      #:title "Table Methods"
      #:duration "10 minutes"
      #:overview ""
@@ -185,10 +184,9 @@
                       }
                 }
         ]
-}
+  }
 
-
-@lesson/studteach[
+  @lesson/studteach[
      #:title "Filtering Rows"
      #:duration "10 minutes"
      #:overview ""
@@ -244,7 +242,7 @@
         ]
   }
 
-@lesson/studteach[
+  @lesson/studteach[
      #:title "Building Columns"
      #:duration "10 minutes"
      #:overview ""
@@ -284,9 +282,9 @@
                       }
                 }
         ]
-   }
+  }
 
-@lesson/studteach[
+  @lesson/studteach[
      #:title "Table Plans"
      #:duration "30 minutes"
      #:overview ""
@@ -348,7 +346,7 @@
                         We're going to build a function that does this for us, and we'll start with the name. Naming is more complex in Table Plans, since we want to name the function according to the most important parts of what it does. Since we're @italic{getting a table} of kittens with nametags, we'll call it @code{get-kittens-tags}. Instead of consuming Rows, this time we're consuming and producing @italic{Tables}. This gives us the following:
 
                         @code[#:multi-line #t]{
-                            get-kittens-tags :: (a :: Table) -> Table
+                            get-kittens-tags :: (animals :: Table) -> Table
                             # get all the kittens, add nametags, and sort by name
                         }
                     }
@@ -359,11 +357,11 @@
               @point{
                     @student{
                         @bannerline{Step 2: Examples}
-                        This is really similar to writing examples with the Design Recipe, but everything stays on paper. First, we write down a small sample of the @code{animals-table}, called a Starter Table. Then we write an End Table, which is the result of calling @code{get-kittens-tags(animals-table)}. For now, we've provided the Starter and End Tables for you.
+                        This is really similar to writing examples with the Design Recipe, but everything stays on paper. First, we write down a small sample of the @code{animals-table}, called a Starter Table. Then we write a sample result, which we'd get from calling @code{get-kittens-tags} on that Starter Table. For now, we've provided the Starter and Results for you.
                         @itemlist[
-                            @item{ Does the End Table have our new column? }
-                            @item{ Does the End Table have only kittens? }
-                            @item{ Is the End Table in alphabetical order? }
+                            @item{ Does the Result have our new column? }
+                            @item{ Does the Result have only kittens? }
+                            @item{ Is the Result in alphabetical order? }
                         ]
                     }
                     @teacher{
@@ -375,9 +373,9 @@
                         @bannerline{Step 3: Define the Function}
                         The final step is to define a function that executes our Table Plan. We already know how to start:
                         @code[#:multi-line #t]{
-                            get-kittens-tags :: (a :: Table) -> Table
+                            get-kittens-tags :: (animals :: Table) -> Table
                             # get all the kittens, add nametags, and sort by name
-                            fun get-kittens-tags(a):
+                            fun get-kittens-tags(animals):
                                 ...
                             end
                         }
@@ -391,13 +389,13 @@
                         Table plans include two parts: defining our new table, and producing our result. To define this table, we'll ask ourselves four questions, in order:
                         @itemlist[
                             @item{ 
-                              Does our End Table have more columns than our Starter Table? If so, we'll need to use @code{.build-column}. 
+                              Does our Result have more columns than our Starter Table? If so, we'll need to use @code{.build-column}. 
                             }
                             @item{ 
-                              Does our End Table have fewer rows than our Starter Table? If so, we'll need to use @code{.filter}. 
+                              Does our Result have fewer rows than our Starter Table? If so, we'll need to use @code{.filter}. 
                             }
                             @item{ 
-                              Does our End Table have its rows in some order? If so, we'll need to use @code{.order-by}.
+                              Does our Result have its rows in some order? If so, we'll need to use @code{.order-by}.
                             }
                         ]
                         @activity{
@@ -412,10 +410,10 @@
                     @student{
                         All three methods are needed, so we won't cross anything out. You're already familiar with definitions in Pyret, and that's what we'll use here. Let's start with the name @code{t} for Table.
                         @code[#:multi-line #t]{
-                            get-kittens-tags :: (a :: Table) -> Table
+                            get-kittens-tags :: (animals :: Table) -> Table
                             # get all the kittens, add nametags, and sort by name
-                            fun get-kittens-tags(a):
-                                t = a
+                            fun get-kittens-tags(animals):
+                                t = animals
                                   .build-column(...)
                                   .filter(...)
                                   .order-by(...)
@@ -449,13 +447,14 @@
                     @student{
                         Filling in these blanks, we get the following code:
                         @code[#:multi-line #t]{
-                            get-kittens-tags :: (a :: Table) -> Table
+                            get-kittens-tags :: (animals :: Table) -> Table
                             # get all the kittens, add nametags, and sort by name
-                            fun get-kittens-tags(a):
-                                t = a
+                            fun get-kittens-tags(animals):
+                                t = animals  # define the table
                                   .build-column("tags", nametags)
                                   .filter(is-kitten)
                                   .order-by("name", true)
+                                ...          # produce the result
                             end
                         }
                         Fortunately, the @code{nametags} and @code{is-kitten} functions are already defined! If we found that we needed to make news ones, however, we could use the Design Recipe to do it.
@@ -468,14 +467,14 @@
                   @student{
                         The final step in the Table Plan is to produce the result. For now, that result is just the table we defined, @code{t}! (Don't worry, you'll get to more complex results later)
                         @code[#:multi-line #t]{
-                            get-kittens-tags :: (a :: Table) -> Table
+                            get-kittens-tags :: (animals :: Table) -> Table
                             # get all the kittens, add nametags, and sort by name
-                            fun get-kittens-tags(a):
-                                t = a  # <-- defines the table
+                            fun get-kittens-tags(animals):
+                                t = animals  # define the table
                                   .build-column("tags", nametags)
                                   .filter(is-kitten)
                                   .order-by("name", true)
-                                t      # <-- produces the result
+                                t            # produce the result
                             end
                         }
                   }
@@ -485,9 +484,9 @@
               }
               @point{
                   @student{
-                      Once you've typed in the Contract, Purpose and Function Definition, click "Run". How do we use this function? If you look in the @bold{Examples} section, you'll see that the End Table is written underneath the expression @code{get-kittens-tags(animals-table)}. That's the code that should give us the end table, so let's type it in!
+                      Once you've typed in the Contract, Purpose and Function Definition, click "Run". How do we use this function? If you look in the @bold{Examples} section, you'll see that the Result is written underneath the expression @code{get-kittens-tags(animals-table)}. That's the code that should give us the result, so let's type it in!
                       @activity{
-                          Type in the code and hit Enter. Did you get back the same End Table you expected?
+                          Type in the code and hit Enter. Did you get back the same result you expected?
                       }
                   }
               }
@@ -527,35 +526,10 @@
 
                     }
               }
-              @point{
-                    @student{
-                        A good Starter Table should have:
-                        @itemlist[
-                              @item{
-                                  @italic{At least} the columns that matter - whether we'll be ordering or filtering by those columns.
-                              }
-                              @item{
-                                  A good starter table has enough rows to be a representative sample of the dataset.
-                              }
-                              @item{
-                                  A good starter table has rows in truly random order, so that we'll notice if we need to order the table or not.
-                              }
-                              @item{
-                                  A good starter table has a representative sample of rows from our full table. For example, a starter table based on @code{pets} isn't very good if it only has cats, or only dogs who've been fixed. That's a sampling bias that makes it harder to realize what we need to @code{filter} by!
-                              }
-                        ]
-                        @activity{
-                              It will take some practice for you to get good at making Starter Tables, but you can start by identifying @italic{bad} ones! turn to @worksheet-link[#:name "Bad-Starter-Tables"], and write down what's wrong with each of these tables.
-                        }
-                    }
-                    @teacher{
-
-                    }
-              }
         ]
-   }
+  }
 
-@lesson/studteach[
+  @lesson/studteach[
      #:title "Closing"
      #:duration "5 minutes"
      #:overview ""
@@ -585,5 +559,5 @@
                    }
               }
         ]
-   }
+  }
 }

@@ -1,6 +1,6 @@
 #lang curr/lib
 
-@title{Unit 5: Measuring Center}
+@title{Unit 5: Plotting Quantity}
 
 @unit-overview/auto[#:lang-table (list (list "Number" 
                                               @code{+, -, *, /, num-sqrt, num-sqr} 
@@ -15,17 +15,64 @@
                                               @code{triangle, circle, star, rectangle, ellipse, square, text, overlay} 
                                               (list @bitmap{images/imgValue1.png} @bitmap{images/imgValue2.png}))
                                        (list "Table"
-                                              @code{.row-n, .order-by, .filter, .build-column}
+                                              @code{.row-n, .order-by, .filter, .build-column, num-sqr, mean, median, modes}
                                               ""))]{
   @unit-descr{
-    Students learn how to measure central tendency using mean/median/mode. After applying these concepts to a contrived dataset, they apply them to their own datasets and interpret the results in their research papers.
+    Students explore new visualizations in Pyret, focusing on the @italic{quantities} of observations in their dataset. They learn how to construct and interpret Bar and Pie Charts, experiment with these visualizations in a contrived dataset, apply them to their own research, and intepret the results. They also begin to write their own Starter Tables
   }
 }
 @unit-lessons{
 
-@lesson/studteach[
+  @lesson/studteach[
      #:title "Introduction"
-     #:duration "10 minutes"
+     #:duration "15 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[]
+     #:standards (list)
+     #:materials @itemlist[]
+     #:preparation @itemlist[]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[
+                @point{
+                        @student{
+                                Tables are great when we want to find a specific piece of information, like "how old Wade the cat?" or "how long was Nibblet in the shelter before being adopted?". We've also learned some ways to zoom out and talk about the whole dataset, by using three different measures of center.
+                                @activity{
+                                    What are the three measures of center? When is it appropriate to use each one?
+                                }
+                        }
+                        @teacher{
+                                
+                        }
+                }
+                @point{
+                        @student{
+                                But there are other questions that deal with the whole dataset, which remind us that tables have their limits. Turn to @worksheet-link[#:name "Unit-5"] in your Student Workbook, and answer the questions you find there. 
+                        }
+                        @teacher{
+                                Debrief with the class.
+                        }
+                }
+                @point{
+                        @student{
+                                Sometimes it's better to @italic{visualize} your dataset using a chart or a graph. Turn to @worksheet-link[#:name "Bar-and-Pie-Charts"] in your student workbook, and answer the questions.
+                        }
+                        @teacher{
+                                Debrief with the class, paying special attention to the last question: when @italic{is} one chart better than another?
+                        }
+                }
+        ]
+  }
+
+  @lesson/studteach[
+     #:title "Bar & Pie Charts"
+     #:duration "15 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -42,33 +89,65 @@
         @points[
                 @point{
                       @student{
-                          According to the US Census Bureau, the average American household earned more than $45,000 in 2003 - more than 3x the poverty line that year. Does that mean only a small percentage of Americans were in poverty that year?
+                              You've now seen two kinds of charts: @vocab{bar chart} and @vocab{pie charts}. Both charts help us look at the whole dataset at once, and answer questions about @italic{quantity}. As you've observed, bar chars are great when we want to know exactly "how much" of a thing is contained in a single row. Pie charts, on the other hand, are best when we want to know "what percent" of the thing in our table is contained in a single row.
 
-                          @activity{
-                              Take two minutes to write down what you think on @worksheet-link[#:name "Unit-4"].
-                          }
-                      }
-                      @teacher{
-                          Invite an open discussion for a few minutes, then give students time to write down what they think.
-                      }
-                }
-                @point{
-                      @student{
-                              Open the @editor-link[#:public-id "0BzzMl1BJlJDkdTNka0NxY0tDVTg" "Unit 4 Starter File"], then click "Save a Copy" and then Run the program. Now that you are familiar with how tables organize data, it's time to solve some problems with them. We already know how to evaluate an identifier once a program has been run: we just type the identifier into the Interactions Area and hit "Enter" to see the value. For example, we can type the identifier @code{presidents} or @code{nutrition} into the interactions window, and we see the table. There are some other identifiers defined here - what are their names?
-                              @activity{
-                                  You'll notice that there's a new table defined here as well, called @code{countries}. What columns are included in this table, and what do they tell us about each country?
+                              @activity[#:forevidence "BS-IDE&1&1"]{
+                                      Open the @editor-link[#:public-id "0BzzMl1BJlJDkVkViWHFGZy02UnM" "Unit 5 Starter File"], Save a Copy and Run the program. 
                               }
 
                       }
                       @teacher{
-                              The identifiers are @code{a}, @code{b}, and @code{c}, each of which is defined to be a different List.
+                      
+                      }
+                }
+                @point{
+                      @student{
+                              Let's take a look at their contracts, next to the contracts for some functions you've seen before...
+                              @code[#:multi-line #t]{
+                                    mean      :: (t :: Table, col :: String) -> Number
+                                    median    :: (t :: Table, col :: String) -> Number
+                                    bar-chart :: (t :: Table, label :: String, value :: String) -> Image
+                                    pie-chart :: (t :: Table, label :: String, value :: String) -> Image
+                              }
+                              As with @code{mean} and @code{median}, these functions first consume the Table that we want to look at, and then the rest of their arguments tell us @italic{which columns in that Table we care about}. Both bar charts and pie charts need to know which column to use for the labels in our chart, and which column to use for values. These functions produce Images of our charts.
+                      }
+                      @teacher{
+                        
+                      }
+                }
+                @point{
+                      @student{
+                              @activity{
+                                   In the Interactions Area, type @code{pie-chart(animals-table, "name", "age")} and hit Enter. What happens?
+                              }
+                              These plots are @italic{interactive}, allowing you to experiment with the data before you generate the final image. While the plot window is open, it's interactive: what happens when you hover over a slice of the pie?
+                      }
+                      @teacher{
+                              It reveals the value and percentage of the whole.
+                      }
+                }
+                @point{
+                      @student{
+                              @activity[#:forevidence "BS-IDE&1&1"]{
+                                      @itemlist[
+                                              @item{
+                                                    Create a bar and pie chart showing the age of every animal in the shelter.
+                                              }
+                                              @item{
+                                                    Create a bar and pie chart showing the weight of every animal in the shelter.
+                                              }
+                                      ]
+                              }
+                      }
+                      @teacher{
+
                       }
                 }
         ]
-      }
+  }
 
-@lesson/studteach[
-     #:title "Mean, Median, and Mode"
+  @lesson/studteach[
+     #:title "Table Plans"
      #:duration "30 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
@@ -86,25 +165,9 @@
         @points[
                 @point{
                       @student{
-                              We encounter quantitative, 1-dimensional data all the time. Sometimes we have a list of temperatures for the day, and we want to know what the average is. Maybe we want to split a list of players into two teams, or find the most common birthday in our group of friends. All of these involve taking 1-dimensional data and asking questions about it's "center", but there are several different kinds of center. 
-                      }
-                      @teacher{
-                              Have your students come up with other questions involving "center".
-                      }
-                }
-                @point{
-                      @student{
-                              There are 3 ways to measure the "center" of a list of data: @vocab{mean}, @vocab{median} and @vocab{mode}. One of the most important questions we can ask about a column of quantitative data is:  what is the @vocab{average} value?
-                      }
-                      @teacher{
-                              Use your favorite lesson to teach students about computing averages.
-                      }
-                }
-                @point{
-                      @student{
-                              We calculate the mean by adding up a list of numbers, and dividing that sum by the number of elements in that list.
-
-                              For example, the @vocab{mean} of the list @code{1, 4, 5, 8, 2} is calculated by @code{(1 + 4 + 5 + 8 + 2) / 5}, which evaluates to 4.
+                          @activity{
+                            Turn to @worksheet-link[#:name "Pie-Dog-Weight"], and read the word problem carefully. Then write a Contract and Purpose Statement for this word problem.
+                          }
                       }
                       @teacher{
 
@@ -112,212 +175,52 @@
                 }
                 @point{
                       @student{
-                              @activity[#:forevidence "BS-IDE&1&1"]{
-                                      Open your workbooks to @worksheet-link[#:name "Mean-Median-Mode"] and practice calculating the mean of each list of Numbers by hand.  DO NOT fill in the median and mode columns yet, even if you know how!
-                              }
-
-                              Notice that calculating the @vocab{mean} requires being able to add and divide, so the @vocab{mean} only makes sense for quantitative data.  For example, the mean of a list of Presidents doesn't make sense.  Same thing for a list of zipcodes:  even though we can add and divide the numbers of zipcodes, the output doesn't correspond to some "center" zipcode.
+                          This time, our Result isn't a Table or a Number -- it's an @italic{Image}: a pie chart showing the weights of all the dogs in our shelter. @bold{Note:} When writing a Starter Table, it's okay to skip a few columns and focus on the ones you care about. Keep this in mind for the future!
+                          @activity{
+                            Sketch a pie chart based on your Starter Table. When you're done, move on to defining the function, and fill out the methods to define the table. Do we need to build any columns? Filter any rows? Order the table?
+                          }
                       }
                       @teacher{
-
+                          Look to make sure students are drawing the right kind of chart, using the right labels, and have slices that are proportional to the data in their Starter Table.
                       }
                 }
                 @point{
                       @student{
-                              It would be nice if Pyret had a way for us to compute the @vocab{mean} of any column in a Table.  What do you think the contract for this function might be? Can you think of its Name, Domain and Range?
-                      }
-                      @teacher{
-                              Get students to give suggestions as to what the mean function should be called.
-                      }
-                }
-                @point{
-                      @student{
-                              Type @code{mean(pets, "age")}.  What does this give us? Why?
-
-                              @activity[#:forevidence "BS-IDE&1&1"]{
-                                      Type each of the following programs into the interactions window, to check your work:
-                                      @itemlist[
-                                              @item{
-                                                    mean(a)
-                                              }
-                                              @item{
-                                                    mean(b)
-                                              }
-                                              @item{
-                                                    mean(c)
-                                              }
-                                              @item{
-                                                    mean(d)
-                                              }
-                                      ]
-                              }
-                      }
-                      @teacher{
-                              @code{2}, which is the mean of the numbers 1, 2 and 3.
-                      }
-                }
-                @point{
-                      @student{
-                              This function takes a @italic{List of Numbers} as input, and gives us the mean (a Number) as output. Write the contract for this function into your Contracts page as:
-
-                              @code[#:multi-line #t]{# mean :: (t :: Table, col :: String) -> Number}
-                      }
-                      @teacher{
-
-                      }
-                }
-                @point{
-                      @student{
-                              The second measure of center is the @vocab{median}.  The median is the "middle" value of a list, or a value that separates the top half of a list from the bottom half.
-                      }
-                      @teacher{
-                              
-                      }
-                }
-                @point{
-                      @student{
-                              As an example, consider this list:
-
-                              @code[#:multi-line #t]{
-                                    2, 3, 1
-                              }
-
-                              Here @code{2} is the median, because it separates the "top half" (all values greater than @code{2}, which is just @code{3}), and the "bottom half" (all values less than or equal to 2).
-                      }
-                      @teacher{
-                              If students are not already familiar with median, we recommend the following
-                              "pencil and paper algorithm" for median finding over a list:
-
-                              @itemlist[
-                                      @item{
-                                            Cross out the highest number in the list.
-                                      }
-                                      @item{
-                                            Cross out the lowest number in the list.
-                                      }
-                                      @item{
-                                            Repeat these steps until there is only one number left in the list.  This number is the median. If there are two numbers left, @italic{take the mean of those numbers}.
-                                      }
-                              ]
-                               
-                      }
-                }
-                @point{
-                      @student{
-                              For lists that have an even number of elements, this question is a little trickier.
-
-                              @code[#:multi-line #t]{
-                                    2, 3
-                              }
-
-                              There is no one number in the list separating the top half and the bottom half, because there are only 2 numbers!  In this case, we take the @vocab{mean} of the two middle numbers.  So here, the median is @code{(2 + 3) / 2} which evaluates to @code{2.5}.
-                      }
-                      @teacher{
-                              If students are entirely unfamiliar with median, it may help them to work through several more examples of lists with even/odd sizes, before they return to the workbook assignment.
-                      }
-                }
-                @point{
-                      @student{
-                              @activity[#:forevidence "BS-IDE&1&1"]{
-                                    Return to @worksheet-link[#:name "Mean-Median-Mode"] in your workbook and complete the column for median values.
-                              }
-
-                              Pyret has a function to compute the median of a list as well, with the contract:
-
-                              @code{# median :: (t :: Table, col :: String) -> Number}
-
-                              @activity[#:forevidence "BS-IDE&1&1"]{
-                                      Test your answers in the median column with the @code{median} function.
-                              }
-                      }
-                      @teacher{
-
-                      }
-                }
-                @point{
-                      @student{
-                              The third and last measure of center is the @vocab{mode}. The @vocab{modes} of a list are all the elements that appear most often in the list. Median and Mean always produce one number. Mode is different than the other measures, since a list can have multiple modes - or even no modes at all!
-                      }
-                      @teacher{
-
-                      }
-                }
-                @point{
-                      @student{
-                              @code[#:multi-line #t]{
-                                    1, 2, 3, 4
-                                    1, 2, 2, 3, 4
-                                    1, 1, 2, 3, 4, 4
-                              }
-
-                              @itemlist[
-                                @item{The mode of the first value is @italic{empty}, because no element is repeated at all.}
-                                @item{The mode list of the second value is @italic{2}, since 2 appears more than any other number.}
-                                @item{The mode list of the last value is @italic{a list containing 1 and 4}, because @code{1} and @code{4} both appear more often than any other element, and because they are appear equally often.}
-                              ]
-                      }
-                      @teacher{
-
-                      }
-                }
-                @point{
-                      @student{
-                              @activity[#:forevidence "BS-IDE&1&1"]{
-                                      Complete the final column on @worksheet-link[#:name "Mean-Median-Mode"], by calculating the mode list for each value.
-                              }
-                      }
-                      @teacher{
-
-                      }
-                }
-                @point{
-                      @student{
-                              In Pyret, the mode list is calculated by the @code{modes} function, which consumes a List of Numbers and produces a list of Numbers. 
-                              @code[#:multi-line #t]{
-                                    # modes :: (t :: Table, col :: String) -> List<Number>
-                              }
-                      }
-                      @teacher{
-                              @itemlist[
-                                    @item{
-                                          Have students add the two contracts to their contract list.
-                                    }
-                                    @item{
-                                          Note that later, we will reveal that @code{modes} can be used on Lists of Strings as well. There are also functions for producing a single number, which more closely mirrors what you may find in math class: @code{mode-smallest} and @code{mode-largest}. These will raise an error if the input list has no duplicate values.
-                                    }
-                              ]
-                      }
-                }
-        ]
-   }
-
-@lesson/studteach[
-     #:title "Measuring Tables"
-     #:duration "15 minutes"
-     #:overview ""
-     #:learning-objectives @itemlist[]
-     #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[]
-     #:standards (list)
-     #:materials @itemlist[]
-     #:preparation @itemlist[]
-     #:pacings (list 
-                @pacing[#:type "remediation"]{@itemlist[@item{}]}
-                @pacing[#:type "misconception"]{@itemlist[@item{}]}
-                @pacing[#:type "challenge"]{@itemlist[@item{}]}
-                )
-      ]{
-        @points[
-                @point{
-                      @student{
-                          Suppose we wanted to know what the average number of calories are on the menu. We'd need to first extract that column from the table, and then take the @code{mean} of the resulting list. We can write this using identifiers:
-
+                          We've got most of our function written:
                           @code[#:multi-line #t]{
-                              mean(nutrition, "calories")
+                          pie-dog-weight :: (animals :: Table) -> Number
+                          # Consume a table of animals, and produce a pie-chart showing the weight of the dogs
+                          fun pie-dog-weight(animals):
+                            t = animals.filter(is-dog)     # define the table
+                            ...                            # produce our result
+                          end
                           }
+                          What expression will produce our result? Our purpose statement tells us we need to make a @code{pie-chart}, so we can start there. Which table should we use? Which column gives us our labels? Our values?
+                      }
+                      @teacher{
+                          If there's only one method being used, it's convention to put the method call on the same line as the table.
+                      }
+                }
+                @point{
+                      @student{
+                          Putting it all together, we get:
+                          @code[#:multi-line #t]{
+                          median-dog-age :: (animals :: Table) -> Number
+                          # Consume a table of animals, and produce a pie-chart showing the weight of the dogs
+                          fun pie-dog-weight(animals):
+                            t = animals.filter(is-dog)     # define the table
+                            pie-chart(t, "name", "pounds") # produce our result
+                          end
+                          }
+                      }
+                      @teacher{
 
+                      }
+                }
+                @point{
+                      @student{
                           @activity{
-                              How would you compute the median grams of sodium on the menu?
+                              When your teacher has checked your paper, type in this function and try it!
                           }
                       }
                       @teacher{
@@ -326,138 +229,48 @@
                 }
                 @point{
                       @student{
-                              @activity[#:forevidence "BS-IDE&1&1"]{
-                                      Turn to @worksheet-link[#:name "Measuring-Center"] in your workbooks and complete all of the questions. You may have to do some programming to answer some of these!
+                          Up to now, the Starter Table has been provided for you. But for our next Table Plan, you'll need to make one of your own! A good Starter Table should have:
+                        @itemlist[
+                              @item{
+                                  @italic{At least} the columns that matter - whether we'll be ordering or filtering by those columns.
                               }
-                      }
-                      @teacher{
-                              @itemlist[
-                                      @item{
-                                            This exercise gives students more practice using Pyret to compute mean/median/mode.  Students will also see first hand that calculating a median of medians of many lists is not necessarily the same as the median of a larger list.
-                                      }
-                                      @item{
-                                            After all the students complete this workbook page, discuss the implications of this for the countries table. Taking the median of the @code{median-life-expectancy} column is an inaccurate measure of the median life expectancy of humans all over the world.  The most accurate measure of median human life expectancy would require a table with every human as a row.
-                                      }
-                                      @item{
-                                            The punchline of this portion of the exercise is: don't take the median of medians.
-                                      }
-                              ]
-                      }
-                }
-        ]
-   }
-
-@lesson/studteach[
-     #:title "Which Measure is Best?"
-     #:duration "15 minutes"
-     #:overview ""
-     #:learning-objectives @itemlist[]
-     #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[]
-     #:standards (list)
-     #:materials @itemlist[]
-     #:preparation @itemlist[]
-     #:pacings (list 
-                @pacing[#:type "remediation"]{@itemlist[@item{}]}
-                @pacing[#:type "misconception"]{@itemlist[@item{}]}
-                @pacing[#:type "challenge"]{@itemlist[@item{}]}
-                )
-      ]{
-        @points[
-                @point{
-                      @student{
-                              By now, you may have noticed that the @vocab{mean}, @vocab{median}, and @vocab{mode} of a data set are rarely the same value.  So, which one should we use, and when?
-                      }
-                      @teacher{
-                              For each of the following example lists, discuss with the students what the strengths/weaknesses of each measurement.
-                      }
-                }
-                @point{
-                      @student{
-                              Imagine that a math teacher is tracking their students' grades.  Here are the students' grades on the first test.
-
-                              @code[#:multi-line #t]{
-                                    68, 64, 62, 100, 100, 68, 67
+                              @item{
+                                  A good starter table has enough rows to be a representative sample of the dataset. If our dataset has a mix of dogs and cats, for example, we want at least one of each in this table.
                               }
-                              Which measure of center gives the best indication of how the class did?
-                              @itemlist[
-                                      @item{
-                                            mean:  @code{75.57}
-                                      }
-                                      @item{
-                                            median:  @code{68}
-                                      }
-                                      @item{
-                                            modes:  @code{[list: 68, 100]]}
-                                      }
-                              ]
-                              Notice that the mean is well over 75, even though most of the students scored below 70! The mean here is more affected by @italic{outliers}: those two 100s are bringing the average up. This is because the mean is calculated using every value in the list, while the median is calculated with at most 2 values from the list.
-                      }
-                      @teacher{
-                              
-                      }
-                }
-                @point{
-                      @student{
-                              In general, here are some guidelines for when to use one measurement over the other:
-
-                              @itemlist[
-                                      @item{
-                                            If the data is unlikely to have values occurring multiple times (like with decimals, or with grades), do not use mode.
-                                      }
-                                      @item{
-                                            If the data is more "coarse grained", meaning the data is quantitative but there are only a small number of possible values each entry can take, then mode will be useful.
-                                      }
-                                      @item{
-                                            If the data is going to have lots of outliers, then median gives a better estimate of the center than mean.
-                                      }
-                              ]
-                      }
-                      @teacher{
-
-                      }
-                }
-                @point{
-                    @student{
-                          @activity{
-                              @itemlist[
-                                  @item{
-                                      Suppose we want to look at how much sodium is in our menu. Would taking the @code{mean} or @code{median} be more accurate? Why or why not?
-                                  }
-                                  @item{
-                                      Suppose we want to know how long the average person on Earth lives. Would taking the mean of @code{median-life-expectancy} give us the answer? Why or why not?
-                                  }
-                              ]
-                          }
-                    }
-                    @teacher{
-
-                    }
-                }
-                @point{
-                    @student{
+                              @item{
+                                  A good starter table has rows in random order, so that we'll notice if we need to order the table or not.
+                              }
+                        ]
                         @activity{
-                            @itemlist[
-                                  @item{
-                                    Make sure to save your work.  Hit the Save button in the top left. This will save your program in the code.pyret.org folder within your Google Drive.
-                                  }
-                                  @item{  
-                                    Use @code{mean}, @code{median} and @code{modes} with the @code{household-income} list. Do you think the "average household income" is still a good measure to use when talking about poverty? Why or why not? Take two minutes to write your answer on @worksheet-link[#:name "Unit-4"].
-                                  }
-                            ]
+                              It will take some practice for you to get good at making Starter Tables, but you can start by identifying @italic{bad} ones! turn to @worksheet-link[#:name "Bad-Starter-Tables"], and write down what's wrong with each of these tables.
                         }
-
                     }
                     @teacher{
-                        Have the class debrief their findings. Did anyone's mind change after looking at the data? Is the data convincing or not? Why or why not?
-                    }
-                }
-        ]
-   }
 
-@lesson/studteach[
-     #:title "Closing"
-     #:duration "20 minutes"
+                    }
+              }
+              @point{
+                    @student{
+                          @activity{
+                              Turn to @worksheet-link[#:name "Bar-Kitten-Adoption"], and fill out the Contract and Purpose Statement. First, we'll provide a name that refers back to our dataset: @code{animals-table}. Then we need to provide a good Starter Table for this word problem. Fill out a good Starter Table and write your result.
+                          }
+                    }
+                    @teacher{
+                          Be sure to check the Starter Tables, and even have students trade workbooks and grade each other's Starter Tables.
+                    }
+              }
+              @point{
+                    @student{
+                          @activity{
+                              Once your teacher has checked your Starter Table, type in the code for this function and try it out!
+                          }
+                    }
+              }
+        ]
+  }
+  @lesson/studteach[
+     #:title "Your Dataset"
+     #:duration "25 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -474,23 +287,49 @@
         @points[
               @point{
                     @student{
-                        @activity{
-                            Take 10 minutes to fill out "Measures of Center" section in your Project Report.
-                        }
+                        
                     }       
                     @teacher{
-                        See the @(hyperlink "https://docs.google.com/document/d/1iS-JVNNltGY4eio8EYMMWLDQ8ntKC2qsDbtgLiSe20w/edit?usp=sharing" "Sample Project Report") to see an exemplar of student work.
+                        
+                    }              
+              }
+        ]
+  }
+
+  @lesson/studteach[
+     #:title "Closing"
+     #:duration "5 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[]
+     #:standards (list)
+     #:materials @itemlist[]
+     #:preparation @itemlist[]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[
+              @point{
+                    @student{
+                        Bar and Pie Charts are powerful tools that make it easy to talk about the amount (or relative amount) of quantitative data in our dataset. But what if we wanted to see @italic{how many dogs v. cats there are in our dataset}? This question is about @italic{frequency} - specifically how often the @code{species} column is @code{"cat"} or @code{"dog"}. What if we wanted to know how many animals were between 1-10 pounds, 11-20 pounds, 21-30 pounds, and so on? Once again, that's a question about how @italic{frequent} a particular weight range comes up.
+                    }       
+                    @teacher{
+
                     }              
               }
               @point{
                     @student{
-                           Congratulations! You've just learned the basics of the Pyret programming language, and how to use that language to answer a data science question. Throughout this course, you'll learn new and more powerful tools that will allow you to answer more complex questions, and in greater detail.
-
+                        In the next Unit you'll learn about two other kinds of charts, which are all about visualization @italic{frequency} in your dataset.
                     }
                     @teacher{
-                             If your students are working in pairs/groups, make sure that each student has access to a version of the program.  The student who saved the program to their Google Drive can share their program with anyone by hitting the Publish button in the top left, choosing "Publish a new copy", then clicking the "Share Link" option.  This will allow them to copy a link to the program, then send to their partners in an email/message.
-                   }
+
+                    }
               }
         ]
    }
 }
+
