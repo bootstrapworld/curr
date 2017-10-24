@@ -357,7 +357,7 @@
               @point{
                     @student{
                         @bannerline{Step 2: Examples}
-                        This is really similar to writing examples with the Design Recipe, but everything stays on paper. First, we write down a small sample of the @code{animals-table}, called a Starter Table. Then we write a sample result, which we'd get from calling @code{get-kittens-tags} on that Starter Table. For now, we've provided the Starter and Results for you.
+                        This is really similar to writing examples with the Design Recipe, but everything stays on paper. First, we write down a small sample of the @code{animals-table}, called a Sample Table. Then we write a sample result, which we'd get from calling @code{get-kittens-tags} on that Sample Table. For now, we've provided the Starter and Results for you.
                         @itemlist[
                             @item{ Does the Result have our new column? }
                             @item{ Does the Result have only kittens? }
@@ -389,10 +389,10 @@
                         Table plans include two parts: defining our new table, and producing our result. To define this table, we'll ask ourselves four questions, in order:
                         @itemlist[
                             @item{ 
-                              Does our Result have more columns than our Starter Table? If so, we'll need to use @code{.build-column}. 
+                              Does our Result have more columns than our Sample Table? If so, we'll need to use @code{.build-column}. 
                             }
                             @item{ 
-                              Does our Result have fewer rows than our Starter Table? If so, we'll need to use @code{.filter}. 
+                              Does our Result have fewer rows than our Sample Table? If so, we'll need to use @code{.filter}. 
                             }
                             @item{ 
                               Does our Result have its rows in some order? If so, we'll need to use @code{.order-by}.

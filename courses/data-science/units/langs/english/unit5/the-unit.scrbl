@@ -18,7 +18,7 @@
                                               @code{.row-n, .order-by, .filter, .build-column, num-sqr, mean, median, modes}
                                               ""))]{
   @unit-descr{
-    Students explore new visualizations in Pyret, focusing on the @italic{quantities} of observations in their dataset. They learn how to construct and interpret Bar and Pie Charts, experiment with these visualizations in a contrived dataset, apply them to their own research, and intepret the results. They also begin to write their own Starter Tables
+    Students explore new visualizations in Pyret, focusing on the @italic{quantities} of observations in their dataset. They learn how to construct and interpret Bar and Pie Charts, experiment with these visualizations in a contrived dataset, apply them to their own research, and intepret the results. They also begin to write their own Sample Tables
   }
 }
 @unit-lessons{
@@ -175,13 +175,13 @@
                 }
                 @point{
                       @student{
-                          This time, our Result isn't a Table or a Number -- it's an @italic{Image}: a pie chart showing the weights of all the dogs in our shelter. @bold{Note:} When writing a Starter Table, it's okay to skip a few columns and focus on the ones you care about. Keep this in mind for the future!
+                          This time, our Result isn't a Table or a Number -- it's an @italic{Image}: a pie chart showing the weights of all the dogs in our shelter. @bold{Note:} When writing a Sample Table, it's okay to skip a few columns and focus on the ones you care about. Keep this in mind for the future!
                           @activity{
-                            Sketch a pie chart based on your Starter Table. When you're done, move on to defining the function, and fill out the methods to define the table. Do we need to build any columns? Filter any rows? Order the table?
+                            Sketch a pie chart based on your Sample Table. When you're done, move on to defining the function, and fill out the methods to define the table. Do we need to build any columns? Filter any rows? Order the table?
                           }
                       }
                       @teacher{
-                          Look to make sure students are drawing the right kind of chart, using the right labels, and have slices that are proportional to the data in their Starter Table.
+                          Look to make sure students are drawing the right kind of chart, using the right labels, and have slices that are proportional to the data in their Sample Table.
                       }
                 }
                 @point{
@@ -229,20 +229,20 @@
                 }
                 @point{
                       @student{
-                          Up to now, the Starter Table has been provided for you. But for our next Table Plan, you'll need to make one of your own! A good Starter Table should have:
+                          Up to now, the Sample Table has been provided for you. But for our next Table Plan, you'll need to make one of your own! A good Sample Table should have:
                         @itemlist[
                               @item{
                                   @italic{At least} the columns that matter - whether we'll be ordering or filtering by those columns.
                               }
                               @item{
-                                  A good starter table has enough rows to be a representative sample of the dataset. If our dataset has a mix of dogs and cats, for example, we want at least one of each in this table.
+                                  A good Sample Table has enough rows to be a representative sample of the dataset. If our dataset has a mix of dogs and cats, for example, we want at least one of each in this table.
                               }
                               @item{
-                                  A good starter table has rows in random order, so that we'll notice if we need to order the table or not.
+                                  A good Sample Table has rows in random order, so that we'll notice if we need to order the table or not.
                               }
                         ]
                         @activity{
-                              It will take some practice for you to get good at making Starter Tables, but you can start by identifying @italic{bad} ones! turn to @worksheet-link[#:name "Bad-Starter-Tables"], and write down what's wrong with each of these tables.
+                              It will take some practice for you to get good at making Sample Tables, but you can start by identifying @italic{bad} ones! turn to @worksheet-link[#:name "Bad-Starter-Tables"], and write down what's wrong with each of these tables.
                         }
                     }
                     @teacher{
@@ -252,17 +252,17 @@
               @point{
                     @student{
                           @activity{
-                              Turn to @worksheet-link[#:name "Bar-Kitten-Adoption"], and fill out the Contract and Purpose Statement. First, we'll provide a name that refers back to our dataset: @code{animals-table}. Then we need to provide a good Starter Table for this word problem. Fill out a good Starter Table and write your result.
+                              Turn to @worksheet-link[#:name "Bar-Kitten-Adoption"], and fill out the Contract and Purpose Statement. First, we'll provide a name that refers back to our dataset: @code{animals-table}. Then we need to provide a good Sample Table for this word problem. Fill out a good Sample Table and write your result.
                           }
                     }
                     @teacher{
-                          Be sure to check the Starter Tables, and even have students trade workbooks and grade each other's Starter Tables.
+                          Be sure to check the Sample Tables, and even have students trade workbooks and grade each other's Sample Tables.
                     }
               }
               @point{
                     @student{
                           @activity{
-                              Once your teacher has checked your Starter Table, type in the code for this function and try it out!
+                              Once your teacher has checked your Sample Table, type in the code for this function and try it out!
                           }
                     }
               }

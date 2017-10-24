@@ -75,7 +75,7 @@
         @points[
                 @point{
                       @student{
-                              Let's look at a Starter Table, sampled from the @code{animals-table}...
+                              Let's look at a Sample Table, sampled from the @code{animals-table}...
 
                               @build-table/cols[
                                     '("name" "species" "age" "pounds")

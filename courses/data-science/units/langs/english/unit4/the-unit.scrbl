@@ -291,7 +291,7 @@
                 }
                 @point{
                       @student{
-                          This time, our Result isn't a Table -- it's a @italic{Number}: the mean of the ages for all the dogs in the Starter Table. 
+                          This time, our Result isn't a Table -- it's a @italic{Number}: the mean of the ages for all the dogs in the Sample Table. 
                           @activity{
                             Compute this by hand, and write your result on the page. When you're done, move on to defining the function, and fill out the methods to define the table. Do we need to build any columns? Filter any rows? Order the table?
                           }
