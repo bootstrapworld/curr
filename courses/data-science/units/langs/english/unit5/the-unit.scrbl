@@ -53,7 +53,7 @@
                 }
                 @point{
                         @student{
-                                But there are other questions that deal with the whole dataset, which remind us that tables have their limits. Turn to @worksheet-link[#:name "Unit-5"] in your Student Workbook, and answer the questions you find there. 
+                                But there are other questions that deal with the whole dataset, which remind us that tables have their limits. Turn to @worksheet-link[#:name "Column-Statements"] in your Student Workbook, and answer the questions you find there. 
                         }
                         @teacher{
                                 Debrief with the class.
@@ -61,7 +61,7 @@
                 }
                 @point{
                         @student{
-                                Sometimes it's better to @italic{visualize} your dataset using a chart or a graph. Turn to @worksheet-link[#:name "Bar-and-Pie-Charts"] in your student workbook, and answer the questions.
+                                Sometimes it's better to @italic{visualize} your dataset using a chart or a graph. Turn to @worksheet-link[#:name "Visualizing-Quantity"] in your student workbook, and answer the questions.
                         }
                         @teacher{
                                 Debrief with the class, paying special attention to the last question: when @italic{is} one chart better than another?
@@ -242,7 +242,7 @@
                               }
                         ]
                         @activity{
-                              It will take some practice for you to get good at making Sample Tables, but you can start by identifying @italic{bad} ones! turn to @worksheet-link[#:name "Bad-Starter-Tables"], and write down what's wrong with each of these tables.
+                              It will take some practice for you to get good at making Sample Tables, but you can start by identifying @italic{bad} ones! turn to @worksheet-link[#:name "Bad-Sample-Tables"], and write down what's wrong with each of these tables.
                         }
                     }
                     @teacher{

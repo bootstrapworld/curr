@@ -50,7 +50,7 @@
                 }
                 @point{
                         @student{
-                                For some practice interpreting scatter plots and talking about correlations, turn to @worksheet-link[#:name "Unit-8"].
+                                For some practice interpreting scatter plots and talking about correlations, turn to @worksheet-link[#:name "Which-Statement-Is-Right"].
                         }
                         @teacher{
                                 Have students share back their answers.
@@ -244,7 +244,7 @@
                 @point{
                         @student{
                             @activity{
-                                Turn back to @worksheet-link[#:name "Possible-Correlations"], which you filled out earlier. Use Table Plans and the Design Recipe to investigate these correlations, and be sure to write down the @vocab{r-squared} values for each.
+                                Turn back to @worksheet-link[#:name "Correlations-My-Dataset"], which you filled out earlier. Use Table Plans and the Design Recipe to investigate these correlations, and be sure to write down the @vocab{r-squared} values for each.
                             }
                         }
                         @teacher{
@@ -293,7 +293,7 @@
                 @point{
                         @student{
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                    Turn to @worksheet-link[#:name "Unit-6"], and take two minutes to write down your findings. In your answer, include the fact that you used linear regression to come up with a predictor. Bonus points for explaining what the r-squared value tells about that prediction!
+                                    Turn to @worksheet-link[#:name "Unit-8-Notes"], and take two minutes to write down your findings. In your answer, include the fact that you used linear regression to come up with a predictor. Bonus points for explaining what the r-squared value tells about that prediction!
                                 }
                         }
                         @teacher{

@@ -40,7 +40,7 @@
         @points[
                 @point{
                       @student{
-                            Turn to page @worksheet-link[#:name "Unit-2"] in your Student Workbook, and complete the exercises on the page.
+                            Turn to page @worksheet-link[#:name "Exploring-Animals"] in your Student Workbook, and complete the exercises on the page.
                       }
                       @teacher{
 

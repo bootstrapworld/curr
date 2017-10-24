@@ -53,7 +53,7 @@
                     @student{
                           Open the Unit 3 Starter File, select "Save As" from the file menu, and click "Run". As you scroll through the file, you'll notice functions defined at the top. Some of these functions are similar to the ones you defined earlier, and others are totally new!
                           @activity{
-                                Open your student workbook to @worksheet-link[#:name "Unit-3"], and use the code in the Definitions Area to answer the questions there.
+                                Open your student workbook to @worksheet-link[#:name "Reviewing-Functions"], and use the code in the Definitions Area to answer the questions there.
                           }
                     }
                     @teacher{
@@ -92,7 +92,7 @@
             }
             @point{
                   @student{
-                        Pyret also has another kind of procedure, which behaves a little differently. These procedures are called @vocab{table methods}. Let's take a look at one table method, and compare it to a function you already know. 
+                        Pyret also has another kind of procedure, which behaves a little differently. These procedures are called @italic{table methods}. Let's take a look at one table method, and compare it to a function you already know. 
                         @activity{
                           Type both of these into the Interactions Area and see what comes out.
                           @code[#:multi-line #t]{
@@ -326,7 +326,7 @@
               }
               @point{
                     @student{
-                        These table methods are powerful, and there's an order-of-operations to how they are used. For example, we might want to build a column and then use it to filter or order the table. Therefore, @code{.build-column} always has to come first! To help keep things organized, we can use @bold{Table Plans}. Turn to page @worksheet-link[#:name "Table-Plan-1"]
+                        These table methods are powerful, and there's an order-of-operations to how they are used. For example, we might want to build a column and then use it to filter or order the table. Therefore, @code{.build-column} always has to come first! To help keep things organized, we can use @bold{Table Plans}. Turn to page @worksheet-link[#:name "Kitten-Tags"]
                     }
                     @teacher{
                         Table Plans are like the Design Recipe, but for manipulating tables. They enforce a @italic{way of thinking}, which is important for your students.

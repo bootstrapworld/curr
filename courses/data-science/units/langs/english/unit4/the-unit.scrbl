@@ -45,7 +45,7 @@
                           According to the US Census Bureau, the average American household earned more than $45,000 in 2003 - more than 3x the poverty line that year. Does that mean only a small percentage of Americans were in poverty that year?
 
                           @activity{
-                              Take two minutes to write down what you think on @worksheet-link[#:name "Unit-4"].
+                              Take two minutes to write down what you think on @worksheet-link[#:name "Unit-4-Notes"].
                           }
                       }
                       @teacher{
@@ -56,7 +56,7 @@
                       @student{
                               Open the @editor-link[#:public-id "0BzzMl1BJlJDkVzhiR3JzYnlrem8" "Unit 4 Starter File"], then click "Save a Copy" and then Run the program. 
                               @activity{
-                                  Turn to @worksheet-link[#:name "Table errors"], and see if you can find all the mistakes.
+                                  Turn to @worksheet-link[#:name "Find-that-Bug"], and see if you can find all the mistakes.
                               }
 
                       }
@@ -106,7 +106,7 @@
                 @point{
                       @student{
                               @activity[#:forevidence "BS-IDE&1&1"]{
-                                      Open your workbooks to @worksheet-link[#:name "Mean-Median-Mode"] and fill in the answer to Question 1.
+                                      Open your workbooks to @worksheet-link[#:name "Measuring-Center"] and fill in the answer to Question 1.
                               }
 
                               Notice that calculating the @vocab{mean} requires being able to add and divide, so the @vocab{mean} only makes sense for quantitative data.  For example, the mean of a list of Presidents doesn't make sense.  Same thing for a list of zipcodes:  even though we can add and divide the numbers of zipcodes, the output doesn't correspond to some "center" zipcode.
@@ -143,7 +143,7 @@
                 }
                 @point{
                       @student{
-                              On @worksheet-link[#:name "Mean-Median-Mode"], you computed the mean of those nine weights to be just under 42 pounds. That IS the average, but almost every animal in that list weighs less than 42 pounds! What is throwing off the average so much?
+                              On @worksheet-link[#:name "Measuring-Center"], you computed the mean of those nine weights to be just under 42 pounds. That IS the average, but almost every animal in that list weighs less than 42 pounds! What is throwing off the average so much?
                       }
                       @teacher{
                               Point students to the two heaviest animals.
@@ -196,7 +196,7 @@
                 @point{
                       @student{
                               @activity[#:forevidence "BS-IDE&1&1"]{
-                                    Return to @worksheet-link[#:name "Mean-Median-Mode"] in your workbook and answer Question 2.
+                                    Return to @worksheet-link[#:name "Measuring-Center"] in your workbook and answer Question 2.
                               }
 
                               Pyret has a function to compute the median of a list as well, with the contract:
@@ -240,7 +240,7 @@
                 @point{
                       @student{
                               @activity[#:forevidence "BS-IDE&1&1"]{
-                                      Complete Question 3 on @worksheet-link[#:name "Mean-Median-Mode"].
+                                      Complete Question 3 on @worksheet-link[#:name "Measuring-Center"].
                               }
                       }
                       @teacher{
@@ -256,6 +256,16 @@
                       }
                       @teacher{
                               
+                      }
+                }
+                @point{
+                      @student{
+                              @activity{
+                                  Complete Questions 5-8 on @worksheet-link[#:name "Measuring-Center"]. If an expert told you they took the medians for different subsets of a population, and then took the median of @italic{those medians}, is that the same thing as taking the median for the whole population? How could someone use this different to lie?
+                              }
+                      }
+                      @teacher{
+                              By reporting a "median of medians" and choosing their subsets carefully, someone could come up with a very different pseudo-median for a population!
                       }
                 }
         ]

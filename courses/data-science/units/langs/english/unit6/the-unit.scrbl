@@ -42,7 +42,7 @@
         @points[
                 @point{
                         @student{
-                                In the last Unit, you learned about two ways to visualize a dataset. To review, turn to @worksheet-link[#:name "Unit-6"] in your Student Workbook, and answer the questions you find there. 
+                                In the last Unit, you learned about two ways to visualize a dataset. To review, turn to @worksheet-link[#:name "Visualizing-Quantity-Review"] in your Student Workbook, and answer the questions you find there. 
                         }
                         @teacher{
                                 
@@ -95,7 +95,7 @@
                 @point{
                       @student{
                               @activity{
-                                    Turn to @worksheet-link[#:name "Freq-Bar-And-Histogram"] in your Student Workbook, and answer the questions you find there. 
+                                    Turn to @worksheet-link[#:name "Visualizing-Frequency"] in your Student Workbook, and answer the questions you find there. 
                               }
                               What was different about these questions? What did the charts at the bottom tell us? The questions were all about @italic{frequency}. The first chart shows the frequency of different species in the table, and the second shows the frequency of certain @italic{weight-ranges}.
                       }

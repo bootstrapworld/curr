@@ -63,7 +63,7 @@
                 @point{
                         @student{
                                 @activity{
-                                    Take a few minutes to look through the whole dataset, and see if you agree with the statement. Could any of our visualizations or measures of center herlp us answer this question? Write down your hypothesis on @worksheet-link[#:name "Unit-7"].
+                                    Take a few minutes to look through the whole dataset, and see if you agree with the statement. Could any of our visualizations or measures of center herlp us answer this question? Write down your hypothesis on @worksheet-link[#:name "Cuter-Adoption"].
                                 }
                         }
                         @teacher{
@@ -180,7 +180,7 @@
                 }
                 @point{
                         @student{
-                                When we look for patterns in a scatter plot like this, we are looking for @vocab{correlations}. A correlation is just a relationship between two variables. In this case, we're looking for a correlation between an animal's @code{age} and how many @code{weeks} it takes for them to be adopted. This relationships can be graphed as a line, which tries to cut through the middle of the cloud. This line is called @vocab{the line of best fit}.
+                                When we look for patterns in a scatter plot like this, we are looking for @vocab{correlations}. A correlation is just a relationship between two variables. In this case, we're looking for a correlation between an animal's @code{age} and how many @code{weeks} it takes for them to be adopted. This relationships can be graphed as a line, which tries to cut through the middle of the cloud. This line is called the @vocab{line of best fit}.
                         }
                         @teacher{
                                 
@@ -312,14 +312,6 @@
                 }
                 @point{
                         @student{
-                                Do you think we would find a different correlation - or a stronger one - if we only looked at dogs? Turn to @worksheet-link[#:name "Scatter-Dogs-Age"] and complete the Table Plan.
-                        }
-                        @teacher{
-
-                        }
-                }
-                @point{
-                        @student{
                                 What correlations do you think there are in your dataset? Would you like to investigate a subset of your data to find those correlations? 
                                 @activity{
                                     Brainstorm a few possible correlations that you might expect to find in your dataset.
@@ -332,7 +324,7 @@
                 @point{
                         @student{
                                 @activity{
-                                    Turn to @worksheet-link[#:name "Possible-Correlations"], and list three correlations you'd like to search for.
+                                    Turn to @worksheet-link[#:name "Correlations-My-Dataset"], and list three correlations you'd like to search for.
                                 }
                         }
                         @teacher{
