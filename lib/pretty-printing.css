@@ -99,7 +99,8 @@ table.datatable tbody tr td {
   }
 
 }
-table.datatable tbody tr:nth-child(even){ background-color: #f2f2f2; }
+table.datatable tbody{} /* for some reason this rule needs to be here for the next one to "take" */
+table.datatable tbody tr:nth-child(odd){ background-color: #e3e3e3; }
 table.datatable tbody tr:first-child {
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
   background: #ddd;
