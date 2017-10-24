@@ -25,7 +25,7 @@
 
   @lesson/studteach[
      #:title "Introduction"
-     #:duration "5 minutes"
+     #:duration "10 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -42,19 +42,7 @@
         @points[
                 @point{
                         @student{
-                                "The more you pay at a restaurant, the better it is". Do you agree with this statement?
-                                You now have significant experience asking questions about data sets: You know how to take measures of center, and how to visualize both categorical and quantitative data. Let's use this experience to find out if the expensive restaurants are really worth the money. First, we'll start with out data set: a table containing information about the restaurants in town.
-
-                                @build-table/cols[
-                                        '("name" "price" "rating")
-                                        '(("\"Family Diner\"" "\"Geoff's Sandwiches\"" "\"Best Burger\"" "\"Riverside Grille\"" "\"Jackie's BBQ\"" "\"La Taqueria\"" "\"Bebop Bar\"" "\"Spike's\"" "\"Fred's Shake Shack\"")
-                                          ("13.21" "10.23" "6.52" "19.56" "5.57" "9.72" "7.2" "6.98" "5.25")
-                                          ("4.5" "4.1" "2.9" "4.9" "2.3" "4" "3.3" "3.8" "3.5"))
-                                         (lambda (r c) (para ""))
-                                         3 9
-                                ]
-
-                                Here the @code{name} column is the name of the restaurant, the @code{price} contains the average price of an entree at the restaurant, and the @code{rating} column contains the average star rating given by customers.
+                                "Younger animals are cuter, and therefore get adopted faster". We started the previous Unit with this question, and looked at scatter plots as a way to visualize possible @vocab{correlations} between two variables in our dataset. What did we find?
                         }
                         @teacher{
                                    
@@ -62,22 +50,27 @@
                 }
                 @point{
                         @student{
-                                Are more expensive restaurants generally better than cheaper ones?
-
-                                @activity{
-                                    Turn to @worksheet-link[#:name "Unit-6"]. Take two minutes and write down what you think.
-                                }
+                                For some practice interpreting scatter plots and talking about correlations, turn to @worksheet-link[#:name "Unit-8"].
                         }
                         @teacher{
-                                Encourage students to discuss openly before writing.
+                                Have students share back their answers.
                         }
                 }
+                @point{
+                        @student{
+                                Whenever there's a possible correlation, Data Scientists try to draw the @vocab{line of best fit}, which cuts through the data cloud and can be used to make predictions. In this Unit, you'll learn how this line is computed, and how to measure the strength of a correlation.
+                        }
+                        @teacher{
+
+                        }
+                }
+
         ]
   }
 
   @lesson/studteach[
      #:title "Linear Regression"
-     #:duration "35 minutes"
+     #:duration "30 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -94,10 +87,10 @@
         @points[
                 @point{
                         @student{
-                                This leaves us with two questions:
+                                After our last Unit, we are left with two questions:
                                 @itemlist[
                                     @item{
-                                        How do we make a prediction from a scatter plot? In other words, "how do we know where to draw that line?"
+                                        How do we make a prediction from a scatter plot? In other words, "how do we know where to draw the line of best fit?"
                                     }
                                     @item{
                                         How do we measure the accuracy of our prediction? In other words, "how well does that line fit?"
@@ -110,7 +103,7 @@
                 }
                 @point{
                         @student{
-                                Data scientists use statistics to build a @italic{model} of a data set. This model takes into account a lot of different measures (including some of the ones you already know), and tries to identify patterns and relationships within the data. When we draw our predictor line on a scatter plot, we can imagine a rubber band stretching between the line itself and each point in the plot - every point pulls the line a little "up" or "down". 
+                                Data scientists use a statistical methods called @vocab{linear regression} to search for certain kinds of relationships in a dataset. When we draw our predictor line on a scatter plot, we can imagine a rubber band stretching between the line itself and each point in the plot - every point pulls the line a little "up" or "down". Linear regression is the statistics behind finding that line of best fit.
                         }
                         @teacher{
 
@@ -119,7 +112,7 @@
                 @point{
                         @student{
                                 @activity{
-                                  You can see this model action, in this @(hyperlink "https://www.geogebra.org/m/xC6zq7Zv" "interactive simulation"). Each vertical line represents the error, or the amount the rubber band has to stretch between a single datapoint and the prediction line. The "Target SSE" shows how much error there is in the best possible predictor line. Our goal is to match that, by moving the red line or the "guide dots" on it. 
+                                  You can see this model action, in this @(hyperlink "https://www.geogebra.org/m/xC6zq7Zv" "interactive simulation"). Each vertical line represents the error, or the amount the rubber band has to stretch between a single datapoint and the prediction line. The "Target SSE" shows how much error (specifically, "the Sum of the Squared Errors") there is in the best possible predictor line. Our goal is to match that, by moving the red line or the "guide dots" on it. 
                                   @itemlist[
                                       @item{Could the predictor line ever be above or below @italic{all} the points? Why or why not?}
                                       @item{What would the plot have to look like for SSE to be zero?}
@@ -132,100 +125,65 @@
                 }
                 @point{
                         @student{
-                                We can compute our own predictor line in Pyret, and grab a @italic{predictor function} from it:
+                                We can compute our own predictor line in Pyret, and plot it on top of a scatterplot
 
                                 @code[#:multi-line #t]{
                                         # use linear regression to extract a predictor function
                                         lr-plot :: (t :: Table, xs :: Str, ys :: Str) -> Image
+                                        labeled-lr-plot :: (t :: Table, ls :: String, xs :: Str, ys :: Str) -> Image
                                 }
-                                @code{linear-regression} is a function that takes 2 a List of xs and ys as arguments, and @italic{returns a function} of Type @code{Number -> Number}. This function is our predictor, representing the line that best fits the data. We define this function to be the identifier @code{rating-predictor}, and we can use it just like any other function. 
-
-                                @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Type @code{rating-predictor(0)} into the Interactions Area. What is the output?  What happens with @code{rating-predictor(20)?} What is the contract for @code{rating-predictor}?
-                                }
+                                @code{lr-plot} is a function that takes a Table and the names of columns to use for @code{xs} and @code{ys}, computes the line of best fit, and then draws it on top of the point cloud.
 
                                 You can learn more about how a predictor is created by watching @(hyperlink "https://www.youtube.com/watch?v=lZ72O-dXhtM" "this video").
 
                         }
                         @teacher{
-                                If you want to teach students the algorithm for linear regression (calculating ordinary least squares), now is a good time to do it!
-                        }
-                }
-                @point{
-                        @student{
-                                @activity{
-                                    Once we have the function's DataSeries, we know how to plot it - we used @code{draw-chart} back in Unit 1! We can use @code{draw-chart} to plot the function @code{DataSeries} or the scatter plot @code{DataSeries}, but we'd like to plot these @italic{on top of one another}, and we can do this using the @code{draw-chart} function. It works much the way @code{draw-chart} does, but instead of one @code{DataSeries} it takes in a @italic{list of DataSeries} (@code{List<DataSeries>}) as its Domain.
-                                }
-                        }
-                        @teacher{
-
+                                If you want to teach students the algorithm for linear regression (calculating ordinary least squares), now is the time. However, this algorithm is not a core portion of Bootstrap:Data Science.
                         }
                 }
                 @point{
                         @student{
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Create statistical models and predictor functions for each of the following relationships, then plot the predictor function on top of the scatter plots you created earlier:
+                                        Show a scatter plot and line-of-best-fit for the following relationships:
 
                                         @itemlist[
                                                 @item{
-                                                        The @code{fat} vs. @code{calories-from-fat} columns of @code{nutrition}.
+                                                        The @code{age} vs. @code{weeks} waiting for adoption, but just for the dogs in the shelter.
                                                 }
                                                 @item{
-                                                        The total @code{gdp} vs @code{median-life-expectancy} columns of @code{countries}
+                                                        The @code{weight} vs. @code{weeks} waiting for adoption, but just for the cats in the shelter.
                                                 }
                                                 @item{
-                                                        The total @code{population} vs @code{median-life-expectancy} columns of @code{countries}
+                                                        The @code{age} vs. @code{weight} waiting for adoption, but just for animals that have been fixed.
                                                 }
                                         ]
-
-                                        Make sure to adjust the bounds to see all of the data on each one.  Also, use the appropriate axis labels.
                                 }
                         }
                         @teacher{
-                                It may be helpful for students to copy and paste the example code that constructs a scatter plot for these examples, and modify it.
+
                         }
                 }
                 @point{
                         @student{
-                                Are there any correlations in this data? If so, what are they?
+                                Notice that these charts also include something called an @vocab{r-squared} value at the top, which always seems to be between 0 and 1. What do you think this number means? Turn to @worksheet-link[#:name "Grading-Predictors"] for a hint.
                         }
                         @teacher{
-                                @itemlist[
-                                        @item{
-                                                Strong correlation between fat and calories from fat
-                                        }
-                                        @item{
-                                                Almost no correlation between GDP and life expectancy - @bold{Note:} sharp-eyed students will point out that this is @italic{total} GDP, not per-per-capita, so we don't expect much correlation!
-                                        }
-                                        @item{
-                                                Almost no correlation between Population and life expectancy
-                                        }
-                                ]
+                                
                         }
                 }
                 @point{
                         @student{
-                                In your workbook activity, you gave predictors "grades" for how well they performed. Data scientists use @vocab{r-squared} values to grade predictors in real life.
-
-                                @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Type @code{r-squared(prices-list, ratings-list, rating-predictor)} into the Interactions Area.
-                                }
-
-                                This is a number on the same scale [0, 1] that tell us "how much of the variation in the scatterplot is explained by this function". In other words, it's a measure for how well the line fits. A perfect score of 1.0 means that 100% of the variability in the data is explained by the function, and that our predictor is perfect. For the price vs ratings, the predictor score is ~0.71, which is fairly accurate. The contract for @code{r-squared} is:
-                                @code[#:multi-line #t]{
-                                    # r-squared :: (t :: Table, xs :: Str, ys :: Str, predictor :: Num->Num) -> Number
-                                }
-
+                                The @vocab{r-squared} value for a predictor is a number on that tell us @italic{"how much of the variation in the scatter plot is explained by this line"}. In other words, it's a measure for how well the line fits. A perfect score of 1.0 means that 100% of the variability in the data is explained by the function and that every point falls exactly on the line. A score of 0.0 means that @italic{none} of the variability is explained by the predictor. 
                                 @activity[#:forevidence "BS-IDE&1&1"]{
                                         @itemlist[
                                             @item{
-                                                Determine the r-squared values for each of the 3 models you created previously, and interpret them. Do they show a strong correlation? A weak correlation? No correlation at all?
+                                                What is the r-squared value for @code{age} vs. @code{weeks} for our entire shelter population? What about for just the dogs? What does this difference mean?
                                             }
                                             @item{
-                                                What does it mean a data point is @italic{above} the predictor line?
+                                                What does it mean when a data point is @italic{above} the predictor line?
                                             }
                                             @item{
-                                                What does it mean a data point is @italic{below} the predictor line?
+                                                What does it mean when a data point is @italic{below} the predictor line?
                                             }
                                             @item{
                                                 If you only have two datapoints, why will the r-squared value always be 1.0?
@@ -235,18 +193,23 @@
                                 } 
                         }
                         @teacher{
-                                Have your students examine the r-squared values for the life expectancy models. Population size has virtually no correlation, but GDP has roughly 30%! Is this surprising to the students? Did they expect it to be stronger or weaker? How can they explain the result?
-                                Optional: teach your students how r-squared values are calculated.
+                                It's always possible to draw a line between points, so any predictor for a 2-item dataset will be perfect! Of course, that's why we never trust correlations drawn from such a small sample size!
                         }
                 }
                 @point{
                         @student{
-                                @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Complete @worksheet-link[#:name "Checking-Understanding"] in your workbook, by writing your own definitions for predictor function, and vocab{r-squared}.
-                                }
+                                A r-squared value of 0.60 or higher is typically considered a strong correlation, and anything between 0.40 and 0.60 is "moderately correlated". Anything less than 0.40 is such a weak correlation as to be random. However, these cutoffs are not an exact science! Different types of data may be "noisier" than others, and in some fields an r-squared value of 0.50 might be considered an impressively strong correlation!
                         }
                         @teacher{
 
+                        }
+                }
+                @point{
+                        @student{
+                                A predictor line @italic{only makes sense in the range of the data}. For example, if we extend our line out to where it hits the x-axis, it appears to predict that "unborn animals are adopted instantly"! Statistical models are just proxies for the real world, drawn from a limited sample of data: they might make useful prediction in the range of that data, but once we try to extrapolate beyond that data we quickly get into trouble!
+                        }
+                        @teacher{
+                                
                         }
                 }
                 @point{
@@ -259,6 +222,55 @@
                         }
                 }
         ]
+  }
+
+  @lesson/studteach[
+     #:title "Your Research"
+     #:duration "30 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[]
+     #:standards (list)
+     #:materials @itemlist[]
+     #:preparation @itemlist[]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[
+                @point{
+                        @student{
+                            @activity{
+                                Turn back to @worksheet-link[#:name "Possible-Correlations"], which you filled out earlier. Use Table Plans and the Design Recipe to investigate these correlations, and be sure to write down the @vocab{r-squared} values for each.
+                            }
+                        }
+                        @teacher{
+
+                        }
+                }
+                @point{
+                        @student{
+                                What correlations did you find? Did you need to filter out certain rows in order to get those correlations?
+                        }
+                        @teacher{
+
+                        }
+                }
+                @point{
+                        @student{
+                              @activity{
+                                  Write up your findings by filling out @worksheet-link[#:name "Correlations-Findings"].
+                              }
+                        }
+                        @teacher{
+                              Have 2-3 students read their findings aloud.
+                        }
+                }
+        ]
+    }
   }
 
   @lesson/studteach[
