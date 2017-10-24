@@ -161,9 +161,65 @@
                         }
                 }
                 @point{
+                        @student{
+                                @bitmap{images/age-vs-weeks.png}
+                                Now that we have our scatterplot, what kind of patterns do we see? 
+                                @activity{
+                                    @itemlist[
+                                        @item{ Where are the points clustered? }
+                                        @item{ Are there places where the "cloud" is denser than others? }
+                                        @item{ Are there any points that "stray from the pack?" Which ones? }
+                                        @item{ Does the cloud seem to go up or down as the number of weeks increases? }
+                                        @item{ Try to draw a line through the middle of the cloud. }
+                                    ]
+                                }
+                        }
+                        @teacher{
+                                Suggestion: project the scatter plot at the front of the room, and have students @italic{come up to the plot} to point out their patterns.
+                        }
+                }
+                @point{
+                        @student{
+                                When we look for patterns in a scatter plot like this, we are looking for @vocab{correlations}. A correlation is just a relationship between two variables. In this case, we're looking for a correlation between an animal's @code{age} and how many @code{weeks} it takes for them to be adopted. This relationships can be graphed as a line, which tries to cut through the middle of the cloud. This line is called @vocab{the line of best fit}.
+                        }
+                        @teacher{
+                                
+                        }
+                }
+                @point{
+                        @student{
+                                Do you notice any datapoints that seem unusually far away from the line? Which animals are those? These points are called @vocab{outliers}, meaning that there is something special about them that makes them different from everyone else. 
+                                @activity{
+                                    Why might these animals be outliers?
+                                }
+                        }
+                        @teacher{
+                                Give students a chance to come up with a few ideas, and share them with the class.
+                        }
+                }
+                @point{
+                        @student{
+                                Outliers are always interesting: 
+                                @itemlist[
+                                    @item{
+                                        Sometimes they're just random. Maybe Felix just met the right family early, or maybe we find out he just ran away and then his family came to get him. In that case, we could remove him from our dataset.
+                                    }
+                                    @item{
+                                        Sometimes they can give you a deeper insight into your data. Maybe Felix is a special @italic{breed} of cat, and we discover that our dataset is missing an important column for breed!
+                                    }
+                                    @item{
+                                        Sometimes outliers are the points we are looking for! What if we wanted to know which restaurants are a good value, and which are ripoffs? We could make a scatterplot of restaurant prices vs. reviews, an outlier that's high above the rest of the points would be a restaurant whose reviews are @italic{unusually good} for the price. An outlier way below the cloud would be a real ripoff.
+                                    }
+                                ]
+                        }
+                        @teacher{
+
+                        }
+                }
+                @point{
                         @student{ 
                                 @activity{
-                                    For practice, try making scatter plots (or labeled scatter plots) for each of the following relationships:
+                                    For practice, try making scatter plots (or labeled scatter plots) for each of the following relationships. If you see any outliers, try to explain them!
                                     @itemlist[
                                                 @item{
                                                         The @code{age} of an animal vs the @code{weight} of the animal
@@ -178,7 +234,7 @@
                                 }
                         }
                         @teacher{
-                                Debrief, showing the plots on the board. Make sure students see plots for which there is no relationship, to!
+                                Debrief, showing the plots on the board. Make sure students see plots for which there is no relationship, like the last one!
                         }
                 }
                 @point{
@@ -213,32 +269,6 @@
                 )
       ]{
         @points[
-                @point{
-                        @student{
-                                @bitmap{images/age-vs-weeks.png}
-                                Now that we have our scatterplot, what kind of patterns do we see? 
-                                @activity{
-                                    @itemlist[
-                                        @item{ Where are the points clustered? }
-                                        @item{ Are there places where the "cloud" is denser than others? }
-                                        @item{ Are there any points that "stray from the pack?" Which ones? }
-                                        @item{ Does the cloud seem to go up or down as the number of weeks increases? }
-                                        @item{ Try to draw a line through the middle of the cloud. }
-                                    ]
-                                }
-                        }
-                        @teacher{
-                                Suggestion: project the scatter plot at the front of the room, and have students @italic{come up to the plot} to point out their patterns.
-                        }
-                }
-                @point{
-                        @student{
-                                When we look for patterns in a scatter plot like this, we are looking for @vocab{correlations}. A correlation is just a relationship between two things. In this case, we're looking for a correlation between an animal's @code{age} and how many @code{weeks} it takes for them to be adopted.
-                        }
-                        @teacher{
-                                
-                        }
-                }
                 @point{
                         @student{
                                 @bannerline{Correlations have @italic{direction}.}
@@ -282,7 +312,7 @@
                 }
                 @point{
                         @student{
-                                Do you think we would find a different correlation - or a stronger one - if we only looked at dogs?
+                                Do you think we would find a different correlation - or a stronger one - if we only looked at dogs? Turn to @worksheet-link[#:name "Scatter-Dogs-Age"] and complete the Table Plan.
                         }
                         @teacher{
 
@@ -314,7 +344,7 @@
 
   @lesson/studteach[
      #:title "Closing"
-     #:duration "10 minutes"
+     #:duration "5 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -331,15 +361,12 @@
         @points[
                 @point{
                         @student{
-
-                        }
-                        @teacher{
-
+                              After looking at the scatter plot for our animal shelter, do you stil agree with the claim on @worksheet-link[#:name "Unit-7"]? Perhaps you need more information, or to see the analysis broke down separately by animal. 
                         }
                 }
                 @point{
                         @student{
-
+                              You've started to look for correlations in your dataset, and now you know how to create scatter plots to visualize them. But how do we know if a correlation is @italic{strong enough} to be useful? Eyeballing charts isn't good enough! In the next Unit, you'll learn how to calculate the strength of a correlation, and you'll investigate the correlations in your research that you mapped out here.
                         }
                         @teacher{
 

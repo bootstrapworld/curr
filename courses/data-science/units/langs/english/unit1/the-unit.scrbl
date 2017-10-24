@@ -519,11 +519,11 @@
                             }
                             @activity{
                                 @itemlist[
-                                    @item{ Add this code to the bottom of the Definitions Area in Pyret. }
+                                    @item{ Add this code to the bottom of the Definitions Area in Pyret. Pay attention to the colon after the plural word @code{examples}!}
                                     @item{ How many examples are in this block? }
-                                    @item{ What is the name of the function being used? }
-                                    @item{ Based on these examples, what does this function do? }
-                                    @item{ Add another example to this block and click "Run". }
+                                    @item{ What is the name of the function being used in these examples? }
+                                    @item{ Based on these examples, what do you think this function does? }
+                                    @item{ Add a third example to this block and click "Run". }
                                     @item{ Change one of your examples so that it is @bold{incorrect}, then click "Run". What happens? }
                                 ]
                             }
