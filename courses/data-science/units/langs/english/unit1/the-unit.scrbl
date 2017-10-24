@@ -157,7 +157,7 @@
             }
             @point{
                     @student{
-                            It's important to remember that tables are only a proxy for the real thing: this table @italic{describes} some shapes we've observed, but it isn't the shapes themselves! Data Scientists use the term @vocab{observations} instead of "data rows", and @vocab{variable} to refer to columns.
+                            It's important to remember that tables are only a proxy for the real thing: this table @italic{describes} some shapes we've observed, but it isn't the shapes themselves! 
                             @activity{
                                 Add rows to this table for @code{circle}, @code{ellipse} and @code{rectangle}. Pay close attention to how you use commas and colons, since these are part of the program! When you're done, click "Run" and print out your new-and-improved @code{shapes} table.
                             }
@@ -322,7 +322,7 @@
             }
             @point{
                     @student{
-                            You've already gotten some practice adding rows - or @vocab{observations} - to the table. But what if we want to add a column, to track whether or not a shape has any corners or not? Which shapes have corners and which don't?
+                            You've already gotten some practice adding rows to the table. But what if we want to add a column, to track whether or not a shape has any corners or not? Which shapes have corners and which don't?
                             @activity{
                                 Add a new column, @code{is-round} to the table, then add a Boolean value to the end of each row indicating whether or not that shape has corners.
                             }
