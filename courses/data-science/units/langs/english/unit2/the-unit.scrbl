@@ -220,26 +220,43 @@
                 }
                 @point{
                       @student{
-                            @bannerline{Step 2: Write Examples} You already know how to write examples, and this is no different. We start with the name of the function we're writing, followed by an example input. Let's use one of the pets we defined earlier as an example, and then write down the work we need to do to get the year it was born:
+                            @bannerline{Step 2: Write Examples} You already know how to write examples for built-in functions, where we write the @italic{answer} we expect to get back. Just as we did before, we start with the name of the function we're writing, followed by an example input. When defining @italic{new} functions, we don't just want to write our answer - we want to show our work! Let's use one of the pets we defined earlier as an example, and write one example that shows the answer and another that @italic{shows the work} we need to do to get there.
                             @code[#:multi-line #t]{
                               birth-year :: (animal :: Row) -> Number
                               # Consumes an animal and produces the year it was born
                               examples:
-                                birth-year(pet1) is 2018 - pet1["age"]
+                                birth-year(pet1) is 2016                # our answer
+                                birth-year(pet1) is 2018 - pet1["age"]  # showing our work
                               end
                             }
+                            While both examples here are correct, we want to use the second one that shows our work.
+                      }
+                      @teacher{
+                            Make sure students see that these two examples are @italic{equivalent}. Walk through this first example @italic{carefully}. Make sure students understand where the @code{birth-year} came from the Name in our contract, and that @code{pet1} came from the Domain in our contract. @code{2017 - pet1["age"]} came from our purpose statement, and the label also came from the variable name in our contract.
+                      }
+                }
+                @point{
+                      @student{
                             @activity{
                                 @itemlist[
-                                  @item{Write another example in tnhis block, using the @code{pet2} you defined earlier.}
-                                  @item{Do you notice a pattern? Most of the code for these examples is exactly the same, and only a small bit is changing: @code{pet1} and @code{pet2}.}
-                                  @item{Circle all of the parts in your example block that are changing.}
-                                  @item{What does the stuff you circled represent? Are @code{pet1} and @code{pet2} years? Legs? No - they are @italic{animals}! Let's label them...}
+                                  @item{
+                                      Write another example that shows your work in this block, using the @code{pet2} you defined earlier.
+                                    }
+                                  @item{
+                                      In the examples where we show our work, do you notice a pattern? Most of the code for these examples is exactly the same, and only a small bit is changing: @code{pet1} and @code{pet2}.
+                                  }
+                                  @item{
+                                      Circle all of the parts in your example block that are changing.
+                                  }
+                                  @item{
+                                      What does the stuff you circled represent? Are @code{pet1} and @code{pet2} years? Legs? No - they are @italic{animals}! Let's label them...
+                                  }
                                 ]
                                   
                             }
                       }
                       @teacher{
-                            Walk through this first example @italic{carefully}. Make sure students understand where the @code{birth-year} came from the Name in our contract, and that @code{pet1} came from the Domain in our contract. @code{2017 - pet1["age"]} came from our purpose statement, and the label also came from the variable name in our contract.
+                            
                       }
                 }
                 @point{
@@ -308,6 +325,9 @@
                             }
                         ]
                     }
+                    @teacher{
+                        Show students that they can combine all their examples into a single block at the top of the file.
+                    }
                 }
         ]
   }
@@ -372,7 +392,7 @@
                                       Once you've found a Starter file for a dataset that interests you, click "Save a Copy" and save the project to your own account. 
                                   }
                                   @item{
-                                      You'll be adding to this file as we go, and keeping a written repository of your work and your findings as well. We've created @(hyperlink "https://docs.google.com/document/d/1jbKSecOtdzVO4iJsIPQRLvnwrt8GhqVFyXvnukdT_Xo/edit?usp=sharing" "a Report Starter File") for this Report as well - save a copy to your account, and be sure to @bold{bookmark the page so you can return to it later}.    
+
                                   }
                                   @item{
                                       Take 5 minutes to fill in your name, and fill out Questions 1 and 2 on  @worksheet-link[#:name "My-Dataset"].
