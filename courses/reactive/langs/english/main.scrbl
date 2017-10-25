@@ -20,11 +20,15 @@ We provide all of our materials @italic{free of charge}, to anyone who is intere
          (for/list ([n (in-range 1 6)])
            (unit-summary/links n))
          (list
- 	  @summary-item/unit-link["Build Your Own Animation" "units/BuildOwn/index"]{Students create their own animation from scratch (requires Units 1-5)}
+           @summary-item/unit-link["Refactoring Emoji Drawings" "units/RefactorEmoji/index"]{Students examine the benefits of refactoring code to make it more readable and useable, and practice with some simple drawings (requires Units 1)}
+          @summary-item/unit-link["draw-state Functions" "units/Draw-state/index"]{Students implement functions to draw a scene based on simple data structures (requires Units 1-3)}
+          @summary-item/unit-link["Build Your Own Animation" "units/BuildOwn/index"]{Students create their own animation from scratch (requires Units 1-5)}
  	  @summary-item/unit-link["Detecting Collisions" "units/Collisions/index"]{Students use the Pythagorean Theorem to detect collisions in their games (requires Units 1-5)}
  	  @summary-item/unit-link["Adding Scores" "units/Scoring/index"]{Students add a score to their games, based on the number of collisions (requires the Collisions unit)}
  	  @summary-item/unit-link["Adding Levels" "units/Levels/index"]{Students add levels of play to their games, with levels changing based on scores (requires the Scores unit)}
  	  @summary-item/unit-link["Writing Pong" "units/Pong/index"]{Students implement a one-player version of the classic Pong video game (requires Units 1-5)}
+            @summary-item/unit-link["Nested Structures" "units/Nesting/index"]{Students explore the benefits of nesting data structures to add complexity to programs (requires Units 1-5)}
+             @summary-item/unit-link["Timers" "units/Timers/index"]{Students use timers to add functionality (a splash screen, or collision animation) to their programs (requires Units 1-5)}
           )
          (list 
           @summary-item/no-link["Student Workbook"]{
