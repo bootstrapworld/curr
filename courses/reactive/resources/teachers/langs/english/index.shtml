@@ -52,6 +52,36 @@
 		                    | <a href="solutions/circle-image-solutions.pdf">answers</a>]
 		                  <span>
 		                </li>
+						<li>Matching Expressions to Images
+							<span class="links">
+			                    [<a href="exercises/MatchingExpressions.pdf">original</a>
+			                    | <a href="solutions/MatchingExpressions-solutions.pdf">answers</a>]
+			                  <span>
+			                </li>
+						<li>Overlaying Images
+	  							<span class="links">
+	  			                    [<a href="exercises/OverlayingImages.pdf">original</a>
+	  			                    | <a href="solutions/OverlayingImages-solutions.pdf">answers</a>]
+	  			                  <span>
+	  			                </li>
+  						<li>Combining Images (#1)
+  							<span class="links">
+  			                  [<a href="exercises/CombiningImages1.pdf">original</a>
+  			                  | <a href="solutions/CombiningImages1-solutions.pdf">answers</a>]
+  			                  <span>
+  			                </li>
+  						<li>Combining Images (#2)
+  							<span class="links">
+  			                  [<a href="exercises/CombiningImages2.pdf">original</a>
+  			                  | <a href="solutions/CombiningImages2-solutions.pdf">answers</a>]
+  			                  <span>
+  			                </li>	
+	  						<li>Combining Images (#3)
+	  							<span class="links">
+	  			                  [<a href="exercises/CombiningImages3.pdf">original</a>
+	  			                  | <a href="solutions/CombiningImages3-solutions.pdf">answers</a>]
+	  			                  <span>
+	  			                </li>		
 		                </ul>
 		                <h3><a href="../../units/unit2/">Unit 2</a></h3>
 		                <ul>
@@ -94,6 +124,24 @@
   		                            | <a href="solutions/MatchingData-solutions.pdf">answers</a>]
   		                    </span>
   		                  </li>
+  						<li>Matching draw-state functions to images (#1)
+  							<span class="links">
+  			                    [<a href="exercises/Matchingdraw-state1.pdf">original</a>
+  			                    | <a href="solutions/Matchingdraw-state1-solutions.pdf">answers</a>]
+  			                  <span>
+  			                </li>
+	  						<li>Matching draw-state functions to images (#2)
+	  							<span class="links">
+	  			                    [<a href="exercises/Matchingdraw-state2.pdf">original</a>
+	  			                    | <a href="solutions/Matchingdraw-state2-solutions.pdf">answers</a>]
+	  			                  <span>
+	  			                </li>
+		  						<li>Matching draw-state functions to images (#3)
+		  							<span class="links">
+		  			                    [<a href="exercises/Matchingdraw-state3.pdf">original</a>
+		  			                    | <a href="solutions/Matchingdraw-state3-solutions.pdf">answers</a>]
+		  			                  <span>
+		  			                </li>
   		                </ul>
   		                <h3><a href="../../units/unit4/">Unit 4</a></h3>
   		                <ul>
@@ -115,6 +163,12 @@
   		                            | <a href="solutions/DetectingHelpers-solutions.pdf">answers</a>]
   		                    </span>
   		                  </li>
+    						<li>Matching Data Structures to Images
+    							<span class="links">
+    			                  [<a href="exercises/MatchingDataImages.pdf">original</a>
+    			                  | <a href="solutions/MatchingDataImages-solutions.pdf">answers</a>]
+    			                  <span>
+    			                </li>
     		                </ul>
     		                <h3><a href="../../units/unit5/">Unit 5</a></h3>
     		                <ul>
