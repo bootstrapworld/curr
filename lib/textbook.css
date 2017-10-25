@@ -51,8 +51,9 @@ div#lessonToolbar.fixed{
   border-bottom-left-radius: 10px;
   padding: 0 0 20px 20px;
   box-shadow:   -5px 5px 10px #888888;
-
 }
+
+.TranslationButton{ display: none; }
 
 /***********************************************************************************
  * COURSE OVERVIEW
