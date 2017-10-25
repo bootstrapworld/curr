@@ -334,7 +334,12 @@ div.activity{
   -webkit-print-color-adjust: exact;
 }
 
-.student img, div#body img{float: right; padding: 5px;}
+.student img, div#body img{
+  float:        right; 
+  padding:      5px;
+  max-width:    300px;
+  height:       auto;
+}
 div.activity::after{
     content: ".";
     display: block;
