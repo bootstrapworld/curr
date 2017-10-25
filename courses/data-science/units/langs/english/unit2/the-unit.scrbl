@@ -48,18 +48,19 @@
                 }
                 @point{
                       @student{
-                            Let's take a look at a real dataset, like the kind you might get from your local animal shelter. Open up the @editor-link[#:public-id "0BzzMl1BJlJDkVTlPTjlIWFB2aDA" "Unit 2 Starter File"]. Click "Connect to Google Drive" to sign into your Google account, and then click the "Save as" button. This will save a copy of the file into your own account, so that you can make changes and retrieve them later.
-                      }
-                      @teacher{
-
-                      }
-                }
-                @point{
-                      @student{
-                            This file contains some new code that you haven't seen before. At the top is the @code{include} line, which imports a library of useful functions for Data Science. After that there's another two @code{include} lines, which import libraries of functions for using Google Sheets and Tables as part of our program:
-                            @code[#:multi-line #t]{
-                              include gdrive-sheets
-                              include tables
+                            Let's take a look at a real dataset!
+                            @activity{
+                                @itemlist[
+                                    @item{
+                                        Open the @(hyperlink "Pets Spreadsheet" "https://docs.google.com/spreadsheets/d/19m1bUCQo3fCzmSEmWMjTfnmsNIMqiByLytHE0JYtnQM/edit?usp=sharing") in a new tab. Take a moment to look around. What do you think this table is for?
+                                    }
+                                    @item{
+                                        This is some data from an animal shelter, listing animals that have been adopted. We'll be using this as an example thoughout the course, but you'll be applying what you learn to @italic{a dataset you choose} as well.
+                                    }
+                                    @item{
+                                        Open up the @editor-link[#:public-id "0BzzMl1BJlJDkVTlPTjlIWFB2aDA" "Unit 2 Starter File"] in a new tab. Click "Connect to Google Drive" to sign into your Google account, and then click the "Save as" button. This will save a copy of the file into your own account, so that you can make changes and retrieve them later.
+                                    }
+                                ]
                             }
                       }
                       @teacher{
@@ -68,7 +69,20 @@
                 }
                 @point{
                       @student{
-                            On line 8, the @code{load-spreadsheet} function is used to load a spreadsheet file from Google Drive, and give the file a name (@code{shelter-sheet}). After that, we see the following code:
+                            This file contains some new code that you haven't seen before. At the top is the @code{include} line, which imports a library of useful functions for Data Science. After that there's another two @code{include} lines, which import libraries of functions for using Google Sheets, Tables and Images as part of our program:
+                            @code[#:multi-line #t]{
+                              include gdrive-sheets
+                              include tables
+                              include image
+                            }
+                      }
+                      @teacher{
+
+                      }
+                }
+                @point{
+                      @student{
+                            On line 9, the @code{load-spreadsheet} function is used to load our animal shelter spreadsheet from Google Drive, and give that file a name: @code{shelter-sheet}. After that, we see the following code:
                             @code[#:multi-line #t]{
                               # load the 'pets' sheet as a table called animals
                               animals-table = load-table: name, species, age, fixed, legs
@@ -78,7 +92,7 @@
                             Just as you saw with our @code{shapes} example, this code @italic{defines a new table}. This time, it's called @code{animals-table}, and it's loaded from our Google Sheet. On line 11, you can see the names we are giving to each of the columns, called @code{name}, @code{name}, @code{animal}, @code{age}, @code{fixed}, and @code{legs}.
                       }
                       @teacher{
-
+                            Have students look back at the column names in the Google Sheet, and in the @code{load-table} function. Point out that they refer to the same columns, even though they have different names!
                       }
                 }
                 @point{

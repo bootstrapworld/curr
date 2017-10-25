@@ -120,6 +120,13 @@
                                           <Table>.row-n :: (index :: Number) -> Row
                                          }
                                   }
+                                  @item{
+                                        @italic{They have a "secret" argument.} The following code uses methods and functions to extract the first row of a table. The function takes in two arguments, but the method appears to onlytake in one. Can you see the secret argument?
+                                        @code[#:multi-line #t]{
+                                            get-row(t, 0)  # takes in two arguments!
+                                            t.row-n(0)     # takes in....one???
+                                        }
+                                  }
                           ]
 
 
@@ -130,10 +137,10 @@
             }
             @point{
                     @student{
-                        How well do you understand methods? Turn to @worksheet-link[#:name "Methods"] in your Student Workbook, and see how many questions you can answer.
+                        How well do you understand methods? Complete @worksheet-link[#:name "Methods"] in your Student Workbook.
                     }
                     @teacher{
-
+                        Have students discuss their answers to Question 7 - for the expressions that @italic{don't} work, can they explain why?
                     }
             }
       ]

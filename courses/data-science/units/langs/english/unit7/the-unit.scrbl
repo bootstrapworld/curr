@@ -276,7 +276,7 @@
                                     @item{ If the line slopes up, there may be a @italic{positive correlation}. }
                                     @item{ If the line slopes down, there may be a @italic{negative correlation}. }
                                 ]
-                                Do you see a correlation in this scatter plot? If so, is it positive or negative? What correlations - if any - did you see in the other scatterplots you created?
+                                Do you see a correlation in the age-vs-weeks scatter plot? If so, is it positive or negative? What correlations, if any, did you see in the other scatterplots you created?
                         }
                         @teacher{
 

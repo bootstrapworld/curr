@@ -42,26 +42,18 @@
         @points[
                 @point{
                       @student{
-                          According to the US Census Bureau, the average American household earned more than $45,000 in 2003 - more than 3x the poverty line that year. Does that mean only a small percentage of Americans were in poverty that year?
-
-                          @activity{
-                              Take two minutes to write down what you think on @worksheet-link[#:name "Unit-4-Notes"].
-                          }
+                              Open the @editor-link[#:public-id "0BzzMl1BJlJDkVzhiR3JzYnlrem8" "Unit 4 Starter File"], then click "Save a Copy" and then Run the program.
                       }
                       @teacher{
-                          Invite an open discussion for a few minutes, then give students time to write down what they think.
+
                       }
                 }
                 @point{
                       @student{
-                              Open the @editor-link[#:public-id "0BzzMl1BJlJDkVzhiR3JzYnlrem8" "Unit 4 Starter File"], then click "Save a Copy" and then Run the program. 
-                              @activity{
-                                  Turn to @worksheet-link[#:name "Find-that-Bug"], and see if you can find all the mistakes.
-                              }
-
+                          According to the Animal Shelter Bureau, the average pet waits 6 weeks to be adopted. Does that mean most pets wait more than a month to find homes?
                       }
                       @teacher{
-
+                          Invite an open discussion for a few minutes.
                       }
                 }
         ]
@@ -86,9 +78,9 @@
         @points[
                 @point{
                       @student{
-                              Suppose the shelter is trying to raise money for new beds for the animals, and they want to talk about how big the animals are so they know what size beds to get. It would be pretty difficult to list the weight of every single animal, so it's convenient to @italic{summarize} the data into a single measure of the "center" of that dataset. If you plotted all the weights as points on a number line, what could we say about where those points are clustered? Is there a midpoint? Is there a point that shows up most often? Each of these are different ways of "measuring center", and Data Scientists use them to speak as accurately as possible when they summarize data.
+                              Suppose we want to check the Bureau's claim. It would be pretty difficult to list the weeks-waiting-for-adoption of every single animal, so it's convenient to @italic{summarize} the data into a single measure of the "center" of that dataset. If you plotted all the weeks as points on a number line, what could we say about where those points are clustered? Is there a midpoint? Is there a point that shows up most often? Each of these are different ways of "measuring center", and Data Scientists use them to speak as accurately as possible when they summarize data.
                               @activity{
-                                  Suppose you have nine animals that weight 20, 20, 30, 35, 35, 35, 40, 60, and 120 pounds. How many different "measures of center" can you come up with?
+                                  Suppose you have nine animals that took 1,  1,  3,  3,  3,  3,  4,  6, 12 weeks to be adopted. How many different "measures of center" can you come up with?
                               }
                       }
                       @teacher{
@@ -97,7 +89,7 @@
                 }
                 @point{
                       @student{
-                              One way of summarizing a column is to provide the @code{mean}, or @italic{average} of the values in that column. To take the average of a column, we add all the numbers in that column and divide by the number of rows.
+                              One way of summarizing a column is to provide the @code{mean}, or @italic{average} of the values in that column. To take the average of a column, we add all the numbers in that column and divide by the number of rows. That's exactly what the Animal Shelter Bureau did to make a statement about how long animals stay in shelters.
                       }
                       @teacher{
                               Use your favorite lesson to teach students about computing averages.
@@ -131,10 +123,10 @@
                 }
                 @point{
                       @student{
-                              Type @code{mean(animals-table, "age")}.  What does this give us? Why?
+                              Type @code{mean(animals-table, "weeks")}.  What does this give us? Does this back up the Bureau's claims?
 
                               @activity[#:forevidence "BS-IDE&1&1"]{
-                                    In the Interactions Area, take the @code{mean} of the @code{age} and @code{weeks} columns.
+                                    In the Interactions Area, take the @code{mean} of the @code{weight} and @code{age} columns.
                               }
                       }
                       @teacher{
@@ -143,15 +135,18 @@
                 }
                 @point{
                       @student{
-                              On @worksheet-link[#:name "Measuring-Center"], you computed the mean of those nine weights to be just under 42 pounds. That IS the average, but almost every animal in that list weighs less than 42 pounds! What is throwing off the average so much?
+                              On @worksheet-link[#:name "Measuring-Center"], you computed the mean of that list to be just 4 weeks. That IS the average, but almost every animal in that list waited for less than 4 weeks! What is throwing off the average so much?
                       }
                       @teacher{
-                              Point students to the two heaviest animals.
+                              Point students to the two animals at the end of the list.
                       }
                 }
                 @point{
                       @student{
-                              In this case, the mean is being thrown off by two extreme datapoints (60 and 120), which are throwing off the average. These are called @vocab{outliers}, because they fall far outside of the rest of the dataset. Calculating the mean is great when all the points in a dataset are evenly distributed, but it breaks down for datasets with huge outliers.
+                              In this case, the mean is being thrown off by two extreme datapoints (6 and 12), which are throwing off the average. These are called @vocab{outliers}, because they fall far outside of the rest of the dataset. Calculating the mean is great when all the points in a dataset are evenly distributed, but it breaks down for datasets with huge outliers.
+                              @activity{
+                                  Are there outliers in our @code{animals-table} dataset?
+                              }
                       }
                       @teacher{
 
@@ -204,7 +199,7 @@
                               @code{# median :: (t :: Table, col :: String) -> Number}
 
                               @activity[#:forevidence "BS-IDE&1&1"]{
-                                      Test your answers in the median column with the @code{median} function.
+                                    Compute the @code{median} for the @code{weeks} column in our dataset. Is it different than the mean? What does that mean? For practice, compute the mean for the @code{weight} and @code{age} columns.
                               }
                       }
                       @teacher{
@@ -228,9 +223,15 @@
                               }
 
                               @itemlist[
-                                @item{The mode of the first value is @italic{empty}, because no element is repeated at all.}
-                                @item{The mode list of the second value is @italic{2}, since 2 appears more than any other number.}
-                                @item{The mode list of the last value is @italic{a list containing 1 and 4}, because @code{1} and @code{4} both appear more often than any other element, and because they are appear equally often.}
+                                @item{
+                                    The mode of the first value is @italic{empty}, because no element is repeated at all.
+                                }
+                                @item{
+                                    The mode list of the second value is @italic{2}, since 2 appears more than any other number.
+                                }
+                                @item{
+                                    The mode list of the last value is @italic{a list containing 1 and 4}, because @code{1} and @code{4} both appear more often than any other element, and because they are appear equally often.
+                                }
                               ]
                       }
                       @teacher{
@@ -253,6 +254,9 @@
                               @code[#:multi-line #t]{
                                     # modes :: (t :: Table, col :: String) -> List<Number>
                               }
+                              @activity{
+                                  Compute the @code{modes} of the @code{weeks} column. What did you get? The most common number of weeks an animal waits is only @code{1}! That's well below our mean, which is further proof that there must be some outliers skewing the results.
+                              }
                       }
                       @teacher{
                               
@@ -266,6 +270,29 @@
                       }
                       @teacher{
                               By reporting a "median of medians" and choosing their subsets carefully, someone could come up with a very different pseudo-median for a population!
+                      }
+                }
+                @point{
+                      @student{
+                              At this point, we have a lot of evidence that suggests the Bureau's claim is wrong. Our mean wait time agrees with their findings, but we have two reasons to doubt the validity of their measurement:
+                              @itemlist[
+                                  @item{ The median is only 4 weeks, meaning half the animals wait less than a month! }
+                                  @item{ The mode of our dataset is only 1, which means that many animals are adopted in just one week! }
+                              ]
+                              The Animal Shelter Bureau started with a fact: the mean wait time @italic{is} over 6 weeks. But then they drew a conclusion without checking to see if that was the right statistic to look at. As Data Scientists, we had to look deeper into the data to find out whether or not to trust the Bureau.
+                      }
+                      @teacher{
+                              
+                      }
+                }
+                @point{
+                      @student{
+                            @activity{
+                                "In 2003, the average American family earned $43,000 a year - well above the poverty line! Therefor very few Americans were living in poverty." Do you trust this statement? Why or why not?
+                            }
+                      }
+                      @teacher{
+                            Consider how many policies and laws are defended with statistics like this. Get your students to realize that this knowledge helps them see through fake claims.
                       }
                 }
         ]

@@ -35,12 +35,10 @@
 ;;;;;;;;;;;;;;;; Unit 4;;;;;;;;;;;;;
  ("Unit-4-Notes"				23 )
  ("Unit-4-Blank"				24 )
- ("Find-that-Bug"				25 )
- ("Measuring-Center" 			26 )
- ("Median-Dog-Age" 				27 )
- ("Mean-Kitten-Adoption" 		28 )
- ("Measuring-Center-in-Dataset" 29 )
- ("Blank"						30 )
+ ("Measuring-Center" 			25 )
+ ("Median-Dog-Age" 				26 )
+ ("Mean-Kitten-Adoption" 		27 )
+ ("Measuring-Center-in-Dataset" 28 )
 
 ;;;;;;;;;;;;;;;; Unit 5;;;;;;;;;;;;;
  ("Unit-5-Notes" 				29 )
@@ -59,10 +57,10 @@
  ("Unit-6-Blank" 	 			40 )
  ("Visualizing-Quantity-Review" 41 )
  ("Visualizing-Frequency" 		42 )
- ("Reading-Histogramn" 			43 )
- ("Freq-Bar-Gender" 			44 )
- ("Histogram-Adoption" 			45 )
- ("Frequency-My-Dataset"		46 )
+ ("Freq-Bar-Gender" 			43 )
+ ("Histogram-Adoption" 			44 )
+ ("Frequency-My-Dataset"		45 )
+ ("Blank"						46 )
 
 ;;;;;;;;;;;;;;;; Unit 7;;;;;;;;;;;;;
  ("Unit-7-Notes" 	 			47 )

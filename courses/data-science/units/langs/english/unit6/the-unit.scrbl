@@ -105,7 +105,8 @@
                 }
                 @point{
                       @student{
-                              The chart on the left is called a @vocab{frequency bar chart}. It uses the @vocab{categorical data} in a column as the labels, and then @italic{counts how often} those categories show up in the table. In other words, it shows us the frequency with which each category appears in the table.
+                              @bitmap{images/freq-bar.png}
+                              The first chart is called a @vocab{frequency bar chart}. It uses the @vocab{categorical data} in a column as the labels, and then @italic{counts how often} those categories show up in the table. In other words, it shows us the frequency with which each category appears in the table.
                       }
                       @teacher{
                               
@@ -129,7 +130,8 @@
                 }
                 @point{
                       @student{
-                              The chart on the right is called a @vocab{histogram}.  Histograms are like frequency bar charts, but they have a few important differences:
+                              @bitmap{images/histogram.png}
+                              The second chart is called a @vocab{histogram}.  Histograms are like frequency bar charts, but they have a few important differences:
                                 @itemlist[
                                     @item{ Frequency bar charts are for categorical data, but histograms are for quantitative data }
                                     @item{ The bars in a histogram are @italic{ordered} according to the ranges of the bins }

@@ -18,7 +18,7 @@
                                               @code{.row-n, .order-by, .filter, .build-column, num-sqr, mean, median, modes}
                                               ""))]{
   @unit-descr{
-    Students explore new visualizations in Pyret, focusing on the @italic{quantities} of observations in their dataset. They learn how to construct and interpret Bar and Pie Charts, experiment with these visualizations in a contrived dataset, apply them to their own research, and intepret the results. They also begin to write their own Sample Tables
+      Students explore new visualizations in Pyret, focusing on the @italic{quantities} of observations in their dataset. They learn how to construct and interpret Bar and Pie Charts, experiment with these visualizations in a contrived dataset, apply them to their own research, and intepret the results. They also begin to write their own Sample Tables
   }
 }
 @unit-lessons{
@@ -118,9 +118,8 @@
                 @point{
                       @student{
                               @activity{
-                                   In the Interactions Area, type @code{pie-chart(animals-table, "name", "age")} and hit Enter. What happens?
+                                  In the Interactions Area, type @code{pie-chart(animals-table, "name", "age")} and hit Enter. What happens? What happens when you hover over a slice of the pie? These plots are @italic{interactive}, allowing you to experiment with the data before you generate the final image. 
                               }
-                              These plots are @italic{interactive}, allowing you to experiment with the data before you generate the final image. While the plot window is open, it's interactive: what happens when you hover over a slice of the pie?
                       }
                       @teacher{
                               It reveals the value and percentage of the whole.
@@ -175,6 +174,7 @@
                 }
                 @point{
                       @student{
+                          @bitmap{images/pie.png}
                           This time, our Result isn't a Table or a Number -- it's an @italic{Image}: a pie chart showing the weights of all the dogs in our shelter. @bold{Note:} When writing a Sample Table, it's okay to skip a few columns and focus on the ones you care about. Keep this in mind for the future!
                           @activity{
                             Sketch a pie chart based on your Sample Table. When you're done, move on to defining the function, and fill out the methods to define the table. Do we need to build any columns? Filter any rows? Order the table?
@@ -252,6 +252,7 @@
               @point{
                     @student{
                           @activity{
+                              @bitmap{images/bar.png}
                               Turn to @worksheet-link[#:name "Bar-Kitten-Adoption"], and fill out the Contract and Purpose Statement. First, we'll provide a name that refers back to our dataset: @code{animals-table}. Then we need to provide a good Sample Table for this word problem. Fill out a good Sample Table and write your result.
                           }
                     }
