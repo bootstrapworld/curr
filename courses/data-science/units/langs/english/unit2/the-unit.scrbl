@@ -58,7 +58,7 @@
                                         This is some data from an animal shelter, listing animals that have been adopted. We'll be using this as an example thoughout the course, but you'll be applying what you learn to @italic{a dataset you choose} as well.
                                     }
                                     @item{
-                                        Open up the @editor-link[#:public-id "0BzzMl1BJlJDkVTlPTjlIWFB2aDA" "Unit 2 Starter File"] in a new tab. Click "Connect to Google Drive" to sign into your Google account, and then click the "Save as" button. This will save a copy of the file into your own account, so that you can make changes and retrieve them later.
+                                        Open up the @editor-link[#:public-id "0BzzMl1BJlJDkYkhKMG51VlRiWk0" "Unit 2 Starter File"] in a new tab. Click "Connect to Google Drive" to sign into your Google account, and then click the "Save as" button. This will save a copy of the file into your own account, so that you can make changes and retrieve them later.
                                     }
                                 ]
                             }
