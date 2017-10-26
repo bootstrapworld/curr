@@ -625,7 +625,7 @@
         (for ([subdir (directory-list input-resources-dir)])
           ;; this created new directories for each of the four subdirs contained in resources, at the distribution end
           (match (path->string subdir)
-            [(or "teachers" "workbook" "misc.")
+            [(or "teachers" "workbook" "misc")
              (when (directory-exists? (build-path input-resources-dir subdir "langs" (getenv "LANGUAGE") ))
                (copy-directory/files (build-path input-resources-dir subdir "langs" (getenv "LANGUAGE") )
                               (build-path (simple-form-path output-resources-dir) subdir)))]
