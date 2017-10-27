@@ -25,7 +25,7 @@
 
   @lesson/studteach[
      #:title "Introduction"
-     #:duration "10 minutes"
+     #:duration "15 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -174,8 +174,8 @@
   }
 
   @lesson/studteach[
-     #:title "Which Chart is Best?"
-     #:duration "20 minutes"
+     #:title "Your Dataset"
+     #:duration "30 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -192,18 +192,30 @@
         @points[
               @point{
                     @student{
-                        
+                        @activity{
+                            How are is your dataset distributed? Create at least one frequency bar chart and one histogram to explore your dataset. If you're looking at a particular subset of the data, make sure you write that up in your findings on @worksheet-link[#:name "Frequency-My-Dataset"].
+                        }
                     }       
                     @teacher{
-                        
-                    }              
+                        Give students 5-10min to make their next set, and have them share back. Encourage students to read their observations aloud, to make sure they get practice saying and hearing these observations.
+                    }
+              }
+              @point{
+                    @student{
+                        @activity{
+                            What did you find? Do you need to refine your dataset further, either by filtering or building a new column? Take 10-15min to deepen your analysis, and write up your findings on @worksheet-link[#:name "Frequency-My-Dataset"].
+                        }
+                    }
+                    @teacher{
+
+                    }
               }
         ]
   }
 
   @lesson/studteach[
      #:title "Closing"
-     #:duration "20 minutes"
+     #:duration "15 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]

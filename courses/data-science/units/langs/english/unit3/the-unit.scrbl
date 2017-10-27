@@ -23,7 +23,7 @@
 
   @lesson/studteach[
      #:title "Review"
-     #:duration "10 minutes"
+     #:duration "15 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -58,6 +58,22 @@
                     }
                     @teacher{
 
+                    }
+            }
+            @point{
+                    @student{
+                          The animal shelter might use this dataset in many ways. For example, it might want to see a list of animals ordered from oldest-to-youngest, or a list of names in alphabetical order. 
+                          @activity{
+                              Can you think of any other orders that they might need? Turn to @worksheet-link[#:name "Dataset-Plans"] and answer Question 1.
+                          }
+                          They might also want to look at just cats, or only animals who've been fixed. 
+                          @activity{
+                              Can you think of any other subsets that they want to look at? Turn to @worksheet-link[#:name "Dataset-Plans"] and answer Question 2.
+                          }
+                          The shelter might also want to compute @italic{new columns} for their dataset. For example, they might want a new, numeric column that shows the animals' age in weeks instead of years, or make a new Boolean column showing which animals are dogs over the age of 2.
+                          @activity{
+                              Can you think of any other columns they might want to compute? Turn to @worksheet-link[#:name "Dataset-Plans"] and answer Question 3.
+                          }
                     }
             }
 

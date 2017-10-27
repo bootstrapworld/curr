@@ -40,14 +40,6 @@
         @points[
                 @point{
                       @student{
-                            Turn to page @worksheet-link[#:name "Exploring-Animals"] in your Student Workbook, and complete the exercises on the page.
-                      }
-                      @teacher{
-
-                      }
-                }
-                @point{
-                      @student{
                             Let's take a look at a real dataset!
                             @activity{
                                 @itemlist[
@@ -111,6 +103,19 @@
                       @teacher{
                             Make sure students are comfortable with @code{get-row} and row-accessors (the last four questions) before proceeding. Review with the whole class.
                       }
+                }
+                @point{
+                      @student{
+                            Turn to page @worksheet-link[#:name "Animals-Dataset"] in your Student Workbook, and fill in the table in Question 2.
+                      }
+                      @teacher{
+
+                      }
+                }
+                @point{
+                      @student{
+                            Are cats more popular than dogs? Do older animals take longer to get adopted? What are some questions you have about this dataset? Write down three questions you have on @worksheet-link[#:name "Animals-Dataset"].
+                      }3
                 }
         ]
   }

@@ -126,7 +126,7 @@
                               Type @code{mean(animals-table, "weeks")}.  What does this give us? Does this back up the Bureau's claims?
 
                               @activity[#:forevidence "BS-IDE&1&1"]{
-                                    In the Interactions Area, take the @code{mean} of the @code{weight} and @code{age} columns.
+                                      Open your workbooks to @worksheet-link[#:name "Measuring-Center"] and fill in the answer to Question 1 by writing code in the Interactions Area. For practice, find the @code{mean} of the @code{weight} and @code{age} columns.
                               }
                       }
                       @teacher{
@@ -135,18 +135,15 @@
                 }
                 @point{
                       @student{
-                              On @worksheet-link[#:name "Measuring-Center"], you computed the mean of that list to be just 4 weeks. That IS the average, but almost every animal in that list waited for less than 4 weeks! What is throwing off the average so much?
+                              On @worksheet-link[#:name "Measuring-Center"], you computed the mean of that list to be just 6 weeks. That IS the average, but most of the animals in the table waited for less than 4 weeks! What is throwing off the average so much?
                       }
                       @teacher{
-                              Point students to the two animals at the end of the list.
+                              Point students to Kujo and Mr. Peanutbutter.
                       }
                 }
                 @point{
                       @student{
-                              In this case, the mean is being thrown off by two extreme datapoints (6 and 12), which are throwing off the average. These are called @vocab{outliers}, because they fall far outside of the rest of the dataset. Calculating the mean is great when all the points in a dataset are evenly distributed, but it breaks down for datasets with huge outliers.
-                              @activity{
-                                  Are there outliers in our @code{animals-table} dataset?
-                              }
+                              In this case, the mean is being thrown off by a few extreme datapoints, which are throwing off the average. These are called @vocab{outliers}, because they fall far outside of the rest of the dataset. Calculating the mean is great when all the points in a dataset are evenly distributed, but it breaks down for datasets with huge outliers.
                       }
                       @teacher{
 
@@ -190,16 +187,12 @@
                 }
                 @point{
                       @student{
-                              @activity[#:forevidence "BS-IDE&1&1"]{
-                                    Return to @worksheet-link[#:name "Measuring-Center"] in your workbook and answer Question 2.
-                              }
-
                               Pyret has a function to compute the median of a list as well, with the contract:
 
                               @code{# median :: (t :: Table, col :: String) -> Number}
 
                               @activity[#:forevidence "BS-IDE&1&1"]{
-                                    Compute the @code{median} for the @code{weeks} column in our dataset. Is it different than the mean? What does that mean? For practice, compute the mean for the @code{weight} and @code{age} columns.
+                                    Compute the @code{median} for the @code{weeks} column in our dataset, and answer Question 2 in your workbook. Is it different than the mean? What does that mean? For practice, compute the mean for the @code{weight} and @code{age} columns.
                               }
                       }
                       @teacher{
@@ -240,36 +233,16 @@
                 }
                 @point{
                       @student{
-                              @activity[#:forevidence "BS-IDE&1&1"]{
-                                      Complete Question 3 on @worksheet-link[#:name "Measuring-Center"].
-                              }
-                      }
-                      @teacher{
-
-                      }
-                }
-                @point{
-                      @student{
                               In Pyret, the mode list is calculated by the @code{modes} function, which consumes a List of Numbers and produces a list of Numbers. 
                               @code[#:multi-line #t]{
                                     # modes :: (t :: Table, col :: String) -> List<Number>
                               }
                               @activity{
-                                  Compute the @code{modes} of the @code{weeks} column. What did you get? The most common number of weeks an animal waits is only @code{1}! That's well below our mean, which is further proof that there must be some outliers skewing the results.
+                                  Compute the @code{modes} of the @code{weeks} column, and fill in the answer to Question 3. What did you get? The most common number of weeks an animal waits is only @code{1}! That's well below our mean, which is further proof that there must be some outliers skewing the results.
                               }
                       }
                       @teacher{
                               
-                      }
-                }
-                @point{
-                      @student{
-                              @activity{
-                                  Complete Questions 5-8 on @worksheet-link[#:name "Measuring-Center"]. If an expert told you they took the medians for different subsets of a population, and then took the median of @italic{those medians}, is that the same thing as taking the median for the whole population? How could someone use this different to lie?
-                              }
-                      }
-                      @teacher{
-                              By reporting a "median of medians" and choosing their subsets carefully, someone could come up with a very different pseudo-median for a population!
                       }
                 }
                 @point{
@@ -476,7 +449,7 @@
               @point{
                     @student{
                         @activity{
-                            Take 10 minutes to fill out "Measures of Center" section in your Project Report.
+                            Take 10 minutes to fill out @worksheet-link[#:name "Measuring-Center-in-Dataset"] section in your Project Report.
                         }
                     }       
                     @teacher{

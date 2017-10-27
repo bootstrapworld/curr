@@ -61,7 +61,9 @@
                 }
                 @point{
                         @student{
-                                Sometimes it's better to @italic{visualize} your dataset using a chart or a graph. Turn to @worksheet-link[#:name "Visualizing-Quantity"] in your student workbook, and answer the questions.
+                                @activity{
+                                    Sometimes it's better to @italic{visualize} your dataset using a chart or a graph. Turn to @worksheet-link[#:name "Visualizing-Quantity"] in your student workbook. This page contains two charts for a small sample of 7 animals. On the left, we have a bar chart of animals' ages. On the right, a pie chart showing their weight. We can make a lot of observations about these charts, and there are two of them written in the table at the bottom of the page. Can you add two more?
+                                }
                         }
                         @teacher{
                                 Debrief with the class, paying special attention to the last question: when @italic{is} one chart better than another?
@@ -288,11 +290,23 @@
         @points[
               @point{
                     @student{
-                        
+                        @activity{
+                            Turn to @worksheet-link[#:name "Measuring-Center-in-Dataset"]. If you concluded that one of the columns was being thrown off by outliers, try making a bar or pie chart of that column, and write up your findings on @worksheet-link[#:name "Quantity-My-Dataset"]. 
+                        }
                     }       
                     @teacher{
-                        
+                        Give students 10-15min to make their next set, and have them share back. Encourage students to read their observations aloud, to make sure they get practice saying and hearing these observations.
                     }              
+              }
+              @point{
+                    @student{
+                        @activity{
+                            Do you notice that the outliers all of something in common? What new questions does this raise? Would you like to change your table by filtering it or building a new column? Go deeper into your data, using @worksheet-link[#:name "Blank-Table-Plan-1"] and @worksheet-link[#:name "Blank-Table-Plan-2"] to figure out how you want to change your dataset. Write up your findings on @worksheet-link[#:name "Quantity-My-Dataset"].
+                        }
+                    }
+                    @teacher{
+                        Give students 5-10min to make their next set, and have them share back. Encourage students to read their observations aloud, to make sure they get practice saying and hearing these observations.
+                    }
               }
         ]
   }
