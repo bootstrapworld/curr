@@ -14,7 +14,7 @@
 ;;;;;;;;;;;;;;;; Unit 2;;;;;;;;;;;;;
  ("Unit-2-Notes" 	 	 		 6 )
  ("Unit-2-Blank" 	 	 		 7 )
- ("Exploring-Animals" 			 8 )
+ ("Animals-Dataset" 			 8 )
  ("Design-Recipe-1" 			 9 )
  ("Design-Recipe-2" 			10 )
  ("Design-Recipe-3" 			11 )
@@ -30,7 +30,7 @@
  ("Dogs-by-Age" 				19 )
  ("Old-Dogs-Diet" 				20 )
  ("Fixed-Birth" 				21 )
- ("Plans-for-Dataset" 			22 )
+ ("Dataset-Plans" 				22 )
 
 ;;;;;;;;;;;;;;;; Unit 4;;;;;;;;;;;;;
  ("Unit-4-Notes"				23 )
