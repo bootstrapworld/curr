@@ -169,21 +169,6 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;; Warnings ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; parse-sw-args: list/of string -> list/of string
-;; This parses the list of suppress-warning arguments, ensuring that they are all valid warning tags
-(define (parse-sw-args rest-args)
-  (cond
-    [(empty? rest-args) empty]
-    [(cons? rest-args)
-     ;;checks if next argument is a command-line argument tag, rather than a course name
-     (let [(sw-tag (string->symbol (first rest-args)))]
-       (if (member sw-tag ignore-warning-tags)
-           (cons sw-tag (parse-sw-args (rest rest-args)))
-           (error (format (string-append "Build got unrecognized warning suppression tag: "
-                                         (symbol->string sw-tag) "\n expected one of the following:\n~a\n")
-                  (map (lambda (x) (symbol->string x))
-                       ignore-warning-tags)))))]))
-
 (define (parse-lang-args args)
   (filter (lambda (arg)
             (unless (member arg available-languages)
@@ -215,14 +200,14 @@
 
 (void (putenv "AUDIENCE" "teacher")
 
-(putenv "CURRENT-SOLUTIONS-MODE" "off")
-(putenv "TARGET-LANG" "pyret")
-(putenv "LANGUAGE" "english")
-
-;; warnings to be ignored when running the build script. This can be populated using the
-;; command-line tag "--suppress-warnings a_b_c" or "--sw a_b_c" to suppress warning types a, b, and c.
-;; Alternatively, "--sw all" can be used to suppress all WARNINGs.
-(putenv "IGNORED-WARNINGS" ""))
+      (putenv "CURRENT-SOLUTIONS-MODE" "off")
+      (putenv "TARGET-LANG" "pyret")
+      (putenv "LANGUAGE" "english")
+      
+      ;; warnings to be ignored when running the build script. This can be populated using the
+      ;; command-line tag "--suppress-warnings a_b_c" or "--sw a_b_c" to suppress warning types a, b, and c.
+      ;; Alternatively, "--sw all" can be used to suppress all WARNINGs.
+      (putenv "IGNORED-WARNINGS" ""))
 
 
 
@@ -369,87 +354,91 @@
 ;; Building the units of the course.
 ;; We must do this twice to resolve cross references for lessons.
 (define (build-course-units)
+  ;; build the units
   (when (directory-exists? (get-units-dir)) 
-  (printf "build.rkt: building ~a\n" (current-course))
-  (when (directory-exists? (get-units-dir))
-  (for ([phase (in-range 2)])
-    (printf "Phase ~a\n" phase)
-    
-
-    
-    ;;checks to see if you want to use all the units. if no units specified, uses all units
-    (define units-to-use
-      (if (empty? (units))
-                      (directory-list (get-units-dir))
-                      (filter (lambda (unit) (member (path->string unit) (units))) (directory-list (get-units-dir)))))
-   
-    (for ([subdir units-to-use]
-          #:when (directory-exists?  (build-path (get-units-dir) subdir)))
-
-      (define scribble-file (simple-form-path (build-path (build-path courses-base (current-course) "units" "langs" (getenv "LANGUAGE"))
-                                                          subdir "the-unit.scrbl"))); langs path
-      (cond [(file-exists? scribble-file)
-             (printf "build.rkt: Building ~a\n" scribble-file)
-             (copy-file (build-path "lib" "box.gif") 
-                        (build-path (get-units-dir) subdir "box.gif")
-                        #t)
-             (parameterize ([current-unit (path->string subdir)])
-
-               (run-scribble scribble-file #:outfile "index" #:never-generate-pdf? (= phase 0)))
-             ]
-            [else
-             (printf "Could not find a \"the-unit.scrbl\" in directory ~a\n"
-                     (build-path (get-units-dir) subdir))])))
-    
-      ;; copy exercises from individual lessons into units that reference them 
-    (for ([subdir (if (empty? (units))
-                      (directory-list (get-units-dir))
-                      (filter (lambda (unit) (member unit (units))) (directory-list (get-units-dir))))]
-          #:when (directory-exists? (build-path (get-units-dir) subdir)))
-      (let (;[exercises-dir (build-path (get-units-dir) subdir "exercises")]
-            [deploy-exercises-dir (build-path (current-deployment-dir) "courses" (current-course)(getenv "LANGUAGE")
-                                              "units" subdir "exercises")])
-        ;(when (directory-exists? exercises-dir)
-        ;  (delete-directory/files exercises-dir))
-        ;(make-directory exercises-dir)
+    (printf "build.rkt: building ~a\n" (current-course))
+    (when (directory-exists? (get-units-dir))
+      (for ([phase (in-range 2)])
+        (printf "Phase ~a\n" phase)
         
-        (make-directory deploy-exercises-dir)
-        (let ([exer-list-path (build-path (get-units-dir) subdir "exercise-list.rkt")])
-          (when (file-exists? exer-list-path)
-            (let ([unit-exercises (with-input-from-file exer-list-path read)])
-              ;; copies all exercise from relevant lessons into units
-              (let ([lessonnames (remove-duplicates
-                                  (map (lambda (exer-path-str)
-                                         (let* ([exer-path (string->path exer-path-str)]
-                                                [path-elts (explode-path exer-path)])
-                                           (if (< (length path-elts) 2)
-                                               (error "ERROR: unexpected exercise path ~a during build ~n" exer-path)
-                                               (second path-elts))))
-                                       unit-exercises))])
-                (for-each (lambda (lessonname)
-                            (let ([lessonexerpath (build-path (current-deployment-dir) "lessons" (getenv "LANGUAGE") lessonname "exercises")]
-                                  [deploy-exer-path (build-path deploy-exercises-dir lessonname)])
-                              (unless (directory-exists? deploy-exer-path)
-                                (make-directory deploy-exer-path))
-                              (for ([exerfile (directory-list lessonexerpath)])
-                                ; don't copy some file extensions
-                                (unless (or (regexp-match #px".*\\.scrbl$" exerfile)
-                                            (regexp-match #px".*\\.bak$" exerfile)
-                                            (regexp-match #px".*\\.*~$" exerfile))
-                                  (copy-file (build-path lessonexerpath exerfile)
-                                             (build-path deploy-exer-path exerfile)
-                                             )))))
-                          lessonnames))
-              )))))
+        ;;checks to see if you want to use all the units. if no units specified, uses all units
+        (define units-to-use
+          (if (empty? (units))
+              (directory-list (get-units-dir))
+              (filter (lambda (unit) (member (path->string unit) (units))) (directory-list (get-units-dir)))))
+        
+        (for ([subdir units-to-use]
+              #:when (directory-exists?  (build-path (get-units-dir) subdir)))
+          
+          (define scribble-file (simple-form-path (build-path (build-path courses-base (current-course) "units" "langs" (getenv "LANGUAGE"))
+                                                              subdir "the-unit.scrbl"))); langs path
+          (cond [(file-exists? scribble-file)
+                 (printf "build.rkt: Building ~a\n" scribble-file)
+                 (copy-file (build-path "lib" "box.gif") 
+                            (build-path (get-units-dir) subdir "box.gif")
+                            #t)
+                 (parameterize ([current-unit (path->string subdir)])
+                   
+                   (run-scribble scribble-file #:outfile "index" #:never-generate-pdf? (= phase 0)))
+                 ]
+                [else
+                 (printf "Could not find a \"the-unit.scrbl\" in directory ~a\n"
+                         (build-path (get-units-dir) subdir))])))
+      
+      ;; copy exercises from individual lessons into units that reference them 
+      (for ([subdir (if (empty? (units))
+                        (directory-list (get-units-dir))
+                        (filter (lambda (unit) (member unit (units))) (directory-list (get-units-dir))))]
+            #:when (directory-exists? (build-path (get-units-dir) subdir)))
+        (let (;[exercises-dir (build-path (get-units-dir) subdir "exercises")]
+              [deploy-exercises-dir (build-path (current-deployment-dir) "courses" (current-course)(getenv "LANGUAGE")
+                                                "units" subdir "exercises")])
+          ;(when (directory-exists? exercises-dir)
+          ;  (delete-directory/files exercises-dir))
+          ;(make-directory exercises-dir)
+          
+          (make-directory deploy-exercises-dir)
+          (let ([exer-list-path (build-path (get-units-dir) subdir "exercise-list.rkt")])
+            (when (file-exists? exer-list-path)
+              (let ([unit-exercises (with-input-from-file exer-list-path read)])
+                ;; copies all exercise from relevant lessons into units
+                (let ([lessonnames (remove-duplicates
+                                    (map (lambda (exer-path-str)
+                                           (let* ([exer-path (string->path exer-path-str)]
+                                                  [path-elts (explode-path exer-path)])
+                                             (if (< (length path-elts) 2)
+                                                 (error "ERROR: unexpected exercise path ~a during build ~n" exer-path)
+                                                 (second path-elts))))
+                                         unit-exercises))])
+                  (for-each (lambda (lessonname)
+                              (let ([lessonexerpath (build-path (current-deployment-dir) "lessons" (getenv "LANGUAGE") lessonname "exercises")]
+                                    [deploy-exer-path (build-path deploy-exercises-dir lessonname)])
+                                (unless (directory-exists? deploy-exer-path)
+                                  (make-directory deploy-exer-path))
+                                (for ([exerfile (directory-list lessonexerpath)])
+                                  ; don't copy some file extensions
+                                  (unless (or (regexp-match #px".*\\.scrbl$" exerfile)
+                                              (regexp-match #px".*\\.bak$" exerfile)
+                                              (regexp-match #px".*\\.*~$" exerfile))
+                                    (copy-file (build-path lessonexerpath exerfile)
+                                               (build-path deploy-exer-path exerfile)
+                                               )))))
+                            lessonnames))
+                )))))
+      ))
 
+  ;; build the main page
   (printf "build.rkt: building ~a main\n" (current-course))
   (run-scribble (get-course-main) #:outfile "index")
-  (printf "build.rkt: renaming directory for ~a \n" (current-course))
 
+  ;; rename the course directory
+  (printf "build.rkt: renaming directory for ~a \n" (current-course))
   (rename-file-or-directory (build-path (current-deployment-dir) "courses" (current-course)(getenv "LANGUAGE") "index.html")
                             (build-path (current-deployment-dir) "courses" (current-course)(getenv "LANGUAGE") "index.shtml")
-                            #t)))
-  (unless (directory-exists? (get-units-dir)) (WARNING (format "No units directory found for course ~a in language ~a" (current-course) (getenv "LANGUAGE")) 'no-course-dir))
+                            #t)
+  (unless (directory-exists? (get-units-dir)) 
+     (WARNING (format "No units directory found for course ~a in language ~a" 
+		      (current-course) (getenv "LANGUAGE")) 'no-course-dir))
   )
 
 ;; Building the lessons
@@ -463,7 +452,8 @@
            (run-scribble scribble-file #:never-generate-pdf? #t)]
           [else
            (WARNING (format "Could not find a \"lesson.scrbl\" in directory ~a\n"
-                   (build-path (lessons-dir) subdir)) 'missing-lessons)])
+                            (build-path (lessons-dir) subdir))
+                    'missing-lessons)])
     )
   )
 
