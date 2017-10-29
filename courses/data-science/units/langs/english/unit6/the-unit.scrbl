@@ -262,6 +262,17 @@
                 )
       ]{
         @points[
+              @point{
+                    @student{
+                          You've now learned about a lot of different charts! How many can you name? When is it best to use a pie chart instead of a bar chart? What about a histogram instead of a frequency bar chart? Each chart is good for answering different kinds of questions, and Data Scientists know when to use each kind.
+                          @activity{
+                                Turn to @worksheet-link[#:name "Which-Chart-Is-Best"]. Here you'll find a set of questions about the @code{animals} dataset. For each question, write down the name of the chart that you would use to answer it.
+                          }
+                    }
+                    @teacher{
+
+                    }
+              }
         ]
   }
 }

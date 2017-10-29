@@ -19,12 +19,12 @@
  ("Design-Recipe-2" 			10 )
  ("Design-Recipe-3" 			11 )
  ("My-Dataset" 					12 )
- ("Blank"						13 )
 
 ;;;;;;;;;;;;;;;; Unit 3 ;;;;;;;;;;;;;
- ("Unit-3-Notes" 	 			14 )
- ("Unit-3-Blanks" 	 			15 )
- ("Reviewing-Functions" 		16 )
+ ("Unit-3-Notes" 	 			13 )
+ ("Unit-3-Blanks" 	 			14 )
+ ("Reviewing-Functions" 		15 )
+ ("Animals-Plans" 				16 )
  ("Methods" 					17 )
  ("Kitten-Tags"					18 )
  ("Dogs-by-Age" 				19 )
@@ -60,7 +60,7 @@
  ("Freq-Bar-Gender" 			43 )
  ("Histogram-Adoption" 			44 )
  ("Frequency-My-Dataset"		45 )
- ("Blank"						46 )
+ ("Which-Chart-Is-Best"			46 )
 
 ;;;;;;;;;;;;;;;; Unit 7 ;;;;;;;;;;;;;
  ("Unit-7-Notes" 	 			47 )
@@ -68,14 +68,15 @@
  ("Cuter-Adoption" 	 			49 )
  ("Make-Scatter-Plot"  			50 )
  ("Age-v-Weeks-Dogs" 			51 )
- ("Grading-Predictors" 			52 )
+ ("Drawing-Predictors" 			52 )
  ("Scatter-Dogs-Age" 			53 )
  ("Correlations-My-Dataset" 	54 )
 
 ;;;;;;;;;;;;;;;; Unit 8 ;;;;;;;;;;;;;
  ("Unit-8-Notes" 	 			55 )
  ("Unit-8-Blank" 	 			56 )
-
+ ("Grading-Predictors" 			53 )
+ 
 ;;;;;;;;;;;;;;;; Unit 9 ;;;;;;;;;;;;;
  ("Unit-9" 	 					57 )
 

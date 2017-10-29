@@ -25,7 +25,7 @@
 
   @lesson/studteach[
      #:title "Introduction"
-     #:duration "20 minutes"
+     #:duration "15 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -43,7 +43,7 @@
                 @point{
                         @student{
                                 "Younger animals are cuter, and therefore get adopted faster". Do you agree with this statement?
-                                You now have significant experience asking questions about data sets: You know how to take measures of center, and how to visualize both categorical and quantitative data. Let's use this experience to find out if younger animals really do get adopted faster. First, we'll start with a sample of our dataset: the @code{animals-table}.
+                                You now have significant experience asking questions about data sets: You know how to take measures of center, and how to visualize both quantity and distribution of quantitative and categorical data. Let's use this experience to find out if younger animals really do get adopted faster. First, we'll start with a sample of our dataset: the @code{animals-table}.
 
                                  @build-table/cols[
                                     '("name" "species" "age" "weeks")
@@ -96,8 +96,8 @@
   }
 
   @lesson/studteach[
-     #:title "Scatterplots"
-     #:duration "30 minutes"
+     #:title "Scatter Plots"
+     #:duration "10 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -170,7 +170,6 @@
                                         @item{ Are there places where the "cloud" is denser than others? }
                                         @item{ Are there any points that "stray from the pack?" Which ones? }
                                         @item{ Does the cloud seem to go up or down as the number of weeks increases? }
-                                        @item{ Try to draw a line through the middle of the cloud. }
                                     ]
                                 }
                         }
@@ -202,10 +201,10 @@
                                 Outliers are always interesting: 
                                 @itemlist[
                                     @item{
-                                        Sometimes they're just random. Maybe Felix just met the right family early, or maybe we find out he just ran away and then his family came to get him. In that case, we could remove him from our dataset.
+                                        Sometimes they're just random. Maybe Felix just met the right family early, or maybe we find out he lives nearby, got lost and his family came to get him. In that case, we could remove him from our dataset.
                                     }
                                     @item{
-                                        Sometimes they can give you a deeper insight into your data. Maybe Felix is a special @italic{breed} of cat, and we discover that our dataset is missing an important column for breed!
+                                        Sometimes they can give you a deeper insight into your data. Maybe Felix is a special, popular @italic{breed} of cat, and we discover that our dataset is missing an important column for breed!
                                     }
                                     @item{
                                         Sometimes outliers are the points we are looking for! What if we wanted to know which restaurants are a good value, and which are ripoffs? We could make a scatterplot of restaurant prices vs. reviews, an outlier that's high above the rest of the points would be a restaurant whose reviews are @italic{unusually good} for the price. An outlier way below the cloud would be a real ripoff.
@@ -253,7 +252,7 @@
   }
 
   @lesson/studteach[
-     #:title "In Search of Correlations"
+     #:title "Correlations and Preditors"
      #:duration "30 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
@@ -273,8 +272,8 @@
                         @student{
                                 @bannerline{Correlations have @italic{direction}.}
                                 @itemlist[
-                                    @item{ If the line slopes up, there may be a @italic{positive correlation}. }
-                                    @item{ If the line slopes down, there may be a @italic{negative correlation}. }
+                                    @item{ If the cloud slopes up, there may be a @italic{positive correlation}. }
+                                    @item{ If the cloud slopes down, there may be a @italic{negative correlation}. }
                                 ]
                                 Do you see a correlation in the age-vs-weeks scatter plot? If so, is it positive or negative? What correlations, if any, did you see in the other scatterplots you created?
                         }
@@ -284,30 +283,37 @@
                 }
                 @point{
                         @student{
-                                @bannerline{Correlations have @italic{strength}.}
-                                @itemlist[
-                                    @item{ If most of the points are close to the line, there may be a @italic{strong correlation}. }
-                                    @item{ If many points are away from the line, there may be a @italic{weak correlation}. }
-                                    @item{ If the points are all over the place, there may be @italic{no correlation}. }
-                                ]
-                                @activity{
-                                    How could you measure the @italic{strength} of a correlation?
-                                }
+                                You've already learned three ways to find the "center" of a dataset in one dimension: the mean, the median and the mode all represent a way to collapse a bunch of points on a number line into a single, summary number. If the "center" of points on a number line is a single point, what is the "center" of points in a @italic{two-dimensional} cloud? 
                         }
                         @teacher{
-                                Have students share back their ideas for how to measure strength.
+
                         }
                 }
                 @point{
                         @student{
-                                @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Turn to @worksheet-link[#:name "Grading-Predictors"] in your workbook, by grading different predictor functions on how well they match scatter plots (on a scale of 0="worst fit" to 1="best fit").
+                                What we need to do is find a @italic{line} - called a @vocab{predictor} - that is at the center of this cloud. Each point exerts a little bit of "pull" on the line, with points above the line yanking it up and points below the line dragging it down. Points that are really far away - our @vocab{outliers} - pull the line harder than those that are close to the line. The slope of the line will be positive or negative depending on whether or not the correlation is positive or negative.
+                                @activity{
+                                    Turn to @worksheet-link[#:name "Drawing-Predictors"], and do your best to draw a @vocab{predictor} through each of the scatter plots on the left.
                                 }
-
-                                Some of these scatter plots showed positive correlations.  Others showed @vocab{negative correlations}: where if one variable increases, the other decreases, and vice versa. There are also examples where the line doesn't appear to have much value as a predictor; in these examples we say there is no correlation.
                         }
                         @teacher{
 
+                        }
+                }
+                @point{
+                        @student{
+                                @bannerline{Correlations have @italic{strength}.}
+                                @itemlist[
+                                    @item{ If the cloud is tightly packed, there may be a @italic{strong correlation}. }
+                                    @item{ If the cloud is really spread out, there may be a @italic{weak correlation}. }
+                                    @item{ If the points are all over the place, there may be @italic{no correlation}. }
+                                ]
+                                @activity{
+                                    For each predictor you drew on @worksheet-link[#:name "Drawing-Predictors"], determine the direction and strength of the correlation by circling the words that describe it. 
+                                }
+                        }
+                        @teacher{
+                                
                         }
                 }
                 @point{
@@ -336,7 +342,7 @@
 
   @lesson/studteach[
      #:title "Closing"
-     #:duration "5 minutes"
+     #:duration "10 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
