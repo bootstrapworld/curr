@@ -25,7 +25,7 @@
 
   @lesson/studteach[
      #:title "Introduction"
-     #:duration "15 minutes"
+     #:duration "5 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -61,7 +61,7 @@
 
   @lesson/studteach[
      #:title "Mean, Median, and Mode"
-     #:duration "15 minutes"
+     #:duration "25 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -97,18 +97,6 @@
                 }
                 @point{
                       @student{
-                              @activity[#:forevidence "BS-IDE&1&1"]{
-                                      Open your workbooks to @worksheet-link[#:name "Measuring-Center"] and fill in the answer to Question 1.
-                              }
-
-                              Notice that calculating the @vocab{mean} requires being able to add and divide, so the @vocab{mean} only makes sense for quantitative data.  For example, the mean of a list of Presidents doesn't make sense.  Same thing for a list of zipcodes:  even though we can add and divide the numbers of zipcodes, the output doesn't correspond to some "center" zipcode.
-                      }
-                      @teacher{
-
-                      }
-                }
-                @point{
-                      @student{
                               Pyret has a way for us to compute the @vocab{mean} of any column in a Table:
                               @code[#:multi-line #t]{
                                 mean :: (t :: Table, col :: String) -> Number
@@ -126,8 +114,10 @@
                               Type @code{mean(animals-table, "weeks")}.  What does this give us? Does this back up the Bureau's claims?
 
                               @activity[#:forevidence "BS-IDE&1&1"]{
-                                      Open your workbooks to @worksheet-link[#:name "Measuring-Center"] and fill in the answer to Question 1 by writing code in the Interactions Area. For practice, find the @code{mean} of the @code{weight} and @code{age} columns.
+                                      Open your workbooks to @worksheet-link[#:name "Measuring-Center"]. We've already decided on the answer to Question 1 (@code{weeks}). Fill in the answer to Question 2.
                               }
+
+                              Notice that calculating the @vocab{mean} requires being able to add and divide, so the @vocab{mean} only makes sense for quantitative data.  For example, the mean of a list of Presidents doesn't make sense.  Same thing for a list of zipcodes:  even though we can add and divide the numbers of zipcodes, the output doesn't correspond to some "center" zipcode.
                       }
                       @teacher{
 
@@ -135,7 +125,7 @@
                 }
                 @point{
                       @student{
-                              On @worksheet-link[#:name "Measuring-Center"], you computed the mean of that list to be just 6 weeks. That IS the average, but most of the animals in the table waited for less than 4 weeks! What is throwing off the average so much?
+                              Wou computed the mean of that list to be just 6 weeks. That IS the average, but most of the animals in the table waited for less than 4 weeks! What is throwing off the average so much?
                       }
                       @teacher{
                               Point students to Kujo and Mr. Peanutbutter.
@@ -192,7 +182,7 @@
                               @code{# median :: (t :: Table, col :: String) -> Number}
 
                               @activity[#:forevidence "BS-IDE&1&1"]{
-                                    Compute the @code{median} for the @code{weeks} column in our dataset, and answer Question 2 in your workbook. Is it different than the mean? What does that mean? For practice, compute the mean for the @code{weight} and @code{age} columns.
+                                    Compute the @code{median} for the @code{weeks} column in our dataset, and answer Question 3 in your workbook. Is it different than the mean? What does that mean? For practice, compute the mean for the @code{weight} and @code{age} columns.
                               }
                       }
                       @teacher{
@@ -238,7 +228,7 @@
                                     # modes :: (t :: Table, col :: String) -> List<Number>
                               }
                               @activity{
-                                  Compute the @code{modes} of the @code{weeks} column, and fill in the answer to Question 3. What did you get? The most common number of weeks an animal waits is only @code{1}! That's well below our mean, which is further proof that there must be some outliers skewing the results.
+                                  Compute the @code{modes} of the @code{weeks} column, and fill in the answer to Question 4. What did you get? The most common number of weeks an animal waits is only @code{1}! That's well below our mean, which is further proof that there must be some outliers skewing the results.
                               }
                       }
                       @teacher{
@@ -256,6 +246,16 @@
                       }
                       @teacher{
                               
+                      }
+                }
+                @point{
+                      @student{
+                              @activity{
+                                  Repeat this analysis for the @code{age} column, filling out the next set of questions on the bottom half of the paper. What do you conclude?
+                              }
+                      }
+                      @teacher{
+
                       }
                 }
                 @point{
@@ -449,11 +449,11 @@
               @point{
                     @student{
                         @activity{
-                            Take 10 minutes to fill out @worksheet-link[#:name "Measuring-Center-in-Dataset"] section in your Project Report.
+                            Take 10 minutes to fill out @worksheet-link[#:name "Measuring-Center-in-Dataset"] section in your Project Report. Make sure you investigate two different columns, and write up your findings.
                         }
                     }       
                     @teacher{
-                        See the @(hyperlink "https://docs.google.com/document/d/1iS-JVNNltGY4eio8EYMMWLDQ8ntKC2qsDbtgLiSe20w/edit?usp=sharing" "Sample Project Report") to see an exemplar of student work.
+
                     }              
               }
         ]

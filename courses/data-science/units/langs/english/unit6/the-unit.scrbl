@@ -57,8 +57,8 @@
   }
 
   @lesson/studteach[
-     #:title "Frequency Bar Charts and Histograms"
-     #:duration "30 minutes"
+     #:title "Frequency Bar Charts"
+     #:duration "15 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -130,6 +130,40 @@
                 }
                 @point{
                       @student{
+                              Here is the contract for @code{freq-bar-chart}, followed by an example of how use it:
+                              @code[#:multi-line #t]{
+                                freq-bar-chart :: (t :: Table, values :: String) -> Image
+                                freq-bar-chart(animals-table, "species")  # show frequency of each animal
+                              }
+                              @activity{
+                                  In the Interactions Area, type in the example to make a frequency bar chart of the animals, broken down by species. Are there more animals at the shelter that are female than male? Complete the Table Plan on @worksheet-link[#:name "Freq-Bar-Gender"].
+                              }
+                      }
+                      @teacher{
+
+                      }
+                }
+        ]
+  }
+  @lesson/studteach[
+     #:title "Histograms"
+     #:duration "15 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[]
+     #:standards (list)
+     #:materials @itemlist[]
+     #:preparation @itemlist[]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[
+                @point{
+                      @student{
                               @bitmap{images/histogram.png}
                               The second chart is called a @vocab{histogram}.  Histograms are like frequency bar charts, but they have a few important differences:
                                 @itemlist[
@@ -145,15 +179,13 @@
                 }
                 @point{
                       @student{
-                              Here are the contracts for both charting functions, followed by two examples of how use them:
+                               Here is the contract for @code{histogram}, followed by an example of how use it:
                               @code[#:multi-line #t]{
-                                freq-bar-chart :: (t :: Table, values :: String)                      -> Image
-                                histogram      :: (t :: Table, values :: String, bin-width :: Number) -> Image
-                                freq-bar-chart(animals-table, "species")  # show frequency of each animal
+                                histogram :: (t :: Table, values :: String, bin-width :: Number) -> Image
                                 histogram(animals-table, "pounds", 20)    # show the frequency of weights (in 20-pound bins)
                               }
                               @activity{
-                                  In the Interactions Area, type each of these expressions and see what you get. Then try changing the bin-size of the histogram to be very small and very large. What works best?
+                                  In the Interactions Area, type in the example to make a histogram of the animals, broken down by weight into 20-pound bins. Then try playing with the the bin-size. Is it useful to have a bin-size of 1? What about 100?
                               }
                       }
                       @teacher{
@@ -163,7 +195,7 @@
                 @point{
                       @student{
                               @activity{
-                                  Complete the Table Plans on @worksheet-link[#:name "Freq-Bar-Gender"], and @worksheet-link[#:name "Histogram-Adoption"].
+                                  How long does it take for most animals to be adopted? Complete the Table Plans on @worksheet-link[#:name "Histogram-Adoption"].
                               }
                       }
                       @teacher{
