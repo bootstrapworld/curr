@@ -71,6 +71,7 @@
  ("Drawing-Predictors" 			52 )
  ("Scatter-Dogs-Age" 			53 )
  ("Correlations-My-Dataset" 	54 )
+ ("Findings-My-Dataset" 		55 )
 
 ;;;;;;;;;;;;;;;; Unit 8 ;;;;;;;;;;;;;
  ("Unit-8-Notes" 	 			55 )
@@ -80,15 +81,17 @@
  ("Findings-My-Dataset" 		59 )
  
 ;;;;;;;;;;;;;;;; Unit 9 ;;;;;;;;;;;;;
- ("Unit-9-Notes" 	 			57 )
+ ("Unit-9-Notes" 	 			60 )
+ (Fake-News" 		 			61 )
 
 ;;;;;;;;;;;;;;; The End ;;;;;;;;;;;;;
- ("Blank-Design-Recipes-1" 	 	59 )
- ("Blank-Design-Recipes-2" 	 	60 )
- ("Blank-Design-Recipes-3" 	 	61 )
- ("Blank-Table-Plan-3" 		 	62 )
- ("Blank-Table-Plan-4" 		 	63 )
- ("Blank-Table-Plan-5" 		 	64 )
- ("Contracts-1" 				65 )
- ("Contracts-2" 				66 )
+ ("The-End" 				 	62 )
+ ("Blank-Design-Recipes-1" 	 	63 )
+ ("Blank-Design-Recipes-2" 	 	64 )
+ ("Blank-Design-Recipes-3" 	 	65 )
+ ("Blank-Table-Plan-3" 		 	66 )
+ ("Blank-Table-Plan-4" 		 	67 )
+ ("Blank-Table-Plan-5" 		 	68 )
+ ("Contracts-1" 				69 )
+ ("Contracts-2" 				70 )
  )

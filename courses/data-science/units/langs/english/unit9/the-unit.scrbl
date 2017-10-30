@@ -48,17 +48,60 @@
 
                         }
                 }
+        ]
+  }
+
+ @lesson/studteach[
+     #:title "Writing Up Your Findings"
+     #:duration "flexible"
+     #:overview ""
+     #:learning-objectives @itemlist[]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[]
+     #:standards (list)
+     #:materials @itemlist[]
+     #:preparation @itemlist[]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[
                 @point{
                         @student{
-                              You'll be adding to this file as we go, and keeping a written repository of your work and your findings as well. We've created @(hyperlink "https://docs.google.com/document/d/1jbKSecOtdzVO4iJsIPQRLvnwrt8GhqVFyXvnukdT_Xo/edit?usp=sharing" "a Report Starter File") for this Report as well - save a copy to your account, and be sure to @bold{bookmark the page so you can return to it later}.    
-
+                                Throughout this course, you've been learning new methods of visualizing data, measuring center, and searching for correlations and meaning. You've had a chance to explore your dataset throroughly, and become an expert on the ins, outs, and outliers within it. What have you found so far? Turn back to @worksheet-link[#:name "Findings-My-Dataset"], and share your most interesting finding with the students sitting nearby.
                         }
                         @teacher{
-                                   
+                                Have students share back some of their findings. Challenge them to use precise language, addressing the direction and strength of their correlations and use r-squared in their explanations.
+                        }
+                }
+                @point{
+                        @student{
+                                Almost every unit in your student workbook has information about your analysis. It's time to take those pages and write them up as a formal research paper!
+                                @activity{
+                                      @itemlist[
+                                          @item{ Open the @(hyperlink "sample research paper" "sample research paper2") }
+                                          @item{ Select "Save a copy" from the File menu }
+                                          @item{ Write in your name(s) and change the title }
+                                      ]
+                                }
+                        }
+                        @teacher{
+                                Make sure students are doing following these steps carefully!
+                        }
+                }
+                @point{
+                        @student{
+                                Turn back to @worksheet-link[#:name "My-Dataset"]. In the Research Paper, you'll find sections that correspond to each of the pages in your workbook that are about your dataset. 
+                                @activity{
+                                      For each page, write up your findings in the Research Paper. You should include tables, charts and graphs, along with paragraphs that explain each one.
+                                }
                         }
                 }
         ]
   }
+}
 
   @lesson/studteach[
      #:title "Closing"
