@@ -30,10 +30,25 @@
                                   'incomplete-worksheet
                                   'missing-lessons
                                   'no-course-dir
+                                  'no-workbook
                                   'worksheet-link
                                   'wb-index-entry))
 
 
+;; parse-sw-args: list/of string -> list/of string
+;; This parses the list of suppress-warning arguments, ensuring that they are all valid warning tags
+(define (parse-sw-args rest-args)
+  (cond
+    [(empty? rest-args) empty]
+    [(cons? rest-args)
+     ;;checks if next argument is a command-line argument tag, rather than a course name
+     (let [(sw-tag (string->symbol (first rest-args)))]
+       (if (member sw-tag ignore-warning-tags)
+           (cons sw-tag (parse-sw-args (rest rest-args)))
+           (error (format (string-append "Build got unrecognized warning suppression tag: "
+                                         (symbol->string sw-tag) "\n expected one of the following:\n~a\n")
+                  (map (lambda (x) (symbol->string x))
+                       ignore-warning-tags)))))]))
 
 
 (define (print-warnings)
