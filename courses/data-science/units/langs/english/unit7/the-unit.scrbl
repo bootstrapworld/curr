@@ -320,11 +320,11 @@
                         @student{
                                 What correlations do you think there are in your dataset? Would you like to investigate a subset of your data to find those correlations? 
                                 @activity{
-                                    Brainstorm a few possible correlations that you might expect to find in your dataset.
+                                    Brainstorm a few possible correlations that you might expect to find in your dataset, and make some scatter plots to investigate.
                                 }
                         }
                         @teacher{
-                                Have students share back their correlationship, and @italic{why} they expect to find them.
+                                Have students share back their correlations, and @italic{why} they expect to find them.
                         }
                 }
                 @point{

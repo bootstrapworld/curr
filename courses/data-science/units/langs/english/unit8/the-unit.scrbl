@@ -58,7 +58,7 @@
                 }
                 @point{
                         @student{
-                                Whenever there's a possible correlation, Data Scientists try to draw the @vocab{line of best fit}, which cuts through the data cloud and can be used to make predictions. In this Unit, you'll learn how this line is computed, and how to measure the strength of a correlation.
+                                Whenever there's a possible correlation, Data Scientists try to draw the @vocab{line of best fit}, which cuts through the data cloud and can be used to make predictions. This line is literally graphed on top of the scatter plot as a function, called the @vocab{predictor}. In this Unit, you'll learn how to compute the line of best fit in Pyret, and how to measure the strength of a correlation (or "how good the predictor is").
                         }
                         @teacher{
 
@@ -90,10 +90,10 @@
                                 After our last Unit, we are left with two questions:
                                 @itemlist[
                                     @item{
-                                        How do we make a prediction from a scatter plot? In other words, "how do we know where to draw the line of best fit?"
+                                        How do we make a prediction from a scatter plot? In other words, "@italic{where do we draw} the line of best fit?"
                                     }
                                     @item{
-                                        How do we measure the accuracy of our prediction? In other words, "how well does that line fit?"
+                                        How do we measure the accuracy of our prediction? In other words, "@italic{how well} does that line fit?"
                                     }
                                 ]
                         }
@@ -103,7 +103,7 @@
                 }
                 @point{
                         @student{
-                                Data scientists use a statistical methods called @vocab{linear regression} to search for certain kinds of relationships in a dataset. When we draw our predictor line on a scatter plot, we can imagine a rubber band stretching between the line itself and each point in the plot - every point pulls the line a little "up" or "down". Linear regression is the statistics behind finding that line of best fit.
+                                Data scientists use a statistical method called @vocab{linear regression} to search for certain kinds of relationships in a dataset. When we draw our predictor line on a scatter plot, we can imagine a rubber band stretching between the line itself and each point in the plot - every point pulls the line a little "up" or "down". Linear regression is the statistics behind the line of best fit.
                         }
                         @teacher{
 
@@ -112,7 +112,7 @@
                 @point{
                         @student{
                                 @activity{
-                                  You can see this model action, in this @(hyperlink "https://www.geogebra.org/m/xC6zq7Zv" "interactive simulation"). Each vertical line represents the error, or the amount the rubber band has to stretch between a single datapoint and the prediction line. The "Target SSE" shows how much error (specifically, "the Sum of the Squared Errors") there is in the best possible predictor line. Our goal is to match that, by moving the red line or the "guide dots" on it. 
+                                  You can see this in action, in this @(hyperlink "https://www.geogebra.org/m/xC6zq7Zv" "interactive simulation"). Each vertical line represents the error, or the amount the rubber band has to stretch between a single datapoint and the prediction line. The "Target SSE" shows how much error (specifically, "the Sum of the Squared Errors") there is in the best possible predictor line. Our goal is to match that, by moving the red line or the "guide dots" on it. 
                                   @itemlist[
                                       @item{Could the predictor line ever be above or below @italic{all} the points? Why or why not?}
                                       @item{What would the plot have to look like for SSE to be zero?}
@@ -165,7 +165,10 @@
                 }
                 @point{
                         @student{
-                                Notice that these charts also include something called an @vocab{r-squared} value at the top, which always seems to be between 0 and 1. What do you think this number means? Turn to @worksheet-link[#:name "Grading-Predictors"] for a hint.
+                                Notice that these charts also include something called an @vocab{r-squared} value at the top, which always seems to be between 0 and 1. What do you think this number means? 
+                                @activity{
+                                    Turn to @worksheet-link[#:name "Grading-Predictors"]. For each plot, circle the chart that has the best predictor. Then, give that predictor a grade between zero and one.
+                                }
                         }
                         @teacher{
                                 
@@ -198,7 +201,7 @@
                 }
                 @point{
                         @student{
-                                A r-squared value of 0.60 or higher is typically considered a strong correlation, and anything between 0.40 and 0.60 is "moderately correlated". Anything less than 0.40 is such a weak correlation as to be random. However, these cutoffs are not an exact science! Different types of data may be "noisier" than others, and in some fields an r-squared value of 0.50 might be considered an impressively strong correlation!
+                                An r-squared value of 0.60 or higher is typically considered a strong correlation, and anything between 0.40 and 0.60 is "moderately correlated". Anything less than 0.40 is such a weak correlation that it might as well be random. However, these cutoffs are not an exact science! Different types of data may be "noisier" than others, and in some fields an r-squared value of 0.50 might be considered an impressively strong correlation!
                         }
                         @teacher{
 
@@ -206,10 +209,21 @@
                 }
                 @point{
                         @student{
-                                A predictor line @italic{only makes sense in the range of the data}. For example, if we extend our line out to where it hits the x-axis, it appears to predict that "unborn animals are adopted instantly"! Statistical models are just proxies for the real world, drawn from a limited sample of data: they might make useful prediction in the range of that data, but once we try to extrapolate beyond that data we quickly get into trouble!
+                                A predictor line @italic{only makes sense within the range of the data that was used to generate it}. For example, if we extend our line out to where it hits the x-axis, it appears to predict that "unborn animals are adopted instantly"! Statistical models are just proxies for the real world, drawn from a limited sample of data: they might make useful prediction in the range of that data, but once we try to extrapolate beyond that data we quickly get into trouble!
                         }
                         @teacher{
                                 
+                        }
+                }
+                @point{
+                        @student{
+                                When looking at just the dogs, we found that our predictor had an r-squared value of about 0.25. That means that 25% of the variation in adoption times is due to the age of the dogs. Turn to @worksheet-link[#:name "Findings-Animals"] to see how Data Scientists would write up this finding.
+                                @activity{
+                                      Write up two other findings from the linear regressions you performed on this dataset.
+                                }
+                        }
+                        @teacher{
+                                Have students read their text aloud, to get comfortable with the phrasing.
                         }
                 }
                 @point{
@@ -262,11 +276,11 @@
                 @point{
                         @student{
                               @activity{
-                                  Write up your findings by filling out @worksheet-link[#:name "Correlations-Findings"].
+                                  Write up your findings by filling out @worksheet-link[#:name "Findings-My-Dataset"].
                               }
                         }
                         @teacher{
-                              Have 2-3 students read their findings aloud.
+                              Have several students read their findings aloud.
                         }
                 }
         ]
@@ -292,27 +306,7 @@
         @points[
                 @point{
                         @student{
-                                @activity[#:forevidence "BS-IDE&1&1"]{
-                                    Turn to @worksheet-link[#:name "Unit-8-Notes"], and take two minutes to write down your findings. In your answer, include the fact that you used linear regression to come up with a predictor. Bonus points for explaining what the r-squared value tells about that prediction!
-                                }
-                        }
-                        @teacher{
-
-                        }
-                }
-                @point{
-                        @student{
-                                @activity[#:forevidence "BS-IDE&1&1"]{
-                                    Fill out the "Correlations" section in your Final Report. What correlations do you think are lurking in your dataset?
-                                }
-                        }
-                        @teacher{
-
-                        }
-                }
-                @point{
-                        @student{
-                                Suppose you could divide your data up, perhaps by the @italic{kind of restaurant}, or by the @italic{neighborhood where the restaurant is located}. If you ran a linear regression on a per-neighborhood basis, do you think you would find a stronger correlation? Perhaps a different correlation? If your dataset includes both men and women, you might want to re-run the analysis on the genders separately. To do any of this analysis, you'll need to learn how to @italic{manipulate tables}, so you can sort them, break them apart, or add new columns. The next three units will show you how to do just that.
+                               
                         }
                         @teacher{
 

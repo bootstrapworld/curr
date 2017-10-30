@@ -75,10 +75,12 @@
 ;;;;;;;;;;;;;;;; Unit 8 ;;;;;;;;;;;;;
  ("Unit-8-Notes" 	 			55 )
  ("Unit-8-Blank" 	 			56 )
- ("Grading-Predictors" 			53 )
+ ("Grading-Predictors" 			57 )
+ ("Findings-Animals" 			58 )
+ ("Findings-My-Dataset" 		59 )
  
 ;;;;;;;;;;;;;;;; Unit 9 ;;;;;;;;;;;;;
- ("Unit-9" 	 					57 )
+ ("Unit-9-Notes" 	 			57 )
 
 ;;;;;;;;;;;;;;; The End ;;;;;;;;;;;;;
  ("Blank-Design-Recipes-1" 	 	59 )
