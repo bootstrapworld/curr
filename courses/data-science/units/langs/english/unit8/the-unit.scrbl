@@ -296,7 +296,6 @@
                         }
                 }
         ]
-    }
   }
 
   @lesson/studteach[
