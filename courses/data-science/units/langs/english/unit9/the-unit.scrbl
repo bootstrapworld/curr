@@ -6,7 +6,7 @@
                                               @code{+, -, *, /, num-sqrt, num-sqr} 
                                               @code{4, -1.2. 2/3})
                                        (list "String" 
-                                              @code{string-repeat} 
+                                              @code{string-repeat, string-contains} 
                                               (list @code{"hello" "91"} ))
                                        (list "Boolean" 
                                               @code{} 
@@ -40,6 +40,14 @@
                 )
       ]{
         @points[
+                @point{
+                        @student{
+                                Being able to talk about and understand linear regression is really important. It can be easy to misinterpret results, or to be seduced by the fancy-sounding phrase "linear regression"! As Data Scientists, you should be able to look at a chart and see if it really backs up the claim. Turn to @worksheet-link[#:name "Fake-News"] and see if you can spot what's wrong with each claim!
+                        }
+                        @teacher{
+
+                        }
+                }
                 @point{
                         @student{
                               You'll be adding to this file as we go, and keeping a written repository of your work and your findings as well. We've created @(hyperlink "https://docs.google.com/document/d/1jbKSecOtdzVO4iJsIPQRLvnwrt8GhqVFyXvnukdT_Xo/edit?usp=sharing" "a Report Starter File") for this Report as well - save a copy to your account, and be sure to @bold{bookmark the page so you can return to it later}.    

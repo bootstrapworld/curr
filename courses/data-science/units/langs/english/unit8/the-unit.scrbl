@@ -6,7 +6,7 @@
                                               @code{+, -, *, /, num-sqrt, num-sqr} 
                                               @code{4, -1.2. 2/3})
                                        (list "String" 
-                                              @code{string-repeat} 
+                                              @code{string-repeat, string-contains} 
                                               (list @code{"hello" "91"} ))
                                        (list "Boolean" 
                                               @code{} 
@@ -125,7 +125,7 @@
                 }
                 @point{
                         @student{
-                                We can compute our own predictor line in Pyret, and plot it on top of a scatterplot
+                                We can compute our own predictor line in Pyret, plot it on top of a scatterplot, and even get the equation for that line:
 
                                 @code[#:multi-line #t]{
                                         # use linear regression to extract a predictor function
@@ -134,7 +134,10 @@
                                 }
                                 @code{lr-plot} is a function that takes a Table and the names of columns to use for @code{xs} and @code{ys}, computes the line of best fit, and then draws it on top of the point cloud.
 
-                                You can learn more about how a predictor is created by watching @(hyperlink "https://www.youtube.com/watch?v=lZ72O-dXhtM" "this video").
+                                @activity{
+                                    In the Interactions Area, create a @code{labeled-lr-plot} for our @code{animals-table}, using @code{"names"} for the labels, @code{"age"} for the x-axis and @code{"weeks"} for the y-axis.
+                                    You can learn more about how a predictor is created by watching @(hyperlink "https://www.youtube.com/watch?v=lZ72O-dXhtM" "this video").
+                                }
 
                         }
                         @teacher{
@@ -143,21 +146,8 @@
                 }
                 @point{
                         @student{
-                                @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Show a scatter plot and line-of-best-fit for the following relationships:
-
-                                        @itemlist[
-                                                @item{
-                                                        The @code{age} vs. @code{weeks} waiting for adoption, but just for the dogs in the shelter.
-                                                }
-                                                @item{
-                                                        The @code{weight} vs. @code{weeks} waiting for adoption, but just for the cats in the shelter.
-                                                }
-                                                @item{
-                                                        The @code{age} vs. @code{weight} waiting for adoption, but just for animals that have been fixed.
-                                                }
-                                        ]
-                                }
+                                @bitmap{images/lr-explained.png}
+                                The resulting scatterplot looks like those we've seen before, but it has a few important additions. First, we can see the @vocab{line of best fit} - or our predictor function - drawn on top. We can also see the equation for that line, in the form @math{y=mx+b}. In this plot, we can see that the slope of the line is @math{0.714}, which means that each extra year of age results in an extra 0.714 weeks of waiting to be adopted. By plugging in an animal's age for @math{x}, we can make a @italic{prediction} about how many weeks it will take to be adopted.
                         }
                         @teacher{
 
@@ -165,7 +155,15 @@
                 }
                 @point{
                         @student{
-                                Notice that these charts also include something called an @vocab{r-squared} value at the top, which always seems to be between 0 and 1. What do you think this number means? 
+                                A predictor @italic{only makes sense within the range of the data that was used to generate it}. For example, if we extend our line out to where it hits the x-axis, it appears to predict that "unborn animals are adopted instantly"! Statistical models are just proxies for the real world, drawn from a limited sample of data: they might make useful prediction in the range of that data, but once we try to extrapolate beyond that data we quickly get into trouble!
+                        }
+                        @teacher{
+                                
+                        }
+                }
+                @point{
+                        @student{
+                                These charts also include something called an @vocab{r-squared} value at the top, which always seems to be between 0 and 1. What do you think this number means? 
                                 @activity{
                                     Turn to @worksheet-link[#:name "Grading-Predictors"]. For each plot, circle the chart that has the best predictor. Then, give that predictor a grade between zero and one.
                                 }
@@ -209,10 +207,24 @@
                 }
                 @point{
                         @student{
-                                A predictor line @italic{only makes sense within the range of the data that was used to generate it}. For example, if we extend our line out to where it hits the x-axis, it appears to predict that "unborn animals are adopted instantly"! Statistical models are just proxies for the real world, drawn from a limited sample of data: they might make useful prediction in the range of that data, but once we try to extrapolate beyond that data we quickly get into trouble!
+                                @activity[#:forevidence "BS-IDE&1&1"]{
+                                        Show a scatter plot and line-of-best-fit for the following relationships:
+
+                                        @itemlist[
+                                                @item{
+                                                        The @code{age} vs. @code{weeks} waiting for adoption, but just for the dogs in the shelter.
+                                                }
+                                                @item{
+                                                        The @code{weight} vs. @code{weeks} waiting for adoption, but just for the cats in the shelter.
+                                                }
+                                                @item{
+                                                        The @code{age} vs. @code{weight} waiting for adoption, but just for animals that have been fixed.
+                                                }
+                                        ]
+                                }
                         }
                         @teacher{
-                                
+
                         }
                 }
                 @point{

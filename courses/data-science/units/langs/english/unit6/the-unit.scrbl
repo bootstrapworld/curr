@@ -6,7 +6,7 @@
                                               @code{+, -, *, /, num-sqrt} 
                                               @code{4, -1.2. 2/3})
                                        (list "String" 
-                                              @code{string-repeat} 
+                                              @code{string-repeat, string-contains} 
                                               (list @code{"hello" "91"} ))
                                        (list "Boolean" 
                                               @code{} 
