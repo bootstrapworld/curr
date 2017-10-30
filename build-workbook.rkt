@@ -19,6 +19,7 @@
          "lib/system-parameters.rkt"
          "lib/scribble-pdf-helpers.rkt"
          "lib/build-modes.rkt"
+         "lib/warnings.rkt"
          scribble/render
          file/zip)
 
@@ -27,7 +28,10 @@
 ;
 (putenv "LANGUAGE" "english")
 
-(define courses '("algebra" "reactive" "data-science"))
+(putenv "IGNORED-WARNINGS" "")
+(putenv "COLLECTED-WARNINGS" "")
+
+(define courses '("algebra" "reactive" "data-science" "physics"))
 
 ; parse command-line arguments
 
@@ -39,10 +43,13 @@
     [(cons? rest-args)
      ;;checks if next argument is a command-line argument tag, rather than a course name
      (let [(course-name (first rest-args))]
-       (if (member course-name courses)
-           (cons course-name (parse-course-args (rest rest-args)))
-           (error "Build got unrecognized target course: " course-name " -- expected"
-                  (foldl (lambda (a b) (string-append a " or " b)) "" courses))))]))
+       (cond [(member course-name courses)
+              (cons course-name (parse-course-args (rest rest-args)))]
+             [else
+              (raise-user-error (string-append "Build-workbook got unrecognized target course: "
+                                               course-name " -- expected "
+                                               (foldl (lambda (a b) (string-append a " or " b))
+                                                      "" courses)))]))]))
 
 ; use this to tell scribble to use the workbook.css file
 (putenv "BOOTSTRAP-TARGET" "workbook")
@@ -50,16 +57,22 @@
 ; by default, generate student workbook, not solutions workbook
 (solutions-mode-off)
 
-
 (command-line
  #:program "build-workbook"
  #:once-each
  [("--language") -language "Select what language you are printing the curriculum for. Default: english"
                    (if (member -language (list "english" "spanish"))
                        (putenv "LANGUAGE" -language)
-                       (error "Build got unrecognized target language: " -language " -- expected english or spanish"))]
+                       (raise-user-error (string-append "Build-workbook got unrecognized target language: " -language " -- expected english or spanish")))]
  [("--course") -course "List all courses that you want to build. They MUST be separated by \"_\"_. Default: All available courses"
                  (set! courses (parse-course-args (string-split -course "_")))] 
+ [("--suppress-warnings" "--sw") -sw "Dictate any types of warnings that you want to be suppressed in the output of running the Build script. Default: none."
+                                 (for-each
+                                  (lambda (sw-tag)
+                                    (set-ignored-warnings sw-tag))
+                                  (if (string=? -sw "all")
+                                      ignore-warning-tags
+                                      (parse-sw-args (string-split -sw "_"))))]
  [("--solutions") "Generate workbook with solutions"
                                (solutions-mode-on)]
  #:args tags
@@ -194,22 +207,23 @@
 
 ;; the MAIN function to build the workbook
 (define (build-workbook)
-  (let* ([pages-spec (with-input-from-file (build-path (kf-get-workbook-dir) "contentlist.rkt") read)]
-         [front-spec (with-input-from-file (build-path (kf-get-workbook-dir) "frontmatterlist.rkt") read)]
-         [back-spec (with-input-from-file (build-path (kf-get-workbook-dir) "backmatterlist.rkt") read)]
-         [pagesdir (build-path (kf-get-workbook-dir) "pages")]
+  (let* ([workbook-dir (kf-get-workbook-dir)]
+         [pages-spec (with-input-from-file (build-path workbook-dir "contentlist.rkt") read)]
+         [front-spec (with-input-from-file (build-path workbook-dir "frontmatterlist.rkt") read)]
+         [back-spec (with-input-from-file (build-path workbook-dir "backmatterlist.rkt") read)]
+         [pagesdir (build-path workbook-dir "pages")]
          [extra-exercises-dir (lessons-dir)]
          [pages (check-contents-exist pages-spec pagesdir)]
          [frontpages (check-contents-exist front-spec pagesdir)]
          [backpages (check-contents-exist back-spec pagesdir)]
          [workbook-file (if (solutions-mode?) "workbooksols.pdf" "workbook.pdf")]
          [workbook-last-gen-sec 
-          (if (file-exists? (build-path (kf-get-workbook-dir) workbook-file))
-              (file-or-directory-modify-seconds (build-path (kf-get-workbook-dir) workbook-file))
+          (if (file-exists? (build-path workbook-dir workbook-file))
+              (file-or-directory-modify-seconds (build-path workbook-dir workbook-file))
               #f)]
          )
     (if (empty? pages)
-        (printf "WARNING: Empty workbook contents for ~a, no workbook generated~n" (current-course))
+        (WARNING (format "Empty workbook contents for ~a, no workbook generated~n" (current-course)) 'no-workbook)
         (parameterize ([current-deployment-dir pagesdir])
           ; scribble the scrbl pages and run wkhtmltopdf on the resulting html
           (scribble-files pages pagesdir extra-exercises-dir workbook-last-gen-sec)
@@ -222,24 +236,24 @@
             ; add front and back pages
 	    ; current assumes both or neither front/back pages -- can adjust later if needed
             (if (and (empty? frontpages) (empty? backpages))
-                (copy-file (build-path (kf-get-workbook-dir) "workbook-numbered.pdf")
-                           (build-path (kf-get-workbook-dir) workbook-file)
+                (copy-file (build-path workbook-dir "workbook-numbered.pdf")
+                           (build-path workbook-dir workbook-file)
                             #t)
                 (begin (extract-PDF-pages frontpages workbook-last-gen-sec)
                        (merge-pages (pdf-pagenames frontpages) #:output "front-matter.pdf")
                        (extract-PDF-pages backpages workbook-last-gen-sec)
                        (merge-pages (pdf-pagenames backpages) #:output "back-matter.pdf")
-                       (let ([frontpdf (build-path (kf-get-workbook-dir) "front-matter.pdf")]
-                             [backpdf (build-path (kf-get-workbook-dir) "back-matter.pdf")]
-                             [workbooknums (build-path (kf-get-workbook-dir) "workbook-numbered.pdf")]
+                       (let ([frontpdf (build-path workbook-dir "front-matter.pdf")]
+                             [backpdf (build-path workbook-dir "back-matter.pdf")]
+                             [workbooknums (build-path workbook-dir "workbook-numbered.pdf")]
                              ;;TODO: Have to add pdf here of extra exercises and add to system call below
-                             [workbook (build-path (kf-get-workbook-dir) workbook-file)])
+                             [workbook (build-path workbook-dir workbook-file)])
                          (system* (get-prog-cmd "pdftk") frontpdf workbooknums backpdf "output" workbook "dont_ask"))))
             ; clean out auxiliary tex files (ie, texwipe, intermed no page nums file)
-            (delete-if-exists (list (build-path (kf-get-workbook-dir) "workbook-numbered.aux")
-                                    (build-path (kf-get-workbook-dir) "workbook-numbered.log")
-                                    (build-path (kf-get-workbook-dir) "workbook-numbered.pdf")
-                                    (build-path (kf-get-workbook-dir) "workbook-no-pagenums.pdf")
+            (delete-if-exists (list (build-path workbook-dir "workbook-numbered.aux")
+                                    (build-path workbook-dir "workbook-numbered.log")
+                                    (build-path workbook-dir "workbook-numbered.pdf")
+                                    (build-path workbook-dir "workbook-no-pagenums.pdf")
                                     ))
             )))))
 
@@ -259,11 +273,13 @@
 (for ([course (in-list bootstrap-courses)])
   (current-translations (with-input-from-file (string-append "lib/langs/" (getenv "LANGUAGE") "/translated.rkt") read))
   (parameterize ([current-course course])
-    (if (workbook-to-build?)
-        (build-workbook)
-        ; else need to setup file named workbook.pdf in order for distribution build to work
-        ; assuming that master file is called StudentWorkbook.pdf
-        (unless (file-exists? (build-path (kf-get-workbook-dir) "workbook.pdf"))
-          (copy-file (build-path (kf-get-workbook-dir) "StudentWorkbook.pdf")
-                     (build-path (kf-get-workbook-dir) "workbook.pdf")
-                     #t)))))
+    (let ([workbook-dir (kf-get-workbook-dir)])
+      (when (directory-exists? workbook-dir) ;; skip building if no resources/workbook folder
+        (if (workbook-to-build?)
+            (build-workbook)
+            ; else need to setup file named workbook.pdf in order for distribution build to work
+            ; assuming that master file is called StudentWorkbook.pdf
+            (unless (file-exists? (build-path workbook-dir "workbook.pdf"))
+              (copy-file (build-path workbook-dir "StudentWorkbook.pdf")
+                         (build-path workbook-dir "workbook.pdf")
+                         #t)))))))
