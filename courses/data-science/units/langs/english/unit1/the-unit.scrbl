@@ -556,6 +556,17 @@
             }
             @point{
                     @student{
+                            Here's an example for another new function. Type it into the Interactions Area to see what it does. Can you figure out the contract? Add an example to the @code{examples:} block.
+                              @code[#:multi-line #t]{
+                                    string-contains("apples, pears, milk", "pears")
+                            }
+                    }
+                    @teacher{
+
+                    }
+            }
+            @point{
+                    @student{
                             Pyret also has a way for us to get at individual columns of a Row, by using square brackets and the name of the column. Here's an @code{examples:} block that shows how:
                             @code[#:multi-line #t]{
                                     get-row(shapes, 0)["name"] is "triangle"
