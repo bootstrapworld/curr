@@ -1,0 +1,31 @@
+#!/bin/sh
+
+### THIS IS OUT OF DATE
+## look at build-distrib-no-pdf and build-notes when ready to update this
+
+if [ "$1" ]
+then
+  case $1 in
+  student)
+    racket -l errortrace -t build.rkt -- --pdf --audience $1 distribution group 
+    ;;
+  volunteer)
+    racket -l errortrace -t build.rkt -- --pdf --audience $1 distribution pedagogy group management
+    ;;
+  teacher)
+    racket -l errortrace -t build.rkt -- --pdf --audience $1 distribution pedagogy group
+    ;;
+  self-taught)
+    racket -l errortrace -t build.rkt -- --pdf --audience $1 distribution group 
+    ;;
+  *) 
+    echo "Unrecognized audience argument: $1"
+    ;;
+  esac
+else #default to student
+  racket -l errortrace -t build.rkt -- --pdf --audience student distribution group
+fi
+# then build the solutions
+racket -l errortrace -t build-sols.rkt 
+ 
+  
