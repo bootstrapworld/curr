@@ -240,6 +240,20 @@
                                 Have students read their text aloud, to get comfortable with the phrasing.
                         }
                 }
+                @point{
+                        @student{
+                                @bannerline{Correlation does NOT imply causation.}
+                                It's worth revisiting this point again. It's easy to be seduced by large r-squared values, but Data Scientists know that correlation can be accidental! Here are some real-life correlations that have absolutely no causal relationship:
+                                @itemlist[
+                                    @item{ "Number of people who drowned after falling out of a fishing boat" v. "Marriage rate in Kentucky" (@math{r^2=0.952}) }
+                                    @item{ "Average per-person consumption of chicken" v. "US crude oil imports" (@math{r^2=0.899}) }
+                                    @item{ "Marriage rate in Wyoming" v. "Domestic production of cars" (@math{r^2=0.976}) }
+                                ]
+                        }
+                        @teacher{
+                                All of these correlations come from the @(hyperlink "http://tylervigen.com/" "Spurious Correlations") website. If time allows, have your students explore the site to see more!
+                        }
+                }
         ]
   }
 

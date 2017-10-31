@@ -281,7 +281,7 @@
                 }
                 @point{
                         @student{
-                                What we need to do is find a @italic{line} - called a @vocab{predictor} - that is at the center of this cloud. Each point exerts a little bit of "pull" on the line, with points above the line yanking it up and points below the line dragging it down. Points that are really far away - our @vocab{outliers} - pull the line harder than those that are close to the line. The slope of the line will be positive or negative depending on whether or not the correlation is positive or negative.
+                                What we need to do is find a @italic{line} - called a @vocab{predictor} - that is at the center of this cloud. Each point exerts a little bit of "pull" on the line, with points above the line yanking it up and points below the line dragging it down. Points that are really far away - our @vocab{outliers} - pull the line harder than those that are close to the line. The slope of the line will be positive or negative depending on whether or not the correlation is positive or negative. Given a value on the x-axis, this line allows us to "predict" what the corresponding value on the y-axis might be. This allows us to make inferences about a population, based on a sample of that population.
                                 @activity{
                                     Turn to @worksheet-link[#:name "Drawing-Predictors"], and do your best to draw a @vocab{predictor} through each of the scatter plots on the left.
                                 }
@@ -304,6 +304,15 @@
                         }
                         @teacher{
                                 
+                        }
+                }
+                @point{
+                        @student{
+                                @bannerline{Correlation does NOT imply causation.}
+                                If two quantities are @italic{correlated}, it doesn't mean that one @italic{causes} the other! For example, suppose a study found that there was a strong correlation between the average per-person consumption of chicken and the amount of oil imported by the US. Those two values have similar patterns, but there is no causal relationship between them!
+                        }
+                        @teacher{
+
                         }
                 }
                 @point{
