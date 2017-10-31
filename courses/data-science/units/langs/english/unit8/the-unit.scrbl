@@ -18,7 +18,7 @@
                                               @code{.row-n, .order-by, .filter, .build-column, num-sqr, mean, median, modes, bar-chart, pie-chart, scatter-plot, labeled-scatter-plot} 
                                                 ""))]{
   @unit-descr{
-    Students investigate scatter plots as a method of visualizing the relationship between two axes, and the notion of "line of best fit". 
+    Students compute the "line of best fit" using linear regression, and search for correlations in their own datasets.
   }
 }
 @unit-lessons{
