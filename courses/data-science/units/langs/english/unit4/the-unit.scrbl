@@ -42,7 +42,9 @@
         @points[
                 @point{
                       @student{
-                              Open the @editor-link[#:public-id "0BzzMl1BJlJDkVzhiR3JzYnlrem8" "Unit 4 Starter File"], then click "Save a Copy" and then Run the program.
+                              @activity[#:forevidence "BS-IDE&1&1"]{
+                                Open your "Animals Dataset (w/Functions)" file. (If you do not have this file, or if something has happened to it, you can always make a @editor-link[#:public-id "0BzzMl1BJlJDkbnZhbE1QSEE0eEE" "new copy"].)
+                              }
                       }
                       @teacher{
 
@@ -449,7 +451,7 @@
               @point{
                     @student{
                         @activity{
-                            Take 10 minutes to fill out @worksheet-link[#:name "Measuring-Center-in-Dataset"] section in your Project Report. Make sure you investigate two different columns, and write up your findings.
+                            Take 10 minutes to fill out @worksheet-link[#:name "Measuring-Center-My-Dataset"] in your Student Workbook. Make sure you investigate two different columns, and write up your findings.
                         }
                     }       
                     @teacher{

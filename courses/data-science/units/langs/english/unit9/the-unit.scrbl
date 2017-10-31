@@ -81,8 +81,8 @@
                                 Almost every unit in your student workbook has information about your analysis. It's time to take those pages and write them up as a formal research paper!
                                 @activity{
                                       @itemlist[
-                                          @item{ Open the @(hyperlink "sample research paper" "sample research paper2") }
-                                          @item{ Select "Save a copy" from the File menu }
+                                          @item{ Open the @(hyperlink "https://docs.google.com/document/d/1Pq-b6rFHDu78t5fCP6rBpEINivWraS3d-JND-QaBtfk" "sample research paper" ) }
+                                          @item{ Select "Make a copy" from the File menu }
                                           @item{ Write in your name(s) and change the title }
                                       ]
                                 }
@@ -93,39 +93,13 @@
                 }
                 @point{
                         @student{
-                                Turn back to @worksheet-link[#:name "My-Dataset"]. In the Research Paper, you'll find sections that correspond to each of the pages in your workbook that are about your dataset. 
+                                In the Research Paper, you'll find sections that correspond to pages in your workbook that are about your dataset. 
                                 @activity{
-                                      For each page, write up your findings in the Research Paper. You should include tables, charts and graphs, along with paragraphs that explain each one.
+                                      For each page, write up your findings in the Research Paper. You should include tables, charts and graphs, along with paragraphs that explain each one. Make sure to @italic{write down your thinking}, so that another Data Scientist could understand why you performed your analysis.
                                 }
                         }
-                }
-        ]
-  }
-}
-
-  @lesson/studteach[
-     #:title "Closing"
-     #:duration "10 minutes"
-     #:overview ""
-     #:learning-objectives @itemlist[]
-     #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[]
-     #:standards (list)
-     #:materials @itemlist[]
-     #:preparation @itemlist[]
-     #:pacings (list 
-                @pacing[#:type "remediation"]{@itemlist[@item{}]}
-                @pacing[#:type "misconception"]{@itemlist[@item{}]}
-                @pacing[#:type "challenge"]{@itemlist[@item{}]}
-                )
-      ]{
-        @points[
-                @point{
-                        @student{
-                                
-                        }
                         @teacher{
-
+                                At this point, students are done! Have students present their findings to one another, or host a Data Science Fair!
                         }
                 }
         ]

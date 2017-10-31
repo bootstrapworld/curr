@@ -76,7 +76,7 @@
              @point{
                     @student{
                             @activity[#:forevidence "BS-IDE&1&1"]{
-                                    Open up the @editor-link[#:public-id "0BzzMl1BJlJDkVTlPTjlIWFB2aDA" "Unit 1 Starter File"]. Click "Connect to Google Drive" to sign into your Google account, and then click the "Save as" button. This will save a copy of the file into your own account, so that you can make changes and retrieve them later.
+                                    Open up the @editor-link[#:public-id "0BzzMl1BJlJDkVTlPTjlIWFB2aDA" "Image Table"] starter file. Click "Connect to Google Drive" to sign into your Google account, and then click the "Save as" button. This will save a copy of the file into your own account, so that you can make changes and retrieve them later.
                             }
                     }
                     @teacher{
@@ -193,7 +193,7 @@
                     @student{
                             Data can be categorical or quantitative, depending on how it's used. It doesn't make sense to ask whether "@code{square} is more than @code{triangle}", so most of the time we'd use the @code{name} column as categorical data. But if we wanted to sort the table in alphabetical order, suddenly we @italic{do} care whether @code{square} comes before @code{triangle}.
                             @activity{
-                                For each of the following questions, determine whether the data being used is quantitative or qualitative.
+                                For each of the following questions, determine whether the data being used is quantitative or categorical.
                                 @itemlist[
                                     @item{We'd like to sort a phone book by the "last name" column.}
                                     @item{We'd like to find out which car is the most expensive.}

@@ -63,7 +63,7 @@
                 @point{
                         @student{
                                 @activity{
-                                    Take a few minutes to look through the whole dataset, and see if you agree with the statement. Could any of our visualizations or measures of center herlp us answer this question? Write down your hypothesis on @worksheet-link[#:name "Cuter-Adoption"].
+                                    Take a few minutes to look through the whole dataset, and see if you agree with the statement. Could any of our visualizations or measures of center herlp us answer this question? Write down your hypothesis on @worksheet-link[#:name "Cuter-Adoption"], and how we could use this dataset to see if you're right.
                                 }
                         }
                         @teacher{
@@ -114,19 +114,9 @@
         @points[
                 @point{
                         @student{
-                                @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Open the Unit 7 Starter File, Save a Copy and Run the program.
-                                }
-                        }
-                        @teacher{
-
-                        }
-                }
-                @point{
-                        @student{
                                 For each animal in the shelter, there are two datapoints we care about: their @code{age} and the number of @code{weeks} it took to be adopted. We can use these points to plot each animal as a point on the x- and y-axes. Eventually, we'll have a whole cloud of points, which show us the relationship between the two columns for all the animals at the shelter.
                                 @activity{
-                                    Turn to @worksheet-link[#:name "Make-Scatter-Plot"], and make this cloud using the sample table.
+                                    Complete @worksheet-link[#:name "Make-Scatter-Plot"] in your Student Workbook.
                                 }
                         }
                         @teacher{
@@ -163,7 +153,7 @@
                 @point{
                         @student{
                                 @bitmap{images/age-vs-weeks.png}
-                                Now that we have our scatterplot, what kind of patterns do we see? 
+                                Now that we have our scatter plot, what kind of patterns do we see? 
                                 @activity{
                                     @itemlist[
                                         @item{ Where are the points clustered? }
@@ -252,7 +242,7 @@
   }
 
   @lesson/studteach[
-     #:title "Correlations and Preditors"
+     #:title "Correlations and Predictors"
      #:duration "30 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
@@ -359,7 +349,7 @@
         @points[
                 @point{
                         @student{
-                              After looking at the scatter plot for our animal shelter, do you stil agree with the claim on @worksheet-link[#:name "Unit-7"]? Perhaps you need more information, or to see the analysis broke down separately by animal. 
+                              After looking at the scatter plot for our animal shelter, do you stil agree with the claim on @worksheet-link[#:name "Cuter-Adoption"]? Perhaps you need more information, or to see the analysis broke down separately by animal. 
                         }
                 }
                 @point{

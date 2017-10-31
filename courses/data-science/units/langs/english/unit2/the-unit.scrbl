@@ -44,13 +44,13 @@
                             @activity{
                                 @itemlist[
                                     @item{
-                                        Open the @(hyperlink "Pets Spreadsheet" "https://docs.google.com/spreadsheets/d/19m1bUCQo3fCzmSEmWMjTfnmsNIMqiByLytHE0JYtnQM/edit?usp=sharing") in a new tab. Take a moment to look around. What do you think this table is for?
+                                        Open the @(hyperlink "https://docs.google.com/spreadsheets/d/19m1bUCQo3fCzmSEmWMjTfnmsNIMqiByLytHE0JYtnQM/" "Animals Spreadsheet") in a new tab. Take a moment to look around. What do you think this table is for?
                                     }
                                     @item{
                                         This is some data from an animal shelter, listing animals that have been adopted. We'll be using this as an example thoughout the course, but you'll be applying what you learn to @italic{a dataset you choose} as well.
                                     }
                                     @item{
-                                        Open up the @editor-link[#:public-id "0BzzMl1BJlJDkYkhKMG51VlRiWk0" "Unit 2 Starter File"] in a new tab. Click "Connect to Google Drive" to sign into your Google account, and then click the "Save as" button. This will save a copy of the file into your own account, so that you can make changes and retrieve them later.
+                                        Open up the @editor-link[#:public-id "0BzzMl1BJlJDkYkhKMG51VlRiWk0" "Animals Dataset"] starter file in a new tab. Click "Connect to Google Drive" to sign into your Google account, and then click the "Save as" button. This will save a copy of the file into your own account, so that you can make changes and retrieve them later.
                                     }
                                 ]
                             }
@@ -106,7 +106,7 @@
                 }
                 @point{
                       @student{
-                            Turn to page @worksheet-link[#:name "Animals-Dataset"] in your Student Workbook, and fill in the table in Question 2.
+                            Turn to @worksheet-link[#:name "Animals-Dataset"] in your Student Workbook, and fill in the table in Question 2.
                       }
                       @teacher{
 
@@ -230,7 +230,7 @@
                             @bannerline{Step 1: Contract and Purpose} The first thing we do is write a Contract for this function. You already know a lot about contracts: they tell us the Name, Domain and Range of the function. Our function tells us the year an animal was born, consumes an animal (represented by a @code{Row} in our table), and produces a @code{Number} representing the year. A Purpose Statement is just an description of what the function does:
                             @code[#:multi-line #t]{
                               birth-year :: (animal :: Row) -> Number
-                              # Consumes an animal, and subtracts the age from the current year to produce the birth-year
+                              # Consumes an animal, and produces the year it was born
                             }
                       }
                       @teacher{
@@ -283,7 +283,7 @@
                           @bannerline{Step 3: Define the Function} After having written our examples, this part is easy! The part of the examples before @code{is} tells us how to begin. We start with the @code{fun} keyword (short for "function"), followed by the name of our function and a set of parentheses. This is exactly how all of our examples started, too. But instead of writing @code{pet1}, we'll use the @italic{label} that we gave it. Then we add a colon (@code{:}) in place of @code{is}, and continue to follow our examples, replacing anything we circled with the label. Finally, we finish with the @code{end} keyword.
                           @code[#:multi-line #t]{
                               birth-year :: (animal :: Row) -> Number
-                              # Consumes an animal, and produces the year the animal was born by subtracting it's age from the current year
+                              # Consumes an animal, and produces the year it was born
                               examples:
                                   birth-year(pet1) is 2017  -  pet1["age"]
                                   birth-year(pet2) is 2017  -  pet2["age"]
@@ -353,7 +353,7 @@
 
   @lesson/studteach[
      #:title "Choose Your Dataset"
-     #:duration "15 minutes"
+     #:duration "25 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -414,7 +414,7 @@
 
                                   }
                                   @item{
-                                      Take 5 minutes to fill in your name, and fill out Questions 1 and 2 on  @worksheet-link[#:name "My-Dataset"].
+                                      Take 5 minutes to fill in your name, and complete @worksheet-link[#:name "My-Dataset"].
                                   }
                               ]
                           }
@@ -428,7 +428,7 @@
 
   @lesson/studteach[
      #:title "Closing"
-     #:duration "10 minutes"
+     #:duration "5 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]

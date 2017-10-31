@@ -1,6 +1,6 @@
 #lang curr/lib
 
-@title{Unit 5: Plotting Quantity}
+@title{Unit 5: Quantity Charts}
 
 @unit-overview/auto[#:lang-table (list (list "Number" 
                                               @code{+, -, *, /, num-sqrt, num-sqr} 
@@ -94,7 +94,7 @@
                               You've now seen two kinds of charts: @vocab{bar chart} and @vocab{pie charts}. Both charts help us look at the whole dataset at once, and answer questions about @italic{quantity}. As you've observed, bar chars are great when we want to know exactly "how much" of a thing is contained in a single row. Pie charts, on the other hand, are best when we want to know "what percent" of the thing in our table is contained in a single row.
 
                               @activity[#:forevidence "BS-IDE&1&1"]{
-                                      Open the @editor-link[#:public-id "0BzzMl1BJlJDkMmFmTS1JdHpnU0E" "Unit 5 Starter File"], Save a Copy and Run the program. 
+                                Open your "Animals Dataset (w/Functions)" file. (If you do not have this file, or if something has happened to it, you can always make a @editor-link[#:public-id "0BzzMl1BJlJDkbnZhbE1QSEE0eEE" "new copy"].)
                               }
 
                       }
@@ -207,7 +207,7 @@
                       @student{
                           Putting it all together, we get:
                           @code[#:multi-line #t]{
-                          median-dog-age :: (animals :: Table) -> Number
+                          pie-dog-weight :: (animals :: Table) -> Number
                           # Consume a table of animals, and produce a pie-chart showing the weight of the dogs
                           fun pie-dog-weight(animals):
                             t = animals.filter(is-dog)     # define the table
@@ -291,7 +291,7 @@
               @point{
                     @student{
                         @activity{
-                            Turn to @worksheet-link[#:name "Measuring-Center-in-Dataset"]. If you concluded that one of the columns was being thrown off by outliers, try making a bar or pie chart of that column, and write up your findings on @worksheet-link[#:name "Quantity-My-Dataset"]. 
+                            Turn to back @worksheet-link[#:name "Measuring-Center-My-Dataset"]. If you concluded that one of the columns was being thrown off by outliers, try making a bar or pie chart of that column, and write up your findings on @worksheet-link[#:name "Visualizing-My-Dataset-1"]. 
                         }
                     }       
                     @teacher{
@@ -301,7 +301,7 @@
               @point{
                     @student{
                         @activity{
-                            Do you notice that the outliers all of something in common? What new questions does this raise? Would you like to change your table by filtering it or building a new column? Go deeper into your data, using @worksheet-link[#:name "Blank-Table-Plan-1"] and @worksheet-link[#:name "Blank-Table-Plan-2"] to figure out how you want to change your dataset. Write up your findings on @worksheet-link[#:name "Quantity-My-Dataset"].
+                            Do you notice that the outliers all of something in common? What new questions does this raise? Would you like to change your table by filtering it or building a new column? If so, go deeper into your data, using @worksheet-link[#:name "Blank-Table-Plan-1"] and @worksheet-link[#:name "Blank-Table-Plan-2"] to figure out how you want to change your dataset. Write up your findings on @worksheet-link[#:name "Visualizing-My-Dataset-1"].
                         }
                     }
                     @teacher{

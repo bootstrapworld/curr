@@ -50,18 +50,20 @@
                 }
                 @point{
                         @student{
-                                For some practice interpreting scatter plots and talking about correlations, turn to @worksheet-link[#:name "Which-Statement-Is-Right"].
-                        }
-                        @teacher{
-                                Have students share back their answers.
-                        }
-                }
-                @point{
-                        @student{
                                 Whenever there's a possible correlation, Data Scientists try to draw the @vocab{line of best fit}, which cuts through the data cloud and can be used to make predictions. This line is literally graphed on top of the scatter plot as a function, called the @vocab{predictor}. In this Unit, you'll learn how to compute the line of best fit in Pyret, and how to measure the strength of a correlation (or "how good the predictor is").
                         }
                         @teacher{
 
+                        }
+                }
+                @point{
+                        @student{
+                              @activity[#:forevidence "BS-IDE&1&1"]{
+                                Open your "Animals Dataset (w/Functions)" file. (If you do not have this file, or if something has happened to it, you can always make a @editor-link[#:public-id "0BzzMl1BJlJDkbnZhbE1QSEE0eEE" "new copy"].)
+                              }
+                        }
+                        @teacher{
+                        
                         }
                 }
 
@@ -238,15 +240,6 @@
                                 Have students read their text aloud, to get comfortable with the phrasing.
                         }
                 }
-                @point{
-                        @student{
-                                @bitmap{images/nonlinear.png}
-                                You've learned how linear regression can be used to compute a linear relationship for a cloud of data, and how to determine the error of that relationship. The word "linear" means "in a straight line", which is why all of our predictors are in a straight line. In the image on the right, there's clearly a pattern, but it doesn't look like a straight line! There are many other kinds of statistical modeling out there, but all of them work the same way: given a particular kind of mathematical function (linear or otherwise), figure out how to get the "best fit" for a cloud of data. 
-                        }
-                        @teacher{
-                        
-                        }
-                }
         ]
   }
 
@@ -270,7 +263,7 @@
                 @point{
                         @student{
                             @activity{
-                                Turn back to @worksheet-link[#:name "Correlations-My-Dataset"], which you filled out earlier. Use Table Plans and the Design Recipe to investigate these correlations, and be sure to write down the @vocab{r-squared} values for each.
+                                Turn back to @worksheet-link[#:name "Correlations-My-Dataset"], where you listed possible correlations. Use Table Plans and the Design Recipe to investigate these correlations. If you need blank Table Plans or Design Recipes, you can find them at the back your workbook, just before the Contracts.
                             }
                         }
                         @teacher{
@@ -279,16 +272,8 @@
                 }
                 @point{
                         @student{
-                                What correlations did you find? Did you need to filter out certain rows in order to get those correlations?
-                        }
-                        @teacher{
-
-                        }
-                }
-                @point{
-                        @student{
                               @activity{
-                                  Write up your findings by filling out @worksheet-link[#:name "Findings-My-Dataset"].
+                                  What correlations did you find? Did you need to filter out certain rows in order to get those correlations? Write up your findings by filling out @worksheet-link[#:name "Findings-My-Dataset"].
                               }
                         }
                         @teacher{
@@ -317,10 +302,11 @@
         @points[
                 @point{
                         @student{
-                               
+                                @bitmap{images/nonlinear.png}
+                                You've learned how linear regression can be used to compute a linear relationship for a cloud of data, and how to determine the error of that relationship. The word "linear" means "in a straight line", which is why all of our predictors are in a straight line. In the image on the right, there's clearly a pattern, but it doesn't look like a straight line! There are many other kinds of statistical models out there, but all of them work the same way: given a particular kind of mathematical function (linear or otherwise), figure out how to get the "best fit" for a cloud of data. 
                         }
                         @teacher{
-
+                        
                         }
                 }
         ]

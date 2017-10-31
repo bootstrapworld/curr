@@ -1,6 +1,6 @@
 #lang curr/lib
 
-@title{Unit 6: Plotting Frequency}
+@title{Unit 6: Frequency Charts}
 
 @unit-overview/auto[#:lang-table (list (list "Number" 
                                               @code{+, -, *, /, num-sqrt} 
@@ -40,6 +40,16 @@
                 )
       ]{
         @points[
+                @point{
+                        @student{
+                              @activity[#:forevidence "BS-IDE&1&1"]{
+                                Open your "Animals Dataset (w/Functions)" file. (If you do not have this file, or if something has happened to it, you can always make a @editor-link[#:public-id "0BzzMl1BJlJDkbnZhbE1QSEE0eEE" "new copy"].)
+                              }
+                        }
+                        @teacher{
+
+                        }
+                }
                 @point{
                         @student{
                                 In the last Unit, you learned about two ways to visualize a dataset. To review, turn to @worksheet-link[#:name "Visualizing-Quantity-Review"] in your Student Workbook, and answer the questions you find there. 
@@ -225,7 +235,7 @@
               @point{
                     @student{
                         @activity{
-                            How are is your dataset distributed? Create at least one frequency bar chart and one histogram to explore your dataset. If you're looking at a particular subset of the data, make sure you write that up in your findings on @worksheet-link[#:name "Frequency-My-Dataset"].
+                            How are is your dataset distributed? Create at least one frequency bar chart and one histogram to explore your dataset. If you're looking at a particular subset of the data, make sure you write that up in your findings on @worksheet-link[#:name "Visualizing-My-Dataset-2"].
                         }
                     }       
                     @teacher{
@@ -235,7 +245,7 @@
               @point{
                     @student{
                         @activity{
-                            What did you find? Do you need to refine your dataset further, either by filtering or building a new column? Take 10-15min to deepen your analysis, and write up your findings on @worksheet-link[#:name "Frequency-My-Dataset"].
+                            What did you find? Do you need to refine your dataset further, either by filtering or building a new column? Take 10-15min to deepen your analysis, and write up your findings on @worksheet-link[#:name "Visualizing-My-Dataset-2"].
                         }
                     }
                     @teacher{
@@ -266,7 +276,7 @@
                     @student{
                           You've now learned about a lot of different charts! How many can you name? When is it best to use a pie chart instead of a bar chart? What about a histogram instead of a frequency bar chart? Each chart is good for answering different kinds of questions, and Data Scientists know when to use each kind.
                           @activity{
-                                Turn to @worksheet-link[#:name "Which-Chart-Is-Best"]. Here you'll find a set of questions about the @code{animals} dataset. For each question, write down the name of the chart that you would use to answer it.
+                                Turn to @worksheet-link[#:name "Which-Chart-Is-Best"]. Here you'll find a set of questions about the @code{animals} dataset. For each question, draw a line to the kind of chart that would answer it best.
                           }
                     }
                     @teacher{

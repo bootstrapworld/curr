@@ -1,7 +1,6 @@
 ;; This file is generated automatically.  DO NOT EDIT IT MANUALLY!
 
-; For data science, this file is managed manually
-; check the page numbers here -- Kathi made them up to get things to compile (6/26/17)
+; NOTE: For data science, this file is managed manually
 
 (
 ;;;;;;;;;;;;;;;; Unit 1 ;;;;;;;;;;;;;
@@ -9,17 +8,16 @@
  ("Unit-1-Blank" 	 			 2 )
  ("Numbers-and-Strings" 	 	 3 )
  ("Booleans" 					 4 )
- ("Fill-in-Value" 			 	 5 )
 
 ;;;;;;;;;;;;;;;; Unit 2 ;;;;;;;;;;;;;
- ("Unit-2-Notes" 	 	 		 6 )
- ("Unit-2-Blank" 	 	 		 7 )
- ("Animals-Dataset" 			 8 )
- ("Design-Recipe-1" 			 9 )
- ("Design-Recipe-2" 			10 )
- ("Design-Recipe-3" 			11 )
- ("My-Dataset" 					12 )
-
+ ("Unit-2-Notes" 	 	 		 5 )
+ ("Unit-2-Blank" 	 	 		 6 )
+ ("Animals-Dataset" 			 7 )
+ ("Design-Recipe-1" 			 8 )
+ ("Design-Recipe-2" 			 9 )
+ ("Design-Recipe-3" 			10 )
+ ("My-Dataset" 					11 )
+ ("Blank" 						12 )
 ;;;;;;;;;;;;;;;; Unit 3 ;;;;;;;;;;;;;
  ("Unit-3-Notes" 	 			13 )
  ("Unit-3-Blanks" 	 			14 )
@@ -38,8 +36,8 @@
  ("Measuring-Center" 			25 )
  ("Median-Dog-Age" 				26 )
  ("Mean-Kitten-Adoption" 		27 )
- ("Measuring-Center-in-Dataset" 28 )
-
+ ("Measuring-Center-My-Dataset" 28 )
+ 
 ;;;;;;;;;;;;;;;; Unit 5 ;;;;;;;;;;;;;
  ("Unit-5-Notes" 				29 )
  ("Unit-5-Blank" 				30 )
@@ -50,7 +48,7 @@
  ("Bar-Kitten-Adoption"			35 )
  ("Blank-Table-Plan-1"			36 )
  ("Blank-Table-Plan-2"			37 )
- ("Quantity-My-Dataset"			38 )
+ ("Visualizing-My-Dataset-1"	38 )
 
 ;;;;;;;;;;;;;;;; Unit 6 ;;;;;;;;;;;;;
  ("Unit-6-Notes" 	 			39 )
@@ -59,7 +57,7 @@
  ("Visualizing-Frequency" 		42 )
  ("Freq-Bar-Gender" 			43 )
  ("Histogram-Adoption" 			44 )
- ("Frequency-My-Dataset"		45 )
+ ("Visualizing-My-Dataset-2"	45 )
  ("Which-Chart-Is-Best"			46 )
 
 ;;;;;;;;;;;;;;;; Unit 7 ;;;;;;;;;;;;;
@@ -70,8 +68,8 @@
  ("Age-v-Weeks-Dogs" 			51 )
  ("Drawing-Predictors" 			52 )
  ("Scatter-Dogs-Age" 			53 )
- ("Correlations-My-Dataset" 	54 )
- ("Findings-My-Dataset" 		55 )
+ ("Correlations-My-Dataset" 	53 )
+ ("Blank-2" 					54 )
 
 ;;;;;;;;;;;;;;;; Unit 8 ;;;;;;;;;;;;;
  ("Unit-8-Notes" 	 			55 )

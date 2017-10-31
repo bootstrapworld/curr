@@ -51,28 +51,28 @@
             }
             @point{
                     @student{
-                          Open the @editor-link[#:public-id "0BzzMl1BJlJDkNS1xbzhwLUh6cU0" "Unit 3 Starter File"] in a new tab, select "Save As" from the file menu, and click "Run". As you scroll through the file, you'll notice functions defined at the top. Some of these functions are similar to the ones you defined earlier, and others are totally new!
+                          Open @editor-link[#:public-id "0BzzMl1BJlJDkbnZhbE1QSEE0eEE" "Animals Dataset (w/Functions)"] in a new tab, select "Save As" from the file menu, and click "Run". As you scroll through the file, you'll notice functions defined at the top. Some of these functions are similar to the ones you defined earlier, and others are totally new!
                           @activity{
                                 Open your student workbook to @worksheet-link[#:name "Reviewing-Functions"], and use the code in the Definitions Area to answer the questions there.
                           }
                     }
                     @teacher{
-
+                          Note: one of the examples is failing -- this is @italic{intentional!}
                     }
             }
             @point{
                     @student{
                           The animal shelter might use this dataset in many ways. For example, it might want to see a list of animals ordered from oldest-to-youngest, or a list of names in alphabetical order. 
                           @activity{
-                              Can you think of any other orders that they might need? Turn to @worksheet-link[#:name "Dataset-Plans"] and answer Question 1.
+                              Can you think of any other orders that they might need? Turn to @worksheet-link[#:name "Animals-Plans"] and answer Question 1.
                           }
                           They might also want to look at just cats, or only animals who've been fixed. 
                           @activity{
-                              Can you think of any other subsets that they want to look at? Turn to @worksheet-link[#:name "Dataset-Plans"] and answer Question 2.
+                              Can you think of any other subsets that they want to look at? Turn to @worksheet-link[#:name "Animals-Plans"] and answer Question 2.
                           }
                           The shelter might also want to compute @italic{new columns} for their dataset. For example, they might want a new, numeric column that shows the animals' age in weeks instead of years, or make a new Boolean column showing which animals are dogs over the age of 2.
                           @activity{
-                              Can you think of any other columns they might want to compute? Turn to @worksheet-link[#:name "Dataset-Plans"] and answer Question 3.
+                              Can you think of any other columns they might want to compute? Turn to @worksheet-link[#:name "Animals-Plans"] and answer Question 3.
                           }
                     }
             }
@@ -115,11 +115,11 @@
                               animals-table.row-n(2)
                               get-row(animals-table, 2)
                           }
-                          Both of these expressions do the same thing, but they are written quite differently. How many differences can you spot?
+                          Both of these expressions do the same thing, but they are written quite differently. How many differences can you find?
                         }
                   }
                   @teacher{
-
+                        Have students volunteer @italic{as many as they can}. 
                   }
             }
             @point{
@@ -163,7 +163,7 @@
   }
 
   @lesson/studteach[
-     #:title "Table Methods"
+     #:title "Ordering Rows"
      #:duration "10 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
@@ -542,7 +542,7 @@
                             @item{ Order rows by a particular column, in ascending or descending order }
                         ]
                         @activity{
-                            Turn to @worksheet-link[#:name "My-Dataset"] in your Student Workbook, and fill out questions 3-5.
+                            Turn to @worksheet-link[#:name "Dataset-Plans"] in your Student Workbook, and fill out questions 3-5.
                         }
                     }
                     @teacher{
