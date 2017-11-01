@@ -305,11 +305,11 @@
                     @student{
                             Those come in handy when comparing quanitative data, so how do they work in Pyret?
                             @activity{
-                                With your partner(s), go through the Boolean section at the top of @worksheet-link[#:name "Booleans"]. Talk about the answers to each question, and write down your answers when required.
+                                With your partner(s), complete @worksheet-link[#:name "Booleans"]. Talk about the answers to each question, and write down your answers when required.
                             }
                     }
                     @teacher{
-
+                            Have students share back. Point out that all the same rules about parentheses, spacing, and types still applies!
                     }
             }
             @point{
@@ -324,7 +324,7 @@
                     @student{
                             You've already gotten some practice adding rows to the table. But what if we want to add a column, to track whether or not a shape has any corners or not? Which shapes have corners and which don't?
                             @activity{
-                                Add a new column, @code{is-round} to the table, then add a Boolean value to the end of each row indicating whether or not that shape has corners.
+                                Add a new column, @code{is-round} to the table, then add a Boolean value to the end of each row indicating whether or not that shape has corners. Is this column made up of qualitative of categorical data?
                             }
                     }
                     @teacher{

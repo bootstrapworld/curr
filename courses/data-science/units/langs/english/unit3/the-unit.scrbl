@@ -112,8 +112,8 @@
                         @activity{
                           Type both of these into the Interactions Area and see what comes out.
                           @code[#:multi-line #t]{
-                              animals-table.row-n(2)
                               get-row(animals-table, 2)
+                              animals-table.row-n(2)
                           }
                           Both of these expressions do the same thing, but they are written quite differently. How many differences can you find?
                         }
@@ -286,8 +286,8 @@
                       @student{
                               Sometimes we want to @italic{add a column} to a Table, and we can use the @code{.build-column} method to do just that. The contract for this method is shown below, along with an example expression that adds a birth-year to the @code{animals-table}.
                               @code[#:multi-line #t]{
-                                    # <Table>.build-column :: (builder :: (Row -> Value)) -> Table
-                                    animals-table.build-column(birth-year)
+                                    # <Table>.build-column :: (col :: String, builder :: (Row -> Value)) -> Table
+                                    animals-table.build-column("year", birth-year)
                               }
                       }
                       @teacher{
@@ -329,7 +329,7 @@
                         Table methods can be chained together, so that we can build, filter @italic{and} order a Table. For example:
                         @code[#:multi-line #t]{
                             # get a table with the nametags of all the fixed animals, ordered by species
-                            animals-table.build-column("tag", nametage).filter(is-fixed).order-by("species", true)
+                            animals-table.build-column("year", birth-year).filter(is-fixed).order-by("species", true)
                         }
                         This code takes the @code{animals-table}, and builds a new column. According to our Contracts Page, @code{.build-column} produces a new Table, and that's the Table whose @code{.filter} method we use. That method produces @italic{yet another Table}, and we call that Table's @code{order-by} method. The Table that comes back from that is our final result.
                     }
@@ -342,7 +342,7 @@
                     @code[#:multi-line #t]{
                             # get a table with the nametags of all the fixed animals, order by species
                             animals-table
-                              .build-column("tag", nametage)
+                              .build-column("year", birth-year)
                               .filter(is-fixed)
                               .order-by("species", true)
                         }

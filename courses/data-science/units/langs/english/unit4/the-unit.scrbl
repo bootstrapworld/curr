@@ -127,7 +127,7 @@
                 }
                 @point{
                       @student{
-                              Wou computed the mean of that list to be just 6 weeks. That IS the average, but most of the animals in the table waited for less than 4 weeks! What is throwing off the average so much?
+                              You computed the mean of that list to be just 6 weeks. That IS the average, but most of the animals in the table waited for less than 4 weeks! What is throwing off the average so much?
                       }
                       @teacher{
                               Point students to Kujo and Mr. Peanutbutter.

@@ -25,8 +25,7 @@
               <ul>
                 <li><p class="BSUnitSummary"><span class="BSUnitTitle">Workshop Slides</span> [<a href="BootstrapDataScienceWorkshopSlides.pptx">pptx</a>] - The slide deck we use in our PD workshops, in PowerPoint format. This includes the background and context slides, as well as all slides used during the professional development workshops.</p></li>
                 <li><p class="BSUnitSummary"><span class="BSUnitTitle">Support Forums</span> [<a href="https://groups.google.com/d/forum/bootstrap-announce">Announcements</a> | <a href="https://groups.google.com/d/forum/bootstrap-discuss">Discussion</a>] - Want to be kept up-to-date about Bootstrap events, workshops, and curricular changes? Want to ask a question or pose a lesson idea for other Bootstrap teachers? These forums are the place to do it.</p></li>
-                <li><p class="BSUnitSummary"><span class="BSUnitTitle">Finished Final Project</span> [<a href="https://docs.google.com/document/d/1iS-JVNNltGY4eio8EYMMWLDQ8ntKC2qsDbtgLiSe20w/edit?usp=sharing">Final Report</a> | <a href="https://code.pyret.org/editor#share=0BzzMl1BJlJDkUm5PekVRWWpNZU0&v=06c8b98">Pyret Project</a>] - See an example of a completed Bootstrap:DataScience final project.</p></li>
-                </ul>
+              </ul>
             </div>
 
               
@@ -35,16 +34,9 @@
               <span class="anchor" id="sourceFiles"></span>
               <h2>Workshop Files</h2>
               <ul>
-                <li><a target="_blank" href="https://code.pyret.org/editor">Blank Pyret file (Unit 1)</a></li>
-                <li><a target="_blank" href="https://code.pyret.org/editor#share=0BzzMl1BJlJDkZ2IyU3dGYXAzblE">Unit 1 Starter File</a></li>
-                <li><a target="_blank" href="https://code.pyret.org/editor#share=0BzzMl1BJlJDkWEFpWS1RZ01RZEU">Unit 2 Starter File</a></li>
-                <li><a target="_blank" href="https://code.pyret.org/editor#share=0BzzMl1BJlJDkVkViWHFGZy02UnM">Unit 3 Starter File</a></li>
-                <li><a target="_blank" href="https://code.pyret.org/editor#share=0BzzMl1BJlJDkdTNka0NxY0tDVTg">Unit 4 Starter File</a></li>
-                <li><a target="_blank" href="https://code.pyret.org/editor#share=0BzzMl1BJlJDkVnU0Z2ZUOHJfaVE">Unit 5 Starter File</a></li>
-                <li><a target="_blank" href="https://code.pyret.org/editor#share=0BzzMl1BJlJDkNF9SSWo4UDVaeXc">Unit 6 Starter File</a></li>
-                <li><a target="_blank" href="https://code.pyret.org/editor#share=0BzzMl1BJlJDkQTBLVmhyTTZGUWM">Unit 7 Starter File</a></li>
-                <li><a target="_blank" href="https://code.pyret.org/editor#share=0BzzMl1BJlJDkNkEtSXdzeXUyMGs">Unit 8 Starter File</a></li>
-                <li><a target="_blank" href="https://code.pyret.org/editor#share=0BzzMl1BJlJDkWEROWGhVcHgxeDQ">Unit 9 Starter File</a></li>
+                <li><a target="_blank" href="https://code.pyret.org/editor#share=0BzzMl1BJlJDkVTlPTjlIWFB2aDA">Image Table Starter File</a></li>
+                <li><a target="_blank" href="https://code.pyret.org/editor#share=0BzzMl1BJlJDkYkhKMG51VlRiWk0">Animals Dataset Starter File</a></li>
+                <li><a target="_blank" href="https://code.pyret.org/editor#share=0BzzMl1BJlJDkbnZhbE1QSEE0eEE">Animals Dataset w/Functions Starter File</a></li>
 
                 <li style="padding-top: 20px;"><a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSeMCqv03p7gnV9Lu46zWT10PQ4tzyNG7Ejjk4KNcQ8l756bog/viewform"><b>Daily Workshop Feedback Form</b></a></li>
               </ul>

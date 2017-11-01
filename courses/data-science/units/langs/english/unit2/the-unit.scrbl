@@ -144,7 +144,7 @@
                         @code[#:multi-line #t]{
                             name = "Nancy"
                             sum = 2 + 2
-                            image = triangle(10, "solid", "red")
+                            img = triangle(10, "solid", "red")
                         }
                         @activity{
                             With your partner, take turns adding definitions to this file:
@@ -411,16 +411,13 @@
                                       Once you've found a Starter file for a dataset that interests you, click "Save a Copy" and save the project to your own account. 
                                   }
                                   @item{
-
-                                  }
-                                  @item{
                                       Take 5 minutes to fill in your name, and complete @worksheet-link[#:name "My-Dataset"].
                                   }
                               ]
                           }
                       }       
                       @teacher{
-                          See the @(hyperlink "https://docs.google.com/document/d/1iS-JVNNltGY4eio8EYMMWLDQ8ntKC2qsDbtgLiSe20w/edit?usp=sharing" "Sample Report") to see an exemplar of student work.
+                      
                       }
                 }
         ]

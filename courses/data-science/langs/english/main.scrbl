@@ -14,7 +14,7 @@ We provide all of the our materials @italic{free of charge}, to anyone who is in
         (append
          (for/list ([n (in-range 1 10)])
            (unit-summary/links n))
-         (list 
+         #;(list 
           @summary-item/unit-link["Supplemental Lessons" "units/Supplemental/index"]{
            For teachers looking for additional exercises, we have compiled many activities for students 
            to go deeper into the material. Students can explore topics like Data Cleaning with @(hyperlink "https://www.pyret.org/docs/latest/tables.html#%28part._s~3atables~3aloading%29" "Pyret Sanitizers"), transforming columns to detect non-linear relationships, using @code{if}-statements to transform categorical data to quantitative data, splitting tables to create subgroups, and lots more!}
