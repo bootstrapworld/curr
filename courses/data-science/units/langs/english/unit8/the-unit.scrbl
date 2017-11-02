@@ -89,6 +89,7 @@
         @points[
                 @point{
                         @student{
+                                @bitmap{images/age-vs-weeks.png}
                                 After our last Unit, we are left with two questions:
                                 @itemlist[
                                     @item{

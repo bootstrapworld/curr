@@ -45,14 +45,7 @@
                               @activity[#:forevidence "BS-IDE&1&1"]{
                                 Open your "Animals Dataset (w/Functions)" file. (If you do not have this file, or if something has happened to it, you can always make a @editor-link[#:public-id "0BzzMl1BJlJDkbnZhbE1QSEE0eEE" "new copy"].)
                               }
-                        }
-                        @teacher{
-
-                        }
-                }
-                @point{
-                        @student{
-                                In the last Unit, you learned about two ways to visualize a dataset. To review, turn to @worksheet-link[#:name "Visualizing-Quantity-Review"] in your Student Workbook, and answer the questions you find there. 
+                              In the last Unit, you learned about two ways to visualize a dataset. To review, turn to @worksheet-link[#:name "Visualizing-Quantity-Review"] in your Student Workbook, and answer the questions you find there. 
                         }
                         @teacher{
                                 
@@ -208,7 +201,7 @@
                 @point{
                       @student{
                               @activity{
-                                  How long does it take for most animals to be adopted? Complete the Table Plans on @worksheet-link[#:name "Histogram-Adoption"].
+                                  How long does it take for most animals to be adopted? Complete the Table Plan on @worksheet-link[#:name "Histogram-Adoption"].
                               }
                       }
                       @teacher{
