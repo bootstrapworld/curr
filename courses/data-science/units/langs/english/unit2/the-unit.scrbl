@@ -115,7 +115,10 @@
                 @point{
                       @student{
                             Are cats more popular than dogs? Do older animals take longer to get adopted? What are some questions you have about this dataset? Write down three questions you have on @worksheet-link[#:name "Animals-Dataset"].
-                      }3
+                      }
+                      @teacher{
+
+                      }
                 }
         ]
   }
@@ -292,6 +295,9 @@
                               end
                             }
                     }
+                    @teacher{
+
+                    }
                 }
                 @point{
                     @student{
@@ -318,6 +324,9 @@
                             end
                         }
                         Try making this change to your code, and clicking "Run". What happens?
+                    }
+                    @teacher{
+
                     }
                 }
                 @point{

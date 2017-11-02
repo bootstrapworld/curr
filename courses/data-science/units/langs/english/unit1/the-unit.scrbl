@@ -154,6 +154,9 @@
                                  2 0
                             ]
                     }
+                    @teacher{
+
+                    }
             }
             @point{
                     @student{
@@ -463,6 +466,9 @@
                             @activity{
                                 Complete the @code{example} column in the @code{shapes} table by applying the other relevant functions.
                             }
+                    }
+                    @teacher{
+
                     }
             }
             @point{

@@ -360,6 +360,9 @@
                         @student{
                               After looking at the scatter plot for our animal shelter, do you stil agree with the claim on @worksheet-link[#:name "Cuter-Adoption"]? Perhaps you need more information, or to see the analysis broke down separately by animal. 
                         }
+                        @teacher{
+                        
+                        }
                 }
                 @point{
                         @student{

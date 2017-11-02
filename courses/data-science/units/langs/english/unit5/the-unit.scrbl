@@ -268,6 +268,9 @@
                               Once your teacher has checked your Sample Table, type in the code for this function and try it out!
                           }
                     }
+                    @teacher{
+                    
+                    }
               }
         ]
   }

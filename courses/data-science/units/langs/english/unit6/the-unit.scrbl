@@ -62,6 +62,9 @@
                         @student{
                                 These visualizations tell us about the value of each row in our table. Bar charts tell us the precise value of each row, and pie charts tell us the fraction - or percent - of the total value that each row takes up. In both charts, every row in the table is represented by a unique bar or pie slice. But what if we want to talk about @italic{frequency} in our dataset?
                         }
+                        @teacher{
+                        
+                        }
                 }
         ]
   }

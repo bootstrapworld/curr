@@ -62,18 +62,13 @@
             }
             @point{
                     @student{
-                          The animal shelter might use this dataset in many ways. For example, it might want to see a list of animals ordered from oldest-to-youngest, or a list of names in alphabetical order. 
+                          The animal shelter might use this dataset in many ways. For example, it might want to see a list of animals ordered from oldest-to-youngest, or a list of names in alphabetical order. The shelter might also want to compute @italic{new columns} for their dataset. For example, they might want a new, numeric column that shows the animals' age in weeks instead of years, or make a new Boolean column showing which animals are dogs over the age of 2.
                           @activity{
-                              Can you think of any other orders that they might need? Turn to @worksheet-link[#:name "Animals-Plans"] and answer Question 1.
+                              Complete to @worksheet-link[#:name "Animals-Plans"] in your Student Workbook.
                           }
-                          They might also want to look at just cats, or only animals who've been fixed. 
-                          @activity{
-                              Can you think of any other subsets that they want to look at? Turn to @worksheet-link[#:name "Animals-Plans"] and answer Question 2.
-                          }
-                          The shelter might also want to compute @italic{new columns} for their dataset. For example, they might want a new, numeric column that shows the animals' age in weeks instead of years, or make a new Boolean column showing which animals are dogs over the age of 2.
-                          @activity{
-                              Can you think of any other columns they might want to compute? Turn to @worksheet-link[#:name "Animals-Plans"] and answer Question 3.
-                          }
+                    }
+                    @teacher{
+
                     }
             }
 
@@ -338,14 +333,19 @@
                     }
               }
               @point{
-                    It can be difficult to read code that has lots of method calls chained together, so we can break them up before each @code{.} to make it more readable. Here's the exact same code, written with line breaks:
-                    @code[#:multi-line #t]{
+                    @student{
+                        It can be difficult to read code that has lots of method calls chained together, so we can break them up before each @code{.} to make it more readable. Here's the exact same code, written with line breaks:
+                        @code[#:multi-line #t]{
                             # get a table with the nametags of all the fixed animals, order by species
                             animals-table
                               .build-column("year", birth-year)
                               .filter(is-fixed)
                               .order-by("species", true)
                         }
+                    }
+                    @teacher{
+                    
+                    }
               }
               @point{
                     @student{
@@ -511,6 +511,9 @@
                       @activity{
                           Type in the code and hit Enter. Did you get back the same result you expected?
                       }
+                  }
+                  @teacher{
+                  
                   }
               }
               @point{
