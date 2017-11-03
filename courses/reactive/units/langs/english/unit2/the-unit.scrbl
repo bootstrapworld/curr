@@ -106,7 +106,7 @@ end}
         #:product-outcomes @itemlist[@item{Students identify real-world behaviors that require data structures}]
         #:standards (list "BS-M" "BS-DR.1" "BS-DR.2" "BS-DR.3" "BS-DR.4" "BS-IDE")
         #:materials @itemlist[@item{}]
-        #:preparation @itemlist[@item{The @editor-link[#:public-id "0B9rKDmABYlJVWUlZTHVVRDFOdk0" "Package Delivery"] file preloaded on student machines}]
+        #:preparation @itemlist[@item{The @editor-link[#:public-id "0B9rKDmABYlJVbUVUeVJDZ1p3Ulk" "Parachute Jumper"] file preloaded on student machines}]
         #:prerequisites (list)
         #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -115,54 +115,53 @@ end}
                 )
       ]{
           @points[
-                   @point{@student{@activity{Open the @editor-link[#:public-id "0B9rKDmABYlJVWUlZTHVVRDFOdk0" "Package Delivery"] file on your computer and press 'Run'. What happens?}
-                                    The drone attempts to deliver a package directly to a house, but the box falls straight down, outside of the delivery zone. Ideally the package should fall diagonally, and land right in front of the house.  Let's take a look at the code to see why it falls into the road instead. There are a few new concepts in this file, but first, let's focus on what you already know.
+                   @point{@student{@activity{Open the @editor-link[#:public-id "0B9rKDmABYlJVbUVUeVJDZ1p3Ulk" "Parachute Jumper"] file on your computer and press 'Run'. What happens?}
+                                    The parachute jumper jumps out of the airplane and falls straight down, into the water! It's much safer to land on the shore. Let's take a look at the code to see why he falls into the water instead. There are a few new concepts in this file, but first, let's focus on what you already know.
                                     @activity[#:forevidence (list)]{Look at the function defined here called @code{next-position}. @itemlist[@item{What is this function's Domain? Its Range?}
-          @item{What does @code{next-position} do with its inputs?}]}
-                                    This function takes in two numbers, representing the x and y coordinate of the box, but it changes and returns only the y-coordinate, by subtracting 5 from it. But if only the y-coordinate is changing, the box will always fall straight down, landing in the road every time. To reach the house, it will have to fall diagonally. How could we make that happen?
-                                    @activity[#:forevidence (list)]{How should the box's x-coordinate change if it moves diagonally to the right (toward the house)? How should its y-coordinate change?}}
+                                    @item{What does @code{next-position} do with its inputs?}]}
+                                    This function takes in two numbers, representing the x and y coordinate of the parachute jumper, but it changes and returns only the y-coordinate, by subtracting 5 from it. But if only the y-coordinate is changing, he'll always fall straight down, landing in the water every time. To reach the land, he'll have to fall diagonally. How could we make that happen?
+                                    @activity[#:forevidence (list)]{How should the jumper's x-coordinate change if he moves diagonally to the right (toward the land)? How should his y-coordinate change?}}
                            @teacher{}}
                     
-                    @point{@student{Functions can return only one thing at a time, but we need to return both an x @bold{and} a y-coordinate in order to make the box fall diagonally. Thankfully, we have a way to combine multiple things within one container, called a @vocab{Data Structure}. Just like Racket and Pyret have built-in functions and also let you define your own functions, these languages allow you to create your own data structures as well. For this project, we've created a structure for you to use called @code{DeliveryState}, which contains two Numbers, representing an x and a y-coordinate.                                                                            @activity{Look at line 5, where we've defined @code{DeliveryState}. We'll go through the new syntax for defining a data structure, because very soon you'll be defining brand new structures of your own!}
-                                                                                                                   @code[#:multi-line #t]{data DeliveryState:
-       | delivery(
+                    @point{@student{Functions can return only one thing at a time, but we need to return both an x @bold{and} a y-coordinate in order to make the jumper move diagonally. Thankfully, we have a way to combine multiple things within one container, called a @vocab{Data Structure}. Just like Racket and Pyret have built-in functions and also let you define your own functions, these languages allow you to create your own data structures as well. For this project, we've created a structure for you to use called @code{JumperState}, which contains two Numbers, representing an x and a y-coordinate.                                                                            @activity{Look at line 6, where we've defined @code{JumperState}. We'll go through the new syntax for defining a data structure, because very soon you'll be defining brand new structures of your own!}
+                            @itemlist[@item{First, we've written a comment to remind ourselves what we're creating. In this case, we're calling our new structure @code{JumperState}, which contains two numbers: an x and y-coordinate.}
+                                      @item{The next line begins with @code{data JumperState:}. Similar to the keyword @code{fun} you learned in the last lesson, @code{data} tells the computer that you're about to define a new type of data. This is a @bold{very} powerful  piece of code: In Bootstrap:Algebra, you wrote programs using four @vocab{data types}: Numbers, Strings, Images, and Booleans. In this course, now you can create brand new data types. We can use these data types to create complex animations, multi-player video games, or account for both coordinates of a parachute jumper, so he moves in 2-dimensions! We called this data type @code{JumperState}, because it represents the current state, or position, of the parachute jumper.  Pyret would let us write any name after @code{data}, but as a convention, the name of a new data structure is capitalized, and we choose a meaningful name for it.}
+                                      @item{The next line begins with the | symbol, sometimes called a "bar" or "pipe", followed by the name of the @vocab{constructor} function for the structure (in this case, @code{jumper}.)  A @vocab{constructor} function is similar to some functions you've seen before, for creating images.  To create an Image, we call the function that creates it: @code{rectangle}, @code{triangle}, @code{square}, etc. Similarly, to create a @code{JumperState}, we can use the @code{jumper} @vocab{constructor} function with its inputs (two numbers, called x and y).  Again, the names @code{JumperState} and @code{jumper} were chosen by us, the programmer, and putting them in a @code{data} definition makes them available as a new data type and as a constructor function.}] 
+                                                                                       Let's get back to constructing a @code{jumper}, specifically how we knew the inputs would be numbers. The block of code we've given you defines all of this! @code[#:multi-line #t]{data JumperState:
+       | jumper(
           x :: Number, 
           y :: Number)
     end}
-                            @itemlist[@item{First, we've written a comment to remind ourselves what we're creating. In this case, we're calling our new structure @code{DeliveryState}, which contains two numbers: an x and y-coordinate.}
-                                      @item{The next line begins with @code{data DeliveryState:}. Similar to the keyword @code{fun} you learned in the last lesson, @code{data} tells the computer that you're about to define a new type of data. This is a @bold{very} powerful  piece of code: In Bootstrap:Algebra, you wrote programs using four @vocab{data types}: Numbers, Strings, Images, and Booleans. In this course, now you can create brand new data types. We can use these data types to create complex animations, multi-player video games, or account for both coordinates of a falling box, so it moves in 2-dimensions! We called this data type @code{DeliveryState}, because it represents the current state, or position, of the package being delivered.  Pyret would let us write any name after @code{data}, but as a convention, the name of a new data structure is capitalized, and we choose a meaningful name for it.}
-                                      @item{The next line begins with the | symbol, sometimes called a "bar" or "pipe", followed by the name of the @vocab{constructor} function for the structure (in this case, @code{delivery}.)  A @vocab{constructor} function is similar to some functions you've seen before, for creating images.  To create an Image, we call the function that creates it: @code{rectangle}, @code{triangle}, @code{square}, etc. Similarly, to create a @code{DeliveryState}, we can use the @code{delivery} @vocab{constructor} function with its inputs (two numbers, called x and y).  Again, the names @code{DeliveryState} and @code{delivery} were chosen by us, the programmer, and putting them in a @code{data} definition makes them available as a new data type and as a constructor function.}] 
-                                                                                       Let's get back to constructing a @code{delivery}, specifically how we knew the inputs would be numbers. The block of code we've given you defines all of this! 
-The @code{DeliveryState} @code{data} block tells us that we're defining a new data type called @code{DeliveryState}, whose constructor function @code{delivery} takes in two things: x, which is a Number, and y, which is also a number. Once we've listed each input and its data type, we finish defining the structure with the @code{end} keyword, just like finishing an @code{example} block.
-@activity{In the interactions area, practice making some @code{DeliveryState}s using the @code{delivery()} constructor function. Try making a @code{DeliveryState} that represents the box's position if it's on the road, another when it's in the air, above the house, and one when it's right in front of the house- a successful delivery!}}
-                            @teacher{This is the first data block students see in this course, but they will soon be writing their own to create new data structures. It's worth spending the time to cover this new syntax, paying special attention to capitalization (the name of the structure is capitalized (DeliveryState), whereas its constructor function (delivery) is lowercase), double colons (::) before data types, and commas between inputs to the constructor function.}
+   
+tells us that we're defining a new data type called @code{JumperState}, whose constructor function @code{jumper} takes in two things: x, which is a Number, and y, which is also a number. Once we've listed each input and its data type, we finish defining the structure with the @code{end} keyword, just like finishing an @code{example} block.}
+                            @teacher{This is the first data block students see in this course, but they will soon be writing their own to create new data structures. It's worth spending the time to cover this new syntax, paying special attention to capitalization (the name of the structure is capitalized (JumperState), whereas its constructor function (jumper) is lowercase), double colons (::) before data types, and commas between inputs to the constructor function.}
                             }
                                      
-                    @point{@student{Now it's up to us to get this box delivered sucessfully, and make sure it lands at the house. @activity[#:forevidence (list "BS-M&1&2" "BS-DR.1&1&1" "BS-DR.1&1&2")]{Turn to @worksheet-link[#:name "next-position"] in your workbook, read the word problem, and fill in the Contract and Purpose Statement for the function @code{next-position}.}
-    @code[#:multi-line #t]{# next-position : Number Number -> DeliveryState
-                           # Given 2 numbers, make a DeliveryState by 
+                    @point{@student{Now it's up to us to protect this parachute jumper, and make sure he lands safely on the shore. @activity[#:forevidence (list "BS-M&1&2" "BS-DR.1&1&1" "BS-DR.1&1&2")]{Turn to @worksheet-link[#:name "next-position"] in your workbook, read the word problem, and fill in the Contract and Purpose Statement for the function @code{next-position}.}
+    @code[#:multi-line #t]{# next-position : Number Number -> JumperState
+                           # Given 2 numbers, make a JumperState by 
                            # adding 5 to x and subtracting 5 from y}}
-                            @teacher{Point out that we're now using a new data type in a contract: @code{next-position} consumes two Numbers, and produces a @italic{DeliveryState}. Once we've defined a new data structure using the above data block, we can use it just like other datatypes.}}
+                            @teacher{Point out that we're now using a new data type in a contract: @code{next-position} consumes two Numbers, and produces a @italic{JumperState}. Once we've defined a new data structure using the above data block, we can use it just like other datatypes.}}
 
-                    @point{@student{Now for our two examples. Using, or @vocab{calling} @code{next-position} with two numbers is easy, but what happens to those numbers? We can't return both at the same time... unless we use a data structure! To do so we'll need to use the constructor function to make a structure from the data we already have. @activity[#:forevidence (list "5.OA.1-2&1&1" "5.OA.1-2&1&1" "7.EE.3-4&1&1" "A-SSE.1-2&1&1" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.4&1&1")]{@itemlist[@item{According to the definition for @code{DeliveryState}, what function makes a DeliveryState? What is its contract?}
-                    @item{@code{# delivery : Number Number -> DeliveryState}}
-                    @item{What two things are part of a DeliveryState? Do we have values for those things as part of our first example?}
-                    @item{We don't want our DeliveryState to contain the same x and y values we gave the @code{next-position} function. How will the values change? (Remember to show your work!)}
+                    @point{@student{Now for our two examples. Using, or @vocab{calling} @code{next-position} with two numbers is easy, but what happens to those numbers? We can't return both at the same time... unless we use a data structure! To do so we'll need to use the constructor function to make a structure from the data we already have. @activity[#:forevidence (list "5.OA.1-2&1&1" "5.OA.1-2&1&1" "7.EE.3-4&1&1" "A-SSE.1-2&1&1" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.4&1&1")]{@itemlist[@item{According to the definition for @code{JumperState}, what function makes a JumperState? What is its contract?}
+                    @item{@code{# jumper : Number Number -> JumperState}}
+                    @item{What two things are part of a JumperState? Do we have values for those things as part of our first example?}
+                    @item{We don't want our JumperState to contain the same x and y values we gave the @code{next-position} function. How will the values change? (Remember to show your work!)}
                     @item{Your first example should look something like: 
                           @code[#:multi-line #t]{examples:
-                                                   next-position(30, 250) is delivery(30 + 5, 250 - 5)
+                                                   next-position(30, 250) is jumper(30 + 5, 250 - 5)
                                                  end}}
                     @item{Once your first example is complete, write one more example with different inputs for the x and y coordinates.}]}}
-                            @teacher{Remind students to show every step of their work in the example step of the design recipe: if the x-coordinate increases by 5 while the y-coordinate decreases by 5, they should show the addition and subtraction within the DeliveryState data structure, instead of just returning the new numbers.}}
+                            @teacher{Remind students to show every step of their work in the example step of the design recipe: if the x-coordinate increases by 5 while the y-coordinate decreases by 5, they should show the addition and subtraction within the JumperState data structure, instead of just returning the new numbers.}}
                     
                     @point{@student{@activity[#:forevidence (list "BS-DR.3&1&1" "BS-DR.4&1&2")]{Now that you have two examples, it's time to define the function. You know the drill: circle and label everything that changes between your two examples, copy everything that stays the same, and replace the changing things with the variables you chose.}
                                      When you finish, your function definition should look like: @code[#:multi-line #t]{fun next-position(x, y):
-                         delivery(x + 5, y - 5)
+                         jumper(x + 5, y - 5)
                        end}
-                                     Now, instead of just changing and returning one number (a y-coordinate), we can return @bold{both} the x and y-coordinates of the box within a @vocab{Data Structure}. @activity[#:forevidence (list "BS-IDE&1&1")]{Open the @editor-link[#:public-id "0B9rKDmABYlJVWUlZTHVVRDFOdk0" "Package Delivery"] code again and replace the original @code{next-position} function with the one in your workbook to make the box land within the dlivery zone, in front of the house! Don't forget to change the given examples to match your new function definition.}}
+                                     Now, instead of just changing and returning one number (a y-coordinate), we can return @bold{both} the x and y-coordinates of the parachute jumper within a @vocab{Data Structure}. @activity[#:forevidence (list "BS-IDE&1&1")]{Open the @editor-link[#:public-id "0B9rKDmABYlJVbUVUeVJDZ1p3Ulk" "Parachute Jumper"] code again and replace the original @code{next-position} function with the one in your workbook to make the parachute jumper land safely on the shore! Don't forget to change the given examples to match your new function definition.}}
                            @teacher{}}
                     
-                    @point{@student{In Bootstrap:Algebra, a function could return only one value: either a Number, String, Image, or Boolean. In Bootstrap:Reactive, our functions will still return one value, but that value can be a @vocab{Data Structure}, (or just "structure" for short) containing any number of things within it. This way we could return both the x and y-coordinate of a package using a DeliveryState, or create new structures and return even more detail about a character, like their health, position, amount of armor, or inventory.}
+                    @point{@student{In Bootstrap:Algebra, a function could return only one value: either a Number, String, Image, or Boolean. In Bootstrap:Reactive, our functions will still return one value, but that value can be a @vocab{Data Structure}, (or just "structure" for short) containing any number of things within it. This way we could return both the x and y-coordinate of a player using a JumperState, or create new structures and return even more detail about a player, like their health, position, amount of armor, or inventory.}
                             @teacher{In Bootstrap:Algebra, students' games were made by keeping track of just a few numbers: the x-positions of the danger and target, and y-position 
                                      of the player. In Bootstrap:Reactive, students' games will be much more complex, and will require many more values to move characters, test conditions, 
                                      keep track of the score, etc. Data structures simplify code by organizing multiple values: You couldn't represent every part of a player 
@@ -189,44 +188,65 @@ The @code{DeliveryState} @code{data} block tells us that we're defining a new da
                 )
       ]{
           @points[
-                   @point{@student{Suppose you own a famous bakery. You bake things like cookies, pastries, and tarts, but you're especially known for your world-famous cakes.
-                                   What type of thing is a cake? Is it a number? String? Image? Boolean? You couldn't describe all of the important things 
-                                   about a cake with any one of those data types. However, we could say that we care about a couple of details about each cake, each of which can be described with the types we already know.
-                                   @activity[#:forevidence (list "BS-DS.2&1&1")]{For each of the following aspects of a cake, think about what datatype you might use to represent it:
-                                             @itemlist[@item{The flavor of the cake. That could be "Chocolate", "Strawberry", "Red Velvet", or something else.}
-                                                       @item{The number of layers}
-                                                       @item{Whether or not the cake is an ice cream cake.}]
-                                              What datatype could we use to represent the entire cake?}
-                                   @bitmap{images/chocolate-cake.png}                                                   
-                                   Now that we know everything that is part of a cake, we can use a data structure to represent the cake itself. Let's take a look at how this works.
-                                   @activity{Open your workbook to @worksheet-link[#:name "Cakes"].}
-                                   On this page, we will define a data structure for cakes, which we call @code{CakeType} (since this is now a new data TYPE). At the top of this page we see a comment, stating what things are part of a @code{CakeType}. Below that is a line that says @code{data CakeType:}, which begins the definition of a new data structure, called CakeType. On the next line, we define the function that makes a CakeType (@code{cake}), and how @italic{exactly} to make a CakeType---the names of each thing in a CakeType, and their data types. Each piece of information that makes up a cake (the flavor, etc) is called a @vocab{field}.  A field has both a descriptive name (like @code{flavor}) and a datatype.
-				   
-                                   @activity{What name describes the first field in a CakeType? What data type can we use to represent it?}
-				   
-                                   There is a little bit of new syntax involved in defining structures. On the first line on @worksheet-link[#:name "Cakes"], we write @code{flavor :: String,}, which tells Pyret that the first element of @italic{any} CakeType will be its flavor, represented by a String. This line shows how to define one field in a data structure.
-				   
-                                   @activity{What name describes the second field in a CakeType? What data type can we use to represent it?}
-				   
-                                   On the next line, write @code{layers :: Number,}, which tells Pyret that the second element of any CakeType will be its number of layers, represented by a Number.
-				   
-                                   @activity{What data structure should we use to represent whether or not the CakeType is an ice cream cake?  Use this to define another field.}
-				   
-                                   On your paper, you should have: 
-                                   @code[#:multi-line #t]{ # a CakeType is a flavor, number of layers, 
-                                                           # and whether or not it is an ice cream cake.
-                                                       data CakeType:
-                                                         | cake(
-                                                             flavor      :: String,
-                                                             layers      :: Number, 
-                                                             is-iceCream :: Boolean)
-                                                       end}
-                             This is the code that defines the CakeType data structure. It tells the computer what a CakeType is and what goes into it. It also defines its @vocab{constructor} function, called @code{cake}. To make a CakeType, you @italic{must} call the constructor function with three things: a @code{flavor}, which is a String, @code{layers}, a Number, and @code{is-iceCream}, which is a Boolean. Remember that order matters! For now, these are the only things that we're going to keep track of in a CakeType, but you can imagine how you might extend it to include other information.}
+                   @point{
+                        @student{
+                              Suppose you own a famous bakery. You bake things like cookies, pastries, and tarts, but you're especially known for your world-famous cakes.
+                             What type of thing is a cake? Is it a number? String? Image? Boolean? You couldn't describe all of the important things 
+                             about a cake with any one of those data types. However, we could say that we care about a couple of details about each cake, each of which can be described with the types we already know.
+                             @activity[#:forevidence (list "BS-DS.2&1&1")]{For each of the following aspects of a cake, think about what datatype you might use to represent it:
+                                       @itemlist[@item{The flavor of the cake. That could be "Chocolate", "Strawberry", "Red Velvet", or something else.}
+                                                 @item{The number of layers}
+                                                 @item{Whether or not the cake is an ice cream cake.}]
+                                        What datatype could we use to represent the entire cake?}
+                        }
+                        @teacher{
+
+                        }
+                  }
+                  @point{
+                        @student{
+                             @bitmap{images/chocolate-cake.png}                                                   
+                             Now that we know everything that is part of a cake, we can use a data structure to represent the cake itself. Let's take a look at how this works.
+                             @activity{Open your workbook to @worksheet-link[#:name "Cakes"].}
+                             On this page, we will define a data structure for cakes, which we call @code{CakeType} (since this is now a new data TYPE). At the top of this page we see a comment, stating what things are part of a @code{CakeType}. Below that is a line that says @code{data CakeType:}, which begins the definition of a new data structure, called CakeType. On the next line, we define the function that makes a CakeType (@code{cake}), and how @italic{exactly} to make a CakeType---the names of each thing in a CakeType, and their data types. Each piece of information that makes up a cake (the flavor, etc) is called a @vocab{field}.  A field has both a descriptive name (like @code{flavor}) and a datatype.
+     
+                             @activity{What name describes the first field in a CakeType? What data type can we use to represent it?}
+                        }
+                        @teacher{
+                              Refer students back to their language table, to see what Types are available.
+                        }
+                  }
+                  @point{
+                        @student{
+                             There is a little bit of new syntax involved in defining structures. On the first line on @worksheet-link[#:name "Cakes"], we write @code{flavor :: String,}, which tells Pyret that the first element of @italic{any} CakeType will be its flavor, represented by a String. This line shows how to define one field in a data structure.
+     
+                             @activity{What name describes the second field in a CakeType? What data type can we use to represent it?}
+     
+                             On the next line, write @code{layers :: Number,}, which tells Pyret that the second element of any CakeType will be its number of layers, represented by a Number.
+     
+                             @activity{What data structure should we use to represent whether or not the CakeType is an ice cream cake?  Use this to define another field.}
+                        }
+                        @teacher{
+
+                        }
+                  }
+                  @point{
+                        @student{
+                             On your paper, you should have: 
+                             @code[#:multi-line #t]{ # a CakeType is a flavor, number of layers, 
+                                                     # and whether or not it is an ice cream cake.
+                                                 data CakeType:
+                                                   | cake(
+                                                       flavor      :: String,
+                                                       layers      :: Number, 
+                                                       is-iceCream :: Boolean)
+                                                 end}
+                       This is the code that defines the CakeType data structure. It tells the computer what a CakeType is and what goes into it. It also defines its @vocab{constructor} function, called @code{cake}. To make a CakeType, you @italic{must} call the constructor function with three things: a @code{flavor}, which is a String, @code{layers}, a Number, and @code{is-iceCream}, which is a Boolean. Remember that order matters! For now, these are the only things that we're going to keep track of in a CakeType, but you can imagine how you might extend it to include other information.}
                         @teacher{Stress the importance of being able to define your own datatypes
                                  to students: no longer are they bound by the single values of numbers, strings, or booleans! Pyret allows you to define brand new @vocab{Data Structures}, containing 
                                  any combination of values.}}
                    
-                    @point{@student{@activity{Open the @editor-link[#:public-id "0B9rKDmABYlJVa0cxbEpoSG1pT0k" "Bakery"] file and look at lines 3 - 8. Do they match what you have on your paper?} 
+                  @point{@student{@activity{Open the @editor-link[#:public-id "0B9rKDmABYlJVa0cxbEpoSG1pT0k" "Bakery"] file and look at lines 3 - 8. Do they match what you have on your paper?} 
                                       Now take a look farther down, at line 10: @code{birthday-cake = cake("Vanilla", 4, false)}
                                                @itemlist[@item{What is the name of this variable?}
                                                           @item{What is the flavor of @code{birthday-cake}?}
@@ -245,28 +265,29 @@ The @code{DeliveryState} @code{data} block tells us that we're defining a new da
                          @teacher{Repetition is key in this lesson. Have students identify each part of the CakeType for every CakeType they've defined.
                                   What is the flavor of their first CakeType? Its number of layers? Ensure that students are using their inputs in the right order!}}
                  
-                 @point{@student{At this point, you've worked with two different @vocab{Data Structures}: DeliveryStates and CakeTypes, and you've created different examples, or @vocab{instances}, of these structures.
-		 		 Instances are concrete uses of a datatype, just as 3 is a concrete Number (where Number is the type).  Here, CakeType is the type, and @code{cake("Chocolate", 8, false)} is
-				 a concrete cake with specific values for each field. In programming, we create instances much more often than we create new data structures.
-				 For now, the important point is to recognize the difference between a structure @italic{definition} (the @code{data....} piece of code) and
-				 specific @vocab{instances} of a data structure (like @code{birthday-cake}, or @code{delivery(44, 75)}.
+                 @point{@student{At this point, you've worked with two different @vocab{Data Structures}: JumperStates and CakeTypes, and you've created different examples, or @vocab{instances}, of these structures.
+         Instances are concrete uses of a datatype, just as 3 is a concrete Number (where Number is the type).  Here, CakeType is the type, and @code{cake("Chocolate", 8, false)} is
+         a concrete cake with specific values for each field. In programming, we create instances much more often than we create new data structures.
+         For now, the important point is to recognize the difference between a structure @italic{definition} (the @code{data....} piece of code) and
+         specific @vocab{instances} of a data structure (like @code{birthday-cake}, or @code{jumper(44, 75)}.
                          @bitmap{images/strawberry-cake.png}  
                          }
                             @teacher{Students often struggle with the difference between the definition of a data structure and instances (items created from) a data structure. When students define CakeType, they haven't
-			             created any specific cakes.  They have defined a type that they can use to define specific cakes.  If they have a specific cake, they can ask questions of it such as "is this a chocolate
-				     cake?" and produce an answer.  If all they have is the CakeType definition, they can't answer such questions. Some people like the analogy of a cookie cutter here -- CakeType defines
-				     a cookie cutter, but doesn't produce any cookies.  To get a cookie, you use the @code{cake} constructor to define a specific cake with specific values for the fields.}}
+                   created any specific cakes.  They have defined a type that they can use to define specific cakes.  If they have a specific cake, they can ask questions of it such as "is this a chocolate
+             cake?" and produce an answer.  If all they have is the CakeType definition, they can't answer such questions. Some people like the analogy of a cookie cutter here -- CakeType defines
+             a cookie cutter, but doesn't produce any cookies.  To get a cookie, you use the @code{cake} constructor to define a specific cake with specific values for the fields.}}
                     
                     @point{@student{Based on these instances of CakeTypes you just wrote:
                                     @activity[#:forevidence (list)]{@itemlist[@item{What is the name of the function that creates a CakeType?}
                                                         @item{What is the Domain of this function?}
                                                         @item{How many things are in the domain?}]} The three things in the domain of @code{cake} are, in fact, the three things that we have already listed on @worksheet-link[#:name "Cakes"]! With data structures, the order is very important: we always want the first string in @code{cake} to be the CakeType's flavor, the first number to be its number of layers, etc.}
                                    
-                         @teacher{CakeTypes are the first example of defining a new datatype that students will see, but Pyret allows you to define any number of new data structures to hold
+                          @teacher{CakeTypes are the first example of defining a new datatype that students will see, but Pyret allows you to define any number of new data structures to hold
                                   any combination of values. The important points to remember about creating structures at this point is that whenever the constructor function is called (in this case, @code{cake}), it must take in the same 
                                   number and type of values as in the structure's definition, and its inputs must be in the @italic{same order} as the definition.}}
               
-                 @point{@student{@activity[#:forevidence (list "BS-IDE&1&1")]{After clicking the "Run" button, in Pyret, type @code{birthday-cake} into the interactions area and hit enter. What do you get back?}
+                 @point{@student{@activity[#:forevidence (list "BS-IDE&1&1")]{After clicking the "Run" button, in Pyret, type
+                    @code{birthday-cake} into the interactions area and hit enter. What do you get back?}
                                   Does this make sense? What happens when you type just a number into the interactions area? We get that same number back! What about Strings? Images? 
                                   Booleans? If we don't do anything to our input, or use any function on it, we get back exactly what we put in! Here, you put in a CakeType, let's see what we get back.  At first glance, it looks like a function call was the answer!  But there's a few things different about what appears in the output.  First, it isn't the same color as a normal function call, which is the first hint that something's different.  Second, we can @emph{click} on it, and see that this value is storing three other values in its @vocab{fields} – the flavor, layers, and whether or not it's ice cream.  This compound value that's printed is an @vocab{instance} of a @code{CakeType}.  It's a value in its own right, so when we type in @code{birthday-cake} it shows us this value (just like with numbers and strings).}
                          @teacher{Remind students that values will always evaluate to themselves. 4 evaluates to 4, the string @code{"pizza"} evaluates to @code{"pizza"}, and @code{birthday-cake} evaluates
@@ -397,12 +418,8 @@ The @code{DeliveryState} @code{data} block tells us that we're defining a new da
                                 different enemies, each with its own position and health, or multiple levels with their own background images, the game can get 
                                 very complicated very fast, and structures are a great way to manage and make sense of all the data. Programmers can do a LOT with data
                                 structures, and in the upcoming lessons you'll start creating your own structures to make a customized animation.}
-           @teacher{Have students volunteer what they learned in this lesson! For extra practice with the vocabulary involved with data structures, have students complete @worksheet-link[#:name "vocabulary-practice"] in their workbooks.}}
+           @teacher{Have students volunteer what they learned in this lesson!}}
   
            
  ]}
        }
-       
-       
-
-
