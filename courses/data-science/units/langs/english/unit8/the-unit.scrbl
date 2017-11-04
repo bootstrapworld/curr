@@ -166,9 +166,9 @@
                 }
                 @point{
                         @student{
-                                These charts also include something called an @vocab{r-squared} value at the top, which always seems to be between 0 and 1. What do you think this number means? 
+                                These charts also include something called an @vocab{r-squared} value (or @vocab{correlation coefficient}) at the top, which always seems to be between -1 and 1. What do you think this number means? 
                                 @activity{
-                                    Turn to @worksheet-link[#:name "Grading-Predictors"]. For each plot, circle the chart that has the best predictor. Then, give that predictor a grade between zero and one.
+                                    Turn to @worksheet-link[#:name "Grading-Predictors"]. For each plot, circle the chart that has the best predictor. Then, give that predictor a grade between -1 and 1.
                                 }
                         }
                         @teacher{
@@ -177,7 +177,7 @@
                 }
                 @point{
                         @student{
-                                The @vocab{r-squared} value for a predictor is a number on that tell us @italic{"how much of the variation in the scatter plot is explained by this line"}. In other words, it's a measure for how well the line fits. A perfect score of 1.0 means that 100% of the variability in the data is explained by the function and that every point falls exactly on the line. A score of 0.0 means that @italic{none} of the variability is explained by the predictor. 
+                                The @vocab{r-squared} value for a predictor is a number on that tell us @italic{"how much of the variation in the scatter plot is explained by this line"}. In other words, it's a measure for how well the line fits. A perfect score of 1.0 or -1.0 means that 100% of the variability in the data is positively or negatively explained by the function and that every point falls exactly on the line. A score of 0.0 means that @italic{none} of the variability is explained by the predictor. 
                                 @activity[#:forevidence "BS-IDE&1&1"]{
                                         @itemlist[
                                             @item{
@@ -202,7 +202,7 @@
                 }
                 @point{
                         @student{
-                                An r-squared value of 0.60 or higher is typically considered a strong correlation, and anything between 0.40 and 0.60 is "moderately correlated". Anything less than 0.40 is such a weak correlation that it might as well be random. However, these cutoffs are not an exact science! Different types of data may be "noisier" than others, and in some fields an r-squared value of 0.50 might be considered an impressively strong correlation!
+                                An r-squared value of ±0.60 or higher is typically considered a strong correlation, and anything between ±0.40 and ±0.60 is "moderately correlated". Anything less than 0.40 is such a weak correlation that it might as well be random. However, these cutoffs are not an exact science! Different types of data may be "noisier" than others, and in some fields a correlation coefficient value of ±0.50 might be considered impressively strong!
                         }
                         @teacher{
 
