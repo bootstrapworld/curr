@@ -30,7 +30,7 @@
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
-     #:standards (list)
+     #:standards (list "6.SP.4-5")
      #:materials @itemlist[]
      #:preparation @itemlist[]
      #:pacings (list 
