@@ -15,7 +15,7 @@
                                               @code{triangle, circle, star, rectangle, ellipse, square, text, overlay} 
                                               (list @bitmap{images/imgValue1.png} @bitmap{images/imgValue2.png}))
                                        (list "Table"
-                                              @code{.row-n, .order-by, .filter, .build-column, num-sqr, mean, median, modes, bar-chart, pie-chart} 
+                                              @code{.row-n, .order-by, .filter, .build-column, bar-chart, pie-chart, mean, median, modes} 
                                               ""))]{
   @unit-descr{
     Students explore new visualizations in Pyret, this time focusing on the @italic{frequency} of observations in their dataset. They learn how to construct and interpret Frequency Bar Charts and Histograms, experiment with these visualizations in a contrived dataset, apply them to their own research, and intepret the results. 
