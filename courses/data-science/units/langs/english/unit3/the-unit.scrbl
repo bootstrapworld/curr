@@ -211,7 +211,7 @@
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
-     #:standards (list)
+     #:standards (list "Data 3.1.1")
      #:materials @itemlist[]
      #:preparation @itemlist[]
      #:pacings (list 

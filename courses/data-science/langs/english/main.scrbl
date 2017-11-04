@@ -3,7 +3,11 @@
 @main-contents{
 @(elem #:style bs-coursename-style "Bootstrap:Data Science")
 
-@boxed-text{@animated-gif{splash.png}What factors make some people live longer than others? Are the schools in one part of your neighborhood better than schools in another part? How would you measure that? Answering these questions involves collecting and iterating over large datasets, from sports stats to record sales to census information. Our Data Science module teaches students to view programs as questions we ask of data: Students form their own questions about the world around them, and learn how to analyze data critically and carefully to find answers. In Bootstrap:DataScience, students confront @italic{functions, looping and iteration, visualization, and introductory statistics}. Business, science, and social studies teachers can utilize this module to help students make inferences from data. Math teachers can use this module to introduce foundational concepts in statistics, and it fits perectly as a module for AP CS Principles’ unit on data!}
+@boxed-text{@animated-gif{splash.png}What factors make some people live longer than others? Are more expensive restaurants really better? Is a policy effective?  @italic{How would you measure that?} Answering these questions involves analyzing data large datasets, from sports stats to record sales to census information. In Bootstrap:Data Science, students form their own questions about the world around them, analyze data using multiple methods, and write a research paper about their findings. The module covers @italic{functions, looping and iteration, data visualization, linear regression, and much more}. 
+
+Social studies, science, and business teachers can utilize this module to help students make inferences from data. Math teachers can use this module to introduce foundational concepts in statistics, and it is aligned to the Data standards in CS Principles.}
+
+@bold{The final project in Bootstrap:Data Science can be used as the Create Task for AP CS Princples!}
 
 @bold{@(hyperlink "http://www.BootstrapWorld.org/workshops" "Click here for our upcoming trainings")}
 

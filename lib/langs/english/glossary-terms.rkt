@@ -91,7 +91,7 @@ when it prints out the glossary for a particular unit
     ("programming language" "a set of rules for writing code that a computer can evaluate") 
     ("purpose statement" "a brief description of what a function does")
     ("quantitative data" "data with values that measure some amount or quantity;  may not have a fixed number of possible values")
-    (("r-squared" "correlation coefficient") "A number between -1 and 1 that measures the strength and direction of association between two variables")
+    (("r-squared") "A number between 0 and 1 that measures the strength of association between two variables")
     ("range" "the type of data that a function produces")
     ("reactor" "A value that contains a current state, and functions for updating, drawing, and interacting with that state")
     ("refactor" "The process of changing the style or structure of a program's code, without changing the program's behavior")

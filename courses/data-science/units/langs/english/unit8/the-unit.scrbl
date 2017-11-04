@@ -77,7 +77,7 @@
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
-     #:standards (list "S-ID.7-9" "HSS.ID.B" "HSS.ID.C")
+     #:standards (list "S-ID.7-9" "HSS.ID.B" "HSS.ID.C" "Data 3.1.3" "Data 3.2.1")
      #:materials @itemlist[]
      #:preparation @itemlist[]
      #:pacings (list 
@@ -259,13 +259,13 @@
   }
 
   @lesson/studteach[
-     #:title "Your Research"
+     #:title "Your Dataset"
      #:duration "30 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
-     #:standards (list)
+     #:standards (list "Data 3.1.2" "Data 3.1.3")
      #:materials @itemlist[]
      #:preparation @itemlist[]
      #:pacings (list 

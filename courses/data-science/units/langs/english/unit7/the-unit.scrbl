@@ -102,7 +102,7 @@
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
-     #:standards (list "8.SP.1-4" "S-ID.5-6" "HSS.ID.B")
+     #:standards (list "8.SP.1-4" "S-ID.5-6" "HSS.ID.B" "Data 3.1.3" "Data 3.2.1")
      #:materials @itemlist[]
      #:preparation @itemlist[]
      #:pacings (list 
@@ -251,7 +251,7 @@
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
-     #:standards (list "S-ID.5-6")
+     #:standards (list "S-ID.5-6" "Data 3.1.2" "Data 3.1.3")
      #:materials @itemlist[]
      #:preparation @itemlist[]
      #:pacings (list 

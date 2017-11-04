@@ -79,7 +79,7 @@
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
-     #:standards (list)
+     #:standards (list "Data 3.1.1" "Data 3.1.3")
      #:materials @itemlist[]
      #:preparation @itemlist[]
      #:pacings (list 
@@ -281,7 +281,7 @@
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
-     #:standards (list)
+     #:standards (list "Data 3.1.2")
      #:materials @itemlist[]
      #:preparation @itemlist[]
      #:pacings (list 
