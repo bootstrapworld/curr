@@ -103,7 +103,7 @@
                                     bar-chart :: (t :: Table, label :: String, value :: String) -> Image
                                     pie-chart :: (t :: Table, label :: String, value :: String) -> Image
                               }
-                              Unlike @code{circle} and @code{triange}, these functions first consume the @italic{Table} that we want to look at. The rest of their arguments tell us @italic{which columns in that Table we care about}. Both bar charts and pie charts need to know which column to use for the labels in our chart, and which column to use for values. As with @code{circle} and @code{triangle} these functions produce Images - in this case, Images of our charts.
+                              These functions first consume the Table that we want to look at. Their other arguments tell us @italic{which columns we care about}. Both bar charts and pie charts one column to use for the labels in our chart, and which column to use for values.
                       }
                       @teacher{
                         
@@ -169,9 +169,9 @@
                 @point{
                       @student{
                           @bitmap{images/pie.png}
-                          This time, our Result isn't a Table or a Number -- it's an @italic{Image}: a pie chart showing the weights of all the dogs in our shelter. @bold{Note:} When writing a Sample Table, it's okay to skip a few columns and focus on the ones you care about. Keep this in mind for the future!
+                          This time, our Result isn't a Table -- it's an @italic{Image}: a pie chart showing the weights of all the dogs in our shelter. @bold{Note:} When writing a Sample Table, it's okay to skip a few columns and focus on the ones you care about. Keep this in mind for the future!
                           @activity{
-                            Sketch a pie chart based on your Sample Table. When you're done, move on to defining the function, and fill out the methods to define the table. Do we need to build any columns? Filter any rows? Order the table?
+                              Sketch a pie chart based on your Sample Table. When you're done, move on to defining the function, and fill out the methods to define the table. Do we need to build any columns? Filter any rows? Order the table?
                           }
                       }
                       @teacher{
@@ -214,8 +214,28 @@
                 @point{
                       @student{
                           @activity{
-                              When your teacher has checked your paper, type in this function and try it!
+                              When your teacher has checked your paper, type in this function and try it! @bold{Based on this pie chart, does it look like some dogs are a lot heavier than others, or are the weights @italic{evenly distributed}?}
                           }
+                          Not at all! Kujo and Mr. Peanutbutter each take up more than 13% of the total weight, but almost every other dog's share is 7% or less.
+                      }
+                      @teacher{
+                          Hit this point hard. Seeing the pie slices gives us a feel for the @italic{distribution} of the dataset.
+                      }
+                }
+                @point{
+                      @student{
+                          Up to now, the Sample Table has been provided for you. But for our next Table Plan, you'll need to make one of your own! A good Sample Table should have:
+                          @itemlist[
+                                @item{
+                                    @italic{At least} the columns that matter - whether we'll be ordering or filtering by those columns.
+                                }
+                                @item{
+                                    A good Sample Table has enough rows to be a representative sample of the dataset. If our dataset has a mix of dogs and cats, for example, we want at least one of each in this table.
+                                }
+                                @item{
+                                    A good Sample Table has rows in random order, so that we'll notice if we need to order the table or not.
+                                }
+                          ]
                       }
                       @teacher{
 
@@ -223,21 +243,9 @@
                 }
                 @point{
                       @student{
-                          Up to now, the Sample Table has been provided for you. But for our next Table Plan, you'll need to make one of your own! A good Sample Table should have:
-                        @itemlist[
-                              @item{
-                                  @italic{At least} the columns that matter - whether we'll be ordering or filtering by those columns.
-                              }
-                              @item{
-                                  A good Sample Table has enough rows to be a representative sample of the dataset. If our dataset has a mix of dogs and cats, for example, we want at least one of each in this table.
-                              }
-                              @item{
-                                  A good Sample Table has rows in random order, so that we'll notice if we need to order the table or not.
-                              }
-                        ]
-                        @activity{
-                              It will take some practice for you to get good at making Sample Tables, but you can start by identifying @italic{bad} ones! turn to @worksheet-link[#:name "Bad-Sample-Tables"], and write down what's wrong with each of these tables.
-                        }
+                          @activity{
+                                It will take some practice for you to get good at making Sample Tables, but you can start by identifying @italic{bad} ones! turn to @worksheet-link[#:name "Bad-Sample-Tables"], and write down what's wrong with each of these tables.
+                          }
                     }
                     @teacher{
 
@@ -286,7 +294,7 @@
               @point{
                     @student{
                         @activity{
-                            Turn to back @worksheet-link[#:name "Measuring-Center-My-Dataset"]. If you concluded that one of the columns was being thrown off by outliers, try making a bar or pie chart of that column, and write up your findings on @worksheet-link[#:name "Visualizing-My-Dataset-1"]. 
+                            Try making a bar or pie chart of a column in your dataset, and write up your findings on @worksheet-link[#:name "Visualizing-My-Dataset-1"]. 
                         }
                     }       
                     @teacher{
@@ -330,14 +338,6 @@
                     @teacher{
 
                     }              
-              }
-              @point{
-                    @student{
-                        In the next Unit you'll learn about two other kinds of charts, which are all about visualization @italic{frequency} in your dataset.
-                    }
-                    @teacher{
-
-                    }
               }
         ]
    }

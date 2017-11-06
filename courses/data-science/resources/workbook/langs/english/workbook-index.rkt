@@ -45,10 +45,10 @@
 ;;;;;;;;;;;;;;;; Unit 5 ;;;;;;;;;;;;;
  ("Unit-5-Notes" 				33 )
  ("Unit-5-Blank" 				34 )
- ("Measuring-Center" 			35 )
- ("Median-Dog-Age" 				36 )
- ("Mean-Kitten-Adoption" 		37 )
- ("Measuring-Center-My-Dataset" 38 )
+ ("Summarizing-Weight" 			35 )
+ ("Variation-Dog-Age" 			36 )
+ ("Interpreting-Variation" 		37 )
+ ("Summarizing-My-Dataset" 		38 )
 
 ;;;;;;;;;;;;;;;; Unit 6 ;;;;;;;;;;;;;
  ("Unit-6-Notes" 	 			39 )
