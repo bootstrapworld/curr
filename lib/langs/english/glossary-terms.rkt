@@ -92,7 +92,7 @@ when it prints out the glossary for a particular unit
     ("produce" "to compute a value from an expression")
     ("programming language" "a set of rules for writing code that a computer can evaluate") 
     ("purpose statement" "a brief description of what a function does")
-    ("quartile" "Each of four equal groups into which a population can be divided according to the distribution of values of a particular variable")
+    ("quartile" "Each of four equal-sized groups into which a population can be divided, according to the distribution of values of a particular variable")
     ("quantitative data" "data with values that measure some amount or quantity;  may not have a fixed number of possible values")
     (("r-squared") "A number between 0 and 1 that measures the strength of association between two variables")
     ("range" "the type of data that a function produces")

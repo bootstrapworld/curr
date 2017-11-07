@@ -42,7 +42,7 @@
         @points[
                 @point{
                         @student{
-                                Tables are great when we want to find a specific piece of information, like "how old Wade the cat?" or "how long was Nibblet in the shelter before being adopted?".
+                                Tables are great when we want to find a specific piece of information, like "how old is Wade the cat?" or "how long was Nibblet in the shelter before being adopted?".
                                 @activity{
                                     Turn to @worksheet-link[#:name "Column-Statements"] in your Student Workbook, and answer the questions you find there. 
                                 }
@@ -83,7 +83,7 @@
         @points[
                 @point{
                       @student{
-                              You've now seen two kinds of charts: @vocab{bar chart} and @vocab{pie charts}. Both charts help us look at the whole dataset at once, and answer questions about @italic{quantity}. As you've observed, bar chars are great when we want to know exactly "how much" of a thing is contained in a single row. Pie charts, on the other hand, are best when we want to know "what percent" of the thing in our table is contained in a single row.
+                              You've now seen two kinds of charts: @vocab{bar chart} and @vocab{pie charts}. Both charts involve quantities and labels: each bar and slice is a measure of a quantitative column, and each one has a label. Both charts help us look at the whole dataset at once, and answer questions about @italic{quantity}. As you've observed, bar chars are great when we want to know exactly "how much" of a thing is contained in a single row. Pie charts, on the other hand, are best when we want to know "what percent" of the thing in our table is contained in a single row.
 
                               @activity[#:forevidence "BS-IDE&1&1"]{
                                 Open your "Animals Dataset (w/Functions)" file. (If you do not have this file, or if something has happened to it, you can always make a @editor-link[#:public-id "0BzzMl1BJlJDkbnZhbE1QSEE0eEE" "new copy"].)
@@ -96,14 +96,12 @@
                 }
                 @point{
                       @student{
-                              Let's take a look at their contracts, next to the contracts for some functions you've seen before...
+                              Let's take a look at their contracts...
                               @code[#:multi-line #t]{
-                                    circle    :: (radius :: Number, style :: String, color :: String) -> Image
-                                    triangle  :: (size :: Number, style :: String, color :: String) -> Image
                                     bar-chart :: (t :: Table, label :: String, value :: String) -> Image
                                     pie-chart :: (t :: Table, label :: String, value :: String) -> Image
                               }
-                              These functions first consume the Table that we want to look at. Their other arguments tell us @italic{which columns we care about}. Both bar charts and pie charts one column to use for the labels in our chart, and which column to use for values.
+                              The last two functions first consume the @italic{Table} that we want to look at, and their other arguments tell us @italic{which columns to look at} for both the labels and the values.
                       }
                       @teacher{
                         
@@ -112,11 +110,11 @@
                 @point{
                       @student{
                               @activity{
-                                  In the Interactions Area, type @code{pie-chart(animals-table, "name", "age")} and hit Enter. What happens? What happens when you hover over a slice of the pie? These plots are @italic{interactive}, allowing you to experiment with the data before you generate the final image. 
+                                  In the Interactions Area, type @code{pie-chart(animals-table, "name", "age")} and hit Enter. What happens? What happens when you hover over a slice of the pie? These plots are @italic{interactive}! This allows us to experiment with the data before generating the final image. 
                               }
                       }
                       @teacher{
-                              It reveals the value and percentage of the whole.
+                              Hovering over a pie slice or bar reveals the value or percentage of the whole, and the label.
                       }
                 }
                 @point{

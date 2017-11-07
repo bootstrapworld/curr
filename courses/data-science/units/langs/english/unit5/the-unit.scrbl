@@ -42,9 +42,7 @@
         @points[
                 @point{
                       @student{
-                              @activity[#:forevidence "BS-IDE&1&1"]{
-                                Open your "Animals Dataset (w/Functions)" file. (If you do not have this file, or if something has happened to it, you can always make a @editor-link[#:public-id "0BzzMl1BJlJDkbnZhbE1QSEE0eEE" "new copy"].)
-                              }
+                              Animal shelters make decisions about food, capacity and policies based on how long it takes for animals to be adopted. But looking at the whole table of animal weights is tedious, and isn't always the easiest way to to make sense of the data. What we want is a way to @italic{summarize} a dataset, so that we can describe the data quickly and easily.
                       }
                       @teacher{
 
@@ -52,7 +50,17 @@
                 }
                 @point{
                       @student{
-                              It's important to find ways to talk about lots of data without having to handover a giant list of numbers of a page of charts. Most of the time, they use a single number to summarize a complex story, and that. You've probably seen this before:
+                          @bannerline{According to the Animal Shelter Bureau, the average pet waits 6 weeks to be adopted.} @activity{
+                            Does that mean most pets wait more than a month to find homes? Why or why not?
+                          }
+                      }
+                      @teacher{
+                          Invite an open discussion for a few minutes.
+                      }
+                }
+                @point{
+                      @student{
+                              "The average pets waits 6 weeks" is a statement about the entire dataset, which summarizes a whole column of values into a single number. Summarizing a big dataset means that some information gets lost, so it's important to @italic{pick the right summary}. Picking the wrong summary can have serious implications! Here are just a few examples of summary data being used for important things. Do you think these summaries are accurate or not?
                               @itemlist[
                                   @item{ 
                                       Students are sometimes summarized by a two numbers - their GPA and SAT scores - which can impact where they go to college or how much financial aid they get.
@@ -77,8 +85,7 @@
                 }
                 @point{
                       @student{
-                              Data Scientists work with @italic{huge} datasets, and finding ways to describe that data @italic{accurately} are essential. There are two kinds of summary that Data Scientists look at:
-                              @bold{Center} and @bold{Distribution}.
+                              Data Scientists often look at two kinds of summaries: Measures of @bold{Center} and @bold{Distribution}. Finding ways to summarize data @italic{accurately} is essential. In this lesson, we'll check the "6 week" claim made by the Animal Shelter Bureau, and see if it's an accurate way to summarize the data.
                       }
                       @teacher{
 
@@ -106,29 +113,18 @@
         @points[
                 @point{
                       @student{
-                          According to the Animal Shelter Bureau, the average pet waits 6 weeks to be adopted. Does that mean most pets wait more than a month to find homes?
+                              If we plotted all the @code{weeks} values as points on a number line, what could we say about where those points are clustered? Is there a midpoint? Is there a point that shows up most often? Each of these are different ways of "measuring center".
                       }
                       @teacher{
-                          Invite an open discussion for a few minutes.
+                              Draw some sample points on a number line, and have students volunteer different ways to summarize the distribution.
                       }
                 }
                 @point{
                       @student{
-                              Suppose we want to check the Bureau's claim. If you plotted all the weeks as points on a number line, what could we say about where those points are clustered? Is there a midpoint? Is there a point that shows up most often? Each of these are different ways of "measuring center", and Data Scientists use them to speak as accurately as possible when they summarize data.
-                              @activity{
-                                  Suppose you have nine animals that took 1, 1, 3, 3, 3, 3, 4, 6, and 12 weeks to be adopted. How many different "measures of center" can you come up with for this list?
-                              }
+                              The Animal Shelter Bureau used one method of summary, called the @code{mean}, or @italic{average}. To take the average of a column, we add all the numbers in that column and divide by the number of rows.
                       }
                       @teacher{
-                              Have your students come up with ideas. It may be useful to write down 5-6 of them on the board, and have students brainstorm ideas.
-                      }
-                }
-                @point{
-                      @student{
-                              One way of summarizing a column is to provide the @code{mean}, or @italic{average} of the values in that column. To take the average of a column, we add all the numbers in that column and divide by the number of rows. That's exactly what the Animal Shelter Bureau did to make a statement about how long animals stay in shelters.
-                      }
-                      @teacher{
-                              Use your favorite lesson to teach students about computing averages.
+                              This lesson does not teach the algorithm for computing averages, but this would be an appropriate time to do so.
                       }
                 }
                 @point{
@@ -140,19 +136,6 @@
                               @activity{
                                   What is it's name? Domain? Range?
                               }
-                      }
-                      @teacher{
-
-                      }
-                }
-                @point{
-                      @student{
-                              Type @code{mean(animals-table, "weeks")}.  What does this give us? Does this back up the Bureau's claims?
-
-                              @activity[#:forevidence "BS-IDE&1&1"]{
-                                      Open your workbooks to @worksheet-link[#:name "Summarizing-Weight"]. We've already decided on the answer to Question 1 (@code{weeks}). Fill in the answer to Question 2.
-                              }
-
                               Notice that calculating the @vocab{mean} requires being able to add and divide, so the @vocab{mean} only makes sense for quantitative data.  For example, the mean of a list of Presidents doesn't make sense.  Same thing for a list of zipcodes:  even though we can add and divide the numbers of zipcodes, the output doesn't correspond to some "center" zipcode.
                       }
                       @teacher{
@@ -161,7 +144,18 @@
                 }
                 @point{
                       @student{
-                              You computed the mean of that list to be just 6 weeks. That IS the average, but most of the animals in the table waited for less than 4 weeks! What is throwing off the average so much?
+                              Type @code{mean(animals-table, "weeks")}.  What does this give us? Does this support the Bureau's claims?
+                              @activity[#:forevidence "BS-IDE&1&1"]{
+                                      Open your workbooks to @worksheet-link[#:name "Summarizing-Weeks"]. We've already decided on the answer to Question 1 (@code{weeks}). Under the "measures of center" section, fill in the computed mean.
+                              }
+                      }
+                      @teacher{
+
+                      }
+                }
+                @point{
+                      @student{
+                              You computed the mean of that list to be just 6 weeks. That IS the average, but if we look at the dots on our number line, we can see that most of the animals in the table waited for less than 4 weeks! What is throwing off the average so much?
                       }
                       @teacher{
                               Point students to Kujo and Mr. Peanutbutter.
@@ -169,7 +163,7 @@
                 }
                 @point{
                       @student{
-                              In this case, the mean is being thrown off by a few extreme datapoints, which are throwing off the average. These are called @vocab{outliers}, because they fall far outside of the rest of the dataset. Calculating the mean is great when all the points in a dataset are evenly distributed, but it breaks down for datasets with huge outliers.
+                              In this case, the mean is being thrown off by a few extreme datapoints. These extreme points are called @vocab{outliers}, because they fall far outside of the rest of the dataset. Calculating the mean is great when all the points in a dataset are evenly distributed, but it breaks down for datasets with huge outliers.
                       }
                       @teacher{
 
@@ -218,7 +212,7 @@
                               @code{# median :: (t :: Table, col :: String) -> Number}
 
                               @activity[#:forevidence "BS-IDE&1&1"]{
-                                    Compute the @code{median} for the @code{weeks} column in our dataset, and answer Question 3 in your workbook. Is it different than the mean? What does that mean? For practice, compute the mean for the @code{weight} and @code{age} columns.
+                                    Compute the @code{median} for the @code{weeks} column in our dataset, and add this to your workbook. Is it different than the mean? What can we conclude when the median is so much lower than the mean? For practice, compute the mean and median for the @code{weight} and @code{age} columns.
                               }
                       }
                       @teacher{
@@ -273,7 +267,7 @@
                 }
                 @point{
                       @student{
-                              At this point, we have a lot of evidence that suggests the Bureau's claim is wrong. Our mean wait time agrees with their findings, but we have two reasons to doubt the validity of their measurement:
+                              At this point, we have a lot of evidence that suggests the Bureau's summary is misleading. Our mean wait time agrees with their findings, but we have two reasons to doubt the validity of their measurement:
                               @itemlist[
                                   @item{ The median is only 4 weeks, meaning half the animals wait less than a month! }
                                   @item{ The mode of our dataset is only 1, which means there's a cluster of animals that are adopted in just one week! }
@@ -289,14 +283,16 @@
                             @activity{
                                 "In 2003, the average American family earned $43,000 a year - well above the poverty line! Therefor very few Americans were living in poverty." Do you trust this statement? Why or why not?
                             }
+                            Consider how many policies or laws are informed by statistics like this! Knowing about measures of center helps us see through misleading statements.
                       }
                       @teacher{
-                            Consider how many policies and laws are defended with statistics like this. Knowing about measures of center helps us see through misleading statements.
+                            
                       }
                 }
                 @point{
                       @student{
-                              You now have three different ways to measure center in a dataset. But how do you know which one to use? Here are some guidelines for when to use one measurement over the other:
+                              @bannerline{Variation Matters}
+                              You now have three different ways to measure center in a dataset. But how do you know which one to use? Depending on the variation in the dataset, a measure could be really useful or totally useless! Here are some guidelines for when to use one measurement over the other:
 
                               @itemlist[
                                       @item{
@@ -336,7 +332,7 @@
         @points[
                 @point{
                       @student{
-                          Measuring the Center of a dataset is helpful. It might, for example, tell us how much the animals in the shelter "generally" weigh. If every animal had similar weights, this would be all we need! But as we saw from the pie chart in the previous unit, some animals weigh a lot, @italic{lot} more than others! So we also need a way to describe @italic{variation} in our dataset, using @bold{just five numbers.}
+                          Measuring the "center" of a dataset is helpful, but we quickly found that it's also important to talk about the @italic{variation} in the dataset. So how do we do that?
                       }
                       @teacher{
                           
@@ -344,7 +340,18 @@
                 }
                 @point{
                       @student{
-                          Data Scientists use @vocab{box plots} to visualize distribution in a dataset. These plots can easily be represented using just five numbers, which makes them convenient ways to summarize data. Below is the contract for @code{box-plot}, along with an example that will make a box plot for the weights in the @code{animals-table}.
+                          Suppose we lined up all of the values in the @code{weeks} column from smallest to largest, and then split the line up into two equal groups by taking tjhe median. The first group is the 50% of animals that waited the @italic{least} amount of time to be adopted. The fourth group is the 50% of animals that waited the @italic{greatest} amount of time. Now, suppose we took the medians of both groups, to divide the line into four equal sections. Data Scientists call these groups @vocab{quartiles}.
+                          @activity{
+                              The first quartile (Q1) is the 25% of animals that waited the least amount of time. What do the other three quartiles represent?
+                          }
+                      }
+                      @teacher{
+                          Point out the five numbers that create these quartiles: the three medians, the minimum and the maximum.
+                      }
+                }
+                @point{
+                      @student{
+                          We can use @vocab{box plots} to visualize these quartiles. These plots can easily be represented using @bold{just five numbers}, which makes them convenient ways to summarize data. Below is the contract for @code{box-plot}, along with an example that will make a box plot for the weights in the @code{animals-table}.
                           @code[#:multi-line #t]{
                             box-plot :: (t :: Table, column :: String) -> Image
                             box-plot(animals-table, "pounds")
@@ -360,17 +367,23 @@
                 @point{
                       @student{
                           @bitmap{images/box-plot.png}
-                          This plot shows us the variation in our dataset according to five numbers. Let's look at three of them now:
+                          This plot shows us the variation in our dataset according to five numbers.
                           @itemlist[
                               @item{ 
-                                  The @bold{minimum} value in the dataset (at the bottom). This is Snuggles, our 0.1 pound Tarantula.
-                              }
-                              @item{ 
-                                  The @bold{maximum} value in the dataset (at the top). This is Kujo, our 172 pound dog.
+                                  The @bold{minimum} value in the dataset (at the bottom). In our dataset, that's just 1 week.
                               }
                               @item{
-                                  The @bold{median} value, which we computed earlier as 28.9.
-                              }                              
+                                  The @bold{Second Quartile (Q2)} value (the line in the middle), which is the median of the whole dataset. We already computed this, as 4.
+                              }
+                              @item{ 
+                                  The @bold{maximum} value in the dataset (at the top). In our dataset, that's 30 weeks.
+                              }
+                              @item{
+                                  The @bold{First Quartile (Q1)} (the bottom edge of the box), which is computed by taking the @italic{the median of the all the smaller half of the values}.
+                              }
+                              @item{
+                                  The @bold{Third Quartile (Q3)} (the bottom edge of the box), which is computed by taking the @italic{the median of the all the larger half of the values}.
+                              }
                           ]
                       }
                       @teacher{
@@ -381,7 +394,7 @@
                       @student{
                           One way to summarize the variation in the dataset is to measure the distance between the largest value and the smallest value. When we talk about functions having many possible outputs, we use the term "Range" to describe them. When we look at all the values between the smallest and largest in our dataset, we use the same term.
                           @activity{
-                              Find the @vocab{Range} of weights in your dataset, by subtracting the lightest one (@code{snuggles}) from the heaviest one (@code{kujo}).
+                              Find the @vocab{range} of this dataset. 
                           }
                       }
                       @teacher{
@@ -390,55 +403,21 @@
                 }
                 @point{
                       @student{
+                          Data Scientists subtract the 1st quartile from the 3rd quartile to compute the range of the "middle half" of the dataset, also called the @vocab{interquartile range}.
                           @activity{
-                              These three numbers divide our dataset into two halves. The first half runs from the @bold{min} to the @bold{median}, and the second half runs from the @bold{median} to the @bold{max}. In this chart, the median is much closer to the min than it is to the max. What does that tell us?
+                              Find the @vocab{interquartile range} of this dataset.
                           }
                       }
                       @teacher{
-
+                          @math{8 - 2.5 = 5.5 weeks}
                       }
                 }
                 @point{
                       @student{
-                          By definition, half the animals in our sample weigh less than the median. That already tells us that the distribution is skewed towards the min, possibly with a few outliers on the high end. But suppose we wanted to zoom in a little closer, to get a better view. Rather than merely dividing our dataset in half we can take the @italic{median of each half}. Now we have @italic{five numbers}, which chop our dataset into four @vocab{quartiles}.
-                          @itemlist[
-                              @item{
-                                  The 1st quartile is 6.50 pounds.
-                              }
-                              @item{
-                                  The 2nd quartile is our median: 28.90 pounds.
-                              }
-                              @item{
-                                  The 3rd quartile is 72.05 pounds.
-                              }
-                          ]
-                      }
-                      @teacher{
-                          
-                      }
-                }
-                @point{
-                      @student{
-                          This approach chops the dataset into four pieces, which gives us even more insight into our distribution. Each quartile contains 25% of the animals in our dataset. Data Scientists subtract the 1st quartile from the 3rd quartile to compute the range of the "middle half" of the dataset, also called the @vocab{interquartile range}.
-                          @activity{
-                              Compute the interquartile range of the weights of the animals in this dataset.
-                          }
-                      }
-                      @teacher{
-                          @math{72.05 - 6.5 = 65.55}
-                      }
-                }
-                @point{
-                      @student{
-                          The @vocab{Range} of our dataset is 171.9, but the @vocab{interquartile range} is 65.55. That means that half the animals' weights fall within only a third of range. Looking at the first and third quartiles, we can conclude that the interquartile range is also skewed to the lower side of our values.
+                          The @vocab{Range} of our dataset is 29 weeks, but the @vocab{interquartile range} is only 5.5 weeks! That means that @italic{50% of the animals} fall into only 19% of the range! That tells us that there are definitely a lot of outliers. Looking at the first and third quartiles, we can conclude that the interquartile range is also @italic{skewed towards the minumum}.
                       }
                       @teacher{
 
-                      }
-                }
-                @point{
-                      @student{
-                          It's much easier to see this skew when we look at the box plot, but any Data Scientist can communicate this information just by sharing the five numbers that determine the quartiles.
                       }
                 }
         ]
@@ -516,20 +495,12 @@
 
                       }
                 }
-                @point{
-                      @student{
-                          Now that you have your box-plot, turn to @worksheet-link[#:name "Interpreting-Variation"] and complete the questions you see there.
-                      }
-                      @teacher{
-
-                      }
-                }
         ]
   }
 
   @lesson/studteach[
-     #:title "Closing"
-     #:duration "25 minutes"
+     #:title "Your Dataset"
+     #:duration "20 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -544,8 +515,17 @@
                 )
       ]{
         @points[
-              @point{
+                @point{
+                      @student{
+                          Now that you're comfortable creating box plots and looking at measures of variation on the computer, it's time to put your skills to the test! Turn to @worksheet-link[#:name "Interpreting-Variation"] and complete the questions you see there.
+                      }
+                      @teacher{
+                          Review students' answers, especially to the question five.
+                      }
+                }
+                @point{
                     @student{
+                        By now, you've got a good handle on how to think talk about measures of center varation, and it times to turn those skills to your dataset!
                         @activity{
                             Take 10 minutes to fill out @worksheet-link[#:name "Summarizing-My-Dataset"] in your Student Workbook. Choose a column to investigate, and write up your findings.
                         }
@@ -553,7 +533,35 @@
                     @teacher{
 
                     }              
-              }
+                }
+        ]
+  }
+
+  @lesson/studteach[
+     #:title "Closing"
+     #:duration "5 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[]
+     #:standards (list)
+     #:materials @itemlist[]
+     #:preparation @itemlist[]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[
+                @point{
+                      @student{
+                          Data Scientists are skeptical people: they don't trust a claim unless they can see the data, or at least get some summary information about the center and variation in the dataset. In the next Unit, you'll investigate new ways to visualize variation and distribution.
+                      }
+                      @teacher{
+
+                      }
+                }
         ]
   }
 }
