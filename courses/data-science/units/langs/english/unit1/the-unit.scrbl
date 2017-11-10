@@ -29,7 +29,7 @@
             @point{
                   @student{
                       Take a minute to look at the @resource-link[#:path "OpeningQuestions.pdf" #:label "opening questions"] we have prepared for you, and choose a topic that interests you.
-                      @activity{
+                      @activity[#:forevidence (list "6.SP.1-3&1&1")]{
                             @itemlist[
                                 @item{
                                     Once you've selected your topic, break into groups of no more than 4 and choose a question you'd like to answer.
@@ -119,7 +119,7 @@
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
-     #:standards (list)
+     #:standards (list )
      #:materials @itemlist[]
      #:preparation @itemlist[]
      #:pacings (list 
@@ -161,7 +161,7 @@
             @point{
                     @student{
                             It's important to remember that tables are only a proxy for the real thing: this table @italic{describes} some shapes we've observed, but it isn't the shapes themselves! 
-                            @activity{
+                            @activity[#:forevidence (list "BS-M&1&2" "BS-M&1&3" "BS-PL.1&1&1")]{
                                 Add rows to this table for @code{circle}, @code{ellipse} and @code{rectangle}. Pay close attention to how you use commas and colons, since these are part of the program! When you're done, click "Run" and print out your new-and-improved @code{shapes} table.
                             }
 
@@ -173,7 +173,7 @@
             @point{
                     @student{
                             Before we can dive into all of the cool things you can do with tables, we need to understand the two different kinds of data that come up in Data Science: Categorical and Quantitative. @vocab{Quantitative Data} is used to measure an @italic{amount} of something, or to compare two pieces of data to see which is @italic{less or more}. If we want to ask "how much" or "which is most", we're talking about Quantitative Data.
-                            @activity{
+                            @activity[#:forevidence (list "111.47.4&1&1")]{
                                 "Who is the tallest student?" is an example of a question that needs Quantitative Data. Can you come up with additional quantitative questions?
                             }
                     }
@@ -184,7 +184,7 @@
             @point{
                     @student{
                             @vocab{Categorical Data} is used to describe different @italic{categories}. Categories don't make sense to compare or measure - if we had a column for eye color, for example, we couldn't ask if "blue" is more than "brown". We use @vocab{Categorical Data} to ask "which one"? When you look at a whether forecast, temperature is quantitative but whether it's snowing or raining is categorical.
-                            @activity{
+                            @activity[#:forevidence (list "111.47.4&1&1")]{
                                 For the two columns in the @code{shapes} table, which is categorical? Which is quantitative?
                             }
                     }
@@ -195,7 +195,7 @@
             @point{
                     @student{
                             Data can be categorical or quantitative, depending on how it's used. It doesn't make sense to ask whether "@code{square} is more than @code{triangle}", so most of the time we'd use the @code{name} column as categorical data. But if we wanted to sort the table in alphabetical order, suddenly we @italic{do} care whether @code{square} comes before @code{triangle}.
-                            @activity{
+                            @activity[#:forevidence (list "111.47.4&1&1")]{
                                 For each of the following questions, determine whether the data being used is quantitative or categorical.
                                 @itemlist[
                                     @item{We'd like to sort a phone book by the "last name" column.}
@@ -234,7 +234,7 @@
             @point{
                     @student{ 
                             Pyret lets us use many different kinds of data. In this table, for example, you can see Numbers (the number of corners) and Strings (the name of the shape). Let's get some pratice playing with both Datatypes.
-                            @activity{
+                            @activity[#:forevidence (list "BS-PL.1&1&1" "Programming 5.5.1&1&1" "Programming 5.3.1&1&9")]{
                                 With your partner(s), go through the questions on @worksheet-link[#:name "Numbers-and-Strings"]. Talk about the answers to each question, and write down your answers when required.
                             }
                     }
@@ -307,7 +307,7 @@
             @point{
                     @student{
                             Those come in handy when comparing quanitative data, so how do they work in Pyret?
-                            @activity{
+                            @activity[#:forevidence (list "BS-PL.1&1&1" "Programming 5.5.1&1&5")]{
                                 With your partner(s), complete @worksheet-link[#:name "Booleans"]. Talk about the answers to each question, and write down your answers when required.
                             }
                     }
@@ -326,7 +326,7 @@
             @point{
                     @student{
                             You've already gotten some practice adding rows to the table. But what if we want to add a column, to track whether or not a shape has any corners or not? Which shapes have corners and which don't?
-                            @activity{
+                            @activity[#:forevidence (list "BS-PL.1&1&1" "Programming 5.5.1&1&5")]{
                                 Add a new column, @code{is-round} to the table, then add a Boolean value to the end of each row indicating whether or not that shape has corners. Is this column made up of qualitative of categorical data?
                             }
                     }
@@ -358,7 +358,7 @@
                     @student{
                         So now you know about Numbers, Strings, Booleans and Operators - all of which behave just like they do in math. But what about functions? Pyret has lots of built in functions, which we can use to write more interesting programs.
 
-                        @activity[#:forevidence "BS-IDE&1&1"]{
+                        @activity[#:forevidence (list "BS-IDE&1&1" "BS-PL.1&1&2")]{
                             Let's explore a new function, called @code{triangle}.  Type this line of code into the interactions area and hit Enter.
                             @code[#:multi-line #t]{
                                 triangle(50, "solid", "red")
@@ -373,7 +373,7 @@
             @point{
                     @student{
                         You've just created an example of a new Datatype, called an @italic{Image}. And you used something called a @vocab{function} to do it. The values that we give to a function are called its @vocab{arguments}. How many arguments are we giving to @code{triangle} in this example? What are the @italic{types} of those arguments? How does this output relate to the two inputs?
-                        @activity{
+                        @activity[#:forevidence (list "BS-PL.1&1&2")]{
                             Take a minute to try making different triangles. Change the size and color! Is there a something besides @code{"solid"} we can use for the second argument?
                         }
                     }
@@ -397,7 +397,7 @@
             }
             @point{
                     @student{
-                            @activity[#:forevidence "BS-IDE&1&1"]{
+                            @activity[#:forevidence (list "BS-IDE&1&1" "BS-DR.2&1&2")]{
                                 Can you see what is wrong with each of these expressions? Try copying them into Pyret, one at a time, and reading the error messages aloud.
 
                                 @itemlist[
@@ -447,7 +447,7 @@
                             The first part of a contract is the function's name. In this example, our function is named @code{triangle}. 
                             The second part of a contract is the @vocab{Domain}, or the types of arguments the function expects. @code{triangle} expects a Number and two Strings as arguments, so we write @code{Number, String, String} to indicate the Domain, with commas between each one (just like lists!).  
                             Finally, after the arrow goes the type of the @vocab{Range}, or the function's output, which in this case is Image.
-                            @activity{
+                            @activity[#:forevidence (list "BS-PL.2&1&1" "BS-PL.2&1&2" "BS-IDE&1&1" "BS-IDE&1&2")]{
                                 Turn to the back of your workbook. We've given you the contracts for many Image-producing functions (as well as quite a few others!). Try using some of these contracts to make shapes.
                             }
                     }
@@ -463,7 +463,7 @@
                                   row: "triangle", 3, true, triangle(20, "solid", "green")
                                   row: "square", ...
                             }
-                            @activity{
+                            @activity[#:forevidence (list )]{
                                 Complete the @code{example} column in the @code{shapes} table by applying the other relevant functions.
                             }
                     }
@@ -478,7 +478,7 @@
                                 get-row :: (t :: Table, index :: Number) -> Row
                             }
                             The @code{get-row} function consumes a Table and an Index, and produces that row from the table. @italic{Note: indexes start at zero, not one!} To get the first row of a table, for example, we would write @code{get-row(shapes, 0)}.
-                            @activity{
+                            @activity[#:forevidence (list  "BS-PL.2&1&1" "BS-PL.2&1&2")]{
                                 In the Interactions Area, use @code{get-row} to get the 2nd and 3rd row of your table.
                             }
                     }
@@ -523,7 +523,7 @@
                                     num-min(5, -2)  is -2
                                 end
                             }
-                            @activity{
+                            @activity[#:forevidence (list "BS-DR.2&1&1")]{
                                 @itemlist[
                                     @item{ Add this code to the bottom of the Definitions Area in Pyret. Pay attention to the colon after the plural word @code{examples}!}
                                     @item{ How many examples are in this block? }
@@ -541,7 +541,7 @@
             @point{
                     @student{
                             Example blocks are ways for us to automatically check our work, by writing down how functions @italic{should} work and having Pyret report back about whether our examples are accurate. Pyret, for example, has a function called @code{num-sqrt}. What do you think it does?
-                            @activity{
+                            @activity[#:forevidence (list "BS-DR.2&1&1")]{
                                 Add two examples that use @code{num-sqrt} to your @code{examples:} block. Make sure they both pass!
                             }
                     }
@@ -551,9 +551,11 @@
             }
             @point{
                     @student{
-                            Here's the contract for another new function. Can you figure out how to use it in the Interactions Area? Once you've figured it out, add an example to the @code{examples:} block.
-                              @code[#:multi-line #t]{
-                                    string-repeat :: (s :: String, n :: Number) -> String
+                            @activity[#:forevidence (list "BS-DR.2&1&1")]{
+                              Here's the contract for another new function. Can you figure out how to use it in the Interactions Area? Once you've figured it out, add an example to the @code{examples:} block.
+                                @code[#:multi-line #t]{
+                                      string-repeat :: (s :: String, n :: Number) -> String
+                              }
                             }
                     }
                     @teacher{
@@ -562,9 +564,11 @@
             }
             @point{
                     @student{
-                            Here's an example for another new function. Type it into the Interactions Area to see what it does. Can you figure out the contract? Add an example to the @code{examples:} block.
-                              @code[#:multi-line #t]{
-                                    string-contains("apples, pears, milk", "pears")
+                            @activity[#:forevidence (list "BS-DR.2&1&1")]{
+                              Here's an example for another new function. Type it into the Interactions Area to see what it does. Can you figure out the contract? Add an example to the @code{examples:} block.
+                                @code[#:multi-line #t]{
+                                      string-contains("apples, pears, milk", "pears")
+                              }
                             }
                     }
                     @teacher{
@@ -578,7 +582,7 @@
                                     get-row(shapes, 0)["name"] is "triangle"
                                     get-row(shapes, 1)["corners"] is 4
                             }
-                            @activity{
+                            @activity[#:forevidence (list "BS-DR.2&1&1")]{
                                 Add three examples to your block that use this technique. Challenge: can you write an one for the @code{example} column?
                             }
                     }

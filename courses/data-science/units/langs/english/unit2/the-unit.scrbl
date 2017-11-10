@@ -41,7 +41,7 @@
                 @point{
                       @student{
                             Let's take a look at a real dataset!
-                            @activity{
+                            @activity[#:forevidence (list )]{
                                 @itemlist[
                                     @item{
                                         Open the @(hyperlink "https://docs.google.com/spreadsheets/d/19m1bUCQo3fCzmSEmWMjTfnmsNIMqiByLytHE0JYtnQM/" "Animals Spreadsheet") in a new tab. Take a moment to look around. What do you think this table is for?
@@ -130,7 +130,7 @@
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
-     #:standards (list)
+     #:standards (list "BS-PL.3")
      #:materials @itemlist[]
      #:preparation @itemlist[]
      #:pacings (list 
@@ -149,7 +149,7 @@
                             sum = 2 + 2
                             img = triangle(10, "solid", "red")
                         }
-                        @activity{
+                        @activity[#:forevidence (list "BS-PL.3&1&1")]{
                             With your partner, take turns adding definitions to this file:
                             @itemlist[
                               @item{Define a value with name @code{food}, whose value is a String representing your favorite food}
@@ -170,7 +170,7 @@
                         @code[#:multi-line #t]{
                           mittens = get-row(animals-table, 3) # the Row for Mittens
                         }
-                        @activity{
+                        @activity[#:forevidence (list "BS-PL.3&1&1")]{
                             Select two pets from the @code{animals-table} that you would most like to adopt, and two more than you would @italic{least} like to adopt (don't worry, those animals will find homes too!). What rows are they? Define values for each of them, using the pet's names and Rows.
                         }
                   }
@@ -188,7 +188,7 @@
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
-     #:standards (list)
+     #:standards (list "BS-DR.1" "BS-DR.2" "BS-PL.3")
      #:materials @itemlist[]
      #:preparation @itemlist[]
      #:pacings (list 
@@ -259,7 +259,7 @@
                 }
                 @point{
                       @student{
-                            @activity{
+                            @activity[#:forevidence (list "BS-PL.3&1&2")]{
                                 @itemlist[
                                   @item{
                                       Write another example that shows your work in this block, using the @code{pet2} you defined earlier.
@@ -302,7 +302,7 @@
                 @point{
                     @student{
                           Now that we've defined our function, we can click "Run" and actually use it!
-                          @activity{
+                          @activity[#:forevidence (list "BS-PL.3&1&3")]{
                               After you've clicked run, try typing in the following expressions, and see what happens:
                               @code[#:multi-line #t]{
                                   birth-year(pet3)
@@ -331,30 +331,57 @@
                 }
                 @point{
                     @student{
-                        Now that you've walked through the Design Recipe once, it's time to get some practice! For each of the following problems, use @worksheet-link[#:name "Design-Recipe-1"], @worksheet-link[#:name "Design-Recipe-2"] and @worksheet-link[#:name "Design-Recipe-3"]. This time, you'll have to write the Contract, Purpose Statement, and first example yourself!
-                        @itemlist[
-                            @item{ 
-                                Define a function called @code{is-cat}, which consumes a Row of the @code{animals-table} and produces @code{true} if its @code{species} is @code{"cat"}.
-                            }
-                            @item{ 
-                                Define a function called @code{is-kitten}, which consumes a Row of the @code{animals-table} and produces @code{true} if it's a cat less than 2 years old. 
-                            }
-                            @item{ 
-                                Define a function called @code{nametag}, which prints out each animal's name in big red letters.
-                            }
-                            @item{ 
-                                Define a function called @code{is-fixed}, which consumes a Row of the @code{animals-table} and produces @code{true} if it's an animal that's been fixed. 
-                            }
+                        Now that you've walked through the Design Recipe once, it's time to get some practice! This time, you'll have to write the Contract, Purpose Statement, and first example yourself!
+                        @activity[#:forevidence (list "BS-PL.3&1&1" "BS-PL.3&1&2"  "BS-PL.3&1&3")]{
+                          Use @worksheet-link[#:name "Design-Recipe-1"] to solve the following problems:
+                          @itemlist[
+                              @item{ 
+                                  Define a function called @code{is-cat}, which consumes a Row of the @code{animals-table} and produces @code{true} if its @code{species} is @code{"cat"}.
+                              }
+                              @item{ 
+                                  Define a function called @code{is-kitten}, which consumes a Row of the @code{animals-table} and produces @code{true} if it's a cat less than 2 years old. 
+                              }
+                          ]
+                        }
+                    }
+                    @teacher{
+                          Show students that they can combine all their examples into a single block at the top of the file.
+                    }
+                }
+                @point{
+                    @student{
+                        @activity[#:forevidence (list "BS-DR.1&1&1" "BS-DR.1&1&2"  "BS-DR.2&1&1" "BS-DR.2&1&2")]{
+                          Use @worksheet-link[#:name "Design-Recipe-2"] to solve the following problems:
+                            @itemlist[
+                              @item{ 
+                                  Define a function called @code{nametag}, which prints out each animal's name in big red letters.
+                              }
+                              @item{ 
+                                  Define a function called @code{is-fixed}, which consumes a Row of the @code{animals-table} and produces @code{true} if it's an animal that's been fixed. 
+                              }
+                            ]
+                          }
+                    }
+                    @teacher{
+
+                    }
+                }
+                @point{
+                    @student{
+                        @activity[#:forevidence (list "BS-DR.1&1&1" "BS-DR.1&1&2"  "BS-DR.2&1&1" "BS-DR.2&1&2")]{
+                          Use @worksheet-link[#:name "Design-Recipe-2"] to solve the following problems:
+                          @itemlist[
                             @item{ 
                                 Define a function called @code{sentence}, which consumes a Row of the @code{animals-table} and produces a String containing the animal's name, the string " the ", and the species of the animal. (For example, "Nori the dog"). 
                             }
                             @item{
                                 What kind of animal would @italic{you} adopt? Is there a maximum or minimum age? Do you care if the animal has been fixed or not? Write a function called @code{adopt}, which consumes a Row of the @code{animals-table} and produces @code{true} if it's an animal that you would adopt.
                             }
-                        ]
+                          ]
+                        }
                     }
                     @teacher{
-                        Show students that they can combine all their examples into a single block at the top of the file.
+                        
                     }
                 }
         ]
@@ -414,7 +441,7 @@
                 }
                 @point{
                       @student{
-                          @activity{
+                          @activity[#:forevidence (list )]{
                               @itemlist[
                                   @item{
                                       Once you've found a Starter file for a dataset that interests you, click "Save a Copy" and save the project to your own account. 

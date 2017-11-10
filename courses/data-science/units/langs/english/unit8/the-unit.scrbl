@@ -114,7 +114,7 @@
                 }
                 @point{
                         @student{
-                                @activity{
+                                @activity[#:forevidence (list )]{
                                   You can see this in action, in this @(hyperlink "https://www.geogebra.org/m/xC6zq7Zv" "interactive simulation"). Each vertical line represents the error, or the amount the rubber band has to stretch between a single datapoint and the prediction line. The "Target SSE" shows how much error (specifically, "the Sum of the Squared Errors") there is in the best possible predictor line. Our goal is to match that, by moving the red line or the "guide dots" on it. 
                                   @itemlist[
                                       @item{Could the predictor line ever be above or below @italic{all} the points? Why or why not?}
@@ -137,7 +137,7 @@
                                 }
                                 @code{lr-plot} is a function that takes a Table and the names of columns to use for @code{xs} and @code{ys}, computes the line of best fit, and then draws it on top of the point cloud.
 
-                                @activity{
+                                @activity[#:forevidence (list )]{
                                     In the Interactions Area, create a @code{labeled-lr-plot} for our @code{animals-table}, using @code{"names"} for the labels, @code{"age"} for the x-axis and @code{"weeks"} for the y-axis.
                                     You can learn more about how a predictor is created by watching @(hyperlink "https://www.youtube.com/watch?v=lZ72O-dXhtM" "this video").
                                 }
@@ -167,7 +167,7 @@
                 @point{
                         @student{
                                 These charts also include something called an @vocab{r-squared} value at the top, which always seems to be between 0 and 1. What do you think this number means? 
-                                @activity{
+                                @activity[#:forevidence (list )]{
                                     Turn to @worksheet-link[#:name "Grading-Predictors"]. For each plot, circle the chart that has the best predictor. Then, give that predictor a grade between 0 and 1.
                                 }
                         }
@@ -233,7 +233,7 @@
                 @point{
                         @student{
                                 When looking at just the dogs, we found that our predictor had an r-squared value of about 0.25. That means that 25% of the variation in adoption times is due to the age of the dogs. Turn to @worksheet-link[#:name "Findings-Animals"] to see how Data Scientists would write up this finding.
-                                @activity{
+                                @activity[#:forevidence (list )]{
                                       Write up two other findings from the linear regressions you performed on this dataset.
                                 }
                         }
@@ -265,7 +265,7 @@
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
-     #:standards (list "Data 3.1.2" "Data 3.1.3")
+     #:standards (list "Data 3.2.1" )
      #:materials @itemlist[]
      #:preparation @itemlist[]
      #:pacings (list 
@@ -277,7 +277,7 @@
         @points[
                 @point{
                         @student{
-                            @activity{
+                            @activity[#:forevidence (list "Data 3.2.1&1&1" "Data 3.2.1&1&2" "Data 3.2.1&1&3" "Data 3.2.1&1&5" "Data 3.2.1&1&6")]{
                                 Turn back to @worksheet-link[#:name "Correlations-My-Dataset"], where you listed possible correlations. Use Table Plans and the Design Recipe to investigate these correlations. If you need blank Table Plans or Design Recipes, you can find them at the back your workbook, just before the Contracts.
                             }
                         }
@@ -287,7 +287,7 @@
                 }
                 @point{
                         @student{
-                              @activity{
+                              @activity[#:forevidence (list "Data 3.2.1&1&1" "Data 3.2.1&1&2" "Data 3.2.1&1&3" "Data 3.2.1&1&5" "Data 3.2.1&1&6")]{
                                   What correlations did you find? Did you need to filter out certain rows in order to get those correlations? Write up your findings by filling out @worksheet-link[#:name "Findings-My-Dataset"].
                               }
                         }

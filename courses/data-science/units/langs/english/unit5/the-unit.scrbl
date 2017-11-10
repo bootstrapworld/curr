@@ -50,7 +50,7 @@
                 }
                 @point{
                       @student{
-                          @bannerline{According to the Animal Shelter Bureau, the average pet waits 6 weeks to be adopted.} @activity{
+                          @bannerline{According to the Animal Shelter Bureau, the average pet waits 6 weeks to be adopted.} @activity[#:forevidence (list )]{
                             Does that mean most pets wait more than a month to find homes? Why or why not?
                           }
                       }
@@ -75,7 +75,7 @@
                                       When buying uniforms for a sports team, a coach might look for the most-common size that their players wear.
                                   }
                               ]
-                              @activity{
+                              @activity[#:forevidence (list )]{
                                   Can you think of other examples where a number or two are used to summarize something complex?
                               }
                       }
@@ -133,7 +133,7 @@
                               @code[#:multi-line #t]{
                                 mean :: (t :: Table, col :: String) -> Number
                               }
-                              @activity{
+                              @activity[#:forevidence (list )]{
                                   What is it's name? Domain? Range?
                               }
                               Notice that calculating the @vocab{mean} requires being able to add and divide, so the @vocab{mean} only makes sense for quantitative data.  For example, the mean of a list of Presidents doesn't make sense.  Same thing for a list of zipcodes:  even though we can add and divide the numbers of zipcodes, the output doesn't correspond to some "center" zipcode.
@@ -257,7 +257,7 @@
                               @code[#:multi-line #t]{
                                     # modes :: (t :: Table, col :: String) -> List<Number>
                               }
-                              @activity{
+                              @activity[#:forevidence (list )]{
                                   Compute the @code{modes} of the @code{weeks} column, and fill in the answer to Question 4. What did you get? The most common number of weeks an animal waits is only @code{1}! That's well below our mean, which is further proof that there must be some outliers skewing the results.
                               }
                       }
@@ -280,7 +280,7 @@
                 }
                 @point{
                       @student{
-                            @activity{
+                            @activity[#:forevidence (list )]{
                                 "In 2003, the average American family earned $43,000 a year - well above the poverty line! Therefor very few Americans were living in poverty." Do you trust this statement? Why or why not?
                             }
                             Consider how many policies or laws are informed by statistics like this! Knowing about measures of center helps us see through misleading statements.
@@ -341,7 +341,7 @@
                 @point{
                       @student{
                           Suppose we lined up all of the values in the @code{weeks} column from smallest to largest, and then split the line up into two equal groups by taking tjhe median. The first group is the 50% of animals that waited the @italic{least} amount of time to be adopted. The fourth group is the 50% of animals that waited the @italic{greatest} amount of time. Now, suppose we took the medians of both groups, to divide the line into four equal sections. Data Scientists call these groups @vocab{quartiles}.
-                          @activity{
+                          @activity[#:forevidence (list )]{
                               The first quartile (Q1) is the 25% of animals that waited the least amount of time. What do the other three quartiles represent?
                           }
                       }
@@ -356,7 +356,7 @@
                             box-plot :: (t :: Table, column :: String) -> Image
                             box-plot(animals-table, "pounds")
                           }
-                          @activity{
+                          @activity[#:forevidence (list )]{
                               Type in this expression in the Interactions Area, and see the resulting plot.
                           }
                       }
@@ -393,7 +393,7 @@
                 @point{
                       @student{
                           One way to summarize the variation in the dataset is to measure the distance between the largest value and the smallest value. When we talk about functions having many possible outputs, we use the term "Range" to describe them. When we look at all the values between the smallest and largest in our dataset, we use the same term.
-                          @activity{
+                          @activity[#:forevidence (list )]{
                               Find the @vocab{range} of this dataset. 
                           }
                       }
@@ -404,7 +404,7 @@
                 @point{
                       @student{
                           Data Scientists subtract the 1st quartile from the 3rd quartile to compute the range of the "middle half" of the dataset, also called the @vocab{interquartile range}.
-                          @activity{
+                          @activity[#:forevidence (list )]{
                               Find the @vocab{interquartile range} of this dataset.
                           }
                       }
@@ -443,7 +443,7 @@
                 @point{
                       @student{
                           Let's put some of our new measures of center to work at the animal shelter...
-                          @activity{
+                          @activity[#:forevidence (list )]{
                             Turn to @worksheet-link[#:name "Variation-Dog-Age"], and read the word problem carefully. Then write a Contract and Purpose Statement for this word problem.
                           }
                       }
@@ -454,7 +454,7 @@
                 @point{
                       @student{
                           This time, our Result isn't a Table -- it's an @italic{Image}: the box-plot of the ages for all the dogs in the Sample Table. 
-                          @activity{
+                          @activity[#:forevidence (list )]{
                             Draw a rough sketch of the plot you expect. When you're done, move on to defining the function, and fill out the methods to define the table. Do we need to build any columns? Filter any rows? Order the table?
                           }
                       }
@@ -526,7 +526,7 @@
                 @point{
                     @student{
                         By now, you've got a good handle on how to think talk about measures of center varation, and it times to turn those skills to your dataset!
-                        @activity{
+                        @activity[#:forevidence (list "Data 3.1.2&1&1" "Data 3.1.2&1&2" "Data 3.1.2&1&3" "Data 3.1.2&1&4" "Data 3.1.2&1&5")]{
                             Take 10 minutes to fill out @worksheet-link[#:name "Summarizing-My-Dataset"] in your Student Workbook. Choose a column to investigate, and write up your findings.
                         }
                     }       

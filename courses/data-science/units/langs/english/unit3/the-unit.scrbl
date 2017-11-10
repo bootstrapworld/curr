@@ -41,7 +41,7 @@
               @point{
                     @student{
                           In the last lesson, you learned how to define functions of your own using the Design Recipe. You defined a number of functions that work on Rows of the @code{animals-table}. 
-                          @activity{
+                          @activity[#:forevidence (list )]{
                                 What are the steps of the Design Recipe?
                           }
               }
@@ -52,7 +52,7 @@
             @point{
                     @student{
                           Open @editor-link[#:public-id "0BzzMl1BJlJDkbnZhbE1QSEE0eEE" "Animals Dataset (w/Functions)"] in a new tab, select "Save As" from the file menu, and click "Run". As you scroll through the file, you'll notice functions defined at the top. Some of these functions are similar to the ones you defined earlier, and others are totally new!
-                          @activity{
+                          @activity[#:forevidence (list )]{
                                 Open your student workbook to @worksheet-link[#:name "Reviewing-Functions"], and use the code in the Definitions Area to answer the questions there.
                           }
                     }
@@ -63,7 +63,7 @@
             @point{
                     @student{
                           The animal shelter might use this dataset in many ways. For example, it might want to see a list of animals ordered from oldest-to-youngest, or a list of names in alphabetical order. The shelter might also want to compute @italic{new columns} for their dataset. For example, they might want a new, numeric column that shows the animals' age in weeks instead of years, or make a new Boolean column showing which animals are dogs over the age of 2.
-                          @activity{
+                          @activity[#:forevidence (list )]{
                               Complete to @worksheet-link[#:name "Animals-Plans"] in your Student Workbook.
                           }
                     }
@@ -104,7 +104,7 @@
             @point{
                   @student{
                         Pyret also has another kind of procedure, which behaves a little differently. These procedures are called @italic{table methods}. Let's take a look at one table method, and compare it to a function you already know. 
-                        @activity{
+                        @activity[#:forevidence (list )]{
                           Type both of these into the Interactions Area and see what comes out.
                           @code[#:multi-line #t]{
                               get-row(animals-table, 2)
@@ -182,7 +182,7 @@
                                     animals-table.order-by("species", true)
                                 }
                                 You can find the contract for this method written at the back of your Student Workbook, along with all the other contracts.
-                                @activity{
+                                @activity[#:forevidence (list )]{
                                     Type the @code{animals-table.order-by} example into the Interactions Area.
                                     What did you get? What will happen if you change @code{true} to @code{false}? How could you sort the table alphabetically by pet name? In order of oldest-to-youngest?
                                 }
@@ -236,7 +236,7 @@
                 @point{
                       @student{
                               Notice that the Domain for the filter method takes in a single value (@code{test}), but that @code{test} is @italic{also a function!}. Pyret lets us pass functions into other functions, just as easily as we pass Numbers, Strings, Booleans or Images.
-                              @activity{
+                              @activity[#:forevidence (list )]{
                                   @itemlist[
                                       @item{ According to the contract for @code{.filter}, what dataype does the @code{test} function consume? }
                                       @item{ What dataype does the @code{test} function produce? }
@@ -249,7 +249,7 @@
                 }
                 @point{
                       @student{
-                              @activity[#:forevidence "BS-IDE&1&1"]{
+                              @activity[#:forevidence "BS-IDE&1&1" "Data 3.1.1&1&1" "Data 3.1.1&1&2" "Data 3.1.1&1&4"]{
                                   In the Interactions Area, use the @code{.filter} method to produce a table of all the kittens.
                               }
                       }
@@ -291,7 +291,7 @@
                 }
                 @point{
                       @student{
-                              @activity[#:forevidence "BS-IDE&1&1"]{
+                              @activity[#:forevidence "BS-IDE&1&1" "Data 3.1.1&1&3" "Data 3.1.1&1&4"]{
                                   In the Interactions Area, use the @code{.build-column} method to produce a table that includes a @code{nametag} column, which contains an image of the nametag for each pet.
                               }
                       }
@@ -309,7 +309,7 @@
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
-     #:standards (list)
+     #:standards (list "BS-DR.1" "BS-DR.2" "BS-DR.4" "Data 3.1.1")
      #:materials @itemlist[]
      #:preparation @itemlist[@item{}]
      #:pacings (list 
@@ -421,7 +421,7 @@
                               Does our Result have its rows in some order? If so, we'll need to use @code{.order-by}.
                             }
                         ]
-                        @activity{
+                        @activity[#:forevidence (list "Data 3.1.1&1&2" "Data 3.1.1&1&4")]{
                             If the answer to any of these questions is "no", @italic{cross out that line in the template}.
                         }
                     }
@@ -508,7 +508,7 @@
               @point{
                   @student{
                       Once you've typed in the Contract, Purpose and Function Definition, click "Run". How do we use this function? If you look in the @bold{Examples} section, you'll see that the Result is written underneath the expression @code{get-kittens-tags(animals-table)}. That's the code that should give us the result, so let's type it in!
-                      @activity{
+                      @activity[#:forevidence (list "Data 3.1.1&1&1" "Data 3.1.1&1&2")]{
                           Type in the code and hit Enter. Did you get back the same result you expected?
                       }
                   }
@@ -518,7 +518,7 @@
               }
               @point{
                     @student{
-                        @activity{
+                        @activity[#:forevidence (list "BS-DR.1&1&1" "BS-DR.1&1&2" "BS-DR.2&1&1" "BS-DR.1&1&2" "BS-DR.4&1&1" "BS-DR.4&1&2" "Data 3.1.1&1&1" "Data 3.1.1&1&2" "Data 3.1.1&1&4")]{
                             @itemlist[
                                 @item{
                                   Turn to @worksheet-link[#:name "Dogs-by-Age"], and complete the Table Plan. When your teacher has checked your work, type in your code to create the table. @bold{Note:} this time, you'll need to fill in more missing parts of the function definition!
@@ -544,7 +544,7 @@
                             @item{ Filter rows to create @italic{subsets} of data (e.g. "only cats") }
                             @item{ Order rows by a particular column, in ascending or descending order }
                         ]
-                        @activity{
+                        @activity[#:forevidence (list "Data 3.1.2&1&1" "Data 3.1.2&1&2" "Data 3.1.2&1&3" "Data 3.1.2&1&4" "Data 3.1.2&1&5")]{
                             Turn to @worksheet-link[#:name "Dataset-Plans"] in your Student Workbook, and fill out questions 3-5.
                         }
                     }

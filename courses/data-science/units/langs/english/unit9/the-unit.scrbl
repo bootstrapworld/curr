@@ -79,7 +79,7 @@
                 @point{
                         @student{
                                 Almost every unit in your student workbook has information about your analysis. It's time to take those pages and write them up as a formal research paper!
-                                @activity{
+                                @activity[#:forevidence (list )]{
                                       @itemlist[
                                           @item{ Open the @(hyperlink "https://docs.google.com/document/d/1Pq-b6rFHDu78t5fCP6rBpEINivWraS3d-JND-QaBtfk" "sample research paper" ) }
                                           @item{ Select "Make a copy" from the File menu }
@@ -94,7 +94,7 @@
                 @point{
                         @student{
                                 In the Research Paper, you'll find sections that correspond to pages in your workbook that are about your dataset. 
-                                @activity{
+                                @activity[#:forevidence (list )]{
                                       For each page, write up your findings in the Research Paper. You should include tables, charts and graphs, along with paragraphs that explain each one. Make sure to @italic{write down your thinking}, so that another Data Scientist could understand why you performed your analysis.
                                 }
                         }

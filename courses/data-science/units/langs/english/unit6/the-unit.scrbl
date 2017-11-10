@@ -100,7 +100,7 @@
                 }
                 @point{
                       @student{
-                              @activity{
+                              @activity[#:forevidence (list )]{
                                     Turn to @worksheet-link[#:name "Visualizing-Frequency"] in your Student Workbook, and answer the questions you find there. 
                               }
                               What was different about these questions? What did the charts at the bottom tell us? The questions were all about @italic{frequency}. The first chart shows the frequency of different species in the table, and the second shows the frequency of certain @italic{weight-ranges}.
@@ -141,7 +141,7 @@
                                 freq-bar-chart :: (t :: Table, values :: String) -> Image
                                 freq-bar-chart(animals-table, "species")  # show frequency of each animal
                               }
-                              @activity{
+                              @activity[#:forevidence (list )]{
                                   In the Interactions Area, type in the example to make a frequency bar chart of the animals, broken down by species. Are there more animals at the shelter that are female than male? Complete the Table Plan on @worksheet-link[#:name "Freq-Bar-Gender"].
                               }
                       }
@@ -190,7 +190,7 @@
                                 histogram :: (t :: Table, values :: String, bin-width :: Number) -> Image
                                 histogram(animals-table, "pounds", 20)    # show the frequency of weights (in 20-pound bins)
                               }
-                              @activity{
+                              @activity[#:forevidence (list )]{
                                   In the Interactions Area, type in the example to make a histogram of the animals, broken down by weight into 20-pound bins. Then try playing with the the bin-size. Is it useful to have a bin-size of 1? What about 100?
                               }
                       }
@@ -200,7 +200,7 @@
                 }
                 @point{
                       @student{
-                              @activity{
+                              @activity[#:forevidence (list )]{
                                   How long does it take for most animals to be adopted? Complete the Table Plan on @worksheet-link[#:name "Histogram-Adoption"].
                               }
                       }
@@ -230,7 +230,7 @@
         @points[
               @point{
                     @student{
-                        @activity{
+                        @activity[#:forevidence (list "Data 3.1.2&1&1" "Data 3.1.2&1&2" "Data 3.1.2&1&3" "Data 3.1.2&1&4" "Data 3.1.2&1&5")]{
                             How are is your dataset distributed? Create at least one frequency bar chart and one histogram to explore your dataset. If you're looking at a particular subset of the data, make sure you write that up in your findings on @worksheet-link[#:name "Visualizing-My-Dataset-2"].
                         }
                     }       
@@ -240,7 +240,7 @@
               }
               @point{
                     @student{
-                        @activity{
+                        @activity[#:forevidence (list "Data 3.1.2&1&1" "Data 3.1.2&1&2" "Data 3.1.2&1&3" "Data 3.1.2&1&4" "Data 3.1.2&1&5")]{
                             What did you find? Do you need to refine your dataset further, either by filtering or building a new column? Take 10-15min to deepen your analysis, and write up your findings on @worksheet-link[#:name "Visualizing-My-Dataset-2"].
                         }
                     }
@@ -271,7 +271,7 @@
               @point{
                     @student{
                           You've now learned about a lot of different charts! How many can you name? When is it best to use a pie chart instead of a bar chart? What about a histogram instead of a frequency bar chart? Each chart is good for answering different kinds of questions, and Data Scientists know when to use each kind.
-                          @activity{
+                          @activity[#:forevidence (list )]{
                                 Turn to @worksheet-link[#:name "Which-Chart-Is-Best"]. Here you'll find a set of questions about the @code{animals} dataset. For each question, draw a line to the kind of chart that would answer it best.
                           }
                     }

@@ -30,7 +30,7 @@
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
-     #:standards (list "6.SP.4-5")
+     #:standards (list "Data 3.1.3")
      #:materials @itemlist[]
      #:preparation @itemlist[]
      #:pacings (list 
@@ -43,7 +43,7 @@
                 @point{
                         @student{
                                 Tables are great when we want to find a specific piece of information, like "how old is Wade the cat?" or "how long was Nibblet in the shelter before being adopted?".
-                                @activity{
+                                @activity[#:forevidence (list )]{
                                     Turn to @worksheet-link[#:name "Column-Statements"] in your Student Workbook, and answer the questions you find there. 
                                 }
                         }
@@ -53,7 +53,7 @@
                 }
                 @point{
                         @student{
-                                @activity{
+                                @activity[#:forevidence (list "Data 3.1.3&1&1" "Data 3.1.3&1&2")]{
                                     Sometimes it's easier to @italic{visualize} your dataset using a chart or a graph. Turn to @worksheet-link[#:name "Visualizing-Quantity"] in your student workbook. This page contains two charts for a small sample of 7 animals. On the left, we have a bar chart of animals' ages. On the right, a pie chart showing their weight. We can make a lot of observations about these charts, and there are two of them written in the table at the bottom of the page. Can you add two more?
                                 }
                         }
@@ -71,7 +71,7 @@
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
-     #:standards (list "Data 3.1.1" "Data 3.1.3")
+     #:standards (list "Data 3.1.3")
      #:materials @itemlist[]
      #:preparation @itemlist[]
      #:pacings (list 
@@ -109,7 +109,7 @@
                 }
                 @point{
                       @student{
-                              @activity{
+                              @activity[#:forevidence (list "Data 3.1.3&1&1" "Data 3.1.3&1&2")]{
                                   In the Interactions Area, type @code{pie-chart(animals-table, "name", "age")} and hit Enter. What happens? What happens when you hover over a slice of the pie? These plots are @italic{interactive}! This allows us to experiment with the data before generating the final image. 
                               }
                       }
@@ -156,7 +156,7 @@
         @points[
                 @point{
                       @student{
-                          @activity{
+                          @activity[#:forevidence (list )]{
                             Turn to @worksheet-link[#:name "Pie-Dog-Weight"], and read the word problem carefully. Then write a Contract and Purpose Statement for this word problem.
                           }
                       }
@@ -168,7 +168,7 @@
                       @student{
                           @bitmap{images/pie.png}
                           This time, our Result isn't a Table -- it's an @italic{Image}: a pie chart showing the weights of all the dogs in our shelter. @bold{Note:} When writing a Sample Table, it's okay to skip a few columns and focus on the ones you care about. Keep this in mind for the future!
-                          @activity{
+                          @activity[#:forevidence (list )]{
                               Sketch a pie chart based on your Sample Table. When you're done, move on to defining the function, and fill out the methods to define the table. Do we need to build any columns? Filter any rows? Order the table?
                           }
                       }
@@ -211,7 +211,7 @@
                 }
                 @point{
                       @student{
-                          @activity{
+                          @activity[#:forevidence (list )]{
                               When your teacher has checked your paper, type in this function and try it! @bold{Based on this pie chart, does it look like some dogs are a lot heavier than others, or are the weights @italic{evenly distributed}?}
                           }
                           Not at all! Kujo and Mr. Peanutbutter each take up more than 13% of the total weight, but almost every other dog's share is 7% or less.
@@ -241,7 +241,7 @@
                 }
                 @point{
                       @student{
-                          @activity{
+                          @activity[#:forevidence (list )]{
                                 It will take some practice for you to get good at making Sample Tables, but you can start by identifying @italic{bad} ones! turn to @worksheet-link[#:name "Bad-Sample-Tables"], and write down what's wrong with each of these tables.
                           }
                     }
@@ -251,7 +251,7 @@
               }
               @point{
                     @student{
-                          @activity{
+                          @activity[#:forevidence (list )]{
                               @bitmap{images/bar.png}
                               Turn to @worksheet-link[#:name "Bar-Kitten-Adoption"], and fill out the Contract and Purpose Statement. First, we'll provide a name that refers back to our dataset: @code{animals-table}. Then we need to provide a good Sample Table for this word problem. Fill out a good Sample Table and write your result.
                           }
@@ -262,7 +262,7 @@
               }
               @point{
                     @student{
-                          @activity{
+                          @activity[#:forevidence (list )]{
                               Once your teacher has checked your Sample Table, type in the code for this function and try it out!
                           }
                     }
@@ -291,7 +291,7 @@
         @points[
               @point{
                     @student{
-                        @activity{
+                        @activity[#:forevidence (list "Data 3.1.2&1&1" "Data 3.1.2&1&2" "Data 3.1.2&1&3" "Data 3.1.2&1&4" "Data 3.1.2&1&5")]{
                             Try making a bar or pie chart of a column in your dataset, and write up your findings on @worksheet-link[#:name "Visualizing-My-Dataset-1"]. 
                         }
                     }       
@@ -301,7 +301,7 @@
               }
               @point{
                     @student{
-                        @activity{
+                        @activity[#:forevidence (list "Data 3.1.2&1&1" "Data 3.1.2&1&2" "Data 3.1.2&1&3" "Data 3.1.2&1&4" "Data 3.1.2&1&5")]{
                             Do you notice that the outliers all of something in common? What new questions does this raise? Would you like to change your table by filtering it or building a new column? If so, go deeper into your data, using @worksheet-link[#:name "Blank-Table-Plan-1"] and @worksheet-link[#:name "Blank-Table-Plan-2"] to figure out how you want to change your dataset. Write up your findings on @worksheet-link[#:name "Visualizing-My-Dataset-1"].
                         }
                     }

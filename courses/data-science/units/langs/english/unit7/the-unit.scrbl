@@ -62,7 +62,7 @@
                 }
                 @point{
                         @student{
-                                @activity{
+                                @activity[#:forevidence (list )]{
                                     Take a few minutes to look through the whole dataset, and see if you agree with the statement. Could any of our visualizations or measures of center herlp us answer this question? Write down your hypothesis on @worksheet-link[#:name "Cuter-Adoption"], and how we could use this dataset to see if you're right.
                                 }
                         }
@@ -118,7 +118,7 @@
                                   Open your "Animals Dataset (w/Functions)" file. (If you do not have this file, or if something has happened to it, you can always make a @editor-link[#:public-id "0BzzMl1BJlJDkbnZhbE1QSEE0eEE" "new copy"].)
                                 }
                                 For each animal in the shelter, there are two datapoints we care about: their @code{age} and the number of @code{weeks} it took to be adopted. We can use these points to plot each animal as a point on the x- and y-axes. Eventually, we'll have a whole cloud of points, which show us the relationship between the two columns for all the animals at the shelter.
-                                @activity{
+                                @activity[#:forevidence (list )]{
                                     Complete @worksheet-link[#:name "Make-Scatter-Plot"] in your Student Workbook.
                                 }
                         }
@@ -145,7 +145,7 @@
                                 @code[#:multi-line #t]{
                                     scatter-plot(animals-table, "age", "weeks")
                                 }
-                                @activity{
+                                @activity[#:forevidence (list )]{
                                     Make a @code{labeled-scatter-plot}, using the animals' names as labels. What happens when you hover over the points?
                                 }
                         }
@@ -157,7 +157,7 @@
                         @student{
                                 @bitmap{images/age-vs-weeks.png}
                                 Now that we have our scatter plot, what kind of patterns do we see? 
-                                @activity{
+                                @activity[#:forevidence (list )]{
                                     @itemlist[
                                         @item{ Where are the points clustered? }
                                         @item{ Are there places where the "cloud" is denser than others? }
@@ -181,7 +181,7 @@
                 @point{
                         @student{
                                 Do you notice any datapoints that seem unusually far away from the line? Which animals are those? These points are called @vocab{outliers}, meaning that there is something special about them that makes them different from everyone else. 
-                                @activity{
+                                @activity[#:forevidence (list )]{
                                     Why might these animals be outliers?
                                 }
                         }
@@ -210,7 +210,7 @@
                 }
                 @point{
                         @student{ 
-                                @activity{
+                                @activity[#:forevidence (list )]{
                                     For practice, try making scatter plots (or labeled scatter plots) for each of the following relationships. If you see any outliers, try to explain them!
                                     @itemlist[
                                                 @item{
@@ -285,7 +285,7 @@
                 @point{
                         @student{
                                 What we need to do is find a @italic{line} - called a @vocab{predictor} - that is at the center of this cloud. Each point exerts a little bit of "pull" on the line, with points above the line yanking it up and points below the line dragging it down. Points that are really far away - our @vocab{outliers} - pull the line harder than those that are close to the line. The slope of the line will be positive or negative depending on whether or not the correlation is positive or negative. Given a value on the x-axis, this line allows us to "predict" what the corresponding value on the y-axis might be. This allows us to make inferences about a population, based on a sample of that population.
-                                @activity{
+                                @activity[#:forevidence (list "Data 3.1.3&1&1" "Data 3.1.3&1&2" "Data 3.1.3&1&3" "Data 3.1.3&1&4"  "Data 3.1.3&1&5")]{
                                     Turn to @worksheet-link[#:name "Drawing-Predictors"], and do your best to draw a @vocab{predictor} through each of the scatter plots on the left.
                                 }
                         }
@@ -301,7 +301,7 @@
                                     @item{ If the cloud is really spread out, there may be a @italic{weak correlation}. }
                                     @item{ If the points are all over the place, there may be @italic{no correlation}. }
                                 ]
-                                @activity{
+                                @activity[#:forevidence (list )]{
                                     For each predictor you drew on @worksheet-link[#:name "Drawing-Predictors"], determine the direction and strength of the correlation by circling the words that describe it. 
                                 }
                         }
@@ -321,7 +321,7 @@
                 @point{
                         @student{
                                 What correlations do you think there are in your dataset? Would you like to investigate a subset of your data to find those correlations? 
-                                @activity{
+                                @activity[#:forevidence (list "Data 3.1.2&1&1" "Data 3.1.2&1&2" "Data 3.1.2&1&3" "Data 3.1.2&1&4" "Data 3.1.2&1&5")]{
                                     Brainstorm a few possible correlations that you might expect to find in your dataset, and make some scatter plots to investigate.
                                 }
                         }
@@ -331,7 +331,7 @@
                 }
                 @point{
                         @student{
-                                @activity{
+                                @activity[#:forevidence (list "Data 3.1.2&1&1" "Data 3.1.2&1&2" "Data 3.1.2&1&3" "Data 3.1.2&1&4" "Data 3.1.2&1&5")]{
                                     Turn to @worksheet-link[#:name "Correlations-My-Dataset"], and list three correlations you'd like to search for.
                                 }
                         }
