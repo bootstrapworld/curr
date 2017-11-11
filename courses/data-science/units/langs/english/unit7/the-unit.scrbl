@@ -30,7 +30,7 @@
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
-     #:standards (list)
+     #:standards (list "Data 3.1.1")
      #:materials @itemlist[]
      #:preparation @itemlist[]
      #:pacings (list 
@@ -62,7 +62,7 @@
                 }
                 @point{
                         @student{
-                                @activity[#:forevidence (list )]{
+                                @activity[#:forevidence (list "Data 3.1.1&1&4" "Data 3.1.1&1&5")]{
                                     Take a few minutes to look through the whole dataset, and see if you agree with the statement. Could any of our visualizations or measures of center herlp us answer this question? Write down your hypothesis on @worksheet-link[#:name "Cuter-Adoption"], and how we could use this dataset to see if you're right.
                                 }
                         }
@@ -114,11 +114,11 @@
         @points[
                 @point{
                         @student{
-                                @activity[#:forevidence "BS-IDE&1&1"]{
+                                @activity[#:forevidence (list)]{
                                   Open your "Animals Dataset (w/Functions)" file. (If you do not have this file, or if something has happened to it, you can always make a @editor-link[#:public-id "0BzzMl1BJlJDkbnZhbE1QSEE0eEE" "new copy"].)
                                 }
                                 For each animal in the shelter, there are two datapoints we care about: their @code{age} and the number of @code{weeks} it took to be adopted. We can use these points to plot each animal as a point on the x- and y-axes. Eventually, we'll have a whole cloud of points, which show us the relationship between the two columns for all the animals at the shelter.
-                                @activity[#:forevidence (list )]{
+                                @activity[#:forevidence (list "S-ID.1-4&1&1")]{
                                     Complete @worksheet-link[#:name "Make-Scatter-Plot"] in your Student Workbook.
                                 }
                         }
@@ -145,7 +145,7 @@
                                 @code[#:multi-line #t]{
                                     scatter-plot(animals-table, "age", "weeks")
                                 }
-                                @activity[#:forevidence (list )]{
+                                @activity[#:forevidence (list "8.SP.1-4&1&1")]{
                                     Make a @code{labeled-scatter-plot}, using the animals' names as labels. What happens when you hover over the points?
                                 }
                         }
@@ -157,7 +157,7 @@
                         @student{
                                 @bitmap{images/age-vs-weeks.png}
                                 Now that we have our scatter plot, what kind of patterns do we see? 
-                                @activity[#:forevidence (list )]{
+                                @activity[#:forevidence (list "8.SP.1-4&1&2" "S-ID.1-4&1&3" "S-ID.1-4&1&4" "HSS.ID.B&1&2" "S-ID.5-6&1&4")]{
                                     @itemlist[
                                         @item{ Where are the points clustered? }
                                         @item{ Are there places where the "cloud" is denser than others? }
@@ -181,7 +181,7 @@
                 @point{
                         @student{
                                 Do you notice any datapoints that seem unusually far away from the line? Which animals are those? These points are called @vocab{outliers}, meaning that there is something special about them that makes them different from everyone else. 
-                                @activity[#:forevidence (list )]{
+                                @activity[#:forevidence (list "HSS.ID.A&1&3")]{
                                     Why might these animals be outliers?
                                 }
                         }
@@ -210,7 +210,7 @@
                 }
                 @point{
                         @student{ 
-                                @activity[#:forevidence (list )]{
+                                @activity[#:forevidence (list "8.SP.1-4&1&2" "S-ID.1-4&1&3" "S-ID.1-4&1&4" "S-ID.5-6&1&4")]{
                                     For practice, try making scatter plots (or labeled scatter plots) for each of the following relationships. If you see any outliers, try to explain them!
                                     @itemlist[
                                                 @item{
@@ -233,7 +233,7 @@
                         @student{
                                 Of course, it might not make sense to group different animals together in one plot! What if we wanted to see the relationship between @code{age} and @code{weeks} for just the dogs in our database?
 
-                                @activity[#:forevidence "BS-IDE&1&1"]{
+                                @activity[#:forevidence (list "8.SP.1-4&1&2" "S-ID.1-4&1&3" "S-ID.1-4&1&4")]{
                                         Turn to @worksheet-link[#:name "Age-v-Weeks-Dogs"] in your workbook, and complete the Table Plan there. When you're done, try making a scatter plot for a different subset of your data.
                                 }
                         }
@@ -251,7 +251,7 @@
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
-     #:standards (list "S-ID.5-6" "Data 3.1.2" "Data 3.1.3")
+     #:standards (list "S-ID.1-4" "Data 3.1.2" "Data 3.1.3")
      #:materials @itemlist[]
      #:preparation @itemlist[]
      #:pacings (list 
@@ -301,7 +301,7 @@
                                     @item{ If the cloud is really spread out, there may be a @italic{weak correlation}. }
                                     @item{ If the points are all over the place, there may be @italic{no correlation}. }
                                 ]
-                                @activity[#:forevidence (list )]{
+                                @activity[#:forevidence (list "S-ID.1-4&1&3" "S-ID.1-4&1&4" "Data 3.2.1&1&2" "Data 3.2.1&1&6")]{
                                     For each predictor you drew on @worksheet-link[#:name "Drawing-Predictors"], determine the direction and strength of the correlation by circling the words that describe it. 
                                 }
                         }

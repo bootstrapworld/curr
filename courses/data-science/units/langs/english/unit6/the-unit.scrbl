@@ -69,7 +69,7 @@
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
-     #:standards (list "Data 3.1.1" "Data 3.1.3")
+     #:standards (list "Data 3.1.3" "6.SP.4-5" "HSS.ID.A")
      #:materials @itemlist[]
      #:preparation @itemlist[]
      #:pacings (list 
@@ -100,7 +100,7 @@
                 }
                 @point{
                       @student{
-                              @activity[#:forevidence (list )]{
+                              @activity[#:forevidence (list "6.SP.4-5&1&1" "Data 3.1.3&1&1" "Data 3.1.3&1&2")]{
                                     Turn to @worksheet-link[#:name "Visualizing-Frequency"] in your Student Workbook, and answer the questions you find there. 
                               }
                               What was different about these questions? What did the charts at the bottom tell us? The questions were all about @italic{frequency}. The first chart shows the frequency of different species in the table, and the second shows the frequency of certain @italic{weight-ranges}.
@@ -141,7 +141,7 @@
                                 freq-bar-chart :: (t :: Table, values :: String) -> Image
                                 freq-bar-chart(animals-table, "species")  # show frequency of each animal
                               }
-                              @activity[#:forevidence (list )]{
+                              @activity[#:forevidence (list "6.SP.4-5&1&1" "HSS.ID.A&1&1" "Data 3.1.3&1&1" "Data 3.1.3&1&2" "Data 3.1.3&1&3")]{
                                   In the Interactions Area, type in the example to make a frequency bar chart of the animals, broken down by species. Are there more animals at the shelter that are female than male? Complete the Table Plan on @worksheet-link[#:name "Freq-Bar-Gender"].
                               }
                       }
@@ -158,7 +158,7 @@
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
-     #:standards (list "S-ID.1-4" "HSS.ID.A" "Data 3.1.1" "Data 3.1.3")
+     #:standards (list "S-ID.1-4" "HSS.ID.A" "Data 3.1.3")
      #:materials @itemlist[]
      #:preparation @itemlist[]
      #:pacings (list 
@@ -200,7 +200,7 @@
                 }
                 @point{
                       @student{
-                              @activity[#:forevidence (list )]{
+                              @activity[#:forevidence (list "S-ID.1-4&1&1" "Data 3.1.3&1&3" "Data 3.1.3&1&4")]{
                                   How long does it take for most animals to be adopted? Complete the Table Plan on @worksheet-link[#:name "Histogram-Adoption"].
                               }
                       }

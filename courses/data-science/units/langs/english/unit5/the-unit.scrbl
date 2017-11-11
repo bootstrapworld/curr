@@ -30,7 +30,7 @@
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
-     #:standards (list "S-ID.1-4" "6.SP.4-5" "HSS.ID.A")
+     #:standards (list )
      #:materials @itemlist[]
      #:preparation @itemlist[]
      #:pacings (list 
@@ -75,7 +75,7 @@
                                       When buying uniforms for a sports team, a coach might look for the most-common size that their players wear.
                                   }
                               ]
-                              @activity[#:forevidence (list )]{
+                              @activity[#:forevidence (list "6.SP.1-3&1&1")]{
                                   Can you think of other examples where a number or two are used to summarize something complex?
                               }
                       }
@@ -85,7 +85,7 @@
                 }
                 @point{
                       @student{
-                              Data Scientists often look at two kinds of summaries: Measures of @bold{Center} and @bold{Distribution}. Finding ways to summarize data @italic{accurately} is essential. In this lesson, we'll check the "6 week" claim made by the Animal Shelter Bureau, and see if it's an accurate way to summarize the data.
+                              Data Scientists often look at two kinds of summaries: Measures of @bold{Center} and @bold{Variation}. Finding ways to summarize data @italic{accurately} is essential. In this lesson, we'll check the "6 week" claim made by the Animal Shelter Bureau, and see if it's an accurate way to summarize the data.
                       }
                       @teacher{
 
@@ -101,7 +101,7 @@
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
-     #:standards (list)
+     #:standards (list "S-ID.1-4" "HSS.ID.A")
      #:materials @itemlist[]
      #:preparation @itemlist[]
      #:pacings (list 
@@ -145,7 +145,7 @@
                 @point{
                       @student{
                               Type @code{mean(animals-table, "weeks")}.  What does this give us? Does this support the Bureau's claims?
-                              @activity[#:forevidence "BS-IDE&1&1"]{
+                              @activity[#:forevidence "S-ID.1-4&1&1" "6.SP.1-3&1&1" "6.SP.1-3&1&2" "6.SP.1-3&1&3" "HSS.ID.A&1&2"]{
                                       Open your workbooks to @worksheet-link[#:name "Summarizing-Weeks"]. We've already decided on the answer to Question 1 (@code{weeks}). Under the "measures of center" section, fill in the computed mean.
                               }
                       }
@@ -211,7 +211,7 @@
 
                               @code{# median :: (t :: Table, col :: String) -> Number}
 
-                              @activity[#:forevidence "BS-IDE&1&1"]{
+                              @activity[#:forevidence "S-ID.1-4&1&1" "6.SP.1-3&1&1" "6.SP.1-3&1&2" "6.SP.1-3&1&3" "HSS.ID.A&1&2"]{
                                     Compute the @code{median} for the @code{weeks} column in our dataset, and add this to your workbook. Is it different than the mean? What can we conclude when the median is so much lower than the mean? For practice, compute the mean and median for the @code{weight} and @code{age} columns.
                               }
                       }
@@ -257,7 +257,7 @@
                               @code[#:multi-line #t]{
                                     # modes :: (t :: Table, col :: String) -> List<Number>
                               }
-                              @activity[#:forevidence (list )]{
+                              @activity[#:forevidence (list "S-ID.1-4&1&1" "6.SP.1-3&1&1" "6.SP.1-3&1&2" "6.SP.1-3&1&3" "HSS.ID.A&1&2")]{
                                   Compute the @code{modes} of the @code{weeks} column, and fill in the answer to Question 4. What did you get? The most common number of weeks an animal waits is only @code{1}! That's well below our mean, which is further proof that there must be some outliers skewing the results.
                               }
                       }
@@ -280,7 +280,7 @@
                 }
                 @point{
                       @student{
-                            @activity[#:forevidence (list )]{
+                            @activity[#:forevidence (list "6.SP.1-3&1&1" "6.SP.1-3&1&2" "6.SP.1-3&1&3")]{
                                 "In 2003, the average American family earned $43,000 a year - well above the poverty line! Therefor very few Americans were living in poverty." Do you trust this statement? Why or why not?
                             }
                             Consider how many policies or laws are informed by statistics like this! Knowing about measures of center helps us see through misleading statements.
@@ -320,7 +320,7 @@
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
-     #:standards (list)
+     #:standards (list "HSS.ID.A&1&2" "6.SP.4-5" "S.ID.1-4")
      #:materials @itemlist[]
      #:preparation @itemlist[]
      #:pacings (list 
@@ -356,7 +356,7 @@
                             box-plot :: (t :: Table, column :: String) -> Image
                             box-plot(animals-table, "pounds")
                           }
-                          @activity[#:forevidence (list )]{
+                          @activity[#:forevidence (list "S-ID.1-4&1&2" "HSS.ID.A&1&1" "HSS.ID.A&1&2" "6.SP.4-5&1&1" "S.ID.1-4&1&1")]{
                               Type in this expression in the Interactions Area, and see the resulting plot.
                           }
                       }
@@ -393,7 +393,7 @@
                 @point{
                       @student{
                           One way to summarize the variation in the dataset is to measure the distance between the largest value and the smallest value. When we talk about functions having many possible outputs, we use the term "Range" to describe them. When we look at all the values between the smallest and largest in our dataset, we use the same term.
-                          @activity[#:forevidence (list )]{
+                          @activity[#:forevidence (list "HSS.ID.A&1&2")]{
                               Find the @vocab{range} of this dataset. 
                           }
                       }
@@ -404,7 +404,7 @@
                 @point{
                       @student{
                           Data Scientists subtract the 1st quartile from the 3rd quartile to compute the range of the "middle half" of the dataset, also called the @vocab{interquartile range}.
-                          @activity[#:forevidence (list )]{
+                          @activity[#:forevidence (list "HSS.ID.A&1&2")]{
                               Find the @vocab{interquartile range} of this dataset.
                           }
                       }
@@ -505,7 +505,7 @@
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
-     #:standards (list)
+     #:standards (list "Data 3.2.1" "Data 3.2.1")
      #:materials @itemlist[]
      #:preparation @itemlist[]
      #:pacings (list 
@@ -517,7 +517,10 @@
         @points[
                 @point{
                       @student{
-                          Now that you're comfortable creating box plots and looking at measures of variation on the computer, it's time to put your skills to the test! Turn to @worksheet-link[#:name "Interpreting-Variation"] and complete the questions you see there.
+                          Now that you're comfortable creating box plots and looking at measures of variation on the computer, it's time to put your skills to the test! 
+                          @activity[#:forevidence (list "Data 3.2.1&1&1" "Data 3.2.1&1&2" "Data 3.2.1&1&3")]{
+                            Turn to @worksheet-link[#:name "Interpreting-Variation"] and complete the questions you see there.
+                          }
                       }
                       @teacher{
                           Review students' answers, especially to the question five.
