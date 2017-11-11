@@ -155,6 +155,7 @@
         [lotree (get-learnobj-tree std)]
         [evidindex (if (string? evidindexorig) (cap-string->index-num evidindexorig) evidindexorig)]
         )
+    ;;; (printf "Tree is: ~a~n~n" lotree)
     (cond [(empty? lotree) #f] ;; if this happens, find-std/tag already reported unknown standard error
           [(not lotree) (report-problem (format "no learning objectives for standard ~a" std))]
           [(or (< learnindex 1) (> learnindex (length lotree))) 
