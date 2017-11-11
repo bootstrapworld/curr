@@ -157,7 +157,7 @@
                         @student{
                                 @bitmap{images/age-vs-weeks.png}
                                 Now that we have our scatter plot, what kind of patterns do we see? 
-                                @activity[#:forevidence (list "8.SP.1-4&1&2" "S-ID.1-4&1&3" "S-ID.1-4&1&4" "HSS.ID.B&1&2" "S-ID.5-6&1&4")]{
+                                @activity[#:forevidence (list "8.SP.1-4&1&2" "S-ID.5-6&1&3" "S-ID.5-6&1&4" "HSS.ID.B&1&2")]{
                                     @itemlist[
                                         @item{ Where are the points clustered? }
                                         @item{ Are there places where the "cloud" is denser than others? }
@@ -210,7 +210,7 @@
                 }
                 @point{
                         @student{ 
-                                @activity[#:forevidence (list "8.SP.1-4&1&2" "S-ID.1-4&1&3" "S-ID.1-4&1&4" "S-ID.5-6&1&4")]{
+                                @activity[#:forevidence (list "8.SP.1-4&1&2" "S-ID.5-6&1&3" "S-ID.5-6&1&4")]{
                                     For practice, try making scatter plots (or labeled scatter plots) for each of the following relationships. If you see any outliers, try to explain them!
                                     @itemlist[
                                                 @item{
@@ -233,7 +233,7 @@
                         @student{
                                 Of course, it might not make sense to group different animals together in one plot! What if we wanted to see the relationship between @code{age} and @code{weeks} for just the dogs in our database?
 
-                                @activity[#:forevidence (list "8.SP.1-4&1&2" "S-ID.1-4&1&3" "S-ID.1-4&1&4")]{
+                                @activity[#:forevidence (list "8.SP.1-4&1&2" "S-ID.5-6&1&3" "S-ID.5-6&1&4")]{
                                         Turn to @worksheet-link[#:name "Age-v-Weeks-Dogs"] in your workbook, and complete the Table Plan there. When you're done, try making a scatter plot for a different subset of your data.
                                 }
                         }
@@ -251,7 +251,7 @@
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
-     #:standards (list "S-ID.1-4" "Data 3.1.2" "Data 3.1.3")
+     #:standards (list "S-ID.5-6" "Data 3.1.2" "Data 3.1.3")
      #:materials @itemlist[]
      #:preparation @itemlist[]
      #:pacings (list 
@@ -301,7 +301,7 @@
                                     @item{ If the cloud is really spread out, there may be a @italic{weak correlation}. }
                                     @item{ If the points are all over the place, there may be @italic{no correlation}. }
                                 ]
-                                @activity[#:forevidence (list "S-ID.1-4&1&3" "S-ID.1-4&1&4" "Data 3.2.1&1&2" "Data 3.2.1&1&6")]{
+                                @activity[#:forevidence (list "S-ID.5-6&1&3" "S-ID.5-6&1&4" "Data 3.2.1&1&2" "Data 3.2.1&1&6")]{
                                     For each predictor you drew on @worksheet-link[#:name "Drawing-Predictors"], determine the direction and strength of the correlation by circling the words that describe it. 
                                 }
                         }

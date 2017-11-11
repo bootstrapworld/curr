@@ -173,7 +173,7 @@
             @point{
                     @student{
                             Before we can dive into all of the cool things you can do with tables, we need to understand the two different kinds of data that come up in Data Science: Categorical and Quantitative. @vocab{Quantitative Data} is used to measure an @italic{amount} of something, or to compare two pieces of data to see which is @italic{less or more}. If we want to ask "how much" or "which is most", we're talking about Quantitative Data.
-                            @activity[#:forevidence (list "111.47.4&1&1")]{
+                            @activity[#:forevidence (list )]{
                                 "Who is the tallest student?" is an example of a question that needs Quantitative Data. Can you come up with additional quantitative questions?
                             }
                     }
@@ -184,7 +184,7 @@
             @point{
                     @student{
                             @vocab{Categorical Data} is used to describe different @italic{categories}. Categories don't make sense to compare or measure - if we had a column for eye color, for example, we couldn't ask if "blue" is more than "brown". We use @vocab{Categorical Data} to ask "which one"? When you look at a whether forecast, temperature is quantitative but whether it's snowing or raining is categorical.
-                            @activity[#:forevidence (list "111.47.4&1&1")]{
+                            @activity[#:forevidence (list )]{
                                 For the two columns in the @code{shapes} table, which is categorical? Which is quantitative?
                             }
                     }
@@ -195,7 +195,7 @@
             @point{
                     @student{
                             Data can be categorical or quantitative, depending on how it's used. It doesn't make sense to ask whether "@code{square} is more than @code{triangle}", so most of the time we'd use the @code{name} column as categorical data. But if we wanted to sort the table in alphabetical order, suddenly we @italic{do} care whether @code{square} comes before @code{triangle}.
-                            @activity[#:forevidence (list "111.47.4&1&1")]{
+                            @activity[#:forevidence (list )]{
                                 For each of the following questions, determine whether the data being used is quantitative or categorical.
                                 @itemlist[
                                     @item{We'd like to sort a phone book by the "last name" column.}
