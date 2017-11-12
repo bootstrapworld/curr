@@ -85,12 +85,12 @@
 			
                         You should have come up with something like this: a data block with numbers for the two coordinates.
                       @code[#:multi-line #t]{
-          # a SunsetState is the x-coordinate of the sun 
-          # and the y-coordinate of the sun
+		      # a SunsetState is the x-coordinate of the sun 
+		      # and the y-coordinate of the sun
 		      data SunsetState:
 		       | sunset(
 		           xpos :: Number,
-			         ypos :: Number)
+		           ypos :: Number)
 		      end}
 		       The term @vocab{state} is used in computer science to refer to the details of a program
 		       at a specific point in time.  Here, we use it to refer to the details that are unique to
