@@ -18,7 +18,7 @@
                                               @code{.row-n, .order-by, .filter, .build-column}
                                               ""))]{
   @unit-descr{
-      Students construct Bar and Pie Charts in Pyret, to visualize the @italic{quantities} present in rows of their dataset. They experiment with these visualizations in a contrived dataset, apply them to their own research, and intepret the results. They also begin to write their own Sample Tables
+      Students construct Bar and Pie Charts in Pyret, to visualize the @italic{quantities} present in rows of their dataset. They experiment with these visualizations in a contrived dataset, apply them to their own research, and interpret the results. They also begin to write their own Sample Tables
   }
 }
 @unit-lessons{
@@ -340,4 +340,3 @@
         ]
    }
 }
-

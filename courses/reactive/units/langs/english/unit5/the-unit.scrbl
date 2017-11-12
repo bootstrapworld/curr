@@ -214,7 +214,7 @@ one who acts as the reactor, and one who acts as the @code{draw-state} function.
 each student a few sheets of paper and something to write with.
 
 @itemlist[
-@item{When a key is "pressed" by the keyboard, the reactor write doesn the current
+@item{When a key is "pressed" by the keyboard, the reactor write the current
 state and the key that was pressed, then shows their paper to @code{next-state-key}. 
 }
 @item{@code{next-state-key} produces a new state based on the current state and the key, 

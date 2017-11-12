@@ -138,7 +138,7 @@
                                        If the area of a square is expressed by @math{side * side}, then the area of the white space is @math{C^{2}}.}
                        @teacher{Have students place their gray triangles onto the paper, to match the diagram.}
                        }
-                @point{@student{@animated-gif{images\Pythag_anim.gif} By moving the gray triangles, it is possible to create two rectangles that fit inside the original square.
+                @point{@student{@animated-gif{images/Pythag_anim.gif} By moving the gray triangles, it is possible to create two rectangles that fit inside the original square.
                                              While the space taken up by the triangles has shifted, it hasn't gotten any bigger or smaller. Likewise, the white space has been broken
                                              into two smaller squares, but in total it remains the same size. By using the side-lengths A and B, one can calculate the area of the two squares.
                                  @activity[#:forevidence (list "8.G.6-8&1&1" "8.G.6-8&1&1" "8.G.6-8&1&3")]{What is the area of the smaller square? The larger square?}}
@@ -174,8 +174,8 @@
      #:duration "25 min"
      #:overview "Students reason about the mathematical behavior of collision detection"
      #:learning-objectives @itemlist[@item{Students learn how to use the distance formula to detect collisions in games}]
-     #:evidence-statements @itemlist[@item{Students understand that collisions occur when the distance between objects is below some threshhold}
-                                     @item{Students understand how to determine the collision threshhold between two objects}
+     #:evidence-statements @itemlist[@item{Students understand that collisions occur when the distance between objects is below some threshold}
+                                     @item{Students understand how to determine the collision threshold between two objects}
                                      @item{Students write a @code{collide?} function that determines whether the player and danger elements in their games have collided}]
      #:product-outcomes @itemlist[@item{Students add a @code{collide?} function to their games to detect when the player and danger have collided}]
      #:exercises (list (make-exercise-locator/dr-assess "Collide" "late-to-class-design-recipe-assess" "Are You Late to Class?"))

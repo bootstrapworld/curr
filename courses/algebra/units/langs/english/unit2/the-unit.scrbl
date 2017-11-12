@@ -291,9 +291,9 @@ include other datatypes, including Strings and Images.}
                                            @item{@code{(star "solid" "red" 40)}}
                                            @item{@code{(star "40" "solid" "red")}}
                                            @item{@code{(star 40 "red" "solid")}}
-                                           @item{@code{(star 40 "solid" "yelow")}}
+                                           @item{@code{(star 40 "solid" "yellow")}}
                                            @item{@code{(star (* 4 10) "blue")}}
-                                           @item{@code{(cirle 25 "outline" "blue")}}
+                                           @item{@code{(circle 25 "outline" "blue")}}
                                           ]}}
                        @teacher{Controlled practice with error messages helps students gain confidence in dealing with them later on.  
                                 It is fine if students don't spot the errors for themselves at first, though having students explain 
@@ -301,7 +301,7 @@ include other datatypes, including Strings and Images.}
                                 in the course.}
                        }
                 @point{@student{Being an expert at reading error messages is an important part of being a good programmer! Reading 
-                                error mesages is like having a teacher or a friend help you with something you are working on, rather
+                                error messages is like having a teacher or a friend help you with something you are working on, rather
                                 than just saying "wrong!" every time you make a mistake. @slidebreak  If you get really good at reading these
                                 messages, you can even use them to discover functions you never knew existed!
                                 @activity{Here are the names of some other image-producing functions, but how do they work? Try to
@@ -372,4 +372,3 @@ include other datatypes, including Strings and Images.}
                        @teacher{}}
                         ]}
 }
-

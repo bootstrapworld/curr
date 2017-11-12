@@ -66,7 +66,7 @@
                                                 through an explanation of the function or concept you were assigned.}}
                        @teacher{Have students walk through their presentations, and get feedback from their peers.
                                      You may also want to model the explanation of a few lines of code, so they see what you're looking for.
-                                     Don't allow students to just recite the code! They should be able to explain each line in plain english -
+                                     Don't allow students to just recite the code! They should be able to explain each line in plain English -
                                      don't be afraid to push students to really explain what's going on.}
                        }]
         }
@@ -82,7 +82,7 @@
                            @item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
                            @item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                            @item{Class posters (List of rules, basic skills, course calendar)}
-                           @item{Language Table (seeß below)}
+                           @item{Language Table (see ßelow)}
                            @item{Printouts of game code for each team.}
                            @item{Camera - take pictures today!}
                           ]

@@ -63,7 +63,7 @@
                 @point{
                         @student{
                                 @activity[#:forevidence (list "Data 3.1.1&1&4" "Data 3.1.1&1&5")]{
-                                    Take a few minutes to look through the whole dataset, and see if you agree with the statement. Could any of our visualizations or measures of center herlp us answer this question? Write down your hypothesis on @worksheet-link[#:name "Cuter-Adoption"], and how we could use this dataset to see if you're right.
+                                    Take a few minutes to look through the whole dataset, and see if you agree with the statement. Could any of our visualizations or measures of center help us answer this question? Write down your hypothesis on @worksheet-link[#:name "Cuter-Adoption"], and how we could use this dataset to see if you're right.
                                 }
                         }
                         @teacher{
@@ -75,7 +75,7 @@
                                 We've got a lot of tools in our toolkit that help us think about an @italic{entire} column of a dataset:
                                 @itemlist[
                                     @item{ We have three ways to find measures of center for a given column }
-                                    @item{ We have visualizations that let us see the @italic{quanitities} in a given column }
+                                    @item{ We have visualizations that let us see the @italic{quantities} in a given column }
                                     @item{ We have visualizations that let us see the @italic{frequencies} in a given column }
                                 ]
                                 What column is this question asking about?
@@ -361,7 +361,7 @@
         @points[
                 @point{
                         @student{
-                              After looking at the scatter plot for our animal shelter, do you stil agree with the claim on @worksheet-link[#:name "Cuter-Adoption"]? Perhaps you need more information, or to see the analysis broke down separately by animal. 
+                              After looking at the scatter plot for our animal shelter, do you still agree with the claim on @worksheet-link[#:name "Cuter-Adoption"]? Perhaps you need more information, or to see the analysis broke down separately by animal. 
                         }
                         @teacher{
                         
@@ -378,4 +378,3 @@
         ]
   }
 }
-

@@ -76,18 +76,18 @@
   The @code{if} clause has a question, followed by a @code{:} (a colon),
   followed by an answer for if the question evaluates to @code{true}.  Each
   @code{else if} clause also has a question, followed by a colon, followed by
-  an answer for if the question evalautes to @code{true}. Just like in Racket, the @code{else:} clause runs if none of the questions in the other clauses evaluated to @code{true}.  It catches all the cases that aren't covered by a specific question in one of the @code{if} or @code{else if} clauses.
+  an answer for if the question evaluates to @code{true}. Just like in Racket, the @code{else:} clause runs if none of the questions in the other clauses evaluated to @code{true}.  It catches all the cases that aren't covered by a specific question in one of the @code{if} or @code{else if} clauses.
 
 }
 @teacher{We mention that the @code{else:} clause at the end of an @code{if} expression is optional. Typically, it is important to make sure your code will account for all possible conditions, and ending with @code{else:} is a useful catchall condition if all of the other conditions return false. However, this is optional in the case that every single possible condition is covered by @code{else if} statements.}
 }
 
 @point{@student{At this point, we need to remember an important lesson about the Design
-  Recipe for conditionals from Boostrap:1. If we look at the examples for @code{wear}, and circle everything that
+  Recipe for conditionals from Bootstrap:1. If we look at the examples for @code{wear}, and circle everything that
   changes, both the input (the temperature) and the output (the image) change.
   However, @code{wear} only has a single variable according to the domain in
   its contract.  Also, the image is @emph{completely dependent} on the temperature –
-  it isn't a separate independent variable, so it wouldn't make sense for it to be another element in the domain of @code{wear}. The fact that we have @emph{more changing things than elements in the domain} tells us that @code{wear} must be a @vocab{piecewise function}.  This is the same rule as in Bootstrap:Algebra, and just as we could in Racket, we can tell that a function must be piecewise just by looking at its contract and the examples.  This helps us identify when a function we are writing in our games needs to use @code{if}, as long as we follow the Design Recipe when building it. Another way to recognize a piecewise function when looking at your examples is to note whether or not there are elements which @italic{completely depend} on another. In @code{wear}, the image depends on the temperature, and does not change independantly, or in response to any other changes in the function. Keep an eye out for these dependant variables in your examples as you write them to help identify piecewise functions.
+  it isn't a separate independent variable, so it wouldn't make sense for it to be another element in the domain of @code{wear}. The fact that we have @emph{more changing things than elements in the domain} tells us that @code{wear} must be a @vocab{piecewise function}.  This is the same rule as in Bootstrap:Algebra, and just as we could in Racket, we can tell that a function must be piecewise just by looking at its contract and the examples.  This helps us identify when a function we are writing in our games needs to use @code{if}, as long as we follow the Design Recipe when building it. Another way to recognize a piecewise function when looking at your examples is to note whether or not there are elements which @italic{completely depend} on another. In @code{wear}, the image depends on the temperature, and does not change independently, or in response to any other changes in the function. Keep an eye out for these dependent variables in your examples as you write them to help identify piecewise functions.
 
 }
 @teacher{ This is an important point to review.  Conditionals, or Piecewise functions, are a big moment in
@@ -144,7 +144,7 @@ background image:
 # either "road", "delivery zone", "house", or "air"
 
 }
-Copy the work you have in your workbok to implement @code{location} on the computer.
+Copy the work you have in your workbook to implement @code{location} on the computer.
 
 }
 
@@ -292,7 +292,7 @@ information about the animation.}
 						               rectangle(WIDTH, HEIGHT, "solid", "light-blue")))
 						       end }
 				
-				@activity{Open your wokbook to @worksheet-link[#:name "draw-sun"]. Here we have directions for
+				@activity{Open your workbook to @worksheet-link[#:name "draw-sun"]. Here we have directions for
 				writing a function called @code{draw-sun}, Which consumes a @code{SunsetState} and produces an
 				image of the sun, whose color is either "yellow", "orange", or "red" depending on its y-coordinate.}}
                         @teacher{The word problem assumes a background scene size of 400x300 pixels. Once students use their
@@ -331,7 +331,7 @@ information about the animation.}
      
                           @teacher{Like changing the color of the sun, there are multiple valid ways of completing this
 			           optional activity. If you have students solving the same problem with different code,
-				   have them share their code with the class and have a dicsussion about the merits of each version.}
+				   have them share their code with the class and have a discussion about the merits of each version.}
                         }
                  ]
          }
@@ -339,5 +339,3 @@ information about the animation.}
        
        
        
-
-

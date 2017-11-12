@@ -378,7 +378,7 @@
 			
 	       @teacher{The type for tracking direction of growth gives potential for a good discussion. None of these answers are
 	                wrong.  If they were to use the boolean or the string, however, their @code{next-state-tick} function would
-			need a conditional to decide whether to add or substract from the current size.  In this exercise, they
+			need a conditional to decide whether to add or subtract from the current size.  In this exercise, they
 			aren't writing the animations, so this is less of an issue. Our real goal is to get them to imagine
 			animations and to identify the state information that underlies each one.}
 			}
@@ -438,4 +438,3 @@
 }
 
   
-

@@ -132,7 +132,7 @@
                                          }
                                   }
                                   @item{
-                                        @italic{They have a "secret" argument.} The following code uses methods and functions to extract the first row of a table. The function takes in two arguments, but the method appears to onlytake in one. Can you see the secret argument?
+                                        @italic{They have a "secret" argument.} The following code uses methods and functions to extract the first row of a table. The function takes in two arguments, but the method appears to only take in one. Can you see the secret argument?
                                         @code[#:multi-line #t]{
                                             get-row(t, 0)  # takes in two arguments!
                                             t.row-n(0)     # takes in....one???
@@ -223,7 +223,7 @@
         @points[
                 @point{
                       @student{
-                              Sometimes we want to screate a @italic{subset} of our data. For example, we might want to filter the rows so that we get a table of only the lizards at the shelter! When we want to filter a Table, we can use the @code{.filter} method. The contract for this method is shown below, along with an example expression that filters the @code{animals-table} to show only those who are fixed.
+                              Sometimes we want to create a @italic{subset} of our data. For example, we might want to filter the rows so that we get a table of only the lizards at the shelter! When we want to filter a Table, we can use the @code{.filter} method. The contract for this method is shown below, along with an example expression that filters the @code{animals-table} to show only those who are fixed.
                               @code[#:multi-line #t]{
                                     # <Table>.filter :: (test :: (Row -> Boolean)) -> Table
                                     animals-table.filter(is-fixed)
@@ -249,7 +249,7 @@
                 }
                 @point{
                       @student{
-                              @activity[#:forevidence "BS-IDE&1&1" "Data 3.1.1&1&1" "Data 3.1.1&1&2" "Data 3.1.1&1&4"]{
+                              @activity[#:forevidence (list "BS-IDE&1&1" "Data 3.1.1&1&1" "Data 3.1.1&1&2" "Data 3.1.1&1&4")]{
                                   In the Interactions Area, use the @code{.filter} method to produce a table of all the kittens.
                               }
                       }
@@ -291,7 +291,7 @@
                 }
                 @point{
                       @student{
-                              @activity[#:forevidence "BS-IDE&1&1" "Data 3.1.1&1&3" "Data 3.1.1&1&4"]{
+                              @activity[#:forevidence (list "BS-IDE&1&1" "Data 3.1.1&1&3" "Data 3.1.1&1&4")]{
                                   In the Interactions Area, use the @code{.build-column} method to produce a table that includes a @code{nametag} column, which contains an image of the nametag for each pet.
                               }
                       }

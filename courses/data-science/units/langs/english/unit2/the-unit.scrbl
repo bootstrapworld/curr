@@ -47,7 +47,7 @@
                                         Open the @(hyperlink "https://docs.google.com/spreadsheets/d/19m1bUCQo3fCzmSEmWMjTfnmsNIMqiByLytHE0JYtnQM/" "Animals Spreadsheet") in a new tab. Take a moment to look around. What do you think this table is for?
                                     }
                                     @item{
-                                        This is some data from an animal shelter, listing animals that have been adopted. We'll be using this as an example thoughout the course, but you'll be applying what you learn to @italic{a dataset you choose} as well.
+                                        This is some data from an animal shelter, listing animals that have been adopted. We'll be using this as an example throughout the course, but you'll be applying what you learn to @italic{a dataset you choose} as well.
                                     }
                                     @item{
                                         Open up the @editor-link[#:public-id "0BzzMl1BJlJDkYkhKMG51VlRiWk0" "Animals Dataset"] starter file in a new tab. Click "Connect to Google Drive" to sign into your Google account, and then click the "Save as" button. This will save a copy of the file into your own account, so that you can make changes and retrieve them later.
@@ -95,7 +95,7 @@
                               @item{For each column, is the data quantitative or qualitative? }
                               @item{For each column, what datatype is being used? Numbers? Strings? Images? Booleans? }
                               @item{How could you get row for the animal named "Toggle"? }
-                              @item{How could you get the age of the animal named "Togle" from that row? }
+                              @item{How could you get the age of the animal named "Toggle" from that row? }
                               @item{How could you get the species of the animal named "Fritz"? }
                               @item{How could you get the number of legs of the animal named "Mittens"? }
                             ]
@@ -166,7 +166,7 @@
             }
             @point{
                   @student{
-                        Each row of our @code{animals-table} represents a single animal in oiur shelter. We can use the @code{get-row} function from yesterday to define values. For example:
+                        Each row of our @code{animals-table} represents a single animal in our shelter. We can use the @code{get-row} function from yesterday to define values. For example:
                         @code[#:multi-line #t]{
                           mittens = get-row(animals-table, 3) # the Row for Mittens
                         }
@@ -288,10 +288,11 @@
                               birth-year :: (animal :: Row) -> Number
                               # Consumes an animal, and produces the year it was born
                               examples:
-                                  birth-year(pet1) is 2017  -  pet1["age"]
-                                  birth-year(pet2) is 2017  -  pet2["age"]
+                                birth-year(pet1) is 2017  -  pet1["age"]
+                                birth-year(pet2) is 2017  -  pet2["age"]
                               end
-                              fun birth-year(animal): 2017 - animal["age"]
+                              fun birth-year(animal): 
+                                2017 - animal["age"]
                               end
                             }
                     }
@@ -320,7 +321,8 @@
                     @student{
                         Our @code{examples:} block is a helpful way to @italic{check our work}, so we don't make mistakes. Suppose we had a typo in our function definition, and added instead of subtracted:
                         @code[#:multi-line #t]{
-                            fun birth-year(animal): 2017 + animal["age"]
+                            fun birth-year(animal): 
+                              2017 + animal["age"]
                             end
                         }
                         Try making this change to your code, and clicking "Run". What happens?

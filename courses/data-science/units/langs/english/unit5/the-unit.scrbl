@@ -145,7 +145,7 @@
                 @point{
                       @student{
                               Type @code{mean(animals-table, "weeks")}.  What does this give us? Does this support the Bureau's claims?
-                              @activity[#:forevidence "S-ID.1-4&1&1" "6.SP.1-3&1&1" "6.SP.1-3&1&2" "6.SP.1-3&1&3" "HSS.ID.A&1&2"]{
+                              @activity[#:forevidence (list "S-ID.1-4&1&1" "6.SP.1-3&1&1" "6.SP.1-3&1&2" "6.SP.1-3&1&3" "HSS.ID.A&1&2")]{
                                       Open your workbooks to @worksheet-link[#:name "Summarizing-Weeks"]. We've already decided on the answer to Question 1 (@code{weeks}). Under the "measures of center" section, fill in the computed mean.
                               }
                       }
@@ -211,7 +211,7 @@
 
                               @code{# median :: (t :: Table, col :: String) -> Number}
 
-                              @activity[#:forevidence "S-ID.1-4&1&1" "6.SP.1-3&1&1" "6.SP.1-3&1&2" "6.SP.1-3&1&3" "HSS.ID.A&1&2"]{
+                              @activity[#:forevidence (list "S-ID.1-4&1&1" "6.SP.1-3&1&1" "6.SP.1-3&1&2" "6.SP.1-3&1&3" "HSS.ID.A&1&2")]{
                                     Compute the @code{median} for the @code{weeks} column in our dataset, and add this to your workbook. Is it different than the mean? What can we conclude when the median is so much lower than the mean? For practice, compute the mean and median for the @code{weight} and @code{age} columns.
                               }
                       }
@@ -340,7 +340,7 @@
                 }
                 @point{
                       @student{
-                          Suppose we lined up all of the values in the @code{weeks} column from smallest to largest, and then split the line up into two equal groups by taking tjhe median. The first group is the 50% of animals that waited the @italic{least} amount of time to be adopted. The fourth group is the 50% of animals that waited the @italic{greatest} amount of time. Now, suppose we took the medians of both groups, to divide the line into four equal sections. Data Scientists call these groups @vocab{quartiles}.
+                          Suppose we lined up all of the values in the @code{weeks} column from smallest to largest, and then split the line up into two equal groups by taking the median. The first group is the 50% of animals that waited the @italic{least} amount of time to be adopted. The fourth group is the 50% of animals that waited the @italic{greatest} amount of time. Now, suppose we took the medians of both groups, to divide the line into four equal sections. Data Scientists call these groups @vocab{quartiles}.
                           @activity[#:forevidence (list )]{
                               The first quartile (Q1) is the 25% of animals that waited the least amount of time. What do the other three quartiles represent?
                           }
@@ -414,7 +414,7 @@
                 }
                 @point{
                       @student{
-                          The @vocab{Range} of our dataset is 29 weeks, but the @vocab{interquartile range} is only 5.5 weeks! That means that @italic{50% of the animals} fall into only 19% of the range! That tells us that there are definitely a lot of outliers. Looking at the first and third quartiles, we can conclude that the interquartile range is also @italic{skewed towards the minumum}.
+                          The @vocab{Range} of our dataset is 29 weeks, but the @vocab{interquartile range} is only 5.5 weeks! That means that @italic{50% of the animals} fall into only 19% of the range! That tells us that there are definitely a lot of outliers. Looking at the first and third quartiles, we can conclude that the interquartile range is also @italic{skewed towards the minimum}.
                       }
                       @teacher{
 
@@ -528,7 +528,7 @@
                 }
                 @point{
                     @student{
-                        By now, you've got a good handle on how to think talk about measures of center varation, and it times to turn those skills to your dataset!
+                        By now, you've got a good handle on how to think talk about measures of center variation, and it times to turn those skills to your dataset!
                         @activity[#:forevidence (list "Data 3.1.2&1&1" "Data 3.1.2&1&2" "Data 3.1.2&1&3" "Data 3.1.2&1&4" "Data 3.1.2&1&5")]{
                             Take 10 minutes to fill out @worksheet-link[#:name "Summarizing-My-Dataset"] in your Student Workbook. Choose a column to investigate, and write up your findings.
                         }
