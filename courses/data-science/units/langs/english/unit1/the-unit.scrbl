@@ -317,7 +317,7 @@
             }
             @point{
                     @student{
-                            By using @code{and} and @code{or}, we can @italic{combine tests}. For example, we might want to ask if a character in a video game has run out of health points @italic{and} if they have any more lives. We might want to know if someone's ZIP Code puts them in Texas @italic{or} New Mexico. When you go out to eat at a restaurant, you might ask what items on the menu have meat @italic{and} cheese. We'll use these Boolean operators in a lot of our Data Science work later on.
+                            By using @code{and} and @code{or}, we can @italic{combine tests}. For example, we might want to ask if a character in a videogame has run out of health points @italic{and} if they have any more lives. We might want to know if someone's ZIP Code puts them in Texas @italic{or} New Mexico. When you go out to eat at a restaurant, you might ask what items on the menu have meat @italic{and} cheese. We'll use these Boolean operators in a lot of our Data Science work later on.
                     }
                     @teacher{
                             Have students play "true or false", in which they stand if you say something true, and sit if you say something false. Start simple ("I am wearing a hat"), and gradually get complex ("I am wearing a hat, @italic{and} I am standing on one leg").
