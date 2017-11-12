@@ -320,7 +320,7 @@
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
-     #:standards (list "HSS.ID.A&1&2" "6.SP.4-5" "S.ID.1-4")
+     #:standards (list "HSS.ID.A&1&2" "6.SP.4-5" "S-ID.1-4")
      #:materials @itemlist[]
      #:preparation @itemlist[]
      #:pacings (list 
@@ -356,7 +356,7 @@
                             box-plot :: (t :: Table, column :: String) -> Image
                             box-plot(animals-table, "pounds")
                           }
-                          @activity[#:forevidence (list "S-ID.1-4&1&2" "HSS.ID.A&1&1" "HSS.ID.A&1&2" "6.SP.4-5&1&1" "S.ID.1-4&1&1")]{
+                          @activity[#:forevidence (list "S-ID.1-4&1&2" "HSS.ID.A&1&1" "HSS.ID.A&1&2" "6.SP.4-5&1&1" "S-ID.1-4&1&1")]{
                               Type in this expression in the Interactions Area, and see the resulting plot.
                           }
                       }
