@@ -119,11 +119,11 @@
             }
             @point{
                   @student{
-                        Table methods are different from @vocab{functions} in a two important ways:
+                        Table methods are different from @vocab{functions} in three important ways:
 
                           @itemlist[
                                   @item{
-                                        @italic{They are called differently}. A method has to be called as part of a Table, and cannot be used on it's own. You can write @code{get-row} wherever you like, but @code{.row-n} only works when attached to the name of a Table, separated by a dot.
+                                        @italic{They are called differently}. A method has to be called as part of a Table, and cannot be used on its own. You can write @code{get-row} wherever you like, but @code{.row-n} only works when attached to the name of a Table, separated by a dot.
                                   }
                                   @item{
                                         @italic{Their contracts are different.} The @code{.row-n} method only exists within the @code{Table} Type, so we can't use its name without also specifying the name of a Table. The contract for a method includes the Type along with the name:
@@ -132,7 +132,7 @@
                                          }
                                   }
                                   @item{
-                                        @italic{They have a "secret" argument.} The following code uses methods and functions to extract the first row of a table. The function takes in two arguments, but the method appears to onlytake in one. Can you see the secret argument?
+                                        @italic{They have a "secret" argument.} The following code uses methods and functions to extract the first row of a table. The function takes in two arguments, but the method appears to only take in one. Can you see the secret argument?
                                         @code[#:multi-line #t]{
                                             get-row(t, 0)  # takes in two arguments!
                                             t.row-n(0)     # takes in....one???
@@ -223,7 +223,7 @@
         @points[
                 @point{
                       @student{
-                              Sometimes we want to screate a @italic{subset} of our data. For example, we might want to filter the rows so that we get a table of only the lizards at the shelter! When we want to filter a Table, we can use the @code{.filter} method. The contract for this method is shown below, along with an example expression that filters the @code{animals-table} to show only those who are fixed.
+                              Sometimes we want to create a @italic{subset} of our data. For example, we might want to filter the rows so that we get a table of only the lizards at the shelter! When we want to filter a Table, we can use the @code{.filter} method. The contract for this method is shown below, along with an example expression that filters the @code{animals-table} to show only those who are fixed.
                               @code[#:multi-line #t]{
                                     # <Table>.filter :: (test :: (Row -> Boolean)) -> Table
                                     animals-table.filter(is-fixed)
@@ -235,11 +235,11 @@
                 }
                 @point{
                       @student{
-                              Notice that the Domain for the filter method takes in a single value (@code{test}), but that @code{test} is @italic{also a function!}. Pyret lets us pass functions into other functions, just as easily as we pass Numbers, Strings, Booleans or Images.
+                              Notice that the Domain for the filter method takes in a single value (@code{test}), but that @code{test} is @italic{also a function!} Pyret lets us pass functions into other functions, just as easily as we pass Numbers, Strings, Booleans or Images.
                               @activity[#:forevidence (list )]{
                                   @itemlist[
-                                      @item{ According to the contract for @code{.filter}, what dataype does the @code{test} function consume? }
-                                      @item{ What dataype does the @code{test} function produce? }
+                                      @item{ According to the contract for @code{.filter}, what datatype does the @code{test} function consume? }
+                                      @item{ What datatype does the @code{test} function produce? }
                                   ]
                               }
                       }
@@ -334,7 +334,7 @@
               }
               @point{
                     @student{
-                        It can be difficult to read code that has lots of method calls chained together, so we can break them up before each @code{.} to make it more readable. Here's the exact same code, written with line breaks:
+                        It can be difficult to read code that has lots of method calls chained together, so we can break them up before each "@code{.}"" to make it more readable. Here's the exact same code, written with line breaks:
                         @code[#:multi-line #t]{
                             # get a table with the nametags of all the fixed animals, order by species
                             animals-table
@@ -357,7 +357,7 @@
               }
               @point{
                     @student{
-                        Table Plans are a lot like the Design Recipe. They start with a Contract and Purpose Statement, but involve different kinds of examples and can often involve @italic{multiple} function definitions. Let's do an example, which links together all the pieces you've seen before. Suppose it's time to vaccinate all kittens, and the shelter wants a table that includes nametags for all the kittens in alphabetical order. This seems like a tall order! How do we get started?
+                        Table Plans are a lot like the Design Recipe. They start with a Contract and Purpose Statement, but involve different kinds of examples and can often involve @italic{multiple} function definitions. Let's do an example, which ties together all the pieces you've seen before. Suppose it's time to vaccinate all kittens, and the shelter wants a table that includes nametags for all the kittens in alphabetical order. How do we get started?
                     }
                     @teacher{
                         Your students should be @italic{very} comfortable with the Design Recipe before proceeding!
@@ -444,7 +444,7 @@
                         }
                     }
                     @teacher{
-                        It may be helpful to start with all of these methods on one line, and then break them up. Students should be reminded that both forms are valid, but encouraged to use the latter.
+                        It may be helpful to start with all of these methods on one line, and have students see you break them up. Students should be reminded that both forms are valid, but encouraged to use the latter.
                     }
               }
               @point{
@@ -452,7 +452,7 @@
                         Now we can fill in those @code{...} sections! 
                         @itemlist[
                           @item{ 
-                              For each Row, we know we need to build a column for the nametags: what should that column be called? Do we have a function that takes a Row and adds a nametag column?
+                              For each Row, we know we need to build a column for the nametags: what should that column be called? Do we have a function that takes a Row and produces a nametag?
                           }
                           @item{ 
                               We know we need to filter so that all of our Rows are kittens: Do we have a function that takes a Row and tells us whether or not it is a kitten?

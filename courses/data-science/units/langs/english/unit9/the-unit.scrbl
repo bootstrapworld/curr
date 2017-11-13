@@ -70,7 +70,7 @@
         @points[
                 @point{
                         @student{
-                                Throughout this course, you've been learning new methods of visualizing data, measuring center, and searching for correlations and meaning. You've had a chance to explore your dataset throroughly, and become an expert on the ins, outs, and outliers within it. What have you found so far? Turn back to @worksheet-link[#:name "Findings-My-Dataset"], and share your most interesting finding with the students sitting nearby.
+                                Throughout this course, you've been learning new methods of visualizing data, measuring center, and searching for correlations and meaning. You've had a chance to explore your dataset thoroughly, and become an expert on the ins, outs, and outliers within it. What have you found so far? Turn back to @worksheet-link[#:name "Findings-My-Dataset"], and share your most interesting finding with the students sitting nearby.
                         }
                         @teacher{
                                 Have students share back some of their findings. Challenge them to use precise language, addressing the direction and strength of their correlations and use r-squared in their explanations.

@@ -115,7 +115,7 @@
                 @point{
                         @student{
                                 @activity[#:forevidence (list )]{
-                                  You can see this in action, in this @(hyperlink "https://www.geogebra.org/m/xC6zq7Zv" "interactive simulation"). Each vertical line represents the error, or the amount the rubber band has to stretch between a single datapoint and the prediction line. The "Target SSE" shows how much error (specifically, "the Sum of the Squared Errors") there is in the best possible predictor line. Our goal is to match that, by moving the red line or the "guide dots" on it. 
+                                  You can see this in action, in this @(hyperlink "https://www.geogebra.org/m/xC6zq7Zv" "interactive simulation"). Each vertical line represents the error, or the amount the rubber band has to stretch between a single data point and the prediction line. The "Target SSE" shows how much error (specifically, "the Sum of the Squared Errors") there is in the best possible predictor line. Our goal is to match that, by moving the red line or the "guide dots" on it. 
                                   @itemlist[
                                       @item{Could the predictor line ever be above or below @italic{all} the points? Why or why not?}
                                       @item{What would the plot have to look like for SSE to be zero?}
@@ -193,7 +193,7 @@
                                                 What does it mean when a data point is @italic{below} the predictor line?
                                             }
                                             @item{
-                                                If you only have two datapoints, why will the r-squared value always be 1.0?
+                                                If you only have two data points, why will the r-squared value always be 1.0?
                                             }
                                         ]
                                         

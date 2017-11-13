@@ -63,7 +63,7 @@
                 @point{
                         @student{
                                 @activity[#:forevidence (list "Data 3.1.1&1&4" "Data 3.1.1&1&5")]{
-                                    Take a few minutes to look through the whole dataset, and see if you agree with the statement. Could any of our visualizations or measures of center herlp us answer this question? Write down your hypothesis on @worksheet-link[#:name "Cuter-Adoption"], and how we could use this dataset to see if you're right.
+                                    Take a few minutes to look through the whole dataset, and see if you agree with the statement. Could any of our visualizations or measures of center help us answer this question? Write down your hypothesis on @worksheet-link[#:name "Cuter-Adoption"], and how we could use this dataset to see if you're right.
                                 }
                         }
                         @teacher{
@@ -75,7 +75,7 @@
                                 We've got a lot of tools in our toolkit that help us think about an @italic{entire} column of a dataset:
                                 @itemlist[
                                     @item{ We have three ways to find measures of center for a given column }
-                                    @item{ We have visualizations that let us see the @italic{quanitities} in a given column }
+                                    @item{ We have visualizations that let us see the @italic{quantities} in a given column }
                                     @item{ We have visualizations that let us see the @italic{frequencies} in a given column }
                                 ]
                                 What column is this question asking about?
@@ -117,7 +117,7 @@
                                 @activity[#:forevidence (list)]{
                                   Open your "Animals Dataset (w/Functions)" file. (If you do not have this file, or if something has happened to it, you can always make a @editor-link[#:public-id "0BzzMl1BJlJDkbnZhbE1QSEE0eEE" "new copy"].)
                                 }
-                                For each animal in the shelter, there are two datapoints we care about: their @code{age} and the number of @code{weeks} it took to be adopted. We can use these points to plot each animal as a point on the x- and y-axes. Eventually, we'll have a whole cloud of points, which show us the relationship between the two columns for all the animals at the shelter.
+                                For each animal in the shelter, there are two data points we care about: their @code{age} and the number of @code{weeks} it took to be adopted. We can use these points to plot each animal as a point on the x- and y-axes. Eventually, we'll have a whole cloud of points, which show us the relationship between the two columns for all the animals at the shelter.
                                 @activity[#:forevidence (list "S-ID.1-4&1&1")]{
                                     Complete @worksheet-link[#:name "Make-Scatter-Plot"] in your Student Workbook.
                                 }
@@ -172,7 +172,7 @@
                 }
                 @point{
                         @student{
-                                When we look for patterns in a scatter plot like this, we are looking for @vocab{correlations}. A correlation is just a relationship between two variables. In this case, we're looking for a correlation between an animal's @code{age} and how many @code{weeks} it takes for them to be adopted. This relationships can be graphed as a line, which tries to cut through the middle of the cloud. This line is called the @vocab{line of best fit}.
+                                When we look for patterns in a scatter plot like this, we are looking for @vocab{correlations}. A correlation is just a relationship between two variables. In this case, we're looking for a correlation between an animal's @code{age} and how many @code{weeks} it takes for them to be adopted. This relationship can be graphed as a line, which tries to cut through the "middle" of the cloud. This line is called the @vocab{line of best fit}.
                         }
                         @teacher{
                                 
@@ -180,7 +180,7 @@
                 }
                 @point{
                         @student{
-                                Do you notice any datapoints that seem unusually far away from the line? Which animals are those? These points are called @vocab{outliers}, meaning that there is something special about them that makes them different from everyone else. 
+                                Do you notice any data points that seem unusually far away from the line? Which animals are those? These points are called @vocab{outliers}, meaning that there is something special about them that makes them different from everyone else. 
                                 @activity[#:forevidence (list "HSS.ID.A&1&3")]{
                                     Why might these animals be outliers?
                                 }
@@ -200,7 +200,7 @@
                                         Sometimes they can give you a deeper insight into your data. Maybe Felix is a special, popular @italic{breed} of cat, and we discover that our dataset is missing an important column for breed!
                                     }
                                     @item{
-                                        Sometimes outliers are the points we are looking for! What if we wanted to know which restaurants are a good value, and which are ripoffs? We could make a scatterplot of restaurant prices vs. reviews, an outlier that's high above the rest of the points would be a restaurant whose reviews are @italic{unusually good} for the price. An outlier way below the cloud would be a real ripoff.
+                                        Sometimes outliers are the points we are looking for! What if we wanted to know which restaurants are a good value, and which are rip-offs? We could make a scatterplot of restaurant prices vs. reviews, an outlier that's high above the rest of the points would be a restaurant whose reviews are @italic{unusually good} for the price. An outlier way below the cloud would be a really bad deal.
                                     }
                                 ]
                         }
@@ -361,7 +361,7 @@
         @points[
                 @point{
                         @student{
-                              After looking at the scatter plot for our animal shelter, do you stil agree with the claim on @worksheet-link[#:name "Cuter-Adoption"]? Perhaps you need more information, or to see the analysis broke down separately by animal. 
+                              After looking at the scatter plot for our animal shelter, do you still agree with the claim on @worksheet-link[#:name "Cuter-Adoption"]? Perhaps you need more information, or to see the analysis broken down separately by animal. 
                         }
                         @teacher{
                         
