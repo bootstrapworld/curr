@@ -406,7 +406,7 @@
 
                                 @itemlist[
                                         @item{
-                                                @code{triangle(2, "solid", "red")}
+                                                @code{triangle(20, "solid", "red"}
                                         }
                                         @item{
                                                 @code{triangle(20 "solid" "red")}

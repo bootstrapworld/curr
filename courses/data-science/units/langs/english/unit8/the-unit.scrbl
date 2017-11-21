@@ -181,7 +181,7 @@
                 @point{
                         @student{
                                 The @vocab{r-squared} value for a predictor is a number on that tell us @italic{"how much of the variation in the scatter plot is explained by this line"}. In other words, it's a measure for how well the line fits. A perfect score of 1.0 means that 100% of the variability in the data is explained by the function and that every point falls exactly on the line. A score of 0.0 means that @italic{none} of the variability is explained by the predictor. 
-                                @activity[#:forevidence "HSS.ID.B&1&1" "HSS.ID.B&1&2" "HSS.ID.B&1&3" "HSS.ID.B&1&5"]{
+                                @activity[#:forevidence (list "HSS.ID.B&1&1" "HSS.ID.B&1&2" "HSS.ID.B&1&3" "HSS.ID.B&1&5")]{
                                         @itemlist[
                                             @item{
                                                 What is the r-squared value for @code{age} vs. @code{weeks} for our entire shelter population? What about for just the dogs? What does this difference mean?

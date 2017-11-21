@@ -254,7 +254,7 @@
                             While both examples here are correct, we want to use the second one that shows our work.
                       }
                       @teacher{
-                            Make sure students see that these two examples are @italic{equivalent}. Walk through this first example @italic{carefully}. Make sure students understand where the @code{birth-year} came from the Name in our contract, and that @code{pet1} came from the Domain in our contract. @code{2017 - pet1["age"]} came from our purpose statement, and the label also came from the variable name in our contract.
+                            Make sure students see that these two examples are @italic{equivalent}. Walk through this first example @italic{carefully}. Make sure students understand where the @code{birth-year} came from the Name in our contract, and that @code{pet1} came from the Domain in our contract. @code{2018 - pet1["age"]} came from our purpose statement, and the label also came from the variable name in our contract.
                       }
                 }
                 @point{
