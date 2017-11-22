@@ -15,7 +15,7 @@
 @lesson/studteach[#:title "Animations in Pyret"
         #:duration "55 minutes"
         #:overview ""
-        #:learning-objectives @itemlist[@item{Capture essense of an animation in a data structure}
+        #:learning-objectives @itemlist[@item{Capture essence of an animation in a data structure}
 	 		                 @item{Create images for single frames of an animation}
 					 @item{Write a function to generate data structure instances for a frame from the instance for the previous frame}
 					 @item{Use reactors to define animations}
@@ -84,14 +84,14 @@
 			at the bottom of the page. Use @code{sunset} as the name of the constructor.}
 			
                         You should have come up with something like this: a data block with numbers for the two coordinates.
-                      @code[#:multi-line #t]{# a SunsetState is the x-coordinate of the sun 
-                                             # and the y-coordinate of the sun
+                      @code[#:multi-line #t]{
+		      # a SunsetState is the x-coordinate of the sun 
+		      # and the y-coordinate of the sun
 		      data SunsetState:
 		       | sunset(
 		           xpos :: Number,
-			   ypos :: Number
-			   )
-		       end}
+		           ypos :: Number)
+		      end}
 		       The term @vocab{state} is used in computer science to refer to the details of a program
 		       at a specific point in time.  Here, we use it to refer to the details that are unique to
 		       a single frame of the animation.
@@ -378,7 +378,7 @@
 			
 	       @teacher{The type for tracking direction of growth gives potential for a good discussion. None of these answers are
 	                wrong.  If they were to use the boolean or the string, however, their @code{next-state-tick} function would
-			need a conditional to decide whether to add or substract from the current size.  In this exercise, they
+			need a conditional to decide whether to add or subtract from the current size.  In this exercise, they
 			aren't writing the animations, so this is less of an issue. Our real goal is to get them to imagine
 			animations and to identify the state information that underlies each one.}
 			}
@@ -438,4 +438,3 @@
 }
 
   
-

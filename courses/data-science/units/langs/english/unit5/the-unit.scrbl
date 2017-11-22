@@ -340,7 +340,7 @@
                 }
                 @point{
                       @student{
-                          Suppose we lined up all of the values in the @code{weeks} column from smallest to largest, and then split the line up into two equal groups by taking the median. The first group is the 50% of animals that waited the @italic{least} amount of time to be adopted. The second group is the 50% of animals that waited the @italic{greatest} amount of time. Now, suppose we took the medians of both groups, to divide the line into four equal sections. Data Scientists call these groups @vocab{quartiles}.
+                          Suppose we lined up all of the values in the @code{weeks} column from smallest to largest, and then split the line up into two equal groups by taking the median. The first group is the 50% of animals that waited the @italic{least} amount of time to be adopted. The fourth group is the 50% of animals that waited the @italic{greatest} amount of time. Now, suppose we took the medians of both groups, to divide the line into four equal sections. Data Scientists call these groups @vocab{quartiles}.
                           @activity[#:forevidence (list )]{
                               The first quartile (Q1) is the 25% of animals that waited the least amount of time. What do the other three quartiles represent?
                           }

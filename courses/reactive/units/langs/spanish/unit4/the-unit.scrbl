@@ -86,7 +86,7 @@
 }
 
 @point{@student{At this point, we need to remember an important lesson about the Design
-  Recipe for conditionals from Boostrap:1. If we look at the examples for @code{wear}, and circle everything that
+  Recipe for conditionals from Bootstrap:1. If we look at the examples for @code{wear}, and circle everything that
   changes, both the input (the temperature) and the output (the image) change.
   However, @code{wear} only has a single variable according to the domain in
   its contract.  Also, the image is @emph{completely dependent} on the temperature –
@@ -343,5 +343,3 @@ information about the animation.}
        
        
        
-
-

@@ -132,8 +132,8 @@
 
                                 @code[#:multi-line #t]{
                                         # use linear regression to extract a predictor function
-                                        lr-plot :: (t :: Table, xs :: Str, ys :: Str) -> Image
-                                        labeled-lr-plot :: (t :: Table, ls :: String, xs :: Str, ys :: Str) -> Image
+                                        lr-plot :: (t :: Table, xs :: String, ys :: String) -> Image
+                                        labeled-lr-plot :: (t :: Table, ls :: String, xs :: String, ys :: String) -> Image
                                 }
                                 @code{lr-plot} is a function that takes a Table and the names of columns to use for @code{xs} and @code{ys}, computes the line of best fit, and then draws it on top of the point cloud.
 
@@ -330,4 +330,3 @@
         ]
   }
 }
-

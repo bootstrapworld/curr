@@ -228,7 +228,7 @@
                                      @item{Write expressions as Circles of Evaluation}
                                      @item{Translate between Circle of Evaluation and arithmetic expressions}
 ]
-     #:evidence-statements @itemlist[@item{Students will be able to explain why arithemetic expressions require structure}
+     #:evidence-statements @itemlist[@item{Students will be able to explain why arithmetic expressions require structure}
                                      @item{Students will be able to identify the order of operations in an expression that includes 
                                            adding, subtracting, multiplying and dividing}                                     
                                      @item{Given a Circle of Evaluation, students will be able translate the expression into the 
@@ -355,7 +355,7 @@
                                  @bitmap{images/FixedCircle.png} Every Circle of Evaluation @vocab{evaluates to} the result of its 
                                  corresponding expression. @slidebreak For example, the circle on the right evaluates to @math{-1}, because 
                                  the circle says to use subtraction (the function at the top) on the numbers in order (@math{4-5}).} 
-                        @teacher{It's important for students to view the Circles of Evaluation as "just another way of writing arithemetic". 
+                        @teacher{It's important for students to view the Circles of Evaluation as "just another way of writing arithmetic". 
                                  Have students discuss whether associativity and commutativity still matter here (they do).}
                         }
                 @point{@student{@bitmap{images/Nesting.png}To use multiple functions in the same expression, we can combine Circles
@@ -368,7 +368,7 @@
                                  method is also vulnerable to Commutativity, since a student will correctly evaluate @math{1*2+2} 
                                  even if they get the order of operations wrong! Circles of Evaluation have neither of these flaws,
                                  as they put the emphasis where it should be: exercising a student's ability to see the structure 
-                                 inside the arithemetic.}
+                                 inside the arithmetic.}
                         }
                 @point{@student{@activity[#:forevidence (list "BS-CE&1&2" "5.OA.1-2&1&1")]{
                                       @bitmap{images/fill-in-circle.png}Finish writing the Circle of 
@@ -613,4 +613,3 @@
                ]
          }
 }
-

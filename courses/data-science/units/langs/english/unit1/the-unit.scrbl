@@ -49,7 +49,7 @@
             }
             @point{
                     @student{
-                             What's the greatest movie of all time? The best quarterback? Is Stop-and-Frisk racially biased? These questions quickly turn into a discussion about data - how you measure it and how you interpret the results. In this course, you'll learn how to use data to ask and answer questions like these.  The process of learning from data is called @vocab{Data Science}. Data science techniques are used by scientists, advertisers, tech companies, politicians, sports analysts, and hundreds of other different fields to ask and answer questions about data.
+                             What's the greatest movie of all time? The best quarterback? Is Stop-and-Frisk racially biased? These questions quickly turn into a discussion about data - how you measure it and how you interpret the results. In this course, you'll learn how to use data to ask and answer questions like this.  The process of learning from data is called @vocab{Data Science}. Data science techniques are used by scientists, business people, politicians, sports analysts, and hundreds of other different fields to ask and answer questions about data.
                     }
                     @teacher{
                             You can motivate relevance of data science by using additional examples that relate to student interests.  Here are a few:
@@ -232,7 +232,7 @@
         @points[
             @point{
                     @student{ 
-                            Pyret lets us use many different kinds of data. In this table you can see Numbers (the number of corners) and Strings (the name of the shape). Let's get some practice playing with both Datatypes.
+                            Pyret lets us use many different kinds of data. In this table, for example, you can see Numbers (the number of corners) and Strings (the name of the shape). Let's get some practice playing with both Datatypes.
                             @activity[#:forevidence (list "BS-PL.1&1&1" "Programming 5.5.1&1&1" "Programming 5.3.1&1&9")]{
                                 With your partner(s), go through the questions on @worksheet-link[#:name "Numbers-and-Strings"]. Talk about the answers to each question, and write down your answers when required.
                             }
@@ -305,7 +305,7 @@
             }
             @point{
                     @student{
-                            Operators like @code{<} and @code{>} come in handy when comparing quantitative data, so how do they work in Pyret?
+                            Those come in handy when comparing quantitative data, so how do they work in Pyret?
                             @activity[#:forevidence (list "BS-PL.1&1&1" "Programming 5.5.1&1&5")]{
                                 With your partner(s), complete @worksheet-link[#:name "Booleans"]. Talk about the answers to each question, and write down your answers when required.
                             }
@@ -389,7 +389,7 @@
                     @student{
                             The @code{triangle} function consumes a Number and two Strings as input, and produces an Image. As you can imagine, there are many other functions for making images, each with a different set of arguments. For each of these functions, we need to keep track of three things:
                             @itemlist[
-                                @item{@bold{Name} - the name of the function, which we type in whenver we want to use it}
+                                @item{@bold{Name} - the name of the function, which we type in whenever we want to use it}
                                 @item{@bold{Domain} - the data we give to the function (names and Types!), written between parentheses and separated by commas}
                                 @item{@bold{Range} - the type of data the function produces}
                             ]

@@ -249,7 +249,7 @@
                 }
                 @point{
                       @student{
-                              @activity[#:forevidence "BS-IDE&1&1" "Data 3.1.1&1&1" "Data 3.1.1&1&2" "Data 3.1.1&1&4"]{
+                              @activity[#:forevidence (list "BS-IDE&1&1" "Data 3.1.1&1&1" "Data 3.1.1&1&2" "Data 3.1.1&1&4")]{
                                   In the Interactions Area, use the @code{.filter} method to produce a table of all the kittens.
                               }
                       }
@@ -291,7 +291,7 @@
                 }
                 @point{
                       @student{
-                              @activity[#:forevidence "BS-IDE&1&1" "Data 3.1.1&1&3" "Data 3.1.1&1&4"]{
+                              @activity[#:forevidence (list "BS-IDE&1&1" "Data 3.1.1&1&3" "Data 3.1.1&1&4")]{
                                   In the Interactions Area, use the @code{.build-column} method to produce a table that includes a @code{nametag} column, which contains an image of the nametag for each pet.
                               }
                       }
