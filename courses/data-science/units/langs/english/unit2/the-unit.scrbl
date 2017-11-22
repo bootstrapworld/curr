@@ -16,7 +16,7 @@
                                               (list @bitmap{images/imgValue1.png} @bitmap{images/imgValue2.png}))
                                        )]{
   @unit-descr{
-    Students choose the dataset they are going to explore, and begin their research papers. In the process, they learn how to write their own definitions, first defining static values and then complete functions. They are also introduced to the Design Recipe - a structured approach to solving word problems and defining functions.
+    Students choose their dataset, and begin to explore. In the process, they learn how to write their own definitions, first defining static values and then complete functions. They are also introduced to the Design Recipe: a structured approach to solving word problems and defining functions.
   }
 }
 @unit-lessons{
@@ -61,7 +61,7 @@
                 }
                 @point{
                       @student{
-                            This file contains some new code that you haven't seen before. At the top is the @code{include} line, which imports a library of useful functions for Data Science. After that there's another two @code{include} lines, which import libraries of functions for using Google Sheets, Tables and Images as part of our program:
+                            This file contains some new code that you haven't seen before. As with our Shapes file, we have a few @code{include} lines which import useful libraries for our course. This time, we also include a library that lets us work with Google Sheets:
                             @code[#:multi-line #t]{
                               include gdrive-sheets
                               include tables
@@ -81,7 +81,7 @@
                                 source: pets-sheet.sheet-by-name("pets", true)
                               end
                             }
-                            Just as you saw with our @code{shapes} example, this code @italic{defines a new table}. This time, it's called @code{animals-table}, and it's loaded from our Google Sheet. On line 11, you can see the names we are giving to each of the columns, called @code{name}, @code{name}, @code{animal}, @code{age}, @code{fixed}, and @code{legs}.
+                            Just as you saw with our @code{shapes} example, this code @italic{defines a new table}. This time, it's called @code{animals-table}, and it's loaded from our Google Sheet. On line 12, you can see the names we are giving to each of the columns, called @code{name}, @code{species}, @code{gender}, @code{age}, @code{fixed}, @code{legs}, @code{pounts} and @code{weeks}.
                       }
                       @teacher{
                             Have students look back at the column names in the Google Sheet, and in the @code{load-table} function. Point out that they refer to the same columns, even though they have different names!
@@ -101,7 +101,7 @@
                             ]
                       }
                       @teacher{
-                            Make sure students are comfortable with @code{get-row} and row-accessors (the last four questions) before proceeding. Review with the whole class.
+                            Use the last four questions to review @code{get-row} and row-accessors (introduced in Unit 1) before proceeding. Review with the whole class.
                       }
                 }
                 @point{
@@ -114,7 +114,7 @@
                 }
                 @point{
                       @student{
-                            Are cats more popular than dogs? Do older animals take longer to get adopted? What are some questions you have about this dataset? Write down three questions you have on @worksheet-link[#:name "Animals-Dataset"].
+                            Are cats more popular than dogs? Do older animals take longer to get adopted? What are some questions someone might have about this dataset? Write down three questions you have on @worksheet-link[#:name "Animals-Dataset"].
                       }
                       @teacher{
 
@@ -142,7 +142,7 @@
         @points[
             @point{
                   @student{
-                        As you've seen Pyret allows us to define names for values using the @code{=} sign. In math, you're probably used to seeing definitions like @math{x = 4}, which defines the name @code{x} to be the value @code{4}. Pyret works the same way, and you've already seen two names defined in this file: @code{shelter-sheet} and @code{animals-table}. We generally write definitions on the left, in the Definitions Area.
+                        As you've seen, Pyret allows us to define names for values using the @code{=} sign. In math, you're probably used to seeing definitions like @math{x = 4}, which defines the name @code{x} to be the value @code{4}. Pyret works the same way, and you've already seen two names defined in this file: @code{shelter-sheet} and @code{animals-table}. We generally write definitions on the left, in the Definitions Area.
                         You can add your own definitions, for example:
                         @code[#:multi-line #t]{
                             name = "Nancy"
@@ -230,7 +230,7 @@
                 }
                 @point{
                       @student{
-                            @bannerline{Step 1: Contract and Purpose} The first thing we do is write a Contract for this function. You already know a lot about contracts: they tell us the Name, Domain and Range of the function. Our function tells us the year an animal was born, consumes an animal (represented by a @code{Row} in our table), and produces a @code{Number} representing the year. A Purpose Statement is just an description of what the function does:
+                            @bannerline{Step 1: Contract and Purpose} The first thing we do is write a Contract for this function. You already know a lot about contracts: they tell us the Name, Domain and Range of the function. Our function tells us the year an animal was born, consumes an animal (represented by a @code{Row} in our table), and produces a @code{Number} representing the year. A Purpose Statement is just a description of what the function does:
                             @code[#:multi-line #t]{
                               birth-year :: (animal :: Row) -> Number
                               # Consumes an animal, and produces the year it was born
@@ -242,7 +242,7 @@
                 }
                 @point{
                       @student{
-                            @bannerline{Step 2: Write Examples} You already know how to write examples for built-in functions, where we write the @italic{answer} we expect to get back. Just as we did before, we start with the name of the function we're writing, followed by an example input. When defining @italic{new} functions, we don't just want to write our answer - we want to show our work! Let's use one of the pets we defined earlier as an example, and write one example that shows the answer and another that @italic{shows the work} we need to do to get there.
+                            @bannerline{Step 2: Write Examples} You already know how to write examples for built-in functions, where we write the @italic{answer} we expect to get back. Just as we did before, we start with the name of the function we're writing, followed by an example input. When defining @italic{new} functions, we don't just want to write our answer - we also want to show our work! Let's use one of the pets we defined earlier as an example, and write one example that shows the answer and another that @italic{shows the work} we need to do to get there.
                             @code[#:multi-line #t]{
                               birth-year :: (animal :: Row) -> Number
                               # Consumes an animal and produces the year it was born
@@ -254,7 +254,7 @@
                             While both examples here are correct, we want to use the second one that shows our work.
                       }
                       @teacher{
-                            Make sure students see that these two examples are @italic{equivalent}. Walk through this first example @italic{carefully}. Make sure students understand where the @code{birth-year} came from the Name in our contract, and that @code{pet1} came from the Domain in our contract. @code{2017 - pet1["age"]} came from our purpose statement, and the label also came from the variable name in our contract.
+                            Make sure students see that these two examples are @italic{equivalent}. Walk through this first example @italic{carefully}. Make sure students understand where the @code{birth-year} came from the Name in our contract, and that @code{pet1} came from the Domain in our contract. @code{2018 - pet1["age"]} came from our purpose statement, and the label also came from the variable name in our contract.
                       }
                 }
                 @point{

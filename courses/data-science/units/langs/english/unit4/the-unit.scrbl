@@ -83,7 +83,7 @@
         @points[
                 @point{
                       @student{
-                              You've now seen two kinds of charts: @vocab{bar chart} and @vocab{pie charts}. Both charts involve quantities and labels: each bar and slice is a measure of a quantitative column, and each one has a label. Both charts help us look at the whole dataset at once, and answer questions about @italic{quantity}. As you've observed, bar chars are great when we want to know exactly "how much" of a thing is contained in a single row. Pie charts, on the other hand, are best when we want to know "what percent" of the thing in our table is contained in a single row.
+                              You've now seen two kinds of charts: @vocab{bar chart} and @vocab{pie charts}. Both charts involve quantities and labels: each bar and slice is a measure of a quantitative column, and each one has a label. Both charts help us look at the whole dataset at once, and answer questions about @italic{quantity}. As you've observed, bar charts are great when we want to know exactly "how much" of a thing is contained in a single row. Pie charts, on the other hand, are best when we want to know "what percent" of the thing in our table is contained in a single row.
 
                               @activity[#:forevidence "BS-IDE&1&1"]{
                                 Open your "Animals Dataset (w/Functions)" file. (If you do not have this file, or if something has happened to it, you can always make a @editor-link[#:public-id "0BzzMl1BJlJDkbnZhbE1QSEE0eEE" "new copy"].)
@@ -246,7 +246,7 @@
                           }
                     }
                     @teacher{
-
+                          If you're teaching a math or statistics class, go deeper to discuss sampling techniques and sample errors.
                     }
               }
               @point{

@@ -32,21 +32,19 @@
                       @activity[#:forevidence (list "6.SP.1-3&1&1")]{
                             @itemlist[
                                 @item{
-                                    Once you've selected your topic, break into groups of no more than 4 and choose a question you'd like to answer.
+                                    Once you've selected your topic, choose a question you'd like to answer.
                                 }
                                 @item{
-                                    Spend one minute discussing your answer, and explaining @italic{why} you answered the way you did. Does everyone in your group have the same answer? Why or why not?
+                                    Spend one minute discussing your answer, and explaining @italic{why} you answered the way you did. Do other students agree with you?
                                 }
                                 @item{
-                                    What kind of @italic{measurement} would you use to determine if your answer is right or not? What data would you need?
-                                }
-                                @item{
+                                    WHat could you @italic{measure} to determine if your answer is right or not?
                                 }
                             ]
                       }
                   }
                   @teacher{
-                        Have students self-select into groups (no larger than 4), with each group choosing an Opening Question (or writing their own). After they've had time to discuss, have a few students share back what they talked about.
+                        Have students work in groups (no larger than 4), with each group choosing an Opening Question (or writing their own). After they've had time to discuss, have a few students share back what they talked about.
                   }
             }
             @point{
@@ -61,16 +59,16 @@
                                     @item{@(hyperlink "http://www.kdnuggets.com/2016/06/politics-analytics-trump-clinton-sanders-twitter-sentiment.html"  "Election Analysis")}
                                     @item{@(hyperlink "http://fivethirtyeight.com/" "Polling")}
                                     @item{@(hyperlink "http://games.espn.com/fba/tools/projections" "Predicting Sports Performance")}
-                                    @item{@(hyperlink "http://www.salon.com/2015/07/18/how_big_data_can_help_save_the_environment_partner/" "Environmental")}
+                                    @item{@(hyperlink "http://www.salon.com/2015/07/18/how_big_data_can_help_save_the_environment_partner/" "Climate Change")}
                             ]
                     }
              }
              @point{
                     @student{
-                            In order to ask questions from data, we'll use a @vocab{programming language}. Just like any human language (English, Spanish, French), programming languages have their own vocabulary and grammar that you will need to learn. The language you'll be learning for data science is called @italic{Pyret}.
+                            We'll use a @vocab{programming language} to investigate these questions. Just like any human language, programming languages have their own vocabulary and grammar that you will need to learn. The language you'll be learning for data science is called @italic{Pyret}.
                     }
                     @teacher{
-                            Set expectations for the class.  This course is an introduction to programming and data science, so some of the questions students want to answer may be out of scope.  However, this course will give students a foundation to answer their more complicated questions later in their data science education.
+                            Set expectations for the class.  This course is an @italic{introduction} data science, so some questions will be out of reach!
                     }
              }
              @point{
@@ -86,24 +84,25 @@
              @point{
                     @student{
                             @bitmap{images/wireframeIDE.png}
-                            This screen is called the @vocab{editor}, and it looks something like the diagram you see here. There are a few buttons at the top, but most of the screen is taken up by two large boxes: the @vocab{Definitions area} on the left and the @vocab{Interactions area} on the right.
+                            This screen is called the @vocab{editor}, and it looks something like the diagram you see here. There are a few buttons at the top, but most of the screen is taken up by two large boxes: the @vocab{Definitions Area} on the left and the @vocab{Interactions Area} on the right.
 
                             For now, we will only be writing programs in the Interactions area.
                     }
                     @teacher{
-                            The Definitions Area is where programmers define values and functions in their program, while the Interactions Area allows them to experiment with those values and functions. This is analogous to writing a series of function definitions on a blackboard, and having student evaluate expressions using those function on scrap paper. As students are not yet defining values of their own, it is not important that students understand this distinction right now.  For now, we will work only with the Interactions area.
+                            The Definitions Area is where programmers define values and functions that they want to keep, while the Interactions Area allows them to experiment with those values and functions. This is like writing function definitions on a blackboard, and having student use those functions to compute answers on scrap paper.
                     }
              }
              @point{
                     @student{
-                            When you click "Run", Pyret reads what's written in the Definitions Area on the left, and allows us to use those definitions on the right. The first line of code on the left loads our DataScience library, which has some code that will help us in the course. The rest of the program, however, defines a @vocab{Table} called @code{shapes}.
+                            When you click "Run", Pyret reads what's written in the Definitions Area on the left, and allows us to use those definitions on the right. The first lines of code on in the Definitions Area load our Data Science library, which has some useful code that will help us in the course, as well as some libraries for working with Tables and making Images. The rest of the program defines a @vocab{Table} called @code{shapes}.
                     }
                     @teacher{
+
                     }
              }
              @point{
                     @student{
-                            Now that we've clicked "Run", we can play with that definition. Type @code{shapes} into the Interactions Area and hit Enter...
+                            Now that we've clicked "Run", we can play with our @code{shaped} Table. Type @code{shapes} into the Interactions Area and hit Enter...
                     }
                     @teacher{
 
@@ -131,7 +130,7 @@
         @points[
             @point{
                     @student{
-                            What comes back is called a @vocab{Table}. Pyret allows us to define names for values, and in this case the name @code{shapes} has been defined as the table you see here. Every table has as @vocab{header row}, which names each column in the table. The @code{shapes} table has two columns, for the @code{name} and number of @code{corners} each shape has.
+                            What comes back is called a @vocab{Table}. Pyret allows us to define names for values, and in this case the name @code{shapes} has been defined as the table you see here. Every table has as @vocab{header row}, which names each column in the table. The @code{shapes} table has two columns:  the @code{name} of the shape, and the number of @code{corners}.
                             @build-table/cols[
                                         '("name" "corners")
                                         '(("triangle" "square")
@@ -146,7 +145,7 @@
             }
             @point{
                     @student{
-                            After the header row, tables can have @vocab{data rows}. Each data row has values for each column (nothing can be left empty!), and table can have an infinite number of rows. A table can even have @italic{zero} data rows:
+                            After the header row, tables can have @vocab{data rows}. Each data row has values for every column (nothing can be left empty!). A table can have any number of data rows, including @italic{zero}:
                             @build-table/cols[
                                 '("name" "corners")
                                 '(())
@@ -160,7 +159,7 @@
             }
             @point{
                     @student{
-                            It's important to remember that tables are only a proxy for the real thing: this table @italic{describes} some shapes we've observed, but it isn't the shapes themselves! 
+                            It's important to remember that tables are only a approximation of the real thing: this table @italic{describes} some shapes we've observed, but it isn't the shapes themselves! 
                             @activity[#:forevidence (list "BS-M&1&2" "BS-M&1&3" "BS-PL.1&1&1")]{
                                 Add rows to this table for @code{circle}, @code{ellipse} and @code{rectangle}. Pay close attention to how you use commas and colons, since these are part of the program! When you're done, click "Run" and print out your new-and-improved @code{shapes} table.
                             }
@@ -172,9 +171,9 @@
             }
             @point{
                     @student{
-                            Before we can dive into all of the cool things you can do with tables, we need to understand the two different kinds of data that come up in Data Science: Categorical and Quantitative. @vocab{Quantitative Data} is used to measure an @italic{amount} of something, or to compare two pieces of data to see which is @italic{less or more}. If we want to ask "how much" or "which is most", we're talking about Quantitative Data.
+                            Before we dive into all of the cool things you can do with tables, we need to understand the two different kinds of data that come up in Data Science: Categorical and Quantitative. @vocab{Quantitative Data} is used to measure an @italic{amount} of something, or to compare two pieces of data to see which is @italic{less or more}. If we want to ask "how much" or "which is most", we're talking about Quantitative Data.
                             @activity[#:forevidence (list )]{
-                                "Who is the tallest student?" is an example of a question that needs Quantitative Data. Can you come up with additional quantitative questions?
+                                "Who is the tallest student?" is an example of a question that is answered with Quantitative Data. What are some other questions you can come up with?
                             }
                     }
                     @teacher{
@@ -253,16 +252,16 @@
                                         Anything in quotes is a String value, even something like @code{"42"}. Data scientists care about the difference between Numbers and Strings. ZIP codes, for example, contain only numbers, but the ZIP code 02125 is definitely not the same as the number 2125!
                                     }
                                     @item{
-                                        Strings must have an open and close quotation mark. Having only one is an error.
+                                        Strings must have quotation marks on both sides. Having only one is an error.
                                     }
                                     @item{
                                         Operators like @code{+}, @code{-}, @code{*}, and @code{/} need spaces around them.
                                     }
                                     @item{
-                                        Any time there is more than one operator being used, Pyret demands that you use parentheses.
+                                        Any time there is more than one operator being used, Pyret requires that you use parentheses.
                                     }
                                     @item{
-                                        Types matter! We can add two Numbers or two Strings, but we can't add the Number @code{4} to the String @code{"hello"}.
+                                        Types matter! We can add two Numbers or two Strings to one another, but we can't add the Number @code{4} to the String @code{"hello"}.
                                     }
                             ]
                     }
@@ -272,7 +271,7 @@
             }
             @point{
                     @student{
-                            You've also seen a few @vocab{error messages} here. Error messages are a way for Pyret to give you a hint that something went wrong, and are a really helpful way of finding mistakes! You've seen errors for missing spaces around operators, missing quotation marks, and mismatched operators without parentheses. What other errors do you think there are?
+                            You've also seen a few @vocab{error messages} here. Error messages are a way for Pyret to tell you what went wrong, and are a really helpful way of finding mistakes! You've seen errors for missing spaces around operators, missing quotation marks, and mismatched operators without parentheses. What other errors do you think there are?
                             @itemlist[
                                     @item{
                                             In @code{6 / 0} we know that you can't divide any number by 0!  In this case,
@@ -293,10 +292,10 @@
                             As you've seen, operators like @code{+} and @code{-} behave exactly the way in Pyret that they do in math class: they add and subtract Numbers, and produce new Numbers! But what about operators like @code{<} and @code{>}? 
                             @itemlist[
                                 @item{
-                                    We need to know if one person's age is @italic{less than} someone else's if we want to sort the table by age.
+                                    To sort the table by age, we need to know if one person's age is @italic{less than} someone else's.
                                 }
                                 @item{
-                                    We need to know if one person's age is @italic{less than} 35 if we want to filter the table to show only young people.
+                                    To filter the table to show only young people, we need to know if one person's age is @italic{less than} 25.
                                 }
                             ]
                     }
@@ -312,7 +311,7 @@
                             }
                     }
                     @teacher{
-                            Have students share back. Point out that all the same rules about parentheses, spacing, and types still applies!
+                            Have students share back. Point out that all the same rules about parentheses, spaces, and types still applies!
                     }
             }
             @point{
@@ -327,7 +326,7 @@
                     @student{
                             You've already gotten some practice adding rows to the table. But what if we want to add a column, to track whether or not a shape has any corners or not? Which shapes have corners and which don't?
                             @activity[#:forevidence (list "BS-PL.1&1&1" "Programming 5.5.1&1&5")]{
-                                Add a new column, @code{is-round} to the table, then add a Boolean value to the end of each row indicating whether or not that shape has corners. Is this column made up of qualitative of categorical data?
+                                Add a new column, @code{is-round} to the table, then add a Boolean value to the end of each row indicating whether or not that shape has corners. Is this column made up of qualitative or categorical data?
                             }
                     }
                     @teacher{
@@ -372,9 +371,14 @@
             }
             @point{
                     @student{
-                        You've just created an example of a new Datatype, called an @italic{Image}. And you used something called a @vocab{function} to do it. The values that we give to a function are called its @vocab{arguments}. How many arguments are we giving to @code{triangle} in this example? What are the @italic{types} of those arguments? How does this output relate to the two inputs?
+                        You've just created an example of a new Datatype, called an @italic{Image}. And you used something called a @vocab{function} to do it. The values that we give to a function are called its @vocab{arguments}. 
+                        @itemlist[
+                          @item{ How many arguments are we giving to @code{triangle} in this example? }
+                          @item{ What are the @italic{types} of those arguments? }
+                          @item{ How does this output relate to the two inputs? }
+                        ]
                         @activity[#:forevidence (list "BS-PL.1&1&2")]{
-                            Take a minute to try making different triangles. Change the size and color! Is there a something besides @code{"solid"} we can use for the second argument?
+                            Take a minute to try making different triangles. Change the size and color! Try using @code{"outline"} for the second argument.
                         }
                     }
                     @teacher{
@@ -383,13 +387,13 @@
             }
             @point{
                     @student{
-                            The @code{triangle} function needs a Number and two Strings as input, and it produces an Image. As you can imagine, there are many other functions for making images, each with a different set of arguments. For each function we learn, we need to keep track of three things:
+                            The @code{triangle} function consumes a Number and two Strings as input, and produces an Image. As you can imagine, there are many other functions for making images, each with a different set of arguments. For each of these functions, we need to keep track of three things:
                             @itemlist[
                                 @item{@bold{Name} - the name of the function, which we type in whenever we want to use it}
                                 @item{@bold{Domain} - the data we give to the function (names and Types!), written between parentheses and separated by commas}
                                 @item{@bold{Range} - the type of data the function produces}
                             ]
-                            Domain and Range are @italic{Types}, not specific values. As a convention,  @bold{we capitalize Types and keep names in lowercase when writing contracts}. @code{triangle} works on many different Numbers, not just the @code{20} we used in the example above!
+                            Domain and Range are @italic{Types}, not specific values. As a convention, @bold{we capitalize Types and keep names in lowercase when writing contracts}. @code{triangle} works on many different Numbers, not just the @code{20} we used in the example above!
                     }
                     @teacher{
 
@@ -402,7 +406,7 @@
 
                                 @itemlist[
                                         @item{
-                                                @code{triangle(2, "solid", "red")}
+                                                @code{triangle(20, "solid", "red"}
                                         }
                                         @item{
                                                 @code{triangle(20 "solid" "red")}
@@ -421,7 +425,7 @@
                             @itemlist[
                                     @item{
                                             Pyret needs both parentheses around the arguments, so that 
-                                            it knows exactly where function call begins and ends.
+                                            it knows exactly where the expression begins and ends.
                                     }
                                     @item{
                                             Arguments must be separated with a comma.
@@ -440,12 +444,12 @@
             }
             @point{
                     @student{
-                            These three parts make up a @vocab{contract} for each function. What are the Name, Domain and Range of @code{triangle}?
+                            These three parts make up a @vocab{contract} for each function. What are the Name, Domain, and Range of @code{triangle}?
                             @code[#:multi-line #t]{
                                     # triangle :: (side :: Number, mode :: String, color :: String) -> Image
                             }
                             The first part of a contract is the function's name. In this example, our function is named @code{triangle}. 
-                            The second part of a contract is the @vocab{Domain}, or the types of arguments the function expects. @code{triangle} expects a Number and two Strings as arguments, so we write @code{Number, String, String} to indicate the Domain, with commas between each one (just like lists!).  
+                            The second part is the @vocab{Domain}, or the types of arguments the function expects. @code{triangle} expects a Number and two Strings as arguments, so we write @code{Number, String, String} to indicate the Domain, with commas between each one (just like lists!).  
                             Finally, after the arrow goes the type of the @vocab{Range}, or the function's output, which in this case is Image.
                             @activity[#:forevidence (list "BS-PL.2&1&1" "BS-PL.2&1&2" "BS-IDE&1&1" "BS-IDE&1&2")]{
                                 Turn to the back of your workbook. We've given you the contracts for many Image-producing functions (as well as quite a few others!). Try using some of these contracts to make shapes.
@@ -457,14 +461,14 @@
             }
             @point{
                     @student{
-                            We can extend our @code{shapes} table even further, by adding a column called @code{example}. Then, for each row, add an expression that will create an example of that shape. For example:
+                            We can extend our @code{shapes} table even further, by adding a column called @code{sample}. Then, for each row, add an expression that will create an example of that shape. For example:
                             @code[#:multi-line #t]{
-                                shapes = table: name, corners, is-round, example
+                                shapes = table: name, corners, is-round, sample
                                   row: "triangle", 3, true, triangle(20, "solid", "green")
                                   row: "square", ...
                             }
                             @activity[#:forevidence (list )]{
-                                Complete the @code{example} column in the @code{shapes} table by applying the other relevant functions.
+                                Complete the @code{sample} column in the @code{shapes} table by applying the other relevant functions.
                             }
                     }
                     @teacher{
@@ -473,7 +477,7 @@
             }
             @point{
                     @student{
-                            The library included at the top of the file includes some helper functions that are useful for DataScience, which we will use throughout this course. Here's the contract for one of them:
+                            The library included at the top of the file includes some helper functions that are useful for Data Science, which we will use throughout this course. Here's the contract for one of them:
                             @code[#:multi-line #t]{
                                 get-row :: (t :: Table, index :: Number) -> Row
                             }
@@ -508,7 +512,7 @@
         @points[
             @point{
                     @student{
-                            Functions are powerful tools that let us transform data, and it's a good idea to jot down a few examples to make sure we understand them. In the next Unit, you'll learn how to make your @italic{own} functions, and writing examples will become even more important. Pyret gives us an easy way to write examples, using something called @code{example:} blocks.
+                            Functions are powerful tools that let us transform data, and it's a good idea to jot down a few examples to make sure we understand them. Pyret gives us an easy way to write examples, using something called @code{example:} blocks.
                     }
                     @teacher{
 
@@ -583,7 +587,7 @@
                                     get-row(shapes, 1)["corners"] is 4
                             }
                             @activity[#:forevidence (list "BS-DR.2&1&1")]{
-                                Add three examples to your block that use this technique. Challenge: can you write an one for the @code{example} column?
+                                Add three examples to your block that use this technique. Challenge: can you write an example for the @code{sample} column?
                             }
                     }
                     @teacher{
@@ -628,7 +632,7 @@
              }
              @point{
                     @student{
-                            By learning to use values, variables, operations and functions, you are now familiar with the fundamental concepts needed to write simple programs.  You will have many opportunities to use these concepts in the next units, by writing programs to answer data science questions.
+                            By learning to use values, operations and functions, you are now familiar with the fundamental concepts needed to write simple programs.  You will have many opportunities to use these concepts in this course, by writing programs to answer data science questions.
 
                             @activity[#:forevidence "BS-IDE&1&1"]{
                                     Make sure to save your work, so you can go back to it later!

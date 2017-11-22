@@ -16,7 +16,7 @@ when it prints out the glossary for a particular unit
     (("bar chart" "bar charts") "a visualization in which a data set is represented by vertical bars, with length proportional to values")
     (("bin" "bins") "A range that values from a data set can belong to; there is one bar in a histogram per bin")
     ("boolean" "a type of data with two values: true and false")
-    (("box plot" "box plots") "The box plot (a.k.a. box and whisker diagram) is away of displaying the distribution of data based on the five number summary: minimum, first quartile, median, third quartile, and maximum")
+    (("box plot" "box plots") "The box plot (a.k.a. box and whisker diagram) is a way of displaying the distribution of data based on the five-number summary: minimum, first quartile, median, third quartile, and maximum")
     (("calling" "calls") "Using a function by giving it inputs")
     (("category" "categories") "the set of possible values that a value in a categorical data set can have")
     ("categorical data" "kind of data with a value that has a fixed number of possible values")

@@ -42,7 +42,7 @@
         @points[
                 @point{
                       @student{
-                              Animal shelters make decisions about food, capacity and policies based on how long it takes for animals to be adopted. But looking at the whole table of animal weights is tedious, and isn't always the easiest way to to make sense of the data. What we want is a way to @italic{summarize} a dataset, so that we can describe the data quickly and easily.
+                              Animal shelters make decisions about food, capacity and policies based on how long it takes for animals to be adopted. But looking at the entire @code{weeks} column is tedious, and isn't always the easiest way to make sense of the data. What we want is a way to @italic{summarize} a dataset, so that we can describe the data quickly and easily.
                       }
                       @teacher{
 
@@ -63,7 +63,7 @@
                               "The average pets waits 6 weeks" is a statement about the entire dataset, which summarizes a whole column of values into a single number. Summarizing a big dataset means that some information gets lost, so it's important to @italic{pick the right summary}. Picking the wrong summary can have serious implications! Here are just a few examples of summary data being used for important things. Do you think these summaries are accurate or not?
                               @itemlist[
                                   @item{ 
-                                      Students are sometimes summarized by a two numbers - their GPA and SAT scores - which can impact where they go to college or how much financial aid they get.
+                                      Students are sometimes summarized by two numbers - their GPA and SAT scores - which can impact where they go to college or how much financial aid they get.
                                   }
                                   @item{
                                       Schools are sometimes summarized by a few numbers - student pass rates and attendance, for example - which can determine whether or not the school gets shut down.
@@ -134,9 +134,9 @@
                                 mean :: (t :: Table, col :: String) -> Number
                               }
                               @activity[#:forevidence (list )]{
-                                  What is it's name? Domain? Range?
+                                  What is its name? Domain? Range?
                               }
-                              Notice that calculating the @vocab{mean} requires being able to add and divide, so the @vocab{mean} only makes sense for quantitative data.  For example, the mean of a list of Presidents doesn't make sense.  Same thing for a list of zipcodes:  even though we can add and divide the numbers of zipcodes, the output doesn't correspond to some "center" zipcode.
+                              Notice that calculating the @vocab{mean} requires being able to add and divide, so the @vocab{mean} only makes sense for quantitative data.  For example, the mean of a list of Presidents doesn't make sense.  Same thing for a list of zip codes:  even though we can and divide the numbers of zip codes, the output doesn't correspond to some "center" zip code.
                       }
                       @teacher{
 
@@ -163,7 +163,7 @@
                 }
                 @point{
                       @student{
-                              In this case, the mean is being thrown off by a few extreme datapoints. These extreme points are called @vocab{outliers}, because they fall far outside of the rest of the dataset. Calculating the mean is great when all the points in a dataset are evenly distributed, but it breaks down for datasets with huge outliers.
+                              In this case, the mean is being thrown off by a few extreme data points. These extreme points are called @vocab{outliers}, because they fall far outside of the rest of the dataset. Calculating the mean is great when all the points in a dataset are evenly distributed, but it breaks down for datasets with huge outliers.
                       }
                       @teacher{
 
@@ -171,7 +171,7 @@
                 }
                 @point{
                       @student{
-                              Another way to measure center is to line up all of the datapoints - in order - and find a point in the center where half of the values are smaller and the other half are larger. This is the @vocab{median}, or "middle" value of a list.
+                              Another way to measure center is to line up all of the data points - in order - and find a point in the center where half of the values are smaller and the other half are larger. This is the @vocab{median}, or "middle" value of a list.
                       }
                       @teacher{
                               
@@ -212,7 +212,7 @@
                               @code{# median :: (t :: Table, col :: String) -> Number}
 
                               @activity[#:forevidence (list "S-ID.1-4&1&1" "6.SP.1-3&1&1" "6.SP.1-3&1&2" "6.SP.1-3&1&3" "HSS.ID.A&1&2")]{
-                                    Compute the @code{median} for the @code{weeks} column in our dataset, and add this to your workbook. Is it different than the mean? What can we conclude when the median is so much lower than the mean? For practice, compute the mean and median for the @code{weight} and @code{age} columns.
+                                    Compute the @code{median} for the @code{weeks} column in our dataset, and add this to @worksheet-link[#:name "Summarizing-Weeks"]. Is it different than the mean? What can we conclude when the median is so much lower than the mean? For practice, compute the mean and median for the @code{weight} and @code{age} columns.
                               }
                       }
                       @teacher{
@@ -243,7 +243,7 @@
                                     The mode list of the second value is @italic{2}, since 2 appears more than any other number.
                                 }
                                 @item{
-                                    The mode list of the last value is @italic{a list containing 1 and 4}, because @code{1} and @code{4} both appear more often than any other element, and because they are appear equally often.
+                                    The mode list of the last value is @italic{a list containing 1 and 4}, because @code{1} and @code{4} both appear more often than any other element, and because they appear equally often.
                                 }
                               ]
                       }
@@ -258,7 +258,7 @@
                                     # modes :: (t :: Table, col :: String) -> List<Number>
                               }
                               @activity[#:forevidence (list "S-ID.1-4&1&1" "6.SP.1-3&1&1" "6.SP.1-3&1&2" "6.SP.1-3&1&3" "HSS.ID.A&1&2")]{
-                                  Compute the @code{modes} of the @code{weeks} column, and fill in the answer to Question 4. What did you get? The most common number of weeks an animal waits is only @code{1}! That's well below our mean, which is further proof that there must be some outliers skewing the results.
+                                  Compute the @code{modes} of the @code{weeks} column, and add it to @worksheet-link[#:name "Summarizing-Weeks"]. What did you get? The most common number of weeks an animal waits is only @code{1}! That's well below our mean, which is further proof that there must be some outliers skewing the results.
                               }
                       }
                       @teacher{
@@ -320,7 +320,7 @@
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
-     #:standards (list "HSS.ID.A&1&2" "6.SP.4-5" "S.ID.1-4")
+     #:standards (list "HSS.ID.A&1&2" "6.SP.4-5" "S-ID.1-4")
      #:materials @itemlist[]
      #:preparation @itemlist[]
      #:pacings (list 
@@ -356,7 +356,7 @@
                             box-plot :: (t :: Table, column :: String) -> Image
                             box-plot(animals-table, "pounds")
                           }
-                          @activity[#:forevidence (list "S-ID.1-4&1&2" "HSS.ID.A&1&1" "HSS.ID.A&1&2" "6.SP.4-5&1&1" "S.ID.1-4&1&1")]{
+                          @activity[#:forevidence (list "S-ID.1-4&1&2" "HSS.ID.A&1&1" "HSS.ID.A&1&2" "6.SP.4-5&1&1" "S-ID.1-4&1&1")]{
                               Type in this expression in the Interactions Area, and see the resulting plot.
                           }
                       }
@@ -379,10 +379,10 @@
                                   The @bold{maximum} value in the dataset (at the top). In our dataset, that's 30 weeks.
                               }
                               @item{
-                                  The @bold{First Quartile (Q1)} (the bottom edge of the box), which is computed by taking the @italic{the median of the all the smaller half of the values}.
+                                  The @bold{First Quartile (Q1)} (the bottom edge of the box), which is computed by taking @italic{the median of the all the smaller half of the values}.
                               }
                               @item{
-                                  The @bold{Third Quartile (Q3)} (the bottom edge of the box), which is computed by taking the @italic{the median of the all the larger half of the values}.
+                                  The @bold{Third Quartile (Q3)} (the bottom edge of the box), which is computed by taking  @italic{the median of the all the larger half of the values}.
                               }
                           ]
                       }
@@ -394,7 +394,7 @@
                       @student{
                           One way to summarize the variation in the dataset is to measure the distance between the largest value and the smallest value. When we talk about functions having many possible outputs, we use the term "Range" to describe them. When we look at all the values between the smallest and largest in our dataset, we use the same term.
                           @activity[#:forevidence (list "HSS.ID.A&1&2")]{
-                              Find the @vocab{range} of this dataset. 
+                              On page @worksheet-link[#:name "Summarizing-Weeks"], and fill in the five-number summary for the @code{weeks} column, and sketch the box-plot. Find the @vocab{range} of this dataset. 
                           }
                       }
                       @teacher{
@@ -415,6 +415,9 @@
                 @point{
                       @student{
                           The @vocab{Range} of our dataset is 29 weeks, but the @vocab{interquartile range} is only 5.5 weeks! That means that @italic{50% of the animals} fall into only 19% of the range! That tells us that there are definitely a lot of outliers. Looking at the first and third quartiles, we can conclude that the interquartile range is also @italic{skewed towards the minimum}.
+                          @activity{
+                            On page @worksheet-link[#:name "Summarizing-Weeks"], write down your conclusion for this box-plot.
+                          }
                       }
                       @teacher{
 
@@ -528,7 +531,7 @@
                 }
                 @point{
                     @student{
-                        By now, you've got a good handle on how to think talk about measures of center variation, and it times to turn those skills to your dataset!
+                        By now, you've got a good handle on how to think talk about measures of center variation, and it's time to apply those skills to your dataset!
                         @activity[#:forevidence (list "Data 3.1.2&1&1" "Data 3.1.2&1&2" "Data 3.1.2&1&3" "Data 3.1.2&1&4" "Data 3.1.2&1&5")]{
                             Take 10 minutes to fill out @worksheet-link[#:name "Summarizing-My-Dataset"] in your Student Workbook. Choose a column to investigate, and write up your findings.
                         }

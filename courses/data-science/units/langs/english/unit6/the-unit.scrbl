@@ -92,7 +92,7 @@
                                      (lambda (r c) (para ""))
                                      4 8
                               ]
-                              What can we say about this table? How many rows and columns does it have? Are they categorical or quantitative? Could we talk about the mean, median or modes of some of this columns? Which ones?
+                              What can we say about this table? How many rows and columns does it have? Are they categorical or quantitative? Could we talk about the mean, median or modes of some of these columns? Which ones?
                       }
                       @teacher{
 
@@ -128,7 +128,7 @@
                 }
                 @point{
                       @student{
-                              This works great for categorical data - there are only so many types of animals at our shelter! But what if we wanted to see a frequency of quantitative data, like the weights of each animal? There are so many unique weights in our table that we'd have have a hundred different bars, all the same size! What we want is a way to @italic{group the values into bins}, so all the animals weighing between 0 and 20 pounds are counted together, then the animals weighing 21-40 pounds, and so on.
+                              This works great for categorical data - there are only so many types of animals at our shelter! But what if we wanted to see a frequency of quantitative data, like the weights of each animal? There are so many unique weights in our table that we'd have a hundred different bars, all the same size! What we want is a way to @italic{group the values into bins}, so all the animals weighing between 0 and 20 pounds are counted together, then the animals weighing 21-40 pounds, and so on.
                       }
                       @teacher{
 
@@ -175,7 +175,7 @@
                                 @itemlist[
                                     @item{ Frequency bar charts are for categorical data, but histograms are for quantitative data }
                                     @item{ The bars in a histogram are @italic{ordered} according to the ranges of the bins }
-                                    @item{ The size of the bins are adjustable }
+                                    @item{ The size of the bins is adjustable }
                                 ]
                               These differences are made possible because quantitative data can be @italic{compared} - one bar can be said to be "greater than" than another bar, and a value can be said to be "within" the range of a bin. For categorical data, neither of these is the case, so we use bar charts instead of histograms. Frequency bar charts are only for counting the frequency of categorical data. In this chart, the weights of all the animals are groups into bins. How big are these bins?
                       }
@@ -191,7 +191,7 @@
                                 histogram(animals-table, "pounds", 20)    # show the frequency of weights (in 20-pound bins)
                               }
                               @activity[#:forevidence (list )]{
-                                  In the Interactions Area, type in the example to make a histogram of the animals, broken down by weight into 20-pound bins. Then try playing with the the bin-size. Is it useful to have a bin-size of 1? What about 100?
+                                  In the Interactions Area, type in the example to make a histogram of the animals, broken down by weight into 20-pound bins. Then try playing with the bin-size. Is it useful to have a bin-size of 1? What about 100?
                               }
                       }
                       @teacher{
