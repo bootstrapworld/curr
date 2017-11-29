@@ -7,7 +7,7 @@
 @unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / num-sqr num-sqrt} "1 ,4 ,44.6") 
                                        (list "String" @code{string-append string-length} " \"hello\" ")                          
                                        (list "Image" @code{rectangle circle triangle ellipse star text} "circle(25, \"solid\", \"red\")"))]{
-@unit-descr{Students discover the need for compound date - data structures - using 2-dimensional
+@unit-descr{Students discover the need for compound date - data structures - using 2-dimentionsal
             animation. They learn the syntax for data blocks, constructors and dot-accessors, and
             practice each by creating a "digital bakery".}
 }
@@ -106,7 +106,7 @@ end}
         #:product-outcomes @itemlist[@item{Students identify real-world behaviors that require data structures}]
         #:standards (list "BS-M" "BS-DR.1" "BS-DR.2" "BS-DR.3" "BS-DR.4" "BS-IDE")
         #:materials @itemlist[@item{}]
-        #:preparation @itemlist[@item{The @editor-link[#:public-id "0B9rKDmABYlJVbUVUeVJDZ1p3Ulk" "Parachute Jumper"] file preloaded on student machines}]
+        #:preparation @itemlist[@item{The @editor-link[#:public-id "0B9rKDmABYlJVWUlZTHVVRDFOdk0" "Package Delivery"] file preloaded on student machines}]
         #:prerequisites (list)
         #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -115,58 +115,130 @@ end}
                 )
       ]{
           @points[
-                   @point{@student{@activity{Open the @editor-link[#:public-id "0B9rKDmABYlJVbUVUeVJDZ1p3Ulk" "Parachute Jumper"] file on your computer and press 'Run'. What happens?}
-                                    The parachute jumper jumps out of the airplane and falls straight down, into the water! It's much safer to land on the shore. Let's take a look at the code to see why he falls into the water instead. There are a few new concepts in this file, but first, let's focus on what you already know.
-                                    @activity[#:forevidence (list)]{Look at the function defined here called @code{next-position}. @itemlist[@item{What is this function's Domain? Its Range?}
-                                    @item{What does @code{next-position} do with its inputs?}]}
-                                    This function takes in two numbers, representing the x and y coordinate of the parachute jumper, but it changes and returns only the y-coordinate, by subtracting 5 from it. But if only the y-coordinate is changing, he'll always fall straight down, landing in the water every time. To reach the land, he'll have to fall diagonally. How could we make that happen?
-                                    @activity[#:forevidence (list)]{How should the jumper's x-coordinate change if he moves diagonally to the right (toward the land)? How should his y-coordinate change?}}
-                           @teacher{}}
-                    
-                    @point{@student{Functions can return only one thing at a time, but we need to return both an x @bold{and} a y-coordinate in order to make the jumper move diagonally. Thankfully, we have a way to combine multiple things within one container, called a @vocab{Data Structure}. Just like Racket and Pyret have built-in functions and also let you define your own functions, these languages allow you to create your own data structures as well. For this project, we've created a structure for you to use called @code{JumperState}, which contains two Numbers, representing an x and a y-coordinate.                                                                            @activity{Look at line 6, where we've defined @code{JumperState}. We'll go through the new syntax for defining a data structure, because very soon you'll be defining brand new structures of your own!}
-                            @itemlist[@item{First, we've written a comment to remind ourselves what we're creating. In this case, we're calling our new structure @code{JumperState}, which contains two numbers: an x and y-coordinate.}
-                                      @item{The next line begins with @code{data JumperState:}. Similar to the keyword @code{fun} you learned in the last lesson, @code{data} tells the computer that you're about to define a new type of data. This is a @bold{very} powerful  piece of code: In Bootstrap:Algebra, you wrote programs using four @vocab{data types}: Numbers, Strings, Images, and Booleans. In this course, now you can create brand new data types. We can use these data types to create complex animations, multi-player video games, or account for both coordinates of a parachute jumper, so he moves in 2-dimensions! We called this data type @code{JumperState}, because it represents the current state, or position, of the parachute jumper.  Pyret would let us write any name after @code{data}, but as a convention, the name of a new data structure is capitalized, and we choose a meaningful name for it.}
-                                      @item{The next line begins with the | symbol, sometimes called a "bar" or "pipe", followed by the name of the @vocab{constructor} function for the structure (in this case, @code{jumper}.)  A @vocab{constructor} function is similar to some functions you've seen before, for creating images.  To create an Image, we call the function that creates it: @code{rectangle}, @code{triangle}, @code{square}, etc. Similarly, to create a @code{JumperState}, we can use the @code{jumper} @vocab{constructor} function with its inputs (two numbers, called x and y).  Again, the names @code{JumperState} and @code{jumper} were chosen by us, the programmer, and putting them in a @code{data} definition makes them available as a new data type and as a constructor function.}] 
-                                                                                       Let's get back to constructing a @code{jumper}, specifically how we knew the inputs would be numbers. The block of code we've given you defines all of this! @code[#:multi-line #t]{data JumperState:
-       | jumper(
+                  @point{
+                      @student{
+                          @activity{
+                              Open the @editor-link[#:public-id "0B9rKDmABYlJVWUlZTHVVRDFOdk0" "Package Delivery"] file on your computer and press 'Run'. What happens?
+                          }
+                          The drone tries to deliver a package directly to a house, but the box falls straight down, outside of the delivery zone. We want the package to fall @italic{diagonally}, and land right in front of the house.  Let's take a look at the code to see why it falls into the road instead. There are a few new concepts in this file, but first, let's focus on what you already know.
+                          @activity[#:forevidence (list)]{
+                            Look at the function defined here called @code{next-position}. 
+                            @itemlist[@item{What is this function's Domain? Its Range?}
+                                      @item{What does @code{next-position} do with its inputs?}
+                            ]
+                          }
+                      }
+                      @teacher{}
+                  }
+                  @point{
+                      @student{
+                          This function takes in two numbers, representing the x- and y-coordinate of the box, but it only produces a new y-coordinate (after subtracting 5). If only the y-coordinate is changing, the box will always fall straight down. To reach the house, it will have to fall diagonally.
+                          @activity[#:forevidence (list)]{
+                              How should the box's x-coordinate change if it moves diagonally to the right (toward the house)? How should its y-coordinate change?
+                          }
+                          Functions can return only one thing at a time, but we want to return a new x- @bold{and} a y-coordinate in order to make the box fall diagonally. Thankfully, we have a way to combine multiple things within one container, called a @vocab{Data Structure}. For this project, we've created a structure for you to use called @code{DeliveryState}, which contains two Numbers. These represent an x and a y-coordinate.
+                      }
+                      @teacher{}
+                  }
+                  @point{
+                      @student{
+                          @activity{
+                              Look at line 5, where we've defined @code{DeliveryState}. We'll go through the new syntax for defining a data structure, because very soon you'll be defining brand new structures of your own!
+                          }
+                          @code[#:multi-line #t]{# The DeliveryState is two numbers: an x-coordinate and a y-coordinate
+    data DeliveryState:
+       | delivery(
           x :: Number, 
           y :: Number)
     end}
-   
-tells us that we're defining a new data type called @code{JumperState}, whose constructor function @code{jumper} takes in two things: x, which is a Number, and y, which is also a number. Once we've listed each input and its data type, we finish defining the structure with the @code{end} keyword, just like finishing an @code{example} block.}
-                            @teacher{This is the first data block students see in this course, but they will soon be writing their own to create new data structures. It's worth spending the time to cover this new syntax, paying special attention to capitalization (the name of the structure is capitalized (JumperState), whereas its constructor function (jumper) is lowercase), double colons (::) before data types, and commas between inputs to the constructor function.}
+                          @itemlist[
+                              @item{
+                                On the first line, we've written a comment to remind ourselves what we're creating. In this case, we're calling our new structure @code{DeliveryState}, which contains two numbers: an x and y-coordinate.
+                              }
+                              @item{
+                                The next line begins with the @code{data} keyword, which tells the computer that you're about to define a new type of data. You're already familiar with built-in data types like @code{Number}, @code{String}, @code{Image} and @code{Boolean}. The @code{data} keyword allows us to create brand new data types of our own! Here, we are making a data type that contains both coordinates. We call this data type @code{DeliveryState}, because it represents the current state - or position - of the package being delivered. Pyret lets us write any name after @code{data}, but as a convention we'll choose a meaningful name for the data type, and capitalize it.
+                              }
+                              @item{
+                                The next line begins with the @code{|} symbol, sometimes called a "bar" or "pipe", followed by the name of the @vocab{constructor} function for the structure (in this case, @code{delivery}.) To create an Image, we call the function that creates it: @code{rectangle}, @code{triangle}, @code{square}, etc. Similarly, to create a @code{DeliveryState}, we can use the @code{delivery} @vocab{constructor} function with its inputs (two numbers, called x and y).
+                              }]
+                        }
+                        @teacher{}
+                    }
+                    @point{
+                        @student{
+                            Let's get back to constructing a @code{delivery}, specifically how we knew the inputs would be numbers. The block of code we've given you defines all of this! The @code{DeliveryState} @code{data} block tells us that we're defining a new data type called @code{DeliveryState}, whose constructor function @code{delivery} takes in two things: x, which is a Number, and y, which is also a number. Once we've listed each input and its data type, we finish defining the structure with the @code{end} keyword, just like finishing an @code{example} block.
+                            @activity{
+                              In the interactions area, practice making some @code{DeliveryState}s using the @code{delivery()} constructor function. Try making a @code{DeliveryState} that represents the box's position if it's on the road, another when it's in the air, above the house, and one when it's right in front of the house- a successful delivery!
                             }
-                                     
-                    @point{@student{Now it's up to us to protect this parachute jumper, and make sure he lands safely on the shore. @activity[#:forevidence (list "BS-M&1&2" "BS-DR.1&1&1" "BS-DR.1&1&2")]{Turn to @worksheet-link[#:name "next-position"] in your workbook, read the word problem, and fill in the Contract and Purpose Statement for the function @code{next-position}.}
-    @code[#:multi-line #t]{# next-position : Number Number -> JumperState
-                           # Given 2 numbers, make a JumperState by 
-                           # adding 5 to x and subtracting 5 from y}}
-                            @teacher{Point out that we're now using a new data type in a contract: @code{next-position} consumes two Numbers, and produces a @italic{JumperState}. Once we've defined a new data structure using the above data block, we can use it just like other datatypes.}}
-
-                    @point{@student{Now for our two examples. Using, or @vocab{calling} @code{next-position} with two numbers is easy, but what happens to those numbers? We can't return both at the same time... unless we use a data structure! To do so we'll need to use the constructor function to make a structure from the data we already have. @activity[#:forevidence (list "5.OA.1-2&1&1" "5.OA.1-2&1&1" "7.EE.3-4&1&1" "A-SSE.1-2&1&1" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.4&1&1")]{@itemlist[@item{According to the definition for @code{JumperState}, what function makes a JumperState? What is its contract?}
-                    @item{@code{# jumper : Number Number -> JumperState}}
-                    @item{What two things are part of a JumperState? Do we have values for those things as part of our first example?}
-                    @item{We don't want our JumperState to contain the same x and y values we gave the @code{next-position} function. How will the values change? (Remember to show your work!)}
-                    @item{Your first example should look something like: 
+                        }
+                        @teacher{
+                          Students will soon be writing their own data blocks, to create new data structures. Cover this new syntax carefully, paying special attention to capitalization (the name of the structure is capitalized (DeliveryState), whereas its constructor function (delivery) is lowercase), double colons (@code{::}) before data types, and commas between inputs to the constructor function.
+                        }
+                    }
+                    @point{
+                        @student{
+                            Now it's up to us to get this box delivered sucessfully, and make sure it lands at the house. 
+                            @activity[#:forevidence (list "BS-M&1&2" "BS-DR.1&1&1" "BS-DR.1&1&2")]{
+                                Turn to @worksheet-link[#:name "next-position"] in your workbook, read the word problem, and fill in the Contract and Purpose Statement for the function @code{next-position}.
+                            }
+    @code[#:multi-line #t]{# next-position : Number Number -> DeliveryState
+                           # Given 2 numbers, make a DeliveryState by 
+                           # adding 5 to x and subtracting 5 from y}
+                        }
+                        @teacher{
+                            Point out that we're now using a new data type in a contract: @code{next-position} consumes two Numbers, and produces a @italic{DeliveryState}. Once we've defined a new data structure using the above data block, we can use it just like other datatypes.
+                        }
+                    }
+                    @point{
+                        @student{
+                            Now for our two examples. Using, or @vocab{calling} @code{next-position} with two numbers is easy, but what happens to those numbers? We can't return both at the same time...unless we use a data structure! To do so we'll need to use the constructor function to make a structure from the data we already have. 
+                            @activity[#:forevidence (list "5.OA.1-2&1&1" "5.OA.1-2&1&1" "7.EE.3-4&1&1" "A-SSE.1-2&1&1" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.4&1&1")]{
+                                @itemlist[
+                                    @item{According to the definition for @code{DeliveryState}, what function makes a DeliveryState? What is its contract?}
+                                    @item{@code{# delivery : Number Number -> DeliveryState}}
+                                    @item{What two things are part of a DeliveryState? Do we have values for those things as part of our first example?}
+                                    @item{We don't want our DeliveryState to contain the same x and y values we gave the @code{next-position} function. How will the values change? (Remember to show your work!)}
+                                    @item{Your first example should look something like: 
                           @code[#:multi-line #t]{examples:
-                                                   next-position(30, 250) is jumper(30 + 5, 250 - 5)
+                                                   next-position(30, 250) is delivery(30 + 5, 250 - 5)
                                                  end}}
-                    @item{Once your first example is complete, write one more example with different inputs for the x and y coordinates.}]}}
-                            @teacher{Remind students to show every step of their work in the example step of the design recipe: if the x-coordinate increases by 5 while the y-coordinate decreases by 5, they should show the addition and subtraction within the JumperState data structure, instead of just returning the new numbers.}}
-                    
-                    @point{@student{@activity[#:forevidence (list "BS-DR.3&1&1" "BS-DR.4&1&2")]{Now that you have two examples, it's time to define the function. You know the drill: circle and label everything that changes between your two examples, copy everything that stays the same, and replace the changing things with the variables you chose.}
-                                     When you finish, your function definition should look like: @code[#:multi-line #t]{fun next-position(x, y):
-                         jumper(x + 5, y - 5)
+                                    @item{Once your first example is complete, write one more example with different inputs for the x and y coordinates.}
+                                ]
+                            }
+                        }
+                        @teacher{
+                            Remind students to show every step of their work in the example step of the design recipe: if the x-coordinate increases by 5 while the y-coordinate decreases by 5, they should show the addition and subtraction within the DeliveryState data structure, instead of just returning the new numbers.
+                        }
+                    }
+                    @point{
+                        @student{
+                            @activity[#:forevidence (list "BS-DR.3&1&1" "BS-DR.4&1&2")]{
+                                Now that you have two examples, it's time to define the function. You know the drill: circle and label everything that changes between your two examples, copy everything that stays the same, and replace the changing things with the variables you chose.
+                            }
+                            When you finish, your function definition should look like: 
+                            @code[#:multi-line #t]{fun next-position(x, y):
+                         delivery(x + 5, y - 5)
                        end}
-                                     Now, instead of just changing and returning one number (a y-coordinate), we can return @bold{both} the x and y-coordinates of the parachute jumper within a @vocab{Data Structure}. @activity[#:forevidence (list "BS-IDE&1&1")]{Open the @editor-link[#:public-id "0B9rKDmABYlJVbUVUeVJDZ1p3Ulk" "Parachute Jumper"] code again and replace the original @code{next-position} function with the one in your workbook to make the parachute jumper land safely on the shore! Don't forget to change the given examples to match your new function definition.}}
-                           @teacher{}}
-                    
-                    @point{@student{In Bootstrap:Algebra, a function could return only one value: either a Number, String, Image, or Boolean. In Bootstrap:Reactive, our functions will still return one value, but that value can be a @vocab{Data Structure}, (or just "structure" for short) containing any number of things within it. This way we could return both the x and y-coordinate of a player using a JumperState, or create new structures and return even more detail about a player, like their health, position, amount of armor, or inventory.}
-                            @teacher{In Bootstrap:Algebra, students' games were made by keeping track of just a few numbers: the x-positions of the danger and target, and y-position 
-                                     of the player. In Bootstrap:Reactive, students' games will be much more complex, and will require many more values to move characters, test conditions, 
-                                     keep track of the score, etc. Data structures simplify code by organizing multiple values: You couldn't represent every part of a player 
-                                     (position, health, inventory, etc.) with one number or string, but you can refer to all these things collectively with a @vocab{data structure}. This way, we can have one value (a data structure) containing multiple other values that can be accessed individually.}}
-                    ]
+                       }
+                       @teacher{}
+                    }
+                    @point{
+                        @student{
+                            Now, instead of just changing and returning one number (a y-coordinate), we can return @bold{both} the x and y-coordinates of the box within a @vocab{Data Structure}. 
+                            @activity[#:forevidence (list "BS-IDE&1&1")]{
+                                Open the @editor-link[#:public-id "0B9rKDmABYlJVWUlZTHVVRDFOdk0" "Package Delivery"] code again and replace the original @code{next-position} function with the one in your workbook to make the box land within the dlivery zone, in front of the house! Don't forget to change the given examples to match your new function definition.}
+                        }
+                        @teacher{}
+                    }
+                    @point{
+                        @student{
+                            Until now, a function could only return atomic values: single Numbers, Strings, Images, or Booleans. In Bootstrap:Reactive, our functions will still return one value, but that value can be a @vocab{Data Structure}, (or just "structure" for short) containing any number of values. This way we can return both the x- and y-coordinate of a package using a @code{DeliveryState}. Later on, we'll create new structures to record detail about characters in a game, like their health, position, amount of armor, or inventory.
+                        }
+                        @teacher{
+                            In Bootstrap:Algebra, students' games were made by keeping track of just a few numbers: the x-positions of the danger and target, and y-position of the player. In Bootstrap:Reactive, students' games will be much more complex, and will require many more values to move characters, test conditions, keep track of the score, etc. Data structures simplify code by organizing multiple values: You couldn't represent every part of a player (position, health, inventory, etc.) with one number or string, but you can refer to all these things collectively with a @vocab{data structure}. This way, we can have one value (a data structure) containing multiple other values that can be accessed individually.
+                        }
+                    }
+                ]
            }
 
 @lesson/studteach[#:title "Cakes"
@@ -289,7 +361,7 @@ tells us that we're defining a new data type called @code{JumperState}, whose co
                  @point{@student{@activity[#:forevidence (list "BS-IDE&1&1")]{After clicking the "Run" button, in Pyret, type
                     @code{birthday-cake} into the interactions area and hit enter. What do you get back?}
                                   Does this make sense? What happens when you type just a number into the interactions area? We get that same number back! What about Strings? Images? 
-                                  Booleans? If we don't do anything to our input, or use any function on it, we get back exactly what we put in! Here, you put in a CakeType, let's see what we get back.  At first glance, it looks like a function call was the answer!  But there's a few things different about what appears in the output.  First, it isn't the same color as a normal function call, which is the first hint that something's different.  Second, we can @emph{click} on it, and see that this value is storing three other values in its @vocab{fields} – the flavor, layers, and whether or not it's ice cream.  This compound value that's printed is an @vocab{instance} of a @code{CakeType}.  It's a value in its own right, so when we type in @code{birthday-cake} it shows us this value (just like with numbers and strings).}
+                                  Booleans? If we don't do anything to our input, or use any function on it, we get back exactly what we put in! Here, you put in a CakeType, let's see what we get back.  At first glance, it looks like a function call was the answer!  But there's a few things different about what appears in the output.  First, it isn't the same color as a normal function call, which is the first hint that something's different.  Second, we can @emph{click} on it, and see that this value is storing three other values in its @vocab{fields} – the flavor, layers, and whether or not it's ice cream.  This compound value that's printed is an @vocab{instance} of a @code{CakeType}.  It's a value in its own right, so when we type in @code{birthday-cake} it shows us this value (just like with numbers and strings).}
                          @teacher{Remind students that values will always evaluate to themselves. 4 evaluates to 4, the string @code{"pizza"} evaluates to @code{"pizza"}, and @code{birthday-cake} evaluates
                                   to @code{cake("Vanilla", 4, false)}}}
                 
@@ -418,7 +490,7 @@ tells us that we're defining a new data type called @code{JumperState}, whose co
                                 different enemies, each with its own position and health, or multiple levels with their own background images, the game can get 
                                 very complicated very fast, and structures are a great way to manage and make sense of all the data. Programmers can do a LOT with data
                                 structures, and in the upcoming lessons you'll start creating your own structures to make a customized animation.}
-           @teacher{Have students volunteer what they learned in this lesson!}}
+           @teacher{Have students volunteer what they learned in this lesson! For extra practice with the vocabulary involved with data structures, have students complete @worksheet-link[#:name "vocabulary-practice"] in their workbooks.}}
   
            
  ]}
