@@ -92,7 +92,7 @@
                             Click "Run", and type @code{animals-table} into the Interactions Area to see what this table looks like.
                             @itemlist[
                               @item{How many columns does this table have?}
-                              @item{For each column, is the data quantitative or qualitative? }
+                              @item{For each column, is the data quantitative or categorical? }
                               @item{For each column, what datatype is being used? Numbers? Strings? Images? Booleans? }
                               @item{How could you get row for the animal named "Toggle"? }
                               @item{How could you get the age of the animal named "Toggle" from that row? }

@@ -59,7 +59,7 @@ project.
 - Rosanna Sobota
 - Sam Dooman
 
-## Other past contributers:
+## Other contributers:
 - Vicki Crosson 
 - Miles Eldon
 - Daniel Kocoj
@@ -68,7 +68,5 @@ project.
 - Jonah Stanley 
 - Andrew Tian 
 - Winnie Wang
-
-
-
-
+- Eric Allatta
+- CoriAnne Burgess
