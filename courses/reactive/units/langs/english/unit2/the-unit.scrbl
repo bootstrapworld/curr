@@ -53,7 +53,7 @@
                                                        @item{What is the @vocab{Range} of this function?}
                                                        @item{What does this function do? Write a @vocab{Purpose Statement} describing what the function does in plain English.}]}
                                  @code[#:multi-line #t]{
-# double-radius : Number String -> Image
+# double-radius :: Number String -> Image
 # Makes an outlined circle that has twice the given radius.}}
                          @teacher{Review the purpose of Contracts: once we know the Name, Domain, and Range of a function, it's easy to write examples using those datatypes.}}
            
@@ -82,9 +82,9 @@ Don't forget to include the lines @code{examples:} and @code{end}! Your examples
                                 Once you know what is changing between our two examples, you can define the function easily. The things that were circled and labeled in
                                 the examples will be replaced with @vocab{variables} in the function definition. 
                                 @activity[#:forevidence (list "BS-DR.3&1&1")]{Underneath your examples, copy everything that @bold{doesn't} change, and replace the changing things with the variable 
-                                          names you used. (Don't forget to add the @code{fun} and @code{end} keywords, as well as the colon (:) after the function header!)}  
+                                          names you used. (Don't forget to add the @code{fun} and @code{end} keywords, as well as the single colon (:) after the function header!)}  
            @code[#:multi-line #t]{
-# double-radius: Number, String -> Image
+# double-radius :: Number, String -> Image
 # Makes an outlined circle that's twice the radius.
 fun double-radius(radius, color):
   circle(radius * 2, "outline", color)
@@ -181,7 +181,7 @@ end}
                             @activity[#:forevidence (list "BS-M&1&2" "BS-DR.1&1&1" "BS-DR.1&1&2")]{
                                 Turn to @worksheet-link[#:name "next-position"] in your workbook, read the word problem, and fill in the Contract and Purpose Statement for the function @code{next-position}.
                             }
-    @code[#:multi-line #t]{# next-position : Number Number -> DeliveryState
+    @code[#:multi-line #t]{# next-position :: Number Number -> DeliveryState
                            # Given 2 numbers, make a DeliveryState by 
                            # adding 5 to x and subtracting 5 from y}
                         }
@@ -195,7 +195,7 @@ end}
                             @activity[#:forevidence (list "5.OA.1-2&1&1" "5.OA.1-2&1&1" "7.EE.3-4&1&1" "A-SSE.1-2&1&1" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.4&1&1")]{
                                 @itemlist[
                                     @item{According to the definition for @code{DeliveryState}, what function makes a DeliveryState? What is its contract?}
-                                    @item{@code{# delivery : Number Number -> DeliveryState}}
+                                    @item{@code{# delivery :: Number Number -> DeliveryState}}
                                     @item{What two things are part of a DeliveryState? Do we have values for those things as part of our first example?}
                                     @item{We don't want our DeliveryState to contain the same x and y values we gave the @code{next-position} function. How will the values change? (Remember to show your work!)}
                                     @item{Your first example should look something like: 
@@ -436,7 +436,7 @@ end}
                                                              @item{What is the range of @code{taller-than}?}
                                                              @item{Which part(s) of the CakeTypes will you need to check to determine if one is taller than the other?}]}
                @code[#:multi-line #t]{
-# taller-than: CakeType, CakeType -> Boolean
+# taller-than :: CakeType, CakeType -> Boolean
 # consumes two CakeTypes and produces true if the number of 
 # layers in the first CakeType is greater than the number of 
 # layers in the second}
@@ -466,7 +466,7 @@ end}
                                                               @item{Circle and label what varies between those examples and label it with a @vocab{variable} name.}
                                                               @item{Define the function.}]}}
                          @teacher{Give students plenty of time to practice using dot-accessors, extracting pieces of the Cake structures and writing expressions that compute with them.}}
-                                                                                                          @point{@student{@bold{Optional:} In the @editor-link[#:public-id "0B9rKDmABYlJVa0cxbEpoSG1pT0k" "Bakery"] file, extend the CakeType data structure to include one more field: a message, represented as a String. (Make sure you remember to change each CakeType instance below the data definition: if a CakeType now contains four fields, each instance will need to include all four fields!) Next, write a function called @code{birthday-cake}, which takes in a string representing someone's name, and produces a 2-layer, chocolate CakeType with "Happy birthday [Name]!" as the message. @bold{Hint:} You'll want to use the @code{string-append} function to combine two strings into one. Here is its contract: @code{# string-append : String, String -> String}}
+                                                                                                          @point{@student{@bold{Optional:} In the @editor-link[#:public-id "0B9rKDmABYlJVa0cxbEpoSG1pT0k" "Bakery"] file, extend the CakeType data structure to include one more field: a message, represented as a String. (Make sure you remember to change each CakeType instance below the data definition: if a CakeType now contains four fields, each instance will need to include all four fields!) Next, write a function called @code{birthday-cake}, which takes in a string representing someone's name, and produces a 2-layer, chocolate CakeType with "Happy birthday [Name]!" as the message. @bold{Hint:} You'll want to use the @code{string-append} function to combine two strings into one. Here is its contract: @code{# string-append :: String, String -> String}}
                                                                                                 @teacher{Since this function returns a CakeType, remind students that they'll need to use the @code{cake} constructor function to produce a CakeType. }}  ]
          }
 
