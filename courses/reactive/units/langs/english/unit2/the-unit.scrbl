@@ -53,7 +53,7 @@
                                                        @item{What is the @vocab{Range} of this function?}
                                                        @item{What does this function do? Write a @vocab{Purpose Statement} describing what the function does in plain English.}]}
                                  @code[#:multi-line #t]{
-# double-radius :: Number String -> Image
+# double-radius :: Number, String -> Image
 # Makes an outlined circle that has twice the given radius.}}
                          @teacher{Review the purpose of Contracts: once we know the Name, Domain, and Range of a function, it's easy to write examples using those datatypes.}}
            
@@ -181,7 +181,7 @@ end}
                             @activity[#:forevidence (list "BS-M&1&2" "BS-DR.1&1&1" "BS-DR.1&1&2")]{
                                 Turn to @worksheet-link[#:name "next-position"] in your workbook, read the word problem, and fill in the Contract and Purpose Statement for the function @code{next-position}.
                             }
-    @code[#:multi-line #t]{# next-position :: Number Number -> DeliveryState
+    @code[#:multi-line #t]{# next-position :: Number, Number -> DeliveryState
                            # Given 2 numbers, make a DeliveryState by 
                            # adding 5 to x and subtracting 5 from y}
                         }
@@ -195,7 +195,7 @@ end}
                             @activity[#:forevidence (list "5.OA.1-2&1&1" "5.OA.1-2&1&1" "7.EE.3-4&1&1" "A-SSE.1-2&1&1" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.4&1&1")]{
                                 @itemlist[
                                     @item{According to the definition for @code{DeliveryState}, what function makes a DeliveryState? What is its contract?}
-                                    @item{@code{# delivery :: Number Number -> DeliveryState}}
+                                    @item{@code{# delivery :: Number, Number -> DeliveryState}}
                                     @item{What two things are part of a DeliveryState? Do we have values for those things as part of our first example?}
                                     @item{We don't want our DeliveryState to contain the same x and y values we gave the @code{next-position} function. How will the values change? (Remember to show your work!)}
                                     @item{Your first example should look something like: 

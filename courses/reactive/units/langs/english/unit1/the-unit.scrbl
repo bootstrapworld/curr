@@ -95,7 +95,7 @@ This new syntax gives us an opportunity to show students that key programming id
                 )
       ]{
           @points[
-                  @point{@student{It's important to keep track of how functions work, and Bootstrap:Algebra introduced the idea of @vocab{Contracts}. The contract for the @code{star} function is shown below. @code[#:multi-line ""]{# star :: Number String String -> Image}
+                  @point{@student{It's important to keep track of how functions work, and Bootstrap:Algebra introduced the idea of @vocab{Contracts}. The contract for the @code{star} function is shown below. @code[#:multi-line ""]{# star :: Number, String, String -> Image}
 Contracts summarize three pieces of essential information about a function: 
 @itemlist[@item{The @vocab{Name} of the function: in this case, @code{star}.}
                     @item{The @vocab{Domain} of a function, which is the type(s) of data that the function expects. In this case, a Number and two Strings.}    
@@ -104,7 +104,7 @@ Contracts summarize three pieces of essential information about a function:
 A contract is a note we write to ourselves about how to use the function. Just as in Bootstrap:Algebra, it will be helpful to keep track of the contracts for each function you learn about. The last page in your workbook has a table labeled "Contracts," where you can (and should!) copy down each contract as you learn it.
 Contracts in Pyret are just as important as they are in Racket, and are written the same way. You write contracts as comments: pieces of text for humans only, which are ignored by the computer. In Racket we used a @code{;} (semicolon) before Contracts, but in Pyret, just put a @code{#} (pound sign, or octothorpe) before a line of text to turn it into a comment!
 @activity[#:forevidence (list "BS-PL.2&1&1")]{The Contract for @code{+} is shown below.
-          @code[#:multi-line ""]{#  +  :: Number Number -> Number}                
+          @code[#:multi-line ""]{#  +  :: Number, Number -> Number}                
 Write down the Contracts for @code{*}, @code{-}, @code{/} and @code{num-sqrt} in your Contracts page. (You know @code{num-sqrt} as the @code{sqrt} function in Racket!)}}                             
        @teacher{Emphasize to students that a function's contract can tell you a LOT about that function. It may also be useful to ask them to articulate reasons why Contracts are a good thing, so they are able to say it in their own voice. Make sure they write every contract down in their workbooks!}}
                    @point{@student{@activity[#:forevidence (list "BS-PL.2&1&1")]{Below are some Pyret expressions using functions you used in Bootstrap:Algebra. For each one, identify which function is being used and write its Contract in your Contracts page. If you need help, try typing the expressions into your computer. @itemlist[@item{@code{circle(75, "solid", "red")}}
@@ -221,8 +221,8 @@ Once you’ve defined the function itself, Pyret will automatically check your e
                                               @item{Find your own images to add to the scene using the @code{image-url} function. (This works just like the @code{bitmap/url} function from Bootstrap:Algebra. 
                                     @code{# image-url :: String -> Image}}]
                                     }
-                                    @bold{Hint:} Recall the image manipulation functions you used in Bootstrap:Algebra. These may come in handy! @itemlist[@item{# scale :: Number Image -> Image}
-                                   @item{# rotate :: Number Image -> Image}]
+                                    @bold{Hint:} Recall the image manipulation functions you used in Bootstrap:Algebra. These may come in handy! @itemlist[@item{@code{# scale :: Number, Image -> Image}}
+                         @item{@code{# rotate :: Number, Image -> Image}}]
                                     }
                          @teacher{In the upcoming lessons, students will be creating their own scenes from scratch, and then animating them. This activity is meant to familiarize students with the @code{put-image} function, and have them practice placing, moving, and scaling images onto a background. Once students have copied the necessary contracts into their workbook, this activity could be assigned for homework, or completed as an in-class activity.}
                          }
