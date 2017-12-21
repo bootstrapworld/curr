@@ -1,6 +1,6 @@
 #lang curr/lib
 
-@title{Unit 1: Videogames and Coordinate Planes}
+@title{Unit 1: Videogames & Coordinate Planes}
 
 
 @unit-overview/auto[#:lang-table (list (list "" @code{} ""))]{
@@ -8,7 +8,7 @@
 }
 @unit-lessons{
 @lesson/studteach[
-     #:title "Introduction"
+     #:title "Intro"
      #:duration "5 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
@@ -58,24 +58,24 @@
         @points[
           @point{@student[#:title "Dissecting a Demo"]{Let's begin by exploring a simple videogame, and then figuring out how it works. @slidebreak @slidebreak Open @standard/slideText[#:slide @url{http://www.wescheme.org/view?publicId=sggzRzgU5T} #:standard @run-link[#:public-id "sggzRzgU5T" "this link"]]  
                          to play the game, and spend a minute or two exploring it. @slidebreak @italic{You can use the arrow keys to move 
-                         the cat left, right and jump - try to catch  the ruby and avoid the dog!}}
+                         the cat left, right and jump(up and down) - try to catch  the ruby and avoid the dog!}}
                  @teacher{[@(hyperlink "https://www.youtube.com/watch?v=KSt_3ovWfjk" "Video")] Show the kids NinjaCat, either letting them play or by demoing it in front of the class. You can move the cat up, down, left and right by using the arrow keys. 
                           Play until the students see all the characters (the clouds, the ruby, the dog and the cat), and be 
-                          sure to point out the title and score as well.}
+                          sure to point out the title and score as well. Give them at least 3 minutes to play with the game and listen to their observations.}
                  }
           
           @point{@student{This game is made up of @italic{characters}, each of which has its own behavior. @slidebreak The Ruby moves from the right to the left, as does the Dog. @slidebreak NinjaCat only moves when you hit the arrow keys, and she can move left, right, up and down. @slidebreak We can figure out how the game works by first understanding how each character works.}
                  @teacher{}
                  }
           
-          @point{@student{@activity[#:forevidence (list "BS-M&1&1")]{@bitmap{images/game-table1.png} Turn to @worksheet-link[#:name "NinjaCat-Dissection"] in your workbook. Here we have a table, which we'll use to reverse-engineer NinjaCat and see how it works. Fill out the first column with a complete list of all things in the game.}
+          @point{@student{@activity[#:forevidence (list "BS-M&1&1")]{@bitmap{images/game-table1.png} Turn to @worksheet-link[#:name "NinjaCat-Dissection"] in your workbook. Here we have a table, which we'll use to reverse-engineer NinjaCat and see how it works. Fill out the first column with a complete list of all things in the game. (Remember to fill out the first column only! Place a paper or notecard over the 2nd and 3rd columns, if needed.)}
                            }
                  @teacher{This can be a team activity. Solicit a few examples from students, to make sure they understand what's being listed here: nouns like "the cat", not verbs like "jumping". During this activity, walk around and see how groups are doing. 
                           This is the time to encourage expectations of community and respect - call out good teamwork when you see it! When time is up, give them a countdown: "30...10... 5... 4... 3... 2... 1... PENCILS DOWN, EYES UP HERE!" Wait for total silence and complete attention. }
                  }
           
           @point{@student{Did you list all four moving characters? @slidebreak What else is in the game? @slidebreak Is the background a part of the game? @slidebreak The score?}
-                 @teacher{Have students come up to the board, and fill in the table with what they've found. If time is short, call on students and have them tell you what to write.}
+                 @teacher{Have students come up to the board, and fill in the table with what they've found. If time is short, call on students and have them tell you what to write. Emphasize "Attending to Precision" with language when giving feedback.}
                  }
           
           @point{@student{@activity{@bitmap{images/game-table2.png}We also need to think about what is @italic{changing} when we play the game. @slidebreak What about the Ruby?  @slidebreak Does it get bigger? @slidebreak Does it change color? @slidebreak Does it spin around? @slidebreak The only thing that changes about the Ruby is its @italic{position}! Everything else about it is the same. @slidebreak What about the Dog? @slidebreak The Cat? @slidebreak Fill in the rest of the second column, listing everything that changes about each character.}}
@@ -131,7 +131,7 @@
                }
       @point{@student{@bitmap{images/cat-coordinates.png}By adding a second number line, we can locate a character anywhere on the screen in either 
                        dimension. @slidebreak The first line is called the x-axis, which runs from left to right. @slidebreak The second line, which runs up and down, is 
-                       called the y-axis. @slidebreak A 2-dimensional @italic{coordinate} consists of both the x- and y-locations on the axes. }
+                       called the y-axis. @slidebreak A 2-dimensional @italic{coordinate} consists of both the x- and y-locations on the axes. Explore the coordinate plane & Ninja Cat with @standard/slideText[#:slide @url{https://www.desmos.com/calculator/x7zszkqwms} #:standard @run-link[#:public-id "sggzRzgU5T" "this link."]] }
               @teacher{A coordinate represents a single point, and an image is (by definition) many points. Some students will ask whether a
                        character's coordinate refers to the center of the image, or one of the corners. In this particular program, the center 
                        serves as the coordinate - but other programs may use another location. The important point in discussion with students
@@ -141,11 +141,11 @@
                        the position on the number line. @slidebreak The y-coordinate is found by running a line to the y-axis.}
               @teacher{(If time allows, invite volunteers up to the board to try placing NinjaCat and the Ruby at different locations. Have students identify the
                        coordinates at the corners of the screen. For additional practice, have students bisect each side of the screen and label
-                       the midpoints.)}
+                       the midpoints.) You can can find the image's of Ninjacat and the Ruby here:  @standard/slideText[#:slide @url{http://www.bootstrapworld.org/materials/spring2018/courses/algebra/english/resources/images/ninjacat.png} #:standard @run-link[#:public-id "sggzRzgU5T" "NinjaCat"]] @standard/slideText[#:slide @url{http://www.bootstrapworld.org/materials/spring2018/courses/algebra/english/resources/images/ruby.png} #:standard @run-link[#:public-id "sggzRzgU5T" "Ruby"]]}
              }
-      @point{@student{When we write down these coordinates, we always put the x before the y (just like in the alphabet!). @slidebreak Most of the time, 
+      @point{@student{A coordinate pair is always written in the form of (x, y).  When we write down these coordinates, we always put the x before the y (just like in the alphabet!). @slidebreak Most of the time, 
                       you'll see coordinates written like this: (200, 50) meaning that the x-coordinate is 200 and the y-coordinate is 50.}
-              @teacher{}
+              @teacher{Here are some sample teacher notes to accompany this point}
               }
 
       @point{@student{Depending on how a character moves, their position might change only along the x-axis, only along the y-axis, or both. @slidebreak Look
@@ -215,6 +215,13 @@
                          for example.}
                 }
         ]}
+
+        @points[
+        @point{student{Point 1. Here's a sample of a point that I've created withing several points} 
+              @teacher{here are teacher notes that accompany Point 1}}
+
+        @point{Point 2. Here's a sample of a 2nd point.} @teacher{Teacher notes for Point 2}
+        @point{Point 3 and an Image @teacher{Teacher notes for Point 3}}]
 
 @lesson/studteach[
      #:title "Order of Operations"
@@ -525,8 +532,8 @@
                                  @activity[#:forevidence "BS-PL.1&1&2"]{ @standard/slideText[#:standard @elem[@editor-link[#:interactions-text "(- 4 5)" "See what happens "]
                                                                          "when this code is entered into the Interactions area."]
                                                                                              #:slide @elem["Try typing" @code{(- 4 5)} "into the Interactions area and see what happens."]]
-                                                                         Press the Return key to evaluate the program. You should 
-                                                                         see @math{-1} as an answer.
+                                                                         Press the Return key to evaluate the program. 
+                                                                         @noSlideText{ You should see -1 as an answer.}
                                                                         }
                         }
                         
