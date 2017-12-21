@@ -56,7 +56,7 @@
                 )
       ]{
         @points[
-          @point{@student[#:title "Dissecting a Demo"]{Let's begin by exploring a simple videogame, and then figuring out how it works. @slidebreak @slidebreak Open @standard/slideText[#:slide @url{http://www.wescheme.org/view?publicId=sggzRzgU5T} #:standard @run-link[#:public-id "sggzRzgU5T" "this link"]]  
+          @point{@student[#:title "Dissecting a Demo"]{Let's begin by exploring a simple videogame, and then figuring out how it works. @slidebreak @slidebreak Open @run-link[#:public-id "sggzRzgU5T" "this link"]  
                          to play the game, and spend a minute or two exploring it. @slidebreak @italic{You can use the arrow keys to move 
                          the cat left, right and jump(up and down) - try to catch  the ruby and avoid the dog!}}
                  @teacher{[@(hyperlink "https://www.youtube.com/watch?v=KSt_3ovWfjk" "Video")] Show the kids NinjaCat, either letting them play or by demoing it in front of the class. You can move the cat up, down, left and right by using the arrow keys. 
