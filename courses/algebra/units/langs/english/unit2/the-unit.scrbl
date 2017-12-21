@@ -9,7 +9,7 @@ include other datatypes, including Strings and Images.}
 }
 @unit-lessons{
 @lesson/studteach[
-     #:title "Circles of Evaluation Review"
+     #:title "Circles of Evaluation Review TEST 1"
      #:duration "30 minutes"
      #:overview "Students practice converting arithmetic expressions into Circles of Evaluation, and then converting those into Code."
      #:learning-objectives @itemlist[]
@@ -19,7 +19,7 @@ include other datatypes, including Strings and Images.}
      #:materials @itemlist[]
      #:preparation @itemlist[@item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/1Qn59Fol2tspqOx6XQV88xm-IYsRGY769cb7MQeknSMA/edit?usp=sharing" "Warmup activity sheet").}
                               @item{Student Workbooks, and something to write with.}]
-     #:prerequisites (list "Order of Operations")
+     #:prerequisites (list "Order of Operations TEST 1")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}

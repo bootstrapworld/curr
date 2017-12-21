@@ -11,7 +11,7 @@
 @lesson/studteach[
      #:title "The Design Recipe"
      #:duration "25 minutes"
-     #:overview "Students are formally introduced to the steps of the Design Recipe."
+     #:overview "Students are formally introduced to the steps of the Design Recipe. TEST 2"
      #:learning-objectives @itemlist[@item{Students practice using Contracts to create examples of functions}
                                      @item{Students learn to abstract over examples to create functions}]
      #:evidence-statements @itemlist[@item{Given a definition, students will be able to identify the Name, Type and Value that is defined.}
