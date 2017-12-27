@@ -28,7 +28,7 @@
                 )
       ]{
         @points[@item{@student{What datatypes have you seen so far? Can you think of @code{Number} values? @code{String} values? @code{Image} values?
-                               What are some expressions that evaluate to a @code{Number}? @slidebreak How about the other datatypes?}
+                               What are some expressions that evaluate to a @code{Number}?  How about the other datatypes?}
                        @teacher{Before introducing a new datatype (Booleans), this would be a good time to quickly review the three major 
                                 contexts students have learned for working with expressions: Circles of Evaluation, Contracts and Design Recipe.
                                 In this lesson, students will apply each one of them to Booleans, discovering that everything they've already 
@@ -61,7 +61,7 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{@activity[#:forevidence (list "BS-IDE&1&1")]{What would each of the following expressions @vocab{evaluate} to?@slidebreak (If you're not sure, you can type it in and try it out!)
+        @points[@point{@student{@activity[#:forevidence (list "BS-IDE&1&1")]{What would each of the following expressions @vocab{evaluate} to? (If you're not sure, you can type it in and try it out!)
                               @itemlist[@item{@code{(+ 1 4)}}
                                          @item{@code{(/ 4 2)}}
                                          @item{@code{(circle 10 "solid" "blue")}}
@@ -83,7 +83,7 @@
                                                 @bannerline{Boolean values can only be @code{true} or @code{false}.}}
                          @teacher{}
                          }
-                 @point{@student{@activity[#:forevidence (list "BS-IDE&1&1" "BS-PL.1&1&1")]{Try typing a Number into the Interactions window and hitting Enter. @slidebreak What do you expect to get back? What about a String? Now try a Boolean, such as @code{false}.  
+                 @point{@student{@activity[#:forevidence (list "BS-IDE&1&1" "BS-PL.1&1&1")]{Try typing a Number into the Interactions window and hitting Enter.  What do you expect to get back? What about a String? Now try a Boolean, such as @code{false}.  
                                     As with all values, Booleans evaluate to themselves. The Circles of Evaluation can also be used with Booleans: try converting each of the following math expressions into Circles of Evaluation, and then converting those Circles into code:
                                     @itemlist[@item{@math{10 = 16.1}}
                                                @item{@math{-13 \gt 5}}
@@ -123,10 +123,10 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Open the "Cage" program (Cage.rkt from @(resource-link #:path "source-files.zip" #:label "source-files.zip") or in @editor-link[#:public-id "48low6MazC" "WeScheme"]) on your computer, and click "Run". @slidebreak The window that pops up contains a butterfly, which you can move around using the arrow keys on your keyboard. @slidebreak This butterfly is named Sam, and the window is Sam's yard. Much like the videogame screen, this yard is 640 pixels wide by 480 pixels tall! @slidebreak As you can see, Sam is free to walk around the yard, and the coordinates at the top of the screen update to tell you his location.}
+        @points[@point{@student{Open the "Cage" program (Cage.rkt from @(resource-link #:path "source-files.zip" #:label "source-files.zip") or in @editor-link[#:public-id "48low6MazC" "WeScheme"]) on your computer, and click "Run".  The window that pops up contains a butterfly, which you can move around using the arrow keys on your keyboard.  This butterfly is named Sam, and the window is Sam's yard. Much like the videogame screen, this yard is 640 pixels wide by 480 pixels tall!  As you can see, Sam is free to walk around the yard, and the coordinates at the top of the screen update to tell you his location.}
                         @teacher{This may be a good opportunity to review coordinates, for students who need the practice.}
                         }
-                 @point{@student{@bitmap{images/buffer.png}Sam's mother tells him that it's okay for him to step outside of the yard, but only by a short distance! Specifically, she wants to make sure that she can always see at least a little piece of him. @slidebreak Sam is safe @italic{as long as some piece of him is onscreen}. That means he can go a little past zero on the lefthand size, or a little past 640 on the right - but how far @italic{can} he go?
+                 @point{@student{@bitmap{images/buffer.png}Sam's mother tells him that it's okay for him to step outside of the yard, but only by a short distance! Specifically, she wants to make sure that she can always see at least a little piece of him.  Sam is safe @italic{as long as some piece of him is onscreen}. That means he can go a little past zero on the lefthand size, or a little past 640 on the right - but how far @italic{can} he go?
                         }
                          @teacher{Pay close attention to the corner-cases: is Sam on the screen at 690? What about 680?}
                          }
@@ -144,7 +144,7 @@
                                   Right now, all three functions return @code{true} no matter what Sam's x-coordinate is!}
                          @teacher{It's extremely valuable at this point to have three students stand, and act out each of these three functions:
                                   @itemlist[@item{Ask each student to tell you their Name, Domain and Range. If they get stuck, remind them that all of this information is written in their Contract!}
-                                             @item{Practice calling each function, by saying their name and then giving them an x-coordinate. For example, "safe-left? fifty" means that the number @code{50} is being passed into @code{safe-left?}. @slidebreak That student should return "true", since the code currently returns @code{true} for all values of x.}
+                                             @item{Practice calling each function, by saying their name and then giving them an x-coordinate. For example, "safe-left? fifty" means that the number @code{50} is being passed into @code{safe-left?}.  That student should return "true", since the code currently returns @code{true} for all values of x.}
                                              @item{Do this for all three functions, and have the class practice calling them with different values as well.}
                                              @item{Note: the volunteer for @code{onscreen?} should first call @code{safe-left?}, before replying with the value.}]}
                          }
@@ -179,7 +179,7 @@
                                   @code{(+ 640 50); both yield the same computation, but the second reveals where 690 comes from (screen width plus 50).}
                                   }
                          }
-                 @point{@student{Once you have typed in the EXAMPLEs and definition for @code{safe-right?}, click "Run" and see if Sam is prevented from flying off the righthand side of the screen. @slidebreak You may be surprised at what happens! Test your function in the Interactions window:
+                 @point{@student{Once you have typed in the EXAMPLEs and definition for @code{safe-right?}, click "Run" and see if Sam is prevented from flying off the righthand side of the screen.  You may be surprised at what happens! Test your function in the Interactions window:
                                   @code[#:multi-line #t]{(safe-right? 50)
                                                          (safe-right? 810)
                                                          (onscreen? 50)
@@ -217,7 +217,7 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-       @points[@point{@student{You've already learned many functions that allow you to create Booleans. The functions @code{<} and @code{>}, for example, will each return a boolean when applied to the appropriate input. @slidebreak What happens when you want to @italic{combine} these tests, to see if more than one thing is true? 
+       @points[@point{@student{You've already learned many functions that allow you to create Booleans. The functions @code{<} and @code{>}, for example, will each return a boolean when applied to the appropriate input.  What happens when you want to @italic{combine} these tests, to see if more than one thing is true? 
                                 @activity{Consider the following statements - are they true or false?:
                                            @itemlist[@item{Sugar is sweet}
                                                       @item{Ice is hot}
@@ -285,20 +285,20 @@
                                 Does it matter which one you use?}
                        @teacher{}
                        }
-                @point{@student{There is more to being a writer than good spelling and grammar. There's more to being an architect or an artist than building a bridge or coloring in a canvas. All of these disciplines involved an element of @italic{design}. @slidebreak Likewise, there is more to being a Programmer than just writing code. You've gotten decent at writing code, and now you're able to write sophisticated programs that include multiple functions - congratulations! But that also means you're ready to consider what it means to @italic{design} the code that you write.}
+                @point{@student{There is more to being a writer than good spelling and grammar. There's more to being an architect or an artist than building a bridge or coloring in a canvas. All of these disciplines involved an element of @italic{design}.  Likewise, there is more to being a Programmer than just writing code. You've gotten decent at writing code, and now you're able to write sophisticated programs that include multiple functions - congratulations! But that also means you're ready to consider what it means to @italic{design} the code that you write.}
                        @teacher{}
                        }
-                @point{@student{Suppose you just built a car, but it's not working right. What would you do? Ideally, you'd like to test each part of the car (the engine, the transmission, etc) @italic{one at a time}, to see which one was broken. The same is true for code!  @slidebreak If you have a bug, it's much easier to find when every function is simple and easy to test, and the only complex functions are just built out of simpler ones. In this example, you can test your @code{safe-left?} and @code{safe-right?} functions independently, before stitching them together into @code{onscreen?}.}
+                @point{@student{Suppose you just built a car, but it's not working right. What would you do? Ideally, you'd like to test each part of the car (the engine, the transmission, etc) @italic{one at a time}, to see which one was broken. The same is true for code!   If you have a bug, it's much easier to find when every function is simple and easy to test, and the only complex functions are just built out of simpler ones. In this example, you can test your @code{safe-left?} and @code{safe-right?} functions independently, before stitching them together into @code{onscreen?}.}
                        @teacher{}
                        }
-                @point{@student{Another reason to define multiple, simple functions is the fact that it lets programmers be lazy. Suppose you have a few characters in a videogame, all of which need to be kept on the screen. @slidebreak Some of them might only need @code{safe-left?}, others might only need @code{safe-right?}, and only a few might need @code{onscreen?}. @slidebreak What happens if the game suddenly needs to run on computers with differently-sized monitors, where the boundary is 1000 instead of 690? If you have simple and complex functions spread throughout your code, you'll need to change them all. If your complex functions just use the simpler ones, you'd only need to change them in one place!}
+                @point{@student{Another reason to define multiple, simple functions is the fact that it lets programmers be lazy. Suppose you have a few characters in a videogame, all of which need to be kept on the screen.  Some of them might only need @code{safe-left?}, others might only need @code{safe-right?}, and only a few might need @code{onscreen?}.  What happens if the game suddenly needs to run on computers with differently-sized monitors, where the boundary is 1000 instead of 690? If you have simple and complex functions spread throughout your code, you'll need to change them all. If your complex functions just use the simpler ones, you'd only need to change them in one place!}
                        @teacher{}
                        }
-                @point{@student{Badly designed programs can work just fine, but they are hard to read, hard to test, and easy to screw up if things change. As you grow and develop as a programmer, you'll need to think beyond just "making code work." It's not good enough if it just works - as artists, we should care about whether or not code is @italic{well designed}, too. @slidebreak This is what functions allow us to do! Everyone from programmers to mathematicians uses functions to carve up complex problems into simpler pieces, which make it possible to design elegant solutions to difficult problems.
+                @point{@student{Badly designed programs can work just fine, but they are hard to read, hard to test, and easy to screw up if things change. As you grow and develop as a programmer, you'll need to think beyond just "making code work." It's not good enough if it just works - as artists, we should care about whether or not code is @italic{well designed}, too.  This is what functions allow us to do! Everyone from programmers to mathematicians uses functions to carve up complex problems into simpler pieces, which make it possible to design elegant solutions to difficult problems.
                                 @activity{Can you list three reasons why it's good to have several simple functions, rather than a single complex one?}}
                        @teacher{}
                        }
-                @point{@student{The boundary-detection code you wrote (through @code{safe-left?} and @code{safe-right?}) is very useful for videogames. @slidebreak It can be used to stop a character from traveling through a wall, or to regenerate the character once it has left the screen. @slidebreak @activity{Open your game file, and scroll down past the @code{update-} functions until you see the definitions for @code{safe-left?}, @code{safe-right?} and @code{onscreen?}.  Right now, they all return true. Since your gamescreen has the same dimensions as Sam's yard (640x480), you can use the same code for each of these three functions! Make sure you include EXAMPLEs, so that your game code can test each function separately.}}
+                @point{@student{The boundary-detection code you wrote (through @code{safe-left?} and @code{safe-right?}) is very useful for videogames.  It can be used to stop a character from traveling through a wall, or to regenerate the character once it has left the screen.  @activity{Open your game file, and scroll down past the @code{update-} functions until you see the definitions for @code{safe-left?}, @code{safe-right?} and @code{onscreen?}.  Right now, they all return true. Since your gamescreen has the same dimensions as Sam's yard (640x480), you can use the same code for each of these three functions! Make sure you include EXAMPLEs, so that your game code can test each function separately.}}
                        @teacher{}
                        }
                 ]}
@@ -321,6 +321,6 @@
                 )
       ]{
         @points[
-           @point{@student{You've learned how to use Booleans to constrain where elements can move in a game. @slidebreak In the next unit, we'll discuss how to use Booleans to move game elements based on which keys users press while playing your game.}
+           @point{@student{You've learned how to use Booleans to constrain where elements can move in a game.  In the next unit, we'll discuss how to use Booleans to move game elements based on which keys users press while playing your game.}
                   @teacher{}}]}
 }

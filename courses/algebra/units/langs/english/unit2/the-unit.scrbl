@@ -77,7 +77,7 @@ include other datatypes, including Strings and Images.}
                              }
                     @teacher{Students are not expected to know all the answers here - the goal is for them to apply what they know about Circles to a novel expression, and discuss for themselves what they think it might mean. Ask them to justify their answers, and to explain why they think they are correct. Linking this back to earlier examples of Circles of Evaluation may be useful.}
                     }
-             @point{@student{The same rules you used to convert a Circle of Evaluation into code still apply. @slidebreak
+             @point{@student{The same rules you used to convert a Circle of Evaluation into code still apply. 
                              Here is the code for that Circle: @sexp[#:form "code"]{(star 50 "solid" "red")}
                              @activity[#:forevidence "BS-PL.1&1&2"]{Type this code into the Interactions window, and hit "Return". What did you get back?
                                                                     @itemlist[@item{What does the @code{star} function do?}
@@ -95,9 +95,9 @@ include other datatypes, including Strings and Images.}
                              }
                      @teacher{Students should see Strings as an analog to Numbers: a different type of value, but one that is still a simple program that evaluates to itself and can be passed as an argument to a function.  Note that the Number 42 and the String "42" are different values!  You could add the Number 42 to another number, but you cannot add the String "42" to another number.}
                      }
-             @point{@student{When you first learned about values, you saw that a program can be nothing more than a value, such as a number.  @slidebreak
+             @point{@student{When you first learned about values, you saw that a program can be nothing more than a value, such as a number.  
                              If you type a number into the interactions window, for example, it evaluates to itself.  To remind yourself of this,
-                             try evaluating @code{716} in the Interactions window.@slidebreak
+                             try evaluating @code{716} in the Interactions window.
                                           @editor-link[#:interactions-text "716"
                                                     "What do you expect to get back?"]
                                           Since Strings are values too, the value @code{"red"} is also a perfectly valid program! Just like number values, strings will evaluate to themselves.
@@ -105,7 +105,7 @@ include other datatypes, including Strings and Images.}
                                        }
                      @teacher{}
                     }
-             @point{@student{This expression also included a new @vocab{function} called @code{star}. @slidebreak Just as the addition function @code{+} takes in two Numbers, @code{star} takes in @italic{a Number and two Strings}, and produces a new type of data, called an @vocab{Image}.
+             @point{@student{This expression also included a new @vocab{function} called @code{star}. Just as the addition function @code{+} takes in two Numbers, @code{star} takes in @italic{a Number and two Strings}, and produces a new type of data, called an @vocab{Image}.
                             @activity[#:forevidence "BS-PL.1&1&1"]{What is the datatype of each of the values listed below -- Number, String or Image? 
                                       @itemlist[@item{@code{42}}
                                                  @item{@code{"Hi, mom!"}}
@@ -117,7 +117,7 @@ include other datatypes, including Strings and Images.}
                                                  }}
                      @teacher{Students have now seen three datatypes: Numbers, Strings and Images. You'll want to make sure students can correctly identify examples of each one.}
                      }
-             @point{@student{You've also seen expressions that @vocab{produce} values, such as @code{(* 16 4)}, which produces a Number.@slidebreak Other expressions, however, can produce Strings or Images. 
+             @point{@student{You've also seen expressions that @vocab{produce} values, such as @code{(* 16 4)}, which produces a Number. Other expressions, however, can produce Strings or Images. 
                              @activity[#:forevidence "BS-PL.1&1&2"]{What datatype will each of the expressions listed below evaluate to?
                                       @itemlist[@item{@code{(/ (+ 7 2) 3)}}
                                                  @item{@code{(star 500 "solid" "purple")}}
@@ -126,7 +126,7 @@ include other datatypes, including Strings and Images.}
                                                  ]}}
                      @teacher{For added practice, have students identify the type of each argument in each of those expressions. Going Further - If time allows, you can go further into @lesson-link[#:name "Manipulating-Images" #:label "Manipulating Images"] or @lesson-link[#:name "Making-Flags" #:label "Making Flags"].}
                      }
-             @point{@student{@activity[#:forevidence "BS-M&1&3"]{Some of the items listed below are @vocab{types}, while others are @vocab{values}. @slidebreak Can you tell the difference?
+             @point{@student{@activity[#:forevidence "BS-M&1&3"]{Some of the items listed below are @vocab{types}, while others are @vocab{values}. Can you tell the difference?
                                        @itemlist[@item{792.24}
                                                  @item{String}
                                                  @item{"hi, mom!"}
@@ -167,14 +167,14 @@ include other datatypes, including Strings and Images.}
                 )
       ]{
         @points[@point{@student{You've already seen several functions that take in two Numbers, such as @code{+}, and @code{-}.
-                                Meanwhile, @code{star} takes in a Number and two Strings. @slidebreak Different functions take in different 
+                                Meanwhile, @code{star} takes in a Number and two Strings. Different functions take in different 
                                 inputs, and we need a way to keep track of the requirements for each function.
                         @bannerline{The Domain of a function is the data that the function expects.}
                         @activity[#:forevidence (list "F-IF.1-3&1&1")]{Why is it helpful to know the @vocab{Domain} of a function?}}
                         @teacher{}
                         }
                  @point{@student{By keeping a list of all the functions in a language, and their Domains, programmers can easily look up 
-                        how each function is used. @slidebreak However, it's also important to keep track of what each function produces! 
+                        how each function is used. However, it's also important to keep track of what each function produces! 
                         For example, a program wouldn't use @code{star} if they were trying to produce a Number, because 
                         @code{star} only produces Images.
                         @bannerline{The Range of a function is the data that the function produces.}}
@@ -188,7 +188,7 @@ include other datatypes, including Strings and Images.}
                  @point{@student{Domains and Ranges help programmers write better code, by preventing silly mistakes and giving themselves 
                                  hints about what to do next. A programmer who wants to use @code{star} can look up the Domain and
                                  immediately know that the first input has to be a Number (like @code{100}), without having to remember 
-                                 it each time. @slidebreak Instead of writing a single value there, a programmer could write a whole expression, 
+                                 it each time. Instead of writing a single value there, a programmer could write a whole expression, 
                                  like @code{(* 25 4)}. We know this code will return an appropriate value (Number) by looking at the Range 
                                  for @code{*}; therefore, the result of @code{*} can be used in place of any Number value.}
                          @teacher{}
@@ -201,12 +201,12 @@ include other datatypes, including Strings and Images.}
                                  This means that the @vocab{Name} of the function is @code{star}, that it takes in a Number and two Strings as its 
                                  Domain, and produces an Image as the Range. We use types instead of values when we write a Contract, because we 
                                  want to be more general: a star could be of any size, so the Domain for @code{star} specifies that the first 
-                                 argument could be @italic{any Number}. @slidebreak If we think of a language as a collection of lego pieces, the Contracts 
+                                 argument could be @italic{any Number}. If we think of a language as a collection of lego pieces, the Contracts 
                                  are like the tabs and slots that tell us how each piece can connect.}
                          @teacher{[@(hyperlink "https://www.youtube.com/watch?v=88WhYoMxrGw" "Video")]}
                          }
              @point{@student{Contracts are sufficiently important and useful that we should keep a list of them somewhere.  
-                             The back pages of your workbook contain a sheet labeled "Contracts". @slidebreak  Write the contract for 
+                             The back pages of your workbook contain a sheet labeled "Contracts".  Write the contract for 
                              @code{star} in the first row of your contracts table.}
                     @teacher{Common mistakes when students first write down contracts include: writing values (such as @code{"red"}) 
                              instead of types (such as "String") and forgetting arguments.  Read your students' contracts carefully, 
@@ -217,7 +217,7 @@ include other datatypes, including Strings and Images.}
                                       @item{How many things are the @vocab{Domain} of this function?}
                                       @item{What is the type of each thing in the Domain?}
                                       @item{What is the @vocab{Range} of this function?}
-                                      ]}@slidebreak
+                                      ]}
                  A Contract tells you exactly how to use the function, by writing its Name and then using @vocab{values} for 
                  each of the arguments in the @vocab{Domain}. Here is an example of an expression, written to use @code{rectangle}: 
                  @code[#:multi-line ""]{(rectangle 100 50 "solid" "blue")}
@@ -249,7 +249,7 @@ include other datatypes, including Strings and Images.}
                               BEFORE allowing them to play with them. Be careful about letting students rush to 
                               the keys without first taking notes!}
                      }
-             @point{@student{Here is an expression that uses a very interesting function: @code{(bitmap/url "http://bootstrapworld.org/images/icon.gif")}.  @slidebreak
+             @point{@student{Here is an expression that uses a very interesting function: @code{(bitmap/url "http://bootstrapworld.org/images/icon.gif")}. 
                              This function takes in the URL of any image you can find online, and will produce that image so that you can use it in your program.
                              @activity[#:forevidence (list "BS-PL.2&1&1")]{@itemlist[@item{What are the three parts of a Contract?}
                                                   @item{What is the Name of this new function?}
@@ -264,7 +264,7 @@ include other datatypes, including Strings and Images.}
              @point{@student{Contracts help programmers write code, so it's always a good idea to write down contracts for each function you see. 
                              @activity[#:forevidence (list "BS-PL.2&1&2" "F-IF.1-3&1&1")]{
                                   Can you figure out the contract for a function, just by looking at 
-                                  some sample code?  @slidebreak @standard/slideText[#:standard @editor-link[#:interactions-text "(text \"Bootstrap\" 30 \"purple\")"
+                                  some sample code?  @standard/slideText[#:standard @editor-link[#:interactions-text "(text \"Bootstrap\" 30 \"purple\")"
                                                                                      "Look at the function being used here"]
                                                                         #:slide @elem{Look at the function being used here: @code{(text "Bootstrap" 30 "purple")}}],  
                                   and see if you can write the @vocab{Name}, @vocab{Domain} and @vocab{Range} for that function.
@@ -278,11 +278,11 @@ include other datatypes, including Strings and Images.}
                                          }
                        @teacher{}
                        }
-                @point{@student{Sometimes, we make mistakes when we write code, and we use a value that violates the contract. @slidebreak Fortunately,
+                @point{@student{Sometimes, we make mistakes when we write code, and we use a value that violates the contract.  Fortunately,
                                 the computer identifies such cases and provides @vocab{error messages} to help us find and correct the problem.  
-                                An error message highlights the code containing the error and explains where the computer found a problem.  @slidebreak
+                                An error message highlights the code containing the error and explains where the computer found a problem.  
                        @activity[#:forevidence (list "BS-IDE&1&2")]{For each of the following incorrect expressions, look at the code 
-				 and see if you can figure out what is wrong about it. @slidebreak Then, type the 
+				 and see if you can figure out what is wrong about it. Then, type the 
 				 code into the Interactions Window and see what error message you get.  
 				 Does the error identify the same problem that you did? 
                                  @itemlist[@item{@code{(+ 4 "hi")}}
@@ -302,11 +302,11 @@ include other datatypes, including Strings and Images.}
                        }
                 @point{@student{Being an expert at reading error messages is an important part of being a good programmer! Reading 
                                 error messages is like having a teacher or a friend help you with something you are working on, rather
-                                than just saying "wrong!" every time you make a mistake. @slidebreak  If you get really good at reading these
+                                than just saying "wrong!" every time you make a mistake.  If you get really good at reading these
                                 messages, you can even use them to discover functions you never knew existed!
                                 @activity{Here are the names of some other image-producing functions, but how do they work? Try to
                                           figure out how they are used on the computer, by experimenting and reading the error 
-                                          messages. Can you discover their Domain and Range?@slidebreak
+                                          messages. Can you discover their Domain and Range?
                                 @itemlist[@item{@code{rhombus}}
                                           @item{@code{right-triangle}}
                                           @item{@code{radial-star}}
@@ -314,7 +314,7 @@ include other datatypes, including Strings and Images.}
                                 }}
                         @teacher{}
                         }
-                @point{@student{There are also a number of functions that take in Images as their @italic{input}. @slidebreak For example, 
+                @point{@student{There are also a number of functions that take in Images as their @italic{input}. For example, 
                                 suppose you want to flip an image from left-to-right, so that it points in the opposite 
                                 direction. You can use the function @code{flip-horizontal}, which has an
                                 Image as both its Domain and Range. See the Contract (and an example of the function) below:
