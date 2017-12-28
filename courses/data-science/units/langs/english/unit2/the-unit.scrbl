@@ -171,7 +171,7 @@
                           mittens = get-row(animals-table, 3) # the Row for Mittens
                         }
                         @activity[#:forevidence (list "BS-PL.3&1&1")]{
-                            Select two pets from the @code{animals-table} that you would most like to adopt, and two more than you would @italic{least} like to adopt (don't worry, those animals will find homes too!). What rows are they? Define values for each of them, using the pet's names and Rows.
+                            Define values for mittens and sasha. Then, select two pets from the @code{animals-table} that you would most like to adopt, and two more than you would @italic{least} like to adopt (don't worry, those animals will find homes too!). What rows are they? Define four additional values for these animals, using the pet's names and rows.
                         }
                   }
                   @teacher{
@@ -202,10 +202,10 @@
                         @student{
                               Suppose you work at the animal shelter, taking care of all the animals who live there. You want to make sure they're healthy, happy, and find good homes. For each animal, you might want to ask certain questions:
                               @itemlist[
-                                @item{When was this animal born?}
+                                @item{What kind of animal is it?}
                                 @item{Has it been fixed?}
-                                @item{Is it an adult?}
-                                @item{Is it a puppy?}
+                                @item{When was it born?}
+                                @item{Is it a kitten?}
                               ]
                         }
                         @teacher{
@@ -214,7 +214,9 @@
                 }
                 @point{
                       @student{
-                            Suppose I want to know what year an animal was born. For each Row, I could subtract the @code{age} column from the current year. We know lots of functions in Pyret that can handle Numbers, Strings, Images and so on, but none that can handle animals! @bold{We need to build our own.}
+                            Suppose I want to know if @code{mittens} is fixed or not.
+                            @activity{Quick! Is mittens fixed? Describe what you did to find the answer.}
+                            We know lots of functions in Pyret that can handle Numbers, Strings, Images and so on, but none that can handle animals! @bold{We need to build our own.}
                       }
                       @teacher{
 
@@ -222,18 +224,9 @@
                 }
                 @point{
                       @student{
-                            To build our own functions, we'll use something called the @bold{Design Recipe}. The Design Recipe is a way to think through the behavior of a function, to make sure we don't make any mistakes with the animals that depend on us! The Design Recipe has three steps, and we'll go through them together for our first function. Turn to page @worksheet-link[#:name "Design-Recipe-1"] in your Student Workbook
-                      }
-                      @teacher{
-
-                      }
-                }
-                @point{
-                      @student{
-                            @bannerline{Step 1: Contract and Purpose} The first thing we do is write a Contract for this function. You already know a lot about contracts: they tell us the Name, Domain and Range of the function. Our function tells us the year an animal was born, consumes an animal (represented by a @code{Row} in our table), and produces a @code{Number} representing the year. A Purpose Statement is just a description of what the function does:
-                            @code[#:multi-line #t]{
-                              birth-year :: (animal :: Row) -> Number
-                              # Consumes an animal, and produces the year it was born
+                            To build our own functions, we'll use something called the @bold{Design Recipe}. The Design Recipe is a way to think through the behavior of a function, to make sure we don't make any mistakes with the animals that depend on us! The Design Recipe has three steps, and we'll go through them together for our first function. 
+                            @activity{
+                              Turn to page @worksheet-link[#:name "Design-Recipe-1"] in your Student Workbook.
                             }
                       }
                       @teacher{
@@ -242,19 +235,30 @@
                 }
                 @point{
                       @student{
-                            @bannerline{Step 2: Write Examples} You already know how to write examples for built-in functions, where we write the @italic{answer} we expect to get back. Just as we did before, we start with the name of the function we're writing, followed by an example input. When defining @italic{new} functions, we don't just want to write our answer - we also want to show our work! Let's use one of the pets we defined earlier as an example, and write one example that shows the answer and another that @italic{shows the work} we need to do to get there.
+                            @bannerline{Step 1: Contract and Purpose} The first thing we do is write a Contract for this function. You already know a lot about contracts: they tell us the Name, Domain and Range of the function. Our function tells us if an animal is fixed or not, so we'll call it @code{is-fixed}. It consumes an animal (represented by a @code{Row} in our table), and produces a @code{Boolean}: @code{true} if the animal is fixed, and @code{false} if it isn't. A Purpose Statement is just a description of what the function does:
                             @code[#:multi-line #t]{
-                              birth-year :: (animal :: Row) -> Number
-                              # Consumes an animal and produces the year it was born
+                              is-fixed :: (animal :: Row) -> Boolean
+                              # Consumes an animal, and produces the value in the fixed column
+                            }
+                      }
+                      @teacher{
+
+                      }
+                }
+                @point{
+                      @student{
+                            @bannerline{Step 2: Write Examples} You already know how to write examples for built-in functions, where we write the @italic{answer} we expect to get back. Just as we did before, we start with the name of the function we're writing, followed by an example input. Let's use some of the pets we defined earlier as examples.
+                            @code[#:multi-line #t]{
+                              is-fixed :: (animal :: Row) -> Boolean
+                              # Consumes an animal, and produces the value in the fixed column
                               examples:
-                                birth-year(pet1) is 2016                # our answer
-                                birth-year(pet1) is 2018 - pet1["age"]  # showing our work
+                                is-fixed(mittens) is mittens["fixed"] # 1st example
+                                ...               is ...              # 2nd example
                               end
                             }
-                            While both examples here are correct, we want to use the second one that shows our work.
                       }
                       @teacher{
-                            Make sure students see that these two examples are @italic{equivalent}. Walk through this first example @italic{carefully}. Make sure students understand where the @code{birth-year} came from the Name in our contract, and that @code{pet1} came from the Domain in our contract. @code{2018 - pet1["age"]} came from our purpose statement, and the label also came from the variable name in our contract.
+                            Make sure students see that these two examples are @italic{equivalent}. Walk through this first example @italic{carefully}. Make sure students understand that each part of the examples can be explained by the contract and purpose statement.
                       }
                 }
                 @point{
@@ -262,16 +266,13 @@
                             @activity[#:forevidence (list "BS-PL.3&1&2")]{
                                 @itemlist[
                                   @item{
-                                      Write another example that shows your work in this block, using the @code{pet2} you defined earlier.
+                                      Write another example for Sasha.
                                     }
                                   @item{
-                                      In the examples where we show our work, do you notice a pattern? Most of the code for these examples is exactly the same, and only a small bit is changing: @code{pet1} and @code{pet2}.
+                                      Circle all of the parts in your two examples that are changing.
                                   }
                                   @item{
-                                      Circle all of the parts in your example block that are changing.
-                                  }
-                                  @item{
-                                      What does the stuff you circled represent? Are @code{pet1} and @code{pet2} years? Legs? No - they are @italic{animals}! Let's label them...
+                                      What does the stuff you circled represent? Are @code{mittens} and @code{sasha} Images? Numbers? Strings? No - they are @italic{rows of the table}. And if we look in the Domain of the function, we can see that confirmed: the input is a @code{Row}, called @code{animal}. For each of the circles on your paper, put the label "animal" next to them.
                                   }
                                 ]
                                   
@@ -283,16 +284,16 @@
                 }
                 @point{
                     @student{
-                          @bannerline{Step 3: Define the Function} After having written our examples, this part is easy! The part of the examples before @code{is} tells us how to begin. We start with the @code{fun} keyword (short for "function"), followed by the name of our function and a set of parentheses. This is exactly how all of our examples started, too. But instead of writing @code{pet1}, we'll use the @italic{label} that we gave it. Then we add a colon (@code{:}) in place of @code{is}, and continue to follow our examples, replacing anything we circled with the label. Finally, we finish with the @code{end} keyword.
+                          @bannerline{Step 3: Define the Function} After having written our examples, this part is easy! The part of the examples before @code{is} tells us how to begin. We start with the @code{fun} keyword (short for "function"), followed by the name of our function and a set of parentheses. This is exactly how all of our examples started, too. But instead of writing @code{mittens}, we'll use the @italic{label} that we gave it. Then we add a colon (@code{:}) in place of @code{is}, and continue to follow our examples, replacing anything we circled with the label. Finally, we finish with the @code{end} keyword.
                           @code[#:multi-line #t]{
-                              birth-year :: (animal :: Row) -> Number
-                              # Consumes an animal, and produces the year it was born
+                              is-fixed :: (animal :: Row) -> Boolean
+                              # Consumes an animal, and produces the value in the fixed column
                               examples:
-                                birth-year(pet1) is 2017  -  pet1["age"]
-                                birth-year(pet2) is 2017  -  pet2["age"]
+                                is-fixed(mittens) is mittens["fixed"]
+                                is-fixed(sasha)   is sasha["fixed"]
                               end
-                              fun birth-year(animal): 
-                                2017 - animal["age"]
+                              fun is-fixed(animal): 
+                                animal["fixed"]
                               end
                             }
                     }
@@ -306,10 +307,10 @@
                           @activity[#:forevidence (list "BS-PL.3&1&3")]{
                               After you've clicked run, try typing in the following expressions, and see what happens:
                               @code[#:multi-line #t]{
-                                  birth-year(pet3)
-                                  birth-year(pet4)
-                                  birth-year(get-row(animals-table, 8))
-                                  birth-year(get-row(animals-table, 11))
+                                  is-fixed(sasha)
+                                  is-fixed(mittens)
+                                  is-fixed(get-row(animals-table, 8))
+                                  is-fixed(get-row(animals-table, 11))
                               }
                           }
                     }
@@ -319,13 +320,18 @@
                 }
                 @point{
                     @student{
-                        Our @code{examples:} block is a helpful way to @italic{check our work}, so we don't make mistakes. Suppose we had a typo in our function definition, and added instead of subtracted:
-                        @code[#:multi-line #t]{
-                            fun birth-year(animal): 
-                              2017 + animal["age"]
-                            end
+                        For practice, let's try writing another function on the bottom of @worksheet-link[#:name "Design-Recipe-1"].
+                        @activity[#:forevidence (list "BS-PL.3&1&1" "BS-PL.3&1&2"  "BS-PL.3&1&3")]{
+                          Write a function called "gender", which takes in a row of the animals table and returns the gender of that animal.
                         }
-                        Try making this change to your code, and clicking "Run". What happens?
+                    }
+                    @teacher{
+                        Be sure to check students' contracts and purpose statements before having them move on to their examples!
+                    }
+                }
+                @point{
+                    @student{
+                        So far, our functions have been pretty simple: they consume a row, and they produce one column from that row as-is. But supposed we want to @italic{use} that value to find out specifically whether or not an animal is a cat, or whether it's a child? Let's walk through a more complex Design Recipe together, by turning to @worksheet-link[#:name "Design-Recipe-2"].
                     }
                     @teacher{
 
@@ -333,15 +339,85 @@
                 }
                 @point{
                     @student{
-                        Now that you've walked through the Design Recipe once, it's time to get some practice! This time, you'll have to write the Contract, Purpose Statement, and first example yourself!
                         @activity[#:forevidence (list "BS-PL.3&1&1" "BS-PL.3&1&2"  "BS-PL.3&1&3")]{
-                          Use @worksheet-link[#:name "Design-Recipe-1"] to solve the following problems:
+                          Define a function called @code{is-cat}, which consumes a row from the @code{animals-table} and returns true if the animal is a cat.
+                          @itemlist[
+                            @item{ What is the name of this function? What are it's Domain and Range? }
+                            @item{ Is Sasha a cat? @italic{What did you do to get that answer?} }
+                            ]
+                        }
+                    }
+                    @teacher{
+                        Have students explain their thinking carefully, step-by-step. Repeat this with other animals.
+                    }
+                }
+                @point{
+                    @student{
+                        To find out if an animal is a cat, we look at the @code{species} column and check to see if that value is @italic{equal to} @code{"cat"}. This gives us out first example:
+                        @code[#:multi-line #t]{
+                              is-cat :: (animal :: Row) -> Boolean
+                              # Consumes an animal, and produces true if the animal is a cat
+                              examples:
+                                is-cat(sasha) is sasha["species"] == "cat"
+                              end
+                            }
+                        @activity{ Add a second example, this time for an animal that is @italic{not} a cat. }
+                    }
+                    @teacher{
+                        Have students share their examples. Point out that the code is the same for all examples, aside from the name of the animal being tested.
+                    }
+                }
+                @point{
+                    @student{
+                        Just we've done before, let's look at our examples and circle the things that are change from one to the other.
+                        @itemlist[
+                          @item{ Do all our examples use @code{is-cat}? }
+                          @item{ Do all our examples use the same inputs? }
+                          @item{ Do all our examples look at the same column? }
+                          @item{ Do all our examples compare that column value to "cat"? }
+                        ]
+                        @activity{ What label should we use here? }
+                    }
+                    @teacher{
+                        Make sure students realize that the label is specified in the Domain.
+                    }
+                }
+                @point{
+                    @student{
+                        As before, we'll use the pattern from our examples to come up with our definition.
+                        @itemlist[
+                          @item{ What is the function name? }
+                          @item{ What is the name of the variable(s)? }
+                          @item{ What do we do in the body in the function? }
+                        ]
+                        @code[#:multi-line #t]{
+                              is-cat :: (animal :: Row) -> Boolean
+                              # Consumes an animal, and produces true if the animal is a cat
+                              examples:
+                                is-cat(sasha)   is sasha["species"]   == "cat"
+                                is-cat(mittens) is mittens["species"] == "cat"
+                              end
+                              fun is-cat(animal): 
+                                animal["species"] == "cat"
+                              end
+                            }
+                    }
+                }
+                @point{
+                    @student{
+                        @activity{
+                          Type this definition - and its examples! - into the Definitions Area, then click "Run" and try using it.
+                        }
+                    }
+                }
+                @point{
+                    @student{
+                        Now let's practice writing functions that @italic{do things} to their input. This time, you'll have to write the Contract, Purpose Statement, and first example yourself!
+                        @activity[#:forevidence (list "BS-PL.3&1&1" "BS-PL.3&1&2"  "BS-PL.3&1&3")]{
+                          Use the bottom half of @worksheet-link[#:name "Design-Recipe-2"] to solve the following problems:
                           @itemlist[
                               @item{ 
-                                  Define a function called @code{is-cat}, which consumes a Row of the @code{animals-table} and produces @code{true} if its @code{species} is @code{"cat"}.
-                              }
-                              @item{ 
-                                  Define a function called @code{is-kitten}, which consumes a Row of the @code{animals-table} and produces @code{true} if it's a cat less than 2 years old. 
+                                  Define a function called @code{is-young}, which consumes a Row of the @code{animals-table} and produces @code{true} if its @code{age} is less than 2.
                               }
                           ]
                         }
@@ -353,37 +429,19 @@
                 @point{
                     @student{
                         @activity[#:forevidence (list "BS-DR.1&1&1" "BS-DR.1&1&2"  "BS-DR.2&1&1" "BS-DR.2&1&2")]{
-                          Use @worksheet-link[#:name "Design-Recipe-2"] to solve the following problems:
+                          Turn to @worksheet-link[#:name "Design-Recipe-3"], and see if you can solve the following word problems:
                             @itemlist[
                               @item{ 
                                   Define a function called @code{nametag}, which prints out each animal's name in big red letters.
                               }
                               @item{ 
-                                  Define a function called @code{is-fixed}, which consumes a Row of the @code{animals-table} and produces @code{true} if it's an animal that's been fixed. 
+                                  Define a function called @code{is-kitten}, which consumes a Row of the @code{animals-table} and produces @code{true} if it's a cat @italic{and} is less than 2 years old.
                               }
                             ]
                           }
                     }
                     @teacher{
-
-                    }
-                }
-                @point{
-                    @student{
-                        @activity[#:forevidence (list "BS-DR.1&1&1" "BS-DR.1&1&2"  "BS-DR.2&1&1" "BS-DR.2&1&2")]{
-                          Use @worksheet-link[#:name "Design-Recipe-2"] to solve the following problems:
-                          @itemlist[
-                            @item{ 
-                                Define a function called @code{sentence}, which consumes a Row of the @code{animals-table} and produces a String containing the animal's name, the string " the ", and the species of the animal. (For example, "Nori the dog"). 
-                            }
-                            @item{
-                                What kind of animal would @italic{you} adopt? Is there a maximum or minimum age? Do you care if the animal has been fixed or not? Write a function called @code{adopt}, which consumes a Row of the @code{animals-table} and produces @code{true} if it's an animal that you would adopt.
-                            }
-                          ]
-                        }
-                    }
-                    @teacher{
-                        
+                      OPTIONAL: Show students how to write @code{is-kitten} @italic{using} the @italic{is-cat} and @code{is-young} functions they defined before. 
                     }
                 }
         ]
