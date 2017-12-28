@@ -2,7 +2,7 @@
 
 
 @main-contents{
-@(elem #:style bs-coursename-style "Bootstrap: Reactive")
+@(elem #:style bs-coursename-style "Bootstrap:Reactive")
 
 @animated-gif{../../splash.png}
 
