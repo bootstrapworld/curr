@@ -70,7 +70,7 @@
                                 They write something once, define it as a shortcut in the language, and then use the shortcut wherever they want.}
                         @teacher{}}
                  @point{@student{We name values in our language using @vocab{define} statements.  Let's look at 
-                                @editor-link[#:definitions-text "(define shape1 (triangle 50 "solid" "red"))" "an example of a definition, that defines"] @code[(define shape1 (triangle 50 "solid" "red"))]
+                                @editor-link[#:definitions-text "(define shape1 (triangle 50 \"solid\" \"red\"))\n" "an example of a definition, that defines"] @code[(define shape1 (triangle 50 "solid" "red"))]
                                This definition defines 
 
                                @code{shape1} to be a solid red triangle. When you click "Run", you can evaluate @code{shape1}
