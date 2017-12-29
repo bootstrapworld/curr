@@ -56,7 +56,7 @@
                                      You may also want to have groups assigned to explain the Circles of Evaluation, Contracts, the purpose behind the Design Recipe,
                                      Piecewise Functions, and the Pythagorean Theorem.}
                        }
-                @point{@student{After you've made the poster, think about how you will use it during your presentation. What will you say to the audience?@slidebreak
+                @point{@student{After you've made the poster, think about how you will use it during your presentation. What will you say to the audience?
                                       How can you use what you've written on the poster or in your code to help with the presentation?}
                        @teacher{Demonstrate a terrible presentation, modeling bad posture, low volume, and mumbling. When it's time for the code-walk, stop.
                                             Ask kids to critique, pointing out what they liked and didn't like. What did they think of the speed of the presentation?

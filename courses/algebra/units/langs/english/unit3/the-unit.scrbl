@@ -31,7 +31,7 @@
                                 if you need.
                                 @activity[#:forevidence (list "BS-PL.2&1&1" "6.NS.5-8&1&2")]{
                                      Can you think of three functions that draw shapes? See if you can write their contracts without
-                                     needing to look back at your Contracts page. What type of data is always surrounded in quotes? @slidebreak
+                                     needing to look back at your Contracts page. What type of data is always surrounded in quotes? 
                                      What are the coordinates for the bottom left-hand corner of the screen? What about the top-right?
                                      }
                                 }
@@ -63,23 +63,20 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Suppose we want to make an image that had fifty identical, solid red triangles. @slidebreak You would have to write 
+        @points[@point{@student{Suppose we want to make an image that had fifty identical, solid red triangles.  You would have to write 
                                 @code{(triangle 50 "solid" "red")} fifty times! To make matters worse, any change to those triangles would 
                                 have to be repeated for all fifty expressions! Good programmers know that their effort is better spent 
                                 elsewhere, so they made sure that programming languages have a way to avoid all that repetition.  
                                 They write something once, define it as a shortcut in the language, and then use the shortcut wherever they want.}
                         @teacher{}}
                  @point{@student{We name values in our language using @vocab{define} statements.  Let's look at 
-                                                                     @standard/slideText[#:standard @editor-link[#:definitions-text "(define shape1 (triangle 50 \"solid\" \"red\"))\n"
-                                                               #:interactions-text ""
-                                                               "an example of a definition, that defines "]
-                                                                                         #:slide @elem{Let's look at an example of a definition: @code["(define shape1 (triangle 50 \"solid\" \"red\"))\n"] This definition defines }]
-                               @code{shape1} to be a solid red triangle. When you click "Run", you can evaluate @code{shape1}
+                                @editor-link[#:definitions-text "(define shape1 (triangle 50 \"solid\" \"red\"))\n" "an example of a definition, that defines"] @code{(define shape1 (triangle 50 "solid" "red"))}
+                               This definition defines @code{shape1} to be a solid red triangle. When you click "Run", you can evaluate @code{shape1}
                                in the Interactions area and the computer will show you the triangle. What do you think would happen if you
-                               evaluated @code{shape1} @italic{without} clicking "Run"?
-                               }
+                               evaluated @code{shape1} @italic{without} clicking "Run"?}
+                               
                          @teacher{Make sure students see what happens when @code{shape1} is evaluated without first clicking "Run", so they
-                                 can read and understand the error. @slidebreak Similarly, have them change the definition and evaluate @code{shape1}
+                                 can read and understand the error.  Similarly, have them change the definition and evaluate @code{shape1}
                                  again - still without clicking "Run". It's important for them to understand that running a program
                                  causes the computer to @italic{read the definitions}, and that any change requires it to re-read them.
                                  }
@@ -102,15 +99,15 @@
                          @teacher{}
                         }
                  @point{@student{@activity[#:forevidence (list "BS-PL.3&1&1" "BS-IDE&1&2")]{
-                                    One a new line in the Definitions area, define a value called @code{eye-color} to be the color of your eyes. @slidebreak 
-                                    Don't hit "Run" yet!  @slidebreak
+                                    One a new line in the Definitions area, define a value called @code{eye-color} to be the color of your eyes.  
+                                    Don't hit "Run" yet!  
                                     @itemlist[@item{Go into the Interactions area and try evaluating @code{eye-color}.  You should get an error 
                                                     message that the computer doesn't know about @code{eye-color}, because you didn't click "Run" 
                                                     after adding the definition.}
                                               @item{Click "Run".}
                                               @item{Try asking for @code{eye-color} in the Interactions area again.  This time, you should not get the error.}]}
-                                 Definitions are useful because we can reuse them in other expressions. @slidebreak For example, we could use @code{eye-color} 
-                                 inside another expression, such as @code{(circle 10 "solid" eye-color)}.@slidebreak  Let's practice using definitions inside other expressions.
+                                 Definitions are useful because we can reuse them in other expressions.  For example, we could use @code{eye-color} 
+                                 inside another expression, such as @code{(circle 10 "solid" eye-color)}.  Let's practice using definitions inside other expressions.
                                  }
                         @teacher{}
                         }
@@ -155,7 +152,7 @@
                                                                 (define y (+ 4 9))
                                                                 (define z (* x 2))}}
                              Values can be fixed (like the first example), the result of an expression (the second), or even be defined in terms of other 
-                             variables (the third). @slidebreak We can do the same things in algebra:
+                             variables (the third).  We can do the same things in algebra:
                              @bannerline{@math{x = 4}
                                           @math{y = 4+9}
                                           @math{z = x \times 2}}
@@ -198,9 +195,9 @@
       ]{
         @points[@point{@student{@activity{Open the videogame file (Game.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"]
                                           or @editor-link[#:public-id "RHBJYscAWj" "the online template"] so that you can see the code,
-                                          and click "Run". @slidebreak (You may need to wait a few seconds for the images to load!) The area that
+                                          and click "Run".  (You may need to wait a few seconds for the images to load!) The area that
                                           appears is a running videogame, but you probably notice that nothing is moving - even if you 
-                                          hit the "up" or "down" arrows! @slidebreak For now, click the "close" button to return to the code.} @slidebreak
+                                          hit the "up" or "down" arrows!  For now, click the "close" button to return to the code.} 
                                  This file contains a list of definitions, where you will get to define how your game characters look, move, and interact. As you scroll down to the bottom, you'll see a bunch of 
                                  dummy definitions that have been filled in for you. It is up to @italic{you} to come up with definitions for your own game!
                                  }
@@ -223,8 +220,8 @@
                                   The purpose of this activity is to increase students' confidence in @italic{reading} and @italic{talking about} code. 
                                   Make sure students get a lot of practice speaking aloud, both to each other and to the instructor.}
                         }
-                 @point{@student{If you don't like the definitions provided here, you can change them! @slidebreak You can modify the @code{TITLE} and @code{TITLE-COLOR} 
-                                    to change what is displayed at the top of your screen, and you can change the definitions for your game images as well. @slidebreak
+                 @point{@student{If you don't like the definitions provided here, you can change them!  You can modify the @code{TITLE} and @code{TITLE-COLOR} 
+                                    to change what is displayed at the top of your screen, and you can change the definitions for your game images as well. 
                                     (You can upload new image files by clicking the "Images" button in the toolbar, then selecting "upload" from the resulting popup).}
                          @teacher{Images should be in PNG or GIF format. Background images should be 640x480, and character images should generally be 
                                    no larger than 200px in either dimension. Make sure that the character images have transparent backgrounds! 
@@ -385,15 +382,17 @@
                                                          @item{Click "Run", to have the computer read this definition.}
                                                          @item{Use the function you've defined, by typing @code{(gt 100)} in the Interactions area.}
                                                          @item{Try using the function with different Numbers}]}
-                                  @standard/slideText[#:standard @editor-link[#:definitions-text "; gt : Number -> Image
-(EXAMPLE (gt 50) (triangle 50 \"solid\" \"green\"))
-(EXAMPLE (gt 95) (triangle 95 \"solid\" \"green\"))
-(define (gt size) (triangle size \"solid\" \"green\"))"
-                                                 "Your answer should look something like this."]
-                                                      #:slide @elem["Your answer should look something like this: "@slidebreak @code["; gt : Number -> Image
-(EXAMPLE (gt 50) (triangle 50 \"solid\" \"green\"))
-(EXAMPLE (gt 95) (triangle 95 \"solid\" \"green\"))
-(define (gt size) (triangle size \"solid\" \"green\"))"]]]
+                                  @editor-link[#:definitions-text "; gt : Number -> Image
+                                    (EXAMPLE (gt 50) (triangle 50 \"solid\" \"green\"))
+                                    (EXAMPLE (gt 95) (triangle 95 \"solid\" \"green\"))
+                                    (define (gt size) (triangle size \"solid\" \"green\"))"
+                                    "Your answer should look something like this." ]
+
+                                    @code["; gt : Number -> Image
+                                    (EXAMPLE (gt 50) (triangle 50 \"solid\" \"green\"))
+                                    (EXAMPLE (gt 95) (triangle 95 \"solid\" \"green\"))
+                                    (define (gt size) (triangle size \"solid\" \"green\"))"]
+                                                       ]
                                     }
                                     @teacher{}
                                     }
