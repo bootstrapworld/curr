@@ -3,14 +3,7 @@
 @main-contents{
 @(elem #:style bs-coursename-style "Bootstrap:Data Science")
 
-@boxed-text{@animated-gif{splash.png}What factors make some people live longer than others? Are more expensive restaurants really better? Is a policy effective?  @italic{How would you measure that?} Answering these questions involves analyzing data large datasets, from sports stats to record sales to census information. In Bootstrap:Data Science, students form their own questions about the world around them, analyze data using multiple methods, and write a research paper about their findings. The module covers @italic{functions, looping and iteration, data visualization, linear regression, and much more}. 
-
-Social studies, science, and business teachers can utilize this module to help students make inferences from data. Math teachers can use this module to introduce foundational concepts in statistics, and it is aligned to the Data standards in CS Principles.}
-
-@bold{The final project in Bootstrap:Data Science can be used as the Create Task for AP CS Princples!}
-
-@bold{@(hyperlink "http://www.BootstrapWorld.org/workshops" "Click here for our upcoming trainings")}
-
+@animated-gif{splash.png}
 
 @; workbook link names and targets
 We provide all of the our materials @italic{free of charge}, to anyone who is interested in using our lesson plans or student workbooks.
