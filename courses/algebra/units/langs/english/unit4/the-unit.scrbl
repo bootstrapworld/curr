@@ -229,24 +229,22 @@
                                                       @item{Write the function definition on your paper.}]}}
                         @teacher{}
                         }
-                 @point{@student{When typing in a function definition, be sure to type in all three parts: The Contract and Purpose Statement, 
-                                 the Examples and the Definition.  When "Run" is clicked, the computer will read the definition, test your 
-                                 Examples to make sure it works correctly, and then add the definition to your language. Once added, you 
-                                 can use the function as if it were built into the computer. 
-                                 @activity[#:forevidence (list "BS-IDE&1&1")]{
-                                             @standard/slideText[#:standard @editor-link[#:definitions-text "; red-square : Number -> Image
-; draw a solid, red square using the given size
-(EXAMPLE (red-square 42) (square 42 \"solid\" \"red\"))
-(EXAMPLE (red-square 73) (square 73 \"solid\" \"red\"))
-(define (red-square size) (square size \"solid\" \"red\"))"
-                                                          "Test out this function by using it with various inputs."]
-                                                                 #:slide @elem{Test out this function by typing it into WeScheme and using it with various inputs: 
-                                                                                       @code["; red-square : Number -> Image
-; draw a solid, red square using the given size
-(EXAMPLE (red-square 42) (square 42 \"solid\" \"red\"))
-(EXAMPLE (red-square 73) (square 73 \"solid\" \"red\"))
-(define (red-square size) (square size \"solid\" \"red\"))"]}]
-                                             }
+                 @point{@student{When typing in a function definition, be sure to type in all three parts: The Contract   and Purpose Statement, the Examples and the Definition.  When "Run" is clicked, the computer will read the definition, test your Examples to make sure it works correctly, and then add the definition to your language. Once added, you can use the function as if it were built into the computer. 
+                      @activity[#:forevidence (list "BS-IDE&1&1")]{
+                           
+                            @editor-link[#:definitions-text "; red-square : Number -> Image
+                              ; draw a solid, red square using the given size
+                              (EXAMPLE (red-square 42) (square 42 \"solid\" \"red\"))
+                              (EXAMPLE (red-square 73) (square 73 \"solid\" \"red\"))
+                              (define (red-square size) (square size \"solid\" \"red\"))"
+                                    "Test out this function by using it with various inputs:"]
+                                      
+                                      @code["; red-square : Number -> Image
+                                      ; draw a solid, red square using the given size
+                                        (EXAMPLE (red-square 42) (square 42 \"solid\" \"red\"))
+                                        (EXAMPLE (red-square 73) (square 73 \"solid\" \"red\"))
+                                        (define (red-square size) (square size \"solid\" \"red\"))"]}
+                                             
                                  }
                         @teacher{}
                         }

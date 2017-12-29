@@ -70,10 +70,8 @@
                                 They write something once, define it as a shortcut in the language, and then use the shortcut wherever they want.}
                         @teacher{}}
                  @point{@student{We name values in our language using @vocab{define} statements.  Let's look at 
-                                @editor-link[#:definitions-text "(define shape1 (triangle 50 \"solid\" \"red\"))\n" "an example of a definition, that defines"] @code[(define shape1 (triangle 50 "solid" "red"))]
-                               This definition defines 
-
-                               @code{shape1} to be a solid red triangle. When you click "Run", you can evaluate @code{shape1}
+                                @editor-link[#:definitions-text "(define shape1 (triangle 50 \"solid\" \"red\"))\n" "an example of a definition, that defines"] @code{(define shape1 (triangle 50 "solid" "red"))}
+                               This definition defines @code{shape1} to be a solid red triangle. When you click "Run", you can evaluate @code{shape1}
                                in the Interactions area and the computer will show you the triangle. What do you think would happen if you
                                evaluated @code{shape1} @italic{without} clicking "Run"?}
                                
@@ -384,15 +382,17 @@
                                                          @item{Click "Run", to have the computer read this definition.}
                                                          @item{Use the function you've defined, by typing @code{(gt 100)} in the Interactions area.}
                                                          @item{Try using the function with different Numbers}]}
-                                  @standard/slideText[#:standard @editor-link[#:definitions-text "; gt : Number -> Image
-(EXAMPLE (gt 50) (triangle 50 \"solid\" \"green\"))
-(EXAMPLE (gt 95) (triangle 95 \"solid\" \"green\"))
-(define (gt size) (triangle size \"solid\" \"green\"))"
-                                                 "Your answer should look something like this."]
-                                                      #:slide @elem["Your answer should look something like this: " @code["; gt : Number -> Image
-(EXAMPLE (gt 50) (triangle 50 \"solid\" \"green\"))
-(EXAMPLE (gt 95) (triangle 95 \"solid\" \"green\"))
-(define (gt size) (triangle size \"solid\" \"green\"))"]]]
+                                  @editor-link[#:definitions-text "; gt : Number -> Image
+                                    (EXAMPLE (gt 50) (triangle 50 \"solid\" \"green\"))
+                                    (EXAMPLE (gt 95) (triangle 95 \"solid\" \"green\"))
+                                    (define (gt size) (triangle size \"solid\" \"green\"))"
+                                    "Your answer should look something like this." ]
+
+                                    @code["; gt : Number -> Image
+                                    (EXAMPLE (gt 50) (triangle 50 \"solid\" \"green\"))
+                                    (EXAMPLE (gt 95) (triangle 95 \"solid\" \"green\"))
+                                    (define (gt size) (triangle size \"solid\" \"green\"))"]
+                                                       ]
                                     }
                                     @teacher{}
                                     }

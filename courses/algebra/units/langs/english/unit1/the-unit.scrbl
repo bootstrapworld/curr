@@ -526,7 +526,7 @@
                                  @bitmap{images/FixedCircle.png}Here is the code for this Circle of Evaluation: @code{(- 4 5)}
                                  @activity[#:forevidence "BS-PL.1&1&2"]{
 
-                                    @editor-link[#:interactions-text "(- 4 5)" " "Go to the editor"], and type @code{(- 4 5)} in the Interactions Area.
+                                    @editor-link[#:interactions-text "(- 4 5)" "Go to the editor"], and type @code{(- 4 5)} in the Interactions Area.
 
                                     Press the Return key to evaluate the program.
                                     @noSlideText{ You should see -1 as an answer.}
