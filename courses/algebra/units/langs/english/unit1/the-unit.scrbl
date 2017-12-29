@@ -131,7 +131,7 @@
                }
       @point{@student{@bitmap{images/cat-coordinates.png}By adding a second number line, we can locate a character anywhere on the screen in either 
                        dimension. The first line is called the x-axis, which runs from left to right. The second line, which runs up and down, is 
-                       called the y-axis. A 2-dimensional @italic{coordinate} consists of both the x- and y-locations on the axes. Explore the coordinate plane & Ninja Cat with @standard/slideText[#:slide @url{https://www.desmos.com/calculator/x7zszkqwms} #:standard @run-link[#:public-id "sggzRzgU5T" "this link."]] }
+                       called the y-axis. A 2-dimensional @italic{coordinate} consists of both the x- and y-locations on the axes. }
               @teacher{A coordinate represents a single point, and an image is (by definition) many points. Some students will ask whether a
                        character's coordinate refers to the center of the image, or one of the corners. In this particular program, the center 
                        serves as the coordinate - but other programs may use another location. The important point in discussion with students
@@ -141,7 +141,7 @@
                        the position on the number line. The y-coordinate is found by running a line to the y-axis.}
               @teacher{(If time allows, invite volunteers up to the board to try placing NinjaCat and the Ruby at different locations. Have students identify the
                        coordinates at the corners of the screen. For additional practice, have students bisect each side of the screen and label
-                       the midpoints.) You can can find the image's of Ninjacat and the Ruby here:  @standard/slideText[#:slide @url{http://www.bootstrapworld.org/materials/spring2018/courses/algebra/english/resources/images/ninjacat.png} #:standard @run-link[#:public-id "sggzRzgU5T" "NinjaCat"]] @standard/slideText[#:slide @url{http://www.bootstrapworld.org/materials/spring2018/courses/algebra/english/resources/images/ruby.png} #:standard @run-link[#:public-id "sggzRzgU5T" "Ruby"]]}
+                       the midpoints.) }
              }
       @point{@student{A coordinate pair is always written in the form of (x, y).  When we write down these coordinates, we always put the x before the y (just like in the alphabet!). Most of the time, 
                       you'll see coordinates written like this: (200, 50) meaning that the x-coordinate is 200 and the y-coordinate is 50.}
@@ -452,8 +452,8 @@
       ]{
         @points[
                 @point{@student{Open the programming tool of your choice: If you've installed, DrRacket, double-click the 
-                                application to launch it. If you are using the online-tool, @standard/slideText[ #:standard @login-link["click here to log in"] #:slide @url{www.wescheme.org}]
-                                enter your username and password to log in, then click "Start a New Program".}
+                                application to launch it. If you are using the online-tool, @login-link["click here to log in"].
+                                Enter your username and password to log in, then click "Start a New Program".}
                         @teacher{Have the students look at the editor on their computers. Refer to overhead 
                                  projector as necessary.}
                         }
@@ -524,12 +524,13 @@
                                 @bannerline{Code Rule 2: Each open parenthesis is followed by one function, then by one or more legal
                                             expressions, and finally by a closing parenthesis.}
                                  @bitmap{images/FixedCircle.png}Here is the code for this Circle of Evaluation: @code{(- 4 5)}
-                                 @activity[#:forevidence "BS-PL.1&1&2"]{ @standard/slideText[#:standard @elem[@editor-link[#:interactions-text "(- 4 5)" "See what happens "]
-                                                                         "when this code is entered into the Interactions area."]
-                                                                                             #:slide @elem["Try typing" @code{(- 4 5)} "into the Interactions area and see what happens."]]
-                                                                         Press the Return key to evaluate the program. 
-                                                                         @noSlideText{ You should see -1 as an answer.}
-                                                                        }
+                                 @activity[#:forevidence "BS-PL.1&1&2"]{
+
+                                    @editor-link[#:interactions-text "(- 4 5)” “Go to the editor”], and type @code{(- 4 5)} in the Interactions Area.
+
+                                    Press the Return key to evaluate the program.
+                                    @noSlideText{ You should see -1 as an answer.}
+                                 }
                         }
                         
                         @teacher{Have students practice converting simple Circles of Evaluation into code.  If you want to help students 
