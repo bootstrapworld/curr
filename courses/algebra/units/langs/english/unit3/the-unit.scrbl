@@ -70,14 +70,13 @@
                                 They write something once, define it as a shortcut in the language, and then use the shortcut wherever they want.}
                         @teacher{}}
                  @point{@student{We name values in our language using @vocab{define} statements.  Let's look at 
-                                                                     @standard/slideText[#:standard @editor-link[#:definitions-text "(define shape1 (triangle 50 \"solid\" \"red\"))\n"
-                                                               #:interactions-text ""
-                                                               "an example of a definition, that defines "]
-                                                                                         #:slide @elem{Let's look at an example of a definition: @code["(define shape1 (triangle 50 \"solid\" \"red\"))\n"] This definition defines }]
+                                @editor-link[#:definitions-text "(define shape1 (triangle 50 "solid" "red"))" "an example of a definition, that defines"] @code[(define shape1 (triangle 50 "solid" "red"))]
+                               This definition defines 
+
                                @code{shape1} to be a solid red triangle. When you click "Run", you can evaluate @code{shape1}
                                in the Interactions area and the computer will show you the triangle. What do you think would happen if you
-                               evaluated @code{shape1} @italic{without} clicking "Run"?
-                               }
+                               evaluated @code{shape1} @italic{without} clicking "Run"?}
+                               
                          @teacher{Make sure students see what happens when @code{shape1} is evaluated without first clicking "Run", so they
                                  can read and understand the error.  Similarly, have them change the definition and evaluate @code{shape1}
                                  again - still without clicking "Run". It's important for them to understand that running a program

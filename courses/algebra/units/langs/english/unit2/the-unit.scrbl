@@ -80,12 +80,12 @@ include other datatypes, including Strings and Images.}
              @point{@student{The same rules you used to convert a Circle of Evaluation into code still apply. 
                              Here is the code for that Circle: @sexp[#:form "code"]{(star 50 "solid" "red")}
                              @activity[#:forevidence "BS-PL.1&1&2"]{Type this code into the Interactions window, and hit "Return". What did you get back?
-                                                                    @itemlist[@item{What does the @code{star} function do?}
-                                                                               @item{Type the expression again, but this time use a much larger number in place of @code{50}. What does the first argument tell the computer?}
-                                                                               @item{Type the expression again, this time using @code{"outline"} in place of @code{"solid"}, being careful to keep the quotation marks! What does the second argument tell the computer?}
-                                                                               @item{Now replace @code{"red"} with something else (again, keep the quotation marks!). What does the third argument tell the computer?}]
-                                                                    @standard/slideText[#:standard @editor-link[#:interactions-text "(star 50 \"solid\" \"red\")" "Click here to try it out!"]
-                                                                                        #:slide @elem{Try this on your computer}]
+                    @itemlist[@item{What does the @code{star} function do?}
+                            @item{Type the expression again, but this time use a much larger number in place of @code{50}. What does the first argument tell the computer?}
+                            @item{Type the expression again, this time using @code{"outline"} in place of @code{"solid"}, being careful to keep the quotation marks! What does the second argument tell the computer?}
+                            @item{Now replace @code{"red"} with something else (again, keep the quotation marks!). What does the third argument tell the computer?}]
+                                @editor-link[#:interactions-text "(star 50 \"solid\" \"red\")" "Click here to try it out!"]
+                                    
                                                                     } 
                                                                      }
                      @teacher{This activity is designed to get students @italic{playing} with new terms and concepts, so they develop their own model for what's going on. At this point, it is NOT essential that students understand every last component of the code. If you need to give away lots of code snippets, that's ok - just get them playing!}
@@ -235,12 +235,13 @@ include other datatypes, including Strings and Images.}
                              @code[#:multi-line ""]{; ellipse:  Number Number String String -> Image
                                                     ; triangle: Number String String        -> Image
                                                     ; circle:   Number String String        -> Image}
-                             @activity[#:forevidence (list "BS-PL.2&1&1" "BS-PL.2&1&3")]{See if you can figure out how to use these new functions to draw
-                                                                                         other shapes!
-                                                                                         @standard/slideText[#:standard @editor-link[#:interactions-text "(ellipse 150 40 \"outline\" \"black\")"
-                                                                                                                          "Here's an example to get you started"]
-                                                                                                             #:slide @elem{Here's an example to get you started: @code{(ellipse 150 40 "outline" "black")}}] }
+                             @activity[#:forevidence (list "BS-PL.2&1&1" "BS-PL.2&1&3")]{See if you can figure out how to use these new functions to draw other shapes!
+                            
+                            @editor-link[#:interactions-text "(ellipse 150 40 \"outline\" \"black\")" "Go to the editor "] and test this example:       
+                            @code{(ellipse 150 40 "outline" "black")}
+                                  }
                              }
+
                      @teacher{You should start pushing students to write more sophisticated expressions, 
                               replacing Number values with entire expressions (e.g. @code{(star (* 10 5) "solid" "purple")}). 
                               Students should be comfortable looking at an entire subexpression as a single
@@ -264,9 +265,8 @@ include other datatypes, including Strings and Images.}
              @point{@student{Contracts help programmers write code, so it's always a good idea to write down contracts for each function you see. 
                              @activity[#:forevidence (list "BS-PL.2&1&2" "F-IF.1-3&1&1")]{
                                   Can you figure out the contract for a function, just by looking at 
-                                  some sample code?  @standard/slideText[#:standard @editor-link[#:interactions-text "(text \"Bootstrap\" 30 \"purple\")"
-                                                                                     "Look at the function being used here"]
-                                                                        #:slide @elem{Look at the function being used here: @code{(text "Bootstrap" 30 "purple")}}],  
+                                  some sample code?  @editor-link[#:interactions-text "(text \"Bootstrap\" 30 \"purple\")" "Look at the function being used here"]
+                                                                       ,  
                                   and see if you can write the @vocab{Name}, @vocab{Domain} and @vocab{Range} for that function.
                                          
                                   Make sure you don't confuse the @vocab{Contract} for a function with code! Some of the items listed below are 
