@@ -180,7 +180,7 @@
                       @student{
                           We've got most of our function written:
                           @code[#:multi-line #t]{
-                          pie-dog-weight :: (animals :: Table) -> Number
+                          pie-dog-weight :: (animals :: Table) -> Image
                           # Consume a table of animals, and produce a pie-chart showing the weight of the dogs
                           fun pie-dog-weight(animals):
                             t = animals.filter(is-dog)     # define the table
@@ -197,7 +197,7 @@
                       @student{
                           Putting it all together, we get:
                           @code[#:multi-line #t]{
-                          pie-dog-weight :: (animals :: Table) -> Number
+                          pie-dog-weight :: (animals :: Table) -> Image
                           # Consume a table of animals, and produce a pie-chart showing the weight of the dogs
                           fun pie-dog-weight(animals):
                             t = animals.filter(is-dog)     # define the table
