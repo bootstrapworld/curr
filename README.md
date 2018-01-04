@@ -22,7 +22,7 @@ contacting schanzer@bootstrapworld.org.
 
 # Installation
 
-1.  You'll need to install (http://www.racket-lang.org "DrRacket v6.10+") 
+1.  You'll need to install (http://www.racket-lang.org "DrRacket v6.10 or later") 
 and (https://wkhtmltopdf.org/ "wkhtmltopdf") first, before cloning the `curr`
 repository.
 
@@ -35,7 +35,11 @@ repository.
 
 3.  Generate the curriculum.
 
-    `$ ./build-distrib-no-pdf`
+    `$ ./build-distrib`
+
+By default, this will build every course in every available language in the `/distribution` directory. Note: this can take some time! Optional arguments to speed things up are `--language [english|spanish|etc]` and `--course [algebra|reactive|data-science|physics]`.
+
+If you wish to build only the lesson plans (not the workbook and solutions), you can also use `$ ./build-notes`.
 
 
 ----------------------------------------------------------------------
