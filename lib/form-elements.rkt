@@ -1028,21 +1028,32 @@
                           #:instr [instr #f]
                           #:forevidence [forevidence #f]
                           . body)
-  ;(printf "processing handout~n")
-  ;(printf "evidence is ~a~n" forevidence)
-  ;(printf "body has length ~a~n~n" (length body))
-  (let ([full-title (if title (string-append (translate 'exercise) ": " title) (translate 'exercise))])
-    (interleave-parbreaks/all
-     (list (head-title-no-content full-title)
-           (elem #:style (bootstrap-div-style/id "homeworkInfo") "")
-           (elem #:style bs-title-style full-title)
-           (nested #:style bs-content-style
-                   (nested #:style bs-handout-style
-                           (interleave-parbreaks/all
-                            (cons (para #:style bs-exercise-instr-style (bold (string-append (translate 'directions) ": ")) 
-                                        (italicize-within-string instr exercise-terms-to-italicize))
-                                  body))))
-           (copyright)))))
+  (let ([exercise-mode (getenv "EXERCISE-MODE")])
+    (cond [(or (equal? exercise-mode "handout") (not exercise-mode)) ;;second covers case of the envvar not being specified
+           (let ([full-title (if title (string-append (translate 'exercise) ": " title) (translate 'exercise))])
+             (interleave-parbreaks/all
+              (list (head-title-no-content full-title)
+                    (elem #:style (bootstrap-div-style/id "homeworkInfo") "")
+                    (elem #:style bs-title-style full-title)
+                    (nested #:style bs-content-style
+                            (nested #:style bs-handout-style
+                                    (interleave-parbreaks/all
+                                     (cons (para #:style bs-exercise-instr-style (bold (string-append (translate 'directions) ": ")) 
+                                                 (italicize-within-string instr exercise-terms-to-italicize))
+                                           body))))
+                    (copyright))))]
+          [(equal? exercise-mode "workbook")
+           (let ([full-title (if title (string-append (translate 'exercise) ": " title) (translate 'exercise))])
+             (interleave-parbreaks/all
+              (list (elem #:style bs-title-style full-title)
+                    (nested #:style bs-content-style
+                            (nested #:style bs-handout-style
+                                    (interleave-parbreaks/all
+                                     (cons (para #:style bs-exercise-instr-style (bold (string-append (translate 'directions) ": ")) 
+                                                 (italicize-within-string instr exercise-terms-to-italicize))
+                                           body)))))))]
+          [else (printf "Unrecognized exercise mode: ~a~n" exercise-mode)]
+          )))
 
 ;; exercise-answers merely tags content.  The module reader will leave answers
 ;; in or remove them based on the solutions generation mode

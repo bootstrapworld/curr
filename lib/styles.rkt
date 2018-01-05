@@ -153,7 +153,10 @@
 ;; the tag is used in scribble-helpers.rkt (for units and exercises) and
 ;;    form-elements.rkt (for main.scrbl/curriculum index pages)
 (define (bs-body-id)
-  (make-body-id (getenv "RELEASE-STATUS")))
+  (let ([rel-status (getenv "RELEASE-STATUS")])
+    (if rel-status
+        (make-body-id (getenv "RELEASE-STATUS"))
+        (make-body-id "mature"))))
 
 ;; make-bs-latex-style : string -> style
 ;; defines a style that will only be used in latex

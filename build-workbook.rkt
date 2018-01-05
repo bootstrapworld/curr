@@ -30,6 +30,8 @@
 
 (putenv "IGNORED-WARNINGS" "")
 (putenv "COLLECTED-WARNINGS" "")
+(putenv "EXERCISE-MODE" "workbook")
+(putenv "TARGET-LANG" "racket")
 
 (define courses '("algebra" "reactive" "data-science" "physics"))
 
@@ -186,23 +188,40 @@
 ;; wkbk-mod-sec could be #f if the previous workbook file is not available
 (define (extract-PDF-pages pages wkbk-mod-sec)
   (parameterize ([current-directory (kf-get-workbook-dir)])
+    ; each pspec should be one of file.scrbl, path/file.scrbl, (file.pdf tag)
+    ;  they come from the contentlist.rkt files in each workbook directory
     (for-each (lambda (pspec)
-                (when (and (list? pspec)
-                           (= (length pspec) 2)
-                           (or #t
-                               (not (file-exists? (build-path "pages" (string-append (second pspec) ".pdf"))))
-                               (not wkbk-mod-sec)
-                               (< wkbk-mod-sec (file-or-directory-modify-seconds (first pspec)))
-                               (and (solutions-mode?) 
-                                    (< wkbk-mod-sec (file-or-directory-modify-seconds (source-pdf/sols-mode (first pspec)))))
-                               (< wkbk-mod-sec (file-or-directory-modify-seconds "manualpages-index.rkt"))
-                               ))
-                  (printf "Extracting PDF for ~a from ~a~n" pspec (current-directory))
-                  (let* ([fromfile (source-pdf/sols-mode (first pspec))]
-                         [tofile (second pspec)]
-                         [loc (get-manual-page tofile)])
-                    (system* (get-prog-cmd "pdftk") fromfile "cat" (format "~a" loc) 
-                             "output" (format "pages/~a.pdf" tofile) "dont_ask"))))
+                (cond [(and (list? pspec)  ;; in this case we have a file to extract from another PDF
+                            (= (length pspec) 2)
+                            (or #t
+                                (not (file-exists? (build-path "pages" (string-append (second pspec) ".pdf"))))
+                                (not wkbk-mod-sec)
+                                (< wkbk-mod-sec (file-or-directory-modify-seconds (first pspec)))
+                                (and (solutions-mode?) 
+                                     (< wkbk-mod-sec (file-or-directory-modify-seconds (source-pdf/sols-mode (first pspec)))))
+                                (< wkbk-mod-sec (file-or-directory-modify-seconds "manualpages-index.rkt"))
+                                ))
+                       (begin
+                         ;; have a pdf file to extract from another pdf file
+                         (printf "Extracting PDF for ~a from ~a~n" pspec (current-directory))
+                         (let* ([fromfile (source-pdf/sols-mode (first pspec))]
+                                [tofile (second pspec)]
+                                [loc (get-manual-page tofile)])
+                           (system* (get-prog-cmd "pdftk") fromfile "cat" (format "~a" loc) 
+                                    "output" (format "pages/~a.pdf" tofile) "dont_ask")))]
+;                      [(and (list? pspec) ; have a local exercise
+;                            (= (length pspec) 3)
+;                            (string=? (first pspec) "exercise"))
+;                       (copy-file (build-path (lessons-dir) (third pspec) (second pspec))
+;                                  (build-path "pages" (regexp-replace #px"\\.scrbl$" (second pspec) ".pdf")))]
+                      [else void]))
+;                    ...
+;                (let ([path-elts (string-split pspec "\\")])
+;                  (cond [(> (length path-elts) 1) ;; reference to a file elsewhere in our build system
+;                         (let ([basefilename (last path-elts)])  ;; ADAPT TO ALLOW SCRBL NAMES -- THIS ASSUMES PDF
+;                           (copy-file (string->path pspec) (build-path "pages" basefilename)))]
+;                        [else void])) ;; is already a file in pages
+;                )
               pages)))
 
 ;; the MAIN function to build the workbook

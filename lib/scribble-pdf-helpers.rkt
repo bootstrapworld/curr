@@ -36,34 +36,34 @@
   (for-each (lambda (f)
               (cond
                 [(and (string? f) 
-                         (regexp-match #px".*\\.scrbl$" f)
-                         (or (not wkbk-mod-sec)
-                             (< wkbk-mod-sec (file-or-directory-modify-seconds (build-path pagesdir f)))
-                             (< wkbk-mod-sec (file-or-directory-modify-seconds (build-path root-path "lib" "workbook.css")))
-                             #t))
-               
-                (run-scribble (build-path pagesdir f))
-                (let ([fhtml (regexp-replace #px"\\.scrbl$" f ".html")]
-                      [fpdf (regexp-replace #px"\\.scrbl$" f ".pdf")])
-                  ; -q option is for "quiet" operation
-                  (system* (get-prog-cmd "wkhtmltopdf") "--lowquality" "--print-media-type" "-q"
-                           (build-path pagesdir fhtml)
-                           (build-path pagesdir fpdf)))]
+                      (regexp-match #px".*\\.scrbl$" f)
+                      (or (not wkbk-mod-sec)
+                          (< wkbk-mod-sec (file-or-directory-modify-seconds (build-path pagesdir f)))
+                          (< wkbk-mod-sec (file-or-directory-modify-seconds (build-path root-path "lib" "workbook.css")))
+                          #t))
+                 
+                 (run-scribble (build-path pagesdir f))
+                 (let ([fhtml (regexp-replace #px"\\.scrbl$" f ".html")]
+                       [fpdf (regexp-replace #px"\\.scrbl$" f ".pdf")])
+                   ; -q option is for "quiet" operation
+                   (system* (get-prog-cmd "wkhtmltopdf") "--lowquality" "--print-media-type" "-q"
+                            (build-path pagesdir fhtml)
+                            (build-path pagesdir fpdf)))]
                 [(and (list? f) (= (length f) 3)
-                         (regexp-match #px".*\\.scrbl$" (second f))
-                         (or (not wkbk-mod-sec)
-                             (< wkbk-mod-sec (file-or-directory-modify-seconds (build-path (build-path extra-exercises-dir (third f) "exercises") (second f))))
-                             (< wkbk-mod-sec (file-or-directory-modify-seconds (build-path root-path "lib" "workbook.css")))
-                             #t))
-                (let ([exercise-dir (build-path extra-exercises-dir (third f) "exercises")])
-                (run-scribble (build-path exercise-dir (second f)))
-                (let ([fhtml (regexp-replace #px"\\.scrbl$" (second f) ".html")]
-                      [fpdf (regexp-replace #px"\\.scrbl$" (second f) ".pdf")])
-                  ; -q option is for "quiet" operation
-                  (system* (get-prog-cmd "wkhtmltopdf") "--lowquality" "--print-media-type" "-q"
-                           (build-path pagesdir fhtml)
-                           (build-path pagesdir fpdf))))])
-                )
+                      (regexp-match #px".*\\.scrbl$" (second f))
+                      (or (not wkbk-mod-sec)
+                          (< wkbk-mod-sec (file-or-directory-modify-seconds (build-path (build-path extra-exercises-dir (third f) "exercises") (second f))))
+                          (< wkbk-mod-sec (file-or-directory-modify-seconds (build-path root-path "lib" "workbook.css")))
+                          #t))
+                 (let ([exercise-dir (build-path extra-exercises-dir (third f) "exercises")])
+                   (run-scribble (build-path exercise-dir (second f)))
+                   (let ([fhtml (regexp-replace #px"\\.scrbl$" (second f) ".html")]
+                         [fpdf (regexp-replace #px"\\.scrbl$" (second f) ".pdf")])
+                     ; -q option is for "quiet" operation
+                     (system* (get-prog-cmd "wkhtmltopdf") "--lowquality" "--print-media-type" "-q"
+                              (build-path pagesdir fhtml)
+                              (build-path pagesdir fpdf))))])
+              )
             pages))
 
 ; Avoiding naming conflicts with the more general run-scribble
