@@ -458,6 +458,12 @@
                                 @(hyperlink "https://docs.google.com/spreadsheets/d/157Bi2kniAJybuV1X_9h4Z6DaZSVPK3vPf697feXcyv8" "MLB Hitting Stats Dataset") (and the @editor-link[#:public-id "https://code.pyret.org/editor#share=1_d80_yLylUXz32QrEsN9EjtHEHJ8gB34" "Starter file"] for this dataset)
                                      }
                               @item{
+                                @(hyperlink "https://docs.google.com/spreadsheets/d/156Q1HxZ-MJvByEKVoIMPmVELtQwiUb3uJEszmkndrMs" "NFL Touchdown Leaders") (and the @editor-link[#:public-id "https://code.pyret.org/editor#share=1wb4fwcItuACau5j2g0Op_IWTDx9EN4iZ&v=f1d3c87" "Starter file"] for this dataset)
+                                     }
+                              @item{
+                                @(hyperlink "https://docs.google.com/spreadsheets/d/1aVQz1PxO7LYM131LpwJUH_5fjjIF9L0JlhDvR75c5HY" "NFL Quarterback Win/Loss Records") (and the @editor-link[#:public-id "https://code.pyret.org/editor#share=1k-VFc99jnKJeX6_C_9Horo1RUq7yz9oM&v=f1d3c87" "Starter file"] for this dataset)
+                                     }
+                              @item{
                                   Or find your own dataset, and use this (@editor-link[#:public-id "1sRPS3wuExqrRE0aw-TnqVv25frjBBwii" "Blank Starter file"]) for your project.
                               }
                           ]
