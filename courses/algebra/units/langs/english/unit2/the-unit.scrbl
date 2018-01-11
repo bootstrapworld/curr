@@ -17,8 +17,8 @@ include other datatypes, including Strings and Images.}
      #:product-outcomes @itemlist[]
      #:standards (list "A-SSE.1-2" "BS-CE")
      #:materials @itemlist[]
-     #:preparation @itemlist[@item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/1Qn59Fol2tspqOx6XQV88xm-IYsRGY769cb7MQeknSMA/edit?usp=sharing" "Warmup activity sheet").}
-                              @item{Student Workbooks, and something to write with.}]
+     #:preparation @itemlist[@item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/1Qn59Fol2tspqOx6XQV88xm-IYsRGY769cb7MQeknSMA/edit?usp=sharing" "Warmup activity sheet")}
+                   @item{Student Workbooks, and something to write with}]
      #:prerequisites (list "Order of Operations")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -58,8 +58,9 @@ include other datatypes, including Strings and Images.}
                        (make-exercise-locator "Strings-and-Images" "many-types-coe-to-code2"))
      #:standards (list "N-Q" "BS-PL.1" "BS-PL.2")
      #:materials @itemlist[@item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}]
-     #:preparation @itemlist[@item{Students are logged into WeScheme.org, OR have opened DrRacket.}
-                              @item{Student Workbooks, and something to write with.}]
+     #:preparation @itemlist[@item{Students are logged into WeScheme.org, OR have opened DrRacket}
+                              @item{OPTIONAL: @(hyperlink "https://quizizz.com/admin/quiz/5a15d1a82b65d91100dc2055?from=quizEditor" "Quizizz Unit 2 Review Quiz")}
+                              @item{OPTIONAL: @(hyperlink "https://teacher.desmos.com/activitybuilder/custom/5a15e268dcb86b2b9fda3ce0" "Desmos Activity: Unit 2 Review")}]
      #:prerequisites (list "Intro to Programming")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -157,8 +158,7 @@ include other datatypes, including Strings and Images.}
                        (make-exercise-locator "Contracts" "match-contracts-exprs1"))
      #:standards (list "BS-PL.2" "BS-IDE" "N-Q" "F-IF.1-3")
      #:materials @itemlist[@item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}]
-     #:preparation @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket}
-                              @item{Student Workbooks, and something to write with}]
+     
      #:prerequisites (list "Intro to Programming")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}

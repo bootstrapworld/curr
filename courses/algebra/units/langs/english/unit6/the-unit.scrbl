@@ -53,7 +53,7 @@
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, language table, course calendar)}
                             @item{Language Table (see below)}]
-     #:preparation @itemlist[@item{Students are logged into WeScheme.org, OR have opened DrRacket.}]
+     #:preparation @itemlist[@item{Students are logged into WeScheme.org, OR have opened DrRacket}]
      #:prerequisites (list "Intro to Programming" "Contracts")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -115,7 +115,10 @@
                             @item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
                             @item{Class poster (List of rules, language table, course calendar)}
                             @item{Language Table (see below)}]
-     #:preparation @itemlist[@item{"Cage" [Cage.rkt from @(resource-link #:path "source-files.zip" #:label "source-files.zip")  @(hyperlink "http://www.wescheme.org/openEditor?publicId=48low6MazC" "WeScheme")] preloaded on student machines.}]
+     #:preparation @itemlist[@item{"Cage" [Cage.rkt from @(resource-link #:path "source-files.zip" #:label "source-files.zip")  @(hyperlink "http://www.wescheme.org/openEditor?publicId=48low6MazC" "WeScheme")] preloaded on student machines}
+                            @item{OPTIONAL: @(hyperlink "https://teacher.desmos.com/activitybuilder/custom/5a2de279b263be77d88f0e54" "Desmos Activity: Unit 6 Review")}
+                            @item{OPTIONAL: @(hyperlink "https://quizizz.com/admin/quiz/5a15ddbc4cfd311100865126?from=quizEditor" "Quizizz: Unit 6 Review")}
+     ]
      #:prerequisites (list "Booleans" "The Design Recipe")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}

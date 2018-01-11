@@ -114,7 +114,8 @@
                            @item{Class posters (List of rules, basic skills, course calendar)}
                            @item{Language Table (see below)}
                           ]
-     #:preparation @itemlist[ @item{REQUIRED: Hand out @(hyperlink "https://docs.google.com/document/d/1Vkaz30B8AAaze6fMiFJypFb1bOIeH0RzkeaBLCCPf9E/edit?usp=sharing" "Warmup Activity Sheet").}]
+     #:preparation @itemlist[ @item{REQUIRED: Hand out @(hyperlink "https://docs.google.com/document/d/1Vkaz30B8AAaze6fMiFJypFb1bOIeH0RzkeaBLCCPf9E/edit?usp=sharing" "Warmup Activity Sheet")}
+     @item{OPTIONAL: @(hyperlink "https://teacher.desmos.com/activitybuilder/custom/5a2ddf70edfc8975f63b14b7" "Desmos Activity: Unit 7 & 8 Review")}]
      #:prerequisites (list "1D Distance")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
