@@ -24,12 +24,16 @@
                             @item{Class poster (List of rules, language table, course calendar)}
                             @item{Language Table (see below)}
                             @item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders with names on covers, and something to write with}]
-     #:preparation @itemlist[@item{Write agenda on board}
+     #:preparation @itemlist[ @item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/134VD2NShK_VxDog4VG4lMm4jTbpxm2H2cSXqZbHwwSg/edit?usp=sharing" "Warmup activity sheet")}
+
+                              @item{Write agenda on board}
                               @item{Display Class posters, Language Table, Design Recipe}
-                              @item{Students are logged into WeScheme.org, OR have opened DrRacket.}
+                              @item{Students are logged into WeScheme.org, OR have opened DrRacket}
                               @item{"Rocket" [Rocket.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=EHgrsZlYNX" "WeScheme")] preloaded on students' machines}
                               @item{Seating arrangements: ideally clusters of desks/tables}
-                              @item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/134VD2NShK_VxDog4VG4lMm4jTbpxm2H2cSXqZbHwwSg/edit?usp=sharing" "Warmup activity sheet").}]
+                              
+                              @item{OPTIONAL: @(hyperlink "https://teacher.desmos.com/activitybuilder/custom/5a15e2907915bd2fd51a65bc" "Desmos Activity: Unit 4 Review")}
+                              @item{OPTIONAL: @(hyperlink "https://teacher.desmos.com/activitybuilder/custom/5a2f2c2e532d241d732593db" "Desmos Activity: Design Recipe Practice(Blank Template)")}]
      #:prerequisites (list "Defining Functions")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}

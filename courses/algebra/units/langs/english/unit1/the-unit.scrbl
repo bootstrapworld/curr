@@ -16,7 +16,9 @@
      #:product-outcomes @itemlist[]
      #:standards (list)
      #:materials @itemlist[]
-     #:preparation @itemlist[@item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/1USFPXkeO5AbGOzm_U0tMv4NV3RrxTMTyg-bqIKUf4q4/edit?usp=sharing" "Warmup activity sheet").}]
+     #:preparation @itemlist[@item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/1USFPXkeO5AbGOzm_U0tMv4NV3RrxTMTyg-bqIKUf4q4/edit?usp=sharing" "Warmup activity sheet")}]
+     
+     
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -48,7 +50,8 @@
      #:preparation @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket}
                              @item{If using DrRacket, make sure the Ninja.rkt file is loaded}
                              @item{"NinjaCat" [NinjaCat.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=sggzRzgU5T" "WeScheme")] preloaded on students' machines}
-                             @item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders with names on covers, and something to write with}]
+                             @item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders with names on covers, and something to write with}
+                             ]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -100,7 +103,7 @@
      #:materials @itemlist[@item{Cutouts of  @resource-link[#:path "images/ninjacat.png" #:label "NinjaCat"],  @resource-link[#:path "images/dog.png" #:label "Dog"]
                                  and the  @resource-link[#:path "images/ruby.png" #:label "Ruby"]}
                             @item{Student Workbooks, and something to write with}]
-     #:preparation @itemlist[@item{Student Workbooks, and something to write with}]
+  
      #:prerequisites (list "Dissecting a Demo")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -180,7 +183,7 @@
      #:materials @itemlist[@item{}]
      #:preparation @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket}
                              @item{If using DrRacket, make sure the Ninja.rkt file is loaded}
-                             @item{Student Workbooks, and something to write with}]
+                            ]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -256,7 +259,8 @@
      #:materials @itemlist[@item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}]
      #:preparation @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket}
                              @item{If using DrRacket, make sure the Ninja.rkt file is loaded}
-                             @item{Student Workbooks, and something to write with}]
+                             
+                             ]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{Have students practice translating very simple (one-operation) expressions into 
                                                               simple (one-circle) Circles of Evaluation. By choosing the numbers in these 
@@ -434,10 +438,11 @@
      #:product-outcomes @itemlist[]
      #:standards (list "A-SSE.1-2" "N-Q" "BS-CE" "BS-PL.1" "BS-IDE")
      #:materials @itemlist[@item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}]
-     #:preparation @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket}
-                              @item{Students are logged into WeScheme.org, OR have opened DrRacket.}
-                              @item{Student Workbooks, and something to write with}
-                              @item{Overhead projector}]
+     #:preparation @itemlist[
+                              @item{Overhead projector}
+                              @item{OPTIONAL: @(hyperlink "https://quizizz.com/admin/quiz/5a146afd3b4ad115000fcb57?from=quizEditor" "Quizizz Unit 1 Review Quiz")}
+                             @item{OPTIONAL: @(hyperlink "https://teacher.desmos.com/activitybuilder/custom/5a15e2388c08800a6024c091" "Desmos Activity: Unit 1 Review - Circles of Evalation & Code Practice")}
+                             @item{OPTIONAL: @(hyperlink "https://teacher.desmos.com/activitybuilder/custom/5a1c805bbfc8c40614d3904a" "Desmos Activity: Circles of Evaluation & Code Practice(Blank Template)")}]
      #:prerequisites (list "Order of Operations")
      #:exercises (list (make-exercise-locator "Intro-to-Programming" "complete-code-from-coe1")
                        (make-exercise-locator "Intro-to-Programming" "coe-to-code1")
