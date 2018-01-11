@@ -351,10 +351,10 @@
                 }
                 @point{
                       @student{
-                          We can use @vocab{box plots} to visualize these quartiles. These plots can easily be represented using @bold{just five numbers}, which makes them convenient ways to summarize data. Below is the contract for @code{box-plot}, along with an example that will make a box plot for the weights in the @code{animals-table}.
+                          We can use @vocab{box plots} to visualize these quartiles. These plots can easily be represented using @bold{just five numbers}, which makes them convenient ways to summarize data. Below is the contract for @code{box-plot}, along with an example that will make a box plot for the @code{weeks} column in the @code{animals-table}.
                           @code[#:multi-line #t]{
                             box-plot :: (t :: Table, column :: String) -> Image
-                            box-plot(animals-table, "pounds")
+                            box-plot(animals-table, "weeks")
                           }
                           @activity[#:forevidence (list "S-ID.1-4&1&2" "HSS.ID.A&1&1" "HSS.ID.A&1&2" "6.SP.4-5&1&1" "S-ID.1-4&1&1")]{
                               Type in this expression in the Interactions Area, and see the resulting plot.
@@ -379,10 +379,10 @@
                                   The @bold{maximum} value in the dataset (at the top). In our dataset, that's 30 weeks.
                               }
                               @item{
-                                  The @bold{First Quartile (Q1)} (the bottom edge of the box), which is computed by taking @italic{the median of the all the smaller half of the values}.
+                                  The @bold{First Quartile (Q1)} (the bottom edge of the box), which is computed by taking @italic{the median of the all the smaller half of the values}. In the @code{weeks} column, that's 2.5 weeks.
                               }
                               @item{
-                                  The @bold{Third Quartile (Q3)} (the bottom edge of the box), which is computed by taking  @italic{the median of the all the larger half of the values}.
+                                  The @bold{Third Quartile (Q3)} (the bottom edge of the box), which is computed by taking  @italic{the median of the all the larger half of the values}. That's 8 weeks in our dataset.
                               }
                           ]
                       }
