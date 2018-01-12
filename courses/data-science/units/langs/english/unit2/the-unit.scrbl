@@ -166,10 +166,12 @@
             }
             @point{
                   @student{
-                        Each row of our @code{animals-table} represents a single animal in our shelter. We can use the @code{get-row} function from yesterday to define values. For example:
+                        Each row of our @code{animals-table} represents a single animal in our shelter. We can use the @code{get-row} function from yesterday to define values. Type the following lines of code into the Definitions Area and click "Run":
                         @code[#:multi-line #t]{
                           mittens = get-row(animals-table, 3) # the Row for Mittens
+                          fritz   = get-row(animals-table, 10) # the Row for Fritz
                         }
+                        What happens when you evaluate @code{mittens} in the Interactions Area?
                         @activity[#:forevidence (list "BS-PL.3&1&1")]{
                             Select two pets from the @code{animals-table} that you would most like to adopt, and two more than you would @italic{least} like to adopt (don't worry, those animals will find homes too!). What rows are they? Define values for each of them, using the pet's names and Rows.
                         }
@@ -247,14 +249,14 @@
                               birth-year :: (animal :: Row) -> Number
                               # Consumes an animal and produces the year it was born
                               examples:
-                                birth-year(pet1) is 2016                # our answer
-                                birth-year(pet1) is 2018 - pet1["age"]  # showing our work
+                                birth-year(mittens) is 2016                   # our answer
+                                birth-year(mittens) is 2018 - mittens["age"]  # showing our work
                               end
                             }
                             While both examples here are correct, we want to use the second one that shows our work.
                       }
                       @teacher{
-                            Make sure students see that these two examples are @italic{equivalent}. Walk through this first example @italic{carefully}. Make sure students understand where the @code{birth-year} came from the Name in our contract, and that @code{pet1} came from the Domain in our contract. @code{2018 - pet1["age"]} came from our purpose statement, and the label also came from the variable name in our contract.
+                            Make sure students see that these two examples are @italic{equivalent}. Walk through this first example @italic{carefully}. Make sure students understand where the @code{birth-year} came from the Name in our contract, and that @code{mittens} came from the Domain in our contract. @code{2018 - mittens["age"]} came from our purpose statement, and the label also came from the variable name in our contract.
                       }
                 }
                 @point{
@@ -262,16 +264,16 @@
                             @activity[#:forevidence (list "BS-PL.3&1&2")]{
                                 @itemlist[
                                   @item{
-                                      Write another example that shows your work in this block, using the @code{pet2} you defined earlier.
+                                      Write another example that shows your work in this block, using the @code{fritz} value that you defined earlier.
                                     }
                                   @item{
-                                      In the examples where we show our work, do you notice a pattern? Most of the code for these examples is exactly the same, and only a small bit is changing: @code{pet1} and @code{pet2}.
+                                      In the examples where we show our work, do you notice a pattern? Most of the code for these examples is exactly the same, and only a small bit is changing: @code{mittens} and @code{fritz}.
                                   }
                                   @item{
                                       Circle all of the parts in your example block that are changing.
                                   }
                                   @item{
-                                      What does the stuff you circled represent? Are @code{pet1} and @code{pet2} years? Legs? No - they are @italic{animals}! Let's label them...
+                                      What does the stuff you circled represent? Are @code{mittens} and @code{fritz} years? Legs? No - they are @italic{animals}! Let's label them...
                                   }
                                 ]
                                   
@@ -288,11 +290,11 @@
                               birth-year :: (animal :: Row) -> Number
                               # Consumes an animal, and produces the year it was born
                               examples:
-                                birth-year(pet1) is 2017  -  pet1["age"]
-                                birth-year(pet2) is 2017  -  pet2["age"]
+                                birth-year(mittens) is 2018  -  mittens["age"]
+                                birth-year(fritz)   is 2018  -  fritz["age"]
                               end
                               fun birth-year(animal): 
-                                2017 - animal["age"]
+                                2018 - animal["age"]
                               end
                             }
                     }
@@ -306,8 +308,8 @@
                           @activity[#:forevidence (list "BS-PL.3&1&3")]{
                               After you've clicked run, try typing in the following expressions, and see what happens:
                               @code[#:multi-line #t]{
-                                  birth-year(pet3)
-                                  birth-year(pet4)
+                                  birth-year(mittens)
+                                  birth-year(fritz)
                                   birth-year(get-row(animals-table, 8))
                                   birth-year(get-row(animals-table, 11))
                               }
@@ -322,7 +324,7 @@
                         Our @code{examples:} block is a helpful way to @italic{check our work}, so we don't make mistakes. Suppose we had a typo in our function definition, and added instead of subtracted:
                         @code[#:multi-line #t]{
                             fun birth-year(animal): 
-                              2017 + animal["age"]
+                              2018 + animal["age"]
                             end
                         }
                         Try making this change to your code, and clicking "Run". What happens?
