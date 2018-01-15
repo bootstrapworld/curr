@@ -31,8 +31,7 @@
                 <li><p class="BSUnitSummary"><span class="BSUnitTitle">Assessment Guide</span> [<a href="https://docs.google.com/document/d/1uJk66awwVCqJPSTiwMy1FKuYd1FipsShJwCUCq0P7Tw/edit?usp=sharing">Google Doc</a>] - Guidance for teachers, on assessing student programs.</p></li>
                 <li><p class="BSUnitSummary"><span class="BSUnitTitle">Grading Rubric</span> [<a href="https://docs.google.com/document/d/10YYUmMbE77VwC3W24yZykZe1I0ELL_jE2_NQyH473MY/edit#">Google Doc</a>] - A simple grading rubric for Design Recipes in Bootstrap:Algebra.</p></li>
                 <li><p class="BSUnitSummary"><span class="BSUnitTitle">[NEW!] Buggy Design Recipes</span> [<a href="BuggyRecipes.pdf">PDF</a>] [<a href="buggy-DR-answer-key.pdf"> Answer key</a>] - Real examples of common student mistakes. Get some practice grading them, or practice getting students over common misconceptions.</p></li>
-                <li><p class="BSUnitSummary"><span class="BSUnitTitle">[NEW!] Quizizz/Desmos Review Activities </span> [<a href="https://docs.google.com/document/d/1ddhdTMBDz-lYUuet2ESVl-jl5FVVI9h_1n5wCE7tH0I/edit?usp=sharing">Google Doc</a>] - Multiple choice review quizzes(Quizizz) and Unit Review Actvities(Desmos) created to check for understanding at the end of each unit.</p></li>
-                </ul>
+              
               
                 <span class="anchor" id="evaluation"></span>
                 <h2>Evaluation</h2>
@@ -246,6 +245,22 @@
                     | <a href="solutions/coe-code-matching1.html">answers</a>]
                   </span>
                 </li>
+                <li>Unit 1 Quiz - Bootstrap: Algebra(Quizizz)
+                  <span class="links">
+                    [<a href="https://quizizz.com/admin/quiz/5a146afd3b4ad115000fcb57?from=quizEditor">Link</a>]
+                  </span>
+                </li>
+                <li>Unit 1: Circles of Evaluation And Code Practice(Desmos Activity)
+                  <span class="links">
+                    [<a href="https://teacher.desmos.com/activitybuilder/custom/5a15e2388c08800a6024c091">Link</a>]
+                  </span>
+                </li>
+                <li>Unit 1: Circles of Evaluation And Code Practice (Blank Template)
+                  <span class="links">
+                    [<a href="https://teacher.desmos.com/activitybuilder/custom/5a1c805bbfc8c40614d3904a">Link</a>]
+                  </span>
+                </li>
+
               </ul>
               <h3><a href="../../units/unit2/">Unit 2</a></h3>
               <ul>
@@ -285,6 +300,17 @@
                     | <a href="solutions/match-contracts-exprs1.html">answers</a>]
                   </span>
                 </li>
+                <li>Unit 2 Quiz - Bootstrap: Algebra(Quizizz)
+                  <span class="links">
+                    [<a href="https://quizizz.com/admin/quiz/5a15d1a82b65d91100dc2055?from=quizEditor">Link</a>]
+                  </span>
+                </li>
+                <li>Unit 2 Bootstrap Algebra Review(Desmos Activity)
+                  <span class="links">
+                    [<a href="https://teacher.desmos.com/activitybuilder/custom/5a15e268dcb86b2b9fda3ce0">Link</a>]
+                  </span>
+                </li>
+           
               </ul>
               <h3><a href="../../units/unit3/">Unit 3</a></h3>
               <ul>
@@ -310,6 +336,11 @@
                   <span class="links">
                     [<a href="../../units/unit3/exercises/Defining-Functions/create-contracts-examples2.html">original</a>
                     | <a href="solutions/create-contracts-examples2.html">answers</a>]
+                  </span>
+                </li>
+                <li>Unit 3 Bootstrap Algebra Review(Desmos Activity)
+                  <span class="links">
+                    [<a href="https://teacher.desmos.com/activitybuilder/custom/5a15e27ee904510a5a9a0faa">Link</a>]
                   </span>
                 </li>
               </ul>
@@ -345,6 +376,16 @@
                     | <a href="solutions/match-contracts-examples2.html">answers</a>]
                   </span>
                 </li>
+                <li>Unit 4 Bootstrap Algebra Review(Desmos Activity)
+                  <span class="links">
+                    [<a href="https://teacher.desmos.com/activitybuilder/custom/5a15e2907915bd2fd51a65bc">Link</a>]
+                  </span>
+                </li>
+                <li>Unit 4: Design Recipe Practice - Blank Template(Desmos Activity)
+                  <span class="links">
+                    [<a href="https://teacher.desmos.com/activitybuilder/custom/5a2f2c2e532d241d732593db">Link</a>]
+                  </span>
+                </li>
               </ul>
               <h3><a href="../../units/unit5/">Unit 5</a></h3>
               <ul>
@@ -358,6 +399,11 @@
                   <span class="links">
                     [<a href="https://docs.google.com/document/d/1U6QxfTTNHT6YWZmVpVnI9CX6MJ8KHlauNqdOpYKOeaw/edit">original</a>
                     | <a href="https://docs.google.com/document/d/1aA46sBhD-KgZjrnK7HHX00fh8wiiwz4-nASKAox0TSY/edit">answers</a>]
+                  </span>
+                </li>
+                <li>Unit 5 Bootstrap Algebra Review(Desmos Activity)
+                  <span class="links">
+                    [<a href="https://teacher.desmos.com/activitybuilder/custom/5a15e2b3dcb86b2b9fda3d19">Link</a>]
                   </span>
                 </li>
               </ul>
@@ -380,6 +426,16 @@
                     | <a href="solutions/boolean-coe-to-code2.html">answers</a>]
                   </span>
                 </li>
+                <li>Unit 6 Quiz - Bootstrap: Algebra(Quizizz)
+                  <span class="links">
+                    [<a href="https://quizizz.com/admin/quiz/5a15ddbc4cfd311100865126?from=quizEditor">Link</a>]
+                  </span>
+                </li>
+                <li>Unit 6 Bootstrap Algebra Review(Desmos Activity)
+                  <span class="links">
+                    [<a href="https://teacher.desmos.com/activitybuilder/custom/5a2de279b263be77d88f0e54">Link</a>]
+                  </span>
+                </li>
               </ul>
               <h3><a href="../../units/unit7/">Unit 7</a></h3>
               <ul>
@@ -396,6 +452,11 @@
                     | <a href="https://docs.google.com/document/d/1Iq3xzshAMxESBeemd9l5WEejWZs6wNBbv1Ve6BG_y0c/edit">answers</a>]
                   </span>
                 </li>
+                <li>Units 7 and 8 Bootstrap Algebra Review(Desmos Activity)
+                  <span class="links">
+                    [<a href="https://teacher.desmos.com/activitybuilder/custom/5a2ddf70edfc8975f63b14b7">Link</a>]
+                  </span>
+                </li>
               </ul>
               <h2><a href="../../units/unit8/">Unit 8</a></h2>
               <ul>
@@ -409,6 +470,11 @@
                   <span class="links">
                     [<a href="https://docs.google.com/document/d/1zVzKaBmCf_rLBxT5lhuhYkRaUMW_3mNEMYdmRXtrE3s/edit">original</a>
                     | <a href="https://docs.google.com/document/d/154MIuHfRCNKg02lsaZTOz6Wc7CQSp8nIvZcI6Nr-6J8/edit">answers</a>]
+                  </span>
+                </li>
+                <li>Units 7 and 8 Bootstrap Algebra Review(Desmos Activity)
+                  <span class="links">
+                    [<a href="https://teacher.desmos.com/activitybuilder/custom/5a2ddf70edfc8975f63b14b7">Link</a>]
                   </span>
                 </li>
               </ul>
