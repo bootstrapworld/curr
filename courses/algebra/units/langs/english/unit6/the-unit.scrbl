@@ -27,12 +27,18 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@item{@student{What datatypes have you seen so far? Can you think of @code{Number} values? @code{String} values? @code{Image} values?
-                               What are some expressions that evaluate to a @code{Number}?  How about the other datatypes?}
-                       @teacher{Before introducing a new datatype (Booleans), this would be a good time to quickly review the three major 
-                                contexts students have learned for working with expressions: Circles of Evaluation, Contracts and Design Recipe.
-                                In this lesson, students will apply each one of them to Booleans, discovering that everything they've already 
-                                learn still applies - even in the new type.}}]}
+        @points[
+            @point{
+                @student{
+                    What datatypes have you seen so far? Can you think of @code{Number} values? @code{String} values? @code{Image} values? What are some expressions that evaluate to a @code{Number}?  How about the other datatypes?
+                }
+                @teacher{
+                    Before introducing a new datatype (Booleans), this would be a good time to quickly review the three major 
+                    contexts students have learned for working with expressions: Circles of Evaluation, Contracts and Design Recipe.In this lesson, students will apply each one of them to Booleans, discovering that everything they've already learn still applies - even in the new type.
+                }
+            }
+        ]
+    }
 
 @lesson/studteach[
      #:title "Booleans"
