@@ -3,7 +3,7 @@
 @main-contents{
 @(elem #:style bs-coursename-style "Bootstrap:Algebra")
 
-@boxed-text{@animated-gif{../../splash.png}}
+@(logosplash "../../splash.png" "AlgebraLogo.png")
 
 @bold{@(hyperlink "http://www.BootstrapWorld.org/workshops" "Click here for our upcoming trainings")}
 
