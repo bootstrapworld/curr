@@ -29,9 +29,9 @@
 @(define exprs-as-math (map sexp->math exprs))
 
 @(exercise-handout 
-  #:title "Completing Partial Circles of Evaluation from Arithmetic Expressions"
-  #:instr "For each arithmetic expression on the left,  finish the Circle of Evaluation
-           on the right by filling in the blanks."
+  #:title "Completar círculos parciales de evaluación de expresiones aritméticas"
+  #:instr "Para cada expresión aritmética de la izquierda, termine el círculo de evaluación
+           a la derecha completando los espacios en blanco."
   #:forevidence (exercise-evid-tags "BS-CE&1&1" "BS-CE&1&2")
   @(completion-exercise exprs-as-math (map sexp->coe exprs-with-holes))
   @(exercise-answers

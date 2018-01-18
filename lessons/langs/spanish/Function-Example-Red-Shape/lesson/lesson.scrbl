@@ -2,8 +2,8 @@
 
 
 @lesson/studteach[
-     #:title "red-shape" 
-     #:duration "10 min"
+     #:title "Figura Roja (red-shape)" 
+     #:duration "10 minutos"
      #:overview "Students define a piecewise function"
      #:learning-objectives @itemlist[@item{Students learn the concept of piecewise functions}
                                      @item{Students learn about conditionals (how to write piecewise functions in code)}
@@ -29,15 +29,15 @@
                 )
      ]{
   @points[
-     @point{@student{Conditionals allow functions to have very different behavior, based on their input. A function that produces red circles of various sizes doesn't need conditionals (since the code will always draw a circle), but a function that produces @italic{different shapes entirely} would need to evaluate the appropriate expression for a given shape.}
+     @point{@student{Los condicionales permiten que las funciones tengan un comportamiento muy diferente, basado en su entrada. Una función que produce círculos rojos de varios tamaños no necesita condicionales (ya que el código dibujará siempre un círculo), pero una función que produce diferentes formas enteramente necesitaría evaluar la expresión apropiada para una forma dada.}
              @teacher{You may want to show students the code for simpler functions (@code{red-circle}, @code{green-triangle}, etc), pointing out that those functions evaluate the same expression no matter what - they merely fill in the variable with a given value.}}
-      @point{@student{@activity{Turn to @worksheet-link[#:page 34 #:name "red-shape"], and use the Design Recipe to complete the word problem for @code{red-shape}.}}
+      @point{@student{@activity{Ve a la @worksheet-link[#:page 34 #:name "red-shape"], y utiliza la receta de diseño para completar el problema de palabras para @code{red-shape}.}}
               @teacher{Pause and debrief after each section, if necessary.}}
 
-     @point{@student{Conditions can be used in many places inside a videogame:
-                     @itemlist[@item{Have the player drawn differently when they get a power boost}                                                         
-                                @item{Open doors when the player is holding a key}
-                                @item{Move differently depending on keyboard input}]}
+     @point{@student{Las condiciones se pueden utilizar en muchos lugares dentro de un videojuego:
+                     @itemlist[@item{Hacer que el jugador dibuje de manera diferente cuando recibe un aumento de potencia.}                                                         
+                                @item{Abrir las puertas cuando el jugador tiene una llave}
+                                @item{Moverse de forma diferente dependiendo de la entrada del teclado}]}
              @teacher{}
            }]
    }
