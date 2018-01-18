@@ -3,7 +3,8 @@
 @main-contents{
 @(elem #:style bs-coursename-style "Bootstrap:Algebra")
 
-@animated-gif{../../splash.png}
+@(logosplash "../../splash.png" "AlgebraLogo.png")
+
 @; workbook link names and targets
 We provide all of the our materials @italic{free of charge}, to anyone who is interested in using our lesson plans or student workbooks.
 @(apply itemlist
