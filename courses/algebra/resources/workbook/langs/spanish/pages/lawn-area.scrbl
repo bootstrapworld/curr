@@ -1,9 +1,9 @@
 #lang curr/lib
 
-@(design-recipe-exercise "lawn-area" "Use the Design Recipe to write a function 'lawn-area', which takes in the width and length of a lawn, and returns the area of the lawn. (Don't forget: area = length * width!)"
+@(design-recipe-exercise "area-cesped" "Utilizando la Receta de Diseno para escribe una funcion 'area-cesped', la cual toma lo ancho y largo de un area de cesped, y calcula el area del cesped. (Recuerda: area = largo * ancho!)"
 			 #:domain-list (list "number" "number")
 			 #:range "number"
-			 #:purpose "Produce area of lawn with given length and width"
+			 #:purpose "Producir el area de un cesped dados su largo y ancho"
                          #:num-examples 2
 			 #:example-list '((10 20 (* 10 20)) (50 5 (* 50 5)))
                          #:param-list (list "length" "width")
