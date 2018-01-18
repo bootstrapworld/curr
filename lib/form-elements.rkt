@@ -881,8 +881,10 @@
 ;; generates the logo and splash-screen markup for the main.scrbl pages
 (define (logosplash splash-file logo-file)
   (nested #:style bs-logosplash-style
-          (elem (image-with-alt-text splash-file "splash image"))
-          (elem (image-with-alt-text
+          (elem #:style (bootstrap-div-style "")
+                (image-with-alt-text splash-file "splash image"))
+          (elem #:style (bootstrap-div-style "top")
+                (image-with-alt-text
                  (format "http://www.bootstrapworld.org/images/~a" logo-file)
                  "course logo"))
           ))
