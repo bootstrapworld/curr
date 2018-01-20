@@ -42,7 +42,8 @@
                                  ("reactive" "english")
                                  ("data-science" "english")
                                  ("physics" "english")
-                                 ("blank-course" "english")))
+                                 ;("blank-course" "english")
+				 ))
 (define available-courses (map (lambda (course-spec) (first course-spec)) available-course-specs))
 
 ;; Depending on who we are generating for, we need to relocate the resources dirs.
