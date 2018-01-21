@@ -1045,7 +1045,7 @@
           [(equal? exercise-mode "workbook")
            (let ([full-title (if title (string-append (translate 'exercise) ": " title) (translate 'exercise))])
              (interleave-parbreaks/all
-              (list (elem #:style bs-title-style full-title)
+              (list (elem #:style (bootstrap-div-style "exercise-header") full-title)
                     (nested #:style bs-content-style
                             (nested #:style bs-handout-style
                                     (interleave-parbreaks/all
