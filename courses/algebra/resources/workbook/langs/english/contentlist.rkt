@@ -15,6 +15,7 @@
  ("StudentWorkbook.pdf" "Game-Design")
  ("StudentWorkbook.pdf" "Circle-of-Evaluation-Practice")
  ;; /lessons/langs/english/Order-of-Operations/exercises/complete-coe-from-arith1.scrbl
+ "separator.pdf"
  ("exercise" "complete-coe-from-arith1.scrbl" "Order-of-Operations")
  ("exercise" "complete-coe-from-arith2.scrbl" "Order-of-Operations")
  ("exercise" "arith-to-coe1.scrbl" "Order-of-Operations")
@@ -32,6 +33,7 @@
  ;;;;; UNIT 2 ;;;;;;;;;
  ("ColleenPages.pdf" "Unit-2")
  ("StudentWorkbook.pdf" "Circle-of-Evaluation-Practice-2")
+ "separator.pdf"
  ("exercise" "many-types-coe-to-code1.scrbl" "Strings-and-Images")
  ("exercise" "many-types-coe-to-code2.scrbl" "Strings-and-Images")
  ("exercise" "id-expr-pieces1.html" "Contracts")
@@ -41,6 +43,7 @@
  ("ColleenPages.pdf" "Unit-3")
  ("StudentWorkbook.pdf" "Fast-Functions")
  ("StudentWorkbook.pdf" "Fast-Functions2")
+ "separator.pdf"
  ("exercise" "match-examples-functions1.scrbl" "Defining-Functions")
  ("exercise" "create-contracts-examples1.scrbl" "Defining-Functions")
  ("exercise" "create-contracts-examples2.scrbl" "Defining-Functions")
@@ -49,6 +52,7 @@
  "rocket-height.scrbl"
  "lawn-area.scrbl"
  "red-square.scrbl"
+ "separator.pdf"
  ("exercise" "examples-same-contracts1.scrbl" "Practicing-the-Design-Recipe")
  ("exercise" "examples-same-contracts2.scrbl" "Practicing-the-Design-Recipe")
  ("exercise" "match-contracts-examples1.scrbl" "Practicing-the-Design-Recipe")
@@ -68,6 +72,7 @@
  "safe-right.scrbl"
  ("StudentWorkbook.pdf" "AND-and-OR")
  "onscreen.scrbl"
+  "separator.pdf"
  ("exercise" "enough-cash-design-recipe-assess.scrbl" "Booleans")
  ("exercise" "long-name-design-recipe-assess.scrbl" "Booleans")
  ("exercise" "equal-length-design-recipe-assess.scrbl" "Booleans")
@@ -79,6 +84,7 @@
  ("ColleenPages.pdf" "Unit-7")
  "cost.scrbl"
  "update-player.scrbl"
+  "separator.pdf"
  ("exercise" "scale-shape-design-recipe-assess.scrbl" "Luigis-Pizza")
  ("exercise" "state-tax-design-recipe-assess.scrbl" "Luigis-Pizza")
  ("exercise" "flower-name-design-recipe-assess.scrbl" "Luigis-Pizza")
