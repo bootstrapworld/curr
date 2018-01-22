@@ -214,7 +214,10 @@
 ;                            (string=? (first pspec) "exercise"))
 ;                       (copy-file (build-path (lessons-dir) (third pspec) (second pspec))
 ;                                  (build-path "pages" (regexp-replace #px"\\.scrbl$" (second pspec) ".pdf")))]
-                      [else void]))
+                      [else
+                       ;(printf "Doing nothing for page ~a~n" pspec)
+                       void
+                       ]))
 ;                    ...
 ;                (let ([path-elts (string-split pspec "\\")])
 ;                  (cond [(> (length path-elts) 1) ;; reference to a file elsewhere in our build system
