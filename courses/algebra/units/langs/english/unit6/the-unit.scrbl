@@ -17,9 +17,11 @@
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
      #:standards (list)
-     #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
+     #:materials @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket with the  bootstrap-teachpack installed}
+                           @item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbooks"], and something to write with}
+                            @item{Fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, language table, course calendar)}
-                            @item{Language Table (see below)}]
+                            @item{Overhead projector}]
      #:preparation @itemlist[@item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/1WvlflsKM28IOwgyV2HttnGxul3sAUnL0-KOZhvb6C2s/edit?usp=sharing" "Warmup activity sheet").}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -56,9 +58,7 @@
                        (make-exercise-locator/dr-assess "Booleans" "enough-carpet-design-recipe-assess" "Do You Have Enough Carpet?")
 		       )
      #:standards (list "7.EE.3-4" "BS-IDE" "BS-PL.1" "BS-PL.2")
-     #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
-                            @item{Class poster (List of rules, language table, course calendar)}
-                            @item{Language Table (see below)}]
+     #:materials @itemlist[]
      #:preparation @itemlist[@item{Students are logged into WeScheme.org, OR have opened DrRacket}]
      #:prerequisites (list "Intro to Programming" "Contracts")
      #:pacings (list 
@@ -117,10 +117,7 @@
 ]
      #:product-outcomes @itemlist[]
      #:standards (list "BS-DR.2" "BS-DR.3" "F-IF.1-3" "F-IF.4-6" "7.EE.3-4" "8.F.1-3")
-     #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
-                            @item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
-                            @item{Class poster (List of rules, language table, course calendar)}
-                            @item{Language Table (see below)}]
+     #:materials @itemlist[]
      #:preparation @itemlist[@item{"Cage" [Cage.rkt from @(resource-link #:path "source-files.zip" #:label "source-files.zip")  @(hyperlink "http://www.wescheme.org/openEditor?publicId=48low6MazC" "WeScheme")] preloaded on student machines}
                             @item{OPTIONAL: @(hyperlink "https://teacher.desmos.com/activitybuilder/custom/5a2de279b263be77d88f0e54" "Desmos Activity: Unit 6 Review")}
                             @item{OPTIONAL: @(hyperlink "https://quizizz.com/admin/quiz/5a15ddbc4cfd311100865126?from=quizEditor" "Quizizz: Unit 6 Review")}
@@ -215,9 +212,7 @@
      #:exercises (list (make-exercise-locator "AndOr" "boolean-coe-to-code1")
                        (make-exercise-locator "AndOr" "boolean-coe-to-code2"))
      #:standards (list)
-     #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
-                            @item{Class poster (List of rules, language table, course calendar)}
-                            @item{Language Table (see below)}]
+     #:materials @itemlist[]
      #:preparation @itemlist[]
      #:prerequisites (list "Booleans" "Contracts")
      #:pacings (list 
@@ -265,10 +260,7 @@
      #:product-outcomes @itemlist[@item{Students detect when game elements have moved offscreen (so they can reappear on the other edge of the screen)}]
      #:exercises (list (make-exercise-locator/dr-assess "Onscreen2" "offscreen-design-recipe-assess" "Is a Character OffScreen?"))
      #:standards (list "A-CED.1-4" "F-IF.4-6" "A-SSE.1-2" "BS-DR.2")
-     #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
-                            @item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
-                            @item{Class poster (List of rules, language table, course calendar)}
-                            @item{Language Table (see below)}]
+     #:materials @itemlist[]
      #:preparation @itemlist[]
      #:prerequisites (list "onscreen? 1.0" "and/or")
      #:pacings (list 

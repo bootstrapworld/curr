@@ -16,9 +16,14 @@ include other datatypes, including Strings and Images.}
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
      #:standards (list "A-SSE.1-2" "BS-CE")
-     #:materials @itemlist[]
+     #:materials @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket with the  bootstrap-teachpack installed}
+                           @item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbooks"], and something to write with}
+                            @item{Fresh whiteboard markers for teachers}
+                            @item{Class poster (List of rules, language table, course calendar)}
+                            @item{Overhead projector}]
      #:preparation @itemlist[@item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/1Qn59Fol2tspqOx6XQV88xm-IYsRGY769cb7MQeknSMA/edit?usp=sharing" "Warmup activity sheet")}
-                   @item{Student Workbooks, and something to write with}]
+    
+                              ]
      #:prerequisites (list "Order of Operations")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -57,7 +62,7 @@ include other datatypes, including Strings and Images.}
      #:exercises (list (make-exercise-locator "Strings-and-Images" "many-types-coe-to-code1")
                        (make-exercise-locator "Strings-and-Images" "many-types-coe-to-code2"))
      #:standards (list "N-Q" "BS-PL.1" "BS-PL.2")
-     #:materials @itemlist[@item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}]
+     #:materials @itemlist[]
      #:preparation @itemlist[@item{Students are logged into WeScheme.org, OR have opened DrRacket}
                               @item{OPTIONAL: @(hyperlink "https://quizizz.com/admin/quiz/5a15d1a82b65d91100dc2055?from=quizEditor" "Quizizz Unit 2 Review Quiz")}
                               @item{OPTIONAL: @(hyperlink "https://teacher.desmos.com/activitybuilder/custom/5a15e268dcb86b2b9fda3ce0" "Desmos Activity: Unit 2 Review")}]
@@ -157,7 +162,7 @@ include other datatypes, including Strings and Images.}
                        (make-exercise-locator "Contracts" "id-expr-pieces2")
                        (make-exercise-locator "Contracts" "match-contracts-exprs1"))
      #:standards (list "BS-PL.2" "BS-IDE" "N-Q" "F-IF.1-3")
-     #:materials @itemlist[@item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}]
+     #:materials @itemlist[]
      
      #:prerequisites (list "Intro to Programming")
      #:pacings (list 
