@@ -20,10 +20,11 @@
                                       @item{Given two examples for a simple function, students will be able to write the definition}]
      #:product-outcomes @itemlist[@item{Students will use the Design Recipe to define a function, which is used to make a rocket fly.}]
      #:standards (list "A-SSE.1-2" "F-IF.1-3" "F-IF.4-6" "BS-DR.1" "BS-DR.2" "BS-DR.3" "8.F.1-3")
-     #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
+     #:materials @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket with the  bootstrap-teachpack installed}
+                           @item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbooks"], and something to write with}
+                            @item{Fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, language table, course calendar)}
-                            @item{Language Table (see below)}
-                            @item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders with names on covers, and something to write with}]
+                            @item{Overhead projector}]
      #:preparation @itemlist[ @item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/134VD2NShK_VxDog4VG4lMm4jTbpxm2H2cSXqZbHwwSg/edit?usp=sharing" "Warmup activity sheet")}
 
                               @item{Write agenda on board}
@@ -166,10 +167,7 @@
                        (make-exercise-locator/dr-assess "Practicing-the-Design-Recipe" "check-total-design-recipe-assess" "Totalling a Bill")
                        (make-exercise-locator/dr-assess "Practicing-the-Design-Recipe" "circle-area-design-recipe-assess" "Computing the Area of a Circle"))
      #:standards (list "A-SSE.1-2" "F-IF.1-3" "F-IF.4-6" "BS-DR.1" "BS-DR.2" "BS-DR.3")
-     #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
-                            @item{Class poster (List of rules, language table, course calendar)}
-                            @item{Language Table}
-                            @item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders with names on covers, and something to write with}]
+     #:materials @itemlist[]
      #:preparation @itemlist[@item{Write agenda on board}
                               @item{Display Class posters, Language Table, Design Recipe}
                               @item{Seating arrangements: ideally clusters of desks/tables}]

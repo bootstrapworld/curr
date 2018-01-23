@@ -19,11 +19,11 @@
                                      @item{Students will be able to explain why the @code{line-length} function uses a conditional}]
      #:product-outcomes @itemlist[]
      #:standards (list "BS-PL.3" "BS-PL.4" "6.NS.5-8")
-     #:materials @itemlist[@item{Computers w/ DrRacket or WeScheme}
-                           @item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
-                           @item{Pens/pencils for the students, fresh whiteboard markers for teachers}
-                           @item{Class posters (List of rules, basic skills, course calendar)}
-                           @item{Language Table (see below)}
+     #:materials @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket with the  bootstrap-teachpack installed}
+                           @item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbooks"], and something to write with}
+                            @item{Overhead projector}
+                            @item{Fresh whiteboard markers for teachers}
+                            @item{Class poster (List of rules, language table, course calendar)}
                           ]
      #:preparation @itemlist[@item{Students are logged into WeScheme.org, OR have opened DrRacket.}]
      #:prerequisites (list "Luigi's Pizza" "Coordinate Planes")
@@ -105,14 +105,11 @@
                                     ]
      #:product-outcomes @itemlist[@item{Students write the distance function in their game files.}]
      #:standards (list "8.G.6-8" "BS-PL.4" "BS-DR.3")
-     #:materials @itemlist[@item{Computers w/ DrRacket or WeScheme}
-                           @item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
+     #:materials @itemlist[
                            @item{All student computers should have their game templates pre-loaded, with their image files linked in}
                            @item{Cutouts of Pythagorean Theorem packets [@(resource-link #:path "images/pythag1.png" #:label "1"), @(resource-link #:path "images/pythag2.png" #:label "2")] - 1
                                          per cluster of students working together}
-                           @item{Pens/pencils for the students, fresh whiteboard markers for teachers}
-                           @item{Class posters (List of rules, basic skills, course calendar)}
-                           @item{Language Table (see below)}
+                           
                           ]
      #:preparation @itemlist[ @item{REQUIRED: Hand out @(hyperlink "https://docs.google.com/document/d/1Vkaz30B8AAaze6fMiFJypFb1bOIeH0RzkeaBLCCPf9E/edit?usp=sharing" "Warmup Activity Sheet")}
      @item{OPTIONAL: @(hyperlink "https://teacher.desmos.com/activitybuilder/custom/5a2ddf70edfc8975f63b14b7" "Desmos Activity: Unit 7 & 8 Review")}]
@@ -181,12 +178,7 @@
      #:product-outcomes @itemlist[@item{Students add a @code{collide?} function to their games to detect when the player and danger have collided}]
      #:exercises (list (make-exercise-locator/dr-assess "Collide" "late-to-class-design-recipe-assess" "Are You Late to Class?"))
      #:standards (list "F-IF.1-3" "F-IF.4-6" "8.F.1-3" "A-SSE.1-2" "8.G.6-8")
-     #:materials @itemlist[@item{Computers w/ DrRacket or WeScheme}
-                           @item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
-                           @item{All student computers should have their game templates pre-loaded, with their image files linked in}
-                           @item{Pens/pencils for the students, fresh whiteboard markers for teachers}
-                           @item{Class posters (List of rules, basic skills, course calendar)}
-                           @item{Language Table (see below)}
+     #:materials @itemlist[
                           ]
      #:prerequisites (list "2D Distance" "and/or")
      #:pacings (list 

@@ -28,11 +28,11 @@
                        (make-exercise-locator/dr-assess "Luigis-Pizza" "turkey-price-design-recipe-assess" "How Much is That Turkey?")
 		       )
      #:standards (list "BS-DR.1" "BS-DR.2" "BS-DR.3" "BS-PL.4")
-     #:materials @itemlist[@item{Computers w/ DrRacket or WeScheme}
-                           @item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
-                           @item{Pens/pencils for the students, fresh whiteboard markers for teachers}
-                           @item{Class posters (List of rules, basic skills, course calendar)}
-                           @item{Language Table (see below)}
+     #:materials @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket with the  bootstrap-teachpack installed}
+                           @item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbooks"], and something to write with}
+                            @item{Fresh whiteboard markers for teachers}
+                            @item{Class poster (List of rules, language table, course calendar)}
+                             @item{Overhead projector}
                           ]
      #:preparation @itemlist[@item{Students are logged into WeScheme.org, OR have opened DrRacket}
                              @item{"Luigi's Pizza" [LuigisPizza.rkt from @(resource-link #:path "source-files.zip" 
@@ -157,8 +157,7 @@
                                     ]
      #:product-outcomes @itemlist[@item{Students will write @code{update-player}, which moves their player in response to key-presses}]
      #:standards (list "A-SSE.1-2" "BS-DR.2" "BS-DR.3")
-     #:materials @itemlist[@item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
-                           @item{All student computers should have their game templates pre-loaded, with their image files linked in}]
+     #:materials @itemlist[]
      #:preparation @itemlist[]
      #:prerequisites (list "Luigi's Pizza" "Danger and Target Movement")
      #:pacings (list 

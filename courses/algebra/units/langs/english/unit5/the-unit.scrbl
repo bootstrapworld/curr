@@ -18,12 +18,15 @@
                                      @item{Students will be able to edit programs to eliminate basic syntax errors}]
      #:product-outcomes @itemlist[]
      #:standards (list "BS-PL.1" "BS-PL.2" "BS-PL.3" "BS-IDE")
-     #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
+     #:materials @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket with the  bootstrap-teachpack installed}
+                           @item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbooks"], and something to write with}
+                            @item{Fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, language table, course calendar)}
-                            @item{Language Table (see below)}
-                            @item{Bug Hunting [Bugs.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"]  @(hyperlink "http://www.wescheme.org/view?publicId=JCTcwYc57r" "WeScheme")] file preloaded on students' machines, as the front-most window.}]
+                            @item{Overhead projector}
+                            ]
      #:preparation @itemlist[@item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/1i3WQ4Q58Wn6fhqxEz027KDcUHIewtk-wLPQzJalCFt0/edit?usp=sharing" "Warmup activity sheet")}
                              @item{Students are logged into WeScheme.org, OR have opened DrRacket}
+                             @item{Bug Hunting [Bugs.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"]  @(hyperlink "http://www.wescheme.org/view?publicId=JCTcwYc57r" "WeScheme")] file preloaded on students' machines}
                              @item{OPTIONAL: @(hyperlink "https://teacher.desmos.com/activitybuilder/custom/5a15e2b3dcb86b2b9fda3d19" "Desmos Activity: Unit 5 Review")}]
      #:prerequisites (list "Defining Functions")
      #:pacings (list 
@@ -53,11 +56,7 @@
      #:exercises (list (make-exercise-locator/dr-assess "Danger-and-Target-Movement" "target-leap-design-recipe-assess" "Making Players Leap")
 		       )
      #:standards (list "F-IF.1-3" "F-LE.5" "BS-DR.2" "BS-DR.3")
-     #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
-                            @item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
-                            @item{All student computers should have their game templates pre-loaded, with their image files linked in}
-                            @item{Class poster (List of rules, language table, course calendar)}
-                            @item{Language Table (see below)}]
+     #:materials @itemlist[]
      #:prerequisites (list "Game Images" "The Design Recipe")
      #:pacings (list 
                 @pacing[#:type "remediation"]{At this point, students should be very comfortable with the Design Recipe. If they are struggling, try reviewing the Contract with them first, then having a student act out the function. Ask that student what their name is, what they are expecting to be given, and what they will produce. Have them simulate a function call by calling out their name ("update-danger") and giving them an x-coordinate (they should produce a number that is 50 fewer than what they were given). Then refer back to this skit when writing Examples: the call-and-response is exactly how the code should behave, with students only having to write the code for whatever work your volunteer was doing in their head.}

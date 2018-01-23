@@ -16,9 +16,13 @@
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
      #:standards (list "BS-PL.2" "6.NS.5-8" "F-IF.1-3")
-     #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
+     #:materials @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket with the  bootstrap-teachpack installed}
+                           @item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbooks"], and something to write with}
+                          
+                            @item{Fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, language table, course calendar)}
-                            @item{Language Table (see below)}]
+                              @item{Overhead projector}
+                          ]
      #:preparation @itemlist[@item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/1FN2uLBnwdk3N4Ci6-qf1n6z-M8KpToo27wqZmRlS5as/edit?usp=sharing" "Warmup activity sheet")}
      
                             ]
@@ -53,10 +57,7 @@
                                       @item{Students will be able to explain what happens when the "Run" button is pressed.}]
      #:product-outcomes @itemlist[]
      #:standards (list "BS-PL.3" "BS-IDE")
-     #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
-                            @item{Class poster (List of rules, language table, course calendar)}
-                            @item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}
-                            @item{Language Table (see below)}]
+     #:materials @itemlist[]
      #:preparation @itemlist[]
      #:prerequisites (list "Intro to Programming" "Contracts")
      #:pacings (list 
@@ -139,7 +140,7 @@
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
      #:standards (list "7.EE.3-4" "A-SSE.1-2")
-     #:materials @itemlist[@item{"Algebra Translation" [@resource-link[#:path "source-files/Algebra.rkt" #:label "DrRacket"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=s2s0tkTgeF" "WeScheme")] preloaded on students' machines, with monitors off.}]
+     #:materials @itemlist[@item{"Algebra Translation" [@resource-link[#:path "source-files/Algebra.rkt" #:label "DrRacket"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=s2s0tkTgeF" "WeScheme")] preloaded on students' machines}]
      #:preparation @itemlist[]
      #:prerequisites (list "Defining Variables")
      #:pacings (list 
@@ -184,7 +185,7 @@
      #:product-outcomes @itemlist[@item{Students will name their videogame project}
                                   @item{Students will modify the definitions for @code{TITLE, TITLE-COLOR, BACKGROUND, PLAYER, TARGET} and @code{DANGER}}]
      #:standards (list "BS-PL.3")
-     #:materials @itemlist[@item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders with names on covers.}]
+     #:materials @itemlist[]
      #:preparation @itemlist[@item{Students are logged into WeScheme.org, OR have opened DrRacket}
                              @item{Create student game files [See the teacher's guide, located in the @(hyperlink "../../resources/teachers/" "protected materials") for this course]}
                               @item{On student machines: Student Game Files (generated from "Game" template [Game.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=qAGwmaRXYy" "WeScheme")])}
@@ -269,7 +270,7 @@
                        (make-exercise-locator "Defining-Functions" "create-contracts-examples1")
                        (make-exercise-locator "Defining-Functions" "create-contracts-examples2"))
      #:standards (list "F-IF.1-3" "F-IF.4-6" "F-BF.1-2" "BS-PL.3" "BS-DR.1" "BS-DR.2" "BS-DR.3")
-     #:materials @itemlist[@item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders with names on covers.}]
+     #:materials @itemlist[]
      #:preparation @itemlist[]
      #:prerequisites (list "Contracts" "Strings and Images" )
      #:pacings (list 
