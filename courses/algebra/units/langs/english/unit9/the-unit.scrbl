@@ -24,13 +24,12 @@
                                      @item{Students will be able to explain how Piecewise Functions are used in their game}]
      #:product-outcomes @itemlist[@item{A poster illustrating a key component of a game program}]
      #:standards (list)
-     #:materials @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket with the  bootstrap-teachpack installed}
-                           @item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbooks"], and something to write with}
+     #:materials @itemlist[ @item{Computer for each student (or pair), running WeScheme or DrRacket with the  bootstrap-teachpack installed}
+                            @item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbooks"], and something to write with}
                             @item{Overhead projector}
-                            @item{Fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, language table, course calendar)}
-                           @item{Printouts of game code for each team.}
-                           @item{Camera - take pictures today!}
+                            @item{Printouts of game code for each team.}
+                            @item{Camera - take pictures today!}
                           ]
      #:preparation @itemlist[@item{Sample poster or tri-fold poster for a fictional game, to use as a model for students.}]
      #:pacings (list 

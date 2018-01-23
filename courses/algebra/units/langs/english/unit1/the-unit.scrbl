@@ -18,7 +18,6 @@
      #:materials @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket with the 
                                    bootstrap-teachpack installed}
                            @item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbooks"], and something to write with}
-                            @item{Fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, language table, course calendar)}
                            @item{Cutouts of  @resource-link[#:path "images/ninjacat.png" #:label "NinjaCat"],  @resource-link[#:path "images/dog.png" #:label "Dog"]
                                  and the  @resource-link[#:path "images/ruby.png" #:label "Ruby"]}
