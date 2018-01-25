@@ -203,7 +203,7 @@
                                 ))
                        (begin
                          ;; have a pdf file to extract from another pdf file
-                         (printf "Extracting PDF for ~a from ~a~n" pspec (current-directory))
+                         ;(printf "Extracting PDF for ~a from ~a~n" pspec (current-directory))
                          (let* ([fromfile (source-pdf/sols-mode (first pspec))]
                                 [tofile (second pspec)]
                                 [loc (get-manual-page tofile)])
