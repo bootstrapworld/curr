@@ -46,7 +46,11 @@
                  (let ([fhtml (regexp-replace #px"\\.scrbl$" f ".html")]
                        [fpdf (regexp-replace #px"\\.scrbl$" f ".pdf")])
                    ; -q option is for "quiet" operation
-                   (system* (get-prog-cmd "wkhtmltopdf") "--lowquality" "--print-media-type" "--javascript-delay" "15000" "-q"
+                   (system* (get-prog-cmd "wkhtmltopdf") 
+                              "--lowquality" 
+                              "--print-media-type" 
+                              "--window-status" "printready"
+                              "-q"
                             (build-path pagesdir fhtml)
                             (build-path pagesdir fpdf)))]
                 [(and (list? f) (= (length f) 3)
