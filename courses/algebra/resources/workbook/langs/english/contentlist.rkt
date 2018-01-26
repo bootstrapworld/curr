@@ -30,6 +30,7 @@
  ("exercise" "coe-to-code1.scrbl" "Intro-to-Programming")
  ("exercise" "coe-to-code2.scrbl" "Intro-to-Programming")
  ("exercise" "coe-code-matching1.scrbl" "Intro-to-Programming")
+
  ;;;;; UNIT 2 ;;;;;;;;;
  ("ColleenPages.pdf" "Unit-2")
  ("StudentWorkbook.pdf" "Circle-of-Evaluation-Practice-2")
@@ -39,6 +40,7 @@
  ("exercise" "id-expr-pieces1.html" "Contracts")
  ("exercise" "id-expr-pieces2.scrbl" "Contracts")
  ("exercise" "match-contracts-exprs1.scrbl" "Contracts")
+
  ;;;;; UNIT 3 ;;;;;;;;;
  ("ColleenPages.pdf" "Unit-3")
  ("StudentWorkbook.pdf" "Fast-Functions")
@@ -47,6 +49,7 @@
  ("exercise" "match-examples-functions1.scrbl" "Defining-Functions")
  ("exercise" "create-contracts-examples1.scrbl" "Defining-Functions")
  ("exercise" "create-contracts-examples2.scrbl" "Defining-Functions")
+
  ;;;;; UNIT 4 ;;;;;;;;;
  ("ColleenPages.pdf" "Unit-4")
  "rocket-height.scrbl"
@@ -60,11 +63,16 @@
  ("exercise" "calc-pencils-assess-recipe.scrbl" "Practicing-the-Design-Recipe")
  ("exercise" "check-total-design-recipe-assess.scrbl" "Practicing-the-Design-Recipe")
  ("exercise" "circle-area-design-recipe-assess.scrbl" "Practicing-the-Design-Recipe")
+
  ;;;;; UNIT 5 ;;;;;;;;;
  ("ColleenPages.pdf" "Unit-5")
  "update-danger.scrbl"
  "update-target.scrbl"
  ("exercise" "target-leap-design-recipe-assess.scrbl" "Danger-and-Target-Movement")
+ ("exercise" "lemonade-revenue.scrbl" "Lemonade-Revenue")
+ ("exercise" "lemonade-cost.scrbl" "Lemonade-Cost")
+ ("exercise" "lemonade-profit.scrbl" "Lemonade-Profit")
+
  ;;;; UNIT 6 ;;;;;;;;;
  ("ColleenPages.pdf" "Unit-6")
  ("StudentWorkbook.pdf" "Protecting-Sam")
@@ -80,6 +88,7 @@
  ("exercise" "boolean-coe-to-code1.scrbl" "AndOr")
  ("exercise" "boolean-coe-to-code2.scrbl" "AndOr")
  ("exercise" "offscreen-design-recipe-assess.scrbl" "Onscreen2")
+
  ;;;; UNIT 7 ;;;;;;;;;
  ("ColleenPages.pdf" "Unit-7")
  "cost.scrbl"
@@ -89,6 +98,7 @@
  ("exercise" "state-tax-design-recipe-assess.scrbl" "Luigis-Pizza")
  ("exercise" "flower-name-design-recipe-assess.scrbl" "Luigis-Pizza")
  ("exercise" "turkey-price-design-recipe-assess.scrbl" "Luigis-Pizza")
+
  ;;;; UNIT 8 ;;;;;;;;;
  ("ColleenPages.pdf" "Unit-8")
  "line-length.scrbl"
@@ -96,6 +106,7 @@
  "distance.scrbl"
  "collide.scrbl"
  ("exercise" "late-to-class-design-recipe-assess.scrbl" "Collide")
+
  ;;;; UNIT 9 ;;;;;;;;;
  ("ColleenPages.pdf" "Unit-9")
  ("StudentWorkbook.pdf" "Game-Summary")
@@ -103,6 +114,7 @@
  ("StudentWorkbook.pdf" "Feedback")
  ("StudentWorkbook.pdf" "Feedback")
  "red-shape.scrbl"
+
  ;;;; EXTRAS ;;;;;;;;;;;
  ("StudentWorkbook.pdf" "Translating-to-Algebra")
  ("StudentWorkbook.pdf" "Math-Rocket-Distance")
