@@ -33,6 +33,15 @@
 ;; run scribble on each .scrbl file in the pages listing
 ;; wkbk-mod-sec could be #f if the previous workbook file is not available
 (define (scribble-files pages pagesdir extra-exercises-dir wkbk-mod-sec)
+  (define (htmlToPDF fhtml fpdf)
+    (system* (get-prog-cmd "wkhtmltopdf") 
+                              "--lowquality" 
+                              "--print-media-type" 
+                              "--window-status" "printready" 
+                              "--javascript-delay" "1500"
+                              "--quiet"
+                            (build-path pagesdir fhtml)
+                            (build-path pagesdir fpdf)))
   (for-each (lambda (f)
               (cond
                 [(and (string? f) 
@@ -45,14 +54,7 @@
                  (run-scribble (build-path pagesdir f))
                  (let ([fhtml (regexp-replace #px"\\.scrbl$" f ".html")]
                        [fpdf (regexp-replace #px"\\.scrbl$" f ".pdf")])
-                   ; -q option is for "quiet" operation
-                   (system* (get-prog-cmd "wkhtmltopdf") 
-                              "--lowquality" 
-                              "--print-media-type" 
-                              "--window-status" "printready"
-                              "-q"
-                            (build-path pagesdir fhtml)
-                            (build-path pagesdir fpdf)))]
+                   (htmlToPDF fhtml fpdf))]
                 [(and (list? f) (= (length f) 3)
                       (regexp-match #px".*\\.scrbl$" (second f))
                       (or (not wkbk-mod-sec)
@@ -63,10 +65,7 @@
                    (run-scribble (build-path exercise-dir (second f)))
                    (let ([fhtml (regexp-replace #px"\\.scrbl$" (second f) ".html")]
                          [fpdf (regexp-replace #px"\\.scrbl$" (second f) ".pdf")])
-                     ; -q option is for "quiet" operation
-                     (system* (get-prog-cmd "wkhtmltopdf") "--lowquality" "--print-media-type" "--quiet"
-                              (build-path pagesdir fhtml)
-                              (build-path pagesdir fpdf))))])
+                     (htmlToPDF fhtml fpdf)))])
               )
             pages))
 
