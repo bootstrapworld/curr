@@ -35,11 +35,11 @@
 (define (scribble-files pages pagesdir extra-exercises-dir wkbk-mod-sec)
   (define (htmlToPDF fhtml fpdf)
     (system* (get-prog-cmd "wkhtmltopdf") 
-                              "--lowquality" 
-                              "--print-media-type" 
-                              "--window-status" "printready" 
-                              "--javascript-delay" "1500"
-                              "--quiet"
+                              "--lowquality"                  ;; reduce DPI
+                              "--print-media-type"            ;; use @print media stylesheets
+                              "--window-status" "printready"  ;; wait for the pages to tell us they're ready...
+                              "--javascript-delay" "1500"     ;; ...but time out at 1.5sec
+                              "--quiet"                       ;; suppress console output
                             (build-path pagesdir fhtml)
                             (build-path pagesdir fpdf)))
   (for-each (lambda (f)
