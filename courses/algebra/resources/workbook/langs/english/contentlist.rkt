@@ -69,9 +69,9 @@
  "update-danger.scrbl"
  "update-target.scrbl"
  ("exercise" "target-leap-design-recipe-assess.scrbl" "Danger-and-Target-Movement")
- ("exercise" "lemonade-revenue.scrbl" "Lemonade-Revenue")
- ("exercise" "lemonade-cost.scrbl" "Lemonade-Cost")
- ("exercise" "lemonade-profit.scrbl" "Lemonade-Profit")
+ ("exercise" "lemonade-revenue.scrbl" "Danger-and-Target-Movement")
+ ("exercise" "lemonade-cost.scrbl" "Danger-and-Target-Movement")
+ ("exercise" "lemonade-profit.scrbl" "Danger-and-Target-Movement")
 
  ;;;; UNIT 6 ;;;;;;;;;
  ("ColleenPages.pdf" "Unit-6")
