@@ -72,6 +72,8 @@
  ("exercise" "lemonade-revenue.scrbl" "Danger-and-Target-Movement")
  ("exercise" "lemonade-cost.scrbl" "Danger-and-Target-Movement")
  ("exercise" "lemonade-profit.scrbl" "Danger-and-Target-Movement")
+ ("exercise" "circle-area.scrbl" "Danger-and-Target-Movement")
+ ("exercise" "donut-area.scrbl" "Danger-and-Target-Movement")
 
  ;;;; UNIT 6 ;;;;;;;;;
  ("ColleenPages.pdf" "Unit-6")
