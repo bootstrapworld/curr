@@ -245,7 +245,7 @@
                         (dr-student-answer "recipe_variables" #:show? show-params? (string-join param-list param-joiner))
                         (make-spacer header-ender)
                         (make-clear)  
-                        (dr-body body #:show show-body?)
+                        (dr-body body #:show show-body? #:lang lang)
                         ;; CSS generates closing ) for cond, so only gen in other cases
                         (cond
                           [(and (cond-body? body) (equal? lang 'racket)) ""]
@@ -258,35 +258,62 @@
 (define (atom? v) (not (list? v)))
 
 ; format the body of a design recipe worksheet -- formatting may depend on body contents
-(define (dr-body body #:show (show #f))
+(define (dr-body body #:show (show #f) #:lang (lang 'racket))
+  (define clause-starter
+    (if (equal? lang 'racket) "[" "  |"))
+  (define clause-splitter
+    (if (equal? lang 'racket) "" (make-spacer "then:")))
+  (define clause-class
+    (if (equal? lang 'racket) "clause" "clause hide-content"))
+  (define (build-from-clauselines-pyret clauselines)
+     (interleave-parbreaks/all
+      (list 
+          (apply make-wrapper
+            (append (list (make-spacer "  ask:"))
+                    (apply append clauselines)
+                    (list (make-spacer "  end"))
+                    )
+            #:extra-class "cond hide-content"))))
+  (define (build-from-clauselines-racket clauselines)
+    (interleave-parbreaks/all
+        (list (make-spacer "(")
+              (apply make-wrapper
+              (append (list (dr-student-answer "cond" #:show? show (first body)))
+                      (apply append clauselines))
+              #:extra-class "cond"))))
+  (define build-from-clauselines
+    (if (equal? lang 'racket) build-from-clauselines-racket build-from-clauselines-pyret))
   (if body
       (let ([body-contents body]) ;(if (string? body) (with-input-from-string body read) body)])
-        (cond [(atom? body-contents) (dr-student-answer "recipe_definition_body" #:show? show body)]
-              [(eq? (first body-contents) 'cond) 
+        (cond [(atom? body-contents)
+               (dr-student-answer "recipe_definition_body" #:show? show body)]
+              [(or (eq? (first body-contents) 'cond) (eq? (first body-contents) 'ask))
                (let ([clauselines (map (lambda (c s) 
                                          (list 
                                           (make-clear)
-                                          (make-spacer "[")
-                                          (make-wrapper #:extra-class "clause"
-                                                        (dr-student-answer "questions" (first c) 
-                                                                           #:id? #f #:show? (if (list? s) (first s) s)
-                                                                           #:fmt-quotes? #t)
-                                                        (dr-student-answer "answers" (second c) 
-                                                                           #:id? #f #:show? (if (list? s) (second s) s)
-                                                                           #:fmt-quotes? #t)
-                                                        ;(make-spacer "]")
-                                                        )))
-                                       (rest body-contents) 
+                                          (make-spacer clause-starter)
+                                          (if (equal? (first c) 'otherwise)
+                                            (make-wrapper #:extra-class clause-class
+                                                          (make-spacer " otherwise:")
+                                                          (dr-student-answer "answers" (second c) 
+                                                                             #:id? #f #:show? (if (list? s) (second s) s)
+                                                                             #:fmt-quotes? #t)
+                                                          )
+                                            (make-wrapper #:extra-class clause-class
+                                                          (dr-student-answer "questions" (first c) 
+                                                                             #:id? #f #:show? (if (list? s) (first s) s)
+                                                                             #:fmt-quotes? #t)
+                                                          clause-splitter
+                                                          (dr-student-answer "answers" (second c) 
+                                                                             #:id? #f #:show? (if (list? s) (second s) s)
+                                                                             #:fmt-quotes? #t)
+                                                          ))))
+                                       (rest body-contents)
                                        ; show is either a single boolean or a list of specs with same length as number of clauses
                                        (if (list? show) (rest show)
                                            (build-list (length (rest body-contents)) (lambda (i) show)))
                                        )])
-                 (interleave-parbreaks/all
-                  (list (make-spacer "(")
-                        (apply make-wrapper
-                        (append (list (dr-student-answer "cond" #:show? show (first body-contents)))
-                                (apply append clauselines))
-                        #:extra-class "cond"))))]
+                 (build-from-clauselines clauselines))]
               [else ;; assume single-line expression for now
                (dr-student-answer "recipe_definition_body" #:show? show body #:fmt-quotes? #t)]))
       ;; eventually, this should become a warning about the body missing
