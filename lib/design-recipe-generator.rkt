@@ -374,7 +374,7 @@
             (dr-student-answer #:id? #f "recipe_name" #:show? show-funname? funname)
             (make-spacer "(")
             (dr-student-answer #:id? #f "recipe_example_inputs" #:show? show-input? input)
-            (make-spacer ")")
+            (make-spacer ") ")
             (make-spacer " is")
             ;(make-clear) ; only force this for long-form DR (maybe via a flag?)
             (dr-student-answer #:id? #f "recipe_example_body"#:show? show-output? output))
