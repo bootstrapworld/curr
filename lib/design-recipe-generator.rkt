@@ -127,6 +127,14 @@
     (cond
       [(equal? lang 'racket) ";"]
       [(equal? lang 'pyret) ""]))
+  (define contract-colon
+    (cond
+      [(equal? lang 'racket) (para #:style (bootstrap-span-style "") ":")]
+      [(equal? lang 'pyret) (make-spacer "::")]))
+  (define contract-arrow
+    (cond
+      [(equal? lang 'racket) (para #:style (bootstrap-span-style "") htmlRarr)]
+      [(equal? lang 'pyret) (make-spacer "->")]))
   (define arg-divider
     (cond
       [(equal? lang 'racket) " "]
@@ -176,9 +184,9 @@
                        (make-spacer contract-starter)
                        (make-wrapper
                         (dr-student-answer #:id? #f "recipe_name" #:show? show-funname-contract? funname)
-                        (para #:style (bootstrap-span-style "") ":")
+                        contract-colon
                         (dr-student-answer "recipe_domain" #:show? show-domains? (string-join domain-list arg-divider))
-                        (para #:style (bootstrap-span-style "") htmlRarr)
+                        contract-arrow
                         (dr-student-answer "recipe_range" #:show? show-range? range))
                        (make-clear)
                        (make-spacer purpose-starter)
