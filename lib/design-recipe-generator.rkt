@@ -37,7 +37,7 @@
 
 ;; a wrapper for design-recipe-exercise that shows all fields and allows some
 ;; components to have errors (rather than be generated from good data such as the
-;; function name.  See design-recipe-exercise docs for parameter documentation
+;; function name).  See design-recipe-exercise docs for parameter documentation
 (define (assess-design-recipe funname directions
                               #:domain-list (domain-list '()) ; list of string
                               #:range (range #f)
@@ -246,12 +246,16 @@
                         (make-spacer header-ender)
                         (make-clear)  
                         (dr-body body #:show show-body? #:lang lang)
-                        ;; CSS generates closing ) for cond, so only gen in other cases
                         (cond
-                          [(and (cond-body? body) (equal? lang 'racket)) ""]
-                          [else body-ender]) ;; TODO(joe): check for trailing ")" in pyret code/CSS
-                        ))
-                      )))))))
+                          ;; CSS generates closing ) for cond, so only gen in other cases
+                          [(and (equal? lang 'racket) (not (cond-body? body))) body-ender]
+                          [else ""])
+                        )
+                       (cond
+                        [(equal? lang 'pyret) body-ender]
+                        [else ""]) ;; TODO(joe): check for trailing ")" in pyret code/CSS
+                      ))
+                      ))))))
 
 (define (cond-body? e) (and (list? e) (eq? (first e) 'cond)))
 
