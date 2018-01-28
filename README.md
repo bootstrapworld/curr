@@ -22,8 +22,8 @@ contacting schanzer@bootstrapworld.org.
 
 # Installation
 
-1.  You'll need to install (http://www.racket-lang.org "DrRacket v6.10 or later") 
-and (https://github.com/wkhtmltopdf/wkhtmltopdf/releases/0.12.3/ "wkhtmltopdf, version 0.12.3") first, before cloning the `curr`
+1.  You'll need to install [DrRacket v6.10 or later](http://www.racket-lang.org "DrRacket v6.10 or later") 
+and [wkhtmltopdf, version 0.12.3](https://github.com/wkhtmltopdf/wkhtmltopdf/releases/0.12.3/ "wkhtmltopdf, version 0.12.3") first, before cloning the `curr`
 repository. (Note: the current release of wkhtmltopdf, version 0.12.4 as of this writing, contains a regression that prevents the workbook from printing properly)
 
 2.  Then set up `curr` as a Racket collection.
