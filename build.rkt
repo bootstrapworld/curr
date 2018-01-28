@@ -39,6 +39,7 @@
 
 ;;This lists all courses which are currently able to be built
 (define available-course-specs '(("algebra" "english" "spanish")
+                                 ("algebra-pyret" "english")
                                  ("reactive" "english")
                                  ("data-science" "english")
                                  ("physics" "english")

@@ -140,6 +140,9 @@ html, body{background: white; width: 7.5in; position: absolute;}
 .clause::after { content: "]"; }
 .cond>.clause:last-of-type::after{content: "]))"; right: 0pt}
 
+/* https://stackoverflow.com/a/19348070/2718315 */
+.hide-content::after { white-space: pre-wrap; content: " " !important; }
+
 /* Copyright at the end of the file */
 .BootstrapCopyright img{ float:right; }
 
