@@ -53,7 +53,7 @@
      #:standards (list "BS-PL.3" "BS-IDE")
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, language table, course calendar)}
-                            @item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}
+                            @item{Editing environment (code.pyret.org)}
                             @item{Language Table (see below)}]
      #:preparation @itemlist[]
      #:prerequisites (list "Intro to Programming" "Contracts")
@@ -64,16 +64,14 @@
                 )
       ]{
         @points[@point{@student{Suppose we want to make an image that had fifty identical, solid red triangles. You would have to write 
-                                @code{(triangle 50 "solid" "red")} fifty times! To make matters worse, any change to those triangles would 
+                                @code{triangle(50, "solid", "red")} fifty times! To make matters worse, any change to those triangles would 
                                 have to be repeated for all fifty expressions! Good programmers know that their effort is better spent 
                                 elsewhere, so they made sure that programming languages have a way to avoid all that repetition.  
                                 They write something once, define it as a shortcut in the language, and then use the shortcut wherever they want.}
                         @teacher{}}
-                 @point{@student{We name values in our language using @vocab{define} statements.  Let's look at 
-                                                                      @editor-link[#:definitions-text "(define shape1 (triangle 50 \"solid\" \"red\"))\n"
-                                                               #:interactions-text ""
-                                                               "an example of a definition"]
-                               , that defines @code{shape1} to be a solid red triangle. When you click "Run", you can evaluate @code{shape1}
+                 @point{@student{We name values in our language using @vocab{define} statements.  Let's look at an example of a definition that defines @code{shape1} to be a solid red triangle. Put the following code in the left-hand side of the screen (not the interactions window, which we've used before), and click Run:
+                 @code[#:multi-line #t]{shape1 = triangle(50, "solid", "red")}
+                               Once you've click "Run" with this in definitions, you can evaluate @code{shape1}
                                in the Interactions area and the computer will show you the triangle. What do you think would happen if you
                                evaluated @code{shape1} @italic{without} clicking "Run"?
                                }
@@ -95,7 +93,7 @@
                                                 @item{On the next line, define a new value called @code{name} to be the String that represents your name.}]
                                       }
                                
-                               @bannerline{Each time "Run" is clicked, the computer reads all of the definitions and adds them to the language. If a 
+                               @bannerline{Each time "Run" is clicked, the computer reads all of the definitions and adds them to the program. If a 
                                       definition is changed, the computer will keep using the previous definition until the next time "Run" is clicked.}
                           }
                          @teacher{}
@@ -109,7 +107,7 @@
                                               @item{Click "Run".}
                                               @item{Try asking for @code{eye-color} in the Interactions area again.  This time, you should not get the error.}]}
                                  Definitions are useful because we can reuse them in other expressions.  For example, we could use @code{eye-color} 
-                                 inside another expression, such as @code{(circle 10 "solid" eye-color)}.  Let's practice using definitions inside other expressions.
+                                 inside another expression, such as @code{circle(10, "solid", eye-color)}.  Let's practice using definitions inside other expressions.
                                  }
                         @teacher{}
                         }
@@ -139,7 +137,7 @@
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
      #:standards (list "7.EE.3-4" "A-SSE.1-2")
-     #:materials @itemlist[@item{"Algebra Translation" [@resource-link[#:path "source-files/Algebra.rkt" #:label "DrRacket"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=s2s0tkTgeF" "WeScheme")] preloaded on students' machines, with monitors off.}]
+     #:materials @itemlist[@;{ TODO(joe): restore algebra translation}]
      #:preparation @itemlist[]
      #:prerequisites (list "Defining Variables")
      #:pacings (list 
@@ -150,9 +148,9 @@
       ]{
         @points[
              @point{@student{In our programming language, variables are defined by: 
-                             @bannerline{@code[#:multi-line #t]{(define x 4)
-                                                                (define y (+ 4 9))
-                                                                (define z (* x 2))}}
+                             @bannerline{@code[#:multi-line #t]{x = 4
+                                                                y = 4 + 9
+                                                                z = x * 2 }}
                              Values can be fixed (like the first example), the result of an expression (the second), or even be defined in terms of other 
                              variables (the third). We can do the same things in algebra:
                              @bannerline{@math{x = 4}
@@ -186,7 +184,7 @@
      #:standards (list "BS-PL.3")
      #:materials @itemlist[@item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders with names on covers.}]
      #:preparation @itemlist[@item{Create student game files. [See the teacher's guide, located in the @(hyperlink "http://www.BootstrapWorld.org/materials/Spring2014/courses/bs1/resources/teachers/" "protected materials") for this course.]}
-                              @item{On student machines: Student Game Files (generated from "Game" template [Game.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=RHBJYscAWj" "WeScheme")])}]
+                              @item{On student machines: Student Game Files (generated from "Game" template [@(hyperlink "https://code.pyret.org/editor#share=1xL3ZnWb43d5ih_fRib3dz3h8z9d__2om&v=f1d3c87" "link to code")])}]
      #:prerequisites (list "Defining Values" "Strings and Images" "Brainstorming")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -194,8 +192,7 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{@activity{Open the videogame file (Game.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"]
-                                          or @editor-link[#:public-id "RHBJYscAWj" "the online template"] so that you can see the code,
+        @points[@point{@student{@activity{Open the videogame file [@(hyperlink "https://code.pyret.org/editor#share=1xL3ZnWb43d5ih_fRib3dz3h8z9d__2om&v=f1d3c87" "link to code")] so that you can see the code,
                                           and click "Run". (You may need to wait a few seconds for the images to load!) The area that
                                           appears is a running videogame, but you probably notice that nothing is moving - even if you 
                                           hit the "up" or "down" arrows! For now, click the "close" button to return to the code.}
@@ -205,7 +202,7 @@
                         @teacher{}
                         }
                  @point{@student{ @activity{Scroll to the very bottom of the screen, reading each of the things you will have to define. Stop when you get to the very bottom, where you see 
-                                           @code{(make_game ...)} used as part of a definition. What do you notice about the values passed into @code{make_game}?}
+                                           @code{make_game(...)} used as part of a definition. What do you notice about the values passed into @code{make_game}?}
                                  @code{make_game} is a function that has been provided for you, which takes all of your definitions and assembles them into a running game. Behind the scenes, @code{make_game}
                                  inserts your definitions inside a giant function that is called every tenth of a second, and uses your definitions to decide what is happening at that moment.}
                          @teacher{You can remind students that Bootstrap:2 will show them how to write this function, and customize it to create more advanced games (multiplayer, maze, etc).}}
@@ -231,17 +228,15 @@
                                    images, read the @(hyperlink "http://www.BootstrapWorld.org/materials/Spring2014/courses/bs1/resources/teachers/" "Teacher's Guide") guide for this course.]}
                          }
                  @point{@student{If you want to change one of your definitions so that the image is smaller or larger, you can use the @code{scale} function:
-                                  @code[#:multi-line #t]{; scale : Number Image -> Image}
-                                  This function resizes the @code{Image} based on the @code{Number}. For example, @code{(scale 10 (triangle 5 "solid" "green"))} will make the that tiny triangle ten times as large, while @code{(scale 0.5 (rectangle 200 100 "outline" "purple"))} will shrink the rectangle by half.
+                                  @code[#:multi-line #t]{scale :: Number, Image -> Image}
+                                  This function resizes the @code{Image} based on the @code{Number}. For example, @code{scale(10, triangle(5, "solid", "green"))} will make the that tiny triangle ten times as large, while @code{scale(0.5, rectangle(200, 100, "outline", "purple"))} will shrink the rectangle by half.
                                   }
                          @teacher{If a student struggles here, you should fall back to the Circles of Evaluation and Contracts. For example: have the student first draw a circle for @code{rotate}, and have them use the Contract to figure out what the inputs are. When they get to the second input (the @code{image}), ask them what kind of shape they want to rotate. Whatever their answer is, have them look it up in their contracts page, and draw a Circle of Evaluation @italic{inside} the one they drew for @code{rotate}. Once the Circle of Evaluation is correct, have them convert it to code. Once they are confident, you can challenge them to apply another operation to the whole expression, perhaps flipping the rotated shape vertically.}
                          }
                  @point{@student{@activity{Practice using @code{scale} to grow and shrink different images. If you would like to experiment with more functions, try using the contracts below:
-                                                           @code[#:multi-line #t]{; flip-vertical : Image -> Image
-                                                                                  ; flip-horizontal : Image -> Image
-                                                                                  ; rotate : Number Image -> Image}
-                                                              @editor-link[#:interactions-text "(scale 3 (star 50 \"solid\" \"red\"))"
-                                                                           "Try playing with this example"]
+                                                           @code[#:multi-line #t]{flip-vertical :: Image -> Image
+                                                                                  flip-horizontal :: Image -> Image
+                                                                                  rotate :: Number, Image -> Image}
                                                            }}
                          @teacher{}
                         }
@@ -285,10 +280,10 @@
 					   but it does let you define your own functions.  We want to define
 					   our own function (let's call it @code{gt}, for green triangle) that
 					   takes in a Number and produces a solid green triangle of whatever size we want.
-                                           @itemlist[@item{@code{(gt 10)} would be a shortcut for @code{(triangle 10 "solid" "green")}}
-                                                     @item{@code{(gt 20)} would be a shortcut for @code{(triangle 20 "solid" "green")}}
-                                                     @item{@code{(gt 1980)} would be a shortcut for @code{(triangle 1980 "solid" "green")}}
-                                                     @item{@code{(gt 98)} would be a shortcut for @code{(triangle 98 "solid" "green")}}
+                                           @itemlist[@item{@code{gt(10)} would be a shortcut for @code{triangle(10, "solid", "green")}}
+                                                     @item{@code{gt(20)} would be a shortcut for @code{triangle(20, "solid", "green")}}
+                                                     @item{@code{gt(1980)} would be a shortcut for @code{triangle(1980, "solid", "green")}}
+                                                     @item{@code{gt(98)} would be a shortcut for @code{triangle(98, "solid", "green")}}
                                                      @item{and so on...}]
                                             }
                                     @teacher{To make this more concrete, have a student "act" as gt. To call the function, another student says "gt ten!" 
@@ -308,7 +303,7 @@
                                                          @item{The @vocab{Domain} of a function, which is the types of data that the function expects: in this case, just a single Number.}
                                                          @item{The @vocab{Range} of this function, which is the type of data that the function produces: in this case an Image since it produces solid, green triangles}]
                                               Here's the @code{gt} Contract written as code.  The line starts with a semicolon, followed by the name, a colon, the Domain, an arrow, then the Range:
-                                              @code[#:multi-line ""]{; gt : Number -> Image}
+                                              @code[#:multi-line ""]{gt :: Number -> Image}
                                              }
                                     @teacher{It is often a good idea to give students examples of different word problems, and have them pick out the 
                                              contract for each one. @(new-paragraph) Contracts are written as @italic{comments} in Racket: whenever Racket 
@@ -325,14 +320,16 @@
                             @point{@student{@bannerline{Step 2: Give Examples}
                                              It's always a good idea to think through a few examples before defining the function. Examples show 
                                              the shortcut that a function is trying to provide.  This programming language provides a special 
-                                             construct, called @code{EXAMPLE}, which helps you write down how the function is used and what it 
+                                             construct, called @code{examples:}, which helps you write down how the function is used and what it 
                                              should compute. You can see two such examples here, written under the contract:
-                                             @code[#:multi-line ""]{; gt : Number -> Image
-                                                                    (EXAMPLE (gt   50) (triangle   50 "solid" "green"))
-                                                                    (EXAMPLE (gt  100) (triangle  100 "solid" "green"))}
-                                             These examples tell the computer that writing @code{(gt 50)} should produce the same result as
-                                             @code{(triangle 50 "solid" "green")}, and that @code{(gt 100)} is equivalent to 
-                                             @code{(triangle 100 "solid" "green")}. The word problem specifies that the examples @italic{must} 
+                                             @code[#:multi-line ""]{gt :: Number -> Image
+                                                                    examples:
+                                                                      gt(5) is triangle(50, "solid", "green")
+                                                                      gt(100) is triangle(100, "solid", "green")
+                                                                    end}
+                                             These examples tell the computer that writing @code{gt(50)} should produce the same result as
+                                             @code{triangle(50, "solid", "green")}, and that @code{gt(100)} is equivalent to 
+                                             @code{triangle(100, "solid", "green")}. The word problem specifies that the examples @italic{must} 
                                              use the name 'gt', and must all produce solid, green triangles.
                                              @activity[#:forevidence (list "BS-PL.3&1&2" "BS-DR.2&1&1" "F-BF.1-2&1&1" "F-IF.1-3&1&2" "F-IF.1-3&1&4")]{
                                                        In your workbook, write two examples of your own for this function.}}
@@ -349,8 +346,10 @@
                                             expression can change, or @italic{vary}, depending on the inputs.
                                     @activity[#:forevidence (list "BS-DR.2&1&3" "F-IF.1-3&1&2" "F-IF.1-3&1&4" "F-IF.4-6&1&1")]{
                                                   Write the following examples on paper and circle the parts of the examples that are different:
-                                             @code[#:multi-line ""]{(EXAMPLE (gt   50) (triangle   50 "solid" "green"))
-                                                                    (EXAMPLE (gt  100) (triangle  100 "solid" "green"))}}
+                                             @code[#:multi-line ""]{examples:
+                                                                      gt(10) is triangle(10, "solid", "green")
+                                                                      gt(50) is triangle(50, "solid", "green")
+                                                                    end}}
 
                                     Once you know which parts of the expression change, label the circles with a name that describe their contents.
                                     For example, in our two @code{gt} examples, we have circled the @italic{size} of the triangle.  Your circled and
@@ -365,13 +364,33 @@
                                              After writing the Contract, two Examples, and the labeled circles, defining the function itself is 
                                              relatively simple.
                                              @itemlist[@item{Copy everything that stays the same (everything that wasn't circled) in one of your
-                                                             EXAMPLE lines (onto paper or into your editor)}
+                                                             example lines (onto paper or into your editor)}
                                                        @item{In place of each circle, write the label you gave to that circle}
-                                                       @item{Change @code{EXAMPLE} to @code{define}}]
-                                             @code[#:multi-line ""]{; gt : Number -> Image
-(EXAMPLE (gt   50) (triangle   50 "solid" "green"))
-(EXAMPLE (gt  100) (triangle  100 "solid" "green"))
-(define  (gt size) (triangle size "solid" "green"))}}
+                                                       @item{Change @code{is} to a @code{:} right after the close parenthesis}
+                                                       @item{Add @code{fun} at the beginning (functions are fun!) and add @code{end} at the end of the line}]
+                                             Here is that process, step by step:
+                                             @code[#:multi-line ""]{
+    gt(    ) is triangle(    , "solid", "green")
+    gt(size) is triangle(size, "solid", "green")
+    gt(size) :  triangle(size, "solid", "green")
+fun gt(size) :  triangle(size, "solid", "green") end
+}
+
+The last step is how we define the function for the computer. With our
+contract, examples, and the function definition, we end up with this as our
+full solution to defining a green triangle function – this is what you should
+have in the definitions window:
+
+@code[#:multi-line #t]{
+gt :: Number -> Image
+examples:
+    gt( 10 ) is triangle( 10 , "solid", "green")
+    gt( 50 ) is triangle( 50 , "solid", "green")
+end
+fun gt(size) :  triangle(size, "solid", "green") end
+}
+}
+
                                     @teacher{This can be a good opportunity to point out that the parts of the examples that were changeable 
                                              (or @italic{vary-able}) are what determines when we need to use the @italic{variable}.}
                                     }
@@ -379,13 +398,8 @@
                                                @itemlist[@item{On your paper, define the @code{gt} function, then type the @vocab{Contract}, @vocab{Examples} 
                                                                and @code{Definition} into the Definitions area.}
                                                          @item{Click "Run", to have the computer read this definition.}
-                                                         @item{Use the function you've defined, by typing @code{(gt 100)} in the Interactions area.}
+                                                         @item{Use the function you've defined, by typing @code{gt(100)} in the Interactions area.}
                                                          @item{Try using the function with different Numbers}]}
-                                    @editor-link[#:definitions-text "; gt : Number -> Image
-(EXAMPLE (gt 50) (triangle 50 \"solid\" \"green\"))
-(EXAMPLE (gt 95) (triangle 95 \"solid\" \"green\"))
-(define (gt size) (triangle size \"solid\" \"green\"))"
-                                                 "Your answer should look something like this."]
                                     }
                                     @teacher{}
                                     }
@@ -413,11 +427,14 @@
                                              functions, just as in math (where many functions use @code{x} as the variable name, for example)}
                                     }
                             @point{@student{Thinking through the word problem step-by-step, we arrive at:
-                                             @code[#:multi-line ""]{; bc : Number -> Image
-(EXAMPLE (bc     16) (circle     16 "solid" "blue"))
-(EXAMPLE (bc    421) (circle    421 "solid" "blue"))
-(define  (bc radius) (circle radius "solid" "blue"))}
-                                            }
+                                             @code[#:multi-line ""]{
+bc :: Number -> Image
+examples:
+    bc(  16  ) is circle(  16  , "solid", "blue")
+    bc( 421  ) is circle(  421 , "solid", "blue")
+end
+fun bc(radius) :  circle(radius, "solid", "blue") end
+                                            }}
                                     @teacher{}
                                     }
                              @point{@student{@bannerline{Practice: Write a function @code{dot}, which takes in a Color and produces a solid circle of the given color, with a radius of 20.}
@@ -436,10 +453,13 @@
                                     @teacher{}
                                     }
                              @point{
-                                    @student{Thinking through the word problem step-by-step, we arrive at: @code[#:multi-line ""]{; dot : String -> Image
-                                                                    (EXAMPLE (dot  "red") (circle 15 "solid"  "red"))
-                                                                    (EXAMPLE (dot "blue") (circle 15 "solid" "blue"))
-                                                                    (define  (dot  color) (circle 15 "solid"  color))}}
+                                    @student{Thinking through the word problem step-by-step, we arrive at: @code[#:multi-line ""]{ @;{TODO(joe): some day this will break with the new image API if the color constructor is exposed}
+dot :: String -> Image
+examples:
+    dot( "red") is circle(15, "solid",  "red")
+    dot("blue") is circle(15, "solid", "blue")
+end
+fun dot( color) :  circle(15, "solid",  color) end}}
                                      @teacher{}}]
                     }
 
@@ -461,7 +481,7 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{@points[@point{@student{You've seen many functions defined in Racket, for example: 
-                                @code{(define (f x) (+ x 1))}
+                                @code{fun f(x): x + 1 end}
                         @activity[#:forevidence (list  "F-IF.1-3&1&2" "F-IF.1-3&1&4" "F-IF.4-6&1&1")]{@itemlist[@item{What is the name of this function?}
                                              @item{How many variables does it take?}
                                              @item{What is the name of the variable(s)?}

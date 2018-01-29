@@ -126,6 +126,8 @@ html, body{background: white; width: 7.5in; position: absolute;}
 .designRecipeLayout .recipe_example_body{min-width: 150pt; max-width: 95%; display: inline-block;}
 #recipe_definition_body{min-width: 440pt; max-width: 95%;}
 
+#recipe_definition{ page-break-inside: avoid; }
+
 .recipe_example_body{margin-left: 20px;}
 
 /* Inside a cond, there's no ::after elements, so we can use less space between lines 
