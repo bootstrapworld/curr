@@ -21,7 +21,7 @@
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, language table, course calendar)}
                             @item{Language Table (see below)}
-                            @item{Bug Hunting [Bugs.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=lQUC6RJArG" "WeScheme")] file preloaded on students' machines, as the front-most window.}]
+                            @item{Bug Hunting [Bugs from @(hyperlink "https://code.pyret.org/editor#share=0B32bNEogmncORzV3R3pjT0k3MWs&v=80ba55b" "starter file")] file preloaded on students' machines, as the front-most window.}]
      #:preparation @itemlist[]
      #:prerequisites (list "Defining Functions")
      #:pacings (list 
@@ -56,7 +56,7 @@
                             @item{All student computers should have their game templates pre-loaded, with their image files linked in}
                             @item{Class poster (List of rules, language table, course calendar)}
                             @item{Language Table (see below)}]
-     #:preparation @itemlist[@item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/1i3WQ4Q58Wn6fhqxEz027KDcUHIewtk-wLPQzJalCFt0/edit?usp=sharing" "Warmup activity sheet").}]
+     #:preparation @itemlist[]
      #:prerequisites (list "Game Images" "The Design Recipe")
      #:pacings (list 
                 @pacing[#:type "remediation"]{At this point, students should be very comfortable with the Design Recipe. If they are struggling, try reviewing the Contract with them first, then having a student act out the function. Ask that student what their name is, what they are expecting to be given, and what they will produce. Have them simulate a function call by calling out their name ("update-danger") and giving them an x-coordinate (they should produce a number that is 50 fewer than what they were given). Then refer back to this skit when writing Examples: the call-and-response is exactly how the code should behave, with students only having to write the code for whatever work your volunteer was doing in their head.}
@@ -78,11 +78,13 @@
                                   Tip: tell students that they must get your permission before typing in their code, then use that expectation to check each student's paper carefully.}
                          }
                  @point{@student{Putting all of these together, @code{update-danger} is defined by:
-                                 @code[#:multi-line]{; update-danger : Number -> Number
-                                                     ; subtract 50 from the danger's x-coordinate
-                                                     (EXAMPLE (update-danger 171) (- 171 50))
-                                                     (EXAMPLE (update-danger -90) (- -90 50))
-                                                     (define (update-danger x) (- x 50))}
+                                 @code[#:multi-line]{update-danger :: Number -> Number
+                                                     # subtract 50 from the danger's x-coordinate
+                                                     examples:
+                                                       update-danger(171) is (171 - 50)
+                                                       update-danger(-90) is (-90 - 50)
+                                                     end
+                                                     fun update-danger(x): (x - 50) end }
                                  (Note: you may have slightly different Examples or variable names.)
                                  @activity{Open your saved Game file and scroll until you find the definition for @code{update-danger}. Is the contract correct?
                                            Make sure it matches what you have in your workbook, add both of your examples, and fix the definition. When you 
