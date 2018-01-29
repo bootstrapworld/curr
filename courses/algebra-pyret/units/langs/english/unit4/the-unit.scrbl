@@ -26,9 +26,9 @@
                             @item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders with names on covers, and something to write with}]
      #:preparation @itemlist[@item{Write agenda on board}
                               @item{Display Class posters, Language Table, Design Recipe}
-                              @item{"Rocket" [Rocket.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=EHgrsZlYNX" "WeScheme")] preloaded on students' machines}
+                              @item{"Rocket" [@(hyperlink "https://code.pyret.org/editor#share=13zlxZnvvQdW-UJVy8FlGOCwpjkiWGT56" "on code.pyret.org")] preloaded on students' machines}
                               @item{Seating arrangements: ideally clusters of desks/tables}
-                              @item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/134VD2NShK_VxDog4VG4lMm4jTbpxm2H2cSXqZbHwwSg/edit?usp=sharing" "Warmup activity sheet").}]
+                              @item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/1R3PeGvnrOijkaogqHKObBJj-ASTW0t2qhVVYeZ_rtWw/edit?usp=sharing" "Warmup activity sheet").}]
      #:prerequisites (list "Defining Functions")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -70,18 +70,17 @@
                         }
                  @point{@student{The Contract is a way of thinking about the function in a general way, without having to worry about exactly how it will work or how it will be used. Starting with simple questions like these will make later steps much easier to think about. However, the Contract doesn't always have enough information! The Domain for @code{star}, for example, specifies that the function needs a Number and two Strings, but doesn't mention the fact that the first String must be @code{"solid"} or @code{"outline"}. To add this information, programmers write @vocab{Purpose Statements}, which are simple sentences that explain what a function does.
                                  @activity[#:forevidence (list "BS-DR.1&1&2" "F-IF.1-3&1&5")]{Underneath the Contract, copy the following simple Purpose Statement for @code{rocket-height}.}
-                                 @code[#:multi-line #t]{; rocket-height : Number -> Number
-                                                        ; multiply the number of seconds by 7 to find the height}}
+                                 @code[#:multi-line #t]{rocket-height :: Number -> Number
+                                                        # multiply the number of seconds by 7 to find the height}}
                          @teacher{This is an opportunity to talk about the importance of writing, clarity, and brevity. What information is essential for a purpose statement? What information is irrelevant?  A good purpose statement describes what is computed and how its inputs are used; it should go beyond the information given in the contract and implicit in the name of the function.}
                          }
                  @point{@student{Armed with the Contract and Purpose Statement, it becomes easy to write an @code{EXAMPLE}. Every example begins with the name of the function and a sample input, both of which are written in the Contract. In this case, you know that the function is called @code{rocket-height} and that it expects a single number as input. The Purpose Statement goes further, telling you that the input is multiplied by 7. We can use this to write two examples, with different numbers of seconds as inputs.
-                                @code[#:multi-line #t]{; rocket-height : Number -> Number
-                                                       ; multiply the number of seconds by 7 to find the height
-                                                       (EXAMPLE (rocket-height 11) 
-                                                                (* 11 7))
-                                                       (EXAMPLE (rocket-height 72) 
-                                                                (* 72 7))}
-                                @bold{Note:} The example shown above is broken into two lines! As functions and examples become more complex, it will become difficult to squeeze them into a single line. In your workbooks, every example and definition from this point onwards will use the two-line format.
+                                @code[#:multi-line #t]{rocket-height :: Number -> Number
+                                                       # multiply the number of seconds by 7 to find the height
+                                                       examples:
+                                                         rocket-height(11) is (11 * 7)
+                                                         rocket-height(72) is (72 * 7)
+                                                       end}
                                 }
                          @teacher{The main idea for students in this activity is to realize that the Contract and Purpose Statement can be relied upon to write examples. Ask students to justify  every part of each example, using only the Contract and Purpose Statement.  Students are often tripped up by the switch from one-line examples to two-line ones. Be @italic{very} careful to point this out to students, and to check their workbooks to see where they are writing their examples. At the end of the activity, make sure that students circle ONLY what has changed.})
                  }
@@ -96,14 +95,16 @@
                                   
                                   }
                          @teacher{As with the Examples, ask students to justify each part of the definition. In this case, the function name can be derived from the Contract, and the variable name and function body from the Examples.}}
-                 @point{@student{@code[#:multi-line #t]{; rocket-height : Number -> Number
-                                                       ; multiply the number of seconds by 7 to find the height
-                                                       (EXAMPLE (rocket-height 11) 
-                                                                (* 11 7))
-                                                       (EXAMPLE (rocket-height 72) 
-                                                                (* 72 7))
-                                                       (define (rocket-height seconds)
-                                                                (* seconds 7))}}
+                 @point{@student{@code[#:multi-line #t]{rocket-height :: Number -> Number
+                                                       # multiply the number of seconds by 7 to find the height
+                                                       examples:
+                                                         rocket-height(11) is (11 * 7)
+                                                         rocket-height(72) is (72 * 7)
+                                                       end
+                                                       fun rocket-height(seconds):
+                                                         (seconds * 7)
+                                                       end
+                                                       }}
                          @teacher{}
                         }
                  @point{@student{The Design Recipe allows a programmer to focus on one step of the problem at a time, and to use previous steps to help complete the next one.
@@ -117,8 +118,7 @@
                          }
                  @point{@student{You may have noticed that the Examples for @code{rocket-height} wrote out the multiplication as @code{(* 11 7)}, 
                                  rather than the actual answer (@code{77}). Why bother to show the way a calculation is performed?  By doing this, 
-                                 Examples can provide hints about what process is taking place. In the provided Rocket code (Rocket.rkt from
-                                 @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | or the @editor-link[#:public-id "EHgrsZlYNX" "online file"]),
+                                 Examples can provide hints about what process is taking place. In the provided Rocket code (@hyperlink["https://code.pyret.org/editor#share=13zlxZnvvQdW-UJVy8FlGOCwpjkiWGT56" "online file"]),
                                  you will see why it is so important to show your work when writing examples. 
                                  @activity{Click "Run", and wait until a window appears with a rocket at the bottom of the screen and numbers for "time" and "height" at the top. This animation is set to update the rocket every time the spacebar is pressed, to simulate time going by. Hit the spacebar a few times, and notice that the time at the top of the window increases. Does the rocket move? Time is passing, but our rocket's height hasn't changed! Close the rocket window, so that you can see the code.}}
                          @teacher{}
@@ -225,19 +225,11 @@
                  @point{@student{When typing in a function definition, be sure to type in all three parts: The Contract and Purpose Statement, 
                                  the Examples and the Definition. When "Run" is clicked, the computer will read the definition, test your 
                                  Examples to make sure it works correctly, and then add the definition to your language. Once added, you 
-                                 can use the function as if it were built into the computer. 
-                                 @activity[#:forevidence (list "BS-IDE&1&1")]{
-                                             @editor-link[#:definitions-text "; red-square : Number -> Image
-; draw a solid, red square using the given size
-(EXAMPLE (red-square 42) (square 42 \"solid\" \"red\"))
-(EXAMPLE (red-square 73) (square 73 \"solid\" \"red\"))
-(define (red-square size) (square size \"solid\" \"red\"))"
-                                                          "Test out this function by using it with various inputs."]
-                                             }
+                                 can use the function as if it were built into the computer. Test out this function by using it with various inputs!
                                  }
                         @teacher{}
                         }
-                 @point{@student{Some functions take more than one input. The @code{red-square} function always makes solid red squares, with size being the only thing that varies. Suppose, however, we wanted the function to make red squares that could be @italic{either} solid or outline? This would mean that both the size and the style can vary, so a user might type @code{(red-square 50 "solid")} or @code{(red-square 50 "outline")}
+                 @point{@student{Some functions take more than one input. The @code{red-square} function always makes solid red squares, with size being the only thing that varies. Suppose, however, we wanted the function to make red squares that could be @italic{either} solid or outline? This would mean that both the size and the style can vary, so a user might type @code{red-square(50, "solid")} or @code{red-square(50, "outline")}
                                  @activity[#:forevidence (list "BS-DR.1&1&1" "F-IF.1-3&1&1" "F-IF.4-6&1&3" "A-SSE.1-2&1&1")]{
                                            @itemlist[@item{How would that change the Domain of the function?}
                                                       @item{How would the Examples have to change?}
@@ -291,13 +283,13 @@
                                  the contract: 
                                  @bannerline{@math{distance : Number \rightarrow Number}}
                                  Just as before, the Contract gives us a strong hint about how to write the Examples. Here is one Example, written in 
-                                 Racket code:  @code{(EXAMPLE (distance 5) (* 5 80))}  Here's the same example, written in algebra: 
+                                 Pyret code:  @code{distance(5) is (5 * 80))}  Here's the same example, written in algebra: 
                                  @math{distance(5) = 5 \times 80}
                                  @activity[#:forevidence (list "F-IF.1-3&1&2" "F-IF.1-3&1&4" "F-IF.1-3&1&5" "F-IF.4-6&1&3" "A-SSE.1-2&1&1" "BS-DR.2&1&1")]{
                                      Write two additional Examples for this function, using Algebraic notation.}
                                  }
-                         @teacher{Point out that the Contract hasn't changed @italic{at all} between Racket and Algebra. 
-                                  If students are struggling with the change in syntax, let them first write the Examples in Racket, and 
+                         @teacher{Point out that the Contract hasn't changed @italic{at all} between Pyret and Algebra. 
+                                  If students are struggling with the change in syntax, let them first write the Examples in Pyret, and 
                                   then convert them to Algebra by following the model shown here.}
                          }
                  @point{@student{As before, a function's variables can be identified by writing two Examples, and looking at what changes between them.
