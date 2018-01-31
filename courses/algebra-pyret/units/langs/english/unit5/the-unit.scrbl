@@ -21,7 +21,7 @@
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, language table, course calendar)}
                             @item{Language Table (see below)}
-                            @item{Bug Hunting [Bugs from @(hyperlink "https://code.pyret.org/editor#share=0B32bNEogmncORzV3R3pjT0k3MWs&v=80ba55b" "starter file")] file preloaded on students' machines, as the front-most window.}]
+                            @item{Bug Hunting [Bugs from @(hyperlink "https://code.pyret.org/editor#share=0B32bNEogmncORzV3R3pjT0k3MWs" "starter file")] file preloaded on students' machines, as the front-most window.}]
      #:preparation @itemlist[]
      #:prerequisites (list "Defining Functions")
      #:pacings (list 
@@ -32,7 +32,7 @@
       ]{
         @points[@point{@student{Debugging (finding and correcting problems in code) is an important part of programming, so it's a good idea to practice finding bugs in code. 
                                 @activity[#:forevidence (list "BS-IDE&1&2" "BS-PL.1&1&2" "BS-PL.2&1&1" "BS-PL.2&1&2" "BS-PL.3&1&3")]{
-                                        Open the @editor-link[#:public-id "lQUC6RJArG" "Bug Hunting"] program in a new window, and see if you can find the 
+                                        Open the @hyperlink["https://code.pyret.org/editor#share=0B32bNEogmncORzV3R3pjT0k3MWs" "Bug Hunting"] program in a new window, and see if you can find the 
                                         bug in each expression. Click "Run" and read the error message carefully! After you fix each one, clicking 
                                         Run will show you the error message for the next bug.}}
                         @teacher{Make sure students understand that the goal is not to FIX the bugs, but rather just to find them.}

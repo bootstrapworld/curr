@@ -34,21 +34,21 @@
                 )
      ]{
        @points[@point{@student{Suppose two objects are moving through space, each one having its own (x,y) coordinates. When do their edges start to overlap? They certainly overlap if their coordinates are identical (x1=x2, y1=y2), but what if their coordinates are separated by a small distance? Just how small does that distance need to be before their edges touch?}
-                       @teacher{[@(hyperlink "https://www.youtube.com/watch?v=Bbq0oCmvSmA" "Video")] Visual aids are key here: be sure to diagram this on the board!}
+                       @teacher{}
                        }
                 @point{@student{@bitmap{images/numberline.png}In one dimension, it's easy to calculate when two objects overlap. In this example, the red circle has a radius of 1, and the blue circle has a radius of 1.5 The circles will overlap if the distance @italic{between their centers} is @italic{less than the sum of their radii} (@math{1 + 1.5 = 2.5}). How is the distance between their centers calculated? In this example, their centers are 3 units apart, because @math{4 - 1 = 3}. @activity{Would the distance between them change if the circles swapped places? Why or why not?}}
                        @teacher{Work through a number of examples, using a number line on the board and asking students how they calculate the distance between the points.  Having students act this out can also work well: draw a number line, have two students stand at different points on the line, using their arms or cutouts to give objects of different sizes.  Move students along the number line until they touch, then compute the distance on the number line.  The first few seconds of our @(hyperlink "http://www.youtube.com/watch?v=leP3tQ_GZL8&feature=player_embedded" "Bootstrap video") show this exercise in action.}
                        }
                 @point{@student{Your game file provides a function called @code{line-length} that computes the difference between two points on a number line.  Specifically, @code{line-length} takes two numbers as input and determines the distance between them.
                        @activity[#:forevidence (list "BS-PL.3&1&3" "BS-PL.4&1&1" "6.NS.5-8&1&6")]{What answers would you expect from each of the following two uses of @code{line-length}:
-                                 @itemlist[@item{@code{(line-length 2 5)}}
-			                   @item{@code{(line-length 5 2)}}
+                                 @itemlist[@item{@code{line-length(2, 5)}}
+			                   @item{@code{line-length(5, 2)}}
                                           ]
                                  Do you expect the same answer regardless of whether the larger or smaller input goes first?}}
-                       @teacher{If you have time and want to reinforce how conditionals arise from examples, you can have students fill in blanks in Examples such as @code{(EXAMPLE (line-length 2 5) ___)}, circle what's different, and notice that the circle labels are in different orders depending on whether the first or the second input is larger.  This in turn suggests that the code for @code{line-length} will need a conditional.  In this case, one could avoid the conditional by taking the absolute value of the difference (the function @code{abs} does this); if you are working with older students who already know about absolute value you could show it.  Using @code{cond}, however, emphasizes how code structure arises from examples.}}
+                       @teacher{If you have time and want to reinforce how conditionals arise from examples, you can have students fill in blanks in Examples such as @code{(EXAMPLE (line-length 2 5) ___)}, circle what's different, and notice that the circle labels are in different orders depending on whether the first or the second input is larger.  This in turn suggests that the code for @code{line-length} will need a conditional.  In this case, one could avoid the conditional by taking the absolute value of the difference (the function @code{abs} does this); if you are working with older students who already know about absolute value you could show it.  Using @code{ask:}, however, emphasizes how code structure arises from examples.}}
 
-                @point{@student{Scroll to the @code{line-length} and @code{collide?} functions in your game file.  Notice that @code{line-length} uses a conditional so that it subtracts the smaller number from the bigger one. 
-                       @activity[#:forevidence (list "BS-M&1&1" "8.F.5&1&1")]{Can you explain why @code{line-length} needs to use @code{cond}? What are the two conditions?}}
+                @point{@student{Scroll to the @code{line-length} and @code{is-collision} functions in your game file.  Notice that @code{line-length} uses a conditional so that it subtracts the smaller number from the bigger one. 
+                       @activity[#:forevidence (list "BS-M&1&1" "8.F.5&1&1")]{Can you explain why @code{line-length} needs to use @code{ask:}? What are the two conditions?}}
                        @teacher{The two conditions are: @itemlist[@item{A is @italic{less than} B} @item{B is @italic{less than or equal} to A}]}}
                        
                 @point{@student{@bitmap{images/3004graph.png}Unfortunately, @code{line-length} can only calculate the distance between points in a single dimension (x or y). How would the distance be calculated between objects moving in 2-dimensions (like your game elements)? @code{line-length} can calculate the vertical and horizontal lines in the graphic shown here, using the distance between the x-coordinates and the distance between the y-coordinates. Unfortunately, it doesn't tell us how far apart the two centers are.}
@@ -85,7 +85,7 @@
                            @item{Class posters (List of rules, basic skills, course calendar)}
                            @item{Language Table (see below)}
                           ]
-     #:preparation @itemlist[ @item{REQUIRED: Hand out @(hyperlink "https://docs.google.com/document/d/1Vkaz30B8AAaze6fMiFJypFb1bOIeH0RzkeaBLCCPf9E/edit?usp=sharing" "Warmup Activity Sheet").}]
+     #:preparation @itemlist[ @item{REQUIRED: Hand out @(hyperlink "https://docs.google.com/document/d/1aOCqBLm5ptd09Myp3cuAj1MX1DGj2N7WNROGphXe06k/edit?usp=sharing" "Warmup Activity Sheet").}]
      #:prerequisites (list "1D Distance")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -129,14 +129,14 @@
                 ]}
 
 @lesson/studteach[
-     #:title "collide?" 
+     #:title "is-collision" 
      #:duration "25 min"
      #:overview "Students reason about the mathematical behavior of collision detection"
      #:learning-objectives @itemlist[@item{Students learn how to use the distance formula to detect collisions in games}]
      #:evidence-statements @itemlist[@item{Students understand that collisions occur when the distance between objects is below some threshhold}
                                      @item{Students understand how to determine the collision threshhold between two objects}
-                                     @item{Students write a @code{collide?} function that determines whether the player and danger elements in their games have collided}]
-     #:product-outcomes @itemlist[@item{Students add a @code{collide?} function to their games to detect when the player and danger have collided}]
+                                     @item{Students write a @code{is-collision} function that determines whether the player and danger elements in their games have collided}]
+     #:product-outcomes @itemlist[@item{Students add a @code{is-collision} function to their games to detect when the player and danger have collided}]
      #:exercises (list )
      #:standards (list "F-IF.1-3" "F-IF.4-6" "8.F.1-3" "A-SSE.1-2" "8.G.6-8")
      #:materials @itemlist[@item{Computers w/ DrRacket or WeScheme}
@@ -153,7 +153,7 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
      ]{
-       @points[@point{@student{By now, you have defined a function called @code{distance}: it has four Number inputs (representing playerX, playerY, dangerX and dangerY) and produces a Number representing the distance between those coordinates. If the player is standing at (320, 240) and the danger is at (400, 159), the distance can be calculated by evaluating @code{(distance 320 240 400 159)}.}
+       @points[@point{@student{By now, you have defined a function called @code{distance}: it has four Number inputs (representing playerX, playerY, dangerX and dangerY) and produces a Number representing the distance between those coordinates. If the player is standing at (320, 240) and the danger is at (400, 159), the distance can be calculated by evaluating @code{distance(320, 240, 400, 159)}.}
                        @teacher{}
                        }
                 @point{@student{@activity[#:forevidence (list "F-IF.1-3&1&1" "F-IF.4-6&1&3" "A-SSE.1-2&1&4")]{For each of the following player and danger coordinates, write the expression that uses the @code{distance} function to compute the distance between the points.  You may write in code or in a Circle of Evaluation:
@@ -170,7 +170,7 @@
                        @teacher{}
                        }
                 @point{@student{@activity[#:forevidence (list "8.F.1-3&1&1" "8.F.1-3&1&3")]{Turn to @worksheet-link[#:name "collide"] in your workbook, and use the Design Recipe to write a function that produces @code{true} if the distance between two coordinates is less than 50. HINT: You should use your @code{distance} function!}
-                                @activity{Enter your @code{collide?} function definition into your game file.  Play your game, and make your player collide with the danger.  Does your game now do something different than it did before you wrote @code{collide?}?}
+                                @activity{Enter your @code{is-collision} function definition into your game file.  Play your game, and make your player collide with the danger.  Does your game now do something different than it did before you wrote @code{is-collision}?}
                       }
                         @teacher{}
                         }

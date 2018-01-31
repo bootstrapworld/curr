@@ -16,7 +16,7 @@ include other datatypes, including Strings and Images.}
      #:product-outcomes @itemlist[]
      #:standards (list "A-SSE.1-2" "BS-CE")
      #:materials @itemlist[]
-     #:preparation @itemlist[@item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/1Qn59Fol2tspqOx6XQV88xm-IYsRGY769cb7MQeknSMA/edit?usp=sharing" "Warmup activity sheet").}
+     #:preparation @itemlist[@item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/1Xm53yHC5c6dyOoAtm6hAI5W3uaGLID63GDuiTfxgfeM/edit?usp=sharing" "Warmup activity sheet").}
                               @item{Student Workbooks, and something to write with.}]
      #:prerequisites (list "Order of Operations")
      #:pacings (list 
@@ -55,7 +55,7 @@ include other datatypes, including Strings and Images.}
      #:product-outcomes @itemlist[@item{Students will enter (evaluate) expressions for generating Strings and Images}]
      #:exercises (list )
      #:standards (list "N-Q" "BS-PL.1" "BS-PL.2")
-     #:materials @itemlist[@item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}]
+     #:materials @itemlist[@item{Editing environment (code.pyret.org)}]
      #:preparation @itemlist[@item{Student Workbooks, and something to write with.}]
      #:prerequisites (list "Intro to Programming")
      #:pacings (list 

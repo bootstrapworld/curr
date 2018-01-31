@@ -2,10 +2,10 @@
 
 @title{Unit 7: Conditional Branching}
 
-@unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sqr sqrt expt} "1 ,4 ,44.6")
+@unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sqr sqrt expt} "1, 4, 44.6")
                                        (list "String" @code{string-append string-length} " \"hello\" ")
                                        (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image} "circle(25, \"solid\", \"red\")")
-                                       (list "Boolean" @code{= > < string=? and or} "true ,false"))]{
+                                       (list "Boolean" @code{= > < string-equal and or} "true, false"))]{
   @unit-descr{Students use piecewise functions to move their players in response to key-presses.}
    }
 
@@ -30,10 +30,8 @@
                            @item{Class posters (List of rules, basic skills, course calendar)}
                            @item{Language Table (see below)}
                           ]
-     #:preparation @itemlist[@item{"Luigi's Pizza" [LuigisPizza.rkt from @(resource-link #:path "source-files.zip" 
-                                                                                       #:label "source-files.zip") |
-@(hyperlink "http://www.wescheme.org/openEditor?publicId=E57eyBCTtD" "WeScheme")] preloaded on students' machines, and on the projector}
-                              @item{REQUIRED: Hand out @(hyperlink "https://docs.google.com/document/d/1k67XlYWkHefd4APynvwSnPKRaSTeOvGD7_lRbI8hHrg/edit?usp=sharing" "Luigi's Pizza Worksheet").}]
+     #:preparation @itemlist[@item{"Luigi's Pizza" [LuigisPizza from @(hyperlink "https://code.pyret.org/editor#share=1ZBKJ-UXA8_TX6schFf2apncMYgDeR2Ep&v=f1d3c87" "code.pyret.org")] preloaded on students' machines, and on the projector}
+                              @item{REQUIRED: Hand out @(hyperlink "https://docs.google.com/document/d/19zig6p6udFpTc1OYpuDnAEzu47rlzqolMMK7j-AzIKM/edit?usp=sharing" "Luigi's Pizza Worksheet").}]
      #:prerequisites (list "The Design Recipe" "and/or")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -45,32 +43,34 @@
      @point{@student{@activity[#:forevidence (list "BS-DR.1&1&1" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1")]{
                            To get started with this lesson, complete @(hyperlink "https://docs.google.com/document/d/1k67XlYWkHefd4APynvwSnPKRaSTeOvGD7_lRbI8hHrg/edit" 
                                       "Luigi's Pizza Worksheet").}}
-            @teacher{Review students' answers to the exercise. You can see a video demonstration of this intro at these links: @(video-link (hyperlink "http://www.youtube.com/watch?v=2ckWSjWum-8" "1")),
-                     @(video-link (hyperlink "http://www.youtube.com/watch?v=iTrY-N3MLRY#t=3m8s" "2"))}
+            @teacher{}
            }
      @point{@student{The code for the @code{cost} function is written below:
-                     @code[#:multi-line #t]{; cost : String -> Number
-                                            ; given a Topping, produce the cost of a pizza with that topping
-                                            (EXAMPLE (cost "cheese")     9.00)
-                                            (EXAMPLE (cost "pepperoni") 10.50)
-                                            (EXAMPLE (cost "chicken")   11.25)
-                                            (EXAMPLE (cost "broccoli")  10.25)
-                                            
-                                            (define (cost topping)
-                                              (cond
-                                                [(string=? topping "cheese")     9.00]
-                                                [(string=? topping "pepperoni") 10.50]
-                                                [(string=? topping "chicken")   11.25]
-                                                [(string=? topping "broccoli")  10.25]
-                                                [else "That's not on the menu!"]))}}
-             @teacher{[@(hyperlink "https://www.youtube.com/watch?v=joF6lOgCN14" "Video")]}
+                     @code[#:multi-line #t]{cost :: String -> Number
+# given a Topping, produce the cost of a pizza with that topping
+examples:
+  cost("cheese") is 9.00
+  cost("pepperoni") is 10.50
+  cost("chicken") is 11.25
+  cost("broccoli") is 10.25
+end
+fun cost(topping):
+  ask:
+    | string-equal(topping, "cheese")    then: 9.00
+    | string-equal(topping, "pepperoni") then: 10.50
+    | string-equal(topping, "chicken")   then: 11.25
+    | string-equal(topping, "broccoli")  then: 10.25
+    | otherwise: "Sorry, that's not on the menu!"
+  end
+end}}
+             @teacher{}
              }
      @point{@student{Up to now, all of the functions you've seen have done the @italic{same thing} to their inputs:
                      @itemlist[@item{@code{green-triangle} always made green triangles, no matter what the size was.} 
-                                @item{@code{safe-left?} always compared the input coordinate to -50, no matter what that input was.}
+                                @item{@code{is-safe-left} always compared the input coordinate to -50, no matter what that input was.}
                                 @item{@code{update-danger} always added or subtracted the same amount}
                                 @item{and so on...}]
-                     This was evident when going from EXAMPLEs to the function definition: circling what changes essentially gives away
+                     This was evident when going from examples to the function definition: circling what changes essentially gives away
                      the definition, and the number of variables would always match the number of things in the Domain. 
                      @activity{Turn to @worksheet-link[#:name "cost"], fill in the Contract and EXAMPLEs for this function,
                                then circle and label what changes.}}
@@ -105,10 +105,10 @@
                               topping, and see what happens.
                               }
                     }
-             @teacher{@code{else} clauses are best used as a catch-all for cases that you can't otherwise enumerate.  If you can state a precise question
-                       for a clause, write the precise question instead of @code{else}.  For example, if you have a function that does different things 
+             @teacher{@code{otherwise:} clauses are best used as a catch-all for cases that you can't otherwise enumerate.  If you can state a precise question
+                       for a clause, write the precise question instead of @code{otherwise:}.  For example, if you have a function that does different things 
                        depending on whether some variable @code{x} is larger than @code{5}, it is better for beginners to write the two questions 
-                       @code{(> x 5)} and @code{(<= x 5)} rather than have the second question be @code{else}.  Explicit questions make it easier to 
+                       @code{(x > 5)} and @code{(x <= 5)} rather than have the second question be @code{otherwise:}.  Explicit questions make it easier to 
                        read and maintain programs.}
            }
      @point{@student{Functions that use conditions are called @vocab{piecewise functions}, because each condition defines a 
@@ -118,13 +118,13 @@
                      down, but not both.}
             @teacher{}
            }
-     @point{@student{Right now the @code{else} clause produces a String, even though the Range of the function is Number. Do you think this is a problem? 
+     @point{@student{Right now the @code{otherwise:} clause produces a String, even though the Range of the function is Number. Do you think this is a problem? 
                      Why or why not? As human beings, having output that breaks that contract might not be a problem: we know that the functions will
                      produce the cost of a pizza or an error message. But what if the output of this code didn't go to humans at all? What if we want to use
                      this function from within some other code? Is it possible that @italic{that} code might get confused? To find out, uncomment the last 
                      line of the program @code{(start cost} by removing the semicolon. When you click "Run", the simulator will use @code{cost} function
                      to run the cash register. See what happens if you order off the menu!
-                     @activity{To fix this, let's change the @code{else} clause to return a really high price. After all, if the customer is willing to pay
+                     @activity{To fix this, let's change the @code{otherwise:} clause to return a really high price. After all, if the customer is willing to pay
                       a million bucks, Luigi will make whatever pizza they want!}}
             @teacher{}
            }

@@ -500,7 +500,7 @@
                                 the top of the circle. Then translate the value or expression on the right in the same way, adding a closing
                                 parenthesis @code{)} when you're done. This process gives us the second rule for @vocab{expressions}:  
                                 @bannerline{Code Rule 2: Each use of an arithmetic operation starts with a parenthesis, with one legal expression followed by an operator, then another legal expression, finally ended with a closing parenthesis.}
-                                 @bitmap{images/FixedCircle.png}Here is the code for this Circle of Evaluation: @code{(- 4 5)}
+                                 @bitmap{images/FixedCircle.png}Here is the code for this Circle of Evaluation: @code{(4 - 5)}
                                  @activity[#:forevidence "BS-PL.1&1&2"]{ See what happens
                                                                          when this code is entered into the Interactions area. Type it in and press the Return key to evaluate the program. You should 
                                                                          see @math{-1} as an answer.
