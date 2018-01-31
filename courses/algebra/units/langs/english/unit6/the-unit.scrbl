@@ -70,16 +70,14 @@
                         }
                  @point{@student{The last expression, @code{(< 3 4)},
                                                       uses a new function that @italic{compares Numbers}, returning
-                                                      @code{true} if 3 is less than 4. What do you think it would return if the numbers were swapped?
+                                                      @code{true} if 3 is less than 4. @noSlideText{What do you think it would return if the numbers were swapped?}
                                                       @activity[#:forevidence (list "BS-IDE&1&1")]{
                                                                                                    The function @code{<} tests if one number is less than another. Can you think of some other tests? 
                                                                                                                 Try them out in the Interactions window.} }
                          @teacher{Give students plenty of practice here! You can see a video demonstration of this intro at @(video-link (hyperlink "http://www.youtube.com/watch?v=X7gAXxpBhUo" "Video Lesson: Intro to Booleans"))}
                          }
                  @point{@student{Functions like @code{<}, @code{>} and @code{=} all consume two Numbers as their Domain, and produce a special value called a 
-                         @vocab{Boolean} as their Range. Booleans are answers to a yes-or-no question, and Boolean functions are used to perform tests. 
-                         In a videogame, you might test if a player has walked into a wall, or if their health is equal to zero. A machine in a doctor's 
-                         office might use Booleans to test if a patient's heartrate is above or below a certain level.
+                         @vocab{Boolean} as their Range. @noSlideText{Booleans are answers to a yes-or-no question, and Boolean functions are used to perform tests. In a videogame, you might test if a player has walked into a wall, or if their health is equal to zero. A machine in a doctor's office might use Booleans to test if a patient's heartrate is above or below a certain level.}
                                                 @bannerline{Boolean values can only be @code{true} or @code{false}.}}
                          @teacher{}
                          }
@@ -123,10 +121,10 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Open the "Cage" program (Cage.rkt from @(resource-link #:path "source-files.zip" #:label "source-files.zip") or in @editor-link[#:public-id "48low6MazC" "WeScheme"]) on your computer, and click "Run".  The window that pops up contains a butterfly, which you can move around using the arrow keys on your keyboard.  This butterfly is named Sam, and the window is Sam's yard. Much like the videogame screen, this yard is 640 pixels wide by 480 pixels tall!  As you can see, Sam is free to walk around the yard, and the coordinates at the top of the screen update to tell you his location.}
+        @points[@point{@student{Open the "Cage" program (Cage.rkt from @(resource-link #:path "source-files.zip" #:label "source-files.zip") or in @editor-link[#:public-id "48low6MazC" "WeScheme"]) on your computer, and click "Run".  @noSlideText{The window that pops up contains a butterfly, which you can move around using the arrow keys on your keyboard.  This butterfly is named Sam, and the window is Sam's yard. Much like the videogame screen, this yard is 640 pixels wide by 480 pixels tall!}  As you can see, Sam is free to walk around the yard, and the coordinates at the top of the screen update to tell you his location.}
                         @teacher{This may be a good opportunity to review coordinates, for students who need the practice.}
                         }
-                 @point{@student{@bitmap{images/buffer.png}Sam's mother tells him that it's okay for him to step outside of the yard, but only by a short distance! Specifically, she wants to make sure that she can always see at least a little piece of him.  Sam is safe @italic{as long as some piece of him is onscreen}. That means he can go a little past zero on the lefthand size, or a little past 640 on the right - but how far @italic{can} he go?
+                 @point{@student{@bitmap{images/buffer.png}Sam's mother tells him that it's okay for him to step outside of the yard, but only by a short distance! Specifically, she wants to make sure that she can always see at least a little piece of him.  Sam is safe @italic{as long as some piece of him is onscreen}. @noSlideText{That means he can go a little past zero on the lefthand size, or a little past 640 on the right - but how far can he go?}
                         }
                          @teacher{Pay close attention to the corner-cases: is Sam on the screen at 690? What about 680?}
                          }
@@ -179,7 +177,7 @@
                                   @code{(+ 640 50); both yield the same computation, but the second reveals where 690 comes from (screen width plus 50).}
                                   }
                          }
-                 @point{@student{Once you have typed in the EXAMPLEs and definition for @code{safe-right?}, click "Run" and see if Sam is prevented from flying off the righthand side of the screen.  You may be surprised at what happens! Test your function in the Interactions window:
+                 @point{@student{Once you have typed in the EXAMPLEs and definition for @code{safe-right?}, click "Run" and see if Sam is prevented from flying off the righthand side of the screen.  @noSlideText{You may be surprised at what happens! Test your function in the Interactions window:}
                                   @code[#:multi-line #t]{(safe-right? 50)
                                                          (safe-right? 810)
                                                          (onscreen? 50)
@@ -291,10 +289,10 @@
                 @point{@student{Suppose you just built a car, but it's not working right. What would you do? Ideally, you'd like to test each part of the car (the engine, the transmission, etc) @italic{one at a time}, to see which one was broken. The same is true for code!   If you have a bug, it's much easier to find when every function is simple and easy to test, and the only complex functions are just built out of simpler ones. In this example, you can test your @code{safe-left?} and @code{safe-right?} functions independently, before stitching them together into @code{onscreen?}.}
                        @teacher{}
                        }
-                @point{@student{Another reason to define multiple, simple functions is the fact that it lets programmers be lazy. Suppose you have a few characters in a videogame, all of which need to be kept on the screen.  Some of them might only need @code{safe-left?}, others might only need @code{safe-right?}, and only a few might need @code{onscreen?}.  What happens if the game suddenly needs to run on computers with differently-sized monitors, where the boundary is 1000 instead of 690? If you have simple and complex functions spread throughout your code, you'll need to change them all. If your complex functions just use the simpler ones, you'd only need to change them in one place!}
+                @point{@student{Another reason to define multiple, simple functions is the fact that it lets programmers be lazy. Suppose you have a few characters in a videogame, all of which need to be kept on the screen.  Some of them might only need @code{safe-left?}, others might only need @code{safe-right?}, and only a few might need @code{onscreen?}.  @noSlideText{What happens if the game suddenly needs to run on computers with differently-sized monitors, where the boundary is 1000 instead of 690? If you have simple and complex functions spread throughout your code, you'll need to change them all. If your complex functions just use the simpler ones, you'd only need to change them in one place!}}
                        @teacher{}
                        }
-                @point{@student{Badly designed programs can work just fine, but they are hard to read, hard to test, and easy to screw up if things change. As you grow and develop as a programmer, you'll need to think beyond just "making code work." It's not good enough if it just works - as artists, we should care about whether or not code is @italic{well designed}, too.  This is what functions allow us to do! Everyone from programmers to mathematicians uses functions to carve up complex problems into simpler pieces, which make it possible to design elegant solutions to difficult problems.
+                @point{@student{@noSlideText{Badly designed programs can work just fine, but they are hard to read, hard to test, and easy to screw up if things change. As you grow and develop as a programmer, you'll need to think beyond just "making code work." It's not good enough if it just works - as artists, we should care about whether or not code is well designed, too.  This is what functions allow us to do! Everyone from programmers to mathematicians uses functions to carve up complex problems into simpler pieces, which make it possible to design elegant solutions to difficult problems.}
                                 @activity{Can you list three reasons why it's good to have several simple functions, rather than a single complex one?}}
                        @teacher{}
                        }
