@@ -31,9 +31,7 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{So far, you've seen the Circles of Evaluation, learned about Contracts and experimented with multiple
-                                datatypes. Make sure you remember what each of those are, and look back at previous lessons for a refresher 
-                                if you need.
+        @points[@point{@student{@noSlideText{So far, you've seen the Circles of Evaluation, learned about Contracts and experimented with multiple datatypes. Make sure you remember what each of those are, and look back at previous lessons for a refresher if you need.}
                                 @activity[#:forevidence (list "BS-PL.2&1&1" "6.NS.5-8&1&2")]{
                                      Can you think of three functions that draw shapes? See if you can write their contracts without
                                      needing to look back at your Contracts page. What type of data is always surrounded in quotes? 
@@ -66,10 +64,7 @@
                 )
       ]{
         @points[@point{@student{Suppose we want to make an image that had fifty identical, solid red triangles.  You would have to write 
-                                @code{(triangle 50 "solid" "red")} fifty times! To make matters worse, any change to those triangles would 
-                                have to be repeated for all fifty expressions! Good programmers know that their effort is better spent 
-                                elsewhere, so they made sure that programming languages have a way to avoid all that repetition.  
-                                They write something once, define it as a shortcut in the language, and then use the shortcut wherever they want.}
+                                @code{(triangle 50 "solid" "red")} fifty times! @noSlideText{To make matters worse, any change to those triangles would have to be repeated for all fifty expressions! Good programmers know that their effort is better spent elsewhere, so they made sure that programming languages have a way to avoid all that repetition.  They write something once, define it as a shortcut in the language, and then use the shortcut wherever they want.}}
                         @teacher{}}
                  @point{@student{We name values in our language using @vocab{define} statements.  Let's look at 
                                 @editor-link[#:definitions-text "(define shape1 (triangle 50 \"solid\" \"red\"))\n" "an example of a definition, that defines"] @code{(define shape1 (triangle 50 "solid" "red"))}
@@ -320,15 +315,14 @@
                                              error message from Racket for a malformed comment.  That also means that you have to check your students' 
                                              contracts more closely, because the computer will not check anything about them (format or contents).}
                                     }
-                            @point{@student{Word problems give several clues as to the name, Domain, and Range of a function.  Be sure to read the problem carefully! Some word problems will describe functions that take multiple inputs in their Domain, or inputs of different types.
+                            @point{@student{Word problems give several clues as to the name, Domain, and Range of a function.  @noSlideText{Be sure to read the problem carefully! Some word problems will describe functions that take multiple inputs in their Domain, or inputs of different types.}
                                             @activity[#:forevidence (list "BS-DR.1&1&1")]{
                                                               Open your workbook to @worksheet-link[#:name "Fast-Functions"], where it says 
                                                                                     "fast functions", and write the Contract for the @code{gt} function.}}
                                     @teacher{}
                                    }
                             @point{@student{@bannerline{Step 2: Give Examples}
-                                             It's always a good idea to think through a few examples before defining the function. Examples show 
-                                             the shortcut that a function is trying to provide.  This programming language provides a special 
+                                             @noSlideText{It's always a good idea to think through a few examples before defining the function. Examples show the shortcut that a function is trying to provide.}  This programming language provides a special 
                                              construct, called @code{EXAMPLE}, which helps you write down how the function is used and what it 
                                              should compute. You can see two such examples here, written under the contract:
                                              @code[#:multi-line ""]{; gt : Number -> Image
@@ -348,9 +342,7 @@
                                                         @item{How do we know the correct order for the inputs to @code{triangle}? (The contract for @code{triangle} tells us)}] 
                                                                                                                                                                           One of the big ideas here is that each step informs the subsequent step. Make sure to explicitly connect them for students, pointing out that the Contract gives strong hints about how to write each part of the examples. }
                                     }
-                            @point{@student{Programmers often write several examples for each function. Examples like these are a way for a 
-                                            programmer to think through their work.  Examples also make it easy to look at what parts of the
-                                            expression can change, or @italic{vary}, depending on the inputs.
+                            @point{@student{@noSlideText{Programmers often write several examples for each function. Examples like these are a way for a programmer to think through their work.}  Examples also make it easy to look at what parts of the expression can change, or @italic{vary}, depending on the inputs.
                                     @activity[#:forevidence (list "BS-DR.2&1&3" "F-IF.1-3&1&2" "F-IF.1-3&1&4" "F-IF.4-6&1&1")]{
                                                   Write the following examples on paper and circle the parts of the examples that are different:
                                              @code[#:multi-line ""]{(EXAMPLE (gt   50) (triangle   50 "solid" "green"))

@@ -39,7 +39,7 @@
                 )
       ]{
         @points[
-             @point{@student[#:title "Welcome to Bootstrap!"]{@noSlideText{Welcome to Bootstrap!} In this course, you'll be learning a new @vocab{programming language} - a way to tell computers exactly what you want them to do. Just like English, Spanish or French, a programming language has its own vocabulary and grammar that you'll have to learn. Fortunately, the language you'll be using here has a lot in common with simple math that you already know!}
+             @point{@student[#:title "Welcome to Bootstrap!"]{@noSlideText{Welcome to Bootstrap!} In this course, you'll be learning a new @vocab{programming language} - a way to tell computers exactly what you want them to do. @noSlideText{Just like English, Spanish or French, a programming language has its own vocabulary and grammar that you'll have to learn. Fortunately, the language you'll be using here has a lot in common with simple math that you already know!}}
                      @teacher{Set expectations and rules for the class.
                               
                               Connect the material to come with things students already know:
@@ -68,7 +68,7 @@
                 )
       ]{
         @points[
-          @point{@student[#:title "Dissecting a Demo"]{Let's begin by exploring a simple videogame, and then figuring out how it works. Open @run-link[#:public-id "sggzRzgU5T" "this link"]  
+          @point{@student[#:title "Dissecting a Demo"]{@noSlideText{Let's begin by exploring a simple videogame, and then figuring out how it works.} Open @run-link[#:public-id "sggzRzgU5T" "this link"]  
                          to play the game, and spend a minute or two exploring it. @italic{You can use the arrow keys to move 
                          the cat left, right and jump(up and down) - try to catch  the ruby and avoid the dog!}}
                  @teacher{[@(hyperlink "https://www.youtube.com/watch?v=KSt_3ovWfjk" "Video")] Show the kids NinjaCat, either letting them play or by demoing it in front of the class. You can move the cat up, down, left and right by using the arrow keys. 
@@ -76,7 +76,7 @@
                           sure to point out the title and score as well. Give them at least 3 minutes to play with the game and listen to their observations.}
                  }
           
-          @point{@student{This game is made up of @italic{characters}, each of which has its own behavior. The Ruby moves from the right to the left, as does the Dog. NinjaCat only moves when you hit the arrow keys, and she can move left, right, up and down. We can figure out how the game works by first understanding how each character works.}
+          @point{@student{@noSlideText{This game is made up of characters, each of which has its own behavior. The Ruby moves from the right to the left, as does the Dog. NinjaCat only moves when you hit the arrow keys, and she can move left, right, up and down.} We can figure out how the game works by first understanding how each character works.}
                  @teacher{}
                  }
           
@@ -90,7 +90,7 @@
                  @teacher{Have students come up to the board, and fill in the table with what they've found. If time is short, call on students and have them tell you what to write. Emphasize "Attending to Precision" with language when giving feedback.}
                  }
           
-          @point{@student{@activity{@bitmap{images/game-table2.png}We also need to think about what is @italic{changing} when we play the game. What about the Ruby? Does it get bigger? Does it change color? Does it spin around? The only thing that changes about the Ruby is its @italic{position}! Everything else about it is the same. What about the Dog? The Cat? Fill in the rest of the second column, listing everything that changes about each character.}}
+          @point{@student{@activity{@bitmap{images/game-table2.png} We also need to think about what is @italic{changing} when we play the game. What about the Ruby? Does it get bigger? Does it change color? Does it spin around? The only thing that changes about the Ruby is its  @italic{position}! Everything else about it is the same. What about the Dog? The Cat? Fill in the rest of the second column, listing everything that changes about each character.}}
                  @teacher{}
                  }
                             
@@ -344,7 +344,7 @@
                         @teacher{[@(hyperlink "https://www.youtube.com/watch?v=AMFaPKHp3Mg" "Video")] This section benefits enormously from visual aids, diagrams, etc. Make sure you have plenty of board space to 
                          draw examples!}
                         }
-                @point{@student{Circles of Evaluation show the structure that's going on inside an expression. All Circles of Evaluation have two rules:
+                @point{@student{@noSlideText{Circles of Evaluation show the structure that's going on inside an expression.} All Circles of Evaluation have two rules:
                                 @bannerline{Circle Rule 1: Each circle must have one function, which goes at the top of the circle.}
                                 @bannerline{Circle Rule 2: The numbers are written below, in order from left to right.}
                        @activity[#:forevidence "BS-CE&1&1"]{@bitmap{images/CircleBug.png}Which rule does this Circle of Evaluation break?}}
@@ -359,8 +359,7 @@
                                                     @item{@math{\frac{351}{-1} }}]
                                           }
                                  @bitmap{images/FixedCircle.png} Every Circle of Evaluation @vocab{evaluates to} the result of its 
-                                 corresponding expression. For example, the circle on the right evaluates to @math{-1}, because 
-                                 the circle says to use subtraction (the function at the top) on the numbers in order (@math{4-5}).} 
+                                 corresponding expression. @noSlideText{For example, the circle on the right evaluates to -1, because the circle says to use subtraction (the function at the top) on the numbers in order (4 - 5).}} 
                         @teacher{It's important for students to view the Circles of Evaluation as "just another way of writing arithmetic". 
                                  Have students discuss whether associativity and commutativity still matter here (they do).}
                         }
@@ -381,8 +380,7 @@
                                        Evaluation shown here, so that it represents @math{(23 + 7) * (13 - 5)}}}
                         @teacher{}
                        }
-                @point{@student{@bitmap{images/NestedCircle.png}What does this Circle of Evaluation evaluate to? Let's review how
-                                 we evaluate a Circle:
+                @point{@student{@bitmap{images/NestedCircle.png}What does this Circle of Evaluation evaluate to? Let's review how we evaluate a Circle: 
                                  @itemlist[@item{We know we are multiplying because that's the function at the top of the Circle.} 
                                            @item{The Number @math{6} is the first number in the multiplication, because it's on 
                                                             the left-hand side.}
@@ -472,9 +470,7 @@
                 
                 @point{@student{A program is a @vocab{legal expression} that, when evaluated, produces a value. You've been
                                                writing programs using mathematical expressions since you first learned how 
-                                               to add! Just as in English, there are rules that determine whether a sentence
-                                               makes sense. Programs have rules too!  A program can be very complicated, but
-                                               it doesn't have to be: the simplest programs of all are just Numbers.}
+                                               to add! @noSlideText{ Just as in English, there are rules that determine whether a sentence makes sense. Programs have rules too!  A program can be very complicated, but it doesn't have to be: the simplest programs of all are just Numbers.}}
                         @teacher{Draw students' attention to the Language Table (see Lesson Overview for Unit 1),
                                  which currently sits empty. Add "Numbers" to the Types section of the language 
                                  table.}
@@ -508,9 +504,7 @@
                                                                       Will it complain? Crash? Guess?
                                                                       @editor-link[#:interactions-text "dog" "Try asking the computer"] 
                                                                       to evaluate @code{dog} in the Interactions area.}
-                                 These error messages are really useful for programmers. Rather than saying "this program doesn't 
-                                work", the computer does the best it can to tell you what went wrong, and to give you as much 
-                                information as possible to help you fix the problem. Make sure you always read these messages carefully!
+                                 These error messages are really useful for programmers. @noSlideText{Rather than saying "this program doesn't work", the computer does the best it can to tell you what went wrong, and to give you as much information as possible to help you fix the problem.} Make sure you always read these messages carefully!
                                  }
                         @teacher{The error message uses the term "variable".  Don't worry if your students don't already know this 
                                  term; we will teach it to them shortly.  For now, students just need to get used to error messages 
@@ -568,8 +562,7 @@
                         }
                 @point{@student{When expressions don't follow the code rules, the computer will tell you that it found a problem. The
                                 computer also gives you information to help you fix the problem. This information is called an 
-                                @vocab{error message}. We'll talk more about error messages later. For now, we just want you to see 
-                                a couple of error messages so that you'll know what they are if you run into one while programming.
+                                @vocab{error message}. @noSlideText{We'll talk more about error messages later. For now, we just want you to see a couple of error messages so that you'll know what they are if you run into one while programming.}
                        @activity[#:forevidence "BS-IDE&1&2"]{Enter each of the following illegal expressions in the Interactions area 
                                                              and look at the error message or behavior that the computer gives you. 
                                  @itemlist[@item{@code{(5 * 6)} [puts the function in the middle, instead of at the front]}

@@ -33,14 +33,13 @@
                 )
      ]{
        @points[@point{@student{Suppose two objects are moving through space, each one having its own (x,y) coordinates.
-                                       When do their edges start to overlap?  They certainly overlap if their coordinates are identical (x1=x2, y1=y2),
-                                       but what if their coordinates are separated by a small distance? Just how small does that distance need to be before their edges touch?}
+                                       When do their edges start to overlap?  @noSlideText{They certainly overlap if their coordinates are identical (x1=x2, y1=y2), but what if their coordinates are separated by a small distance? Just how small does that distance need to be before their edges touch?}}
                        @teacher{[@(hyperlink "https://www.youtube.com/watch?v=Bbq0oCmvSmA" "Video")] Visual aids are key here: be sure to diagram this on the board!}
                        }
                 @point{@student{@bitmap{images/numberline.png}In one dimension, it's easy to calculate when two objects overlap. In this example,
                                        the red circle has a radius of 1, and the blue circle has a radius of 1.5.
                                        The circles will overlap if the distance @italic{between their centers} is @italic{less than the sum of their radii} (@math{1 + 1.5 = 2.5}).
-                                       How is the distance between their centers calculated? In this example, their centers are 3 units apart, because @math{4 - 1 = 3}.
+                                       How is the distance between their centers calculated? @noSlideText{In this example, their centers are 3 units apart, because 4 - 1 = 3}.
                                        @activity{Would the distance between them change if the circles swapped places? Why or why not?}}
                        @teacher{Work through a number of examples, using a number line on the board and asking students how they calculate the distance between the points.
                                      Having students act this out can also work well: draw a number line, have two students stand at different points on the line,
@@ -119,7 +118,7 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
      ]{
-       @points[@point{@student{Ancient civilizations had the same problem: they also struggled to find the distance between points in two dimensions!
+       @points[@point{@student{@noSlideText{Ancient civilizations had the same problem: they also struggled to find the distance between points in two dimensions!}
                                        Let's work through a way to think about this problem: what expression computes the length of the hypotenuse of a right triangle?
                                Check out a @(video-link (hyperlink "https://www.youtube.com/watch?v=Ln7myXQx8TM" "video of this problem")), and then explore it yourself! 
                                [Credit: @(hyperlink "https://www.youtube.com/user/AlternatingSum/videos" "Tova Brown")]}

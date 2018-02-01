@@ -34,7 +34,7 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Debugging (finding and correcting problems in code) is an important part of programming, so it's a good idea to practice finding bugs in code.  
+        @points[@point{@student{@noSlideText{Debugging (finding and correcting problems in code) is an important part of programming, so it's a good idea to practice finding bugs in code.}  
                                 @activity[#:forevidence (list "BS-IDE&1&2" "BS-PL.1&1&2" "BS-PL.2&1&1" "BS-PL.2&1&2" "BS-PL.3&1&3")]{
                                         Open the @editor-link[#:public-id "lQUC6RJArG" "Bug Hunting"] program in a new window, and see if you can find the 
                                         bug in each expression. Click "Run" and read the error message carefully! After you fix each one, clicking 
@@ -89,7 +89,7 @@
                                  }
                          @teacher{}
                          }
-                 @point{@student{Now it's time to animate the Target, which moves in the opposite direction.
+                 @point{@student{@noSlideText{Now it's time to animate the Target, which moves in the opposite direction.}
                                  @activity[#:forevidence (list "BS-DR.3&1&1" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2" "7.EE.3-4&1&4" "F-IF.1-3&1&4")]{
                                            Turn to @worksheet-link[#:name "update-target"] in your workbook for @code{update-target}.
                                            @itemlist[@item{Read the word problem carefully, and pay attention to @italic{what the function takes in}.}
