@@ -40,7 +40,7 @@
                 @point{@student{@bitmap{images/numberline.png}In one dimension, it's easy to calculate when two objects overlap. In this example,
                                        the red circle has a radius of 1, and the blue circle has a radius of 1.5.
                                        The circles will overlap if the distance @italic{between their centers} is @italic{less than the sum of their radii} (@math{1 + 1.5 = 2.5}).
-                                       @noSlideText{How is the distance between their centers calculated? In this example, their centers are 3 units apart, because 4 - 1 = 3}.
+                                       How is the distance between their centers calculated? @noSlideText{In this example, their centers are 3 units apart, because 4 - 1 = 3}.
                                        @activity{Would the distance between them change if the circles swapped places? Why or why not?}}
                        @teacher{Work through a number of examples, using a number line on the board and asking students how they calculate the distance between the points.
                                      Having students act this out can also work well: draw a number line, have two students stand at different points on the line,
