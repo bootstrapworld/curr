@@ -347,7 +347,7 @@
                               animal["age"]
                             end
                         }
-                        When we click "Run", the computer will tell us that our examples don't match the definition! It will iterally @italic{check your work for you!}
+                        When we click "Run", the computer will tell us that our examples don't match the definition! It will literally @italic{check your work for you!}
                     }
                     @teacher{
 
