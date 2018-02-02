@@ -581,7 +581,7 @@
             }
             @point{
                     @student{
-                            Pyret also has a way for us to get at individual columns of a Row, by using square brackets and the name of the column. Here's an @code{examples:} block that shows how:
+                            Pyret also has a way for us to get at individual columns of a Row, by using a @italic{Row Accessor}. Row accessors start with a @code{Row} value, followed by square brackets and the name of the column. Here's an @code{examples:} block that uses row accessors to get at different columns from rows in the @code{shapes} table:
                             @code[#:multi-line #t]{
                                     get-row(shapes, 0)["name"] is "triangle"
                                     get-row(shapes, 1)["corners"] is 4

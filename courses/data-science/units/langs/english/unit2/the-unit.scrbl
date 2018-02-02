@@ -244,23 +244,42 @@
                             }
                       }
                       @teacher{
-
+                        Be sure to check students' contracts and purpose statements before having them move on!
                       }
                 }
                 @point{
                       @student{
-                            @bannerline{Step 2: Write Examples} You already know how to write examples for built-in functions, where we write the @italic{answer} we expect to get back. Just as we did before, we start with the name of the function we're writing, followed by an example input. Let's use some of the pets we defined earlier as examples.
+                            @bannerline{Step 2: Write Examples} You already know how to write examples for built-in functions, where we write the @italic{answer} we expect to get back. Just as we did before, we start with the name of the function we're writing, followed by an example input. Let's use some two pets we defined earlier for our first example.
                             @code[#:multi-line #t]{
                               is-fixed :: (animal :: Row) -> Boolean
                               # Consumes an animal, and produces the value in the fixed column
                               examples:
-                                birth-year(mittens) is 2016                   # our answer
-                                birth-year(mittens) is 2018 - mittens["age"]  # showing our work
+                                is-fixed(sasha) is false
+                                is-fixed(fritz) is true
                               end
                             }
                       }
                       @teacher{
-                            Make sure students see that these two examples are @italic{equivalent}. Walk through this first example @italic{carefully}. Make sure students understand where the @code{birth-year} came from the Name in our contract, and that @code{mittens} came from the Domain in our contract. @code{2018 - mittens["age"]} came from our purpose statement, and the label also came from the variable name in our contract.
+                            Make sure students understand (1) that @code{is-fixed} came from the Name in our contract, (2) that @code{sasha} and @code{fritz} came from the Domain in our contract, that (3) @code{sasha["fixed"]} came from our purpose statement, and the label also came from the variable name in our contract.
+                      }
+                }
+                @point{
+                      @student{
+                            When testing functions we write ourselves, we don't just want to put down the answers. We want to @italic{show our work}, to make sure we have a clear sense for how the function will do it's job. To find out if @code{sasha} was fixed, we had to access the @code{fixed} column for that row. 
+                            @activity{
+                              Let's re-write those examples to show that:
+                              @code[#:multi-line #t]{
+                                is-fixed :: (animal :: Row) -> Boolean
+                                # Consumes an animal, and produces the value in the fixed column
+                                examples:
+                                  is-fixed(sasha) is sasha["fixed"]
+                                  is-fixed(fritz) is fritz["fixed"]
+                                end
+                              }
+                            }
+                      }
+                      @teacher{
+                            Make sure students see that the re-written examples are @italic{equivalent}, and that the new code accurately represents what the students themselves did to seek out the values in the columns: access the @code{fixed} row.
                       }
                 }
                 @point{
@@ -268,16 +287,13 @@
                             @activity[#:forevidence (list "BS-PL.3&1&2")]{
                                 @itemlist[
                                   @item{
-                                      Write another example that shows your work in this block, using the @code{fritz} value that you defined earlier.
-                                    }
-                                  @item{
-                                      In the examples where we show our work, do you notice a pattern? Most of the code for these examples is exactly the same, and only a small bit is changing: @code{mittens} and @code{fritz}.
+                                      In the examples where we show our work, do you notice a pattern? Most of the code for these examples is exactly the same, and only a small bit is changing: @code{sasha} and @code{fritz}.
                                   }
                                   @item{
                                       Circle all of the parts in your example block that are changing.
                                   }
                                   @item{
-                                      What does the stuff you circled represent? Are @code{mittens} and @code{fritz} years? Legs? No - they are @italic{animals}! Let's label them...
+                                      What does the stuff you circled represent? Are @code{sasha} and @code{fritz} years? Legs? No - they are @italic{animals}! Let's label them...
                                   }
                                 ]
                                   
@@ -294,11 +310,11 @@
                               is-fixed :: (animal :: Row) -> Boolean
                               # Consumes an animal, and produces the value in the fixed column
                               examples:
-                                birth-year(mittens) is 2018  -  mittens["age"]
-                                birth-year(fritz)   is 2018  -  fritz["age"]
+                                is-fixed(sasha) is sasha["fixed"]
+                                is-fixed(fritz) is fritz["fixed"]
                               end
-                              fun birth-year(animal): 
-                                2018 - animal["age"]
+                              fun is-fixed(animal): 
+                                animal["fixed"]
                               end
                             }
                     }
@@ -312,10 +328,10 @@
                           @activity[#:forevidence (list "BS-PL.3&1&3")]{
                               After you've clicked run, try typing in the following expressions, and see what happens:
                               @code[#:multi-line #t]{
-                                  birth-year(mittens)
-                                  birth-year(fritz)
-                                  birth-year(get-row(animals-table, 8))
-                                  birth-year(get-row(animals-table, 11))
+                                  is-fixed(sasha)
+                                  is-fixed(fritz)
+                                  is-fixed(get-row(animals-table, 8))
+                                  is-fixed(get-row(animals-table, 11))
                               }
                           }
                     }
@@ -325,15 +341,16 @@
                 }
                 @point{
                     @student{
-                        Our @code{examples:} block is a helpful way to @italic{check our work}, so we don't make mistakes. Suppose we had a typo in our function definition, and added instead of subtracted:
+                        Our @code{examples:} block is a helpful way to @italic{check our work}, so we don't make mistakes. Suppose we made a mistake in our function definition, and accessed the wrong column:
                         @code[#:multi-line #t]{
-                            fun birth-year(animal): 
-                              2018 + animal["age"]
+                            fun is-fixed(animal): 
+                              animal["age"]
                             end
                         }
+                        When we click "Run", the computer will tell us that our examples don't match the definition! It will iterally @italic{check your work for you!}
                     }
                     @teacher{
-                        Be sure to check students' contracts and purpose statements before having them move on to their examples!
+
                     }
                 }
                 @point{
