@@ -244,19 +244,37 @@
                 }
                 @point{
                       @student{
-                            @bannerline{Step 2: Write Examples} You already know how to write examples for built-in functions, where we write the @italic{answer} we expect to get back. Just as we did before, we start with the name of the function we're writing, followed by an example input. When defining @italic{new} functions, we don't just want to write our answer - we also want to show our work! Let's use one of the pets we defined earlier as an example, and write one example that shows the answer and another that @italic{shows the work} we need to do to get there.
+                            @bannerline{Step 2: Write Examples} You already know how to write examples for built-in functions, where we write the @italic{answer} we expect to get back. Just as we did before, we start with the name of the function we're writing, followed by an example input. Let's use some two pets we defined earlier for our first example.
                             @code[#:multi-line #t]{
                               birth-year :: (animal :: Row) -> Number
                               # Consumes an animal and produces the year it was born
                               examples:
-                                birth-year(mittens) is 2016                   # our answer
-                                birth-year(mittens) is 2018 - mittens["age"]  # showing our work
+                                birth-year(mittens) is 2016
+                                birth-year(fritz)   is 2014 
                               end
                             }
                             While both examples here are correct, we want to use the second one that shows our work.
                       }
                       @teacher{
-                            Make sure students see that these two examples are @italic{equivalent}. Walk through this first example @italic{carefully}. Make sure students understand where the @code{birth-year} came from the Name in our contract, and that @code{mittens} came from the Domain in our contract. @code{2018 - mittens["age"]} came from our purpose statement, and the label also came from the variable name in our contract.
+                            Make sure students understand (1) that @code{is-fixed} came from the Name in our contract, (2) that @code{sasha} and @code{fritz} came from the Domain in our contract, that (3) @code{sasha["fixed"]} came from our purpose statement, and the label also came from the variable name in our contract.
+                      }
+                }
+                @point{
+                      @student{
+                            When testing functions we write ourselves, we don't just want to put down the answers. We want to @italic{show our work}, to make sure we have a clear sense for how the function will do it's job. To find out mittens' birth year, we had to access the @code{age} column and subtract it from the current year.
+                            @activity{
+                                @code[#:multi-line #t]{
+                                  birth-year :: (animal :: Row) -> Number
+                                  # Consumes an animal and produces the year it was born
+                                  examples:
+                                    birth-year(mittens) is 2018 - mittens["age"]
+                                    birth-year(fritz)   is 2018 - fritz["age"]
+                                  end
+                                }
+                            }
+                      }
+                      @teacher{
+                            Make sure students see that the re-written examples are @italic{equivalent}, and that the new code accurately represents what the students themselves did to seek out the values in the columns: access the @code{age} row, then subtract it from the current  year.
                       }
                 }
                 @point{
@@ -264,10 +282,7 @@
                             @activity[#:forevidence (list "BS-PL.3&1&2")]{
                                 @itemlist[
                                   @item{
-                                      Write another example that shows your work in this block, using the @code{fritz} value that you defined earlier.
-                                    }
-                                  @item{
-                                      In the examples where we show our work, do you notice a pattern? Most of the code for these examples is exactly the same, and only a small bit is changing: @code{mittens} and @code{fritz}.
+                                      When we show our work, we start to see patterns emerge. Most of the code for these examples is exactly the same, and only a small bit is changing: @code{mittens} and @code{fritz}.
                                   }
                                   @item{
                                       Circle all of the parts in your example block that are changing.
@@ -290,8 +305,8 @@
                               birth-year :: (animal :: Row) -> Number
                               # Consumes an animal, and produces the year it was born
                               examples:
-                                birth-year(mittens) is 2018  -  mittens["age"]
-                                birth-year(fritz)   is 2018  -  fritz["age"]
+                                birth-year(mittens) is 2018 - mittens["age"]
+                                birth-year(fritz)   is 2018 - fritz["age"]
                               end
                               fun birth-year(animal): 
                                 2018 - animal["age"]
@@ -327,7 +342,7 @@
                               2018 + animal["age"]
                             end
                         }
-                        Try making this change to your code, and clicking "Run". What happens?
+                        When we click "Run", the computer will tell us that our examples don't match the definition! It will literally @italic{check your work for you!}
                     }
                     @teacher{
 
