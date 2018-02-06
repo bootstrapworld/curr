@@ -161,7 +161,7 @@
                     @student{
                             It's important to remember that tables are only a approximation of the real thing: this table @italic{describes} some shapes we've observed, but it isn't the shapes themselves! 
                             @activity[#:forevidence (list "BS-M&1&2" "BS-M&1&3" "BS-PL.1&1&1")]{
-                                Add rows to this table for @code{circle}, @code{ellipse} and @code{rectangle}. Pay close attention to how you use commas and colons, since these are part of the program! When you're done, click "Run" and print out your new-and-improved @code{shapes} table.
+                                Add rows to this table for @code{circle}, @code{ellipse}, @code{square}, and @code{rectangle}. Pay close attention to how you use commas and colons, since these are part of the program! When you're done, click "Run" and print out your new-and-improved @code{shapes} table.
                             }
 
                     }
@@ -215,7 +215,7 @@
 
   @lesson/studteach[
      #:title "Values and Operators"
-     #:duration "25 minutes"
+     #:duration "20 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -338,7 +338,7 @@
 
   @lesson/studteach[
      #:title "Applying Functions"
-     #:duration "25 minutes"
+     #:duration "20 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -355,14 +355,34 @@
         @points[
             @point{
                     @student{
-                        So now you know about Numbers, Strings, Booleans and Operators - all of which behave just like they do in math. But what about functions? Pyret has lots of built in functions, which we can use to write more interesting programs.
+                        So now you know about Numbers, Strings, Booleans and Operators - all of which behave just like they do in math. But what about functions? You may remember functions from algebra: @math{f(x) = x^2}.
+
+                        @activity{
+                          @itemlist[
+                            @item{ What is the name of this function? }
+                            @item{ What will the expression @math{f(2)} evaluate to? @math{f(3)}? }
+                            @item{ The values that we give to a function are called its @vocab{arguments}. How many arguments does @math{f} expect? }
+                            ]
+                        }
+                    }
+                    @teacher{
+                        "Arguments" are the values passed into a function. This is subtley different from @italic{variables}, which are the placeholders that get replaced with those values!
+                    }
+            }
+            @point{
+                    @student{
+                        Pyret has lots of built-in functions, which we can use to write more interesting programs. They also work pretty much the same way they do in algebra! Let's explore one of Pyret's function, called @code{num-sqrt}. Type this line of code into the interactions area and hit Enter.
+                          @code[#:multi-line #t]{
+                              num-sqrt(16)
+                          }
 
                         @activity[#:forevidence (list "BS-IDE&1&1" "BS-PL.1&1&2")]{
-                            Let's explore a new function, called @code{triangle}.  Type this line of code into the interactions area and hit Enter.
-                            @code[#:multi-line #t]{
-                                triangle(50, "solid", "red")
-                            }
-                            What does this expression evaluate to? Is it a Number? A String? A Boolean?
+                            @itemlist[
+                              @item{ What is the name of this function? }
+                              @item{ What did the expression@code{num-sqrt(16)} evaluate to? }
+                              @item{ Does the @code{num-sqrt} function produce Numbers? Strings? Booleans? }
+                              @item{ How many @vocab{arguments} does @code{num-sqrt} expect? }
+                            ]
                         }
                     }
                     @teacher{
@@ -371,14 +391,33 @@
             }
             @point{
                     @student{
-                        You've just created an example of a new Datatype, called an @italic{Image}. And you used something called a @vocab{function} to do it. The values that we give to a function are called its @vocab{arguments}. 
-                        @itemlist[
-                          @item{ How many arguments are we giving to @code{triangle} in this example? }
-                          @item{ What are the @italic{types} of those arguments? }
-                          @item{ How does this output relate to the two inputs? }
-                        ]
+                          Of course, functions on a computer can do a lot more than make Numbers! Type this line of code into the interactions area and hit Enter.
+                          @code[#:multi-line #t]{
+                              triangle(50, "solid", "red")
+                          }
+
+                        @activity[#:forevidence (list "BS-IDE&1&1" "BS-PL.1&1&2")]{
+                            @itemlist[
+                              @item{ What is the name of this function? }
+                              @item{ What did the expression evaluate to? }
+                              @item{ Does the @code{triangle} function produce Numbers? Strings? Booleans? }
+                              @item{ How many arguments does @code{num-sqrt} expect? }
+                            ]
+                        }
+                    }
+                    @teacher{
+
+                    }
+            }
+            @point{
+                    @student{
+                        You've just created an example of a new Datatype, called an @italic{Image}. 
                         @activity[#:forevidence (list "BS-PL.1&1&2")]{
-                            Take a minute to try making different triangles. Change the size and color! Try using @code{"outline"} for the second argument.
+                            @itemlist[
+                              @item{ What are the @italic{types} of the arguments @code{triangle} was expecting? }
+                              @item{ How does this output relate to the two inputs? }
+                              @item{ Try making different triangles. Change the size and color! Try using @code{"outline"} for the second argument. }
+                            ]
                         }
                     }
                     @teacher{
@@ -444,19 +483,47 @@
             }
             @point{
                     @student{
-                            These three parts make up a @vocab{contract} for each function. What are the Name, Domain, and Range of @code{triangle}?
+                            These three parts make up a @vocab{contract} for each function. Let's take a look at the Name, Domain, and Range of @code{triangle}:
                             @code[#:multi-line #t]{
                                     # triangle :: (side :: Number, mode :: String, color :: String) -> Image
                             }
-                            The first part of a contract is the function's name. In this example, our function is named @code{triangle}. 
-                            The second part is the @vocab{Domain}, or the types of arguments the function expects. @code{triangle} expects a Number and two Strings as arguments, so we write @code{Number, String, String} to indicate the Domain, with commas between each one (just like lists!).  
-                            Finally, after the arrow goes the type of the @vocab{Range}, or the function's output, which in this case is Image.
+                            The first part of a contract is the function's name. In this example, our function is named @code{triangle}.
+
+                            The second part is the @vocab{Domain}, or the names and types of arguments the function expects. @code{triangle} has a Number and two Strings as variables, representing the length of each side, the mode, and the color. We write name-type pairs with double-colons, with commas between each one.
+
+                            Finally, after the arrow goes the type of the @vocab{Range}, or the function's output, which in this case is @code{Image}.
                             @activity[#:forevidence (list "BS-PL.2&1&1" "BS-PL.2&1&2" "BS-IDE&1&1" "BS-IDE&1&2")]{
                                 Turn to the back of your workbook. We've given you the contracts for many Image-producing functions (as well as quite a few others!). Try using some of these contracts to make shapes.
                             }
                     }
                     @teacher{
 
+                    }
+            }
+            @point{
+                    @student{
+                            @activity[#:forevidence (list "BS-DR.2&1&1")]{
+                              Here's the contract for another new function. Can you figure out how to use it in the Interactions Area?
+                                @code[#:multi-line #t]{
+                                      string-repeat :: (s :: String, n :: Number) -> String
+                              }
+                            }
+                    }
+                    @teacher{
+                            The string @code{s} is printed @code{n} times, written as a single String.
+                    }
+            }
+            @point{
+                    @student{
+                            @activity[#:forevidence (list "BS-DR.2&1&1")]{
+                              Here's an example of another new function. Type it into the Interactions Area to see what it does. Can you figure out the contract?
+                                @code[#:multi-line #t]{
+                                      string-contains("apples, pears, milk", "pears")
+                              }
+                            }
+                    }
+                    @teacher{
+                            The contract is @code{string-contains :: (s :: String, search :: String) -> Boolean}. Be sure the names students come up with for the variables make sense!
                     }
             }
             @point{
@@ -475,6 +542,26 @@
 
                     }
             }
+        ]
+  }
+
+  @lesson/studteach[
+     #:title "Playing with Tables"
+     #:duration "15 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[]
+     #:standards (list)
+     #:materials @itemlist[]
+     #:preparation @itemlist[]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[
             @point{
                     @student{
                             The library included at the top of the file includes some helper functions that are useful for Data Science, which we will use throughout this course. Here's the contract for one of them:
@@ -490,12 +577,36 @@
 
                     }
             }
-        ]
+             @point{
+                      @student{
+                              Pyret also has a way for us to get at individual @italic{columns} of a Row, by using a @italic{Row Accessor}. Row accessors start with a @code{Row} value, followed by square brackets and the name of the column. Here are two examples that use row accessors to get at different columns from the first row in the @code{shapes} table:
+                              @code[#:multi-line #t]{
+                                      get-row(shapes, 0)["name"]      # "triangle"
+                                      get-row(shapes, 0)["corners"]   # 3
+                                      get-row(shapes, 0)["is-round"]  # false
+                              }
+                              @activity[#:forevidence (list "BS-DR.2&1&1")]{
+                                  How would you get the @code{name} column out of the @italic{second} row? The third?
+                              }
+                      }
+                      @teacher{
+
+                      }
+              }
+              @point{
+                      @student{
+                              Let's get some pratice playing with tables!
+                              @activity{
+                                 Complete the exercises on page @worksheet-link[#:name "Playing-With-Tables"].
+                              }
+                      }
+              }
+         ]
   }
 
   @lesson/studteach[
      #:title "Writing Examples"
-     #:duration "20 minutes"
+     #:duration "15 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -544,51 +655,9 @@
             }
             @point{
                     @student{
-                            Example blocks are ways for us to automatically check our work, by writing down how functions @italic{should} work and having Pyret report back about whether our examples are accurate. Pyret, for example, has a function called @code{num-sqrt}. What do you think it does?
-                            @activity[#:forevidence (list "BS-DR.2&1&1")]{
-                                Add two examples that use @code{num-sqrt} to your @code{examples:} block. Make sure they both pass!
-                            }
-                    }
-                    @teacher{
-
-                    }
-            }
-            @point{
-                    @student{
-                            @activity[#:forevidence (list "BS-DR.2&1&1")]{
-                              Here's the contract for another new function. Can you figure out how to use it in the Interactions Area? Once you've figured it out, add an example to the @code{examples:} block.
-                                @code[#:multi-line #t]{
-                                      string-repeat :: (s :: String, n :: Number) -> String
-                              }
-                            }
-                    }
-                    @teacher{
-
-                    }
-            }
-            @point{
-                    @student{
-                            @activity[#:forevidence (list "BS-DR.2&1&1")]{
-                              Here's an example for another new function. Type it into the Interactions Area to see what it does. Can you figure out the contract? Add an example to the @code{examples:} block.
-                                @code[#:multi-line #t]{
-                                      string-contains("apples, pears, milk", "pears")
-                              }
-                            }
-                    }
-                    @teacher{
-
-                    }
-            }
-            @point{
-                    @student{
-                            Pyret also has a way for us to get at individual columns of a Row, by using a @italic{Row Accessor}. Row accessors start with a @code{Row} value, followed by square brackets and the name of the column. Here's an @code{examples:} block that uses row accessors to get at different columns from rows in the @code{shapes} table:
-                            @code[#:multi-line #t]{
-                                    get-row(shapes, 0)["name"] is "triangle"
-                                    get-row(shapes, 1)["corners"] is 4
-                            }
-                            @activity[#:forevidence (list "BS-DR.2&1&1")]{
-                                Add three examples to your block that use this technique. Challenge: can you write an example for the @code{sample} column?
-                            }
+                        @activity{
+                          Complete the exercises on page @worksheet-link[#:name "Examples"].
+                        }
                     }
                     @teacher{
 
