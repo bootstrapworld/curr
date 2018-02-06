@@ -338,7 +338,7 @@
 
   @lesson/studteach[
      #:title "Applying Functions"
-     #:duration "20 minutes"
+     #:duration "25 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -606,7 +606,7 @@
 
   @lesson/studteach[
      #:title "Writing Examples"
-     #:duration "15 minutes"
+     #:duration "20 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
