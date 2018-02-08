@@ -262,7 +262,7 @@
 
   @lesson/studteach[
      #:title "Building Columns"
-     #:duration "10 minutes"
+     #:duration "15 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -298,6 +298,14 @@
                       @teacher{
                               
                       }
+                }
+                @point{
+                        @student{
+                            How well do you know your table methods? Complete @worksheet-link[#:name "Playing-With-Methods"] in your Student Workbook.
+                        }
+                        @teacher{
+                            Have students discuss their answers.
+                        }
                 }
         ]
   }
