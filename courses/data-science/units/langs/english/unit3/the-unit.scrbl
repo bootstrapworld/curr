@@ -178,7 +178,7 @@
                         @student{
                                 Pyret lets you change the order of a table's rows with the @code{order-by} method. Let's take a look at the contract for this method, and an example of that orders the @code{animals-table} by species:
                                 @code[#:multi-line #t]{
-                                    # <Table>.order-by :: (col :: String, ascending :: Boolean) -> Table
+                                    # <Table>.order-by :: (col :: String, increasing :: Boolean) -> Table
                                     animals-table.order-by("species", true)
                                 }
                                 You can find the contract for this method written at the back of your Student Workbook, along with all the other contracts.
