@@ -3,7 +3,8 @@
 @main-contents{
 @(elem #:style bs-coursename-style "Bootstrap:Algebra")
 
-@boxed-text{@animated-gif{../../splash.png}Bootstrap: Algebra (o "Bootstrap: 1") aplica conceptos matemáticos y principios de programación rigurosos a la creación de un videojuego simple, y está alineado con los
+@(logosplash "../../splash.png" "AlgebraLogo.png")
+@boxed-text{Bootstrap: Algebra aplica conceptos matemáticos y principios de programación rigurosos a la creación de un videojuego simple, y está alineado con los
                          @(hyperlink "../../../../Standards.shtml" "Estándares Nacionales y Estatales") para Matemáticas, así como los estándares CSTA y K12CS. Los estudiantes crean un juego simple de 3 caracteres que involucra a un jugador, un objetivo y un peligro. Diseñan el aspecto de cada personaje y utilizan conceptos algebraicos para detectar colisiones, manejar las pulsaciones de teclas y determinar cómo se mueven e interactúan.}
 
 @bold{@(hyperlink "http://www.BootstrapWorld.org/workshops" "Haz clic aquí para nuestros próximos entrenamientos")}
