@@ -36,7 +36,7 @@
       ]{
         @points[@point{@student{@noSlideText{Debugging (finding and correcting problems in code) is an important part of programming, so it's a good idea to practice finding bugs in code.}  
                                 @activity[#:forevidence (list "BS-IDE&1&2" "BS-PL.1&1&2" "BS-PL.2&1&1" "BS-PL.2&1&2" "BS-PL.3&1&3")]{
-                                        Open the @editor-link[#:public-id "lQUC6RJArG" "Bug Hunting"] program in a new window, and see if you can find the 
+                                        Open the @editor-link[#:public-id "MdMWbZJH3t" "Bug Hunting"] program in a new window, and see if you can find the 
                                         bug in each expression. Click "Run" and read the error message carefully! After you fix each one, clicking 
                                         Run will show you the error message for the next bug.}}
                         @teacher{Make sure students understand that the goal is not to FIX the bugs, but rather just to find them.}
