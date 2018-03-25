@@ -39,7 +39,7 @@
                                         Open the @editor-link[#:public-id "MdMWbZJH3t" "Bug Hunting"] program in a new window, and see if you can find the 
                                         bug in each expression. Click "Run" and read the error message carefully! After you fix each one, clicking 
                                         Run will show you the error message for the next bug.}}
-                        @teacher{Make sure students understand that the goal is not to FIX the bugs, but rather just to find them.}
+                        @teacher{Make sure students read the comments in the code FIRST, before trying to fix the bug.}
                         }
                  ]}
 
