@@ -872,7 +872,7 @@
 ;; previously used summary-item/links (for both html/pdf links)
 (define (unit-summary/links num )
   ;; NOTE: This assumes every unit is of the form "Unit 1" or "Unit 2"
-  (printf "\n\nchecking ~a against ~a\n\n\n" (format (string-append (translate 'unit)"~a") num) (units))
+  ;(printf "\n\nchecking ~a against ~a\n\n\n" (format (string-append (translate 'unit)"~a") num) (units))
   (when (or (empty? (units)) (member (format (string-append "unit""~a") num) (units)))
     (summary-item/unit-link (format (string-append (translate 'unit)" ~a") num)
                           (format "units/unit~a/index" num)  ; index used to be "the-unit" 

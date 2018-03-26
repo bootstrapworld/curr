@@ -20,7 +20,13 @@ NOTE: if using the "cp" Unix command, the "-r" flag is necessary
 
 II Codebase Modifications
 
-In form-elements.rkt and translator.rkt, the following block of code must be modified from:
+1. In every curr/lib/langs/*/translated.rkt file, add the new language
+    to the "language" section (this shows the name of each supported
+    language in the language whose directory you are editing within.
+
+
+
+In lib/choose.rkt, the following block of code must be modified from:
 
 
 

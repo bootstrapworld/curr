@@ -61,9 +61,9 @@
  #:program "build-workbook"
  #:once-each
  [("--language") -language "Select what language you are printing the curriculum for. Default: english"
-                   (if (member -language (list "english" "spanish"))
+                   (if (member -language (list "english" "spanish" "sv"))
                        (putenv "LANGUAGE" -language)
-                       (raise-user-error (string-append "Build-workbook got unrecognized target language: " -language " -- expected english or spanish")))]
+                       (raise-user-error (string-append "Build-workbook got unrecognized target language: " -language " -- expected english, spanish or sv")))]
  [("--course") -course "List all courses that you want to build. They MUST be separated by \"_\"_. Default: All available courses"
                  (set! courses (parse-course-args (string-split -course "_")))] 
  [("--suppress-warnings" "--sw") -sw "Dictate any types of warnings that you want to be suppressed in the output of running the Build script. Default: none."

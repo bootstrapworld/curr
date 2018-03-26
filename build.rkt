@@ -38,10 +38,10 @@
 (current-deployment-dir (root-deployment-dir))
 
 ;;This lists all courses which are currently able to be built
-(define available-course-specs '(("algebra" "english" "spanish")
-                                 ("algebra-pyret" "english")
+(define available-course-specs '(("algebra" "english" "spanish" "sv")
+                                 ("algebra-pyret" "english" "sv")
                                  ("reactive" "english")
-                                 ("data-science" "english")
+                                 ("data-science" "english" "sv")
                                  ("physics" "english")
                                  ;("blank-course" "english")
 				 ))
@@ -174,7 +174,7 @@
 (define (parse-lang-args args)
   (filter (lambda (arg)
             (unless (member arg available-languages)
-                (error "Build got unrecognized target language: " arg " -- expected english or spanish"))
+                (error "Build got unrecognized target language: " arg " -- expected english, spanish, or sv"))
             (member arg available-languages))
             args))
 
@@ -192,11 +192,11 @@
 
 (units '())
 
-(define available-languages (list "english" "spanish"))
+(define available-languages (list "english" "spanish" "sv"))
 
 (define bootstrap-course-specs available-course-specs)
 
-(define run-languages (list "english" "spanish"))
+(define run-languages (list "english" "spanish" "sv"))
 
 (define run-exercises? #t)
 
@@ -240,7 +240,7 @@
 ; This selects which courses are to be produced. Can take multiple arguments (seperated by underscores)
 ;
 ; --language
-; Not to be confused with "--lang", this selects what human languages to print documents in (currently only spanish or english)
+; Not to be confused with "--lang", this selects what human languages to print documents in (currently only spanish, english, or sv (swedish))
 ; This can take multiple arguments seperated by underscores.
 ;
 ; --sw or --suppress-warnings
@@ -468,7 +468,7 @@
       (for ([worksheet (directory-list (build-path (lessons-dir) subdir "exercises"))]
             #:when (regexp-match #px".scrbl$" worksheet))
         (printf "build.rkt: building exercise handout ~a: ~a\n" subdir worksheet)
-        (printf "building exercise at: ~a \n" (path->string (build-path (lessons-dir) subdir "exercises" worksheet)))
+        ;(printf "building exercise at: ~a \n" (path->string (build-path (lessons-dir) subdir "exercises" worksheet)))
         (run-scribble (build-path (lessons-dir)  subdir "exercises" worksheet))
         (copy-file (build-path "lib" "backlogo.png")
                    (build-path (current-deployment-dir) "lessons"  (getenv "LANGUAGE") subdir "exercises" "backlogo.png")
@@ -530,7 +530,8 @@
                      ;;     on this hacky use of define-runtime-paths from paths.rkt, which have to be deliberately selected based on the langauge being used
                      [exer-dir (build-path (match (getenv "LANGUAGE")
                                              ["english" lessons-dir-alt-eng]
-                                             ["spanish" lessons-dir-alt-spa])
+                                             ["spanish" lessons-dir-alt-spa]
+                                             ["sv" lessons-dir-alt-sv])
                                              lesson-name "exercises")]
          [exer-deploy-dir (build-path (root-deployment-dir) "lessons" (getenv "LANGUAGE") lesson-name "exercises")])
                 (parameterize [(current-deployment-dir exer-dir)]
@@ -718,8 +719,14 @@
 (define (update-lang-fields language)
   (putenv "LANGUAGE" language)
   (printf "\n\nbuild.rkt: building in language ~a~n" (getenv "LANGUAGE"))
-  (current-translations (with-input-from-file (string-append "lib/langs/" (getenv "LANGUAGE") "/translated.rkt") read))
-  (current-glossary-terms (with-input-from-file (string-append "lib/langs/" (getenv "LANGUAGE") "/glossary-terms.rkt") read)))
+  (current-translations
+   (with-input-from-file
+       (string-append "lib/langs/" (getenv "LANGUAGE") "/translated.rkt")
+     read))
+  (current-glossary-terms
+   (with-input-from-file
+       (string-append "lib/langs/" (getenv "LANGUAGE") "/glossary-terms.rkt")
+     read)))
 
 
 (define (archive-as-zip)
