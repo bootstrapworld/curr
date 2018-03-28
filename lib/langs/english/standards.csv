@@ -665,7 +665,7 @@ Global Impact 7.5.2,,"Determing the credibility of a source requires considering
 3A-AP-19,Systematically design and develop programs for broad audiences by incorporating feedback from users,,N,N,N,,,
 3A-AP-20,Evaluate licenses that limit or restrict use of computational artifacts when using resources such as libraries,,N,N,N,,,
 3A-AP-21,Evaluate and refine computational artifacts to make them more usable and accessible.,,N,N,N,,,
-3A-AP-22,Design and develop computational artifacts working in team roles using collaborative tools,,N,N,Y,,,
+3A-AP-22,Design and develop computational artifacts working in team roles using collaborative tools,,N,N,N,,,
 3A-AP-23,"Document design decisions using text, graphics, presentations, and/or demonstrations in the development of complex programs.",,N,N,Y,,,
 3A-IC-24,"Evaluate the ways computing impacts personal, ethical, social, economic, and cultural practices",,N,N,N,,,
 3A-IC-25,Test and refine computational artifacts to reduce bias and equity deficits.,,N,N,N,,,
