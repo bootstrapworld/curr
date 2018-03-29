@@ -420,11 +420,11 @@
 	           <td><span>2-DA-07:</span> Represent data using multiple encoding schemes.
 	           </td>
 	           <td>
-	 <strong>Bootstrap:Algebra - Units 1-8
-	 <br/>Bootstrap:Reactive - Units 1-5
-	 <br/>Bootstrap:Data Science - Units1-8</strong>
+   <strong>Bootstrap:Algebra - Units 3-8
+   <br/>Bootstrap:Data Science - Units 1-8
+	 <br/>Bootstrap:Reactive - Units 1-5</strong>
 	 <br/>
-	             Students write functions that consume and produce strings, images, numbers, Booleans, and rows of data in a table in the Bootstrap courses. Functions over each datatype are used in students' games, as well in as the in-class exercises.
+	             Students encode data using multiple mathematical representations (Algebra), data structures (Reactive), and tabular or visual representations (Data Science).
 	           </td>
 	         </tr>
 	         <tr>
@@ -465,13 +465,13 @@
 	 <br/>Bootstrap:Reactive - Units 3-5
 	 <br/>Bootstrap:Dta Science - Units 2-9</strong>
 	 <br/>
-	           Bootstrap introduces students to programming problems that benefit from decomposition into multiple functions and/or data structures. The Design Recipe provides some structured guidance on when to introduce new functions when decomposing problems.
+	           Bootstrap introduces students to programming problems that benefit from decomposition into multiple functions and/or data structures. The Design Recipe provides some structured guidance on when to introduce new functions when decomposing problems. Bootstrap:Algebra and Bootstrap:Reactive introduce the idea of top-down or bottom-up strategies for decomposition.
 	           </td>
 	         </tr>
 	         <tr>
 	           <td><span>2-AP-14:</span> Create procedures with parameters to organize code and make it easier to reuse.</td>
 	           <td>
-	 <strong>Bootstrap:Algebra - Units 5-8
+	 <strong>Bootstrap:Algebra - Units 3-8
 	 <br/>Bootstrap:Reactive - Units 1-5
 	 <br/>Bootstrap:Data Science - Units 2-9</strong>
 	 <br/>
@@ -496,7 +496,7 @@
 	 <br/>Bootstrap:Reactive - Units 1-5
 	 <br/>Bootstrap:Data Science - Units 2-9</strong>
 	 <br/>
-	           Bootstrap's Design Recipe emphasizes design, documentation, coding, and testing from early in Bootstrap:Algebra. The process is explicit in Bootstrap's worksheets and exercises. Bootstrap:Reactive and Bootstrap:Data Science continue to emphasize this process.
+	           Bootstrap's Design Recipe emphasizes design, documentation, coding, and testing throughout every course. The process is explicit in Bootstrap's worksheets and exercises, and student-generated documentation is assessed along with the code it explains.
 	           </td>
 	         </tr>
 	         <tr>
@@ -504,7 +504,7 @@
 	           <td>
 	 <strong>Bootstrap:Data Science - Units 4-9</strong>
 	 <br/>
-	           Bootstrap:Data Science introduces students to pie charts, bar charts, histograms, scatterplots, and more as a way of answering questions about, and better understanding large datasets. The course culminates in students writing a research paper incorporating these data visualizations about a topic they care about.
+	           Bootstrap:Data Science introduces students to pie charts, bar charts, histograms, scatterplots, and more as a way of answering questions about, and better understanding real-world datasets. The course culminates in students writing a research paper incorporating these data visualizations about a topic they care about.
 	           </td>
 	         </tr>
 	         <tr>
@@ -532,7 +532,7 @@
 	 <br/>Bootstrap:Reactive - Units 3-5
 	 <br/>Bootstrap:Data Science - Units 2-9</strong>
 	 <br/>
-	           All Bootstrap courses culminate in a final project. For Bootstrap:Algebra and Reactive, the project is a video game or animation that makes use of multiple student-created functions to handle movement and interactivity. In Bootstrap:Data Science, students create a research paper and computer program to display their process of analyzing, transforming, and interpreting data with functions.
+	           All Bootstrap courses culminate in a final project. For Bootstrap:Algebra and Reactive, the project is a video game or animation that makes use of multiple student-created functions to handle movement and interactivity. In Bootstrap:Data Science, students create a research paper and data science project as a result of analyzing, transforming, and interpreting data with functions.
 	           </td>
 	         </tr>
 	         <tr>
@@ -556,7 +556,7 @@
 	           <td>
 	 <strong>Bootstrap:Data Science - Units 3-9</strong>
 	 <br/>
-	           Bootstrap:Data Science has students examine various issues affecting data collection and analysis, including collection bias, threats to validity, and outliers.
+	           Bootstrap:Data Science has students examine various issues affecting data collection and analysis, including collection bias, threats to validity, and outliers. Using linear regression methods, students can test and refine their hypotheses about relationships in their dataset.
 	           </td>
 	         </tr>
 	         <tr>
@@ -566,8 +566,7 @@
 	 <br/>Bootstrap:Reactive - Units 1-5
 	 <br/>Bootstrap:Data Science - Units 2-9</strong>
 	 <br/>
-	 		  Bootstrap:Algebra introduces the core idea of functions as abstractions over repeated computations, and has students document, test, and code multiple functions to create a video game. Bootstrap:Reactive moves into larger programs that get decomposed into subproblems and helper functions, which are designed, implemented, and tested independently.
-	 		  Bootstrap:Data Science introduces the idea of writing functions over tabular data to answer meaningful questions about that data.
+	 		  Bootstrap:Algebra introduces the core idea of functions as abstractions over repeated computations, and has students document, test, and code multiple functions to create a video game. Bootstrap:Reactive moves into larger programs that get decomposed into sub-problems and helper functions, which are designed, implemented and tested independently. Bootstrap:Data Science introduces the idea of writing functions over tabular data to answer meaningful questions about that data.
 	           </td>
 	         </tr>
 	         <tr>
