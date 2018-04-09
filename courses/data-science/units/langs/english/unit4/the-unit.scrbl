@@ -1,9 +1,9 @@
 #lang curr/lib
 
-@title{Unit 4: Quantity Charts}
+@title{Unit 3: Manipulating Tables }
 
 @unit-overview/auto[#:lang-table (list (list "Number" 
-                                              @code{+, -, *, /, num-sqrt, num-sqr} 
+                                              @code{num-sqrt, num-sqr} 
                                               @code{4, -1.2. 2/3})
                                        (list "String" 
                                               @code{string-repeat, string-contains} 
@@ -14,132 +14,16 @@
                                        (list "Image" 
                                               @code{triangle, circle, star, rectangle, ellipse, square, text, overlay} 
                                               (list @bitmap{images/imgValue1.png} @bitmap{images/imgValue2.png}))
-                                       (list "Table"
-                                              @code{.row-n, .order-by, .filter, .build-column}
-                                              ""))]{
+                                       )]{
   @unit-descr{
-      Students construct Bar and Pie Charts in Pyret, to visualize the @italic{quantities} present in rows of their dataset. They experiment with these visualizations in a contrived dataset, apply them to their own research, and interpret the results. They also begin to write their own Sample Tables
+    Students extend their knowledge of functions to include methods, and learn about Table methods for sorting, filtering and extending Tables. They are also introduced to Table Plans (a structured approach to manipulating tables), and begin manipulating their own datasets.
   }
 }
 @unit-lessons{
 
   @lesson/studteach[
-     #:title "Introduction"
-     #:duration "15 minutes"
-     #:overview ""
-     #:learning-objectives @itemlist[]
-     #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[]
-     #:standards (list "Data 3.1.3")
-     #:materials @itemlist[]
-     #:preparation @itemlist[]
-     #:pacings (list 
-                @pacing[#:type "remediation"]{@itemlist[@item{}]}
-                @pacing[#:type "misconception"]{@itemlist[@item{}]}
-                @pacing[#:type "challenge"]{@itemlist[@item{}]}
-                )
-      ]{
-        @points[
-                @point{
-                        @student{
-                                Tables are great when we want to find a specific piece of information, like "how old is Wade the cat?" or "how long was Nibblet in the shelter before being adopted?".
-                                @activity[#:forevidence (list )]{
-                                    Turn to @worksheet-link[#:name "Column-Statements"] in your Student Workbook, and answer the questions you find there. 
-                                }
-                        }
-                        @teacher{
-                                    Debrief with the class.
-                        }
-                }
-                @point{
-                        @student{
-                                @activity[#:forevidence (list "Data 3.1.3&1&1" "Data 3.1.3&1&2")]{
-                                    Sometimes it's easier to @italic{visualize} your dataset using a chart or a graph. Turn to @worksheet-link[#:name "Visualizing-Quantity"] in your student workbook. This page contains two charts for a small sample of 7 animals. On the left, we have a bar chart of animals' ages. On the right, a pie chart showing their weight. We can make a lot of observations about these charts, and there are two of them written in the table at the bottom of the page. Can you add two more?
-                                }
-                        }
-                        @teacher{
-                                Debrief with the class, paying special attention to the last question: when @italic{is} one chart better than another?
-                        }
-                }
-        ]
-  }
-
-  @lesson/studteach[
-     #:title "Bar & Pie Charts"
-     #:duration "15 minutes"
-     #:overview ""
-     #:learning-objectives @itemlist[]
-     #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[]
-     #:standards (list "Data 3.1.3")
-     #:materials @itemlist[]
-     #:preparation @itemlist[]
-     #:pacings (list 
-                @pacing[#:type "remediation"]{@itemlist[@item{}]}
-                @pacing[#:type "misconception"]{@itemlist[@item{}]}
-                @pacing[#:type "challenge"]{@itemlist[@item{}]}
-                )
-      ]{
-        @points[
-                @point{
-                      @student{
-                              You've now seen two kinds of charts: @vocab{bar chart} and @vocab{pie charts}. Both charts involve quantities and labels: each bar and slice is a measure of a quantitative column, and each one has a label. Both charts help us look at the whole dataset at once, and answer questions about @italic{quantity}. As you've observed, bar charts are great when we want to know exactly "how much" of a thing is contained in a single row. Pie charts, on the other hand, are best when we want to know "what percent" of the thing in our table is contained in a single row.
-
-                              @activity[#:forevidence "BS-IDE&1&1"]{
-                                Open your "Animals Dataset (w/Functions)" file. (If you do not have this file, or if something has happened to it, you can always make a @editor-link[#:public-id "0BzzMl1BJlJDkbnZhbE1QSEE0eEE" "new copy"].)
-                              }
-
-                      }
-                      @teacher{
-                      
-                      }
-                }
-                @point{
-                      @student{
-                              Let's take a look at their contracts...
-                              @code[#:multi-line #t]{
-                                    bar-chart :: (t :: Table, label :: String, value :: String) -> Image
-                                    pie-chart :: (t :: Table, label :: String, value :: String) -> Image
-                              }
-                              The last two functions first consume the @italic{Table} that we want to look at, and their other arguments tell us @italic{which columns to look at} for both the labels and the values.
-                      }
-                      @teacher{
-                        
-                      }
-                }
-                @point{
-                      @student{
-                              @activity[#:forevidence (list "Data 3.1.3&1&1" "Data 3.1.3&1&2")]{
-                                  In the Interactions Area, type @code{pie-chart(animals-table, "name", "age")} and hit Enter. What happens? What happens when you hover over a slice of the pie? These plots are @italic{interactive}! This allows us to experiment with the data before generating the final image. 
-                              }
-                      }
-                      @teacher{
-                              Hovering over a pie slice or bar reveals the value or percentage of the whole, and the label.
-                      }
-                }
-                @point{
-                      @student{
-                              @activity[#:forevidence "BS-IDE&1&1"]{
-                                      @itemlist[
-                                              @item{
-                                                    Create a bar and pie chart showing the age of every animal in the shelter.
-                                              }
-                                              @item{
-                                                    Create a bar and pie chart showing the weight of every animal in the shelter.
-                                              }
-                                      ]
-                              }
-                      }
-                      @teacher{
-
-                      }
-                }
-        ]
-  }
-
-  @lesson/studteach[
-     #:title "Table Plans"
-     #:duration "30 minutes"
+     #:title "Review"
+     #:duration "10 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -154,134 +38,34 @@
                 )
       ]{
         @points[
-                @point{
-                      @student{
-                          @activity[#:forevidence (list )]{
-                            Turn to @worksheet-link[#:name "Pie-Dog-Weight"], and read the word problem carefully. Then write a Contract and Purpose Statement for this word problem.
-                          }
-                      }
-                      @teacher{
-
-                      }
-                }
-                @point{
-                      @student{
-                          @bitmap{images/pie.png}
-                          This time, our Result isn't a Table -- it's an @italic{Image}: a pie chart showing the weights of all the dogs in our shelter. @bold{Note:} When writing a Sample Table, it's okay to skip a few columns and focus on the ones you care about. Keep this in mind for the future!
-                          @activity[#:forevidence (list )]{
-                              Sketch a pie chart based on your Sample Table. When you're done, move on to defining the function, and fill out the methods to define the table. Do we need to build any columns? Filter any rows? Order the table?
-                          }
-                      }
-                      @teacher{
-                          Look to make sure students are drawing the right kind of chart, using the right labels, and have slices that are proportional to the data in their Sample Table.
-                      }
-                }
-                @point{
-                      @student{
-                          We've got most of our function written:
-                          @code[#:multi-line #t]{
-                          pie-dog-weight :: (animals :: Table) -> Number
-                          # Consume a table of animals, and produce a pie-chart showing the weight of the dogs
-                          fun pie-dog-weight(animals):
-                            t = animals.filter(is-dog)     # define the table
-                            ...                            # produce our result
-                          end
-                          }
-                          What expression will produce our result? Our purpose statement tells us we need to make a @code{pie-chart}, so we can start there. Which table should we use? Which column gives us our labels? Our values?
-                      }
-                      @teacher{
-                          If there's only one method being used, it's convention to put the method call on the same line as the table.
-                      }
-                }
-                @point{
-                      @student{
-                          Putting it all together, we get:
-                          @code[#:multi-line #t]{
-                          pie-dog-weight :: (animals :: Table) -> Number
-                          # Consume a table of animals, and produce a pie-chart showing the weight of the dogs
-                          fun pie-dog-weight(animals):
-                            t = animals.filter(is-dog)     # define the table
-                            pie-chart(t, "name", "pounds") # produce our result
-                          end
-                          }
-                      }
-                      @teacher{
-
-                      }
-                }
-                @point{
-                      @student{
-                          @activity[#:forevidence (list )]{
-                              When your teacher has checked your paper, type in this function and try it! @bold{Based on this pie chart, does it look like some dogs are a lot heavier than others, or are the weights @italic{evenly distributed}?}
-                          }
-                          Not at all! Kujo and Mr. Peanutbutter each take up more than 13% of the total weight, but almost every other dog's share is 7% or less.
-                      }
-                      @teacher{
-                          Hit this point hard. Seeing the pie slices gives us a feel for the @italic{distribution} of the dataset.
-                      }
-                }
-                @point{
-                      @student{
-                          Up to now, the Sample Table has been provided for you. But for our next Table Plan, you'll need to make one of your own! A good Sample Table should have:
-                          @itemlist[
-                                @item{
-                                    @italic{At least} the columns that matter - whether we'll be ordering or filtering by those columns.
-                                }
-                                @item{
-                                    A good Sample Table has enough rows to be a representative sample of the dataset. If our dataset has a mix of dogs and cats, for example, we want at least one of each in this table.
-                                }
-                                @item{
-                                    A good Sample Table has rows in random order, so that we'll notice if we need to order the table or not.
-                                }
-                          ]
-                      }
-                      @teacher{
-
-                      }
-                }
-                @point{
-                      @student{
-                          @activity[#:forevidence (list )]{
-                                It will take some practice for you to get good at making Sample Tables, but you can start by identifying @italic{bad} ones! turn to @worksheet-link[#:name "Bad-Sample-Tables"], and write down what's wrong with each of these tables.
-                          }
-                    }
-                    @teacher{
-                          If you're teaching a math or statistics class, go deeper to discuss sampling techniques and sample errors.
-                    }
+              @point{
+                  @student{
+                        @activity[#:forevidence "BS-IDE&1&1"]{
+                                Open your "Animals Dataset (w/Functions)" file. (If you do not have this file, or if something has happened to it, you can always make a @editor-link[#:public-id "0BzzMl1BJlJDkbnZhbE1QSEE0eEE" "new copy"].)
+                        }
+                  }
+                  @teacher{
+                  
+                  }
               }
               @point{
-                    @student{
-                          @activity[#:forevidence (list )]{
-                              @bitmap{images/bar.png}
-                              Turn to @worksheet-link[#:name "Bar-Kitten-Adoption"], and fill out the Contract and Purpose Statement. First, we'll provide a name that refers back to our dataset: @code{animals-table}. Then we need to provide a good Sample Table for this word problem. Fill out a good Sample Table and write your result.
-                          }
-                    }
-                    @teacher{
-                          Be sure to check the Sample Tables, and even have students trade workbooks and grade each other's Sample Tables.
-                    }
+                  @student{Reviewing methods!}
+                  @teacher{}
               }
-              @point{
-                    @student{
-                          @activity[#:forevidence (list )]{
-                              Once your teacher has checked your Sample Table, type in the code for this function and try it out!
-                          }
-                    }
-                    @teacher{
-                    
-                    }
-              }
+
         ]
   }
+
   @lesson/studteach[
-     #:title "Your Dataset"
-     #:duration "25 minutes"
+     #:title "Introducing Table Plans"
+     #:duration "30 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
-     #:standards (list "Data 3.1.2")
+     #:standards (list "BS-DR.1" "BS-DR.2" "BS-DR.4" "Data 3.1.1")
      #:materials @itemlist[]
-     #:preparation @itemlist[]
+     #:preparation @itemlist[@item{}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -291,22 +75,207 @@
         @points[
               @point{
                     @student{
-                        @activity[#:forevidence (list "Data 3.1.2&1&1" "Data 3.1.2&1&2" "Data 3.1.2&1&3" "Data 3.1.2&1&4" "Data 3.1.2&1&5")]{
-                            Try making a bar or pie chart of a column in your dataset, and write up your findings on @worksheet-link[#:name "Visualizing-My-Dataset-1"]. 
-                        }
-                    }       
+                        Table methods are powerful, and there's an order-of-operations to how they are used. For example, we might want to build a column and then use it to filter or order the table. Therefore, @code{.build-column} always has to come first! To help keep things organized, we can use @bold{Table Plans}. Turn to page @worksheet-link[#:name "Kitten-Tags"]
+                    }
                     @teacher{
-                        Give students 10-15min to make their next set, and have them share back. Encourage students to read their observations aloud, to make sure they get practice saying and hearing these observations.
-                    }              
+                        Table Plans are like the Design Recipe, but for manipulating tables. They enforce a @italic{way of thinking}, which is important for your students.
+                    }
               }
               @point{
                     @student{
-                        @activity[#:forevidence (list "Data 3.1.2&1&1" "Data 3.1.2&1&2" "Data 3.1.2&1&3" "Data 3.1.2&1&4" "Data 3.1.2&1&5")]{
-                            Do you notice that the outliers all of something in common? What new questions does this raise? Would you like to change your table by filtering it or building a new column? If so, go deeper into your data, using @worksheet-link[#:name "Blank-Table-Plan-1"] and @worksheet-link[#:name "Blank-Table-Plan-2"] to figure out how you want to change your dataset. Write up your findings on @worksheet-link[#:name "Visualizing-My-Dataset-1"].
+                        Table Plans are a lot like the Design Recipe. They start with a Contract and Purpose Statement, but involve different kinds of examples and can often involve @italic{multiple} function definitions. Let's do an example, which ties together all the pieces you've seen before. Suppose it's time to vaccinate all kittens, and the shelter wants a table that includes nametags for all the kittens in alphabetical order. How do we get started?
+                    }
+                    @teacher{
+                        Your students should be @italic{very} comfortable with the Design Recipe before proceeding!
+                    }
+              }
+              @point{
+                    @student{
+                        @bannerline{Step 1: Contract and Purpose}
+                        We're going to build a function that does this for us, and we'll start with the name. Naming is more complex in Table Plans, since we want to name the function according to the most important parts of what it does. Since we're @italic{getting a table} of kittens with nametags, we'll call it @code{get-kittens-tags}. Instead of consuming Rows, this time we're consuming and producing @italic{Tables}. This gives us the following:
+
+                        @code[#:multi-line #t]{
+                            get-kittens-tags :: (animals :: Table) -> Table
+                            # get all the kittens, add nametags, and sort by name
                         }
                     }
                     @teacher{
-                        Give students 5-10min to make their next set, and have them share back. Encourage students to read their observations aloud, to make sure they get practice saying and hearing these observations.
+                        Ask students to volunteer other names - but push them to keep the @code{get-} part of the name!
+                    }
+              }
+              @point{
+                    @student{
+                        @bannerline{Step 2: Examples}
+                        This is really similar to writing examples with the Design Recipe, but everything stays on paper. First, we write down a small sample of the @code{animals-table}, called a Sample Table. Then we write a sample result, which we'd get from calling @code{get-kittens-tags} on that Sample Table. For now, we've provided the Starter and Results for you.
+                        @itemlist[
+                            @item{ Does the Result have our new column? }
+                            @item{ Does the Result have only kittens? }
+                            @item{ Is the Result in alphabetical order? }
+                        ]
+                    }
+                    @teacher{
+
+                    }
+              }
+              @point{
+                    @student{
+                        @bannerline{Step 3: Define the Function}
+                        The final step is to define a function that executes our Table Plan. We already know how to start:
+                        @code[#:multi-line #t]{
+                            get-kittens-tags :: (animals :: Table) -> Table
+                            # get all the kittens, add nametags, and sort by name
+                            fun get-kittens-tags(animals):
+                                ...
+                            end
+                        }
+                    }
+                    @teacher{
+                        Assessment opportunity: students should be able to write this code this based on what they know about the Design Recipe.
+                    }
+              }
+              @point{
+                    @student{
+                        Table plans include two parts: defining our new table, and producing our result. To define this table, we'll ask ourselves four questions, in order:
+                        @itemlist[
+                            @item{ 
+                              Does our Result have more columns than our Sample Table? If so, we'll need to use @code{.build-column}. 
+                            }
+                            @item{ 
+                              Does our Result have fewer rows than our Sample Table? If so, we'll need to use @code{.filter}. 
+                            }
+                            @item{ 
+                              Does our Result have its rows in some order? If so, we'll need to use @code{.order-by}.
+                            }
+                        ]
+                        @activity[#:forevidence (list "Data 3.1.1&1&2" "Data 3.1.1&1&4")]{
+                            If the answer to any of these questions is "no", @italic{cross out that line in the template}.
+                        }
+                    }
+                    @teacher{
+                        All three are needed.
+                    }
+              }
+              @point{
+                    @student{
+                        All three methods are needed, so we won't cross anything out. You're already familiar with definitions in Pyret, and that's what we'll use here. Let's start with the name @code{t} for Table.
+                        @code[#:multi-line #t]{
+                            get-kittens-tags :: (animals :: Table) -> Table
+                            # get all the kittens, add nametags, and sort by name
+                            fun get-kittens-tags(animals):
+                                t = animals
+                                  .build-column(...)
+                                  .filter(...)
+                                  .order-by(...)
+                            end
+                        }
+                    }
+                    @teacher{
+                        It may be helpful to start with all of these methods on one line, and have students see you break them up. Students should be reminded that both forms are valid, but encouraged to use the latter.
+                    }
+              }
+              @point{
+                    @student{
+                        Now we can fill in those @code{...} sections! 
+                        @itemlist[
+                          @item{ 
+                              For each Row, we know we need to build a column for the nametags: what should that column be called? Do we have a function that takes a Row and produces a nametag?
+                          }
+                          @item{ 
+                              We know we need to filter so that all of our Rows are kittens: Do we have a function that takes a Row and tells us whether or not it is a kitten?
+                          }
+                          @item{
+                              We know we need to order these rows: by what column should we order them? Ascending?
+                          }
+                        ]
+                    }
+                    @teacher{
+
+                    }
+              }
+              @point{
+                    @student{
+                        Filling in these blanks, we get the following code:
+                        @code[#:multi-line #t]{
+                            get-kittens-tags :: (animals :: Table) -> Table
+                            # get all the kittens, add nametags, and sort by name
+                            fun get-kittens-tags(animals):
+                                t = animals  # define the table
+                                  .build-column("tags", nametags)
+                                  .filter(is-kitten)
+                                  .order-by("name", true)
+                                ...          # produce the result
+                            end
+                        }
+                        Fortunately, the @code{nametags} and @code{is-kitten} functions are already defined! If we found that we needed to make news ones, however, we could use the Design Recipe to do it.
+                    }
+                    @teacher{
+                        If projecting onto a board, drawing arrows from the function names to their definitions would be really helpful here.
+                    }
+              }
+              @point{
+                  @student{
+                        The final step in the Table Plan is to produce the result. For now, that result is just the table we defined, @code{t}! (Don't worry, you'll get to more complex results later)
+                        @code[#:multi-line #t]{
+                            get-kittens-tags :: (animals :: Table) -> Table
+                            # get all the kittens, add nametags, and sort by name
+                            fun get-kittens-tags(animals):
+                                t = animals  # define the table
+                                  .build-column("tags", nametags)
+                                  .filter(is-kitten)
+                                  .order-by("name", true)
+                                t            # produce the result
+                            end
+                        }
+                  }
+                  @teacher{
+                      Drawing arrows from the @code{t} expression on the last line back to the @code{t} definition on the first line would be a good idea here. Make sure students see the connection between "defining the table...and using it"!
+                  }
+              }
+              @point{
+                  @student{
+                      Once you've typed in the Contract, Purpose and Function Definition, click "Run". How do we use this function? If you look in the @bold{Examples} section, you'll see that the Result is written underneath the expression @code{get-kittens-tags(animals-table)}. That's the code that should give us the result, so let's type it in!
+                      @activity[#:forevidence (list "Data 3.1.1&1&1" "Data 3.1.1&1&2")]{
+                          Type in the code and hit Enter. Did you get back the same result you expected?
+                      }
+                  }
+                  @teacher{
+                  
+                  }
+              }
+              @point{
+                    @student{
+                        @activity[#:forevidence (list "BS-DR.1&1&1" "BS-DR.1&1&2" "BS-DR.2&1&1" "BS-DR.1&1&2" "BS-DR.4&1&1" "BS-DR.4&1&2" "Data 3.1.1&1&1" "Data 3.1.1&1&2" "Data 3.1.1&1&4")]{
+                            @itemlist[
+                                @item{
+                                  Turn to @worksheet-link[#:name "Dogs-by-Age"], and complete the Table Plan. When your teacher has checked your work, type in your code to create the table. @bold{Note:} this time, you'll need to fill in more missing parts of the function definition!
+                                }
+                                @item{
+                                  Turn to @worksheet-link[#:name "Old-Dogs-Diet"], and complete the Table Plan. When your teacher has checked your work, type in your code to create the table. @bold{Note:} this time, you'll need to come up with your own Contract and Purpose!
+                                }
+                                @item{
+                                  Turn to @worksheet-link[#:name "Fixed-Birth"], and complete the Table Plan. When your teacher has checked your work, type in your code to create the table.
+                                }
+                            ]
+                        }
+                    }
+                    @teacher{
+
+                    }
+              }
+              @point{
+                    @student{
+                        By now, you've had a chance to use Table Plans and Table Methods to:
+                        @itemlist[
+                            @item{ Extend data with computed columns }
+                            @item{ Filter rows to create @italic{subsets} of data (e.g. "only cats") }
+                            @item{ Order rows by a particular column, in ascending or descending order }
+                        ]
+                        @activity[#:forevidence (list "Data 3.1.2&1&1" "Data 3.1.2&1&2" "Data 3.1.2&1&3" "Data 3.1.2&1&4" "Data 3.1.2&1&5")]{
+                            Turn to @worksheet-link[#:name "Dataset-Plans"] in your Student Workbook, and fill out questions 3-5.
+                        }
+                    }
+                    @teacher{
+
                     }
               }
         ]
@@ -321,7 +290,7 @@
      #:product-outcomes @itemlist[]
      #:standards (list)
      #:materials @itemlist[]
-     #:preparation @itemlist[]
+     #:preparation @itemlist[@item{}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -331,12 +300,16 @@
         @points[
               @point{
                     @student{
-                        Bar and Pie Charts are powerful tools that make it easy to talk about the amount (or relative amount) of quantitative data in our dataset. But what if we wanted to see @italic{how many dogs v. cats there are in our dataset}? This question is about @italic{frequency} - specifically how often the @code{species} column is @code{"cat"} or @code{"dog"}. What if we wanted to know how many animals were between 1-10 pounds, 11-20 pounds, 21-30 pounds, and so on? Once again, that's a question about how @italic{frequent} a particular weight range comes up.
-                    }       
-                    @teacher{
+                           Congratulations! You've just learned the basics of the Pyret programming language, and how to use that language to answer a data science question. Throughout this course, you'll learn new and more powerful tools that will allow you to answer more complex questions, and in greater detail.
 
-                    }              
+                     @activity[#:forevidence "BS-IDE&1&1"]{
+                            Make sure to save your work.  Hit the Save button in the top left. This will save your program in the code.pyret.org folder within your Google Drive.
+                  }
+              }
+                    @teacher{
+                             If your students are working in pairs/groups, make sure that each student has access to a version of the program.  The student who saved the program to their Google Drive can share their program with anyone by hitting the Publish button in the top left, choosing "Publish a new copy", then clicking the "Share Link" option.  This will allow them to copy a link to the program, then send to their partners in an email/message.
+                   }
               }
         ]
-   }
+  }
 }

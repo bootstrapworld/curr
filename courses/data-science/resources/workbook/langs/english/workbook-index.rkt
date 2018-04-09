@@ -35,7 +35,11 @@
  ("Dataset-Plans" 				25 )
  ("Padding-Unit-3" 				26 )
 
-;;;;;;;;;;;;;;;; Unit 4 ;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;; Unit 3 ;;;;;;;;;;;;;
+ ("Unit-4-Notes" 	 			15 )
+ ("Unit-4-Blank" 	 			16 )
+
+;;;;;;;;;;;;;;;; Unit 5 ;;;;;;;;;;;;;
  ("Unit-4-Notes"				27 )
  ("Unit-4-Blank"				28 )
  ("Column-Statements" 			29 )
@@ -47,7 +51,7 @@
  ("Blank-Table-Plan-2"			35 )
  ("Visualizing-My-Dataset-1"	36 )
  
-;;;;;;;;;;;;;;;; Unit 5 ;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;; Unit 6 ;;;;;;;;;;;;;
  ("Unit-5-Notes" 				37 )
  ("Unit-5-Blank" 				38 )
  ("Summarizing-Weeks" 			39 )
@@ -55,7 +59,7 @@
  ("Interpreting-Variation" 		41 )
  ("Summarizing-My-Dataset" 		42 )
 
-;;;;;;;;;;;;;;;; Unit 6 ;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;; Unit 7 ;;;;;;;;;;;;;
  ("Unit-6-Notes" 	 			43 )
  ("Unit-6-Blank" 	 			44 )
  ("Visualizing-Quantity-Review" 45 )
@@ -65,7 +69,7 @@
  ("Visualizing-My-Dataset-2"	49 )
  ("Which-Chart-Is-Best"			50 )
 
-;;;;;;;;;;;;;;;; Unit 7 ;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;; Unit 8 ;;;;;;;;;;;;;
  ("Unit-7-Notes" 	 			51 )
  ("Unit-7-Blank" 	 			52 )
  ("Cuter-Adoption" 	 			53 )
@@ -75,7 +79,7 @@
  ("Scatter-Dogs-Age" 			57 )
  ("Correlations-My-Dataset" 	58 )
  
-;;;;;;;;;;;;;;;; Unit 8 ;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;; Unit 9 ;;;;;;;;;;;;;
  ("Unit-8-Notes" 	 			59 )
  ("Unit-8-Blank" 	 			60 )
  ("Grading-Predictors" 			61 )
@@ -83,7 +87,7 @@
  ("Findings-My-Dataset" 		63 )
  ("Padding-Unit-8" 				64 )
  
-;;;;;;;;;;;;;;;; Unit 9 ;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;; Unit 10 ;;;;;;;;;;;;
  ("Unit-9-Notes" 	 			65 )
  ("Fake-News" 		 			66 )
 

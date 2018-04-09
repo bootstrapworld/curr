@@ -1,6 +1,6 @@
 #lang curr/lib
 
-@title{Unit 8: Linear Regression}
+@title{Unit 7: Scatter Plots and Correlation }
 
 @unit-overview/auto[#:lang-table (list (list "Number" 
                                               @code{+, -, *, /, num-sqrt, num-sqr} 
@@ -15,22 +15,22 @@
                                               @code{triangle, circle, star, rectangle, ellipse, square, text, overlay} 
                                               (list @bitmap{images/imgValue1.png} @bitmap{images/imgValue2.png}))
                                        (list "Table"
-                                              @code{.row-n, .order-by, .filter, .build-column, num-sqr, mean, median, modes, bar-chart, pie-chart, scatter-plot, labeled-scatter-plot} 
+                                              @code{.row-n, .order-by, .filter, .build-column, num-sqr, mean, median, modes, bar-chart, pie-chart} 
                                                 ""))]{
   @unit-descr{
-    Students compute the "line of best fit" using linear regression, and search for correlations in their own datasets.
+    Students investigate scatter plots as a method of visualizing the relationship between two axes, and begin searching for correlations in their dataset.
   }
 }
 @unit-lessons{
 
   @lesson/studteach[
      #:title "Introduction"
-     #:duration "10 minutes"
+     #:duration "15 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
-     #:standards (list)
+     #:standards (list "Data 3.1.1")
      #:materials @itemlist[]
      #:preparation @itemlist[]
      #:pacings (list 
@@ -42,7 +42,19 @@
         @points[
                 @point{
                         @student{
-                                "Younger animals are cuter, and therefore get adopted faster". We started the previous Unit with this question, and looked at scatter plots as a way to visualize possible @vocab{correlations} between two variables in our dataset. What did we find?
+                                "Younger animals are cuter, and therefore get adopted faster". Do you agree with this statement?
+                                You now have significant experience asking questions about data sets: You know how to take measures of center, and how to visualize both quantity and distribution of quantitative and categorical data. Let's use this experience to find out if younger animals really do get adopted faster. First, we'll start with a sample of our dataset: the @code{animals-table}.
+
+                                 @build-table/cols[
+                                    '("name" "species" "age" "weeks")
+                                    '(("\"Sasha\"" "\"Boo-boo\"" "\"Felix\"" "\"Buddy\"" "\"Nori\"" "\"Wade\"" "\"Nibblet\"" "\"Maple\"")
+                                      ("\"cat\"" "\"dog\"" "\"cat\"" "\"lizard\"" "\"dog\"" "\"cat\"" "\"rabbit\"" "\"dog\"")
+                                      ("1" "11" "16" "2" "6" "1" "6" "3")
+                                      ("3" "5" "4" "24" "9" "2" "12" "2"))
+                                     (lambda (r c) (para ""))
+                                     4 8
+                                ]
+                                Based on this limited sample, does it look like older animals have to wait longer to find their families?
                         }
                         @teacher{
                                    
@@ -50,34 +62,47 @@
                 }
                 @point{
                         @student{
-                                Whenever there's a possible correlation, Data Scientists try to draw the @vocab{line of best fit}, which cuts through the data cloud and can be used to make predictions. This line is literally graphed on top of the scatter plot as a function, called the @vocab{predictor}. In this Unit, you'll learn how to compute the line of best fit in Pyret, and how to measure the strength of a correlation (or "how good the predictor is").
+                                @activity[#:forevidence (list "Data 3.1.1&1&4" "Data 3.1.1&1&5")]{
+                                    Take a few minutes to look through the whole dataset, and see if you agree with the statement. Could any of our visualizations or measures of center help us answer this question? Write down your hypothesis on @worksheet-link[#:name "Cuter-Adoption"], and how we could use this dataset to see if you're right.
+                                }
                         }
                         @teacher{
-
+                                Encourage students to discuss openly before writing.
                         }
                 }
                 @point{
                         @student{
-                              @activity[#:forevidence "BS-IDE&1&1"]{
-                                Open your "Animals Dataset (w/Functions)" file. (If you do not have this file, or if something has happened to it, you can always make a @editor-link[#:public-id "0BzzMl1BJlJDkbnZhbE1QSEE0eEE" "new copy"].)
-                              }
+                                We've got a lot of tools in our toolkit that help us think about an @italic{entire} column of a dataset:
+                                @itemlist[
+                                    @item{ We have three ways to find measures of center for a given column }
+                                    @item{ We have visualizations that let us see the @italic{quantities} in a given column }
+                                    @item{ We have visualizations that let us see the @italic{frequencies} in a given column }
+                                ]
+                                What column is this question asking about?
                         }
                         @teacher{
-                        
+                                Use this as an opportunity to review what these measures and visualizations are. Redirect students back to their contracts page! Point out that this question is asking about both @code{age} and @code{weeks}.
                         }
                 }
-
+                @point{
+                        @student{
+                                This question is asking about @italic{two columns} in our dataset. Specifically, it's asking @bold{if there is a relationship} between @code{age} and @code{weeks}. Fortunately, there are other tools that let us visualize a 2-column relationship!
+                        }
+                        @teacher{
+                                If time allows, ask students how we might visualize this relationship.
+                        }
+                }
         ]
   }
 
   @lesson/studteach[
-     #:title "Linear Regression"
-     #:duration "30 minutes"
+     #:title "Scatter Plots"
+     #:duration "10 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
-     #:standards (list "S-ID.7-9" "HSS.ID.B" "HSS.ID.C" "Data 3.1.3" "Data 3.2.1")
+     #:standards (list "8.SP.1-4" "S-ID.5-6" "HSS.ID.B" "Data 3.1.3" "Data 3.2.1")
      #:materials @itemlist[]
      #:preparation @itemlist[]
      #:pacings (list 
@@ -89,14 +114,93 @@
         @points[
                 @point{
                         @student{
+                                @activity[#:forevidence (list)]{
+                                  Open your "Animals Dataset (w/Functions)" file. (If you do not have this file, or if something has happened to it, you can always make a @editor-link[#:public-id "0BzzMl1BJlJDkbnZhbE1QSEE0eEE" "new copy"].)
+                                }
+                                For each animal in the shelter, there are two data points we care about: their @code{age} and the number of @code{weeks} it took to be adopted. We can use these points to plot each animal as a point on the x- and y-axes. Eventually, we'll have a whole cloud of points, which show us the relationship between the two columns for all the animals at the shelter.
+                                @activity[#:forevidence (list "S-ID.1-4&1&1")]{
+                                    Complete @worksheet-link[#:name "Make-Scatter-Plot"] in your Student Workbook.
+                                }
+                        }
+                        @teacher{
+                                Suggestion: divide the full table up into sub-lists, and have a few student plot 3-4 animals on the board. This can be done collaboratively, resulting in a whole-class scatterplot!
+                        }
+                }
+                @point{
+                        @student{
+                                This visualization is called a @vocab{scatter plot}. Pyret has two functions for making scatter plots:
+                                @code[#:multi-line #t]{
+                                    scatter-plot :: (t :: Table, xs :: String, ys :: String) -> Image
+                                    labeled-scatter-plot :: (t :: Table, ls :: String, xs :: String, ys :: String) -> Image
+                                }
+                                Both functions consume the Table that we want to visualize, as well as the columns that we want to use as @code{xs} and @code{ys}. However, @code{labeled-scatter-plot} consumes another argument after the Table, which is a column that we will use to @italic{label each point}.
+                        }
+                        @teacher{
+
+                        }
+                }
+                @point{
+                        @student{
+                                To make a scatter-plot for our @code{animals-table}, we write...
+                                @code[#:multi-line #t]{
+                                    scatter-plot(animals-table, "age", "weeks")
+                                }
+                                @activity[#:forevidence (list "8.SP.1-4&1&1")]{
+                                    Make a @code{labeled-scatter-plot}, using the animals' names as labels. What happens when you hover over the points?
+                                }
+                        }
+                        @teacher{
+
+                        }
+                }
+                @point{
+                        @student{
                                 @bitmap{images/age-vs-weeks.png}
-                                After our last Unit, we are left with two questions:
+                                Now that we have our scatter plot, what kind of patterns do we see? 
+                                @activity[#:forevidence (list "8.SP.1-4&1&2" "S-ID.5-6&1&3" "S-ID.5-6&1&4" "HSS.ID.B&1&2")]{
+                                    @itemlist[
+                                        @item{ Where are the points clustered? }
+                                        @item{ Are there places where the "cloud" is denser than others? }
+                                        @item{ Are there any points that "stray from the pack?" Which ones? }
+                                        @item{ Does the cloud seem to go up or down as the number of weeks increases? }
+                                    ]
+                                }
+                        }
+                        @teacher{
+                                Suggestion: project the scatter plot at the front of the room, and have students @italic{come up to the plot} to point out their patterns.
+                        }
+                }
+                @point{
+                        @student{
+                                When we look for patterns in a scatter plot like this, we are looking for @vocab{correlations}. A correlation is just a relationship between two variables. In this case, we're looking for a correlation between an animal's @code{age} and how many @code{weeks} it takes for them to be adopted. This relationship can be graphed as a line, which tries to cut through the "middle" of the cloud. This line is called the @vocab{line of best fit}.
+                        }
+                        @teacher{
+                                
+                        }
+                }
+                @point{
+                        @student{
+                                Do you notice any data points that seem unusually far away from the line? Which animals are those? These points are called @vocab{outliers}, meaning that there is something special about them that makes them different from everyone else. 
+                                @activity[#:forevidence (list "HSS.ID.A&1&3")]{
+                                    Why might these animals be outliers?
+                                }
+                        }
+                        @teacher{
+                                Give students a chance to come up with a few ideas, and share them with the class.
+                        }
+                }
+                @point{
+                        @student{
+                                Outliers are always interesting: 
                                 @itemlist[
                                     @item{
-                                        How do we make a prediction from a scatter plot? In other words, "@italic{where do we draw} the line of best fit?"
+                                        Sometimes they're just random. Maybe Felix just met the right family early, or maybe we find out he lives nearby, got lost and his family came to get him. In that case, we could remove him from our dataset.
                                     }
                                     @item{
-                                        How do we measure the accuracy of our prediction? In other words, "@italic{how well} does that line fit?"
+                                        Sometimes they can give you a deeper insight into your data. Maybe Felix is a special, popular @italic{breed} of cat, and we discover that our dataset is missing an important column for breed!
+                                    }
+                                    @item{
+                                        Sometimes outliers are the points we are looking for! What if we wanted to know which restaurants are a good value, and which are rip-offs? We could make a scatterplot of restaurant prices vs. reviews, an outlier that's high above the rest of the points would be a restaurant whose reviews are @italic{unusually good} for the price. An outlier way below the cloud would be a really bad deal.
                                     }
                                 ]
                         }
@@ -105,184 +209,110 @@
                         }
                 }
                 @point{
-                        @student{
-                                Data scientists use a statistical method called @vocab{linear regression} to search for certain kinds of relationships in a dataset. When we draw our predictor line on a scatter plot, we can imagine a rubber band stretching between the line itself and each point in the plot - every point pulls the line a little "up" or "down". Linear regression is the statistics behind the line of best fit.
-                        }
-                        @teacher{
-
-                        }
-                }
-                @point{
-                        @student{
-                                @activity[#:forevidence (list )]{
-                                  You can see this in action, in this @(hyperlink "https://www.geogebra.org/m/xC6zq7Zv" "interactive simulation"). Each vertical line represents the error, or the amount the rubber band has to stretch between a single data point and the prediction line. The "Target SSE" shows how much error (specifically, "the Sum of the Squared Errors") there is in the best possible predictor line. Our goal is to match that, by moving the red line or the "guide dots" on it. 
-                                  @itemlist[
-                                      @item{Could the predictor line ever be above or below @italic{all} the points? Why or why not?}
-                                      @item{What would the plot have to look like for SSE to be zero?}
-                                  ]
-                                }
-                        }
-                        @teacher{
-                                Give students some time to experiment here! Can your students come up with rules or suggestions for how to minimize error? 
-                        }
-                }
-                @point{
-                        @student{
-                                We can compute our own predictor line in Pyret, plot it on top of a scatterplot, and even get the equation for that line:
-
-                                @code[#:multi-line #t]{
-                                        # use linear regression to extract a predictor function
-                                        lr-plot :: (t :: Table, xs :: String, ys :: String) -> Image
-                                        labeled-lr-plot :: (t :: Table, ls :: String, xs :: String, ys :: String) -> Image
-                                }
-                                @code{lr-plot} is a function that takes a Table and the names of columns to use for @code{xs} and @code{ys}, computes the line of best fit, and then draws it on top of the point cloud.
-
-                                @activity[#:forevidence (list )]{
-                                    In the Interactions Area, create a @code{labeled-lr-plot} for our @code{animals-table}, using @code{"names"} for the labels, @code{"age"} for the x-axis and @code{"weeks"} for the y-axis.
-                                    You can learn more about how a predictor is created by watching @(hyperlink "https://www.youtube.com/watch?v=lZ72O-dXhtM" "this video").
-                                }
-
-                        }
-                        @teacher{
-                                If you want to teach students the algorithm for linear regression (calculating ordinary least squares), now is the time. However, this algorithm is not a core portion of Bootstrap:Data Science.
-                        }
-                }
-                @point{
-                        @student{
-                                @bitmap{images/lr-explained.png}
-                                The resulting scatterplot looks like those we've seen before, but it has a few important additions. First, we can see the @vocab{line of best fit} - or our predictor function - drawn on top. We can also see the equation for that line, in the form @math{y=mx+b}. In this plot, we can see that the slope of the line is @math{0.714}, which means that each extra year of age results in an extra 0.714 weeks of waiting to be adopted. By plugging in an animal's age for @math{x}, we can make a @italic{prediction} about how many weeks it will take to be adopted.
-                                @activity[#:forevidence (list "S-ID.7-9&1&1" "HSS.ID.C&1&1" "HSS.ID.C&1&2")]{
-                                    If an animal is 5 years old, how long would this line of best fit @italic{predict} they would wait to be adopted? What if they were a newborn, and 0 years old?
-                                }
-                        }
-                        @teacher{
-
-                        }
-                }
-                @point{
-                        @student{
-                                A predictor @italic{only makes sense within the range of the data that was used to generate it}. For example, if we extend our line out to where it hits the x-axis, it appears to predict that "unborn animals are adopted instantly"! Statistical models are just proxies for the real world, drawn from a limited sample of data: they might make useful prediction in the range of that data, but once we try to extrapolate beyond that data we quickly get into trouble!
-                        }
-                        @teacher{
-                                
-                        }
-                }
-                @point{
-                        @student{
-                                These charts also include something called an @vocab{r-squared} value at the top, which always seems to be between 0 and 1. What do you think this number means? 
-                                @activity[#:forevidence (list "8.SP.1-4&1&1" "8.SP.1-4&1&2" "8.SP.1-4&1&3" "8.SP.1-4&1&4")]{
-                                    Turn to @worksheet-link[#:name "Grading-Predictors"]. For each plot, circle the chart that has the best predictor. Then, give that predictor a grade between 0 and 1.
-                                }
-                        }
-                        @teacher{
-                                
-                        }
-                }
-                @point{
-                        @student{
-                                The @vocab{r-squared} value for a predictor is a number on that tell us @italic{"how much of the variation in the scatter plot is explained by this line"}. In other words, it's a measure for how well the line fits. A perfect score of 1.0 means that 100% of the variability in the data is explained by the function and that every point falls exactly on the line. A score of 0.0 means that @italic{none} of the variability is explained by the predictor. 
-                                @activity[#:forevidence (list "HSS.ID.B&1&1" "HSS.ID.B&1&2" "HSS.ID.B&1&3" "HSS.ID.B&1&5")]{
-                                        @itemlist[
-                                            @item{
-                                                What is the r-squared value for @code{age} vs. @code{weeks} for our entire shelter population? What about for just the dogs? What does this difference mean?
-                                            }
-                                            @item{
-                                                What does it mean when a data point is @italic{above} the predictor line?
-                                            }
-                                            @item{
-                                                What does it mean when a data point is @italic{below} the predictor line?
-                                            }
-                                            @item{
-                                                If you only have two data points, why will the r-squared value always be 1.0?
-                                            }
-                                        ]
-                                        
-                                } 
-                        }
-                        @teacher{
-                                It's always possible to draw a line between points, so any predictor for a 2-item dataset will be perfect! Of course, that's why we never trust correlations drawn from such a small sample size!
-                        }
-                }
-                @point{
-                        @student{
-                                An r-squared value of 0.60 or higher is typically considered a strong correlation, and anything between 0.40 and 0.60 is "moderately correlated". Anything less than 0.40 is such a weak correlation that it might as well be random. However, these cutoffs are not an exact science! Different types of data may be "noisier" than others, and in some fields an r-squared value of 0.50 might be considered impressively strong!
-                        }
-                        @teacher{
-
-                        }
-                }
-                @point{
-                        @student{
-                                @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Show a scatter plot and line-of-best-fit for the following relationships:
-
-                                        @itemlist[
+                        @student{ 
+                                @activity[#:forevidence (list "8.SP.1-4&1&2" "S-ID.5-6&1&3" "S-ID.5-6&1&4")]{
+                                    For practice, try making scatter plots (or labeled scatter plots) for each of the following relationships. If you see any outliers, try to explain them!
+                                    @itemlist[
                                                 @item{
-                                                        The @code{age} vs. @code{weeks} waiting for adoption, but just for the dogs in the shelter.
+                                                        The @code{age} of an animal vs the @code{weight} of the animal
                                                 }
                                                 @item{
-                                                        The @code{weight} vs. @code{weeks} waiting for adoption, but just for the cats in the shelter.
+                                                        The @code{pounds} of an animal vs the number of @code{weeks} to be adopted
                                                 }
                                                 @item{
-                                                        The @code{age} vs. @code{weight} waiting for adoption, but just for animals that have been fixed.
+                                                        The @code{pounds} vs the number of @code{legs} it has.
                                                 }
                                         ]
                                 }
                         }
                         @teacher{
+                                Debrief, showing the plots on the board. Make sure students see plots for which there is no relationship, like the last one!
+                        }
+                }
+                @point{
+                        @student{
+                                Of course, it might not make sense to group different animals together in one plot! What if we wanted to see the relationship between @code{age} and @code{weeks} for just the dogs in our database?
+
+                                @activity[#:forevidence (list "8.SP.1-4&1&2" "S-ID.5-6&1&3" "S-ID.5-6&1&4")]{
+                                        Turn to @worksheet-link[#:name "Age-v-Weeks-Dogs"] in your workbook, and complete the Table Plan there. When you're done, try making a scatter plot for a different subset of your data.
+                                }
+                        }
+                        @teacher{
+
+                        }
+                }
+        ]
+  }
+
+  @lesson/studteach[
+     #:title "Correlations and Predictors"
+     #:duration "30 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[]
+     #:standards (list "S-ID.5-6" "Data 3.1.2" "Data 3.1.3")
+     #:materials @itemlist[]
+     #:preparation @itemlist[]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[
+                @point{
+                        @student{
+                                @bannerline{Correlations have @italic{direction}.}
+                                @itemlist[
+                                    @item{ If the cloud slopes up, there may be a @italic{positive correlation}. }
+                                    @item{ If the cloud slopes down, there may be a @italic{negative correlation}. }
+                                ]
+                                Do you see a correlation in the age-vs-weeks scatter plot? If so, is it positive or negative? What correlations, if any, did you see in the other scatterplots you created?
+                        }
+                        @teacher{
 
                         }
                 }
                 @point{
                         @student{
-                                When looking at just the dogs, we found that our predictor had an r-squared value of about 0.25. That means that 25% of the variation in adoption times is due to the age of the dogs. Turn to @worksheet-link[#:name "Findings-Animals"] to see how Data Scientists would write up this finding.
-                                @activity[#:forevidence (list "S-ID.7-9&1&1")]{
-                                      Write up two other findings from the linear regressions you performed on this dataset.
+                                You've already learned three ways to find the "center" of a dataset in one dimension: the mean, the median and the mode all represent a way to collapse a bunch of points on a number line into a single, summary number. If the "center" of points on a number line is a single point, what is the "center" of points in a @italic{two-dimensional} cloud? 
+                        }
+                        @teacher{
+
+                        }
+                }
+                @point{
+                        @student{
+                                What we need to do is find a @italic{line} - called a @vocab{predictor} - that is at the center of this cloud. Each point exerts a little bit of "pull" on the line, with points above the line yanking it up and points below the line dragging it down. Points that are really far away - our @vocab{outliers} - pull the line harder than those that are close to the line. The slope of the line will be positive or negative depending on whether or not the correlation is positive or negative. Given a value on the x-axis, this line allows us to "predict" what the corresponding value on the y-axis might be. This allows us to make inferences about a population, based on a sample of that population.
+                                @activity[#:forevidence (list "Data 3.1.3&1&1" "Data 3.1.3&1&2" "Data 3.1.3&1&3" "Data 3.1.3&1&4"  "Data 3.1.3&1&5")]{
+                                    Turn to @worksheet-link[#:name "Drawing-Predictors"], and do your best to draw a @vocab{predictor} through each of the scatter plots on the left.
                                 }
                         }
                         @teacher{
-                                Have students read their text aloud, to get comfortable with the phrasing.
+
+                        }
+                }
+                @point{
+                        @student{
+                                @bannerline{Correlations have @italic{strength}.}
+                                @itemlist[
+                                    @item{ If the cloud is tightly packed, there may be a @italic{strong correlation}. }
+                                    @item{ If the cloud is really spread out, there may be a @italic{weak correlation}. }
+                                    @item{ If the points are all over the place, there may be @italic{no correlation}. }
+                                ]
+                                @activity[#:forevidence (list "S-ID.5-6&1&3" "S-ID.5-6&1&4" "Data 3.2.1&1&2" "Data 3.2.1&1&6")]{
+                                    For each predictor you drew on @worksheet-link[#:name "Drawing-Predictors"], determine the direction and strength of the correlation by circling the words that describe it. 
+                                }
+                        }
+                        @teacher{
+                                
                         }
                 }
                 @point{
                         @student{
                                 @bannerline{Correlation does NOT imply causation.}
-                                It's worth revisiting this point again. It's easy to be seduced by large r-squared values, but Data Scientists know that correlation can be accidental! Here are some real-life correlations that have absolutely no causal relationship:
-                                @itemlist[
-                                    @item{ "Number of people who drowned after falling out of a fishing boat" v. "Marriage rate in Kentucky" (@math{r^2=0.952}) }
-                                    @item{ "Average per-person consumption of chicken" v. "US crude oil imports" (@math{r^2=0.899}) }
-                                    @item{ "Marriage rate in Wyoming" v. "Domestic production of cars" (@math{r^2=0.976}) }
-                                ]
-                        }
-                        @teacher{
-                                All of these correlations come from the @(hyperlink "http://tylervigen.com/" "Spurious Correlations") website. If time allows, have your students explore the site to see more!
-                        }
-                }
-        ]
-  }
-
-  @lesson/studteach[
-     #:title "Your Dataset"
-     #:duration "30 minutes"
-     #:overview ""
-     #:learning-objectives @itemlist[]
-     #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[]
-     #:standards (list "Data 3.2.1" )
-     #:materials @itemlist[]
-     #:preparation @itemlist[]
-     #:pacings (list 
-                @pacing[#:type "remediation"]{@itemlist[@item{}]}
-                @pacing[#:type "misconception"]{@itemlist[@item{}]}
-                @pacing[#:type "challenge"]{@itemlist[@item{}]}
-                )
-      ]{
-        @points[
-                @point{
-                        @student{
-                            @activity[#:forevidence (list "Data 3.2.1&1&1" "Data 3.2.1&1&2" "Data 3.2.1&1&3" "Data 3.2.1&1&5" "Data 3.2.1&1&6")]{
-                                Turn back to @worksheet-link[#:name "Correlations-My-Dataset"], where you listed possible correlations. Use Table Plans and the Design Recipe to investigate these correlations. If you need blank Table Plans or Design Recipes, you can find them at the back your workbook, just before the Contracts.
-                            }
+                                If two quantities are @italic{correlated}, it doesn't mean that one @italic{causes} the other! For example, suppose a study found that there was a strong correlation between the average per-person consumption of chicken and the amount of oil imported by the US. Those two values have similar patterns, but there is no causal relationship between them!
                         }
                         @teacher{
 
@@ -290,12 +320,23 @@
                 }
                 @point{
                         @student{
-                              @activity[#:forevidence (list "Data 3.2.1&1&1" "Data 3.2.1&1&2" "Data 3.2.1&1&3" "Data 3.2.1&1&5" "Data 3.2.1&1&6" "Data 3.1.3&1&1" "Data 3.1.3&1&2" "Data 3.1.3&1&3")]{
-                                  What correlations did you find? Did you need to filter out certain rows in order to get those correlations? Write up your findings by filling out @worksheet-link[#:name "Findings-My-Dataset"].
-                              }
+                                What correlations do you think there are in your dataset? Would you like to investigate a subset of your data to find those correlations? 
+                                @activity[#:forevidence (list "Data 3.1.2&1&1" "Data 3.1.2&1&2" "Data 3.1.2&1&3" "Data 3.1.2&1&4" "Data 3.1.2&1&5")]{
+                                    Brainstorm a few possible correlations that you might expect to find in your dataset, and make some scatter plots to investigate.
+                                }
                         }
                         @teacher{
-                              Have several students read their findings aloud.
+                                Have students share back their correlations, and @italic{why} they expect to find them.
+                        }
+                }
+                @point{
+                        @student{
+                                @activity[#:forevidence (list "Data 3.1.2&1&1" "Data 3.1.2&1&2" "Data 3.1.2&1&3" "Data 3.1.2&1&4" "Data 3.1.2&1&5")]{
+                                    Turn to @worksheet-link[#:name "Correlations-My-Dataset"], and list three correlations you'd like to search for.
+                                }
+                        }
+                        @teacher{
+
                         }
                 }
         ]
@@ -320,11 +361,18 @@
         @points[
                 @point{
                         @student{
-                                @bitmap{images/nonlinear.png}
-                                You've learned how linear regression can be used to compute a linear relationship for a cloud of data, and how to determine the error of that relationship. The word "linear" means "in a straight line", which is why all of our predictors are in a straight line. In the image on the right, there's clearly a pattern, but it doesn't look like a straight line! There are many other kinds of statistical models out there, but all of them work the same way: given a particular kind of mathematical function (linear or otherwise), figure out how to get the "best fit" for a cloud of data. 
+                              After looking at the scatter plot for our animal shelter, do you still agree with the claim on @worksheet-link[#:name "Cuter-Adoption"]? Perhaps you need more information, or to see the analysis broken down separately by animal. 
                         }
                         @teacher{
                         
+                        }
+                }
+                @point{
+                        @student{
+                              You've started to look for correlations in your dataset, and now you know how to create scatter plots to visualize them. But how do we know if a correlation is @italic{strong enough} to be useful? Eyeballing charts isn't good enough! In the next Unit, you'll learn how to calculate the strength of a correlation, and you'll investigate the correlations in your research that you mapped out here.
+                        }
+                        @teacher{
+
                         }
                 }
         ]
