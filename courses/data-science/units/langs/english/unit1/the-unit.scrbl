@@ -342,7 +342,10 @@
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
-     #:exercises (list (make-exercise-locator/dr-assess "Applying-Functions" "Contracts1" "Practicing Contracts"))
+     #:exercises (list (make-exercise-locator/dr-assess "Applying-Functions" "Contracts1" "Practicing Contracts")
+                        (make-exercise-locator/dr-assess "Applying-Functions" "Contracts2" "Practicing Contracts")
+                        (make-exercise-locator/dr-assess "Applying-Functions" "MatchingExpressions1" "Matching Expressions")
+                        (make-exercise-locator/dr-assess "Applying-Functions" "MatchingExpressions2" "Matching Expressions"))
      #:product-outcomes @itemlist[]
      #:standards (list)
      #:materials @itemlist[]

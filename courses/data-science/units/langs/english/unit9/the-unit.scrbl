@@ -80,6 +80,9 @@
      #:standards (list "S-ID.7-9" "HSS.ID.B" "HSS.ID.C" "Data 3.1.3" "Data 3.2.1")
      #:materials @itemlist[]
      #:preparation @itemlist[]
+     #:exercises (list (make-exercise-locator/dr-assess "Linear-Regression" "Relationships1" "Describing Relationships")
+                        (make-exercise-locator/dr-assess "Linear-Regression" "Relationships2" "Describing Relationships"))
+
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}

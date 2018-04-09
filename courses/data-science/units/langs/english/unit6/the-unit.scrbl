@@ -100,6 +100,7 @@
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
+     #:exercises (list (make-exercise-locator/dr-assess "Measures-of-Center" "CritiquingFindings" "Critiquing Findings"))
      #:product-outcomes @itemlist[]
      #:standards (list "S-ID.1-4" "HSS.ID.A")
      #:materials @itemlist[]
@@ -531,7 +532,7 @@
                 }
                 @point{
                     @student{
-                        By now, you've got a good handle on how to think talk about measures of center variation, and it's time to apply those skills to your dataset!
+                        By now, you've got a good handle on how to think about measures of center variation, and it's time to apply those skills to your dataset!
                         @activity[#:forevidence (list "Data 3.1.2&1&1" "Data 3.1.2&1&2" "Data 3.1.2&1&3" "Data 3.1.2&1&4" "Data 3.1.2&1&5")]{
                             Take 10 minutes to fill out @worksheet-link[#:name "Summarizing-My-Dataset"] in your Student Workbook. Choose a column to investigate, and write up your findings.
                         }
