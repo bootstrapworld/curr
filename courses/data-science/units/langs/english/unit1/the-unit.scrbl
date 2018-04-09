@@ -342,6 +342,7 @@
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
+     #:exercises (list (make-exercise-locator/dr-assess "Applying-Functions" "Contracts1" "Practicing Contracts"))
      #:product-outcomes @itemlist[]
      #:standards (list)
      #:materials @itemlist[]
@@ -432,7 +433,7 @@
                                 @item{@bold{Domain} - the data we give to the function (names and Types!), written between parentheses and separated by commas}
                                 @item{@bold{Range} - the type of data the function produces}
                             ]
-                            Domain and Range are @italic{Types}, not specific values. As a convention, @bold{we capitalize Types and keep names in lowercase when writing contracts}. @code{triangle} works on many different Numbers, not just the @code{20} we used in the example above!
+                            Domain and Range are @italic{Types}, not specific values. As a convention, @bold{we capitalize Types and keep names in lowercase}. @code{triangle} works on many different Numbers, not just the @code{20} we used in the example above!
                     }
                     @teacher{
 
