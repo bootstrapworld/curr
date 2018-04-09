@@ -530,7 +530,7 @@
                                              ["english" lessons-dir-alt-eng]
                                              ["spanish" lessons-dir-alt-spa])
                                              lesson-name "exercises")]
-         [exer-deploy-dir (build-path (root-deployment-dir) "lessons" (getenv "LANGUAGE") lesson-name "exercises")])
+                     [exer-deploy-dir (build-path (root-deployment-dir) "lessons" (getenv "LANGUAGE") lesson-name "exercises")])
                 (parameterize [(current-deployment-dir exer-dir)]
                   (scribble-to-pdf exer-files exer-dir))
                 (for ([exerfile exer-files])
@@ -767,13 +767,21 @@
           (putenv "TARGET-LANG" "racket")
           (if (build-exercises?)
               (begin (build-exercise-handouts) ; not needed for reactive
-              (workbook-styling-on)
-              (build-extra-pdf-exercises)); not needed for reactive
+                     (workbook-styling-on)
+                     (build-extra-pdf-exercises)); not needed for reactive
               (workbook-styling-on))
           )
         (when (equal? course "reactive")
           (putenv "TARGET-LANG" "pyret")
           ;; formerly set "RESLEASE-STATUS" to "beta" here
+          )
+        (when (equal? course "data-science")
+          (putenv "TARGET-LANG" "pyret")
+          (if (build-exercises?)
+              (begin (build-exercise-handouts) 
+                     (workbook-styling-on)
+                     (build-extra-pdf-exercises))
+              (workbook-styling-on))
           )
         (textbook-styling-on)
         (update-resource-paths)
