@@ -558,6 +558,9 @@
                                   @item{
                                       Take 5 minutes to fill in your name, and complete @worksheet-link[#:name "My-Dataset"].
                                   }
+                                  @item{
+                                      In the Definitions Area, use @code{get-row} to define @bold{at least two} values, representing different rows in your table. Call them @code{sample1}, @code{sample2}, and so on.
+                                  }
                               ]
                           }
                       }       

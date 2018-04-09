@@ -23,7 +23,7 @@
 
   @lesson/studteach[
      #:title "Review"
-     #:duration "10 minutes"
+     #:duration "20 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -40,19 +40,31 @@
         @points[
               @point{
                   @student{
-                        @activity[#:forevidence "BS-IDE&1&1"]{
-                                Open your "Animals Dataset (w/Functions)" file. (If you do not have this file, or if something has happened to it, you can always make a @editor-link[#:public-id "0BzzMl1BJlJDkbnZhbE1QSEE0eEE" "new copy"].)
-                        }
                   }
                   @teacher{
                   
                   }
               }
               @point{
-                  @student{Reviewing methods!}
-                  @teacher{}
+                  @student{
+                      @activity[#:forevidence "BS-IDE&1&1"]{
+                          Open the starter file you created for your dataset, and click "Run". In the Interactions Area, type the name of your table so you can see the dataset. Type the names of the two sample rows you defined: @code{sample1} and @code{sample2}.
+                      }
+                  }
+                  @teacher{
+                      It is critical that every student have at least two sample rows!
+                  }
               }
+              @point{
+                  @student{
+                      @activity[#:forevidence "BS-IDE&1&1"]{
+                          Do you remember how to use Table Methods? Do you remember how to use the Design Recipe to build functions? Open to @worksheet-link[#:name "Unit-4-Review"], and complete the activities there.
+                      }
+                  }
+                  @teacher{
 
+                  }
+              }
         ]
   }
 
@@ -75,7 +87,17 @@
         @points[
               @point{
                     @student{
-                        Table methods are powerful, and there's an order-of-operations to how they are used. For example, we might want to build a column and then use it to filter or order the table. Therefore, @code{.build-column} always has to come first! To help keep things organized, we can use @bold{Table Plans}. Turn to page @worksheet-link[#:name "Kitten-Tags"]
+                        @activity[#:forevidence "BS-IDE&1&1"]{
+                                Open your "Animals Dataset (w/Functions)" file. (If you do not have this file, or if something has happened to it, you can always make a @editor-link[#:public-id "0BzzMl1BJlJDkbnZhbE1QSEE0eEE" "new copy"].)
+                        }
+                    }
+                    @teacher{
+
+                    }
+              }
+              @point{
+                    @student{
+                        Table methods are powerful, and there's an order-of-operations to how they are used. For example, we might want to build a column and then use it to filter or order the table. Therefore, @code{.build-column} always has to come first! To help keep things organized, we can use @bold{Table Plans}. Turn to page @worksheet-link[#:name "Kitten-Tags"].
                     }
                     @teacher{
                         Table Plans are like the Design Recipe, but for manipulating tables. They enforce a @italic{way of thinking}, which is important for your students.

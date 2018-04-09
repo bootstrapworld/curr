@@ -635,7 +635,7 @@
             }
             @point{
                     @student{
-                            Below is an example block:
+                            Below is an examples block. Notice that @code{examples} is plural, that there's a colon at the end of the line to start the block, and that there's an @code{end} to finish it.
                             @code[#:multi-line #t]{
                                 examples:
                                     num-min(5, 19)  is  5

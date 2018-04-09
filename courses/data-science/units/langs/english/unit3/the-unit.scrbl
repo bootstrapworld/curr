@@ -355,6 +355,18 @@
                     
                     }
               }
+              @point{
+                    @student{
+                          @activity[#:forevidence (list )]{
+                              Can you chain these methods together correctly to answer the following questions?
+                              @itemlist[
+                                  @item{Show a table of only cats, sorted oldest-to-youngest.}
+                                  @item{Show a table of only fixed animals, in ascending order of the number of weeks they've been at the shelter}
+                                  @item{Show a table of only young animals with a new column called @code{nametag} that shows the image of every animal's nametag.}
+                              ]
+                          }
+                    }
+              }
         ]
   }
 
