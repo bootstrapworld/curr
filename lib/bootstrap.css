@@ -255,6 +255,12 @@ div.codesexp       .studentAnswer+.studentAnswer { margin-left: 10px;}
   #homeworkInfo {display: block; }
   a{color: black;}
 
+  /* don't print scrollbars */
+  .twoColumnLayout .CodeMirror-hscrollbar,
+  .twoColumnLayout .CodeMirror-vscrollbar {
+    display: none !important;
+  }
+
   span.rightColumnLabel,
   div.leftColumn:before,
   div.rightColumn:before{

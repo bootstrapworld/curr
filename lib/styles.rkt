@@ -7,27 +7,27 @@
          scribble/html-properties
          scribble/latex-properties
          ;(prefix-in neturl: net/url) ;; so we can load mathjax from a url
-	 "math-rendering.rkt"
+   "math-rendering.rkt"
        )
 
 (provide bootstrap-sectioning-style
          bootstrap-paragraph-style 
-	 bootstrap-div-style
-	 bootstrap-div-style/id
-	 bootstrap-div-style/id/nested
-	 bootstrap-div-style/extra-id
-	 bootstrap-span-style/extra-id
-	 bootstrap-span-style
-	 bootstrap-span-style/id
-	 bootstrap-agenda-style
+   bootstrap-div-style
+   bootstrap-div-style/id
+   bootstrap-div-style/id/nested
+   bootstrap-div-style/extra-id
+   bootstrap-span-style/extra-id
+   bootstrap-span-style
+   bootstrap-span-style/id
+   bootstrap-agenda-style
          bootstrap-hyperlink-style
-	 bootstrap-style
-	 bs-head-additions
+   bootstrap-style
+   bs-head-additions
          bs-body-id
-	 make-bs-latex-style 
-	 bs-title-style
-	 bs-content-style
-	 audience-in?
+   make-bs-latex-style 
+   bs-title-style
+   bs-content-style
+   audience-in?
          bs-coursename-style
 )
 
@@ -133,7 +133,7 @@
 (define bootstrap-hyperlink-style
   (make-style #f (cons (make-attributes (list (cons 'target "_blank")))
                        css-js-additions)))
-  
+
 ;; bootstrap-style : string -> style
 ;; defines a style for both latex and css with the given name
 (define (bootstrap-style name)
@@ -153,7 +153,10 @@
 ;; the tag is used in scribble-helpers.rkt (for units and exercises) and
 ;;    form-elements.rkt (for main.scrbl/curriculum index pages)
 (define (bs-body-id)
-  (make-body-id (getenv "RELEASE-STATUS")))
+  (let ([rel-status (getenv "RELEASE-STATUS")])
+    (if rel-status
+        (make-body-id (getenv "RELEASE-STATUS"))
+        (make-body-id "mature"))))
 
 ;; make-bs-latex-style : string -> style
 ;; defines a style that will only be used in latex
@@ -166,5 +169,4 @@
 (define bs-content-style (bootstrap-div-style "content"))
 
 (define bs-coursename-style (make-style "BSCourseName" overview-pages-css-js-additions))
-
 
