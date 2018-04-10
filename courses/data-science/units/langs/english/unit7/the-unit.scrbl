@@ -1,6 +1,6 @@
 #lang curr/lib
 
-@title{Unit 6: Frequency Charts}
+@title{Unit 7: Frequency Charts}
 
 @unit-overview/auto[#:lang-table (list (list "Number" 
                                               @code{+, -, *, /, num-sqrt} 

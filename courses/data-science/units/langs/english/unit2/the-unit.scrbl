@@ -81,7 +81,7 @@
                                 source: pets-sheet.sheet-by-name("pets", true)
                               end
                             }
-                            Just as you saw with our @code{shapes} example, this code @italic{defines a new table}. This time, it's called @code{animals-table}, and it's loaded from our Google Sheet. On line 12, you can see the names we are giving to each of the columns, called @code{name}, @code{species}, @code{gender}, @code{age}, @code{fixed}, @code{legs}, @code{pounts} and @code{weeks}.
+                            Just as you saw with our @code{shapes} example, this code @italic{defines a new table}. This time, it's called @code{animals-table}, and it's loaded from our Google Sheet. You can see the names we are giving to each of the columns, called @code{name}, @code{species}, @code{gender}, @code{age}, @code{fixed}, @code{legs}, @code{pounts} and @code{weeks}. (We could use any names we want for these columns, but it's always a good idea to pick names that make sense!)
                       }
                       @teacher{
                             Have students look back at the column names in the Google Sheet, and in the @code{load-table} function. Point out that they refer to the same columns, even though they have different names!
@@ -125,7 +125,7 @@
 
   @lesson/studteach[
      #:title "Defining Values"
-     #:duration "10 minutes"
+     #:duration "15 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -491,7 +491,7 @@
                 @point{
                       @student{
                           Throughout this course, you'll be analyzing this dataset and writing up your findings. As you learn new tools for data science, you'll continue to refine this analysis, answering questions and raising new ones of your own!
-                          Take 5 minutes to look through the following datasets, and choose one that interests you:
+                          Take 10 minutes to look through the following datasets, and choose one that interests you:
                           @itemlist[
                               @item{
                                   @(hyperlink "https://docs.google.com/spreadsheets/d/1SaR2M6Z-s40UuRg3u1aQU-G1GVdcm0RgHpqQ9LNmSQk" "Movies Dataset") (and the @editor-link[#:public-id "1KaHf2DSd5iJ17UsRd61jljsWR_HqRQY2" "Starter file"] for this dataset)
@@ -545,7 +545,7 @@
                           ]
                       }
                       @teacher{
-
+                          Have students write down which dataset they chose, to ensure a firm commitment. The farther they go in the course, the harder it will be to change datasets!
                       }
                 }
                 @point{

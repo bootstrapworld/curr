@@ -1,6 +1,6 @@
 #lang curr/lib
 
-@title{Unit 5: Measuring Center and Variation}
+@title{Unit 6: Measuring Center and Variation}
 
 @unit-overview/auto[#:lang-table (list (list "Number" 
                                               @code{+, -, *, /, num-sqrt, num-sqr} 

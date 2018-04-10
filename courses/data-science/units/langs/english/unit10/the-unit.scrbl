@@ -1,6 +1,6 @@
 #lang curr/lib
 
-@title{Unit 9: Writing Up Results}
+@title{Unit 10: Writing Up Results}
 
 @unit-overview/auto[#:lang-table (list (list "Number" 
                                               @code{+, -, *, /, num-sqrt, num-sqr} 
@@ -99,7 +99,7 @@
                                 }
                         }
                         @teacher{
-                                At this point, students are done! Have students present their findings to one another, or host a Data Science Fair!
+                                At this point, students are done! Have students present their findings to the class, or host a Data Science Fair where students can present these findings to the public!
                         }
                 }
         ]

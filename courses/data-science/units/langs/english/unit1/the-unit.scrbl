@@ -11,7 +11,7 @@
 
   @lesson/studteach[
      #:title "Introduction"
-     #:duration "5 minutes"
+     #:duration "10 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -551,7 +551,7 @@
 
   @lesson/studteach[
      #:title "Playing with Tables"
-     #:duration "15 minutes"
+     #:duration "10 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]

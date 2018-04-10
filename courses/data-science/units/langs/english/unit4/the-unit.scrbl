@@ -1,6 +1,6 @@
 #lang curr/lib
 
-@title{Unit 3: Manipulating Tables }
+@title{Unit 4: Table Plans }
 
 @unit-overview/auto[#:lang-table (list (list "Number" 
                                               @code{num-sqrt, num-sqr} 
@@ -23,7 +23,7 @@
 
   @lesson/studteach[
      #:title "Review"
-     #:duration "20 minutes"
+     #:duration "25 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -58,7 +58,7 @@
               @point{
                   @student{
                       @activity[#:forevidence "BS-IDE&1&1"]{
-                          Do you remember how to use Table Methods? Do you remember how to use the Design Recipe to build functions? Open to @worksheet-link[#:name "Unit-4-Review"], and complete the activities there.
+                          Turn to @worksheet-link[#:name "Animals-Plans"], and choose one of the criteria you wanted to us to @bold{filter} the dataset. Do you remember how to use the Design Recipe with Row Accessors? Open to @worksheet-link[#:name "Unit-4-Review"], and complete the activities there.
                       }
                   }
                   @teacher{
@@ -97,7 +97,30 @@
               }
               @point{
                     @student{
-                        Table methods are powerful, and there's an order-of-operations to how they are used. For example, we might want to build a column and then use it to filter or order the table. Therefore, @code{.build-column} always has to come first! To help keep things organized, we can use @bold{Table Plans}. Turn to page @worksheet-link[#:name "Kitten-Tags"].
+                        @bannerline{Problem 1: Duplicate code}
+                        Suppose we have a set of methods that we want to run on lots of tables, perhaps filtering and sorting many different tables from a shelter. We could write the same long chain of expressions over and over for each table, but that's problematic!
+                        @itemlist[
+                            @item{ It's a lot of extra typing }
+                            @item{ If we find a bug, we have to remember to fix it everywhere }
+                            @item{ Longer programs are harder to read and debug }
+                        ]
+                    }
+                    @teacher{
+                        
+                    }
+              }
+              @point{
+                    @student{
+                        @bannerline{Problem 2: Order-of-operations for Table Methods}
+                        Suppose we want to build a column and then use it to filter our table. If we use the methods in the wrong order (trying to filter by a column that doesn't exist yet), we might wind up crashing the program. Even worse, the program might @italic{work}, but produce results that are incorrect! Therefore, @code{.build-column} always has to come first! 
+                    }
+                    @teacher{
+
+                    }
+              }
+              @point{
+                    @student{
+                        The solution to both of these problems lies is something you've seen before: @vocab{functions}. Rather than rewrite the same method chain for every table, we can define a function that consumes an entire table and does the work for us. That way we can write the method chain once, and re-use it over and over. We can modify the Design Recipe slightly to help us keep our method order straight, turning it into something called a @bold{Table Plan}. Turn to page @worksheet-link[#:name "Kitten-Tags"].
                     }
                     @teacher{
                         Table Plans are like the Design Recipe, but for manipulating tables. They enforce a @italic{way of thinking}, which is important for your students.
@@ -141,13 +164,14 @@
               }
               @point{
                     @student{
-                        @bannerline{Step 3: Define the Function}
-                        The final step is to define a function that executes our Table Plan. We already know how to start:
+                        @bannerline{Step 3: Define the Function @italic{in two parts}}
+                        The final step is to define a function that executes our Table Plan, but we'll do this in two parts. First, we'll define a table by applying our methods to the input. Then, we'll do something with that table to produce a result. We already know how to start:
                         @code[#:multi-line #t]{
                             get-kittens-tags :: (animals :: Table) -> Table
                             # get all the kittens, add nametags, and sort by name
                             fun get-kittens-tags(animals):
-                                ...
+                                ...         # define the table
+                                ...         # produce the result
                             end
                         }
                     }
@@ -157,7 +181,7 @@
               }
               @point{
                     @student{
-                        Table plans include two parts: defining our new table, and producing our result. To define this table, we'll ask ourselves four questions, in order:
+                        To define this table, we'll ask ourselves three questions, in order:
                         @itemlist[
                             @item{ 
                               Does our Result have more columns than our Sample Table? If so, we'll need to use @code{.build-column}. 
@@ -184,10 +208,11 @@
                             get-kittens-tags :: (animals :: Table) -> Table
                             # get all the kittens, add nametags, and sort by name
                             fun get-kittens-tags(animals):
-                                t = animals
+                                t = animals  # define the table
                                   .build-column(...)
                                   .filter(...)
                                   .order-by(...)
+                                ...          # produce the result
                             end
                         }
                     }
@@ -236,7 +261,7 @@
               }
               @point{
                   @student{
-                        The final step in the Table Plan is to produce the result. For now, that result is just the table we defined, @code{t}! (Don't worry, you'll get to more complex results later)
+                        The final step in the Table Plan is to produce the result. For now, that result is just the table we defined, @code{t}. Don't worry, you'll get to more interesting results later!
                         @code[#:multi-line #t]{
                             get-kittens-tags :: (animals :: Table) -> Table
                             # get all the kittens, add nametags, and sort by name
@@ -264,6 +289,26 @@
                   
                   }
               }
+        ]
+    }
+
+    @lesson/studteach[
+     #:title "Practicing with Table Plans"
+     #:duration "30 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[]
+     #:standards (list "BS-DR.1" "BS-DR.2" "BS-DR.4" "Data 3.1.1")
+     #:materials @itemlist[]
+     #:preparation @itemlist[@item{}]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[
               @point{
                     @student{
                         @activity[#:forevidence (list "BS-DR.1&1&1" "BS-DR.1&1&2" "BS-DR.2&1&1" "BS-DR.1&1&2" "BS-DR.4&1&1" "BS-DR.4&1&2" "Data 3.1.1&1&1" "Data 3.1.1&1&2" "Data 3.1.1&1&4")]{
@@ -322,15 +367,21 @@
         @points[
               @point{
                     @student{
-                           Congratulations! You've just learned the basics of the Pyret programming language, and how to use that language to answer a data science question. Throughout this course, you'll learn new and more powerful tools that will allow you to answer more complex questions, and in greater detail.
-
-                     @activity[#:forevidence "BS-IDE&1&1"]{
+                        @activity[#:forevidence "BS-IDE&1&1"]{
                             Make sure to save your work.  Hit the Save button in the top left. This will save your program in the code.pyret.org folder within your Google Drive.
-                  }
-              }
+                        }
+                    }
                     @teacher{
                              If your students are working in pairs/groups, make sure that each student has access to a version of the program.  The student who saved the program to their Google Drive can share their program with anyone by hitting the Publish button in the top left, choosing "Publish a new copy", then clicking the "Share Link" option.  This will allow them to copy a link to the program, then send to their partners in an email/message.
                    }
+              }
+              @point{
+                    @student{
+                        You've already learned how to use the Design Recipe to write functions over simple data, like Numbers, Strings, Images and Booleans. Now you know how to use it to write functions over entire tables! The Design Recipe and Table Plans are the building blocks for all of the analysis you will do in this course.
+                    }
+                    @teacher{
+                    
+                    }
               }
         ]
   }

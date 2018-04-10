@@ -1,6 +1,6 @@
 #lang curr/lib
 
-@title{Unit 4: Quantity Charts}
+@title{Unit 5: Quantity Charts}
 
 @unit-overview/auto[#:lang-table (list (list "Number" 
                                               @code{+, -, *, /, num-sqrt, num-sqr} 

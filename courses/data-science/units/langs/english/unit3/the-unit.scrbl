@@ -64,7 +64,7 @@
                     @student{
                           The animal shelter might use this dataset in many ways. For example, it might want to see a list of animals ordered from oldest-to-youngest, or a list of names in alphabetical order. The shelter might also want to compute @italic{new columns} for their dataset. For example, they might want a new, numeric column that shows the animals' age in weeks instead of years, or make a new Boolean column showing which animals are dogs over the age of 2.
                           @activity[#:forevidence (list )]{
-                              Complete to @worksheet-link[#:name "Animals-Plans"] in your Student Workbook.
+                              Complete @worksheet-link[#:name "Animals-Plans"] in your Student Workbook.
                           }
                     }
                     @teacher{
@@ -201,6 +201,16 @@
 
                       }
                 }
+                @point{
+                      @student{
+                              @activity[#:forevidence "BS-IDE&1&1"]{
+                                  In the Interactions Area, use the @code{.order-by} method to produce a table sorted according to at least one of the criteria you wrote on page 18.
+                              }
+                      }
+                      @teacher{
+
+                      }
+                }
         ]
   }
 
@@ -244,7 +254,7 @@
                               }
                       }
                       @teacher{
-                              Proceed with caution here: do a lot of checking for understanding!
+                              Proceed with caution here: do a lot of checking for understanding! Suggestion: have one student "act out" the @code{is-fixed} function, and have the class "input" a few rows from the table.
                       }
                 }
                 @point{
@@ -366,6 +376,9 @@
                               ]
                           }
                     }
+                    @teacher{
+
+                    }
               }
         ]
   }
@@ -389,8 +402,6 @@
         @points[
               @point{
                     @student{
-                           Congratulations! You've just learned the basics of the Pyret programming language, and how to use that language to answer a data science question. Throughout this course, you'll learn new and more powerful tools that will allow you to answer more complex questions, and in greater detail.
-
                      @activity[#:forevidence "BS-IDE&1&1"]{
                             Make sure to save your work.  Hit the Save button in the top left. This will save your program in the code.pyret.org folder within your Google Drive.
                   }
@@ -398,6 +409,26 @@
                     @teacher{
                              If your students are working in pairs/groups, make sure that each student has access to a version of the program.  The student who saved the program to their Google Drive can share their program with anyone by hitting the Publish button in the top left, choosing "Publish a new copy", then clicking the "Share Link" option.  This will allow them to copy a link to the program, then send to their partners in an email/message.
                    }
+              }
+              @point{
+                    @student{
+                          Suppose we wanted to build a new column for a table, and then sort by that column. Compare the two lines of code below. Will they both work?
+                          @code[#:multi-line #t]{
+                              some-table.build-column("total", compute-total).order-by("total")
+                              some-table.order-by("total").build-column("total", compute-total)
+                          }
+                    }
+                    @teacher{
+
+                    }
+              }
+              @point{
+                    @student{
+                          @bold{No - the second line will fail!} That's because - just as in math - order of operations matters! In the second line, the first method call will produce an error, because the @code{"total"} column does not exist as part of @code{some-table}. In the first line, first make a @italic{new table} by using @code{build-colum}, and then call @code{order-by} on that table. So how do you know when to use each method? You'll learn that in the next lesson...
+                    }
+                    @teacher{
+
+                    }
               }
         ]
   }
