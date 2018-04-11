@@ -168,7 +168,7 @@
                   @student{
                         Each row of our @code{animals-table} represents a single animal in our shelter. We can use the @code{get-row} function from yesterday to define values. Type the following lines of code into the Definitions Area and click "Run":
                         @code[#:multi-line #t]{
-                          mittens = get-row(animals-table, 3) # the Row for Mittens
+                          mittens = get-row(animals-table, 3)  # the Row for Mittens
                           fritz   = get-row(animals-table, 10) # the Row for Fritz
                         }
                         What happens when you evaluate @code{mittens} in the Interactions Area?

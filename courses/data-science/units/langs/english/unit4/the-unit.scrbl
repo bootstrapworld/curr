@@ -16,7 +16,7 @@
                                               (list @bitmap{images/imgValue1.png} @bitmap{images/imgValue2.png}))
                                        )]{
   @unit-descr{
-    Students extend their knowledge of functions to include methods, and learn about Table methods for sorting, filtering and extending Tables. They are also introduced to Table Plans (a structured approach to manipulating tables), and begin manipulating their own datasets.
+    Students are introduced to Table Plans (a structured approach to manipulating tables), and begin manipulating their own datasets.
   }
 }
 @unit-lessons{

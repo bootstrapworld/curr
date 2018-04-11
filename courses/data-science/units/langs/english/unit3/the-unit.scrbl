@@ -16,7 +16,7 @@
                                               (list @bitmap{images/imgValue1.png} @bitmap{images/imgValue2.png}))
                                        )]{
   @unit-descr{
-    Students extend their knowledge of functions to include methods, and learn about Table methods for sorting, filtering and extending Tables. They are also introduced to Table Plans (a structured approach to manipulating tables), and begin manipulating their own datasets.
+    Students extend their knowledge of functions to include methods, and learn about Table methods for sorting, filtering and extending Tables. They also learn about chaining method calls together, and how ordering effects the output.
   }
 }
 @unit-lessons{
@@ -402,16 +402,6 @@
         @points[
               @point{
                     @student{
-                     @activity[#:forevidence "BS-IDE&1&1"]{
-                            Make sure to save your work.  Hit the Save button in the top left. This will save your program in the code.pyret.org folder within your Google Drive.
-                  }
-              }
-                    @teacher{
-                             If your students are working in pairs/groups, make sure that each student has access to a version of the program.  The student who saved the program to their Google Drive can share their program with anyone by hitting the Publish button in the top left, choosing "Publish a new copy", then clicking the "Share Link" option.  This will allow them to copy a link to the program, then send to their partners in an email/message.
-                   }
-              }
-              @point{
-                    @student{
                           Suppose we wanted to build a new column for a table, and then sort by that column. Compare the two lines of code below. Will they both work?
                           @code[#:multi-line #t]{
                               some-table.build-column("total", compute-total).order-by("total")
@@ -421,6 +411,16 @@
                     @teacher{
 
                     }
+              }
+              @point{
+                    @student{
+                     @activity[#:forevidence "BS-IDE&1&1"]{
+                            Make sure to save your work.  Hit the Save button in the top left. This will save your program in the code.pyret.org folder within your Google Drive.
+                  }
+              }
+                    @teacher{
+                             If your students are working in pairs/groups, make sure that each student has access to a version of the program.  The student who saved the program to their Google Drive can share their program with anyone by hitting the Publish button in the top left, choosing "Publish a new copy", then clicking the "Share Link" option.  This will allow them to copy a link to the program, then send to their partners in an email/message.
+                   }
               }
               @point{
                     @student{

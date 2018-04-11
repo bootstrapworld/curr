@@ -38,7 +38,7 @@
                                     Spend one minute discussing your answer, and explaining @italic{why} you answered the way you did. Do other students agree with you?
                                 }
                                 @item{
-                                    WHat could you @italic{measure} to determine if your answer is right or not?
+                                    What could you @italic{measure} to determine if your answer is right or not?
                                 }
                             ]
                       }
@@ -49,7 +49,7 @@
             }
             @point{
                     @student{
-                             What's the greatest movie of all time? The best quarterback? Is Stop-and-Frisk racially biased? These questions quickly turn into a discussion about data - how you measure it and how you interpret the results. In this course, you'll learn how to use data to ask and answer questions like this.  The process of learning from data is called @vocab{Data Science}. Data science techniques are used by scientists, business people, politicians, sports analysts, and hundreds of other different fields to ask and answer questions about data.
+                             What's the greatest movie of all time? Is Climate Change real? Who is the best quarterback? Is Stop-and-Frisk racially biased? These questions quickly turn into a discussion about data - how you measure it and how you interpret the results. In this course, you'll learn how to use data to ask and answer questions like this.  The process of learning from data is called @vocab{Data Science}. Data science techniques are used by scientists, business people, politicians, sports analysts, and hundreds of other different fields to ask and answer questions about data.
                     }
                     @teacher{
                             You can motivate relevance of data science by using additional examples that relate to student interests.  Here are a few:
@@ -159,7 +159,7 @@
             }
             @point{
                     @student{
-                            It's important to remember that tables are only a approximation of the real thing: this table @italic{describes} some shapes we've observed, but it isn't the shapes themselves! 
+                            It's important to remember that tables are only an approximation of the real thing: this table @italic{describes} some shapes we've observed, but obviously it isn't the shapes themselves!
                             @activity[#:forevidence (list "BS-M&1&2" "BS-M&1&3" "BS-PL.1&1&1")]{
                                 Add rows to this table for @code{circle}, @code{ellipse}, @code{square}, and @code{rectangle}. Pay close attention to how you use commas and colons, since these are part of the program! When you're done, click "Run" and print out your new-and-improved @code{shapes} table.
                             }
@@ -193,7 +193,7 @@
             }
             @point{
                     @student{
-                            Data can be categorical or quantitative, depending on what kind of question it answers. It doesn't make sense to ask whether "@code{square} is more than @code{triangle}", so most of the time we'd use the @code{name} column as categorical data. But if we wanted to sort the table in alphabetical order, suddenly we @italic{do} care whether @code{square} comes before @code{triangle}.
+                            Data can be categorical or quantitative, depending on how it is used. It doesn't make sense to ask whether "@code{square} is more than @code{triangle}", so most of the time we'd use the @code{name} column as categorical data. But if we wanted to sort the table in alphabetical order, suddenly we @italic{do} care whether @code{square} comes before @code{triangle}.
                             @activity[#:forevidence (list )]{
                                 For each of the following questions, determine whether the data being used is quantitative or categorical.
                                 @itemlist[
