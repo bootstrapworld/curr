@@ -38,8 +38,6 @@ courses/*/resources/workbook/langs/*/workbook-index.rkt
 courses/*/resources/workbook/workbook-index.rkt
 courses/*/resources/workbook/langs/*/workbook.pdf
 courses/*/resources/workbook/langs/*/workbooksols.pdf
-courses/*/resources/workbook/langs/*/back-matter.pdf
-courses/*/resources/workbook/langs/*/front-matter.pdf
 courses/*/units/langs/*/*/box.gif
 courses/*/units/langs/*/*/backlogo.png
 lessons/*/exercises/*.pdf
