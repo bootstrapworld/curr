@@ -53,11 +53,6 @@
      #:product-outcomes @itemlist[@item{Students will add danger movement to their games}
                                   @item{Students will add target movement to their games}]
      #:exercises (list (make-exercise-locator/dr-assess "Danger-and-Target-Movement" "target-leap-design-recipe-assess" "Making Players Leap")
-                        (make-exercise-locator "Danger-and-Target-Movement" "lemonade-cost")
-                        (make-exercise-locator "Danger-and-Target-Movement" "lemonade-revenue")
-                        (make-exercise-locator "Danger-and-Target-Movement" "lemonade-profit")
-                        (make-exercise-locator "Danger-and-Target-Movement" "circle-area")
-                        (make-exercise-locator "Danger-and-Target-Movement" "donut-area")
 		       )
      #:standards (list "F-IF.1-3" "F-LE.5" "BS-DR.2" "BS-DR.3")
      #:materials @itemlist[]
