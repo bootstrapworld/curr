@@ -18,9 +18,9 @@
 @(define exprs-as-code (map sexp->code exprs))
 
 @(exercise-handout 
-  #:title "Converting Circles of Evaluation to Code"
-  #:instr "For each Circle of Evaluation on the left-hand side, write the code
-           for the Circle on the right-hand side:" 
+  #:title "Conversión de círculos de evaluación a código"
+  #:instr "Para cada círculo de evaluación en el lado izquierdo, escriba el código
+           para el círculo en el lado derecho: " 
   #:forevidence (exercise-evid-tags "BS-CE&1&4")
   @(open-response-exercise exprs-as-coe "code")
   @(exercise-answers

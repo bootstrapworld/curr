@@ -4,9 +4,9 @@
 
 
 @unit-overview/auto[#:lang-table (list (list "" @code{} ""))]{
-  @unit-descr{NOTE: THESE LESSONS ARE NOT INTENDED TO BE TAUGHT IN SEQUENCE - they are collected here solely for convenience!
-              Students will deepen their understanding of various concepts, either through continued practice and review,
-              encountering more complicated material (structs).}
+  @unit-descr{NOTA: ESTAS LECCIONES NO ESTAN DESTINADAS A SER ENSEÑADAS EN SECUENCIA - aqui se recogen únicamente por conveniencia!
+               Los estudiantes profundizarán su comprensión de varios conceptos, ya sea a través de la práctica continua y revisión,
+               Encontrando material más complicado (estructuras).}
 }
 
 

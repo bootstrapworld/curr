@@ -180,7 +180,7 @@
                       @student{
                           We've got most of our function written:
                           @code[#:multi-line #t]{
-                          pie-dog-weight :: (animals :: Table) -> Number
+                          pie-dog-weight :: (animals :: Table) -> Image
                           # Consume a table of animals, and produce a pie-chart showing the weight of the dogs
                           fun pie-dog-weight(animals):
                             t = animals.filter(is-dog)     # define the table
@@ -197,7 +197,7 @@
                       @student{
                           Putting it all together, we get:
                           @code[#:multi-line #t]{
-                          pie-dog-weight :: (animals :: Table) -> Number
+                          pie-dog-weight :: (animals :: Table) -> Image
                           # Consume a table of animals, and produce a pie-chart showing the weight of the dogs
                           fun pie-dog-weight(animals):
                             t = animals.filter(is-dog)     # define the table
@@ -302,7 +302,7 @@
               @point{
                     @student{
                         @activity[#:forevidence (list "Data 3.1.2&1&1" "Data 3.1.2&1&2" "Data 3.1.2&1&3" "Data 3.1.2&1&4" "Data 3.1.2&1&5")]{
-                            Do you notice that the outliers all of something in common? What new questions does this raise? Would you like to change your table by filtering it or building a new column? If so, go deeper into your data, using @worksheet-link[#:name "Blank-Table-Plan-1"] and @worksheet-link[#:name "Blank-Table-Plan-2"] to figure out how you want to change your dataset. Write up your findings on @worksheet-link[#:name "Visualizing-My-Dataset-1"].
+                            Do you notice that the outliers all have something in common? What new questions does this raise? Would you like to change your table by filtering it or building a new column? If so, deepen your analysis using @worksheet-link[#:name "Blank-Table-Plan-1"] and @worksheet-link[#:name "Blank-Table-Plan-2"] to figure out how you want to change your dataset. Write up your findings on @worksheet-link[#:name "Visualizing-My-Dataset-1"].
                         }
                     }
                     @teacher{

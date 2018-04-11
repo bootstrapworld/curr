@@ -8,7 +8,7 @@
 
 (provide get-prog-cmd
          scribble-files
-	 scribble-to-pdf)
+   scribble-to-pdf)
 
 ; cross-platform helper for locating executables.  Looks for progname with and without .exe extension
 (define (get-prog-cmd progname)
@@ -72,5 +72,5 @@
 ; Avoiding naming conflicts with the more general run-scribble
 ; function in the build script (shouldn't need two functions, but have never
 ; worked on merging them properly)
-(define (scribble-to-pdf pages pagesdir)   	
+(define (scribble-to-pdf pages pagesdir)    
   (scribble-files pages pagesdir pagesdir #f))

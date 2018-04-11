@@ -2,8 +2,8 @@
 
 
 @lesson/studteach[
-     #:title "2D Movement using Structs" 
-     #:duration "20 min"
+     #:title "Movimientos en 2D usando Estructuras" 
+     #:duration "20 minutos"
      #:overview "Students are introducted to the @code{Posn} struct, and use it to add 2-dimensional movement to their game"
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -24,41 +24,41 @@
                 )
      ]{
   @points[
-     @point{@student{Right now, each character in your game moves along only one axis. @code{update-danger} takes in the danger's x-coordinate and produces the next one, but it has no ability to read or update the y-coordinate. As a result, your danger can only move left or right.
+     @point{@student{En este momento, cada personaje de tu juego se mueve a lo largo de un solo eje. @code{update-danger} toma la coordenada x del peligro y produce la siguiente, pero no tiene capacidad para leer o actualizar la coordenada y.  Como resultado, su peligro sólo puede moverse hacia la izquierda o la derecha.
                      @code[#:multi-line #t]{; update-danger : Number -> Number
                                             ; takes in object's x-coordinate and returns the next one}
-                     @activity{Suppose we wanted to move diagonally. What would have to change about the Domain? The Range? The Purpose Statement?}}
+                     @activity{Supongamos que queriamos que se moviera en diagonal. ¿Qué tendría que cambiar en el dominio? ¿El rango? ¿La Declaración de Propósito?}}
              @teacher{Use a diagram on the board to demonstrate that @code{update-danger} will need to take in both the x- and the y-coordinate, and that it will have to produce both as well.}}
-      @point{@student{While you've seen a function take in multiple values, you have never seen a function @italic{produce} more than one thing at a time.
-                       @bannerline{All functions must produce one value.}}
+      @point{@student{Mientras que has visto una función tomar en varios valores, nunca has visto una función @italic{producir} más de una cosa a la vez.
+                       @bannerline{Todas las funciones deben producir un valor.}}
               @teacher{}
               }
-      @point{@student{However, Racket actually allows us to create new kinds of data that can contain more than one thing. These are called @vocab{data structures}, or "structs" for short. One kind of struct that is useful to us is called a position, which Racket abbreviates @code{posn}.
-                     @activity{Open a new program.
-                               @itemlist[@item{Enter a Number value in the Interactions window and hit Enter. What did you get back?}
-                                          @item{Enter a String value in the Interactions window and hit Enter. What did you get back?}
-                                          @item{Enter a Boolean value in the Interactions window and hit Enter. What did you get back?}]
-                               As you can see, all values evaluate to @italic{themselves}. To create a @code{posn}, enter the following code in the Interactions window: 
+      @point{@student{Sin embargo, Racket en realidad nos permite crear nuevos tipos de datos que pueden contener más de una cosa. A éstos se les llama @vocab{estructuras de datos}, o "estructuras" para abreviar. Un tipo de estructura que es útil para nosotros se llama una posición, que Racket abreviará @code{posn}.
+                     @activity{Abre un nuevo programa.
+                               @itemlist[@item{Digita un valor Number en la ventana Interacciones y presiona Enter. ¿Qué obtuviste?}
+                                          @item{Digita un valor String en la ventana Interacciones y presiona Enter. ¿Qué obtuviste?}
+                                          @item{Digita un valor Boolean en la ventana Interacciones y presiona Enter. ¿Qué obtuviste?}]
+                               Como puedes ver, todos los valores se evaluan a sí mismos. Para crear un @code{posn}, escribe el siguiente código en la ventana Interacciones:
                                @code[#:multi-line #t]{(make-posn 10 40)}
-                               What do you get back when you hit Enter? Which number is the x-coordinate? The y-coordinate?
+                               ¿Qué obtuviste cuando pulsas Enter? ¿Qué número es la coordenada x? ¿La coordenada y?
                                }}
               @teacher{Have students make @code{Posn}s for other coordinates, like the corners of the screen or the center.}
               }
-      @point{@student{Thinking back to an @code{update-danger} that moves diagonally, we now know that the @vocab{Range} must be a @code{posn}.
-                      @activity{Start with a @(resource-link #:path "DesignRecipeWorksheet.pdf" #:label "blank Design Recipe"), and rewrite @code{update-danger} to produce a Posn instead of a Number. Instead of producing @code{(- x 50)}, your function will have to produce a Posn in which the x and y have changed in some way. Here's one example, which moves the danger left by 50 pixels and down by 10:
+      @point{@student{Pensemos en un @code{update-danger} que se mueve en diagonal, ahora sabemos que el @vocab{Rango} debe ser un @code{posn}.
+                      @activity{Comencemos con una @(resource-link #:path "DesignRecipeWorksheet.pdf" #:label "Receta de diseño en blanco"), y volvamos a escribir el @code{update-danger} para producir un Posn en lungar de un Number. En lugar de producir un @code{(- x 50)},tu función tendría que producir un Posn en el que x y y han cambiado de alguna manera. Aquí hay un ejemplo, que mueve el peligro a la izquierda por 50 píxeles y hacia abajo por 10:
                                @code[#:multi-line #t]{(EXAMPLE (update-danger 200 300) (make-posn (- 200 50) (- 300 10)))}
-                               @itemlist[@item{Write a second example.}
-                                          @item{Circle and label what changes.}
-                                          @item{Define the function on your worksheet, then modify the definition in your program so that your danger moves diagonally!}]}}
+                               @itemlist[@item{Escribe un segundo ejemplo.}
+                                          @item{Identifica lo que cambia.}
+                                          @item{¡Define la función en tu hoja de trabajo, después modifica la definición en tu programa de modo que tu peligro se mueva diagonalmente!}]}}
               @teacher{}
               }
-   @point{@student{@activity{Modify @code{update-target} so that it moves diagonally as well.}}
+   @point{@student{@activity{Modifica @code{update-target} para que se mueva en diagonal también.}}
            @teacher{}
            }
-   @point{@student{@code{update-player} will also need to be changed, so that it takes in the x- and y-coordinate @italic{and} the key that was pressed. The @vocab{Range}, predictably, will be a Posn.
-                    @activity{@itemlist[@item{Change your EXAMPLEs for "up" and "down" so that they take in both coordinates and produce Posns.}
-                                         @item{Add two more EXAMPLEs, this time for "left" and "right".}
-                                         @item{Modify each clause of your @code{cond} statement, so that each one produces a Posn. Don't forget to change your @code{else} clause, too!}]}}
+   @point{@student{@code{update-player} también tendrá que ser cambiado, de modo que toma en la coordenada x y en la coordenada y la llave que fue presionada. El @vocab{Rango}, previsiblemente, será un Posn.
+                    @activity{@itemlist[@item{Cambie sus EJEMPLOS para "arriba" y "abajo" de modo que tomen en ambas coordenadas y produzcan Posns.}
+                                         @item{Añade dos EJEMPLOS más, esta vez para "izquierda" y "derecha".}
+                                         @item{Modifique cada cláusula de su sentencia @code{cond}, para que cada una produzca un Posn. No te olvides de cambiar la cláusula @code{else} también!}]}}
            @teacher{}
            }]
    }

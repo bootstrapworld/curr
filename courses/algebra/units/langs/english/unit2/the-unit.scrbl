@@ -16,9 +16,13 @@ include other datatypes, including Strings and Images.}
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
      #:standards (list "A-SSE.1-2" "BS-CE")
-     #:materials @itemlist[]
-     #:preparation @itemlist[@item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/1Qn59Fol2tspqOx6XQV88xm-IYsRGY769cb7MQeknSMA/edit?usp=sharing" "Warmup activity sheet").}
-                              @item{Student Workbooks, and something to write with.}]
+     #:materials @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket with the  bootstrap-teachpack installed}
+                           @item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbooks"], and something to write with}
+                            @item{Class poster (List of rules, language table, course calendar)}
+                            @item{Overhead projector}]
+     #:preparation @itemlist[@item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/1Qn59Fol2tspqOx6XQV88xm-IYsRGY769cb7MQeknSMA/edit?usp=sharing" "Warmup activity sheet")}
+    
+                              ]
      #:prerequisites (list "Order of Operations")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -57,9 +61,10 @@ include other datatypes, including Strings and Images.}
      #:exercises (list (make-exercise-locator "Strings-and-Images" "many-types-coe-to-code1")
                        (make-exercise-locator "Strings-and-Images" "many-types-coe-to-code2"))
      #:standards (list "N-Q" "BS-PL.1" "BS-PL.2")
-     #:materials @itemlist[@item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}]
-     #:preparation @itemlist[@item{Students are logged into WeScheme.org, OR have opened DrRacket.}
-                              @item{Student Workbooks, and something to write with.}]
+     #:materials @itemlist[]
+     #:preparation @itemlist[@item{Students are logged into WeScheme.org, OR have opened DrRacket}
+                              @item{OPTIONAL: @(hyperlink "https://quizizz.com/admin/quiz/5a15d1a82b65d91100dc2055?from=quizEditor" "Quizizz Unit 2 Review Quiz")}
+                              @item{OPTIONAL: @(hyperlink "https://teacher.desmos.com/activitybuilder/custom/5a15e268dcb86b2b9fda3ce0" "Desmos Activity: Unit 2 Review")}]
      #:prerequisites (list "Intro to Programming")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -68,7 +73,7 @@ include other datatypes, including Strings and Images.}
                 )
       ]{
         @points[          
-            @point{@student{The Circles of Evaluation are a powerful tool, and can be used for much more than just numbers.
+            @point{@student{@noSlideText{The Circles of Evaluation are a powerful tool, and can be used for much more than just numbers.}
                             Consider the Circle of Evaluation shown here. @sexp{(star 50 "solid" "red")}
                             @activity[#:forevidence "N-Q&1&2"]{@itemlist[@item{What is the name of the function being used?}
                                                  @item{How many arguments are being given to that function?}
@@ -77,8 +82,7 @@ include other datatypes, including Strings and Images.}
                              }
                     @teacher{Students are not expected to know all the answers here - the goal is for them to apply what they know about Circles to a novel expression, and discuss for themselves what they think it might mean. Ask them to justify their answers, and to explain why they think they are correct. Linking this back to earlier examples of Circles of Evaluation may be useful.}
                     }
-             @point{@student{The same rules you used to convert a Circle of Evaluation into code still apply. 
-                             Here is the code for that Circle: @sexp[#:form "code"]{(star 50 "solid" "red")}
+             @point{@student{@noSlideText{The same rules you used to convert a Circle of Evaluation into code still apply.} Here is the code for that Circle: @sexp[#:form "code"]{(star 50 "solid" "red")}
                              @activity[#:forevidence "BS-PL.1&1&2"]{Type this code into the Interactions window, and hit "Return". What did you get back?
                     @itemlist[@item{What does the @code{star} function do?}
                             @item{Type the expression again, but this time use a much larger number in place of @code{50}. What does the first argument tell the computer?}
@@ -156,9 +160,8 @@ include other datatypes, including Strings and Images.}
                        (make-exercise-locator "Contracts" "id-expr-pieces2")
                        (make-exercise-locator "Contracts" "match-contracts-exprs1"))
      #:standards (list "BS-PL.2" "BS-IDE" "N-Q" "F-IF.1-3")
-     #:materials @itemlist[@item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}]
-     #:preparation @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket}
-                              @item{Student Workbooks, and something to write with}]
+     #:materials @itemlist[]
+     
      #:prerequisites (list "Intro to Programming")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -167,8 +170,7 @@ include other datatypes, including Strings and Images.}
                 )
       ]{
         @points[@point{@student{You've already seen several functions that take in two Numbers, such as @code{+}, and @code{-}.
-                                Meanwhile, @code{star} takes in a Number and two Strings. Different functions take in different 
-                                inputs, and we need a way to keep track of the requirements for each function.
+                                Meanwhile, @code{star} takes in a Number and two Strings. @noSlideText{Different functions take in different inputs, and we need a way to keep track of the requirements for each function.}
                         @bannerline{The Domain of a function is the data that the function expects.}
                         @activity[#:forevidence (list "F-IF.1-3&1&1")]{Why is it helpful to know the @vocab{Domain} of a function?}}
                         @teacher{}
@@ -185,8 +187,7 @@ include other datatypes, including Strings and Images.}
                                   Number. Have students systematically replace each value with an expression, asking them to 
                                   justify their replacement using the Domain and Range of each function.}
                          }
-                 @point{@student{Domains and Ranges help programmers write better code, by preventing silly mistakes and giving themselves 
-                                 hints about what to do next. A programmer who wants to use @code{star} can look up the Domain and
+                 @point{@student{@noSlideText{Domains and Ranges help programmers write better code, by preventing silly mistakes and giving themselves hints about what to do next.} A programmer who wants to use @code{star} can look up the Domain and
                                  immediately know that the first input has to be a Number (like @code{100}), without having to remember 
                                  it each time. Instead of writing a single value there, a programmer could write a whole expression, 
                                  like @code{(* 25 4)}. We know this code will return an appropriate value (Number) by looking at the Range 
@@ -201,11 +202,10 @@ include other datatypes, including Strings and Images.}
                                  This means that the @vocab{Name} of the function is @code{star}, that it takes in a Number and two Strings as its 
                                  Domain, and produces an Image as the Range. We use types instead of values when we write a Contract, because we 
                                  want to be more general: a star could be of any size, so the Domain for @code{star} specifies that the first 
-                                 argument could be @italic{any Number}. If we think of a language as a collection of lego pieces, the Contracts 
-                                 are like the tabs and slots that tell us how each piece can connect.}
+                                 argument could be @italic{any Number}. @noSlideText{If we think of a language as a collection of lego pieces, the Contracts are like the tabs and slots that tell us how each piece can connect.}}
                          @teacher{[@(hyperlink "https://www.youtube.com/watch?v=88WhYoMxrGw" "Video")]}
                          }
-             @point{@student{Contracts are sufficiently important and useful that we should keep a list of them somewhere.  
+             @point{@student{@noSlideText{Contracts are sufficiently important and useful that we should keep a list of them somewhere.}  
                              The back pages of your workbook contain a sheet labeled "Contracts".  Write the contract for 
                              @code{star} in the first row of your contracts table.}
                     @teacher{Common mistakes when students first write down contracts include: writing values (such as @code{"red"}) 
@@ -225,7 +225,7 @@ include other datatypes, including Strings and Images.}
                                                   "What do you think this code will produce?"]}
                      @teacher{Have students experiment with changing the argument values, always drawing attention back to the Domain.}
                      }
-             @point{@student{By writing down the Contracts for our functions, we can easily look back to see how they are used.
+             @point{@student{@noSlideText{By writing down the Contracts for our functions, we can easily look back to see how they are used.}
                              @activity[#:forevidence (list "BS-PL.2&1&1" "F-IF.1-3&1&1")]{The Contract for @code{+} is shown below.
                                        @code[#:multi-line ""]{; +: Number Number -> Number}                
                                        Can you write the Contract for @code{*}, @code{-}, @code{/} and @code{sqrt}?}}
@@ -300,9 +300,7 @@ include other datatypes, including Strings and Images.}
                                 the problems in their own words should reinforce correct use of these functions later 
                                 in the course.}
                        }
-                @point{@student{Being an expert at reading error messages is an important part of being a good programmer! Reading 
-                                error messages is like having a teacher or a friend help you with something you are working on, rather
-                                than just saying "wrong!" every time you make a mistake.  If you get really good at reading these
+                @point{@student{Being an expert at reading error messages is an important part of being a good programmer! @noSlideText{Reading error messages is like having a teacher or a friend help you with something you are working on, rather than just saying "wrong!" every time you make a mistake.}  If you get really good at reading these
                                 messages, you can even use them to discover functions you never knew existed!
                                 @activity{Here are the names of some other image-producing functions, but how do they work? Try to
                                           figure out how they are used on the computer, by experimenting and reading the error 

@@ -256,7 +256,7 @@
             (merge-pages pdfpagenames)
             (add-pagenums)
             ; add front and back pages
-	    ; current assumes both or neither front/back pages -- can adjust later if needed
+      ; current assumes both or neither front/back pages -- can adjust later if needed
             (if (and (empty? frontpages) (empty? backpages))
                 (copy-file (build-path workbook-dir "workbook-numbered.pdf")
                            (build-path workbook-dir workbook-file)

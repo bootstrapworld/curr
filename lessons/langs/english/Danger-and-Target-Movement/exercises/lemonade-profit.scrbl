@@ -13,4 +13,3 @@
                        #:body '(- (revenue glasses) (cost glasses))
                        #:show-body? #f
                        )
-

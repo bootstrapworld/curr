@@ -22,8 +22,8 @@
 @(define expr-coes (map sexp->coe exprs))
 
 @(exercise-handout 
-  #:title "Matching Circles of Evaluation and Code"
-  #:instr "Draw a line from each Circle of Evaluation on the left to the corresponding code on the right."
+  #:title "Círculos coincidentes de evaluación y código"
+  #:instr "Dibuje una línea desde cada círculo de evaluación a la izquierda hasta el código correspondiente a la derecha."
   #:forevidence (exercise-evid-tags "BS-CE&1&4")
   @(matching-exercise expr-coes (map sexp->code permuted-exprs))
   @(exercise-answers
@@ -31,4 +31,3 @@
                                #:content-of-ans exprs
         expr-coes (map sexp->code exprs) permuted-exprs))
   )
-

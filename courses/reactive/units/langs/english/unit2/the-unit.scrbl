@@ -153,26 +153,26 @@ end}
     end}
                           @itemlist[
                               @item{
-                                On the first line, we've written a comment to remind ourselves what we're creating. In this case, we're calling our new structure @code{DeliveryState}, which contains two numbers: an x and y-coordinate.
+                                On the first line, we've written a comment that describes the stucture. We're calling it @code{DeliveryState}, and it contains Numbers for the x- and y-coordinate.
                               }
                               @item{
-                                The next line begins with the @code{data} keyword, which tells the computer that you're about to define a new type of data. You're already familiar with built-in data types like @code{Number}, @code{String}, @code{Image} and @code{Boolean}. The @code{data} keyword allows us to create brand new data types of our own! Here, we are making a data type that contains both coordinates. We call this data type @code{DeliveryState}, because it represents the current state - or position - of the package being delivered. Pyret lets us write any name after @code{data}, but as a convention we'll choose a meaningful name for the data type, and capitalize it.
+                                You're already familiar with built-in data types like @code{Number}, @code{String}, @code{Image} and @code{Boolean}. On the next line, the @code{data} keyword allows us to create brand new data types of our own! Here, we are making a data type called @code{DeliveryState}. We choose this name, because it represents the current state - or position - of the package being delivered. Pyret lets us write any name after @code{data}, but it's good habit to choose a meaningful name and capitalize it.
                               }
                               @item{
-                                The next line begins with the @code{|} symbol, sometimes called a "bar" or "pipe", followed by the name of the @vocab{constructor} function for the structure (in this case, @code{delivery}.) To create an Image, we call the function that creates it: @code{rectangle}, @code{triangle}, @code{square}, etc. Similarly, to create a @code{DeliveryState}, we can use the @code{delivery} @vocab{constructor} function with its inputs (two numbers, called x and y).
+                                The next line begins with the @code{|} symbol, sometimes called a "bar" or "pipe", followed by the name of the @vocab{constructor} function for this structure: @code{delivery}. This is similar to what you've seen before: to create an Image, we call the function that creates it: @code{rectangle}, @code{triangle}, @code{square}, etc. To create a @code{DeliveryState}, we can use the @code{delivery} @vocab{constructor} function with its inputs (@code{x} and @code{y}). 
                               }]
                         }
                         @teacher{}
                     }
                     @point{
                         @student{
-                            Let's get back to constructing a @code{delivery}, specifically how we knew the inputs would be numbers. The block of code we've given you defines all of this! The @code{DeliveryState} @code{data} block tells us that we're defining a new data type called @code{DeliveryState}, whose constructor function @code{delivery} takes in two things: x, which is a Number, and y, which is also a number. Once we've listed each input and its data type, we finish defining the structure with the @code{end} keyword, just like finishing an @code{example} block.
+                            This @code{data} block tells us that we're defining a new data type called @code{DeliveryState}, whose constructor function @code{delivery} takes in two Numbers: x and y. Once we've listed each input and its data type, we finish defining the structure with the @code{end} keyword, just like finishing an @code{example} block.
                             @activity{
                               In the interactions area, practice making some @code{DeliveryState}s using the @code{delivery()} constructor function. Try making a @code{DeliveryState} that represents the box's position if it's on the road, another when it's in the air, above the house, and one when it's right in front of the house- a successful delivery!
                             }
                         }
                         @teacher{
-                          Students will soon be writing their own data blocks, to create new data structures. Cover this new syntax carefully, paying special attention to capitalization (the name of the structure is capitalized (DeliveryState), whereas its constructor function (delivery) is lowercase), double colons (@code{::}) before data types, and commas between inputs to the constructor function.
+                          Students will soon be writing creating new data structures. Cover this new syntax carefully, paying special attention to capitalization (the name of the structure is capitalized (DeliveryState), whereas its constructor function (delivery) is lowercase), double colons (@code{::}) before data types, and commas between inputs to the constructor function.
                         }
                     }
                     @point{

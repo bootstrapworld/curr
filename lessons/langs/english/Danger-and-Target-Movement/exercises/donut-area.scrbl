@@ -13,4 +13,3 @@
                        #:body '(- (circle-area outerR) (circle-area innerR))
                        #:show-body? #f
                        )
-

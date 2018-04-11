@@ -1,9 +1,11 @@
 #lang curr/lib
 
-@(design-recipe-exercise "red-square" "Use the Design Recipe to write a function 'red-square', which takes in a number (the length of each side of the square) and outputs a solid red rectangle whose length and width are the same size."
+@(design-recipe-exercise "red-square" "Use la receta de diseño para escribir una función 'cuadro-rojo', que toma un número (la longitud de cada lado del cuadrado) y regresa un rectángulo rojo sólido cuya longitud y ancho son del mismo tamaño."
+
 			 #:domain-list (list "number")
 			 #:range "image"
-			 #:purpose "Produce rectangle with given number as width and height"
+			 #:purpose "Producir un rectángulo con el número dado como ancho y altura"
+
                          #:num-examples 2
 			 #:example-list '((4 (rectangle 4 4 "solid" "red"))	
 					  (12 (rectangle 12 12 "solid" "red")))

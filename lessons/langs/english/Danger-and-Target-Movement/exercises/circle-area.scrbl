@@ -13,4 +13,3 @@
                        #:body '(* pi (sqr r))
                        #:show-body? #f
                        )
-

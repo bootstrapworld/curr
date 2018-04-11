@@ -13,4 +13,3 @@
                        #:body '(* glasses 1.50)
                        #:show-body? #f
                        )
-

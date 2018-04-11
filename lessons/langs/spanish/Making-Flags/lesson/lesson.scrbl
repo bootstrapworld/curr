@@ -2,9 +2,9 @@
 
 
 @lesson/studteach[
-     #:title "Making Flags"
-     #:duration "30 minutes"
-     #:overview "Students apply their knowledge of Contracts, Syntax and function composition to build flags using built-in image functions."
+     #:title "Haciendo Banderas"
+     #:duration "30 minutos"
+     #:overview "Los estudiantes aplican sus conocimientos de Contratos, Sintaxis y composición de funciones para construir banderas usando funciones de imagen incorporadas."
      #:learning-objectives @itemlist[@item{Learn how to use advanced image operations} 
                                       @item{Practice function composition} 
                                       @item{Practice using contracts to help with composing operations} 
@@ -30,7 +30,7 @@
                 )
       ]{
         @points[
-          @point{@student{@activity{Open this file and read through the code: [@resource-link[#:path "source-files/Flags.rkt" #:label "DrRacket"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=5eyoC2lS47" "WeScheme")] The code is also shown here:
+          @point{@student{@activity{Abre este archivo y lee el código: [@resource-link[#:path "source-files/Flags.rkt" #:label "DrRacket"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=5eyoC2lS47" "WeScheme")]  El código también se muestra aquí:
                                      @code[#:multi-line ""]{; a blank flag is a 300x200 rectangle, which is outlined in black
                                                             ; 1) start with a red dot, of radius 50
                                                             (define dot (circle 50 "solid" "red"))
@@ -40,39 +40,39 @@
                                                             (define japan (put-image dot
                                                                                      150 100
                                                                                      blank))}
-                                     @itemlist[@item{There are three values being defined here. What are they?}
-                                                @item{Click "Run" and evaluate each of those values in the Interactions window.}
-                                                @item{Change the size of the dot and click "Run". Do you expect @code{japan} to look different than it did before? Why or why not?}]}
+                                     @itemlist[@item{Aquí se definen tres valores. ¿Cuáles son?}
+                                                @item{Haga clic en "Run" y evalúe cada uno de esos valores en la ventana Interacciones.}
+                                                @item{Cambie el tamaño del punto y haga clic en "Run". ¿Esperas que Japón se vea diferente de lo que era antes? ¿Por qué si o por qué no?}]}
                            }
                   @teacher{}}
-           @point{@student{To make the flag of Japan, we want to put a solid, red circle right in the middle of our @code{flag}. According to the definition for @code{blank}, a flag is 300 wide by 200 high. To put the @code{dot} at the center, we use the coordinates (150, 100).
-                          @activity{The function that lets us put one image on top of another is called @code{put-image}:
+           @point{@student{Para hacer la bandera de Japón, queremos poner un sólido círculo rojo justo en medio de nuestra bandera (@code{flag}). De acuerdo con la definición de espacio en blanco (@code{blank}), una bandera es 300 de ancho por 200 de alto. Para colocar el punto (@code{dot}) en el centro, usamos las coordenadas (150, 100).
+                          @activity{La función que nos permite poner una imagen encima de otra se llama @code{put-image}:
                                     @code[#:multi-line #t]{; put-image: Image Number Number Image -> Image
                                                            ; places an image, at position (x, y), on an Image}
-                                    @itemlist[@item{How many things are in the @vocab{Domain} of this function?}
+                                    @itemlist[@item{¿Cuántas cosas hay en el @vocab{Dominio} de esta función? }
                                                @item{What is the @vocab{Range} of this function?}
-                                               @item{In the definition for @code{japan}, what image is being used as the first argument? What is being used as the second?}]
+                                               @item{En la definición para @code{japan}, ¿qué imagen se está utilizando como primer argumento? ¿Qué se utiliza como el segundo?}]
                                     }}
                    @teacher{This is a good time to remind students about @bold{indenting}. Notice that all of the inputs to @code{put-image} line up with one another!}
           }
-           @point{@student{You've seen arithmetic functions nested before, such as @code{(+ 4 (+ 99 12))} @sexp{(+ 4 (+ 99 12))} (also shown as a Circle of Evaluation on the right). The second input to @code{+} is @italic{a number-producing subexpression}, in this case @code{(+ 99 12)}. @code{put-image} can be nested the same way. 
-                   @activity{This Circle of Evaluation will draw a star on top of another image, which itself is a circle drawn inside a square. @sexp{(put-image (star 50 "solid" "black") 75 75 (put-image (circle 50 "solid" "red") 75 75 (square 150 "solid" "black")))} Convert this Circle of Evaluation into code, and try typing it into the computer. What image do you get back? Can you modify the code so that another image is added on top?}}
+           @point{@student{Has visto funciones aritméticas anidadas antes, como @code{(+ 4 (+ 99 12))} @sexp{(+ 4 (+ 99 12))} (También se muestra como un Círculo de Evaluación a la derecha). La segunda entrada a  @code{+} es @italic{una subexpresión productora de números}, en este caso  @code{(+ 99 12)}. @code{put-image} puede anidarse de la misma manera. 
+                   @activity{Este Círculo de Evaluación dibujará una estrella encima de otra imagen, que en sí misma es un círculo dibujado dentro de un cuadrado. @sexp{(put-image (star 50 "solid" "black") 75 75 (put-image (circle 50 "solid" "red") 75 75 (square 150 "solid" "black")))} Convierte este Círculo de Evaluación en código y trata de escribirlo en la computadora. ¿Qué imagen recibes? ¿Se puede modificar el código para que se agregue otra imagen en la parte superior?}}
                    @teacher{Have students practice this once or twice, and point out the natural indenting pattern.}
                    }
-           @point{@student{By combining simple shapes together, you can make very sophisticated images!
-                           @activity{@bitmap{images/somalia.jpg} Look at this picture of the Somalian flag. 
-                                      @itemlist[@item{What shapes will you need to make this flag?}
-                                                 @item{Which colors will you need?}
-                                                 @item{Define a new value called @code{somalia}, which evaluates to this image.}]}}
+           @point{@student{¡Mediante la combinación de formas simples, puede hacer imágenes muy sofisticadas!
+                           @activity{@bitmap{images/somalia.jpg} Mira esta imagen de la bandera somalí. 
+                                      @itemlist[@item{¿Qué formas necesitarás para hacer esta bandera?}
+                                                 @item{¿Qué colores necesitarás?}
+                                                 @item{Defina un nuevo valor llamado @code{somalia}, que se evalúa a esta imagen.}]}}
                    @teacher{}}
-           @point{@student{@activity{Try to define as many of the following flags as possible:
+           @point{@student{@activity{Trate de definir tantos de los siguientes indicadores como sea posible:
                                      @itemlist[@item{Indonesia @bitmap{images/indonesia.jpg}}
                                                 @item{Nigeria @bitmap{images/nigeria.png}}
-                                                @item{France @bitmap{images/france.jpg}}
-                                                @item{Switzerland @bitmap{images/switzerland.jpg}}
-                                                @item{United Arab Emirates @bitmap{images/UAE.jpg}}
+                                                @item{Francia @bitmap{images/france.jpg}}
+                                                @item{Suiza @bitmap{images/switzerland.jpg}}
+                                                @item{Emiratos Arabes Unidos @bitmap{images/UAE.jpg}}
                                                 @item{Chile @bitmap{images/chile.jpg}}
                                                 @item{Panama @bitmap{images/panama.jpg}}
-                                                @item{Try making the flag for your favorite country, or even make up a flag of your own!}]}}
+                                                @item{¡Intenta hacer la bandera de tu país preferido, o incluso haz una bandera para tu propio país!}]}}
                    @teacher{}}]
     }

@@ -29,7 +29,7 @@
          "process-code.rkt"
          "design-recipe-generator.rkt"
          "exercise-generator.rkt"
-	 "math-rendering.rkt"
+   "math-rendering.rkt"
          "wescheme.rkt"
          "translator.rkt"
          "warnings.rkt"
@@ -63,8 +63,8 @@
          fill-in-blank-answers-exercise
          sexp
          sexp->math
-	 sexp->coe
-	 sexp->code
+   sexp->coe
+   sexp->code
          make-exercise-locator
          make-exercise-locator/dr-assess
          exercise-handout

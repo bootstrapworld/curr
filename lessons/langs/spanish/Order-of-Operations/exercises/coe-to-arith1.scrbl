@@ -19,9 +19,9 @@
 @(define sexps-as-math (map sexp->math exprs))
 
 @(exercise-handout 
-  #:title "Converting Circles of Evaluation to Arithmetic Expressions"
-  #:instr "For each Circle of Evaluation on left, write the Arithmetic expression
-           on the right:" 
+  #:title "Conversión de círculos de evaluación en expresiones aritméticas"
+  #:instr "Para cada círculo de evaluación a la izquierda, escribe la expresión aritmética
+           a la derecha:"
   #:forevidence (exercise-evid-tags "BS-CE&1&3")
   @(open-response-exercise sexps-as-coe "math")
   @(exercise-answers (questions-and-answers sexps-as-coe sexps-as-math))

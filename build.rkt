@@ -39,10 +39,12 @@
 
 ;;This lists all courses which are currently able to be built
 (define available-course-specs '(("algebra" "english" "spanish")
+                                 ("algebra-pyret" "english")
                                  ("reactive" "english")
                                  ("data-science" "english")
                                  ("physics" "english")
-                                 ("blank-course" "english")))
+                                 ;("blank-course" "english")
+				 ))
 (define available-courses (map (lambda (course-spec) (first course-spec)) available-course-specs))
 
 ;; Depending on who we are generating for, we need to relocate the resources dirs.

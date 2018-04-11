@@ -20,16 +20,20 @@
                                       @item{Given two examples for a simple function, students will be able to write the definition}]
      #:product-outcomes @itemlist[@item{Students will use the Design Recipe to define a function, which is used to make a rocket fly.}]
      #:standards (list "A-SSE.1-2" "F-IF.1-3" "F-IF.4-6" "BS-DR.1" "BS-DR.2" "BS-DR.3" "8.F.1-3")
-     #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
+     #:materials @itemlist[ @item{Computer for each student (or pair), running WeScheme or DrRacket with the  bootstrap-teachpack installed}
+                            @item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbooks"], and something to write with}
                             @item{Class poster (List of rules, language table, course calendar)}
-                            @item{Language Table (see below)}
-                            @item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders with names on covers, and something to write with}]
-     #:preparation @itemlist[@item{Write agenda on board}
+                            @item{Overhead projector}]
+     #:preparation @itemlist[ @item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/134VD2NShK_VxDog4VG4lMm4jTbpxm2H2cSXqZbHwwSg/edit?usp=sharing" "Warmup activity sheet")}
+
+                              @item{Write agenda on board}
                               @item{Display Class posters, Language Table, Design Recipe}
-                              @item{Students are logged into WeScheme.org, OR have opened DrRacket.}
+                              @item{Students are logged into WeScheme.org, OR have opened DrRacket}
                               @item{"Rocket" [Rocket.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=EHgrsZlYNX" "WeScheme")] preloaded on students' machines}
                               @item{Seating arrangements: ideally clusters of desks/tables}
-                              @item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/134VD2NShK_VxDog4VG4lMm4jTbpxm2H2cSXqZbHwwSg/edit?usp=sharing" "Warmup activity sheet").}]
+                              
+                              @item{OPTIONAL: @(hyperlink "https://teacher.desmos.com/activitybuilder/custom/5a15e2907915bd2fd51a65bc" "Desmos Activity: Unit 4 Review")}
+                              @item{OPTIONAL: @(hyperlink "https://teacher.desmos.com/activitybuilder/custom/5a2f2c2e532d241d732593db" "Desmos Activity: Design Recipe Practice(Blank Template)")}]
      #:prerequisites (list "Defining Functions")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -52,7 +56,7 @@
                                              throughout.)
                                   }
                         }
-                 @point{@student{@animated-gif{images/flipbook.gif}Putting these images together, we arrive at an animation of the rocket moving up the screen. 
+                 @point{@student{@animated-gif{images/flipbook.gif}@noSlideText{Putting these images together, we arrive at an animation of the rocket moving up the screen.} 
                                   Let's see an example of this kind of animation, using a function to make a rocket-blast off!  Turn to 
                                   @worksheet-link[#:name "rocket-height"] in your workbook, and read the word problem carefully. 
                          }
@@ -92,7 +96,7 @@
                  @point{@student{By comparing two different examples, it is easy to tell what changes. According to the Purpose Statement, it is the number of seconds that the rocket has been flying.
                                  @activity[#:forevidence (list "BS-DR.2&1&3" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2" "7.EE.3-4&1&4")]{On your paper, label the items you circled with "seconds".}}
                          @teacher{Have a discussion with students about why "seconds" is a better name than "time". Talk about specificity, relevance, and readability.}}
-                 @point{@student{Labeling what is @italic{changeable} gives programmers a sense for the names of a function's @vocab{variables}.  Variables are like placeholders for values that can be different at different times.  A function that computed how much you pay for text messages each month, for example, might have a variable for the number of messages that you sent in that month.  The number of messages you sent might change from month to month, but each one could still cost 20 cents.  
+                 @point{@student{Labeling what is @italic{changeable} gives programmers a sense for the names of a function's @vocab{variables}.  Variables are like placeholders for values that can be different at different times.  @noSlideText{A function that computed how much you pay for text messages each month, for example, might have a variable for the number of messages that you sent in that month.  The number of messages you sent might change from month to month, but each one could still cost 20 cents.}  
                                                   @activity[#:forevidence (list "BS-DR.3&1&1" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2")]{How many variables does @code{rocket-height} have? What is the name of each variable? Define the function, using all the information from your Examples, Contract and Purpose Statement.}
                                   
                                   }
@@ -117,7 +121,7 @@
                          @teacher{}
                          }
                  @point{@student{You may have noticed that the Examples for @code{rocket-height} wrote out the multiplication as @code{(* 11 7)}, 
-                                 rather than the actual answer (@code{77}). Why bother to show the way a calculation is performed?  By doing this, 
+                                 rather than the actual answer (@code{77}). @noSlideText{Why bother to show the way a calculation is performed?}  By doing this, 
                                  Examples can provide hints about what process is taking place. In the provided Rocket code (Rocket.rkt from
                                  @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | or the @editor-link[#:public-id "EHgrsZlYNX" "online file"]),
                                  you will see why it is so important to show your work when writing examples. 
@@ -132,7 +136,7 @@
                          @teacher{}
                          }
                          
-                 @point{@student{By skipping these steps in the Examples, it can be easy to make mistakes when defining the function. 
+                 @point{@student{@noSlideText{By skipping these steps in the Examples, it can be easy to make mistakes when defining the function.} 
                                  @activity[#:forevidence (list "BS-DR.2&1&3" "8.F.1-3&1&3")]{Can you see the mistake the programmer made?}
                                  Without seeing multiple Examples, this programmer failed to realize that the height of the rocket has to be calculated for @italic{every input}. Instead, they just produce the same number every time (in this case, zero). As a result, the rocket is always at zero, no matter how many seconds have passed. 
                                  @activity{@itemlist[@item{Fix this programmer's Example to show their work.}
@@ -162,10 +166,7 @@
                        (make-exercise-locator/dr-assess "Practicing-the-Design-Recipe" "check-total-design-recipe-assess" "Totalling a Bill")
                        (make-exercise-locator/dr-assess "Practicing-the-Design-Recipe" "circle-area-design-recipe-assess" "Computing the Area of a Circle"))
      #:standards (list "A-SSE.1-2" "F-IF.1-3" "F-IF.4-6" "BS-DR.1" "BS-DR.2" "BS-DR.3")
-     #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
-                            @item{Class poster (List of rules, language table, course calendar)}
-                            @item{Language Table}
-                            @item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders with names on covers, and something to write with}]
+     #:materials @itemlist[]
      #:preparation @itemlist[@item{Write agenda on board}
                               @item{Display Class posters, Language Table, Design Recipe}
                               @item{Seating arrangements: ideally clusters of desks/tables}]
@@ -248,7 +249,7 @@
                                  }
                         @teacher{}
                         }
-                 @point{@student{Some functions take more than one input. The @code{red-square} function always makes solid red squares, with size being the only thing that varies. Suppose, however, we wanted the function to make red squares that could be @italic{either} solid or outline? This would mean that both the size and the style can vary, so a user might type @code{(red-square 50 "solid")} or @code{(red-square 50 "outline")}
+                 @point{@student{@noSlideText{Some functions take more than one input.} The @code{red-square} function always makes solid red squares, with size being the only thing that varies. Suppose, however, we wanted the function to make red squares that could be @italic{either} solid or outline? This would mean that both the size and the style can vary, so a user might type @code{(red-square 50 "solid")} or @code{(red-square 50 "outline")}
                                  @activity[#:forevidence (list "BS-DR.1&1&1" "F-IF.1-3&1&1" "F-IF.4-6&1&3" "A-SSE.1-2&1&1")]{
                                            @itemlist[@item{How would that change the Domain of the function?}
                                                       @item{How would the Examples have to change?}
@@ -256,7 +257,7 @@
                                             Change each part of the code you typed, to allow @code{red-square} to take in "solid" or "outline" as a second argument.}}
                         @teacher{}
                         }
-                 @point{@student{The Design Recipe can be used for functions that take any number of inputs. As a simple example, take the following word problem:
+                 @point{@student{@noSlideText{The Design Recipe can be used for functions that take any number of inputs. As a simple example, take the following word problem:}
                                  @activity[#:forevidence (list "8.F.1-3&1&3" "F-IF.1-3&1&4" "BS-DR.3&1&1" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2" "7.EE.3-4&1&4")]{
                                            Turn to @worksheet-link[#:name "lawn-area"] in the workbook, and read the word problem carefully.
                                                    @itemlist[@item{Circle the @vocab{Name} of the function, and underline what it takes in and what it produces.}
@@ -340,7 +341,7 @@
                                                  @item{Define this function, using Algebraic syntax.}]}}
                     @teacher{}
                     }
-            @point{@student{Once your function is set up, it's easy to just plug in values and get answers back. @italic{With most word problems, the hard part is setting up the function in the first place.}  Luckily, the Design Recipe makes setting up that function a lot easier! We've just used it to set up two different functions, which could be used to give us answers in terms of distance or time.  Defining functions is like building tools, which you can use to solve simple problems or combine together to solve more complex ones. 
+            @point{@student{Once your function is set up, it's easy to just plug in values and get answers back. @italic{With most word problems, the hard part is setting up the function in the first place.}  @noSlideText{Luckily, the Design Recipe makes setting up that function a lot easier! We've just used it to set up two different functions, which could be used to give us answers in terms of distance or time.  Defining functions is like building tools, which you can use to solve simple problems or combine together to solve more complex ones.} 
                     @activity{Suppose you wanted to know how far the rocket traveled in 6 seconds: which of the two functions here would you use? What if you wanted to know how long it takes for the rocket to go a thousand miles?}}
             @teacher{Ask students to identify which function they would use to answer a variety of different questions.}
             }

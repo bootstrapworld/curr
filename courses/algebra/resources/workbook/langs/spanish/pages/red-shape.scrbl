@@ -1,10 +1,12 @@
+
  #lang curr/lib
 
-@(design-recipe-exercise "red-shape" "Write a function called red-shape, which takes in the name of a shape and draws that shape (solid and red).
- Add an else clause that produces a sensible output."
+@(design-recipe-exercise "red-shape" 
+"Escribe una función llamada forma- roja, que toma el nombre de una forma y dibuja esa forma (sólida y roja).  Agregue una cláusula else que produzca una salida sensible. " 
+
 			 #:domain-list (list "string")
 			 #:range "image"
-			 #:purpose "Create a solid red shape of the given kind"
+			 #:purpose "Crear una forma roja solida de la clase dada"
                          #:num-examples 4
                          #:example-list '(("circle" (circle 50 "solid" "red"))
                                           ("triangle" (triangle 50 "solid" "red"))
