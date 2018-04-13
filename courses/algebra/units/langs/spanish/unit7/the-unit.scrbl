@@ -22,10 +22,10 @@
                                      @item{Students will understand that @code{cond} statements capture pairs of questions and answers when coding a piecewise function}
                                     ]
      #:product-outcomes @itemlist[]
-     #:exercises (list (make-exercise-locator/dr-assess "Luigis-Pizza" "scale-shape-design-recipe-assess" "Scaling Shapes")
-                       (make-exercise-locator/dr-assess "Luigis-Pizza" "state-tax-design-recipe-assess" "Compute Tax")
-                       (make-exercise-locator/dr-assess "Luigis-Pizza" "flower-name-design-recipe-assess" "Name That Flower")
-                       (make-exercise-locator/dr-assess "Luigis-Pizza" "turkey-price-design-recipe-assess" "How Much is That Turkey?")
+     #:exercises (list (make-exercise-locator/file "Luigis-Pizza" "scale-shape-design-recipe-assess" "Check this Design Recipe: Scaling Shapes")
+                       (make-exercise-locator/file "Luigis-Pizza" "state-tax-design-recipe-assess" "Check this Design Recipe: Compute Tax")
+                       (make-exercise-locator/file "Luigis-Pizza" "flower-name-design-recipe-assess" "Check this Design Recipe: Name That Flower")
+                       (make-exercise-locator/file "Luigis-Pizza" "turkey-price-design-recipe-assess" "Check this Design Recipe: How Much is That Turkey?")
 		       )
      #:standards (list "BS-DR.1" "BS-DR.2" "BS-DR.3" "BS-PL.4")
      #:materials @itemlist[@item{Entorno de edición (WeScheme o DrRacket con el bootstrap-teachpack instalado)}

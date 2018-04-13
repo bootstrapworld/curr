@@ -46,7 +46,7 @@
                                      @item{Students will learn how to control speed of movement through functions}]
      #:product-outcomes @itemlist[@item{Los estudiantes agregarán movimiento al peligro (danger) de sus juegos}
                                   @item{Los estudiantes agregarán movimiento al objetivo (target) de sus juegos}]
-     #:exercises (list (make-exercise-locator/dr-assess "Danger-and-Target-Movement" "target-leap-design-recipe-assess" "Making Players Leap")
+     #:exercises (list (make-exercise-locator/file "Danger-and-Target-Movement" "target-leap-design-recipe-assess" "Check this Design Recipe: Making Players Leap")
 		       )
      #:standards (list "F-IF.1-3" "F-LE.5" "BS-DR.2" "BS-DR.3")
      #:materials @itemlist[@item{Lapiceros/lápices para los estudiantes, marcadores de pizarra para profesores}

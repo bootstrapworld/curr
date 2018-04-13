@@ -136,7 +136,7 @@
                                      @item{Students understand how to determine the collision threshhold between two objects}
                                      @item{Students write a @code{collide?} function that determines whether the player and danger elements in their games have collided}]
      #:product-outcomes @itemlist[@item{Los estudiantes agregan una función @code{collide?} a sus juegos para detectar cuando el jugador y el peligro han chocado}]
-     #:exercises (list (make-exercise-locator/dr-assess "Collide" "late-to-class-design-recipe-assess" "Are You Late to Class?"))
+     #:exercises (list (make-exercise-locator/file "Collide" "late-to-class-design-recipe-assess" "Check this Design Recipe: Are You Late to Class?"))
      #:standards (list "F-IF.1-3" "F-IF.4-6" "8.F.1-3" "A-SSE.1-2" "8.G.6-8")
      #:materials @itemlist[@item{Entorno de edición (WeScheme o DrRacket con el bootstrap-teachpack instalado)}
                            @item{El @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "Libro de Trabajo") del estudiante}
