@@ -304,9 +304,6 @@
     ;Translator; This is the label for the additional exercises found at the bottom of the page
     ;Developer; gen-exercises
     (add-exer "gibber")
-    ;Translator; This is something added to certain exercise link titles (See Unit 4 for examples)
-               ; This is a directive.
-    (checkDR "gibber")
     
                ;;; Section headers ;;;
     ;Translator; this is the time listed on the righ of every purple block of the
