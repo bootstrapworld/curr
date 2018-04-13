@@ -66,7 +66,7 @@
 	 sexp->coe
 	 sexp->code
          make-exercise-locator
-         make-exercise-locator/dr-assess
+         make-exercise-locator/file
          exercise-handout
          exercise-answers
          exercise-evid-tags
@@ -1008,7 +1008,7 @@
 ;;   version supports exercises that won't carry this metadata
 ;;   (at least for now)
 (define-struct exercise-locator (lesson filename))
-(define-struct (exercise-locator/dr-assess exercise-locator) (descr))
+(define-struct (exercise-locator/file exercise-locator) (descr))
 
 ;; breaks a string into a list of content, in which substrings in
 ;;  the given list have been italicized
@@ -1149,9 +1149,8 @@
                              (apply itemlist/splicing 
                                     (map (lambda (exloc)
                                            (let-values ([(extitle exforevid) 
-                                                         (if (exercise-locator/dr-assess? exloc)
-                                                             (values (string-append (translate 'checkDR) ": "
-                                                                                    (exercise-locator/dr-assess-descr exloc))
+                                                         (if (exercise-locator/file? exloc)
+                                                             (values (exercise-locator/file-descr exloc)
                                                                      #f)
                                                              (extract-exercise-data exloc)
                                                              )])
@@ -1161,7 +1160,7 @@
                                                                   (if evidstmt (format " [supports ~a]" evidstmt)
                                                                       ""))
                                                                 "")]
-                                                   [extension (if (exercise-locator/dr-assess? exloc) ".pdf" ".html")]
+                                                   [extension (if (exercise-locator/file? exloc) ".pdf" ".html")]
                                                    )
                                                (let ([exdirpath (if (current-deployment-dir)
                                                                     (build-path (current-deployment-dir) "lessons") 

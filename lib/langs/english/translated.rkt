@@ -329,9 +329,6 @@
     ;Developer; gen-exercises
     (add-teacher-contr "Additional Exercises from Bootstrap Teachers")
     
-    ;Translator; This is something added to certain exercise link titles (See Unit 4 for examples)
-               ; This is a directive.
-    (checkDR "Check This Design Recipe")
 
                ;;; teacher submissions ;;;
     ;Translator; These form the structure of the sentence describing a teacher sumbission, found (only if they occur) at the bottom of unit page
