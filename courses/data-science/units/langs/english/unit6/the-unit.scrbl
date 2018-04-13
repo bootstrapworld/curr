@@ -100,7 +100,7 @@
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
-     #:exercises (list (make-exercise-locator/dr-assess "Measures-of-Center" "CritiquingFindings" "Critiquing Findings"))
+     #:exercises (list (make-exercise-locator/file "Measures-of-Center" "CritiquingFindings" "Critiquing Findings"))
      #:product-outcomes @itemlist[]
      #:standards (list "S-ID.1-4" "HSS.ID.A")
      #:materials @itemlist[]
