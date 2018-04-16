@@ -85,8 +85,8 @@
 			
                         You should have come up with something like this: a data block with numbers for the two coordinates.
                       @code[#:multi-line #t]{
-		      # a SunsetState is the x-coordinate of the sun 
-		      # and the y-coordinate of the sun
+		      # a SunsetState is the x-coordinate of the sun
+      # and the y-coordinate of the sun
 		      data SunsetState:
 		       | sunset(
 		           xpos :: Number,

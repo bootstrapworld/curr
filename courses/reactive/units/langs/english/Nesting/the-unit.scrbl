@@ -103,12 +103,12 @@ STARTING-PINWHEELS = pinwheels(pw(60), pw(3), pw(25), pw(70))
                     
                     @point{@student{Compare the updating functions for the non-nested version of the code:
           @code[#:multi-line #t]{
-# update-pinwheel : Number, Number -> Number
+# update-pinwheel :: Number, Number -> Number
 fun update-pinwheel(angle, speed):
   angle + speed
 end
 
-# next-state-tick : PinwheelState -> PinwheelState
+# next-state-tick :: PinwheelState -> PinwheelState
 fun next-state-tick(ps):
   pinwheel(
     update-pinwheel(ps.p1a, ps.p1speed),
@@ -126,12 +126,12 @@ fun next-state-tick(ps):
 end      }
           
           And the nested version:  @code[#:multi-line #t]{
-# update-pinwheel : Pinwheel -> Pinwheel
+# update-pinwheel :: Pinwheel -> Pinwheel
 fun update-pinwheel(p):
   pw(p.angle + p.speed, p.speed, p.x - 5)
 end
 
-# next-state-tick : PinwheelState -> PinwheelState
+# next-state-tick :: PinwheelState -> PinwheelState
 fun next-state-tick(ps):
   pinwheels(
     update-pinwheel(ps.p1),

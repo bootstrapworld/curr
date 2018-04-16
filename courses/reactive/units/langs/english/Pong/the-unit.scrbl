@@ -238,7 +238,7 @@ pongStateC = pong(200, 300, 550, 320, 20, -10)
                          }
                  @point{@student{Let's walk through our new @code{next-state-tick function}, and make sure we understand it:
                                  @code[#:multi-line #t]{
-# next-state-tick : pongState -> pongState
+# next-state-tick :: pongState -> pongState
 # move the ball, based on direction fields
 fun next-state-tick(w):
   if (is-on-wall(w)):

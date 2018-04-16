@@ -490,6 +490,24 @@ ul.tab li:hover .tabcontent {
     display: block;
 }
 
+@keyframes imageSwapFade {
+  0% { opacity:1; }
+ 45% { opacity:1; }
+ 55% { opacity:0; }
+100% { opacity:0; }
+}
+#logosplash{ float: right; position: relative; width: 300px; height: 250px; margin: 0px 0px 10px 10px; }
+#logosplash div {position: absolute; height: 250px; width: 100%; background: white; clip: rect(0px, 300px, 250px, 0px); text-align: center;}
+#logosplash div img {height: 250px; float: none;}
+#logosplash div.top {
+    background: white;
+    animation-name: imageSwapFade;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-duration: 10s;
+    animation-direction: alternate;
+}
+
 /* 1375px Breakpoint */
 @media only screen and (max-width: 1375px),
 only screen and (max-device-width: 1375px) {

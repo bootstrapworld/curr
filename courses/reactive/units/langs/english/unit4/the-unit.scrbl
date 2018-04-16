@@ -121,10 +121,9 @@
       ]{
         @points[
 @point{
-@student{Let's revisit the package delivery program from earlier.  We're going to write
+@student{Let's revisit the package delivery drone from earlier.  We're going to write
 a function that tells us where the package is for a given @code{DeliveryState}.
-This is the kind of function you might need to write later on in your game, to
-detect where objects or characters are, and make decisions based on that information. For instance, you may need to know whether a character has reached a portal at a certain part of the screen to advance to the next level, or if they've fallen into dangerous lava, which reduces their health!
+This is the kind of function you might need to write later on in your game. For example, you may need to know whether a character has reached a portal at a certain part of the screen to advance to the next level, or if they've fallen into dangerous lava!
 
 @activity{Open your workbook to @worksheet-link[#:name "location"]. Use the design recipe to write a function to tell you where the falling box is (either "road", "house", "delivery zone", or "air"), based on the DeliveryState.}
           
@@ -168,10 +167,10 @@ when we draw that same input, it ought to look like the package has landed in th
 
 
   }
-  @teacher{This kind of experimenting shows an important connection between functions that
+  @teacher{These experiments show an important connection between functions that
 work with instances of a data structure, and the way we draw those instances.
-We have, in our design for the animation, an understanding of what different
-regions of the screen mean.  Here, we see that the @code{draw-state} and
+In our design for the animation, we have an understanding of what different
+regions of the screen @italic{mean}.  Here, we see that the @code{draw-state} and
 @code{location} functions both share this understanding to give consistent
 information about the animation.}
 }

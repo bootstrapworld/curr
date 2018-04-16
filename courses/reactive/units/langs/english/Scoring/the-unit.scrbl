@@ -79,7 +79,7 @@ end
                                  
                                  If you completed the optional challenge at the end of the @(hyperlink "http://www.bootstrapworld.org/materials/spring2017/courses/bs2/units/Collisions/index.html" "Collisions Feature") to write the function @code{game-over}, you already have your own @vocab{helper function} to check whether or not your game over condition is met. That will be the first condition inside @code{next-state-tick}, since we don't want the game to continue if it's already over! (In our Ninja Cat game, @code{game-over} returns true if the cat collides with the dog, AND the cat is on the ground.) After checking whether or not the game is over, the next three conditions in our @code{next-state-tick} function check whether the player has collided with the danger and target, as well as whether the player is jumping on the danger:
 
-@code[#:multi-line #t]{# next-state-tick : GameState -> GameState
+@code[#:multi-line #t]{# next-state-tick :: GameState -> GameState
 fun next-state-tick(g):
   if game-over(g): g
   # if player and danger collide while player is on the ground, 
@@ -143,8 +143,8 @@ the function @code{num-to-string} takes in a Number for its domain and returns a
 then be passed to the @code{text} function to return an Image that can be used in @code{draw-state}. 
 
 @activity[#:forevidence (list "BS-M&1&1" "BS-PL.2&1&1" "BS-DS.1&1&5" "BS-R&1&2" "BS-R&1&5")]{Copy the following contracts into your workbook:
-                                           @itemlist[@item{@code{num-to-string : Number -> String}}
-                                                     @item{@code{text : String, Number, String -> Image}}
+                                           @itemlist[@item{@code{# num-to-string :: Number -> String}}
+                                                     @item{@code{# text :: String, Number, String -> Image}}
                                                      @item{How would you use the @code{num-to-string} and @code{text} functions together
                                                            to draw the score into the game?}
                                                      @item{How do you get the @code{score} out of the game state?}

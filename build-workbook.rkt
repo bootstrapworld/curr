@@ -31,7 +31,7 @@
 (putenv "IGNORED-WARNINGS" "")
 (putenv "COLLECTED-WARNINGS" "")
 
-(define courses '("algebra" "reactive" "data-science" "physics"))
+(define courses '("algebra" "algebra-pyret" "reactive" "data-science" "physics" "blank-course"))
 
 ; parse command-line arguments
 

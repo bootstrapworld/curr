@@ -123,8 +123,10 @@ html, body{background: white; width: 7.5in; position: absolute;}
 .recipe_example_inputs::after {color:black; content: "input(s)";}
 .recipe_example_inputs::after {color:black; content: "input(s)";}
 #recipe_definition_body::after{color:black; content: "what the function does with those variables";}
-.designRecipeLayout .recipe_example_body{min-width: 220pt; max-width: 95%; display: inline-block;}
+.designRecipeLayout .recipe_example_body{min-width: 150pt; max-width: 95%; display: inline-block;}
 #recipe_definition_body{min-width: 440pt; max-width: 95%;}
+
+#recipe_definition{ page-break-inside: avoid; }
 
 .recipe_example_body{margin-left: 20px;}
 
@@ -139,6 +141,13 @@ html, body{background: white; width: 7.5in; position: absolute;}
 #recipe_examples .wrapper::after {content: ")";}
 .clause::after { content: "]"; }
 .cond>.clause:last-of-type::after{content: "]))"; right: 0pt}
+
+/* https://stackoverflow.com/a/19348070/2718315 */
+.hide-content::after {
+  white-space: pre-wrap;
+  content: " " !important;
+  border-bottom: none;
+}
 
 /* Copyright at the end of the file */
 .BootstrapCopyright img{ float:right; }

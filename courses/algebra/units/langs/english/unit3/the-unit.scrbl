@@ -16,22 +16,25 @@
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
      #:standards (list "BS-PL.2" "6.NS.5-8" "F-IF.1-3")
-     #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
+     #:materials @itemlist[ @item{Computer for each student (or pair), running WeScheme or DrRacket with the  bootstrap-teachpack installed}
+                            @item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbooks"], and something to write with}                          
+                            @item{Fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, language table, course calendar)}
-                            @item{Language Table (see below)}]
-     #:preparation @itemlist[@item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/1FN2uLBnwdk3N4Ci6-qf1n6z-M8KpToo27wqZmRlS5as/edit?usp=sharing" "Warmup activity sheet").}]
+                              @item{Overhead projector}
+                          ]
+     #:preparation @itemlist[@item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/1FN2uLBnwdk3N4Ci6-qf1n6z-M8KpToo27wqZmRlS5as/edit?usp=sharing" "Warmup activity sheet")}
+     
+                            ]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{So far, you've seen the Circles of Evaluation, learned about Contracts and experimented with multiple
-                                datatypes. Make sure you remember what each of those are, and look back at previous lessons for a refresher 
-                                if you need.
+        @points[@point{@student{@noSlideText{So far, you've seen the Circles of Evaluation, learned about Contracts and experimented with multiple datatypes. Make sure you remember what each of those are, and look back at previous lessons for a refresher if you need.}
                                 @activity[#:forevidence (list "BS-PL.2&1&1" "6.NS.5-8&1&2")]{
                                      Can you think of three functions that draw shapes? See if you can write their contracts without
-                                     needing to look back at your Contracts page. What type of data is always surrounded in quotes? @slidebreak
+                                     needing to look back at your Contracts page. What type of data is always surrounded in quotes? 
                                      What are the coordinates for the bottom left-hand corner of the screen? What about the top-right?
                                      }
                                 }
@@ -51,10 +54,7 @@
                                       @item{Students will be able to explain what happens when the "Run" button is pressed.}]
      #:product-outcomes @itemlist[]
      #:standards (list "BS-PL.3" "BS-IDE")
-     #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
-                            @item{Class poster (List of rules, language table, course calendar)}
-                            @item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}
-                            @item{Language Table (see below)}]
+     #:materials @itemlist[]
      #:preparation @itemlist[]
      #:prerequisites (list "Intro to Programming" "Contracts")
      #:pacings (list 
@@ -63,23 +63,17 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Suppose we want to make an image that had fifty identical, solid red triangles. @slidebreak You would have to write 
-                                @code{(triangle 50 "solid" "red")} fifty times! To make matters worse, any change to those triangles would 
-                                have to be repeated for all fifty expressions! Good programmers know that their effort is better spent 
-                                elsewhere, so they made sure that programming languages have a way to avoid all that repetition.  
-                                They write something once, define it as a shortcut in the language, and then use the shortcut wherever they want.}
+        @points[@point{@student{Suppose we want to make an image that had fifty identical, solid red triangles.  You would have to write 
+                                @code{(triangle 50 "solid" "red")} fifty times! @noSlideText{To make matters worse, any change to those triangles would have to be repeated for all fifty expressions! Good programmers know that their effort is better spent elsewhere, so they made sure that programming languages have a way to avoid all that repetition.  They write something once, define it as a shortcut in the language, and then use the shortcut wherever they want.}}
                         @teacher{}}
                  @point{@student{We name values in our language using @vocab{define} statements.  Let's look at 
-                                                                     @standard/slideText[#:standard @editor-link[#:definitions-text "(define shape1 (triangle 50 \"solid\" \"red\"))\n"
-                                                               #:interactions-text ""
-                                                               "an example of a definition, that defines "]
-                                                                                         #:slide @elem{Let's look at an example of a definition: @code["(define shape1 (triangle 50 \"solid\" \"red\"))\n"] This definition defines }]
-                               @code{shape1} to be a solid red triangle. When you click "Run", you can evaluate @code{shape1}
+                                @editor-link[#:definitions-text "(define shape1 (triangle 50 \"solid\" \"red\"))\n" "an example of a definition, that defines"] @code{(define shape1 (triangle 50 "solid" "red"))}
+                               This definition defines @code{shape1} to be a solid red triangle. When you click "Run", you can evaluate @code{shape1}
                                in the Interactions area and the computer will show you the triangle. What do you think would happen if you
-                               evaluated @code{shape1} @italic{without} clicking "Run"?
-                               }
+                               evaluated @code{shape1} @italic{without} clicking "Run"?}
+                               
                          @teacher{Make sure students see what happens when @code{shape1} is evaluated without first clicking "Run", so they
-                                 can read and understand the error. @slidebreak Similarly, have them change the definition and evaluate @code{shape1}
+                                 can read and understand the error.  Similarly, have them change the definition and evaluate @code{shape1}
                                  again - still without clicking "Run". It's important for them to understand that running a program
                                  causes the computer to @italic{read the definitions}, and that any change requires it to re-read them.
                                  }
@@ -102,15 +96,15 @@
                          @teacher{}
                         }
                  @point{@student{@activity[#:forevidence (list "BS-PL.3&1&1" "BS-IDE&1&2")]{
-                                    One a new line in the Definitions area, define a value called @code{eye-color} to be the color of your eyes. @slidebreak 
-                                    Don't hit "Run" yet!  @slidebreak
+                                    One a new line in the Definitions area, define a value called @code{eye-color} to be the color of your eyes.  
+                                    Don't hit "Run" yet!  
                                     @itemlist[@item{Go into the Interactions area and try evaluating @code{eye-color}.  You should get an error 
                                                     message that the computer doesn't know about @code{eye-color}, because you didn't click "Run" 
                                                     after adding the definition.}
                                               @item{Click "Run".}
                                               @item{Try asking for @code{eye-color} in the Interactions area again.  This time, you should not get the error.}]}
-                                 Definitions are useful because we can reuse them in other expressions. @slidebreak For example, we could use @code{eye-color} 
-                                 inside another expression, such as @code{(circle 10 "solid" eye-color)}.@slidebreak  Let's practice using definitions inside other expressions.
+                                 Definitions are useful because we can reuse them in other expressions.  For example, we could use @code{eye-color} 
+                                 inside another expression, such as @code{(circle 10 "solid" eye-color)}.  Let's practice using definitions inside other expressions.
                                  }
                         @teacher{}
                         }
@@ -140,7 +134,7 @@
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
      #:standards (list "7.EE.3-4" "A-SSE.1-2")
-     #:materials @itemlist[@item{"Algebra Translation" [@resource-link[#:path "source-files/Algebra.rkt" #:label "DrRacket"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=s2s0tkTgeF" "WeScheme")] preloaded on students' machines, with monitors off.}]
+     #:materials @itemlist[@item{"Algebra Translation" [@resource-link[#:path "source-files/Algebra.rkt" #:label "DrRacket"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=s2s0tkTgeF" "WeScheme")] preloaded on students' machines}]
      #:preparation @itemlist[]
      #:prerequisites (list "Defining Variables")
      #:pacings (list 
@@ -155,7 +149,7 @@
                                                                 (define y (+ 4 9))
                                                                 (define z (* x 2))}}
                              Values can be fixed (like the first example), the result of an expression (the second), or even be defined in terms of other 
-                             variables (the third). @slidebreak We can do the same things in algebra:
+                             variables (the third).  We can do the same things in algebra:
                              @bannerline{@math{x = 4}
                                           @math{y = 4+9}
                                           @math{z = x \times 2}}
@@ -185,10 +179,11 @@
      #:product-outcomes @itemlist[@item{Students will name their videogame project}
                                   @item{Students will modify the definitions for @code{TITLE, TITLE-COLOR, BACKGROUND, PLAYER, TARGET} and @code{DANGER}}]
      #:standards (list "BS-PL.3")
-     #:materials @itemlist[@item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders with names on covers.}]
-     #:preparation @itemlist[@item{Students are logged into WeScheme.org, OR have opened DrRacket.}
-                             @item{Create student game files. [See the teacher's guide, located in the @(hyperlink "../../resources/teachers/" "protected materials") for this course.]}
-                              @item{On student machines: Student Game Files (generated from "Game" template [Game.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=qAGwmaRXYy" "WeScheme")])}]
+     #:materials @itemlist[]
+     #:preparation @itemlist[@item{Students are logged into WeScheme.org, OR have opened DrRacket}
+                             @item{Create student game files [See the teacher's guide, located in the @(hyperlink "../../resources/teachers/" "protected materials") for this course]}
+                              @item{On student machines: Student Game Files (generated from "Game" template [Game.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=qAGwmaRXYy" "WeScheme")])}
+                              @item{OPTIONAL: @(hyperlink "https://teacher.desmos.com/activitybuilder/custom/5a15e27ee904510a5a9a0faa" "Desmos Activity: Unit 3 Review")}]
      #:prerequisites (list "Defining Variables" "Strings and Images" "Brainstorming")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -198,9 +193,9 @@
       ]{
         @points[@point{@student{@activity{Open the videogame file (Game.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"]
                                           or @editor-link[#:public-id "RHBJYscAWj" "the online template"] so that you can see the code,
-                                          and click "Run". @slidebreak (You may need to wait a few seconds for the images to load!) The area that
+                                          and click "Run".  (You may need to wait a few seconds for the images to load!) The area that
                                           appears is a running videogame, but you probably notice that nothing is moving - even if you 
-                                          hit the "up" or "down" arrows! @slidebreak For now, click the "close" button to return to the code.} @slidebreak
+                                          hit the "up" or "down" arrows!  For now, click the "close" button to return to the code.} 
                                  This file contains a list of definitions, where you will get to define how your game characters look, move, and interact. As you scroll down to the bottom, you'll see a bunch of 
                                  dummy definitions that have been filled in for you. It is up to @italic{you} to come up with definitions for your own game!
                                  }
@@ -223,8 +218,8 @@
                                   The purpose of this activity is to increase students' confidence in @italic{reading} and @italic{talking about} code. 
                                   Make sure students get a lot of practice speaking aloud, both to each other and to the instructor.}
                         }
-                 @point{@student{If you don't like the definitions provided here, you can change them! @slidebreak You can modify the @code{TITLE} and @code{TITLE-COLOR} 
-                                    to change what is displayed at the top of your screen, and you can change the definitions for your game images as well. @slidebreak
+                 @point{@student{If you don't like the definitions provided here, you can change them!  You can modify the @code{TITLE} and @code{TITLE-COLOR} 
+                                    to change what is displayed at the top of your screen, and you can change the definitions for your game images as well. 
                                     (You can upload new image files by clicking the "Images" button in the toolbar, then selecting "upload" from the resulting popup).}
                          @teacher{Images should be in PNG or GIF format. Background images should be 640x480, and character images should generally be 
                                    no larger than 200px in either dimension. Make sure that the character images have transparent backgrounds! 
@@ -269,7 +264,7 @@
                        (make-exercise-locator "Defining-Functions" "create-contracts-examples1")
                        (make-exercise-locator "Defining-Functions" "create-contracts-examples2"))
      #:standards (list "F-IF.1-3" "F-IF.4-6" "F-BF.1-2" "BS-PL.3" "BS-DR.1" "BS-DR.2" "BS-DR.3")
-     #:materials @itemlist[@item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders with names on covers.}]
+     #:materials @itemlist[]
      #:preparation @itemlist[]
      #:prerequisites (list "Contracts" "Strings and Images" )
      #:pacings (list 
@@ -320,15 +315,14 @@
                                              error message from Racket for a malformed comment.  That also means that you have to check your students' 
                                              contracts more closely, because the computer will not check anything about them (format or contents).}
                                     }
-                            @point{@student{Word problems give several clues as to the name, Domain, and Range of a function.  Be sure to read the problem carefully! Some word problems will describe functions that take multiple inputs in their Domain, or inputs of different types.
+                            @point{@student{Word problems give several clues as to the name, Domain, and Range of a function.  @noSlideText{Be sure to read the problem carefully! Some word problems will describe functions that take multiple inputs in their Domain, or inputs of different types.}
                                             @activity[#:forevidence (list "BS-DR.1&1&1")]{
                                                               Open your workbook to @worksheet-link[#:name "Fast-Functions"], where it says 
                                                                                     "fast functions", and write the Contract for the @code{gt} function.}}
                                     @teacher{}
                                    }
                             @point{@student{@bannerline{Step 2: Give Examples}
-                                             It's always a good idea to think through a few examples before defining the function. Examples show 
-                                             the shortcut that a function is trying to provide.  This programming language provides a special 
+                                             @noSlideText{It's always a good idea to think through a few examples before defining the function. Examples show the shortcut that a function is trying to provide.}  This programming language provides a special 
                                              construct, called @code{EXAMPLE}, which helps you write down how the function is used and what it 
                                              should compute. You can see two such examples here, written under the contract:
                                              @code[#:multi-line ""]{; gt : Number -> Image
@@ -348,9 +342,7 @@
                                                         @item{How do we know the correct order for the inputs to @code{triangle}? (The contract for @code{triangle} tells us)}] 
                                                                                                                                                                           One of the big ideas here is that each step informs the subsequent step. Make sure to explicitly connect them for students, pointing out that the Contract gives strong hints about how to write each part of the examples. }
                                     }
-                            @point{@student{Programmers often write several examples for each function. Examples like these are a way for a 
-                                            programmer to think through their work.  Examples also make it easy to look at what parts of the
-                                            expression can change, or @italic{vary}, depending on the inputs.
+                            @point{@student{@noSlideText{Programmers often write several examples for each function. Examples like these are a way for a programmer to think through their work.}  Examples also make it easy to look at what parts of the expression can change, or @italic{vary}, depending on the inputs.
                                     @activity[#:forevidence (list "BS-DR.2&1&3" "F-IF.1-3&1&2" "F-IF.1-3&1&4" "F-IF.4-6&1&1")]{
                                                   Write the following examples on paper and circle the parts of the examples that are different:
                                              @code[#:multi-line ""]{(EXAMPLE (gt   50) (triangle   50 "solid" "green"))
@@ -385,15 +377,17 @@
                                                          @item{Click "Run", to have the computer read this definition.}
                                                          @item{Use the function you've defined, by typing @code{(gt 100)} in the Interactions area.}
                                                          @item{Try using the function with different Numbers}]}
-                                  @standard/slideText[#:standard @editor-link[#:definitions-text "; gt : Number -> Image
-(EXAMPLE (gt 50) (triangle 50 \"solid\" \"green\"))
-(EXAMPLE (gt 95) (triangle 95 \"solid\" \"green\"))
-(define (gt size) (triangle size \"solid\" \"green\"))"
-                                                 "Your answer should look something like this."]
-                                                      #:slide @elem["Your answer should look something like this: "@slidebreak @code["; gt : Number -> Image
-(EXAMPLE (gt 50) (triangle 50 \"solid\" \"green\"))
-(EXAMPLE (gt 95) (triangle 95 \"solid\" \"green\"))
-(define (gt size) (triangle size \"solid\" \"green\"))"]]]
+                                  @editor-link[#:definitions-text "; gt : Number -> Image
+                                    (EXAMPLE (gt 50) (triangle 50 \"solid\" \"green\"))
+                                    (EXAMPLE (gt 95) (triangle 95 \"solid\" \"green\"))
+                                    (define (gt size) (triangle size \"solid\" \"green\"))"
+                                    "Your answer should look something like this." ]
+
+                                    @code["; gt : Number -> Image
+                                    (EXAMPLE (gt 50) (triangle 50 \"solid\" \"green\"))
+                                    (EXAMPLE (gt 95) (triangle 95 \"solid\" \"green\"))
+                                    (define (gt size) (triangle size \"solid\" \"green\"))"]
+                                                       ]
                                     }
                                     @teacher{}
                                     }

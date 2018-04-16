@@ -95,7 +95,7 @@ This new syntax gives us an opportunity to show students that key programming id
                 )
       ]{
           @points[
-                  @point{@student{It's important to keep track of how functions work, and Bootstrap:Algebra introduced the idea of @vocab{Contracts}. The contract for the @code{star} function is shown below. @code[#:multi-line ""]{# star: Number String String -> Image}
+                  @point{@student{It's important to keep track of how functions work, and Bootstrap:Algebra introduced the idea of @vocab{Contracts}. The contract for the @code{star} function is shown below. @code[#:multi-line ""]{# star :: Number, String, String -> Image}
 Contracts summarize three pieces of essential information about a function: 
 @itemlist[@item{The @vocab{Name} of the function: in this case, @code{star}.}
                     @item{The @vocab{Domain} of a function, which is the type(s) of data that the function expects. In this case, a Number and two Strings.}    
@@ -104,7 +104,7 @@ Contracts summarize three pieces of essential information about a function:
 A contract is a note we write to ourselves about how to use the function. Just as in Bootstrap:Algebra, it will be helpful to keep track of the contracts for each function you learn about. The last page in your workbook has a table labeled "Contracts," where you can (and should!) copy down each contract as you learn it.
 Contracts in Pyret are just as important as they are in Racket, and are written the same way. You write contracts as comments: pieces of text for humans only, which are ignored by the computer. In Racket we used a @code{;} (semicolon) before Contracts, but in Pyret, just put a @code{#} (pound sign, or octothorpe) before a line of text to turn it into a comment!
 @activity[#:forevidence (list "BS-PL.2&1&1")]{The Contract for @code{+} is shown below.
-          @code[#:multi-line ""]{#  +  : Number Number -> Number}                
+          @code[#:multi-line ""]{#  +  :: Number, Number -> Number}                
 Write down the Contracts for @code{*}, @code{-}, @code{/} and @code{num-sqrt} in your Contracts page. (You know @code{num-sqrt} as the @code{sqrt} function in Racket!)}}                             
        @teacher{Emphasize to students that a function's contract can tell you a LOT about that function. It may also be useful to ask them to articulate reasons why Contracts are a good thing, so they are able to say it in their own voice. Make sure they write every contract down in their workbooks!}}
                    @point{@student{@activity[#:forevidence (list "BS-PL.2&1&1")]{Below are some Pyret expressions using functions you used in Bootstrap:Algebra. For each one, identify which function is being used and write its Contract in your Contracts page. If you need help, try typing the expressions into your computer. @itemlist[@item{@code{circle(75, "solid", "red")}}
@@ -134,7 +134,7 @@ Write down the Contracts for @code{*}, @code{-}, @code{/} and @code{num-sqrt} in
       ]{
           @points[@point{@student{Now you know how to define values in Pyret, and you know how to use Contracts for pre-built functions. But what about defining functions of your own? In Bootstrap:Algebra, you used a tool called the @vocab{Design Recipe} to define functions from word problems. Let’s review the steps of the Design Recipe in Pyret. 
                                   @activity{Turn to @worksheet-link[#:name "Fast-Functions-double"] in your workbook.}
-                                  Here we have a function definition: @code[#:multi-line #t]{# double : Number -> Number
+                                  Here we have a function definition: @code[#:multi-line #t]{# double :: Number -> Number
                                                                                              examples:
                                                                                                  double(5) is 2 * 5
                                                                                                  double(7) is 2 * 7
@@ -209,7 +209,7 @@ Once you’ve defined the function itself, Pyret will automatically check your e
                                                    @item{Try typing @code{HIKER1} into the interactions area. What do you see?}
                                                    @item{Look below the line that says @code{# Creating a scene}. What is the name of the value defined here?}
                                                    @item{What data type is @code{SCENE}? How do you know?}]}
-                               This piece of code uses the @code{put-image} function to place the image of the boat onto the @code{BACKGROUND} at the coordinates 750, 200. To find out the best place to put the image of the boat, first we had to find out how large the background image was. Two functions help with this:  @code[#:multi-line #t]{# image-width : Image -> Number} which returns the width of the given image (in pixels), and   @code[#:multi-line #t]{# image-height : Image -> Number} which returns the height of the given image.
+                               This piece of code uses the @code{put-image} function to place the image of the boat onto the @code{BACKGROUND} at the coordinates 750, 200. To find out the best place to put the image of the boat, first we had to find out how large the background image was. Two functions help with this:  @code[#:multi-line #t]{# image-width :: Image -> Number} which returns the width of the given image (in pixels), and   @code[#:multi-line #t]{# image-height :: Image -> Number} which returns the height of the given image.
                                @activity{Try evaluating @code{image-width(BACKGROUND)} in the interactions area to find the total width of the background.}}
                         @teacher{}}
                  @point{@student{Since the range of @code{put-image} is an image, the expression @code{put-image(BOAT, 750, 200, BACKGROUND)} will evaluate to an image. If we then want to put the image of a hiker onto @italic{this} image (like creating a collage), we can do that by nesting expressions using the @code{put-image} function. 
@@ -219,10 +219,10 @@ Once you’ve defined the function itself, Pyret will automatically check your e
                                     @itemlist[@item{Place both hikers onto the mountains.}
                                               @item{Get some perspective: scale the image of the hiker higher on the mountain, so they appear smaller than the other hiker.}
                                               @item{Find your own images to add to the scene using the @code{image-url} function. (This works just like the @code{bitmap/url} function from Bootstrap:Algebra. 
-                                    @code{# image-url : String -> Image}}]
+                                    @code{# image-url :: String -> Image}}]
                                     }
-                                    @bold{Hint:} Recall the image manipulation functions you used in Bootstrap:Algebra. These may come in handy! @itemlist[@item{# scale : Number Image -> Image}
-                                   @item{# rotate : Number Image -> Image}]
+                                    @bold{Hint:} Recall the image manipulation functions you used in Bootstrap:Algebra. These may come in handy! @itemlist[@item{@code{# scale :: Number, Image -> Image}}
+                         @item{@code{# rotate :: Number, Image -> Image}}]
                                     }
                          @teacher{In the upcoming lessons, students will be creating their own scenes from scratch, and then animating them. This activity is meant to familiarize students with the @code{put-image} function, and have them practice placing, moving, and scaling images onto a background. Once students have copied the necessary contracts into their workbook, this activity could be assigned for homework, or completed as an in-class activity.}
                          }

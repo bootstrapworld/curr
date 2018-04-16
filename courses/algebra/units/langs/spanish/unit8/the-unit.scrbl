@@ -1,17 +1,16 @@
 #lang curr/lib
-@title{Unit 8: Collision Detection}
-
+@title{Unidad 8: Detección de colisiones}
 
 @unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sqr sqrt expt} "1 ,4 ,44.6") 
                                        (list "String" @code{string-append string-length} " \"hello\" ")                          
                                        (list "Image" @code{rectangle circle triangle ellipse star scale rotate put-image} "(circle 25 \"solid\" \"red\")")
                                        (list "Boolean" @code{= > < string=? and or} "true false"))]{
-@unit-descr{Students derive, discuss, and prove the Pythagorean theorem, then use this theorem---in conjunction with Booleans---to detect collisions in their games.}
+@unit-descr{Los estudiantes derivan, discuten y aprueban el teorema de Pitágoras, luego utilizan ese teorema---en conjunto con booleanos---para detectar colisiones en sus juegos.}
 }
 
 @unit-lessons{
 @lesson/studteach[
-     #:title "1D Distance" 
+     #:title "Distancia 1D" 
      #:duration "20 min"
      #:overview "Students act out a collision in their game, and reason about the mathematical behavior of collision detection"
      #:learning-objectives @itemlist[@item{Students learn how to compute the distance between objects in one dimension}]
@@ -19,13 +18,13 @@
                                      @item{Students will be able to explain why the @code{line-length} function uses a conditional}]
      #:product-outcomes @itemlist[]
      #:standards (list "BS-PL.3" "BS-PL.4" "6.NS.5-8")
-     #:materials @itemlist[@item{Computers w/ DrRacket or WeScheme}
-                           @item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
-                           @item{Pens/pencils for the students, fresh whiteboard markers for teachers}
-                           @item{Class posters (List of rules, basic skills, course calendar)}
-                           @item{Language Table (see below)}
+     #:materials @itemlist[@item{Entorno de edición (WeScheme o DrRacket con el bootstrap-teachpack instalado)}
+                           @item{El @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "Libro de Trabajo") del estudiante}
+                           @item{Lapiceros/lápices para los estudiantes, marcadores de pizarra para profesores}
+                           @item{Cartel de clase (Lista de reglas, tabla de lenguaje, calendario del curso)}
+                           @item{Tabla de Lenguaje (Vea abajo)}
                           ]
-     #:preparation @itemlist[@item{Students are logged into WeScheme.org, OR have opened DrRacket.}]
+     #:preparation @itemlist[@item{Los estudiantes están registrados en WeScheme.org, o han abierto DrRacket.}]
      #:prerequisites (list "Luigi's Pizza" "Coordinate Planes")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -33,37 +32,37 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
      ]{
-       @points[@point{@student{Suppose two objects are moving through space, each one having its own (x,y) coordinates. When do their edges start to overlap? They certainly overlap if their coordinates are identical (x1=x2, y1=y2), but what if their coordinates are separated by a small distance? Just how small does that distance need to be before their edges touch?}
+       @points[@point{@student{Supongamos que dos objetos se mueven a través del espacio, cada uno con sus propias coordenadas (x,y). ¿Cuándo empiezan a superponerse sus bordes? Ciertamente se superponen si sus coordenadas son idénticas (x1=x2, y1=y2), pero, ¿y si sus coordenadas están separadas por una pequeña distancia? ¿Qué tan pequeña debe ser esa distancia antes de que sus bordes se toquen?.}
                        @teacher{[@(hyperlink "https://www.youtube.com/watch?v=Bbq0oCmvSmA" "Video")] Visual aids are key here: be sure to diagram this on the board!}
                        }
-                @point{@student{@bitmap{images/numberline.png}In one dimension, it's easy to calculate when two objects overlap. In this example, the red circle has a radius of 1, and the blue circle has a radius of 1.5 The circles will overlap if the distance @italic{between their centers} is @italic{less than the sum of their radii} (@math{1 + 1.5 = 2.5}). How is the distance between their centers calculated? In this example, their centers are 3 units apart, because @math{4 - 1 = 3}. @activity{Would the distance between them change if the circles swapped places? Why or why not?}}
+                @point{@student{@bitmap{images/numberline.png}En una dimensión, es fácil calcular cuándo se superponen dos objetos . En este ejemplo, el círculo rojo tiene un radio de 1 y el círculo azul tiene un radio de 1.5 . Los círculos se superpondrán si la distancia @italic{entre sus centros} es @italic{menor que la suma de sus radios} (@math{1 + 1.5 = 2.5}). ¿Cómo se calcula la distancia entre sus centros? En este ejemplo, sus centros están separados por 3 unidades, porque @math{4 - 1 = 3}. @activity{¿Cambiaría la distancia entre ellos si los círculos intercambiaran lugares? ¿Por qué o por qué no?}}
                        @teacher{Work through a number of examples, using a number line on the board and asking students how they calculate the distance between the points.  Having students act this out can also work well: draw a number line, have two students stand at different points on the line, using their arms or cutouts to give objects of different sizes.  Move students along the number line until they touch, then compute the distance on the number line.  The first few seconds of our @(hyperlink "http://www.youtube.com/watch?v=leP3tQ_GZL8&feature=player_embedded" "Bootstrap video") show this exercise in action.}
                        }
-                @point{@student{Your game file provides a function called @code{line-length} that computes the difference between two points on a number line.  Specifically, @code{line-length} takes two numbers as input and determines the distance between them.
-                       @activity[#:forevidence (list "BS-PL.3&1&3" "BS-PL.4&1&1" "6.NS.5-8&1&6")]{What answers would you expect from each of the following two uses of @code{line-length}:
+                @point{@student{Tú archivo de juego proporciona una función llamada @code{line-length} que calcula la diferencia entre dos puntos en una línea numérica.  Específicamente, la @code{line-length} toma dos números como entrada y determina la distancia entre ellos.
+                       @activity[#:forevidence (list "BS-PL.3&1&3" "BS-PL.4&1&1" "6.NS.5-8&1&6")]{¿Qué respuestas esperarías de cada uno de los siguientes dos usos de @code{line-length}:
                                  @itemlist[@item{@code{(line-length 2 5)}}
 			                   @item{@code{(line-length 5 2)}}
                                           ]
-                                 Do you expect the same answer regardless of whether the larger or smaller input goes first?}}
+                                 ¿Esperas la mismas respuesta independientemente de si la entrada más grande o más pequeña va primero?}}
                        @teacher{If you have time and want to reinforce how conditionals arise from examples, you can have students fill in blanks in Examples such as @code{(EXAMPLE (line-length 2 5) ___)}, circle what's different, and notice that the circle labels are in different orders depending on whether the first or the second input is larger.  This in turn suggests that the code for @code{line-length} will need a conditional.  In this case, one could avoid the conditional by taking the absolute value of the difference (the function @code{abs} does this); if you are working with older students who already know about absolute value you could show it.  Using @code{cond}, however, emphasizes how code structure arises from examples.}}
 
-                @point{@student{Scroll to the @code{line-length} and @code{collide?} functions in your game file.  Notice that @code{line-length} uses a conditional so that it subtracts the smaller number from the bigger one. 
-                       @activity[#:forevidence (list "BS-M&1&1" "8.F.5&1&1")]{Can you explain why @code{line-length} needs to use @code{cond}? What are the two conditions?}}
+                @point{@student{Dezplázate hasta las funciones @code{line-length} y @code{collide?} en tu archivo de juego. Nota que la @code{line-length} utiliza un condicional para que se reste el número más pequeño del más grande. 
+                       @activity[#:forevidence (list "BS-M&1&1" "8.F.5&1&1")]{¿Puedes explicar por qué la @code{line-length} necesita usar @code{cond}? ¿Cuáles son las dos condiciones?}}
                        @teacher{The two conditions are: @itemlist[@item{A is @italic{less than} B} @item{B is @italic{less than or equal} to A}]}}
                        
-                @point{@student{@bitmap{images/3004graph.png}Unfortunately, @code{line-length} can only calculate the distance between points in a single dimension (x or y). How would the distance be calculated between objects moving in 2-dimensions (like your game elements)? @code{line-length} can calculate the vertical and horizontal lines in the graphic shown here, using the distance between the x-coordinates and the distance between the y-coordinates. Unfortunately, it doesn't tell us how far apart the two centers are.}
+                @point{@student{@bitmap{images/3004graph.png}Desafortunadamente, la @code{line-length} solo puede calcular la distancia entre puntos en una sola dimensión (x or y). ¿Cómo se calcularía la distancia entre los objetos que se mueven en 2 dimensiones (como los elementos de tu juego)?. La @code{line-length} puede calcular las líneas verticales y horizontales en el gráfico mostrado aquí, utilizando la distancia entre las coordenadas x  y la distancia entre las coordenadas y. Desafortunadamente, no nos dice cuán distantes están los dos centros.}
                        @teacher{}
                        }
-                @point{@student{@bitmap{images/3004ABCgraph.png}Drawing a line from the center of one object to the other creates a right-triangle, with sides A, B and C. A and B are the vertical and horizontal distances, with C being the distance between the two coordinates. @code{line-length} can be used to calculate A and B, but how can we calculate C?}
+                @point{@student{@bitmap{images/3004ABCgraph.png}Dibujar una línea desde el centro de un objeto a otro crea un triángulo rectángulo, con lados A, B y C. A y B son las distancias verticales y horizontales, siendo C la distancia entre las dos coordenadas. La @code{line-length} se puede utilizar para calcular A y B, pero ¿cómo podemos calcular C?}
                        @teacher{Students' gamefiles all have a value called @code{*distances-color*}, which is set to the empty string @code{""}. By changing this to a color such as "yellow" or "red", the game will draw right triangles between each game character, and fill in the lengths for each side. You may want to demonstrate this using your own game file, and have the students follow along. Hint: to make it as easy as possible to see these triangles, set your background to be a simple, black rectangle and slow down the animation functions.}
                        }
-                @point{@student{In a right triangle, the side opposite the 90-degree angle is called the @vocab{hypotenuse}. Thinking back to our collision detection, we know that the objects will collide if the hypotenuse is @italic{less than the sum of their radii}. Knowing the length of the hypotenuse will be essential to determine when a collision occurs.}
+                @point{@student{En un triángulo rectángulo, el lado opuesto al ángulo de  90-grados se denomina @vocab{hipotenusa}. Pensando de nuevo en nuestra detección de colisión, sabemos que los objetos chocarán si la hipotenusa es @italic{menor que la suma de sus radios}. Saber la longitud de la hipotenusa será esencial para determinar cuando ocurre una colisión.}
                        @teacher{}
                        }
                 ]}
                                                            
 @lesson/studteach[
-     #:title "2D Distance" 
+     #:title "Distancia 2D" 
      #:duration "35 min"
      #:overview "Students explore the Pythagorean Theorem using shapes on paper, then reason about the mathematical behavior of collision detection"
      #:learning-objectives @itemlist[@item{Students learn that two-dimensional distance corresponds to the hypotenuse of a right triangle}
@@ -75,17 +74,17 @@
                                      @item{Students can state the Pythagorean Theorem}
                                      @item{Students can turn the Pythagorean Theorem into code by writing a @code{distance} function}
                                     ]
-     #:product-outcomes @itemlist[@item{Students write the distance function in their game files.}]
+     #:product-outcomes @itemlist[@item{Los estudiantes escriben la función de distancia en sus archivos de juego.}]
      #:standards (list "8.G.6-8" "BS-PL.4" "BS-DR.3")
-     #:materials @itemlist[@item{Computers w/ DrRacket or WeScheme}
-                           @item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
-                           @item{All student computers should have their game templates pre-loaded, with their image files linked in}
-                           @item{Cutouts of Pythagorean Theorem packets [@(resource-link #:path "images/pythag1.png" #:label "1"), @(resource-link #:path "images/pythag2.png" #:label "2")] - 1 per cluster of students working together}
-                           @item{Pens/pencils for the students, fresh whiteboard markers for teachers}
-                           @item{Class posters (List of rules, basic skills, course calendar)}
-                           @item{Language Table (see below)}
+     #:materials @itemlist[@item{Entorno de edición (WeScheme o DrRacket con el bootstrap-teachpack instalado)}
+                           @item{El @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "Libro de Trabajo") del estudiante}
+                           @item{Todas las computadoras de los estudiantes deben tener sus plantillas de juego precargadas, con sus archivos de imagen enlazados}
+                           @item{Recortes de los paquetes de Teorema de Pitágoras [@(resource-link #:path "images/pythag1.png" #:label "1"), @(resource-link #:path "images/pythag2.png" #:label "2")] - 1 por grupo de estudiantes trabajando juntos}
+                           @item{Lapiceros/lápices para los estudiantes, marcadores de pizarra para profesores}
+                           @item{Cartel de clase (Lista de reglas, tabla de lenguaje, calendario del curso)}
+                           @item{Tabla de Lenguaje (Vea abajo)}
                           ]
-     #:preparation @itemlist[ @item{REQUIRED: Hand out @(hyperlink "https://docs.google.com/document/d/1Vkaz30B8AAaze6fMiFJypFb1bOIeH0RzkeaBLCCPf9E/edit?usp=sharing" "Warmup Activity Sheet").}]
+     #:preparation @itemlist[ @item{REQUERIDO: Reparta la @(hyperlink "https://docs.google.com/document/d/1Vkaz30B8AAaze6fMiFJypFb1bOIeH0RzkeaBLCCPf9E/edit?usp=sharing" "Hoja de Actividades de Calentamiento").}]
      #:prerequisites (list "1D Distance")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -93,58 +92,58 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
      ]{
-       @points[@point{@student{Ancient civilizations had the same problem: they also struggled to find the distance between points in two dimensions!  Let's work through a way to think about this problem: what expression computes the length of the hypotenuse of a right triangle?
-                               Check out a @(video-link (hyperlink "https://www.youtube.com/watch?v=Ln7myXQx8TM" "video of this problem")), and then explore it yourself! 
+       @points[@point{@student{ Las civilizaciones antiguas tenían el mismo problema: ¡también se esforzaban por encontrar la distancia entre puntos en dos dimensiones!  Trabajemos en una manera para pensar sobre este problema: ¿qué expresión calcula la longitud de la hipotenusa de un triángulo rectángulo?
+                               Echa un vistazo a un, @(video-link (hyperlink "https://www.youtube.com/watch?v=Ln7myXQx8TM" "video de este problema")), ¡y luego explóralo tú mismo! 
                                [Credit: @(hyperlink "https://www.youtube.com/user/AlternatingSum/videos" "Tova Brown")]}
                        @teacher{This exercise is best done in small groups of students (2-3 per group).  Pass out Pythagorean Proof materials [@(resource-link #:path "images/pythag1.png" #:label "1"), @(resource-link #:path "images/pythag2.png" #:label "2")] to each group, and have them review all of their materials:@itemlist[@item{A large, white square with a smaller one drawn inside}@item{Four gray triangles, all the same size}]}
                        }
-                @point{@student{@bitmap{images/csquared.png}For any right triangle, it is possible to draw a picture where the hypotenuse is used for all four sides of a square. In the diagram shown here, the white square is surrounded by four gray, identical right-triangles, each with sides A and B. The square itself has four identical sides of length C, which are the hypotenuses for the triangles. If the area of a square is expressed by @math{side * side}, then the area of the white space is @math{C^{2}}.}
+                @point{@student{@bitmap{images/csquared.png}Para cualquier triángulo rectángulo, es posible dibujar una imagen donde la hipotenusa se utiliza para los cuatro lados de un cuadrado. En el diagrama mostrado aquí, el cuadrado blanco está rodeado por cuatro grises, triángulos rectángulos idénticos, cada uno con lados A y B. El cuadrado tiene cuatro lados idénticos de longitud C, que son las hipotenusas para los triángulos. Si el área de un cuadrado se expresa por @math{side * side}, entonces el área del espacio en blanco es @math{C^{2}}.}
                        @teacher{Have students place their gray triangles onto the paper, to match the diagram.}
                        }
-                @point{@student{@animated-gif{images\Pythag_anim.gif} By moving the gray triangles, it is possible to create two rectangles that fit inside the original square. While the space taken up by the triangles has shifted, it hasn't gotten any bigger or smaller. Likewise, the white space has been broken into two smaller squares, but in total it remains the same size. By using the side-lengths A and B, one can calculate the area of the two squares.
-                                 @activity[#:forevidence (list "8.G.6-8&1&1" "8.G.6-8&1&1" "8.G.6-8&1&3")]{What is the area of the smaller square? The larger square?}}
+                @point{@student{@animated-gif{images\Pythag_anim.gif} Al mover los triángulos grises, es posible crear dos rectángulos que encajen dentro del cuadrado original. Mientras que el espacio ocupado por los triángulos ha cambiado, no se ha vuelto más grande o pequeño. Del mismo modo, el espacio en blanco se ha dividido en dos cuadrados, pero en total permanece del mismo tamaño. Al usar las longitudes laterales A y B, se puede calcular el área de los dos cuadrados.
+                                 @activity[#:forevidence (list "8.G.6-8&1&1" "8.G.6-8&1&1" "8.G.6-8&1&3")]{¿Cuál es el área del cuadrado más pequeño? ¿La del cuadrado más grande?}}
                        @teacher{You may need to explicitly point out that the side-lengths of the triangles can be used as the side-lengths of the squares.}
                        }
-                @point{@student{@bitmap{images/absquare.png}The smaller square has an area of @math{A^{2}}, and the larger square has an area of @math{B^{2}}. Since these squares are just the original square broken up into two pieces, we know that the sum of these areas must be equal to the area of the original square:
+                @point{@student{@bitmap{images/absquare.png}El cuadrado más pequeño tiene un área de @math{A^{2}}, y el cuadrado más grande tiene un área de @math{B^{2}}. Dado que estos cuadrados son sólo el cuadrado original dividido en dos piezas, sabemos que la suma de estas áreas debe ser igual al área del cuadrado original:
                                  @bannerline{@math{A^{2} + B^{2} = C^{2}}}
-                                 @activity[#:forevidence (list "8.G.6-8&1&1" "8.G.6-8&1&2" "8.G.6-8&1&3")]{Does the same equation work for any values of A and B?}}
+                                 @activity[#:forevidence (list "8.G.6-8&1&1" "8.G.6-8&1&2" "8.G.6-8&1&3")]{¿Funciona la misma ecuación para cualquier valor de A y B?}}
                        @teacher{}
                        }
-                @point{@student{To get C by itself, we take the square-root of the sum of the areas:
+                @point{@student{Para obtener C por sí mismo, tomamos la raíz cuadrada de la suma de las áreas:
                                 @bannerline{@math{\sqrt{A^{2} + B^{2}} = C}}
                         @activity[#:forevidence (list "BS-CE&1&4")]{
-                               Turn to @worksheet-link[#:name "distance-example"] in your workbook - you'll see the same formula 
-                               written out, this time using @code{line-length} to calculate the distance along the x- and y-axis. The Circle of Evaluation
-                               has already been partially-completed here, but you'll have to finish it on your own. Once you're done, convert that circle 
-                               into code on the bottom of the page.}}
+                               Ve a la @worksheet-link[#:name "distance-example"] de tu libro de ejercicios - veras la misma fórmula 
+                               escrita, esta vez utilizando @code{line-length} para calcular la distancia a lo largo de los ejes x-y. El Círculo de Evaluación
+                               ya ha sido parcialmente completado aquí, pero tendrás que terminarlo por tu cuenta. Una vez que hayas terminado, convierte ese círculo 
+                               en código en la parte inferior de la página.}}
                         @teacher{Remind students that A and B are the horizontal and vertical lengths, which are calculated by @code{line-length}.}
                         }
-                @point{@student{The code on @worksheet-link[#:name "distance-example"] will accurately calculate the distance between two objects whose centers are at (3,0) and (0,4). But what about other points? It would be nice to have a function that calculates the distance for @italic{any} two sets of points.
+                @point{@student{El código de la @worksheet-link[#:name "distance-example"] calculará con precisión la distancia entre dos objetos cuyos centros están en (3,0) y (0,4). Pero, ¿qué pasa con otros puntos? Sería bueno tener una función que calcula la distancia para @italic{cualquier} dos conjuntos de puntos.
                                 @activity[#:forevidence (list "BS-DR.3&1&1" "BS-PL.4&1&1" "8.G.6-8&1&3" "8.F.1-3&1&1" "8.F.1-3&1&3")]{
-                                   Turn to @worksheet-link[#:name "distance"] in your workbook, and use the Design Recipe to write your @code{distance} function. 
-                                   Feel free to use the work from the previous page as your first example, and then come up with a new one of your own.}}
+                                   Ve a la  @worksheet-link[#:name "distance"] de tu libro de ejercicios y utiliza la receta de diseño para escribir tu función de @code{distance}. 
+                                   Ten la libertad de usar tu trabajo de la página anterior como tu primer ejemplo, y luego regresa con uno nuevo.}}
                         @teacher{WARNING: make sure students are giving @code{line-length} the proper coordinates! Many students mistakenly pair @code{px} and @code{py} 
                                  together, rather than pairing the x-coordinates. Check student work carefully!}
                         }
                 ]}
 
 @lesson/studteach[
-     #:title "collide?" 
+     #:title "¿Choque?" 
      #:duration "25 min"
      #:overview "Students reason about the mathematical behavior of collision detection"
      #:learning-objectives @itemlist[@item{Students learn how to use the distance formula to detect collisions in games}]
      #:evidence-statements @itemlist[@item{Students understand that collisions occur when the distance between objects is below some threshhold}
                                      @item{Students understand how to determine the collision threshhold between two objects}
                                      @item{Students write a @code{collide?} function that determines whether the player and danger elements in their games have collided}]
-     #:product-outcomes @itemlist[@item{Students add a @code{collide?} function to their games to detect when the player and danger have collided}]
-     #:exercises (list (make-exercise-locator/dr-assess "Collide" "late-to-class-design-recipe-assess" "Are You Late to Class?"))
+     #:product-outcomes @itemlist[@item{Los estudiantes agregan una función @code{collide?} a sus juegos para detectar cuando el jugador y el peligro han chocado}]
+     #:exercises (list (make-exercise-locator/file "Collide" "late-to-class-design-recipe-assess" "Check this Design Recipe: Are You Late to Class?"))
      #:standards (list "F-IF.1-3" "F-IF.4-6" "8.F.1-3" "A-SSE.1-2" "8.G.6-8")
-     #:materials @itemlist[@item{Computers w/ DrRacket or WeScheme}
-                           @item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
-                           @item{All student computers should have their game templates pre-loaded, with their image files linked in}
-                           @item{Pens/pencils for the students, fresh whiteboard markers for teachers}
-                           @item{Class posters (List of rules, basic skills, course calendar)}
-                           @item{Language Table (see below)}
+     #:materials @itemlist[@item{Entorno de edición (WeScheme o DrRacket con el bootstrap-teachpack instalado)}
+                           @item{El @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "Libro de Trabajo") del estudiante}
+                           @item{Todas las computadoras de los estudiantes deben tener sus plantillas de juego precargadas, con sus archivos de imagen enlazados}
+                           @item{Lapiceros/lápices para los estudiantes, marcadores de pizarra para profesores}
+                           @item{Cartel de clase (Lista de reglas, tabla de lenguaje, calendario del curso)}
+                           @item{Tabla de Lenguaje (Vea abajo)}
                           ]
      #:prerequisites (list "2D Distance" "and/or")
      #:pacings (list 
@@ -153,31 +152,31 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
      ]{
-       @points[@point{@student{By now, you have defined a function called @code{distance}: it has four Number inputs (representing playerX, playerY, dangerX and dangerY) and produces a Number representing the distance between those coordinates. If the player is standing at (320, 240) and the danger is at (400, 159), the distance can be calculated by evaluating @code{(distance 320 240 400 159)}.}
+       @points[@point{@student{A estas alturas, haz definido una función llamada @code{distance}: tiene cuatro entradas numéricas (representando al jugador X, jugador Y, peligro X y peligro Y) y produce un número que representa la distancia entre esas coordenadas. Si el jugador está parado en (320, 240) y el peligro está en (400, 159), la distancia se puede calcular evaluando @code{(distance 320 240 400 159)}.}
                        @teacher{}
                        }
-                @point{@student{@activity[#:forevidence (list "F-IF.1-3&1&1" "F-IF.4-6&1&3" "A-SSE.1-2&1&4")]{For each of the following player and danger coordinates, write the expression that uses the @code{distance} function to compute the distance between the points.  You may write in code or in a Circle of Evaluation:
-                                        @itemlist[@item{The player is at (100, 225) and the danger is at (174, 300)}
-                                                  @item{The player is at (48, 20) and the danger is at (210, 160)}
-                                                  @item{The player is at (300, 60) and the danger is at (130, 240)}
+                @point{@student{@activity[#:forevidence (list "F-IF.1-3&1&1" "F-IF.4-6&1&3" "A-SSE.1-2&1&4")]{Para cada una de las siguientes coordenadas de jugador y peligro, escribe la expresión que utiliza la función de @code{distance} para calcular la distancia entre los puntos. Puedes escribir en código o en un Círculo de Evaluación:
+                                        @itemlist[@item{El jugador está en (100, 225) y el peligro está en (174, 300)}
+                                                  @item{El jugador está en (48, 20) y el peligro está en (210, 160)}
+                                                  @item{El jugador está en (300, 60) y el peligro está en (130, 240)}
                                                  ]}}
                         @teacher{}
                        }
-                @point{@student{Now that you know how to compute the distance between two objects, you need to decide when two objects have collided.  We discussed this earlier in the unit using circles: two circles collide when the distance between them is less than the sum of their radii.  If your objects have more interesting outlines than circles, this computation can be hard to do precisely.  Fortunately, most games don't have to be precise (they move too fast for people to see the exact moment of impact).  We just need to figure out when items are close enough, and use that to detect collision.}
+                @point{@student{Ahora que sabes cómo calcular la distancia entre dos objetos, debes decidir cuándo dos objetos han colisionado.  Hemos discutido esto antes en la unidad utilizando círculos: dos círculos chocan cuando la distancia entre ellos es menor que la suma de sus radios.  Si tus objetos tienen esquemas más interesantes que círculos, este cálculo puede ser difícil de hacer con precisión.  Afortunadamente, la mayoría de los juegos no tienen que ser precisos (se mueven demasiado rápido para que la gente vea el momento exacto del impacto).  Sólo tenemos que averiguar cuándo los elementos están lo suficientemente cerca, y utilizar eso para detectar la colisión.}
                        @teacher{You can spend additional time on this point by having students think about collision distances between different shapes.  The rest of Bootstrap doesn't require this, but this may be a good point to integrate additional geometry if you are teaching math.}}
-                @point{@student{Unless the images you chose for your game are very small, 50 pixels is usually a sufficient distance for detecting collisions between your player and danger.  If you are using very small images, you might want to detect a collision when the distance between characters is below 20.
-                              @activity[#:forevidence (list "8.G.6-8&1&3")]{How would you check whether the distance between (320, 240) and (400, 159) is @italic{less than 50?}  How would you check whether the distance between those coordinates is less than 20?}}
+                @point{@student{A menos que las imágenes seleccionadas para tu juego sean muy pequeñas, 50 pixeles es generalmente una distancia suficiente para detectar las colisiones entre tu jugador y su peligro. Si estas utilizando imágenes muy pequeñas, es posible que desees detectar una colisión cuando la distancia entre los caracteres sea inferior a 20.
+                              @activity[#:forevidence (list "8.G.6-8&1&3")]{¿Cómo podrías comprobar si la distancia entre (320, 240) y (400, 159) es @italic{menor de 50?} ¿Cómo podrías comprobar si la distancia entre esas coordenadas es menor de 20?}}
                        @teacher{}
                        }
-                @point{@student{@activity[#:forevidence (list "8.F.1-3&1&1" "8.F.1-3&1&3")]{Turn to @worksheet-link[#:name "collide"] in your workbook, and use the Design Recipe to write a function that produces @code{true} if the distance between two coordinates is less than 50. HINT: You should use your @code{distance} function!}
-                                @activity{Enter your @code{collide?} function definition into your game file.  Play your game, and make your player collide with the danger.  Does your game now do something different than it did before you wrote @code{collide?}?}
+                @point{@student{@activity[#:forevidence (list "8.F.1-3&1&1" "8.F.1-3&1&3")]{Ve a la  @worksheet-link[#:name "collide"] de tu libro de trabajo, y utiliza la receta de diseño para escribir una función que produzca @code{true} si la distancia entre dos coordenadas es menor de 50. SUGERENCIA: ¡Deberías utilizar tu función de @code{distance}!}
+                                @activity{¿Ingresar tu @code{collide?} Definición de la función en tu archivo de juego. Juega tu juego y haz que tu jugador colisione con su peligro. ¿Tu juego ahora hace algo diferente de lo que hizo antes de que escribieras @code{collide?}?}
                       }
                         @teacher{}
                         }
                 ]}
       
 @lesson/studteach[
-     #:title "Closing"
+     #:title "Concluyendo"
      #:duration "5 min"
      #:overview ""
      #:learning-objectives @itemlist[]
@@ -191,22 +190,22 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Congratulations - your game is complete! Take a minute to scroll through all the code you've written, and think
-                                back on how much you've learned: The Circles of Evaluation, datatypes like @code{Number}, @code{String}, @code{Image}
-                                and @code{Boolean}, the importance of Contracts and Purpose Statements, and Piecewise functions. You've learned a whole 
-                                new programming language, and even more importantly you've learned the Design Recipe, which lets you solve word problems
-                                and programming challenges by focusing on just one step at a time, making sure that each step is checked against the
-                                one that came before it.
+        @points[@point{@student{¡Felicidades - tu juego está completo! Tómate un minuto para desplazarte por todo el código que has estado escribiendo y piensa
+                                 en que tanto has aprendido: Los Círculos de Evaluación, tipos de datos como @code{Number}, @code{String}, @code{Image}
+                                y @code{Boolean}, la importancia de los Contratos, Declaraciones de Propósito y funciones por partes. Has aprendido un nuevo 
+                                lenguaje de programación y, lo que es más importante, has aprendido la Receta de Diseño, que te permite resolver problemas de palabras
+                                 y retos de programación concentrándote en un solo paso a la vez, asegurándote de que cada paso se comprueba contra el
+                                que venía antes.
                                 }
                         @teacher{}
                         }
-                 @point{@student{@activity{Once programmers get something working, they always go back over their code and make sure that it's readable, 
-                                          clear, and easy for other people to understand. A car that runs well might be nice, but if it's not worth much
-                                          if it's impossible for a mechanic to repair or upgrade! Make sure your code is beautiful, inside and out.
-                                          @itemlist[@item{Does every function have its contract written out correctly?}
-                                                     @item{Does every function have a purpose statement that accurately describes what it does?}
-                                                     @item{Does every single function have at least two EXAMPLEs?}
-                                                     @item{When you click "Run", do all of your EXAMPLEs pass?}
+                 @point{@student{@activity{Una vez que los programadores consiguen que algo trabaje, vuelven siempre sobre su código y se cercioran que es legible, 
+                                          claro y fácil para que los demás lo entiendan. Un coche que funciona bien podría ser agradable, pero no vale mucho
+                                          ¡si es imposible para un mecánico repararlo o actualizarlo! Asegúrate que tu código sea hermoso, por dentro y por fuera.
+                                          @itemlist[@item{¿Cada función tiene su contrato escrito correctamente?}
+                                                     @item{¿Cada función tiene una declaración de propósito que describe exactamente lo que hace?}
+                                                     @item{¿Cada función tiene por lo menos dos ejemplos?}
+                                                     @item{Cuando hace clic en "Run", ¿pasan todos sus ejemplos?}
                                                      ]}}
                          @teacher{@itemlist[@item{Have students volunteer what they learned in this lesson}
                                             @item{Reward behaviors that you value: teamwork, note-taking, engagement, etc}

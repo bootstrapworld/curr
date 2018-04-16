@@ -53,7 +53,7 @@
                                                        @item{What is the @vocab{Range} of this function?}
                                                        @item{What does this function do? Write a @vocab{Purpose Statement} describing what the function does in plain English.}]}
                                  @code[#:multi-line #t]{
-# double-radius : Number String -> Image
+# double-radius :: Number, String -> Image
 # Makes an outlined circle that has twice the given radius.}}
                          @teacher{Review the purpose of Contracts: once we know the Name, Domain, and Range of a function, it's easy to write examples using those datatypes.}}
            
@@ -82,9 +82,9 @@ Don't forget to include the lines @code{examples:} and @code{end}! Your examples
                                 Once you know what is changing between our two examples, you can define the function easily. The things that were circled and labeled in
                                 the examples will be replaced with @vocab{variables} in the function definition. 
                                 @activity[#:forevidence (list "BS-DR.3&1&1")]{Underneath your examples, copy everything that @bold{doesn't} change, and replace the changing things with the variable 
-                                          names you used. (Don't forget to add the @code{fun} and @code{end} keywords, as well as the colon (:) after the function header!)}  
+                                          names you used. (Don't forget to add the @code{fun} and @code{end} keywords, as well as the single colon (:) after the function header!)}  
            @code[#:multi-line #t]{
-# double-radius: Number, String -> Image
+# double-radius :: Number, String -> Image
 # Makes an outlined circle that's twice the radius.
 fun double-radius(radius, color):
   circle(radius * 2, "outline", color)
@@ -153,26 +153,26 @@ end}
     end}
                           @itemlist[
                               @item{
-                                On the first line, we've written a comment to remind ourselves what we're creating. In this case, we're calling our new structure @code{DeliveryState}, which contains two numbers: an x and y-coordinate.
+                                On the first line, we've written a comment that describes the stucture. We're calling it @code{DeliveryState}, and it contains Numbers for the x- and y-coordinate.
                               }
                               @item{
-                                The next line begins with the @code{data} keyword, which tells the computer that you're about to define a new type of data. You're already familiar with built-in data types like @code{Number}, @code{String}, @code{Image} and @code{Boolean}. The @code{data} keyword allows us to create brand new data types of our own! Here, we are making a data type that contains both coordinates. We call this data type @code{DeliveryState}, because it represents the current state - or position - of the package being delivered. Pyret lets us write any name after @code{data}, but as a convention we'll choose a meaningful name for the data type, and capitalize it.
+                                You're already familiar with built-in data types like @code{Number}, @code{String}, @code{Image} and @code{Boolean}. On the next line, the @code{data} keyword allows us to create brand new data types of our own! Here, we are making a data type called @code{DeliveryState}. We choose this name, because it represents the current state - or position - of the package being delivered. Pyret lets us write any name after @code{data}, but it's good habit to choose a meaningful name and capitalize it.
                               }
                               @item{
-                                The next line begins with the @code{|} symbol, sometimes called a "bar" or "pipe", followed by the name of the @vocab{constructor} function for the structure (in this case, @code{delivery}.) To create an Image, we call the function that creates it: @code{rectangle}, @code{triangle}, @code{square}, etc. Similarly, to create a @code{DeliveryState}, we can use the @code{delivery} @vocab{constructor} function with its inputs (two numbers, called x and y).
+                                The next line begins with the @code{|} symbol, sometimes called a "bar" or "pipe", followed by the name of the @vocab{constructor} function for this structure: @code{delivery}. This is similar to what you've seen before: to create an Image, we call the function that creates it: @code{rectangle}, @code{triangle}, @code{square}, etc. To create a @code{DeliveryState}, we can use the @code{delivery} @vocab{constructor} function with its inputs (@code{x} and @code{y}). 
                               }]
                         }
                         @teacher{}
                     }
                     @point{
                         @student{
-                            Let's get back to constructing a @code{delivery}, specifically how we knew the inputs would be numbers. The block of code we've given you defines all of this! The @code{DeliveryState} @code{data} block tells us that we're defining a new data type called @code{DeliveryState}, whose constructor function @code{delivery} takes in two things: x, which is a Number, and y, which is also a number. Once we've listed each input and its data type, we finish defining the structure with the @code{end} keyword, just like finishing an @code{example} block.
+                            This @code{data} block tells us that we're defining a new data type called @code{DeliveryState}, whose constructor function @code{delivery} takes in two Numbers: x and y. Once we've listed each input and its data type, we finish defining the structure with the @code{end} keyword, just like finishing an @code{example} block.
                             @activity{
                               In the interactions area, practice making some @code{DeliveryState}s using the @code{delivery()} constructor function. Try making a @code{DeliveryState} that represents the box's position if it's on the road, another when it's in the air, above the house, and one when it's right in front of the house- a successful delivery!
                             }
                         }
                         @teacher{
-                          Students will soon be writing their own data blocks, to create new data structures. Cover this new syntax carefully, paying special attention to capitalization (the name of the structure is capitalized (DeliveryState), whereas its constructor function (delivery) is lowercase), double colons (@code{::}) before data types, and commas between inputs to the constructor function.
+                          Students will soon be writing creating new data structures. Cover this new syntax carefully, paying special attention to capitalization (the name of the structure is capitalized (DeliveryState), whereas its constructor function (delivery) is lowercase), double colons (@code{::}) before data types, and commas between inputs to the constructor function.
                         }
                     }
                     @point{
@@ -181,7 +181,7 @@ end}
                             @activity[#:forevidence (list "BS-M&1&2" "BS-DR.1&1&1" "BS-DR.1&1&2")]{
                                 Turn to @worksheet-link[#:name "next-position"] in your workbook, read the word problem, and fill in the Contract and Purpose Statement for the function @code{next-position}.
                             }
-    @code[#:multi-line #t]{# next-position : Number Number -> DeliveryState
+    @code[#:multi-line #t]{# next-position :: Number, Number -> DeliveryState
                            # Given 2 numbers, make a DeliveryState by 
                            # adding 5 to x and subtracting 5 from y}
                         }
@@ -195,7 +195,7 @@ end}
                             @activity[#:forevidence (list "5.OA.1-2&1&1" "5.OA.1-2&1&1" "7.EE.3-4&1&1" "A-SSE.1-2&1&1" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.4&1&1")]{
                                 @itemlist[
                                     @item{According to the definition for @code{DeliveryState}, what function makes a DeliveryState? What is its contract?}
-                                    @item{@code{# delivery : Number Number -> DeliveryState}}
+                                    @item{@code{# delivery :: Number, Number -> DeliveryState}}
                                     @item{What two things are part of a DeliveryState? Do we have values for those things as part of our first example?}
                                     @item{We don't want our DeliveryState to contain the same x and y values we gave the @code{next-position} function. How will the values change? (Remember to show your work!)}
                                     @item{Your first example should look something like: 
@@ -436,7 +436,7 @@ end}
                                                              @item{What is the range of @code{taller-than}?}
                                                              @item{Which part(s) of the CakeTypes will you need to check to determine if one is taller than the other?}]}
                @code[#:multi-line #t]{
-# taller-than: CakeType, CakeType -> Boolean
+# taller-than :: CakeType, CakeType -> Boolean
 # consumes two CakeTypes and produces true if the number of 
 # layers in the first CakeType is greater than the number of 
 # layers in the second}
@@ -466,7 +466,7 @@ end}
                                                               @item{Circle and label what varies between those examples and label it with a @vocab{variable} name.}
                                                               @item{Define the function.}]}}
                          @teacher{Give students plenty of time to practice using dot-accessors, extracting pieces of the Cake structures and writing expressions that compute with them.}}
-                                                                                                          @point{@student{@bold{Optional:} In the @editor-link[#:public-id "0B9rKDmABYlJVa0cxbEpoSG1pT0k" "Bakery"] file, extend the CakeType data structure to include one more field: a message, represented as a String. (Make sure you remember to change each CakeType instance below the data definition: if a CakeType now contains four fields, each instance will need to include all four fields!) Next, write a function called @code{birthday-cake}, which takes in a string representing someone's name, and produces a 2-layer, chocolate CakeType with "Happy birthday [Name]!" as the message. @bold{Hint:} You'll want to use the @code{string-append} function to combine two strings into one. Here is its contract: @code{# string-append : String, String -> String}}
+                                                                                                          @point{@student{@bold{Optional:} In the @editor-link[#:public-id "0B9rKDmABYlJVa0cxbEpoSG1pT0k" "Bakery"] file, extend the CakeType data structure to include one more field: a message, represented as a String. (Make sure you remember to change each CakeType instance below the data definition: if a CakeType now contains four fields, each instance will need to include all four fields!) Next, write a function called @code{birthday-cake}, which takes in a string representing someone's name, and produces a 2-layer, chocolate CakeType with "Happy birthday [Name]!" as the message. @bold{Hint:} You'll want to use the @code{string-append} function to combine two strings into one. Here is its contract: @code{# string-append :: String, String -> String}}
                                                                                                 @teacher{Since this function returns a CakeType, remind students that they'll need to use the @code{cake} constructor function to produce a CakeType. }}  ]
          }
 

@@ -18,11 +18,15 @@
                                      @item{Students will be able to edit programs to eliminate basic syntax errors}]
      #:product-outcomes @itemlist[]
      #:standards (list "BS-PL.1" "BS-PL.2" "BS-PL.3" "BS-IDE")
-     #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
+     #:materials @itemlist[ @item{Computer for each student (or pair), running WeScheme or DrRacket with the  bootstrap-teachpack installed}
+                            @item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbooks"], and something to write with}
                             @item{Class poster (List of rules, language table, course calendar)}
-                            @item{Language Table (see below)}
-                            @item{Bug Hunting [Bugs.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"]  @(hyperlink "http://www.wescheme.org/view?publicId=JCTcwYc57r" "WeScheme")] file preloaded on students' machines, as the front-most window.}]
-     #:preparation @itemlist[@item{Students are logged into WeScheme.org, OR have opened DrRacket.}]
+                            @item{Overhead projector}
+                            ]
+     #:preparation @itemlist[@item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/1i3WQ4Q58Wn6fhqxEz027KDcUHIewtk-wLPQzJalCFt0/edit?usp=sharing" "Warmup activity sheet")}
+                             @item{Students are logged into WeScheme.org, OR have opened DrRacket}
+                             @item{Bug Hunting [Bugs.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"]  @(hyperlink "http://www.wescheme.org/view?publicId=JCTcwYc57r" "WeScheme")] file preloaded on students' machines}
+                             @item{OPTIONAL: @(hyperlink "https://teacher.desmos.com/activitybuilder/custom/5a15e2b3dcb86b2b9fda3d19" "Desmos Activity: Unit 5 Review")}]
      #:prerequisites (list "Defining Functions")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -30,12 +34,12 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Debugging (finding and correcting problems in code) is an important part of programming, so it's a good idea to practice finding bugs in code. @slidebreak 
+        @points[@point{@student{@noSlideText{Debugging (finding and correcting problems in code) is an important part of programming, so it's a good idea to practice finding bugs in code.}  
                                 @activity[#:forevidence (list "BS-IDE&1&2" "BS-PL.1&1&2" "BS-PL.2&1&1" "BS-PL.2&1&2" "BS-PL.3&1&3")]{
-                                        Open the @editor-link[#:public-id "lQUC6RJArG" "Bug Hunting"] program in a new window, and see if you can find the 
+                                        Open the @editor-link[#:public-id "MdMWbZJH3t" "Bug Hunting"] program in a new window, and see if you can find the 
                                         bug in each expression. Click "Run" and read the error message carefully! After you fix each one, clicking 
                                         Run will show you the error message for the next bug.}}
-                        @teacher{Make sure students understand that the goal is not to FIX the bugs, but rather just to find them.}
+                        @teacher{Make sure students read the comments in the code FIRST, before trying to fix the bug.}
                         }
                  ]}
 
@@ -51,12 +55,7 @@
      #:exercises (list (make-exercise-locator/file "Danger-and-Target-Movement" "target-leap-design-recipe-assess" "Check this Design Recipe: Making Players Leap")
 		       )
      #:standards (list "F-IF.1-3" "F-LE.5" "BS-DR.2" "BS-DR.3")
-     #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
-                            @item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
-                            @item{All student computers should have their game templates pre-loaded, with their image files linked in}
-                            @item{Class poster (List of rules, language table, course calendar)}
-                            @item{Language Table (see below)}]
-     #:preparation @itemlist[@item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/1i3WQ4Q58Wn6fhqxEz027KDcUHIewtk-wLPQzJalCFt0/edit?usp=sharing" "Warmup activity sheet").}]
+     #:materials @itemlist[]
      #:prerequisites (list "Game Images" "The Design Recipe")
      #:pacings (list 
                 @pacing[#:type "remediation"]{At this point, students should be very comfortable with the Design Recipe. If they are struggling, try reviewing the Contract with them first, then having a student act out the function. Ask that student what their name is, what they are expecting to be given, and what they will produce. Have them simulate a function call by calling out their name ("update-danger") and giving them an x-coordinate (they should produce a number that is 50 fewer than what they were given). Then refer back to this skit when writing Examples: the call-and-response is exactly how the code should behave, with students only having to write the code for whatever work your volunteer was doing in their head.}
@@ -90,7 +89,7 @@
                                  }
                          @teacher{}
                          }
-                 @point{@student{Now it's time to animate the Target, which moves in the opposite direction.
+                 @point{@student{@noSlideText{Now it's time to animate the Target, which moves in the opposite direction.}
                                  @activity[#:forevidence (list "BS-DR.3&1&1" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2" "7.EE.3-4&1&4" "F-IF.1-3&1&4")]{
                                            Turn to @worksheet-link[#:name "update-target"] in your workbook for @code{update-target}.
                                            @itemlist[@item{Read the word problem carefully, and pay attention to @italic{what the function takes in}.}
@@ -119,7 +118,7 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{This game template also has a mystery object, which is defined at the very bottom of the screen. The "mystery" is actually a @italic{projectile}, which will be set to the Player's position whenever the spacebar is pressed. @slidebreak As you can see, @code{mystery} is defined to be a small gray star, but you can change that to be any image you like. If you have a game in which the player is a monkey, you could change the definition of @code{mystery} to be a bitmap of a banana, so that the monkey will throw bananas every time you hit the spacebar. @slidebreak A game that takes place in space could have an alien throwing crystals, or a sports game might involve an athlete throwing a ball.
+        @points[@point{@student{This game template also has a mystery object, which is defined at the very bottom of the screen. The "mystery" is actually a @italic{projectile}, which will be set to the Player's position whenever the spacebar is pressed.  As you can see, @code{mystery} is defined to be a small gray star, but you can change that to be any image you like. If you have a game in which the player is a monkey, you could change the definition of @code{mystery} to be a bitmap of a banana, so that the monkey will throw bananas every time you hit the spacebar.  A game that takes place in space could have an alien throwing crystals, or a sports game might involve an athlete throwing a ball.
                                 @activity[#:forevidence (list "BS-DR.3&1&1" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2" "7.EE.3-4&1&4" "F-IF.1-3&1&4")]{
                                           @itemlist[@item{Change the definition for @code{mystery}, so that your projectile looks the way you want it to. Don't forget to use @code{scale} and @code{rotate} if you need to change the image slightly.}
                                                      @item{Use the Design Recipe to write @code{update-mystery}, so that the projectile moves to the left or right. Hint: this will be very similar to your solutions for @code{update-danger} and @code{update-target}!}]}}

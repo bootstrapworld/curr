@@ -36,12 +36,12 @@
 include image
 include reactors
 
-# next-state-tick: Number -> Number
+# next-state-tick :: Number -> Number
 fun next-state-tick(n):
   n + 1
 end
 
-# draw-state: Number -> Image
+# draw-state :: Number -> Image
 fun draw-state(n):
   
   "fix me!"
@@ -101,12 +101,12 @@ end
 
 START = state(1, 100)
 
-# next-state-tick: AnimationState -> AnimationState
+# next-state-tick :: AnimationState -> AnimationState
 fun next-state-tick(s):
   state(s.a + 1, s.b - 1)
 end
 
-# draw-state: AnimationState -> Image
+# draw-state :: AnimationState -> Image
 fun draw-state(s):
 
   "fix me!"

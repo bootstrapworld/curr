@@ -1,6 +1,6 @@
 #lang curr/lib
 
-@title{Unit 1: Videogames and Coordinate Planes}
+@title{Unit 1: Videogames & Coordinate Planes}
 
 
 @unit-overview/auto[#:lang-table (list (list "" @code{} ""))]{
@@ -8,15 +8,30 @@
 }
 @unit-lessons{
 @lesson/studteach[
-     #:title "Introduction"
+     #:title "Intro"
      #:duration "5 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
      #:standards (list)
-     #:materials @itemlist[]
-     #:preparation @itemlist[@item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/1USFPXkeO5AbGOzm_U0tMv4NV3RrxTMTyg-bqIKUf4q4/edit?usp=sharing" "Warmup activity sheet").}]
+     #:materials @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket with the 
+                                   bootstrap-teachpack installed}
+                           @item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbooks"], and something to write with}
+                            @item{Class poster (List of rules, language table, course calendar)}
+                           @item{Cutouts of  @resource-link[#:path "images/ninjacat.png" #:label "NinjaCat"],  @resource-link[#:path "images/dog.png" #:label "Dog"]
+                                 and the  @resource-link[#:path "images/ruby.png" #:label "Ruby"]}
+                                 @item{Overhead projector}]
+
+     #:preparation @itemlist[@item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/1USFPXkeO5AbGOzm_U0tMv4NV3RrxTMTyg-bqIKUf4q4/edit?usp=sharing" "Warmup activity sheet")}
+     
+                             @item{"NinjaCat" [NinjaCat.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] (If using DrRacket) | @(hyperlink "http://www.wescheme.org/view?publicId=sggzRzgU5T" "WeScheme")] preloaded on students' machines}
+                              @item{OPTIONAL: @(hyperlink "https://quizizz.com/admin/quiz/5a146afd3b4ad115000fcb57?from=quizEditor" "Quizizz Unit 1 Review Quiz")}
+                             @item{OPTIONAL: @(hyperlink "https://teacher.desmos.com/activitybuilder/custom/5a15e2388c08800a6024c091" "Desmos Activity: Unit 1 Review - Circles of Evalation & Code Practice")}
+                             @item{OPTIONAL: @(hyperlink "https://teacher.desmos.com/activitybuilder/custom/5a1c805bbfc8c40614d3904a" "Desmos Activity: Circles of Evaluation & Code Practice(Blank Template)")}
+                              ]
+     
+     
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -24,7 +39,7 @@
                 )
       ]{
         @points[
-             @point{@student[#:title "Welcome to Bootstrap!"]{@noSlideText{Welcome to Bootstrap!} In this course, you'll be learning a new @vocab{programming language} - a way to tell computers exactly what you want them to do. @slidebreak Just like English, Spanish or French, a programming language has its own vocabulary and grammar that you'll have to learn. @slidebreak Fortunately, the language you'll be using here has a lot in common with simple math that you already know!}
+             @point{@student[#:title "Welcome to Bootstrap!"]{@noSlideText{Welcome to Bootstrap!} In this course, you'll be learning a new @vocab{programming language} - a way to tell computers exactly what you want them to do. @noSlideText{Just like English, Spanish or French, a programming language has its own vocabulary and grammar that you'll have to learn. Fortunately, the language you'll be using here has a lot in common with simple math that you already know!}}
                      @teacher{Set expectations and rules for the class.
                               
                               Connect the material to come with things students already know:
@@ -44,11 +59,8 @@
      #:evidence-statements @itemlist[@item{Students will be able to identify the elements of a game and how each one changes during gameplay}]
      #:product-outcomes @itemlist[@item{In workbooks, students create a data model that describes a simple videogame}]
      #:standards (list "BS-M")
-     #:materials @itemlist[@item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}]
-     #:preparation @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket}
-                             @item{If using DrRacket, make sure the Ninja.rkt file is loaded}
-                             @item{"NinjaCat" [NinjaCat.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=sggzRzgU5T" "WeScheme")] preloaded on students' machines}
-                             @item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders with names on covers, and something to write with}]
+
+     #:preparation @itemlist[]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -56,33 +68,33 @@
                 )
       ]{
         @points[
-          @point{@student[#:title "Dissecting a Demo"]{Let's begin by exploring a simple videogame, and then figuring out how it works. @slidebreak @slidebreak Open @standard/slideText[#:slide @url{http://www.wescheme.org/view?publicId=sggzRzgU5T} #:standard @run-link[#:public-id "sggzRzgU5T" "this link"]]  
-                         to play the game, and spend a minute or two exploring it. @slidebreak @italic{You can use the arrow keys to move 
-                         the cat left, right and jump - try to catch  the ruby and avoid the dog!}}
+          @point{@student[#:title "Dissecting a Demo"]{@noSlideText{Let's begin by exploring a simple videogame, and then figuring out how it works.} Open @run-link[#:public-id "sggzRzgU5T" "this link"]  
+                         to play the game, and spend a minute or two exploring it. @italic{You can use the arrow keys to move 
+                         the cat left, right and jump(up and down) - try to catch  the ruby and avoid the dog!}}
                  @teacher{[@(hyperlink "https://www.youtube.com/watch?v=KSt_3ovWfjk" "Video")] Show the kids NinjaCat, either letting them play or by demoing it in front of the class. You can move the cat up, down, left and right by using the arrow keys. 
                           Play until the students see all the characters (the clouds, the ruby, the dog and the cat), and be 
-                          sure to point out the title and score as well.}
+                          sure to point out the title and score as well. Give them at least 3 minutes to play with the game and listen to their observations.}
                  }
           
-          @point{@student{This game is made up of @italic{characters}, each of which has its own behavior. @slidebreak The Ruby moves from the right to the left, as does the Dog. @slidebreak NinjaCat only moves when you hit the arrow keys, and she can move left, right, up and down. @slidebreak We can figure out how the game works by first understanding how each character works.}
+          @point{@student{@noSlideText{This game is made up of characters, each of which has its own behavior. The Ruby moves from the right to the left, as does the Dog. NinjaCat only moves when you hit the arrow keys, and she can move left, right, up and down.} We can figure out how the game works by first understanding how each character works.}
                  @teacher{}
                  }
           
-          @point{@student{@activity[#:forevidence (list "BS-M&1&1")]{@bitmap{images/game-table1.png} Turn to @worksheet-link[#:name "NinjaCat-Dissection"] in your workbook. Here we have a table, which we'll use to reverse-engineer NinjaCat and see how it works. Fill out the first column with a complete list of all things in the game.}
+          @point{@student{@activity[#:forevidence (list "BS-M&1&1")]{@bitmap{images/game-table1.png} Turn to @worksheet-link[#:name "NinjaCat-Dissection"] in your workbook. Here we have a table, which we'll use to reverse-engineer NinjaCat and see how it works. Fill out the first column with a complete list of all things in the game. (Remember to fill out the first column only! Place a paper or notecard over the 2nd and 3rd columns, if needed.)}
                            }
                  @teacher{This can be a team activity. Solicit a few examples from students, to make sure they understand what's being listed here: nouns like "the cat", not verbs like "jumping". During this activity, walk around and see how groups are doing. 
                           This is the time to encourage expectations of community and respect - call out good teamwork when you see it! When time is up, give them a countdown: "30...10... 5... 4... 3... 2... 1... PENCILS DOWN, EYES UP HERE!" Wait for total silence and complete attention. }
                  }
           
-          @point{@student{Did you list all four moving characters? @slidebreak What else is in the game? @slidebreak Is the background a part of the game? @slidebreak The score?}
-                 @teacher{Have students come up to the board, and fill in the table with what they've found. If time is short, call on students and have them tell you what to write.}
+          @point{@student{Did you list all four moving characters? What else is in the game? Is the background a part of the game?  The score?}
+                 @teacher{Have students come up to the board, and fill in the table with what they've found. If time is short, call on students and have them tell you what to write. Emphasize "Attending to Precision" with language when giving feedback.}
                  }
           
-          @point{@student{@activity{@bitmap{images/game-table2.png}We also need to think about what is @italic{changing} when we play the game. @slidebreak What about the Ruby?  @slidebreak Does it get bigger? @slidebreak Does it change color? @slidebreak Does it spin around? @slidebreak The only thing that changes about the Ruby is its @italic{position}! Everything else about it is the same. @slidebreak What about the Dog? @slidebreak The Cat? @slidebreak Fill in the rest of the second column, listing everything that changes about each character.}}
+          @point{@student{@activity{@bitmap{images/game-table2.png} We also need to think about what is @italic{changing} when we play the game. What about the Ruby? Does it get bigger? Does it change color? Does it spin around? The only thing that changes about the Ruby is its  @italic{position}! Everything else about it is the same. What about the Dog? The Cat? Fill in the rest of the second column, listing everything that changes about each character.}}
                  @teacher{}
                  }
                             
-          @point{@student{Did you notice that the Dog, Ruby, Cloud and Cat only change position, and nothing else? @slidebreak What about the Background - it doesn't change at all, so we can @italic{leave that cell in table blank!} @slidebreak Did you notice the Score changes value? You'll want to add that to your table, too!}
+          @point{@student{Did you notice that the Dog, Ruby, Cloud and Cat only change position, and nothing else? What about the Background - it doesn't change at all, so we can @italic{leave that cell in table blank!} Did you notice the Score changes value? You'll want to add that to your table, too!}
                  @teacher{Quickly fill in the second column on the board. Assign scores.}
                  }
           ]}
@@ -97,10 +109,7 @@
                                            ultimately motivating the use of a coordinate grid.}]
      #:product-outcomes @itemlist[@item{Students identify the coordinates of characters in a picture}]
      #:standards (list "6.NS.5-8" "N-Q" "5.G.1-2")
-     #:materials @itemlist[@item{Cutouts of  @resource-link[#:path "images/ninjacat.png" #:label "NinjaCat"],  @resource-link[#:path "images/dog.png" #:label "Dog"]
-                                 and the  @resource-link[#:path "images/ruby.png" #:label "Ruby"]}
-                            @item{Student Workbooks, and something to write with}]
-     #:preparation @itemlist[@item{Student Workbooks, and something to write with}]
+  
      #:prerequisites (list "Dissecting a Demo")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -112,7 +121,7 @@
         ]{
   @points[
       @point{@student[#:title "Coordinate Planes"]{@bitmap{images/number-line.png}Computers use numbers to represent a character's position onscreen, using number lines as rulers to measure 
-                       the distance from the bottom-left corner of the screen. @slidebreak For our videogame, we will place the numberline so that the screen runs from 0 
+                       the distance from the bottom-left corner of the screen. For our videogame, we will place the numberline so that the screen runs from 0 
                        (on the left) to 640 (on the right). }
               @teacher{The key point for students here is @italic{precision} and @italic{objectivity}. There are many possible correct answers, but students
                        should understand why any solution should be accurate and unambiguous. This requires students to propose solutions that share a common
@@ -124,34 +133,34 @@
                        side of the screen", etc.) and have them translate those into coordinates.}
               }
        @point{@student{We can take the image of the Dog, stick it anywhere on the line, and measure the distance back to 
-                       the lefthand edge. @slidebreak Anyone else who knows about our number line will be able to duplicate the exact position of the Dog, knowing only 
-                       the number. @slidebreak What is the coordinate of the Dog on the righthand side of the screen?  @slidebreak The center? @slidebreak What coordinate would place the Dog beyond 
+                       the lefthand edge. Anyone else who knows about our number line will be able to duplicate the exact position of the Dog, knowing only 
+                       the number. What is the coordinate of the Dog on the righthand side of the screen? The center? What coordinate would place the Dog beyond 
                        the lefthand edge of the screen?}
                @teacher{}
                }
       @point{@student{@bitmap{images/cat-coordinates.png}By adding a second number line, we can locate a character anywhere on the screen in either 
-                       dimension. @slidebreak The first line is called the x-axis, which runs from left to right. @slidebreak The second line, which runs up and down, is 
-                       called the y-axis. @slidebreak A 2-dimensional @italic{coordinate} consists of both the x- and y-locations on the axes. }
+                       dimension. The first line is called the x-axis, which runs from left to right. The second line, which runs up and down, is 
+                       called the y-axis. A 2-dimensional @italic{coordinate} consists of both the x- and y-locations on the axes. }
               @teacher{A coordinate represents a single point, and an image is (by definition) many points. Some students will ask whether a
                        character's coordinate refers to the center of the image, or one of the corners. In this particular program, the center 
                        serves as the coordinate - but other programs may use another location. The important point in discussion with students
                        is that there is flexibility here, @italic{as long as the convention is used consistently}.}
               }
-      @point{@student{Suppose we wanted to locate NinjaCat's position on the screen. @slidebreak We can find the x-coordinate by dropping a line down from NinjaCat and read 
-                       the position on the number line. @slidebreak The y-coordinate is found by running a line to the y-axis.}
+      @point{@student{Suppose we wanted to locate NinjaCat's position on the screen. We can find the x-coordinate by dropping a line down from NinjaCat and read 
+                       the position on the number line. The y-coordinate is found by running a line to the y-axis.}
               @teacher{(If time allows, invite volunteers up to the board to try placing NinjaCat and the Ruby at different locations. Have students identify the
                        coordinates at the corners of the screen. For additional practice, have students bisect each side of the screen and label
-                       the midpoints.)}
+                       the midpoints.) }
              }
-      @point{@student{When we write down these coordinates, we always put the x before the y (just like in the alphabet!). @slidebreak Most of the time, 
+      @point{@student{A coordinate pair is always written in the form of (x, y).  When we write down these coordinates, we always put the x before the y (just like in the alphabet!). Most of the time, 
                       you'll see coordinates written like this: (200, 50) meaning that the x-coordinate is 200 and the y-coordinate is 50.}
-              @teacher{}
+              @teacher{Here are some sample teacher notes to accompany this point}
               }
 
-      @point{@student{Depending on how a character moves, their position might change only along the x-axis, only along the y-axis, or both. @slidebreak Look
+      @point{@student{Depending on how a character moves, their position might change only along the x-axis, only along the y-axis, or both. Look
                       back to the table you wrote in the workbook (@worksheet-link[#:name "NinjaCat-Dissection"]).
-                      @slidebreak Can NinjaCat move up and down in the game? @slidebreak Can she move left and right?  @slidebreak So what's changing: her x-coordinate, her y-coordinate, 
-                      or both?  @slidebreak What about the clouds? Do they move up and down? Left and right? Both?}
+                     Can NinjaCat move up and down in the game? Can she move left and right? So what's changing: her x-coordinate, her y-coordinate, 
+                      or both? What about the clouds? Do they move up and down? Left and right? Both?}
               @teacher{}
               }
       
@@ -177,10 +186,7 @@
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[@item{Students complete the Videogame Design Worksheet to design their own game}]
      #:standards (list)
-     #:materials @itemlist[@item{}]
-     #:preparation @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket}
-                             @item{If using DrRacket, make sure the Ninja.rkt file is loaded}
-                             @item{Student Workbooks, and something to write with}]
+     #:preparation @itemlist[]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -190,7 +196,7 @@
         
         
 @points[
-        @point{@student{On @worksheet-link[#:name "Game-Design"], you'll find a planning template for you to make your own game. @slidebreak
+        @point{@student{On @worksheet-link[#:name "Game-Design"], you'll find a planning template for you to make your own game.
                            Just like we made a list of everything in the NinjaCat game, we're going to start with a list of everything in your game.}
                 @teacher{Have students put their names at the top of this page.}
                 }
@@ -215,6 +221,8 @@
                          for example.}
                 }
         ]}
+
+        
 
 @lesson/studteach[
      #:title "Order of Operations"
@@ -251,10 +259,8 @@
                        (make-exercise-locator "Order-of-Operations" "match-arith-coe1")
                        (make-exercise-locator "Order-of-Operations" "coe-to-math-answer1")
                        (make-exercise-locator "Order-of-Operations" "coe-to-math-answer2"))
-     #:materials @itemlist[@item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}]
-     #:preparation @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket}
-                             @item{If using DrRacket, make sure the Ninja.rkt file is loaded}
-                             @item{Student Workbooks, and something to write with}]
+
+
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{Have students practice translating very simple (one-operation) expressions into 
                                                               simple (one-circle) Circles of Evaluation. By choosing the numbers in these 
@@ -270,30 +276,30 @@
                 )
       ]{
         @points[
-                @point{@student{Math is a language, just like English, Spanish, or any other language. @slidebreak We use nouns, like "bread", "tomato", 
-                                "mustard" and "cheese" to describe physical objects. @slidebreak Math has @vocab{values}, like the numbers @math{1}, 
+                @point{@student{Math is a language, just like English, Spanish, or any other language. We use nouns, like "bread", "tomato", 
+                                "mustard" and "cheese" to describe physical objects. Math has @vocab{values}, like the numbers @math{1}, 
                                 @math{2} or @math{3}, to describe quantities.}
 
                         @teacher{Students should begin to look at math as a @italic{language}.  To help them with this, you can discuss syntax 
                                  and grammar of math, and its potential for ambiguity in the absence of a fixed order of operations.  Help 
                                  students see that math is a way to communicate calculations among people.}
                         }
-                 @point{@student{Humans also use verbs like "throw", "run", "build" and "jump" to describe operations on these nouns. @slidebreak Mathematics has 
-                                 @vocab{functions} like addition and subtraction, which are operations performed on numbers. @slidebreak Just as you can "slice a piece 
+                 @point{@student{Humans also use verbs like "throw", "run", "build" and "jump" to describe operations on these nouns. Mathematics has 
+                                 @vocab{functions} like addition and subtraction, which are operations performed on numbers. Just as you can "slice a piece 
                                  of bread", a person can also "add four and five".}
                          @teacher{}
                         }
-                 @point{@student{A @vocab{mathematical expression} is like a sentence: it's an instruction for doing something. @slidebreak The 
-                                 expression @math{4+5} tells us to add 4 and 5. @slidebreak To @vocab{evaluate} an expression, we follow the instructions 
-                                 in the expression. @slidebreak The expression @math{4+5} @vocab{evaluates to} @math{9}.}
+                 @point{@student{A @vocab{mathematical expression} is like a sentence: it's an instruction for doing something. The 
+                                 expression @math{4+5} tells us to add 4 and 5. To @vocab{evaluate} an expression, we follow the instructions 
+                                 in the expression. The expression @math{4+5} @vocab{evaluates to} @math{9}.}
                        @teacher{}
                        }
-                 @point{@student{@activity{What does @math{8*4} evaluate to? @slidebreak What does @math{20-16} evaluate to? @slidebreak What does @math{16-20} evaluate to?}}
+                 @point{@student{@activity{What does @math{8*4} evaluate to? What does @math{20-16} evaluate to? What does @math{16-20} evaluate to?}}
                          @teacher{}
                         }
                  @point{@student{Sometimes, we need multiple expressions to accomplish a task.  If you were to write instructions for making 
                                  a sandwich, it would matter very much which came first: melting the cheese, slicing the bread, spreading the 
-                                 mustard, etc.@slidebreak The order of functions matters in mathematics, too. @slidebreak If someone says "four plus two minus one", 
+                                 mustard, etc. The order of functions matters in mathematics, too. If someone says "four plus two minus one", 
                                  they could mean several things:
                                 @itemlist[@item{Add four and two, then subtract one: @math{(4+2) - 1}}
                                           @item{Add four to the result of subtracting one from two: @math{4 + (2-1)}}]
@@ -301,13 +307,13 @@
                         @teacher{}
                         }
                  
-                 @point{@student{Depending on which way you read the expression, you might have very different results! @slidebreak This is a problem, 
-                                 because we often use math to share calculations between people. @slidebreak For example, you and your cell phone company 
-                                 should agree upfront on how much you will pay for sending text messages and making calls. @slidebreak Different results
+                 @point{@student{Depending on which way you read the expression, you might have very different results! This is a problem, 
+                                 because we often use math to share calculations between people. For example, you and your cell phone company 
+                                 should agree upfront on how much you will pay for sending text messages and making calls. Different results
                                  might mean that your bill looks wrong.}
                          @teacher{}}
                  @point{@student{We avoid problems by agreeing on the order in which to use the 
-                                 different operations in an expression. @slidebreak There are two ways to do this:
+                                 different operations in an expression. There are two ways to do this:
                                @itemlist[#:style 'ordered
                                          @item{We can all agree on an order to use}
                                          @item{We can add detail to expressions that indicate the order}]
@@ -315,10 +321,10 @@
                          @teacher{}
                         }
                   @point{@student{@bitmap{images/PEMDASTriangle.png} Mathematicians didn't always agree on the order of operations, but now
-                                   we have a common set of rules for how to evaluate expressions. @slidebreak  The pyramid on the right summarizes the 
-                                   order. @slidebreak When evaluating an expression, we begin by applying the operations written at the top of the 
-                                   pyramid (multiplication and division). @slidebreak Only after we have completed all of those operations can we 
-                                   move down to the lower level. @slidebreak If both operations are present (as in @math{4+2-1}), we read the expression
+                                   we have a common set of rules for how to evaluate expressions. The pyramid on the right summarizes the 
+                                   order. When evaluating an expression, we begin by applying the operations written at the top of the 
+                                   pyramid (multiplication and division). Only after we have completed all of those operations can we 
+                                   move down to the lower level. If both operations are present (as in @math{4+2-1}), we read the expression
                                    from left to right, @vocab{apply}ing the operations in the order in which they appear.}
                          @teacher{This item covers PEMDAS (order of operations in ambiguous expressions).  You can skip this item if you
                                   do not need to cover PEMDAS.}
@@ -333,12 +339,12 @@
                           @teacher{}
                          }
                 @point{@student{@bitmap{images/FixedCircle.png} One way to indicate the order of operations in an expression is to first 
-                                 draw the expression as a diagram. @slidebreak This diagram is called a @vocab{Circle of Evaluation}. @slidebreak Here you can
+                                 draw the expression as a diagram. This diagram is called a @vocab{Circle of Evaluation}. Here you can
                                  see an example of a Circle of Evaluation, for the math expression @math{4-5}.}
                         @teacher{[@(hyperlink "https://www.youtube.com/watch?v=AMFaPKHp3Mg" "Video")] This section benefits enormously from visual aids, diagrams, etc. Make sure you have plenty of board space to 
                          draw examples!}
                         }
-                @point{@student{Circles of Evaluation show the structure that's going on inside an expression. @slidebreak All Circles of Evaluation have two rules:
+                @point{@student{@noSlideText{Circles of Evaluation show the structure that's going on inside an expression.} All Circles of Evaluation have two rules:
                                 @bannerline{Circle Rule 1: Each circle must have one function, which goes at the top of the circle.}
                                 @bannerline{Circle Rule 2: The numbers are written below, in order from left to right.}
                        @activity[#:forevidence "BS-CE&1&1"]{@bitmap{images/CircleBug.png}Which rule does this Circle of Evaluation break?}}
@@ -353,13 +359,12 @@
                                                     @item{@math{\frac{351}{-1} }}]
                                           }
                                  @bitmap{images/FixedCircle.png} Every Circle of Evaluation @vocab{evaluates to} the result of its 
-                                 corresponding expression. @slidebreak For example, the circle on the right evaluates to @math{-1}, because 
-                                 the circle says to use subtraction (the function at the top) on the numbers in order (@math{4-5}).} 
+                                 corresponding expression. @noSlideText{For example, the circle on the right evaluates to -1, because the circle says to use subtraction (the function at the top) on the numbers in order (4 - 5).}} 
                         @teacher{It's important for students to view the Circles of Evaluation as "just another way of writing arithmetic". 
                                  Have students discuss whether associativity and commutativity still matter here (they do).}
                         }
                 @point{@student{@bitmap{images/Nesting.png}To use multiple functions in the same expression, we can combine Circles
-                                 of Evaluation. @slidebreak Look at the Circle of Evaluation you've written for @math{351 / -1}. We already 
+                                 of Evaluation. Look at the Circle of Evaluation you've written for @math{351 / -1}. We already 
                                  know that the Circle for @math{4 - 5} will evaluate to @math{-1}, so we can @italic{replace the 
                                  number with the expression.} Does this change what the expression evaluates to?}
                         @teacher{From this point forward, the Circles of Evaluation are your assessment tool for Order of Operations. 
@@ -375,8 +380,7 @@
                                        Evaluation shown here, so that it represents @math{(23 + 7) * (13 - 5)}}}
                         @teacher{}
                        }
-                @point{@student{@bitmap{images/NestedCircle.png}What does this Circle of Evaluation evaluate to? @slidebreak Let's review how
-                                 we evaluate a Circle:
+                @point{@student{@bitmap{images/NestedCircle.png}What does this Circle of Evaluation evaluate to? Let's review how we evaluate a Circle: 
                                  @itemlist[@item{We know we are multiplying because that's the function at the top of the Circle.} 
                                            @item{The Number @math{6} is the first number in the multiplication, because it's on 
                                                             the left-hand side.}
@@ -392,7 +396,7 @@
                                  expressions and then convert them into Circles, or giving them Circles and having them 
                                  translate them back into arithmetic.  When you talk about Circles, be sure to consistently use
                                  the term @italic{function} for what's on top, rather than similar terms like "operation", "symbol",
-                                 "procedure", "name", etc. @slidebreak The Circles of Evaluation will help students see the similarity between
+                                 "procedure", "name", etc. The Circles of Evaluation will help students see the similarity between
                                  arithmetic functions (like @math{+}) and algebraic functions (like @math{f}) if you use 
                                  terminology carefully.}
                         }
@@ -431,11 +435,7 @@
                                      @item{Given a bank of Circles of Evaluation and programs, students will be able to match them}]
      #:product-outcomes @itemlist[]
      #:standards (list "A-SSE.1-2" "N-Q" "BS-CE" "BS-PL.1" "BS-IDE")
-     #:materials @itemlist[@item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}]
-     #:preparation @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket}
-                              @item{Students are logged into WeScheme.org, OR have opened DrRacket.}
-                              @item{Student Workbooks, and something to write with}
-                              @item{Overhead projector}]
+     #:preparation @itemlist[]
      #:prerequisites (list "Order of Operations")
      #:exercises (list (make-exercise-locator "Intro-to-Programming" "complete-code-from-coe1")
                        (make-exercise-locator "Intro-to-Programming" "coe-to-code1")
@@ -450,14 +450,14 @@
       ]{
         @points[
                 @point{@student{Open the programming tool of your choice: If you've installed, DrRacket, double-click the 
-                                application to launch it. If you are using the online-tool, @standard/slideText[ #:standard @login-link["click here to log in"] #:slide @url{www.wescheme.org}]
-                                enter your username and password to log in, then click "Start a New Program".}
+                                application to launch it. If you are using the online-tool, @login-link["click here to log in"].
+                                Enter your username and password to log in, then click "Start a New Program".}
                         @teacher{Have the students look at the editor on their computers. Refer to overhead 
                                  projector as necessary.}
                         }
                  
                 @point{@student{@bitmap{images/wireframeIDE.png}This screen is called the @vocab{editor}, and it looks something
-                                 like the diagram you see here. @slidebreak There are a few buttons at the top, but most of the screen is 
+                                 like the diagram you see here. There are a few buttons at the top, but most of the screen is 
                                  taken up by two large boxes: the @vocab{Definitions area} on the left and the 
                                  @vocab{Interactions area} on the right.}
                         @teacher{The Definitions area is where programmers define values and functions in their program, 
@@ -470,9 +470,7 @@
                 
                 @point{@student{A program is a @vocab{legal expression} that, when evaluated, produces a value. You've been
                                                writing programs using mathematical expressions since you first learned how 
-                                               to add! Just as in English, there are rules that determine whether a sentence
-                                               makes sense. @slidebreak Programs have rules too!  A program can be very complicated, but
-                                               it doesn't have to be: the simplest programs of all are just Numbers.}
+                                               to add! @noSlideText{ Just as in English, there are rules that determine whether a sentence makes sense. Programs have rules too!  A program can be very complicated, but it doesn't have to be: the simplest programs of all are just Numbers.}}
                         @teacher{Draw students' attention to the Language Table (see Lesson Overview for Unit 1),
                                  which currently sits empty. Add "Numbers" to the Types section of the language 
                                  table.}
@@ -494,7 +492,7 @@
                                 }
                         @teacher{The editing environment evaluates all fractions and returns them as decimals by default. This can be
                                  surprising to students at first, so you may want to take a moment to explain what's going on, and 
-                                 show them that these decimals can be converted back to fractions just by clicking on them. @slidebreak The 
+                                 show them that these decimals can be converted back to fractions just by clicking on them. The 
                                  environment uses standard annotations for repeating, non-terminating decimal expressions and 
                                  properly handles expressions like @math{(\sqrt -1)}.  If you want to work with those kinds of 
                                  numbers in your class, enter them to get familiar with how they appear in the Interactions area.}
@@ -506,28 +504,27 @@
                                                                       Will it complain? Crash? Guess?
                                                                       @editor-link[#:interactions-text "dog" "Try asking the computer"] 
                                                                       to evaluate @code{dog} in the Interactions area.}
-                                 These error messages are really useful for programmers. Rather than saying "this program doesn't 
-                                work", the computer does the best it can to tell you what went wrong, and to give you as much 
-                                information as possible to help you fix the problem. Make sure you always read these messages carefully!
+                                 These error messages are really useful for programmers. @noSlideText{Rather than saying "this program doesn't work", the computer does the best it can to tell you what went wrong, and to give you as much information as possible to help you fix the problem.} Make sure you always read these messages carefully!
                                  }
                         @teacher{The error message uses the term "variable".  Don't worry if your students don't already know this 
                                  term; we will teach it to them shortly.  For now, students just need to get used to error messages 
                                  and the kinds of problems that they catch in programs.}
                         }
                 
-                @point{@student{The Circles of Evaluation are also easy to convert into computer programs. @slidebreak To translate a Circle of
+                @point{@student{The Circles of Evaluation are also easy to convert into computer programs. To translate a Circle of
                                 Evaluation into a program, begin with an open parenthesis @code{(}, and then the function written at
                                 the top of the circle. Then translate the inputs from left to right in the same way, adding a closing
                                 parenthesis @code{)} when you're done. This process gives us the second rule for @vocab{expressions}:  
                                 @bannerline{Code Rule 2: Each open parenthesis is followed by one function, then by one or more legal
                                             expressions, and finally by a closing parenthesis.}
                                  @bitmap{images/FixedCircle.png}Here is the code for this Circle of Evaluation: @code{(- 4 5)}
-                                 @activity[#:forevidence "BS-PL.1&1&2"]{ @standard/slideText[#:standard @elem[@editor-link[#:interactions-text "(- 4 5)" "See what happens "]
-                                                                         "when this code is entered into the Interactions area."]
-                                                                                             #:slide @elem["Try typing" @code{(- 4 5)} "into the Interactions area and see what happens."]]
-                                                                         Press the Return key to evaluate the program. You should 
-                                                                         see @math{-1} as an answer.
-                                                                        }
+                                 @activity[#:forevidence "BS-PL.1&1&2"]{
+
+                                    @editor-link[#:interactions-text "(- 4 5)" "Go to the editor"], and type @code{(- 4 5)} in the Interactions Area.
+
+                                    Press the Return key to evaluate the program.
+                                    @noSlideText{ You should see -1 as an answer.}
+                                 }
                         }
                         
                         @teacher{Have students practice converting simple Circles of Evaluation into code.  If you want to help students 
@@ -555,7 +552,7 @@
                         }
                
                 @point{@student{@bannerline{All of the expressions that follow the function name are called @vocab{arguments} to the 
-                                            function. @slidebreak The following diagram summarizes the shape of an expression that uses a function. 
+                                            function. The following diagram summarizes the shape of an expression that uses a function. 
                                             @bitmap{images/ExpressionDiagram.png}}
                                 @activity[#:forevidence (list "BS-CE&1&2" "BS-CE&1&4")]{
                                         For practice, turn to @worksheet-link[#:name "Circle-of-Evaluation-Practice"]
@@ -563,10 +560,9 @@
                                         that Circle into Racket code.}}
                         @teacher{}
                         }
-                @point{@student{When expressions don't follow the code rules, the computer will tell you that it found a problem. @slidebreak The
+                @point{@student{When expressions don't follow the code rules, the computer will tell you that it found a problem. The
                                 computer also gives you information to help you fix the problem. This information is called an 
-                                @vocab{error message}. We'll talk more about error messages later. @slidebreak For now, we just want you to see 
-                                a couple of error messages so that you'll know what they are if you run into one while programming.
+                                @vocab{error message}. @noSlideText{We'll talk more about error messages later. For now, we just want you to see a couple of error messages so that you'll know what they are if you run into one while programming.}
                        @activity[#:forevidence "BS-IDE&1&2"]{Enter each of the following illegal expressions in the Interactions area 
                                                              and look at the error message or behavior that the computer gives you. 
                                  @itemlist[@item{@code{(5 * 6)} [puts the function in the middle, instead of at the front]}

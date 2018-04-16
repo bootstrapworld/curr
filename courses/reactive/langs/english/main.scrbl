@@ -4,7 +4,7 @@
 @main-contents{
 @(elem #:style bs-coursename-style "Bootstrap: Reactive")
 
-@animated-gif{../../splash.png}
+@(logosplash "../../splash.png" "ReactiveLogo.png")
 
 @; workbook link names and targets
 We provide all of our materials @italic{free of charge}, to anyone who is interested in using our lesson plans or student workbooks.

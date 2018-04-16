@@ -3,7 +3,7 @@
 @main-contents{
 @(elem #:style bs-coursename-style "Bootstrap:DataScience")
 
-@animated-gif{../../splash.png}
+@(logosplash "../../splash.png" "AlgebraLogo.png")
 
             
 @(copyright)

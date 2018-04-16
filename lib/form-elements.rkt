@@ -44,6 +44,7 @@
          boxed-text
          new-paragraph
          animated-gif
+         image-with-alt-text
          language-table
          build-table/cols
          design-recipe-exercise
@@ -85,6 +86,7 @@
          video-link
          [rename-out [worksheet-link/src-path worksheet-link]] 
          lulu-button
+         logosplash
          embedded-wescheme
                 
          ;; lesson formatting
@@ -174,6 +176,7 @@
 (define bs-vocab-style (bootstrap-span-style "vocab"))
 (define bs-banner-style (bootstrap-div-style "banner"))
 (define bs-boxtext-style (bootstrap-div-style "boxedtext"))
+(define bs-logosplash-style (bootstrap-div-style/id "logosplash"))
 
 (define bs-handout-style (bootstrap-div-style/extra-id "segment" "exercises"))
 (define bs-exercise-instr-style (bootstrap-div-style "exercise-instr"))
@@ -204,6 +207,34 @@
   (let ([path-strs (string-split path-as-str "\\")])
     (image (apply build-path path-strs))))
 
+;; insert image with alt-text into file.
+;; if img-path is a url, leave as such, else try to build a path
+(define (image-with-alt-text img-pathstr-or-url alt-text)
+  (if (and (>= (string-length img-pathstr-or-url) 4)
+           (string=? "http" (substring img-pathstr-or-url 0 4)))
+      ;; image is at a URL
+      (elem #:style (style #f
+                           (list (alt-tag "img")
+                                 (attributes (list (cons 'src img-pathstr-or-url)
+                                                   (cons 'alt alt-text))))))
+      ;; else img is at a path
+      ;(let ([path-strs (string-split img-pathstr-or-url "\\")])
+      ;  (elem #:style (style #f
+      ;                     (list (alt-tag "img")
+      ;                           (attributes (list (cons 'src (path->string (apply build-path path-strs)))
+      ;                                             (cons 'alt alt-text))))))
+      ;  )))
+      (let ([path-strs (string-split img-pathstr-or-url "\\")])
+        (image (apply build-path path-strs)
+               alt-text))))
+
+(define (http-image img-url alt-text)
+  (elem #:style (style #f
+                       (list (alt-tag "img")
+                             (attributes (list (cons 'src img-url)
+                                               (cons 'alt alt-text)))))))
+
+  
 ;;;;;;;;;;;;;; Lesson structuring ;;;;;;;;;;;;;;;;;;;;;;;
 
 (define (student #:title (title #f)
@@ -846,6 +877,17 @@
     (summary-item/unit-link (format (string-append (translate 'unit)" ~a") num)
                           (format "units/unit~a/index" num)  ; index used to be "the-unit" 
                           (get-unit-descr (format "unit~a" num)))))
+
+;; generates the logo and splash-screen markup for the main.scrbl pages
+(define (logosplash splash-file logo-file)
+  (nested #:style bs-logosplash-style
+          (elem #:style (bootstrap-div-style "")
+                (image-with-alt-text splash-file "splash image"))
+          (elem #:style (bootstrap-div-style "top")
+                (image-with-alt-text
+                 (format "http://www.bootstrapworld.org/images/~a" logo-file)
+                 "course logo"))
+          ))
 
 ;;;;;;;;;; Unit summary generation ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 

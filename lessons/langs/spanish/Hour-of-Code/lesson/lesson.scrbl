@@ -90,7 +90,7 @@
                                                   @item{@math{\frac{351}{-1} }}]
                                           }}
                        @teacher{It's important for students to view the Circles of Evaluation as "just another way 
-                                of writing arithmetic". Have students discuss whether associativity and 
+                                of writing arithemetic". Have students discuss whether associativity and 
                                 commutativity still matter here (they do).}
                  }
        @point{@student{The Circles of Evaluation are also easy to convert into code. To translate a Circle of
@@ -188,7 +188,7 @@
                        method is also vulnerable to Commutativity, since a student will correctly evaluate @math{1*2+2} 
                        even if they get the order of operations wrong! Circles of Evaluation have neither of these flaws,
                        as they put the emphasis where it should be: exercising a student's ability to see the structure 
-                       inside the arithmetic.}
+                       inside the arithemetic.}
               }
                ]
    }

@@ -51,8 +51,7 @@
             20, "white"),
       310, 470,
       put-image(
-      text("Use arrow keys to move. 
-            Jump on the dog and catch the ruby!", 
+      text("Use arrow keys to move. Jump on the dog & catch the ruby!", 
             12, "white"), 
         320, 450,
         put-image(PLAYER-IMG, g.playerx, g.playery,

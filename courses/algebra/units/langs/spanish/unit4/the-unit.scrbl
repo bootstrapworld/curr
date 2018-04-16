@@ -1,16 +1,16 @@
 #lang curr/lib
 
-@title{Unit 4: The Design Recipe}
+@title{Unidad 4: La Receta de Diseño}
 
 @unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sqr sqrt expt} "1 ,4 ,44.6") 
                                        (list "String" @code{string-append string-length} " \"hello\" ")                          
                                        (list "Image" @code{rectangle circle triangle ellipse star scale rotate put-image} "(circle 25 \"solid\" \"red\")"))]{
-@unit-descr{Students continue to practice the Design Recipe by applying it to simple problems.}
+@unit-descr{Los estudiantes continúan practicando la Receta de Diseño aplicándolas a problemas simples.}
  }
 @unit-lessons{
 @lesson/studteach[
-     #:title "The Design Recipe"
-     #:duration "25 minutes"
+     #:title "La Receta de Diseño"
+     #:duration "25 mins"
      #:overview "Students are formally introduced to the steps of the Design Recipe."
      #:learning-objectives @itemlist[@item{Students practice using Contracts to create examples of functions}
                                      @item{Students learn to abstract over examples to create functions}]
@@ -18,18 +18,18 @@
                                      @item{Given a contract and purpose statement for a simple, one-variable function, students will be able to write two Examples}
                                       @item{Given two examples for a simple function, students will be able to identify the variable}
                                       @item{Given two examples for a simple function, students will be able to write the definition}]
-     #:product-outcomes @itemlist[@item{Students will use the Design Recipe to define a function, which is used to make a rocket fly.}]
+     #:product-outcomes @itemlist[@item{Los estudiantes usarán la receta del diseño para definir una función, que se utiliza para hacer una mosca del cohete.}]
      #:standards (list "A-SSE.1-2" "F-IF.1-3" "F-IF.4-6" "BS-DR.1" "BS-DR.2" "BS-DR.3" "8.F.1-3")
-     #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
-                            @item{Class poster (List of rules, language table, course calendar)}
-                            @item{Language Table (see below)}
-                            @item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders with names on covers, and something to write with}]
-     #:preparation @itemlist[@item{Write agenda on board}
-                              @item{Display Class posters, Language Table, Design Recipe}
-                              @item{Students are logged into WeScheme.org, OR have opened DrRacket.}
-                              @item{"Rocket" [Rocket.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=EHgrsZlYNX" "WeScheme")] preloaded on students' machines}
-                              @item{Seating arrangements: ideally clusters of desks/tables}
-                              @item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/134VD2NShK_VxDog4VG4lMm4jTbpxm2H2cSXqZbHwwSg/edit?usp=sharing" "Warmup activity sheet").}]
+     #:materials @itemlist[@item{Lapiceros/lápices para los estudiantes, marcadores de pizarra para profesores}
+                            @item{Cartel de clase (Lista de reglas, tabla de lenguaje, calendario del curso)}
+                            @item{Tabla de Lenguaje (Vea abajo)}
+                            @item{El @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "Libro de Trabajo"] del estudiante, carpetas con nombres en las cubiertas y algo con que escribir.}]
+     #:preparation @itemlist[@item{Agenda para escribir disponible.}
+                              @item{Mostrar carteles de la clase, Tabla de Lenguaje, receta de diseño.}
+                              @item{Entorno de edición (WeScheme o DrRacket con el bootstrap-teachpack instalado).}
+                              @item{"Rocket" [Rocket.rkt de @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=EHgrsZlYNX" "WeScheme")] precargado en las máquinas de los estudiantes.}
+                              @item{Disposición de asientos: idealmente grupos de escritorios/mesas}
+                              @item{OPCIONAL: Reparta la @(hyperlink "https://docs.google.com/document/d/134VD2NShK_VxDog4VG4lMm4jTbpxm2H2cSXqZbHwwSg/edit?usp=sharing" "Hoja de Actividades de Calentamiento").}]
      #:prerequisites (list "Defining Functions")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -39,11 +39,11 @@
                                                        @item{Can students make the rocket fly faster over time?}]}
                 )
       ]{
-        @points[ @point{@student{Functions are a key part of animation in computer programs. A function that draws a static picture of a cat, 
-                                for example, can place the cat at a different location based on the input. When that input changes slightly 
-                                based on time or user-interaction, the cat will appear to move. This is similar to the way that flip-book
-                                animations work, in which each page draws a static image that has changed by a small amount. When the pages 
-                                are displayed quickly, the images appear to change smoothly.
+        @points[ @point{@student{Las funciones son una parte clave de la animación en los programas informáticos. Una función que dibuja una imagen estática de un gato,
+                                 por ejemplo, puede colocar el gato en una ubicación diferente en función de la entrada. Cuando esa entrada cambia ligeramente
+                                 basada en el tiempo o la interacción del usuario, el gato parecerá moverse. Esto es similar a la forma en que la animación flip-book
+                                 funciona, en la que cada página dibuja una imagen estática que ha cambiado por una pequeña cantidad. Cuando las páginas
+                                 se muestran rápidamente, las imágenes parecen cambiar 
                                  @bannerline{@bitmap{images/flipbookSlides.png}}
                                  }
                         @teacher{Review the importance of definitions for students (defining values helps cut down on redundancy 
@@ -52,53 +52,53 @@
                                              throughout.)
                                   }
                         }
-                 @point{@student{@animated-gif{images/flipbook.gif}Putting these images together, we arrive at an animation of the rocket moving up the screen. 
-                                  Let's see an example of this kind of animation, using a function to make a rocket-blast off! Turn to 
-                                  @worksheet-link[#:name "rocket-height"] in your workbook, and read the word problem carefully. 
+                 @point{@student{@animated-gif{images/flipbook.gif}Juntando estas imágenes, llegamos a una animación del cohete que sube por la pantalla.
+                                   Vamos a ver un ejemplo de este tipo de animación, utilizando una función para hacer un lanzamiento de cohetes, Ve a la 
+                                  @worksheet-link[#:name "rocket-height"] de tu libro, y lee el problema de palabras cuidadosamente.
                          }
                          @teacher{Check student understanding carefully, to make sure students read the problem carefully. It may be helpful to draw a diagram or table showing the change of rocket position on the board, and to have students verbally walk through a few examples.}
                          }
-                 @point{@student{@bannerline{A rocket blasts off, traveling at 7 meters per second. Write a function called @code{rocket-height} that takes in the
-                                     number of seconds that have passed since the rocket took off, and which produces the height of the rocket at that time.}
+                 @point{@student{@bannerline{Un cohete se lanza, viajando a 7 metros por segundo. Escribe una función llamada @code{rocket-height} que toma el
+                                      número de segundos que han pasado desde que el cohete despegó, y que produce la altura del cohete en ese momento.}
                          @activity[#:forevidence (list "BS-M&1&1" "BS-DR.1&1&1" "F-IF.1-3&1&1" "F-IF.4-6&1&1")]{
-                                    @itemlist[@item{What is the @code{rocket-height} function taking in as an input? What type of data is that?}
-                                              @item{What is the function producing as an output? What type of data is that?}
-                                              @item{What are the three parts of a @vocab{Contract}?}
-                                              @item{What is the @vocab{Name} of the function you are being asked to define?}
-                                              @item{What is the @vocab{Domain} of the function?}
-                                              @item{What is the @vocab{Range} of the function?}]}}
+                                    @itemlist[@item{¿Qué toma como entrada la función @code{rocket-height} ?¿Qué tipo de dato es?}
+                                              @item{¿Qué produce como salida la función? ¿Qué tipo de dato es?}
+                                              @item{¿Cuáles son las tres partes de un @vocab{Contrato}?}
+                                              @item{¿Cuál es el  @vocab{Nombre} de la función que se te pide definir?}
+                                              @item{¿Cuál es el @vocab{Dominio} de la función?}
+                                              @item{¿Cuál es el @vocab{Rango} de la función?}]}}
                          @teacher{}
                         }
-                 @point{@student{The Contract is a way of thinking about the function in a general way, without having to worry about exactly how it will work or how it will be used. Starting with simple questions like these will make later steps much easier to think about. However, the Contract doesn't always have enough information! The Domain for @code{star}, for example, specifies that the function needs a Number and two Strings, but doesn't mention the fact that the first String must be @code{"solid"} or @code{"outline"}. To add this information, programmers write @vocab{Purpose Statements}, which are simple sentences that explain what a function does.
-                                 @activity[#:forevidence (list "BS-DR.1&1&2" "F-IF.1-3&1&5")]{Underneath the Contract, copy the following simple Purpose Statement for @code{rocket-height}.}
+                 @point{@student{El Contrato es una manera de pensar sobre la función de una manera general, sin tener que preocuparse por exactamente cómo funcionará o cómo se utilizará. Comenzar con preguntas sencillas como estas hará que los pasos posteriores sean mucho más fáciles de pensar. Sin embargo, ¡el contrato no siempre tiene suficiente información! El dominio de @code{star}, por ejemplo, especifica que la función necesita un número y dos cadenas, pero no menciona el hecho de que la primera cadena debe ser @code{"solid"} o @code{"outline"}. Para agregar esta información, los programadores escriben @vocab{declaración de propósito}, que son oraciones simples que explican lo que hace una función.
+                                 @activity[#:forevidence (list "BS-DR.1&1&2" "F-IF.1-3&1&5")]{Debajo del Contrato, escribe la siguiente Declaración de Propósito para @code{rocket-height}.}
                                  @code[#:multi-line #t]{; rocket-height : Number -> Number
-                                                        ; multiply the number of seconds by 7 to find the height}}
+                                                        ; Multiplica el número de segundos por 7 para encontrar la altura}}
                          @teacher{This is an opportunity to talk about the importance of writing, clarity, and brevity. What information is essential for a purpose statement? What information is irrelevant?  A good purpose statement describes what is computed and how its inputs are used; it should go beyond the information given in the contract and implicit in the name of the function.}
                          }
-                 @point{@student{Armed with the Contract and Purpose Statement, it becomes easy to write an @code{EXAMPLE}. Every example begins with the name of the function and a sample input, both of which are written in the Contract. In this case, you know that the function is called @code{rocket-height} and that it expects a single number as input. The Purpose Statement goes further, telling you that the input is multiplied by 7. We can use this to write two examples, with different numbers of seconds as inputs.
+                 @point{@student{Construyendo la Declaración de contrato y propósito, se hace fácil escribir un @code{EXAMPLE}. Cada ejemplo comienza con el nombre de la función y una entrada de muestra, ambas de las cuales están escritas en el Contrato. En este caso, tú sabes que la función se llama @code{rocket-height} y que espera un solo número como entrada. La declaración de propósito va más allá, diciéndote que la entrada se multiplica por 7. Podemos usar esto para escribir dos ejemplos, con diferentes números de segundos como entradas.
                                 @code[#:multi-line #t]{; rocket-height : Number -> Number
-                                                       ; multiply the number of seconds by 7 to find the height
+                                                       ; Multiplica el número de segundos por 7 para encontrar la altura
                                                        (EXAMPLE (rocket-height 11) 
                                                                 (* 11 7))
                                                        (EXAMPLE (rocket-height 72) 
                                                                 (* 72 7))}
-                                @bold{Note:} The example shown above is broken into two lines! As functions and examples become more complex, it will become difficult to squeeze them into a single line. In your workbooks, every example and definition from this point onwards will use the two-line format.
+                                @bold{Nota:} ¡El ejemplo mostrado arriba se divide en dos líneas! A medida que las funciones y los ejemplos se vuelven más complejos, será difícil comprimirlos en una sola línea. En los libros, cada ejemplo y definición a partir de este punto utilizará el formato de dos líneas.
                                 }
                          @teacher{The main idea for students in this activity is to realize that the Contract and Purpose Statement can be relied upon to write examples. Ask students to justify  every part of each example, using only the Contract and Purpose Statement.  Students are often tripped up by the switch from one-line examples to two-line ones. Be @italic{very} careful to point this out to students, and to check their workbooks to see where they are writing their examples. At the end of the activity, make sure that students circle ONLY what has changed.})
                  }
-                 @point{@student{@activity[#:forevidence (list "BS-DR.2&1&1" "8.F.1-3&1&3" "F-IF.1-3&1&4")]{In your workbook, write two new examples of @code{rocket-height} using different values for the number of seconds. Both examples will have a lot in common (they all use @code{rocket-height} as the function name, they all multiply their input by 7, etc). Once you are done writing them, circle only the parts of the examples that are @italic{changeable}.}}
+                 @point{@student{@activity[#:forevidence (list "BS-DR.2&1&1" "8.F.1-3&1&3" "F-IF.1-3&1&4")]{En tu libro, escribe dos nuevos ejemplos de @code{rocket-height} usando diferentes valores para el número de segundos. Ambos ejemplos tendrán mucho en común (todos usan @code{rocket-height} como el nombre de la función, todos ellos multiplican su entrada por 7, etc.). Una vez que haya terminado de escribirlos, encierre en un círculo solamente las partes de los ejemplos que sean @italic{changeable}.}}
                          @teacher{}
                         }
-                 @point{@student{By comparing two different examples, it is easy to tell what changes. According to the Purpose Statement, it is the number of seconds that the rocket has been flying.
-                                 @activity[#:forevidence (list "BS-DR.2&1&3" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2" "7.EE.3-4&1&4")]{On your paper, label the items you circled with "seconds".}}
+                 @point{@student{Al comparar dos ejemplos diferentes, es fácil decir qué cambia. De acuerdo con la Declaración de Propósito, es el número de segundos que el cohete ha estado volando.
+                                 @activity[#:forevidence (list "BS-DR.2&1&3" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2" "7.EE.3-4&1&4")]{En tu papel, etiqueta con "segundos" los elementos que rodeaste.}}
                          @teacher{Have a discussion with students about why "seconds" is a better name than "time". Talk about specificity, relevance, and readability.}}
-                 @point{@student{Labeling what is @italic{changeable} gives programmers a sense for the names of a function's @vocab{variables}.  Variables are like placeholders for values that can be different at different times.  A function that computed how much you pay for text messages each month, for example, might have a variable for the number of messages that you sent in that month.  The number of messages you sent might change from month to month, but each one could still cost 20 cents.  
-                                                  @activity[#:forevidence (list "BS-DR.3&1&1" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2")]{How many variables does @code{rocket-height} have? What is the name of each variable? Define the function, using all the information from your Examples, Contract and Purpose Statement.}
+                 @point{@student{Etiquetar lo que es @italic{cambiable} da a los programadores un sentido para los nombres de las @vocab{variables} de una función. Las variables son como marcadores de posición para valores que pueden ser diferentes en diferentes momentos. Una función que calcula cuánto pagas por mensajes de texto cada mes, por ejemplo, puede tener una variable para el número de mensajes que enviaste en ese mes. El número de mensajes enviados puede cambiar de mes a mes, pero cada uno puede costar 20 centavos.  
+                                                  @activity[#:forevidence (list "BS-DR.3&1&1" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2")]{¿Cuántas variables tiene @code{rocket-height}? ¿Cuál es el nombre de cada variable? Define la función, utilizando toda la información de tus Ejemplos, Contrato y Propósito.}
                                   
                                   }
                          @teacher{As with the Examples, ask students to justify each part of the definition. In this case, the function name can be derived from the Contract, and the variable name and function body from the Examples.}}
                  @point{@student{@code[#:multi-line #t]{; rocket-height : Number -> Number
-                                                       ; multiply the number of seconds by 7 to find the height
+                                                       ; Multiplica el número de segundos por 7 para encontrar la altura
                                                        (EXAMPLE (rocket-height 11) 
                                                                 (* 11 7))
                                                        (EXAMPLE (rocket-height 72) 
@@ -107,38 +107,38 @@
                                                                 (* seconds 7))}}
                          @teacher{}
                         }
-                 @point{@student{The Design Recipe allows a programmer to focus on one step of the problem at a time, and to use previous steps to help complete the next one.
-                                 @activity{@itemlist[@item{What does the @vocab{Contract} tell a programmer about a function?}
-                                                      @item{What does the @vocab{Purpose Statement} tell a programmer about a function?}
-                                                      @item{How do the Contract and Purpose Statement help a programmer write @vocab{Examples}?}
-                                                      @item{Why is it helpful to circle and label the parts of the Examples that change?}
-                                                      @item{How do all of these steps help a programmer define a function?}]}
+                 @point{@student{La Receta de Diseño permite al programador enfocarse en un paso del problema a la vez y usar los pasos anteriores para completar el siguiente.
+                                 @activity{@itemlist[@item{¿Qué dice el @vocab{Contrato} a un programador acerca de una función?}
+                                                       @item{¿Qué dice la @vocab{Declaración de Propósito} a un programador acerca de una función?}
+                                                       @item{¿Cómo el Contrato y la Declaración de Propósito ayudan a un programador a escribir @vocab{Ejemplos}?}
+                                                       @item{¿Por qué es útil circundar y etiquetar las partes de los ejemplos que cambian?}
+                                                       @item{¿Cómo todos estos pasos ayudan a un programador a definir una función?}]}
                                  }
                          @teacher{}
                          }
-                 @point{@student{You may have noticed that the Examples for @code{rocket-height} wrote out the multiplication as @code{(* 11 7)}, 
-                                 rather than the actual answer (@code{77}). Why bother to show the way a calculation is performed?  By doing this, 
-                                 Examples can provide hints about what process is taking place. In the provided Rocket code (Rocket.rkt from
-                                 @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | or the @editor-link[#:public-id "EHgrsZlYNX" "online file"]),
-                                 you will see why it is so important to show your work when writing examples. 
-                                 @activity{Click "Run", and wait until a window appears with a rocket at the bottom of the screen and numbers for "time" and "height" at the top. This animation is set to update the rocket every time the spacebar is pressed, to simulate time going by. Hit the spacebar a few times, and notice that the time at the top of the window increases. Does the rocket move? Time is passing, but our rocket's height hasn't changed! Close the rocket window, so that you can see the code.}}
+                 @point{@student{Puedes haber notado que los ejemplos para @code{rocket-height} mostraron la multiplicación como @code{(* 11 7)},
+                                  en lugar de la respuesta real (@code{77}). ¿Por qué molestarse en mostrar la forma en que se realiza un cálculo? Al hacer esto,
+                                  los ejemplos pueden proporcionar indicios sobre qué proceso está teniendo lugar. En el código proporcionado (Rocket.rkt de
+                                 @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | o @editor-link[#:public-id "EHgrsZlYNX" "online file"]),
+                                 Verás por qué es tan importante mostrar tu trabajo al escribir ejemplos.
+                                 @activity{Haz clic en "Run", y espera hasta que aparezca una ventana con un cohete en la parte inferior de la pantalla y los números de "tiempo" y "altura" en la parte superior. Esta animación está configurada para actualizar el cohete cada vez que se presiona la barra de espacio, para simular el paso del tiempo. Pulsa la barra espaciadora varias veces y observa que aumenta el tiempo en la parte superior de la ventana. ¿Se mueve el cohete? ¡El tiempo está pasando, pero la altura de nuestro cohete no ha cambiado! Cierra la ventana del cohete, para que puedas ver el código.}}
                          @teacher{}
                          }
-                 @point{@student{The Contract for this function is correct: the function's Name, Domain and Range are all accurately written here. However, the next step definitely has some problems:
+                 @point{@student{El contrato para esta función es correcto: el nombre, el dominio y el rango de la función se escriben aquí con precisión. Sin embargo, el siguiente paso definitivamente tiene algunos problemas:
                                   @itemlist[#:style 'ordered
-                                                    @item{There is only one Example. This makes it difficult to notice what is changing, which could lead to mistakes when identifying variables}
-                                                    @item{The Example doesn't show how the height is calculated - instead, this programmer just wrote the "answer", without showing their work.}]
+                                                    @item{Sólo hay un ejemplo. Esto hace que sea difícil darse cuenta de lo que está cambiando, lo que podría conducir a errores al identificar variables}
+                                                     @item{El ejemplo no muestra cómo se calcula la altura, sino que este programador acaba de escribir la "respuesta", sin mostrar su trabajo.}]
                                   }
                          @teacher{}
                          }
                          
-                 @point{@student{By skipping these steps in the Examples, it can be easy to make mistakes when defining the function. 
-                                 @activity[#:forevidence (list "BS-DR.2&1&3" "8.F.1-3&1&3")]{Can you see the mistake the programmer made?}
-                                 Without seeing multiple Examples, this programmer failed to realize that the height of the rocket has to be calculated for @italic{every input}. Instead, they just produce the same number every time (in this case, zero). As a result, the rocket is always at zero, no matter how many seconds have passed. 
-                                 @activity{@itemlist[@item{Fix this programmer's Example to show their work.}
-                                                      @item{Write a second Example, below the first one.}
-                                                      @item{Fix the definition for the function, so that it multiplies the number of seconds by 7.}
-                                                      @item{Click "Run", and then use the spacebar to make the rocket fly!}]}
+                 @point{@student{Al omitir estos pasos en los ejemplos, puede ser fácil cometer errores al definir la función. 
+                                 @activity[#:forevidence (list "BS-DR.2&1&3" "8.F.1-3&1&3")]{¿Puedes ver el error que cometió el programador?}
+                                 Sin ver múltiples ejemplos, este programador no se dio cuenta de que la altura del cohete debe calcularse para @italic{cada entrada}. En su lugar, sólo producen el mismo número cada vez (en este caso, cero). Como resultado, el cohete está siempre a cero, no importa cuántos segundos hayan pasado. 
+                                 @activity{@itemlist[@item{Corrige el ejemplo de este programador para mostrar su trabajo.}
+                                                       @item{Escribe un segundo Ejemplo, debajo del primero.}
+                                                       @item{Corrige la definición de la función, de modo que multiplique el número de segundos por 7.}
+                                                       @item{¡Haz clic en "Run", y luego usa la barra espaciadora para hacer que el cohete vuele!}]}
                                  }
                          @teacher{}
                          }
@@ -146,29 +146,29 @@
 
        
 @lesson/studteach[
-     #:title "Practicing the Design Recipe"
-     #:duration "40 minutes"
+     #:title "Practicando la Receta de Diseño"
+     #:duration "40 minutos"
      #:overview "Students use the Design Recipe to define simple functions (of one and two variables), given various word problems"
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[@item{Given a contract and purpose statement for a simple function, students will be able to write two Examples.}
                                       @item{Given two examples for a simple function, students will be able to identify the variable}
                                       @item{Given two examples for a simple function, students will be able to write the definition}]
-     #:product-outcomes @itemlist[@item{Students will write functions to solve simple problems by using the Design Recipe}]
+     #:product-outcomes @itemlist[@item{Los estudiantes escribirán funciones para resolver problemas sencillos usando la receta de diseño.}]
      #:exercises (list (make-exercise-locator "Practicing-the-Design-Recipe" "examples-same-contracts1")
                        (make-exercise-locator "Practicing-the-Design-Recipe" "examples-same-contracts2")
                        (make-exercise-locator "Practicing-the-Design-Recipe" "match-contracts-examples1")
                        (make-exercise-locator "Practicing-the-Design-Recipe" "match-contracts-examples2")
-                       (make-exercise-locator/dr-assess "Practicing-the-Design-Recipe" "calc-pencils-assess-recipe" "Calculating Needed Pencils")
-                       (make-exercise-locator/dr-assess "Practicing-the-Design-Recipe" "check-total-design-recipe-assess" "Totalling a Bill")
-                       (make-exercise-locator/dr-assess "Practicing-the-Design-Recipe" "circle-area-design-recipe-assess" "Computing the Area of a Circle"))
+                       (make-exercise-locator/file "Practicing-the-Design-Recipe" "calc-pencils-assess-recipe" "Calculating Needed Pencils")
+                       (make-exercise-locator/file "Check this Design Recipe: Practicing-the-Design-Recipe" "check-total-design-recipe-assess" "Totalling a Bill")
+                       (make-exercise-locator/file "Check this Design Recipe: Practicing-the-Design-Recipe" "circle-area-design-recipe-assess" "Check this Design Recipe: Computing the Area of a Circle"))
      #:standards (list "A-SSE.1-2" "F-IF.1-3" "F-IF.4-6" "BS-DR.1" "BS-DR.2" "BS-DR.3")
-     #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
-                            @item{Class poster (List of rules, language table, course calendar)}
-                            @item{Language Table}
-                            @item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders with names on covers, and something to write with}]
-     #:preparation @itemlist[@item{Write agenda on board}
-                              @item{Display Class posters, Language Table, Design Recipe}
-                              @item{Seating arrangements: ideally clusters of desks/tables}]
+     #:materials @itemlist[@item{Lapiceros/lápices para los estudiantes, marcadores de pizarra para profesores}
+                            @item{Cartel de clase (Lista de reglas, tabla de lenguaje, calendario del curso)}
+                            @item{}
+                            @item{El @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "Libro de Trabajo"] del estudiante, carpetas con nombres en las cubiertas y algo con que escribir.}]
+     #:preparation @itemlist[@item{Agenda para escribir disponible.}
+                              @item{Mostrar carteles de la clase, Tabla de Lenguaje, receta de diseño.}
+                              @item{Disposición de asientos: idealmente grupos de escritorios/mesas}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{This is the first time they've seen abstraction over image functions, and students are likely to think that @code{red-square} needs to take in other arguments, such as "solid" and "red".}]}
@@ -177,90 +177,89 @@
                                                        @item{}]}
                 )
       ]{
-        @points[@point{@student{The Design Recipe is a roadmap for defining functions, which programmers use to make sure the code they write does what they want it to do. Each step builds on the last, so any mistakes can be caught early in the process. This roadmap has a series of steps:
-                                @itemlist[@item{Moving from a word problem to a Contract}
-                                           @item{Writing Examples based on the contract}
-                                           @item{Defining a function that matches the examples}]
-                        Start out by practicing each of these steps, one at a time.
+        @points[@point{@student{Las instrucciones del diseño son una hoja de ruta para definir las funciones, que los programadores utilizan para asegurarse de que el código que escriben hace lo que quieren que haga. Cada paso se basa en el último, por lo que cualquier error se puede detectar a principios del proceso. Esta hoja de ruta tiene una serie de pasos:
+                                @itemlist[@item{Pasar de un problema de palabra a un contrato}
+                                            @item{Escribir ejemplos basados en el contrato}
+                                            @item{Definir una función que coincida con los ejemplos}]
+                         Comienza por practicar cada uno de estos pasos, uno a la vez.
                         }
                         @teacher{}
                         }
                  @point{@student{@activity[#:forevidence (list "BS-DR.1&1&1" "F-IF.1-3&1&1" "F-IF.4-6&1&3" "A-SSE.1-2&1&1")]{
-                                  For each of the following word problems, write down the Contract:
-                                  @itemlist[@item{Define a function 'purple-star', that takes in the size of the star and produces an outlined, purple star of the given size.}
-                                             @item{Define a function 'spot', that takes in a color and produces a solid circle of radius 50, filled in with that color}
-                                             @item{To find the average of two numbers, they should be added together and divided by two. Define a function 'average', which takes in two numbers and produces their average}
-                                             @item{A company logo is a word drawn in big, red letters, rotated some number of degrees. Define a function 'logo', that takes in a company name and a rotation, and produces a logo for that company}]
-                                  Be sure to include a good @vocab{Name} for each function, and remember that the @vocab{Domain} and @vocab{Range} can only include @vocab{types} like Numbers, Images, Strings, etc.}}
+                                  Para cada uno de los siguientes problemas de palabra, anota el Contrato:
+                                  @itemlist[@item{Define una función 'purple-star', que tome el tamaño de la estrella y produzca una estrella púrpura del tamaño dado.}
+                                              @item{Define una función 'spot', que tome un color y produzca un círculo sólido de radio 50, relleno con ese color}
+                                              @item{Para encontrar el promedio de dos números, deben ser agregados y divididos por dos. Definir una función 'average', que tome dos números y produzca su promedio}
+                                              @item{Un logotipo de la compañía es una palabra dibujada en letras grandes, rojas, girada un cierto número de grados. Definir una función 'logo', que lleve un nombre de empresa y una rotación, y produzca un logotipo para esa empresa}]
+                                  Asegúrate de incluir un buen @vocab{nombre} para cada función, y recuerda que @vocab{Dominio} y @vocab{Rango} sólo pueden incluir @vocab{tipos} como Numbers, Images, Strings, etc.}}
                          @teacher{[@(hyperlink "https://www.youtube.com/watch?v=SL2zLs2P-mU" "Video")] If students come up with different Domains or Ranges for their functions, have them explain their thinking for each one. These conversations are an important part of this step!}
                         }
-                 @point{@student{A Contract is the foundation for a function, which gives programmers just enough information to use them: the name of the function, the types of data it expects and the type of data it returns.
+                 @point{@student{Un contrato es la base de una función, que proporciona a los programadores la información suficiente para usarlos: el nombre de la función, los tipos de datos que espera y el tipo de datos que devuelve.
                                  @activity[#:forevidence (list "BS-DR.2&1&1" "8.F.1-3&1&3" "F-IF.1-3&1&4")]{
-                                          Now that you've completed the Contracts for all four word problems, try to generate two Examples for each one.}}
+                                          Ahora que has completado los Contratos para los cuatro problemas de palabras, trata de generar dos Ejemplos para cada uno.}}
                          @teacher{Challenge students to defend their Examples (their function name, the number of inputs, their types and the type of the returned value). Make sure that the two Examples for each function have @italic{different input values}! For each of these questions, students must be able to point to the specific part of their Contract as the justification for their Example.}}
-                 @point{@student{Once you have two or more Examples, it should be easy to identify what has changed between them. In fact, the number of things that change should match the number of things in the function's Domain: if the Domain has a Number and a String in it, then those two values should be the things that differ between your Examples.
+                 @point{@student{Una vez que tengas dos o más ejemplos, debe ser fácil identificar lo que ha cambiado entre ellos. De hecho, el número de cosas que cambian debe coincidir con el número de cosas en el dominio de la función: si el dominio tiene un número y una cadena en él, entonces esos dos valores deben ser las cosas que difieren entre los ejemplos.
                                  @activity[#:forevidence (list "BS-DR.2&1&3" "BS-DR.2&1&3" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2" "7.EE.3-4&1&4")]{
-                                       Identify what has changed between these Examples, and use this information to define all four functions.}}
+                                       Identificar lo que ha cambiado entre estos ejemplos, y utilizar esta información para definir las cuatro funciones.}}
                          @teacher{Make sure students have chosen good variable names for their function definitions, and ask students to justify every part of the function body. The only acceptable answers should be "I copied this because it's the same in both Examples", or "I used a variable name because it differs between Examples."}}
                 @point{@student{@activity[#:forevidence (list "BS-DR.3&1&1" "F-IF.1-3&1&1" "F-IF.4-6&1&3" "A-SSE.1-2&1&1")]{
-                                       Turn to @worksheet-link[#:name "red-square"] in your workbook, and read the word problem carefully.
-                                          @itemlist[@item{Circle the @vocab{Name} of the function, and underline what it takes in and what it produces.}
-                                                       @item{Write the @vocab{Contract} for this function, using what you underlined to help you find the @vocab{Domain} and @vocab{Range}.}
-                                                       @item{Underneath the Contract, write the @vocab{Purpose Statement} by summarizing what the function does in a single sentence}]}
+                                       Ve a la @worksheet-link[#:name "red-square"] En su libro de trabajo, y lee el problema de palabra cuidadosamente.
+                                          @itemlist[@item{Encierra el @vocab{nombre} de la función, y subraya lo que toma y lo que produce.}
+                                                        @item{Escribe el @vocab{Contrato} para esta función, utilizando lo que subrayaste para ayudarte a encontrar el @vocab{Dominio} y @vocab{Rango}.}
+                                                        @item{Debajo del Contrato, escribe la @vocab{Declaración de Propósito} resumiendo lo que hace la función en una sola oración}]}
                                 }
                         @teacher{Challenge students to explain why this function does not need to know the color of the square, or whether or not it is solid. They main idea here is that the function already "knows" these things, so the only thing that is changing is the size of the square.
                                  Note that there are actually two easy solutions here: using the @code{square} function, or using @code{rectangle} with the same variable for width and height.}
                         }
-                 @point{@student{Remember that the Contract and Purpose Statement can be used to write the Examples, even if a programmer isn't sure how to begin.
+                 @point{@student{Recuerda que la Declaración de contrato y propósito se puede utilizar para escribir los ejemplos, incluso si un programador no está seguro de cómo comenzar.
                                  @activity[#:forevidence (list "BS-DR.1&1&1" "BS-DR.2&1&1" "8.F.1-3&1&3" "F-IF.1-3&1&4")]{
-                                           Using only the Contract and Purpose Statement, see if you can answer the following questions:
-                                           @itemlist[@item{Every Example begins with the name of the function. Where could you find the name of the function?}
-                                                      @item{Every Example has to include sample inputs. Where could you find out how many inputs this function needs, and what types they are?}
-                                                      @item{Every Example has to include an expression for what the function should @italic{do} when given an input. Where could you look to find out what this function does?}
-                                                      @item{Write two Examples on your paper, then circle and label what is changing between them.}]}}
+                                           Utilizando solo la Declaración de contrato y propósito, ve si puedes contestar las siguientes preguntas:
+                                           @itemlist[@item{Cada ejemplo comienza con el nombre de la función. ¿Dónde puedes encontrar el nombre de la función?}
+                                                       @item{Cada ejemplo tiene que incluir entradas de muestra. ¿Dónde podrías encontrar cuántos insumos necesita esta función, y qué tipos son?}
+                                                       @item{Cada ejemplo tiene que incluir una expresión para lo que la función debe @italic{hacer} cuando se le da una entrada. ¿Dónde puedes buscar para saber qué hace esta función?}
+                                                       @item{Escribe dos Ejemplos en tu papel, luego marca y etiqueta lo que está cambiando entre ellos.}]}}
                         @teacher{Make sure students realize that every answer can be found in the Contract or Purpose Statement. Suggestion: write these steps on the board, and draw arrows between them to highlight the process. The goal here is to get students into the habit of asking themselves these questions each time they write Examples, and then using their own work from the previous step to find the answers. NOTE: students can solve this using either @code{square} or @code{rectangle}. The latter requires them to use the same variable twice, which is a useful thought-exercise.}
                         }
-                 @point{@student{Once the two Examples are written and the variable (or variables) are labeled, it becomes easy to define the function. 
+                 @point{@student{Una vez que se escriben los dos Ejemplos y se etiquetan las variables (o variables), se hace fácil definir la función. 
                                  @activity[#:forevidence (list "BS-DR.3&1&1" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2" "7.EE.3-4&1&4")]{
-                                           Using the Contract, Purpose Statement and Examples, see if you can answer the following questions:
-                                           @itemlist[@item{Every function definition begins with the name. Where did you write this already?}
-                                                      @item{Every definition has to include variable names for the inputs. Where did you write these down?}
-                                                      @item{Every definition should work exactly the way the Examples did. Where could you look to figure out what the function should @italic{do?}}
-                                                      @item{Write the function definition on your paper.}]}}
+                                           Usando el Contrato, la Declaración de Propósito y los Ejemplos, ve si puedes contestar las siguientes preguntas:
+                                           @itemlist[@item{Cada definición de función comienza con el nombre. ¿Dónde escribiste esto?}
+                                                     @item{Cada definición tiene que incluir nombres de variables para las entradas. ¿Dónde escribiste esto?}
+                                                     @item{Toda definición debe funcionar exactamente como lo hicieron los Ejemplos. ¿Dónde puedes mirar para averiguar que debe @italic{hacer} la función?}
+                                                     @item{Escribe la definición de función en tu papel.}]}}
                         @teacher{}
                         }
-                 @point{@student{When typing in a function definition, be sure to type in all three parts: The Contract and Purpose Statement, 
-                                 the Examples and the Definition. When "Run" is clicked, the computer will read the definition, test your 
-                                 Examples to make sure it works correctly, and then add the definition to your language. Once added, you 
-                                 can use the function as if it were built into the computer. 
+                 @point{@student{Cuando digitas en una definición de función, asegúrate de digitar las tres partes, El Contrato y Declaración de Propósito, los Ejemplos y la Definición.
+                                 Cuando haces clic en "Run", la computadora leerá la definición, evaluará tus ejemplos para asegurarse que funciona correctamente y entonces agregará la definición  a tu lenguaje.
+                                 Una vez agregado, puedes usar la función como si hubiera sido construida dentro de la computadora.
                                  @activity[#:forevidence (list "BS-IDE&1&1")]{
                                              @editor-link[#:definitions-text "; red-square : Number -> Image
-; draw a solid, red square using the given size
+; Dibuja un cuadrado rojo sólido usando el tamaño dado
 (EXAMPLE (red-square 42) (square 42 \"solid\" \"red\"))
 (EXAMPLE (red-square 73) (square 73 \"solid\" \"red\"))
 (define (red-square size) (square size \"solid\" \"red\"))"
-                                                          "Test out this function by using it with various inputs."]
+                                                          "Prueba la función usando varias entradas."]
                                              }
                                  }
                         @teacher{}
                         }
-                 @point{@student{Some functions take more than one input. The @code{red-square} function always makes solid red squares, with size being the only thing that varies. Suppose, however, we wanted the function to make red squares that could be @italic{either} solid or outline? This would mean that both the size and the style can vary, so a user might type @code{(red-square 50 "solid")} or @code{(red-square 50 "outline")}
+                 @point{@student{Algunas funciones toman más de una entrada. La función @code{red-square} siempre hace cuadrados rojos sólidos, siendo el tamaño lo único que varía. Supongamos, sin embargo, que queríamos que la función hiciera cuadrados rojos que pudieran ser sólidos @italic{o} solo el contorno. Esto significa que tanto el tamaño como el estilo pueden variar, por lo que un usuario puede escribir @code{(red-square 50 "solid")} o @code{(red-square 50 "outline")}
                                  @activity[#:forevidence (list "BS-DR.1&1&1" "F-IF.1-3&1&1" "F-IF.4-6&1&3" "A-SSE.1-2&1&1")]{
-                                           @itemlist[@item{How would that change the Domain of the function?}
-                                                      @item{How would the Examples have to change?}
-                                                      @item{How would the definition change?}]
-                                            Change each part of the code you typed, to allow @code{red-square} to take in "solid" or "outline" as a second argument.}}
+                                           @itemlist[@item{¿Cómo cambiaría el dominio de la función?}
+                                                       @item{¿Cómo cambiarían los ejemplos?}
+                                                       @item{¿Cómo cambiaría la definición?}]
+                                             Cambie cada parte del código que escribió, para permitir que @code{red-square} acepte "solid" o "outline" como segundo argumento.}}
                         @teacher{}
                         }
-                 @point{@student{The Design Recipe can be used for functions that take any number of inputs. As a simple example, take the following word problem:
+                 @point{@student{La Receta de Diseño se puede utilizar para las funciones que toman cualquier número de entradas. Como un ejemplo simple, tome el siguiente problema de palabra:
                                  @activity[#:forevidence (list "8.F.1-3&1&3" "F-IF.1-3&1&4" "BS-DR.3&1&1" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2" "7.EE.3-4&1&4")]{
-                                           Turn to @worksheet-link[#:name "lawn-area"] in the workbook, and read the word problem carefully.
-                                                   @itemlist[@item{Circle the @vocab{Name} of the function, and underline what it takes in and what it produces.}
-                                                              @item{How many things does this function take as input? Are they Numbers? Strings? Images?}
-                                                              @item{Write the @vocab{Contract} for this function, using what you underlined to help you find the @vocab{Domain} and @vocab{Range}.}
-                                                              @item{Underneath the Contract, write the @vocab{Purpose Statement} by summarizing what the function does in a single sentence.}
-                                                              @item{Write two Examples for this function, then circle and label what varies between them.}
-                                                              @item{Write the Definition for this function.}]}
+                                           Ve a la @worksheet-link[#:name "lawn-area"] en el libro y lee la palabra problema cuidadosamente.
+                                                   @itemlist[@item{Rodea el @vocab{Nombre} de la función, y subraya lo que toma y lo que produce.}
+                                                              @item{¿Cuántas cosas toma esta función como entrada? ¿Son números? ¿Instrumentos de cuerda? ¿Imágenes?}
+                                                              @item{Escribe el @vocab{Contrato} para esta función, utilizando lo que subrayaste para ayudarte a encontrar el @vocab{Dominio} y @vocab{Rango}.}
+                                                              @item{Debajo del Contrato, escribe la @vocab{Declaración de Propósito} resumiendo lo que hace la función en una sola oración.}
+                                                              @item{Escribe dos Ejemplos para esta función, luego rodea en circulo y etiqueta lo que varía entre ellos.}
+                                                              @item{Escribe la Definición para esta función.}]}
                                  }
                          @teacher{If time allows, pass out extra Design Recipe worksheets [@resource-link[#:path "DesignRecipeWorksheet.pdf" #:label "PDF"]], and have students practice with other word problems. Practice variations on red-square, involving two inputs changing while other parameters stay fixed.}
                         }
@@ -268,8 +267,8 @@
          }
          
 @lesson/studteach[
-     #:title "The Design Recipe (Algebra)"
-     #:duration "40 minutes"
+     #:title "La Receta de Diseño (Algebra)"
+     #:duration "40 minutos"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -283,96 +282,96 @@
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
-      ]{@points[@point{@student{The real power of programming isn't how well you know the language. It's about how well you can use it to solve problems! 
-                                You've learned about a powerful tool that helps you take word problems on paper and turn them into functions on the computer: 
-                                the @vocab{Design Recipe}! It turns out that the Design Recipe can also be used to help you solve word problems in algebra, too!
+      ]{@points[@point{@student{El verdadero poder de la programación no es lo bien que conoces el lenguaje. ¡Se trata de lo bien que se puede utilizar para resolver problemas!
+                                 Has aprendido sobre una herramienta de gran alcance que te ayuda a tomar problemas en el papel y convertirlos en funciones en el equipo:
+                                 ¡La @vocab{Receta de Diseño}! Resulta que la Receta de Diseño también se puede utilizar para ayudarte a resolver problemas de álgebra, ¡también!
                                 @activity[#:forevidence (list "F-IF.1-3&1&1" "F-IF.4-6&1&3" "A-SSE.1-2&1&1" "BS-DR.1&1&1")]{
-          Turn to @worksheet-link[#:name "Math-Rocket-Distance"] in your workbooks, read the word problem carefully, and write down the Contract 
-                  for the function:
-                  @italic{"A rocket is flying from Earth to Mars at 80 miles per second. Write a function that describes the distance @math{D} the rocket 
-                           has traveled, as a function of time.}"
+          Ve a la @worksheet-link[#:name "Math-Rocket-Distance"] de tu libro de ejercicios, lee atentamente el problema y anota el Contrato
+                   para la función:
+                   @italic{"Un cohete está volando de la Tierra a Marte a 80 millas por segundo. Escribe una función que describa la distancia @math{D} que el cohete
+                            ha viajado, en función del tiempo}"
                   }}
                         @teacher{}
                         }
-                 @point{@student{The distance a rocket travels is measured in numbers of miles, and time is measured in numbers of seconds. This gives us
-                                 the contract: 
-                                 @bannerline{@math{distance : Number \rightarrow Number}}
-                                 Just as before, the Contract gives us a strong hint about how to write the Examples. Here is one Example, written in 
-                                 Racket code:  @code{(EXAMPLE (distance 5) (* 5 80))}  Here's the same example, written in algebra: 
-                                 @math{distance(5) = 5 \times 80}
-                                 @activity[#:forevidence (list "F-IF.1-3&1&2" "F-IF.1-3&1&4" "F-IF.1-3&1&5" "F-IF.4-6&1&3" "A-SSE.1-2&1&1" "BS-DR.2&1&1")]{
-                                     Write two additional Examples for this function, using Algebraic notation.}
+                 @point{@student{La distancia que recorre un cohete se mide en números de millas, y el tiempo se mide en números de segundos. Esto nos da
+                                  el contrato:
+                                  @bannerline{@math{distance: Number \rightarrow Number}}
+                                  Al igual que antes, el Contrato nos da una fuerte pista sobre cómo escribir los Ejemplos. Aquí hay un ejemplo, escrito en
+                                  Código Racket: @code{(EJEMPLO (distance 5) (* 5 80))} Aquí está el mismo ejemplo, escrito en álgebra:
+                                  @math{distance (5) = 5 \times 80}
+                                  @activity[#:forevidence (list "F-IF.1-3&1&2" "F-IF.1-3&1&4" "F-IF.1-3&1&5" "F-IF.4-6&1&3" "A-SSE.1-2&1&1" "BS-DR.2&1&1")]{
+                                      Escribe dos ejemplos adicionales para esta función, usando la notación algebraica.}
                                  }
                          @teacher{Point out that the Contract hasn't changed @italic{at all} between Racket and Algebra. 
                                   If students are struggling with the change in syntax, let them first write the Examples in Racket, and 
                                   then convert them to Algebra by following the model shown here.}
                          }
-                 @point{@student{As before, a function's variables can be identified by writing two Examples, and looking at what changes between them.
+                 @point{@student{Como antes, las variables de una función pueden ser identificadas escribiendo dos Ejemplos, y mirando qué cambia entre ellos.
                                  @activity[#:forevidence (list "A-SSE.1-2&1&1" "A-SSE.1-2&1&2" "7.EE.3-4&1&4" "BS-DR.2&1&3" "BS-DR.3&1&1")]{
-                                           Using the Examples you've written, identify the variable(s) for the function. 
-                                           Then define the function @italic{using Algebraic syntax}.}
-                                 The Design Recipe helps transition from a written description of a function into a formal definition, 
+	                                           Utilizando los Ejemplos que has escrito, identifica la(s) variable(s) para la función.
+                                            A continuación, define la función @italic{usando sintaxis algebraica}.}
+                                 La Receta de Diseño ayuda a la transición de una descripción escrita de una función en una definición formal, 
                                  @bannerline{@math{distance(4) = 4 \times 80}
                                               @math{distance(7) = 7 \times 80}
                                               @math{distance(t) = t \times 80}}}
                          @teacher{}}
                  @point{@student{@activity[#:forevidence (list "F-IF.1-3&1&1" "F-IF.4-6&1&3" "A-SSE.1-2&1&1" "BS-DR.1&1&1")]{
-                                           Turn to @worksheet-link[#:name "Math-Rocket-Time"] in your workbooks, read the word problem carefully, and write 
-                                           down the Contract for the function: @italic{"A rocket is traveling from Earth to Mars
-                                           at 80 miles per second. Write a function that describes the time the rocket has been traveling, as 
-                                           a function of distance."}
+                                           Ve a la @worksheet-link[#:name "Math-Rocket-Time"] en tus libros, lee cuidadosamente el problema y escribe
+                                            abajo del contrato para la función: @italic{"Un cohete está viajando de la tierra a Marte
+                                            a 80 millas por segundo. Escribe una función que describa el tiempo que el cohete ha estado viajando en
+                                            función de la distancia."}
                                           }
                                   }
                          @teacher{Point out that this is the same relationship between distance and time as before, 
                                   @bold{only now we want be able to see the relationship from the opposite direction}: time in terms of 
                                   distance, rather than distance in terms of time.}
                          }
-            @point{@student{Once we have the Contract, it's easy to write Examples:
-                            @math{time : Number \rightarrow Number}
+            @point{@student{Una vez que tengamos el Contrato, es fácil escribir Ejemplos:
+                             @math{time : Number \rightarrow Number}
                             @activity[#:forevidence (list "F-BF.3-4&1&4" "F-IF.1-3&1&2" "F-IF.1-3&1&4" "F-IF.1-3&1&5" "F-IF.4-6&1&3" "A-SSE.1-2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1")]{
-                                      Use the Contract to write two Examples for this function, then identify the variable(s) for the function. 
-                                      @itemlist[@item{How many variables does this function have?}
-                                                 @item{Name the variable(s).}
-                                                 @item{Define this function, using Algebraic syntax.}]}}
+                                       Utiliza el Contrato para escribir dos Ejemplos para esta función, luego identifica la(s) variable(s) para la función.
+                                       @itemlist[@item{¿Cuántas variables tiene esta función?}
+                                                  @item{Nombre de la(s) variable(s).}
+                                                  @item{Define esta función, usando la sintaxis algebraica.}]}}
                     @teacher{}
                     }
-            @point{@student{Once your function is set up, it's easy to just plug in values and get answers back. @italic{With most word problems, the hard part is setting up the function in the first place.} Luckily, the Design Recipe makes setting up that function a lot easier! We've just used it to set up two different functions, which could be used to give us answers in terms of distance or time. Defining functions is like building tools, which you can use to solve simple problems or combine together to solve more complex ones.
-                    @activity{Suppose you wanted to know how far the rocket traveled in 6 seconds: which of the two functions here would you use? What if you wanted to know how long it takes for the rocket to go a thousand miles?}}
+            @point{@student{Una vez que tu función está configurada, es fácil simplemente conectar valores y obtener respuestas. @italic{Con la mayoría de los problemas, lo difícil es establecer la función en primer lugar.} ¡Por suerte, la receta de diseño hace que la configuración de esta función sea mucho más fácil! Lo hemos utilizado para configurar dos funciones diferentes, que podrían usarse para darnos respuestas en términos de distancia o tiempo. Definir funciones es como herramientas de construcción, que puedes utilizar para resolver problemas simples o combinar para resolver problemas más complejos.
+                    @activity{Supongamos que querías saber hasta dónde viajó el cohete en 6 segundos: ¿cuál de las dos funciones usarías? ¿Y si querías saber cuánto tiempo tarda el cohete en recorrer mil millas?}}
             @teacher{Ask students to identify which function they would use to answer a variety of different questions.}
             }
-            @point{@student{@activity{Turn to @worksheet-link[#:name "Math-Rocket-Collision"] in your workbooks, read the word problem carefully: 
-                                              @italic{"A rocket leaves Earth, headed for Mars at 80 miles per second. At the exact same time, an asteroid
-                                                      leaves Mars traveling towards Earth, moving at 70 miles per second. If the distance from the Earth 
-                                                      to Mars is 50,000,000 miles, how long will it take for them to meet?"}
-                                                    @itemlist[@item{What are the facts that the problem @bold{gives you}?}
-                                                               @item{What is the problem @bold{asking you for}?}
-                                                               @item{Use your answers to complete the following sentence: "Given ____, write a function that produces ____."}
-                                                               @item{If such this function existed, what would be a good name for it?}]}}
+            @point{@student{@activity{Ve a la @worksheet-link[#:name "Math-Rocket-Collision"] en tus libros, lee cuidadosamente el problema:
+                                               @italic{"Un cohete sale de la Tierra, se dirige a Marte a 80 millas por segundo." Al mismo tiempo, un asteroide
+                                                       deja a Marte viajando hacia la Tierra, moviéndose a 70 millas por segundo. Si la distancia desde la Tierra
+                                                       a Marte es de 50.000.000 millas, ¿cuánto tiempo les llevará a reunirse?}
+                                                    @itemlist[@item{¿Cuáles son los hechos que el problema @bold{te proporciona}?}
+                                                                @item{¿@bold{Que se te pide} del problema?}
+                                                                @item{Utiliza tus respuestas para completar la siguiente oración: "Dado ____, escriba una función que produzca ____."}
+                                                                @item{Si tal función existiera, ¿cuál sería un buen nombre para ella?}]}}
                                    @teacher{Ultimately, the problem is asking students about a functional relationship between distance and collision-time.}
                                    }
-                            @point{@student{If we had a function that computed collision-time, it would be easy to answer this question just by plugging in the distance between the Earth and Mars. Rather than start worrying about setting up an equation, you can use the Design Recipe to build the function itself!
+                            @point{@student{Si tuviéramos una función que computara el tiempo de colisión, sería fácil responder a esta pregunta simplemente tapando la distancia entre la Tierra y Marte. En lugar de empezar a preocuparte por la creación de una ecuación, ¡puedes utilizar la receta de diseño para construir la función en sí!
                                             @activity[#:forevidence (list "F-IF.1-3&1&1" "F-IF.4-6&1&3" "A-SSE.1-2&1&1" "BS-DR.2&1&1")]{
-                                                   Write down the contract for this function, then write two Examples using different distances.}}
+                                                   Anota el contrato para esta función, luego escribe dos Ejemplos usando distancias diferentes.}}
                                     @teacher{}
                                     }
-                            @point{@student{By now, you've got the contract for this function and a good purpose statement:
+                            @point{@student{Por ahora, tienes el contrato para esta función y una buena declaración de propósito:
                                             @bannerline{@math{collide : Number \rightarrow  Number}
                                                          @math{collide(0) = ...}}}
                                     @teacher{}
                                     }
-                             @point{@student{So now we need to figure out what calculations go after the equals sign. Luckily, we have a hint: we know that whatever it is, it must come out to zero, since we know that they've already collided when they are zero miles apart. 
-                                             @activity{If the rocket is going 80 miles/second, and the asteroid is going 70 miles/second, @italic{how fast are they approaching each other?}}}
+                             @point{@student{Así que ahora tenemos que averiguar qué cálculos van después del signo igual. Por suerte, tenemos una pista: sabemos que sea lo que sea, debe resultar cero, ya que sabemos que ya han colisionado cuando están a una distancia de cero millas. 
+                                             @activity{Si el cohete va a 80 millas por segundo, y el asteroide va a 70 millas por segundo, @italic{¿qué tan rápido se están acercando?}}}
                                      @teacher{}
                                      }
-                             @point{@student{@math{80 + 70 = 150}, so we know that they are getting closer and closer together at a rate of 150 miles per second. This isn't that different from our @code{time} function: we have some speed, and we want to know how much time it will take to go a given distance. So what do we write for our example?
+                             @point{@student{@math{80 + 70 = 150}, Por lo que sabemos que se están acercando cada vez más a una velocidad de 150 millas por segundo. Esto no es tan diferente de nuestra función @code{time}: tenemos cierta velocidad, y queremos saber cuánto tiempo tomará recorrer una distancia determinada. Entonces, ¿qué escribimos para nuestro ejemplo?
                                               @bannerline{@math{collide(0) = 0/150}}
-                                              @activity{Write two Examples of your own using different distances, then define the function so it works with any distance.}}
+                                              @activity{Escribe dos ejemplos usando diferentes distancias, a continuación, define la función para que funcione con cualquier distancia.}}
                                      @teacher{}
                                      }
-                             @point{@student{By now, you may already see the big picture: the distance given in this problem can be plugged into the equation 
-                                             without having to define the function itself. Sometimes the Design Recipe will get you to the answer without 
-                                             even having to finish! Other times, however, you may not see the big picture until you've broken the problem
-                                             down into smaller parts, each with its own function.}
+                             @point{@student{A estas alturas, es posible que ya veas el cuadro general: la distancia dada en este problema puede ser conectada a la ecuación
+                                              sin tener que definir la función en sí. ¡A veces la Receta de Diseño te guiará a la respuesta sin
+                                              incluso tener que terminar! Otras veces, sin embargo, es posible que no veas el panorama hasta que hayas roto el problema
+                                              hacia abajo en partes más pequeñas, cada uno con su propia función.}
                                      @teacher{You can add as many Design Recipe pages as you like to the workbooks, using any algebra problem you like. 
                                               We recommend using word problems from your students' algebra textbook, or even from your state's standardized test!}
                                      }]
@@ -380,8 +379,8 @@
        
        
 @lesson/studteach[
-     #:title "Closing"
-     #:duration "5 minutes"
+     #:title "Concluyendo"
+     #:duration "5 minutos"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:product-outcomes @itemlist[]
@@ -394,7 +393,7 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{In this unit, you started to see how functions are useful in writing animations: functions help produce information (such as the height of a rocket) that are used to create scenes in a game.  With the extra practice writing functions and using the Design Recipe, you are now ready to start writing functions that will move the elements within your own game.}
+        @points[@point{@student{En esta unidad, comenzaste a ver cómo las funciones son útiles en la escritura de animaciones: las funciones ayudan a producir información (como la altura de un cohete) que se utilizan para crear escenas en un juego. Con las funciones adicionales de escritura de la práctica y usando la receta de diseño, ya estás listo para comenzar a escribir funciones que moverán los elementos dentro de tu propio juego.}
                         @teacher{@itemlist[@item{Have students volunteer what they learned in this lesson}
                                             @item{Reward behaviors that you value: teamwork, note-taking, engagement, etc}
                                             @item{Pass out exit slips, dismiss, clean up.}]}

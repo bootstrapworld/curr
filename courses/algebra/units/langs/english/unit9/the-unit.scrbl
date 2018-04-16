@@ -24,13 +24,12 @@
                                      @item{Students will be able to explain how Piecewise Functions are used in their game}]
      #:product-outcomes @itemlist[@item{A poster illustrating a key component of a game program}]
      #:standards (list)
-     #:materials @itemlist[@item{Computers w/ DrRacket or WeScheme}
-                           @item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
-                           @item{Pens/pencils for the students, fresh whiteboard markers for teachers}
-                           @item{Class posters (List of rules, basic skills, course calendar)}
-                           @item{Language Table (see below)}
-                           @item{Printouts of game code for each team.}
-                           @item{Camera - take pictures today!}
+     #:materials @itemlist[ @item{Computer for each student (or pair), running WeScheme or DrRacket with the  bootstrap-teachpack installed}
+                            @item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbooks"], and something to write with}
+                            @item{Overhead projector}
+                            @item{Class poster (List of rules, language table, course calendar)}
+                            @item{Printouts of game code for each team.}
+                            @item{Camera - take pictures today!}
                           ]
      #:preparation @itemlist[@item{Sample poster or tri-fold poster for a fictional game, to use as a model for students.}]
      #:pacings (list 
@@ -56,7 +55,7 @@
                                      You may also want to have groups assigned to explain the Circles of Evaluation, Contracts, the purpose behind the Design Recipe,
                                      Piecewise Functions, and the Pythagorean Theorem.}
                        }
-                @point{@student{After you've made the poster, think about how you will use it during your presentation. What will you say to the audience?@slidebreak
+                @point{@student{After you've made the poster, think about how you will use it during your presentation. What will you say to the audience?
                                       How can you use what you've written on the poster or in your code to help with the presentation?}
                        @teacher{Demonstrate a terrible presentation, modeling bad posture, low volume, and mumbling. When it's time for the code-walk, stop.
                                             Ask kids to critique, pointing out what they liked and didn't like. What did they think of the speed of the presentation?
