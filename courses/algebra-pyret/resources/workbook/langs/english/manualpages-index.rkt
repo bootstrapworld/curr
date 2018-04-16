@@ -63,4 +63,5 @@
  ("Math-Rocket-Time" 40)
  ("Math-Rocket-Collision" 41)
  ("Math-Blank-Recipe" 42)
+ ("Data-science-excitement" 10)
 )

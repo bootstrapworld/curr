@@ -54,6 +54,7 @@
  ("StudentWorkbook.pdf" "Feedback")
  ("StudentWorkbook.pdf" "Feedback")
  "red-shape.scrbl"
+ ("DSA-workbook.pdf" "Data-science-excitement")
  ("StudentWorkbook.pdf" "Translating-to-Algebra")
  ("StudentWorkbook.pdf" "Math-Rocket-Distance")
  ("StudentWorkbook.pdf" "Math-Rocket-Time")
