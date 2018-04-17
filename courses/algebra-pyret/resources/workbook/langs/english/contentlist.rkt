@@ -54,11 +54,55 @@
  ("StudentWorkbook.pdf" "Feedback")
  ("StudentWorkbook.pdf" "Feedback")
  "red-shape.scrbl"
- ("DSA-workbook.pdf" "Data-science-excitement")
  ("StudentWorkbook.pdf" "Translating-to-Algebra")
  ("StudentWorkbook.pdf" "Math-Rocket-Distance")
  ("StudentWorkbook.pdf" "Math-Rocket-Time")
  ("StudentWorkbook.pdf" "Math-Rocket-Collision")
  ("StudentWorkbook.pdf" "Math-Blank-Recipe")
  ("StudentWorkbook.pdf" "Math-Blank-Recipe")
+ ;;;;; UNIT 1 ;;;;;;;;;
+ ("DSA-workbook.pdf" "Unit-1-Notes")
+ ("DSA-workbook.pdf" "Unit-1-Blank")
+ ("DSA-workbook.pdf" "Numbers-and-Strings")
+ ("DSA-workbook.pdf" "Booleans")
+ ;;;;; UNIT 2 ;;;;;;;;;
+ ("DSA-workbook.pdf" "Animals")
+ ("DSA-workbook.pdf" "Presidents-Nutrition")
+
+ ;;;;; UNIT 3 ;;;;;;;;;
+ ("DSA-workbook.pdf" "Mean-Median-Mode")
+ ("DSA-workbook.pdf" "Measuring-Center")
+ ;;;;; UNIT 4 ;;;;;;;;;
+ ("DSA-workbook.pdf" "Questions-With-Charts")
+ ("DSA-workbook.pdf" "Freq-Bar-Chart")
+ ("DSA-workbook.pdf" "Chart-Practice")
+ ("DSA-workbook.pdf" "More-Chart-Practice")
+
+ ;;;;; UNIT 5 ;;;;;;;;;
+ ("DSA-workbook.pdf" "Histograms")
+ ("DSA-workbook.pdf" "Histogram-Practice")
+
+ ;;;; UNIT 6 ;;;;;;;;;
+ ("DSA-workbook.pdf" "Scatter-Plot")
+ ("DSA-workbook.pdf" "Grading-Predictors")
+ ("DSA-workbook.pdf" "More-Predictors")
+ 
+ ;;;; UNIT 7 ;;;;;;;;;
+ ("DSA-workbook.pdf" "Select-Practice")
+ ("DSA-workbook.pdf" "Select-Continued")
+ ("DSA-workbook.pdf" "Order-Practice")
+
+ ;;;; UNIT 8 ;;;;;;;;;
+ ("DSA-workbook.pdf" "Rows-Questions")
+ ("DSA-workbook.pdf" "Booleans-Comparison")
+ ("DSA-workbook.pdf" "Sieve-Practice")
+
+ ;;;; UNIT 9 ;;;;;;;;;
+ ("DSA-workbook.pdf" "Extending-Tables")
+ ("DSA-workbook.pdf" "Countries-Example")
+ ("DSA-workbook.pdf" "Nutrition-Plan")
+ ("DSA-workbook.pdf" "Presidents-Plan")
+ ("DSA-workbook.pdf" "Rainfall-Plan")
+ ("DSA-workbook.pdf" "Countries-Plan")
+
  )
