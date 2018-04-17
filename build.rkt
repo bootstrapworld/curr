@@ -428,6 +428,7 @@
                                               (regexp-match #px".*\\.*~$" exerfile))
                                     (copy-file (build-path lessonexerpath exerfile)
                                                (build-path deploy-exer-path exerfile)
+                                               #t
                                                )))))
                             lessonnames))
                 )))))
@@ -471,14 +472,27 @@
     (when (directory-exists? (build-path (lessons-dir) subdir "exercises"))
       (for ([worksheet (directory-list (build-path (lessons-dir) subdir "exercises"))]
             #:when (regexp-match #px".scrbl$" worksheet))
-        (printf "build.rkt: building exercise handout ~a: ~a\n" subdir worksheet)
         (printf "building exercise at: ~a \n" (path->string (build-path (lessons-dir) subdir "exercises" worksheet)))
         (run-scribble (build-path (lessons-dir)  subdir "exercises" worksheet))
         (copy-file (build-path "lib" "backlogo.png")
                    (build-path (current-deployment-dir) "lessons"  (getenv "LANGUAGE") subdir "exercises" "backlogo.png")
 
-                   #t)
-        ))))
+                   #t))
+      ;; if some lesson only has .pdf exercises (not sourced from scrbl), the subdir won't exist
+      (unless (directory-exists? (build-path (current-deployment-dir) "lessons"  (getenv "LANGUAGE") subdir))
+        (make-directory (build-path (current-deployment-dir) "lessons"  (getenv "LANGUAGE") subdir))
+        (make-directory (build-path (current-deployment-dir) "lessons"  (getenv "LANGUAGE") subdir "exercises"))
+        )
+      ;; copy over .pdf exercises that do not come from corresponding .scrbl files
+      (for ([worksheet (directory-list (build-path (lessons-dir) subdir "exercises"))]
+            #:when (and (regexp-match #px".pdf$" worksheet)
+                        (not (file-exists? (build-path (lessons-dir) subdir "exercises" (regexp-replace #px"\\.pdf$" (path->string worksheet) ".scrbl"))))))
+        (let ([worksheet-distrib-file (build-path (current-deployment-dir) "lessons"  (getenv "LANGUAGE") subdir "exercises" worksheet)])
+          (unless (file-exists? worksheet-distrib-file) 
+            (copy-file (build-path (lessons-dir) subdir "exercises" worksheet)
+                       worksheet-distrib-file
+                       #t))))
+      )))
 
 
 
@@ -543,7 +557,8 @@
                   (let* ([exerfile-pdf (regexp-replace #px"\\.scrbl$" exerfile ".pdf")]
                          [exerfile-path (build-path exer-dir exerfile-pdf)])
                     (copy-file exerfile-path
-                               (build-path exer-deploy-dir exerfile-pdf))))
+                               (build-path exer-deploy-dir exerfile-pdf)
+                               #t)))
                 ))
             pdf-lesson-exercises))
 
@@ -774,7 +789,9 @@
           (if (build-exercises?)
               (begin (build-exercise-handouts) ; not needed for reactive
                      (workbook-styling-on)
-                     (build-extra-pdf-exercises)); not needed for reactive
+                     ;; when did we move the following into units? 
+                     ;(build-extra-pdf-exercises); not needed for reactive
+                     )
               (workbook-styling-on))
           )
         (when (equal? course "reactive")
