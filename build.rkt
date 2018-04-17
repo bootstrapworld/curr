@@ -413,10 +413,14 @@
                                                  (second path-elts))))
                                          unit-exercises))])
                   (for-each (lambda (lessonname)
-                              (let ([lessonexerpath (build-path (current-deployment-dir) "lessons" (getenv "LANGUAGE") lessonname "exercises")]
-                                    [deploy-exer-path (build-path deploy-exercises-dir lessonname)])
+                              (let* ([lessonpath (build-path (current-deployment-dir) "lessons" (getenv "LANGUAGE") lessonname)]
+                                     [lessonexerpath (build-path lessonpath "exercises")]
+                                     [deploy-exer-path (build-path deploy-exercises-dir lessonname)])
                                 (unless (directory-exists? deploy-exer-path)
                                   (make-directory deploy-exer-path))
+                                (unless (directory-exists? lessonpath)
+                                  (make-directory lessonpath)
+                                  (make-directory lessonexerpath))
                                 (for ([exerfile (directory-list lessonexerpath)])
                                   ; don't copy some file extensions
                                   (unless (or (regexp-match #px".*\\.scrbl$" exerfile)
