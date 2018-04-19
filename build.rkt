@@ -512,7 +512,15 @@
     (solutions-mode-on)
     ; generating sols to our internal distribution dir, not the public one
     (parameterize ([current-deployment-dir (build-path (root-deployment-dir) "courses" (current-course)(getenv "LANGUAGE") "resources")])
+      (unless (directory-exists? (build-path (root-deployment-dir) "courses"))
+        (make-directory (build-path (root-deployment-dir) "courses")))
+      (unless (directory-exists? (build-path (root-deployment-dir) "courses" (current-course)))
+        (make-directory (build-path (root-deployment-dir) "courses" (current-course)))
+        (make-directory (build-path (root-deployment-dir) "courses" (current-course) (getenv "LANGUAGE"))))
       (unless (directory-exists? (current-deployment-dir))
+        (when (not (directory-exists? (build-path (root-deployment-dir) "courses" (current-course))))
+          (make-directory (build-path (root-deployment-dir) "courses" (current-course)))
+          (make-directory (build-path (root-deployment-dir) "courses" (current-course) (getenv "LANGUAGE"))))
         (make-directory (current-deployment-dir))) 
       (for ([subdir (directory-list (lessons-dir))]
             #:when (directory-exists? (build-path (lessons-dir) subdir)))
@@ -788,6 +796,7 @@
           (putenv "TARGET-LANG" "racket")
           (if (build-exercises?)
               (begin (build-exercise-handouts) ; not needed for reactive
+                     (build-exercise-handout-solutions)
                      (workbook-styling-on)
                      ;; when did we move the following into units? 
                      ;(build-extra-pdf-exercises); not needed for reactive
@@ -801,7 +810,8 @@
         (when (equal? course "data-science")
           (putenv "TARGET-LANG" "pyret")
           (if (build-exercises?)
-              (begin (build-exercise-handouts) 
+              (begin (build-exercise-handouts)
+                     (build-exercise-handout-solutions)
                      (workbook-styling-on)
                      (build-extra-pdf-exercises))
               (workbook-styling-on))
