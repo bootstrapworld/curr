@@ -95,6 +95,7 @@
          (cond
            [(string? p) 
              (regexp-replace #px"\\.scrbl$" p ".pdf")]
+           [(skip-marker? p) p]
            [(and (list? p) (= 2 (length p)))
              (string-append (second p) ".pdf")]
            [(and (list? p) (= 3 (length p)))
@@ -102,6 +103,9 @@
             (regexp-replace #px"\\.scrbl$" (second p) ".pdf")]
             ))
        pages))
+
+(define (skip-marker? v)
+  (and (list? v) (eq? (first v) 'skip)))
 
 ; generate index of entire workbook by computing page sizes per PDF
 (define (gen-wkbk-index pdfpages 
@@ -117,14 +121,16 @@
             (printf ";; This file is generated automatically.  DO NOT EDIT IT MANUALLY!~n~n")
             (write (reverse indexlist))))
         (let ([p (first pages)])
-          (let* ([output (with-output-to-string 
-                          (lambda () (system* (get-prog-cmd "pdftk") (build-path pdfdir p) "dump_data")))]
-                 [match (regexp-match #px".*NumberOfPages: ([0-9]*).*" output)]
-                 [numpages (if match (string->number (second match)) 
-                               (error 'gen-wkbk-index 
-                                      (format "regexp failed to find the number of pages for pdf ~a" p)))]
-                 [pbasename (regexp-replace #px"\\.pdf" p "")])
-            (loop (rest pages) (+ nextpage numpages) (cons (list pbasename nextpage) indexlist)))))))
+          (if (skip-marker? p)
+              (loop (rest pages) (+ nextpage (second p)) indexlist)
+              (let* ([output (with-output-to-string 
+                              (lambda () (system* (get-prog-cmd "pdftk") (build-path pdfdir p) "dump_data")))]
+                     [match (regexp-match #px".*NumberOfPages: ([0-9]*).*" output)]
+                     [numpages (if match (string->number (second match)) 
+                                   (error 'gen-wkbk-index 
+                                          (format "regexp failed to find the number of pages for pdf ~a" p)))]
+                     [pbasename (regexp-replace #px"\\.pdf" p "")])
+                (loop (rest pages) (+ nextpage numpages) (cons (list pbasename nextpage) indexlist))))))))
 
 ; create a single PDF from the files named in pdfpages, output filename is optional
 (define (merge-pages pdfpages 
@@ -149,10 +155,10 @@
                      (if (string? f) 
                          (file-exists? (build-path basedir f))
                          (if (string=? (first f) "exercise")
-                             (file-exists? (build-path (lessons-dir) (third f) "exercises"(second f)))
+                             (file-exists? (build-path (lessons-dir) (third f) "exercises" (second f)))
                              (file-exists? (build-path basedir 'up (first f))))))])
     ;;TODO: Good start; now see where it handles this stuff
-    (let ([missing (filter (lambda (f) (not (havefile? f))) ctlist)])
+    (let ([missing (filter (lambda (f) (and (not (skip-marker? f)) (not (havefile? f)))) ctlist)])
       (if (empty? missing) ctlist
           (begin
             (printf "Pages listing references missing files ~a ~n" missing)
@@ -189,6 +195,7 @@
     (for-each (lambda (pspec)
                 (when (and (list? pspec)
                            (= (length pspec) 2)
+                           (not (skip-marker? pspec))
                            (or #t
                                (not (file-exists? (build-path "pages" (string-append (second pspec) ".pdf"))))
                                (not wkbk-mod-sec)
@@ -231,7 +238,7 @@
           (extract-PDF-pages pages workbook-last-gen-sec)
           (let* ([pdfpagenames (pdf-pagenames pages)])
             (gen-wkbk-index pdfpagenames)
-            (merge-pages pdfpagenames)
+            (merge-pages (filter string? pdfpagenames)) ;; remove the skip commands
             (add-pagenums)
             ; add front and back pages
 	    ; current assumes both or neither front/back pages -- can adjust later if needed
