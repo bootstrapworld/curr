@@ -21,7 +21,7 @@
      #:materials @itemlist[@item{Lapiceros/lápices para los estudiantes, marcadores de pizarra para profesores}
                             @item{Cartel de clase (Lista de reglas, tabla de lenguaje, calendario del curso)}
                             @item{Tabla de Lenguaje (Vea abajo)}
-                            @item{"Bug Hunting" [Bugs.rkt de @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=JCTcwYc57r" "WeScheme")] precargado en las máquinas de los estudiantes}]
+                            @item{"Bug Hunting" [Bugs.rkt de @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=MdMWbZJH3t" "WeScheme")] precargado en las máquinas de los estudiantes}]
      #:preparation @itemlist[@item{Los estudiantes están registrados en WeScheme.org, o han abierto DrRacket.}]
      #:prerequisites (list "Defining Functions")
      #:pacings (list 
@@ -32,7 +32,7 @@
       ]{
         @points[@point{@student{Depurando (buscando y corrigiendo problemas en el código) es una parte importante de la programación, así que es una buena idea practicar buscando errores en código. 
                                 @activity[#:forevidence (list "BS-IDE&1&2" "BS-PL.1&1&2" "BS-PL.2&1&1" "BS-PL.2&1&2" "BS-PL.3&1&3")]{
-                                        Abre el programa @editor-link[#:public-id "lQUC6RJArG" "Bug Hunting"] en una nueva ventana, y observa si puedes encontrar errores en cada expresión. Haz clic en "Run" y lee el mensaje de error cuidadosamente. Después de corregir cada uno, hacer clic en Run te mostrará el mensaje de error del siguiente problema.}}
+                                        Abre el programa @editor-link[#:public-id "MdMWbZJH3t" "Bug Hunting"] en una nueva ventana, y observa si puedes encontrar errores en cada expresión. Haz clic en "Run" y lee el mensaje de error cuidadosamente. Después de corregir cada uno, hacer clic en Run te mostrará el mensaje de error del siguiente problema.}}
                         @teacher{Make sure students understand that the goal is not to FIX the bugs, but rather just to find them.}
                         }
                  ]}

@@ -36,10 +36,10 @@
       ]{
         @points[@point{@student{@noSlideText{Debugging (finding and correcting problems in code) is an important part of programming, so it's a good idea to practice finding bugs in code.}  
                                 @activity[#:forevidence (list "BS-IDE&1&2" "BS-PL.1&1&2" "BS-PL.2&1&1" "BS-PL.2&1&2" "BS-PL.3&1&3")]{
-                                        Open the @editor-link[#:public-id "lQUC6RJArG" "Bug Hunting"] program in a new window, and see if you can find the 
+                                        Open the @editor-link[#:public-id "MdMWbZJH3t" "Bug Hunting"] program in a new window, and see if you can find the 
                                         bug in each expression. Click "Run" and read the error message carefully! After you fix each one, clicking 
                                         Run will show you the error message for the next bug.}}
-                        @teacher{Make sure students understand that the goal is not to FIX the bugs, but rather just to find them.}
+                        @teacher{Make sure students read the comments in the code FIRST, before trying to fix the bug.}
                         }
                  ]}
 
@@ -52,7 +52,7 @@
                                      @item{Students will learn how to control speed of movement through functions}]
      #:product-outcomes @itemlist[@item{Students will add danger movement to their games}
                                   @item{Students will add target movement to their games}]
-     #:exercises (list (make-exercise-locator/dr-assess "Danger-and-Target-Movement" "target-leap-design-recipe-assess" "Making Players Leap")
+     #:exercises (list (make-exercise-locator/file "Danger-and-Target-Movement" "target-leap-design-recipe-assess" "Check this Design Recipe: Making Players Leap")
 		       )
      #:standards (list "F-IF.1-3" "F-LE.5" "BS-DR.2" "BS-DR.3")
      #:materials @itemlist[]
