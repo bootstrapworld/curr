@@ -139,6 +139,15 @@
 ;;;;;;;;;;;;;;;; Unit 209 ;;;;;;;;;;;;;
  ("Unit-9-Notes" 	 			62 )
  ("Fake-News" 		 			63 )
+ 
+;;;;;ADDING REFLECTIONS FOR NOW;;;;
+("reflections1"				1)
+("reflections2"				2)
+("reflections3"				3)
+("reflections4"				4)
+("reflections5"				5)
+("reflections6"				6)
+
 
 ;; TODO Add Ending stuff
 
