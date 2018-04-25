@@ -7,11 +7,11 @@
                  (+ (/ (+ 8 1) 3) (- 5 3))
                  ))
 
-@(define exprs-with-holes '((+ BSLeaveAHoleHere (* 6 BSLeaveAHoleHere))
-			    (- (+ BSLeaveAHoleHere 13) (BSLeaveAHoleHere BSLeaveAHoleHere 4))
-			    (BSLeaveAHoleHere (+ BSLeaveAHoleHere 4) BSLeaveAHoleHere)
-			    (* BSLeaveAHoleHere (/ BSLeaveAHoleHere (+ 2 -4)))
-			    (+ BSLeaveAHoleHere3 (- BSLeaveAHoleHere 3))
+@(define exprs-with-holes '((BSLeaveAHoleHere + (6 * BSLeaveAHoleHere))
+			    ((BSLeaveAHoleHere + 13) - (BSLeaveAHoleHere BSLeaveAHoleHere 4))
+			    ((BSLeaveAHoleHere + 4) BSLeaveAHoleHere BSLeaveAHoleHere)
+			    (BSLeaveAHoleHere * (BSLeaveAHoleHere / (2 + -4)))
+			    (BSLeaveAHoleHere + (BSLeaveAHoleHere - 3))
 			    ))
 
 @(define exprs-as-code (map sexp->code exprs))
