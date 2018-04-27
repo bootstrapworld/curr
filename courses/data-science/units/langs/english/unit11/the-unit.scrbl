@@ -1,6 +1,6 @@
 #lang curr/lib
 
-@title{Unit 10: Writing Up Results}
+@title{Unit 11: Writing Up Results}
 
 @unit-overview/auto[#:lang-table (list (list "Number" 
                                               @code{+, -, *, /, num-sqrt, num-sqr} 

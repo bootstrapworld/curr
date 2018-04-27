@@ -1,6 +1,6 @@
 #lang curr/lib
 
-@title{Unit 2: Defining Values and Functions }
+@title{Unit 3: Defining Values and Functions }
 
 @unit-overview/auto[#:lang-table (list (list "Number" 
                                               @code{num-sqrt, num-sqr} 

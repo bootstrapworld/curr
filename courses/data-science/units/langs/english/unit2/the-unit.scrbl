@@ -41,7 +41,7 @@
         @points[
                 @point{
                       @student{
-                            Let's take a look at a real dataset!
+                            Now, let's take a look at a real dataset!
                             @activity[#:forevidence (list )]{
                                 @itemlist[
                                     @item{
@@ -113,14 +113,6 @@
 
                       }
                 }
-                @point{
-                      @student{
-                            Are cats more popular than dogs? Do older animals take longer to get adopted? What are some questions someone might have about this dataset? Write down three questions you have on @worksheet-link[#:name "Animals-Dataset"].
-                      }
-                      @teacher{
-
-                      }
-                }
         ]
   }
 
@@ -142,15 +134,35 @@
       ]{
         @points[
             @point{
-                  @student{...here ae some questions in the WB. What can you answer? Why not?}
-                  @teacher{debrief}
+                  @student{
+                          Data Scientists always have a lot of questions, but those questions can't all be answered by the data we have in front of us! If you start with a question you want answered, you may find that you have to spend a lot of time gathering the data to answer it. Sometimes the best strategy is to start with a dataset, and look for interesting questions inside that data.
+                  }
+                  @teacher{
+
+                  }
+            }
+            @point{
+                  @student{
+                          On the bottom of @worksheet-link[#:name "Animals-Dataset"], there are a list of questions that we might have about the animals at the shelter. Can all of them be answered by this dataset?
+                          @activity{
+                              Take 5 minutes to discuss the questions, and put a check mark next to the ones that CAN be answered by this dataset. For ones that can't, what data is missing?
+                          }
+                  }
+                  @teacher{
+                          Have students share their findings with the class. Allow time for discussion!
+                  }
+            }
+            @point{
+                  @student{
+                          Being able to figure out what @italic{can} and @italic{can't} be answered by a dataset is an important skill. Turn to @worksheet-link[#:name "What-Can-You-Answer"] to practice.
+                  }
             }
         ]
   }
 
    @lesson/studteach[
      #:title "Threats to Validity"
-     #:duration "15 minutes"
+     #:duration "20 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -166,8 +178,40 @@
       ]{
         @points[
             @point{
-                  @student{...turn to page X...discuss and write down answer}
-                  @teacher{debrief}
+                  @student{
+                          @bannerline{Survey says: "People prefer cats to dogs"}
+                          As good Data Scientists, the staff at the animal shelter is constantly gathering data about their animals, their volunteers, and the people who come to visit. But just because they @italic{have} data doesn't mean that the conclusions they draw from it are correct! For example: suppose they surveyed 1,000 cat-owners and found that 95% of them thought cats were the best pet. Could they claim that people prefer cats to dogs?
+                  }
+                  @teacher{
+                          Have students share back what they think. The issue here is that cat-owners are not a representative sample of the population, so the claim is invalid.
+                  }
+            }
+            @point{
+                  @student{
+                          There's more to data analysis than simply collecting data and crunching numbers. In the example of the cat-owning survey, the claim that "people prefer cats to dogs" is @bold{invalid} because the data itself wasn't representative of the whole population (of course cat-owners are partial to cats!). This is just one example of what are called @vocab{Threats to Validity}.
+                  }
+                  @teacher{
+
+                  }
+            }
+            @point{
+                  @student{
+                          @activity{
+                              On this page @worksheet-link[#:name "Threats-to-Validity-1"] and @worksheet-link[#:name "Threats-to-Validity-2"], you'll find four different claims backed by four different datasets. Each one of those claims suffers from a serious threat to validity. Can you figure out what those threats are?
+                          }
+                          
+                  }
+                  @teacher{
+                          Give students time to discuss and share back. @bold{Answers:} The dog-park survey is not a random sample, the dogs are friendlier towards whomever is giving them food, etc.
+                  }
+            }
+            @point{
+                  @student{
+                          Life is messy, and there are @italic{always} threats to validity. Data Science is about doing the best you can to minimize those threats, and to be up front about what they are whenever you publish a finding. When you do your own analysis, make sure you include a discussion of the threats to validity!
+                  }
+                  @teacher{
+
+                  }
             }
         ]
   }
@@ -175,7 +219,7 @@
 
   @lesson/studteach[
      #:title "Choose Your Dataset"
-     #:duration "25 minutes"
+     #:duration "30 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -192,7 +236,7 @@
         @points[
                 @point{
                       @student{
-                          Throughout this course, you'll be analyzing this dataset and writing up your findings. As you learn new tools for data science, you'll continue to refine this analysis, answering questions and raising new ones of your own!
+                          Now it's time to choose a dataset of your own! Throughout this course, you'll be analyzing this dataset and writing up your findings. As you learn new tools for data science, you'll continue to refine this analysis, answering questions and raising new ones of your own!
                           Take 10 minutes to look through the following datasets, and choose one that interests you:
                           @itemlist[
                               @item{
@@ -247,7 +291,7 @@
                           ]
                       }
                       @teacher{
-                          Have students write down which dataset they chose, to ensure a firm commitment. The farther they go in the course, the harder it will be to change datasets!
+                          Make sure students realize this is a firm commitment! The farther they go in the course, the harder it will be to change datasets.
                       }
                 }
                 @point{
@@ -258,7 +302,7 @@
                                       Once you've found a Starter file for a dataset that interests you, click "Save a Copy" and save the project to your own account. 
                                   }
                                   @item{
-                                      Take 5 minutes to fill in your name, and complete @worksheet-link[#:name "My-Dataset"].
+                                      Take 5 minutes to fill in your name, and complete the top half of @worksheet-link[#:name "My-Dataset"].
                                   }
                                   @item{
                                       In the Definitions Area, use @code{get-row} to define @bold{at least two} values, representing different rows in your table. Call them @code{sample1}, @code{sample2}, and so on.
@@ -271,15 +315,12 @@
                       }
                 }
                 @point{
-                      @student{identity threats to validity}
-                      @teacher{}
-                }
-                @point{
-                      @student{brainstorm questions}
-                      @teacher{}
-                }
-                @point{
-                      @student{what can you answer?}
+                      @student{
+                            @activity{
+                              On the bottom of @worksheet-link[#:name "My-Dataset"], brainstorm a few questions you would like to ask of this dataset. Be sure to check off the ones that CAN be answered! For the ones that can't, what kind of data would you need? What threats to validity might be a part of this dataset? 
+                            }
+                            
+                      }
                       @teacher{}
                 }
         ]
@@ -302,6 +343,12 @@
                 )
       ]{
         @points[
+              @student{
+                    Congratulations! You've explored the Animals dataset, chosen your own and begun to think critically about threats to validity and how questions and data shape one another. For the rest of this course, you'll be learning new programming and Data Science skills, practicing them with the Animals dataset and then applying them to your own.
+              }
+              @teacher{
+                    Have students share which dataset they chose, and pick one question they're looking at.
+              }
         ]
   }
 }

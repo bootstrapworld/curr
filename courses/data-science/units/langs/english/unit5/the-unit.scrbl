@@ -1,6 +1,6 @@
 #lang curr/lib
 
-@title{Unit 4: Table Plans }
+@title{Unit 5: Table Plans }
 
 @unit-overview/auto[#:lang-table (list (list "Number" 
                                               @code{num-sqrt, num-sqr} 

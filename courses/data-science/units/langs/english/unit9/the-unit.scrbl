@@ -1,6 +1,6 @@
 #lang curr/lib
 
-@title{Unit 8: Scatter Plots and Correlation }
+@title{Unit 9: Scatter Plots and Correlation }
 
 @unit-overview/auto[#:lang-table (list (list "Number" 
                                               @code{+, -, *, /, num-sqrt, num-sqr} 

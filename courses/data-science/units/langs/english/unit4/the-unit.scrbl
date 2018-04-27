@@ -1,6 +1,6 @@
 #lang curr/lib
 
-@title{Unit 3: Manipulating Tables }
+@title{Unit 4: Manipulating Tables }
 
 @unit-overview/auto[#:lang-table (list (list "Number" 
                                               @code{num-sqrt, num-sqr} 

@@ -12,19 +12,19 @@
  ("Examples" 					 6 )
 
 ;;;;;;;;;;;;;;;; Unit 2 ;;;;;;;;;;;;;
- ("Unit-2-Notes"                                 7 )
- ("Unit-2-Blank"                                 8 )
- ("Animals-Dataset" 			         9 )
- ("What-Can-You-Answer-Practice"                10)
- ("Threats-to-Validity-1"                       11)
- ("Threats-to-Validity-2"                       12)
+ ("Unit-2-Notes"                 7 )
+ ("Unit-2-Blank"                 8 )
+ ("Animals-Dataset" 			 9 )
+ ("What-Can-You-Answer" 		10 )
+ ("Threats-to-Validity-1"       11 )
+ ("Threats-to-Validity-2"       12 )
  ("My-Dataset" 					13 )
- ("Padding-Unit-2"                              14)
+ ("Padding-Unit-2"              14 )
 
 
 ;;;;;;;;;;;;;;;; Unit 3 ;;;;;;;;;;;;;
- ("Unit-3-Notes" 	 	 		 15 )
- ("Unit-3-Blank" 	 	 		 16)
+ ("Unit-3-Notes" 	 	 		15 )
+ ("Unit-3-Blank" 	 	 		16 )
  ("Design-Recipe-1" 			17 )
  ("Design-Recipe-2" 			18 )
  ("Design-Recipe-3" 			19 )

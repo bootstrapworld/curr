@@ -1,6 +1,6 @@
 #lang curr/lib
 
-@title{Unit 9: Linear Regression}
+@title{Unit 10: Linear Regression}
 
 @unit-overview/auto[#:lang-table (list (list "Number" 
                                               @code{+, -, *, /, num-sqrt, num-sqr} 
