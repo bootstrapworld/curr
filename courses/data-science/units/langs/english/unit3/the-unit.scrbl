@@ -16,30 +16,11 @@
                                               (list @bitmap{images/imgValue1.png} @bitmap{images/imgValue2.png}))
                                        )]{
   @unit-descr{
-    Students choose their dataset, and begin to explore. In the process, they learn how to write their own definitions, first defining static values and then complete functions. They are also introduced to the Design Recipe: a structured approach to solving word problems and defining functions.
+     In the process, they learn how to write their own definitions, first defining static values and then complete functions. They are also introduced to the Design Recipe: a structured approach to solving word problems and defining functions.
   }
 }
 @unit-lessons{
 
-  @lesson/studteach[
-     #:title "Review"
-     #:duration "10 minutes"
-     #:overview ""
-     #:learning-objectives @itemlist[]
-     #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[]
-     #:standards (list)
-     #:materials @itemlist[]
-     #:preparation @itemlist[]
-     #:pacings (list 
-                @pacing[#:type "remediation"]{@itemlist[@item{}]}
-                @pacing[#:type "misconception"]{@itemlist[@item{}]}
-                @pacing[#:type "challenge"]{@itemlist[@item{}]}
-                )
-      ]{
-        @points[
-        ]
-  }
 
   @lesson/studteach[
      #:title "Defining Values"
@@ -58,6 +39,16 @@
                 )
       ]{
         @points[
+            @point{
+                  @student{
+                        @activity[#:forevidence (list )]{
+                          Open the saved @(hyperlink "https://docs.google.com/spreadsheets/d/19m1bUCQo3fCzmSEmWMjTfnmsNIMqiByLytHE0JYtnQM/" "Animals Spreadsheet") in a new tab. From the Pyret menu, save a copy of this file into your account. This allows you to make changes and save your work.
+                        }
+                  }
+                  @teacher{
+
+                  }
+            }
             @point{
                   @student{
                         As you've seen, Pyret allows us to define names for values using the @code{=} sign. In math, you're probably used to seeing definitions like @math{x = 4}, which defines the name @code{x} to be the value @code{4}. Pyret works the same way, and you've already seen two names defined in this file: @code{shelter-sheet} and @code{animals-table}. We generally write definitions on the left, in the Definitions Area.
@@ -84,7 +75,7 @@
             }
             @point{
                   @student{
-                        Each row of our @code{animals-table} represents a single animal in our shelter. We can use the @code{get-row} function from yesterday to define values. Type the following lines of code into the Definitions Area and click "Run":
+                        Each row of our @code{animals-table} represents a single animal in our shelter. We can use the @code{get-row} function to define values. Type the following lines of code into the Definitions Area and click "Run":
                         @code[#:multi-line #t]{
                           mittens = get-row(animals-table, 3)  # the Row for Mittens
                           fritz   = get-row(animals-table, 10) # the Row for Fritz
@@ -103,7 +94,7 @@
 
   @lesson/studteach[
      #:title "Defining Functions"
-     #:duration "40 minutes"
+     #:duration "30 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -134,8 +125,9 @@
                 }
                 @point{
                       @student{
-                            Suppose I want to know if @code{mittens} is fixed or not.
-                            @activity{Quick! Is mittens fixed? Describe what you did to find the answer.}
+                            @activity{
+                              Suppose I want to know if @code{mittens} is fixed or not. How would you find the answer?
+                            }
                             We know lots of functions in Pyret that can handle Numbers, Strings, Images and so on, but none that can handle animals! @bold{We need to build our own.}
                       }
                       @teacher{
@@ -352,6 +344,27 @@
                         }
                     }
                 }
+        ]
+  }
+
+
+  @lesson/studteach[
+   #:title "Practicing the Design Recipe"
+   #:duration "30 minutes"
+   #:overview ""
+   #:learning-objectives @itemlist[]
+   #:evidence-statements @itemlist[]
+   #:product-outcomes @itemlist[]
+   #:standards (list "BS-DR.1" "BS-DR.2" "BS-PL.3")
+   #:materials @itemlist[]
+   #:preparation @itemlist[]
+   #:pacings (list 
+              @pacing[#:type "remediation"]{@itemlist[@item{}]}
+              @pacing[#:type "misconception"]{@itemlist[@item{}]}
+              @pacing[#:type "challenge"]{@itemlist[@item{}]}
+              )
+    ]{
+      @points[
                 @point{
                     @student{
                         Now let's practice writing functions that @italic{do things} to their input. This time, you'll have to write the Contract, Purpose Statement, and first example yourself!

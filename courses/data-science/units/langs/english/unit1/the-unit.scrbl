@@ -102,7 +102,7 @@
              }
              @point{
                     @student{
-                            Now that we've clicked "Run", we can play with our @code{shaped} Table. Type @code{shapes} into the Interactions Area and hit Enter...
+                            Now that we've clicked "Run", we can play with our @code{shapes} Table. Type @code{shapes} into the Interactions Area and hit Enter...
                     }
                     @teacher{
 
@@ -607,6 +607,7 @@
               }
          ]
   }
+
 
   @lesson/studteach[
      #:title "Writing Examples"

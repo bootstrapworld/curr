@@ -16,7 +16,7 @@
                                               (list @bitmap{images/imgValue1.png} @bitmap{images/imgValue2.png}))
                                        )]{
   @unit-descr{
-   
+      Students are introduced to the Animals dataset, consider the kinds of questions that can be asked of the dataset, and learn about threats to validity while examining claims. Finally, they choose their dataset, and come up with questions of their own.
   }
 }
 @unit-lessons{
@@ -343,11 +343,13 @@
                 )
       ]{
         @points[
-              @student{
-                    Congratulations! You've explored the Animals dataset, chosen your own and begun to think critically about threats to validity and how questions and data shape one another. For the rest of this course, you'll be learning new programming and Data Science skills, practicing them with the Animals dataset and then applying them to your own.
-              }
-              @teacher{
-                    Have students share which dataset they chose, and pick one question they're looking at.
+              @point{
+                    @student{
+                          Congratulations! You've explored the Animals dataset, chosen your own and begun to think critically about threats to validity and how questions and data shape one another. For the rest of this course, you'll be learning new programming and Data Science skills, practicing them with the Animals dataset and then applying them to your own.
+                    }
+                    @teacher{
+                          Have students share which dataset they chose, and pick one question they're looking at.
+                    }
               }
         ]
   }

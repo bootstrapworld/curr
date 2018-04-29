@@ -9,7 +9,7 @@
  ("Numbers-and-Strings" 	   	 3 )
  ("Booleans" 					 4 )
  ("Playing-With-Tables"			 5 )
- ("Examples" 					 6 )
+ ("Padding-Unit-1"               6 )
 
 ;;;;;;;;;;;;;;;; Unit 2 ;;;;;;;;;;;;;
  ("Unit-2-Notes"                 7 )
@@ -25,10 +25,11 @@
 ;;;;;;;;;;;;;;;; Unit 3 ;;;;;;;;;;;;;
  ("Unit-3-Notes" 	 	 		15 )
  ("Unit-3-Blank" 	 	 		16 )
- ("Design-Recipe-1" 			17 )
- ("Design-Recipe-2" 			18 )
- ("Design-Recipe-3" 			19 )
- ("Padding-Unit-3" 				20 )
+ ("Examples" 					17 )
+ ("Design-Recipe-1" 			18 )
+ ("Design-Recipe-2" 			19 )
+ ("Design-Recipe-3" 			20 )
+ ("Padding-Unit-3" 				21 )
 
 ;;;;;;;;;;;;;;;; Unit 4 ;;;;;;;;;;;;;
  ("Unit-4-Notes" 	 			21 )
@@ -58,7 +59,7 @@
  ("Bar-Kitten-Adoption"			41 )
  ("Blank-Table-Plan-1"			42 )
  ("Blank-Table-Plan-2"			43 )
- ("Visualizing-My-Dataset-1"	        44 )
+ ("Visualizing-My-Dataset-1"    44 )
  
 ;;;;;;;;;;;;;;;; Unit 7 ;;;;;;;;;;;;;
  ("Unit-7-Notes" 				45 )
@@ -71,11 +72,11 @@
 ;;;;;;;;;;;;;;;; Unit 8 ;;;;;;;;;;;;;
  ("Unit-8-Notes" 	 			51 )
  ("Unit-8-Blank" 	 			52 )
- ("Visualizing-Quantity-Review"         53 )
+ ("Visualizing-Quantity-Review" 53 )
  ("Visualizing-Frequency" 		54 )
  ("Freq-Bar-Gender" 			55 )
  ("Histogram-Adoption" 			56 )
- ("Visualizing-My-Dataset-2"	        57 )
+ ("Visualizing-My-Dataset-2"	57 )
  ("Which-Chart-Is-Best"			58 )
 
 ;;;;;;;;;;;;;;;; Unit 9 ;;;;;;;;;;;;;
@@ -86,7 +87,7 @@
  ("Age-v-Weeks-Dogs" 			63 )
  ("Drawing-Predictors" 			64 )
  ("Scatter-Dogs-Age" 			65 )
- ("Correlations-My-Dataset" 	        66 )
+ ("Correlations-My-Dataset" 	66 )
  
 ;;;;;;;;;;;;;;;; Unit 10 ;;;;;;;;;;;;;
  ("Unit-10-Notes" 	 			67 )
