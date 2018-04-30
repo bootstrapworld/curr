@@ -16,12 +16,12 @@ env:
 before_install:
 - git clone --recursive https://github.com/wkhtmltopdf/wkhtmltopdf.git
 - sudo wkhtmltopdf/scripts/build.py setup-schroot-generic
-- scripts/build.py linux-generic-amd64
+- wkthmltopdf/scripts/build.py linux-generic-amd64
 - git clone https://github.com/greghendershott/travis-racket.git
 - cat travis-racket/install-racket.sh | bash
 - export PATH="${RACKET_DIR}/bin:${PATH}"
 script:
-- git clone https://github.com/doshiro/curr.git
+- cd doshiro
 - raco link curr
 - cd curr
 - racket build-workbook.rkt --course algebra-pyret #TODO
