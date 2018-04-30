@@ -190,8 +190,8 @@
                                   the distance can be calculated by evaluating @code{(distance 320 240 400 159)}.}
                        @teacher{}
                        }
-                @point{@student{@activity[#:forevidence (list "F-IF.1-3&1&1" "F-IF.4-6&1&3" "A-SSE.1-2&1&4")]
-                                         {For each of the following player and danger coordinates, write the expression that uses the @code{distance}
+                @point{@student{@activity[#:forevidence (list "F-IF.1-3&1&1" "F-IF.4-6&1&3" "A-SSE.1-2&1&4")]{
+                                         For each of the following player and danger coordinates, write the expression that uses the @code{distance}
                                               function to compute the distance between the points.  You may write in code or in a Circle of Evaluation:
                                         @itemlist[@item{The player is at (100, 225) and the danger is at (174, 300)}
                                                   @item{The player is at (48, 20) and the danger is at (210, 160)}
