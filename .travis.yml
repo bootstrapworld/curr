@@ -3,7 +3,8 @@ python:
 - '3.4'
 branches:
   only:
-  - horizon
+  - im-pyret
+  - pyret-lesson
   - master
 env:
   global:
@@ -17,7 +18,10 @@ before_install:
 - cat travis-racket/install-racket.sh | bash
 - export PATH="${RACKET_DIR}/bin:${PATH}"
 script:
-- racket build-workbook.rkt --course algebra-pyret //TODO //TODO //TODO 
+- git clone https://github.com/doshiro/curr.git
+- raco link curr
+- cd curr
+- racket build-workbook.rkt --course algebra-pyret #TODO
 deploy:
   - provider: s3
     bucket: pyret-docs
