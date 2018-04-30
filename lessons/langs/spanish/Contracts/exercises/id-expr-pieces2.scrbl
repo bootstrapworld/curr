@@ -1,15 +1,15 @@
-#lang curr/lib
+#lang APCSP/lib
 
-@(define q11 (elem "What is the " @vocab{name} " of the innermost function being used in" @code{(+ (string-length "broccoli") 8)} "?"))
+@(define q11 (elem "What is the " @vocab{name} " of the innermost function being used in" @code{ string-length("broccoli") + 8} "?"))
 @(define a11 "string-length")
 
-@(define q13 (elem "What is the " @vocab{domain} " of the outermost function being used in" @code{(scale 2 (circle 40 "solid" "blue"))} "?"))
+@(define q13 (elem "What is the " @vocab{domain} " of the outermost function being used in" @code{ scale(2, circle(40, "solid", "blue"))} "?"))
 @(define a13 "number image")
 
-@(define q12 (elem "What is the " @vocab{domain} " of the innermost function being used in" @code{(scale 2 (circle 40 "solid" "blue"))} "?"))
+@(define q12 (elem "What is the " @vocab{domain} " of the innermost function being used in" @code{ scale(2, circle(40, "solid", "blue"))} "?"))
 @(define a12 "number string string")
 
-@(define q14 (elem "How many " @vocab{arguments} " does the + function take in " @code{(+ (string-length "broccoli") 8)} "?"))
+@(define q14 (elem "How many " @vocab{arguments} " does the + function take in " @code{ string-length("broccoli") + 8} "?"))
 @(define a14 "2")
 
 @(define q15 (elem "What is the " @vocab{range} " of the function string-length?"))
@@ -21,7 +21,7 @@
 @(define q17 (elem "Is the range of text a " @vocab{string} " or an " @vocab{image} "?"))
 @(define a17 "image")
 
-@(define q18 (elem "What is the first " @vocab{argument} " to the " @code{circle} " function in" @code{(scale 2 (circle 40 "solid" "blue"))} "?"))
+@(define q18 (elem "What is the first " @vocab{argument} " to the " @code{circle} " function in" @code{ scale(2, circle(40, "solid", "blue"))} "?"))
 @(define a18 "40")
 
 @(define q19 (elem "Do the " @code{rectangle} " and the " @code{square} " function have the same " @vocab{domain} "?"))
