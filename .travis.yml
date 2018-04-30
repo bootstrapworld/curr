@@ -16,7 +16,7 @@ env:
 before_install:
 - git clone --recursive https://github.com/wkhtmltopdf/wkhtmltopdf.git
 - sudo wkhtmltopdf/scripts/build.py setup-schroot-generic
-- wkthmltopdf/scripts/build.py linux-generic-amd64
+- wkhtmltopdf/scripts/build.py linux-generic-amd64
 - git clone https://github.com/greghendershott/travis-racket.git
 - cat travis-racket/install-racket.sh | bash
 - export PATH="${RACKET_DIR}/bin:${PATH}"
