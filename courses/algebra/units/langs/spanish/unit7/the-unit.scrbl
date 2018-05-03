@@ -123,7 +123,7 @@
                      abajo, pero no ambas.}
             @teacher{}
            }
-     @point{@student{En este momento la cláusula @code{else} produce una cadena de texto (String), aunque el Rango de la función sea Number. ¿Crees que esto es un problema? 
+     @point{@student{En este momento la cláusula @code{else} produce una cadena, aunque el Rango de la función sea Number. ¿Crees que esto es un problema? 
                      ¿Por qué o por qué no? Como seres humanos, tener una salida que rompa ese contrato puede no ser un problema: sabemos que las funciones 
                      producirán el costo de una pizza o un mensaje de error. Pero, ¿Si la salida de este código no iba a los humanos en absoluto? ¿Qué pasa si queremos utilizar
                      desde dentro de algún otro código? ¿Es posible que @italic{ese} código se confunda? Para averiguarlo, descomenta la última 
@@ -177,8 +177,8 @@
               @teacher{Draw a screen on the board, and label the coordinates for a player, target and danger. Circle all the data associated with the Player.}
               }
        @point{@student{La siguiente tabla resume lo que debería sucederle al jugador por cada tecla:
-                           @build-table/cols['("When..." "Do...")
-                                             '(("key is \"up\"" "key is \"down\"" "key is anything else")
+                           @build-table/cols['("Cuando..." "Do...")
+                                             '(("La tecla con la flecha hacia \"arriba\"" "La tecla con la flecha hacia \"abajo\"" "Cualquier otra tecla")
                                                ("add 20 to player-y" "subtract 20 from player-y" "return y unchanged"))
                                              (lambda (r c) (para ""))
                                              2 3]

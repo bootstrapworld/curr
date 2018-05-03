@@ -41,11 +41,12 @@
 @(define permuted-ans (list c2 c4 c3 c6a c6b c5 c9 c9a c8))
 
 @(exercise-handout
-  #:title "Matching Expressions and Contracts"
-  #:instr "Can you guess the contract for a function just by seeing how it's used?
-           Try to match each Expression in the left column with a Contract in the right column 
-           that describes the function being used.  Some expressions or contracts
-           might not have a match."
+  #:title "Aparear las Expresiones con los Contratos Correspondientes"
+  #:instr "¿Puedes descifrar el contrato correcto de una función con solo examinar cómo se utiliza la misma?
+           Para cada Expresión en la columna de la izquierda
+           trata de identificar el Contrato en la columna de la derecha
+           que describe la función utilizada. Algunas expresiones pueden
+           no tener el contrato correspondiente y viceversa."
   #:forevidence (exercise-evid-tags "BS-PL.3&1&2" "BS-DR.2&1&2" "F-IF.1-3&1&1" "F-IF.1-3&1&3")
   @(matching-exercise examples-lst permuted-ans)
   @(exercise-answers

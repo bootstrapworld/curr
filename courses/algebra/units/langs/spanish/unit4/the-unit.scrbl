@@ -297,7 +297,7 @@
                                   el contrato:
                                   @bannerline{@math{distance: Number \rightarrow Number}}
                                   Al igual que antes, el Contrato nos da una fuerte pista sobre cómo escribir los Ejemplos. Aquí hay un ejemplo, escrito en
-                                  Código Racket: @code{(EJEMPLO (distance 5) (* 5 80))} Aquí está el mismo ejemplo, escrito en álgebra:
+                                  Código Racket: @code{(EXAMPLE (distance 5) (* 5 80))} Aquí está el mismo ejemplo, escrito en álgebra:
                                   @math{distance (5) = 5 \times 80}
                                   @activity[#:forevidence (list "F-IF.1-3&1&2" "F-IF.1-3&1&4" "F-IF.1-3&1&5" "F-IF.4-6&1&3" "A-SSE.1-2&1&1" "BS-DR.2&1&1")]{
                                       Escribe dos ejemplos adicionales para esta función, usando la notación algebraica.}

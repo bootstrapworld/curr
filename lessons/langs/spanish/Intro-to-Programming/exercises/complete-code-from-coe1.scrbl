@@ -18,9 +18,10 @@
 @(define exprs-as-coe (map sexp->coe exprs))
 
 @(exercise-handout 
-  #:title "Completing Partial Code from Circles of Evaluation"
-  #:instr "Each Circle of Evaluation on the left has been partially-converted to code on the right.
-   Finish the code by filling in the gaps, so that it matches the Circle."
+  #:title "Completar el código a partir de los Círculos de Evaluación"
+  #:instr "Cada Círculo de Evaluación en la columna de la izquierdo ha sido parcialmente convertido al código en la columna de la derecha.
+
+   Complete el código, llenando los espacios en blanco, de manera que corresponda al Circulo."
   #:forevidence (exercise-evid-tags "BS-CE&1&4")
   @(completion-exercise exprs-as-coe (map sexp->code exprs-with-holes)) 
   @(exercise-answers

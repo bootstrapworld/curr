@@ -1,10 +1,10 @@
 #lang curr/lib
 
-@title{Unidad 2: Contratos, Cadenas de Texto e Imágenes }
+@title{Unidad 2: Contratos, Cadenas(Strings) e Imágenes }
 @unit-overview/auto[#:lang-table (list "Number" @code{+ - * / sqr sqrt expt} "1 ,4 ,44.6")]{
 @unit-descr{Los estudiantes son introducidos a una representación de asignación de mapeo para funciones, en la que el objeto de función existe como un medio de traducir puntos
 Desde un dominio a un rango. Junto con su comprensión de Círculos de Evaluación, los estudiantes generalizan su comprensión de las funciones para
-Incluyen otros tipos de datos, incluyendo cadenas e imágenes.}
+Incluyen otros tipos de datos, incluyendo cadenas(strings) e imágenes.}
 }
 @unit-lessons{
 @lesson/studteach[
@@ -38,7 +38,7 @@ Incluyen otros tipos de datos, incluyendo cadenas e imágenes.}
                  ]
          }
 @lesson/studteach[
-     #:title "Cadenas de Texto e Imágenes"
+     #:title "Cadenas(Strings) e Imágenes"
      #:duration "20 mins"
      #:overview "Students extend the Circle of Evaluation metaphor to include new functions and datatypes."
      #:learning-objectives @itemlist[@item{Students will be able to use functions that produce Images}
@@ -52,7 +52,7 @@ Incluyen otros tipos de datos, incluyendo cadenas e imágenes.}
                                      @item{Given a value, students will be able to identify its datatype}
                                      @item{Given an expression, students will be able to identify the datatype it will evaluate to}
                                      @item{Students will be able to distinguish between types and values}]
-     #:product-outcomes @itemlist[@item{Los estudiantes ingresarán (evaluarán) expresiones para generar Cadenas de Texto e Imágenes}]
+     #:product-outcomes @itemlist[@item{Los estudiantes ingresarán (evaluarán) expresiones para generar Cadenas(Strings) e Imágenes}]
      #:exercises (list (make-exercise-locator "Strings-and-Images" "many-types-coe-to-code1")
                        (make-exercise-locator "Strings-and-Images" "many-types-coe-to-code2"))
      #:standards (list "N-Q" "BS-PL.1" "BS-PL.2")
@@ -88,7 +88,7 @@ Incluyen otros tipos de datos, incluyendo cadenas e imágenes.}
                      @teacher{This activity is designed to get students @italic{playing} with new terms and concepts, so they develop their own model for what's going on. At this point, it is NOT essential that students understand every last component of the code. If you need to give away lots of code snippets, that's ok - just get them playing!}
                      }
              @point{@student{Hay un @vocab{tipo} completamente nuevo de valor que está siendo usado en estas epresiones: x@code{"solid"} and @code{"red"} are examples of a completely new datatype, called a String.  
-                             @bannerline{Una cadena de texto (String) es lo que está dentro de las comillas.} 
+                             @bannerline{Una cadena (string) es lo que está dentro de las comillas.} 
                              }
                      @teacher{Students should see Strings as an analog to Numbers: a different type of value, but one that is still a simple program that evaluates to itself and can be passed as an argument to a function.  Note that the Number 42 and the String "42" are different values!  You could add the Number 42 to another number, but you cannot add the String "42" to another number.}
                      }
@@ -97,8 +97,8 @@ Incluyen otros tipos de datos, incluyendo cadenas e imágenes.}
                              intenta evaluar @code{716} en la ventana de interacciones.
                                           @editor-link[#:interactions-text "716"
                                                     "¿Qué esperas que devuelva?"]
-                                          Cómo las cadenas de texto (Strings) son valores también, el valor @code{"red"} ¡es también un programa válido! Así como los valores numéricos, las cadenas de texto (Strings) equivaldrán a ellos mismos.
-                                          @activity[#:forevidence "BS-PL.1&1&1"]{Prueba introducir cadenas de texto (strings) en la ventana de interacciones. ¿Qué ocurre si se pone comillas alrededor de varias palabras?  ¿Alrededor de números?}
+                                          Cómo las cadenas (strings) son valores también, el valor @code{"red"} ¡es también un programa válido! Así como los valores numéricos, las cadenas (strings) equivaldrán a ellos mismos.
+                                          @activity[#:forevidence "BS-PL.1&1&1"]{Prueba introducir cadenas (strings) en la ventana de interacciones. ¿Qué ocurre si se pone comillas alrededor de varias palabras?  ¿Alrededor de números?}
                                        }
                      @teacher{}
                     }
@@ -188,7 +188,7 @@ Incluyen otros tipos de datos, incluyendo cadenas e imágenes.}
                                  @bannerline{Un contrato tiene tres partes: el nombre, el dominio y el rango de una función.}
                                  El contrato para @code{star} es:
                                  @code[#:multi-line ""]{; star: Number String String -> Image}
-                                 Esto significa que el @vocab{nombre} de la función es @code{star},  que toma un número (Number) y dos cadenas de texto (Strings) como su dominio,
+                                 Esto significa que el @vocab{nombre} de la función es @code{star},  que toma un número (Number) y dos cadenas (strings) como su dominio,
                                   y produce una imagen como el rango. Utilizamos tipos en vez de valores cuando escribimos un contrato, porque queremos ser más generales: un star podría ser de cualquier tamaño, por lo que el dominio para @code{star} especifica que el primer argumento podría ser cualquier número. Si pensamos en un lenguaje como una colección de piezas de Lego, los Contratos son como las pestañas y ranuras que nos dicen cómo cada pieza puede conectarse.}
                          @teacher{[@(hyperlink "https://www.youtube.com/watch?v=88WhYoMxrGw" "Video")]}
                          }
@@ -326,7 +326,7 @@ Incluyen otros tipos de datos, incluyendo cadenas e imágenes.}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Está lección se amplió en lo que sabes acerca de Círculos de evaluación, expresiones y código para incluir cadenas e imágenes. Tú aprenderás que sabes acerca de las funciones de Números también de Cadenas de Texto e Imágenes (lo que hará que tus programas sean más interesantes). Puedes aprender a utilizar las funciones de Imagen para crear tus propias imágenes y cómo utilizar imágenes en tus programas(a través @code{bitmap/url}).}
+        @points[@point{@student{Está lección se amplió en lo que sabes acerca de Círculos de evaluación, expresiones y código para incluir cadenas(strings) e imágenes. Tú aprenderás que sabes acerca de las funciones de Números también de cadenas(strings) e Imágenes (lo que hará que tus programas sean más interesantes). Puedes aprender a utilizar las funciones de Imagen para crear tus propias imágenes y cómo utilizar imágenes en tus programas(a través @code{bitmap/url}).}
                         @teacher{@itemlist[@item{Have students volunteer what they learned in this lesson}
                                             @item{Reward behaviors that you value: teamwork, note-taking, engagement, etc}
                                             @item{Pass out exit slips, dismiss, clean up.}]}

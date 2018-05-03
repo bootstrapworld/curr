@@ -28,7 +28,7 @@ Lapiceros/lápices para los estudiantes, marcadores de pizarra para profesores}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@item{@student{¿Qué tipos de datos has visto hasta ahora? ¿Puedes pensar en valores @code{numéricos}? ¿Valores de @code{cadena de texto}? ¿Valores de @code{Imagen}?
+        @points[@item{@student{¿Qué tipos de datos has visto hasta ahora? ¿Puedes pensar en valores @code{numéricos}? ¿Valores de @code{cadena}? ¿Valores de @code{Imagen}?
                                ¿Cuáles son algunas expresiones que equivalen a un @code{Número}? ¿Qué hay de otros tipos de datos?}
                        @teacher{Before introducing a new datatype (Booleans), this would be a good time to quickly review the three major 
                                 contexts students have learned for working with expressions: Circles of Evaluation, Contracts and Design Recipe.
@@ -93,7 +93,7 @@ Lapiceros/lápices para los estudiantes, marcadores de pizarra para profesores}
                                                @item{@math{0 = -5 + 10}}]}}
                          @teacher{}
                          }
-                 @point{@student{Existen otras funciones que producen booleanos. Aquí hay una que puede utilizarse para comparar dos @vocab{Cadenas de Texto}: @code[#:multi-line #t]{(string=? "manzanas" "naranjas")}
+                 @point{@student{Existen otras funciones que producen booleanos. Aquí hay una que puede utilizarse para comparar dos @vocab{cadenas}: @code[#:multi-line #t]{(string=? "manzanas" "naranjas")}
                     Comparar strings es útil si quieres estar seguro que la contraseña que alguien digita es la contraseña correcta.
                     Se vuelve útil si quieres saber si el usuario presionó la tecla @code{"arriba"} o @code{"abajo"}. ¿Para qué más podría un programador querer comparar dos strings?
                                  @activity[#:forevidence (list "BS-PL.2&1&1" "BS-PL.2&1&3")]{Asegúrate que has escrito el @vocab{Contrato} completo para todas las funciones booleanas.}}
@@ -279,7 +279,7 @@ Lapiceros/lápices para los estudiantes, marcadores de pizarra para profesores}
                 @point{@student{Existen dos formas para resolver el problema @code{onscreen?}:
                                 @code[#:multi-line #t]{(define (onscreen? x)
                                                          (and (> x -50) (< x 690)))}
-                                and...
+                                y...
                                 @code[#:multi-line #t]{(define (onscreen? x)
                                                          (and (safe-left? x) (safe-right? x)))}
                                 ¿Tiene importancia cual de los dos utilices?}
