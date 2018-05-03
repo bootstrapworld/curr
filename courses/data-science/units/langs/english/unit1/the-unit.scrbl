@@ -117,7 +117,7 @@
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[]
+     #:product-outcomes @itemlist[@item{Students add rows to a Pyret table}]
      #:standards (list )
      #:materials @itemlist[]
      #:preparation @itemlist[]
@@ -217,9 +217,9 @@
      #:title "Values and Operators"
      #:duration "20 minutes"
      #:overview ""
-     #:learning-objectives @itemlist[]
+     #:learning-objectives @itemlist[@item{Students learn about different types of values, and operators on those values.}]
      #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[]
+     #:product-outcomes @itemlist[@item{Students add columns to a Pyret table}]
      #:standards (list)
      #:materials @itemlist[]
      #:preparation @itemlist[]
@@ -340,7 +340,7 @@
      #:title "Applying Functions"
      #:duration "25 minutes"
      #:overview ""
-     #:learning-objectives @itemlist[]
+     #:learning-objectives @itemlist[@item{Students learn about Contracts, and how they are used in function applications}]
      #:evidence-statements @itemlist[]
      #:exercises (list (make-exercise-locator/file "Applying-Functions" "Contracts1" "Practicing Contracts")
                         (make-exercise-locator/file "Applying-Functions" "Contracts2" "Practicing Contracts")
@@ -553,7 +553,7 @@
      #:title "Playing with Tables"
      #:duration "10 minutes"
      #:overview ""
-     #:learning-objectives @itemlist[]
+     #:learning-objectives @itemlist[@item{Students learn how to access a column from a row}]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
      #:standards (list)
@@ -613,7 +613,7 @@
      #:title "Writing Examples"
      #:duration "20 minutes"
      #:overview ""
-     #:learning-objectives @itemlist[]
+     #:learning-objectives @itemlist[@item{Students learn about Example blocks in Pyret}]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
      #:standards (list)

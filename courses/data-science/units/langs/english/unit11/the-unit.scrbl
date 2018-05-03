@@ -57,7 +57,7 @@
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[]
+     #:product-outcomes @itemlist[@item{Students synthesize their written findings from throughout the course into a research paper}]
      #:standards (list)
      #:materials @itemlist[]
      #:preparation @itemlist[]

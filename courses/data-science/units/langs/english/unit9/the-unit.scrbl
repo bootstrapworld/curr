@@ -99,9 +99,9 @@
      #:title "Scatter Plots"
      #:duration "10 minutes"
      #:overview ""
-     #:learning-objectives @itemlist[]
+     #:learning-objectives @itemlist[@item{Students are introduce to scatter plots, as a tool for seeing relationships between two variables}]
      #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[]
+     #:product-outcomes @itemlist[@item{Students practice making scatter plots using the animals dataset}]
      #:standards (list "8.SP.1-4" "S-ID.5-6" "HSS.ID.B" "Data 3.1.3" "Data 3.2.1")
      #:materials @itemlist[]
      #:preparation @itemlist[]
@@ -248,9 +248,12 @@
      #:title "Correlations and Predictors"
      #:duration "30 minutes"
      #:overview ""
-     #:learning-objectives @itemlist[]
+     #:learning-objectives @itemlist[@item{Students learn how to interpret scatterplots, and talk about strength and direction  of correlation}]
      #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[]
+     #:product-outcomes @itemlist[
+        @item{Students describe correlations in the animals dataset}
+        @item{Students describe correlations in their chosen dataset}
+      ]
      #:standards (list "S-ID.5-6" "Data 3.1.2" "Data 3.1.3")
      #:materials @itemlist[]
      #:preparation @itemlist[]

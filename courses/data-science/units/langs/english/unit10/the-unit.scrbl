@@ -74,9 +74,12 @@
      #:title "Linear Regression"
      #:duration "30 minutes"
      #:overview ""
-     #:learning-objectives @itemlist[]
+     #:learning-objectives @itemlist[
+        @item{Students learn about linear regression as a tool for quantifying correlations}
+        @item{Students learn how to interpret the results of a linear regression}
+     ]
      #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[]
+     #:product-outcomes @itemlist[@item{Students interpret linear regression data for the animals table}]
      #:standards (list "S-ID.7-9" "HSS.ID.B" "HSS.ID.C" "Data 3.1.3" "Data 3.2.1")
      #:materials @itemlist[]
      #:preparation @itemlist[]
@@ -270,7 +273,7 @@
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[]
+     #:product-outcomes @itemlist[@item{Students use linear regression to quantify patterns in their chosen dataset, and write up their findings }]
      #:standards (list "Data 3.2.1" )
      #:materials @itemlist[]
      #:preparation @itemlist[]

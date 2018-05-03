@@ -98,10 +98,13 @@
      #:title "Measures of Center"
      #:duration "20 minutes"
      #:overview ""
-     #:learning-objectives @itemlist[]
+     #:learning-objectives @itemlist[
+          @item{Students learn different notions of "center", including mean, median and mode}
+          @item{Students explore how to properly talk about measures of center}
+      ]
      #:evidence-statements @itemlist[]
      #:exercises (list (make-exercise-locator/file "Measures-of-Center" "CritiquingFindings" "Critiquing Findings"))
-     #:product-outcomes @itemlist[]
+     #:product-outcomes @itemlist[@item{Students take the mean, median and mode of various columns in the animals table}]
      #:standards (list "S-ID.1-4" "HSS.ID.A")
      #:materials @itemlist[]
      #:preparation @itemlist[]
@@ -318,7 +321,9 @@
      #:title "Measures of Variation"
      #:duration "20 minutes"
      #:overview ""
-     #:learning-objectives @itemlist[]
+     #:learning-objectives @itemlist[
+          @item{Students learn different measures of variation, including range, and interquartile range}
+          @item{Students practice describing variation using these concepts}]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
      #:standards (list "HSS.ID.A&1&2" "6.SP.4-5" "S-ID.1-4")
@@ -433,7 +438,7 @@
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[]
+     #:product-outcomes @itemlist[@item{Students use Table Plans to create measures and visualizations of center and variation}]
      #:standards (list)
      #:materials @itemlist[]
      #:preparation @itemlist[]
@@ -508,7 +513,7 @@
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[]
+     #:product-outcomes @itemlist[@item{Students describe the centers and variation in their chosen dataset}]
      #:standards (list "Data 3.2.1" "Data 3.2.1")
      #:materials @itemlist[]
      #:preparation @itemlist[]

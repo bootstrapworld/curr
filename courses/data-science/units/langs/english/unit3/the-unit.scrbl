@@ -26,9 +26,9 @@
      #:title "Defining Values"
      #:duration "15 minutes"
      #:overview ""
-     #:learning-objectives @itemlist[]
+     #:learning-objectives @itemlist[@item{Students learn about value definitions in Pyret}]
      #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[]
+     #:product-outcomes @itemlist[@item{Students define several row values from the animals table}]
      #:standards (list "BS-PL.3")
      #:materials @itemlist[]
      #:preparation @itemlist[]
@@ -96,9 +96,9 @@
      #:title "Defining Functions"
      #:duration "30 minutes"
      #:overview ""
-     #:learning-objectives @itemlist[]
+     #:learning-objectives @itemlist[@item{Students learn how to define functions using the Design Recipe}]
      #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[]
+     #:product-outcomes @itemlist[@item{Students define several functions over rows from the animals table}]
      #:standards (list "BS-DR.1" "BS-DR.2" "BS-PL.3")
      #:materials @itemlist[]
      #:preparation @itemlist[]

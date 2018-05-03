@@ -79,7 +79,7 @@
      #:title "Introducing Methods"
      #:duration "15 minutes"
      #:overview ""
-     #:learning-objectives @itemlist[]
+     #:learning-objectives @itemlist[@item{Students learn how methods differ from functions in Pyret}]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
      #:standards (list)
@@ -161,9 +161,9 @@
      #:title "Ordering Rows"
      #:duration "15 minutes"
      #:overview ""
-     #:learning-objectives @itemlist[]
+     #:learning-objectives @itemlist[@item{Students learn how to sort a table in Pyret}]
      #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[]
+     #:product-outcomes @itemlist[@item{Students sort the animals table in a number of dimensions}]
      #:standards (list)
      #:materials @itemlist[]
      #:preparation @itemlist[]
@@ -218,9 +218,9 @@
      #:title "Filtering Rows"
      #:duration "15 minutes"
      #:overview ""
-     #:learning-objectives @itemlist[]
+     #:learning-objectives @itemlist[@item{Students learn how to filter tables in Pyret}]
      #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[]
+     #:product-outcomes @itemlist[@item{Students filter the animals table using functions they've defined earlier}]
      #:standards (list "Data 3.1.1")
      #:materials @itemlist[]
      #:preparation @itemlist[]
@@ -274,9 +274,9 @@
      #:title "Building Columns"
      #:duration "15 minutes"
      #:overview ""
-     #:learning-objectives @itemlist[]
+     #:learning-objectives @itemlist[@item{Students learn how to compute new columns in Pyret}]
      #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[]
+     #:product-outcomes @itemlist[@item{Students extend the animals table using functions they've defined earlier}]
      #:standards (list)
      #:materials @itemlist[]
      #:preparation @itemlist[]
@@ -324,7 +324,7 @@
      #:title "Chaining Methods"
      #:duration "15 minutes"
      #:overview ""
-     #:learning-objectives @itemlist[]
+     #:learning-objectives @itemlist[@item{Students learn the syntax for chaining methods together}]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
      #:standards (list)

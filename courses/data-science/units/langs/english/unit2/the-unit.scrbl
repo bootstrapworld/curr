@@ -120,7 +120,7 @@
      #:title "What can you answer?"
      #:duration "15 minutes"
      #:overview ""
-     #:learning-objectives @itemlist[]
+     #:learning-objectives @itemlist[@item{Students learn about different categories of questions}]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
      #:standards (list)
@@ -135,17 +135,40 @@
         @points[
             @point{
                   @student{
-                          Data Scientists always have a lot of questions, but those questions can't all be answered by the data we have in front of us! If you start with a question you want answered, you may find that you have to spend a lot of time gathering the data to answer it. Sometimes the best strategy is to start with a dataset, and look for interesting questions inside that data.
+                          Once we have a dataset, we can start answering questions! But how do you know what questions to ask? There's an art to asking the right questions, and good Data Scientists think hard about what kind of questions can and can't be answered.
                   }
                   @teacher{
-
+                          Have students brainstorm some questions they might ask of the animals table.
+                  }
+            }
+            @point{
+                  @student{
+                          Most questions can be broken down into one of three categories:
+                          @itemlist[
+                              @item{
+                                @bold{Lookup questions} - These can be answered simply by looking up a particular value in the table and reading it out. Once you find the value, you're done! Examples of lookup questions might be @italic{"is Sunflower fixed?"} or @italic{"How many legs does Felix have?""}.
+                              }
+                              @item{
+                                @bold{Comparison questions} - These can be answered by finding a value or values, and then comparing them to every other value in the same column. Examples of comparison questions might be @italic{"what is the heaviest animal?"} or @italic{"Which three animals were adopted the fastest?"}.
+                              }
+                              @item{
+                                @bold{Pattern questions} - These ones take the most work, because they require looking for patterns and trends across multiple rows or columns. Examples of pattern questions might be @italic{"Do cats tend to be adopted faster than dogs?"} or @italic{"Are older animals heavier than young ones?"}.
+                              }
+                          ]
+                  }
+                  @teacher{
+                      Have students come up with lots of questions under each category.
                   }
             }
             @point{
                   @student{
                           On the bottom of @worksheet-link[#:name "Animals-Dataset"], there are a list of questions that we might have about the animals at the shelter. Can all of them be answered by this dataset?
                           @activity{
-                              Take 5 minutes to discuss the questions, and put a check mark next to the ones that CAN be answered by this dataset. For ones that can't, what data is missing?
+                              Take 5 minutes to discuss the questions, and put a check mark next to the ones that CAN be answered by this dataset. 
+                              @itemlist[
+                                  @item{ For the ones that can, which kind of question are they? }
+                                  @item{ For ones that can't, what data is missing? }
+                              ]
                           }
                   }
                   @teacher{
@@ -154,7 +177,7 @@
             }
             @point{
                   @student{
-                          Being able to figure out what @italic{can} and @italic{can't} be answered by a dataset is an important skill. Turn to @worksheet-link[#:name "What-Can-You-Answer"] to practice.
+                          Being able to figure out what @italic{can} and @italic{can't} be answered by a dataset is an important skill. Turn to @worksheet-link[#:name "What-Can-You-Answer"] to practice. For the questions you CAN answer: what kind of question are they?
                   }
             }
         ]
@@ -165,7 +188,7 @@
      #:duration "20 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
-     #:evidence-statements @itemlist[]
+     #:evidence-statements @itemlist[@item{Students learn about threats to validity, such as sample size, confounding variables, etc.}]
      #:product-outcomes @itemlist[]
      #:standards (list)
      #:materials @itemlist[]
@@ -180,7 +203,7 @@
             @point{
                   @student{
                           @bannerline{Survey says: "People prefer cats to dogs"}
-                          As good Data Scientists, the staff at the animal shelter is constantly gathering data about their animals, their volunteers, and the people who come to visit. But just because they @italic{have} data doesn't mean that the conclusions they draw from it are correct! For example: suppose they surveyed 1,000 cat-owners and found that 95% of them thought cats were the best pet. Could they claim that people prefer cats to dogs?
+                          As good Data Scientists, the staff at the animal shelter is constantly gathering data about their animals, their volunteers, and the people who come to visit. But just because they @italic{have} data doesn't mean the conclusions they draw from it are correct! For example: suppose they surveyed 1,000 cat-owners and found that 95% of them thought cats were the best pet. Could they really claim that people generally prefer cats to dogs?
                   }
                   @teacher{
                           Have students share back what they think. The issue here is that cat-owners are not a representative sample of the population, so the claim is invalid.
@@ -223,7 +246,7 @@
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[]
+     #:product-outcomes @itemlist[@item{Students choose a dataset they are interested in}]
      #:standards (list)
      #:materials @itemlist[]
      #:preparation @itemlist[@item{}]

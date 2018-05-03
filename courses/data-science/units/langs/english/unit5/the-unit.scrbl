@@ -72,9 +72,9 @@
      #:title "Introducing Table Plans"
      #:duration "30 minutes"
      #:overview ""
-     #:learning-objectives @itemlist[]
+     #:learning-objectives @itemlist[@item{Students learn how to define functions using Table Plans}]
      #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[]
+     #:product-outcomes @itemlist[@item{Students define functions that sort, filter, or extend the animals table}]
      #:standards (list "BS-DR.1" "BS-DR.2" "BS-DR.4" "Data 3.1.1")
      #:materials @itemlist[]
      #:preparation @itemlist[@item{}]

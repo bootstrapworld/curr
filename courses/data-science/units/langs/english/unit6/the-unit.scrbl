@@ -68,9 +68,9 @@
      #:title "Bar & Pie Charts"
      #:duration "15 minutes"
      #:overview ""
-     #:learning-objectives @itemlist[]
+     #:learning-objectives @itemlist[@item{Students learn how to visualize quantity with Pie and Bar charts}]
      #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[]
+     #:product-outcomes @itemlist[@item{Students answer questions using pie and bar charts}]
      #:standards (list "Data 3.1.3")
      #:materials @itemlist[]
      #:preparation @itemlist[]
@@ -143,7 +143,7 @@
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[]
+     #:product-outcomes @itemlist[@item{Students use Table Plans to answer questions using pie and bar charts}]
      #:standards (list)
      #:materials @itemlist[]
      #:preparation @itemlist[]
@@ -278,7 +278,7 @@
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[]
+     #:product-outcomes @itemlist[@item{Students make pie and bar charts for their datasets, and write up their findings}]
      #:standards (list "Data 3.1.2")
      #:materials @itemlist[]
      #:preparation @itemlist[]

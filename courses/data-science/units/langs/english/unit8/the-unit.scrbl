@@ -66,9 +66,9 @@
      #:title "Frequency Bar Charts"
      #:duration "15 minutes"
      #:overview ""
-     #:learning-objectives @itemlist[]
+     #:learning-objectives @itemlist[@item{Students are introduced to frequency bar charts}]
      #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[]
+     #:product-outcomes @itemlist[@item{Students create frequency bar charts using the animals dataset}]
      #:standards (list "Data 3.1.3" "6.SP.4-5" "HSS.ID.A")
      #:materials @itemlist[]
      #:preparation @itemlist[]
@@ -155,9 +155,9 @@
      #:title "Histograms"
      #:duration "15 minutes"
      #:overview ""
-     #:learning-objectives @itemlist[]
+    #:learning-objectives @itemlist[@item{Students are introduced to histograms}]
      #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[]
+     #:product-outcomes @itemlist[@item{Students create histograms using the animals dataset}]
      #:standards (list "S-ID.1-4" "HSS.ID.A" "Data 3.1.3")
      #:materials @itemlist[]
      #:preparation @itemlist[]
@@ -217,7 +217,7 @@
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[]
+     #:product-outcomes @itemlist[@item{Students create visualizations of frequency using their chosen dataset, and write up their findings}]
      #:standards (list "Data 3.1.2")
      #:materials @itemlist[]
      #:preparation @itemlist[]
