@@ -110,6 +110,7 @@ when it prints out the glossary for a particular unit
     (("table" "tables") "A data structure that stores data as rows, with entries in particular columns")
     ("table plan" "A sequence of steps that helps people write code for several table queries, in order to solve a problem")
     (("table query" "table queries") "An expression that consumes tables and creates a new table object")
+    ("threats to validity" "factors than can invalidate the conclusion of a study")
     ("type" "refers to a general kind of data, like Number, String, Image, or Boolean")
     ("unit test" "an example showing the use of a function with a specific value or values, and the answer it should produce")
     ("value" "a specific piece of data, like 5 or \"hello\"")

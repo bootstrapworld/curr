@@ -118,7 +118,7 @@
 
    @lesson/studteach[
      #:title "What can you answer?"
-     #:duration "15 minutes"
+     #:duration "20 minutes"
      #:overview ""
      #:learning-objectives @itemlist[@item{Students learn about different categories of questions}]
      #:evidence-statements @itemlist[]
