@@ -38,6 +38,6 @@
   #:title "Identificar los Componentes de una Expresión"
   #:instr "Responda las preguntas en el espacio provisto"
   #:forevidence (exercise-evid-tags "BS-PL.2&1&1" "BS-PL.2&1&3")
-  @(open-response-exercise ques "texto")
+  @(open-response-exercise ques "text")
   @(exercise-answers (questions-and-answers ques ans))
   )
