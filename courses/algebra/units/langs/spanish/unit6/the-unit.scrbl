@@ -28,7 +28,7 @@ Lapiceros/lápices para los estudiantes, marcadores de pizarra para profesores}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@item{@student{¿Qué tipos de datos has visto hasta ahora? ¿Puedes pensar en valores @code{numéricos}? ¿Valores de @code{cadena}? ¿Valores de @code{Imagen}?
+        @points[@point{@student{¿Qué tipos de datos has visto hasta ahora? ¿Puedes pensar en valores @code{numéricos}? ¿Valores de @code{cadena}? ¿Valores de @code{Imagen}?
                                ¿Cuáles son algunas expresiones que equivalen a un @code{Número}? ¿Qué hay de otros tipos de datos?}
                        @teacher{Before introducing a new datatype (Booleans), this would be a good time to quickly review the three major 
                                 contexts students have learned for working with expressions: Circles of Evaluation, Contracts and Design Recipe.
