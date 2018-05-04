@@ -151,10 +151,10 @@
                                 @bold{Lookup questions} - These can be answered simply by looking up a particular value in the table and reading it out. Once you find the value, you're done! Examples of lookup questions might be @italic{"is Sunflower fixed?"} or @italic{"How many legs does Felix have?""}.
                               }
                               @item{
-                                @bold{Comparison questions} - These can be answered by finding a value or values, and then comparing them to every other value in the same column. Examples of comparison questions might be @italic{"what is the heaviest animal?"} or @italic{"Which three animals were adopted the fastest?"}.
+                                @bold{Compute questions} - These can be answered by computing an answer across an entire row or column. Examples of computing questions might be @italic{"what is the heaviest animal?"} or @italic{"What is the average age of animals at the shelter?"}.
                               }
                               @item{
-                                @bold{Pattern questions} - These ones take the most work, because they require looking for patterns and trends across multiple rows or columns. Examples of pattern questions might be @italic{"Do cats tend to be adopted faster than dogs?"} or @italic{"Are older animals heavier than young ones?"}.
+                                @bold{Analyze questions} - These ones take the most work, because they require looking for patterns and trends across @italic{multiple} rows or columns. Examples of analysis questions might be @italic{"Do cats tend to be adopted faster than dogs?"} or @italic{"Are older animals heavier than young ones?"}.
                               }
                           ]
                   }
@@ -179,7 +179,10 @@
             }
             @point{
                   @student{
-                          Being able to figure out what @italic{can} and @italic{can't} be answered by a dataset is an important skill. Turn to @worksheet-link[#:name "What-Can-You-Answer"] to practice. For the questions you CAN answer: what kind of question are they?
+                          Being able to figure out what @italic{can} and @italic{can't} be answered by a dataset is an important skill. 
+                          @activity{
+                            Turn to @worksheet-link[#:name "What-Can-You-Answer"] to practice. For the questions you CAN answer: what kind of question are they?
+                          }
                   }
             }
         ]

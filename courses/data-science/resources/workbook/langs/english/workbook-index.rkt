@@ -9,7 +9,7 @@
  ("Numbers-and-Strings" 	   	 3 )
  ("Booleans" 					 4 )
  ("Playing-With-Tables"			 5 )
- ("Padding-Unit-1"               6 )
+ ("Examples" 					 6 )
 
 ;;;;;;;;;;;;;;;; Unit 2 ;;;;;;;;;;;;;
  ("Unit-2-Notes"                 7 )
@@ -25,11 +25,10 @@
 ;;;;;;;;;;;;;;;; Unit 3 ;;;;;;;;;;;;;
  ("Unit-3-Notes" 	 	 		15 )
  ("Unit-3-Blank" 	 	 		16 )
- ("Examples" 					17 )
- ("Design-Recipe-1" 			18 )
- ("Design-Recipe-2" 			19 )
- ("Design-Recipe-3" 			20 )
- ("Padding-Unit-3" 				21 )
+ ("Design-Recipe-1" 			17 )
+ ("Design-Recipe-2" 			18 )
+ ("Design-Recipe-3" 			19 )
+ ("Padding-Unit-3" 				20 )
 
 ;;;;;;;;;;;;;;;; Unit 4 ;;;;;;;;;;;;;
  ("Unit-4-Notes" 	 			21 )
