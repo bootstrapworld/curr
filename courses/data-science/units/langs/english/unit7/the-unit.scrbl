@@ -62,7 +62,7 @@
                 }
                 @point{
                       @student{
-                              "The average pets waits 6 weeks" is a statement about the entire dataset, which summarizes a whole column of values into a single number. Summarizing a big dataset means that some information gets lost, so it's important to @italic{pick the right summary}. Picking the wrong summary can have serious implications! Here are just a few examples of summary data being used for important things. Do you think these summaries are accurate or not?
+                              "The average pet waits 6 weeks" is a statement about the entire dataset, which summarizes a whole column of values into a single number. Summarizing a big dataset means that some information gets lost, so it's important to @italic{pick the right summary}. Picking the wrong summary can have serious implications! Here are just a few examples of summary data being used for important things. Do you think these summaries are accurate or not?
                               @itemlist[
                                   @item{ 
                                       Students are sometimes summarized by two numbers - their GPA and SAT scores - which can impact where they go to college or how much financial aid they get.
@@ -259,7 +259,7 @@
                 }
                 @point{
                       @student{
-                              In Pyret, the mode list is calculated by the @code{modes} function, which consumes a List of Numbers and produces a list of Numbers. 
+                              In Pyret, the mode list is calculated by the @code{modes} function, which consumes a List of Numbers and produces a List of Numbers. 
                               @code[#:multi-line #t]{
                                     # modes :: (t :: Table, col :: String) -> List<Number>
                               }
@@ -287,7 +287,7 @@
                 @point{
                       @student{
                             @activity[#:forevidence (list "6.SP.1-3&1&1" "6.SP.1-3&1&2" "6.SP.1-3&1&3")]{
-                                "In 2003, the average American family earned $43,000 a year - well above the poverty line! Therefor very few Americans were living in poverty." Do you trust this statement? Why or why not?
+                                "In 2003, the average American family earned $43,000 a year - well above the poverty line! Therefore very few Americans were living in poverty." Do you trust this statement? Why or why not?
                             }
                             Consider how many policies or laws are informed by statistics like this! Knowing about measures of center helps us see through misleading statements.
                       }

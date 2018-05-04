@@ -169,7 +169,7 @@
                 }
                 @point{
                         @student{
-                                A predictor @italic{only makes sense within the range of the data that was used to generate it}. For example, if we extend our line out to where it hits the x-axis, it appears to predict that "unborn animals are adopted instantly"! Statistical models are just proxies for the real world, drawn from a limited sample of data: they might make useful prediction in the range of that data, but once we try to extrapolate beyond that data we quickly get into trouble!
+                                A predictor @italic{only makes sense within the range of the data that was used to generate it}. For example, if we extend our line out to where it hits the x-axis, it appears to predict that "unborn animals are adopted instantly"! Statistical models are just proxies for the real world, drawn from a limited sample of data: they might make a useful prediction in the range of that data, but once we try to extrapolate beyond that data we quickly get into trouble!
                         }
                         @teacher{
                                 
@@ -188,7 +188,7 @@
                 }
                 @point{
                         @student{
-                                The @vocab{r-squared} value for a predictor is a number on that tell us @italic{"how much of the variation in the scatter plot is explained by this line"}. In other words, it's a measure for how well the line fits. A perfect score of 1.0 means that 100% of the variability in the data is explained by the function and that every point falls exactly on the line. A score of 0.0 means that @italic{none} of the variability is explained by the predictor. 
+                                The @vocab{r-squared} value for a predictor is a number that tells us @italic{"how much of the variation in the scatter plot is explained by this line"}. In other words, it's a measure for how well the line fits. A perfect score of 1.0 means that 100% of the variability in the data is explained by the function and that every point falls exactly on the line. A score of 0.0 means that @italic{none} of the variability is explained by the predictor. 
                                 @activity[#:forevidence (list "HSS.ID.B&1&1" "HSS.ID.B&1&2" "HSS.ID.B&1&3" "HSS.ID.B&1&5")]{
                                         @itemlist[
                                             @item{
@@ -229,10 +229,10 @@
                                                         The @code{age} vs. @code{weeks} waiting for adoption, but just for the dogs in the shelter.
                                                 }
                                                 @item{
-                                                        The @code{weight} vs. @code{weeks} waiting for adoption, but just for the cats in the shelter.
+                                                        The @code{pounds} vs. @code{weeks} waiting for adoption, but just for the cats in the shelter.
                                                 }
                                                 @item{
-                                                        The @code{age} vs. @code{weight} waiting for adoption, but just for animals that have been fixed.
+                                                        The @code{age} vs. @code{pounds} of the animals, but just for animals that have been fixed.
                                                 }
                                         ]
                                 }

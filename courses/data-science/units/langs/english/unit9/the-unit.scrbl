@@ -216,7 +216,7 @@
                                     For practice, try making scatter plots (or labeled scatter plots) for each of the following relationships. If you see any outliers, try to explain them!
                                     @itemlist[
                                                 @item{
-                                                        The @code{age} of an animal vs the @code{weight} of the animal
+                                                        The @code{age} of an animal vs the @code{pounds} of the animal
                                                 }
                                                 @item{
                                                         The @code{pounds} of an animal vs the number of @code{weeks} to be adopted

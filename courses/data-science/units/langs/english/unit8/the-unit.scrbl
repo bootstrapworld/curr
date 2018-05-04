@@ -179,7 +179,7 @@
                                     @item{ The bars in a histogram are @italic{ordered} according to the ranges of the bins }
                                     @item{ The size of the bins is adjustable }
                                 ]
-                              These differences are made possible because quantitative data can be @italic{compared} - one bar can be said to be "greater than" than another bar, and a value can be said to be "within" the range of a bin. For categorical data, neither of these is the case, so we use bar charts instead of histograms. Frequency bar charts are only for counting the frequency of categorical data. In this chart, the weights of all the animals are groups into bins. How big are these bins?
+                              These differences are made possible because quantitative data can be @italic{compared} - one bar can be said to be "greater than" another bar, and a value can be said to be "within" the range of a bin. For categorical data, neither of these is the case, so we use bar charts instead of histograms. Frequency bar charts are only for counting the frequency of categorical data. In this chart, the weights of all the animals are groups into bins. How big are these bins?
                       }
                       @teacher{
                               Each bin represents a range of 20 pounds.
