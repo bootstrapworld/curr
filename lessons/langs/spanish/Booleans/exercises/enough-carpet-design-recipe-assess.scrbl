@@ -1,11 +1,12 @@
 #lang curr/lib
 @; Unit 8
 @(assess-design-recipe "enough-carpet?" 
-                       "You have 100 square feet of carpet to put down in your room. Write a function that takes in the length and width of your room 
-and returns true if you have enough carpet and false if you don't."
+                       "Tienes 100 pies cuadrados de alfombra para poner en tu habitación. Escribe una función que
+toma el largo y ancho de su habitación y regresa verdadero si tiene suficiente alfombra y es falsa
+si no lo haces"
                        #:domain-list (list "number" "number")
                        #:range "number"
-                       #:purpose "Given length and width of a room, is the area less than 100 sq feet?"                  
+                       #:purpose "Dado el largo y ancho de una habitación, ¿el área es menos de 100 pies cuadrados?"                  
                        #:example-list '(((10 15) (< (* 10 15) 100))
                                         ((9 10)  (< (* 9 10)  100)))                                              
                        #:param-list (list "length" "width")

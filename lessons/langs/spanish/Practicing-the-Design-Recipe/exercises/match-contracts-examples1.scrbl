@@ -74,9 +74,9 @@
 @(define permuted-ans (list c4 c1 c3 c2))
 
 @(exercise-handout
-  #:title "Matching Contracts and Examples"
-  #:instr "Match each Example on the left with the Contract on the right. NOTE: Multiple examples 
-           may match to the same contract!"
+  #:title "Ejercicio: Contratos y Ejemplos Coincidentes"
+  #:instr "Haga coincidir cada ejemplo a la izquierda con el contrato a la derecha. NOTA: Múltiples ejemplos
+           puede coincidir con el mismo contrato!"
   #:forevidence (exercise-evid-tags "BS-DR.2&1&2" "F-IF.1-3&1&1" "F-IF.1-3&1&2")
   @(matching-exercise ques permuted-ans)
   @(exercise-answers 

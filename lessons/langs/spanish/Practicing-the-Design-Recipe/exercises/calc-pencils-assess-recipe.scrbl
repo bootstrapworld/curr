@@ -1,12 +1,12 @@
 #lang curr/lib
 
 @(assess-design-recipe "calc-pencils" 
-                       "All students are given five (5) pencils at the beginning of the school year.  
-                        Write a function called calc-pencils that takes the number of students in the school and 
-                        calculates the number of pencils needed for that school."
+                       "Todos los estudiantes reciben cinco (5) lápices al comienzo del año escolar. Escribe un
+función llamada calc-pencils que toma el número de estudiantes en la escuela y calcula el
+cantidad de lápices necesarios para esa escuela."
                        #:domain-list (list "number")
                        #:range "number"
-                       #:purpose "Takes a number of students and gives the number of pencils"
+                       #:purpose "Toma un número de estudiantes y da la cantidad de lápices"
                        #:example-list '((100 (* 100 5))   
                                         (40 (* 40 6)))
                        #:buggy-funname-defn "calculate-pencils"

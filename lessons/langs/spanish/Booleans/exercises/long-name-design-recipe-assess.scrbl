@@ -1,10 +1,11 @@
 #lang curr/lib
 @; Unit 6
 @(assess-design-recipe "long-name?"
-                       "Names that are longer than 20 characters are considered long names. Write a function that takes in a person's name and returns true if it is a long name and false if it is not." 
+                       "Los nombres que tienen más de 20 caracteres se consideran nombres largos. Escribe un
+función que toma el nombre de una persona y devuelve verdadero si es un nombre largo y falso si no lo es." 
                        #:domain-list (list "string")
                        #:range "boolean"
-                       #:purpose "Check if a name is longer than 20 characters"
+                       #:purpose "Verificar si un nombre tiene más de 20 caracteres"
                        #:example-list '(("John Joseph Jingleheimer Schmidt" (> (string=? "John Joseph Jingleheimer Schmidt") 10))   
                                         ("Joe Jones" (> (string=? "Joe Jones") 10)))
                        #:buggy-funname-defn "long?"

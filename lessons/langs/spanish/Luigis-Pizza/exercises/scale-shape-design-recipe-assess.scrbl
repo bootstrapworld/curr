@@ -1,10 +1,12 @@
 #lang curr/lib
 @; Unit 7
 @(assess-design-recipe "scale-image" 
-                       "Write a function which takes an image and a string, representing what to scale the image by. The function should return a smaller image if the string is 'smaller' and a bigger image if the string is 'bigger'."
+                       "Escriba una función que toma una imagen y una cadena, representando qué escalar
+imagen por. La función debería devolver una imagen más pequeña si la cadena es 'más pequeña' y una imagen más grande
+si la cadena es 'más grande'."
                        #:domain-list (list "image" "string")
                        #:range "image"
-                       #:purpose "Make the image bigger or smaller, depending on the given string"                  
+                       #:purpose "Haga la imagen más grande o más pequeña, dependiendo de la cadena dada"                  
                        #:buggy-example-list '((scale-image (circle 5 "solid" "red") "bigger" (circle 10 "solid" "red"))
                                               (scale-triangle (triangle 20 "solid" "blue") "smaller" (triangle 10 "solid" "blue")))
                        #:param-list (list "original-image" "scale-factor")

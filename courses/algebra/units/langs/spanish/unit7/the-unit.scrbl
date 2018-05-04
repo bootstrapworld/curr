@@ -179,7 +179,8 @@
        @point{@student{La siguiente tabla resume lo que debería sucederle al jugador por cada tecla:
                            @build-table/cols['("Cuando..." "Do...")
                                              '(("La tecla con la flecha hacia \"arriba\"" "La tecla con la flecha hacia \"abajo\"" "Cualquier otra tecla")
-                                               ("add 20 to player-y" "subtract 20 from player-y" "return y unchanged"))
+                                               ("aagregue 20 a player-y" "
+restar 20 de player-y" "vuelva sin cambios "))
                                              (lambda (r c) (para ""))
                                              2 3]
                            

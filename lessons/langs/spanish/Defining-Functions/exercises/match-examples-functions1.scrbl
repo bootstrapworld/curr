@@ -83,8 +83,8 @@
 @(define permuted-functions-lst (list f2 f6 f3 f5 f7 f1 f4))
 
 @(exercise-handout 
-  #:title "Matching Examples and Function Definitions"
-  #:instr "Match the EXAMPLEs on the left with the definitions on the right. NOTE: Some definitions may not match any examples!"
+  #:title "Aparear los Ejemplos con los Definiciónes de Funciónes"
+  #:instr "Para cada EJEMPLO en la columna de la izquierda trata de identificar el Definición en la columna de la derecha. Algunas expresiones pueden no tener el contrato correspondiente y viceversa."
   #:forevidence (exercise-evid-tags "BS-DR.3&1&2" "F-IF.1-3&1&2" "F-IF.1-3&1&4" "F-LE.1-4&1&5")
   @(matching-exercise examples-lst permuted-functions-lst)
   @(exercise-answers
