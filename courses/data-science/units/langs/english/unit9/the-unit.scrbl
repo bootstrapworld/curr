@@ -32,7 +32,9 @@
      #:product-outcomes @itemlist[]
      #:standards (list "Data 3.1.1")
      #:materials @itemlist[]
-     #:preparation @itemlist[]
+     #:preparation @itemlist[
+        @item{Computer for each student (or pair), with access to the internet}
+        @item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbooks"], and something to write with}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
