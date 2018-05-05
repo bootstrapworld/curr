@@ -785,7 +785,7 @@
 ;; Not sure why we have the dual nested here ...
 (define (main-contents . body)
   (list (augment-head)
-        (include-language-links-main)
+        (nested #:style (bootstrap-div-style/id/nested "translations") (include-language-links-main))
         (nested #:style (bootstrap-div-style/id/nested "body")
                 (nested #:style (bootstrap-div-style "item") 
                         body))))
@@ -940,7 +940,8 @@
                             (list
                              (if gen-agenda? (agenda) "")
 
-                             (include-language-links-units)
+                             (nested #:style (bootstrap-div-style/id/nested "translations") 
+                              (include-language-links-units))
                              
                              ; moved these outside summary for code.org prep -- remove next two lines once E confirms
                              ;(para #:style bs-header-style/span "Unit Overview")
@@ -1140,22 +1141,20 @@
 
 
 (define (include-language-links-units)
-  (interleave-parbreaks/all
    ;TODO change interleave-parbreaks/all, can it access run-languages?
    (foldl (lambda (language rest)
-            (cons (hyperlink #:style bs-translation-buttons-style
+            (cons (elem (hyperlink #:style bs-translation-buttons-style
                                      ;(path->string (find-relative-path
                                      ;              (current-document-output-path)
                                      ;             (string-replace (path->string (current-document-output-path)) (getenv "LANGUAGE") language)))
                                      (string-append "../../../../" (current-course)"/" language "/units/" (current-unit) "/index.html")
-                                     (translate (string->symbol language))) rest))
+                                     (translate (string->symbol language)))) rest))
           ( list (hyperlink  #:style bs-translation-buttons-style 
                          "#"
                          "add translation"))
-          (current-course-languages))))
+          (current-course-languages)))
 
 (define (include-language-links-main)
-  (interleave-parbreaks/all
    ;TODO change interleave-parbreaks/all, can it access run-languages?
     (foldl (lambda (language rest)
              (cons (hyperlink  #:style bs-translation-buttons-style 
@@ -1167,7 +1166,7 @@
            ( list (hyperlink  #:style bs-translation-buttons-style 
                          "#"
                          "add translation"))
-           (current-course-languages))))
+           (current-course-languages)))
              
 
 
