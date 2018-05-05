@@ -23,7 +23,7 @@
 ;; The default deployment directory is "distribution"
 (root-deployment-dir (simple-form-path "distribution"))
 (current-deployment-dir (root-deployment-dir))
-(deploy-resources-dir (build-path (root-deployment-dir) "courses" (current-course) "resources"))
+(deploy-resources-dir (build-path (root-deployment-dir) "courses" (current-course) "spanish" "resources")) ;(getenv "LANGUAGE")))
 
 ;; The following is a bit of namespace magic to avoid funkiness that 
 ;; several of our team members observed when running this build script
@@ -64,7 +64,7 @@
 ;; run-scribble: path -> void
 ;; Runs scribble on the given file.
 (define (run-scribble scribble-file #:never-generate-pdf? [never-generate-pdf? #f])
-  (define output-dir (current-deployment-dir)) 
+  (define output-dir (current-deployment-dir))
   (define-values (base name dir?) (split-path scribble-file))
   (define output-path (build-path output-dir (string->path (regexp-replace #px"\\.scrbl$" (path->string name) ".html"))))
   (parameterize ([current-directory base]
