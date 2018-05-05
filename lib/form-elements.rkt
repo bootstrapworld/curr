@@ -164,7 +164,8 @@
 (define bs-page-title-style (bootstrap-div-style "BootstrapPageTitle"))
 (define bs-slide-title-style (bootstrap-style "BootstrapSlideTitle"))
 (define bs-skipSlide-style (bootstrap-div-style "BS-Skip-Slide"))
-(define bs-translation-buttons-style (bootstrap-span-style "TranslationButton"))
+;(define bs-translation-buttons-style (bootstrap-span-style "TranslationButton"))
+(define bs-translation-buttons-style "TranslationButton")
 
 (define bs-time-style (bootstrap-span-style "time"))
 (define bs-callout-style (bootstrap-div-style "callout"))
@@ -1143,12 +1144,12 @@
 (define (include-language-links-units)
    ;TODO change interleave-parbreaks/all, can it access run-languages?
    (foldl (lambda (language rest)
-            (cons (elem (hyperlink #:style bs-translation-buttons-style
+            (cons (hyperlink #:style bs-translation-buttons-style
                                      ;(path->string (find-relative-path
                                      ;              (current-document-output-path)
                                      ;             (string-replace (path->string (current-document-output-path)) (getenv "LANGUAGE") language)))
                                      (string-append "../../../../" (current-course)"/" language "/units/" (current-unit) "/index.html")
-                                     (translate (string->symbol language)))) rest))
+                                     (translate (string->symbol language))) rest))
           ( list (hyperlink  #:style bs-translation-buttons-style 
                          "#"
                          "add translation"))
