@@ -14,6 +14,22 @@ body#beta::after{
   pointer-events: none;
 }
 
+#translations{
+	display: inline-block;
+	position: fixed;
+	bottom: 0px;
+	right: 0px;
+	z-index: 99;
+}
+#translations p {margin: 0px; }
+#translations .TranslationButton {
+	display: inline-block;
+	color: white;
+	background: #75328A;
+	padding: 2px 4px;
+}
+#translations .TranslationButton:last-child { display: none; }
+
 /************************************************************************************
  * LESSON TOOLBAR
  * Sits on the top-right corner of the page at all times
@@ -53,7 +69,6 @@ div#lessonToolbar.fixed{
   box-shadow:   -5px 5px 10px #888888;
 }
 
-.TranslationButton{ display: none; }
 
 /***********************************************************************************
  * COURSE OVERVIEW
