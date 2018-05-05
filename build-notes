@@ -9,6 +9,6 @@
 racket -l errortrace -t build.rkt -- "$@"
 
 # then build the solutions
-#racket -l errortrace -t build-sols.rkt 
+racket -l errortrace -t build-sols.rkt -- "$@"
  
   
