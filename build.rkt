@@ -792,7 +792,7 @@
         (solutions-mode-off)
         (putenv "RELEASE-STATUS" "mature")
         (process-teacher-contributions)
-        (when (equal? course "algebra")
+        (when (or (equal? course "algebra") (equal? course "algebra-pyret"))
           (putenv "TARGET-LANG" "racket")
           (if (build-exercises?)
               (begin (build-exercise-handouts) ; not needed for reactive

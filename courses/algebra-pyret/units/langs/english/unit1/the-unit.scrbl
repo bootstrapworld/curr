@@ -237,7 +237,8 @@
 ]
      #:product-outcomes @itemlist[@item{Students convert several arithmetic expressions between multiple representations}]
      #:standards (list "A-SSE.1-2" "BS-CE" "5.OA.1-2")
-     #:exercises (list )
+     #:exercises (list ;(make-exercise-locator "Order-of-Operations" "match-arith-coe1-im")
+     )
      #:materials @itemlist[@item{Editing environment (code.pyret.org)}]
      #:preparation @itemlist[@item{Computer for each student (or pair), running code.pyret.org}
                              @item{Student Workbooks, and something to write with}]
@@ -423,6 +424,7 @@
                               @item{Overhead projector}]
      #:prerequisites (list "Order of Operations")
      #:exercises (list 
+                       (make-exercise-locator "Intro-to-Programming" "coe-code-matching1")
                        )
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
