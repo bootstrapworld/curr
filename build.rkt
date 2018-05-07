@@ -413,10 +413,14 @@
                                                  (second path-elts))))
                                          unit-exercises))])
                   (for-each (lambda (lessonname)
-                              (let ([lessonexerpath (build-path (current-deployment-dir) "lessons" (getenv "LANGUAGE") lessonname "exercises")]
-                                    [deploy-exer-path (build-path deploy-exercises-dir lessonname)])
+                              (let* ([lessonpath (build-path (current-deployment-dir) "lessons" (getenv "LANGUAGE") lessonname)]
+                                     [lessonexerpath (build-path lessonpath "exercises")]
+                                     [deploy-exer-path (build-path deploy-exercises-dir lessonname)])
                                 (unless (directory-exists? deploy-exer-path)
                                   (make-directory deploy-exer-path))
+                                (unless (directory-exists? lessonpath)
+                                  (make-directory lessonpath)
+                                  (make-directory lessonexerpath))
                                 (for ([exerfile (directory-list lessonexerpath)])
                                   ; don't copy some file extensions
                                   (unless (or (regexp-match #px".*\\.scrbl$" exerfile)
@@ -424,6 +428,7 @@
                                               (regexp-match #px".*\\.*~$" exerfile))
                                     (copy-file (build-path lessonexerpath exerfile)
                                                (build-path deploy-exer-path exerfile)
+                                               #t
                                                )))))
                             lessonnames))
                 )))))
@@ -467,14 +472,27 @@
     (when (directory-exists? (build-path (lessons-dir) subdir "exercises"))
       (for ([worksheet (directory-list (build-path (lessons-dir) subdir "exercises"))]
             #:when (regexp-match #px".scrbl$" worksheet))
-        (printf "build.rkt: building exercise handout ~a: ~a\n" subdir worksheet)
         (printf "building exercise at: ~a \n" (path->string (build-path (lessons-dir) subdir "exercises" worksheet)))
         (run-scribble (build-path (lessons-dir)  subdir "exercises" worksheet))
         (copy-file (build-path "lib" "backlogo.png")
                    (build-path (current-deployment-dir) "lessons"  (getenv "LANGUAGE") subdir "exercises" "backlogo.png")
 
-                   #t)
-        ))))
+                   #t))
+      ;; if some lesson only has .pdf exercises (not sourced from scrbl), the subdir won't exist
+      (unless (directory-exists? (build-path (current-deployment-dir) "lessons"  (getenv "LANGUAGE") subdir))
+        (make-directory (build-path (current-deployment-dir) "lessons"  (getenv "LANGUAGE") subdir))
+        (make-directory (build-path (current-deployment-dir) "lessons"  (getenv "LANGUAGE") subdir "exercises"))
+        )
+      ;; copy over .pdf exercises that do not come from corresponding .scrbl files
+      (for ([worksheet (directory-list (build-path (lessons-dir) subdir "exercises"))]
+            #:when (and (regexp-match #px".pdf$" worksheet)
+                        (not (file-exists? (build-path (lessons-dir) subdir "exercises" (regexp-replace #px"\\.pdf$" (path->string worksheet) ".scrbl"))))))
+        (let ([worksheet-distrib-file (build-path (current-deployment-dir) "lessons"  (getenv "LANGUAGE") subdir "exercises" worksheet)])
+          (unless (file-exists? worksheet-distrib-file) 
+            (copy-file (build-path (lessons-dir) subdir "exercises" worksheet)
+                       worksheet-distrib-file
+                       #t))))
+      )))
 
 
 
@@ -494,7 +512,15 @@
     (solutions-mode-on)
     ; generating sols to our internal distribution dir, not the public one
     (parameterize ([current-deployment-dir (build-path (root-deployment-dir) "courses" (current-course)(getenv "LANGUAGE") "resources")])
+      (unless (directory-exists? (build-path (root-deployment-dir) "courses"))
+        (make-directory (build-path (root-deployment-dir) "courses")))
+      (unless (directory-exists? (build-path (root-deployment-dir) "courses" (current-course)))
+        (make-directory (build-path (root-deployment-dir) "courses" (current-course)))
+        (make-directory (build-path (root-deployment-dir) "courses" (current-course) (getenv "LANGUAGE"))))
       (unless (directory-exists? (current-deployment-dir))
+        (when (not (directory-exists? (build-path (root-deployment-dir) "courses" (current-course))))
+          (make-directory (build-path (root-deployment-dir) "courses" (current-course)))
+          (make-directory (build-path (root-deployment-dir) "courses" (current-course) (getenv "LANGUAGE"))))
         (make-directory (current-deployment-dir))) 
       (for ([subdir (directory-list (lessons-dir))]
             #:when (directory-exists? (build-path (lessons-dir) subdir)))
@@ -532,14 +558,15 @@
                                              ["english" lessons-dir-alt-eng]
                                              ["spanish" lessons-dir-alt-spa])
                                              lesson-name "exercises")]
-         [exer-deploy-dir (build-path (root-deployment-dir) "lessons" (getenv "LANGUAGE") lesson-name "exercises")])
+                     [exer-deploy-dir (build-path (root-deployment-dir) "lessons" (getenv "LANGUAGE") lesson-name "exercises")])
                 (parameterize [(current-deployment-dir exer-dir)]
                   (scribble-to-pdf exer-files exer-dir))
                 (for ([exerfile exer-files])
                   (let* ([exerfile-pdf (regexp-replace #px"\\.scrbl$" exerfile ".pdf")]
                          [exerfile-path (build-path exer-dir exerfile-pdf)])
                     (copy-file exerfile-path
-                               (build-path exer-deploy-dir exerfile-pdf))))
+                               (build-path exer-deploy-dir exerfile-pdf)
+                               #t)))
                 ))
             pdf-lesson-exercises))
 
@@ -769,13 +796,25 @@
           (putenv "TARGET-LANG" "racket")
           (if (build-exercises?)
               (begin (build-exercise-handouts) ; not needed for reactive
-              (workbook-styling-on)
-              (build-extra-pdf-exercises)); not needed for reactive
+                     (build-exercise-handout-solutions)
+                     (workbook-styling-on)
+                     ;; when did we move the following into units? 
+                     ;(build-extra-pdf-exercises); not needed for reactive
+                     )
               (workbook-styling-on))
           )
         (when (equal? course "reactive")
           (putenv "TARGET-LANG" "pyret")
           ;; formerly set "RESLEASE-STATUS" to "beta" here
+          )
+        (when (equal? course "data-science")
+          (putenv "TARGET-LANG" "pyret")
+          (if (build-exercises?)
+              (begin (build-exercise-handouts)
+                     (build-exercise-handout-solutions)
+                     (workbook-styling-on)
+                     (build-extra-pdf-exercises))
+              (workbook-styling-on))
           )
         (textbook-styling-on)
         (update-resource-paths)

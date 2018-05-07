@@ -9,7 +9,7 @@
 We provide all of the our materials @italic{free of charge}, to anyone who is interested in using our lesson plans or student workbooks. (If you are an engineer or data scientist who would like to connect with a Bootstrap:DS classroom in your area, @(hyperlink "resources/CorporateInvolvement.pdf" "click here")!)
 @(apply itemlist
         (append
-         (for/list ([n (in-range 1 10)])
+         (for/list ([n (in-range 1 12)])
            (unit-summary/links n))
          #;(list 
           @summary-item/unit-link["Supplemental Lessons" "units/Supplemental/index"]{
