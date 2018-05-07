@@ -1,4 +1,4 @@
-#lang APCSP/lib
+#lang curr/lib
 
 @(define q11 (elem "What is the " @vocab{name} " of the innermost function being used in" @code{ string-length("broccoli") + 8} "?"))
 @(define a11 "string-length")

@@ -9,7 +9,7 @@
 @(define q12 (elem "What is the " @vocab{domain} " of the innermost function being used in" @code{ scale(2, circle(40, "solid", "blue"))} "?"))
 @(define a12 "number string string")
 
-@(define q14 (elem "How many " @vocab{arguments} " does the + function take in " @code{ string-length("broccoli") + 8} "?"))
+@(define q14 (elem "How many " @vocab{arguments} " does the + operator take in " @code{ string-length("broccoli") + 8} "?"))
 @(define a14 "2")
 
 @(define q15 (elem "What is the " @vocab{range} " of the function string-length?"))
