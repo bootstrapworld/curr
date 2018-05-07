@@ -15,11 +15,12 @@ body#beta::after{
 }
 
 #translations{
-	display: inline-block;
-	position: fixed;
-	bottom: 0px;
-	right: 0px;
-	z-index: 99;
+  display: inline-block;
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  z-index: 99;
+  box-shadow: -1px -1px 2px  gray;
 }
 #translations p {margin: 0px; }
 #translations .TranslationButton {
