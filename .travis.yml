@@ -14,39 +14,26 @@ env:
   - secure: tkOgKmY5brk6wSTluhgKaFiUiVVXnf1HefE1v56LOUlNHcieMLjRAgXc5LsdezI5ymtf59tZBVAdv7zWG+2Co/nMgIVE20FLpT2UeZCyBu+669lDPZG5zJcsq3Yp52EyE3pSzBRc5H5c9Ni3AZWunV/OxV8xUn3TMkTz9ian/j1AiyDK6z/s5TyFVuRITUOriyuE84e5HJvSYdCjMH2jZE3vCp+lBO9xK/+7IAyoXM7LBFIxz2qBbfzeGbDUzMiFujJZ0/cJu8Qfjlz/AEzW13BWhzhrI9FWUaawKJX1xU6gv9uhRgmsQqQjOMe2CdDuUiUoFP11WjbSnSsN7/B3oklqSiHNHFnOCbxYqunpEpI4EOltL0SpEFHZYl5JgtsLJTbqZvAJ0AaT88F8HBJEFthxyz6MhbBZ9CewOpFY50qY7yvsLr6JEEzCEnTk2EtIv6r2Ux5Xad+K2AXfpEPR1VvfRl6J4U7JGKHHspNVJmpdZSnJdYTzS2siHknV4LQ5Zrl1uwhTjTc4H6bshDKQfcXFkkc4edV78jrJiPDP5hpPVaqLH5MTLV0mhsrSowHPaOyL6y3y+/mrUFG7F0Lha9qdtT4k8PvD47ldPxBCaFOh85MC+w+p65WFqf2rwFMmZNA9sUTltFvU5OMtBPfTMpCrhgnBhf62UrLm6z2jJZY=
   - secure: LNFPDErTqBbgv3XgDI+X9q9Clb/BCFeuUcHjpzP5w5u4y2hpe3TnOkrLfI/FNNYqL2wczqA9cyQ6tDsczFatxz936heSU087uimPCEHKYuUk4jCZ3vM1iIH+MeiAEnaSDXmHOS0iSxvX86BU5AYULlRdpCNqU/12dzJZdARYhIGX+7LNUCUf2/D9MAbL85OjGjzR6ZEaJ5TdvL7IPKejsABiyU/TEAD6PNIgPaL4MRv+gqhedOak7nhFHUfJFUOVQ/GFE9np46HWW19aGIJSktO7RRCsDESUBte19qdQz+pABgn/mR3zVYsn0x7bd9VhpGHt5yeEpAhm82GB5MdkLVYCap8SgGHzl6IAXyToBTmC6wDxOQ/ivpWnkDum1W2rEuY/HrT1235Z7ea5YZVajg5uxAcnkpYqkOyWrLMm7yjXY6wdNQ9F1YKyx6GOxpZj/5opib3aF0hxIRF5nHD2ROZVgLeBM6PKliES1/X5GutBQCh3PsXwGd1G40YtUPXghMwxjYiDmwkM05fOnrUqwfobz98yrDm/6Q7KUEqUaUcV/RshLYcgXrOgSv9YSDykJ7BkvFhnDTOiHPVc4gg4GFHjZI0T8cCziyeroo3/pfR/Oe1kIXyuCzpP4kbY48JGE7GEvC7vT/dwOQ4ERt4XfzD2jlBaubqI6Boy95+VrKo=
 before_install:
-- git clone --recursive https://github.com/wkhtmltopdf/wkhtmltopdf.git
-- sudo wkhtmltopdf/scripts/build.py setup-schroot-generic
-- sudo wkhtmltopdf/scripts/build.py linux-generic-amd64
-- sudo mv wkhtmltopdf/static-build/linux-generic-amd64/wkhtmltox/bin/* /bin
+- wget https://downloads.wkhtmltopdf.org/0.12/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz
+- tar xvf wkhtmltox-0.12.4_linux-generic-amd64.tar.xz
+- sudo mv wkhtmltox/bin/wkhtmlto* /usr/bin
+- sudo apt-get install -y openssl build-essential libssl-dev libxrender-dev git-core libx11-dev libxext-dev libfontconfig1-dev libfreetype6-dev fontconfig pdftk texlive-latex-recommended
 - git clone https://github.com/greghendershott/travis-racket.git
 - cat travis-racket/install-racket.sh | bash
 - export PATH="${RACKET_DIR}/bin:${PATH}"
 script:
-- cd doshiro
+- cd ..
 - raco link curr
 - cd curr
-- racket build-workbook.rkt --course algebra-pyret #TODO
+- racket build-workbook.rkt
+- mkdir web-deploy
+- cp courses/algebra-pyret/resources/teachers/langs/english/index.shtml web-deploy
+- cp -R distribution/courses/algebra/english web-deploy
 deploy:
-  - provider: s3
-    bucket: pyret-docs
-    local_dir: build/docs
-    upload-dir: docs/latest
+  - provider: pages
+    local_dir: web-deploy
     skip_cleanup: true
+    keep-history: true
+    github-token: $GITHUB_TOKEN
     on:
-      branch: master
-    secret_access_key:
-      secure: LzAA8MSvkPCydPU/Kobw4lPLiGbNicqFd9q7S1PkgOtjb9AdA+NBC1kZRf7wunV3b72UHmD7mIHRJESEqWPk4NdFuQM4tJOSIKsDjnF3RuPXO1BpmLMP5/2XUVyv8v1tPo/IgIVnRGGDc5ylUFKbvBkGP7CqWmtF15WyxsX6LFzDVEBIC79wq3TXNBfUHOVYOuiBSzJSzdwFSTABEBqdHHwqeDnFDxy9aeVogbF6FoofaMUsuN46FBZ4EHDm+QhedWaHQ1sq2Waf+tkJtYIdZk+CdafxyQA3uuBTLyztuH6gNCDeJgvYyNGXpYphGyB4nGOIuH4E6V31t9FyF53Uz16oOgidfvKmYyw+m06PYuoOnzs35Vcf+Kp0/zIuxt7BpxMx80cbmm/kpdxrQKGgGCLP3VcwJ07IPMW6YkmsFg3Ob2vAWvcBQdErj586OOoGiTi4cRZzsPeQ9AfAnD6Dq+NhguG88kV+ntRisDZ60A+zGxLsFtqGn87s3W3ieVSrgv1P2gihwYasCm0B5jTeV7AnsKVRExnDedReJORIOQfc33sToWEVQ+cGZ1e2QyasuJtaVg2qza1SB4JZ2psjhkvhWfYCBDdODeukWJ/KGUxOxYupc+nEQkg6VRtKey6oF5MDkFGL9cOSzDrX3AGhyPFq6mmFJSuNshJOncZDliE=
-    access_key_id:
-      secure: FO6FefC+VV5xqRckWkfm4BAAO+fi91xCMCG2U/cKpP/LSkrN5PBqSeSymy2II0ga9hhzu/gL3zJFSivwufCr/cQdozKyqqI9kFE3qRyfIcydfQQt3f46l6bXPpiw3n6MAI03TBYzV2M7Vlj/Y2KBYv5cpY7fUn2kDu0eHKr8GunSysltM39VpTYjWReup5C7fuyAhgJvQHnPaxWr+QTgNcXERge4IVFON+opaMadrz2ECVTvwIaC/7N4VH1xu/WB1objwyH7lfElxI21rM5e8zeyQpBVGaAmdkY97uQ8Jsx7Zzvux6DRK/9ga+O4xZSsJoTNHBf3mLtzy1lhO5eO1aJlPH6JiEG0Mb144/o9ToH1RDC8Wc/7tEDGrOq4m2z5o3NGLf9adFv6EEzjyw8QouGCkj4OgQOptmLGBJ2/ZUmNfcDeVGtdm7d9A565ElRgvc8dbWRkika982JVBwuR/2FjGwkmHAvxYDMfJ77tEninhGptpgXR1rZxt5vrVOWnQdle2iu6Tco17OvLSwidNr7B7ejq/SQBWYBGpoyZlQGF3Xp95hNEMF76aKhFajS519mRHFzTqUsBGuHkjbHVvYx+rkUaP+Zsx1n2h2Uv/A2KHHGzpLBPyM1e8zKVluHYmjh7XFdX/af+n7jmL29R9yFVlD41PjKAdcdo7u7bJw4=
-  - provider: s3
-    bucket: pyret-docs
-    local_dir: build/docs
-    upload-dir: docs/horizon
-    skip_cleanup: true
-    on:
-      branch: horizon
-    secret_access_key:
-      secure: LzAA8MSvkPCydPU/Kobw4lPLiGbNicqFd9q7S1PkgOtjb9AdA+NBC1kZRf7wunV3b72UHmD7mIHRJESEqWPk4NdFuQM4tJOSIKsDjnF3RuPXO1BpmLMP5/2XUVyv8v1tPo/IgIVnRGGDc5ylUFKbvBkGP7CqWmtF15WyxsX6LFzDVEBIC79wq3TXNBfUHOVYOuiBSzJSzdwFSTABEBqdHHwqeDnFDxy9aeVogbF6FoofaMUsuN46FBZ4EHDm+QhedWaHQ1sq2Waf+tkJtYIdZk+CdafxyQA3uuBTLyztuH6gNCDeJgvYyNGXpYphGyB4nGOIuH4E6V31t9FyF53Uz16oOgidfvKmYyw+m06PYuoOnzs35Vcf+Kp0/zIuxt7BpxMx80cbmm/kpdxrQKGgGCLP3VcwJ07IPMW6YkmsFg3Ob2vAWvcBQdErj586OOoGiTi4cRZzsPeQ9AfAnD6Dq+NhguG88kV+ntRisDZ60A+zGxLsFtqGn87s3W3ieVSrgv1P2gihwYasCm0B5jTeV7AnsKVRExnDedReJORIOQfc33sToWEVQ+cGZ1e2QyasuJtaVg2qza1SB4JZ2psjhkvhWfYCBDdODeukWJ/KGUxOxYupc+nEQkg6VRtKey6oF5MDkFGL9cOSzDrX3AGhyPFq6mmFJSuNshJOncZDliE=
-    access_key_id:
-      secure: FO6FefC+VV5xqRckWkfm4BAAO+fi91xCMCG2U/cKpP/LSkrN5PBqSeSymy2II0ga9hhzu/gL3zJFSivwufCr/cQdozKyqqI9kFE3qRyfIcydfQQt3f46l6bXPpiw3n6MAI03TBYzV2M7Vlj/Y2KBYv5cpY7fUn2kDu0eHKr8GunSysltM39VpTYjWReup5C7fuyAhgJvQHnPaxWr+QTgNcXERge4IVFON+opaMadrz2ECVTvwIaC/7N4VH1xu/WB1objwyH7lfElxI21rM5e8zeyQpBVGaAmdkY97uQ8Jsx7Zzvux6DRK/9ga+O4xZSsJoTNHBf3mLtzy1lhO5eO1aJlPH6JiEG0Mb144/o9ToH1RDC8Wc/7tEDGrOq4m2z5o3NGLf9adFv6EEzjyw8QouGCkj4OgQOptmLGBJ2/ZUmNfcDeVGtdm7d9A565ElRgvc8dbWRkika982JVBwuR/2FjGwkmHAvxYDMfJ77tEninhGptpgXR1rZxt5vrVOWnQdle2iu6Tco17OvLSwidNr7B7ejq/SQBWYBGpoyZlQGF3Xp95hNEMF76aKhFajS519mRHFzTqUsBGuHkjbHVvYx+rkUaP+Zsx1n2h2Uv/A2KHHGzpLBPyM1e8zKVluHYmjh7XFdX/af+n7jmL29R9yFVlD41PjKAdcdo7u7bJw4=
-
+      branch: im-pyret
