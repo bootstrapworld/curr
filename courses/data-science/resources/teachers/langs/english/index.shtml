@@ -25,10 +25,109 @@
               <ul>
                 <li><p class="BSUnitSummary"><span class="BSUnitTitle">Workshop Slides</span> [<a href="BootstrapDataScienceWorkshopSlides.pptx">pptx</a>] - The slide deck we use in our PD workshops, in PowerPoint format. This includes the background and context slides, as well as all slides used during the professional development workshops.</p></li>
                 <li><p class="BSUnitSummary"><span class="BSUnitTitle">Support Forums</span> [<a href="https://groups.google.com/d/forum/bootstrap-announce">Announcements</a> | <a href="https://groups.google.com/d/forum/bootstrap-discuss">Discussion</a>] - Want to be kept up-to-date about Bootstrap events, workshops, and curricular changes? Want to ask a question or pose a lesson idea for other Bootstrap teachers? These forums are the place to do it.</p></li>
+                <li><p class="BSUnitSummary"><span class="BSUnitTitle">Workbook Solutions</span> [<a href="protected/StudentWorkbookSols.pdf">pdf</a>] - Completed exercises for the entire Student Workbook.</p></li>
               </ul>
             </div>
+            
 
-              
+            <h2>Exercises and Solutions</h2>
+            <h3><a href="../../units/unit1/">Unit 1</a></h3>
+            <ul>
+              <li>Practicing Contracts 1
+                <span class="links">
+                  [<a href="exercises/Contracts1.pdf">original</a>
+                  | <a href="protected/solutions/Contracts1-Sols.pdf">answers</a>]
+                </span>
+              </li>
+
+              <li>Practicing Contracts 2
+                <span class="links">
+                  [<a href="exercises/Contracts2.pdf">original</a>
+                  | <a href="protected/solutions/Contracts2-Sols.pdf">answers</a>]
+                </span>
+              </li>
+
+              <li>Matching Expressions with Contracts 1
+                <span class="links">
+                  [<a href="exercises/MatchingExpressions1.pdf">original</a>
+                  | <a href="protected/solutions/MatchingExpressions1-Sols.pdf">answers</a>]
+                </span>
+              </li>
+
+              <li>Matching Expressions with Contracts 2
+                <span class="links">
+                  [<a href="exercises/MatchingExpressions2.pdf">original</a>
+                  | <a href="protected/solutions/MatchingExpressions2-Sols.pdf">answers</a>]
+                </span>
+              </li>
+            </ul>
+
+
+            <h3><a href="../../units/unit2/">Unit 2</a></h3>
+            <ul>
+              <li>What Data Would You Need? 1
+                <span class="links">
+                  [<a href="exercises/WhatData1.pdf">original</a>
+                  | <a href="protected/solutions/WhatData1-Sols.pdf">answers</a>]
+                </span>
+              </li>
+
+              <li>What Data Would You Need? 2
+                <span class="links">
+                  [<a href="exercises/WhatData2.pdf">original</a>
+                  | <a href="protected/solutions/WhatData2-Sols.pdf">answers</a>]
+                </span>
+              </li>
+
+              <li>Threats to Validity 1
+                <span class="links">
+                  [<a href="exercises/Threats1.pdf">original</a>
+                  | <a href="protected/solutions/Threats1-Sols.pdf">answers</a>]
+                </span>
+              </li>
+
+              <li>Threats to Validity 2
+                <span class="links">
+                  [<a href="exercises/Threats2.pdf">original</a>
+                  | <a href="protected/solutions/Threats2-Sols.pdf">answers</a>]
+                </span>
+              </li>
+
+              <li>Threats to Validity 3
+                <span class="links">
+                  [<a href="exercises/Threats3.pdf">original</a>
+                  | <a href="protected/solutions/Threats3-Sols.pdf">answers</a>]
+                </span>
+              </li>
+            </ul>
+
+            <h3><a href="../../units/unit7/">Unit 7</a></h3>
+            <ul>
+              <li>Critiquing Findings
+                <span class="links">
+                  [<a href="exercises/CritiquingFindings.pdf">original</a>
+                  | <a href="protected/solutions/CritiquingFindings-Sols.pdf">answers</a>]
+                </span>
+              </li>
+            </ul>
+
+
+            <h3><a href="../../units/unit10/">Unit 10</a></h3>
+            <ul>
+              <li>Describing Relationships 1
+                <span class="links">
+                  [<a href="exercises/Relationships1.pdf">original</a>
+                  | <a href="protected/solutions/Relationships1-Sols.pdf">answers</a>]
+                </span>
+              </li>
+
+              <li>Describing Relationships 2
+                <span class="links">
+                  [<a href="exercises/Relationships2.pdf">original</a>
+                  | <a href="protected/solutions/Relationships2-Sols.pdf">answers</a>]
+                </span>
+              </li>
+            </ul>
             
             <div class="item clearfix">
               <span class="anchor" id="sourceFiles"></span>
