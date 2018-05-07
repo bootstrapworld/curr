@@ -37,4 +37,4 @@ deploy:
     keep-history: true
     github-token: $GITHUB_TOKEN
     on:
-      branch: im-pyret
+      branch: pyret-lesson
