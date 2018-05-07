@@ -25,8 +25,8 @@ script:
 - cd ..
 - raco link curr
 - cd curr
-- sudo racket build-workbook.rkt
-- sudo racket build.rkt
+- racket build-workbook.rkt
+- racket build.rkt
 - mkdir web-deploy
 - cp courses/algebra-pyret/resources/teachers/langs/english/index.shtml web-deploy
 - cp -R distribution/courses/algebra/english web-deploy
