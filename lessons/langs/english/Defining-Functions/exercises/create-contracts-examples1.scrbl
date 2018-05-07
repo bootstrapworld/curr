@@ -58,7 +58,7 @@ end"))
  half(9) 
          9 / 2
 end"))
-@(define c5 (code "; half : number -> number"))
+@(define c5 (code "half : number -> number"))
 
 
 @(define e6
@@ -81,7 +81,7 @@ end"))
   #:instr "For each of the following collections of Examples, write the contract
            for the function above the examples."
   #:forevidence (exercise-evid-tags "BS-DR.2&1&1" "F-IF.1-3&1&1" "F-IF.1-3&1&2")
-  @(create-exercise-itemlist/contract-answers examples-lst)
+  @(create-exercise-itemlist/contract-answers examples-lst #:pyret #t)
   @(exercise-answers
     (create-exercise-itemlist answers-atop))
     @;(questions-and-answers examples-lst answers-lst))
