@@ -12,29 +12,29 @@
 @(define e4 (code "message-cost(\"where are you?\")"))
 @(define c4 (code "message-cost :: String -> Number"))
 
-@(define e5 (code "show-score(\"Red Sox\" 6 \"Cardinals\" 4)"))
+@(define e5 (code "show-score(\"Red Sox\", 6, \"Cardinals\", 4)"))
 @(define c5 (code #:multi-line #t
 "show-score :: String, Number, String, 
             Number -> Image"))
 
-@(define e6 (code "show-score(\"Red Sox\" \"Cardinals\" 5 5)"))
+@(define e6 (code "show-score(\"Red Sox\", \"Cardinals\", 5, 5)"))
 @(define c6 (code #:multi-line #t
 "show-score :: String, String, Number, 
             Number -> Image"))
 @(define c6a (code "show-score :: String, String -> Image"))
 @(define c6b (code "show-score :: String, Number -> Image"))
 
-@(define e7 (code "find-winner(\"Red Sox\" 4 \"Cardinals\" 6)"))
+@(define e7 (code "find-winner(\"Red Sox\", 4, \"Cardinals\", 6)"))
 @(define c7 (code #:multi-line #t
 "find-winner :: String, Number, String, Number 
               -> String"))
 
-@(define e8 (code "pick-flavor(\"vanilla\" \"oreo\" \"mint\")"))
+@(define e8 (code "pick-flavor(\"vanilla\", \"oreo\", \"mint\")"))
 @(define c8 (code #:multi-line #t
 "pick-flavor :: String, String, String, 
               -> Image"))
 
-@(define e9 (code "prefer-flavor(\"lemon\" \"lime\")"))
+@(define e9 (code "prefer-flavor(\"lemon\", \"lime\")"))
 @(define c9 (code "prefer-flavor :: String, String -> Number"))
 @(define c9a (code "choose-flavor :: String, String -> String"))
 

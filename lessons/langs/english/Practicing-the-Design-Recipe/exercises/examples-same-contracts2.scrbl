@@ -3,59 +3,87 @@
 
 @(define e9
    (code #:multi-line #t
-"(EXAMPLE (mystery (triangle 70 \"solid\" \"green\"))
-         (triangle 140 \"solid\" \"green\"))
-(EXAMPLE (mystery (circle 100 \"solid\" \"blue\"))
-         (circle 200 \"solid\" \"blue\"))"))
+"examples:
+ mystery(triangle(70, \"solid\", \"green\")) is
+         triangle(140, \"solid\", \"green\")
+end
+examples:
+ mystery(circle(100, \"solid\", \"blue\") is
+         circle(200, \"solid\", \"blue\")
+end"))
 @(define a9 (code "; mystery : image -> image"))
 
 @(define e10
    (code #:multi-line #t
-"(EXAMPLE (mystery \"red\")
-         (triangle 140 \"solid\" \"red\"))
-(EXAMPLE (mystery \"blue\" \"circle\"))
-         (circle 140 \"solid\" \"blue\"))"))
+"examples:
+ mystery(\"red\") is
+         triangle(140, \"solid\", \"red\")
+end
+examples:
+ mystery(\"blue\", \"circle\") is
+         circle(140, \"solid\", \"blue\")
+end"))
 @(define a10 "no match (the domains have different numbers of arguments)")
 
 @(define e11
    (code #:multi-line #t
-"(EXAMPLE (mystery \"+\" 4 5) 
-          (+ 4 5))
-(EXAMPLE (mystery \"sqrt\" 25)) 
-         (sqrt 25))"))
+"examples:
+ mystery(\"+\", 4, 5) is
+          4 + 5
+end
+examples:
+ mystery(\"num-sqrt\", 25) is 
+         num-sqrt(25)
+end"))
 @(define a11 "no match (the domains have different numbers of arguments)")
 
 @(define e12
    (code #:multi-line #t
-"(EXAMPLE (mystery \"circle\" 4) 
-          (* pi (sqr 4)))
-(EXAMPLE (mystery \"square\" 5)) 
-         (sqr 5))"))
+"examples:
+ mystery(\"circle\", 4) is 
+          pi * num-sqr(4)
+end
+examples:
+ mystery(\"square\", 5) is
+         num-sqr(5)
+end"))
 @(define a12 (code "; mystery : string number -> number"))
    
 @(define e13
    (code #:multi-line #t
-"(EXAMPLE (mystery \"dog\") 
-          3)
-(EXAMPLE (mystery \"cat\") 
-         \"kitten\")"))
+"examples:
+ mystery(\"dog\") is
+          3
+end
+examples:
+ mystery(\"cat\") is
+         \"kitten\"
+end"))
 @(define a13 "no match (the range types are different)")
 
 
 @(define e14
    (code #:multi-line #t
-"(EXAMPLE (mystery \"dog\") 
-          3)
-(EXAMPLE (mystery \"kitten\") 
-         6)"))
+"examples:
+ mystery(\"dog\") is
+          3
+end
+examples:
+ mystery(\"kitten\") is
+         6
+end"))
 @(define a14 (code "; mystery : string -> number"))
    
 @(define e15
    (code #:multi-line #t
-"(EXAMPLE (mystery 4 5 \"big\") 
-          (scale 2 (rectangle 4 5 \"solid\" \"blue\")))
-(EXAMPLE (mystery 10 \"small\" 4) 
-          (scale .5 (rectangle 10 4 \"solid\" \"blue\")))"))
+"examples:
+ mystery(4, 5, \"big\") is
+          scale(2, (rectangle(4, 5, \"solid\", \"blue\"))
+end
+examples:
+ mystery(10, \"small\", 4) is 
+          scale(.5, (rectangle(10, 4, \"solid\", \"blue\"))
+end"))
 @(define a15 "no match (the domains have different orders of arguments)")
 
 
