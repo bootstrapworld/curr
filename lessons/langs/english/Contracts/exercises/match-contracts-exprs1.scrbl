@@ -24,7 +24,7 @@
 @(define c6a (code "show-score :: String, String -> Image"))
 @(define c6b (code "show-score :: String, Number -> Image"))
 
-@(define e7 (code "find-winner(\"Red Sox\", 4, \"Cardinals\", 6)"))
+@(define e7 (code "find-winner(\"Red Sox\", 4, \"Yankees\", 6)"))
 @(define c7 (code #:multi-line #t
 "find-winner :: String, Number, String, Number 
               -> String"))
