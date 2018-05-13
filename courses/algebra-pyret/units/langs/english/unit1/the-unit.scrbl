@@ -237,8 +237,18 @@
 ]
      #:product-outcomes @itemlist[@item{Students convert several arithmetic expressions between multiple representations}]
      #:standards (list "A-SSE.1-2" "BS-CE" "5.OA.1-2")
-     #:exercises (list ;(make-exercise-locator "Order-of-Operations" "match-arith-coe1-im")
-     )
+     #:exercises (list ;(make-exercise-locator "Order-of-Operations" "match-arith-coe1-im"
+                       (make-exercise-locator "Order-of-Operations" "complete-coe-from-arith1")
+                       (make-exercise-locator "Order-of-Operations" "complete-coe-from-arith2")
+                       (make-exercise-locator "Order-of-Operations" "arith-to-coe1")
+                       (make-exercise-locator "Order-of-Operations" "arith-to-coe2")
+                       (make-exercise-locator "Order-of-Operations" "arith-to-coe3")
+                       (make-exercise-locator "Order-of-Operations" "coe-to-arith1")
+                       (make-exercise-locator "Order-of-Operations" "coe-to-arith2")
+                       (make-exercise-locator "Order-of-Operations" "match-arith-coe1")
+                       (make-exercise-locator "Order-of-Operations" "coe-to-math-answer1")
+                       (make-exercise-locator "Order-of-Operations" "coe-to-math-answer2"))
+     
      #:materials @itemlist[@item{Editing environment (code.pyret.org)}]
      #:preparation @itemlist[@item{Computer for each student (or pair), running code.pyret.org}
                              @item{Student Workbooks, and something to write with}]
