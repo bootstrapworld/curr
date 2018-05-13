@@ -17,7 +17,7 @@ html, body{background: white; width: 7.5in; position: absolute;}
 }
 /* checkbox for teachers to score DRs */
 .designRecipeLayout div.sectionTitle::after{
-  content: "\25A2";
+  content: "\2B1C";
   float: right;
 }
 .designRecipeLayout div.sectionInstructions{
