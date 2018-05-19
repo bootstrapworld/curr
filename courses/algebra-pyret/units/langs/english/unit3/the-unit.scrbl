@@ -183,7 +183,7 @@
                                   @item{Students will modify the definitions for @code{TITLE, TITLE-COLOR, BACKGROUND, PLAYER, TARGET} and @code{DANGER}}]
      #:standards (list "BS-PL.3")
      #:materials @itemlist[@item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders with names on covers.}]
-     #:preparation @itemlist[@item{Create student game files. [See the teacher's guide, located in the @(new-tab "http://www.BootstrapWorld.org/materials/Spring2014/courses/bs1/resources/teachers/" "protected materials") for this course.]}
+     #:preparation @itemlist[@item{Create student game files. [See the teacher's guide, located in the @(new-tab "../../resources/teachers/" "protected materials") for this course.]}
                               @item{On student machines: Student Game Files (generated from "Game" template [@(new-tab "https://code.pyret.org/editor#share=1xL3ZnWb43d5ih_fRib3dz3h8z9d__2om&v=f1d3c87" "link to code")])}]
      #:prerequisites (list "Defining Values" "Strings and Images" "Brainstorming")
      #:pacings (list 
@@ -225,7 +225,7 @@
                                    no larger than 200px in either dimension. Make sure that the character images have transparent backgrounds! 
                                    TIP: use animated GIFs for the characters - not only does the animation make the game look a lot better, but these 
                                    images usually have transparent backgrounds to begin with. For more instructions on setting up the game files and
-                                   images, read the @(new-tab "http://www.BootstrapWorld.org/materials/Spring2014/courses/bs1/resources/teachers/" "Teacher's Guide") guide for this course.]}
+                                   images, read the @(new-tab "../../resources/teachers/" "Teacher's Guide") guide for this course.]}
                          }
                  @point{@student{If you want to change one of your definitions so that the image is smaller or larger, you can use the @code{scale} function:
                                   @code[#:multi-line #t]{scale :: Number, Image -> Image}
