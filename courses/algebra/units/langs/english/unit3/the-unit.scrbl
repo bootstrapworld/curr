@@ -22,7 +22,7 @@
                             @item{Class poster (List of rules, language table, course calendar)}
                               @item{Overhead projector}
                           ]
-     #:preparation @itemlist[@item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/1FN2uLBnwdk3N4Ci6-qf1n6z-M8KpToo27wqZmRlS5as/edit?usp=sharing" "Warmup activity sheet")}
+     #:preparation @itemlist[@item{OPTIONAL: Hand out @(new-tab "https://docs.google.com/document/d/1FN2uLBnwdk3N4Ci6-qf1n6z-M8KpToo27wqZmRlS5as/edit?usp=sharing" "Warmup activity sheet")}
      
                             ]
      #:pacings (list 
@@ -134,7 +134,7 @@
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
      #:standards (list "7.EE.3-4" "A-SSE.1-2")
-     #:materials @itemlist[@item{"Algebra Translation" [@resource-link[#:path "source-files/Algebra.rkt" #:label "DrRacket"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=s2s0tkTgeF" "WeScheme")] preloaded on students' machines}]
+     #:materials @itemlist[@item{"Algebra Translation" [@resource-link[#:path "source-files/Algebra.rkt" #:label "DrRacket"] | @editor-link[#:public-id "s2s0tkTgeF" "WeScheme"] ] preloaded on students' machines}]
      #:preparation @itemlist[]
      #:prerequisites (list "Defining Variables")
      #:pacings (list 
@@ -166,7 +166,7 @@
                      }
             @point{@student{@activity{Turn to @worksheet-link[#:name "Translating-to-Algebra"] in your workbooks. 
                                       You will see a bunch of value definitions written in code - take 2 minutes to convert this into math. GO!}}
-                    @teacher{[@(hyperlink "https://www.youtube.com/watch?v=xRUoQO1AdVs" "Video")]}
+                    @teacher{[@(new-tab "https://www.youtube.com/watch?v=xRUoQO1AdVs" "Video")]}
                     }]
          }
      
@@ -181,9 +181,9 @@
      #:standards (list "BS-PL.3")
      #:materials @itemlist[]
      #:preparation @itemlist[@item{Students are logged into WeScheme.org, OR have opened DrRacket}
-                             @item{Create student game files [See the teacher's guide, located in the @(hyperlink "../../resources/teachers/" "protected materials") for this course]}
-                              @item{On student machines: Student Game Files (generated from "Game" template [Game.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=qAGwmaRXYy" "WeScheme")])}
-                              @item{OPTIONAL: @(hyperlink "https://teacher.desmos.com/activitybuilder/custom/5a15e27ee904510a5a9a0faa" "Desmos Activity: Unit 3 Review")}]
+                             @item{Create student game files [See the teacher's guide, located in the @(new-tab "../../resources/teachers/" "protected materials") for this course]}
+                              @item{On student machines: Student Game Files (generated from "Game" template [Game.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "qAGwmaRXYy" "WeScheme"]])}
+                              @item{OPTIONAL: @(new-tab "https://teacher.desmos.com/activitybuilder/custom/5a15e27ee904510a5a9a0faa" "Desmos Activity: Unit 3 Review")}]
      #:prerequisites (list "Defining Variables" "Strings and Images" "Brainstorming")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -225,7 +225,7 @@
                                    no larger than 200px in either dimension. Make sure that the character images have transparent backgrounds! 
                                    TIP: use animated GIFs for the characters - not only does the animation make the game look a lot better, but these 
                                    images usually have transparent backgrounds to begin with. For more instructions on setting up the game files and
-                                   images, read the @(hyperlink "../../resources/teachers/" "Teacher's Guide") guide for this course.]}
+                                   images, read the @(new-tab "../../resources/teachers/" "Teacher's Guide") guide for this course.]}
                          }
                  @point{@student{If you want to change one of your definitions so that the image is smaller or larger, you can use the @code{scale} function:
                                   @code[#:multi-line #t]{; scale : Number Image -> Image}
@@ -274,7 +274,7 @@
                 )
                  ]{
                    @points[@point{@student{Defining a @vocab{value} is helpful when a program has lots of identical expressions. Sometimes, however, a program has expressions that aren't identical, but are just @italic{very similar}. A program that has fifty solid, green triangles can be simplified by defining a single value, @italic{as long as they are all the same size}. But what if a program has fifty green triangles of different sizes?}
-                                   @teacher{[@(hyperlink "https://www.youtube.com/watch?v=ZWdLNtPu6PQ" "Video")]}
+                                   @teacher{[@(new-tab "https://www.youtube.com/watch?v=ZWdLNtPu6PQ" "Video")]}
                                    }
                             @point{@student{Think about the Image functions you have already used, 
 				           like @code{star} and @code{circle}.  They take inputs and produce 

@@ -83,11 +83,11 @@
          run-link
          login-link
          resource-link
-         video-link
          [rename-out [worksheet-link/src-path worksheet-link]] 
          lulu-button
          logosplash
          embedded-wescheme
+         new-tab
                 
          ;; lesson formatting
          lesson/studteach
@@ -1253,6 +1253,12 @@
 (define (escape-webstring-newlines str)
   (string-replace str (list->string (list #\newline)) "%0A"))
 
+;; make a hyperlink that opens in a new tab
+(define (new-tab url link-text)
+  (cond-element
+    [html (sxml->element `(a (@ (href ,url) (target "_blank")) ,link-text))]
+    [else (elem)]))
+
 ;; create a link to a wescheme editor, possibly initialized with interactions/defn contents
 (define (editor-link #:public-id (pid #f)
                      #:interactions-text (interactions-text #f)
@@ -1338,10 +1344,6 @@
   (hyperlink #:style bootstrap-hyperlink-style
              (translate 's-link)
              descr))
-
-;; wraps a hyperlink in the bootstrap styling tag
-(define (video-link hylink)
-  (elem #:style bs-video-style hylink))
 
 ;; Creates a link to the worksheet.
 ;; Under development mode, the URL is relative to the development sources.

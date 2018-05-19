@@ -33,10 +33,10 @@
                 )
      ]{
        @points[@point{@student{Supongamos que dos objetos se mueven a través del espacio, cada uno con sus propias coordenadas (x,y). ¿Cuándo empiezan a superponerse sus bordes? Ciertamente se superponen si sus coordenadas son idénticas (x1=x2, y1=y2), pero, ¿y si sus coordenadas están separadas por una pequeña distancia? ¿Qué tan pequeña debe ser esa distancia antes de que sus bordes se toquen?.}
-                       @teacher{[@(hyperlink "https://www.youtube.com/watch?v=Bbq0oCmvSmA" "Video")] Visual aids are key here: be sure to diagram this on the board!}
+                       @teacher{[@(new-tab "https://www.youtube.com/watch?v=Bbq0oCmvSmA" "Video")] Visual aids are key here: be sure to diagram this on the board!}
                        }
                 @point{@student{@bitmap{images/numberline.png}En una dimensión, es fácil calcular cuándo se superponen dos objetos . En este ejemplo, el círculo rojo tiene un radio de 1 y el círculo azul tiene un radio de 1.5 . Los círculos se superpondrán si la distancia @italic{entre sus centros} es @italic{menor que la suma de sus radios} (@math{1 + 1.5 = 2.5}). ¿Cómo se calcula la distancia entre sus centros? En este ejemplo, sus centros están separados por 3 unidades, porque @math{4 - 1 = 3}. @activity{¿Cambiaría la distancia entre ellos si los círculos intercambiaran lugares? ¿Por qué o por qué no?}}
-                       @teacher{Work through a number of examples, using a number line on the board and asking students how they calculate the distance between the points.  Having students act this out can also work well: draw a number line, have two students stand at different points on the line, using their arms or cutouts to give objects of different sizes.  Move students along the number line until they touch, then compute the distance on the number line.  The first few seconds of our @(hyperlink "http://www.youtube.com/watch?v=leP3tQ_GZL8&feature=player_embedded" "Bootstrap video") show this exercise in action.}
+                       @teacher{Work through a number of examples, using a number line on the board and asking students how they calculate the distance between the points.  Having students act this out can also work well: draw a number line, have two students stand at different points on the line, using their arms or cutouts to give objects of different sizes.  Move students along the number line until they touch, then compute the distance on the number line.  The first few seconds of our @(new-tab "http://www.youtube.com/watch?v=leP3tQ_GZL8&feature=player_embedded" "Bootstrap video") show this exercise in action.}
                        }
                 @point{@student{Tú archivo de juego proporciona una función llamada @code{line-length} que calcula la diferencia entre dos puntos en una línea numérica.  Específicamente, la @code{line-length} toma dos números como entrada y determina la distancia entre ellos.
                        @activity[#:forevidence (list "BS-PL.3&1&3" "BS-PL.4&1&1" "6.NS.5-8&1&6")]{¿Qué respuestas esperarías de cada uno de los siguientes dos usos de @code{line-length}:
@@ -84,7 +84,7 @@
                            @item{Cartel de clase (Lista de reglas, tabla de lenguaje, calendario del curso)}
                            @item{Tabla de Lenguaje (Vea abajo)}
                           ]
-     #:preparation @itemlist[ @item{REQUERIDO: Reparta la @(hyperlink "https://docs.google.com/document/d/1Vkaz30B8AAaze6fMiFJypFb1bOIeH0RzkeaBLCCPf9E/edit?usp=sharing" "Hoja de Actividades de Calentamiento").}]
+     #:preparation @itemlist[ @item{REQUERIDO: Reparta la @(new-tab "https://docs.google.com/document/d/1Vkaz30B8AAaze6fMiFJypFb1bOIeH0RzkeaBLCCPf9E/edit?usp=sharing" "Hoja de Actividades de Calentamiento").}]
      #:prerequisites (list "1D Distance")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -93,8 +93,8 @@
                 )
      ]{
        @points[@point{@student{ Las civilizaciones antiguas tenían el mismo problema: ¡también se esforzaban por encontrar la distancia entre puntos en dos dimensiones!  Trabajemos en una manera para pensar sobre este problema: ¿qué expresión calcula la longitud de la hipotenusa de un triángulo rectángulo?
-                               Echa un vistazo a un, @(video-link (hyperlink "https://www.youtube.com/watch?v=Ln7myXQx8TM" "video de este problema")), ¡y luego explóralo tú mismo! 
-                               [Credit: @(hyperlink "https://www.youtube.com/user/AlternatingSum/videos" "Tova Brown")]}
+                               Echa un vistazo a un, @(new-tab "https://www.youtube.com/watch?v=Ln7myXQx8TM" "video de este problema"), ¡y luego explóralo tú mismo! 
+                               [Credit: @(new-tab "https://www.youtube.com/user/AlternatingSum/videos" "Tova Brown")]}
                        @teacher{This exercise is best done in small groups of students (2-3 per group).  Pass out Pythagorean Proof materials [@(resource-link #:path "images/pythag1.png" #:label "1"), @(resource-link #:path "images/pythag2.png" #:label "2")] to each group, and have them review all of their materials:@itemlist[@item{A large, white square with a smaller one drawn inside}@item{Four gray triangles, all the same size}]}
                        }
                 @point{@student{@bitmap{images/csquared.png}Para cualquier triángulo rectángulo, es posible dibujar una imagen donde la hipotenusa se utiliza para los cuatro lados de un cuadrado. En el diagrama mostrado aquí, el cuadrado blanco está rodeado por cuatro grises, triángulos rectángulos idénticos, cada uno con lados A y B. El cuadrado tiene cuatro lados idénticos de longitud C, que son las hipotenusas para los triángulos. Si el área de un cuadrado se expresa por @math{side * side}, entonces el área del espacio en blanco es @math{C^{2}}.}

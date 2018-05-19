@@ -20,7 +20,7 @@ include other datatypes, including Strings and Images.}
                            @item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbooks"], and something to write with}
                             @item{Class poster (List of rules, language table, course calendar)}
                             @item{Overhead projector}]
-     #:preparation @itemlist[@item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/1Qn59Fol2tspqOx6XQV88xm-IYsRGY769cb7MQeknSMA/edit?usp=sharing" "Warmup activity sheet")}
+     #:preparation @itemlist[@item{OPTIONAL: Hand out @(new-tab "https://docs.google.com/document/d/1Qn59Fol2tspqOx6XQV88xm-IYsRGY769cb7MQeknSMA/edit?usp=sharing" "Warmup activity sheet")}
     
                               ]
      #:prerequisites (list "Order of Operations")
@@ -63,8 +63,8 @@ include other datatypes, including Strings and Images.}
      #:standards (list "N-Q" "BS-PL.1" "BS-PL.2")
      #:materials @itemlist[]
      #:preparation @itemlist[@item{Students are logged into WeScheme.org, OR have opened DrRacket}
-                              @item{OPTIONAL: @(hyperlink "https://quizizz.com/admin/quiz/5a15d1a82b65d91100dc2055?from=quizEditor" "Quizizz Unit 2 Review Quiz")}
-                              @item{OPTIONAL: @(hyperlink "https://teacher.desmos.com/activitybuilder/custom/5a15e268dcb86b2b9fda3ce0" "Desmos Activity: Unit 2 Review")}]
+                              @item{OPTIONAL: @(new-tab "https://quizizz.com/admin/quiz/5a15d1a82b65d91100dc2055?from=quizEditor" "Quizizz Unit 2 Review Quiz")}
+                              @item{OPTIONAL: @(new-tab "https://teacher.desmos.com/activitybuilder/custom/5a15e268dcb86b2b9fda3ce0" "Desmos Activity: Unit 2 Review")}]
      #:prerequisites (list "Intro to Programming")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -203,7 +203,7 @@ include other datatypes, including Strings and Images.}
                                  Domain, and produces an Image as the Range. We use types instead of values when we write a Contract, because we 
                                  want to be more general: a star could be of any size, so the Domain for @code{star} specifies that the first 
                                  argument could be @italic{any Number}. @noSlideText{If we think of a language as a collection of lego pieces, the Contracts are like the tabs and slots that tell us how each piece can connect.}}
-                         @teacher{[@(hyperlink "https://www.youtube.com/watch?v=88WhYoMxrGw" "Video")]}
+                         @teacher{[@(new-tab "https://www.youtube.com/watch?v=88WhYoMxrGw" "Video")]}
                          }
              @point{@student{@noSlideText{Contracts are sufficiently important and useful that we should keep a list of them somewhere.}  
                              The back pages of your workbook contain a sheet labeled "Contracts".  Write the contract for 
@@ -259,7 +259,7 @@ include other datatypes, including Strings and Images.}
                                                   @item{What will this expression evaluate to?}]}                             
                              }
                      @teacher{If you want to have students practice using @code{bitmap/url}, it is recommended that you use an image search-engine, 
-                              such as @(hyperlink "https://images.google.com" "Google Images") or @(hyperlink "http://www.bing.com/images" "Bing Images"). 
+                              such as @(new-tab "https://images.google.com" "Google Images") or @(new-tab "http://www.bing.com/images" "Bing Images"). 
                               Make sure that students know how to get the URL for the image itself, @italic{not the URL of the web page that contains the image.}}
                      }
              @point{@student{Contracts help programmers write code, so it's always a good idea to write down contracts for each function you see. 

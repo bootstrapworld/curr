@@ -19,7 +19,7 @@
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, language table, course calendar)}
                             @item{Language Table (see below)}]
-     #:preparation @itemlist[@item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/1VJMV0vcw-sarvv0o8cxJPvsqyMCfwZLGYGNgM17kHdk/edit?usp=sharing" "Warmup activity sheet").}]
+     #:preparation @itemlist[@item{OPTIONAL: Hand out @(new-tab "https://docs.google.com/document/d/1VJMV0vcw-sarvv0o8cxJPvsqyMCfwZLGYGNgM17kHdk/edit?usp=sharing" "Warmup activity sheet").}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -169,7 +169,7 @@
                      }
             @point{@student{@activity{Turn to @worksheet-link[#:name "Translating-to-Algebra"] in your workbooks. 
                                       You will see a bunch of value definitions written in code - take 2 minutes to convert this into math. GO!}}
-                    @teacher{[@(hyperlink "https://www.youtube.com/watch?v=xRUoQO1AdVs" "Video")]}
+                    @teacher{[@(new-tab "https://www.youtube.com/watch?v=xRUoQO1AdVs" "Video")]}
                     }]
          }
      
@@ -183,8 +183,8 @@
                                   @item{Students will modify the definitions for @code{TITLE, TITLE-COLOR, BACKGROUND, PLAYER, TARGET} and @code{DANGER}}]
      #:standards (list "BS-PL.3")
      #:materials @itemlist[@item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders with names on covers.}]
-     #:preparation @itemlist[@item{Create student game files. [See the teacher's guide, located in the @(hyperlink "http://www.BootstrapWorld.org/materials/Spring2014/courses/bs1/resources/teachers/" "protected materials") for this course.]}
-                              @item{On student machines: Student Game Files (generated from "Game" template [@(hyperlink "https://code.pyret.org/editor#share=1xL3ZnWb43d5ih_fRib3dz3h8z9d__2om&v=f1d3c87" "link to code")])}]
+     #:preparation @itemlist[@item{Create student game files. [See the teacher's guide, located in the @(new-tab "http://www.BootstrapWorld.org/materials/Spring2014/courses/bs1/resources/teachers/" "protected materials") for this course.]}
+                              @item{On student machines: Student Game Files (generated from "Game" template [@(new-tab "https://code.pyret.org/editor#share=1xL3ZnWb43d5ih_fRib3dz3h8z9d__2om&v=f1d3c87" "link to code")])}]
      #:prerequisites (list "Defining Values" "Strings and Images" "Brainstorming")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -192,7 +192,7 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{@activity{Open the videogame file [@(hyperlink "https://code.pyret.org/editor#share=1xL3ZnWb43d5ih_fRib3dz3h8z9d__2om&v=f1d3c87" "link to code")] so that you can see the code,
+        @points[@point{@student{@activity{Open the videogame file [@(new-tab "https://code.pyret.org/editor#share=1xL3ZnWb43d5ih_fRib3dz3h8z9d__2om&v=f1d3c87" "link to code")] so that you can see the code,
                                           and click "Run". (You may need to wait a few seconds for the images to load!) The area that
                                           appears is a running videogame, but you probably notice that nothing is moving - even if you 
                                           hit the "up" or "down" arrows! For now, click the "close" button to return to the code.}
@@ -225,7 +225,7 @@
                                    no larger than 200px in either dimension. Make sure that the character images have transparent backgrounds! 
                                    TIP: use animated GIFs for the characters - not only does the animation make the game look a lot better, but these 
                                    images usually have transparent backgrounds to begin with. For more instructions on setting up the game files and
-                                   images, read the @(hyperlink "http://www.BootstrapWorld.org/materials/Spring2014/courses/bs1/resources/teachers/" "Teacher's Guide") guide for this course.]}
+                                   images, read the @(new-tab "http://www.BootstrapWorld.org/materials/Spring2014/courses/bs1/resources/teachers/" "Teacher's Guide") guide for this course.]}
                          }
                  @point{@student{If you want to change one of your definitions so that the image is smaller or larger, you can use the @code{scale} function:
                                   @code[#:multi-line #t]{scale :: Number, Image -> Image}
@@ -270,7 +270,7 @@
                 )
                  ]{
                    @points[@point{@student{Defining a @vocab{value} is helpful when a program has lots of identical expressions. Sometimes, however, a program has expressions that aren't identical, but are just @italic{very similar}. A program that has fifty solid, green triangles can be simplified by defining a single value, @italic{as long as they are all the same size}. But what if a program has fifty green triangles of different sizes?}
-                                   @teacher{[@(hyperlink "https://www.youtube.com/watch?v=ZWdLNtPu6PQ" "Video")]}
+                                   @teacher{[@(new-tab "https://www.youtube.com/watch?v=ZWdLNtPu6PQ" "Video")]}
                                    }
                             @point{@student{Think about the Image functions you have already used, 
 				           like @code{star} and @code{circle}.  They take inputs and produce 
