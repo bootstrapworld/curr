@@ -78,7 +78,7 @@
                                    of the circle.}
                        @bannerline{Circle Rule 2: The numbers are written below, in order from left to right.}
                 }
-                @teacher{[@(hyperlink "https://www.youtube.com/watch?v=AMFaPKHp3Mg" "Video")] This section 
+                @teacher{[@(new-tab "https://www.youtube.com/watch?v=AMFaPKHp3Mg" "Video")] This section 
                           benefits enormously from visual aids, diagrams, etc. Make sure you have plenty 
                           of board space to draw examples!}
                 }

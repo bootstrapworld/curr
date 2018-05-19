@@ -21,7 +21,7 @@
                             @item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbooks"], and something to write with}
                             @item{Class poster (List of rules, language table, course calendar)}
                             @item{Overhead projector}]
-     #:preparation @itemlist[@item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/1WvlflsKM28IOwgyV2HttnGxul3sAUnL0-KOZhvb6C2s/edit?usp=sharing" "Warmup activity sheet").}]
+     #:preparation @itemlist[@item{OPTIONAL: Hand out @(new-tab "https://docs.google.com/document/d/1WvlflsKM28IOwgyV2HttnGxul3sAUnL0-KOZhvb6C2s/edit?usp=sharing" "Warmup activity sheet").}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -71,7 +71,7 @@
                                          @item{@code{(/ 4 2)}}
                                          @item{@code{(circle 10 "solid" "blue")}}
                                          @item{@code{(< 3 4)}}]}}
-                        @teacher{[@(hyperlink "https://www.youtube.com/watch?v=OMQO66wWqjk" "Video")]}
+                        @teacher{[@(new-tab "https://www.youtube.com/watch?v=OMQO66wWqjk" "Video")]}
                         }
                  @point{@student{The last expression, @code{(< 3 4)},
                                                       uses a new function that @italic{compares Numbers}, returning
@@ -79,7 +79,7 @@
                                                       @activity[#:forevidence (list "BS-IDE&1&1")]{
                                                                                                    The function @code{<} tests if one number is less than another. Can you think of some other tests? 
                                                                                                                 Try them out in the Interactions window.} }
-                         @teacher{Give students plenty of practice here! You can see a video demonstration of this intro at @(video-link (hyperlink "http://www.youtube.com/watch?v=X7gAXxpBhUo" "Video Lesson: Intro to Booleans"))}
+                         @teacher{Give students plenty of practice here! You can see a video demonstration of this intro at @(new-tab "http://www.youtube.com/watch?v=X7gAXxpBhUo" "Video Lesson: Intro to Booleans")}
                          }
                  @point{@student{Functions like @code{<}, @code{>} and @code{=} all consume two Numbers as their Domain, and produce a special value called a 
                          @vocab{Boolean} as their Range. @noSlideText{Booleans are answers to a yes-or-no question, and Boolean functions are used to perform tests. In a videogame, you might test if a player has walked into a wall, or if their health is equal to zero. A machine in a doctor's office might use Booleans to test if a patient's heartrate is above or below a certain level.}
@@ -115,9 +115,9 @@
      #:product-outcomes @itemlist[]
      #:standards (list "BS-DR.2" "BS-DR.3" "F-IF.1-3" "F-IF.4-6" "7.EE.3-4" "8.F.1-3")
      #:materials @itemlist[]
-     #:preparation @itemlist[@item{"Cage" [Cage.rkt from @(resource-link #:path "source-files.zip" #:label "source-files.zip")  @(hyperlink "http://www.wescheme.org/openEditor?publicId=48low6MazC" "WeScheme")] preloaded on student machines}
-                            @item{OPTIONAL: @(hyperlink "https://teacher.desmos.com/activitybuilder/custom/5a2de279b263be77d88f0e54" "Desmos Activity: Unit 6 Review")}
-                            @item{OPTIONAL: @(hyperlink "https://quizizz.com/admin/quiz/5a15ddbc4cfd311100865126?from=quizEditor" "Quizizz: Unit 6 Review")}
+     #:preparation @itemlist[@item{"Cage" [Cage.rkt from @(resource-link #:path "source-files.zip" #:label "source-files.zip")  @editor-link[#:public-id "48low6MazC" "WeScheme"] preloaded on student machines}
+                            @item{OPTIONAL: @(new-tab "https://teacher.desmos.com/activitybuilder/custom/5a2de279b263be77d88f0e54" "Desmos Activity: Unit 6 Review")}
+                            @item{OPTIONAL: @(new-tab "https://quizizz.com/admin/quiz/5a15ddbc4cfd311100865126?from=quizEditor" "Quizizz: Unit 6 Review")}
      ]
      #:prerequisites (list "Booleans" "The Design Recipe")
      #:pacings (list 

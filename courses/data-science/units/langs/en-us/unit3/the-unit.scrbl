@@ -44,7 +44,7 @@
             @point{
                   @student{
                         @activity[#:forevidence (list )]{
-                          Open the saved @(hyperlink "https://docs.google.com/spreadsheets/d/19m1bUCQo3fCzmSEmWMjTfnmsNIMqiByLytHE0JYtnQM/" "Animals Spreadsheet") in a new tab. From the Pyret menu, save a copy of this file into your account. This allows you to make changes and save your work.
+                          Open the saved @(new-tab "https://docs.google.com/spreadsheets/d/19m1bUCQo3fCzmSEmWMjTfnmsNIMqiByLytHE0JYtnQM/" "Animals Spreadsheet") in a new tab. From the Pyret menu, save a copy of this file into your account. This allows you to make changes and save your work.
                         }
                   }
                   @teacher{

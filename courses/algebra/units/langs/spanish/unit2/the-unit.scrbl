@@ -16,7 +16,7 @@ Incluyen otros tipos de datos, incluyendo cadenas e imágenes.}
      #:product-outcomes @itemlist[]
      #:standards (list "A-SSE.1-2" "BS-CE")
      #:materials @itemlist[]
-     #:preparation @itemlist[@item{OPCIONAL: Reparta la @(hyperlink "https://docs.google.com/document/d/1Qn59Fol2tspqOx6XQV88xm-IYsRGY769cb7MQeknSMA/edit?usp=sharing" "Hoja de Actividades de Calentamiento").}
+     #:preparation @itemlist[@item{OPCIONAL: Reparta la @(new-tab "https://docs.google.com/document/d/1Qn59Fol2tspqOx6XQV88xm-IYsRGY769cb7MQeknSMA/edit?usp=sharing" "Hoja de Actividades de Calentamiento").}
                               @item{Los libros de trabajo de los estudiantes y algo con que escribir.}]
      #:prerequisites (list "Order of Operations")
      #:pacings (list 
@@ -190,7 +190,7 @@ Incluyen otros tipos de datos, incluyendo cadenas e imágenes.}
                                  @code[#:multi-line ""]{; star: Number String String -> Image}
                                  Esto significa que el @vocab{nombre} de la función es @code{star},  que toma un número (Number) y dos cadenas de texto (Strings) como su dominio,
                                   y produce una imagen como el rango. Utilizamos tipos en vez de valores cuando escribimos un contrato, porque queremos ser más generales: un star podría ser de cualquier tamaño, por lo que el dominio para @code{star} especifica que el primer argumento podría ser cualquier número. Si pensamos en un lenguaje como una colección de piezas de Lego, los Contratos son como las pestañas y ranuras que nos dicen cómo cada pieza puede conectarse.}
-                         @teacher{[@(hyperlink "https://www.youtube.com/watch?v=88WhYoMxrGw" "Video")]}
+                         @teacher{[@(new-tab "https://www.youtube.com/watch?v=88WhYoMxrGw" "Video")]}
                          }
              @point{@student{Los contratos son lo suficientemente importantes y útiles que debemos mantener una lista de ellos en alguna parte. Las páginas posteriores de su libro contienen una hoja denominada "Contratos". Escriba el contrato para  @code{star} en la primera fila de su tabla de contratos.
                              }
@@ -241,7 +241,7 @@ Incluyen otros tipos de datos, incluyendo cadenas e imágenes.}
                                                   @item{¿A qué se evaluará está expresión?}]}                             
                              }
                      @teacher{If you want to have students practice using @code{bitmap/url}, it is recommended that you use an image search-engine, 
-                              such as @(hyperlink "https://images.google.com" "Google Images") or @(hyperlink "http://www.bing.com/images" "Bing Images"). 
+                              such as @(new-tab "https://images.google.com" "Google Images") or @(new-tab "http://www.bing.com/images" "Bing Images"). 
                               Make sure that students know how to get the URL for the image itself, @italic{not the URL of the web page that contains the image.}}
                      }
              @point{@student{Los contratos ayudan a los programadores a escribir código, por lo que siempre es una buena idea anotar contratos para cada función que vea. 

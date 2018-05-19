@@ -21,7 +21,7 @@
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, language table, course calendar)}
                             @item{Language Table (see below)}
-                            @item{Bug Hunting [Bugs from @(hyperlink "https://code.pyret.org/editor#share=0B32bNEogmncORzV3R3pjT0k3MWs" "starter file")] file preloaded on students' machines, as the front-most window.}]
+                            @item{Bug Hunting [Bugs from @(new-tab "https://code.pyret.org/editor#share=0B32bNEogmncORzV3R3pjT0k3MWs" "starter file")] file preloaded on students' machines, as the front-most window.}]
      #:preparation @itemlist[]
      #:prerequisites (list "Defining Functions")
      #:pacings (list 
