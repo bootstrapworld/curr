@@ -29,7 +29,7 @@
          "process-code.rkt"
          "design-recipe-generator.rkt"
          "exercise-generator.rkt"
-	 "math-rendering.rkt"
+	       "math-rendering.rkt"
          "wescheme.rkt"
          "translator.rkt"
          "warnings.rkt"
@@ -64,8 +64,8 @@
          fill-in-blank-answers-exercise
          sexp
          sexp->math
-	 sexp->coe
-	 sexp->code
+	       sexp->coe
+	       sexp->code
          make-exercise-locator
          make-exercise-locator/file
          exercise-handout
@@ -98,13 +98,11 @@
          teacher
          itemlist/splicing ;; need because algebra teachers-guide.scrbl using it (still in old lesson format)
          activity
-         csp-activity
          unit-descr
          main-contents
          slidebreak
          slideText
          noSlideText
-         standard/slideText
          
          ;; Unit sections
          exercises
@@ -312,17 +310,6 @@
                          #:show-answer? show-answer?
                          "activity"
                          body))
-
-;; activities that are interspersed into the notes, tagged as part of CS principles
-(define (csp-activity #:forevidence (evidence #f) 
-                      #:answer (answer #f)
-                      #:show-answer? (show-answer? #f)
-                      . body)
-  (apply styled-activity #:forevidence evidence
-                         #:answer answer
-                         #:show-answer? show-answer?
-                         "csp-activity"
-                         body))
   
 ;; language-table : list[list[elements]] -> table
 ;; produces table with the particular formatting for the Bootstrap language table
@@ -380,11 +367,6 @@
                               all-columns))))))
 ;;allows for text to be presented only when in slide mode
 (define (slideText text) (elem #:style bs-slideText-style text))
-
-
-;;makes for easy use of slideText and noSlideText in the same place
-(define (standard/slideText #:slide slide #:standard standard)
-   (elem (slideText slide) (noSlideText standard)))
 
 
 ;;uses slideText to give a newline break in slides
