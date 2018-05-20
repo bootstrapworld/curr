@@ -19,7 +19,7 @@
      #:materials @itemlist[@item{Lapiceros/lápices para los estudiantes, marcadores de pizarra para profesores}
                             @item{Cartel de clase (Lista de reglas, tabla de lenguaje, calendario del curso)}
                             @item{Tabla de Lenguaje (Vea abajo)}]
-     #:preparation @itemlist[@item{OPCIONAL: Reparta la @(hyperlink "https://docs.google.com/document/d/1FN2uLBnwdk3N4Ci6-qf1n6z-M8KpToo27wqZmRlS5as/edit?usp=sharing" "Hoja de Actividades de Calentamiento.").}]
+     #:preparation @itemlist[@item{OPCIONAL: Reparta la @(new-tab "https://docs.google.com/document/d/1FN2uLBnwdk3N4Ci6-qf1n6z-M8KpToo27wqZmRlS5as/edit?usp=sharing" "Hoja de Actividades de Calentamiento.").}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -136,7 +136,7 @@ Escriben algo una vez, lo definen como un acceso directo en el idioma y luego us
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
      #:standards (list "7.EE.3-4" "A-SSE.1-2")
-     #:materials @itemlist[@item{"Algebra Translation" [@resource-link[#:path "source-files/Algebra.rkt" #:label "DrRacket"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=s2s0tkTgeF" "WeScheme")] precargado en las máquinas de los estudiantes, con los monitores apagados.}]
+     #:materials @itemlist[@item{"Algebra Translation" [@resource-link[#:path "source-files/Algebra.rkt" #:label "DrRacket"] | @editor-link[#:public-id "s2s0tkTgeF" "WeScheme"]] precargado en las máquinas de los estudiantes, con los monitores apagados.}]
      #:preparation @itemlist[]
      #:prerequisites (list "Defining Variables")
      #:pacings (list 
@@ -168,7 +168,7 @@ Escriben algo una vez, lo definen como un acceso directo en el idioma y luego us
                      }
             @point{@student{@activity{Ve a la @worksheet-link[#:name "Translating-to-Algebra"] de tu libro. 
                                               Verás muchas definiciones de valores escritas en código - Toma 2 minutos para convertirlas en matemáticas. ¡Vamos!}}
-                    @teacher{[@(hyperlink "https://www.youtube.com/watch?v=xRUoQO1AdVs" "Video")]}
+                    @teacher{[@(new-tab "https://www.youtube.com/watch?v=xRUoQO1AdVs" "Video")]}
                     }]
          }
      
@@ -183,8 +183,8 @@ Escriben algo una vez, lo definen como un acceso directo en el idioma y luego us
      #:standards (list "BS-PL.3")
      #:materials @itemlist[@item{El @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "Libro de Trabajo"] del estudiante, carpetas con nombres en las cubiertas y algo con que escribir.}]
      #:preparation @itemlist[@item{Los estudiantes están registrados en WeScheme.org, o han abierto DrRacket.}
-                             @item{Crear archivos de juego de estudiantes. [Vea la guía del maestro, ubicada en los @(hyperlink "http://www.BootstrapWorld.org/materials/Spring2014/courses/bs1/resources/teachers/" "materiales protegidos") para este curso.]}
-                              @item{En las máquinas de los alumnos: Archivos de juego del estudiante (generados a partir de la plantilla "Game" [Game.rkt de @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=RHBJYscAWj" "WeScheme")])}]
+                             @item{Crear archivos de juego de estudiantes. [Vea la guía del maestro, ubicada en los @(new-tab "../../resources/teachers/" "materiales protegidos") para este curso.]}
+                              @item{En las máquinas de los alumnos: Archivos de juego del estudiante (generados a partir de la plantilla "Game" [Game.rkt de @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "RHBJYscAWj" "WeScheme"]])}]
      #:prerequisites (list "Defining Values" "Strings and Images" "Brainstorming")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -226,7 +226,7 @@ Desplázate hasta la parte inferior de la pantalla, leyendo cada una de las cosa
                                    no larger than 200px in either dimension. Make sure that the character images have transparent backgrounds! 
                                    TIP: use animated GIFs for the characters - not only does the animation make the game look a lot better, but these 
                                    images usually have transparent backgrounds to begin with. For more instructions on setting up the game files and
-                                   images, read the @(hyperlink "http://www.BootstrapWorld.org/materials/Spring2014/courses/bs1/resources/teachers/" "Teacher's Guide") guide for this course.]}
+                                   images, read the @(new-tab "../../resources/teachers/" "Teacher's Guide") guide for this course.]}
                          }
                  @point{@student{Si deseas cambiar una de tus definiciones para que la imagen sea más pequeña o más grande, puedes utilizar la función @code{scale}:
                                   @code[#:multi-line #t]{; scale : Number Image -> Image}
@@ -275,7 +275,7 @@ Esta función redimensiona el @code{Image} basada en el @code{Number}. Por ejemp
                 )
                  ]{
                    @points[@point{@student{Definir un @vocab{valor} es útil cuando un programa tiene muchas expresiones idénticas. A veces, sin embargo, un programa tiene expresiones que no son idénticas, pero son simplemente @italic{muy similares}. Un programa que tiene cincuenta triángulos sólidos y verdes puede simplificarse definiendo un valor único, @italic{siempre que todos tengan el mismo tamaño}. Pero ¿qué pasa si un programa tiene cincuenta triángulos verdes de diferentes tamaños?}
-                                   @teacher{[@(hyperlink "https://www.youtube.com/watch?v=ZWdLNtPu6PQ" "Video")]}
+                                   @teacher{[@(new-tab "https://www.youtube.com/watch?v=ZWdLNtPu6PQ" "Video")]}
                                    }
                             @point{@student{Piensa en las funciones de imagen que ya has utilizado,
 Como @code{star} y @code{circle}. Toman insumos y producen

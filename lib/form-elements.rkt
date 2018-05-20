@@ -29,7 +29,7 @@
          "process-code.rkt"
          "design-recipe-generator.rkt"
          "exercise-generator.rkt"
-	 "math-rendering.rkt"
+	       "math-rendering.rkt"
          "wescheme.rkt"
          "translator.rkt"
          "warnings.rkt"
@@ -64,8 +64,8 @@
          fill-in-blank-answers-exercise
          sexp
          sexp->math
-	 sexp->coe
-	 sexp->code
+	       sexp->coe
+	       sexp->code
          make-exercise-locator
          make-exercise-locator/file
          exercise-handout
@@ -83,11 +83,11 @@
          run-link
          login-link
          resource-link
-         video-link
          [rename-out [worksheet-link/src-path worksheet-link]] 
          lulu-button
          logosplash
          embedded-wescheme
+         new-tab
                 
          ;; lesson formatting
          lesson/studteach
@@ -98,13 +98,11 @@
          teacher
          itemlist/splicing ;; need because algebra teachers-guide.scrbl using it (still in old lesson format)
          activity
-         csp-activity
          unit-descr
          main-contents
          slidebreak
          slideText
          noSlideText
-         standard/slideText
          
          ;; Unit sections
          exercises
@@ -312,17 +310,6 @@
                          #:show-answer? show-answer?
                          "activity"
                          body))
-
-;; activities that are interspersed into the notes, tagged as part of CS principles
-(define (csp-activity #:forevidence (evidence #f) 
-                      #:answer (answer #f)
-                      #:show-answer? (show-answer? #f)
-                      . body)
-  (apply styled-activity #:forevidence evidence
-                         #:answer answer
-                         #:show-answer? show-answer?
-                         "csp-activity"
-                         body))
   
 ;; language-table : list[list[elements]] -> table
 ;; produces table with the particular formatting for the Bootstrap language table
@@ -380,11 +367,6 @@
                               all-columns))))))
 ;;allows for text to be presented only when in slide mode
 (define (slideText text) (elem #:style bs-slideText-style text))
-
-
-;;makes for easy use of slideText and noSlideText in the same place
-(define (standard/slideText #:slide slide #:standard standard)
-   (elem (slideText slide) (noSlideText standard)))
 
 
 ;;uses slideText to give a newline break in slides
@@ -1253,6 +1235,12 @@
 (define (escape-webstring-newlines str)
   (string-replace str (list->string (list #\newline)) "%0A"))
 
+;; make a hyperlink that opens in a new tab
+(define (new-tab url link-text)
+  (cond-element
+    [html (sxml->element `(a (@ (href ,url) (target "_blank")) ,link-text))]
+    [else (elem)]))
+
 ;; create a link to a wescheme editor, possibly initialized with interactions/defn contents
 (define (editor-link #:public-id (pid #f)
                      #:interactions-text (interactions-text #f)
@@ -1338,10 +1326,6 @@
   (hyperlink #:style bootstrap-hyperlink-style
              (translate 's-link)
              descr))
-
-;; wraps a hyperlink in the bootstrap styling tag
-(define (video-link hylink)
-  (elem #:style bs-video-style hylink))
 
 ;; Creates a link to the worksheet.
 ;; Under development mode, the URL is relative to the development sources.

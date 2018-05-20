@@ -83,7 +83,7 @@
                                 Almost every unit in your student workbook has information about your analysis. It's time to take those pages and write them up as a formal research paper!
                                 @activity[#:forevidence (list )]{
                                       @itemlist[
-                                          @item{ Open the @(hyperlink "https://docs.google.com/document/d/1-HMymBwD1fct_EMLRXajzHUFEd3JChSvaTR14tzPBtA/edit?usp=sharing" "sample research paper" ) }
+                                          @item{ Open the @(new-tab "https://docs.google.com/document/d/1-HMymBwD1fct_EMLRXajzHUFEd3JChSvaTR14tzPBtA/edit?usp=sharing" "sample research paper" ) }
                                           @item{ Select "Make a copy" from the File menu }
                                           @item{ Write in your name(s) and change the title }
                                       ]

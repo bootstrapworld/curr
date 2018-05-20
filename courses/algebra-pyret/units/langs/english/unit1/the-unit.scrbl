@@ -15,7 +15,7 @@
      #:product-outcomes @itemlist[]
      #:standards (list)
      #:materials @itemlist[]
-     #:preparation @itemlist[@;{@item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/1USFPXkeO5AbGOzm_U0tMv4NV3RrxTMTyg-bqIKUf4q4/edit?usp=sharing" "Warmup activity sheet").}}]
+     #:preparation @itemlist[@;{@item{OPTIONAL: Hand out @(new-tab "https://docs.google.com/document/d/1USFPXkeO5AbGOzm_U0tMv4NV3RrxTMTyg-bqIKUf4q4/edit?usp=sharing" "Warmup activity sheet").}}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -44,7 +44,7 @@
      #:standards (list "BS-M")
      #:materials @itemlist[@item{Editing environment (code.pyret.org)}]
      #:preparation @itemlist[@item{Computer for each student (or pair), with code.pyret.org loaded}
-                             @item{"NinjaCat" [NinjaCat.rkt from @(hyperlink "https://code.pyret.org/editor#share=0B32bNEogmncOQ25ZOHBoR3ZNcUE" "code.pyret.org")] preloaded on students' machines}
+                             @item{"NinjaCat" [NinjaCat.rkt from @(new-tab "https://code.pyret.org/editor#share=0B32bNEogmncOQ25ZOHBoR3ZNcUE" "code.pyret.org")] preloaded on students' machines}
                              @item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders with names on covers, and something to write with}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -56,7 +56,7 @@
           @point{@student{Let's begin by exploring a simple videogame, and then figuring out how it works. Open @hyperlink["https://code.pyret.org/editor#share=0B32bNEogmncOQ25ZOHBoR3ZNcUE" "this link"]
                          to play the game, and spend a minute or two exploring it. @italic{You can use the arrow keys to move 
                          the cat left, right and jump - try to catch  the ruby and avoid the dog!}}
-                 @teacher{[@(hyperlink "https://www.youtube.com/watch?v=KSt_3ovWfjk" "Video")] Show the kids NinjaCat, either letting them play or by demoing it in front of the class. You can move the cat up, down, left and right by using the arrow keys. 
+                 @teacher{[@(new-tab "https://www.youtube.com/watch?v=KSt_3ovWfjk" "Video")] Show the kids NinjaCat, either letting them play or by demoing it in front of the class. You can move the cat up, down, left and right by using the arrow keys. 
                           Play until the students see all the characters (the clouds, the ruby, the dog and the cat), and be 
                           sure to point out the title and score as well.}
                  }
@@ -321,7 +321,7 @@
                 @point{@student{@bitmap{images/FixedCircle.png} One way to indicate the order of operations in an expression is to first 
                                  draw the expression as a diagram.  This diagram is called a @vocab{Circle of Evaluation}.  Here you can
                                  see an example of a Circle of Evaluation, for the math expression @math{4-5}.}
-                        @teacher{[@(hyperlink "https://www.youtube.com/watch?v=AMFaPKHp3Mg" "Video")] This section benefits enormously from visual aids, diagrams, etc. Make sure you have plenty of board space to 
+                        @teacher{[@(new-tab "https://www.youtube.com/watch?v=AMFaPKHp3Mg" "Video")] This section benefits enormously from visual aids, diagrams, etc. Make sure you have plenty of board space to 
                          draw examples!}
                         }
                 @point{@student{Circles of Evaluation show the structure that's going on inside an expression.  All Circles of Evaluation have two rules:
@@ -522,7 +522,7 @@
                                                                                         area. What should the program evaluate to 
                                                                                         when you hit Return?}
                                                      @item{Practice converting other Circles of Evaluation you've drawn into code.}]}}
-                        @teacher{[@(hyperlink "https://www.youtube.com/watch?v=vgkahOzFH2Q" "Video on Roles in Pair Programming.")]
+                        @teacher{[@(new-tab "https://www.youtube.com/watch?v=vgkahOzFH2Q" "Video on Roles in Pair Programming.")]
                                   Scaffolding for Pair Programming: Talk to students about the roles of @italic{Driver} 
                                   and @italic{Navigator}. The Driver is the student with their hands on the keyboard - they're 
                                   in charge of typing, using the mouse, etc. The Navigator should be telling the Driver what to

@@ -21,7 +21,7 @@
 Lapiceros/lápices para los estudiantes, marcadores de pizarra para profesores}
                             @item{Cartel de clase (Lista de reglas, tabla de lenguaje, calendario del curso)}
                             @item{Tabla de Lenguaje (Vea abajo)}]
-     #:preparation @itemlist[@item{OPCIONAL: Reparta la @(hyperlink "https://docs.google.com/document/d/1WvlflsKM28IOwgyV2HttnGxul3sAUnL0-KOZhvb6C2s/edit?usp=sharing" "Hoja de Actividades de Calentamiento").}]
+     #:preparation @itemlist[@item{OPCIONAL: Reparta la @(new-tab "https://docs.google.com/document/d/1WvlflsKM28IOwgyV2HttnGxul3sAUnL0-KOZhvb6C2s/edit?usp=sharing" "Hoja de Actividades de Calentamiento").}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -68,7 +68,7 @@ Lapiceros/lápices para los estudiantes, marcadores de pizarra para profesores}
                                          @item{@code{(/ 4 2)}}
                                          @item{@code{(circle 10 "solid" "blue")}}
                                          @item{@code{(< 3 4)}}]}}
-                        @teacher{[@(hyperlink "https://www.youtube.com/watch?v=OMQO66wWqjk" "Video")]}
+                        @teacher{[@(new-tab "https://www.youtube.com/watch?v=OMQO66wWqjk" "Video")]}
                         }
                  @point{@student{La última expresión, @code{(< 3 4)},
                                                       usa una nueva expresión que @italic{compara números}, retornando
@@ -76,7 +76,7 @@ Lapiceros/lápices para los estudiantes, marcadores de pizarra para profesores}
                                                       @activity[#:forevidence (list "BS-IDE&1&1")]{
                                                                                                    La función @code{<} evalúa si un número es menor que otro. ¿Puedes pensar en alguna otra prueba? 
                                                                                                                 Pruébalas en la ventana de interacciones.} }
-                         @teacher{Give students plenty of practice here! You can see a video demonstration of this intro at @(video-link (hyperlink "http://www.youtube.com/watch?v=X7gAXxpBhUo" "Video Lesson: Intro to Booleans"))}
+                         @teacher{Give students plenty of practice here! You can see a video demonstration of this intro at @(new-tab "http://www.youtube.com/watch?v=X7gAXxpBhUo" "Video Lesson: Intro to Booleans")}
                          }
                  @point{@student{Funciones cómo @code{<}, @code{>} y @code{=}, todas utilizan 2 números cómo su dominio, y producen un valor especial llamado @vocab{Booleano} cómo su rango.
                     Los Booleanos son respuestas a preguntas de Si o No, y las funciones booleanas son utilizadas para realizar pruebas.
@@ -118,7 +118,7 @@ Lapiceros/lápices para los estudiantes, marcadores de pizarra para profesores}
                             @item{El @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "Libro de trabajo") del estudiante}
                             @item{Cartel de clase (Lista de reglas, tabla de lenguaje, calendario del curso)}
                             @item{Tabla de Lenguaje (Vea abajo)}]
-     #:preparation @itemlist[@item{"Cage" [Cage.rkt de @(resource-link #:path "source-files.zip" #:label "source-files.zip") | @(hyperlink "http://www.wescheme.org/openEditor?publicId=bM6VNiLdkv" "WeScheme")] precargado en las máquinas de los estudiantes.}]
+     #:preparation @itemlist[@item{"Cage" [Cage.rkt de @(resource-link #:path "source-files.zip" #:label "source-files.zip") | @editor-link[#:public-id "bM6VNiLdkv" "WeScheme"]] precargado en las máquinas de los estudiantes.}]
      #:prerequisites (list "Booleans" "The Design Recipe")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}

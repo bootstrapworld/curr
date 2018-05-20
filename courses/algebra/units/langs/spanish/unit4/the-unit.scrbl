@@ -27,9 +27,9 @@
      #:preparation @itemlist[@item{Agenda para escribir disponible.}
                               @item{Mostrar carteles de la clase, Tabla de Lenguaje, receta de diseño.}
                               @item{Entorno de edición (WeScheme o DrRacket con el bootstrap-teachpack instalado).}
-                              @item{"Rocket" [Rocket.rkt de @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=EHgrsZlYNX" "WeScheme")] precargado en las máquinas de los estudiantes.}
+                              @item{"Rocket" [Rocket.rkt de @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "EHgrsZlYNX" "WeScheme"]] precargado en las máquinas de los estudiantes.}
                               @item{Disposición de asientos: idealmente grupos de escritorios/mesas}
-                              @item{OPCIONAL: Reparta la @(hyperlink "https://docs.google.com/document/d/134VD2NShK_VxDog4VG4lMm4jTbpxm2H2cSXqZbHwwSg/edit?usp=sharing" "Hoja de Actividades de Calentamiento").}]
+                              @item{OPCIONAL: Reparta la @(new-tab "https://docs.google.com/document/d/134VD2NShK_VxDog4VG4lMm4jTbpxm2H2cSXqZbHwwSg/edit?usp=sharing" "Hoja de Actividades de Calentamiento").}]
      #:prerequisites (list "Defining Functions")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -192,7 +192,7 @@
                                               @item{Para encontrar el promedio de dos números, deben ser agregados y divididos por dos. Definir una función 'average', que tome dos números y produzca su promedio}
                                               @item{Un logotipo de la compañía es una palabra dibujada en letras grandes, rojas, girada un cierto número de grados. Definir una función 'logo', que lleve un nombre de empresa y una rotación, y produzca un logotipo para esa empresa}]
                                   Asegúrate de incluir un buen @vocab{nombre} para cada función, y recuerda que @vocab{Dominio} y @vocab{Rango} sólo pueden incluir @vocab{tipos} como Numbers, Images, Strings, etc.}}
-                         @teacher{[@(hyperlink "https://www.youtube.com/watch?v=SL2zLs2P-mU" "Video")] If students come up with different Domains or Ranges for their functions, have them explain their thinking for each one. These conversations are an important part of this step!}
+                         @teacher{[@(new-tab "https://www.youtube.com/watch?v=SL2zLs2P-mU" "Video")] If students come up with different Domains or Ranges for their functions, have them explain their thinking for each one. These conversations are an important part of this step!}
                         }
                  @point{@student{Un contrato es la base de una función, que proporciona a los programadores la información suficiente para usarlos: el nombre de la función, los tipos de datos que espera y el tipo de datos que devuelve.
                                  @activity[#:forevidence (list "BS-DR.2&1&1" "8.F.1-3&1&3" "F-IF.1-3&1&4")]{

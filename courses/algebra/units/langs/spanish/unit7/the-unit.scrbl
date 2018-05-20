@@ -37,8 +37,8 @@
      #:preparation @itemlist[@item{Los estudiantes están registrados en WeScheme.org, o han abierto DrRacket.}
                              @item{"Luigi's Pizza" [LuigisPizza.rkt de @(resource-link #:path "source-files.zip" 
                                                                                        #:label "source-files.zip") |
-@(hyperlink "http://www.wescheme.org/openEditor?publicId=E57eyBCTtD" "WeScheme")] precargado en las máquinas de los estudiantes y en el proyector.}
-                              @item{REQUERIDO: Reparta la @(hyperlink "https://docs.google.com/document/d/1k67XlYWkHefd4APynvwSnPKRaSTeOvGD7_lRbI8hHrg/edit?usp=sharing" "Hoja de Actividades de la Pizza de Luigi").}]
+@editor-link[#:public-id "E57eyBCTtD" "WeScheme"]] precargado en las máquinas de los estudiantes y en el proyector.}
+                              @item{REQUERIDO: Reparta la @(new-tab "https://docs.google.com/document/d/1k67XlYWkHefd4APynvwSnPKRaSTeOvGD7_lRbI8hHrg/edit?usp=sharing" "Hoja de Actividades de la Pizza de Luigi").}]
      #:prerequisites (list "The Design Recipe" "and/or")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -48,10 +48,10 @@
      ]{
   @points[
      @point{@student{@activity[#:forevidence (list "BS-DR.1&1&1" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1")]{
-                           Para iniciar con esta lección, completa @(hyperlink "https://docs.google.com/document/d/1k67XlYWkHefd4APynvwSnPKRaSTeOvGD7_lRbI8hHrg/edit" 
+                           Para iniciar con esta lección, completa @(new-tab "https://docs.google.com/document/d/1k67XlYWkHefd4APynvwSnPKRaSTeOvGD7_lRbI8hHrg/edit" 
                                       "La hoja de Trabajo de la Pizza de Luigi").}}
-            @teacher{Review students' answers to the exercise. You can see a video demonstration of this intro at these links: @(video-link (hyperlink "http://www.youtube.com/watch?v=2ckWSjWum-8" "1")),
-                     @(video-link (hyperlink "http://www.youtube.com/watch?v=iTrY-N3MLRY#t=3m8s" "2"))}
+            @teacher{Review students' answers to the exercise. You can see a video demonstration of this intro at these links: @(new-tab "http://www.youtube.com/watch?v=2ckWSjWum-8" "1"),
+                     @(new-tab "http://www.youtube.com/watch?v=iTrY-N3MLRY#t=3m8s" "2")}
            }
      @point{@student{El código para la función de (costo) @code{cost} está escrito abajo:
                      @code[#:multi-line #t]{; cost : String -> Number
@@ -68,7 +68,7 @@
                                                 [(string=? topping "chicken")   11.25]
                                                 [(string=? topping "broccoli")  10.25]
                                                 [else "That's not on the menu!"]))}}
-             @teacher{[@(hyperlink "https://www.youtube.com/watch?v=joF6lOgCN14" "Video")]}
+             @teacher{[@(new-tab "https://www.youtube.com/watch?v=joF6lOgCN14" "Video")]}
              }
      @point{@student{Hasta ahora, todas las funciones que has visto han hecho @italic{lo mismo} con sus entradas:
                      @itemlist[@item{@code{green-triangle} siempre hizo triángulos verdes, no importa cuál era el tamaño.} 

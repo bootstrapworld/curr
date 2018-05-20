@@ -56,12 +56,12 @@
                     @teacher{
                             You can motivate relevance of data science by using additional examples that relate to student interests.  Here are a few:
                             @itemlist[
-                                    @item{@(hyperlink "http://motherboard.vice.com/read/a-data-scientists-emoji-guide-to-kanye-west-and-taylor-swift" "Emojis")}
-                                    @item{@(hyperlink "https://mic.com/articles/131092/these-students-are-using-data-science-to-predict-which-rap-songs-will-become-hits#.0d3wkhxQE" "Pop Music")}
-                                    @item{@(hyperlink "http://www.kdnuggets.com/2016/06/politics-analytics-trump-clinton-sanders-twitter-sentiment.html"  "Election Analysis")}
-                                    @item{@(hyperlink "http://fivethirtyeight.com/" "Polling")}
-                                    @item{@(hyperlink "http://games.espn.com/fba/tools/projections" "Predicting Sports Performance")}
-                                    @item{@(hyperlink "http://www.salon.com/2015/07/18/how_big_data_can_help_save_the_environment_partner/" "Climate Change")}
+                                    @item{@(new-tab "http://motherboard.vice.com/read/a-data-scientists-emoji-guide-to-kanye-west-and-taylor-swift" "Emojis")}
+                                    @item{@(new-tab "https://mic.com/articles/131092/these-students-are-using-data-science-to-predict-which-rap-songs-will-become-hits#.0d3wkhxQE" "Pop Music")}
+                                    @item{@(new-tab "http://www.kdnuggets.com/2016/06/politics-analytics-trump-clinton-sanders-twitter-sentiment.html"  "Election Analysis")}
+                                    @item{@(new-tab "http://fivethirtyeight.com/" "Polling")}
+                                    @item{@(new-tab "http://games.espn.com/fba/tools/projections" "Predicting Sports Performance")}
+                                    @item{@(new-tab "http://www.salon.com/2015/07/18/how_big_data_can_help_save_the_environment_partner/" "Climate Change")}
                             ]
                     }
              }

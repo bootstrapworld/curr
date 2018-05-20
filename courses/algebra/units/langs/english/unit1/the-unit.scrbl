@@ -23,12 +23,12 @@
                                  and the  @resource-link[#:path "images/ruby.png" #:label "Ruby"]}
                                  @item{Overhead projector}]
 
-     #:preparation @itemlist[@item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/1USFPXkeO5AbGOzm_U0tMv4NV3RrxTMTyg-bqIKUf4q4/edit?usp=sharing" "Warmup activity sheet")}
+     #:preparation @itemlist[@item{OPTIONAL: Hand out @(new-tab "https://docs.google.com/document/d/1USFPXkeO5AbGOzm_U0tMv4NV3RrxTMTyg-bqIKUf4q4/edit?usp=sharing" "Warmup activity sheet")}
      
-                             @item{"NinjaCat" [NinjaCat.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] (If using DrRacket) | @(hyperlink "http://www.wescheme.org/view?publicId=sggzRzgU5T" "WeScheme")] preloaded on students' machines}
-                              @item{OPTIONAL: @(hyperlink "https://quizizz.com/admin/quiz/5a146afd3b4ad115000fcb57?from=quizEditor" "Quizizz Unit 1 Review Quiz")}
-                             @item{OPTIONAL: @(hyperlink "https://teacher.desmos.com/activitybuilder/custom/5a15e2388c08800a6024c091" "Desmos Activity: Unit 1 Review - Circles of Evalation & Code Practice")}
-                             @item{OPTIONAL: @(hyperlink "https://teacher.desmos.com/activitybuilder/custom/5a1c805bbfc8c40614d3904a" "Desmos Activity: Circles of Evaluation & Code Practice(Blank Template)")}
+                             @item{"NinjaCat" [NinjaCat.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] (If using DrRacket) | @editor-link[#:public-id "sggzRzgU5T" "WeScheme"]] preloaded on students' machines}
+                              @item{OPTIONAL: @(new-tab "https://quizizz.com/admin/quiz/5a146afd3b4ad115000fcb57?from=quizEditor" "Quizizz Unit 1 Review Quiz")}
+                             @item{OPTIONAL: @(new-tab "https://teacher.desmos.com/activitybuilder/custom/5a15e2388c08800a6024c091" "Desmos Activity: Unit 1 Review - Circles of Evalation & Code Practice")}
+                             @item{OPTIONAL: @(new-tab "https://teacher.desmos.com/activitybuilder/custom/5a1c805bbfc8c40614d3904a" "Desmos Activity: Circles of Evaluation & Code Practice(Blank Template)")}
                               ]
      
      
@@ -71,7 +71,7 @@
           @point{@student[#:title "Dissecting a Demo"]{@noSlideText{Let's begin by exploring a simple videogame, and then figuring out how it works.} Open @run-link[#:public-id "sggzRzgU5T" "this link"]  
                          to play the game, and spend a minute or two exploring it. @italic{You can use the arrow keys to move 
                          the cat left, right and jump(up and down) - try to catch  the ruby and avoid the dog!}}
-                 @teacher{[@(hyperlink "https://www.youtube.com/watch?v=KSt_3ovWfjk" "Video")] Show the kids NinjaCat, either letting them play or by demoing it in front of the class. You can move the cat up, down, left and right by using the arrow keys. 
+                 @teacher{[@(new-tab "https://www.youtube.com/watch?v=KSt_3ovWfjk" "Video")] Show the kids NinjaCat, either letting them play or by demoing it in front of the class. You can move the cat up, down, left and right by using the arrow keys. 
                           Play until the students see all the characters (the clouds, the ruby, the dog and the cat), and be 
                           sure to point out the title and score as well. Give them at least 3 minutes to play with the game and listen to their observations.}
                  }
@@ -341,7 +341,7 @@
                 @point{@student{@bitmap{images/FixedCircle.png} One way to indicate the order of operations in an expression is to first 
                                  draw the expression as a diagram. This diagram is called a @vocab{Circle of Evaluation}. Here you can
                                  see an example of a Circle of Evaluation, for the math expression @math{4-5}.}
-                        @teacher{[@(hyperlink "https://www.youtube.com/watch?v=AMFaPKHp3Mg" "Video")] This section benefits enormously from visual aids, diagrams, etc. Make sure you have plenty of board space to 
+                        @teacher{[@(new-tab "https://www.youtube.com/watch?v=AMFaPKHp3Mg" "Video")] This section benefits enormously from visual aids, diagrams, etc. Make sure you have plenty of board space to 
                          draw examples!}
                         }
                 @point{@student{@noSlideText{Circles of Evaluation show the structure that's going on inside an expression.} All Circles of Evaluation have two rules:
@@ -542,7 +542,7 @@
                                                                                         area. What should the program evaluate to 
                                                                                         when you hit Return?}
                                                      @item{Practice converting other Circles of Evaluation you've drawn into code.}]}}
-                        @teacher{[@(hyperlink "https://www.youtube.com/watch?v=vgkahOzFH2Q" "Video on Roles in Pair Programming.")]
+                        @teacher{[@(new-tab "https://www.youtube.com/watch?v=vgkahOzFH2Q" "Video on Roles in Pair Programming.")]
                                   Scaffolding for Pair Programming: Talk to students about the roles of @italic{Driver} 
                                   and @italic{Navigator}. The Driver is the student with their hands on the keyboard - they're 
                                   in charge of typing, using the mouse, etc. The Navigator should be telling the Driver what to

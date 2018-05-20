@@ -30,8 +30,8 @@
                            @item{Class posters (List of rules, basic skills, course calendar)}
                            @item{Language Table (see below)}
                           ]
-     #:preparation @itemlist[@item{"Luigi's Pizza" [LuigisPizza from @(hyperlink "https://code.pyret.org/editor#share=1ZBKJ-UXA8_TX6schFf2apncMYgDeR2Ep&v=f1d3c87" "code.pyret.org")] preloaded on students' machines, and on the projector}
-                              @item{REQUIRED: Hand out @(hyperlink "https://docs.google.com/document/d/19zig6p6udFpTc1OYpuDnAEzu47rlzqolMMK7j-AzIKM/edit?usp=sharing" "Luigi's Pizza Worksheet").}]
+     #:preparation @itemlist[@item{"Luigi's Pizza" [LuigisPizza from @(new-tab "https://code.pyret.org/editor#share=1ZBKJ-UXA8_TX6schFf2apncMYgDeR2Ep&v=f1d3c87" "code.pyret.org")] preloaded on students' machines, and on the projector}
+                              @item{REQUIRED: Hand out @(new-tab "https://docs.google.com/document/d/19zig6p6udFpTc1OYpuDnAEzu47rlzqolMMK7j-AzIKM/edit?usp=sharing" "Luigi's Pizza Worksheet").}]
      #:prerequisites (list "The Design Recipe" "and/or")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -41,7 +41,7 @@
      ]{
   @points[
      @point{@student{@activity[#:forevidence (list "BS-DR.1&1&1" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1")]{
-                           To get started with this lesson, complete @(hyperlink "https://docs.google.com/document/d/1k67XlYWkHefd4APynvwSnPKRaSTeOvGD7_lRbI8hHrg/edit" 
+                           To get started with this lesson, complete @(new-tab "https://docs.google.com/document/d/1k67XlYWkHefd4APynvwSnPKRaSTeOvGD7_lRbI8hHrg/edit" 
                                       "Luigi's Pizza Worksheet").}}
             @teacher{}
            }
