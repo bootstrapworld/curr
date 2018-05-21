@@ -1,0 +1,33 @@
+The scrbl files in this directory are used to generate pages in the
+workbook.  
+
+For design-recipe exercises, the scribble files specify two broad
+classes of details: the full solution to the exercise, and an
+indication of which parts to reveal in the student version of the
+workbook (the latter are in the *show* parameters).  If you create a
+new exercise, please populate all parts of the solution (because we
+will be generate the solution manual from these as well as the student
+workbook).
+
+Summary of the design-recipe parameters and their types follows.
+After each param name, you'll see a (name val) pair -- the val is the
+default value if you don't specify the given parameter.  Looking at
+existing scrbl files should also be helpful.
+
+    #:show-funname-contract? (show-funname-contract? #f)
+    #:domain-list (domain-list '()) ; list of string
+    #:show-domains? (show-domains? #f) 
+    #:range (range #f)
+    #:show-range? (show-range? #f)
+    #:purpose (purpose #f)
+    #:show-purpose? (show-purpose? #f)
+    #:num-examples (num-examples 1) ; number of total example spaces to generate
+    #:example-list (example-list '()) ;concrete examples -- each is (inputs output)
+    #:show-examples (show-examples '()) ; spec per example, either bool or (bool bool)
+    #:show-funname-defn? (show-funname-defn? #f)
+    #:param-list (param-list '()) ; list of string
+    #:show-params? (show-params? #f) 
+    #:body (body #f) ; a quoted Racket s-expression (aka racket code)
+    #:show-body? (show-body? #f) ; a boolean
+    #:grid-lines? (grid-lines? #f)
+
