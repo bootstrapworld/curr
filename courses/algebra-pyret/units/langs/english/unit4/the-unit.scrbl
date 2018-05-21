@@ -153,10 +153,10 @@
                                       @item{Given two examples for a simple function, students will be able to identify the variable}
                                       @item{Given two examples for a simple function, students will be able to write the definition}]
      #:product-outcomes @itemlist[@item{Students will write functions to solve simple problems by using the Design Recipe}]
-     #:exercises (list (make-exercise-locator "Practicing-the-Design-Recipe" "examples-same-contracts1")
-                       (make-exercise-locator "Practicing-the-Design-Recipe" "examples-same-contracts2")
-                       (make-exercise-locator "Practicing-the-Design-Recipe" "match-contracts-examples1")
-                       (make-exercise-locator "Practicing-the-Design-Recipe" "match-contracts-examples2")
+     #:exercises (list (make-exercise-locator "Practicing-the-Design-Recipe" "examples-same-contracts1-im")
+                       (make-exercise-locator "Practicing-the-Design-Recipe" "examples-same-contracts2-im")
+                       (make-exercise-locator "Practicing-the-Design-Recipe" "match-contracts-examples1-im")
+                       (make-exercise-locator "Practicing-the-Design-Recipe" "match-contracts-examples2-im")
                        (make-exercise-locator/file "Practicing-the-Design-Recipe" "calc-pencils-assess-recipe" "Check this Design Recipe: Calculating Needed Pencils")
                        (make-exercise-locator/file "Practicing-the-Design-Recipe" "check-total-design-recipe-assess" "Check this Design Recipe: Totalling a Bill")
                        (make-exercise-locator/file "Practicing-the-Design-Recipe" "circle-area-design-recipe-assess" "Check this Design Recipe: Computing the Area of a Circle"))
