@@ -26,7 +26,7 @@
 
 ;; this is because build-workbook does not call build.rkt
 ;
-(putenv "LANGUAGE" "english")
+(putenv "LANGUAGE" "en-us")
 
 (putenv "IGNORED-WARNINGS" "")
 (putenv "COLLECTED-WARNINGS" "")
@@ -60,10 +60,10 @@
 (command-line
  #:program "build-workbook"
  #:once-each
- [("--language") -language "Select what language you are printing the curriculum for. Default: english"
-                   (if (member -language (list "english" "spanish"))
+ [("--language") -language "Select what language you are printing the curriculum for. Default: en-us"
+                   (if (member -language (list "en-us" "es-mx"))
                        (putenv "LANGUAGE" -language)
-                       (raise-user-error (string-append "Build-workbook got unrecognized target language: " -language " -- expected english or spanish")))]
+                       (raise-user-error (string-append "Build-workbook got unrecognized target language: " -language " -- expected en-us or es-mx")))]
  [("--course") -course "List all courses that you want to build. They MUST be separated by \"_\"_. Default: All available courses"
                  (set! courses (parse-course-args (string-split -course "_")))] 
  [("--suppress-warnings" "--sw") -sw "Dictate any types of warnings that you want to be suppressed in the output of running the Build script. Default: none."

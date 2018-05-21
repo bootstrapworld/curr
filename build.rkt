@@ -38,12 +38,12 @@
 (current-deployment-dir (root-deployment-dir))
 
 ;;This lists all courses which are currently able to be built
-(define available-course-specs '(("algebra" "english" "spanish")
-                                 ("algebra-pyret" "english")
-                                 ("reactive" "english")
-                                 ("data-science" "english")
-                                 ("physics" "english")
-                                 ;("blank-course" "english")
+(define available-course-specs '(("algebra" "en-us" "es-mx")
+                                 ("algebra-pyret" "en-us")
+                                 ("reactive" "en-us")
+                                 ("data-science" "en-us")
+                                 ("physics" "en-us")
+                                 ;("blank-course" "en-us")
 				 ))
 (define available-courses (map (lambda (course-spec) (first course-spec)) available-course-specs))
 
@@ -174,7 +174,7 @@
 (define (parse-lang-args args)
   (filter (lambda (arg)
             (unless (member arg available-languages)
-                (error "Build got unrecognized target language: " arg " -- expected english or spanish"))
+                (error "Build got unrecognized target language: " arg " -- expected en-us or es-mx"))
             (member arg available-languages))
             args))
 
@@ -192,11 +192,11 @@
 
 (units '())
 
-(define available-languages (list "english" "spanish"))
+(define available-languages (list "en-us" "es-mx"))
 
 (define bootstrap-course-specs available-course-specs)
 
-(define run-languages (list "english" "spanish"))
+(define run-languages (list "en-us" "es-mx"))
 
 (define run-exercises? #t)
 
@@ -204,7 +204,7 @@
 
       (putenv "CURRENT-SOLUTIONS-MODE" "off")
       (putenv "TARGET-LANG" "pyret")
-      (putenv "LANGUAGE" "english")
+      (putenv "LANGUAGE" "en-us")
       
       ;; warnings to be ignored when running the build script. This can be populated using the
       ;; command-line tag "--suppress-warnings a_b_c" or "--sw a_b_c" to suppress warning types a, b, and c.
@@ -240,7 +240,7 @@
 ; This selects which courses are to be produced. Can take multiple arguments (seperated by underscores)
 ;
 ; --language
-; Not to be confused with "--lang", this selects what human languages to print documents in (currently only spanish or english)
+; Not to be confused with "--lang", this selects what human languages to print documents in (currently only en-us or es-mx)
 ; This can take multiple arguments seperated by underscores.
 ;
 ; --sw or --suppress-warnings
@@ -276,7 +276,7 @@
     (putenv "WORKSHEET-LINKS-TO-PDF" "true")]
    [("--deploy") -deploy-dir "Deploy into the given directory, and create a .zip.  Default: deploy" 
     (current-deployment-dir (simple-form-path -deploy-dir))]
-   [("--language") -language "Select what language you are printing the curriculum for. Default: english"
+   [("--language") -language "Select what language you are printing the curriculum for. Default: en-us"
                    (set! run-languages (parse-lang-args (string-split -language "_")))]
    [("--skip-exers") "Dictate if you'd like to skip building exercises"
                      (set! run-exercises? #f)]
@@ -555,8 +555,8 @@
                      ;; TODO: This is a hack. Regular (lessons-dir) creates absurd distribution directories, so we rely
                      ;;     on this hacky use of define-runtime-paths from paths.rkt, which have to be deliberately selected based on the langauge being used
                      [exer-dir (build-path (match (getenv "LANGUAGE")
-                                             ["english" lessons-dir-alt-eng]
-                                             ["spanish" lessons-dir-alt-spa])
+                                             ["en-us" lessons-dir-alt-eng]
+                                             ["es-mx" lessons-dir-alt-spa])
                                              lesson-name "exercises")]
                      [exer-deploy-dir (build-path (root-deployment-dir) "lessons" (getenv "LANGUAGE") lesson-name "exercises")])
                 (parameterize [(current-deployment-dir exer-dir)]

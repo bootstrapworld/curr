@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Arguments:
-# --language XXX : some courses may be translated into other languages. As for now, only Algebra is available in english and spanish
+# --language XXX : some courses may be translated into other languages. As for now, only Algebra is available in english (en-us) and spanish (es-mx)
 # --course YYY   : e.g - "algebra" or "data-science"
 
 # build the notes
