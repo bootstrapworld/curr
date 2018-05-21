@@ -4,7 +4,7 @@
    (code #:multi-line #t
 "examples: 
         mystery(30) is (30 * 50)
-        mystery(10) is text(\"Welcome!\" 10 \"darkgreen\")
+        mystery(10) is text(\"Welcome!\", 10, \"darkgreen\")
 end"))
 @(define a1 "no match (the range types are different)")
 
@@ -22,7 +22,7 @@ end"))
    (code #:multi-line #t
 "examples: 
         mystery(\"New York\") is text(\"New York\", 20, \"red\")
-        mystery(20) is text(\"New York\" 20 \"red\")
+        mystery(20) is text(\"New York\", 20, \"red\")
 end"))
 @(define a3 "no match (the domain types are different)")
 
@@ -55,10 +55,8 @@ end"))
 @(define e7
    (code #:multi-line #t
 "examples:
-          mystery(circle(55, \"outline\", \"black\"), 12) is 
-                  scale(12, circle(55, \"outline\", \"black\"))
-          mystery(rectangle(24, 32, \"outline\", \"purple\"), 5) is
-                  scale 5 (rectangle 24 32 \"outline\" \"purple\")
+          mystery(circle(55, \"outline\", \"black\"), 12) is scale(12, circle(55, \"outline\", \"black\"))
+          mystery(rectangle(24, 32, \"outline\", \"purple\"), 5) is scale(5, rectangle(24, 32, \"outline\", \"purple\")
 end"))
 @(define a7 (code "; mystery :: Image Number -> Image"))
 

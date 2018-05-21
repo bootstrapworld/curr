@@ -3,61 +3,61 @@
 @(define e5a
    (code #:multi-line #t
 "examples:
-match(30) is
-    star((30 * 2), \"outline\", \"purple\")"))
+    match(30) is star((30 * 2), \"outline\", \"purple\")
+end"))
    
 @(define e5b
    (code #:multi-line #t
 "examples:
-match(24) is
-     star((24 * 2), \"outline\", \"purple\")")) 
+    match(24) is star((24 * 2), \"outline\", \"purple\")
+end")) 
 
 @(define e6a
    (code #:multi-line #t
 "examples:
-match(triangle(20, \"solid\", \"pink\"), 3) is
-      3 * image-height( 
-          triangle(20, \"solid\", \"pink\"))"))
+    match(triangle(20, \"solid\", \"pink\"), 3) is
+    3 * image-height( triangle(20, \"solid\", \"pink\"))
+end"))
    
 @(define e6b
    (code #:multi-line #t
 "examples:
-match(circle(10, \"solid\", \"red\"), 16) is
-     16 * image-height( 
-          circle(10, \"solid\", \"red\"))"))
+    match(circle(10, \"solid\", \"red\"), 16) is
+    16 * image-height( circle(10, \"solid\", \"red\"))
+end"))
 
 @(define e7a
    (code #:multi-line #t
 "examples:
-match(\"triangle\", \"blue\") is
-         triangle(40, \"outline\", \"blue\")"))
+    match(\"triangle\", \"blue\") is
+    triangle(40, \"outline\", \"blue\")
+end"))
 
 @(define e8a
    (code #:multi-line #t
 "examples:
-match(string-length(\"coffee\"),
-                string-length(\"tea\")) is
-         6 + 3"))
+    match(string-length(\"coffee\"), string-length(\"tea\")) is 6 + 3
+end"))
 
 
 
 @(define e9a
    (code #:multi-line #t
 "examples:
-match(string-length(\"tabletop\")) is
-         \"8\""))
+    match(string-length(\"tabletop\")) is \"8\"
+end"))
 
 @(define e9b
    (code #:multi-line #t
 "examples:
-match(1.50) is
-      \"greater than 1\""))
+    match(1.50) is \"greater than 1\"
+end"))
 
-@(define c5 (code " match :: number -> image"))
-@(define c6 (code " match :: image number -> number"))
-@(define c7 (code " match :: string string -> image"))
-@(define c8 (code " match :: number number -> number"))
-@(define c9 (code " match :: number -> string"))
+@(define c5 (code " match :: Number -> Image"))
+@(define c6 (code " match :: Image Number -> Number"))
+@(define c7 (code " match :: String String -> Image"))
+@(define c8 (code " match :: Number Number -> Number"))
+@(define c9 (code " match :: Number -> String"))
 
 @(define answer-key
    (list  (list e5a c5)

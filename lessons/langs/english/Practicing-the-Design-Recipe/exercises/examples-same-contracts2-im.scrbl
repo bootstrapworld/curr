@@ -11,7 +11,7 @@ examples:
  mystery(circle(100, \"solid\", \"blue\") is
          circle(200, \"solid\", \"blue\")
 end"))
-@(define a9 (code "; mystery : image -> image"))
+@(define a9 (code "; mystery :: Image -> Image"))
 
 @(define e10
    (code #:multi-line #t
@@ -40,24 +40,20 @@ end"))
 @(define e12
    (code #:multi-line #t
 "examples:
- mystery(\"circle\", 4) is 
-          pi * num-sqr(4)
+ mystery(\"circle\", 4) is pi * num-sqrt(4)
 end
 examples:
- mystery(\"square\", 5) is
-         num-sqr(5)
+ mystery(\"square\", 5) is num-sqrt(5)
 end"))
-@(define a12 (code "; mystery : string number -> number"))
+@(define a12 (code "; mystery :: String Number -> Number"))
    
 @(define e13
    (code #:multi-line #t
 "examples:
- mystery(\"dog\") is
-          3
+ mystery(\"dog\") is 3
 end
 examples:
- mystery(\"cat\") is
-         \"kitten\"
+ mystery(\"cat\") is \"kitten\"
 end"))
 @(define a13 "no match (the range types are different)")
 
@@ -65,14 +61,12 @@ end"))
 @(define e14
    (code #:multi-line #t
 "examples:
- mystery(\"dog\") is
-          3
+ mystery(\"dog\") is 3
 end
 examples:
- mystery(\"kitten\") is
-         6
+ mystery(\"kitten\") is 6
 end"))
-@(define a14 (code "; mystery : string -> number"))
+@(define a14 (code "; mystery :: String -> Number"))
    
 @(define e15
    (code #:multi-line #t
