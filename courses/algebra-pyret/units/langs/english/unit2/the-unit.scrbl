@@ -54,7 +54,7 @@ include other datatypes, including Strings and Images.}
                                      @item{Students will be able to distinguish between types and values}]
      #:product-outcomes @itemlist[@item{Students will enter (evaluate) expressions for generating Strings and Images}]
      #:exercises (list (make-exercise-locator "Strings-and-Images" "many-types-coe-to-code1-im")
-                       (make-exercise-locator "Strings-and-Images" "many-types-coe-to-code2"))
+                       (make-exercise-locator "Strings-and-Images" "many-types-coe-to-code2-im"))
      #:standards (list "N-Q" "BS-PL.1" "BS-PL.2")
      #:materials @itemlist[@item{Editing environment (code.pyret.org)}]
      #:preparation @itemlist[@item{Student Workbooks, and something to write with.}]
