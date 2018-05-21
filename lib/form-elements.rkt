@@ -758,17 +758,7 @@
    [else (elem "")]))
 
 (define (insert-toolbar)
-  (cond [(audience-in? (list "teacher" "volunteer")) (insert-teacher-toggle-button)]
-        [(audience-in? (list "student")) 
-         (list
-          (para #:style (bootstrap-div-style/id "lessonToolbar")
-                (insert-student-buttons))
-          (cond-element
-           [html (sxml->element
-                  `(div (@ (id "IDE"))
-                        (iframe (@ (id "embedded") (name "embedded")))))]
-           [else (elem)]))]
-        [else (elem)]))
+  (insert-teacher-toggle-button))
 
 (define (insert-help-button)
   (para #:style (make-style #f (list (make-alt-tag "iframe") 
@@ -950,14 +940,10 @@
                              (learn-evid-from-standards)
                              (if length (length-of-lesson length) (length-of-unit/auto))
                              (gen-glossary)
-                             (if (audience-in? (list "teacher" "volunteer"))
-                                 (if materialsItems (materials materialsItems) 
-                                     (summary-data/auto 'materials (translate 'iHeader-mat)))
-                                 (elem))
-                             (if (audience-in? (list "teacher" "volunteer"))
-                                 (if preparationItems (preparation preparationItems) 
-                                     (summary-data/auto 'preparation (translate 'iHeader-preparation)))
-                                 (elem))
+                             (if materialsItems (materials materialsItems) 
+                                 (summary-data/auto 'materials (translate 'iHeader-mat)))
+                             (if preparationItems (preparation preparationItems) 
+                                 (summary-data/auto 'preparation (translate 'iHeader-preparation)))
                              (if lang-table 
                                  (if (list? (first lang-table))
                                      (apply language-table lang-table)
@@ -1272,15 +1258,12 @@
         [(string=? lang "racket") 
          (if (and definitions-text pid)
              (WARNING "creating wescheme link with both defns text and public id\n" 'weScheme-links)
-             (let ([optionstext (if (audience-in? (list "student"))
-                                    "hideHeader=true&warnOnExit=false&"
-                                    "")]
-                   [argstext (string-append (if pid (format "publicId=~a&" pid) "")
+             (let ([argstext (string-append (if pid (format "publicId=~a&" pid) "")
                                             (if interactions-text (format "interactionsText=~a&" interactions-text) "")
                                             (if definitions-text (format "definitionsText=~a" (escape-webstring-newlines definitions-text)) ""))])
                (cond-element
                 [html
-                 (sxml->element `(a (@ (href ,(format "http://www.wescheme.org/openEditor?~a~a" optionstext argstext))
+                 (sxml->element `(a (@ (href ,(format "http://www.wescheme.org/openEditor?~a" argstext))
                                        (target "embedded"))
                                     ,link-text))]
                 [else (elem)])))]

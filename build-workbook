@@ -1,8 +1,8 @@
 #!/bin/sh
 
-# First argument (if any) should be the audience (teacher student volunteer self-guided)
-# Second argument (if any) should be the distribution target (bootstrap codeorg)
-# Args default to teacher and codeorg
+# Arguments:
+# --language XXX : some courses may be translated into other languages. As for now, only Algebra is available in english and spanish
+# --course YYY   : e.g - "algebra" or "data-science"
 
 # build the notes
 
@@ -10,5 +10,3 @@ racket -l errortrace -t build-workbook.rkt -- "$@"
 
 # then build the solutions
 #racket -l errortrace -t build-sols.rkt 
- 
-  
