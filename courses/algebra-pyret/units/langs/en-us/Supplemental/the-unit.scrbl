@@ -13,10 +13,10 @@
 @unit-lessons{
               
               @;{
-@(include-lesson (lib "curr/lessons/langs/english/Manipulating-Images/lesson/lesson.scrbl"))
-@(include-lesson (lib "curr/lessons/langs/english/Making-Flags/lesson/lesson.scrbl"))
-@(include-lesson (lib "curr/lessons/langs/english/Function-Example-Red-Shape/lesson/lesson.scrbl"))
-@(include-lesson (lib "curr/lessons/langs/english/Structs/lesson/lesson.scrbl"))
-@(include-lesson (lib "curr/lessons/langs/english/Simple-Ideas/lesson/lesson.scrbl"))
+@(include-lesson (lib "curr/lessons/langs/en-us/Manipulating-Images/lesson/lesson.scrbl"))
+@(include-lesson (lib "curr/lessons/langs/en-us/Making-Flags/lesson/lesson.scrbl"))
+@(include-lesson (lib "curr/lessons/langs/en-us/Function-Example-Red-Shape/lesson/lesson.scrbl"))
+@(include-lesson (lib "curr/lessons/langs/en-us/Structs/lesson/lesson.scrbl"))
+@(include-lesson (lib "curr/lessons/langs/en-us/Simple-Ideas/lesson/lesson.scrbl"))
 }
 }
