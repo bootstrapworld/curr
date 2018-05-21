@@ -51,12 +51,9 @@ end"))
 @(define e5
    (code #:multi-line #t
 "examples:
- half(2) is
-         2 / 2
- half(4) 
-         4 / 2
- half(9) 
-         9 / 2
+ half(2) is (2 / 2)
+ half(4) is (4 / 2)
+ half(9) is (9 / 2)
 end"))
 @(define c5 (code "half : number -> number"))
 
