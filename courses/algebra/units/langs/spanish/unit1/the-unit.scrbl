@@ -15,7 +15,7 @@
      #:product-outcomes @itemlist[]
      #:standards (list)
      #:materials @itemlist[]
-     #:preparation @itemlist[@item{OPCIONAL: Reparta la @(hyperlink "https://docs.google.com/document/d/1USFPXkeO5AbGOzm_U0tMv4NV3RrxTMTyg-bqIKUf4q4/edit?usp=sharing" "Hoja de Actividades de Calentamiento").}]
+     #:preparation @itemlist[@item{OPCIONAL: Reparta la @(new-tab "https://docs.google.com/document/d/1USFPXkeO5AbGOzm_U0tMv4NV3RrxTMTyg-bqIKUf4q4/edit?usp=sharing" "Hoja de Actividades de Calentamiento").}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -44,7 +44,7 @@
      #:materials @itemlist[@item{Entorno de edición (WeScheme o DrRacket con el bootstrap-teachpack instalado)}]
      #:preparation @itemlist[@item{Computadora para cada estudiante (o pareja), corriendo WeScheme o DrRacket}
                              @item{Si utiliza DrRacket, asegúrese de que el archivo Ninja.rkt está cargado}
-                             @item{"NinjaCat" [NinjaCat.rkt de @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=sggzRzgU5T" "WeScheme")] precargado en las maquinas de los estudiantes}
+                             @item{"NinjaCat" [NinjaCat.rkt de @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "sggzRzgU5T" "WeScheme"]] precargado en las maquinas de los estudiantes}
                              @item{El @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "libro de trabajo"] del estudiante, carpetas con nombres en las cubiertas y algo con que escribir.}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -55,7 +55,7 @@
         @points[
           @point{@student{Comencemos por explorar un videojuego simple, y luego averiguar cómo funciona. Abre @run-link[#:public-id "sggzRzgU5T" "este enlace"] 
                          para jugar el juego, y pasar un minuto o dos explorándolo. @italic{¡Tú puedes utilizar los cursores para mover el gato a la izquierda, derecha y saltar -  para tratar de atrapar el rubí y evitar el perro!}}
-                 @teacher{[@(hyperlink "https://www.youtube.com/watch?v=KSt_3ovWfjk" "Video")] Show the kids NinjaCat, either letting them play or by demoing it in front of the class. You can move the cat up, down, left and right by using the arrow keys. 
+                 @teacher{[@(new-tab "https://www.youtube.com/watch?v=KSt_3ovWfjk" "Video")] Show the kids NinjaCat, either letting them play or by demoing it in front of the class. You can move the cat up, down, left and right by using the arrow keys. 
                           Play until the students see all the characters (the clouds, the ruby, the dog and the cat), and be 
                           sure to point out the title and score as well.}
                  }
@@ -299,7 +299,7 @@
                           @teacher{}
                          }
                 @point{@student{@bitmap{images/FixedCircle.png} Una forma de indicar el orden de las operaciones en una expresión es primero dibujar la expresión cómo un diagrama. Este diagrama se llama @vocab{Círculo de Evaluación}.  Aquí puedes ver un ejemplo de un Círculo de Evaluación, para la expresión matemática @math{4-5}.}
-                        @teacher{[@(hyperlink "https://www.youtube.com/watch?v=AMFaPKHp3Mg" "Video")] This section benefits enormously from visual aids, diagrams, etc. Make sure you have plenty of board space to 
+                        @teacher{[@(new-tab "https://www.youtube.com/watch?v=AMFaPKHp3Mg" "Video")] This section benefits enormously from visual aids, diagrams, etc. Make sure you have plenty of board space to 
                          draw examples!}
                         }
                 @point{@student{Los Círculos de Evaluación muestran la estructura que se está desarrollando dentro de una expresión. Todos los Círculos de Evaluación tienen dos reglas:
@@ -472,7 +472,7 @@
                                  @code{(* 6 (+ 4 5))}
                                  @activity[#:forevidence "BS-PL.1&1&2"]{@itemlist[@item{Intente ingresar este código en el área Interacciones. ¿Qué debe evaluar el programa cuando presiones enter?}
                                                      @item{Practica convirtiendo los otros círculos de evaluación que has dibujado en código.}]}}
-                        @teacher{[@(hyperlink "https://www.youtube.com/watch?v=vgkahOzFH2Q" "Video on Roles in Pair Programming.")]
+                        @teacher{[@(new-tab "https://www.youtube.com/watch?v=vgkahOzFH2Q" "Video on Roles in Pair Programming.")]
                                   Scaffolding for Pair Programming: Talk to students about the roles of @italic{Driver} 
                                   and @italic{Navigator}. The Driver is the student with their hands on the keyboard - they're 
                                   in charge of typing, using the mouse, etc. The Navigator should be telling the Driver what to

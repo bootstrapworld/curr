@@ -123,7 +123,7 @@
                 @point{
                         @student{
                                 @activity[#:forevidence (list )]{
-                                  You can see this in action, in this @(hyperlink "https://www.geogebra.org/m/xC6zq7Zv" "interactive simulation"). Each vertical line represents the error, or the amount the rubber band has to stretch between a single data point and the prediction line. The "Target SSE" shows how much error (specifically, "the Sum of the Squared Errors") there is in the best possible predictor line. Our goal is to match that, by moving the red line or the "guide dots" on it. 
+                                  You can see this in action, in this @(new-tab "https://www.geogebra.org/m/xC6zq7Zv" "interactive simulation"). Each vertical line represents the error, or the amount the rubber band has to stretch between a single data point and the prediction line. The "Target SSE" shows how much error (specifically, "the Sum of the Squared Errors") there is in the best possible predictor line. Our goal is to match that, by moving the red line or the "guide dots" on it. 
                                   @itemlist[
                                       @item{Could the predictor line ever be above or below @italic{all} the points? Why or why not?}
                                       @item{What would the plot have to look like for SSE to be zero?}
@@ -147,7 +147,7 @@
 
                                 @activity[#:forevidence (list )]{
                                     In the Interactions Area, create a @code{labeled-lr-plot} for our @code{animals-table}, using @code{"names"} for the labels, @code{"age"} for the x-axis and @code{"weeks"} for the y-axis.
-                                    You can learn more about how a predictor is created by watching @(hyperlink "https://www.youtube.com/watch?v=lZ72O-dXhtM" "this video").
+                                    You can learn more about how a predictor is created by watching @(new-tab "https://www.youtube.com/watch?v=lZ72O-dXhtM" "this video").
                                 }
 
                         }
@@ -263,7 +263,7 @@
                                 ]
                         }
                         @teacher{
-                                All of these correlations come from the @(hyperlink "http://tylervigen.com/" "Spurious Correlations") website. If time allows, have your students explore the site to see more!
+                                All of these correlations come from the @(new-tab "http://tylervigen.com/" "Spurious Correlations") website. If time allows, have your students explore the site to see more!
                         }
                 }
         ]

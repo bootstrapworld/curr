@@ -37,7 +37,7 @@
                                        that is the same size as your original background.} 
                                Once you have your second background image, it should be drawn into the game - but @italic{only} when a certain condition is met. 
                                Think back to the @vocab{helper function} we wrote to 
-                               @(hyperlink "../unit4/index.html#lesson_ColorfulSun6536" 
+                               @(new-tab "../unit4/index.html#lesson_ColorfulSun6536" 
                                            "change the color of the sunset animation in Unit 4"), and we need to do the same thing here!
                                  @activity[#:forevidence (list "BS-M&1&1" "BS-R&1&4")]{
                                         @itemlist[@item{What must be true for the player to progress to level 2?}

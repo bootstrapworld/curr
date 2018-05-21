@@ -140,13 +140,7 @@ Technology:
 
 To incoporate:
 
-Kathi notes that the documents should really be annotated with tags,
-rather than roles, since a chunk of document will apply to many
-different audiences.  A tag-based approach will be a bit more
-flexible.
-
-
-Also notes: we may want matricies or table-structured data.
+We may want matricies or table-structured data.
 
 We should get a implementation of the scribble/ifdef features, tied to
 the database that I'll be writing in bootstrap-storage.

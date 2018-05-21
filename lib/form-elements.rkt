@@ -29,7 +29,7 @@
          "process-code.rkt"
          "design-recipe-generator.rkt"
          "exercise-generator.rkt"
-	 "math-rendering.rkt"
+	       "math-rendering.rkt"
          "wescheme.rkt"
          "translator.rkt"
          "warnings.rkt"
@@ -64,8 +64,8 @@
          fill-in-blank-answers-exercise
          sexp
          sexp->math
-	 sexp->coe
-	 sexp->code
+	       sexp->coe
+	       sexp->code
          make-exercise-locator
          make-exercise-locator/file
          exercise-handout
@@ -83,11 +83,11 @@
          run-link
          login-link
          resource-link
-         video-link
          [rename-out [worksheet-link/src-path worksheet-link]] 
          lulu-button
          logosplash
          embedded-wescheme
+         new-tab
                 
          ;; lesson formatting
          lesson/studteach
@@ -98,13 +98,11 @@
          teacher
          itemlist/splicing ;; need because algebra teachers-guide.scrbl using it (still in old lesson format)
          activity
-         csp-activity
          unit-descr
          main-contents
          slidebreak
          slideText
          noSlideText
-         standard/slideText
          
          ;; Unit sections
          exercises
@@ -312,17 +310,6 @@
                          #:show-answer? show-answer?
                          "activity"
                          body))
-
-;; activities that are interspersed into the notes, tagged as part of CS principles
-(define (csp-activity #:forevidence (evidence #f) 
-                      #:answer (answer #f)
-                      #:show-answer? (show-answer? #f)
-                      . body)
-  (apply styled-activity #:forevidence evidence
-                         #:answer answer
-                         #:show-answer? show-answer?
-                         "csp-activity"
-                         body))
   
 ;; language-table : list[list[elements]] -> table
 ;; produces table with the particular formatting for the Bootstrap language table
@@ -380,11 +367,6 @@
                               all-columns))))))
 ;;allows for text to be presented only when in slide mode
 (define (slideText text) (elem #:style bs-slideText-style text))
-
-
-;;makes for easy use of slideText and noSlideText in the same place
-(define (standard/slideText #:slide slide #:standard standard)
-   (elem (slideText slide) (noSlideText standard)))
 
 
 ;;uses slideText to give a newline break in slides
@@ -758,17 +740,7 @@
    [else (elem "")]))
 
 (define (insert-toolbar)
-  (cond [(audience-in? (list "teacher" "volunteer")) (insert-teacher-toggle-button)]
-        [(audience-in? (list "student")) 
-         (list
-          (para #:style (bootstrap-div-style/id "lessonToolbar")
-                (insert-student-buttons))
-          (cond-element
-           [html (sxml->element
-                  `(div (@ (id "IDE"))
-                        (iframe (@ (id "embedded") (name "embedded")))))]
-           [else (elem)]))]
-        [else (elem)]))
+  (insert-teacher-toggle-button))
 
 (define (insert-help-button)
   (para #:style (make-style #f (list (make-alt-tag "iframe") 
@@ -950,14 +922,10 @@
                              (learn-evid-from-standards)
                              (if length (length-of-lesson length) (length-of-unit/auto))
                              (gen-glossary)
-                             (if (audience-in? (list "teacher" "volunteer"))
-                                 (if materialsItems (materials materialsItems) 
-                                     (summary-data/auto 'materials (translate 'iHeader-mat)))
-                                 (elem))
-                             (if (audience-in? (list "teacher" "volunteer"))
-                                 (if preparationItems (preparation preparationItems) 
-                                     (summary-data/auto 'preparation (translate 'iHeader-preparation)))
-                                 (elem))
+                             (if materialsItems (materials materialsItems) 
+                                 (summary-data/auto 'materials (translate 'iHeader-mat)))
+                             (if preparationItems (preparation preparationItems) 
+                                 (summary-data/auto 'preparation (translate 'iHeader-preparation)))
                              (if lang-table 
                                  (if (list? (first lang-table))
                                      (apply language-table lang-table)
@@ -1253,6 +1221,12 @@
 (define (escape-webstring-newlines str)
   (string-replace str (list->string (list #\newline)) "%0A"))
 
+;; make a hyperlink that opens in a new tab
+(define (new-tab url link-text)
+  (cond-element
+    [html (sxml->element `(a (@ (href ,url) (target "_blank")) ,link-text))]
+    [else (elem)]))
+
 ;; create a link to a wescheme editor, possibly initialized with interactions/defn contents
 (define (editor-link #:public-id (pid #f)
                      #:interactions-text (interactions-text #f)
@@ -1272,15 +1246,12 @@
         [(string=? lang "racket") 
          (if (and definitions-text pid)
              (WARNING "creating wescheme link with both defns text and public id\n" 'weScheme-links)
-             (let ([optionstext (if (audience-in? (list "student"))
-                                    "hideHeader=true&warnOnExit=false&"
-                                    "")]
-                   [argstext (string-append (if pid (format "publicId=~a&" pid) "")
+             (let ([argstext (string-append (if pid (format "publicId=~a&" pid) "")
                                             (if interactions-text (format "interactionsText=~a&" interactions-text) "")
                                             (if definitions-text (format "definitionsText=~a" (escape-webstring-newlines definitions-text)) ""))])
                (cond-element
                 [html
-                 (sxml->element `(a (@ (href ,(format "http://www.wescheme.org/openEditor?~a~a" optionstext argstext))
+                 (sxml->element `(a (@ (href ,(format "http://www.wescheme.org/openEditor?~a" argstext))
                                        (target "embedded"))
                                     ,link-text))]
                 [else (elem)])))]
@@ -1338,10 +1309,6 @@
   (hyperlink #:style bootstrap-hyperlink-style
              (translate 's-link)
              descr))
-
-;; wraps a hyperlink in the bootstrap styling tag
-(define (video-link hylink)
-  (elem #:style bs-video-style hylink))
 
 ;; Creates a link to the worksheet.
 ;; Under development mode, the URL is relative to the development sources.

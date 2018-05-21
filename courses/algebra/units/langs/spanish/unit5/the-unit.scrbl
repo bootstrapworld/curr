@@ -21,7 +21,7 @@
      #:materials @itemlist[@item{Lapiceros/lápices para los estudiantes, marcadores de pizarra para profesores}
                             @item{Cartel de clase (Lista de reglas, tabla de lenguaje, calendario del curso)}
                             @item{Tabla de Lenguaje (Vea abajo)}
-                            @item{"Bug Hunting" [Bugs.rkt de @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=MdMWbZJH3t" "WeScheme")] precargado en las máquinas de los estudiantes}]
+                            @item{"Bug Hunting" [Bugs.rkt de @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "MdMWbZJH3t" "WeScheme"]] precargado en las máquinas de los estudiantes}]
      #:preparation @itemlist[@item{Los estudiantes están registrados en WeScheme.org, o han abierto DrRacket.}]
      #:prerequisites (list "Defining Functions")
      #:pacings (list 
@@ -54,7 +54,7 @@
                             @item{Todas las computadoras de los estudiantes deben tener sus plantillas de juego precargadas, con sus archivos de imagen enlazados}
                             @item{Cartel de clase (Lista de reglas, tabla de lenguaje, calendario del curso)}
                             @item{Tabla de Lenguaje (Vea abajo)}]
-     #:preparation @itemlist[@item{OPCIONAL: Reparta la @(hyperlink "https://docs.google.com/document/d/1i3WQ4Q58Wn6fhqxEz027KDcUHIewtk-wLPQzJalCFt0/edit?usp=sharing" "Hoja de Actividades de Calentamiento").}]
+     #:preparation @itemlist[@item{OPCIONAL: Reparta la @(new-tab "https://docs.google.com/document/d/1i3WQ4Q58Wn6fhqxEz027KDcUHIewtk-wLPQzJalCFt0/edit?usp=sharing" "Hoja de Actividades de Calentamiento").}]
      #:prerequisites (list "Game Images" "The Design Recipe")
      #:pacings (list 
                 @pacing[#:type "remediation"]{At this point, students should be very comfortable with the Design Recipe. If they are struggling, try reviewing the Contract with them first, then having a student act out the function. Ask that student what their name is, what they are expecting to be given, and what they will produce. Have them simulate a function call by calling out their name ("update-danger") and giving them an x-coordinate (they should produce a number that is 50 fewer than what they were given). Then refer back to this skit when writing Examples: the call-and-response is exactly how the code should behave, with students only having to write the code for whatever work your volunteer was doing in their head.}

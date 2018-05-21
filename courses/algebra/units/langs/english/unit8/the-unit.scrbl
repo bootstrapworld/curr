@@ -34,7 +34,7 @@
      ]{
        @points[@point{@student{Suppose two objects are moving through space, each one having its own (x,y) coordinates.
                                        When do their edges start to overlap?  @noSlideText{They certainly overlap if their coordinates are identical (x1=x2, y1=y2), but what if their coordinates are separated by a small distance? Just how small does that distance need to be before their edges touch?}}
-                       @teacher{[@(hyperlink "https://www.youtube.com/watch?v=Bbq0oCmvSmA" "Video")] Visual aids are key here: be sure to diagram this on the board!}
+                       @teacher{[@(new-tab "https://www.youtube.com/watch?v=Bbq0oCmvSmA" "Video")] Visual aids are key here: be sure to diagram this on the board!}
                        }
                 @point{@student{@bitmap{images/numberline.png}In one dimension, it's easy to calculate when two objects overlap. In this example,
                                        the red circle has a radius of 1, and the blue circle has a radius of 1.5.
@@ -45,7 +45,7 @@
                                      Having students act this out can also work well: draw a number line, have two students stand at different points on the line,
                                      using their arms or cutouts to give objects of different sizes.  Move students along the number line until they touch,
                                      then compute the distance on the number line.  The first few seconds of our
-                                     @(hyperlink "http://www.youtube.com/watch?v=leP3tQ_GZL8&feature=player_embedded" "Bootstrap video") show this exercise in action.}
+                                     @(new-tab "http://www.youtube.com/watch?v=leP3tQ_GZL8&feature=player_embedded" "Bootstrap video") show this exercise in action.}
                        }
                 @point{@student{Your game file provides a function called @code{line-length} that computes the difference between two points on a number line. 
                                      Specifically, @code{line-length} takes two numbers as input and determines the distance between them.
@@ -109,8 +109,8 @@
                                          per cluster of students working together}
                            
                           ]
-     #:preparation @itemlist[ @item{REQUIRED: Hand out @(hyperlink "https://docs.google.com/document/d/1Vkaz30B8AAaze6fMiFJypFb1bOIeH0RzkeaBLCCPf9E/edit?usp=sharing" "Warmup Activity Sheet")}
-     @item{OPTIONAL: @(hyperlink "https://teacher.desmos.com/activitybuilder/custom/5a2ddf70edfc8975f63b14b7" "Desmos Activity: Unit 7 & 8 Review")}]
+     #:preparation @itemlist[ @item{REQUIRED: Hand out @(new-tab "https://docs.google.com/document/d/1Vkaz30B8AAaze6fMiFJypFb1bOIeH0RzkeaBLCCPf9E/edit?usp=sharing" "Warmup Activity Sheet")}
+     @item{OPTIONAL: @(new-tab "https://teacher.desmos.com/activitybuilder/custom/5a2ddf70edfc8975f63b14b7" "Desmos Activity: Unit 7 & 8 Review")}]
      #:prerequisites (list "1D Distance")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -120,8 +120,8 @@
      ]{
        @points[@point{@student{@noSlideText{Ancient civilizations had the same problem: they also struggled to find the distance between points in two dimensions!}
                                        Let's work through a way to think about this problem: what expression computes the length of the hypotenuse of a right triangle?
-                               Check out a @(video-link (hyperlink "https://www.youtube.com/watch?v=Ln7myXQx8TM" "video of this problem")), and then explore it yourself! 
-                               [Credit: @(hyperlink "https://www.youtube.com/user/AlternatingSum/videos" "Tova Brown")]}
+                               Check out a @(new-tab "https://www.youtube.com/watch?v=Ln7myXQx8TM" "video of this problem"), and then explore it yourself! 
+                               [Credit: @(new-tab "https://www.youtube.com/user/AlternatingSum/videos" "Tova Brown")]}
                        @teacher{This exercise is best done in small groups of students (2-3 per group).
                                      Pass out Pythagorean Proof materials [@(resource-link #:path "images/pythag1.png" #:label "1"), @(resource-link #:path "images/pythag2.png" #:label "2")]
                                      to each group, and have them review all of their materials:@itemlist[

@@ -36,9 +36,9 @@
      #:preparation @itemlist[@item{Students are logged into WeScheme.org, OR have opened DrRacket}
                              @item{"Luigi's Pizza" [LuigisPizza.rkt from @(resource-link #:path "source-files.zip" 
                                                                                        #:label "source-files.zip") 
-@(hyperlink "http://www.wescheme.org/openEditor?publicId=JUXrqT0UT5" "WeScheme")] preloaded on students' machines, and on the projector}
-                              @item{REQUIRED: Hand out @(hyperlink "https://docs.google.com/document/d/1k67XlYWkHefd4APynvwSnPKRaSTeOvGD7_lRbI8hHrg/edit?usp=sharing" "Luigi's Pizza Worksheet")}
-                              @item{OPTIONAL: @(hyperlink "https://teacher.desmos.com/activitybuilder/custom/5a2ddf70edfc8975f63b14b7" "Desmos Activity: Unit 7 & 8 Review")}]
+@editor-link[#:public-id "JUXrqT0UT5" "WeScheme"]] preloaded on students' machines, and on the projector}
+                              @item{REQUIRED: Hand out @(new-tab "https://docs.google.com/document/d/1k67XlYWkHefd4APynvwSnPKRaSTeOvGD7_lRbI8hHrg/edit?usp=sharing" "Luigi's Pizza Worksheet")}
+                              @item{OPTIONAL: @(new-tab "https://teacher.desmos.com/activitybuilder/custom/5a2ddf70edfc8975f63b14b7" "Desmos Activity: Unit 7 & 8 Review")}]
      #:prerequisites (list "The Design Recipe" "and/or")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -48,10 +48,10 @@
      ]{
   @points[
      @point{@student{@activity[#:forevidence (list "BS-DR.1&1&1" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1")]{
-                           To get started with this lesson, complete @(hyperlink "https://docs.google.com/document/d/1k67XlYWkHefd4APynvwSnPKRaSTeOvGD7_lRbI8hHrg/edit" 
+                           To get started with this lesson, complete @(new-tab "https://docs.google.com/document/d/1k67XlYWkHefd4APynvwSnPKRaSTeOvGD7_lRbI8hHrg/edit" 
                                       "Luigi's Pizza Worksheet").}}
-            @teacher{Review students' answers to the exercise. You can see a video demonstration of this intro at these links: @(video-link (hyperlink "http://www.youtube.com/watch?v=2ckWSjWum-8" "1")),
-                     @(video-link (hyperlink "http://www.youtube.com/watch?v=iTrY-N3MLRY#t=3m8s" "2"))}
+            @teacher{Review students' answers to the exercise. You can see a video demonstration of this intro at these links: @(new-tab "http://www.youtube.com/watch?v=2ckWSjWum-8" "1"),
+                     @(new-tab "http://www.youtube.com/watch?v=iTrY-N3MLRY#t=3m8s" "2")}
            }
      @point{@student{The code for the @code{cost} function is written below:
                      @code[#:multi-line #t]{; cost : String -> Number
@@ -68,7 +68,7 @@
                                                 [(string=? topping "chicken")   11.25]
                                                 [(string=? topping "broccoli")  10.25]
                                                 [else "That's not on the menu!"]))}}
-             @teacher{[@(hyperlink "https://www.youtube.com/watch?v=joF6lOgCN14" "Video")]}
+             @teacher{[@(new-tab "https://www.youtube.com/watch?v=joF6lOgCN14" "Video")]}
              }
      @point{@student{Up to now, all of the functions you've seen have done the @italic{same thing} to their inputs:
                      @itemlist[@item{@code{green-triangle} always made green triangles, no matter what the size was.} 

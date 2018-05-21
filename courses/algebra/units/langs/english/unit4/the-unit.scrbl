@@ -24,16 +24,16 @@
                             @item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbooks"], and something to write with}
                             @item{Class poster (List of rules, language table, course calendar)}
                             @item{Overhead projector}]
-     #:preparation @itemlist[ @item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/134VD2NShK_VxDog4VG4lMm4jTbpxm2H2cSXqZbHwwSg/edit?usp=sharing" "Warmup activity sheet")}
+     #:preparation @itemlist[ @item{OPTIONAL: Hand out @(new-tab "https://docs.google.com/document/d/134VD2NShK_VxDog4VG4lMm4jTbpxm2H2cSXqZbHwwSg/edit?usp=sharing" "Warmup activity sheet")}
 
                               @item{Write agenda on board}
                               @item{Display Class posters, Language Table, Design Recipe}
                               @item{Students are logged into WeScheme.org, OR have opened DrRacket}
-                              @item{"Rocket" [Rocket.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=EHgrsZlYNX" "WeScheme")] preloaded on students' machines}
+                              @item{"Rocket" [Rocket.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "EHgrsZlYNX" "WeScheme"]] preloaded on students' machines}
                               @item{Seating arrangements: ideally clusters of desks/tables}
                               
-                              @item{OPTIONAL: @(hyperlink "https://teacher.desmos.com/activitybuilder/custom/5a15e2907915bd2fd51a65bc" "Desmos Activity: Unit 4 Review")}
-                              @item{OPTIONAL: @(hyperlink "https://teacher.desmos.com/activitybuilder/custom/5a2f2c2e532d241d732593db" "Desmos Activity: Design Recipe Practice(Blank Template)")}]
+                              @item{OPTIONAL: @(new-tab "https://teacher.desmos.com/activitybuilder/custom/5a15e2907915bd2fd51a65bc" "Desmos Activity: Unit 4 Review")}
+                              @item{OPTIONAL: @(new-tab "https://teacher.desmos.com/activitybuilder/custom/5a2f2c2e532d241d732593db" "Desmos Activity: Design Recipe Practice(Blank Template)")}]
      #:prerequisites (list "Defining Functions")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -193,7 +193,7 @@
                                              @item{To find the average of two numbers, they should be added together and divided by two. Define a function 'average', which takes in two numbers and produces their average}
                                              @item{A company logo is a word drawn in big, red letters, rotated some number of degrees. Define a function 'logo', that takes in a company name and a rotation, and produces a logo for that company}]
                                   Be sure to include a good @vocab{Name} for each function, and remember that the @vocab{Domain} and @vocab{Range} can only include @vocab{types} like Numbers, Images, Strings, etc.}}
-                         @teacher{[@(hyperlink "https://www.youtube.com/watch?v=SL2zLs2P-mU" "Video")] If students come up with different Domains or Ranges for their functions, have them explain their thinking for each one. These conversations are an important part of this step!}
+                         @teacher{[@(new-tab "https://www.youtube.com/watch?v=SL2zLs2P-mU" "Video")] If students come up with different Domains or Ranges for their functions, have them explain their thinking for each one. These conversations are an important part of this step!}
                         }
                  @point{@student{A Contract is the foundation for a function, which gives programmers just enough information to use them: the name of the function, the types of data it expects and the type of data it returns.
                                  @activity[#:forevidence (list "BS-DR.2&1&1" "8.F.1-3&1&3" "F-IF.1-3&1&4")]{
