@@ -4,7 +4,7 @@
                  (scale((4 + 6), rectangle(5, 8, "outline", "pink")))
                  (rectangle((20 / 2), 30, "solid", "black"))
                  (rotate(255, scale(3, (ellipse(30, 10, "solid", "gray")))))
-                 (15 + (image-height (circle(16, "outline", "teal")))
+                 (15 + (image-height (circle(16, "outline", "teal"))))
                  ;(ellipse(30, (20 + 30), "outline", "red"))
                  ;(image-width((rectangle (65, 16, "outline", "blue"))))
                  ;(circle((num-sqrt(25 * 5)), "solid", "green"))
