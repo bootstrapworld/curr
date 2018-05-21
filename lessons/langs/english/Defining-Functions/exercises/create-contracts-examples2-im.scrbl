@@ -4,12 +4,12 @@
    (code #:multi-line #t
 "examples:
  third-root(16) is
-          expt(16, 1/3)
+          num-expt(16, 1/3)
  third-root(125) is
-          expt(125, 1/3)
+          num-expt(125, 1/3)
  third-root(625) is
-          expt(625, 1/3)
- end"))
+          num-expt(625, 1/3)
+end"))
 @(define c8 (code "; third-root : number -> number"))
 
 @(define e9
@@ -21,7 +21,7 @@
           (string-length(\"please\") + 6)
  sentence-length(\"goodbye\", 10) is
           (string-length(\"please\") +  10)
- end"))
+end"))
 @(define c9 (code "; sentence-length : string number -> number"))
 
 @(define e10
@@ -31,7 +31,7 @@
           rotate(180, triangle(50, \"solid\", \"yellow\"))
  upside-down(star(150, \"outline\", \"blue\")) is
           rotate(180, star(150, \"outline\", \"blue\"))
- end"))
+end"))
 @(define c10 (code "; upside-down : image -> image"))
 
 @(define e11
@@ -43,17 +43,17 @@
           num-sqr(10 * 17)
  product-squared(2, 5) is
           num-sqr(2 * 5)
- end"))
+end"))
 @(define c11 (code "; product-squared : number number -> number"))
 
 @(define e12
    (code #:multi-line #t
 "examples:
  half-image(\"www.images.com/cat_image\") is
-          scale(.5, (bitmap/url \"www.images.com/cat_image\"))
+          scale(0.5, (bitmap/url \"www.images.com/cat_image\"))
  half-image(\"www.images.com/dog_image\") is
-          scale(.5, (bitmap/url \"www.images.com/dog_image\")))
- end"))
+          scale(0.5, (bitmap/url \"www.images.com/dog_image\")))
+end"))
 @(define c12 (code "; half-image : string -> image"))
 
 @(define e13
@@ -65,7 +65,7 @@
           (10 * 3)
  triple(3) is
           (3 * 3)
- end"))
+end"))
 @(define c13 (code "; triple : number -> number"))
 
 @(define examples-lst (list e8 e9 e10 e11 e12 e13))
