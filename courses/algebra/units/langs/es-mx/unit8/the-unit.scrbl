@@ -93,7 +93,7 @@
                 )
      ]{
        @points[@point{@student{ Las civilizaciones antiguas tenían el mismo problema: ¡también se esforzaban por encontrar la distancia entre puntos en dos dimensiones!  Trabajemos en una manera para pensar sobre este problema: ¿qué expresión calcula la longitud de la hipotenusa de un triángulo rectángulo?
-                               Echa un vistazo a un, @(video-link (hyperlink "https://www.youtube.com/watch?v=Ln7myXQx8TM" "video de este problema")), ¡y luego explóralo tú mismo! 
+                               Echa un vistazo a un, @(new-tab "https://www.youtube.com/watch?v=Ln7myXQx8TM" "video de este problema"), ¡y luego explóralo tú mismo! 
                                [Credit: @(hyperlink "https://www.youtube.com/user/AlternatingSum/videos" "Tova Brown")]}
                        @teacher{This exercise is best done in small groups of students (2-3 per group).  Pass out Pythagorean Proof materials [@(resource-link #:path "images/pythag1.png" #:label "1"), @(resource-link #:path "images/pythag2.png" #:label "2")] to each group, and have them review all of their materials:@itemlist[@item{A large, white square with a smaller one drawn inside}@item{Four gray triangles, all the same size}]}
                        }

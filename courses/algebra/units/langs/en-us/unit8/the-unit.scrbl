@@ -120,7 +120,7 @@
      ]{
        @points[@point{@student{@noSlideText{Ancient civilizations had the same problem: they also struggled to find the distance between points in two dimensions!}
                                        Let's work through a way to think about this problem: what expression computes the length of the hypotenuse of a right triangle?
-                               Check out a @(video-link (hyperlink "https://www.youtube.com/watch?v=Ln7myXQx8TM" "video of this problem")), and then explore it yourself! 
+                               Check out a @(new-tab "https://www.youtube.com/watch?v=Ln7myXQx8TM" "video of this problem"), and then explore it yourself! 
                                [Credit: @(hyperlink "https://www.youtube.com/user/AlternatingSum/videos" "Tova Brown")]}
                        @teacher{This exercise is best done in small groups of students (2-3 per group).
                                      Pass out Pythagorean Proof materials [@(resource-link #:path "images/pythag1.png" #:label "1"), @(resource-link #:path "images/pythag2.png" #:label "2")]

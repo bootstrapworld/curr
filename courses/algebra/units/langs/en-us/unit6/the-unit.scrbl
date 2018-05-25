@@ -79,7 +79,7 @@
                                                       @activity[#:forevidence (list "BS-IDE&1&1")]{
                                                                                                    The function @code{<} tests if one number is less than another. Can you think of some other tests? 
                                                                                                                 Try them out in the Interactions window.} }
-                         @teacher{Give students plenty of practice here! You can see a video demonstration of this intro at @(video-link (hyperlink "http://www.youtube.com/watch?v=X7gAXxpBhUo" "Video Lesson: Intro to Booleans"))}
+                         @teacher{Give students plenty of practice here! You can see a video demonstration of this intro at @(new-tab "http://www.youtube.com/watch?v=X7gAXxpBhUo" "Video Lesson: Intro to Booleans")}
                          }
                  @point{@student{Functions like @code{<}, @code{>} and @code{=} all consume two Numbers as their Domain, and produce a special value called a 
                          @vocab{Boolean} as their Range. @noSlideText{Booleans are answers to a yes-or-no question, and Boolean functions are used to perform tests. In a videogame, you might test if a player has walked into a wall, or if their health is equal to zero. A machine in a doctor's office might use Booleans to test if a patient's heartrate is above or below a certain level.}

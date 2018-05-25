@@ -76,7 +76,7 @@ Lapiceros/lápices para los estudiantes, marcadores de pizarra para profesores}
                                                       @activity[#:forevidence (list "BS-IDE&1&1")]{
                                                                                                    La función @code{<} evalúa si un número es menor que otro. ¿Puedes pensar en alguna otra prueba? 
                                                                                                                 Pruébalas en la ventana de interacciones.} }
-                         @teacher{Give students plenty of practice here! You can see a video demonstration of this intro at @(video-link (hyperlink "http://www.youtube.com/watch?v=X7gAXxpBhUo" "Video Lesson: Intro to Booleans"))}
+                         @teacher{Give students plenty of practice here! You can see a video demonstration of this intro at @(new-tab "http://www.youtube.com/watch?v=X7gAXxpBhUo" "Video Lesson: Intro to Booleans")}
                          }
                  @point{@student{Funciones cómo @code{<}, @code{>} y @code{=}, todas utilizan 2 números cómo su dominio, y producen un valor especial llamado @vocab{Booleano} cómo su rango.
                     Los Booleanos son respuestas a preguntas de Si o No, y las funciones booleanas son utilizadas para realizar pruebas.

@@ -50,8 +50,8 @@
      @point{@student{@activity[#:forevidence (list "BS-DR.1&1&1" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1")]{
                            Para iniciar con esta lección, completa @(hyperlink "https://docs.google.com/document/d/1k67XlYWkHefd4APynvwSnPKRaSTeOvGD7_lRbI8hHrg/edit" 
                                       "La hoja de Trabajo de la Pizza de Luigi").}}
-            @teacher{Review students' answers to the exercise. You can see a video demonstration of this intro at these links: @(video-link (hyperlink "http://www.youtube.com/watch?v=2ckWSjWum-8" "1")),
-                     @(video-link (hyperlink "http://www.youtube.com/watch?v=iTrY-N3MLRY#t=3m8s" "2"))}
+            @teacher{Review students' answers to the exercise. You can see a video demonstration of this intro at these links: @(new-tab "http://www.youtube.com/watch?v=2ckWSjWum-8" "1"),
+                     @(new-tab "http://www.youtube.com/watch?v=iTrY-N3MLRY#t=3m8s" "2")}
            }
      @point{@student{El código para la función de (costo) @code{cost} está escrito abajo:
                      @code[#:multi-line #t]{; cost : String -> Number
