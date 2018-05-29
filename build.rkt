@@ -458,39 +458,42 @@
   (for ([subdir (directory-list (lessons-dir))]
         #:when (directory-exists? (build-path (lessons-dir)  subdir)))
     (when (directory-exists? (build-path (lessons-dir) subdir "exercises"))
-      (parameterize ([current-deployment-dir (build-path (current-deployment-dir) "lessons" (getenv "LANGUAGE") subdir "exercises")])
-        (for ([worksheet (directory-list (build-path (lessons-dir) subdir "exercises"))]
-              #:when (regexp-match #px".scrbl$" worksheet))
-          (printf "building exercise at: ~a \n" (path->string (build-path (lessons-dir) subdir "exercises" worksheet)))
-          (run-scribble (build-path (lessons-dir) subdir "exercises" worksheet) #:include-base-path? #f)
-          (copy-file (build-path "lib" "backlogo.png")
-                     ;(build-path (current-deployment-dir) "lessons" (getenv "LANGUAGE") subdir "exercises" "backlogo.png")
-                     (build-path (current-deployment-dir) "backlogo.png")
-                     #t))
-        ;; if some lesson only has .pdf exercises (not sourced from scrbl), the subdir won't exist
-        (unless (directory-exists? (build-path (current-deployment-dir)))
-          (unless (directory-exists? (build-path (current-deployment-dir) 'up 'up 'up))
-            (make-directory (build-path (current-deployment-dir) 'up 'up 'up)))
-          (unless (directory-exists? (build-path (current-deployment-dir) 'up 'up))
-            (make-directory (build-path (current-deployment-dir) 'up 'up)))
-          (unless (directory-exists? (build-path (current-deployment-dir) 'up))
-            (make-directory (build-path (current-deployment-dir) 'up)))
-          (make-directory (current-deployment-dir))
-          )
+      (let ([old-deployment-dir (current-deployment-dir)])
+        (parameterize ([current-deployment-dir (build-path (current-deployment-dir) "lessons" (getenv "LANGUAGE") subdir "exercises")])
+          (for ([worksheet (directory-list (build-path (lessons-dir) subdir "exercises"))]
+                #:when (regexp-match #px".scrbl$" worksheet))
+            (printf "building exercise at: ~a \n" (path->string (build-path (lessons-dir) subdir "exercises" worksheet)))
+            (run-scribble (build-path (lessons-dir) subdir "exercises" worksheet) #:include-base-path? #f)
+            (copy-file (build-path "lib" "backlogo.png")
+                       ;(build-path (current-deployment-dir) "lessons" (getenv "LANGUAGE") subdir "exercises" "backlogo.png")
+                       (build-path (current-deployment-dir) "backlogo.png")
+                       #t))
+          ;; if some lesson only has .pdf exercises (not sourced from scrbl), the subdir won't exist
+          (unless (directory-exists? (build-path (current-deployment-dir)))
+            (unless (directory-exists? old-deployment-dir)
+              (make-directory old-deployment-dir))
+            (unless (directory-exists? (build-path old-deployment-dir "lessons"))
+              (make-directory (build-path old-deployment-dir "lessons")))
+            (unless (directory-exists? (build-path old-deployment-dir "lessons" (getenv "LANGUAGE")))
+              (make-directory (build-path old-deployment-dir "lessons" (getenv "LANGUAGE"))))
+            (unless (directory-exists? (build-path old-deployment-dir "lessons" (getenv "LANGUAGE") subdir))
+              (make-directory (build-path old-deployment-dir "lessons" (getenv "LANGUAGE") subdir)))
+            (make-directory (current-deployment-dir))
+            )
         ;         (unless (directory-exists? (build-path (current-deployment-dir) "lessons"  (getenv "LANGUAGE") subdir))
         ;          (make-directory (build-path (current-deployment-dir) "lessons"  (getenv "LANGUAGE") subdir))
         ;          (make-directory (build-path (current-deployment-dir) "lessons"  (getenv "LANGUAGE") subdir "exercises"))
         ;          )
         ;; copy over .pdf exercises that do not come from corresponding .scrbl files
-        (for ([worksheet (directory-list (build-path (lessons-dir) subdir "exercises"))]
-              #:when (and (regexp-match #px".pdf$" worksheet)
-                          (not (file-exists? (build-path (lessons-dir) subdir "exercises" (regexp-replace #px"\\.pdf$" (path->string worksheet) ".scrbl"))))))
-          (let ([worksheet-distrib-file (build-path (current-deployment-dir) "lessons"  (getenv "LANGUAGE") subdir "exercises" worksheet)])
-            (unless (file-exists? worksheet-distrib-file) 
-              (copy-file (build-path (lessons-dir) subdir "exercises" worksheet)
-                         worksheet-distrib-file
-                         #t))))
-        ))))
+          (for ([worksheet (directory-list (build-path (lessons-dir) subdir "exercises"))]
+                #:when (and (regexp-match #px".pdf$" worksheet)
+                            (not (file-exists? (build-path (lessons-dir) subdir "exercises" (regexp-replace #px"\\.pdf$" (path->string worksheet) ".scrbl"))))))
+            (let ([worksheet-distrib-file (build-path (current-deployment-dir) "lessons"  (getenv "LANGUAGE") subdir "exercises" worksheet)])
+              (unless (file-exists? worksheet-distrib-file) 
+                (copy-file (build-path (lessons-dir) subdir "exercises" worksheet)
+                           worksheet-distrib-file
+                           #t))))
+          )))))
 
 ;; Decide whether or not the lesson exercises need to be rebuilt. Note that right now this is only done in algebra
 ;; TODO: Fill in this stub to accurately check if we want build to build the exercises.
