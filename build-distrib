@@ -4,14 +4,14 @@
 
 # and the workbook solutions manual
 echo "BUILDING TEACHER WORKBOOK\n"
-#./build-workbook --solutions --language spanish "$@"
-#./build-workbook --solutions --language english "$@"
+#./build-workbook --solutions --language es-mx "$@"
+#./build-workbook --solutions --language en-us "$@"
 ./build-workbook --solutions "$@"
 
 # build the workbook (for students)
 echo "\nBUILDING STUDENT WORKBOOK\n"
-#./build-workbook --language english "$@"
-#./build-workbook --language spanish "$@"
+#./build-workbook --language es-us "$@"
+#./build-workbook --language en-mx "$@"
 ./build-workbook "$@"
 
 echo "\nBUILDING NOTES AND RESOURCES\n"

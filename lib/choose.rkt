@@ -9,6 +9,6 @@
   (syntax-parse stx
     [(_  a b)
      (case language
-       [("english") #'a]
-       [("spanish") #'b]
+       [("en-us") #'a]
+       [("es-mx") #'b]
        [else #'a])]))

@@ -38,20 +38,20 @@
 (current-deployment-dir (root-deployment-dir))
 
 ;;This lists all courses which are currently able to be built
-(define available-course-specs '(("algebra" "english" "spanish")
-                                 ("algebra-pyret" "english")
-                                 ("reactive" "english")
-                                 ("data-science" "english")
-                                 ("physics" "english")
-                                 ;("blank-course" "english")
-				 ))
+(define available-course-specs '(("algebra" "en-us" "es-mx")
+                                 ("algebra-pyret" "en-us")
+                                 ("reactive" "en-us")
+                                 ("data-science" "en-us")
+                                 ("physics" "en-us")
+                                 ;("blank-course" "en-us")
+                                 ))
 (define available-courses (map (lambda (course-spec) (first course-spec)) available-course-specs))
 
 ;; Depending on who we are generating for, we need to relocate the resources dirs.
 ;; May be able to do unit-to-resources-path in the bootstrap case using find-relative path
 (define (update-resource-paths)
-    (deploy-resources-dir (build-path (root-deployment-dir) "courses" (current-course)(getenv "LANGUAGE") "resources"))
-    (unit-to-resources-path (build-path 'up 'up "resources")))
+  (deploy-resources-dir (build-path (root-deployment-dir) "courses" (current-course)(getenv "LANGUAGE") "resources"))
+  (unit-to-resources-path (build-path 'up 'up "resources")))
  
 
 ;; The following is a bit of namespace magic to avoid funkiness that 
@@ -71,53 +71,28 @@
 
 (define document-namespace (make-fresh-document-namespace))
 
-;; filter-output-dir: path -> path
-;; filters an output directory so that it is agnostic to the language structure used to produce it
-;; This effectively makes the build script produce the "distributions" directory in the same way that
-;; it did prior to when translation capability was added
-;; added by jake and kielan 13 jun
-(define (filter-output-dir dir)
-  (build-path (string-replace (path->string dir) (string-append "/langs/" (getenv "LANGUAGE")) "")))
- 
-;; add-language path -> path
-;; adds a language section under course in an output dir
-;; added by jake and kielan 26 jul
-(define (add-language dir)
-  (build-path
-   (string-replace
-    (string-replace
-     (path->string dir)
-     (current-course)
-     (string-append (current-course) "/" (getenv "LANGUAGE")))
-    "lessons"
-    (string-append "lessons/" (getenv "LANGUAGE")))))
- 
-
-
-
 ;; run-scribble: path -> void
 ;; Runs scribble on the given file.
 (define (run-scribble scribble-file #:outfile (outfile #f)
-                                    #:never-generate-pdf? [never-generate-pdf? #f]
-                                    #:include-base-path? [include-base-path? #t])
+                      #:never-generate-pdf? [never-generate-pdf? #f]
+                      #:include-base-path? [include-base-path? #t])
   
-  (define output-dir (add-language
-                      (filter-output-dir
-                       (cond [(current-deployment-dir)
-                              ;; Rendering to a particular deployment directory.
-                              (if include-base-path?
-                                  (let-values ([(base name dir?) 
-                                                (split-path 
-                                                 (find-relative-path (simple-form-path root-path)
-                                                                     (simple-form-path scribble-file)))])
-                                    (simple-form-path (build-path (current-deployment-dir) base)))
-                                  (current-deployment-dir))]
-                             [else
-                              (error 'run-scribble "No deployment directory?")
-                              ;; In-place rendering
-                              #;(let-values ([(base name dir?)
-                                              (split-path (simple-form-path scribble-file))])
-                                  base)]))))
+  (define output-dir
+    (cond [(current-deployment-dir)
+           ;; Rendering to a particular deployment directory.
+           (if include-base-path?
+               (let-values ([(base name dir?) 
+                             (split-path 
+                              (find-relative-path (simple-form-path root-path)
+                                                  (simple-form-path scribble-file)))])
+                 (simple-form-path (build-path (current-deployment-dir) base)))
+               (current-deployment-dir))]
+          [else
+           (error 'run-scribble "No deployment directory?")
+           ;; In-place rendering
+           #;(let-values ([(base name dir?)
+                           (split-path (simple-form-path scribble-file))])
+               base)]))
   (define-values (base name dir?) (split-path scribble-file))
 
   
@@ -128,7 +103,7 @@
                  [current-document-output-path output-path])
     (render (list (dynamic-require `(file ,(path->string name)) 'doc))
             (if outfile (list outfile) (list name))
-      #:dest-dir output-dir
+            #:dest-dir output-dir
             ;; Comment out next line to use default scribble.css file
             #:style-file (build-path root-path "lib" "css-files-units" "scribble.css")
             )
@@ -155,14 +130,14 @@
        (if (member course-name available-courses)
            (cons course-name (parse-course-args (rest rest-args)))
            (error (format (string-append "Build got unrecognized target course: " course-name "\n expected one of the following:\n~a\n")
-                  available-courses))))]))
+                          available-courses))))]))
 
 (define (parse-lang-args args)
   (filter (lambda (arg)
             (unless (member arg available-languages)
-                (error "Build got unrecognized target language: " arg " -- expected english or spanish"))
+              (error "Build got unrecognized target language: " arg " -- expected en-us or es-mx"))
             (member arg available-languages))
-            args))
+          args))
 
 
 ;;collects all warnings, to be printed at the end of the build script
@@ -178,17 +153,17 @@
 
 (units '())
 
-(define available-languages (list "english" "spanish"))
+(define available-languages (list "en-us" "es-mx"))
 
 (define bootstrap-course-specs available-course-specs)
 
-(define run-languages (list "english" "spanish"))
+(define run-languages (list "en-us" "es-mx"))
 
 (define run-exercises? #t)
 
 (void (putenv "CURRENT-SOLUTIONS-MODE" "off")
       (putenv "TARGET-LANG" "pyret")
-      (putenv "LANGUAGE" "english")
+      (putenv "LANGUAGE" "en-us")
       
       ;; warnings to be ignored when running the build script. This can be populated using the
       ;; command-line tag "--suppress-warnings a_b_c" or "--sw a_b_c" to suppress warning types a, b, and c.
@@ -221,7 +196,7 @@
 ; This selects which courses are to be produced. Can take multiple arguments (seperated by underscores)
 ;
 ; --language
-; Not to be confused with "--lang", this selects what human languages to print documents in (currently only spanish or english)
+; Not to be confused with "--lang", this selects what human languages to print documents in (currently only en-us or es-mx)
 ; This can take multiple arguments seperated by underscores.
 ;
 ; --sw or --suppress-warnings
@@ -254,10 +229,10 @@
    ;; removed option for now, since not scribbling workbook
    ;; option is set in main entry point at end of file
    #;[("--worksheet-links-to-pdf") "Direct worksheet links to StudentWorkbook.pdf" 
-    (putenv "WORKSHEET-LINKS-TO-PDF" "true")]
+                                   (putenv "WORKSHEET-LINKS-TO-PDF" "true")]
    [("--deploy") -deploy-dir "Deploy into the given directory, and create a .zip.  Default: deploy" 
-    (current-deployment-dir (simple-form-path -deploy-dir))]
-   [("--language") -language "Select what language you are printing the curriculum for. Default: english"
+                 (current-deployment-dir (simple-form-path -deploy-dir))]
+   [("--language") -language "Select what language you are printing the curriculum for. Default: en-us"
                    (set! run-languages (parse-lang-args (string-split -language "_")))]
    [("--skip-exers") "Dictate if you'd like to skip building exercises"
                      (set! run-exercises? #f)]
@@ -269,23 +244,23 @@
                                         ignore-warning-tags
                                         (parse-sw-args (string-split -sw "_"))))]
    [("--lang") -lang "Indicate which language (Racket or Pyret) to generate"
-    (putenv "TARGET-LANG" -lang)]
+               (putenv "TARGET-LANG" -lang)]
    [("--course") -course "List all courses that you want to build. They MUST be separated by \"_\"_. Default: All available courses"
                  (set! courses (parse-course-args (string-split -course "_")))]
    [("--pdf") "Generate PDF documentation"
-    (current-generate-pdf? #t)]
+              (current-generate-pdf? #t)]
    
    #:args tags
    tags))
 
 
 (define (print-build-intro-summary)
-(printf "\n\nPrinting documents in ~a \n" run-languages)
-(printf "Building courses: ~a\n" courses)
-(printf "Building units ~a\n" (units))
-(unless (string=? (getenv "IGNORED-WARNINGS") "")
-  (printf "Ignoring the following warning types: ~a\n" (string-split (getenv "IGNORED-WARNINGS") "/")))
-(printf "\n\n"))
+  (printf "\n\nPrinting documents in ~a \n" run-languages)
+  (printf "Building courses: ~a\n" courses)
+  (printf "Building units ~a\n" (units))
+  (unless (string=? (getenv "IGNORED-WARNINGS") "")
+    (printf "Ignoring the following warning types: ~a\n" (string-split (getenv "IGNORED-WARNINGS") "/")))
+  (printf "\n\n"))
 
 
 
@@ -354,9 +329,10 @@
                  (copy-file (build-path "lib" "box.gif") 
                             (build-path (get-units-dir) subdir "box.gif")
                             #t)
-                 (parameterize ([current-unit (path->string subdir)])
-                   
-                   (run-scribble scribble-file #:outfile "index" #:never-generate-pdf? (= phase 0)))
+                 (parameterize ([current-unit (path->string subdir)]
+                                [current-deployment-dir
+                                 (build-path (root-deployment-dir) "courses" (current-course) (getenv "LANGUAGE") "units" subdir)])
+                   (run-scribble scribble-file #:outfile "index" #:never-generate-pdf? (= phase 0) #:include-base-path? #f))
                  ]
                 [else
                  (printf "Could not find a \"the-unit.scrbl\" in directory ~a\n"
@@ -366,13 +342,14 @@
       (for ([subdir (directory-list (get-units-dir))]
             #:when (directory-exists? (build-path (get-units-dir) subdir)))
         (let (;[exercises-dir (build-path (get-units-dir) subdir "exercises")]
-              [deploy-exercises-dir (build-path (current-deployment-dir) "courses" (current-course)(getenv "LANGUAGE")
-                                                "units" subdir "exercises")])
-          ;(when (directory-exists? exercises-dir)
-          ;  (delete-directory/files exercises-dir))
-          ;(make-directory exercises-dir)
+              [deploy-exercises-dir (build-path (current-deployment-dir) "courses" (current-course) (getenv "LANGUAGE")
+                                                "units"
+                                                subdir "exercises")])
+          (unless (directory-exists? deploy-exercises-dir)
+            ; (unless (directory-exists? (build-path (current-deployment-dir) "courses" (current-course) (getenv "LANGUAGE") "units"))
+              
+            (make-directory deploy-exercises-dir))
           
-          (make-directory deploy-exercises-dir)
           (let ([exer-list-path (build-path (get-units-dir) subdir "exercise-list.rkt")])
             (when (file-exists? exer-list-path)
               (let ([unit-exercises (with-input-from-file exer-list-path read)])
@@ -409,16 +386,18 @@
 
   ;; build the main page
   (printf "build.rkt: building ~a main\n" (current-course))
-  (run-scribble (get-course-main) #:outfile "index")
+  (parameterize ([current-deployment-dir
+                  (build-path (current-deployment-dir) "courses" (current-course) (getenv "LANGUAGE"))])
+    (run-scribble (get-course-main) #:outfile "index" #:include-base-path? #f))
 
   ;; rename the course directory
   (printf "build.rkt: renaming directory for ~a \n" (current-course))
-  (rename-file-or-directory (build-path (current-deployment-dir) "courses" (current-course)(getenv "LANGUAGE") "index.html")
-                            (build-path (current-deployment-dir) "courses" (current-course)(getenv "LANGUAGE") "index.shtml")
+  (rename-file-or-directory (build-path (current-deployment-dir) "courses" (current-course) (getenv "LANGUAGE") "index.html")
+                            (build-path (current-deployment-dir) "courses" (current-course) (getenv "LANGUAGE") "index.shtml")
                             #t)
   (unless (directory-exists? (get-units-dir)) 
-     (WARNING (format "No units directory found for course ~a in language ~a" 
-		      (current-course) (getenv "LANGUAGE")) 'no-course-dir))
+    (WARNING (format "No units directory found for course ~a in language ~a" 
+                     (current-course) (getenv "LANGUAGE")) 'no-course-dir))
   )
 
 ;; Building the lessons
@@ -438,72 +417,116 @@
   )
 
 ;; Building exercise handouts
+#;(define (build-exercise-handouts)
+    ;(make-directory (build-path (root-deployment-dir) "lessons" (getenv "LANGUAGE")))
+    (for ([subdir (directory-list (lessons-dir))]
+          #:when (directory-exists? (build-path (lessons-dir)  subdir)))
+      (when (directory-exists? (build-path (lessons-dir) subdir "exercises"))
+        (parameterize ([current-deployment-dir (build-path (current-deployment-dir) "lessons" (getenv "LANGUAGE") subdir "exercises")])
+          (for ([worksheet (directory-list (build-path (lessons-dir) subdir "exercises"))]
+                #:when (regexp-match #px".scrbl$" worksheet))
+            (printf "building exercise at: ~a \n" (path->string (build-path (lessons-dir) subdir "exercises" worksheet)))
+            (run-scribble (build-path (lessons-dir) subdir "exercises" worksheet) #:include-base-path? #f)
+            (copy-file (build-path "lib" "backlogo.png")
+                       ;(build-path (current-deployment-dir) "lessons" (getenv "LANGUAGE") subdir "exercises" "backlogo.png")
+                       (build-path (current-deployment-dir) "backlogo.png")
+                     
+                       #t))
+          ;; if some lesson only has .pdf exercises (not sourced from scrbl), the subdir won't exist
+          (unless (directory-exists? (build-path (current-deployment-dir) 'up))
+            (make-directory (build-path (current-deployment-dir) 'up))
+            (make-directory (build-path (current-deployment-dir)))
+            )
+          ;         (unless (directory-exists? (build-path (current-deployment-dir) "lessons"  (getenv "LANGUAGE") subdir))
+          ;          (make-directory (build-path (current-deployment-dir) "lessons"  (getenv "LANGUAGE") subdir))
+          ;          (make-directory (build-path (current-deployment-dir) "lessons"  (getenv "LANGUAGE") subdir "exercises"))
+          ;          )
+          ;; copy over .pdf exercises that do not come from corresponding .scrbl files
+          (for ([worksheet (directory-list (build-path (lessons-dir) subdir "exercises"))]
+                #:when (and (regexp-match #px".pdf$" worksheet)
+                            (not (file-exists? (build-path (lessons-dir) subdir "exercises" (regexp-replace #px"\\.pdf$" (path->string worksheet) ".scrbl"))))))
+            (let ([worksheet-distrib-file (build-path (current-deployment-dir) worksheet)]) ;(build-path (current-deployment-dir) "lessons"  (getenv "LANGUAGE") subdir "exercises" worksheet)])
+              (unless (file-exists? worksheet-distrib-file) 
+                (copy-file (build-path (lessons-dir) subdir "exercises" worksheet)
+                           worksheet-distrib-file
+                           #t))))
+          ))))
+
+
 (define (build-exercise-handouts)
   ;(make-directory (build-path (root-deployment-dir) "lessons" (getenv "LANGUAGE")))
   (for ([subdir (directory-list (lessons-dir))]
         #:when (directory-exists? (build-path (lessons-dir)  subdir)))
     (when (directory-exists? (build-path (lessons-dir) subdir "exercises"))
-      (for ([worksheet (directory-list (build-path (lessons-dir) subdir "exercises"))]
-            #:when (regexp-match #px".scrbl$" worksheet))
-        (printf "building exercise at: ~a \n" (path->string (build-path (lessons-dir) subdir "exercises" worksheet)))
-        (run-scribble (build-path (lessons-dir)  subdir "exercises" worksheet))
-        (copy-file (build-path "lib" "backlogo.png")
-                   (build-path (current-deployment-dir) "lessons"  (getenv "LANGUAGE") subdir "exercises" "backlogo.png")
-
-                   #t))
-      ;; if some lesson only has .pdf exercises (not sourced from scrbl), the subdir won't exist
-      (unless (directory-exists? (build-path (current-deployment-dir) "lessons"  (getenv "LANGUAGE") subdir))
-        (make-directory (build-path (current-deployment-dir) "lessons"  (getenv "LANGUAGE") subdir))
-        (make-directory (build-path (current-deployment-dir) "lessons"  (getenv "LANGUAGE") subdir "exercises"))
-        )
-      ;; copy over .pdf exercises that do not come from corresponding .scrbl files
-      (for ([worksheet (directory-list (build-path (lessons-dir) subdir "exercises"))]
-            #:when (and (regexp-match #px".pdf$" worksheet)
-                        (not (file-exists? (build-path (lessons-dir) subdir "exercises" (regexp-replace #px"\\.pdf$" (path->string worksheet) ".scrbl"))))))
-        (let ([worksheet-distrib-file (build-path (current-deployment-dir) "lessons"  (getenv "LANGUAGE") subdir "exercises" worksheet)])
-          (unless (file-exists? worksheet-distrib-file) 
-            (copy-file (build-path (lessons-dir) subdir "exercises" worksheet)
-                       worksheet-distrib-file
-                       #t))))
-      )))
-
-
+      (let ([old-deployment-dir (current-deployment-dir)])
+        (parameterize ([current-deployment-dir (build-path (current-deployment-dir) "lessons" (getenv "LANGUAGE") subdir "exercises")])
+          (for ([worksheet (directory-list (build-path (lessons-dir) subdir "exercises"))]
+                #:when (regexp-match #px".scrbl$" worksheet))
+            (printf "building exercise at: ~a \n" (path->string (build-path (lessons-dir) subdir "exercises" worksheet)))
+            (run-scribble (build-path (lessons-dir) subdir "exercises" worksheet) #:include-base-path? #f)
+            (copy-file (build-path "lib" "backlogo.png")
+                       ;(build-path (current-deployment-dir) "lessons" (getenv "LANGUAGE") subdir "exercises" "backlogo.png")
+                       (build-path (current-deployment-dir) "backlogo.png")
+                       #t))
+          ;; if some lesson only has .pdf exercises (not sourced from scrbl), the subdir won't exist
+          (unless (directory-exists? (build-path (current-deployment-dir)))
+            (unless (directory-exists? old-deployment-dir)
+              (make-directory old-deployment-dir))
+            (unless (directory-exists? (build-path old-deployment-dir "lessons"))
+              (make-directory (build-path old-deployment-dir "lessons")))
+            (unless (directory-exists? (build-path old-deployment-dir "lessons" (getenv "LANGUAGE")))
+              (make-directory (build-path old-deployment-dir "lessons" (getenv "LANGUAGE"))))
+            (unless (directory-exists? (build-path old-deployment-dir "lessons" (getenv "LANGUAGE") subdir))
+              (make-directory (build-path old-deployment-dir "lessons" (getenv "LANGUAGE") subdir)))
+            (make-directory (current-deployment-dir))
+            )
+        ;         (unless (directory-exists? (build-path (current-deployment-dir) "lessons"  (getenv "LANGUAGE") subdir))
+        ;          (make-directory (build-path (current-deployment-dir) "lessons"  (getenv "LANGUAGE") subdir))
+        ;          (make-directory (build-path (current-deployment-dir) "lessons"  (getenv "LANGUAGE") subdir "exercises"))
+        ;          )
+        ;; copy over .pdf exercises that do not come from corresponding .scrbl files
+          (for ([worksheet (directory-list (build-path (lessons-dir) subdir "exercises"))]
+                #:when (and (regexp-match #px".pdf$" worksheet)
+                            (not (file-exists? (build-path (lessons-dir) subdir "exercises" (regexp-replace #px"\\.pdf$" (path->string worksheet) ".scrbl"))))))
+            (let ([worksheet-distrib-file (build-path (current-deployment-dir) "lessons"  (getenv "LANGUAGE") subdir "exercises" worksheet)])
+              (unless (file-exists? worksheet-distrib-file) 
+                (copy-file (build-path (lessons-dir) subdir "exercises" worksheet)
+                           worksheet-distrib-file
+                           #t))))
+          )))))
 
 ;; Decide whether or not the lesson exercises need to be rebuilt. Note that right now this is only done in algebra
 ;; TODO: Fill in this stub to accurately check if we want build to build the exercises.
 (define (build-exercises?)
   run-exercises?)
 
-
-
-
-
-
 ;; Building exercise handout solutions
 ;;  need putenv rather than parameter to communicate with form-elements.rkt -- not sure why
 (define (build-exercise-handout-solutions)
-    (solutions-mode-on)
-    ; generating sols to our internal distribution dir, not the public one
-    (parameterize ([current-deployment-dir (build-path (root-deployment-dir) "courses" (current-course)(getenv "LANGUAGE") "resources")])
-      (unless (directory-exists? (build-path (root-deployment-dir) "courses"))
-        (make-directory (build-path (root-deployment-dir) "courses")))
-      (unless (directory-exists? (build-path (root-deployment-dir) "courses" (current-course)))
-        (make-directory (build-path (root-deployment-dir) "courses" (current-course)))
+  (solutions-mode-on)
+  ; generating sols to our internal distribution dir, not the public one
+  (parameterize ([current-deployment-dir (build-path (root-deployment-dir) "courses" (current-course) (getenv "LANGUAGE") "resources")])
+    (unless (directory-exists? (build-path (root-deployment-dir) "courses"))
+      (make-directory (build-path (root-deployment-dir) "courses")))
+    (unless (directory-exists? (build-path (root-deployment-dir) "courses" (current-course)))
+      (make-directory (build-path (root-deployment-dir) "courses" (current-course))))
+    (unless (directory-exists? (build-path (root-deployment-dir) "courses" (current-course) (getenv "LANGUAGE")))      
+      (make-directory (build-path (root-deployment-dir) "courses" (current-course) (getenv "LANGUAGE"))))
+    (unless (directory-exists? (current-deployment-dir))
+      (when (not (directory-exists? (build-path (root-deployment-dir) "courses" (current-course))))
+        (make-directory (build-path (root-deployment-dir) "courses" (current-course))))
+      (when (not (directory-exists? (build-path (root-deployment-dir) "courses" (current-course) (getenv "LANGUAGE"))))        
         (make-directory (build-path (root-deployment-dir) "courses" (current-course) (getenv "LANGUAGE"))))
-      (unless (directory-exists? (current-deployment-dir))
-        (when (not (directory-exists? (build-path (root-deployment-dir) "courses" (current-course))))
-          (make-directory (build-path (root-deployment-dir) "courses" (current-course)))
-          (make-directory (build-path (root-deployment-dir) "courses" (current-course) (getenv "LANGUAGE"))))
-        (make-directory (current-deployment-dir))) 
-      (for ([subdir (directory-list (lessons-dir))]
-            #:when (directory-exists? (build-path (lessons-dir) subdir)))
-        (let ([exercises-path (build-path (lessons-dir) subdir "exercises")])
-          (when (directory-exists? exercises-path)
-            (for ([worksheet (directory-list exercises-path)]
-                  #:when (regexp-match #px".scrbl$" worksheet))
-              (printf "build.rkt: building exercise handout solution ~a: ~a\n" subdir worksheet)
-              (run-scribble #:include-base-path? #f (build-path exercises-path worksheet)))))))
-    (solutions-mode-off))
+      (make-directory (current-deployment-dir))) 
+    (for ([subdir (directory-list (lessons-dir))]
+          #:when (directory-exists? (build-path (lessons-dir) subdir)))
+      (let ([exercises-path (build-path (lessons-dir) subdir "exercises")])
+        (when (directory-exists? exercises-path)
+          (for ([worksheet (directory-list exercises-path)]
+                #:when (regexp-match #px".scrbl$" worksheet))
+            (printf "build.rkt: building exercise handout solution ~a: ~a\n" subdir worksheet)
+            (run-scribble #:include-base-path? #f (build-path exercises-path worksheet)))))))
+  (solutions-mode-off))
 
 (define (build-worksheets)
   ;; and the worksheets
@@ -528,9 +551,9 @@
                      ;; TODO: This is a hack. Regular (lessons-dir) creates absurd distribution directories, so we rely
                      ;;     on this hacky use of define-runtime-paths from paths.rkt, which have to be deliberately selected based on the langauge being used
                      [exer-dir (build-path (match (getenv "LANGUAGE")
-                                             ["english" lessons-dir-alt-eng]
-                                             ["spanish" lessons-dir-alt-spa])
-                                             lesson-name "exercises")]
+                                             ["en-us" lessons-dir-alt-eng]
+                                             ["es-mx" lessons-dir-alt-spa])
+                                           lesson-name "exercises")]
                      [exer-deploy-dir (build-path (root-deployment-dir) "lessons" (getenv "LANGUAGE") lesson-name "exercises")])
                 (parameterize [(current-deployment-dir exer-dir)]
                   (scribble-to-pdf exer-files exer-dir))
@@ -549,11 +572,11 @@
 (define (process-teacher-contributions)
   (let* ([csv-path (build-path "courses" (current-course) "resources" "teachers" "langs" (getenv "LANGUAGE") "exercises.csv")]
          [csv-list (if (file-exists? csv-path) (rest (csv->list (make-csv-reader (open-input-file csv-path))))
-                        '())]
+                       '())]
          [source-exercise-directory (simple-form-path (build-path csv-path 'up "exercises"))])
 
     (unless (file-exists? csv-path)
-    (WARNING (format "cannot find teacher-contributions in ~a.\n" (current-course)) 'teacher-contributions))
+      (WARNING (format "cannot find teacher-contributions in ~a.\n" (current-course)) 'teacher-contributions))
     
     ;; copy teacher files into their place in distribution
     ;(copy-directory/files source-exercise-directory target-exercise-directory)
@@ -606,60 +629,59 @@
   ;; Under deployment mode (currently always enabled), include the resources.
   (when (and (current-deployment-dir) (directory-exists? (get-resources)))
       
-      ; first copy over all of the resources files to the deployment resources dir
-      (let ([input-resources-dir (get-resources)]
-            [output-resources-dir (deploy-resources-dir)])
-        (when (directory-exists? output-resources-dir)
-          (delete-directory/files output-resources-dir))
+    ; first copy over all of the resources files to the deployment resources dir
+    (let ([input-resources-dir (get-resources)]
+          [output-resources-dir (deploy-resources-dir)])
+      (when (directory-exists? output-resources-dir)
+        (delete-directory/files output-resources-dir))
 
-        
-        (make-directory output-resources-dir)
-        (for ([subdir (directory-list input-resources-dir)])
-          ;; this created new directories for each of the four subdirs contained in resources, at the distribution end
-          (match (path->string subdir)
-            [(or "teachers" "workbook" "misc")
-             (when (directory-exists? (build-path input-resources-dir subdir "langs" (getenv "LANGUAGE") ))
-               (copy-directory/files (build-path input-resources-dir subdir "langs" (getenv "LANGUAGE") )
-                              (build-path (simple-form-path output-resources-dir) subdir)))]
-            [(or "images" "source-files")
-             (copy-directory/files (build-path input-resources-dir subdir)
-                              (build-path (simple-form-path output-resources-dir) subdir))]
-            [_
-             (unless (equal? ".DS_Store" (path->string subdir))
-                           (copy-file (build-path input-resources-dir subdir)
-                                      (build-path (simple-form-path output-resources-dir) subdir )
-                                      #t))]))
+      (make-directory output-resources-dir)
+      (for ([subdir (directory-list input-resources-dir)])
+        ;; this created new directories for each of the four subdirs contained in resources, at the distribution end
+        (match (path->string subdir)
+          [(or "teachers" "workbook" "misc")
+           (when (directory-exists? (build-path input-resources-dir subdir "langs" (getenv "LANGUAGE") ))
+             (copy-directory/files (build-path input-resources-dir subdir "langs" (getenv "LANGUAGE") )
+                                   (build-path (simple-form-path output-resources-dir) subdir)))]
+          [(or "images" "source-files")
+           (copy-directory/files (build-path input-resources-dir subdir)
+                                 (build-path (simple-form-path output-resources-dir) subdir))]
+          [_
+           (unless (equal? ".DS_Store" (path->string subdir))
+             (copy-file (build-path input-resources-dir subdir)
+                        (build-path (simple-form-path output-resources-dir) subdir )
+                        #t))]))
 
-        ; keep only certain files in workbook resources dir
-        (when (directory-exists? (build-path output-resources-dir "workbook"))
-          (let ([keep-workbook-files (list "workbook.pdf")])
+      ; keep only certain files in workbook resources dir
+      (when (directory-exists? (build-path output-resources-dir "workbook"))
+        (let ([keep-workbook-files (list "workbook.pdf")])
           (for ([wbfiledir (directory-list (build-path output-resources-dir "workbook"))])
             (unless (member (path->string wbfiledir) keep-workbook-files)
               (if (directory-exists? (build-path output-resources-dir "workbook" wbfiledir))
                   (delete-directory/files (build-path output-resources-dir "workbook" wbfiledir))
                   (delete-file (build-path output-resources-dir "workbook" wbfiledir)))))))
-        ; ideally, modify workbook build process to generate right filename from the
-        ; outset.  In the meantime, this puts the right filename in the distribution
-        ; the "when" is there to avoid error in reactive (which has no workbook yet)
-        (when (file-exists? (build-path output-resources-dir "workbook" "workbook.pdf"))
-          (rename-file-or-directory (build-path output-resources-dir "workbook" "workbook.pdf")
-                                    (build-path output-resources-dir "workbook" "StudentWorkbook.pdf")))
+      ; ideally, modify workbook build process to generate right filename from the
+      ; outset.  In the meantime, this puts the right filename in the distribution
+      ; the "when" is there to avoid error in reactive (which has no workbook yet)
+      (when (file-exists? (build-path output-resources-dir "workbook" "workbook.pdf"))
+        (rename-file-or-directory (build-path output-resources-dir "workbook" "workbook.pdf")
+                                  (build-path output-resources-dir "workbook" "StudentWorkbook.pdf")))
       
-        (let ([sourcefiles (build-path output-resources-dir "source-files")]
-              [sourcezip (build-path output-resources-dir "source-files.zip")])
-          (when (file-exists? sourcezip)
-            (delete-file sourcezip))
-          (when (directory-exists? sourcefiles)
+      (let ([sourcefiles (build-path output-resources-dir "source-files")]
+            [sourcezip (build-path output-resources-dir "source-files.zip")])
+        (when (file-exists? sourcezip)
+          (delete-file sourcezip))
+        (when (directory-exists? sourcefiles)
           (parameterize ([current-directory sourcefiles])
             (let ([allfiles (directory-list sourcefiles)])
               (apply zip (cons sourcezip allfiles))))))
         
-        ;; copy the background logo to the resources directory
-        (copy-file (build-path "lib" "backlogo.png")
-                   (build-path (current-deployment-dir) "courses" (current-course)(getenv "LANGUAGE") "resources" "backlogo.png")
-                   #t)
+      ;; copy the background logo to the resources directory
+      (copy-file (build-path "lib" "backlogo.png")
+                 (build-path (current-deployment-dir) "courses" (current-course)(getenv "LANGUAGE") "resources" "backlogo.png")
+                 #t)
         
-        ))
+      ))
 
   ;; copy auxiliary files into units within distribution
   (when (and (current-deployment-dir) (directory-exists? (get-units-dir)))
@@ -681,31 +703,41 @@
   ;; Subtle: this must come after we potentially touch the output
   ;; resources subdirectory.
 
-         (cond [(file-exists? (get-teachers-guide))
-                (printf "build.rkt: building teacher's guide\n")
-                (run-scribble (get-teachers-guide))
-                (let ([deploy-teachers-dir (build-path (deploy-resources-dir) "teachers" "teachers-guide")])
-                  ; remove the scrbl file from the distribution
-                  (when (file-exists? (build-path deploy-teachers-dir "teachers-guide.scrbl"))
-                    (delete-file (build-path deploy-teachers-dir "teachers-guide.scrbl")))
-                  ;; copy the teacher workbook into place
-                  ;; THIS ASSUMES WORKBOOK SOLS ALREADY BUILT -- SHOULDN'T BE IN THIS FILE
-                  ;; ideally, need a separate script to create distribution that cleans up
-                  ;;   all of the mess around the resources-deploy paths.  This isn't part of
-                  ;;   notes building, so shouldn't be here, but this trashes the dirs so
-                  ;;   needs to be here until we get the scripts refactored
-                  ;; Once building reactive workbook sols, need to check that get-resources here gets the right dir
-                  (let ([workbooksols (build-path (get-resources) "workbook" "workbooksols.pdf")])
-                    (when (file-exists? workbooksols)
-                      (let ([oldsols (build-path (deploy-resources-dir) "teachers" "TeacherWorkbook.pdf")])
-                        (when (file-exists? oldsols)
-                          (delete-file oldsols))
-                        (printf "Copying teachers workbook solutions into distribution~n")
-                        (copy-file workbooksols (filter-output-dir oldsols)))))
-                  )
-                ]
-               [else
-                (printf "build.rkt: no teacher's guide found; skipping\n")]))
+  (cond [(file-exists? (get-teachers-guide))
+         (printf "build.rkt: building teacher's guide\n")
+         (printf "CURR DEPLOY DIR: ~a~n" (current-deployment-dir))
+         (printf "DEPLOY RES DIR: ~a~n" (deploy-resources-dir))
+         (parameterize ([current-deployment-dir (build-path (deploy-resources-dir) "teachers" "teachers-guide")])
+           (run-scribble (get-teachers-guide) #:include-base-path? #f))
+         (let ([deploy-teachers-dir (build-path (deploy-resources-dir) "teachers" "teachers-guide")])
+           ; remove the scrbl file from the distribution
+           (when (file-exists? (build-path deploy-teachers-dir "teachers-guide.scrbl"))
+             (delete-file (build-path deploy-teachers-dir "teachers-guide.scrbl")))
+           ;; copy the teacher workbook into place
+           ;; THIS ASSUMES WORKBOOK SOLS ALREADY BUILT -- SHOULDN'T BE IN THIS FILE
+           ;; ideally, need a separate script to create distribution that cleans up
+           ;;   all of the mess around the resources-deploy paths.  This isn't part of
+           ;;   notes building, so shouldn't be here, but this trashes the dirs so
+           ;;   needs to be here until we get the scripts refactored
+           ;; Once building reactive workbook sols, need to check that get-resources here gets the right dir
+           (let ([workbooksols (build-path (get-resources) "workbook" "workbooksols.pdf")])
+             (when (file-exists? workbooksols)
+               (let ([oldsols (build-path (deploy-resources-dir) "teachers" "TeacherWorkbook.pdf")])
+                 (when (file-exists? oldsols)
+                   (delete-file oldsols))
+                 ;;;; kathi added may 28 to fix up language paths -- this may address large comment just above ...
+                 (unless (directory-exists? (deploy-resources-dir))
+                   (printf "Creating resources dir~n")
+                   (make-directory (deploy-resources-dir)))
+                 (unless (directory-exists? (build-path (deploy-resources-dir) "teachers"))
+                   (make-directory (build-path (deploy-resources-dir) "teachers")))
+                 ;;;; end may 28 addition
+                 (printf "Copying teachers workbook solutions into distribution~n")
+                 (copy-file workbooksols oldsols))))
+           )
+         ]
+        [else
+         (printf "build.rkt: no teacher's guide found; skipping\n")]))
          
 (define (update-lang-fields language)
   (putenv "LANGUAGE" language)
@@ -751,7 +783,7 @@
     (parameterize ([current-course course]
                    [current-course-languages languages])
       (for ([language (in-list languages)]
-        #:when (member language run-languages))
+            #:when (member language run-languages))
         
         (update-lang-fields language)
         (solutions-mode-off)

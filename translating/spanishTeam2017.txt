@@ -16,7 +16,7 @@ The images and source-files directories should not contain translatable contents
 3. teachers section
 
 (Leave teachers-guide alone.
-Everything else within teachers has been moved to algebra/resources/teachers/langs/spanish.)
+Everything else within teachers has been moved to algebra/resources/teachers/langs/es-mx.)
 
 For anything that you had to change in your version of algebra/resources/teachers, find the corresponding file in algebra/resouces/teachers/langs/spanish and overwrite the contents.
 
@@ -24,13 +24,13 @@ For anything that you had to change in your version of algebra/resources/teacher
 
 4. workbook section
 
-Everything underneath algebra/resources/workbook has been moved to algebra/resources/workbook/langs/spanish. For anything that you had to change in your version, find the corresponding file and overwrite the contents in algebra/resources/workbook/langs/spanish.
+Everything underneath algebra/resources/workbook has been moved to algebra/resources/workbook/langs/es-mx. For anything that you had to change in your version, find the corresponding file and overwrite the contents in algebra/resources/workbook/langs/es-mx.
 
 
 
 5. Units
 
-All units have been moved from algebra/units to algebra/units/langs/spanish. For anything that you had to change in your version, find the corresponding file and overwrite the contents in algebra/units/langs/spanish
+All units have been moved from algebra/units to algebra/units/langs/es-mx. For anything that you had to change in your version, find the corresponding file and overwrite the contents in algebra/units/langs/es-mx
 
 
 
@@ -42,7 +42,7 @@ All units have been moved from algebra/units to algebra/units/langs/spanish. For
 
 1. glossary-terms.rkt
 
-lib/glossary-terms.rkt has been moved into lib/langs/spanish/
+lib/glossary-terms.rkt has been moved into lib/langs/es-mx/
 Replace the content of this file with your translations.
 
 
@@ -54,7 +54,7 @@ In translated.rkt, replace the strings on each line with their spanish translati
 
 Notes:
 This is possibly going to be the most tedious for you all, but we've done our best to speed it up.
-lib/langs/spanish/translated.rkt contains a mapping of translation tags to translated text. These translations are all the instances in which back-end code (primarily form-elements but also others) produces text in documentation. These are often titles, subtitles, button titles, etc....
+lib/langs/es-mx/translated.rkt contains a mapping of translation tags to translated text. These translations are all the instances in which back-end code (primarily form-elements but also others) produces text in documentation. These are often titles, subtitles, button titles, etc....
 What we have done is locate each of these within the source code and replaced it with a translation tag (a symbol) which will look for its translation in spanish in translated.rkt.
 
 To make this easier for you, we have tried to provide thorough documentation for where all of these tags are located in the output files (the actual pages produced). 
