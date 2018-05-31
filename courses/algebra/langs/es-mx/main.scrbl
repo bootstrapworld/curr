@@ -38,9 +38,7 @@ Por supuesto, hay más a un plan de estudios que el software y planes de leccion
 @itemlist[#:style "BSResourceList"
         @item{@(hyperlink "resources/teachers/index.shtml" "Recursos para maestros" ) - También ofrecemos varios materiales para los maestros, incluyendo una clave de respuestas para el libro del estudiante, una guía de inicio rápido para hacer el proyecto final, exámenes previos y posteriores para los maestros que están participando en nuestra investigación. Para acceder a estos materiales, rellene el @(hyperlink "https://docs.google.com/a/bootstrapworld.org/spreadsheet/viewform?formkey=dHpQc0VHV2dBU2tSN1ptMktBUmtoZWc6MQ#gid=0" "formulario de solicitud de contraseña"). Pronto nos pondremos en contacto con usted con la información de inicio de sesión necesaria para acceder.}
 
-          @summary-item/custom["Foros de Soporte" @(list (hyperlink "https://groups.google.com/d/forum/bootstrap-announce" "Anuncios")
-                                                       (hyperlink "https://groups.google.com/d/forum/bootstrap-discuss" "Discusión"))]{
-            ¿Quiere mantenerse al día sobre los eventos Bootstrap, talleres y cambios en el plan de estudios? ¿Quieres hacer una pregunta o plantear una idea de lección para otros maestros de Bootstrap? Estos foros son el lugar para hacerlo.}
+        @item{@(hyperlink "https://discourse.bootstrapworld.org" "Bootstrap Discussion Forum" ) - ¿Quiere mantenerse al día sobre los eventos Bootstrap, talleres y cambios en el plan de estudios? ¿Quieres hacer una pregunta o plantear una idea de lección para otros maestros de Bootstrap? Estos foros son el lugar para hacerlo. }
 ]
             
 @(copyright)
