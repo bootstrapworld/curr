@@ -344,7 +344,7 @@
                         Table methods can be chained together, so that we can build, filter @italic{and} order a Table. For example:
                         @code[#:multi-line #t]{
                             # get a table with the nametags of all the fixed animals, ordered by species
-                            animals-table.build-column("year", birth-year).filter(is-fixed).order-by("species", true)
+                            animals-table.build-column("nametag", birth-year).filter(is-fixed).order-by("species", true)
                         }
                         This code takes the @code{animals-table}, and builds a new column. According to our Contracts Page, @code{.build-column} produces a new Table, and that's the Table whose @code{.filter} method we use. That method produces @italic{yet another Table}, and we call that Table's @code{order-by} method. The Table that comes back from that is our final result.
                     }
@@ -358,7 +358,7 @@
                         @code[#:multi-line #t]{
                             # get a table with the nametags of all the fixed animals, order by species
                             animals-table
-                              .build-column("year", birth-year)
+                              .build-column("nametag", birth-year)
                               .filter(is-fixed)
                               .order-by("species", true)
                         }
