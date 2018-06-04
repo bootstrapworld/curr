@@ -1,9 +1,9 @@
 #lang curr/lib
 
-@(define exprs '((and (string=? place "safe") 
+@(define exprs '((and (string-equal place "safe") 
                       (or (>= x 50) (<= y 2)))
                  (and (or (= 6 7) (> 7 5)) (< 8 10))
-                 (string=? "6" "7")
+                 (string-equal "6" "7")
                  (> (+ 6 7) 15)
                  (or (= (* 6 5) 30) (< 8 9)) 
                  ;(= (string-length "Bananas") 8) 

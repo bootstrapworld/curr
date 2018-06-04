@@ -1,12 +1,12 @@
 #lang curr/lib
 
-@(define exprs '((and (string=? place "safe") 
-                      (or (>= x 50) (<= y 2)))
-                 (and (or (= 6 7) (> 7 5)) (< 8 10))
-                 (string=? "6" "7")
-                 (> (+ 6 7) 15)
-                 (or (= (* 6 5) 30) (< 8 9)) 
-                 ;(= (string-length "Bananas") 8) 
+@(define exprs '((> (+ 4 5) 9)
+                 ;(or (> 10 11) (<= 7 9))
+                 (and (< 5 10) (< 10 15))
+                 (or (string-equal yum "apple") (string-equal yum "banana"))
+                 (>= (string-length "My Game") 6)
+                 (or (and (< 1 x) (< x 5))
+                     (and (< 8 x) (< x 10)))
                  ))
 
 @(define exprs-as-coe (map sexp exprs))
