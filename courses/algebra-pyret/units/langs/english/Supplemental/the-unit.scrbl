@@ -11,7 +11,7 @@
 }
 
 @unit-lessons{
-@(include-lesson (lib "curr/lessons/langs/english/Manipulating-Images/lesson-im.scrbl"))
+@(include-lesson (lib "curr/lessons/langs/english/Manipulating-Images/lesson/lesson-im.scrbl"))
 @(include-lesson (lib "curr/lessons/langs/english/Making-Flags/lesson/lesson-im.scrbl"))
 @(include-lesson (lib "curr/lessons/langs/english/Function-Example-Red-Shape/lesson/lesson-im.scrbl"))
 @(include-lesson (lib "curr/lessons/langs/english/Structs/lesson/lesson-im.scrbl"))
