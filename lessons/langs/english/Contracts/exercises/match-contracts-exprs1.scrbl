@@ -1,11 +1,7 @@
 #lang curr/lib
 
 @(define e1 (code "(big-star \"purple\")"))
-<<<<<<< HEAD
-@(define c1 (code "; big-star : String -> Image")) 
-=======
 @(define c1 (code "; big-star : string -> image")) 
->>>>>>> 21293a6cee7bfee5c2eb234b46e50986a0930e0b
 
 @(define e2 (code "(big-star 25 \"gold\")"))
 @(define c2 (code "; big-star : number string -> image"))
