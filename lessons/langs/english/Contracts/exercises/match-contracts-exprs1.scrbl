@@ -1,7 +1,7 @@
 #lang curr/lib
 
-@(define e1 (code "big-star(\"purple\")"))
-@(define c1 (code "big-star :: String -> Image")) 
+@(define e1 (code "(big-star \"purple\")"))
+@(define c1 (code "; big-star : String -> Image")) 
 
 @(define e2 (code "big-star(25, \"gold\")"))
 @(define c2 (code "big-star :: Number, String -> Image"))
