@@ -954,7 +954,7 @@
   (match mp
     [(list 'lib path)
      (cond
-       [(regexp-match #px"^curr/lessons/langs/([^/]+)/([^/]+)/lesson/lesson([^/]+).scrbl$" path)
+       [(regexp-match #px"^curr/lessons/langs/([^/]+)/([^/]+)/lesson/lesson([^/]*).scrbl$" path)
         =>
         (lambda (result)
           (list-ref result 2))]
