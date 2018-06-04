@@ -8,7 +8,7 @@
  big-triangle(100, \"orange\") is
          triangle(100, \"solid\", \"orange\")
 end"))
-@(define c1 (code "big-triangle :: number, string -> image"))
+@(define c1 (code "big-triangle :: Number String -> Image"))
 
 
 @(define e2
@@ -19,7 +19,7 @@ end"))
  purple-square(6) is 
          rectangle(6, 6, \"outline\", \"purple\")
 end"))
-@(define c2 (code "purple-square :: number -> image"))
+@(define c2 (code "purple-square :: Number -> Image"))
 
 
 @(define e3
@@ -32,7 +32,7 @@ end"))
  banner(\"Exit\") is
          text(\"Exit\", 50, \"red\")
 end"))
-@(define c3 (code "; banner : string -> image"))
+@(define c3 (code "banner :: String -> Image"))
 
 
 @(define e4
@@ -45,7 +45,7 @@ end"))
  twinkle(36, \"outline\") is 
          star(36, \"outline\", \"yellow\")
 end"))
-@(define c4 (code "; twinkle : number string -> image"))
+@(define c4 (code "twinkle :: Number String -> Image"))
 
 
 @(define e5
@@ -55,7 +55,7 @@ end"))
  half(4) is (4 / 2)
  half(9) is (9 / 2)
 end"))
-@(define c5 (code "half : number -> number"))
+@(define c5 (code "half :: Number -> Number"))
 
 
 @(define e6
@@ -66,7 +66,7 @@ end"))
  how-long?(\"Hi Mom\") is 6
  how-long?(\"Cheese pizza\") is 12
 end"))
-@(define c6 (code "; how-long? : string -> number"))
+@(define c6 (code "how-long? :: String -> Number"))
 
 
 @(define examples-lst (list e1 e2 e3 e4 e5 e6 ))

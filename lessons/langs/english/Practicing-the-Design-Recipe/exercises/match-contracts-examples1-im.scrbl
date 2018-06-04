@@ -3,67 +3,68 @@
 @(define e1a
    (code #:multi-line #t
 "examples:
-          match(30, \"red\") is 30 + string-length(\"red\")
+  match(30, \"red\") is 30 + string-length(\"red\")
 end"))
 
 @(define e1b
    (code #:multi-line #t
 "examples:
-          match(10, \"blue\") is 10 + string-length(\"blue\")
+  match(10, \"blue\") is 
+    10 + string-length(\"blue\")
 end"))
 
 @(define e1c 
    (code #:multi-line #t
 "examples:
-          match(num-abs(-4), \"45\") is 4
+  match(num-abs(-4), \"45\") is 4
 end"))
 
 @(define e2a
    (code #:multi-line #t
 "examples:
-          match(triangle(20, \"solid\", \"blue\")), 3) is
-          scale(3, triangle(20, \"solid\", \"blue\"))
+  match(triangle(20, \"solid\", \"blue\")), 3) is
+  scale(3, triangle(20, \"solid\", \"blue\"))
 end"))
 
 @(define e2b
    (code #:multi-line #t
 "examples:
-          match(circle(10, \"solid\", \"orange\") ,22) is
-          scale(22, circle(10, \"solid\", \"orange\"))
+  match(circle(10, \"solid\", \"orange\") ,22) is
+  scale(22, circle(10, \"solid\", \"orange\"))
 end"))
 
 @(define e3a
    (code #:multi-line #t
 "examples:
-          match(5, star(20, \"solid\", \"red\")) is
-          rotate((90 - 5), star(20, \"solid\", \"red\"))
+  match(5, star(20, \"solid\", \"red\")) is
+  rotate((90 - 5), star(20, \"solid\", \"red\"))
 end"))
 
 @(define e3b
    (code #:multi-line #t
 "examples:
-          match(73, star(10, \"outline\", \"orange\"), 22) is
-          rotate((90 - 73), star(10, \"outline\", \"orange\"))
+  match(73, star(10, \"outline\", \"orange\"), 22) is
+  rotate((90 - 73), star(10, \"outline\", \"orange\"))
 end"))
 
 @(define e4a
    (code #:multi-line #t
 "examples:
-          match(circle(20, \"outline\", \"gold\")) is
-          rotate(37, circle(20, \"outline\", \"gold\"))
+  match(circle(20, \"outline\", \"gold\")) is
+  rotate(37, circle(20, \"outline\", \"gold\"))
 end"))
 
 @(define e4b
    (code #:multi-line #t
 "examples:
-          match(circle(10, \"solid\", \"green\")) is
-          rotate(37, circle(10, \"solid\", \"green\"))
+  match(circle(10, \"solid\", \"green\")) is
+  rotate(37, circle(10, \"solid\", \"green\"))
 end"))
 
 
-@(define c1 (code " match :: Number String -> Number"))
-@(define c2 (code " match :: Image Number -> Image"))
-@(define c3 (code " match :: Number Image -> Image"))
+@(define c1 (code " match :: Number, String -> Number"))
+@(define c2 (code " match :: Image, Number -> Image"))
+@(define c3 (code " match :: Number, Image -> Image"))
 @(define c4 (code " match :: Image -> Image"))
 
 @(define answer-key

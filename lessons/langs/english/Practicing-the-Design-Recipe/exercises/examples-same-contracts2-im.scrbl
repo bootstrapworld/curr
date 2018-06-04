@@ -6,8 +6,6 @@
 "examples:
  mystery(triangle(70, \"solid\", \"green\")) is
          triangle(140, \"solid\", \"green\")
-end
-examples:
  mystery(circle(100, \"solid\", \"blue\") is
          circle(200, \"solid\", \"blue\")
 end"))
@@ -30,8 +28,6 @@ end"))
 "examples:
  mystery(\"+\", 4, 5) is
           4 + 5
-end
-examples:
  mystery(\"num-sqrt\", 25) is 
          num-sqrt(25)
 end"))
@@ -41,8 +37,6 @@ end"))
    (code #:multi-line #t
 "examples:
  mystery(\"circle\", 4) is pi * num-sqrt(4)
-end
-examples:
  mystery(\"square\", 5) is num-sqrt(5)
 end"))
 @(define a12 (code "; mystery :: String Number -> Number"))
@@ -51,8 +45,6 @@ end"))
    (code #:multi-line #t
 "examples:
  mystery(\"dog\") is 3
-end
-examples:
  mystery(\"cat\") is \"kitten\"
 end"))
 @(define a13 "no match (the range types are different)")
@@ -62,8 +54,6 @@ end"))
    (code #:multi-line #t
 "examples:
  mystery(\"dog\") is 3
-end
-examples:
  mystery(\"kitten\") is 6
 end"))
 @(define a14 (code "; mystery :: String -> Number"))
@@ -73,8 +63,6 @@ end"))
 "examples:
  mystery(4, 5, \"big\") is
           scale(2, (rectangle(4, 5, \"solid\", \"blue\"))
-end
-examples:
  mystery(10, \"small\", 4) is 
           scale(.5, (rectangle(10, 4, \"solid\", \"blue\"))
 end"))
