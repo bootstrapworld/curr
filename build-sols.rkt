@@ -81,9 +81,9 @@
     (unless (directory-exists? (build-path (deploy-resources-dir) "teachers" "solutions"))
       (make-directory (build-path (deploy-resources-dir) "teachers" "solutions")))
     (parameterize ([current-deployment-dir (build-path (deploy-resources-dir) "teachers" "solutions")])
-      (for ([subdir (directory-list lessons-dir)]
-            #:when (directory-exists? (build-path lessons-dir subdir)))
-        (let ([exercises-path (build-path lessons-dir subdir "exercises")])
+      (for ([subdir (directory-list (lessons-dir))]
+            #:when (directory-exists? (build-path (lessons-dir) subdir)))
+        (let ([exercises-path (build-path (lessons-dir) subdir "exercises")])
           (when (directory-exists? exercises-path)
             (for ([worksheet (directory-list exercises-path)]
                   #:when (regexp-match #px".scrbl$" worksheet))
