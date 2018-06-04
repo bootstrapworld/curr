@@ -199,13 +199,8 @@
                                      @item{Students can write code expressions that use @code{and} and @code{or}}
                                      @item{Students can determine the answers produced by expressions that use @code{and} and @code{or}}]
      #:product-outcomes @itemlist[]
-<<<<<<< HEAD
      #:exercises (list (make-exercise-locator "AndOr" "boolean-coe-to-code1-im")
                        (make-exercise-locator "AndOr" "boolean-coe-to-code2-im"))
-=======
-     #:exercises (list (make-exercise-locator "AndOr" "boolean-coe-to-code1")
-                       (make-exercise-locator "AndOr" "boolean-coe-to-code2"))
->>>>>>> 21293a6cee7bfee5c2eb234b46e50986a0930e0b
      #:standards (list)
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, language table, course calendar)}
