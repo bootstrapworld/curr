@@ -28,6 +28,7 @@
 	 bs-title-style
 	 bs-content-style
          bs-coursename-style
+         overview-styles.css
 )
 
 ;;;;;;;;;;;;;;;; Runtime Paths ;;;;;;;;;;;;;;;;;;;;;;;;;;;

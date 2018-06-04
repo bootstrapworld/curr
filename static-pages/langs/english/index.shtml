@@ -3,7 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <title>Bootstrap: Materials</title>
-    <link rel="stylesheet" type="text/css" href="../../styles.css" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
     <style>
     .BSUnitTitle {
         font-weight: bold;
@@ -85,14 +85,14 @@ moving parts! <b>Spend some time with our master trainers, and take your game to
                 <li class="tablinks"><h2><a href="courses/hour-of-code" target="_blank">Hour of Code</a></h2> 
                     <div id="hoc" class="tabcontent">
                         <h3>Recommended for all ages</h3>
-                        <img src="courses/hour-of-code/splash.png">
+                        <img src="courses/hour-of-code/english/splash.png">
                         Our <a href="courses/hour-of-code/" target="_blank">Hour of Code</a> lesson is a great, self-paced activity to introduce students to Bootstrap. Students explore simple function composition and order of operations, and then build on that knowledge to create simple computer graphics.
                     </div>
                 </li>
                 <li class="tablinks"><h2><a href="courses/algebra/english">Algebra</a></h2> 
                     <div id="algebra" class="tabcontent">
                         <h3>Recommended for: Grades 7-10</h3>
-                        <img src="courses/algebra/splash.png">
+                        <img src="courses/algebra/english/splash.png">
                         <a href="courses/algebra/english">Bootstrap:Algebra</a> applies mathematical concepts and rigorous programming principles to creating a simple videogame, and is <a href="Standards.shtml">aligned</a> to National and State Standards for Mathematics -- including the new standards for Mathematical Practice! Students create a simple, 3-character game involving a player, a target and a danger. They design what each character looks like, and use algebraic concepts to detect collisions, handle keystrokes, and determine how they move and interact.
                         <table>
                             <tr><td>
@@ -128,7 +128,7 @@ moving parts! <b>Spend some time with our master trainers, and take your game to
                 <li class="tablinks"><h2><a href="courses/reactive/english">Reactive</a></h2> 
                     <div id="structures" class="tabcontent">
                         <h3>Recommended for: Grades 8-11</h3>
-                        <img src="courses/reactive/splash.png">
+                        <img src="courses/reactive/english/splash.png">
                         <a href="courses/reactive/english">Bootstrap:Reactive</a></b> goes deeper into programming, building events and data structures on top of the foundation laid by our intro course and allowing students to build far more sophisticated programs. We've listed the breakdown of concepts in the table below, so you can find the best fit for your class.Students learn how the world-based event loop that drives their Bootstrap:Algebra game works, and use it to create animations using simple datatypes for their world. They then learn about data structures, and design a World structure for a sophisticated game of their own design.
                         </p>
                         <table>
@@ -156,14 +156,14 @@ moving parts! <b>Spend some time with our master trainers, and take your game to
                 <li class="tablinks"><h2><a href="courses/data-science/english">Data Science</a></h2> 
                     <div id="hoc" class="tabcontent">
                         <h3>Recommended for: Grades 7-10</h3>
-                        <img src="courses/data-science/splash.png">
+                        <img src="courses/data-science/english/splash.png">
                         What makes your favorite athlete the Greatest of All Time?  How would you determine the most successful musician ever?  How is the population of your country changing?  Answering these questions involves collecting and manipulating data, from sports stats to record sales to census data.  Our <a href="courses/data-science/english">Data Science</a> module teaches students to view programs as questions we ask of data.  Students form their own questions about the world around them, and learn how to analyze data critically and carefully to find answers.  Business, science, and history teachers can utilize this module to help students make inferences from data.  Math teachers can use this module to introduce foundational concepts in statistics.  It also works great as a module for AP CS Principles' unit on data!
                     </div>
                 </li> 
                 <li class="tablinks"><h2><a href="courses/physics">Physics</a></h2>
                     <div id="hoc" class="tabcontent">
                         <h3>Recommended for: Grades 9-10</h3>
-                        <img src="courses/physics/splash.png">
+                        <img src="courses/physics/english/splash.png">
                         Our <a href="courses/physics/english">Physics</a> module helps students understand basic physics concepts by incorporating computer programming as one of the key tools for building models of the physical world. Targeted to ninth grade, during which every student is expected to take science, this initiative is designed to spark students’ interest in subjects related to science, technology, engineering, and math (STEM) for the rest of their academic careers. This initiative also combats a root cause of inequality of opportunity in pursuing STEM careers: disparate access to quality teaching in middle and high school. The module is aligned to the <a href="https://www.aapt.org/Resources/physicsfirst.cfm">Physics First</a> course, allowing teachers to easily embed computational modeling in their physics classes.
                     </div>
                 </li>

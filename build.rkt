@@ -18,6 +18,7 @@
          "lib/scribble-pdf-helpers.rkt"
          "lib/pdf-lesson-exercises.rkt"
          "lib/warnings.rkt"
+         "lib/styles.rkt"
          scribble/render
          file/zip)
 
@@ -311,7 +312,7 @@
             (delete-directory/files (current-deployment-dir)))
           (make-directory (current-deployment-dir))])
 
-  
+  (copy-file overview-styles.css (build-path (current-deployment-dir) "styles.css"))
   
   (for ([base (directory-list (static-pages-path))])
     (define source-full-path (build-path (static-pages-path) base))
