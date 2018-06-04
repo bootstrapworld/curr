@@ -1,7 +1,7 @@
 <html>
   <head>
     <title>Bootstrap: Teacher Resources</title>
-    <link rel="stylesheet" type="text/css" href="/styles.css"/>
+    <link rel="stylesheet" type="text/css" href="../../styles.css"/>
     <style>
       .links{float: right;}
       div#teacherVideos div{
@@ -286,19 +286,19 @@
                 </li>
                 <li>Identifying Parts of Expressions (1)
                   <span class="links">
-                    [<a href="../../units/unit2/exercises/Contracts/id-expr-pieces1.html">original</a>
+                    [<a href="../../units/unit2/exercises/Contracts/id-expr-pieces1-im.html">original</a>
                     | <a href="solutions/id-expr-pieces1.html">answers</a>]
                   </span>
                 </li>
                 <li>Identifying Parts of Expressions (2)
                   <span class="links">
-                    [<a href="../../units/unit2/exercises/Contracts/id-expr-pieces2.html">original</a>
+                    [<a href="../../units/unit2/exercises/Contracts/id-expr-pieces2-im.html">original</a>
                     | <a href="solutions/id-expr-pieces2.html">answers</a>]
                   </span>
                 </li>
                 <li>Matching Expressions and Contracts
                   <span class="links">
-                    [<a href="../../units/unit2/exercises/Contracts/match-contracts-exprs1.html">original</a>
+                    [<a href="../../units/unit2/exercises/Contracts/match-contracts-exprs1-im.html">original</a>
                     | <a href="solutions/match-contracts-exprs1.html">answers</a>]
                   </span>
                 </li>
@@ -324,19 +324,19 @@
                 </li>
                 <li>Matching Examples and Function Definitions
                   <span class="links">
-                    [<a href="../../units/unit3/exercises/Defining-Functions/match-examples-functions1.html">original</a>
+                    [<a href="../../units/unit3/exercises/Defining-Functions/match-examples-functions1-im.html">original</a>
                     | <a href="solutions/match-examples-functions1.html">answers</a>]
                   <span>
                 </li>
                 <li>Creating Contracts From Examples (1)
                   <span class="links">
-                    [<a href="../../units/unit3/exercises/Defining-Functions/create-contracts-examples1.html">original</a>
+                    [<a href="../../units/unit3/exercises/Defining-Functions/create-contracts-examples1-im.html">original</a>
                     | <a href="solutions/create-contracts-examples1.html">answers</a>]
                   </span>
                 </li>
                 <li>Creating Contracts From Examples (2)
                   <span class="links">
-                    [<a href="../../units/unit3/exercises/Defining-Functions/create-contracts-examples2.html">original</a>
+                    [<a href="../../units/unit3/exercises/Defining-Functions/create-contracts-examples2-im.html">original</a>
                     | <a href="solutions/create-contracts-examples2.html">answers</a>]
                   </span>
                 </li>
@@ -356,26 +356,26 @@
                 </li>
                 <li>Do Examples Have the Same Contracts? (1)
                   <span class="links">
-                    [<a href="../../units/unit4/exercises/Practicing-the-Design-Recipe/examples-same-contracts1.html">original</a>
+                    [<a href="../../units/unit4/exercises/Practicing-the-Design-Recipe/examples-same-contracts1-im.html">original</a>
                     | <a href="solutions/examples-same-contracts1.html">answers</a>]
                   <span>
                 </li>
                 <li>Do Examples Have the Same Contracts? (2)
                   <span class="links">
-                    [<a href="../../units/unit4/exercises/Practicing-the-Design-Recipe/examples-same-contracts2.html">original</a>
+                    [<a href="../../units/unit4/exercises/Practicing-the-Design-Recipe/examples-same-contracts2-im.html">original</a>
                     | <a href="solutions/examples-same-contracts2.html">answers</a>]
                   <span>
                 </li>
                 <li>Matching Contracts and Examples (1)
                   <span class="links">
-                    [<a href="../../units/unit4/exercises/Practicing-the-Design-Recipe/match-contracts-examples1.html">original</a>
-                    | <a href="solutions/match-contracts-examples1.html">answers</a>]
+                    [<a href="../../units/unit4/exercises/Practicing-the-Design-Recipe/match-contracts-examples1-im.html">original</a>
+                    | <a href="solutions/match-contracts-examples1-im.html">answers</a>]
                   </span>
                 </li>
                 <li>Matching Contracts and Examples (2)
                   <span class="links">
-                    [<a href="../../units/unit4/exercises/Practicing-the-Design-Recipe/match-contracts-examples2.html">original</a>
-                    | <a href="solutions/match-contracts-examples2.html">answers</a>]
+                    [<a href="../../units/unit4/exercises/Practicing-the-Design-Recipe/match-contracts-examples2-im.html">original</a>
+                    | <a href="solutions/match-contracts-examples2-im.html">answers</a>]
                   </span>
                 </li>
                 <li>Unit 4 Bootstrap Algebra Review
@@ -482,6 +482,27 @@
               </ul>
               <h3><a href="../../units/unit9/">Unit 9</a></h3>
               n/a
+              <h3><a href="../../units/unit10/">Geometry Unit</a></h3>
+              <ul>
+                <li>Reflection Design Recipe
+                  <span class="links">
+                    [<a href="https://drive.google.com/a/ucsd.edu/file/d/1AybRpwcQ54_Z4nOYfF69xuPCIcQbXKGn/view?usp=sharing">original</a>
+                    | <a href="Coming soon">answers</a>]
+                  </span>
+                </li>
+                <li>Flag Congruence Worksheet
+                  <span class="links">
+                    [<a href="https://drive.google.com/a/ucsd.edu/file/d/1CiAaHgZ9AS8DK7e3o9BnOauUNakKRClg/view?usp=sharing">original</a>
+                    | <a href="Coming soon">answers</a>]
+                  </span>
+                </li>
+                <li>Slanted Sam the Butterfly
+                  <span class="links">
+                    [<a href="https://drive.google.com/a/ucsd.edu/file/d/1om8-Q606nzsbdA-Zs_lXsEozXtXz6cSb/view?usp=sharing">original</a>
+                    | <a href="Coming soon">answers</a>]
+                  </span>
+                </li>
+              </ul>
             </div>
             <div class="item clearfix">
               <span class="anchor" id="sourceFiles"></span>

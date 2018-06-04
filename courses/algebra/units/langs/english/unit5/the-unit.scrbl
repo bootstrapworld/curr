@@ -23,10 +23,10 @@
                             @item{Class poster (List of rules, language table, course calendar)}
                             @item{Overhead projector}
                             ]
-     #:preparation @itemlist[@item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/1i3WQ4Q58Wn6fhqxEz027KDcUHIewtk-wLPQzJalCFt0/edit?usp=sharing" "Warmup activity sheet")}
+     #:preparation @itemlist[@item{OPTIONAL: Hand out @(new-tab "https://docs.google.com/document/d/1i3WQ4Q58Wn6fhqxEz027KDcUHIewtk-wLPQzJalCFt0/edit?usp=sharing" "Warmup activity sheet")}
                              @item{Students are logged into WeScheme.org, OR have opened DrRacket}
-                             @item{Bug Hunting [Bugs.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"]  @(hyperlink "http://www.wescheme.org/view?publicId=JCTcwYc57r" "WeScheme")] file preloaded on students' machines}
-                             @item{OPTIONAL: @(hyperlink "https://teacher.desmos.com/activitybuilder/custom/5a15e2b3dcb86b2b9fda3d19" "Desmos Activity: Unit 5 Review")}]
+                             @item{Bug Hunting [Bugs.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"]  @editor-link[#:public-id "JCTcwYc57r" "WeScheme"]] file preloaded on students' machines}
+                             @item{OPTIONAL: @(new-tab "https://teacher.desmos.com/activitybuilder/custom/5a15e2b3dcb86b2b9fda3d19" "Desmos Activity: Unit 5 Review")}]
      #:prerequisites (list "Defining Functions")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}

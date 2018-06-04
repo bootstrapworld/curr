@@ -1,1 +1,0 @@
-("lessons/Linear-Regression/exercises/Relationships1.pdf" "lessons/Linear-Regression/exercises/Relationships2.pdf" )

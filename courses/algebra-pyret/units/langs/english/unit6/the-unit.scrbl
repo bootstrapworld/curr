@@ -20,7 +20,7 @@
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, language table, course calendar)}
                             @item{Language Table (see below)}]
-     #:preparation @itemlist[@item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/1trD4h9bATdYNlgus7lGUAKbwLpGJuAtrwwetTZPASqQ/edit?usp=sharing" "Warmup activity sheet").}]
+     #:preparation @itemlist[@item{OPTIONAL: Hand out @(new-tab "https://docs.google.com/document/d/1trD4h9bATdYNlgus7lGUAKbwLpGJuAtrwwetTZPASqQ/edit?usp=sharing" "Warmup activity sheet").}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -111,7 +111,7 @@
                             @item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
                             @item{Class poster (List of rules, language table, course calendar)}
                             @item{Language Table (see below)}]
-     #:preparation @itemlist[@item{"Cage" [@(hyperlink "https://code.pyret.org/editor#share=1B5T5dTyRPb3rKJBZOgbYbQcFcsDeYZAA" "code.pyret org")] preloaded on student machines.}]
+     #:preparation @itemlist[@item{"Cage" [@(new-tab "https://code.pyret.org/editor#share=1B5T5dTyRPb3rKJBZOgbYbQcFcsDeYZAA" "code.pyret org")] preloaded on student machines.}]
      #:prerequisites (list "Booleans" "The Design Recipe")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -119,7 +119,7 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Open the "Cage" program [@(hyperlink "https://code.pyret.org/editor#share=1B5T5dTyRPb3rKJBZOgbYbQcFcsDeYZAA" "code.pyret org")] on your computer, and click "Run". The window that pops up contains a butterfly, which you can move around using the arrow keys on your keyboard. This butterfly is named Sam, and the window is Sam's yard. Much like the videogame screen, this yard is 640 pixels wide by 480 pixels tall! As you can see, Sam is free to walk around the yard, and the coordinates at the top of the screen update to tell you his location.}
+        @points[@point{@student{Open the "Cage" program [@(new-tab "https://code.pyret.org/editor#share=1B5T5dTyRPb3rKJBZOgbYbQcFcsDeYZAA" "code.pyret org")] on your computer, and click "Run". The window that pops up contains a butterfly, which you can move around using the arrow keys on your keyboard. This butterfly is named Sam, and the window is Sam's yard. Much like the videogame screen, this yard is 640 pixels wide by 480 pixels tall! As you can see, Sam is free to walk around the yard, and the coordinates at the top of the screen update to tell you his location.}
                         @teacher{This may be a good opportunity to review coordinates, for students who need the practice.}
                         }
                  @point{@student{@bitmap{images/buffer.png}Sam's mother tells him that it's okay for him to step outside of the yard, but only by a short distance! Specifically, she wants to make sure that she can always see at least a little piece of him. Sam is safe @italic{as long as some piece of him is onscreen}. That means he can go a little past zero on the lefthand size, or a little past 640 on the right - but how far @italic{can} he go?
@@ -199,8 +199,13 @@
                                      @item{Students can write code expressions that use @code{and} and @code{or}}
                                      @item{Students can determine the answers produced by expressions that use @code{and} and @code{or}}]
      #:product-outcomes @itemlist[]
+<<<<<<< HEAD
      #:exercises (list (make-exercise-locator "AndOr" "boolean-coe-to-code1-im")
                        (make-exercise-locator "AndOr" "boolean-coe-to-code2-im"))
+=======
+     #:exercises (list (make-exercise-locator "AndOr" "boolean-coe-to-code1")
+                       (make-exercise-locator "AndOr" "boolean-coe-to-code2"))
+>>>>>>> 21293a6cee7bfee5c2eb234b46e50986a0930e0b
      #:standards (list)
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, language table, course calendar)}

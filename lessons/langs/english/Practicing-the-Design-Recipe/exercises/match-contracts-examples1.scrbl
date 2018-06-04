@@ -2,67 +2,61 @@
 
 @(define e1a
    (code #:multi-line #t
-"examples:
-match(30, \"red\") is
-         30 + string-length(\"red\")"))
+"(EXAMPLE (match 30 \"red\")
+         (+ 30 (string-length \"red\")))"))
 
 @(define e1b
    (code #:multi-line #t
-"examples:
-match(10, \"blue\") is
-         10 + string-length(\"blue\")"))
+"(EXAMPLE (match 10 \"blue\")
+         (+ 10 (string-length \"blue\")))"))
 
 @(define e1c 
    (code #:multi-line #t
-"examples:
-match(num-abs(-4), \"45\") is 4"))
+"(EXAMPLE (match (abs -4) \"45\")
+          4)"))
 
 @(define e2a
    (code #:multi-line #t
-"examples:
-match(triangle(20, \"solid\", \"blue\")), 3) is
-         scale(3,
-         triangle(20, \"solid\", \"blue\"))"))
+"(EXAMPLE (match (triangle 20 \"solid\" \"blue\") 
+                3)
+         (scale 3 (triangle 20 \"solid\"
+                               \"blue\")))"))
 
 @(define e2b
    (code #:multi-line #t
-"examples:
-match(circle(10, \"solid\", \"orange\") ,22) is
-         scale(22,
-         circle(10, \"solid\", \"orange\"))"))
+"(EXAMPLE (match (circle 10 \"solid\" \"orange\") 
+                22)
+         (scale 22 
+                (circle 10 \"solid\" \"orange\")))"))
 
 @(define e3a
    (code #:multi-line #t
-"examples:
-match(5, star(20, \"solid\", \"red\")) is
-         rotate((90 - 5),
-         star(20, \"solid\", \"red\"))"))
+"(EXAMPLE (match 5 (star 20 \"solid\" \"red\"))
+         (rotate (- 90 5) 
+                 (star 20 \"solid\" \"red\")))"))
 
 @(define e3b
    (code #:multi-line #t
-"examples:
-match(73, star(10, \"outline\", \"orange\"), 22) is
-         rotate((90 - 73),
-         star(10, \"outline\", \"orange\"))"))
+"(EXAMPLE (match 73 (star 10 \"outline\" \"orange\") 22)
+         (rotate (- 90 73) (star 10 \"outline\" \"orange\")))"))
 
 @(define e4a
    (code #:multi-line #t
-"examples:
-match(circle(20, \"outline\", \"gold\")) is
-         rotate(37,
-         circle(20, \"outline\", \"gold\"))"))
+"(EXAMPLE (match (circle 20 \"outline\" \"gold\"))
+         (rotate 37 (circle 20 \"outline\" 
+                              \"gold\")))"))
 
 @(define e4b
    (code #:multi-line #t
-"examples:
-match(circle(10, \"solid\", \"green\")) is
-         rotate(37, circle(10, \"solid\", \"green\"))"))
+"(EXAMPLE (match (circle 10 \"solid\" \"green\"))
+         (rotate 37 
+                 (circle 10 \"solid\" \"green\")))"))
 
 
-@(define c1 (code " match :: number string -> number"))
-@(define c2 (code " match :: image number -> image"))
-@(define c3 (code " match :: number image -> image"))
-@(define c4 (code " match :: image -> image"))
+@(define c1 (code "; match : number string -> number"))
+@(define c2 (code "; match : image number -> image"))
+@(define c3 (code "; match : number image -> image"))
+@(define c4 (code "; match : image -> image"))
 
 @(define answer-key
     (list (list e1a c1)
