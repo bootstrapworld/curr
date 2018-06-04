@@ -15,5 +15,5 @@
 @(include-lesson (lib "curr/lessons/langs/english/Making-Flags/lesson/lesson-im.scrbl"))
 @(include-lesson (lib "curr/lessons/langs/english/Function-Example-Red-Shape/lesson/lesson-im.scrbl"))
 @(include-lesson (lib "curr/lessons/langs/english/Structs/lesson/lesson-im.scrbl"))
-@(include-lesson (lib "curr/lessons/langs/english/Simple-Ideas/lesson/lesson-imscrbl"))
+@(include-lesson (lib "curr/lessons/langs/english/Simple-Ideas/lesson/lesson-im.scrbl"))
 }
