@@ -68,12 +68,9 @@ end"))
 @(define e5
    (code #:multi-line #t
 "examples:
- mystery(2) is 
-         (2 + 2)
- mystery(4) is 
-         (4 + 4)
- mystery(5) is
-         (5 + 5)
+ mystery(2) is (2 + 2)
+ mystery(4) is (4 + 4)
+ mystery(5) is (5 + 5)
 end
 "))
 

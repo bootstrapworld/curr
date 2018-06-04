@@ -9,7 +9,8 @@ end"))
 @(define e1b
    (code #:multi-line #t
 "examples:
-  match(10, \"blue\") is 10 + string-length(\"blue\")
+  match(10, \"blue\") is 
+    10 + string-length(\"blue\")
 end"))
 
 @(define e1c 
@@ -61,9 +62,9 @@ end"))
 end"))
 
 
-@(define c1 (code " match :: Number String -> Number"))
-@(define c2 (code " match :: Image Number -> Image"))
-@(define c3 (code " match :: Number Image -> Image"))
+@(define c1 (code " match :: Number, String -> Number"))
+@(define c2 (code " match :: Image, Number -> Image"))
+@(define c3 (code " match :: Number, Image -> Image"))
 @(define c4 (code " match :: Image -> Image"))
 
 @(define answer-key
