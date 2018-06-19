@@ -157,7 +157,7 @@ include other datatypes, including Strings and Images.}
              @point{
 
              @student{Functions can work with just numbers, also. For example,
-             the @code{num-sqr} function @emph{squares} a function, multiplying
+             the @code{num-sqr} function @emph{squares} a number, multiplying
              it by itself. An example of using it is: @code[#:multi-line #t]{num-sqr(4)}
              @activity{@itemlist[
                 @item{What does this produce if you run it in the interactions window?} 
