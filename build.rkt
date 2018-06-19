@@ -14,6 +14,7 @@
          "lib/system-parameters.rkt"
          "lib/translate-pdfs.rkt"
          "lib/paths.rkt"
+         "lib/build-helpers.rkt"
          "lib/build-modes.rkt"
          "lib/scribble-pdf-helpers.rkt"
          "lib/pdf-lesson-exercises.rkt"
@@ -38,19 +39,19 @@
 (current-deployment-dir (root-deployment-dir))
 
 ;;This lists all courses which are currently able to be built
-(define available-course-specs '(("algebra" "en-us" "es-mx")
+#;(define available-course-specs '(("algebra" "en-us" "es-mx")
                                  ("algebra-pyret" "en-us")
                                  ("reactive" "en-us")
                                  ("data-science" "en-us")
                                  ("physics" "en-us")
                                  ;("blank-course" "en-us")
                                  ))
-(define available-courses (map (lambda (course-spec) (first course-spec)) available-course-specs))
+#;(define available-courses (map (lambda (course-spec) (first course-spec)) available-course-specs))
 
 ;; Depending on who we are generating for, we need to relocate the resources dirs.
 ;; May be able to do unit-to-resources-path in the bootstrap case using find-relative path
 (define (update-resource-paths)
-  (deploy-resources-dir (build-path (root-deployment-dir) "courses" (current-course)(getenv "LANGUAGE") "resources"))
+  (deploy-resources-dir (build-path (root-deployment-dir) "courses" (current-course) (getenv "LANGUAGE") "resources"))
   (unit-to-resources-path (build-path 'up 'up "resources")))
  
 
@@ -119,27 +120,6 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;; Warnings ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; parse-course-args: list/of string -> list/of string
-;; This parses the list of course arguments, ensuring that they are all valid course names
-(define (parse-course-args rest-args)
-  (cond
-    [(empty? rest-args) empty]
-    [(cons? rest-args)
-     ;;checks if next argument is a command-line argument tag, rather than a course name
-     (let [(course-name (first rest-args))]
-       (if (member course-name available-courses)
-           (cons course-name (parse-course-args (rest rest-args)))
-           (error (format (string-append "Build got unrecognized target course: " course-name "\n expected one of the following:\n~a\n")
-                          available-courses))))]))
-
-(define (parse-lang-args args)
-  (filter (lambda (arg)
-            (unless (member arg available-languages)
-              (error "Build got unrecognized target language: " arg " -- expected en-us or es-mx"))
-            (member arg available-languages))
-          args))
-
-
 ;;collects all warnings, to be printed at the end of the build script
 (void (putenv "COLLECTED-WARNINGS" ""))
 
@@ -153,22 +133,19 @@
 
 (units '())
 
-(define available-languages (list "en-us" "es-mx"))
-
-(define bootstrap-course-specs available-course-specs)
-
 (define run-languages (list "en-us" "es-mx"))
 
 (define run-exercises? #t)
 
-(void (putenv "CURRENT-SOLUTIONS-MODE" "off")
-      (putenv "TARGET-LANG" "pyret")
-      (putenv "LANGUAGE" "en-us")
+;(void
+(putenv "CURRENT-SOLUTIONS-MODE" "off")
+(putenv "TARGET-LANG" "pyret")
+(putenv "LANGUAGE" "en-us")
       
-      ;; warnings to be ignored when running the build script. This can be populated using the
-      ;; command-line tag "--suppress-warnings a_b_c" or "--sw a_b_c" to suppress warning types a, b, and c.
-      ;; Alternatively, "--sw all" can be used to suppress all WARNINGs.
-      (putenv "IGNORED-WARNINGS" ""))
+;; warnings to be ignored when running the build script. This can be populated using the
+;; command-line tag "--suppress-warnings a_b_c" or "--sw a_b_c" to suppress warning types a, b, and c.
+;; Alternatively, "--sw all" can be used to suppress all WARNINGs.
+(putenv "IGNORED-WARNINGS" "")
 
 
 
@@ -270,10 +247,9 @@
 ;; resources.
 (define (make-fresh-deployment-and-copy-static-pages)
   ;;If the directory already exists, wipe it and make a new one
-  
-  ;(when (directory-exists? (current-deployment-dir))
-  ;    (delete-directory/files (current-deployment-dir)))
-  ;(make-directory (current-deployment-dir))
+  (when (directory-exists? (current-deployment-dir))
+      (delete-directory/files (current-deployment-dir)))
+  (make-directory (current-deployment-dir))
 
   (cond
     [(and (directory-exists? (current-deployment-dir))
@@ -286,8 +262,6 @@
             (delete-directory/files (current-deployment-dir)))
           (make-directory (current-deployment-dir))])
 
-  
-  
   (for ([base (directory-list (static-pages-path))])
     (define source-full-path (build-path (static-pages-path) base))
     (define target-full-path (build-path (current-deployment-dir) base))
@@ -295,16 +269,6 @@
               (directory-exists? target-full-path))
       (delete-directory/files target-full-path))
     (copy-directory/files source-full-path target-full-path)))
-
-#| 
-;;;;;;;  DEAD CODE  ;;;;;;;;;;;;
-(define (initialize-tagging-environment)
-  (void (putenv "SCRIBBLE_TAGS" (string-join current-contextual-tags " ")))
-  (printf "build.rkt: tagging context is: ~s\n" current-contextual-tags)
-  (printf "deployment path: ~s\n" (current-deployment-dir))
-  (printf "-------\n"))
-|#
-
 
 ;; Building the units of the course.
 ;; We must do this twice to resolve cross references for lessons.
@@ -433,21 +397,10 @@
                        (build-path (current-deployment-dir) "backlogo.png")
                        #t))
           ;; if some lesson only has .pdf exercises (not sourced from scrbl), the subdir won't exist
-          (unless (directory-exists? (build-path (current-deployment-dir)))
-            (unless (directory-exists? old-deployment-dir)
-              (make-directory old-deployment-dir))
-            (unless (directory-exists? (build-path old-deployment-dir "lessons"))
-              (make-directory (build-path old-deployment-dir "lessons")))
-            (unless (directory-exists? (build-path old-deployment-dir "lessons" (getenv "LANGUAGE")))
-              (make-directory (build-path old-deployment-dir "lessons" (getenv "LANGUAGE"))))
-            (unless (directory-exists? (build-path old-deployment-dir "lessons" (getenv "LANGUAGE") subdir))
-              (make-directory (build-path old-deployment-dir "lessons" (getenv "LANGUAGE") subdir)))
+          (unless (directory-exists? (current-deployment-dir))
+            (create-path-dirs old-deployment-dir (list "lessons" (getenv "LANGUAGE") subdir))
             (make-directory (current-deployment-dir))
             )
-        ;         (unless (directory-exists? (build-path (current-deployment-dir) "lessons"  (getenv "LANGUAGE") subdir))
-        ;          (make-directory (build-path (current-deployment-dir) "lessons"  (getenv "LANGUAGE") subdir))
-        ;          (make-directory (build-path (current-deployment-dir) "lessons"  (getenv "LANGUAGE") subdir "exercises"))
-        ;          )
         ;; copy over .pdf exercises that do not come from corresponding .scrbl files
           (for ([worksheet (directory-list (build-path (lessons-dir) subdir "exercises"))]
                 #:when (and (regexp-match #px".pdf$" worksheet)
@@ -463,34 +416,6 @@
 ;; TODO: Fill in this stub to accurately check if we want build to build the exercises.
 (define (build-exercises?)
   run-exercises?)
-
-;; Building exercise handout solutions
-;;  need putenv rather than parameter to communicate with form-elements.rkt -- not sure why
-(define (build-exercise-handout-solutions)
-  (solutions-mode-on)
-  ; generating sols to our internal distribution dir, not the public one
-  (parameterize ([current-deployment-dir (build-path (root-deployment-dir) "courses" (current-course) (getenv "LANGUAGE") "resources")])
-    (unless (directory-exists? (build-path (root-deployment-dir) "courses"))
-      (make-directory (build-path (root-deployment-dir) "courses")))
-    (unless (directory-exists? (build-path (root-deployment-dir) "courses" (current-course)))
-      (make-directory (build-path (root-deployment-dir) "courses" (current-course))))
-    (unless (directory-exists? (build-path (root-deployment-dir) "courses" (current-course) (getenv "LANGUAGE")))      
-      (make-directory (build-path (root-deployment-dir) "courses" (current-course) (getenv "LANGUAGE"))))
-    (unless (directory-exists? (current-deployment-dir))
-      (when (not (directory-exists? (build-path (root-deployment-dir) "courses" (current-course))))
-        (make-directory (build-path (root-deployment-dir) "courses" (current-course))))
-      (when (not (directory-exists? (build-path (root-deployment-dir) "courses" (current-course) (getenv "LANGUAGE"))))        
-        (make-directory (build-path (root-deployment-dir) "courses" (current-course) (getenv "LANGUAGE"))))
-      (make-directory (current-deployment-dir))) 
-    (for ([subdir (directory-list (lessons-dir))]
-          #:when (directory-exists? (build-path (lessons-dir) subdir)))
-      (let ([exercises-path (build-path (lessons-dir) subdir "exercises")])
-        (when (directory-exists? exercises-path)
-          (for ([worksheet (directory-list exercises-path)]
-                #:when (regexp-match #px".scrbl$" worksheet))
-            (printf "build.rkt: building exercise handout solution ~a: ~a\n" subdir worksheet)
-            (run-scribble #:include-base-path? #f (build-path exercises-path worksheet)))))))
-  (solutions-mode-off))
 
 (define (build-worksheets)
   ;; and the worksheets
@@ -572,16 +497,16 @@
 
 
 
-(define (build-drills)
-  ;; and the drills
-  (for ([subdir (directory-list (lessons-dir))]
-        #:when (directory-exists? (build-path (lessons-dir) subdir)))
-    (when (directory-exists? (build-path (lessons-dir) subdir "drills"))
-      (for ([drill (directory-list (build-path (lessons-dir) subdir "drills"))]
-            #:when (regexp-match #px".scrbl$" drill))
-        (printf "build.rkt: building drill ~a: ~a\n" subdir drill)
-        (run-scribble (build-path (lessons-dir) subdir "drills" drill))))))
-
+;(define (build-drills)
+;  ;; and the drills
+;  (for ([subdir (directory-list (lessons-dir))]
+;        #:when (directory-exists? (build-path (lessons-dir) subdir)))
+;    (when (directory-exists? (build-path (lessons-dir) subdir "drills"))
+;      (for ([drill (directory-list (build-path (lessons-dir) subdir "drills"))]
+;            #:when (regexp-match #px".scrbl$" drill))
+;        (printf "build.rkt: building drill ~a: ~a\n" subdir drill)
+;        (run-scribble (build-path (lessons-dir) subdir "drills" drill))))))
+;
 
 
 ;; the use of deploy-resources-dir in setting output-resources-dir enables
@@ -589,15 +514,15 @@
 ;; will have been generated in the current-deployment-dir before this runs.
 ;; This function mainly copies materials from other parts of the build into
 ;; the distribution directories
-(define (build-resources)
+(define (copy-resources)
   ;; Under deployment mode (currently always enabled), include the resources.
   (when (and (current-deployment-dir) (directory-exists? (get-resources)))
       
     ; first copy over all of the resources files to the deployment resources dir
     (let ([input-resources-dir (get-resources)]
           [output-resources-dir (deploy-resources-dir)])
-      (when (directory-exists? output-resources-dir)
-        (delete-directory/files output-resources-dir))
+     ; (when (directory-exists? output-resources-dir)
+     ;   (delete-directory/files output-resources-dir))
 
       (make-directory output-resources-dir)
       (for ([subdir (directory-list input-resources-dir)])
@@ -669,8 +594,6 @@
 
   (cond [(file-exists? (get-teachers-guide))
          (printf "build.rkt: building teacher's guide\n")
-         (printf "CURR DEPLOY DIR: ~a~n" (current-deployment-dir))
-         (printf "DEPLOY RES DIR: ~a~n" (deploy-resources-dir))
          (parameterize ([current-deployment-dir (build-path (deploy-resources-dir) "teachers" "teachers-guide")])
            (run-scribble (get-teachers-guide) #:include-base-path? #f))
          (let ([deploy-teachers-dir (build-path (deploy-resources-dir) "teachers" "teachers-guide")])
@@ -702,13 +625,6 @@
          ]
         [else
          (printf "build.rkt: no teacher's guide found; skipping\n")]))
-         
-(define (update-lang-fields language)
-  (putenv "LANGUAGE" language)
-  (printf "\n\nbuild.rkt: building in language ~a~n" (getenv "LANGUAGE"))
-  (current-translations (with-input-from-file (string-append "lib/langs/" (getenv "LANGUAGE") "/translated.rkt") read))
-  (current-glossary-terms (with-input-from-file (string-append "lib/langs/" (getenv "LANGUAGE") "/glossary-terms.rkt") read)))
-
 
 (define (archive-as-zip)
   ;;  Finally, zip up the deployment directory
@@ -757,7 +673,6 @@
           (putenv "TARGET-LANG" "racket")
           (if (build-exercises?)
               (begin (build-exercise-handouts) ; not needed for reactive
-                     (build-exercise-handout-solutions)
                      (workbook-styling-on)
                      ;; when did we move the following into units? 
                      ;(build-extra-pdf-exercises); not needed for reactive
@@ -772,7 +687,6 @@
           (putenv "TARGET-LANG" "pyret")
           (if (build-exercises?)
               (begin (build-exercise-handouts)
-                     (build-exercise-handout-solutions)
                      (workbook-styling-on)
                      (build-extra-pdf-exercises))
               (workbook-styling-on))
@@ -780,12 +694,8 @@
         (textbook-styling-on)
         (update-resource-paths)
         (build-course-units)
-        (build-resources)
+        (copy-resources)
         ))))
 (create-distribution-lib)
 (print-warnings)
 ;(build-lessons)
-;(build-worksheets)
-;(build-drills)
-
-;(archive-as-zip)

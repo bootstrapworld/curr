@@ -16,3 +16,4 @@ echo "\nBUILDING STUDENT WORKBOOK\n"
 
 echo "\nBUILDING NOTES AND RESOURCES\n"
 ./build-notes "$@"
+./build-sols.rkt "$@"
