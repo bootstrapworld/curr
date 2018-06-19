@@ -19,6 +19,7 @@
          "lib/system-parameters.rkt"
          "lib/scribble-pdf-helpers.rkt"
          "lib/build-modes.rkt"
+         "lib/build-helpers.rkt"
          "lib/warnings.rkt"
          scribble/render
          file/zip)
@@ -35,7 +36,8 @@
 
 ; parse command-line arguments
 
-;; parse-course-args: list/of string -> list/of string
+
+#|;; parse-course-args: list/of string -> list/of string
 ;; This parses the list of course arguments, ensuring that they are all valid course names
 (define (parse-course-args rest-args)
   (cond
@@ -50,6 +52,7 @@
                                                course-name " -- expected "
                                                (foldl (lambda (a b) (string-append a " or " b))
                                                       "" courses)))]))]))
+|#
 
 ; use this to tell scribble to use the workbook.css file
 (putenv "BOOTSTRAP-TARGET" "workbook")
@@ -217,7 +220,9 @@
   (let* ([workbook-dir (kf-get-workbook-dir)]
          [pages-spec (with-input-from-file (build-path workbook-dir "contentlist.rkt") read)]
          [front-spec (with-input-from-file (build-path workbook-dir "frontmatterlist.rkt") read)]
-         [back-spec (with-input-from-file (build-path workbook-dir "backmatterlist.rkt") read)]
+         [back-spec (with-input-from-file (build-path workbook-dir
+                                                      (if (solutions-mode?) "backmatterlist-sols.rkt" "backmatterlist.rkt"))
+                      read)]
          [pagesdir (build-path workbook-dir "pages")]
          [extra-exercises-dir (lessons-dir)]
          [pages (check-contents-exist pages-spec pagesdir)]
