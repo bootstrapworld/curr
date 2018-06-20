@@ -55,8 +55,8 @@
         @points[
           @point{@student{Let's begin by exploring a simple videogame, and then figuring out how it works. Open @hyperlink["https://code.pyret.org/editor#share=0B32bNEogmncOQ25ZOHBoR3ZNcUE" "this link"]
                          to play the game, and spend a minute or two exploring it. @italic{You can use the arrow keys to move 
-                         the cat left, right and jump - try to catch  the ruby and avoid the dog!}}
-                 @teacher{[@(new-tab "https://www.youtube.com/watch?v=KSt_3ovWfjk" "Video")] Show the kids NinjaCat, either letting them play or by demoing it in front of the class. You can move the cat up, down, left and right by using the arrow keys. 
+                         the cat up and down - try to catch  the ruby and avoid the dog!}}
+                 @teacher{[@(new-tab "https://www.youtube.com/watch?v=KSt_3ovWfjk" "Video")] Show the kids NinjaCat, either letting them play or by demoing it in front of the class. You can move the cat up and down by using the arrow keys. 
                           Play until the students see all the characters (the clouds, the ruby, the dog and the cat), and be 
                           sure to point out the title and score as well.}
                  }
