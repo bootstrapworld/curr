@@ -31,7 +31,7 @@
   @points[
      @point{@student{Conditionals allow functions to have very different behavior, based on their input. A function that produces red circles of various sizes doesn't need conditionals (since the code will always draw a circle), but a function that produces @italic{different shapes entirely} would need to evaluate the appropriate expression for a given shape.}
              @teacher{You may want to show students the code for simpler functions (@code{red-circle}, @code{green-triangle}, etc), pointing out that those functions evaluate the same expression no matter what - they merely fill in the variable with a given value.}}
-      @point{@student{@activity{Turn to @worksheet-link[#:page 34 #:name "red-shape"], and use the Design Recipe to complete the word problem for @code{red-shape}.}}
+      @point{@student{@activity{Turn to @worksheet-link[#:page 39 #:name "red-shape"], and use the Design Recipe to complete the word problem for @code{red-shape}.}}
               @teacher{Pause and debrief after each section, if necessary.}}
 
      @point{@student{Conditions can be used in many places inside a videogame:
