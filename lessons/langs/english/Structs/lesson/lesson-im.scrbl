@@ -64,7 +64,7 @@
 
                                @code[#:multi-line #t]{
                                examples:
-                                update-danger(200, 300) is posn((200 - 10), (300 - 5)
+                                update-danger(200, 300) is posn((200 - 10), (300 - 5))
                                end
                                }
                                @itemlist[@item{Write a second example.}
