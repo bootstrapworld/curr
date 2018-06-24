@@ -33,7 +33,7 @@
                                 @item{Add a "Safe Zone": put a green box or green shading somewhere on the background, then change @code{is-collision}}
  so that a player only collides if the player touches a danger AND they are not inside the zone.}
                                 @item{If you've already added 2-dimensional movement using Posns, try making the y-coordinate of your danger change
-                                      @italic{as a function of x}. You can move in a wave pattern by using @code{sin} and @code{cos}!}]
+                                      @italic{as a function of x}. You can move in a wave pattern by using @code{num-sin} and @code{num-cos}!}]
                      }
              @teacher{The last item on this list has connections to trigonometry: if the y-coordinate is detemined by @math{sin(x)}, for example, 
                       the character will bob up and down, following the sine wave. Students can practice drawing "flight paths" using a graphing
