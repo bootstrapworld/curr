@@ -55,12 +55,11 @@ examples:
   cost("broccoli") is 10.25
 end
 fun cost(topping):
-  ask:
-    | string-equal(topping, "cheese")    then: 9.00
-    | string-equal(topping, "pepperoni") then: 10.50
-    | string-equal(topping, "chicken")   then: 11.25
-    | string-equal(topping, "broccoli")  then: 10.25
-    | otherwise: "Sorry, that's not on the menu!"
+  if string-equal(topping, "cheese"):         9.00
+  else if string-equal(topping, "pepperoni"): 10.50
+  else if string-equal(topping, "chicken"):   11.25
+  else if string-equal(topping, "broccoli"):  10.25
+  else: "Sorry, that's not on the menu!"
   end
 end}}
              @teacher{}

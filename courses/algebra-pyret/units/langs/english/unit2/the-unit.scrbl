@@ -284,7 +284,7 @@ include other datatypes, including Strings and Images.}
                                                   @item{What is the Domain of this function?}
                                                   @item{What will this expression evaluate to?}]}                             
                              }
-                     @teacher{If you want to have students practice using @code{bitmap/url}, it is recommended that you use an image search-engine, 
+                     @teacher{If you want to have students practice using @code{image-url}, it is recommended that you use an image search-engine, 
                               such as @(new-tab "https://images.google.com" "Google Images") or @(new-tab "http://www.bing.com/images" "Bing Images"). 
                               Make sure that students know how to get the URL for the image itself, @italic{not the URL of the web page that contains the image.}}
                      }
@@ -388,7 +388,7 @@ rotate(45, text("spin", 30 "green"))
         @points[@point{@student{This lesson expanded what you know about Circles of Evaluation, expressions, and code to include Strings and Images.  
                                 You learned that everything you knew about functions on Numbers also works on Strings and Images (which will make your
                                 programs more interesting).  You also learned how to use the Image functions to create your own images, and how to 
-                                use existing Images in your programs (through @code{bitmap/url}).}
+                                use existing Images in your programs (through @code{image-url}).}
                         @teacher{@itemlist[@item{Have students volunteer what they learned in this lesson}
                                             @item{Reward behaviors that you value: teamwork, note-taking, engagement, etc}
                                             @item{Pass out exit slips, dismiss, clean up.}]}
