@@ -30,7 +30,7 @@
                                 @item{After you have implemented @code{Posn}s, add keys for diagonal movement.}
                                 @item{Use @code{and} inside @code{update-player}, so that the player will only move up if its y-coordinate is less than 480.
                                       Do the same for downward motion.}
-                                @item{Add a "Safe Zone": put a green box or green shading somewhere on the background, then change @code{is-collision}}
+                                @item{Add a "Safe Zone": put a green box or green shading somewhere on the background, then change @code{is-collision}
  so that a player only collides if the player touches a danger AND they are not inside the zone.}
                                 @item{If you've already added 2-dimensional movement using Posns, try making the y-coordinate of your danger change
                                       @italic{as a function of x}. You can move in a wave pattern by using @code{num-sin} and @code{num-cos}!}]

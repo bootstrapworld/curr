@@ -16,7 +16,7 @@
                            @item{Language Table (see below)}
                           ]
      #:preparation @itemlist[]
-     #:prerequisites (list "collide?")
+     #:prerequisites (list)
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -39,8 +39,8 @@
               @teacher{}
               }
       @point{@student{However, Pyret actually allows us to create new kinds of
-      data that can contain more than one thing. These are called @vocab{data
-      structures}, or "structs" for short. One kind of struct that is useful to
+      data that can contain more than one thing. These are called @vocab["data structures"],
+      or "structs" for short. One kind of struct that is useful to
       us is called a position, which Pyret abbreviates @code{posn}.
 
                      @activity{Open @hyperlink["https://code.pyret.org/editor#share=16MQzrj2WbZQwb1uSpGN3n0svws8eK8R8&v=f9e4ffe" "the posn starter file"] and click "Run"
@@ -66,6 +66,7 @@
                                examples:
                                 update-danger(200, 300) is posn((200 - 10), (300 - 5)
                                end
+                               }
                                @itemlist[@item{Write a second example.}
                                           @item{Circle and label what changes.}
                                           @item{Define the function on your worksheet, then modify the definition in your program so that your danger moves diagonally!}]}}
