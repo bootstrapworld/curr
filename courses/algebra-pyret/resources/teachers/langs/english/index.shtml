@@ -15,7 +15,6 @@
     </style>
   </head>
   <body>
-        <!--#include virtual="/menubar.ssi" -->
         
         <div id="body">
             
@@ -133,7 +132,7 @@
                 </li>
                 <li>Unit 1: Circles of Evaluation And Code Practice
                   <span class="links">
-                    [<a href="https://teacher.desmos.com/activitybuilder/custom/5a15e2388c08800a6024c091">Desmos Activity</a>]
+                    [<a href="https://teacher.desmos.com/activitybuilder/custom/5b294eaa9477d32e25dde27a">Desmos Activity</a>]
                   </span>
                 </li>
                 <li>Unit 1: Circles of Evaluation And Code Practice
@@ -154,31 +153,31 @@
                 <li>Converting Circles of Evaluation to Code (1)
                   <span class="links">
                     [<a href="../../units/unit2/exercises/Strings-and-Images/many-types-coe-to-code1-im.html">exercise</a>
-                    | <a>answers</a>]
+                    ]
                   <span>
                 </li>
                 <li>Converting Circles of Evaluation to Code (2)
                   <span class="links">
                     [<a href="../../units/unit2/exercises/Strings-and-Images/many-types-coe-to-code2.html">exercise</a>
-                    | <a>answers</a>]
+                    ]
                   <span>
                 </li>
                 <li>Identifying Parts of Expressions (1)
                   <span class="links">
                     [<a href="../../units/unit2/exercises/Contracts/id-expr-pieces1-im.html">exercise</a>
-                    | <a>answers</a>]
+                    ]
                   </span>
                 </li>
                 <li>Identifying Parts of Expressions (2)
                   <span class="links">
                     [<a href="../../units/unit2/exercises/Contracts/id-expr-pieces2-im.html">exercise</a>
-                    | <a>answers</a>]
+                    ]
                   </span>
                 </li>
                 <li>Matching Expressions and Contracts
                   <span class="links">
                     [<a href="../../units/unit2/exercises/Contracts/match-contracts-exprs1-im.html">exercise</a>
-                    | <a>answers</a>]
+                    ]
                   </span>
                 </li>
                 <li>Unit 2 Quiz - Bootstrap: Algebra
