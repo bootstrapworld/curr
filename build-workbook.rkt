@@ -19,6 +19,7 @@
          "lib/system-parameters.rkt"
          "lib/scribble-pdf-helpers.rkt"
          "lib/build-modes.rkt"
+         "lib/build-helpers.rkt"
          "lib/warnings.rkt"
          scribble/render
          file/zip)
@@ -28,28 +29,13 @@
 ;
 (putenv "LANGUAGE" "en-us")
 
+(putenv "RELEASE-STATUS" "mature")
+(putenv "TARGET-LANG" "racket")
+
 (putenv "IGNORED-WARNINGS" "")
 (putenv "COLLECTED-WARNINGS" "")
 
 (define courses '("algebra" "algebra-pyret" "reactive" "data-science" "physics" "blank-course"))
-
-; parse command-line arguments
-
-;; parse-course-args: list/of string -> list/of string
-;; This parses the list of course arguments, ensuring that they are all valid course names
-(define (parse-course-args rest-args)
-  (cond
-    [(empty? rest-args) empty]
-    [(cons? rest-args)
-     ;;checks if next argument is a command-line argument tag, rather than a course name
-     (let [(course-name (first rest-args))]
-       (cond [(member course-name courses)
-              (cons course-name (parse-course-args (rest rest-args)))]
-             [else
-              (raise-user-error (string-append "Build-workbook got unrecognized target course: "
-                                               course-name " -- expected "
-                                               (foldl (lambda (a b) (string-append a " or " b))
-                                                      "" courses)))]))]))
 
 ; use this to tell scribble to use the workbook.css file
 (putenv "BOOTSTRAP-TARGET" "workbook")
@@ -95,7 +81,7 @@
          (cond
            [(string? p) 
              (regexp-replace #px"\\.scrbl$" p ".pdf")]
-           [(skip-marker? p) p]
+           ;[(skip-marker? p) p]
            [(and (list? p) (= 2 (length p)))
              (string-append (second p) ".pdf")]
            [(and (list? p) (= 3 (length p)))
@@ -121,7 +107,7 @@
             (printf ";; This file is generated automatically.  DO NOT EDIT IT MANUALLY!~n~n")
             (write (reverse indexlist))))
         (let ([p (first pages)])
-          (if (skip-marker? p)
+          (if (skip-marker? p) ;; this shouldn't be true now -- clear out skip marker code
               (loop (rest pages) (+ nextpage (second p)) indexlist)
               (let* ([output (with-output-to-string 
                               (lambda () (system* (get-prog-cmd "pdftk") (build-path pdfdir p) "dump_data")))]
@@ -187,6 +173,7 @@
         (if (file-exists? (build-path (kf-get-workbook-dir) solsfile)) solsfile filename))
       filename))
 
+#|
 ;; extract single PDF pages for each page due to pull from an existing PDF file
 ;; assumes existing PDF file is in workbook directory
 ;; wkbk-mod-sec could be #f if the previous workbook file is not available
@@ -212,12 +199,61 @@
                              "output" (format "pages/~a.pdf" tofile) "dont_ask"))))
               pages)))
 
+|#
+
+;; extract single PDF pages for each page due to pull from an existing PDF file
+;; assumes existing PDF file is in workbook directory
+;; wkbk-mod-sec could be #f if the previous workbook file is not available
+(define (extract-PDF-pages pages wkbk-mod-sec)
+  (parameterize ([current-directory (kf-get-workbook-dir)])
+    ; each pspec should be one of file.scrbl, path/file.scrbl, (file.pdf tag)
+    ;  they come from the contentlist.rkt files in each workbook directory
+    (for-each (lambda (pspec)
+                (cond [(and (list? pspec)  ;; in this case we have a file to extract from another PDF
+                            (= (length pspec) 2)
+                            (or #t
+                                (not (file-exists? (build-path "pages" (string-append (second pspec) ".pdf"))))
+                                (not wkbk-mod-sec)
+                                (< wkbk-mod-sec (file-or-directory-modify-seconds (first pspec)))
+                                (and (solutions-mode?) 
+                                     (< wkbk-mod-sec (file-or-directory-modify-seconds (source-pdf/sols-mode (first pspec)))))
+                                (< wkbk-mod-sec (file-or-directory-modify-seconds "manualpages-index.rkt"))
+                                ))
+                       (begin
+                         ;; have a pdf file to extract from another pdf file
+                         ;(printf "Extracting PDF for ~a from ~a~n" pspec (current-directory))
+                         (let* ([fromfile (source-pdf/sols-mode (first pspec))]
+                                [tofile (second pspec)]
+                                [loc (get-manual-page tofile)])
+                           (system* (get-prog-cmd "pdftk") fromfile "cat" (format "~a" loc) 
+                                    "output" (format "pages/~a.pdf" tofile) "dont_ask")))]
+                      [(and (list? pspec) ; have a local exercise
+                            (= (length pspec) 3)
+                            (string=? (first pspec) "exercise"))
+                       (unless (file-exists? (build-path "pages" (regexp-replace #px"\\.scrbl$" (second pspec) ".pdf")))
+                         (copy-file (build-path (lessons-dir) (third pspec) (second pspec))
+                                    (build-path "pages" (regexp-replace #px"\\.scrbl$" (second pspec) ".pdf"))))]
+                      [else
+                       (printf "Doing nothing for page ~a~n" pspec)
+                       void
+                       ]))
+;                    ...
+;                (let ([path-elts (string-split pspec "\\")])
+;                  (cond [(> (length path-elts) 1) ;; reference to a file elsewhere in our build system
+;                         (let ([basefilename (last path-elts)])  ;; ADAPT TO ALLOW SCRBL NAMES -- THIS ASSUMES PDF
+;                           (copy-file (string->path pspec) (build-path "pages" basefilename)))]
+;                        [else void])) ;; is already a file in pages
+;                )
+              pages)))
+
 ;; the MAIN function to build the workbook
 (define (build-workbook)
   (let* ([workbook-dir (kf-get-workbook-dir)]
          [pages-spec (with-input-from-file (build-path workbook-dir "contentlist.rkt") read)]
          [front-spec (with-input-from-file (build-path workbook-dir "frontmatterlist.rkt") read)]
-         [back-spec (with-input-from-file (build-path workbook-dir "backmatterlist.rkt") read)]
+         [back-spec (with-input-from-file (build-path workbook-dir
+                                                      (if (solutions-mode?) "backmatterlist-sols.rkt" "backmatterlist.rkt"))
+                      read)]
          [pagesdir (build-path workbook-dir "pages")]
          [extra-exercises-dir (lessons-dir)]
          [pages (check-contents-exist pages-spec pagesdir)]
