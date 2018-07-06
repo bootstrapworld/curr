@@ -646,6 +646,11 @@
                (build-path distrib-lib-dir "mathjaxlocal.js")
                #t)))
 
+(define (remove-lessons-dir-from-distribution)
+  (printf "deployment dir is ~a~n" (current-deployment-dir))
+  (when (directory-exists? (build-path (current-deployment-dir) "lessons"))
+    (delete-directory/files (build-path (current-deployment-dir) "lessons"))))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -696,6 +701,7 @@
         (build-course-units)
         (copy-resources)
         ))))
+(remove-lessons-dir-from-distribution)
 (create-distribution-lib)
 (print-warnings)
 ;(build-lessons)
