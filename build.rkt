@@ -541,6 +541,21 @@
                         (build-path (simple-form-path output-resources-dir) subdir )
                         #t))]))
 
+      #|
+      ; move sensitive teacher resources into protected directory
+      (let* ([teacher-resources (build-path output-resources-dir "teachers")]
+             [teacher-protected (build-path teacher-resources "protected")])
+        (unless (directory-exists? teacher-protected)
+          (make-directory teacher-protected))
+        ;(rename-file-or-directory (build-path teacher-resources "solutions")
+        ;                          (build-path teacher-protected "solutions"))
+        (rename-file-or-directory (build-path teacher-resources "TeacherWorkbook.pdf")
+                                  (build-path teacher-protected "TeacherWorkbook.pdf"))
+        ;; should buggy-DR answer key be here too? (Kathi, 7/6/18)
+        )
+      |#
+
+
       ; keep only certain files in workbook resources dir
       (when (directory-exists? (build-path output-resources-dir "workbook"))
         (let ([keep-workbook-files (list "workbook.pdf")])
@@ -620,9 +635,13 @@
                    (make-directory (build-path (deploy-resources-dir) "teachers")))
                  ;;;; end may 28 addition
                  (printf "Copying teachers workbook solutions into distribution~n")
-                 (copy-file workbooksols oldsols))))
-           )
-         ]
+                 (let* ([teacher-resources (build-path (deploy-resources-dir) "teachers")]
+                        [teacher-protected (build-path teacher-resources "protected")])
+                   (unless (directory-exists? teacher-protected)
+                     (make-directory teacher-protected))
+                   (printf "about to copy teacherworkbook into place~n")
+                   (copy-file workbooksols (build-path teacher-protected "TeacherWorkbook.pdf")))))
+             ))]
         [else
          (printf "build.rkt: no teacher's guide found; skipping\n")]))
 

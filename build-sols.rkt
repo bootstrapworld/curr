@@ -79,6 +79,13 @@
                 #:when (regexp-match #px".scrbl$" worksheet))
             (printf "build-sols.rkt: building exercise handout solution ~a: ~a\n" subdir worksheet)
             (run-scribble (build-path exercises-path worksheet)))))))
+  (let* ([teacher-resources (build-path (deploy-resources-dir) "teachers")]
+         [teacher-protected (build-path teacher-resources "protected")])
+    (unless (directory-exists? teacher-protected)
+      (make-directory teacher-protected))
+    (rename-file-or-directory (build-path teacher-resources "solutions")
+                              (build-path teacher-protected "solutions")
+                              true))
   ;(solutions-mode-off)
   )
 
