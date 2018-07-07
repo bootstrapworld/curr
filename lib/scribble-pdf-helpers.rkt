@@ -18,6 +18,12 @@
    (if progpath progpath
        (error (format "Unable to find program ~a~n" progname)))))
 
+;; 7/6/18: this tried to get too fancy: we scribbled to the deployment-dir directly,
+;; but the unit exercises appear multiple places, so we scribble/wkhtmltopdf them
+;; multiple times, which is costly.  We need to have the output-dir here be the source
+;; dir for the scribble file, then modify the build script elsewhere to copy exercise
+;; htl/pdf files into place, rather than scribble them into place. (or maybe not --
+;; don't we need them scribbled with different css files for workbook and website??)
 (define (run-scribble scribble-file)
   (printf "Scribbling ~a~n" scribble-file)
   (define output-dir (current-deployment-dir))
@@ -30,17 +36,29 @@
             #:dest-dir output-dir))
   (void))
 
+;; determine whether a file needs to be re-scribbled either because
+;; it was modified since its last scribbling or because the
+;; css file was updated.
+;; scrbl-file is just <file>.scrbl; path is the dir containing that file 
+(define (scribble-again? scrbl-file path)
+  (let* ([fhtml (regexp-replace #px"\\.scrbl$" scrbl-file ".html")]
+         [fhtmlpath (build-path path fhtml)])
+    (or (not (file-exists? fhtmlpath))
+        (> (file-or-directory-modify-seconds (build-path path scrbl-file))
+           (file-or-directory-modify-seconds fhtmlpath))
+        (> (file-or-directory-modify-seconds (build-path root-path "lib" "workbook.css"))
+           (file-or-directory-modify-seconds fhtmlpath))
+        )))
+
 ;; run scribble on each .scrbl file in the pages listing
 ;; wkbk-mod-sec could be #f if the previous workbook file is not available
+;; 7/6/18 -- remove the wkbk-mod-sec parameter
 (define (scribble-files pages pagesdir extra-exercises-dir wkbk-mod-sec)
   (for-each (lambda (f)
               (cond
                 [(and (string? f) 
                       (regexp-match #px".*\\.scrbl$" f)
-                      (or (not wkbk-mod-sec)
-                          (< wkbk-mod-sec (file-or-directory-modify-seconds (build-path pagesdir f)))
-                          (< wkbk-mod-sec (file-or-directory-modify-seconds (build-path root-path "lib" "workbook.css")))
-                          #t))
+                      (scribble-again? f pagesdir))
                  (run-scribble (build-path pagesdir f))
                  (let ([fhtml (regexp-replace #px"\\.scrbl$" f ".html")]
                        [fpdf (regexp-replace #px"\\.scrbl$" f ".pdf")])
@@ -50,10 +68,8 @@
                             (build-path pagesdir fpdf)))]
                 [(and (list? f) (= (length f) 3)
                       (regexp-match #px".*\\.scrbl$" (second f))
-                      (or (not wkbk-mod-sec)
-                          (< wkbk-mod-sec (file-or-directory-modify-seconds (build-path (build-path extra-exercises-dir (third f) "exercises") (second f))))
-                          (< wkbk-mod-sec (file-or-directory-modify-seconds (build-path root-path "lib" "workbook.css")))
-                          #t))
+                      (scribble-again? (second f) (build-path extra-exercises-dir (third f) "exercises"))
+                      )
                  (let ([exercise-dir (build-path extra-exercises-dir (third f) "exercises")])
                    (run-scribble (build-path exercise-dir (second f)))
                    (let ([fhtml (regexp-replace #px"\\.scrbl$" (second f) ".html")]
@@ -61,9 +77,9 @@
                      ; -q option is for "quiet" operation
                      (system* (get-prog-cmd "wkhtmltopdf") "--lowquality" "--print-media-type" "-q"
                               (build-path pagesdir fhtml)
-                              (build-path pagesdir fpdf))))])
-              )
-            pages))
+                              (build-path pagesdir fpdf))))]
+                ))
+              pages))
 
 ; Avoiding naming conflicts with the more general run-scribble
 ; function in the build script (shouldn't need two functions, but have never

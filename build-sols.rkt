@@ -85,7 +85,7 @@
       (make-directory teacher-protected))
     (rename-file-or-directory (build-path teacher-resources "solutions")
                               (build-path teacher-protected "solutions")
-                              true))
+                              #t))
   ;(solutions-mode-off)
   )
 
