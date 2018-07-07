@@ -541,20 +541,17 @@
                         (build-path (simple-form-path output-resources-dir) subdir )
                         #t))]))
 
-      #|
       ; move sensitive teacher resources into protected directory
+      ; 7/5/18 -- this core code appears in build, build-workbook, build-sols -- abstract to helper
       (let* ([teacher-resources (build-path output-resources-dir "teachers")]
              [teacher-protected (build-path teacher-resources "protected")])
         (unless (directory-exists? teacher-protected)
           (make-directory teacher-protected))
-        ;(rename-file-or-directory (build-path teacher-resources "solutions")
-        ;                          (build-path teacher-protected "solutions"))
-        (rename-file-or-directory (build-path teacher-resources "TeacherWorkbook.pdf")
-                                  (build-path teacher-protected "TeacherWorkbook.pdf"))
-        ;; should buggy-DR answer key be here too? (Kathi, 7/6/18)
+        (rename-file-or-directory (build-path teacher-resources "buggy-DR-answer-key.pdf")
+                                  (build-path teacher-protected "buggy-DR-answer-key.pdf"))
+        ;; remove the docx file -- shouldn't be in distribution
+        (delete-file (build-path teacher-resources "buggy-DR-answer-key.docx")) 
         )
-      |#
-
 
       ; keep only certain files in workbook resources dir
       (when (directory-exists? (build-path output-resources-dir "workbook"))
