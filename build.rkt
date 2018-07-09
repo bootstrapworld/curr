@@ -547,10 +547,11 @@
              [teacher-protected (build-path teacher-resources "protected")])
         (unless (directory-exists? teacher-protected)
           (make-directory teacher-protected))
-        (rename-file-or-directory (build-path teacher-resources "buggy-DR-answer-key.pdf")
-                                  (build-path teacher-protected "buggy-DR-answer-key.pdf"))
-        ;; remove the docx file -- shouldn't be in distribution
-        (delete-file (build-path teacher-resources "buggy-DR-answer-key.docx"))
+        (when (equal? (current-course) "algebra")
+          (rename-file-or-directory (build-path teacher-resources "buggy-DR-answer-key.pdf")
+                                    (build-path teacher-protected "buggy-DR-answer-key.pdf"))
+          ;; remove the docx file -- shouldn't be in distribution
+          (delete-file (build-path teacher-resources "buggy-DR-answer-key.docx")))
         ;; copy the .htaccess file to protected
         (copy-file (build-path input-resources-dir "teachers" ".htaccess")
                    (build-path teacher-protected ".htaccess"))       
