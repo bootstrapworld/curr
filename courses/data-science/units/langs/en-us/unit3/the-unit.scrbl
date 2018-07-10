@@ -44,7 +44,7 @@
             @point{
                   @student{
                         @activity[#:forevidence (list )]{
-                          Open the saved @(new-tab "https://docs.google.com/spreadsheets/d/19m1bUCQo3fCzmSEmWMjTfnmsNIMqiByLytHE0JYtnQM/" "Animals Spreadsheet") in a new tab. From the Pyret menu, save a copy of this file into your account. This allows you to make changes and save your work.
+                          Open your animals Pyret in a new tab. (If you need to start from a new file, you can @editor-link[#:public-id "0BzzMl1BJlJDkYkhKMG51VlRiWk0" "Save a Copy"] of the original.)
                         }
                   }
                   @teacher{
@@ -128,7 +128,8 @@
                 @point{
                       @student{
                             @activity{
-                              Suppose I want to know if @code{mittens} is fixed or not. How would you find the answer?
+                              Suppose I want to know if @code{mittens} is fixed or not. How would you find the answer? Suppose I wanted to do this for every animal in the table?
+
                             }
                             We know lots of functions in Pyret that can handle Numbers, Strings, Images and so on, but none that can handle animals! @bold{We need to build our own.}
                       }

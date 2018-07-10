@@ -76,7 +76,7 @@
              @point{
                     @student{
                             @activity[#:forevidence "BS-IDE&1&1"]{
-                                    Open up the @editor-link[#:public-id "0BzzMl1BJlJDkVTlPTjlIWFB2aDA" "Image Table"] starter file. Click "Connect to Google Drive" to sign into your Google account, and then click the "Save as" button. This will save a copy of the file into your own account, so that you can make changes and retrieve them later.
+                                    Open up the @editor-link[#:public-id "0BzzMl1BJlJDkVTlPTjlIWFB2aDA" "Shapes Table"] starter file. Click "Connect to Google Drive" to sign into your Google account, and then click the "Save as" button. This will save a copy of the file into your own account, so that you can make changes and retrieve them later.
                             }
                     }
                     @teacher{
@@ -385,7 +385,7 @@
                         @activity[#:forevidence (list "BS-IDE&1&1" "BS-PL.1&1&2")]{
                             @itemlist[
                               @item{ What is the name of this function? }
-                              @item{ What did the expression@code{num-sqrt(16)} evaluate to? }
+                              @item{ What did the expression @code{num-sqrt(16)} evaluate to? }
                               @item{ Does the @code{num-sqrt} function produce Numbers? Strings? Booleans? }
                               @item{ How many @vocab{arguments} does @code{num-sqrt} expect? }
                             ]

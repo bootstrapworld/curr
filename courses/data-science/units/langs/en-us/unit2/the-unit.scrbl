@@ -97,7 +97,7 @@
                               @item{How many columns does this table have?}
                               @item{For each column, is the data quantitative or categorical? }
                               @item{For each column, what datatype is being used? Numbers? Strings? Images? Booleans? }
-                              @item{How could you get row for the animal named "Toggle"? }
+                              @item{How could you get the row for the animal named "Toggle"? }
                               @item{How could you get the age of the animal named "Toggle" from that row? }
                               @item{How could you get the species of the animal named "Fritz"? }
                               @item{How could you get the number of legs of the animal named "Mittens"? }
@@ -148,13 +148,13 @@
                           Most questions can be broken down into one of three categories:
                           @itemlist[
                               @item{
-                                @bold{Lookup questions} - These can be answered simply by looking up a particular value in the table and reading it out. Once you find the value, you're done! Examples of lookup questions might be @italic{"is Sunflower fixed?"} or @italic{"How many legs does Felix have?""}.
+                                @bold{Lookup questions} - These can be answered simply by looking up a particular value in the table and reading it out. Once you find the value, you're done! Examples of lookup questions might be @italic{"is Sunflower fixed?"} or @italic{"How many legs does Felix have?"}
                               }
                               @item{
-                                @bold{Compute questions} - These can be answered by computing an answer across an entire row or column. Examples of computing questions might be @italic{"what is the heaviest animal?"} or @italic{"What is the average age of animals at the shelter?"}.
+                                @bold{Compute questions} - These can be answered by computing an answer across an entire row or column. Examples of computing questions might be @italic{"what is the heaviest animal?"} or @italic{"What is the average age of animals at the shelter?"}
                               }
                               @item{
-                                @bold{Analyze questions} - These ones take the most work, because they require looking for patterns and trends across @italic{multiple} rows or columns. Examples of analysis questions might be @italic{"Do cats tend to be adopted faster than dogs?"} or @italic{"Are older animals heavier than young ones?"}.
+                                @bold{Analyze questions} - These ones take the most work, because they require looking for patterns and trends across @italic{multiple} rows or columns. Examples of analysis questions might be @italic{"Do cats tend to be adopted faster than dogs?"} or @italic{"Are older animals heavier than young ones?"}
                               }
                           ]
                   }
@@ -166,7 +166,6 @@
                   @student{
                           On the bottom of @worksheet-link[#:name "Animals-Dataset"], there are a list of questions that we might have about the animals at the shelter. Can all of them be answered by this dataset?
                           @activity{
-                              Take 5 minutes to discuss the questions, and put a check mark next to the ones that CAN be answered by this dataset. 
                               @itemlist[
                                   @item{ For the ones that can, which kind of question are they? }
                                   @item{ For ones that can't, what data is missing? }
