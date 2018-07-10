@@ -401,11 +401,11 @@
             (create-path-dirs old-deployment-dir (list "lessons" (getenv "LANGUAGE") subdir))
             (make-directory (current-deployment-dir))
             )
-        ;; copy over .pdf exercises that do not come from corresponding .scrbl files
+          ;; copy over .pdf exercises that do not come from corresponding .scrbl files
           (for ([worksheet (directory-list (build-path (lessons-dir) subdir "exercises"))]
                 #:when (and (regexp-match #px".pdf$" worksheet)
                             (not (file-exists? (build-path (lessons-dir) subdir "exercises" (regexp-replace #px"\\.pdf$" (path->string worksheet) ".scrbl"))))))
-            (let ([worksheet-distrib-file (build-path (current-deployment-dir) "lessons"  (getenv "LANGUAGE") subdir "exercises" worksheet)])
+            (let ([worksheet-distrib-file (build-path old-deployment-dir "lessons"  (getenv "LANGUAGE") subdir "exercises" worksheet)])
               (unless (file-exists? worksheet-distrib-file) 
                 (copy-file (build-path (lessons-dir) subdir "exercises" worksheet)
                            worksheet-distrib-file
