@@ -8,6 +8,7 @@
          scribble/decode
          scribble/basic
          scribble/html-properties
+         (prefix-in xml: scribble/html/xml)
          scriblib/render-cond
          racket/path
          (for-syntax racket/base racket/syntax)
@@ -64,8 +65,8 @@
          fill-in-blank-answers-exercise
          sexp
          sexp->math
-	       sexp->coe
-	       sexp->code
+         sexp->coe
+         sexp->code
          make-exercise-locator
          make-exercise-locator/file
          exercise-handout
@@ -83,7 +84,9 @@
          run-link
          login-link
          resource-link
-         [rename-out [worksheet-link/src-path worksheet-link]] 
+         [rename-out [worksheet-link/src-path worksheet-link]]
+         insert-comment
+         insert-menu-ssi
          lulu-button
          logosplash
          embedded-wescheme
@@ -860,6 +863,19 @@
                  (format "http://www.bootstrapworld.org/images/~a" logo-file)
                  "course logo"))
           ))
+
+;;
+;;@(define (comment . content)
+;;   @literal[@list[" <!-- " content " --> "]])
+
+;;@(define <!-- comment)
+
+(define (insert-comment content)
+  (literal (string-append "<!--" content " -->")))
+
+(define (insert-menu-ssi)
+  ;(xml:comment "menubar.ssi"))
+  (literal "<!--#include virtual=\"/menubar.ssi\"-->"))
 
 ;;;;;;;;;; Unit summary generation ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
