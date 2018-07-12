@@ -14,7 +14,7 @@
                                  ("reactive" "en-us")
                                  ("data-science" "en-us")
                                  ("physics" "en-us")
-                                 ;("blank-course" "en-us")
+                                 ("intro" "en-us")
                                  ))
 (define available-courses (map (lambda (course-spec) (first course-spec)) available-course-specs))
 
@@ -71,4 +71,3 @@
   (printf "\n\nbuild-sols.rkt: building in language ~a~n" (getenv "LANGUAGE"))
   (current-translations (with-input-from-file (string-append "lib/langs/" (getenv "LANGUAGE") "/translated.rkt") read))
   (current-glossary-terms (with-input-from-file (string-append "lib/langs/" (getenv "LANGUAGE") "/glossary-terms.rkt") read)))
-
