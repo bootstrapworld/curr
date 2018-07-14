@@ -7,11 +7,11 @@
          scribble/html-properties
          scribble/latex-properties
          ;(prefix-in neturl: net/url) ;; so we can load mathjax from a url
-	 "math-rendering.rkt"
+	       "math-rendering.rkt"
        )
 
 (provide bootstrap-sectioning-style
-         bootstrap-paragraph-style 
+         bootstrap-paragraph-style
 	 bootstrap-div-style
 	 bootstrap-div-style/id
 	 bootstrap-div-style/id/nested
@@ -24,10 +24,11 @@
 	 bootstrap-style
 	 bs-head-additions
          bs-body-id
-	 make-bs-latex-style 
+	 make-bs-latex-style
 	 bs-title-style
 	 bs-content-style
          bs-coursename-style
+         ; bs-toc-style
 )
 
 ;;;;;;;;;;;;;;;; Runtime Paths ;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -58,7 +59,7 @@
         (make-js-addition mathjax-url)
         (cond [(member (getenv "BOOTSTRAP-TARGET") (list "workbook")) (make-css-style-addition workbook.css)]
               [else (make-css-style-addition textbook.css)])
-        )) 
+        ))
 
 (define overview-pages-css-js-additions
   (list (make-css-style-addition overview-styles.css)
@@ -77,31 +78,31 @@
 
 (define (bootstrap-div-style name)
   (make-style name (cons (make-alt-tag "div")
-                         css-js-additions)))  
+                         css-js-additions)))
 
 (define (bootstrap-div-style/id name)
   (make-style #f (cons (make-alt-tag "div")
-                       (cons 
+                       (cons
                         (make-attributes (list (cons 'id name)))
                         css-js-additions))))
 
 (define (bootstrap-div-style/id/nested name)
   (make-style "" (cons (make-alt-tag "div")
-                       (cons 
+                       (cons
                         (make-attributes (list (cons 'class "")
                                                (cons 'id name)))
                         css-js-additions))))
 
 (define (bootstrap-div-style/extra-id name id)
   (make-style name (cons (make-alt-tag "div")
-                         (cons 
+                         (cons
                           (make-attributes (list (cons 'class "")
                                                  (cons 'id id)))
                           css-js-additions))))
 
 (define (bootstrap-span-style/extra-id name id)
   (make-style name (cons (make-alt-tag "span")
-                         (cons 
+                         (cons
                           (make-attributes (list ;(cons 'class "")
                                                  (cons 'id id)))
                           css-js-additions))))
@@ -124,7 +125,7 @@
 (define bootstrap-hyperlink-style
   (make-style #f (cons (make-attributes (list (cons 'target "_blank")))
                        css-js-additions)))
-  
+
 ;; bootstrap-style : string -> style
 ;; defines a style for both latex and css with the given name
 (define (bootstrap-style name)
@@ -133,7 +134,7 @@
 
 ;; add meta attributes to HEAD (needed for iPhone rendering)
 (define bs-head-additions
-  (make-head-extra 
+  (make-head-extra
    '(meta ((name "viewport")
            (content "width=device-width, initial-scale=1, user-scalable=no")))))
 
@@ -148,7 +149,7 @@
 
 ;; make-bs-latex-style : string -> style
 ;; defines a style that will only be used in latex
-(define (make-bs-latex-style name) 
+(define (make-bs-latex-style name)
   (make-style name (list (make-tex-addition bootstrap-pdf.tex))))
 
 ;;;;;;;; Shared styles ;;;;;;;;;;;;;;;;;;;;
@@ -157,5 +158,3 @@
 (define bs-content-style (bootstrap-div-style "content"))
 
 (define bs-coursename-style (make-style "BSCourseName" overview-pages-css-js-additions))
-
-
