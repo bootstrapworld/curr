@@ -20,6 +20,7 @@
          "lib/pdf-lesson-exercises.rkt"
          "lib/warnings.rkt"
          scribble/render
+         scribble/html-render
          file/zip)
 
 
@@ -104,6 +105,7 @@
                  [current-document-output-path output-path])
     (render (list (dynamic-require `(file ,(path->string name)) 'doc))
             (if outfile (list outfile) (list name))
+            ;;; #:render-mixin (compose render-multi-mixin render-mixin)
             #:dest-dir output-dir
             ;; Comment out next line to use default scribble.css file
             #:style-file (build-path root-path "lib" "css-files-units" "scribble.css")
@@ -127,8 +129,8 @@
 ;; Command line parsing.  We initialize the SCRIBBLE_TAGS environmental
 ;; variable
 ;; Hard-set list. This is optionally replaced with command-line arguments below
-;(define courses (list "algebra" "reactive" )) ;  "data-science" "physics"))
-(define courses available-courses)
+(define courses (list "intro")) ; "algebra" "reactive" "data-science" "physics"))
+;(define courses available-courses)
 
 (units '())
 
@@ -138,7 +140,7 @@
 
 ;(void
 (putenv "CURRENT-SOLUTIONS-MODE" "off")
-(putenv "TARGET-LANG" "pyret")
+(putenv "TARGET-LANG" "racket")
 (putenv "LANGUAGE" "en-us")
 
 ;; warnings to be ignored when running the build script. This can be populated using the
@@ -692,7 +694,7 @@
         (update-lang-fields language)
         (solutions-mode-off)
         (putenv "RELEASE-STATUS" "mature")
-        (process-teacher-contributions)
+        ;(process-teacher-contributions)
         (when (equal? course "algebra")
           (putenv "TARGET-LANG" "racket")
           (if (build-exercises?)
@@ -707,7 +709,7 @@
             (putenv "TARGET-LANG" "racket")
             (if (build-exercises?)
                 (begin (build-exercise-handouts) ; not needed for reactive
-                       (workbook-styling-on)
+                     (workbook-styling-on)
                        ;; when did we move the following into units?
                        ;(build-extra-pdf-exercises); not needed for reactive
                        )
