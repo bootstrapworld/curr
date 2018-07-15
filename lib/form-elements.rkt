@@ -961,8 +961,11 @@
 (define (length-of-lesson l)
   (para #:style bs-header-style/span (format (string-append (translate 'length)": ~a "(translate 'minutes)) l)))
 
+
+; length-of-unit/auto : -> traverse
+; traverse block returns a procedure that calls length-of-lesson
 (define (length-of-unit/auto)
-  (traverse-block
+  (traverse-block ; procedure -> block ;; A traverse block is an instance of traverse-block, which ultimately produces another block, but can accumulate and inspect information during the traverse pass.
    (lambda (get set)
      (lambda (get set)
        (length-of-lesson (get 'unit-length "No value found for"))))))
