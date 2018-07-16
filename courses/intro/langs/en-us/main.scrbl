@@ -1,4 +1,4 @@
-#lang scribble/base
+#lang curr/lib
 
 My Main Page
 
