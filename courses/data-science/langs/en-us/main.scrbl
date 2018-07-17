@@ -1,8 +1,5 @@
 #lang curr/lib
 
-@;@(insert-menu-ssi)
-@literal["<!--#include virtual=\"/menubar.ssi\"-->"]
-
 @main-contents{
 @(elem #:style bs-coursename-style "Bootstrap:Data Science")
 
