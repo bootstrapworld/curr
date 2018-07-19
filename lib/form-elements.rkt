@@ -585,7 +585,7 @@
                                                    anchor)
                                     (get 'bootstrap-lessons '())))
      (nested #:style "LessonBoundary"
-      (para (toc-target-element #f title '(foo "foo")))
+      ;(para (toc-target-element #f title '(foo "foo")))
       (para #:style bs-page-title-style title)
       "\n" "\n"
       (nested-flow
@@ -842,7 +842,7 @@
             descr)))
 
 
-;; unit-summary/links : number content -> block
+;; unit-summary/links : number -> block
 ;; generate the summary of a unit with links to html and pdf versions as
 ;;   used on the main page for the BS1 curriculum
 ;; previously used summary-item/links (for both html/pdf links)
@@ -1446,8 +1446,11 @@
                            [html bootstrap.logo]
                            [(or latex pdf) (elem)]))
   (interleave-parbreaks/all
+
    (cond
-     [unit+title (list (head-title-no-content the-title)
+     [unit+title (list
+
+                        (head-title-no-content the-title)
                        (nested #:style (bootstrap-div-style "headercontent")
                                (list (para #:style (bootstrap-span-style "BootstrapTitle")
                                            bootstrap-image
@@ -1455,7 +1458,9 @@
                                            (third unit+title)
                                            ;(length-of-unit/auto)
                                            ))))]
-     [else (list (head-title-no-content the-title)
+     [else (list
+
+                (head-title-no-content the-title)
                  (nested #:style (bootstrap-div-style "headercontent")
                          (list (para #:style (bootstrap-span-style "BootstrapTitle")
                                      (cons bootstrap-image body)))))])))
