@@ -137,7 +137,7 @@
                       @student{
                               Pyret has a way for us to compute the @vocab{mean} of any column in a Table:
                               @code[#:multi-line #t]{
-                                mean :: (t :: Table, col :: String) -> Number
+                                # mean :: (t :: Table, col :: String) -> Number
                               }
                               @activity[#:forevidence (list )]{
                                   What is its name? Domain? Range?
@@ -361,8 +361,8 @@
                       @student{
                           We can use @vocab{box plots} to visualize these quartiles. These plots can easily be represented using @bold{just five numbers}, which makes them convenient ways to summarize data. Below is the contract for @code{box-plot}, along with an example that will make a box plot for the @code{weeks} column in the @code{animals-table}.
                           @code[#:multi-line #t]{
-                            box-plot :: (t :: Table, column :: String) -> Image
-                            box-plot(animals-table, "weeks")
+                            # box-plot :: (t :: Table, column :: String) -> Image
+                            # box-plot(animals-table, "weeks")
                           }
                           @activity[#:forevidence (list "S-ID.1-4&1&2" "HSS.ID.A&1&1" "HSS.ID.A&1&2" "6.SP.4-5&1&1" "S-ID.1-4&1&1")]{
                               Type in this expression in the Interactions Area, and see the resulting plot.
@@ -477,7 +477,7 @@
                       @student{
                           We've got most of our function written:
                           @code[#:multi-line #t]{
-                          variation-dog-age :: (animals :: Table) -> Image
+                          # variation-dog-age :: (animals :: Table) -> Image
                           # Consumes a table and produces a box plot showing the variation in dogs' ages
                           fun variation-dog-age(animals):
                             t = animals.filter(is-dog)  # define the table
@@ -494,7 +494,7 @@
                       @student{
                           Putting it all together, we get:
                           @code[#:multi-line #t]{
-                          variation-dog-age :: (animals :: Table) -> Image
+                          # variation-dog-age :: (animals :: Table) -> Image
                           # Consumes a table and produces the median age of all the dogs
                           fun median-dog-age(animals):
                             t = animals.filter(is-dog)  # define the table

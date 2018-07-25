@@ -140,8 +140,8 @@
                       @student{
                               Here is the contract for @code{freq-bar-chart}, followed by an example of how use it:
                               @code[#:multi-line #t]{
-                                freq-bar-chart :: (t :: Table, values :: String) -> Image
-                                freq-bar-chart(animals-table, "species")  # show frequency of each animal
+                                # freq-bar-chart :: (t :: Table, values :: String) -> Image
+                                # freq-bar-chart(animals-table, "species")  # show frequency of each animal
                               }
                               @activity[#:forevidence (list "6.SP.4-5&1&1" "HSS.ID.A&1&1" "Data 3.1.3&1&1" "Data 3.1.3&1&2" "Data 3.1.3&1&3")]{
                                   In the Interactions Area, type in the example to make a frequency bar chart of the animals, broken down by species. Are there more animals at the shelter that are female than male? Complete the Table Plan on @worksheet-link[#:name "Freq-Bar-Gender"].
@@ -189,7 +189,7 @@
                       @student{
                                Here is the contract for @code{histogram}, followed by an example of how use it:
                               @code[#:multi-line #t]{
-                                histogram :: (t :: Table, values :: String, bin-width :: Number) -> Image
+                                # histogram :: (t :: Table, values :: String, bin-width :: Number) -> Image
                                 histogram(animals-table, "pounds", 20)    # show the frequency of weights (in 20-pound bins)
                               }
                               @activity[#:forevidence (list )]{

@@ -132,8 +132,8 @@
                         @student{
                                 This visualization is called a @vocab{scatter plot}. Pyret has two functions for making scatter plots:
                                 @code[#:multi-line #t]{
-                                    scatter-plot :: (t :: Table, xs :: String, ys :: String) -> Image
-                                    labeled-scatter-plot :: (t :: Table, ls :: String, xs :: String, ys :: String) -> Image
+                                    # scatter-plot :: (t :: Table, xs :: String, ys :: String) -> Image
+                                    # labeled-scatter-plot :: (t :: Table, ls :: String, xs :: String, ys :: String) -> Image
                                 }
                                 Both functions consume the Table that we want to visualize, as well as the columns that we want to use as @code{xs} and @code{ys}. However, @code{labeled-scatter-plot} consumes another argument after the Table, which is a column that we will use to @italic{label each point}.
                         }

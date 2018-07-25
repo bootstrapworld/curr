@@ -152,7 +152,7 @@
                       @student{
                             @bannerline{Step 1: Contract and Purpose} The first thing we do is write a Contract for this function. You already know a lot about contracts: they tell us the Name, Domain and Range of the function. Our function tells us if an animal is fixed or not, so we'll call it @code{is-fixed}. It consumes an animal (represented by a @code{Row} in our table), and look up the value in the @code{fixed} column. A Purpose Statement is just a description of what the function does:
                             @code[#:multi-line #t]{
-                              is-fixed :: (animal :: Row) -> Boolean
+                              # is-fixed :: (animal :: Row) -> Boolean
                               # Consumes an animal, and looks up whether it is fixed
                             }
                       }
@@ -164,7 +164,7 @@
                       @student{
                             @bannerline{Step 2: Write Examples} You already know how to write examples for built-in functions, where we write the @italic{answer} we expect to get back. Just as we did before, we start with the name of the function we're writing, followed by an example input. Let's use some two pets we defined earlier for our first example.
                             @code[#:multi-line #t]{
-                              is-fixed :: (animal :: Row) -> Boolean
+                              # is-fixed :: (animal :: Row) -> Boolean
                               # Consumes an animal, and looks up whether it is fixed
                               examples:
                                 is-fixed(sasha) is false
@@ -182,7 +182,7 @@
                             @activity{
                               Let's re-write those examples to show that:
                               @code[#:multi-line #t]{
-                                is-fixed :: (animal :: Row) -> Boolean
+                                # is-fixed :: (animal :: Row) -> Boolean
                                 # Consumes an animal, and looks up whether it is fixed
                                 examples:
                                   is-fixed(sasha) is sasha["fixed"]
@@ -220,7 +220,7 @@
                     @student{
                           @bannerline{Step 3: Define the Function} After having written our examples, this part is easy! The part of the examples before @code{is} tells us how to begin. We start with the @code{fun} keyword (short for "function"), followed by the name of our function and a set of parentheses. This is exactly how all of our examples started, too. But instead of writing @code{mittens}, we'll use the @italic{label} that we gave it. Then we add a colon (@code{:}) in place of @code{is}, and continue to follow our examples, replacing anything we circled with the label. Finally, we finish with the @code{end} keyword.
                           @code[#:multi-line #t]{
-                              is-fixed :: (animal :: Row) -> Boolean
+                              # is-fixed :: (animal :: Row) -> Boolean
                               # Consumes an animal, and looks up whether it is fixed
                               examples:
                                 is-fixed(sasha) is sasha["fixed"]
@@ -293,7 +293,7 @@
                     @student{
                         To find out if an animal is a cat, we look at the @code{species} column and check to see if that value is @italic{equal to} @code{"cat"}. This gives us out first example:
                         @code[#:multi-line #t]{
-                              is-cat :: (animal :: Row) -> Boolean
+                              # is-cat :: (animal :: Row) -> Boolean
                               # Consumes an animal, and compute whether the species is "cat"
                               examples:
                                 is-cat(sasha) is sasha["species"] == "cat"
@@ -329,7 +329,7 @@
                           @item{ What do we do in the body in the function? }
                         ]
                         @code[#:multi-line #t]{
-                              is-cat :: (animal :: Row) -> Boolean
+                              #is-cat :: (animal :: Row) -> Boolean
                               # Consumes an animal, and compute whether the species is "cat"
                               examples:
                                 is-cat(sasha)   is sasha["species"]   == "cat"
