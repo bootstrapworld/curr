@@ -124,7 +124,7 @@
     ;Translator; This is found within the body of the Examples section of Design Recipe pages; It is the all-caps beginning (following
                ; an open paren) to examples of function calls
     ;Developer; design-recipe-exercise
-    (design-example-caps "Ejemplo")
+    (design-example-caps "EXAMPLE")
 
 
 
@@ -180,7 +180,7 @@
     (low-a-exp "Expresión aritmética")
     (cap-a-exp "Expresión aritmética")
     (exp "Expresión")
-    (example "Ejemplo")
+    (example "EXAMPLE")
     (contract "Contrato")
     (code "Código")
 
