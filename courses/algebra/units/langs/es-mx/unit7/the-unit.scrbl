@@ -22,10 +22,10 @@
                                      @item{Students will understand that @code{cond} statements capture pairs of questions and answers when coding a piecewise function}
                                     ]
      #:product-outcomes @itemlist[]
-     #:exercises (list (make-exercise-locator/file "Luigis-Pizza" "scale-shape-design-recipe-assess" "Check this Design Recipe: Scaling Shapes")
-                       (make-exercise-locator/file "Luigis-Pizza" "state-tax-design-recipe-assess" "Check this Design Recipe: Compute Tax")
-                       (make-exercise-locator/file "Luigis-Pizza" "flower-name-design-recipe-assess" "Check this Design Recipe: Name That Flower")
-                       (make-exercise-locator/file "Luigis-Pizza" "turkey-price-design-recipe-assess" "Check this Design Recipe: How Much is That Turkey?")
+     #:exercises (list (make-exercise-locator/dr-assess "Luigis-Pizza" "scale-shape-design-recipe-assess" "Scaling Shapes")
+                       (make-exercise-locator/dr-assess "Luigis-Pizza" "state-tax-design-recipe-assess" "Compute Tax")
+                       (make-exercise-locator/dr-assess "Luigis-Pizza" "flower-name-design-recipe-assess" "Name That Flower")
+                       (make-exercise-locator/dr-assess "Luigis-Pizza" "turkey-price-design-recipe-assess" "How Much is That Turkey?")
 		       )
      #:standards (list "BS-DR.1" "BS-DR.2" "BS-DR.3" "BS-PL.4")
      #:materials @itemlist[@item{Entorno de edición (WeScheme o DrRacket con el bootstrap-teachpack instalado)}
@@ -50,8 +50,8 @@
      @point{@student{@activity[#:forevidence (list "BS-DR.1&1&1" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1")]{
                            Para iniciar con esta lección, completa @(hyperlink "https://docs.google.com/document/d/1k67XlYWkHefd4APynvwSnPKRaSTeOvGD7_lRbI8hHrg/edit" 
                                       "La hoja de Trabajo de la Pizza de Luigi").}}
-            @teacher{Review students' answers to the exercise. You can see a video demonstration of this intro at these links: @(new-tab "http://www.youtube.com/watch?v=2ckWSjWum-8" "1"),
-                     @(new-tab "http://www.youtube.com/watch?v=iTrY-N3MLRY#t=3m8s" "2")}
+            @teacher{Review students' answers to the exercise. You can see a video demonstration of this intro at these links: @(video-link (hyperlink "http://www.youtube.com/watch?v=2ckWSjWum-8" "1")),
+                     @(video-link (hyperlink "http://www.youtube.com/watch?v=iTrY-N3MLRY#t=3m8s" "2"))}
            }
      @point{@student{El código para la función de (costo) @code{cost} está escrito abajo:
                      @code[#:multi-line #t]{; cost : String -> Number
@@ -123,7 +123,7 @@
                      abajo, pero no ambas.}
             @teacher{}
            }
-     @point{@student{En este momento la cláusula @code{else} produce una cadena de texto (String), aunque el Rango de la función sea Number. ¿Crees que esto es un problema? 
+     @point{@student{En este momento la cláusula @code{else} produce una cadena, aunque el Rango de la función sea Number. ¿Crees que esto es un problema? 
                      ¿Por qué o por qué no? Como seres humanos, tener una salida que rompa ese contrato puede no ser un problema: sabemos que las funciones 
                      producirán el costo de una pizza o un mensaje de error. Pero, ¿Si la salida de este código no iba a los humanos en absoluto? ¿Qué pasa si queremos utilizar
                      desde dentro de algún otro código? ¿Es posible que @italic{ese} código se confunda? Para averiguarlo, descomenta la última 
@@ -177,9 +177,10 @@
               @teacher{Draw a screen on the board, and label the coordinates for a player, target and danger. Circle all the data associated with the Player.}
               }
        @point{@student{La siguiente tabla resume lo que debería sucederle al jugador por cada tecla:
-                           @build-table/cols['("When..." "Do...")
-                                             '(("key is \"up\"" "key is \"down\"" "key is anything else")
-                                               ("add 20 to player-y" "subtract 20 from player-y" "return y unchanged"))
+                           @build-table/cols['("Cuando..." "Do...")
+                                             '(("La tecla con la flecha hacia \"arriba\"" "La tecla con la flecha hacia \"abajo\"" "Cualquier otra tecla")
+                                               ("aagregue 20 a player-y" "
+restar 20 de player-y" "vuelva sin cambios "))
                                              (lambda (r c) (para ""))
                                              2 3]
                            
