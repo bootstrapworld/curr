@@ -1,10 +1,10 @@
 #lang curr/lib
 @; Unit 5
 @(assess-design-recipe "circle-area" 
-                       "Write a function that returns the area of a circle given its diameter."
+                       "Escribe una función que devuelve el área de un círculo dado su diámetro."
                        #:domain-list (list "number")
                        #:range "number"
-                       #:purpose "Takes the diameter of a circle and calculates the area by multiplying the square of the radius by pi."
+                       #:purpose "Toma el diámetro de un círculo y calcula el área multiplicando el cuadrado del radio por pi."
                        #:example-list '((10  (* (sqr (/ 10 2)) pi))   
                                         (50  (* (sqr (/ 50 2)) pi)))
                        #:buggy-funname-defn "area"

@@ -6,7 +6,7 @@
          (* 30 50))
 (EXAMPLE (mystery 10)
          (text \"Welcome!\" 10 \"darkgreen\"))"))
-@(define a1 "no match (the range types are different)")
+@(define a1 "no coincide (los tipos de rango son diferentes)")
 
 
 @(define e2
@@ -24,7 +24,7 @@
          (text \"New York\" 20 \"red\"))
 (EXAMPLE (mystery 20)
          (text \"New York\" 20 \"red\"))"))
-@(define a3 "no match (the domain types are different)")
+@(define a3 "no coincide (los dominios tienen diferentes números de argumentos)")
 
 
 @(define e4
@@ -33,7 +33,7 @@
          (circle 32 \"outline\" \"green\"))
 (EXAMPLE (mystery 18 \"green\")
          (circle 18 \"outline\" \"green\"))"))
-@(define a4 "no match (the domain types are in different orders)")
+@(define a4 "no coincide (los dominios tienen diferentes números de argumentos)")
 
 @(define e5
    (code #:multi-line #t
@@ -41,7 +41,7 @@
          (/ 6 (+ 9 10)))
 (EXAMPLE (mystery 3 7)
          (/ 3 (+ 7 10)))"))
-@(define a5 "no match (the domains have different numbers of arguments)")
+@(define a5 "no coincide (los dominios tienen diferentes números de argumentos)")
 
 @(define e6
    (code #:multi-line #t
@@ -64,10 +64,10 @@
 
 
 @(exercise-handout
-  #:title "Do Examples Have the Same Contracts?"
-  #:instr "For each pairs of Examples below, decide whether the two examples
-           have the same contract. If they do, fill in the contract in the space
-           provided. If not, write a few words explaining why."
+  #:title "¿Los ejemplos tienen los mismos contratos?"
+  #:instr "Para cada par de ejemplos a continuación, decida si los dos ejemplos
+           tener el mismo contrato Si lo hacen, completa el contrato en el espacio
+           previsto. Si no, escriba algunas palabras explicando por qué."
   #:forevidence (exercise-evid-tags "BS-DR.2&1&2" "F-IF.1-3&1&1" "F-IF.1-3&1&2")
   @(create-exercise-itemlist/contract-answers (list e1 e2 e3 e4 e5 e6 e7))
   @(exercise-answers

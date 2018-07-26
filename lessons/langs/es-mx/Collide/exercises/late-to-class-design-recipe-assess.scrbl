@@ -1,10 +1,10 @@
 #lang curr/lib
 @; Unit 8
 @(assess-design-recipe "late-to-class?" 
-                       "You will be late to class if you have to walk more than 25 pixels to get there. Write a function that takes in your x-coordinate and y-coordinate and the x-coordinate and y-coordinate of the classroom and returns true if you will be late to class and false if you will be on time."
+                       "Llegará tarde a la clase si tiene que caminar más de 25 píxeles para llegar allí. Escriba una función que tenga en cuenta la coordenada x y la coordenada y y la coordenada x y la coordenada y del aula y devuelve verdadero si llegará tarde a la clase y falso si llegará a tiempo."
                        #:domain-list (list "number" "number" "number" "number")
                        #:range "boolean"
-                       #:purpose "Takes the coorindates of my location and a classroom and returns true if the distance is more than 25 and false if it is less than 25."                  
+                       #:purpose "Toma los coorindates de mi ubicación y un salón de clases y devuelve verdadero si la distancia es más de 25 y falso si es menor a 25."                  
                        #:buggy-example-list '(((late-to-class? 40 55 65 80) (> 25 (distance 40 55 65 80)))
                                               ((late-to-class? 40 55 65 80) (< 25 (distance 40 55 65 80))))
                        #:param-list (list "student-x" "student-y" "school-x" "school-y")

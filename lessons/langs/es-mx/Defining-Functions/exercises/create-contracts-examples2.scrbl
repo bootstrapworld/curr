@@ -61,9 +61,9 @@
 @(define answers-atop (map list answers-lst examples-lst))
 
 @(exercise-handout 
-  #:title "Creating Contracts From Examples"
-  #:instr "For each of the following collections of Examples, write the contract
-           for the function above the examples."
+  #:title "Crear Contratos a partir de Ejemploss"
+  #:instr "Para cada una de las siguientes colecciones de ejemplos, escriba el contrato
+           para la función arriba de los ejemplos."
   #:forevidence (exercise-evid-tags "BS-DR.2&1&1" "F-IF.1-3&1&1" "F-IF.1-3&1&2")
   @(create-exercise-itemlist/contract-answers examples-lst)
   @(exercise-answers

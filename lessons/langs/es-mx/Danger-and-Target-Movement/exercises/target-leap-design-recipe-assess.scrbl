@@ -1,10 +1,11 @@
 #lang curr/lib
 @; Unit 5
 @(assess-design-recipe "target-leap" 
-                       "Write a function which takes in the target's x-coordinate and makes a player leap by returning an x-coordinate that is double the original x-coordinate."
+                       "Escribe una función que capte la coordenada x del objetivo y haga un salto de jugador
+devolviendo una coordenada x que es el doble de la coordenada x original."
                        #:domain-list (list "number")
                        #:range "number"
-                       #:purpose "Takes the x-coordinate and returns a new one, multiplied by 2"
+                       #:purpose "Toma la coordenada xy devuelve una nueva, multiplicada por 2"
                        #:example-list '((100 (200))   
                                         (40 (200)))
                        #:buggy-funname-defn "leap"
