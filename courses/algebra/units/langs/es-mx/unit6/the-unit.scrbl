@@ -45,10 +45,10 @@ Lapiceros/lápices para los estudiantes, marcadores de pizarra para profesores}
                                      @item{Students learn how to use arithmetic operators (like @code{<} and @code{>}) that produce Booleans}
                                     ]
      #:product-outcomes @itemlist[]
-     #:exercises (list (make-exercise-locator/dr-assess "Booleans" "enough-cash-design-recipe-assess" "Do You Have Enough Cash?")
-                       (make-exercise-locator/dr-assess "Booleans" "long-name-design-recipe-assess" "Is This Name Long?")
-                       (make-exercise-locator/dr-assess "Booleans" "equal-length-design-recipe-assess" "Do Strings Have the Same Size?")
-                       (make-exercise-locator/dr-assess "Booleans" "enough-carpet-design-recipe-assess" "Do You Have Enough Carpet?")
+     #:exercises (list (make-exercise-locator/file "Booleans" "enough-cash-design-recipe-assess" "Do You Have Enough Cash?")
+                       (make-exercise-locator/file "Booleans" "long-name-design-recipe-assess" "Is This Name Long?")
+                       (make-exercise-locator/file "Booleans" "equal-length-design-recipe-assess" "Do Strings Have the Same Size?")
+                       (make-exercise-locator/file "Booleans" "enough-carpet-design-recipe-assess" "Do You Have Enough Carpet?")
 		       )
      #:standards (list "7.EE.3-4" "BS-IDE" "BS-PL.1" "BS-PL.2")
      #:materials @itemlist[@item{
@@ -76,7 +76,7 @@ Lapiceros/lápices para los estudiantes, marcadores de pizarra para profesores}
                                                       @activity[#:forevidence (list "BS-IDE&1&1")]{
                                                                                                    La función @code{<} evalúa si un número es menor que otro. ¿Puedes pensar en alguna otra prueba? 
                                                                                                                 Pruébalas en la ventana de interacciones.} }
-                         @teacher{Give students plenty of practice here! You can see a video demonstration of this intro at @(video-link (hyperlink "http://www.youtube.com/watch?v=X7gAXxpBhUo" "Video Lesson: Intro to Booleans"))}
+                         @teacher{Give students plenty of practice here! You can see a video demonstration of this intro at @(hyperlink "https://www.youtube.com/watch?v=OMQO66wWqjk" "Video Lesson: Intro to Booleans")}
                          }
                  @point{@student{Funciones cómo @code{<}, @code{>} y @code{=}, todas utilizan 2 números cómo su dominio, y producen un valor especial llamado @vocab{Booleano} cómo su rango.
                     Los Booleanos son respuestas a preguntas de Si o No, y las funciones booleanas son utilizadas para realizar pruebas.
@@ -254,7 +254,7 @@ Lapiceros/lápices para los estudiantes, marcadores de pizarra para profesores}
                                      @item{Students will understand how they use Booleans and conditional to control how game elements behave at the screen boundaries}
 ]
      #:product-outcomes @itemlist[@item{Los estudiantes detectan cuando los elementos del juego se han desplazado fuera de la pantalla (para que puedan volver a aparecer en el otro borde de la pantalla)}]
-     #:exercises (list (make-exercise-locator/dr-assess "Onscreen2" "offscreen-design-recipe-assess" "Is a Character OffScreen?"))
+     #:exercises (list (make-exercise-locator/file "Onscreen2" "offscreen-design-recipe-assess" "Is a Character OffScreen?"))
      #:standards (list "A-CED.1-4" "F-IF.4-6" "A-SSE.1-2" "BS-DR.2")
      #:materials @itemlist[@item{
 Lapiceros/lápices para los estudiantes, marcadores de pizarra para profesores}

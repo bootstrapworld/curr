@@ -22,10 +22,10 @@
                                      @item{Students will understand that @code{cond} statements capture pairs of questions and answers when coding a piecewise function}
                                     ]
      #:product-outcomes @itemlist[]
-     #:exercises (list (make-exercise-locator/dr-assess "Luigis-Pizza" "scale-shape-design-recipe-assess" "Scaling Shapes")
-                       (make-exercise-locator/dr-assess "Luigis-Pizza" "state-tax-design-recipe-assess" "Compute Tax")
-                       (make-exercise-locator/dr-assess "Luigis-Pizza" "flower-name-design-recipe-assess" "Name That Flower")
-                       (make-exercise-locator/dr-assess "Luigis-Pizza" "turkey-price-design-recipe-assess" "How Much is That Turkey?")
+     #:exercises (list (make-exercise-locator/file "Luigis-Pizza" "scale-shape-design-recipe-assess" "Scaling Shapes")
+                       (make-exercise-locator/file "Luigis-Pizza" "state-tax-design-recipe-assess" "Compute Tax")
+                       (make-exercise-locator/file "Luigis-Pizza" "flower-name-design-recipe-assess" "Name That Flower")
+                       (make-exercise-locator/file "Luigis-Pizza" "turkey-price-design-recipe-assess" "How Much is That Turkey?")
 		       )
      #:standards (list "BS-DR.1" "BS-DR.2" "BS-DR.3" "BS-PL.4")
      #:materials @itemlist[@item{Entorno de edición (WeScheme o DrRacket con el bootstrap-teachpack instalado)}
@@ -50,8 +50,8 @@
      @point{@student{@activity[#:forevidence (list "BS-DR.1&1&1" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1")]{
                            Para iniciar con esta lección, completa @(hyperlink "https://docs.google.com/document/d/1k67XlYWkHefd4APynvwSnPKRaSTeOvGD7_lRbI8hHrg/edit" 
                                       "La hoja de Trabajo de la Pizza de Luigi").}}
-            @teacher{Review students' answers to the exercise. You can see a video demonstration of this intro at these links: @(video-link (hyperlink "http://www.youtube.com/watch?v=2ckWSjWum-8" "1")),
-                     @(video-link (hyperlink "http://www.youtube.com/watch?v=iTrY-N3MLRY#t=3m8s" "2"))}
+            @teacher{Review students' answers to the exercise. You can see a video demonstration of this intro at these links: @(hyperlink "http://www.youtube.com/watch?v=2ckWSjWum-8" "1"),
+                     @(hyperlink "http://www.youtube.com/watch?v=iTrY-N3MLRY#t=3m8s" "2")}
            }
      @point{@student{El código para la función de (costo) @code{cost} está escrito abajo:
                      @code[#:multi-line #t]{; cost : String -> Number
