@@ -1,6 +1,6 @@
 #lang curr/lib
 
-@title{Unit 3: Defining Values and Functions }
+@title{Unit 3: Looking for Trends }
 
 @unit-overview/auto[#:lang-table (list (list "Number" 
                                               @code{num-sqrt, num-sqr} 
@@ -14,7 +14,9 @@
                                        (list "Image" 
                                               @code{triangle, circle, star, rectangle, ellipse, square, text, overlay} 
                                               (list @bitmap{images/imgValue1.png} @bitmap{images/imgValue2.png}))
-                                       )]{
+                                       (list "Table"
+                                              @code{.row-n, .order-by, .filter}
+                                              ""))]{
   @unit-descr{
      In the process, they learn how to write their own definitions, first defining static values and then complete functions. They are also introduced to the Design Recipe: a structured approach to solving word problems and defining functions.
   }
@@ -23,337 +25,7 @@
 
 
   @lesson/studteach[
-     #:title "Defining Values"
-     #:duration "15 minutes"
-     #:overview ""
-     #:learning-objectives @itemlist[@item{Students learn about value definitions in Pyret}]
-     #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[@item{Students define several row values from the animals table}]
-     #:standards (list "BS-PL.3")
-     #:materials @itemlist[]
-     #:preparation @itemlist[
-        @item{Computer for each student (or pair), with access to the internet}
-        @item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbooks"], and something to write with}]
-     #:pacings (list 
-                @pacing[#:type "remediation"]{@itemlist[@item{}]}
-                @pacing[#:type "misconception"]{@itemlist[@item{}]}
-                @pacing[#:type "challenge"]{@itemlist[@item{}]}
-                )
-      ]{
-        @points[
-            @point{
-                  @student{
-                        @activity[#:forevidence (list )]{
-                          Open your animals Pyret in a new tab. (If you need to start from a new file, you can @editor-link[#:public-id "0BzzMl1BJlJDkYkhKMG51VlRiWk0" "Save a Copy"] of the original.)
-                        }
-                  }
-                  @teacher{
-
-                  }
-            }
-            @point{
-                  @student{
-                        As you've seen, Pyret allows us to define names for values using the @code{=} sign. In math, you're probably used to seeing definitions like @math{x = 4}, which defines the name @code{x} to be the value @code{4}. Pyret works the same way, and you've already seen two names defined in this file: @code{shelter-sheet} and @code{animals-table}. We generally write definitions on the left, in the Definitions Area.
-                        You can add your own definitions, for example:
-                        @code[#:multi-line #t]{
-                            name = "Nancy"
-                            sum = 2 + 2
-                            img = triangle(10, "solid", "red")
-                        }
-                        @activity[#:forevidence (list "BS-PL.3&1&1")]{
-                            With your partner, take turns adding definitions to this file:
-                            @itemlist[
-                              @item{Define a value with name @code{food}, whose value is a String representing your favorite food}
-                              @item{Define a value with name @code{year}, whose value is a Number representing the current year}
-                              @item{Define a value with name @code{color}, whose value is an Image drawn in your favorite color}
-                              @item{Define a value with name @code{likes-cats}, whose value is a Boolean that is true if you like cats and false if you don't}
-                            ]
-                        }
-
-                  }
-                  @teacher{
-                          
-                  }
-            }
-            @point{
-                  @student{
-                        Each row of our @code{animals-table} represents a single animal in our shelter. We can use the @code{get-row} function to define values. Type the following lines of code into the Definitions Area and click "Run":
-                        @code[#:multi-line #t]{
-                          mittens = get-row(animals-table, 1)  # the Row for Mittens
-                          fritz   = get-row(animals-table, 10) # the Row for Fritz
-                        }
-                        What happens when you evaluate @code{mittens} in the Interactions Area?
-                        @activity[#:forevidence (list "BS-PL.3&1&1")]{
-                            Define values for mittens and sasha. Then, select two pets from the @code{animals-table} that you would most like to adopt, and two more than you would @italic{least} like to adopt (don't worry, those animals will find homes too!). What rows are they? Define four additional values for these animals, using the pet's names and rows.
-                        }
-                  }
-                  @teacher{
-
-                  }
-            }
-      ]
-  }
-
-  @lesson/studteach[
-     #:title "Defining Functions"
-     #:duration "30 minutes"
-     #:overview ""
-     #:learning-objectives @itemlist[@item{Students learn how to define functions using the Design Recipe}]
-     #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[@item{Students define several functions over rows from the animals table}]
-     #:standards (list "BS-DR.1" "BS-DR.2" "BS-PL.3")
-     #:materials @itemlist[]
-     #:preparation @itemlist[]
-     #:pacings (list 
-                @pacing[#:type "remediation"]{@itemlist[@item{}]}
-                @pacing[#:type "misconception"]{@itemlist[@item{}]}
-                @pacing[#:type "challenge"]{@itemlist[@item{}]}
-                )
-      ]{
-        @points[
-                @point{
-                        @student{
-                              Suppose you work at the animal shelter, taking care of all the animals who live there. You want to make sure they're healthy, happy, and find good homes. For each animal, you might want to ask certain questions:
-                              @itemlist[
-                                @item{What kind of animal is it?}
-                                @item{Has it been fixed?}
-                                @item{When was it born?}
-                                @item{Is it a kitten?}
-                              ]
-                        }
-                        @teacher{
-                            Have students brainstorm additional questions!
-                        }
-                }
-                @point{
-                      @student{
-                            @activity{
-                              Suppose I want to know if @code{mittens} is fixed or not. How would you find the answer? Suppose I wanted to do this for every animal in the table? Is this a lookup, compute or analyze question?
-
-                            }
-                            We know lots of functions in Pyret that can handle Numbers, Strings, Images and so on, but none that can handle animals! @bold{We need to build our own.}
-                      }
-                      @teacher{
-
-                      }
-                }
-                @point{
-                      @student{
-                            To build our own functions, we'll use something called the @bold{Design Recipe}. The Design Recipe is a way to think through the behavior of a function, to make sure we don't make any mistakes with the animals that depend on us! The Design Recipe has three steps, and we'll go through them together for our first function. 
-                            @activity{
-                              Turn to page @worksheet-link[#:name "Design-Recipe-1"] in your Student Workbook.
-                            }
-                      }
-                      @teacher{
-
-                      }
-                }
-                @point{
-                      @student{
-                            @bannerline{Step 1: Contract and Purpose} The first thing we do is write a Contract for this function. You already know a lot about contracts: they tell us the Name, Domain and Range of the function. Our function tells us if an animal is fixed or not, so we'll call it @code{is-fixed}. It consumes an animal (represented by a @code{Row} in our table), and look up the value in the @code{fixed} column. A Purpose Statement is just a description of what the function does:
-                            @code[#:multi-line #t]{
-                              # is-fixed :: (animal :: Row) -> Boolean
-                              # Consumes an animal, and looks up whether it is fixed
-                            }
-                      }
-                      @teacher{
-                        Be sure to check students' contracts and purpose statements before having them move on!
-                      }
-                }
-                @point{
-                      @student{
-                            @bannerline{Step 2: Write Examples} You already know how to write examples for built-in functions, where we write the @italic{answer} we expect to get back. Just as we did before, we start with the name of the function we're writing, followed by an example input. Let's use some two pets we defined earlier for our first example.
-                            @code[#:multi-line #t]{
-                              # is-fixed :: (animal :: Row) -> Boolean
-                              # Consumes an animal, and looks up whether it is fixed
-                              examples:
-                                is-fixed(sasha) is false
-                                is-fixed(fritz) is true
-                              end
-                            }
-                      }
-                      @teacher{
-                            Make sure students understand (1) that @code{is-fixed} came from the Name in our contract, (2) that @code{sasha} and @code{fritz} came from the Domain in our contract, that (3) @code{sasha["fixed"]} came from our purpose statement, and the label also came from the variable name in our contract.
-                      }
-                }
-                @point{
-                      @student{
-                            When testing functions we write ourselves, we don't just want to put down the answers. We want to @italic{show our work}, to make sure we have a clear sense for how the function will do it's job. To find out if @code{sasha} was fixed, we had to access the @code{fixed} column for that row. 
-                            @activity{
-                              Let's re-write those examples to show that:
-                              @code[#:multi-line #t]{
-                                # is-fixed :: (animal :: Row) -> Boolean
-                                # Consumes an animal, and looks up whether it is fixed
-                                examples:
-                                  is-fixed(sasha) is sasha["fixed"]
-                                  is-fixed(fritz) is fritz["fixed"]
-                                end
-                              }
-                            }
-                      }
-                      @teacher{
-                            Make sure students see that the re-written examples are @italic{equivalent}, and that the new code accurately represents what the students themselves did to seek out the values in the columns: access the @code{fixed} row.
-                      }
-                }
-                @point{
-                      @student{
-                            @activity[#:forevidence (list "BS-PL.3&1&2")]{
-                                @itemlist[
-                                  @item{
-                                      In the examples where we show our work, do you notice a pattern? Most of the code for these examples is exactly the same, and only a small bit is changing: @code{sasha} and @code{fritz}.
-                                  }
-                                  @item{
-                                      Circle all of the parts in your example block that are changing.
-                                  }
-                                  @item{
-                                      What does the stuff you circled represent? Are @code{sasha} and @code{fritz} years? Legs? No - they are @italic{animals}! Let's label them...
-                                  }
-                                ]
-                                  
-                            }
-                      }
-                      @teacher{
-                            
-                      }
-                }
-                @point{
-                    @student{
-                          @bannerline{Step 3: Define the Function} After having written our examples, this part is easy! The part of the examples before @code{is} tells us how to begin. We start with the @code{fun} keyword (short for "function"), followed by the name of our function and a set of parentheses. This is exactly how all of our examples started, too. But instead of writing @code{mittens}, we'll use the @italic{label} that we gave it. Then we add a colon (@code{:}) in place of @code{is}, and continue to follow our examples, replacing anything we circled with the label. Finally, we finish with the @code{end} keyword.
-                          @code[#:multi-line #t]{
-                              # is-fixed :: (animal :: Row) -> Boolean
-                              # Consumes an animal, and looks up whether it is fixed
-                              examples:
-                                is-fixed(sasha) is sasha["fixed"]
-                                is-fixed(fritz) is fritz["fixed"]
-                              end
-                              fun is-fixed(animal): 
-                                animal["fixed"]
-                              end
-                            }
-                    }
-                    @teacher{
-
-                    }
-                }
-                @point{
-                    @student{
-                          Now that we've defined our function, we can click "Run" and actually use it!
-                          @activity[#:forevidence (list "BS-PL.3&1&3")]{
-                              After you've clicked run, try typing in the following expressions, and see what happens:
-                              @code[#:multi-line #t]{
-                                  is-fixed(sasha)
-                                  is-fixed(fritz)
-                                  is-fixed(get-row(animals-table, 8))
-                                  is-fixed(get-row(animals-table, 11))
-                              }
-                          }
-                    }
-                    @teacher{
-
-                    }
-                }
-                @point{
-                    @student{
-                        Our @code{examples:} block is a helpful way to @italic{check our work}, so we don't make mistakes. Suppose we made a mistake in our function definition, and accessed the wrong column:
-                        @code[#:multi-line #t]{
-                            fun is-fixed(animal): 
-                              animal["age"]
-                            end
-                        }
-                        When we click "Run", the computer will tell us that our examples don't match the definition! It will literally @italic{check your work for you!}
-                    }
-                    @teacher{
-
-                    }
-                }
-                @point{
-                    @student{
-                        So far, our functions have been pretty simple: they consume a row, and they produce one column from that row as-is. But supposed we want to @italic{use} that value to find out specifically whether or not an animal is a cat, or whether it's a child? Let's walk through a more complex Design Recipe together, by turning to @worksheet-link[#:name "Design-Recipe-2"].
-                    }
-                    @teacher{
-
-                    }
-                }
-                @point{
-                    @student{
-                        @activity[#:forevidence (list "BS-PL.3&1&1" "BS-PL.3&1&2"  "BS-PL.3&1&3")]{
-                          Define a function called @code{is-cat}, which consumes a row from the @code{animals-table} and returns true if the animal is a cat.
-                          @itemlist[
-                            @item{ Is this a lookup, compute or analyze question?}
-                            @item{ What is the name of this function? What are it's Domain and Range? }
-                            @item{ Is Sasha a cat? @italic{What did you do to get that answer?} }
-                            ]
-                        }
-                    }
-                    @teacher{
-                        Have students explain their thinking carefully, step-by-step. Repeat this with other animals.
-                    }
-                }
-                @point{
-                    @student{
-                        To find out if an animal is a cat, we look at the @code{species} column and check to see if that value is @italic{equal to} @code{"cat"}. This gives us out first example:
-                        @code[#:multi-line #t]{
-                              # is-cat :: (animal :: Row) -> Boolean
-                              # Consumes an animal, and compute whether the species is "cat"
-                              examples:
-                                is-cat(sasha) is sasha["species"] == "cat"
-                              end
-                            }
-                        @activity{ Add a second example, this time for an animal that is @italic{not} a cat. }
-                    }
-                    @teacher{
-                        Have students share their examples. Point out that the code is the same for all examples, aside from the name of the animal being tested.
-                    }
-                }
-                @point{
-                    @student{
-                        Just we've done before, let's look at our examples and circle the things that are change from one to the other.
-                        @itemlist[
-                          @item{ Do all our examples use @code{is-cat}? }
-                          @item{ Do all our examples use the same inputs? }
-                          @item{ Do all our examples look at the same column? }
-                          @item{ Do all our examples compare that column value to "cat"? }
-                        ]
-                        @activity{ What label should we use here? }
-                    }
-                    @teacher{
-                        Make sure students realize that the label is specified in the Domain.
-                    }
-                }
-                @point{
-                    @student{
-                        As before, we'll use the pattern from our examples to come up with our definition.
-                        @itemlist[
-                          @item{ What is the function name? }
-                          @item{ What is the name of the variable(s)? }
-                          @item{ What do we do in the body in the function? }
-                        ]
-                        @code[#:multi-line #t]{
-                              #is-cat :: (animal :: Row) -> Boolean
-                              # Consumes an animal, and compute whether the species is "cat"
-                              examples:
-                                is-cat(sasha)   is sasha["species"]   == "cat"
-                                is-cat(mittens) is mittens["species"] == "cat"
-                              end
-                              fun is-cat(animal): 
-                                animal["species"] == "cat"
-                              end
-                            }
-                    }
-                }
-                @point{
-                    @student{
-                        @activity{
-                          Type this definition - and its examples! - into the Definitions Area, then click "Run" and try using it.
-                        }
-                    }
-                }
-        ]
-  }
-
-
-  @lesson/studteach[
-   #:title "Practicing the Design Recipe"
+   #:title "Review"
    #:duration "30 minutes"
    #:overview ""
    #:learning-objectives @itemlist[]
@@ -371,25 +43,22 @@
       @points[
                 @point{
                     @student{
-                        Now let's practice writing functions that @italic{do things} to their input. This time, you'll have to write the Contract, Purpose Statement, and first example yourself!
-                        @activity[#:forevidence (list "BS-PL.3&1&1" "BS-PL.3&1&2"  "BS-PL.3&1&3")]{
-                          Use the bottom half of @worksheet-link[#:name "Design-Recipe-2"] to solve the following problems:
-                          @itemlist[
-                              @item{ 
-                                  Define a function called @code{is-young}, which consumes a Row of the @code{animals-table} and produces @code{true} if its @code{age} is less than 2.
-                              }
-                              @item{
-                                  Is this a lookup, compute, or analyze question?
-                              }
-                          ]
-                        }
+                        Open your saved animals-dataset file. You should have several functions defined:
+                        @itemlist[
+                            @item{ @code{is-fixed} }
+                            @item{ @code{gender} }
+                            @item{ @code{is-cat} }
+                            @item{ @code{is-young} }
+                        ]
+                        If you didn't have a chance to type them in from your workbook, make sure you do!
                     }
                     @teacher{
-                          Show students that they can combine all their examples into a single block at the top of the file.
+
                     }
                 }
                 @point{
                     @student{
+                        Can you use the Design Recipe to write a few more functions?
                         @activity[#:forevidence (list "BS-DR.1&1&1" "BS-DR.1&1&2"  "BS-DR.2&1&1" "BS-DR.2&1&2")]{
                           Turn to @worksheet-link[#:name "Design-Recipe-3"], and see if you can solve the following word problems:
                             @itemlist[
@@ -406,8 +75,377 @@
                       OPTIONAL: Show students how to write @code{is-kitten} @italic{using} the @italic{is-cat} and @code{is-young} functions they defined before. 
                     }
                 }
+                @point{
+                    @student{
+                        When your teacher has checked your work, add these two functions at the bottom of your Definitions Area, save your work, and click Run.
+                    }
+                }
         ]
   }
+
+  @lesson/studteach[
+     #:title "Building Columns"
+     #:duration "10 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[@item{Students learn how to compute new columns in Pyret}]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[@item{Students extend the animals table using functions they've defined earlier}]
+     #:standards (list)
+     #:materials @itemlist[]
+     #:preparation @itemlist[]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[
+                @point{
+                      @student{
+                              Sometimes we want to @italic{add a column} to a Table, and we can use the @code{.build-column} method to do just that. The contract for this method is shown below, along with an example expression that adds a "label" column to the @code{animals-table} using your @code{nametag} function.
+                              @code[#:multi-line #t]{
+                                    # <Table>.build-column :: (col :: String, builder :: (Row -> Value)) -> Table
+                                    animals-table.build-column("label", nametag)
+                              }
+                      }
+                      @teacher{
+
+                      }
+                }
+                @point{
+                      @student{
+                              @activity[#:forevidence (list "BS-IDE&1&1" "Data 3.1.1&1&3" "Data 3.1.1&1&4")]{
+                                  In the Interactions Area, use the @code{.build-column} method to produce a table that includes a @code{nametag} column, which contains an image of the nametag for each pet.
+                              }
+                      }
+                      @teacher{
+                              
+                      }
+                }
+        ]
+  }
+
+   @lesson/studteach[
+     #:title "Chaining Methods"
+     #:duration "20 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[@item{Students learn the syntax for chaining methods together}]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[]
+     #:standards (list)
+     #:materials @itemlist[]
+     #:preparation @itemlist[]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[
+              @point{
+                    @student{
+                        Table methods can be chained together, so that we can build, filter @italic{and} order a Table. For example:
+                        @code[#:multi-line #t]{
+                            # get a table with the nametags of all the fixed animals, ordered by species
+                            animals-table.build-column("label", nametag).filter(is-fixed).order-by("species", true)
+                        }
+                        This code takes the @code{animals-table}, and builds a new column. According to our Contracts Page, @code{.build-column} produces a new Table, and that's the Table whose @code{.filter} method we use. That method produces @italic{yet another Table}, and we call that Table's @code{order-by} method. The Table that comes back from that is our final result.
+                    }
+                    @teacher{
+                        Suggestion: use different color markers to draw nested boxes around each part of the expression, showing where each Table came from.
+                    }
+              }
+              @point{
+                    @student{
+                        It can be difficult to read code that has lots of method calls chained together, so we can break them up before each "@code{.}"" to make it more readable. Here's the exact same code, written with line breaks:
+                        @code[#:multi-line #t]{
+                            # get a table with the nametags of all the fixed animals, order by species
+                            animals-table.build-column("label", nametag)
+                              .filter(is-fixed)
+                              .order-by("species", true)
+                        }
+                    }
+                    @teacher{
+                    
+                    }
+              }
+              @point{
+                    @student{
+                          @activity[#:forevidence (list )]{
+                              Can you chain these methods together correctly to answer the following questions?
+                              @itemlist[
+                                  @item{Show a table of only cats, sorted oldest-to-youngest.}
+                                  @item{Show a table of only fixed animals, in ascending order of the number of weeks they've been at the shelter}
+                                  @item{Show a table of only young animals with a new column called @code{label} that shows the image of every animal's nametag.}
+                              ]
+                          }
+                    }
+                    @teacher{
+
+                    }
+              }
+              @point{
+                      @student{
+                          How well do you know your table methods? Complete @worksheet-link[#:name "Playing-With-Methods"] in your Student Workbook to find out!
+                      }
+                      @teacher{
+                          Have students discuss their answers.
+                      }
+              }
+        ]
+  }
+
+
+  @lesson/studteach[
+     #:title "Introducing Table Plans"
+     #:duration "20 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[@item{Students learn how to define functions using Table Plans}]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[@item{Students define functions that sort, filter, or extend the animals table}]
+     #:standards (list "BS-DR.1" "BS-DR.2" "BS-DR.4" "Data 3.1.1")
+     #:materials @itemlist[]
+     #:preparation @itemlist[@item{}]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[
+              @point{
+                    @student{
+                        Suppose I wanted to get a bar-chart of animal's ages, for only the cats in the shelter, sorted alphabetically by name. How would I do that?
+                        @code[#:multi-line #t]{
+                            t = animals-table.filter(is-cat).order-by("name")
+                            bar-chart(t, "name", "age")
+                        }
+                        Then I want to get the same bar chart, but now for only the fixed animals, sorted alphabetically by name. How would I do that?
+                        @code[#:multi-line #t]{
+                            t = animals-table.filter(is-fixed).order-by("name")
+                            bar-chart(t, "name", "age")
+                        }
+                        Then I want to get the same bar chart, but now for only the young animals, sorted alphabetically by name. How would I do that?
+                        @code[#:multi-line #t]{
+                            t = animals-table.filter(is-young).order-by("name")
+                            bar-chart(t, "name", "age")
+                        }
+                    }
+                    @teacher{
+                        Have students volunteer this, whenever possible.
+                    }
+              }
+              @point{
+                    @student{
+                        This is really repetitive, isn't it? We're always doing the same two things:
+                        @itemlist[
+                          @item{ Define the table - in this case, by filtering and sorting. }
+                          @item{ Do something with it - in this case, make a bar chart. }
+                        ] 
+                        Wouldn't it be great if Pyret had a function that just took in a table of animals, and did these things for us? This seems like a problem we've seen before, back when we defined functions like @code{gender} or @code{nametag}: whenever we have the same code written over and over, we can use functions to save us the effort!
+                    }
+                    @teacher{
+                    
+                    }
+              }
+              @point{
+                    @student{
+                        Rather than rewrite the same method chain for every table, we can define a function that consumes an entire table and does the work for us. That way we can write the method chain once, and re-use it over and over. We can modify the Design Recipe slightly to help us keep our method order straight, turning it into something called a @bold{Table Plan}. Turn to page @worksheet-link[#:name "sorted-age-bar"].
+                    }
+                    @teacher{
+                        Table Plans are like the Design Recipe, but for manipulating tables. They enforce a @italic{way of thinking}, which is important for your students.
+                    }
+              }
+              @point{
+                    @student{
+                        Table Plans are a lot like the Design Recipe. They start with a Contract and Purpose Statement, but involve different kinds of examples and can often involve @italic{multiple} function definitions. Let's do an example, which ties together all the pieces you've seen before. Suppose it's time to vaccinate all kittens, and the shelter wants a table that includes nametags for all the kittens in alphabetical order. How do we get started?
+                    }
+                    @teacher{
+                        Your students should be @italic{very} comfortable with the Design Recipe before proceeding!
+                    }
+              }
+              @point{
+                    @student{
+                        @bannerline{Step 1: Contract and Purpose}
+                        We're going to build a function that does this for us, and we'll start with the name. Naming is more complex in Table Plans, since we want to name the function according to the most important parts of what it does. Since we're @italic{getting a table} of kittens with nametags, we'll call it @code{sorted-age-bar}. Instead of consuming Rows, this time we're consuming and producing @italic{Tables}. This gives us the following:
+
+                        @code[#:multi-line #t]{
+                            # sorted-age-bar :: (animals :: Table) -> Table
+                            # consume a table of animals, and produce a bar chart
+                            # of their ages, sorted alphabetically
+                        }
+                    }
+                    @teacher{
+                        Ask students to volunteer other names - but push them to keep the relevant info as part of the name!
+                    }
+              }
+              @point{
+                    @student{
+                        @bannerline{Step 2: Examples}
+                        This is really similar to writing examples with the Design Recipe, but everything stays on paper. First, we write down a small sample of the @code{animals-table}, called a Sample Table. This sample should contain all of the @italic{relevant} columns, and enough rows to give us an idea for how the function should work. Then, on the righthand side, we write or sketch what we expect to get back.
+                        @itemlist[
+                            @item{ What columns do we care about? }
+                            @item{ If we pass this table into sorted-age-bar (@code{sorted-age-bar(table)}), what do we expect to get back? }
+                        ]
+                    }
+                    @teacher{
+
+                    }
+              }
+              @point{
+                    @student{
+                        @bannerline{Step 3: Define the Function @italic{in two parts}}
+                        The final step is to define a function that executes our Table Plan. We'll do this in two parts. First, we'll define a table by applying our methods to the input. Then, we'll do something with that table to produce a result. We already know how to start:
+                        @code[#:multi-line #t]{
+                            # sorted-age-bar :: (animals :: Table) -> Table
+                            # Consume a table of animals, and compute a bar chart 
+                            # showing their ages, in alphabetical order
+                            fun sorted-age-bar(animals):
+                                ...         # define the table
+                                ...         # produce the result
+                            end
+                        }
+                    }
+                    @teacher{
+                    }
+              }
+              @point{
+                    @student{
+                        To define this table, we'll ask ourselves three questions, in order:
+                        @itemlist[
+                            @item{ 
+                              Does our Result have more columns than our Sample Table? If so, we'll need to use @code{.build-column}. 
+                            }
+                            @item{ 
+                              Does our Result have fewer rows than our Sample Table? If so, we'll need to use @code{.filter}. 
+                            }
+                            @item{ 
+                              Does our Result have its rows in some order? If so, we'll need to use @code{.order-by}.
+                            }
+                        ]
+                        @activity[#:forevidence (list "Data 3.1.1&1&2" "Data 3.1.1&1&4")]{
+                            If the answer to any of these questions is "no", @italic{cross out that line in the template}.
+                        }
+                    }
+                    @teacher{
+                        Only @code{.order-by} is needed!
+                    }
+              }
+              @point{
+                    @student{
+                        All three methods are needed, so we won't cross anything out. You're already familiar with definitions in Pyret, and that's what we'll use here. Let's start with the name @code{t} for Table.
+                        @itemlist[
+                            @item{ Are there more columns in our result? No, nothing new gets added. }
+                            @item{ Are there fewer rows in our result? No, the whole table get plotted. }
+                            @item{ Are the rows ordered? YES! According to our purpose statement, the animals are sorted alphabetically by name. }
+                        ]
+                        @code[#:multi-line #t]{
+                            # sorted-age-bar :: (animals :: Table) -> Table
+                            # cConsume a table of animals, and compute a bar chart 
+                            # showing their ages, in alphabetical order
+                            fun sorted-age-bar(animals):
+                                t = animals # define the table
+                                  .order-by("name", true)
+                                ...         # produce the result
+                            end
+                        }
+                    }
+                    @teacher{
+                        It may be helpful to start with the table definition all on one line, and have students see you break it up to accommodate chaining. Students should be reminded that both forms are valid, but encouraged to use the latter.
+                    }
+              }
+              @point{
+                  @student{
+                        Now that we have our new table, @code{t} defined, what do we need to do with it? According to our purpose statement, we need to @italic{make a bar chart}.
+                        @code[#:multi-line #t]{
+                            # sorted-age-bar :: (animals :: Table) -> Table
+                            # cConsume a table of animals, and compute a bar chart 
+                            # showing their ages, in alphabetical order
+                            fun sorted-age-bar(animals):
+                                t = animals # define the table
+                                  .order-by("name", true)
+                                bar-chart(t, "name", "age") # produce the result
+                            end
+                        }
+                  }
+                  @teacher{
+                      Drawing arrows from the @code{t} expression on the last line back to the @code{t} definition on the first line would be a good idea here. Make sure students see the connection between "defining the table...and using it"!
+                  }
+              }
+              @point{
+                  @student{
+                      Once you've typed in the Contract, Purpose and Function Definition, click "Run". How do we use this function? If you look in the @bold{Examples} section, you'll see that the Result is written underneath the expression @code{get-kittens-tags(animals-table)}. That's the code that should give us the result, so let's type it in!
+                      @activity[#:forevidence (list "Data 3.1.1&1&1" "Data 3.1.1&1&2")]{
+                          Type in the code and hit Enter. Did you get back the same result you expected?
+                      }
+                  }
+                  @teacher{
+                  
+                  }
+              }
+        ]
+    }
+
+  @lesson/studteach[
+     #:title "Looking for Relationships"
+     #:duration "20 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[]
+     #:standards (list "BS-DR.1" "BS-DR.2" "BS-DR.4" "Data 3.1.1")
+     #:materials @itemlist[]
+     #:preparation @itemlist[@item{}]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[
+              @point{
+                    @student{
+                        Why are some animals adopted quickly, while others take a long time? What factors explain why one pet gets adopted right away, and others wait months?
+                    }
+                    @teacher{
+                        Ask the class for theories.
+                    }
+              }
+              @point{
+                    @student{
+                        One theory is that people adopt smaller animals because they're easier to care for. How could we test that theory? Bar and pie charts are great for showing us how the values of a single column are distributed, but they can't help us see connections between @italic{two} columns.
+                    }
+                    @teacher{
+
+                    }
+              }
+              @point{
+                    @student{
+                        Fortunately, Pyret lets us make many kinds of charts, including @vocab{scatter plots}! Here's the contract for @code{scatter-plot}, as well as an example of a scatter plot that examines the relationship between weight and adoption time.
+                        @code[#:multi-line #t]{
+                            # scatter-plot :: (t :: Table, xs :: String, ys :: String) -> Image
+                            scatter-plot(animals-table, "pounds", "weeks") # see if smaller animals get adopted faster
+                        }
+                        @activity{ Try making a few scatter plots, looking for relationships between columns in the animals-table. }
+                    }
+                    @teacher{
+
+                    }
+              }
+              @point{
+                    @student{
+                        Another theory is that people adopt younger animals because they are cuter. But cats, dogs, rabbits and tarantulas have very different lifespans! A 5 year old tarantula is still really young, while a 5 year old rabbit is fully grown. With differences like this, it doesn't make sense to put them all on the same chart! To do this analysis, we might have to make several charts, all of which do the same thing but operate on different tables: one for cats, one for dogs, etc.
+                        @activity{
+                            Turn to @worksheet-link[#:name "age-adopted-scatter"] in your Student Workbook, and practice using a Table Plan to solve this problem!
+                        }
+                    }
+                    @teacher{
+
+                    }
+              }
+        ]
+  }
+
 
   @lesson/studteach[
      #:title "Closing"

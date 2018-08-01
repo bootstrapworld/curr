@@ -340,7 +340,7 @@
 
   @lesson/studteach[
      #:title "Applying Functions"
-     #:duration "25 minutes"
+     #:duration "35 minutes"
      #:overview ""
      #:learning-objectives @itemlist[@item{Students learn about Contracts, and how they are used in function applications}]
      #:evidence-statements @itemlist[]
@@ -406,8 +406,8 @@
                             @itemlist[
                               @item{ What is the name of this function? }
                               @item{ What did the expression evaluate to? }
+                              @item{ How many arguments does @code{triangle} expect? }
                               @item{ Does the @code{triangle} function produce Numbers? Strings? Booleans? }
-                              @item{ How many arguments does @code{num-sqrt} expect? }
                             ]
                         }
                     }
@@ -508,6 +508,22 @@
             }
             @point{
                     @student{
+                          @activity{
+                              Turn to the back of your workbook, and get some practice reading and using contracts! Make sure you try out @italic{at least} the following functions:
+                              @itemlist[
+                                  @item{ @code{text} }
+                                  @item{ @code{circle} }
+                                  @item{ @code{ellipse} }
+                                  @item{ @code{num-sqrt} }
+                              ]
+                          }
+                    }
+                    @teacher{
+                    
+                    }
+            }
+            @point{
+                    @student{
                             @activity[#:forevidence (list "BS-DR.2&1&1")]{
                               Here's the contract for another new function. Can you figure out how to use it in the Interactions Area?
                                 @code[#:multi-line #t]{
@@ -522,7 +538,7 @@
             @point{
                     @student{
                             @activity[#:forevidence (list "BS-DR.2&1&1")]{
-                              Here's an example of another new function. Type it into the Interactions Area to see what it does. Can you figure out the contract?
+                              Here's an example of another function. Type it into the Interactions Area to see what it does. Can you figure out the contract?
                                 @code[#:multi-line #t]{
                                     # string-contains("apples, pears, milk", "pears")
                               }
@@ -548,15 +564,73 @@
 
                     }
             }
-        ]
+            @point{
+                    @student{
+                      Can you think of a situation when you'd want to consume a @italic{Table}, and use that to produce an image? Have you ever see any pictures created from tables of data?
+                    }
+                    @teacher{
+                        Give the class a minute to brainstorm.
+                    }
+            }
+            @point{
+                    @student{
+                        The library included at the top of the file includes some helper functions that are useful for Data Science, which we will use throughout this course. Here is the contract for a function that does just that, and an example of using it:
+                        @code[#:multi-line #t]{
+                             # pie-chart :: (t :: Table, label-col :: String, data-col :: String) -> Image
+                             pie-chart(shapes, "name", "corners")
+                            }
+                        @activity{
+                          @itemlist[
+                            @item{What is the Name of this function?}
+                            @item{How many inputs are in its Domain?}
+                            @item{Type the example into the Interactions Area.}
+                            @item{What comes back?}
+                          ]
+                        }
+                    }
+                    @teacher{
+                        
+                    }
+            }
+            @point{
+                    @student{
+                        The function @code{pie-chart} consumes a Table of data, along with the @italic{names of two columns in that table}. The first name tells the computer where to look to label each pie slice. The second tells the computer where to look to find out how big each pie slice should be. In this example, we used our @code{shapes} table as our dataset, and made a pie chart showing the distribition of @code{corners} across the table. 
+                        @activity{Why aren't there any pie slices for circle or ellipse?}
+                    }
+                    @teacher{
+                        
+                    }
+            }
+            @point{
+                    @student{
+                        Here is the contract for another function:
+                        @code[#:multi-line #t]{
+                             # bar-chart :: (t :: Table, label-col :: String, data-col :: String) -> Image
+                        }
+                        @activity{Use this function to make a bar chart showing the number of columns for each shape in the table.}
+                    }
+                    @teacher{
+                        
+                    }
+            }
+            @point{
+                    @student{
+                        Do you think we could use @italic{any} column for our labels? Could we use @italic{any} column for our data?
+                        @activity{
+                            Experiment with these two functions, passing in different column names for the label and data columns. If you get an error message, @italic{read it carefully!} What do you think are the rules for what kinds of columns can be used by @code{bar-chart} and @code{pie-chart}?
+                        }
+                    }
+            }
+         ]
   }
 
-  @lesson/studteach[
-     #:title "Playing with Tables"
+@lesson/studteach[
+     #:title "Row and Column Lookups"
      #:duration "10 minutes"
      #:overview ""
-     #:learning-objectives @itemlist[@item{Students learn how to access a column from a row}]
+     #:learning-objectives @itemlist[@item{Students extend their understanding of function application}]
      #:evidence-statements @itemlist[]
+     #:exercises (list )
      #:product-outcomes @itemlist[]
      #:standards (list)
      #:materials @itemlist[]
@@ -568,28 +642,28 @@
                 )
       ]{
         @points[
-            @point{
+              @point{
                     @student{
-                            The library included at the top of the file includes some helper functions that are useful for Data Science, which we will use throughout this course. Here's the contract for one of them:
-                            @code[#:multi-line #t]{
-                                # get-row :: (t :: Table, index :: Number) -> Row
-                            }
-                            The @code{get-row} function consumes a Table and an Index, and produces that row from the table. @italic{Note: indexes start at zero, not one!} To get the first row of a table, for example, we would write @code{get-row(shapes, 0)}.
-                            @activity[#:forevidence (list  "BS-PL.2&1&1" "BS-PL.2&1&2")]{
-                                In the Interactions Area, use @code{get-row} to get the 2nd and 3rd row of your table.
-                            }
+                        Tables have special properties, called @vocab{Methods}, which allow us to do all sorts of things. For example, we can get the first data row in a table by using the @code{.row-n} method:
+                        @code[#:multi-line #t]{
+                            shapes.row-n(0)
+                        }
+                        Note: data rows start at zero!
+                        @activity{
+                            For practice, in the Interactions Area, use the @code{row-n} method to get the second and third data rows.
+                        }
                     }
                     @teacher{
 
                     }
-            }
-             @point{
+              }
+              @point{
                       @student{
                               Pyret also has a way for us to get at individual @italic{columns} of a Row, by using a @italic{Row Accessor}. Row accessors start with a @code{Row} value, followed by square brackets and the name of the column. Here are two examples that use row accessors to get at different columns from the first row in the @code{shapes} table:
                               @code[#:multi-line #t]{
-                                      get-row(shapes, 0)["name"]      # "triangle"
-                                      get-row(shapes, 0)["corners"]   # 3
-                                      get-row(shapes, 0)["is-round"]  # false
+                                      shapes.row-n(0)["name"]      # "triangle"
+                                      shapes.row-n(0)["corners"]   # 3
+                                      shapes.row-n(0)["is-round"]  # false
                               }
                               @activity[#:forevidence (list "BS-DR.2&1&1")]{
                                   How would you get the @code{name} column out of the @italic{second} row? The third?
@@ -601,77 +675,14 @@
               }
               @point{
                       @student{
-                              Let's get some pratice playing with tables!
+                              Let's get some pratice playing with the @code{row-n} method, and row-accessors!
                               @activity{
-                                 Complete the exercises on page @worksheet-link[#:name "Playing-With-Tables"].
+                                 Complete the exercises on page @worksheet-link[#:name "Lookup-Shapes"].
                               }
                       }
               }
-         ]
-  }
-
-
-  @lesson/studteach[
-     #:title "Writing Examples"
-     #:duration "20 minutes"
-     #:overview ""
-     #:learning-objectives @itemlist[@item{Students learn about Example blocks in Pyret}]
-     #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[]
-     #:standards (list)
-     #:materials @itemlist[]
-     #:preparation @itemlist[]
-     #:pacings (list 
-                @pacing[#:type "remediation"]{@itemlist[@item{}]}
-                @pacing[#:type "misconception"]{@itemlist[@item{}]}
-                @pacing[#:type "challenge"]{@itemlist[@item{}]}
-                )
-      ]{
-        @points[
-            @point{
-                    @student{
-                            Functions are powerful tools that let us transform data, and it's a good idea to jot down a few examples to make sure we understand them. Pyret gives us an easy way to write examples, using something called @code{example:} blocks.
-                    }
-                    @teacher{
-
-                    }
-            }
-            @point{
-                    @student{
-                            Below is an examples block. Notice that @code{examples} is plural, that there's a colon at the end of the line to start the block, and that there's an @code{end} to finish it.
-                            @code[#:multi-line #t]{
-                                examples:
-                                    num-min(5, 19)  is  5
-                                    num-min(5, -2)  is -2
-                                end
-                            }
-                            @activity[#:forevidence (list "BS-DR.2&1&1")]{
-                                @itemlist[
-                                    @item{ Add this code to the bottom of the Definitions Area in Pyret. Pay attention to the colon after the plural word @code{examples}!}
-                                    @item{ How many examples are in this block? }
-                                    @item{ What is the name of the function being used in these examples? }
-                                    @item{ Based on these examples, what do you think this function does? }
-                                    @item{ Add a third example to this block and click "Run". }
-                                    @item{ Change one of your examples so that it is @bold{incorrect}, then click "Run". What happens? }
-                                ]
-                            }
-                    }
-                    @teacher{
-                            Direct students to the test output. Point out that Pyret reports the number of tests that pass!
-                    }
-            }
-            @point{
-                    @student{
-                        @activity{
-                          Complete the exercises on page @worksheet-link[#:name "Examples"].
-                        }
-                    }
-                    @teacher{
-
-                    }
-            }
-        ]
-  }
+      ]
+}
 
   @lesson/studteach[
      #:title "Closing"
@@ -699,6 +710,9 @@
                             }
                             @item{
                                 What is the contract for that function?
+                            }
+                            @item{
+                                Is the function getting what it needs, according to its Domain?
                             }
                         ]
                     }
