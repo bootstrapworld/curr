@@ -1,0 +1,329 @@
+#+STARTUP: showall
+* School Vision
+The Academy for Software Engineering is a high school that seeks to
+provide instruction that could put students onto a path towards a
+career in software engineering. Software engineering is a professional
+career. In order to pursue this career students need to pursue the
+subject of computer science, much like if you wanted to be an
+accountant you need to study mathematics. However, software
+engineering is a specialized field, and we know that only some of our
+students will want to pursue the work in other fields such as
+medicine, art, or business. While not all of our students will become
+software engineers we recognize that the work of software engineers,
+producing useful programs, has had a massive, huge, significant impact
+on the world and on our lives. We believe that studying computer
+science at the high school level is important for the same reason as
+studying history, english, mathematics or science. Computer science is
+a new subject that is becoming an integral part of the education
+demands of future citizens. The way we will study computer science is
+by looking for connections between computing in the world and the
+studies in our high school courses. Your high school education
+immerses you in the major topics that have shaped civilization. The
+study of that civilization and the development of your mind has become
+inextriably intertwined with the study and products of computing.
+* Computing Studies Sequence
+* Course Overview 
+Introduction to Computer Sciences explores the relationship between computational thinking and the standard high school curriculum through building games and animations, analyzing and presenting data, and sharing ourselves and our learning with the world. The course is organized into three modules, which we cycle throughout the year. Each module is further broken down into one week mini-units. In the *Algebra* module students create a simple video game and discover the relationships between math and computer science. In *Data Science* students explore a dataset they are interested in to and produce a detailed report on their analysis. Our work is collected into learning blogs that are enhanced by our studies of the *Internet* and its structures. Introduction to Computing is the first course in the AFSE computing sequence. The course aims to provide a initial foundation for future study in computing. Three pillars of the introductory course are academic habits, motivation/disposition/interest, and concepts. 
+** Concepts
+- The study of computing is built on the ability to interact with
+  problems. Each computational problem is a question of how to harness
+  the power of computational process to achieve some end that we care
+  about. The ability to take a problem and restate it as a
+  computational solution is an essential component to success in computing.
+- 
+*** Units/Big Picture
+* Units
+** HTML/Internet
+Course begins with portfolio web making. GitHub pages with
+markdown. What are the norms that I want to instill? Create the
+container for collecting work. Not only the best work. Create a record
+of learning. Learning blog. Your grade is the richness of your
+learning 
+*** TODO Create learning blog rubric
+** Algebra
+Follows Bootstrap Algebra with modifications to enhance alignment with mathematics
+*** TODO Write email to Ashley about use of "simplify" vs "evaluate"
+** Data Science
+Follows the Bootstrap data science curriculum. Students explore data
+through programming, visualization, and discussion. Students produce a
+data analysis report.
+* Norms
+** Academic Habits
+** Culture 
+The way we act and treat others is an expression of culture. People forms groups and naturally create normal way of behaving, which supports the goals of the group.
+** Classrooms
+The nature of the classroom imposes certain cultural norms that govern how we act in the
+classroom. Very practical demands own a large share. We are a large
+group in a relatively small space. Think of riding on the subway. How much you can move, how loudly you speak are norms set by
+the culture of that environment. Working together in classrooms will
+demand that we recognize its cultural demands.
+** Speaking
+Our classroom culture has demands on our speaking. Our voices are
+powerful tools for communication. By speaking to others we activate
+their eardrums by creating vibrations in the air with our vocal
+chords. Our voices are unique in how they sound and in what we choose
+to say. We can honor the power of our voice by asking what it means to have voice.
+** Our space
+Each of us sharing this classroom space have a right to a piece that
+we own for the time we are here. In this space I can store my belonginings without worrying about them. I can know that the
+group respects that this space is mine. I have the right to focus and produce in that space.
+** Learning
+The act of learning, deliberate learning, defines our culture. Coming
+together to prepare young people for the challenges and demands of
+adulthood is our primary purpose. Toward that goal we put the needs of
+learning first. To learn you must feel safe, you must have mental
+clarity, physical well-being (it's hard to learn when your hungry),
+focus, motivation, and prior knowledge. Learning is fragile and
+demands our full attention and committement if it is to succeed.
+** The Golden Rule
+All of our personal needs are also shared responsibilities for the
+needs of others. Each member of our community has the same rights to
+space, safety, and focus as every other. 
+** The teacher
+The teacher strives to foster a culture of learning in which each
+member of the community holds a place as valuable, visible,
+honored. The teacher attempts this facilitation as a way of modeling
+the learning process for the community. Anyone can be the teacher. [1] 
+
+** Motivation
+* Goals
+- Interfacing/interacting with problems
+- Making observations and inferences
+- Become the human/computer interface
+- 
+* Behaviors
+- Talk
+- Listen
+- Write
+- Read
+- Reiterate/Recall
+- Think
+- Explore
+- Learn
+- Attempt
+- Reflect
+- Analyze
+- Deduce/Infer
+- Critique
+- Formulate
+- Weigh/Evaluate/Judge
+- Predict
+- Design
+
+* Algebra
+** Topics
+- Racket language syntax
+- Circles of Evaluation
+- Clock math, modulo
+- Data Types (Numbers, Strings, Images, Booleans, Lists)
+- Recursion
+- Expressions
+- Functions
+- Examples
+- Function Design
+- Decode Problems
+- Iterate
+** Product outcomes
+- Follow a design recipe to build abstractions over simple data (data may be conditional)
+- (+) Follow a design recipe to build abstractions over lists
+- Design computations based on data
+- Evaluate expressions with/without computer
+- Predict output of batch programs
+- Design image compositions
+- Collaborate to create a video game narrative
+- Function design reflection performance task
+** Knowledge
+
+* Data
+** Topics
+- Spreadsheet functions
+- Table plans
+- Function design
+- Survey creation
+- Analysis
+- Interpretation
+- Basic statistics (measures of central tendency, regression, correlation)
+** Product Outcomes
+- Follow a design recipe to build abstractions over tables
+- Explore data to determine questions
+** Knowledge
+- Correlation not causation
+- Explore to find questions before finding answers, data can't answer all questions
+- Claims about populations can be made from samples
+** Skills
+** Problems
+
+* Internet
+** Topics
+- HTML
+- CSS
+- Structure
+- Style
+- Inheritance
+- Programmatic page creation
+- Rendering
+- HTTP
+- TCP/IP
+- DNS
+- Fault tolerance
+** Product Outcomes
+- Create a web page ad campaign
+- re-style a web page
+- Create a portfolio page
+- 
+** Knowledge
+-
+** Skills
+-
+** Problems
+-
+
+* Structured Documents as Data
+* Impact
+** Topics
+- Applied mathematics
+- History of Computing
+- 
+** Product Outcomes
+- 
+** Knowledge
+- 
+** Skills
+- 
+** Problems
+- 
+* Nos and What ifs
+** No ...
+- cell phone
+- charging phone
+- 
+** What ifs
+- parent/student contract
+- tracker
+- restorative meeting
+- restorative parent meeting
+- Friday after school homework/restorative convo
+- 
+
+* Modes of learning
+- Lecture/Mini-lesson: - a well planned and rehearsed delivery of content, which may invoke participation, must be timed
+- Think, pair, share
+- Instruction Routines
+  - Capturing Quantities
+  - Connecting Representations
+  - Recognizing Repetition
+  - Three Reads
+- Learning journals, periodic reflections
+- Modeling/Whiteboarding
+- Gallery Walk
+- Self asking
+- POGIL
+* Thinking Practices
+- Modeling/Abstracting
+- Collaborating
+- Connecting Concepts
+- Creativity, Artifact Creation
+- Problem Literacy and Perseverance
+- Thinking abstractly and using quantities
+- Making use of structure
+- 
+
+* Mastery Skills
+- Contracts and examples, expresions, nesting, test cases
+- Program reading/tracing, predicting, evaluating complex expressions
+- 
+
+* Habits
+** Note taking, Cornell
+** Studying
+- Successful people keep a journal: rapper, mathematician, principal. Look to leaders in our own profession: AP Mac is a role model. Look to leaders in our own profession.
+** Memorization
+* Materials
+- 3 ring binder
+- Journal (are journal pages embedded in the workbook?)
+- Pencil and pen and colors
+
+* Classroom Roles
+- Meta data technician (structure vs rendering vs meta data applies to classroom learning)
+- Class empathizer
+- Homework helpers
+- Partner pairs
+- 
+* Learning Objectives
+** AP CS Principles
+| Covered? |   Tag | Learning Objective                                                                                                                                 | Skill |
+|----------+-------+----------------------------------------------------------------------------------------------------------------------------------------------------+-------|
+| Y        | 1.1.1 | Apply a creative development process when creating computational artifacts. [P2]                                                                   |     2 |
+| Y        | 1.2.1 | Create a computational artifact for creative expression. [P2]                                                                                      |     2 |
+| Y        | 1.2.2 | Create a computational artifact using computing tools and techniques to solve a problem. [P2]                                                      |     2 |
+| Y        | 1.2.3 | Create a new computational artifact by combining or modifying existing artifacts. [P2]                                                             |     2 |
+| Y        | 1.2.4 | Collaborate in the creation of computational artifacts. [P6]                                                                                       |     6 |
+| Y        | 1.2.5 | Analyze the correctness, usability, functionality, and suitability of computational artifacts. [P4]                                                |     4 |
+| Y        | 1.3.1 | Use computing tools and techniques for creative expression. [P2]                                                                                   |     2 |
+| Y        | 2.1.1 | Describe the variety of abstractions used to represent data. [P3]                                                                                  |     3 |
+| N        | 2.1.2 | Explain how binary sequences are used to represent digital data. [P5]                                                                              |     5 |
+| Y        | 2.2.1 | Develop an abstraction when writing a program or creating other computational artifacts. [P2]                                                      |     2 |
+| N        | 2.2.2 | Use multiple levels of abstraction to write programs. [P3]                                                                                         |     3 |
+| Y        | 2.2.3 | Identify multiple levels of abstractions that are used when writing programs. [P3]                                                                 |     3 |
+| Y        | 2.3.1 | Use models and simulations to represent phenomena. [P3]                                                                                            |     4 |
+| Y        | 2.3.2 | Use models and simulations to formulate, refine, and test hypotheses. [P3]                                                                         |     6 |
+| Y        | 3.1.1 | Use computers to process information, find patterns, and test hypotheses about digitally processed information to gain insight and knowledge. [P4] |     4 |
+| Y        | 3.1.2 | Collaborate when processing information to gain insight and knowledge. [P6]                                                                        |     6 |
+| Y        | 3.1.3 | Explain the insight and knowledge gained from digitally processed data by using appropriate visualizations, notations, and precise language. [P5]  |     5 |
+| Y        | 3.2.1 | Extract information from data to discover and explain connections, patterns, or trends. [P1]                                                       |     1 |
+| Y        | 3.2.2 | Use large data sets to explore and discover information and knowledge. [P3]                                                                        |     3 |
+| N        | 3.3.1 | Analyze how data representation, storage, security, and transmission of data involve computational manipulation of information. [P4]               |     4 |
+| Y        | 4.1.1 | Develop an algorithm for implementation in a program. [P2]                                                                                         |     2 |
+| Y        | 4.1.2 | Express an algorithm in a language. [P5]                                                                                                           |     5 |
+| N        | 4.2.1 | Explain the difference between algorithms that run in a reasonable time and those that do not run in a reasonable time. [P1]                       |     1 |
+| N        | 4.2.2 | Explain the difference between solvable and unsolvable problems in computer science. [P1]                                                          |     1 |
+| N        | 4.2.3 | Explain the existence of undecidable problems in computer science. [P1]                                                                            |     1 |
+| Y        | 4.2.4 | Evaluate algorithms analytically and empirically for efficiency, correctness, and clarity. [P4]                                                    |     4 |
+| Y        | 5.1.1 | Develop a program for creative expression, to satisfy personal curiosity, or to create new knowledge. [P2]                                         |     2 |
+| Y        | 5.1.2 | Develop a correct program to solve problems. [P2]                                                                                                  |     2 |
+| Y        | 5.1.3 | Collaborate to develop a program. [P6]                                                                                                             |     6 |
+| ?        | 5.2.1 | Explain how programs implement algorithms. [P3]                                                                                                    |     3 |
+| Y        | 5.3.1 | Use abstraction to manage complexity in programs. [P3]                                                                                             |     3 |
+| Y        | 5.4.1 | Evaluate the correctness of a program. [P4]                                                                                                        |     4 |
+| Y        | 5.5.1 | Employ appropriate mathematical and logical concepts in programming. [P1]                                                                          |     1 |
+| Y        | 6.1.1 | Explain the abstractions in the Internet and how the Internet functions. [P3]                                                                      |     3 |
+| Y        | 6.2.1 | Explain characteristics of the Internet and the systems built on it. [P5]                                                                          |     5 |
+| N        | 6.2.2 | Explain how the characteristics of the Internet influence the systems built on it. [P4]                                                            |     4 |
+| N        | 6.3.1 | Identify existing cybersecurity concerns and potential options to address these issues with the Internet and the systems built on it. [P1]         |     1 |
+| Y        | 7.1.1 | Explain how computing innovations affect communication, interaction, and cognition. [P4]                                                           |     4 |
+| Y        | 7.1.2 | Explain how people participate in a problem- solving process that scales. [P4]                                                                     |     4 |
+| Y        | 7.2.1 | Explain how computing has impacted innovations in other fields. [P1]                                                                               |     1 |
+| N        | 7.3.1 | Analyze the beneficial and harmful effects of computing. [P4]                                                                                      |     4 |
+| N        | 7.4.1 | Explain the connections between computing and economic, social, and cultural contexts. [P1]                                                        |     1 |
+
+* Assignments/Activities
+- MS_[tag(s) ...]_[PRO,PRAC,APP,NOV,INS]_title_[mode/type]_[description]
+- an assignment is a ...
+  - one or more mastery skill tagsaZ
+  - an assessment level (each assignment should only have one assessment level multiple choice items can demonstrate levels of mastery. However multiple choice item correctness has an element of chance. MC items are also difficult to protect from cheating or copying. Assessing with validity using multiple choice ites requires multiple questions assessing the same skil at the same level (at least 2?))
+  - a title
+  - a mode (either a multiple choice item, a lab with assistance available, a performance task without assistance available, a written explanation or free response item, ... )
+  - a description
+  - a duedate
+  - a criterion
+  - a weight
+- it is difficult to measure a single task as being accomplished to a degree like many rubrics describe. This may be the case with performance tasks and labs, where an open ended prompt is elaborated by a rubric that is tied to evaluation criteria. Items more generally take place in a context and demand a certain level of skill and knowledge transfer, which means that each item can generally be tagged with both a skill, a knowledge component and a criterion level indicating its depth of knowledge.
+* Assessment
+- assessment for learning. Learning means collecting data, analyzing the data to produce information, making a plan based on that data, implementing the plan, and collecting new data to begin the cycle again.
+- periodicity? daily, weekly, end of unit?, end of semesters, midterm/final
+- summative assessments? (exams)
+- surveys are a form of assessment to learn what our community thinks, where they are coming from, how they are reacting to the curriculum, how relationships are growing within our community. periodic surveys allows students to glimpse thier community outside of their lens, their assumptions, and their preconceptions. learning surveys can collect data on skills and knowledge. should there be a distinction between surveys for learning and surveys for community building. no, the learning community is convened for the purpose with supporting all students in the process of growing in skills and knowledge. the community confronts and responds to assumptions about how we learn.
+- problem sets are given weekly and are an important part of the learning process. A minimum of 2 hours per week or 24 minutes per weekday is require outside of class for students to practice their skills. Students have the option of distributing their mandatory work time during advisory, or during after school time. Weekly problemsets are provided for students to practice skills currently being learned as well as review skills that are in the learning process.
+- criteria levels for assessment feedback indicate the depth at which a student has demonstrated engagement of a skill, c.f. Webb DOK. 
+** Novice
+At the novice level of engagement with a skill the student has donstrated familiarity through recall or remembering. The student can accurately reproduce content that was covered during a learning activity where the context in which the student demonstrated the skill is the same as when it was introduced. Some recall assessments may be assessed at a higher level if they are sufficiently complex. All students pass through the novice level at some point in acquiring a skill. However, students connot stay at the novice level to meet the proficiency requirement for earning course credit. For example ...
+** Apprenctice
+** Practitioner
+** Professional
+* Q/A
+** What do I do if an assignment is late?
+** I don't know what assignment is currently due?
+** I didn't understand the lesson or I'm struggling to solve my assignment problems.
+** Why don't we use [fill in the blank well known programming environment]
+** 
+
