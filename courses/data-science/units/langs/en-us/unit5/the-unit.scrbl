@@ -142,7 +142,7 @@
                         We're going to build a function that does this for us, and we'll start with the name. Naming is more complex in Table Plans, since we want to name the function according to the most important parts of what it does. Since we're @italic{getting a table} of kittens with nametags, we'll call it @code{get-kittens-tags}. Instead of consuming Rows, this time we're consuming and producing @italic{Tables}. This gives us the following:
 
                         @code[#:multi-line #t]{
-                            get-kittens-tags :: (animals :: Table) -> Table
+                            # get-kittens-tags :: (animals :: Table) -> Table
                             # consume a table of animals, and produce a table
                             # of only kittens, with nametags, and sorted by name
                         }
@@ -170,7 +170,7 @@
                         @bannerline{Step 3: Define the Function @italic{in two parts}}
                         The final step is to define a function that executes our Table Plan, but we'll do this in two parts. First, we'll define a table by applying our methods to the input. Then, we'll do something with that table to produce a result. We already know how to start:
                         @code[#:multi-line #t]{
-                            get-kittens-tags :: (animals :: Table) -> Table
+                            # get-kittens-tags :: (animals :: Table) -> Table
                             # consume a table of animals, and produce a table
                             # of only kittens, with nametags, and sorted by name
                             fun get-kittens-tags(animals):
@@ -209,7 +209,7 @@
                     @student{
                         All three methods are needed, so we won't cross anything out. You're already familiar with definitions in Pyret, and that's what we'll use here. Let's start with the name @code{t} for Table.
                         @code[#:multi-line #t]{
-                            get-kittens-tags :: (animals :: Table) -> Table
+                            # get-kittens-tags :: (animals :: Table) -> Table
                             # consume a table of animals, and produce a table
                             # of only kittens, with nametags, and sorted by name
                             fun get-kittens-tags(animals):
@@ -248,7 +248,7 @@
                     @student{
                         Filling in these blanks, we get the following code:
                         @code[#:multi-line #t]{
-                            get-kittens-tags :: (animals :: Table) -> Table
+                            # get-kittens-tags :: (animals :: Table) -> Table
                             # consume a table of animals, and produce a table
                             # of only kittens, with nametags, and sorted by name
                             fun get-kittens-tags(animals):
@@ -269,7 +269,7 @@
                   @student{
                         The final step in the Table Plan is to produce the result. For now, that result is just the table we defined, @code{t}. Don't worry, you'll get to more interesting results later!
                         @code[#:multi-line #t]{
-                            get-kittens-tags :: (animals :: Table) -> Table
+                            # get-kittens-tags :: (animals :: Table) -> Table
                             # consume a table of animals, and produce a table
                             # of only kittens, with nametags, and sorted by name
                             fun get-kittens-tags(animals):

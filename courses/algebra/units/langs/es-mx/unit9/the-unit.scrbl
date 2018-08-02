@@ -87,7 +87,7 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
      ]{
-       @points[@point{@student{Felicidades: ¡Has hecho algo realmente increíble! Has aprendido un nuevo lenguaje de programación, aprendido sobre los Círculos de Evaluación, Números, Cadenas de Texto, Booleanos, Imágenes, Funciones, Valores, Ramificación Condicional, la Receta de Diseño, Contratos y más. Hiciste una mosca de cohete, aprendiste a generar gráficos por computadora, y ponías todo eso juntos para construir un videojuego!}  
+       @points[@point{@student{Felicidades: ¡Has hecho algo realmente increíble! Has aprendido un nuevo lenguaje de programación, aprendido sobre los Círculos de Evaluación, Números, Cadenas, Booleanos, Imágenes, Funciones, Valores, Ramificación Condicional, la Receta de Diseño, Contratos y más. Hiciste una mosca de cohete, aprendiste a generar gráficos por computadora, y ponías todo eso juntos para construir un videojuego!}  
                        @teacher{Have the class give each other a round of applause. Give out awards, talk about student achievement, etc.}
                        }]
         }

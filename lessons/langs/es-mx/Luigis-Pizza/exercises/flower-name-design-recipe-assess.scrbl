@@ -1,11 +1,12 @@
 #lang curr/lib
 @; Unit 7
 @(assess-design-recipe "flower-name" 
-                       "You are putting together a list of flowers in your garden based on their color. You have red roses, purple tulips, and yellow daisies. 
-Write a function that takes in the color of a flower and returns the name of the flower."
+                       "La tienda de comestibles cobra $ 2 / libra por un pavo por las primeras 5 libras, y luego
+$ 1 / libra por cada libra después de eso. Escribe una función que tome el peso de un pavo y
+devuelve cuánto costará."
                        #:domain-list (list "string")
                        #:range "string"
-                       #:purpose "Takes the name of the flower and returns its color"                  
+                       #:purpose "Toma el nombre de la flor y devuelve su color"                  
                        #:example-list '(("red"    "rose")
                                         ("tulip"  "purple")
                                         ("yellow" "daisy"))
@@ -14,6 +15,6 @@ Write a function that takes in the color of a flower and returns the name of the
                                   [(string=? color "red")    "rose"]
                                   [(string=? color "purple") "tulip"]
                                   [(string=? color "yellow") "daisy"]
-                                  [else "That flower isn't in the garden!"])
+                                  [else "¡Esa flor no está en el jardín!"])
                        )
                                 

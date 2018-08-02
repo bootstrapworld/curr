@@ -1,9 +1,10 @@
 #lang curr/lib
 
-@(design-recipe-exercise "update-danger" "Use the Design Recipe to write a function 'update-danger', which takes in the danger's x-coordinate and produces the next x-coordinate, which is 50 pixels to the left."
+@(design-recipe-exercise "update-danger" "Utiliza la Receta de Diseño para escribir la función 'actualiza-peligro', que tome la coordenada X correspondiente a peligro y produzca la siguiente coordenada X, ubicada 50 píxeles a la izquierda.
+"
 			 #:domain-list (list "number")
 			 #:range "number"
-			 #:purpose "Produce new coordinate by subtracting 50 from the given number"
+			 #:purpose "Producir nueva coordenada restando 50 del número dado"
                          #:num-examples 2
 			 #:example-list '((100 (- 100 50)) (35 (- 35 50)))
                          #:param-list (list "x")

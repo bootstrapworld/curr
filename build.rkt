@@ -624,11 +624,13 @@
            ;;   notes building, so shouldn't be here, but this trashes the dirs so
            ;;   needs to be here until we get the scripts refactored
            ;; Once building reactive workbook sols, need to check that get-resources here gets the right dir
-           (let ([workbooksols (build-path (get-resources) "workbook" "workbooksols.pdf")])
-             (when (file-exists? workbooksols)
+           (let ([workbooksols (build-path (get-resources) "workbook"  "langs" (getenv "LANGUAGE") "workbooksols.pdf")]
+                 [oldsols (build-path (deploy-resources-dir) "teachers" "TeacherWorkbook.pdf")])
+             (when (and (not (file-exists? oldsols)) (file-exists? workbooksols))
+             ;(when (file-exists? workbooksols)
                (let ([oldsols (build-path (deploy-resources-dir) "teachers" "TeacherWorkbook.pdf")])
-                 (when (file-exists? oldsols)
-                   (delete-file oldsols))
+                 ;(when (file-exists? oldsols)
+                 ;  (delete-file oldsols))
                  ;;;; kathi added may 28 to fix up language paths -- this may address large comment just above ...
                  (unless (directory-exists? (deploy-resources-dir))
                    (printf "Creating resources dir~n")

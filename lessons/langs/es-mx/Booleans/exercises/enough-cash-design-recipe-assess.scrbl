@@ -1,10 +1,11 @@
 #lang curr/lib
 @; Unit 6
 @(assess-design-recipe "enough-cash?" 
-                       "You go the store with $1.50 in your pocket. Write a function which takes in the price of an item and returns true if you have enough money to buy the item and false if you do not."
+                       "Vaya a la tienda con $ 1.50 en su bolsillo. Escribe una función que acepte el precio
+de un artículo y devuelve verdadero si tiene suficiente dinero para comprar el artículo y falso si no lo tiene."
                        #:domain-list (list "string")
                        #:range "boolean"
-                       #:purpose "Check to see if the item costs less than 1.50"
+                       #:purpose "Verifique si el artículo cuesta menos de 1.50"
                        #:example-list '(("gum" (< gum 1.50))   
                                         ("soda" (< gum 150)))
                        #:param-list (list "item")

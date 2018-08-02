@@ -100,8 +100,8 @@
                       @student{
                               Let's take a look at their contracts...
                               @code[#:multi-line #t]{
-                                    bar-chart :: (t :: Table, label :: String, value :: String) -> Image
-                                    pie-chart :: (t :: Table, label :: String, value :: String) -> Image
+                                    # bar-chart :: (t :: Table, label :: String, value :: String) -> Image
+                                    # pie-chart :: (t :: Table, label :: String, value :: String) -> Image
                               }
                               The last two functions first consume the @italic{Table} that we want to look at, and their other arguments tell us @italic{which columns to look at} for both the labels and the values.
                       }
@@ -182,7 +182,7 @@
                       @student{
                           We've got most of our function written:
                           @code[#:multi-line #t]{
-                          pie-dog-weight :: (animals :: Table) -> Number
+                          # pie-dog-weight :: (animals :: Table) -> Number
                           # Consume a table of animals, and produce a pie-chart showing the weight of the dogs
                           fun pie-dog-weight(animals):
                             t = animals.filter(is-dog)     # define the table
@@ -199,7 +199,7 @@
                       @student{
                           Putting it all together, we get:
                           @code[#:multi-line #t]{
-                          pie-dog-weight :: (animals :: Table) -> Number
+                          # pie-dog-weight :: (animals :: Table) -> Number
                           # Consume a table of animals, and produce a pie-chart showing the weight of the dogs
                           fun pie-dog-weight(animals):
                             t = animals.filter(is-dog)     # define the table

@@ -1,11 +1,11 @@
 #lang curr/lib
 @; Unit 5
 @(assess-design-recipe "check-total" 
-                       "It is customary to tip 20% on a bill at a restaurant. Write a function that takes the
- total cost of the food and returns the new total including tip."
+                       "Es costumbre dar una propina del 20% en una factura en un restaurante. Escribe una función que tome el
+el costo total de los alimentos y devuelve el nuevo total, incluida la propina"
                        #:domain-list (list "number")
                        #:range "number"
-                       #:purpose "Returns the total of a check with 20% of the cost added"
+                       #:purpose "Devuelve el total de un cheque con el 20% del costo agregado"
                        #:buggy-example-list '(((total 20)   (20   (+ (0.20 * 20)    20)))   
                                              ((total 56.67) (56.67(+ (0.20 * 56.67) 56.67))))
                        #:param-list (list "food-total")

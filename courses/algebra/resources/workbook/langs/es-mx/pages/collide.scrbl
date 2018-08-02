@@ -3,11 +3,12 @@
 @(design-recipe-exercise "collide?" (list "Escribe una funcion llamada chocar?, la cual toma cuatro entradas:"
 
 
-@(itemlist @(item "px: The x-coordinate of the player")
-           @(item "py: The y-coordinate of the player")
-           @(item "cx: the x-coordinate of another game character")
-           @(item "cy: the y-coordinate of another game character"))
-"Are the coordinates of the player within 50 pixels of the coordinates of the other character?")
+@(itemlist @(item "px: La coordenada x del jugador")
+           @(item "py: La coordenada x del jugador")
+           @(item "cx:  La coordenada x de otro personaje del juego")
+           @(item "cy:  La coordenada y de otro personaje del juego"))
+"¿Están las coordenadas del jugador dentro de los 50 píxeles de las 
+             coordenadas del otro personaje?")
                          #:domain-list (list "number" "number" "number" "number")
                          #:range "boolean"
 			 #:purpose "Esta el jugador (px,py) dentro de 50 pixeles de otro personaje (cxm cy)?"

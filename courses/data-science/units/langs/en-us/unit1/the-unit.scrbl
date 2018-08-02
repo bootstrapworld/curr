@@ -511,7 +511,7 @@
                             @activity[#:forevidence (list "BS-DR.2&1&1")]{
                               Here's the contract for another new function. Can you figure out how to use it in the Interactions Area?
                                 @code[#:multi-line #t]{
-                                      string-repeat :: (s :: String, n :: Number) -> String
+                                    # string-repeat :: (s :: String, n :: Number) -> String
                               }
                             }
                     }
@@ -524,7 +524,7 @@
                             @activity[#:forevidence (list "BS-DR.2&1&1")]{
                               Here's an example of another new function. Type it into the Interactions Area to see what it does. Can you figure out the contract?
                                 @code[#:multi-line #t]{
-                                      string-contains("apples, pears, milk", "pears")
+                                    # string-contains("apples, pears, milk", "pears")
                               }
                             }
                     }
@@ -572,7 +572,7 @@
                     @student{
                             The library included at the top of the file includes some helper functions that are useful for Data Science, which we will use throughout this course. Here's the contract for one of them:
                             @code[#:multi-line #t]{
-                                get-row :: (t :: Table, index :: Number) -> Row
+                                # get-row :: (t :: Table, index :: Number) -> Row
                             }
                             The @code{get-row} function consumes a Table and an Index, and produces that row from the table. @italic{Note: indexes start at zero, not one!} To get the first row of a table, for example, we would write @code{get-row(shapes, 0)}.
                             @activity[#:forevidence (list  "BS-PL.2&1&1" "BS-PL.2&1&2")]{
