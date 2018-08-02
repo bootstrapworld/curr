@@ -129,18 +129,18 @@
 ;; Command line parsing.  We initialize the SCRIBBLE_TAGS environmental
 ;; variable
 ;; Hard-set list. This is optionally replaced with command-line arguments below
-(define courses (list "intro")) ; "algebra" "reactive" "data-science" "physics"))
+(define courses (list "intro" "algebra" "data-science")) ; "algebra" "reactive" "data-science" "physics"))
 ;(define courses available-courses)
 
 (units '())
 
-(define run-languages (list "en-us" "es-mx"))
+(define run-languages (list "en-us"))
 
 (define run-exercises? #t)
 
 ;(void
 (putenv "CURRENT-SOLUTIONS-MODE" "off")
-(putenv "TARGET-LANG" "racket")
+;(putenv "TARGET-LANG" "racket")
 (putenv "LANGUAGE" "en-us")
 
 ;; warnings to be ignored when running the build script. This can be populated using the
@@ -557,6 +557,7 @@
         (copy-file (build-path input-resources-dir "teachers" ".htaccess")
                    (build-path teacher-protected ".htaccess"))
         )
+      
 
       ; keep only certain files in workbook resources dir
       (when (directory-exists? (build-path output-resources-dir "workbook"))
@@ -624,13 +625,11 @@
            ;;   notes building, so shouldn't be here, but this trashes the dirs so
            ;;   needs to be here until we get the scripts refactored
            ;; Once building reactive workbook sols, need to check that get-resources here gets the right dir
-           (let ([workbooksols (build-path (get-resources) "workbook"  "langs" (getenv "LANGUAGE") "workbooksols.pdf")]
-                 [oldsols (build-path (deploy-resources-dir) "teachers" "TeacherWorkbook.pdf")])
-             (when (and (not (file-exists? oldsols)) (file-exists? workbooksols))
-             ;(when (file-exists? workbooksols)
+           (let ([workbooksols (build-path (get-resources) "workbook" "workbooksols.pdf")])
+             (when (file-exists? workbooksols)
                (let ([oldsols (build-path (deploy-resources-dir) "teachers" "TeacherWorkbook.pdf")])
-                 ;(when (file-exists? oldsols)
-                 ;  (delete-file oldsols))
+                 (when (file-exists? oldsols)
+                   (delete-file oldsols))
                  ;;;; kathi added may 28 to fix up language paths -- this may address large comment just above ...
                  (unless (directory-exists? (deploy-resources-dir))
                    (printf "Creating resources dir~n")
@@ -707,8 +706,8 @@
                      )
               (workbook-styling-on))
           )
-          (when (equal? course "intro")
-            (putenv "TARGET-LANG" "racket")
+          (when (equal? course "internet")
+            @;(putenv "TARGET-LANG" "racket")
             (if (build-exercises?)
                 (begin (build-exercise-handouts) ; not needed for reactive
                      (workbook-styling-on)
