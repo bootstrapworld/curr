@@ -1,0 +1,23 @@
+#+STARTUP: showall
+
+* This is a new lesson.
+** meta
+- meta
+- meta
+** points
+*** point
+**** student
+ - Slide
+ - noSlide
+**** teacher
+*** point
+**** student
+ - Slide
+ - noSlide
+**** teacher
+*** point
+**** student
+ - Slide
+ - noSlide
+**** teacher
+
